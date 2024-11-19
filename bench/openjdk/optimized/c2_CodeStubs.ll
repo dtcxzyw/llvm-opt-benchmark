@@ -12,7 +12,7 @@ $_ZN26GrowableArrayWithAllocatorIP10C2CodeStub13GrowableArrayIS1_EE9expand_toEi 
 @_ZN14C2CodeStubListC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14C2CodeStubListC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14C2CodeStubListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14C2CodeStubListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808

@@ -5534,7 +5534,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESaIS6_ENSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith13ArithIteUtilsD2Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith13ArithIteUtilsD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith13ArithIteUtilsE, i64 16), ptr %this, align 8
   %d_orBinEqs = getelementptr inbounds i8, ptr %this, i64 480
@@ -5877,7 +5877,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith13ArithIteUtilsD0Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith13ArithIteUtilsD0Ev(ptr noundef nonnull align 8 dereferenceable(504) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory5arith13ArithIteUtilsD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26

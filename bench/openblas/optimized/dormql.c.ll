@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c__65 = internal global i32 65, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr nocapture noundef initializes((0, 4)) %12) local_unnamed_addr #0 {
+define void @dormql_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr nocapture noundef readonly %11, ptr nocapture noundef %12) local_unnamed_addr #0 {
   %14 = alloca [2 x ptr], align 16
   %15 = alloca i32, align 4
   %16 = alloca [2 x i32], align 4

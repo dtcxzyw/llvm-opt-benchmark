@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9metaspace20MetaspaceTestContextD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN9metaspace20MetaspaceTestContextD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9metaspace18MetaspaceTestArenaC2EP5MutexPNS_14MetaspaceArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace18MetaspaceTestArenaC2EP5MutexPNS_14MetaspaceArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -125,7 +125,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 declare void @_ZN9metaspace14MetaspaceArena10deallocateEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace20MetaspaceTestContextC2EPKcmm(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 48)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN9metaspace20MetaspaceTestContextC2EPKcmm(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca %class.ReservedSpace, align 8
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8

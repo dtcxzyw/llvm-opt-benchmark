@@ -32,7 +32,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xfrm6_input_
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_xfrm6_input_addr963, ptr @__UNIQUE_ID___addressable_xfrm6_rcv962, ptr @__UNIQUE_ID___addressable_xfrm6_rcv_spi955, ptr @__UNIQUE_ID___addressable_xfrm6_rcv_tnl961, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xfrm6_rcv_spi(ptr noundef initializes((64, 80)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local i32 @xfrm6_rcv_spi(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 76
@@ -604,7 +604,7 @@ declare dso_local ptr @xfrm4_gro_udp_encap_rcv(ptr noundef, ptr noundef, ptr nou
 declare dso_local ptr @skb_push(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xfrm6_rcv_tnl(ptr noundef initializes((64, 80)) %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @xfrm6_rcv_tnl(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 180
@@ -628,7 +628,7 @@ define dso_local i32 @xfrm6_rcv_tnl(ptr noundef initializes((64, 80)) %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xfrm6_rcv(ptr noundef initializes((64, 80)) %0) #0 align 16 {
+define dso_local i32 @xfrm6_rcv(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 180

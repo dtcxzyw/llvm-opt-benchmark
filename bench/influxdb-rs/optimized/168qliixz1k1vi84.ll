@@ -4554,7 +4554,7 @@ define hidden noundef i128 @_ZN4core5error5Error7type_id17hf85f517218b2feb0E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb55c50e6622ff937E"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb55c50e6622ff937E"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
@@ -6699,7 +6699,7 @@ define internal { ptr, ptr } @"_ZN70_$LT$arrow_schema..error..ArrowError$u20$as$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv..source..Source$GT$3get17h91c0eed662d66f77E"(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) initializes((0, 1)) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
+define hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv..source..Source$GT$3get17h91c0eed662d66f77E"(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca { { { i8, [23 x i8] } } }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i8, ptr %6, align 8, !range !1164, !noundef !4
@@ -6749,7 +6749,7 @@ define hidden noundef range(i64 0, 2) i64 @"_ZN73_$LT$core..option..Option$LT$S$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv..source..Source$GT$5visit17h59fd985cc102c5c1E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
+define hidden void @"_ZN73_$LT$core..option..Option$LT$S$GT$$u20$as$u20$log..kv..source..Source$GT$5visit17h59fd985cc102c5c1E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 1 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 {
   %5 = alloca { { { i8, [23 x i8] } } }, align 8
   %.sroa.27 = alloca [2 x i64], align 8
   %6 = alloca { i64, [2 x i64] }, align 8
@@ -7551,7 +7551,7 @@ define { ptr, i64 } @_ZN16influxdb3_server17CommonServerState12bearer_token17hcb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN16influxdb3_server15wait_for_signal17hcc7388de81f424acE(ptr noalias nocapture noundef writeonly sret({ [129 x i8], i8, [6 x i8] }) align 8 dereferenceable(136) initializes((129, 130)) %0) unnamed_addr #10 {
+define void @_ZN16influxdb3_server15wait_for_signal17hcc7388de81f424acE(ptr noalias nocapture noundef writeonly sret({ [129 x i8], i8, [6 x i8] }) align 8 dereferenceable(136) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 129
   store i8 0, ptr %2, align 1
   ret void
@@ -8102,7 +8102,7 @@ define noundef zeroext i1 @"_ZN62_$LT$influxdb3_server..Error$u20$as$u20$core..f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN90_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$LT$hyper..error..Error$GT$$GT$4from17h95ef1d071bece088E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 16)) %0, ptr noalias noundef nonnull align 8 %1) unnamed_addr #10 {
+define void @"_ZN90_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$LT$hyper..error..Error$GT$$GT$4from17h95ef1d071bece088E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias noundef nonnull align 8 %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i8 36, ptr %0, align 8
@@ -8110,13 +8110,13 @@ define void @"_ZN90_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$L
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN100_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$LT$influxdb3_server..http..Error$GT$$GT$4from17h1c2668a948851688E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %1) unnamed_addr #11 {
+define void @"_ZN100_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$LT$influxdb3_server..http..Error$GT$$GT$4from17h1c2668a948851688E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %1) unnamed_addr #11 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN112_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$LT$datafusion_common..error..DataFusionError$GT$$GT$4from17h716a5548abcd6ae0E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 120)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #11 {
+define void @"_ZN112_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$LT$datafusion_common..error..DataFusionError$GT$$GT$4from17h716a5548abcd6ae0E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
   store i8 39, ptr %0, align 8
@@ -8124,7 +8124,7 @@ define void @"_ZN112_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN93_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$LT$influxdb3_write..Error$GT$$GT$4from17hf562980f73d17768E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 128)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #11 {
+define void @"_ZN93_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$LT$influxdb3_write..Error$GT$$GT$4from17hf562980f73d17768E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
   store i8 40, ptr %0, align 8
@@ -8132,7 +8132,7 @@ define void @"_ZN93_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$L
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN95_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$LT$hex..error..FromHexError$GT$$GT$4from17h4a463cd587d3cd44E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #11 {
+define void @"_ZN95_$LT$influxdb3_server..Error$u20$as$u20$core..convert..From$LT$hex..error..FromHexError$GT$$GT$4from17h4a463cd587d3cd44E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   store i8 41, ptr %0, align 8

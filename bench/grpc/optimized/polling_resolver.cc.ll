@@ -479,7 +479,7 @@ declare void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core15PollingResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core15PollingResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15PollingResolverE, i64 16), ptr %this, align 8
   %tracer_ = getelementptr inbounds i8, ptr %this, i64 112

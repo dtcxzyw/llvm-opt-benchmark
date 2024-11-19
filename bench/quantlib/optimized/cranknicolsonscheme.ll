@@ -263,7 +263,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19CrankNicolsonSchemeC2EdRKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEERKSt6vectorINS2_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaISB_EEdNS_19ImplicitEulerScheme10SolverTypeE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this, double noundef %theta, ptr noundef nonnull align 8 dereferenceable(16) %map, ptr noundef nonnull align 8 dereferenceable(24) %bcSet, double noundef %relTol, i32 noundef %solverType) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19CrankNicolsonSchemeC2EdRKN5boost10shared_ptrINS_20FdmLinearOpCompositeEEERKSt6vectorINS2_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaISB_EEdNS_19ImplicitEulerScheme10SolverTypeE(ptr noundef nonnull align 8 dereferenceable(48) %this, double noundef %theta, ptr noundef nonnull align 8 dereferenceable(16) %map, ptr noundef nonnull align 8 dereferenceable(24) %bcSet, double noundef %relTol, i32 noundef %solverType) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %relTol.addr = alloca double, align 8
   %solverType.addr = alloca i32, align 4
@@ -889,7 +889,7 @@ declare void @_ZN8QuantLib19ExplicitEulerScheme4stepERNS_5ArrayEdd(ptr noundef n
 declare void @_ZN8QuantLib19ImplicitEulerScheme4stepERNS_5ArrayEdd(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef nonnull align 8 dereferenceable(16), double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19CrankNicolsonScheme7setStepEd(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, double noundef %dt) local_unnamed_addr #3 align 2 {
+define void @_ZN8QuantLib19CrankNicolsonScheme7setStepEd(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, double noundef %dt) local_unnamed_addr #3 align 2 {
 entry:
   store double %dt, ptr %this, align 8, !tbaa !22
   %explicit_ = getelementptr inbounds nuw i8, ptr %this, i64 16

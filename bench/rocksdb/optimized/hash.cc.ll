@@ -1185,7 +1185,7 @@ entry:
 declare { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define void @_ZN7rocksdb8Hash2x64EPKcmPmS2_(ptr nocapture noundef readonly %data, i64 noundef %n, ptr nocapture noundef writeonly initializes((0, 8)) %high64, ptr nocapture noundef writeonly initializes((0, 8)) %low64) local_unnamed_addr #8 {
+define void @_ZN7rocksdb8Hash2x64EPKcmPmS2_(ptr nocapture noundef readonly %data, i64 noundef %n, ptr nocapture noundef writeonly %high64, ptr nocapture noundef writeonly %low64) local_unnamed_addr #8 {
 entry:
   %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits(ptr nocapture noundef %data, i64 noundef %n) #15
   %0 = extractvalue { i64, i64 } %call, 0
@@ -1196,7 +1196,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define void @_ZN7rocksdb8Hash2x64EPKcmmPmS2_(ptr nocapture noundef readonly %data, i64 noundef %n, i64 noundef %seed, ptr nocapture noundef writeonly initializes((0, 8)) %high64, ptr nocapture noundef writeonly initializes((0, 8)) %low64) local_unnamed_addr #8 {
+define void @_ZN7rocksdb8Hash2x64EPKcmmPmS2_(ptr nocapture noundef readonly %data, i64 noundef %n, i64 noundef %seed, ptr nocapture noundef writeonly %high64, ptr nocapture noundef writeonly %low64) local_unnamed_addr #8 {
 entry:
   %call = tail call { i64, i64 } @ROCKSDB_XXH3_128bits_withSeed(ptr nocapture noundef %data, i64 noundef %n, i64 noundef %seed) #15
   %0 = extractvalue { i64, i64 } %call, 0
@@ -1207,7 +1207,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb17BijectiveHash2x64EmmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, i64 noundef %seed, ptr nocapture noundef writeonly initializes((0, 8)) %out_high64, ptr nocapture noundef writeonly initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
+define void @_ZN7rocksdb17BijectiveHash2x64EmmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, i64 noundef %seed, ptr nocapture noundef writeonly %out_high64, ptr nocapture noundef writeonly %out_low64) local_unnamed_addr #9 {
 entry:
   %sub = sub i64 6455697860950631241, %seed
   %add = add i64 %seed, -4466874330221494952
@@ -1276,7 +1276,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb19BijectiveUnhash2x64EmmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, i64 noundef %seed, ptr nocapture noundef writeonly initializes((0, 8)) %out_high64, ptr nocapture noundef writeonly initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
+define void @_ZN7rocksdb19BijectiveUnhash2x64EmmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, i64 noundef %seed, ptr nocapture noundef writeonly %out_high64, ptr nocapture noundef writeonly %out_low64) local_unnamed_addr #9 {
 entry:
   %sub = sub i64 6455697860950631241, %seed
   %add = add i64 %seed, -4466874330221494952
@@ -1343,7 +1343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb17BijectiveHash2x64EmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, ptr nocapture noundef writeonly initializes((0, 8)) %out_high64, ptr nocapture noundef writeonly initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
+define void @_ZN7rocksdb17BijectiveHash2x64EmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, ptr nocapture noundef writeonly %out_high64, ptr nocapture noundef writeonly %out_low64) local_unnamed_addr #9 {
 entry:
   %0 = xor i64 %in_high64, %in_low64
   %xor1.i = xor i64 %0, 6455697860950631241
@@ -1407,7 +1407,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb19BijectiveUnhash2x64EmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, ptr nocapture noundef writeonly initializes((0, 8)) %out_high64, ptr nocapture noundef writeonly initializes((0, 8)) %out_low64) local_unnamed_addr #9 {
+define void @_ZN7rocksdb19BijectiveUnhash2x64EmmPmS0_(i64 noundef %in_high64, i64 noundef %in_low64, ptr nocapture noundef writeonly %out_high64, ptr nocapture noundef writeonly %out_low64) local_unnamed_addr #9 {
 entry:
   %shr.i.i = lshr i64 %in_low64, 32
   %xor.i.i = xor i64 %shr.i.i, %in_low64

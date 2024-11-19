@@ -1401,7 +1401,7 @@ _ZN3vcg10QuaternionIfEC2EfRKNS_6Point3IfEE.exit:  ; preds = %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg22MovableCoordinateFrame11SetPositionENS_6Point3IfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((52, 64)) %0, <2 x float> %1, float %2) unnamed_addr #3 align 2 {
+define void @_ZN3vcg22MovableCoordinateFrame11SetPositionENS_6Point3IfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, <2 x float> %1, float %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 52
   store <2 x float> %1, ptr %4, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 60
@@ -1410,7 +1410,7 @@ define void @_ZN3vcg22MovableCoordinateFrame11SetPositionENS_6Point3IfEE(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg22MovableCoordinateFrame11SetRotationENS_10QuaternionIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((64, 80)) %0, <2 x float> %1, <2 x float> %2) unnamed_addr #3 align 2 {
+define void @_ZN3vcg22MovableCoordinateFrame11SetRotationENS_10QuaternionIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, <2 x float> %1, <2 x float> %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store <2 x float> %1, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 72
@@ -1441,7 +1441,7 @@ define { <2 x float>, <2 x float> } @_ZN3vcg22MovableCoordinateFrame11GetRotatio
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg22MovableCoordinateFrame12GetTransformERNS_8Matrix44IfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull align 4 dereferenceable(64) initializes((0, 64)) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3vcg22MovableCoordinateFrame12GetTransformERNS_8Matrix44IfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull align 4 dereferenceable(64) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vcg::Matrix44", align 4
   %4 = alloca %"class.vcg::Matrix44", align 4
   %5 = alloca %"class.vcg::Matrix44", align 4
@@ -2280,7 +2280,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg15CoordinateFrameC2Ef(ptr noundef nonnull align 8 dereferenceable(51) initializes((0, 32)) %0, float noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3vcg15CoordinateFrameC2Ef(ptr noundef nonnull align 8 dereferenceable(51) %0, float noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg15CoordinateFrameE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3277,7 +3277,7 @@ declare float @llvm.ceil.f32(float) #13
 declare float @log10f(float noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg22MovableCoordinateFrameC2Ef(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 32)) %0, float noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3vcg22MovableCoordinateFrameC2Ef(ptr noundef nonnull align 8 dereferenceable(80) %0, float noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3vcg15CoordinateFrameC2Ef(ptr noundef nonnull align 8 dereferenceable(51) %0, float noundef %1)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg22MovableCoordinateFrameE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 52

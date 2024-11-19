@@ -439,7 +439,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21cmLocalNinjaGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(952) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21cmLocalNinjaGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(952) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21cmLocalNinjaGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 928
   %3 = load ptr, ptr %2, align 8
@@ -475,7 +475,7 @@ _ZNSt3mapIPK15cmCustomCommandSt3setIP17cmGeneratorTargetSt4lessIS5_ESaIS5_EES6_I
 declare void @_ZN22cmLocalCommonGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(848)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21cmLocalNinjaGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(952) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21cmLocalNinjaGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(952) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21cmLocalNinjaGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 928
   %3 = load ptr, ptr %2, align 8
@@ -7121,7 +7121,7 @@ declare void @_ZN16cmLocalGenerator19CreateUtilityOutputERKNSt7__cxx1112basic_st
 declare noundef ptr @_ZN10cmMakefile26GetOrCreateGeneratedSourceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21cmLocalNinjaGenerator27MakeCustomCommandGeneratorsERK15cmCustomCommandRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.844") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(952) %1, ptr noundef nonnull align 8 dereferenceable(316) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21cmLocalNinjaGenerator27MakeCustomCommandGeneratorsERK15cmCustomCommandRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.844") align 8 %0, ptr noundef nonnull align 8 dereferenceable(952) %1, ptr noundef nonnull align 8 dereferenceable(316) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::set", align 8
   %6 = alloca %"class.std::set", align 8
   %7 = alloca i8, align 1

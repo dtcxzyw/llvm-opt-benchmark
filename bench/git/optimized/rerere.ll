@@ -420,7 +420,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_one_conflict(ptr nocapture noundef readonly %istate, i32 noundef %i, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %type) unnamed_addr #0 {
+define internal fastcc i32 @check_one_conflict(ptr nocapture noundef readonly %istate, i32 noundef %i, ptr nocapture noundef nonnull writeonly %type) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %istate, align 8
   %idxprom = sext i32 %i to i64

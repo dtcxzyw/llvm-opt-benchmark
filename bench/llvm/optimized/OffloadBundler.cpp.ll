@@ -431,7 +431,7 @@ declare void @_ZN4llvm10TimerGroupD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17OffloadTargetInfoC2EN4llvm9StringRefERKNS_20OffloadBundlerConfigE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(160) %3) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang17OffloadTargetInfoC2EN4llvm9StringRefERKNS_20OffloadBundlerConfigE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(160) %3) unnamed_addr #3 align 2 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -1103,7 +1103,7 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20OffloadBundlerConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 7), (16, 24)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang20OffloadBundlerConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::optional", align 8
@@ -3510,7 +3510,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm15createFil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #3 {
+define internal fastcc void @_ZL17CreateFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #3 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::unique_ptr.180", align 8
   %6 = alloca %"class.std::unique_ptr.188", align 8
@@ -9159,7 +9159,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_115TextFileHandlerEEclEPS1_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115TextFileHandlerEJRA2_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 1 dereferenceable(2) %1) unnamed_addr #3 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115TextFileHandlerEJRA2_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 1 dereferenceable(2) %1) unnamed_addr #3 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
   %4 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   tail call fastcc void @_ZN12_GLOBAL__N_115TextFileHandlerC2EN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr nonnull %1, i64 %4)
@@ -9168,7 +9168,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115TextFileHandlerE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117BinaryFileHandlerEJRKN5clang20OffloadBundlerConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117BinaryFileHandlerEJRKN5clang20OffloadBundlerConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 {
   %3 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #26
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN12_GLOBAL__N_117BinaryFileHandlerE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9244,7 +9244,7 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_117BinaryFileHandlerEEclEPS1_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL23CreateObjectFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #3 {
+define internal fastcc void @_ZL23CreateObjectFileHandlerRN4llvm12MemoryBufferERKN5clang20OffloadBundlerConfigE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(160) %2) unnamed_addr #3 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon.248, align 1
@@ -9371,7 +9371,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_6object6BinaryESt14default_deleteIS3_EEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115TextFileHandlerC2EN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115TextFileHandlerC2EN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr %1, i64 %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9461,14 +9461,14 @@ define internal void @_ZN12_GLOBAL__N_115TextFileHandlerD0Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_115TextFileHandler10ReadHeaderERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_115TextFileHandler10ReadHeaderERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #12 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115TextFileHandler15ReadBundleStartERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.65") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_115TextFileHandler15ReadBundleStartERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.65") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -9536,7 +9536,7 @@ define internal void @_ZN12_GLOBAL__N_115TextFileHandler15ReadBundleStartERN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115TextFileHandler13ReadBundleEndERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_115TextFileHandler13ReadBundleEndERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -9560,7 +9560,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115TextFileHandler10ReadBundleERN4llvm11raw_ostreamERNS1_12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_115TextFileHandler10ReadBundleERN4llvm11raw_ostreamERNS1_12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -9614,14 +9614,14 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %35, %34, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_115TextFileHandler11WriteHeaderERN4llvm11raw_ostreamENS1_8ArrayRefISt10unique_ptrINS1_12MemoryBufferESt14default_deleteIS6_EEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_115TextFileHandler11WriteHeaderERN4llvm11raw_ostreamENS1_8ArrayRefISt10unique_ptrINS1_12MemoryBufferESt14default_deleteIS6_EEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #12 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115TextFileHandler16WriteBundleStartERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_115TextFileHandler16WriteBundleStartERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4) unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
@@ -9679,7 +9679,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %30, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115TextFileHandler14WriteBundleEndERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_115TextFileHandler14WriteBundleEndERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr %3, i64 %4) unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %7 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
   %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #24
@@ -9737,7 +9737,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %30, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115TextFileHandler11WriteBundleERN4llvm11raw_ostreamERNS1_12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_115TextFileHandler11WriteBundleERN4llvm11raw_ostreamERNS1_12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -9776,7 +9776,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %23, %22, %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_111FileHandler18finalizeOutputFileEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_111FileHandler18finalizeOutputFileEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #12 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void
@@ -10031,7 +10031,7 @@ _ZNSt8functionIFN4llvm5ErrorERKN12_GLOBAL__N_111FileHandler10BundleInfoEEED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115TextFileHandler21listBundleIDsCallbackERN4llvm12MemoryBufferERKNS_11FileHandler10BundleInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_115TextFileHandler21listBundleIDsCallbackERN4llvm12MemoryBufferERKNS_11FileHandler10BundleInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -10070,7 +10070,7 @@ define internal void @_ZN12_GLOBAL__N_115TextFileHandler21listBundleIDsCallbackE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_111FileHandler21listBundleIDsCallbackERN4llvm12MemoryBufferERKNS0_10BundleInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_111FileHandler21listBundleIDsCallbackERN4llvm12MemoryBufferERKNS0_10BundleInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #12 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void
@@ -10478,7 +10478,7 @@ _ZN12_GLOBAL__N_117BinaryFileHandlerD2Ev.exit:    ; preds = %17, %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler10ReadHeaderERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) initializes((32, 40)) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler10ReadHeaderERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -10664,14 +10664,14 @@ _ZN4llvm17StringMapIterBaseINS_17StringMapIteratorIN12_GLOBAL__N_117BinaryFileHa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler13ReadBundleEndERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler13ReadBundleEndERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #12 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler10ReadBundleERN4llvm11raw_ostreamERNS1_12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler10ReadBundleERN4llvm11raw_ostreamERNS1_12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -10832,7 +10832,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %49, %_ZN4llvm11raw_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler16WriteBundleStartERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture nonnull readnone align 8 %2, ptr %3, i64 %4) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler16WriteBundleStartERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nocapture nonnull readnone align 8 %2, ptr %3, i64 %4) unnamed_addr #3 align 2 {
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
@@ -10859,7 +10859,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %9, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler14WriteBundleEndERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_117BinaryFileHandler14WriteBundleEndERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #12 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void
@@ -11170,7 +11170,7 @@ _ZN12_GLOBAL__N_117ObjectFileHandlerD2Ev.exit:    ; preds = %1, %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler10ReadHeaderERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler10ReadHeaderERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #12 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void
@@ -11306,7 +11306,7 @@ _ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread: ; preds = %_ZN12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler13ReadBundleEndERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler13ReadBundleEndERN4llvm12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #12 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void
@@ -11845,7 +11845,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %217, %_ZNSt10unique
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler11WriteHeaderERN4llvm11raw_ostreamENS1_8ArrayRefISt10unique_ptrINS1_12MemoryBufferESt14default_deleteIS6_EEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((16, 20)) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler11WriteHeaderERN4llvm11raw_ostreamENS1_8ArrayRefISt10unique_ptrINS1_12MemoryBufferESt14default_deleteIS6_EEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #12 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %5 = trunc i64 %4 to i32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -11855,7 +11855,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler16WriteBundleStartERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #13 align 2 {
+define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler16WriteBundleStartERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #13 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %6 = load i32, ptr %5, align 4
@@ -11866,14 +11866,14 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler14WriteBundleEndERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler14WriteBundleEndERN4llvm11raw_ostreamENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #12 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler11WriteBundleERN4llvm11raw_ostreamERNS1_12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_117ObjectFileHandler11WriteBundleERN4llvm11raw_ostreamERNS1_12MemoryBufferE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #12 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void
@@ -12251,7 +12251,7 @@ _ZN12_GLOBAL__N_119TempFileHandlerRAIID2Ev.exit:  ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119TempFileHandlerRAII6CreateESt8optionalIN4llvm8ArrayRefIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef readonly byval(%"class.std::optional.261") align 8 %2) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119TempFileHandlerRAII6CreateESt8optionalIN4llvm8ArrayRefIcEEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef readonly byval(%"class.std::optional.261") align 8 %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8

@@ -288,7 +288,7 @@ ft_get_adobe_glyph_index.exit:                    ; preds = %70, %94, %97, %112,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef initializes((24, 28), (32, 40)) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal i32 @ps_unicodes_init(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = alloca [10 x i32], align 16
   %9 = alloca [10 x i32], align 16

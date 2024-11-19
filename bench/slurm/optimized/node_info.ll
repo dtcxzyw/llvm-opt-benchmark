@@ -1458,7 +1458,7 @@ define range(i32 -1, 1) i32 @slurm_load_node_single2(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurm_get_node_energy(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 2)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_get_node_energy(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.slurm_msg, align 8
   %7 = alloca %struct.slurm_msg, align 8
   %8 = alloca %struct.acct_gather_energy_req_msg, align 2

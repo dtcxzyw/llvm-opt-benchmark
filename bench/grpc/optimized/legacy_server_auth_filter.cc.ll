@@ -1087,7 +1087,7 @@ _ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_22LegacyServerAuthF
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core22LegacyServerAuthFilterC2ENS_13RefCountedPtrI23grpc_server_credentialsEENS1_I17grpc_auth_contextEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr nocapture noundef readonly %server_credentials, ptr nocapture noundef readonly %auth_context) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core22LegacyServerAuthFilterC2ENS_13RefCountedPtrI23grpc_server_credentialsEENS1_I17grpc_auth_contextEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %server_credentials, ptr nocapture noundef readonly %auth_context) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %event_engine_.i = getelementptr inbounds i8, ptr %this, i64 8

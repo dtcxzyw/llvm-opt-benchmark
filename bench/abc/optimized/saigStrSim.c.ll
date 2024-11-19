@@ -2218,7 +2218,7 @@ Aig_ObjRepr.exit.thread:                          ; preds = %28, %22, %38, %35, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_StrSimMatchingExtendOne(ptr noundef %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #1 {
+define void @Ssw_StrSimMatchingExtendOne(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #18

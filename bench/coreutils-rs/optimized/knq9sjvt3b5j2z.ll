@@ -166,7 +166,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer12consume_with17h116c276698ddf1f0E.ex
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$11read_to_end17h0cb0bdac64e68df8E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #0 {
+define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$11read_to_end17h0cb0bdac64e68df8E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(48) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #0 {
   %4 = alloca { i64, [1 x i64] }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 16

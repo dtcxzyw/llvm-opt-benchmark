@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_bddAndTime(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Extra_bddAndTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 448
   br label %6
 
@@ -271,7 +271,7 @@ Abc_Clock.exit:                                   ; preds = %41, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_bddAndAbstractTime(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Extra_bddAndAbstractTime(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 448
   br label %7
 
@@ -683,7 +683,7 @@ define internal fastcc ptr @cuddBddAndAbstractRecurTime(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr noundef initializes((448, 452)) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Extra_TransferPermuteTime(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 448

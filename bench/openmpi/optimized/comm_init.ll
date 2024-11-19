@@ -81,7 +81,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_pml = external local_unnamed_addr global %struct.mca_pml_base_module_2_1_0_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_comm_construct(ptr noundef initializes((160, 168), (216, 228), (240, 244), (248, 264), (280, 288), (296, 304), (312, 320), (328, 336)) %0) #0 {
+define internal void @ompi_comm_construct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 216

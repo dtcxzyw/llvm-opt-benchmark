@@ -812,7 +812,7 @@ declare ptr @Gia_ManComputeSwitchProbs(ptr noundef, i32 noundef, i32 noundef, i3
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkIf(ptr noundef %0, ptr noundef initializes((288, 304)) %1) local_unnamed_addr #0 {
+define ptr @Abc_NtkIf(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Abc_NtkGetCiArrivalFloats(ptr noundef %0) #18
   %4 = getelementptr inbounds i8, ptr %1, i64 288
   store ptr %3, ptr %4, align 8
@@ -3781,7 +3781,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkMarkMux(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define void @Abc_NtkMarkMux(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %1, align 8

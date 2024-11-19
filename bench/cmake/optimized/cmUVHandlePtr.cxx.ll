@@ -6135,7 +6135,7 @@ declare i32 @uv_loop_close(ptr noundef) local_unnamed_addr #5
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2cm11uv_loop_ptr4initEPv(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN2cm11uv_loop_ptr4initEPv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -6222,7 +6222,7 @@ _ZN2cm11uv_loop_ptr5resetEv.exit:                 ; preds = %2, %21, %34, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2cm11uv_loop_ptr5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN2cm11uv_loop_ptr5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -6502,7 +6502,7 @@ define dso_local noundef i32 @_ZN2cm12uv_async_ptr4initER9uv_loop_sPFvP10uv_asyn
 declare i32 @uv_async_init(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2cm13uv_signal_ptr4initER9uv_loop_sPv(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN2cm13uv_signal_ptr4initER9uv_loop_sPv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -6616,7 +6616,7 @@ define dso_local void @_ZN2cm13uv_signal_ptr4stopEv(ptr nocapture noundef nonnul
 declare i32 @uv_signal_stop(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2cm11uv_pipe_ptr4initER9uv_loop_siPv(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN2cm11uv_pipe_ptr4initER9uv_loop_siPv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -6711,7 +6711,7 @@ define dso_local noundef ptr @_ZNK2cm11uv_pipe_ptrcvP11uv_stream_sEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2cm14uv_process_ptr5spawnER9uv_loop_sRK20uv_process_options_sPv(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN2cm14uv_process_ptr5spawnER9uv_loop_sRK20uv_process_options_sPv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -6800,7 +6800,7 @@ _ZN2cm19uv_handle_ptr_base_I12uv_process_sE8allocateEPv.exit: ; preds = %4, %23,
 declare i32 @uv_spawn(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2cm12uv_timer_ptr4initER9uv_loop_sPv(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN2cm12uv_timer_ptr4initER9uv_loop_sPv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -6913,7 +6913,7 @@ define dso_local noundef ptr @_ZNK2cm10uv_tty_ptrcvP11uv_stream_sEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2cm10uv_tty_ptr4initER9uv_loop_siiPv(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN2cm10uv_tty_ptr4initER9uv_loop_siiPv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -7002,7 +7002,7 @@ _ZN2cm19uv_handle_ptr_base_I8uv_tty_sE8allocateEPv.exit: ; preds = %5, %24, %37,
 declare i32 @uv_tty_init(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN2cm11uv_idle_ptr4initER9uv_loop_sPv(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN2cm11uv_idle_ptr4initER9uv_loop_sPv(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(848) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

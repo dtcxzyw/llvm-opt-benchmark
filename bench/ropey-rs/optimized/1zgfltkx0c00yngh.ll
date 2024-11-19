@@ -2366,7 +2366,7 @@ define void @_ZN5ropey4iter5Bytes11from_str_at17hc0c916b75e45dadaE(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN77_$LT$ropey..iter..Bytes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h940fa55b36ea9611E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #2 {
+define void @"_ZN77_$LT$ropey..iter..Bytes$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h940fa55b36ea9611E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 89
   %4 = load i8, ptr %3, align 1, !range !5, !noundef !4
   %5 = trunc nuw i8 %4 to i1
@@ -3646,7 +3646,7 @@ _ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit: ; preds = %.prehead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN77_$LT$ropey..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h51a10c249a99d1f3E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #2 {
+define void @"_ZN77_$LT$ropey..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h51a10c249a99d1f3E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(96) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 89
   %4 = load i8, ptr %3, align 1, !range !5, !noundef !4
   %5 = trunc nuw i8 %4 to i1
@@ -4450,7 +4450,7 @@ _ZN5ropey4tree13node_children12NodeChildren9search_by17h1cbcc4123e18c078E.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5ropey4iter5Lines11from_str_pt17hd2e7ca9d542571a3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) initializes((0, 8), (40, 82)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @_ZN5ropey4iter5Lines11from_str_pt17hd2e7ca9d542571a3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = tail call fastcc noundef i64 @_ZN11str_indices5lines13from_byte_idx17hf5c57f288b09ce49E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %2)
   %5 = add i64 %4, 1
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !348, !noalias !351
@@ -4470,7 +4470,7 @@ define void @_ZN5ropey4iter5Lines11from_str_pt17hd2e7ca9d542571a3E(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN5ropey4iter5Lines8from_str17he16634ed9a128490E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) initializes((0, 8), (40, 82)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define void @_ZN5ropey4iter5Lines8from_str17he16634ed9a128490E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   store i64 -9223372036854775808, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 0, ptr %5, align 8
@@ -8989,7 +8989,7 @@ _ZN11str_indices5lines16to_byte_idx_impl17h385babf254751b31E.exit: ; preds = %"_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN77_$LT$ropey..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc06e59671c2c727dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #2 {
+define void @"_ZN77_$LT$ropey..iter..Lines$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hc06e59671c2c727dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   %4 = load i8, ptr %3, align 8, !range !5, !noundef !4
   %5 = trunc nuw i8 %4 to i1
@@ -9495,7 +9495,7 @@ _ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit: ; preds = %.prehead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN5ropey4iter6Chunks8from_str17he957017fdf6331d9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 25), (40, 41)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 {
+define void @_ZN5ropey4iter6Chunks8from_str17he957017fdf6331d9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 {
   %5 = zext i1 %3 to i8
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

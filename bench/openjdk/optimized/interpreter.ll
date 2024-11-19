@@ -59,7 +59,7 @@ $_ZTV9Assembler = comdat any
 @_ZN11CodeletMarkD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN11CodeletMarkD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18InterpreterCodelet10initializeEPKcN9Bytecodes4CodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8), (12, 16)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18InterpreterCodelet10initializeEPKcN9Bytecodes4CodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %2, ptr %4, align 4
@@ -170,7 +170,7 @@ define hidden void @_ZNK18InterpreterCodelet5printEv(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11CodeletMarkC2ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN11CodeletMarkC2ERP25InterpreterMacroAssemblerPKcN9Bytecodes4CodeE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 800

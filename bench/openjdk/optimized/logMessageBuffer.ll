@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN16LogMessageBufferD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16LogMessageBufferD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16LogMessageBufferC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 57), (60, 72)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16LogMessageBufferC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16LogMessageBuffer, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 60
@@ -27,7 +27,7 @@ define hidden void @_ZN16LogMessageBufferC2Ev(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16LogMessageBufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN16LogMessageBufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16LogMessageBuffer, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8
@@ -50,7 +50,7 @@ define hidden void @_ZN16LogMessageBufferD2Ev(ptr nocapture noundef nonnull alig
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16LogMessageBuffer5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((8, 16), (32, 40)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16LogMessageBuffer5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -59,7 +59,7 @@ define hidden void @_ZN16LogMessageBuffer5resetEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16LogMessageBuffer18initialize_buffersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((16, 32), (40, 57)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN16LogMessageBuffer18initialize_buffersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 1, ptr %2, align 8
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 1024, i8 noundef zeroext 17, i32 noundef 0) #7

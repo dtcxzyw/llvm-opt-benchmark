@@ -8410,7 +8410,7 @@ H5VM_limit_enc_size.exit468:                      ; preds = %857, %863, %869, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_cache_config_dec(ptr noundef %0, ptr noundef initializes((0, 1216)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_cache_config_dec(ptr noundef %0, ptr noundef %1) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1216) %1, ptr noundef nonnull align 8 dereferenceable(1216) @H5F_def_mdc_initCacheCfg_g, i64 1216, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
@@ -9908,7 +9908,7 @@ define internal noundef i32 @H5P__facc_fclose_degree_enc(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__facc_fclose_degree_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #10 {
+define internal noundef i32 @H5P__facc_fclose_degree_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -9940,7 +9940,7 @@ define internal noundef i32 @H5P__facc_multi_type_enc(ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__facc_multi_type_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #10 {
+define internal noundef i32 @H5P__facc_multi_type_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -9972,7 +9972,7 @@ define internal noundef i32 @H5P__facc_libver_type_enc(ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__facc_libver_type_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #10 {
+define internal noundef i32 @H5P__facc_libver_type_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #10 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -10551,7 +10551,7 @@ define internal noundef i32 @H5P__facc_cache_image_config_enc(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__facc_cache_image_config_dec(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 12)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__facc_cache_image_config_dec(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %1, ptr noundef nonnull align 4 dereferenceable(12) @H5F_def_mdc_initCacheImageCfg_g, i64 12, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1

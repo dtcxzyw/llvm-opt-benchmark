@@ -2145,7 +2145,7 @@ define hidden void @"_ZN4gpui6window13WindowContext5spawn28_$u7b$$u7b$closure$u7
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4gpui6window20ViewContext$LT$V$GT$5spawn28_$u7b$$u7b$closure$u7d$$u7d$17h075f51620c043877E.llvm.1407927494119257398"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([136 x i8]) align 8 dereferenceable(136) initializes((0, 96), (112, 128), (129, 130)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2) unnamed_addr #0 {
+define hidden void @"_ZN4gpui6window20ViewContext$LT$V$GT$5spawn28_$u7b$$u7b$closure$u7d$$u7d$17h075f51620c043877E.llvm.1407927494119257398"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([136 x i8]) align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8, !nonnull !7, !align !233, !noundef !7
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !7, !align !14, !noundef !7
@@ -6247,7 +6247,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN2ui10components6button11button_like25element_bg_from_elevation17h2ef9fc688813d5deE.llvm.1407927494119257398(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) initializes((0, 16)) %0, i8 noundef %1, i8 %2, ptr noalias noundef align 8 dereferenceable(16) %3) unnamed_addr #3 {
+define hidden void @_ZN2ui10components6button11button_like25element_bg_from_elevation17h2ef9fc688813d5deE.llvm.1407927494119257398(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) %0, i8 noundef %1, i8 %2, ptr noalias noundef align 8 dereferenceable(16) %3) unnamed_addr #3 {
   %5 = icmp eq i8 %1, 0
   br i1 %5, label %6, label %9
 
@@ -6426,7 +6426,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2ui10components6button11button_like10ButtonLike6height17h1d1140d580407cabE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) initializes((0, 872)) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) initializes((760, 768)) %1, i64 %2) unnamed_addr #13 {
+define hidden void @_ZN2ui10components6button11button_like10ButtonLike6height17h1d1140d580407cabE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) %1, i64 %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 760
   store i64 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull align 8 dereferenceable(872) %1, i64 872, i1 false)
@@ -6434,7 +6434,7 @@ define hidden void @_ZN2ui10components6button11button_like10ButtonLike6height17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN96_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..disableable..Disableable$GT$8disabled17hc37033e860190907E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) initializes((0, 872)) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) initializes((858, 859)) %1, i1 noundef zeroext %2) unnamed_addr #13 {
+define void @"_ZN96_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..disableable..Disableable$GT$8disabled17hc37033e860190907E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) %1, i1 noundef zeroext %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 858
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 2
@@ -6443,7 +6443,7 @@ define void @"_ZN96_$LT$ui..components..button..button_like..ButtonLike$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN94_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..selectable..Selectable$GT$8selected17h2390828bc5b648f8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) initializes((0, 872)) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) initializes((859, 860)) %1, i1 noundef zeroext %2) unnamed_addr #13 {
+define void @"_ZN94_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..selectable..Selectable$GT$8selected17h2390828bc5b648f8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) %1, i1 noundef zeroext %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 859
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 1
@@ -6452,7 +6452,7 @@ define void @"_ZN94_$LT$ui..components..button..button_like..ButtonLike$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN121_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..components..button..button_like..SelectableButton$GT$14selected_style17hea740383ab49e407E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) initializes((0, 872)) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) initializes((863, 864)) %1, i8 noundef %2) unnamed_addr #13 {
+define void @"_ZN121_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..components..button..button_like..SelectableButton$GT$14selected_style17hea740383ab49e407E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) %1, i8 noundef %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 863
   store i8 %2, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull align 8 dereferenceable(872) %1, i64 872, i1 false)
@@ -6460,7 +6460,7 @@ define void @"_ZN121_$LT$ui..components..button..button_like..ButtonLike$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN92_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..clickable..Clickable$GT$12cursor_style17h0b1dad272a1d209fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) initializes((0, 872)) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) initializes((864, 865)) %1, i8 noundef %2) unnamed_addr #13 {
+define void @"_ZN92_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..clickable..Clickable$GT$12cursor_style17h0b1dad272a1d209fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) %1, i8 noundef %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 864
   store i8 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull align 8 dereferenceable(872) %1, i64 872, i1 false)
@@ -6468,7 +6468,7 @@ define void @"_ZN92_$LT$ui..components..button..button_like..ButtonLike$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN89_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..fixed..FixedWidth$GT$5width17h9c05a6c20984f4b0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) initializes((0, 872)) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) initializes((752, 760)) %1, i64 %2) unnamed_addr #13 {
+define void @"_ZN89_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..fixed..FixedWidth$GT$5width17h9c05a6c20984f4b0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) %1, i64 %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 752
   store i64 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull align 8 dereferenceable(872) %1, i64 872, i1 false)
@@ -6509,7 +6509,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN117_$LT$ui..componen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN117_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..components..button..button_like..ButtonCommon$GT$5style17h639e4696392ab0b7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) initializes((0, 872)) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) initializes((862, 863)) %1, i8 noundef %2) unnamed_addr #13 {
+define void @"_ZN117_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..components..button..button_like..ButtonCommon$GT$5style17h639e4696392ab0b7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) %1, i8 noundef %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 862
   store i8 %2, ptr %4, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull align 8 dereferenceable(872) %1, i64 872, i1 false)
@@ -6517,7 +6517,7 @@ define void @"_ZN117_$LT$ui..components..button..button_like..ButtonLike$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN117_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..components..button..button_like..ButtonCommon$GT$4size17h18432f355003b00dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) initializes((0, 872)) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) initializes((860, 861)) %1, i8 noundef %2) unnamed_addr #13 {
+define void @"_ZN117_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..components..button..button_like..ButtonCommon$GT$4size17h18432f355003b00dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) %1, i8 noundef %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 860
   store i8 %2, ptr %4, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull align 8 dereferenceable(872) %1, i64 872, i1 false)
@@ -6525,7 +6525,7 @@ define void @"_ZN117_$LT$ui..components..button..button_like..ButtonLike$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN117_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..components..button..button_like..ButtonCommon$GT$5layer17h9096e81ff633665cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) initializes((0, 872)) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) initializes((856, 858)) %1, i8 noundef %2) unnamed_addr #13 personality ptr @rust_eh_personality {
+define void @"_ZN117_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$ui..components..button..button_like..ButtonCommon$GT$5layer17h9096e81ff633665cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) %0, ptr noalias nocapture noundef align 8 dereferenceable(872) %1, i8 noundef %2) unnamed_addr #13 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 856
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 857
@@ -8217,7 +8217,7 @@ default.unreachable:                              ; preds = %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2ui10components8checkbox8Checkbox8disabled17h1d8abecff2944affE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) initializes((48, 49)) %1, i1 noundef zeroext %2) unnamed_addr #13 {
+define void @_ZN2ui10components8checkbox8Checkbox8disabled17h1d8abecff2944affE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1, i1 noundef zeroext %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 8
@@ -10168,7 +10168,7 @@ common.resume:                                    ; preds = %78, %75, %60
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN2ui10components12context_menu11ContextMenu18on_action_dispatch28_$u7b$$u7b$closure$u7d$$u7d$17hade9e394cab4e9d9E.llvm.1407927494119257398"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([136 x i8]) align 8 dereferenceable(136) initializes((0, 96), (112, 128), (129, 130)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %4) unnamed_addr #0 {
+define hidden void @"_ZN2ui10components12context_menu11ContextMenu18on_action_dispatch28_$u7b$$u7b$closure$u7d$$u7d$17hade9e394cab4e9d9E.llvm.1407927494119257398"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([136 x i8]) align 8 dereferenceable(136) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %4) unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
@@ -11392,7 +11392,7 @@ _ZN4gpui6styled6Styled8ml_neg_117hf90f4e05ec71b2e1E.exit: ; preds = %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2ui10components4list15list_sub_header13ListSubHeader9left_icon17h1c175e1c1c4f1df4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) initializes((26, 27)) %1, i8 noundef %2) unnamed_addr #13 {
+define void @_ZN2ui10components4list15list_sub_header13ListSubHeader9left_icon17h1c175e1c1c4f1df4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i8 noundef %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 26
   store i8 %2, ptr %4, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
@@ -11400,7 +11400,7 @@ define void @_ZN2ui10components4list15list_sub_header13ListSubHeader9left_icon17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2ui10components4list15list_sub_header13ListSubHeader5inset17h0392fd32fae0c468E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) initializes((24, 25)) %1, i1 noundef zeroext %2) unnamed_addr #13 {
+define void @_ZN2ui10components4list15list_sub_header13ListSubHeader5inset17h0392fd32fae0c468E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 8
@@ -11409,7 +11409,7 @@ define void @_ZN2ui10components4list15list_sub_header13ListSubHeader5inset17h039
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN99_$LT$ui..components..list..list_sub_header..ListSubHeader$u20$as$u20$ui..selectable..Selectable$GT$8selected17h7851b2eff61ae893E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) initializes((25, 26)) %1, i1 noundef zeroext %2) unnamed_addr #13 {
+define void @"_ZN99_$LT$ui..components..list..list_sub_header..ListSubHeader$u20$as$u20$ui..selectable..Selectable$GT$8selected17h7851b2eff61ae893E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 25
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 1
@@ -12416,7 +12416,7 @@ _ZN4gpui7element7Element8into_any17hc2ff3c415a972f55E.exit.i79: ; preds = %322
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2ui10components15numeric_stepper14NumericStepper23reserve_space_for_reset17h7e8c96dff1624ca5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([112 x i8]) align 8 dereferenceable(112) initializes((0, 112)) %0, ptr noalias nocapture noundef align 8 dereferenceable(112) initializes((104, 105)) %1, i1 noundef zeroext %2) unnamed_addr #13 {
+define void @_ZN2ui10components15numeric_stepper14NumericStepper23reserve_space_for_reset17h7e8c96dff1624ca5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([112 x i8]) align 8 dereferenceable(112) %0, ptr noalias nocapture noundef align 8 dereferenceable(112) %1, i1 noundef zeroext %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 8
@@ -13203,14 +13203,14 @@ _ZN4gpui7element7Element8into_any17hc2ff3c415a972f55E.exit.i: ; preds = %206
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN96_$LT$ui..components..settings_container..SettingsContainer$u20$as$u20$core..default..Default$GT$7default17he9d4e5fffbdf4e48E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((48, 56)) %0) unnamed_addr #15 {
+define void @"_ZN96_$LT$ui..components..settings_container..SettingsContainer$u20$as$u20$core..default..Default$GT$7default17he9d4e5fffbdf4e48E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0) unnamed_addr #15 {
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !2223
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN2ui10components18settings_container17SettingsContainer3new17h16b8197ea4f21c3eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((48, 56)) %0) unnamed_addr #15 {
+define void @_ZN2ui10components18settings_container17SettingsContainer3new17h16b8197ea4f21c3eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0) unnamed_addr #15 {
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   ret void
@@ -13335,7 +13335,7 @@ define void @"_ZN99_$LT$ui..components..settings_container..SettingsContainer$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2ui10components3tab3Tab8position17he34911da093fb71aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([832 x i8]) align 8 dereferenceable(832) initializes((0, 832)) %0, ptr noalias nocapture noundef align 8 dereferenceable(832) initializes((826, 827)) %1, i8 noundef %2) unnamed_addr #13 {
+define void @_ZN2ui10components3tab3Tab8position17he34911da093fb71aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([832 x i8]) align 8 dereferenceable(832) %0, ptr noalias nocapture noundef align 8 dereferenceable(832) %1, i8 noundef %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 826
   store i8 %2, ptr %4, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(832) %0, ptr noundef nonnull align 8 dereferenceable(832) %1, i64 832, i1 false)
@@ -13343,7 +13343,7 @@ define void @_ZN2ui10components3tab3Tab8position17he34911da093fb71aE(ptr dead_on
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2ui10components3tab3Tab10close_side17hfe324c8590e1332cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([832 x i8]) align 8 dereferenceable(832) initializes((0, 832)) %0, ptr noalias nocapture noundef align 8 dereferenceable(832) initializes((825, 826)) %1, i1 noundef zeroext %2) unnamed_addr #13 {
+define void @_ZN2ui10components3tab3Tab10close_side17hfe324c8590e1332cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([832 x i8]) align 8 dereferenceable(832) %0, ptr noalias nocapture noundef align 8 dereferenceable(832) %1, i1 noundef zeroext %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 825
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 1
@@ -13358,7 +13358,7 @@ define noundef nonnull align 8 dereferenceable(664) ptr @"_ZN84_$LT$ui..componen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN71_$LT$ui..components..tab..Tab$u20$as$u20$ui..selectable..Selectable$GT$8selected17he6e6ef93a41efbaaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([832 x i8]) align 8 dereferenceable(832) initializes((0, 832)) %0, ptr noalias nocapture noundef align 8 dereferenceable(832) initializes((824, 825)) %1, i1 noundef zeroext %2) unnamed_addr #13 {
+define void @"_ZN71_$LT$ui..components..tab..Tab$u20$as$u20$ui..selectable..Selectable$GT$8selected17he6e6ef93a41efbaaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([832 x i8]) align 8 dereferenceable(832) %0, ptr noalias nocapture noundef align 8 dereferenceable(832) %1, i1 noundef zeroext %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 824
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 8
@@ -15131,7 +15131,7 @@ _ZN4gpui7element7Element8into_any17hc2ff3c415a972f55E.exit.i107: ; preds = %562
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2ui10components10tool_strip9ToolStrip3new17hd0dc02e6ac6402adE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 57)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #13 {
+define void @_ZN2ui10components10tool_strip9ToolStrip3new17hd0dc02e6ac6402adE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %4, align 8
@@ -16011,43 +16011,43 @@ _ZN2ui6styles7spacing7Spacing4rems17hbccda72e69aceb1aE.exit40: ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN85_$LT$ui..components..avatar..avatar..Avatar$u20$as$u20$gpui..element..IntoElement$GT$12into_element17ha18b98328eb538c2E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([760 x i8]) align 8 dereferenceable(760) initializes((0, 760)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(760) %1) unnamed_addr #13 {
+define void @"_ZN85_$LT$ui..components..avatar..avatar..Avatar$u20$as$u20$gpui..element..IntoElement$GT$12into_element17ha18b98328eb538c2E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([760 x i8]) align 8 dereferenceable(760) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(760) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(760) %0, ptr noundef nonnull align 8 dereferenceable(760) %1, i64 760, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN94_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..IntoElement$GT$12into_element17h802d8f56d5df79b9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) initializes((0, 872)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(872) %1) unnamed_addr #13 {
+define void @"_ZN94_$LT$ui..components..button..button_like..ButtonLike$u20$as$u20$gpui..element..IntoElement$GT$12into_element17h802d8f56d5df79b9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([872 x i8]) align 8 dereferenceable(872) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(872) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull align 8 dereferenceable(872) %1, i64 872, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN111_$LT$ui..components..checkbox..checkbox_with_label..CheckboxWithLabel$u20$as$u20$gpui..element..IntoElement$GT$12into_element17hac821c01bd250d2eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([912 x i8]) align 8 dereferenceable(912) initializes((0, 912)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(912) %1) unnamed_addr #13 {
+define void @"_ZN111_$LT$ui..components..checkbox..checkbox_with_label..CheckboxWithLabel$u20$as$u20$gpui..element..IntoElement$GT$12into_element17hac821c01bd250d2eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([912 x i8]) align 8 dereferenceable(912) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(912) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %0, ptr noundef nonnull align 8 dereferenceable(912) %1, i64 912, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN81_$LT$ui..components..checkbox..Checkbox$u20$as$u20$gpui..element..IntoElement$GT$12into_element17hb0de35c80cc82e98E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #13 {
+define void @"_ZN81_$LT$ui..components..checkbox..Checkbox$u20$as$u20$gpui..element..IntoElement$GT$12into_element17hb0de35c80cc82e98E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN99_$LT$ui..components..list..list_sub_header..ListSubHeader$u20$as$u20$gpui..element..IntoElement$GT$12into_element17h4ee909a5157c8b8fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #13 {
+define void @"_ZN99_$LT$ui..components..list..list_sub_header..ListSubHeader$u20$as$u20$gpui..element..IntoElement$GT$12into_element17h4ee909a5157c8b8fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN94_$LT$ui..components..numeric_stepper..NumericStepper$u20$as$u20$gpui..element..IntoElement$GT$12into_element17h07964c0fa41baeb8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([112 x i8]) align 8 dereferenceable(112) initializes((0, 112)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #13 {
+define void @"_ZN94_$LT$ui..components..numeric_stepper..NumericStepper$u20$as$u20$gpui..element..IntoElement$GT$12into_element17h07964c0fa41baeb8E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([112 x i8]) align 8 dereferenceable(112) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN100_$LT$ui..components..settings_container..SettingsContainer$u20$as$u20$gpui..element..IntoElement$GT$12into_element17h63e9abde27a332e0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #13 {
+define void @"_ZN100_$LT$ui..components..settings_container..SettingsContainer$u20$as$u20$gpui..element..IntoElement$GT$12into_element17h63e9abde27a332e0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #13 {
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
@@ -16055,13 +16055,13 @@ define void @"_ZN100_$LT$ui..components..settings_container..SettingsContainer$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN71_$LT$ui..components..tab..Tab$u20$as$u20$gpui..element..IntoElement$GT$12into_element17hcfcc716b14641623E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([832 x i8]) align 8 dereferenceable(832) initializes((0, 832)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(832) %1) unnamed_addr #13 {
+define void @"_ZN71_$LT$ui..components..tab..Tab$u20$as$u20$gpui..element..IntoElement$GT$12into_element17hcfcc716b14641623E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([832 x i8]) align 8 dereferenceable(832) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(832) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(832) %0, ptr noundef nonnull align 8 dereferenceable(832) %1, i64 832, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN84_$LT$ui..components..tool_strip..ToolStrip$u20$as$u20$gpui..element..IntoElement$GT$12into_element17hf7dc0bb39ccef8feE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #13 {
+define void @"_ZN84_$LT$ui..components..tool_strip..ToolStrip$u20$as$u20$gpui..element..IntoElement$GT$12into_element17hf7dc0bb39ccef8feE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }

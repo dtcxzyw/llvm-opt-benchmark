@@ -82,7 +82,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o18EstimatePropagator17AdjacencyMapEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((16, 20), (24, 32)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o18EstimatePropagator17AdjacencyMapEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %3, align 8
@@ -122,7 +122,7 @@ _ZN3g2o18EstimatePropagator17AdjacencyMapEntry5resetEv.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o18EstimatePropagator17AdjacencyMapEntry5resetEv(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o18EstimatePropagator17AdjacencyMapEntry5resetEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1666,7 +1666,7 @@ define noundef ptr @_ZN3g2o18EstimatePropagator13PriorityQueue3popEv(ptr noundef
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o22EstimatePropagatorCostC2EPNS_15SparseOptimizerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #6 align 2 {
+define void @_ZN3g2o22EstimatePropagatorCostC2EPNS_15SparseOptimizerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o22EstimatePropagatorCostE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -1699,7 +1699,7 @@ define noundef double @_ZNK3g2o22EstimatePropagatorCostclEPNS_16OptimizableGraph
 declare ptr @_ZNK3g2o15SparseOptimizer14findActiveEdgeEPKNS_16OptimizableGraph4EdgeE(ptr noundef nonnull align 8 dereferenceable(409), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o30EstimatePropagatorCostOdometryC2EPNS_15SparseOptimizerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #6 align 2 {
+define void @_ZN3g2o30EstimatePropagatorCostOdometryC2EPNS_15SparseOptimizerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o30EstimatePropagatorCostOdometryE, i64 16), ptr %0, align 8

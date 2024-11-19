@@ -1867,7 +1867,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventTreeEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__26Trace_AggregateTreeBuilderC2EPNS_18TraceAggregateTreeERKNS_8TfRefPtrINS_14TraceEventTreeEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__26Trace_AggregateTreeBuilderC2EPNS_18TraceAggregateTreeERKNS_8TfRefPtrINS_14TraceEventTreeEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26Trace_AggregateTreeBuilderE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8

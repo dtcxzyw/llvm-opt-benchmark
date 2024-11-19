@@ -34045,7 +34045,7 @@ define internal ptr @_reflection_write_property(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @reflection_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @reflection_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -40
   store ptr %4, ptr %1, align 8
   store i32 1, ptr %2, align 4

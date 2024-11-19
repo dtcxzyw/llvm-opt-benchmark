@@ -165,7 +165,7 @@ $_ZN4llvm8DenseMapIPKvNS_9StringRefENS_12DenseMapInfoIS2_vEENS_6detail12DenseMap
 @_ZN5clang11FileManagerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang11FileManagerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11FileManagerC2ERKNS_17FileSystemOptionsEN4llvm18IntrusiveRefCntPtrINS4_3vfs10FileSystemEEE(ptr noundef nonnull align 8 dereferenceable(808) initializes((0, 4), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11FileManagerC2ERKNS_17FileSystemOptionsEN4llvm18IntrusiveRefCntPtrINS4_3vfs10FileSystemEEE(ptr noundef nonnull align 8 dereferenceable(808) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   store i32 0, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -851,7 +851,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %32, %_ZN4llvm9Strin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11FileManager15getDirectoryRefEN4llvm9StringRefEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11FileManager15getDirectoryRefEN4llvm9StringRefEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::sys::fs::UniqueID", align 8
   %7 = alloca %"class.std::optional", align 8
   %8 = alloca %"struct.std::pair.37", align 8
@@ -1093,7 +1093,7 @@ declare noundef zeroext i1 @_ZN4llvm3sys4path12is_separatorEcNS1_5StyleE(i8 noun
 declare void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, i32, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11FileManager12getDirectoryEN4llvm9StringRefEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.46") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11FileManager12getDirectoryEN4llvm9StringRefEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.46") align 8 %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Expected", align 8
   %7 = alloca %"class.llvm::Error", align 8
   call void @_ZN5clang11FileManager15getDirectoryRefEN4llvm9StringRefEb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %6, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %4)
@@ -1210,7 +1210,7 @@ _ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit: ; preds = %_ZN4llvm5ErrorD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang11FileManager10getFileRefEN4llvm9StringRefEbb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.54") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang11FileManager10getFileRefEN4llvm9StringRefEbb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.54") align 8 %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"struct.std::pair.80", align 8
   %8 = alloca %"class.llvm::Error", align 8
   %9 = alloca %"class.llvm::Expected", align 8
@@ -1680,7 +1680,7 @@ _ZN4llvm8ExpectedIN5clang17DirectoryEntryRefEED2Ev.exit: ; preds = %239, %_ZNKSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20getDirectoryFromFileRN5clang11FileManagerEN4llvm9StringRefEb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20getDirectoryFromFileRN5clang11FileManagerEN4llvm9StringRefEb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(808) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = icmp eq i64 %3, 0

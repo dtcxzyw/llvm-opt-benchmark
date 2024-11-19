@@ -1858,7 +1858,7 @@ define internal noundef range(i32 -22, 1) i32 @relay_file_mmap(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @relay_file_open(ptr noundef %0, ptr noundef initializes((200, 208)) %1) #2 align 16 {
+define internal i32 @relay_file_open(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 112

@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.1a2edcd2528de0ad83032155849f1af6.22 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.1a2edcd2528de0ad83032155849f1af6.21, [8 x i8] c"\17\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN122_$LT$rodio..source..samples_converter..SamplesConverter$LT$I$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5c7c039ad09ad23bE.llvm.10908187403720251564"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #0 {
+define hidden void @"_ZN122_$LT$rodio..source..samples_converter..SamplesConverter$LT$I$C$D$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5c7c039ad09ad23bE.llvm.10908187403720251564"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
@@ -57,7 +57,7 @@ define hidden noundef range(i64 0, 4611686018427387904) i64 @_ZN4core4iter8adapt
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN5rodio7decoder20DecoderImpl$LT$R$GT$9size_hint17hd2e1d487a256740bE.llvm.10908187403720251564"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #2 {
+define hidden void @"_ZN5rodio7decoder20DecoderImpl$LT$R$GT$9size_hint17hd2e1d487a256740bE.llvm.10908187403720251564"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #2 {
   %3 = load i64, ptr %1, align 8, !range !14, !noundef !17
   %4 = icmp eq i64 %3, -9223372036854775808
   br i1 %4, label %13, label %5
@@ -130,7 +130,7 @@ define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7e1821e4d22ca066E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
+define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7e1821e4d22ca066E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8, !nonnull !17, !align !23, !noundef !17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
@@ -163,7 +163,7 @@ define hidden void @"_ZN72_$LT$$RF$mut$u20$I$u20$as$u20$core..iter..traits..iter
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1eb44757b668261fE.llvm.10908187403720251564"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 {
+define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h1eb44757b668261fE.llvm.10908187403720251564"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !17, !noundef !17
   %5 = load ptr, ptr %1, align 8, !nonnull !17, !noundef !17
@@ -180,7 +180,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN91_$LT$rodio..decoder..Decoder$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdae40bd8a4b68fa8E.llvm.10908187403720251564"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #0 {
+define hidden void @"_ZN91_$LT$rodio..decoder..Decoder$LT$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdae40bd8a4b68fa8E.llvm.10908187403720251564"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
   %3 = load i64, ptr %1, align 8, !range !14, !alias.scope !45, !noalias !42, !noundef !17

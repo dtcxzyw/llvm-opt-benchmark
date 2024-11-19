@@ -644,7 +644,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS0_6parserIS3_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
@@ -13427,7 +13427,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm2cl15OptionValueCopyImE7
 declare void @_ZN4llvm2cl18GenericOptionValue6anchorEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_15LevelEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %2) #24
@@ -13573,7 +13573,7 @@ define internal noundef range(i32 2, 4) i32 @_ZNK4llvm2cl3optIN12_GLOBAL__N_15Le
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS0_6parserIS3_EEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
@@ -13678,7 +13678,7 @@ define internal void @_ZNK4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS0_6parserIS3_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS0_6parserIS3_EEE10setDefaultEv(ptr nocapture noundef nonnull align 8 dereferenceable(600) initializes((128, 132)) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS0_6parserIS3_EEE10setDefaultEv(ptr nocapture noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 148
   %.val.i = load i8, ptr %2, align 4
   %3 = trunc i8 %.val.i to i1
@@ -13698,7 +13698,7 @@ define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_15LevelELb0ENS0_6parserIS3_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl6parserIN12_GLOBAL__N_15LevelEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIN12_GLOBAL__N_15LevelEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(400) %2) #24
@@ -16700,7 +16700,7 @@ declare void @_ZN4llvm4Pass18preparePassManagerERNS_7PMStackE(ptr noundef nonnul
 declare noundef i32 @_ZNK4llvm10ModulePass27getPotentialPassManagerTypeEv(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_118DebugifyModulePass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #15 align 2 {
+define internal void @_ZNK12_GLOBAL__N_118DebugifyModulePass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   ret void
@@ -16780,7 +16780,7 @@ declare void @_ZN4llvm12FunctionPass17assignPassManagerERNS_7PMStackENS_15PassMa
 declare noundef i32 @_ZNK4llvm12FunctionPass27getPotentialPassManagerTypeEv(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_120DebugifyFunctionPass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #15 align 2 {
+define internal void @_ZNK12_GLOBAL__N_120DebugifyFunctionPass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   ret void
@@ -16847,7 +16847,7 @@ define internal void @_ZN12_GLOBAL__N_123CheckDebugifyModulePassD0Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_123CheckDebugifyModulePass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #15 align 2 {
+define internal void @_ZNK12_GLOBAL__N_123CheckDebugifyModulePass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   ret void
@@ -16903,7 +16903,7 @@ define internal void @_ZN12_GLOBAL__N_125CheckDebugifyFunctionPassD0Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_125CheckDebugifyFunctionPass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #15 align 2 {
+define internal void @_ZNK12_GLOBAL__N_125CheckDebugifyFunctionPass16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   ret void

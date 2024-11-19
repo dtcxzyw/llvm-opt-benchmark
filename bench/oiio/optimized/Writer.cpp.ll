@@ -186,7 +186,7 @@ sw.epilog:                                        ; preds = %for.body.i.i22, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3dpx6WriterC2Ev(ptr noundef nonnull align 8 dereferenceable(2080) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN3dpx6WriterC2Ev(ptr noundef nonnull align 8 dereferenceable(2080) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dpx6WriterE, i64 16), ptr %this, align 8
   %header = getelementptr inbounds i8, ptr %this, i64 8
@@ -350,7 +350,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #2
 declare void @_ZN3dpx13GenericHeader19SetCreationTimeDateEl(ptr noundef nonnull align 4 dereferenceable(1664), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3dpx6Writer12SetImageInfoEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) initializes((776, 778), (780, 788)) %this, i32 noundef %width, i32 noundef %height) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3dpx6Writer12SetImageInfoEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) %this, i32 noundef %width, i32 noundef %height) local_unnamed_addr #8 align 2 {
 entry:
   %imageOrientation.i = getelementptr inbounds i8, ptr %this, i64 776
   store i16 0, ptr %imageOrientation.i, align 8
@@ -390,7 +390,7 @@ for.end:                                          ; preds = %for.inc, %for.end.s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3dpx6Writer12SetOutStreamEP9OutStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) initializes((2072, 2080)) %this, ptr noundef %fd) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3dpx6Writer12SetOutStreamEP9OutStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) %this, ptr noundef %fd) local_unnamed_addr #8 align 2 {
 entry:
   %fd2 = getelementptr inbounds i8, ptr %this, i64 2072
   store ptr %fd, ptr %fd2, align 8
@@ -427,7 +427,7 @@ declare void @_ZN3dpx6Header16CalculateOffsetsEv(ptr noundef nonnull align 4 der
 declare noundef zeroext i1 @_ZN3dpx6Header5WriteEP9OutStream(ptr noundef nonnull align 4 dereferenceable(2049), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3dpx6Writer11SetUserDataEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) initializes((40, 44)) %this, i64 noundef %size) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3dpx6Writer11SetUserDataEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2080) %this, i64 noundef %size) local_unnamed_addr #8 align 2 {
 entry:
   %conv = trunc i64 %size to i32
   %userSize.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -3757,7 +3757,7 @@ delete.notnull:                                   ; preds = %for.inc, %delete.no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3dpx6Writer6FinishEv(ptr noundef nonnull align 8 dereferenceable(2080) initializes((24, 28)) %this) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN3dpx6Writer6FinishEv(ptr noundef nonnull align 8 dereferenceable(2080) %this) local_unnamed_addr #5 align 2 {
 entry:
   %header = getelementptr inbounds i8, ptr %this, i64 8
   %fileLoc = getelementptr inbounds i8, ptr %this, i64 2064

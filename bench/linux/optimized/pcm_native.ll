@@ -116,7 +116,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_snd_pcm_mmap
 @llvm.compiler.used = appending global [17 x ptr] [ptr @__UNIQUE_ID___addressable__snd_pcm_stream_lock_irqsave362, ptr @__UNIQUE_ID___addressable__snd_pcm_stream_lock_irqsave_nested363, ptr @__UNIQUE_ID___addressable_snd_pcm_hw_refine365, ptr @__UNIQUE_ID___addressable_snd_pcm_kernel_ioctl373, ptr @__UNIQUE_ID___addressable_snd_pcm_lib_default_mmap374, ptr @__UNIQUE_ID___addressable_snd_pcm_lib_mmap_iomem375, ptr @__UNIQUE_ID___addressable_snd_pcm_mmap_data376, ptr @__UNIQUE_ID___addressable_snd_pcm_open_substream372, ptr @__UNIQUE_ID___addressable_snd_pcm_release_substream371, ptr @__UNIQUE_ID___addressable_snd_pcm_stop366, ptr @__UNIQUE_ID___addressable_snd_pcm_stop_xrun367, ptr @__UNIQUE_ID___addressable_snd_pcm_stream_lock358, ptr @__UNIQUE_ID___addressable_snd_pcm_stream_lock_irq360, ptr @__UNIQUE_ID___addressable_snd_pcm_stream_unlock359, ptr @__UNIQUE_ID___addressable_snd_pcm_stream_unlock_irq361, ptr @__UNIQUE_ID___addressable_snd_pcm_stream_unlock_irqrestore364, ptr @__UNIQUE_ID___addressable_snd_pcm_suspend_all368], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_pcm_group_init(ptr noundef initializes((0, 4)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @snd_pcm_group_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @__mutex_init(ptr noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull @snd_pcm_group_init.__key) #18
@@ -307,7 +307,7 @@ define dso_local void @snd_pcm_stream_unlock_irqrestore(ptr noundef %0, i64 noun
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_pcm_info(ptr noundef %0, ptr noundef initializes((0, 288)) %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @snd_pcm_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -435,7 +435,7 @@ define dso_local range(i32 -14, 1) i32 @snd_pcm_info_user(ptr noundef %0, ptr no
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr nocapture noundef readonly %0, ptr noundef initializes((520, 524), (536, 544)) %1) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_hw_refine(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = alloca [20 x i32], align 16
   %4 = alloca %struct.snd_mask, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 520
@@ -796,7 +796,7 @@ define dso_local void @snd_pcm_sync_stop(ptr noundef %0, i1 noundef zeroext %1) 
 declare dso_local void @synchronize_irq(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_pcm_status64(ptr noundef %0, ptr nocapture noundef initializes((0, 4), (88, 92)) %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @snd_pcm_status64(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.timespec64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8

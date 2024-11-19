@@ -9113,7 +9113,7 @@ declare void @_ZN4llvm11Instruction27dropUnknownNonDebugMetadataENS_8ArrayRefIjE
 declare void @_ZN4llvm15ScalarEvolution30forgetBlockAndLoopDispositionsEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1392), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm4Loop22getIncomingAndBackEdgeERPNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm4Loop22getIncomingAndBackEdgeERPNS_10BasicBlockES3_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -9645,7 +9645,7 @@ _ZN4llvm16dyn_cast_or_nullINS_10BranchInstENS_11InstructionEEEDaPT0_.exit.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4Loop10LoopBounds9getBoundsERKS0_RNS_7PHINodeERNS_15ScalarEvolutionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((48, 49)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(76) %2, ptr noundef nonnull align 8 dereferenceable(1392) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm4Loop10LoopBounds9getBoundsERKS0_RNS_7PHINodeERNS_15ScalarEvolutionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(76) %2, ptr noundef nonnull align 8 dereferenceable(1392) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::InductionDescriptor", align 8
   store i64 6, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -10017,7 +10017,7 @@ declare noundef zeroext i1 @_ZN4llvm15ScalarEvolution15isKnownPositiveEPKNS_4SCE
 declare noundef zeroext i1 @_ZN4llvm15ScalarEvolution15isKnownNegativeEPKNS_4SCEVE(ptr noundef nonnull align 8 dereferenceable(1392), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm4Loop9getBoundsERNS_15ScalarEvolutionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((48, 49)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(1392) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm4Loop9getBoundsERNS_15ScalarEvolutionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(1392) %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZNK4llvm4Loop20getInductionVariableERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(1392) %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -11893,7 +11893,7 @@ define dso_local noundef ptr @_ZN4llvm19findOptionMDForLoopEPKNS_4LoopENS_9Strin
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm4Loop11getStartLocEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DebugLoc") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm4Loop11getStartLocEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DebugLoc") align 8 %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Loop::LocRange", align 8
   call void @_ZNK4llvm4Loop11getLocRangeEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Loop::LocRange") align 8 %3, ptr noundef nonnull align 8 dereferenceable(152) %1)
   %4 = load ptr, ptr %3, align 8
@@ -12334,7 +12334,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNK4llvm8DebugLoc5printERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8LoopInfoC2ERKNS_17DominatorTreeBaseINS_10BasicBlockELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 20), (24, 64)) %0, ptr noundef nonnull align 8 dereferenceable(124) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8LoopInfoC2ERKNS_17DominatorTreeBaseINS_10BasicBlockELb0EEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(124) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 0, i64 20, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -14574,7 +14574,7 @@ _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12LoopAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::LoopInfo") align 8 initializes((0, 20), (24, 64)) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12LoopAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::LoopInfo") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -15766,7 +15766,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8MetadataELb1EE18uninitialized_copyIPKPNS_
 declare void @_ZN4llvm6MDNode18replaceOperandWithEjPNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19LoopInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 28), (32, 52), (56, 96)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19LoopInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.598, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15982,7 +15982,7 @@ _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE6verifyERKNS_17DominatorTreeBa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm19LoopInfoWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm19LoopInfoWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage23addRequiredTransitiveIDERc(ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4llvm24DominatorTreeWrapperPass2IDE) #19

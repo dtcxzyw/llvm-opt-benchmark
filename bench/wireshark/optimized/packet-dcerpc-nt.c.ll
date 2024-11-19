@@ -1970,7 +1970,7 @@ define hidden i32 @dissect_ndr_nt_SID(ptr noundef %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_ndr_nt_SID_with_options(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((64, 68)) %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden i32 @dissect_ndr_nt_SID_with_options(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %4, i64 72
   %10 = load ptr, ptr %9, align 8
   %11 = and i32 %6, 65535

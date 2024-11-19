@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4llvh13line_iteratorC1ERKNS_12MemoryBufferEbc = hidden unnamed_addr alias void (ptr, ptr, i1, i8), ptr @_ZN4llvh13line_iteratorC2ERKNS_12MemoryBufferEbc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh13line_iteratorC2ERKNS_12MemoryBufferEbc(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 10), (12, 32)) %this, ptr noundef nonnull align 8 dereferenceable(24) %Buffer, i1 noundef zeroext %SkipBlanks, i8 noundef signext %CommentMarker) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh13line_iteratorC2ERKNS_12MemoryBufferEbc(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %Buffer, i1 noundef zeroext %SkipBlanks, i8 noundef signext %CommentMarker) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %SkipBlanks to i8
   %BufferEnd.i = getelementptr inbounds i8, ptr %Buffer, i64 16

@@ -271,7 +271,7 @@ define dso_local void @unlock_buffer(ptr noundef %0) #2 align 16 {
 declare dso_local void @wake_up_bit(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @buffer_check_dirty_writeback(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #2 align 16 {
+define dso_local void @buffer_check_dirty_writeback(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 16 {
   store i8 0, ptr %1, align 1
   store i8 0, ptr %2, align 1
   %4 = load volatile i64, ptr %0, align 8
@@ -509,7 +509,7 @@ define dso_local void @mark_buffer_write_io_error(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mark_buffer_async_write(ptr noundef initializes((56, 64)) %0) #2 align 16 {
+define dso_local void @mark_buffer_async_write(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr @end_buffer_async_write, ptr %2, align 8
   %3 = load volatile i64, ptr %0, align 8
@@ -1952,7 +1952,7 @@ define dso_local ptr @alloc_buffer_head(i32 noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @folio_set_bh(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
+define dso_local void @folio_set_bh(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = load volatile i64, ptr %1, align 8

@@ -726,7 +726,7 @@ _ZNSt10_HashtableIdSt4pairIKdPN6casadi10RealtypeSXEESaIS5_ENSt8__detail10_Select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6casadi6SXElemC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN6casadi6SXElemC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3nanE, align 8
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 12
@@ -737,7 +737,7 @@ define void @_ZN6casadi6SXElemC2Ev(ptr nocapture noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6casadi6SXElemC2EPNS_6SXNodeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, i1 zeroext %2) unnamed_addr #5 align 2 {
+define void @_ZN6casadi6SXElemC2EPNS_6SXNodeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1, i1 zeroext %2) unnamed_addr #5 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4
@@ -753,7 +753,7 @@ define void @_ZN6casadi6SXElem6createEPNS_6SXNodeE(ptr dead_on_unwind noalias wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6casadi6SXElemC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
+define void @_ZN6casadi6SXElemC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 12

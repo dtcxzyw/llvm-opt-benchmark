@@ -91,7 +91,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN17MainMenuScriptingC2EP9GUIEngine(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %guiengine) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17MainMenuScriptingC2EP9GUIEngine(ptr noundef nonnull align 8 dereferenceable(416) %this, ptr nocapture noundef readonly %vtt, ptr noundef %guiengine) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stack_unroller = alloca %class.StackUnroller, align 8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8

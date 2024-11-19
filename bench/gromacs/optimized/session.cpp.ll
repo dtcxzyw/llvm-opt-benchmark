@@ -284,7 +284,7 @@ $_ZTVN6gmxapi14BasicExceptionINS_13ProtocolErrorEEE = comdat any
 @_ZN6gmxapi16SessionResourcesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6gmxapi16SessionResourcesD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6gmxapi13SignalManagerC2EPN3gmx18StopHandlerBuilderE(ptr noundef nonnull align 8 dereferenceable(72) initializes((8, 24), (32, 36), (40, 48)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6gmxapi13SignalManagerC2EPN3gmx18StopHandlerBuilderE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %4 = alloca %"class.std::function", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1436,7 +1436,7 @@ _ZNSt12__shared_ptrIN6gmxapi11ContextImplELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6gmxapi11SessionImplC2ESt10shared_ptrINS_11ContextImplEEON3gmx15MdrunnerBuilderEONS4_17SimulationContextESt10unique_ptrI8t_fileioNS4_15functor_wrapperISA_XadL_ZNS4_12closeLogFileEPSA_EEEEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((8, 12), (16, 24)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6gmxapi11SessionImplC2ESt10shared_ptrINS_11ContextImplEEON3gmx15MdrunnerBuilderEONS4_17SimulationContextESt10unique_ptrI8t_fileioNS4_15functor_wrapperISA_XadL_ZNS4_12closeLogFileEPSA_EEEEE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unique_ptr.65", align 8
   %7 = alloca %"class.std::unique_ptr.65", align 8
   %8 = alloca %"class.gmx::Mdrunner", align 8
@@ -4373,7 +4373,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6gmxapi7SessionC2ESt10unique_ptrINS_11SessionImplESt14default_deleteIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6gmxapi7SessionC2ESt10unique_ptrINS_11SessionImplESt14default_deleteIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
@@ -4844,7 +4844,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6gmxapi16SessionResourcesC2EPNS_11SessionImplENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #2 align 2 {
+define void @_ZN6gmxapi16SessionResourcesC2EPNS_11SessionImplENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2) #21

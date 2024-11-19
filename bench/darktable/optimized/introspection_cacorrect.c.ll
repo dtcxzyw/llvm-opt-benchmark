@@ -9498,7 +9498,7 @@ declare void @dt_gaussian_blur(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare void @dt_gaussian_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 20)) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #11 {
+define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #11 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !148
   %5 = load <2 x i32>, ptr %3, align 4, !tbaa !14
   %6 = tail call <2 x i32> @llvm.smax.v2i32(<2 x i32> %5, <2 x i32> zeroinitializer)
@@ -9507,7 +9507,7 @@ define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 20)) %3) local_unnamed_addr #11 {
+define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #11 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false), !tbaa.struct !148
   store i32 0, ptr %3, align 4, !tbaa !139
   %5 = getelementptr inbounds i8, ptr %3, i64 4
@@ -9582,14 +9582,14 @@ define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #13 {
+define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %4, align 16, !tbaa !37
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_update(ptr nocapture noundef initializes((492, 496)) %0) local_unnamed_addr #1 {
+define void @gui_update(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 16, !tbaa !158
   %4 = getelementptr inbounds i8, ptr %0, i64 680
@@ -9650,7 +9650,7 @@ declare void @gtk_widget_set_visible(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @dt_bauhaus_combobox_set_from_value(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 16) #23
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

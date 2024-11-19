@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h54795d6ca99b447fE(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 8)) %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
+define hidden void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17h54795d6ca99b447fE(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, i64 %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 %3)
   %6 = extractvalue { i64, i1 } %5, 1
   br i1 %6, label %12, label %7

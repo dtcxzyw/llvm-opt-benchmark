@@ -856,7 +856,7 @@ declare void @_ZN3irr5video11CNullDriverC2EPNS_2io11IFileSystemERKNS_4core11dime
 declare void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(1872)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video13COpenGLDriverC1ERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(4344) initializes((4344, 4364)) %this, ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video13COpenGLDriverC1ERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef nonnull align 8 dereferenceable(112) %params, ptr noundef %io, ptr noundef %contextManager) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 4344
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !3
@@ -1227,7 +1227,7 @@ _ZN3irr27SIrrlichtCreationParametersC2ERKS0_.exit: ; preds = %if.end.i.i.i, %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5video13COpenGLDriver10initDriverEv(ptr noundef nonnull align 8 dereferenceable(4344) initializes((448, 480)) %this) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr5video13COpenGLDriver10initDriverEv(ptr noundef nonnull align 8 dereferenceable(4344) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ContextManager = getelementptr inbounds i8, ptr %this, i64 4336
   %0 = load ptr, ptr %ContextManager, align 8, !tbaa !138
@@ -1949,7 +1949,7 @@ _ZN3irr5video23COpenGLExtensionHandler20extGlProvokingVertexEj.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video13COpenGLDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(4344) initializes((0, 16), (1168, 1176)) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video13COpenGLDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -2310,14 +2310,14 @@ declare void @_ZN3irr5video11CNullDriver17deleteAllTexturesEv(ptr noundef nonnul
 declare void @_ZN3irr5video11CNullDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(1164), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video13COpenGLDriverD1Ev(ptr noundef nonnull align 8 dereferenceable(4344) initializes((0, 16), (1168, 1176)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video13COpenGLDriverD1Ev(ptr noundef nonnull align 8 dereferenceable(4344) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr5video13COpenGLDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef nonnull @_ZTTN3irr5video13COpenGLDriverE) #24
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr5video13COpenGLDriverD1Ev(ptr noundef initializes((-8, 8), (1160, 1168)) %this) unnamed_addr #4 align 2 {
+define void @_ZThn8_N3irr5video13COpenGLDriverD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr5video13COpenGLDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(4344) %0, ptr noundef nonnull @_ZTTN3irr5video13COpenGLDriverE) #24
@@ -2325,7 +2325,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn1168_N3irr5video13COpenGLDriverD1Ev(ptr noundef initializes((-1168, -1152), (0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZThn1168_N3irr5video13COpenGLDriverD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1168
   tail call void @_ZN3irr5video13COpenGLDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(4344) %0, ptr noundef nonnull @_ZTTN3irr5video13COpenGLDriverE) #24
@@ -2344,7 +2344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video13COpenGLDriverD0Ev(ptr noundef nonnull align 8 dereferenceable(4344) initializes((0, 16), (1168, 1176)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video13COpenGLDriverD0Ev(ptr noundef nonnull align 8 dereferenceable(4344) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr5video13COpenGLDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef nonnull @_ZTTN3irr5video13COpenGLDriverE) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -2355,7 +2355,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr5video13COpenGLDriverD0Ev(ptr noundef initializes((-8, 8), (1160, 1168)) %this) unnamed_addr #4 align 2 {
+define void @_ZThn8_N3irr5video13COpenGLDriverD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr5video13COpenGLDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(4344) %0, ptr noundef nonnull @_ZTTN3irr5video13COpenGLDriverE) #24
@@ -2364,7 +2364,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn1168_N3irr5video13COpenGLDriverD0Ev(ptr noundef initializes((-1168, -1152), (0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZThn1168_N3irr5video13COpenGLDriverD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1168
   tail call void @_ZN3irr5video13COpenGLDriverD2Ev(ptr noundef nonnull align 8 dereferenceable(4344) %0, ptr noundef nonnull @_ZTTN3irr5video13COpenGLDriverE) #24
@@ -3304,7 +3304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video13COpenGLDriver12setTransformENS0_22E_TRANSFORMATION_STATEERKNS_4core8CMatrix4IfEE(ptr noundef nonnull align 8 dereferenceable(4344) initializes((3573, 3574)) %this, i32 noundef %state, ptr noundef nonnull align 4 dereferenceable(64) %mat) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video13COpenGLDriver12setTransformENS0_22E_TRANSFORMATION_STATEERKNS_4core8CMatrix4IfEE(ptr noundef nonnull align 8 dereferenceable(4344) %this, i32 noundef %state, ptr noundef nonnull align 4 dereferenceable(64) %mat) unnamed_addr #0 align 2 {
 entry:
   %clip_plane.i = alloca [4 x double], align 16
   %Matrices = getelementptr inbounds i8, ptr %this, i64 3088
@@ -16188,7 +16188,7 @@ if.end:                                           ; preds = %if.then.i29, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video13COpenGLDriver14setViewPortRawEjj(ptr nocapture noundef nonnull align 8 dereferenceable(4344) initializes((304, 320)) %this, i32 noundef %width, i32 noundef %height) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video13COpenGLDriver14setViewPortRawEjj(ptr nocapture noundef nonnull align 8 dereferenceable(4344) %this, i32 noundef %width, i32 noundef %height) unnamed_addr #0 align 2 {
 entry:
   %CacheHandler = getelementptr inbounds i8, ptr %this, i64 3048
   %0 = load ptr, ptr %CacheHandler, align 8, !tbaa !6
@@ -16867,7 +16867,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK3irr5video13COpenGLDriver24getColorFormatParametersENS0_13ECOLOR_FORMATERiRjS4_PPFvPKviPvE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4344) %this, i32 noundef %format, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %internalFormat, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %pixelFormat, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %pixelType, ptr nocapture readnone %converter) local_unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZNK3irr5video13COpenGLDriver24getColorFormatParametersENS0_13ECOLOR_FORMATERiRjS4_PPFvPKviPvE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4344) %this, i32 noundef %format, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %internalFormat, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %pixelFormat, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %pixelType, ptr nocapture readnone %converter) local_unnamed_addr #13 align 2 {
 entry:
   store i32 6408, ptr %internalFormat, align 4, !tbaa !129
   store i32 6408, ptr %pixelFormat, align 4, !tbaa !129
@@ -19030,7 +19030,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video13COpenGLDriver21setFixedPipelineStateENS1_29E_OPENGL_FIXED_PIPELINE_STATEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4344) initializes((4076, 4080)) %this, i32 noundef %state) local_unnamed_addr #14 align 2 {
+define void @_ZN3irr5video13COpenGLDriver21setFixedPipelineStateENS1_29E_OPENGL_FIXED_PIPELINE_STATEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4344) %this, i32 noundef %state) local_unnamed_addr #14 align 2 {
 entry:
   %FixedPipelineState = getelementptr inbounds i8, ptr %this, i64 4076
   store i32 %state, ptr %FixedPipelineState, align 4, !tbaa !126

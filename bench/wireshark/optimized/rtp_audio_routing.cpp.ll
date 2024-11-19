@@ -23,7 +23,7 @@ module asm ".previous"
 @_ZN12AudioRoutingC1Eb23audio_routing_channel_t = unnamed_addr alias void (ptr, i1, i32), ptr @_ZN12AudioRoutingC2Eb23audio_routing_channel_t
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12AudioRoutingC2Eb23audio_routing_channel_t(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN12AudioRoutingC2Eb23audio_routing_channel_t(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -128,7 +128,7 @@ define i64 @_ZN12AudioRouting7convertEb(ptr nocapture noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12AudioRouting17mergeAudioRoutingES_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1)) %0, i64 %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12AudioRouting17mergeAudioRoutingES_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0, i64 %1) local_unnamed_addr #0 align 2 {
   %3 = icmp ult i64 %1, 4294967296
   br i1 %3, label %6, label %4
 

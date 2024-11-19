@@ -2321,7 +2321,7 @@ define dso_local noundef ptr @_ZN5clang8comments13CommandTraits21getBuiltinComma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8comments13CommandTraitsC2ERN4llvm20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEERKNS_14CommentOptionsE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang8comments13CommandTraitsC2ERN4llvm20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEERKNS_14CommentOptionsE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %2) unnamed_addr #1 align 2 {
   store i32 199, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8

@@ -299,7 +299,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib7FdmG2OpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_2G2EEEmm(ptr noundef nonnull align 8 dereferenceable(568) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %model, i64 noundef %direction1, i64 noundef %direction2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib7FdmG2OpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_2G2EEEmm(ptr noundef nonnull align 8 dereferenceable(568) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %model, i64 noundef %direction1, i64 noundef %direction2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::TripleBandLinearOp", align 8
   %ref.tmp9 = alloca %"class.QuantLib::FirstDerivativeOp", align 8

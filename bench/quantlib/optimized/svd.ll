@@ -49,7 +49,7 @@ $_ZN8QuantLib5ErrorD2Ev = comdat any
 @_ZN8QuantLib3SVDC1ERKNS_6MatrixE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib3SVDC2ERKNS_6MatrixE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib3SVDC2ERKNS_6MatrixE(ptr nocapture noundef nonnull align 8 dereferenceable(73) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %M) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib3SVDC2ERKNS_6MatrixE(ptr nocapture noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %M) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %V_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %s_ = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1717,7 +1717,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib3SVD1SEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib3SVD1SEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_ = getelementptr inbounds nuw i8, ptr %this, i64 68
   %0 = load i32, ptr %n_, align 4, !tbaa !30

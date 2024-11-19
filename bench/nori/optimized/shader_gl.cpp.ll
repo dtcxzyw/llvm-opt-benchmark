@@ -89,7 +89,7 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @_ZN7nanogui6ShaderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7nanogui6ShaderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6ShaderC2EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeE(ptr noundef nonnull align 8 dereferenceable(125) initializes((0, 12), (16, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6ShaderC2EPNS_10RenderPassERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_SA_NS0_9BlendModeE(ptr noundef nonnull align 8 dereferenceable(125) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca [4096 x i8], align 16
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1068,7 +1068,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7nanogui6ShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(125) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6ShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(125) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6ShaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 116
   %3 = load i32, ptr %2, align 4
@@ -1143,7 +1143,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @glDeleteVertexArrays(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7nanogui6ShaderD0Ev(ptr noundef nonnull align 8 dereferenceable(125) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN7nanogui6ShaderD0Ev(ptr noundef nonnull align 8 dereferenceable(125) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN7nanogui6ShaderD2Ev(ptr noundef nonnull align 8 dereferenceable(125) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void

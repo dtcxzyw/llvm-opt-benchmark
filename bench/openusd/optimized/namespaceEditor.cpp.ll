@@ -642,7 +642,7 @@ $_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_9SdfListOpINS_7S
 @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessorC1ERKNS_8TfRefPtrINS_8UsdStageEEERKNS0_16_EditDescriptionERKNS0_11EditOptionsEPNS0_14_ProcessedEditE = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessorC2ERKNS_8TfRefPtrINS_8UsdStageEEERKNS0_16_EditDescriptionERKNS0_11EditOptionsEPNS0_14_ProcessedEditE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditorC2ERKNS_8TfRefPtrINS_8UsdStageEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((0, 9), (12, 32), (192, 193)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditorC2ERKNS_8TfRefPtrINS_8UsdStageEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -685,7 +685,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEC2ERKS2_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditorC2ERKNS_8TfRefPtrINS_8UsdStageEEEONS0_11EditOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((0, 9), (12, 32), (192, 193)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditorC2ERKNS_8TfRefPtrINS_8UsdStageEEEONS0_11EditOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -732,7 +732,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEEC2ERKS2_.exit: ; pr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditorC2ERKNS_8TfRefPtrINS_8UsdStageEEERKNS0_11EditOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((0, 9), (12, 32), (192, 193)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditorC2ERKNS_8TfRefPtrINS_8UsdStageEEERKNS0_11EditOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -3396,7 +3396,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath13GetParentPathEv(pt
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath11GetPrimPathEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4, ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor11ProcessEditERKNS_8TfRefPtrINS_8UsdStageEEERKNS0_16_EditDescriptionERKNS0_11EditOptionsE(ptr dead_on_unwind noalias writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::UsdNamespaceEditor::_ProcessedEdit") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor11ProcessEditERKNS_8TfRefPtrINS_8UsdStageEEERKNS0_16_EditDescriptionERKNS0_11EditOptionsE(ptr dead_on_unwind noalias writable sret(%"struct.pxrInternal_v0_24__pxrReserved__::UsdNamespaceEditor::_ProcessedEdit") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdNamespaceEditor::_EditProcessor", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(153) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3636,7 +3636,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessorC2ERKNS_8TfRefPtrINS_8UsdStageEEERKNS0_16_EditDescriptionERKNS0_11EditOptionsEPNS0_14_ProcessedEditE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessorC2ERKNS_8TfRefPtrINS_8UsdStageEEERKNS0_16_EditDescriptionERKNS0_11EditOptionsEPNS0_14_ProcessedEditE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrimDefinition::Property", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -15868,7 +15868,7 @@ define linkonce_odr void @_ZN3tbb6detail2d118task_group_contextD2Ev(ptr noundef 
 declare void @_ZN3tbb6detail2r110initializeERNS0_2d118task_group_contextE(ptr noundef nonnull align 8 dereferenceable(128)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d218for_each_root_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_St20forward_iterator_tagED2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(169) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3tbb6detail2d218for_each_root_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_St20forward_iterator_tagED2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(169) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_EE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 16
@@ -15938,7 +15938,7 @@ _ZN3tbb6detail2d223for_each_root_task_baseIN32pxrInternal_v0_24__pxrReserved__22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d218for_each_root_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_St20forward_iterator_tagED0Ev(ptr noundef nonnull align 64 dereferenceable(169) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3tbb6detail2d218for_each_root_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_St20forward_iterator_tagED0Ev(ptr noundef nonnull align 64 dereferenceable(169) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_EE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 16
@@ -16482,7 +16482,7 @@ _ZN3tbb6detail2d112wait_context7releaseEj.exit:   ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_ED2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(169) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_ED2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(169) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d223for_each_root_task_baseIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_EE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i32, ptr %2, align 16
@@ -16560,7 +16560,7 @@ define internal void @_ZN3tbb6detail2d223for_each_root_task_baseIN32pxrInternal_
 declare noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEmRKNS2_14execution_dataE(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d227forward_block_handling_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_ED2Ev(ptr noundef nonnull align 64 dereferenceable(624) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3tbb6detail2d227forward_block_handling_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_ED2Ev(ptr noundef nonnull align 64 dereferenceable(624) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d227forward_block_handling_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_EE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %3 = load i64, ptr %2, align 64
@@ -16587,7 +16587,7 @@ define internal void @_ZN3tbb6detail2d227forward_block_handling_taskIN32pxrInter
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d227forward_block_handling_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_ED0Ev(ptr noundef nonnull align 64 dereferenceable(624) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3tbb6detail2d227forward_block_handling_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_ED0Ev(ptr noundef nonnull align 64 dereferenceable(624) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d227forward_block_handling_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_EE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %3 = load i64, ptr %2, align 64
@@ -16714,7 +16714,7 @@ _ZN3tbb6detail2d227forward_block_handling_taskIN32pxrInternal_v0_24__pxrReserved
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d223for_each_iteration_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_ED2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3tbb6detail2d223for_each_iteration_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_ED2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d223for_each_iteration_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_EE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
@@ -16752,7 +16752,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorD2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d223for_each_iteration_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_ED0Ev(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3tbb6detail2d223for_each_iteration_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_ED0Ev(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d223for_each_iteration_taskIN32pxrInternal_v0_24__pxrReserved__22UsdPrimSubtreeIteratorEZZNS3_12_GLOBAL__N_137_TargetingPropertyDependencyCollector4_RunERKNS3_8TfRefPtrINS3_8UsdStageEEEENKUlvE_clEvEUlRKNS3_7UsdPrimEE_SD_EE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
@@ -23854,7 +23854,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt8optionalIN32pxrInternal_v0_24__pxrReserved__7SdfPathEERKS2_EZNS1_18UsdNamespaceEditor14_EditProcessor24_GatherTargetListOpEditsEvE3$_0E9_M_invokeERKSt9_Any_dataS5_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.497") align 4 initializes((8, 9)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt8optionalIN32pxrInternal_v0_24__pxrReserved__7SdfPathEERKS2_EZNS1_18UsdNamespaceEditor14_EditProcessor24_GatherTargetListOpEditsEvE3$_0E9_M_invokeERKSt9_Any_dataS5_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.497") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %.val = load ptr, ptr %1, align 8

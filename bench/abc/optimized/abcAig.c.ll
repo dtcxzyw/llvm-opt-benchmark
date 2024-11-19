@@ -4740,7 +4740,7 @@ define void @Abc_AigSetNodePhases(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define ptr @Abc_AigUpdateStart(ptr nocapture noundef initializes((72, 88)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #11 {
+define ptr @Abc_AigUpdateStart(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #20
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4

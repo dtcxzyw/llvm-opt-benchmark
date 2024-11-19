@@ -961,7 +961,7 @@ virtscsi_tmf.exit:                                ; preds = %44, %8, %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @virtscsi_device_alloc(ptr nocapture noundef writeonly initializes((320, 328)) %0) #5 align 16 {
+define internal noundef i32 @virtscsi_device_alloc(ptr nocapture noundef writeonly %0) #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store i64 268435456, ptr %2, align 8
   ret i32 0

@@ -547,7 +547,7 @@ _ZN2cvL7makePtrINS_4rgbd12DepthCleanerEJiiiEEENS_3PtrIT_EEDpRKT0_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv4rgbd9RgbdFrameC2Ev(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 12)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv4rgbd9RgbdFrameC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd9RgbdFrameE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
@@ -566,7 +566,7 @@ define void @_ZN2cv4rgbd9RgbdFrameC2Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4rgbd9RgbdFrameC2ERKNS_3MatES4_S4_S4_i(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4rgbd9RgbdFrameC2ERKNS_3MatES4_S4_S4_i(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd9RgbdFrameE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %5, ptr %7, align 8
@@ -624,7 +624,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv4rgbd9RgbdFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv4rgbd9RgbdFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd9RgbdFrameE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 304
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #28
@@ -674,7 +674,7 @@ _ZN2cvL7makePtrINS_4rgbd9RgbdFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4rgbd9RgbdFrame7releaseEv(ptr noundef nonnull align 8 dereferenceable(400) initializes((8, 12)) %0) unnamed_addr #3 align 2 {
+define void @_ZN2cv4rgbd9RgbdFrame7releaseEv(ptr noundef nonnull align 8 dereferenceable(400) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -691,7 +691,7 @@ define void @_ZN2cv4rgbd9RgbdFrame7releaseEv(ptr noundef nonnull align 8 derefer
 declare void @_ZN2cv3Mat7releaseEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv4rgbd13OdometryFrameC2Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 12)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv4rgbd13OdometryFrameC2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd9RgbdFrameE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
@@ -710,7 +710,7 @@ define void @_ZN2cv4rgbd13OdometryFrameC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4rgbd13OdometryFrameC2ERKNS_3MatES4_S4_S4_i(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4rgbd13OdometryFrameC2ERKNS_3MatES4_S4_S4_i(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 8 dereferenceable(96) %4, i32 noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv4rgbd9RgbdFrameE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %5, ptr %7, align 8
@@ -790,7 +790,7 @@ _ZN2cvL7makePtrINS_4rgbd13OdometryFrameEJNS_3MatES3_S3_S3_iEEENS_3PtrIT_EEDpRKT0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4rgbd13OdometryFrame7releaseEv(ptr noundef nonnull align 8 dereferenceable(616) initializes((8, 12)) %0) unnamed_addr #3 align 2 {
+define void @_ZN2cv4rgbd13OdometryFrame7releaseEv(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -13813,7 +13813,7 @@ _ZN2cv3RNGclEj.exit25:                            ; preds = %41, %_ZN2cv3RNGclEj
 declare noundef i32 @_ZN2cv12countNonZeroERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv4rgbdL22calcRgbdEquationCoeffsEPdddRKNS_7Point3_IfEEdd(ptr nocapture noundef writeonly initializes((0, 48)) %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, double noundef %4, double noundef %5) unnamed_addr #14 {
+define internal void @_ZN2cv4rgbdL22calcRgbdEquationCoeffsEPdddRKNS_7Point3_IfEEdd(ptr nocapture noundef writeonly %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, double noundef %4, double noundef %5) unnamed_addr #14 {
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
@@ -13864,7 +13864,7 @@ define internal void @_ZN2cv4rgbdL22calcRgbdEquationCoeffsEPdddRKNS_7Point3_IfEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv4rgbdL21calcICPEquationCoeffsEPdRKNS_7Point3_IfEERKNS_3VecIfLi3EEE(ptr nocapture noundef writeonly initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #14 {
+define internal void @_ZN2cv4rgbdL21calcICPEquationCoeffsEPdRKNS_7Point3_IfEERKNS_3VecIfLi3EEE(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #14 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load float, ptr %4, align 4
   %6 = fneg float %5
@@ -13914,7 +13914,7 @@ define internal void @_ZN2cv4rgbdL21calcICPEquationCoeffsEPdRKNS_7Point3_IfEERKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv4rgbdL30calcRgbdEquationCoeffsRotationEPdddRKNS_7Point3_IfEEdd(ptr nocapture noundef writeonly initializes((0, 24)) %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, double noundef %4, double noundef %5) unnamed_addr #14 {
+define internal void @_ZN2cv4rgbdL30calcRgbdEquationCoeffsRotationEPdddRKNS_7Point3_IfEEdd(ptr nocapture noundef writeonly %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, double noundef %4, double noundef %5) unnamed_addr #14 {
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
@@ -13959,7 +13959,7 @@ define internal void @_ZN2cv4rgbdL30calcRgbdEquationCoeffsRotationEPdddRKNS_7Poi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv4rgbdL29calcICPEquationCoeffsRotationEPdRKNS_7Point3_IfEERKNS_3VecIfLi3EEE(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #14 {
+define internal void @_ZN2cv4rgbdL29calcICPEquationCoeffsRotationEPdRKNS_7Point3_IfEERKNS_3VecIfLi3EEE(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #14 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load float, ptr %4, align 4
   %6 = fneg float %5
@@ -13997,7 +13997,7 @@ define internal void @_ZN2cv4rgbdL29calcICPEquationCoeffsRotationEPdRKNS_7Point3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv4rgbdL33calcRgbdEquationCoeffsTranslationEPdddRKNS_7Point3_IfEEdd(ptr nocapture noundef writeonly initializes((0, 24)) %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, double noundef %4, double noundef %5) unnamed_addr #14 {
+define internal void @_ZN2cv4rgbdL33calcRgbdEquationCoeffsTranslationEPdddRKNS_7Point3_IfEEdd(ptr nocapture noundef writeonly %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3, double noundef %4, double noundef %5) unnamed_addr #14 {
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   %8 = load float, ptr %7, align 4
   %9 = fpext float %8 to double
@@ -14024,7 +14024,7 @@ define internal void @_ZN2cv4rgbdL33calcRgbdEquationCoeffsTranslationEPdddRKNS_7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN2cv4rgbdL32calcICPEquationCoeffsTranslationEPdRKNS_7Point3_IfEERKNS_3VecIfLi3EEE(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #14 {
+define internal void @_ZN2cv4rgbdL32calcICPEquationCoeffsTranslationEPdRKNS_7Point3_IfEERKNS_3VecIfLi3EEE(ptr nocapture noundef writeonly %0, ptr nocapture nonnull readnone align 4 %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #14 {
   %4 = load float, ptr %2, align 4
   %5 = fpext float %4 to double
   store double %5, ptr %0, align 8

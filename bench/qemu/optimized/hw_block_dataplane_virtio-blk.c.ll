@@ -49,7 +49,7 @@ entry:
 declare void @virtio_notify_irqfd(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @virtio_blk_data_plane_create(ptr noundef %vdev, ptr noundef %conf, ptr nocapture noundef writeonly initializes((0, 8)) %dataplane, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @virtio_blk_data_plane_create(ptr noundef %vdev, ptr noundef %conf, ptr nocapture noundef writeonly %dataplane, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.8, i32 noundef 77, ptr noundef nonnull @__func__.DEVICE) #6
   %call1 = tail call ptr @qdev_get_parent_bus(ptr noundef %call.i) #6

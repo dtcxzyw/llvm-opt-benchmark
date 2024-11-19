@@ -140,7 +140,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core16HandshakeManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 25), (32, 40), (56, 64), (136, 144)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16HandshakeManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core21grpc_handshaker_traceE, i64 16) monotonic, align 8
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -337,7 +337,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit3:       ; preds = %invoke.cont11
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core16HandshakeManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16HandshakeManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core16HandshakeManagerE, i64 16), ptr %this, align 8
   %handshakers_ = getelementptr inbounds i8, ptr %this, i64 32

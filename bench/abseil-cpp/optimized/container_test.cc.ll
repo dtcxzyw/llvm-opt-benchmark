@@ -3057,14 +3057,14 @@ ehcleanup31:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Distance_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Distance_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Distance_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Distance_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -3704,7 +3704,7 @@ _ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_M
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115NonMutatingTestE, i64 16), ptr %this, align 8
   %vector_ = getelementptr inbounds i8, ptr %this, i64 96
@@ -4424,14 +4424,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_148NonMutatingTest_Distance_OverloadedBeginEnd_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_148NonMutatingTest_Distance_OverloadedBeginEnd_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_148NonMutatingTest_Distance_OverloadedBeginEnd_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_148NonMutatingTest_Distance_OverloadedBeginEnd_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -4780,14 +4780,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_ForEach_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_ForEach_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_ForEach_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_ForEach_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -6393,14 +6393,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_FindReturnsCorrectType_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_FindReturnsCorrectType_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_FindReturnsCorrectType_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_FindReturnsCorrectType_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -6656,14 +6656,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_FindIf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_FindIf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_FindIf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_FindIf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -6708,14 +6708,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130NonMutatingTest_FindIfNot_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_130NonMutatingTest_FindIfNot_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130NonMutatingTest_FindIfNot_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_130NonMutatingTest_FindIfNot_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -6760,14 +6760,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_FindEnd_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_FindEnd_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_FindEnd_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_FindEnd_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -7257,14 +7257,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_FindEndWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_FindEndWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_FindEndWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_FindEndWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -7683,14 +7683,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_132NonMutatingTest_FindFirstOf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_132NonMutatingTest_FindFirstOf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_132NonMutatingTest_FindFirstOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_132NonMutatingTest_FindFirstOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -7795,14 +7795,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_FindFirstOfWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_FindFirstOfWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_FindFirstOfWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_FindFirstOfWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -7907,14 +7907,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_AdjacentFind_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_AdjacentFind_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_AdjacentFind_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_AdjacentFind_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -7959,14 +7959,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_AdjacentFindWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_AdjacentFindWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_AdjacentFindWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_AdjacentFindWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -8011,14 +8011,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Count_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Count_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Count_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Count_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -8198,14 +8198,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_CountIf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_CountIf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_CountIf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_CountIf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -8516,14 +8516,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Mismatch_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Mismatch_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Mismatch_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Mismatch_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -10238,14 +10238,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_142NonMutatingTest_MismatchWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_142NonMutatingTest_MismatchWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_142NonMutatingTest_MismatchWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_142NonMutatingTest_MismatchWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -11806,14 +11806,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Equal_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Equal_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Equal_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Equal_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -12715,14 +12715,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_139NonMutatingTest_EqualWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_139NonMutatingTest_EqualWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_139NonMutatingTest_EqualWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_139NonMutatingTest_EqualWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -13632,14 +13632,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_134NonMutatingTest_IsPermutation_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_134NonMutatingTest_IsPermutation_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_134NonMutatingTest_IsPermutation_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_134NonMutatingTest_IsPermutation_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -14666,14 +14666,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147NonMutatingTest_IsPermutationWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_147NonMutatingTest_IsPermutationWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147NonMutatingTest_IsPermutationWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_147NonMutatingTest_IsPermutationWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -16055,14 +16055,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_Search_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_Search_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_Search_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_Search_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -16726,14 +16726,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140NonMutatingTest_SearchWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_140NonMutatingTest_SearchWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140NonMutatingTest_SearchWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_140NonMutatingTest_SearchWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -16995,14 +16995,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_SearchN_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_SearchN_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_SearchN_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_SearchN_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -17047,14 +17047,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_SearchNWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_SearchNWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_SearchNWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_SearchNWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -17099,14 +17099,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_LowerBound_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_LowerBound_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_LowerBound_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_LowerBound_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -17526,14 +17526,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_LowerBoundWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_LowerBoundWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_LowerBoundWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_LowerBoundWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -18548,14 +18548,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_UpperBound_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_UpperBound_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_UpperBound_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_UpperBound_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -18975,14 +18975,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_UpperBoundWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_UpperBoundWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_UpperBoundWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_UpperBoundWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -19331,14 +19331,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_EqualRange_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_EqualRange_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_EqualRange_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_EqualRange_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -19816,14 +19816,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_136NonMutatingTest_EqualRangeArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_136NonMutatingTest_EqualRangeArray_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_136NonMutatingTest_EqualRangeArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_136NonMutatingTest_EqualRangeArray_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -20174,14 +20174,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_EqualRangeWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_EqualRangeWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_EqualRangeWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_EqualRangeWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -20596,14 +20596,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_BinarySearch_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_BinarySearch_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_BinarySearch_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_BinarySearch_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -20953,14 +20953,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_BinarySearchWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_BinarySearchWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_BinarySearchWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_BinarySearchWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -21358,14 +21358,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MinElement_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MinElement_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MinElement_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MinElement_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -21642,14 +21642,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MinElementWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MinElementWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MinElementWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MinElementWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -21926,14 +21926,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MaxElement_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MaxElement_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MaxElement_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MaxElement_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -22210,14 +22210,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MaxElementWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MaxElementWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MaxElementWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MaxElementWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -22494,14 +22494,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_LexicographicalCompare_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_LexicographicalCompare_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_LexicographicalCompare_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_LexicographicalCompare_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -23087,14 +23087,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_LexicographicalCopmareWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_LexicographicalCopmareWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_LexicographicalCopmareWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_LexicographicalCopmareWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -23685,14 +23685,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Includes_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Includes_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Includes_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_129NonMutatingTest_Includes_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -24147,14 +24147,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_142NonMutatingTest_IncludesWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_142NonMutatingTest_IncludesWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_142NonMutatingTest_IncludesWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_142NonMutatingTest_IncludesWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -24674,7 +24674,7 @@ lpad.body:                                        ; preds = %while.body.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129NumericMutatingTest_Iota_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_129NumericMutatingTest_Iota_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumericMutatingTestE, i64 16), ptr %this, align 8
   %output_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -24705,7 +24705,7 @@ _ZN12_GLOBAL__N_119NumericMutatingTestD2Ev.exit:  ; preds = %while.body.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129NumericMutatingTest_Iota_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_129NumericMutatingTest_Iota_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumericMutatingTestE, i64 16), ptr %this, align 8
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -24976,7 +24976,7 @@ eh.resume:                                        ; preds = %while.body.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119NumericMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_119NumericMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumericMutatingTestE, i64 16), ptr %this, align 8
   %output_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -25168,14 +25168,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_Accumulate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_Accumulate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_Accumulate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_Accumulate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -25354,14 +25354,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_AccumulateWithBinaryOp_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_AccumulateWithBinaryOp_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_AccumulateWithBinaryOp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_AccumulateWithBinaryOp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -25540,14 +25540,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_AccumulateLvalueInit_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_AccumulateLvalueInit_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_AccumulateLvalueInit_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_AccumulateLvalueInit_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -25726,14 +25726,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_153NonMutatingTest_AccumulateWithBinaryOpLvalueInit_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_153NonMutatingTest_AccumulateWithBinaryOpLvalueInit_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_153NonMutatingTest_AccumulateWithBinaryOpLvalueInit_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_153NonMutatingTest_AccumulateWithBinaryOpLvalueInit_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -25912,14 +25912,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_InnerProduct_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_InnerProduct_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_InnerProduct_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_InnerProduct_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -26107,14 +26107,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_InnerProductWithBinaryOps_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_InnerProductWithBinaryOps_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_InnerProductWithBinaryOps_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_InnerProductWithBinaryOps_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -26302,14 +26302,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_InnerProductLvalueInit_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_InnerProductLvalueInit_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_InnerProductLvalueInit_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_InnerProductLvalueInit_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -26497,14 +26497,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_InnerProductWithBinaryOpsLvalueInit_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_InnerProductWithBinaryOpsLvalueInit_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_InnerProductWithBinaryOpsLvalueInit_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_InnerProductWithBinaryOpsLvalueInit_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -26692,7 +26692,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143NumericMutatingTest_AdjacentDifference_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_143NumericMutatingTest_AdjacentDifference_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumericMutatingTestE, i64 16), ptr %this, align 8
   %output_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -26723,7 +26723,7 @@ _ZN12_GLOBAL__N_119NumericMutatingTestD2Ev.exit:  ; preds = %while.body.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143NumericMutatingTest_AdjacentDifference_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_143NumericMutatingTest_AdjacentDifference_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumericMutatingTestE, i64 16), ptr %this, align 8
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -27200,7 +27200,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_155NumericMutatingTest_AdjacentDifferenceWithBinaryOp_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_155NumericMutatingTest_AdjacentDifferenceWithBinaryOp_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumericMutatingTestE, i64 16), ptr %this, align 8
   %output_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -27231,7 +27231,7 @@ _ZN12_GLOBAL__N_119NumericMutatingTestD2Ev.exit:  ; preds = %while.body.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_155NumericMutatingTest_AdjacentDifferenceWithBinaryOp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_155NumericMutatingTest_AdjacentDifferenceWithBinaryOp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumericMutatingTestE, i64 16), ptr %this, align 8
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -27708,7 +27708,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_135NumericMutatingTest_PartialSum_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_135NumericMutatingTest_PartialSum_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumericMutatingTestE, i64 16), ptr %this, align 8
   %output_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -27739,7 +27739,7 @@ _ZN12_GLOBAL__N_119NumericMutatingTestD2Ev.exit:  ; preds = %while.body.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_135NumericMutatingTest_PartialSum_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_135NumericMutatingTest_PartialSum_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumericMutatingTestE, i64 16), ptr %this, align 8
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -28216,7 +28216,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147NumericMutatingTest_PartialSumWithBinaryOp_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_147NumericMutatingTest_PartialSumWithBinaryOp_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumericMutatingTestE, i64 16), ptr %this, align 8
   %output_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -28247,7 +28247,7 @@ _ZN12_GLOBAL__N_119NumericMutatingTestD2Ev.exit:  ; preds = %while.body.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147NumericMutatingTest_PartialSumWithBinaryOp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_147NumericMutatingTest_PartialSumWithBinaryOp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119NumericMutatingTestE, i64 16), ptr %this, align 8
   %output_.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -28724,14 +28724,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_LinearSearch_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_LinearSearch_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_LinearSearch_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_LinearSearch_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -29015,14 +29015,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_AllOf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_AllOf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_AllOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_AllOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -29484,14 +29484,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_AnyOf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_AnyOf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_AnyOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_AnyOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -29953,14 +29953,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_NoneOf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_NoneOf_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_NoneOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127NonMutatingTest_NoneOf_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -30422,14 +30422,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138NonMutatingTest_MinMaxElementLess_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_138NonMutatingTest_MinMaxElementLess_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138NonMutatingTest_MinMaxElementLess_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_138NonMutatingTest_MinMaxElementLess_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -30781,14 +30781,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_MinMaxElementGreater_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_MinMaxElementGreater_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_MinMaxElementGreater_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_MinMaxElementGreater_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -31139,14 +31139,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_MinMaxElementNoPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_MinMaxElementNoPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_MinMaxElementNoPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_MinMaxElementNoPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -31683,7 +31683,7 @@ ehcleanup29:                                      ; preds = %while.body.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125SortingTest_IsSorted_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_125SortingTest_IsSorted_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111SortingTestE, i64 16), ptr %this, align 8
   %reversed_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -31730,7 +31730,7 @@ _ZN12_GLOBAL__N_111SortingTestD2Ev.exit:          ; preds = %while.body.i.i.i7.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125SortingTest_IsSorted_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_125SortingTest_IsSorted_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111SortingTestE, i64 16), ptr %this, align 8
   %reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -32148,7 +32148,7 @@ eh.resume:                                        ; preds = %lpad48, %_ZN7testin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111SortingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_111SortingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111SortingTestE, i64 16), ptr %this, align 8
   %reversed_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -32233,7 +32233,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138SortingTest_IsSortedWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_138SortingTest_IsSortedWithPredicate_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111SortingTestE, i64 16), ptr %this, align 8
   %reversed_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -32280,7 +32280,7 @@ _ZN12_GLOBAL__N_111SortingTestD2Ev.exit:          ; preds = %while.body.i.i.i7.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138SortingTest_IsSortedWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_138SortingTest_IsSortedWithPredicate_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111SortingTestE, i64 16), ptr %this, align 8
   %reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -32729,7 +32729,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130SortingTest_IsSortedUntil_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_130SortingTest_IsSortedUntil_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111SortingTestE, i64 16), ptr %this, align 8
   %reversed_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -32776,7 +32776,7 @@ _ZN12_GLOBAL__N_111SortingTestD2Ev.exit:          ; preds = %while.body.i.i.i7.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130SortingTest_IsSortedUntil_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_130SortingTest_IsSortedUntil_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111SortingTestE, i64 16), ptr %this, align 8
   %reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -33125,7 +33125,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127SortingTest_NthElement_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_127SortingTest_NthElement_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111SortingTestE, i64 16), ptr %this, align 8
   %reversed_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -33172,7 +33172,7 @@ _ZN12_GLOBAL__N_111SortingTestD2Ev.exit:          ; preds = %while.body.i.i.i7.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127SortingTest_NthElement_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_127SortingTest_NthElement_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_111SortingTestE, i64 16), ptr %this, align 8
   %reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -53138,7 +53138,7 @@ ehcleanup55:                                      ; preds = %ehcleanup54, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_132MutatingTest_MoveWithRvalue_Test8TestBodyEvENK3$_0clEv"(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_132MutatingTest_MoveWithRvalue_Test8TestBodyEvENK3$_0clEv"(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call.i2 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #32
@@ -55144,14 +55144,14 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130NonMutatingTest_Transform_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_130NonMutatingTest_Transform_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130NonMutatingTest_Transform_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_130NonMutatingTest_Transform_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_115NonMutatingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -61380,7 +61380,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS3_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing7MatcherIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS3_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -61456,7 +61456,7 @@ _ZNSt12_Vector_baseIN7testing7MatcherIRKN12_GLOBAL__N_17ElementEEESaIS6_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKN12_GLOBAL__N_17ElementEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing7MatcherIRKN12_GLOBAL__N_17ElementEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -61497,7 +61497,7 @@ _ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKN12_GLOBAL__N_17ElementEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing7MatcherIRKN12_GLOBAL__N_17ElementEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -61605,7 +61605,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -61646,7 +61646,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN12_GLOBAL__N_17ElementEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -62282,7 +62282,7 @@ _ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_17ElementEEESaIS6_EE12emplace_bac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal22ElementsAreMatcherImplIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal22ElementsAreMatcherImplIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEEE, i64 16), ptr %this, align 8
   %matchers_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -62319,7 +62319,7 @@ _ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_17ElementEEESaIS6_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal22ElementsAreMatcherImplIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal22ElementsAreMatcherImplIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEEE, i64 16), ptr %this, align 8
   %matchers_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -63353,7 +63353,7 @@ ehcleanup:                                        ; preds = %lpad3.loopexit, %lp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing7MatcherIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -63428,7 +63428,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -63469,7 +63469,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIN12_GLOBAL__N_17ElementESaIS4_EEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -79188,7 +79188,7 @@ ehcleanup38:                                      ; preds = %lpad.i, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131SetOperationsTest_SetUnion_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131SetOperationsTest_SetUnion_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -79236,7 +79236,7 @@ _ZN12_GLOBAL__N_117SetOperationsTestD2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131SetOperationsTest_SetUnion_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131SetOperationsTest_SetUnion_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -79442,7 +79442,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit14:                  ; preds = %ehcleanup26, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117SetOperationsTestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_117SetOperationsTestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -79789,7 +79789,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145SetOperationsTest_SetUnionWithComparator_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145SetOperationsTest_SetUnionWithComparator_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -79837,7 +79837,7 @@ _ZN12_GLOBAL__N_117SetOperationsTestD2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145SetOperationsTest_SetUnionWithComparator_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145SetOperationsTest_SetUnionWithComparator_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -80335,7 +80335,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138SetOperationsTest_SetIntersection_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_138SetOperationsTest_SetIntersection_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -80383,7 +80383,7 @@ _ZN12_GLOBAL__N_117SetOperationsTestD2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138SetOperationsTest_SetIntersection_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_138SetOperationsTest_SetIntersection_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -80737,7 +80737,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_152SetOperationsTest_SetIntersectionWithComparator_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_152SetOperationsTest_SetIntersectionWithComparator_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -80785,7 +80785,7 @@ _ZN12_GLOBAL__N_117SetOperationsTestD2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_152SetOperationsTest_SetIntersectionWithComparator_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_152SetOperationsTest_SetIntersectionWithComparator_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -81139,7 +81139,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_136SetOperationsTest_SetDifference_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_136SetOperationsTest_SetDifference_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -81187,7 +81187,7 @@ _ZN12_GLOBAL__N_117SetOperationsTestD2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_136SetOperationsTest_SetDifference_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_136SetOperationsTest_SetDifference_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -81540,7 +81540,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150SetOperationsTest_SetDifferenceWithComparator_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150SetOperationsTest_SetDifferenceWithComparator_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -81588,7 +81588,7 @@ _ZN12_GLOBAL__N_117SetOperationsTestD2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150SetOperationsTest_SetDifferenceWithComparator_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150SetOperationsTest_SetDifferenceWithComparator_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -81941,7 +81941,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145SetOperationsTest_SetSymmetricDifference_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145SetOperationsTest_SetSymmetricDifference_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -81989,7 +81989,7 @@ _ZN12_GLOBAL__N_117SetOperationsTestD2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145SetOperationsTest_SetSymmetricDifference_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145SetOperationsTest_SetSymmetricDifference_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -82414,7 +82414,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_159SetOperationsTest_SetSymmetricDifferenceWithComparator_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_159SetOperationsTest_SetSymmetricDifferenceWithComparator_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -82462,7 +82462,7 @@ _ZN12_GLOBAL__N_117SetOperationsTestD2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_159SetOperationsTest_SetSymmetricDifferenceWithComparator_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_159SetOperationsTest_SetSymmetricDifferenceWithComparator_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117SetOperationsTestE, i64 16), ptr %this, align 8
   %b_reversed_.i.i = getelementptr inbounds i8, ptr %this, i64 88

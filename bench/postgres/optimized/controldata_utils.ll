@@ -133,7 +133,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #1
 declare void @pg_usleep(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @update_controlfile(ptr noundef %0, ptr noundef initializes((24, 32), (288, 292)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @update_controlfile(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca [8192 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = tail call i64 @time(ptr noundef null) #8

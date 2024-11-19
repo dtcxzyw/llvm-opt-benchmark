@@ -121,7 +121,7 @@ define dso_local void @ext4_exit_es() local_unnamed_addr #2 align 16 {
 declare dso_local void @kmem_cache_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @ext4_es_init_tree(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #3 align 16 {
+define dso_local void @ext4_es_init_tree(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -4107,7 +4107,7 @@ define dso_local void @ext4_exit_pending() local_unnamed_addr #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @ext4_init_pending_tree(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #3 align 16 {
+define dso_local void @ext4_init_pending_tree(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 align 16 {
   store ptr null, ptr %0, align 8
   ret void
 }

@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Arrowtypes = internal unnamed_addr constant [8 x %struct.arrowtype_t] [%struct.arrowtype_t { i32 1, double 1.000000e+00, ptr @arrow_type_normal, ptr @arrow_length_normal }, %struct.arrowtype_t { i32 2, double 1.000000e+00, ptr @arrow_type_crow, ptr @arrow_length_crow }, %struct.arrowtype_t { i32 3, double 5.000000e-01, ptr @arrow_type_tee, ptr @arrow_length_tee }, %struct.arrowtype_t { i32 4, double 1.000000e+00, ptr @arrow_type_box, ptr @arrow_length_box }, %struct.arrowtype_t { i32 5, double 1.200000e+00, ptr @arrow_type_diamond, ptr @arrow_length_diamond }, %struct.arrowtype_t { i32 6, double 8.000000e-01, ptr @arrow_type_dot, ptr @arrow_length_dot }, %struct.arrowtype_t { i32 7, double 1.000000e+00, ptr @arrow_type_curve, ptr @arrow_length_curve }, %struct.arrowtype_t { i32 8, double 5.000000e-01, ptr @arrow_type_gap, ptr @arrow_length_generic }], align 16
 
 ; Function Attrs: nounwind uwtable
-define void @arrow_flags(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
+define void @arrow_flags(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   store i32 0, ptr %1, align 4
@@ -186,7 +186,7 @@ declare ptr @agxget(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @agattr(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @arrow_match_name(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #0 {
+define internal fastcc void @arrow_match_name(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %3 = load i8, ptr %0, align 1
   %.not = icmp eq i8 %3, 0
@@ -965,7 +965,7 @@ arrow_length.exit226:                             ; preds = %.loopexit.i222, %14
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @arrow_bb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boxf) align 8 initializes((0, 32)) %0, double %1, double %2, double %3, double %4, double noundef %5) local_unnamed_addr #5 {
+define void @arrow_bb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.boxf) align 8 %0, double %1, double %2, double %3, double %4, double noundef %5) local_unnamed_addr #5 {
   %7 = fsub double %3, %1
   %8 = fsub double %4, %2
   %9 = fmul double %5, 1.000000e+01
@@ -1833,7 +1833,7 @@ define internal noundef double @arrow_length_generic(double noundef %0, double n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal fastcc { double, double } @arrow_type_normal0(double %0, double %1, double %2, double %3, double noundef %4, i32 noundef %5, ptr nocapture noundef nonnull initializes((64, 80)) %6) unnamed_addr #9 {
+define internal fastcc { double, double } @arrow_type_normal0(double %0, double %1, double %2, double %3, double noundef %4, i32 noundef %5, ptr nocapture noundef nonnull %6) unnamed_addr #9 {
   %8 = alloca %struct.triangle, align 8
   %9 = alloca %struct.triangle, align 8
   %10 = alloca %struct.triangle, align 8
@@ -2010,7 +2010,7 @@ declare void @gvrender_polygon(ptr noundef, ptr noundef, i64 noundef, i32 nounde
 declare double @acos(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 48)) %0, double %1, double %2, double %3, double %4, double %5, double %6, double noundef %7) unnamed_addr #5 {
+define internal fastcc void @miter_shape(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, double %1, double %2, double %3, double %4, double %5, double %6, double noundef %7) unnamed_addr #5 {
   %9 = fcmp oeq double %1, %3
   %10 = fcmp oeq double %2, %4
   %or.cond = select i1 %9, i1 %10, i1 false
@@ -2121,7 +2121,7 @@ declare double @tan(double noundef) local_unnamed_addr #6
 declare double @llvm.fabs.f64(double) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1, double %2, double %3, double noundef %4, double noundef %5, i32 noundef %6, ptr nocapture noundef nonnull initializes((128, 144)) %7) unnamed_addr #9 {
+define internal fastcc { double, double } @arrow_type_crow0(double %0, double %1, double %2, double %3, double noundef %4, double noundef %5, i32 noundef %6, ptr nocapture noundef nonnull %7) unnamed_addr #9 {
   %9 = alloca %struct.triangle, align 8
   %10 = alloca %struct.triangle, align 8
   %11 = alloca %struct.triangle, align 8

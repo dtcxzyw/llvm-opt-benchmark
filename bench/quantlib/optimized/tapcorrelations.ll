@@ -489,7 +489,7 @@ declare double @cos(double noundef) local_unnamed_addr #6
 declare double @sin(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib34lmmTriangularAnglesParametrizationERKNS_5ArrayEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %angles, i64 noundef %matrixSize, i64 noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib34lmmTriangularAnglesParametrizationERKNS_5ArrayEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %angles, i64 noundef %matrixSize, i64 noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %mul.i = mul i64 %matrixSize, %matrixSize
   %cmp.not.i = icmp eq i64 %mul.i, 0
@@ -785,7 +785,7 @@ _ZN8QuantLib5ArrayD2Ev.exit14:                    ; preds = %lpad7, %_ZNKSt14def
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib40triangularAnglesParametrizationRankThreeEdddm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, double noundef %alpha, double noundef %t0, double noundef %epsilon, i64 noundef %matrixSize) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib40triangularAnglesParametrizationRankThreeEdddm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, double noundef %alpha, double noundef %t0, double noundef %epsilon, i64 noundef %matrixSize) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i = icmp eq i64 %matrixSize, 0
   br i1 %cmp.not.i, label %_ZN8QuantLib6MatrixC2Emm.exit.thread, label %invoke.cont18.preheader
@@ -1343,7 +1343,7 @@ unreachable:                                      ; preds = %invoke.cont24
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib21FrobeniusCostFunction6valuesERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib21FrobeniusCostFunction6valuesERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %x) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr2.i = alloca i64, align 8
   %__args.addr4.i = alloca i64, align 8

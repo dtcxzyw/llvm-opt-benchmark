@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [2 x i8] c"I\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
+define void @dsterf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca double, align 8
   %7 = alloca double, align 8

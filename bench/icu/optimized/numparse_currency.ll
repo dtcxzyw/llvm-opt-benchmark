@@ -514,7 +514,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherC2ERKNS_6number4impl15CurrencySymbolsERKNS_20DecimalFormatSymbolsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(856) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(232) %currencySymbols, ptr noundef nonnull align 8 dereferenceable(2883) %dfs, i32 noundef %parseFlags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl23CombinedCurrencyMatcherC2ERKNS_6number4impl15CurrencySymbolsERKNS_20DecimalFormatSymbolsEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(856) %this, ptr noundef nonnull align 8 dereferenceable(232) %currencySymbols, ptr noundef nonnull align 8 dereferenceable(2883) %dfs, i32 noundef %parseFlags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::Locale", align 8
   %ref.tmp26 = alloca %"class.icu_75::UnicodeString", align 8

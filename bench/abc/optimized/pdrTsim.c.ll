@@ -197,7 +197,7 @@ Vec_IntPush.exit34:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Pdr_ManCollectCone(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((4, 8)) %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define void @Pdr_ManCollectCone(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 4
@@ -593,7 +593,7 @@ Aig_ManObj.exit96:                                ; preds = %Aig_ManObj.exit96.l
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Pdr_ManExtendOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Pdr_ManExtendOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 376
   %.val63 = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %1, i64 36

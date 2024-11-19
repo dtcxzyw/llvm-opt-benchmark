@@ -201,7 +201,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15static_featuresC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(792) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15static_featuresC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(792) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i33 = alloca %class.symbol, align 8
   %ref.tmp.i28 = alloca %class.symbol, align 8
@@ -4576,7 +4576,7 @@ return:                                           ; preds = %for.inc, %_ZN15stat
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15static_features7new_ctxEP4expr(ptr noalias nocapture writeonly sret(%"class.std::tuple") align 1 initializes((0, 3)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(792) %this, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15static_features7new_ctxEP4expr(ptr noalias nocapture writeonly sret(%"class.std::tuple") align 1 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(792) %this, ptr noundef %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_kind.i.i.i = getelementptr inbounds i8, ptr %e, i64 4
   %bf.load.i.i.i = load i32, ptr %m_kind.i.i.i, align 4

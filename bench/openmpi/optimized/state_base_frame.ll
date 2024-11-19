@@ -93,14 +93,14 @@ define internal i32 @prte_state_base_close() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @prte_state_construct(ptr nocapture noundef writeonly initializes((144, 160)) %0) #1 {
+define internal void @prte_state_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @prte_state_caddy_construct(ptr nocapture noundef writeonly initializes((120, 256)) %0) #1 {
+define internal void @prte_state_caddy_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %2, i8 0, i64 136, i1 false)
   ret void

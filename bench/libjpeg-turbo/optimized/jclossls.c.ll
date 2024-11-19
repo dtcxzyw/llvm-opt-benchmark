@@ -114,7 +114,7 @@ define internal void @noscale(ptr nocapture readnone %0, ptr nocapture noundef r
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_difference_first_row(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
+define internal void @jpeg_difference_first_row(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %2, align 1
@@ -244,7 +244,7 @@ define internal void @jpeg_difference_first_row(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_difference1(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
+define internal void @jpeg_difference1(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %2, align 1
@@ -307,7 +307,7 @@ define internal void @jpeg_difference1(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_difference2(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
+define internal void @jpeg_difference2(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1
@@ -373,7 +373,7 @@ define internal void @jpeg_difference2(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_difference3(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
+define internal void @jpeg_difference3(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1
@@ -440,7 +440,7 @@ define internal void @jpeg_difference3(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_difference4(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
+define internal void @jpeg_difference4(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1
@@ -510,7 +510,7 @@ define internal void @jpeg_difference4(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_difference5(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
+define internal void @jpeg_difference5(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1
@@ -581,7 +581,7 @@ define internal void @jpeg_difference5(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_difference6(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
+define internal void @jpeg_difference6(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1
@@ -652,7 +652,7 @@ define internal void @jpeg_difference6(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @jpeg_difference7(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5) #4 {
+define internal void @jpeg_difference7(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5) #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr %3, align 1

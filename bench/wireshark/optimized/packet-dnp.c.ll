@@ -2258,7 +2258,7 @@ declare void @col_append_sep_str(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dnp3_al_process_object(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %5, ptr noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc i32 @dnp3_al_process_object(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca %struct.nstime_t, align 8
@@ -4484,7 +4484,7 @@ default.unreachable77:                            ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dnp3_al_get_timestamp(ptr nocapture noundef nonnull writeonly initializes((0, 12)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @dnp3_al_get_timestamp(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %2) #6
   %5 = add i32 %2, 2
   %6 = tail call i32 @tvb_get_letohl(ptr noundef %1, i32 noundef %5) #6

@@ -73,7 +73,7 @@ entry:
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_tls_rl_record_set_seq_num(ptr nocapture noundef writeonly initializes((58, 66)) %r, ptr nocapture noundef readonly %seq_num) local_unnamed_addr #2 {
+define void @ossl_tls_rl_record_set_seq_num(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %seq_num) local_unnamed_addr #2 {
 entry:
   %seq_num1 = getelementptr inbounds i8, ptr %r, i64 58
   %0 = load i64, ptr %seq_num, align 1
@@ -85,7 +85,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_rlayer_fatal(ptr nocapture noundef writeonly initializes((4104, 4108)) %rl, i32 noundef %al, i32 noundef %reason, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define void @ossl_rlayer_fatal(ptr nocapture noundef writeonly %rl, i32 noundef %al, i32 noundef %reason, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -1991,7 +1991,7 @@ declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @tls_int_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %mackey, i64 %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 %mactype, ptr noundef %md, ptr nocapture readnone %comp, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr nocapture readnone %local, ptr nocapture readnone %peer, ptr noundef %settings, ptr noundef %options, ptr noundef readonly %fns, ptr noundef %cbarg, ptr nocapture noundef writeonly initializes((0, 8)) %retrl) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @tls_int_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, ptr nocapture readnone %key, i64 %keylen, ptr nocapture readnone %iv, i64 %ivlen, ptr nocapture readnone %mackey, i64 %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 %mactype, ptr noundef %md, ptr nocapture readnone %comp, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr nocapture readnone %local, ptr nocapture readnone %peer, ptr noundef %settings, ptr noundef %options, ptr noundef readonly %fns, ptr noundef %cbarg, ptr nocapture noundef writeonly %retrl) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 4432, ptr noundef nonnull @.str, i32 noundef 1235) #12
   store ptr null, ptr %retrl, align 8
@@ -2583,7 +2583,7 @@ declare i32 @WPACKET_init_static_len(ptr noundef, ptr noundef, i64 noundef, i64 
 declare i32 @WPACKET_allocate_bytes(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_prepare_record_header_default(ptr nocapture noundef %rl, ptr noundef %thispkt, ptr nocapture noundef readonly %templ, i8 noundef zeroext %rectype, ptr noundef initializes((0, 8)) %recdata) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_prepare_record_header_default(ptr nocapture noundef %rl, ptr noundef %thispkt, ptr nocapture noundef readonly %templ, i8 noundef zeroext %rectype, ptr noundef %recdata) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %recdata, align 8
   %buflen = getelementptr inbounds i8, ptr %templ, i64 16
@@ -3485,7 +3485,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @tls_set_plain_alerts(ptr nocapture noundef writeonly initializes((4284, 4288)) %rl, i32 noundef %allow) #9 {
+define void @tls_set_plain_alerts(ptr nocapture noundef writeonly %rl, i32 noundef %allow) #9 {
 entry:
   %allow_plain_alerts = getelementptr inbounds i8, ptr %rl, i64 4284
   store i32 %allow, ptr %allow_plain_alerts, align 4
@@ -3493,7 +3493,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @tls_set_first_handshake(ptr nocapture noundef writeonly initializes((4160, 4164)) %rl, i32 noundef %first) #9 {
+define void @tls_set_first_handshake(ptr nocapture noundef writeonly %rl, i32 noundef %first) #9 {
 entry:
   %is_first_handshake = getelementptr inbounds i8, ptr %rl, i64 4160
   store i32 %first, ptr %is_first_handshake, align 8
@@ -3501,7 +3501,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @tls_set_max_pipelines(ptr nocapture noundef writeonly initializes((4416, 4424)) %rl, i64 noundef %max_pipelines) #9 {
+define void @tls_set_max_pipelines(ptr nocapture noundef writeonly %rl, i64 noundef %max_pipelines) #9 {
 entry:
   %max_pipelines1 = getelementptr inbounds i8, ptr %rl, i64 4416
   store i64 %max_pipelines, ptr %max_pipelines1, align 8
@@ -3575,7 +3575,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 declare ptr @COMP_CTX_get_method(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @tls_set_max_frag_len(ptr nocapture noundef writeonly initializes((4164, 4168)) %rl, i64 noundef %max_frag_len) #9 {
+define void @tls_set_max_frag_len(ptr nocapture noundef writeonly %rl, i64 noundef %max_frag_len) #9 {
 entry:
   %conv = trunc i64 %max_frag_len to i32
   %max_frag_len1 = getelementptr inbounds i8, ptr %rl, i64 4164
@@ -3765,7 +3765,7 @@ return:                                           ; preds = %if.end11, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr nocapture readnone %secret, i64 %secretlen, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp, ptr nocapture readnone %kdfdigest, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr nocapture readnone %local, ptr nocapture readnone %peer, ptr noundef %settings, ptr noundef %options, ptr noundef %fns, ptr noundef %cbarg, ptr nocapture readnone %rlarg, ptr nocapture noundef initializes((0, 8)) %retrl) #0 {
+define internal i32 @tls_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, i16 zeroext %epoch, ptr nocapture readnone %secret, i64 %secretlen, ptr noundef %key, i64 noundef %keylen, ptr noundef %iv, i64 noundef %ivlen, ptr noundef %mackey, i64 noundef %mackeylen, ptr noundef %ciph, i64 noundef %taglen, i32 noundef %mactype, ptr noundef %md, ptr noundef %comp, ptr nocapture readnone %kdfdigest, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr nocapture readnone %local, ptr nocapture readnone %peer, ptr noundef %settings, ptr noundef %options, ptr noundef %fns, ptr noundef %cbarg, ptr nocapture readnone %rlarg, ptr nocapture noundef %retrl) #0 {
 entry:
   %call = tail call i32 @tls_int_new_record_layer(ptr noundef %libctx, ptr noundef %propq, i32 noundef %vers, i32 noundef %role, i32 noundef %direction, i32 noundef %level, ptr poison, i64 poison, ptr poison, i64 poison, ptr poison, i64 poison, ptr noundef %ciph, i64 noundef %taglen, i32 poison, ptr noundef %md, ptr poison, ptr noundef %prev, ptr noundef %transport, ptr noundef %next, ptr poison, ptr poison, ptr noundef %settings, ptr noundef %options, ptr noundef %fns, ptr noundef %cbarg, ptr noundef %retrl)
   %cmp.not = icmp eq i32 %call, 1

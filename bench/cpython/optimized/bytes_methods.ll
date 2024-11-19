@@ -1821,7 +1821,7 @@ return:                                           ; preds = %if.end48.us, %if.th
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @stringlib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %p) unnamed_addr #6 {
+define internal fastcc void @stringlib__preprocess(ptr noundef %needle, i64 noundef range(i64 6, -9223372036854775808) %len_needle, ptr nocapture noundef nonnull writeonly %p) unnamed_addr #6 {
 entry:
   store ptr %needle, ptr %p, align 8
   %len_needle2 = getelementptr inbounds i8, ptr %p, i64 8

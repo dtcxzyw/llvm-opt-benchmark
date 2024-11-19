@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdin = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @zend_stream_init_fp(ptr nocapture noundef writeonly initializes((0, 80)) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @zend_stream_init_fp(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 72, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -64,7 +64,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @zend_stream_init_filename(ptr nocapture noundef writeonly initializes((0, 80)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define void @zend_stream_init_filename(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   br i1 %.not, label %13, label %3
@@ -95,7 +95,7 @@ define void @zend_stream_init_filename(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zend_stream_init_filename_ex(ptr nocapture noundef writeonly initializes((0, 80)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @zend_stream_init_filename_ex(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %4 = load i32, ptr %3, align 4

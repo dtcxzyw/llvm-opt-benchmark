@@ -793,7 +793,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare ptr @PMIx_Argv_copy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @icon(ptr nocapture noundef writeonly initializes((144, 160)) %0) #6 {
+define internal void @icon(ptr nocapture noundef writeonly %0) #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -825,7 +825,7 @@ define internal void @ides(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ocon(ptr noundef initializes((160, 172), (176, 240)) %0) #0 {
+define internal void @ocon(ptr noundef %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

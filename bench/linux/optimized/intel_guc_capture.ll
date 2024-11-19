@@ -2901,7 +2901,7 @@ define dso_local void @intel_guc_capture_destroy(ptr nocapture noundef %0) local
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr noundef initializes((1000, 1008)) %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @intel_guc_capture_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4

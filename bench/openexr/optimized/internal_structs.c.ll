@@ -162,7 +162,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @internal_exr_revert_add_part(ptr noundef %ctxt, ptr nocapture noundef %outpart, ptr nocapture noundef writeonly initializes((0, 4)) %new_index) local_unnamed_addr #0 {
+define hidden void @internal_exr_revert_add_part(ptr noundef %ctxt, ptr nocapture noundef %outpart, ptr nocapture noundef writeonly %new_index) local_unnamed_addr #0 {
 entry:
   %num_parts = getelementptr inbounds i8, ptr %ctxt, i64 196
   %0 = load i32, ptr %num_parts, align 4
@@ -269,7 +269,7 @@ if.end29:                                         ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @internal_exr_context_restore_handlers(ptr nocapture noundef writeonly initializes((56, 80)) %ctxt, i32 noundef returned %rv) local_unnamed_addr #3 {
+define hidden noundef i32 @internal_exr_context_restore_handlers(ptr nocapture noundef writeonly %ctxt, i32 noundef returned %rv) local_unnamed_addr #3 {
 entry:
   %standard_error = getelementptr inbounds i8, ptr %ctxt, i64 56
   store ptr @dispatch_standard_error, ptr %standard_error, align 8
@@ -379,7 +379,7 @@ if.end17:                                         ; preds = %if.end.i22, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @internal_exr_alloc_context(ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef readonly %initializers, i32 noundef %mode, i64 noundef %default_size) local_unnamed_addr #0 {
+define hidden i32 @internal_exr_alloc_context(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %initializers, i32 noundef %mode, i64 noundef %default_size) local_unnamed_addr #0 {
 entry:
   %gmaxw = alloca i32, align 4
   %gmaxh = alloca i32, align 4

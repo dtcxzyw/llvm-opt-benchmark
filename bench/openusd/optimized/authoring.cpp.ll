@@ -6683,7 +6683,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11UsdPropertyD2Ev.exit: ; preds = %_ZN32pxr
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdCollectionAPID1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdUtilsCreateCollectionsERKSt6vectorISt4pairINS_7TfTokenESt3setINS_7SdfPathESt4lessIS4_ESaIS4_EEESaIS9_EERKNS_7UsdPrimEdjj(ptr dead_on_unwind noalias writable sret(%"class.std::vector.149") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, double noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdUtilsCreateCollectionsERKSt6vectorISt4pairINS_7TfTokenESt3setINS_7SdfPathESt4lessIS4_ESaIS4_EEESaIS9_EERKNS_7UsdPrimEdjj(ptr dead_on_unwind noalias writable sret(%"class.std::vector.149") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, double noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %8 = alloca %"struct.tbb::detail::d1::wait_node", align 8
   %9 = alloca %"class.tbb::detail::d1::task_group_context", align 8

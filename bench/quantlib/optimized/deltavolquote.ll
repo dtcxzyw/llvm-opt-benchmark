@@ -227,7 +227,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13DeltaVolQuoteC2EdNS_6HandleINS_5QuoteEEEdNS0_9DeltaTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 16), (24, 28), (32, 40)) %this, ptr nocapture noundef readonly %vtt, double noundef %delta, ptr nocapture noundef %vol, double noundef %maturity, i32 noundef %deltaType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13DeltaVolQuoteC2EdNS_6HandleINS_5QuoteEEEdNS0_9DeltaTypeE(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr nocapture noundef readonly %vtt, double noundef %delta, ptr nocapture noundef %vol, double noundef %maturity, i32 noundef %deltaType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -574,7 +574,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13DeltaVolQuoteC1EdNS_6HandleINS_5QuoteEEEdNS0_9DeltaTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((128, 132), (136, 144)) %this, double noundef %delta, ptr nocapture noundef %vol, double noundef %maturity, i32 noundef %deltaType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13DeltaVolQuoteC1EdNS_6HandleINS_5QuoteEEEdNS0_9DeltaTypeE(ptr noundef nonnull align 8 dereferenceable(108) %this, double noundef %delta, ptr nocapture noundef %vol, double noundef %maturity, i32 noundef %deltaType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 112
@@ -827,7 +827,7 @@ lpad5:                                            ; preds = %lor.end.i.i, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13DeltaVolQuoteC2ENS_6HandleINS_5QuoteEEENS0_9DeltaTypeEdNS0_7AtmTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 16), (24, 28), (32, 40)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %vol, i32 noundef %deltaType, double noundef %maturity, i32 noundef %atmType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13DeltaVolQuoteC2ENS_6HandleINS_5QuoteEEENS0_9DeltaTypeEdNS0_7AtmTypeE(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %vol, i32 noundef %deltaType, double noundef %maturity, i32 noundef %atmType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -1082,7 +1082,7 @@ lpad6:                                            ; preds = %lor.end.i.i, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13DeltaVolQuoteC1ENS_6HandleINS_5QuoteEEENS0_9DeltaTypeEdNS0_7AtmTypeE(ptr noundef nonnull align 8 dereferenceable(108) initializes((128, 132), (136, 144)) %this, ptr nocapture noundef %vol, i32 noundef %deltaType, double noundef %maturity, i32 noundef %atmType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13DeltaVolQuoteC1ENS_6HandleINS_5QuoteEEENS0_9DeltaTypeEdNS0_7AtmTypeE(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr nocapture noundef %vol, i32 noundef %deltaType, double noundef %maturity, i32 noundef %atmType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 112

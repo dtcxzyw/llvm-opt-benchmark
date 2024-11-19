@@ -108,7 +108,7 @@ define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN113_$LT$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN118_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$core..default..Default$GT$7default17hc57f65c30313ec3dE.llvm.16590639573034840061"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN118_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$core..default..Default$GT$7default17hc57f65c30313ec3dE.llvm.16590639573034840061"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4ce233e741943c80E.llvm.16590639573034840061.exit":
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.0cb9b3cd82a9bc1899a20c7efca9230d.61.llvm.16590639573034840061, i64 32, i1 false)
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
@@ -557,7 +557,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h4ce233e741943
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.16590639573034840061(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([36 x i8]) align 1 dereferenceable(36) initializes((0, 36)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define hidden void @_ZN4uuid3fmt17format_hyphenated17h907119b5f9fded53E.llvm.16590639573034840061(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([36 x i8]) align 1 dereferenceable(36) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca [80 x i8], align 8
   %anon.0cb9b3cd82a9bc1899a20c7efca9230d.46.anon.0cb9b3cd82a9bc1899a20c7efca9230d.45 = select i1 %2, ptr @anon.0cb9b3cd82a9bc1899a20c7efca9230d.46, ptr @anon.0cb9b3cd82a9bc1899a20c7efca9230d.45
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4)
@@ -1054,7 +1054,7 @@ define hidden void @"_ZN84_$LT$hmac..optim..HmacCore$LT$D$GT$$u20$as$u20$digest.
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..VariableOutputCore$GT$3new17h11943f90a204e5eeE.llvm.16590639573034840061"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #2 {
+define hidden void @"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..VariableOutputCore$GT$3new17h11943f90a204e5eeE.llvm.16590639573034840061"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #2 {
   %3 = alloca [32 x i8], align 8
   switch i64 %1, label %8 [
     i64 28, label %4
@@ -1763,7 +1763,7 @@ define hidden void @_ZN16meilisearch_auth5store13HeedAuthStore9used_size17h7bd88
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN16meilisearch_auth5store13HeedAuthStore17set_drop_on_close17h10f2691c177f2870E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) initializes((40, 41)) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define void @_ZN16meilisearch_auth5store13HeedAuthStore17set_drop_on_close17h10f2691c177f2870E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8

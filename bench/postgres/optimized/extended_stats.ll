@@ -3654,7 +3654,7 @@ declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnam
 declare ptr @get_attribute_options(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i64 @expr_fetch_func(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #4 {
+define internal i64 @expr_fetch_func(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 336
   %5 = load i32, ptr %4, align 8
   %6 = mul i32 %5, %1

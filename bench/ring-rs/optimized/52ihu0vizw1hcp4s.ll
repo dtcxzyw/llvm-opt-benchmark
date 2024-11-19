@@ -676,7 +676,7 @@ _ZN4core5array25try_from_trusted_iterator17he6fd0080cf798f2eE.llvm.5814777820638
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5array5drain16drain_array_with17h3c618414a20744efE(ptr noalias nocapture noundef writeonly sret({ [2 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5array5drain16drain_array_with17h3c618414a20744efE(ptr noalias nocapture noundef writeonly sret({ [2 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr }, align 8
   %4 = alloca { [2 x i64] }, align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -698,7 +698,7 @@ define hidden void @_ZN4core5array5drain16drain_array_with17h3c618414a20744efE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5array5drain16drain_array_with17ha81204ccb6ecfc90E(ptr noalias nocapture noundef writeonly sret({ [4 x [4 x i8]] }) align 1 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5array5drain16drain_array_with17ha81204ccb6ecfc90E(ptr noalias nocapture noundef writeonly sret({ [4 x [4 x i8]] }) align 1 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr }, align 8
   %4 = alloca { [4 x i32] }, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -765,7 +765,7 @@ define hidden void @_ZN4core5array5drain16drain_array_with17hb62536d2f5de645bE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5array5drain16drain_array_with17he4187106f211762fE(ptr noalias nocapture noundef writeonly sret({ [2 x [8 x i8]] }) align 1 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5array5drain16drain_array_with17he4187106f211762fE(ptr noalias nocapture noundef writeonly sret({ [2 x [8 x i8]] }) align 1 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, ptr }, align 8
   %4 = alloca [2 x [8 x i8]], align 1
   %5 = alloca { [2 x i64] }, align 16

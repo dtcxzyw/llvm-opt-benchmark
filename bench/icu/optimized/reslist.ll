@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9SResourceC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 10), (12, 40)) %this) unnamed_addr #7 align 2 {
+define dso_local void @_ZN9SResourceC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fType = getelementptr inbounds i8, ptr %this, i64 8
@@ -225,7 +225,7 @@ entry:
 declare void @ustr_init(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef readonly %tag, i8 noundef signext %type, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
+define dso_local void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %bundle, ptr noundef readonly %tag, i8 noundef signext %type, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fType = getelementptr inbounds i8, ptr %this, i64 8
@@ -410,7 +410,7 @@ return:                                           ; preds = %if.then21.i, %if.th
 declare void @ustr_cpy(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9SResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9SResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment = getelementptr inbounds i8, ptr %this, i64 40
@@ -445,7 +445,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9SResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9SResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -468,7 +468,7 @@ _ZN9SResourceD2Ev.exit:                           ; preds = %entry
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17ContainerResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17ContainerResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst = getelementptr inbounds i8, ptr %this, i64 64
@@ -505,7 +505,7 @@ _ZN9SResourceD2Ev.exit:                           ; preds = %while.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17ContainerResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17ContainerResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -543,7 +543,7 @@ _ZN17ContainerResourceD2Ev.exit:                  ; preds = %while.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13TableResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TableResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -580,7 +580,7 @@ _ZN17ContainerResourceD2Ev.exit:                  ; preds = %while.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13TableResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TableResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -729,7 +729,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @error(i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13ArrayResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ArrayResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -766,7 +766,7 @@ _ZN17ContainerResourceD2Ev.exit:                  ; preds = %while.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13ArrayResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ArrayResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -842,7 +842,7 @@ if.end7:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18PseudoListResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18PseudoListResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -879,7 +879,7 @@ _ZN17ContainerResourceD2Ev.exit:                  ; preds = %while.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18PseudoListResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18PseudoListResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ContainerResource, i64 16), ptr %this, align 8
   %fFirst.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -941,7 +941,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18StringBaseResourceC2EP7SRBRootPKcaPKDsiPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext %type, ptr noundef %value, i32 noundef %len, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18StringBaseResourceC2EP7SRBRootPKcaPKDsiPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext %type, ptr noundef %value, i32 noundef %len, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext %type, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
@@ -1026,7 +1026,7 @@ declare noundef ptr @_ZN6icu_7513UnicodeString19getTerminatedBufferEv(ptr nounde
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18StringBaseResourceC2EP7SRBRootaRKN6icu_7513UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 10), (12, 40)) %this, ptr nocapture readnone %bundle, i8 noundef signext %type, ptr noundef nonnull align 8 dereferenceable(64) %value, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18StringBaseResourceC2EP7SRBRootaRKN6icu_7513UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture readnone %bundle, i8 noundef signext %type, ptr noundef nonnull align 8 dereferenceable(64) %value, ptr nocapture noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fType.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1105,7 +1105,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18StringBaseResourceC2EaPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 10), (12, 40)) %this, i8 noundef signext %type, ptr noundef %value, i32 noundef %len, ptr nocapture nonnull readnone align 4 %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18StringBaseResourceC2EaPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, i8 noundef signext %type, ptr noundef %value, i32 noundef %len, ptr nocapture nonnull readnone align 4 %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
@@ -1144,7 +1144,7 @@ lpad2:                                            ; preds = %entry
 declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18StringBaseResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18StringBaseResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString = getelementptr inbounds i8, ptr %this, i64 56
@@ -1166,7 +1166,7 @@ _ZN9SResourceD2Ev.exit:                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18StringBaseResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18StringBaseResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1189,7 +1189,7 @@ _ZN18StringBaseResourceD2Ev.exit:                 ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14StringResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(141) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14StringResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(141) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1211,7 +1211,7 @@ _ZN18StringBaseResourceD2Ev.exit:                 ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14StringResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(141) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14StringResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(141) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1234,7 +1234,7 @@ _ZN14StringResourceD2Ev.exit:                     ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13AliasResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13AliasResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1256,7 +1256,7 @@ _ZN18StringBaseResourceD2Ev.exit:                 ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13AliasResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13AliasResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18StringBaseResource, i64 16), ptr %this, align 8
   %fString.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -1279,7 +1279,7 @@ _ZN13AliasResourceD2Ev.exit:                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11IntResourceC2EP7SRBRootPKciPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef %tag, i32 noundef %value, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
+define dso_local void @_ZN11IntResourceC2EP7SRBRootPKciPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef %bundle, ptr noundef %tag, i32 noundef %value, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext 7, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr getelementptr inbounds (i8, ptr @_ZTV11IntResource, i64 16), ptr %this, align 8
@@ -1295,7 +1295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11IntResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11IntResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -1314,7 +1314,7 @@ _ZN9SResourceD2Ev.exit:                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11IntResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11IntResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9SResource, i64 16), ptr %this, align 8
   %fComment.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -1334,7 +1334,7 @@ _ZN11IntResourceD2Ev.exit:                        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17IntVectorResourceC2EP7SRBRootPKcPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef %tag, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17IntVectorResourceC2EP7SRBRootPKcPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %bundle, ptr noundef %tag, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext 14, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr getelementptr inbounds (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %this, align 8
@@ -1361,7 +1361,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17IntVectorResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17IntVectorResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %this, align 8
   %fArray = getelementptr inbounds i8, ptr %this, i64 72
@@ -1394,7 +1394,7 @@ _ZN9SResourceD2Ev.exit:                           ; preds = %delete.end
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17IntVectorResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17IntVectorResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17IntVectorResource, i64 16), ptr %this, align 8
   %fArray.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -1482,7 +1482,7 @@ if.end16:                                         ; preds = %if.then13, %if.end1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14BinaryResourceC2EP7SRBRootPKcjPhS3_PK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 10), (12, 40)) %this, ptr noundef %bundle, ptr noundef %tag, i32 noundef %length, ptr nocapture noundef readonly %data, ptr noundef readonly %fileName, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14BinaryResourceC2EP7SRBRootPKcjPhS3_PK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %bundle, ptr noundef %tag, i32 noundef %length, ptr nocapture noundef readonly %data, ptr noundef readonly %fileName, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %bundle, ptr noundef %tag, i8 noundef signext 1, ptr noundef %comment, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr getelementptr inbounds (i8, ptr @_ZTV14BinaryResource, i64 16), ptr %this, align 8
@@ -1558,7 +1558,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14BinaryResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14BinaryResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV14BinaryResource, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 64
@@ -1598,7 +1598,7 @@ _ZN9SResourceD2Ev.exit:                           ; preds = %delete.end4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14BinaryResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14BinaryResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV14BinaryResource, i64 16), ptr %this, align 8
   %fData.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2341,7 +2341,7 @@ if.end40:                                         ; preds = %_ZN17ContainerResou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18PseudoListResource13handleWrite16EP7SRBRoot(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((9, 10), (12, 16)) %this, ptr nocapture readnone %0) unnamed_addr #20 align 2 {
+define dso_local void @_ZN18PseudoListResource13handleWrite16EP7SRBRoot(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr nocapture readnone %0) unnamed_addr #20 align 2 {
 entry:
   %fRes = getelementptr inbounds i8, ptr %this, i64 12
   store i32 536870912, ptr %fRes, align 4
@@ -2357,7 +2357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN18StringBaseResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((12, 16)) %this, ptr nocapture noundef %byteOffset) unnamed_addr #13 align 2 {
+define dso_local void @_ZN18StringBaseResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef %byteOffset) unnamed_addr #13 align 2 {
 entry:
   %fType = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %fType, align 8
@@ -2385,7 +2385,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN17IntVectorResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((12, 16)) %this, ptr nocapture noundef %byteOffset) unnamed_addr #19 align 2 {
+define dso_local void @_ZN17IntVectorResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef %byteOffset) unnamed_addr #19 align 2 {
 entry:
   %fCount = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load i64, ptr %fCount, align 8
@@ -2421,7 +2421,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14BinaryResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((12, 16)) %this, ptr nocapture noundef %byteOffset) unnamed_addr #13 align 2 {
+define dso_local void @_ZN14BinaryResource14handlePreWriteEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef %byteOffset) unnamed_addr #13 align 2 {
 entry:
   %0 = load i32, ptr %byteOffset, align 4
   %1 = and i32 %0, 15
@@ -5384,7 +5384,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7SRBRootC2EPK7UStringaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 27), (32, 68), (72, 82), (136, 140), (144, 164), (168, 176)) %this, ptr noundef %comment, i8 noundef signext %isPoolBundle, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7SRBRootC2EPK7UStringaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %comment, i8 noundef signext %isPoolBundle, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
   %fIndexLength = getelementptr inbounds i8, ptr %this, i64 16
@@ -5758,7 +5758,7 @@ return:                                           ; preds = %entry, %_ZNK7SRBRoo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK7SRBRoot11getKeyBytesEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef writeonly initializes((0, 4)) %pLength) local_unnamed_addr #13 align 2 {
+define dso_local noundef ptr @_ZNK7SRBRoot11getKeyBytesEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef writeonly %pLength) local_unnamed_addr #13 align 2 {
 entry:
   %fKeysTop = getelementptr inbounds i8, ptr %this, i64 52
   %0 = load i32, ptr %fKeysTop, align 4
@@ -6141,7 +6141,7 @@ _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14StringResource12writeUTF16v2EiRN6icu_7513UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(141) initializes((9, 10), (12, 16)) %this, i32 noundef %base, ptr noundef nonnull align 8 dereferenceable(64) %dest) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN14StringResource12writeUTF16v2EiRN6icu_7513UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(141) %this, i32 noundef %base, ptr noundef nonnull align 8 dereferenceable(64) %dest) local_unnamed_addr #7 align 2 {
 entry:
   %srcChar.addr.i28 = alloca i16, align 2
   %srcChar.addr.i21 = alloca i16, align 2

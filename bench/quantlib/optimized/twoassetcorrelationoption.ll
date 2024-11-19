@@ -1190,7 +1190,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25TwoAssetCorrelationOptionC1ENS_6Option4TypeEddRKN5boost10shared_ptrINS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((192, 200), (208, 212), (216, 224)) %this, i32 noundef %type, double noundef %strike1, double noundef %strike2, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25TwoAssetCorrelationOptionC1ENS_6Option4TypeEddRKN5boost10shared_ptrINS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %type, double noundef %strike1, double noundef %strike2, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type.addr = alloca i32, align 4
   %strike1.addr = alloca double, align 8

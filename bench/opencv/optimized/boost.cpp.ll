@@ -350,7 +350,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv2ml15BoostTreeParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv2ml15BoostTreeParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
   store i32 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 100, ptr %2, align 4
@@ -360,7 +360,7 @@ define hidden void @_ZN2cv2ml15BoostTreeParamsC2Ev(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv2ml15BoostTreeParamsC2Eiid(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, double noundef %3) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv2ml15BoostTreeParamsC2Eiid(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, double noundef %3) unnamed_addr #3 align 2 {
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4

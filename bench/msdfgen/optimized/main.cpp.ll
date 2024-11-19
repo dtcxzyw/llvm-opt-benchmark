@@ -5159,7 +5159,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal fastcc noundef zeroext i1 @_ZL10parseAngleRdPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %value, ptr noundef %arg) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZL10parseAngleRdPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %value, ptr noundef %arg) unnamed_addr #4 {
 entry:
   %end = alloca ptr, align 8
   store ptr null, ptr %end, align 8

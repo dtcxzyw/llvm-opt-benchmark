@@ -51,7 +51,7 @@ $_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = comdat an
 @_ZN8rawspeed20SonyArw1DecompressorC1ENS_8RawImageE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN8rawspeed20SonyArw1DecompressorC2ENS_8RawImageE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed20SonyArw1DecompressorC2ENS_8RawImageE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed20SonyArw1DecompressorC2ENS_8RawImageE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8, !tbaa !6
   %4 = getelementptr inbounds i8, ptr %1, i64 8

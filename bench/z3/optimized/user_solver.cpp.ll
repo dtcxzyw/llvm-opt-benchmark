@@ -445,7 +445,7 @@ _ZN3euf9th_solverD2Ev.exit:                       ; preds = %_ZN7svectorIN3sat6e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11user_solver6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(492) initializes((0, 8), (32, 56), (112, 120)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11user_solver6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(492) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11user_solver6solverE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 32
@@ -819,7 +819,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn32_N11user_solver6solverD1Ev(ptr noundef initializes((-32, -24), (0, 24), (80, 88)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn32_N11user_solver6solverD1Ev(ptr noundef %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN11user_solver6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(492) %0) #21
@@ -827,7 +827,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn40_N11user_solver6solverD1Ev(ptr noundef initializes((-40, -32), (-8, 16), (72, 80)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn40_N11user_solver6solverD1Ev(ptr noundef %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   tail call void @_ZN11user_solver6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(492) %0) #21
@@ -835,7 +835,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn48_N11user_solver6solverD1Ev(ptr noundef initializes((-48, -40), (-16, 8), (64, 72)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn48_N11user_solver6solverD1Ev(ptr noundef %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
   tail call void @_ZN11user_solver6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(492) %0) #21
@@ -843,7 +843,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn112_N11user_solver6solverD1Ev(ptr noundef initializes((-112, -104), (-80, -56), (0, 8)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn112_N11user_solver6solverD1Ev(ptr noundef %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -112
   tail call void @_ZN11user_solver6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(492) %0) #21
@@ -851,7 +851,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11user_solver6solverD0Ev(ptr noundef nonnull align 8 dereferenceable(492) initializes((0, 8), (32, 56), (112, 120)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN11user_solver6solverD0Ev(ptr noundef nonnull align 8 dereferenceable(492) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN11user_solver6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(492) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -862,7 +862,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn32_N11user_solver6solverD0Ev(ptr noundef initializes((-32, -24), (0, 24), (80, 88)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn32_N11user_solver6solverD0Ev(ptr noundef %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN11user_solver6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(492) %0) #21
@@ -871,7 +871,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn40_N11user_solver6solverD0Ev(ptr noundef initializes((-40, -32), (-8, 16), (72, 80)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn40_N11user_solver6solverD0Ev(ptr noundef %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   tail call void @_ZN11user_solver6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(492) %0) #21
@@ -880,7 +880,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn48_N11user_solver6solverD0Ev(ptr noundef initializes((-48, -40), (-16, 8), (64, 72)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn48_N11user_solver6solverD0Ev(ptr noundef %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
   tail call void @_ZN11user_solver6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(492) %0) #21
@@ -889,7 +889,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn112_N11user_solver6solverD0Ev(ptr noundef initializes((-112, -104), (-80, -56), (0, 8)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZThn112_N11user_solver6solverD0Ev(ptr noundef %this) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -112
   tail call void @_ZN11user_solver6solverD2Ev(ptr noundef nonnull align 8 dereferenceable(492) %0) #21
@@ -3165,7 +3165,7 @@ if.end:                                           ; preds = %_ZN3sat6solver6assi
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11user_solver6solver16mk_justificationEj(ptr noalias nocapture writeonly sret(%"class.sat::justification") align 8 initializes((0, 4), (8, 20)) %agg.result, ptr noundef nonnull align 8 dereferenceable(492) %this, i32 noundef %prop_idx) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11user_solver6solver16mk_justificationEj(ptr noalias nocapture writeonly sret(%"class.sat::justification") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(492) %this, i32 noundef %prop_idx) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN3euf13th_euf_solver10get_regionEv(ptr noundef nonnull align 8 dereferenceable(108) %this)
   %call3 = tail call noundef ptr @_ZN6region8allocateEm(ptr noundef nonnull align 8 dereferenceable(40) %call, i64 noundef 12)

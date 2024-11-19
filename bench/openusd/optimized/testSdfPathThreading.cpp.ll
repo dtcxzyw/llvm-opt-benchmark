@@ -7687,7 +7687,7 @@ declare void @srand(i32 noundef) local_unnamed_addr #1
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17_DoPathOperationsv(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfStopwatch") align 8 initializes((0, 24)) %0) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL17_DoPathOperationsv(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfStopwatch") align 8 %0) #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
@@ -45274,7 +45274,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__22Sdf_ExpressionPathNodeD1Ev(
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode25_RemovePathTokenFromTableEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19_MakeRandomPrimPathv(ptr dead_on_unwind noalias nonnull writable align 4 initializes((0, 8)) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19_MakeRandomPrimPathv(ptr dead_on_unwind noalias nonnull writable align 4 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %4 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath16AbsoluteRootPathEv()
@@ -45479,7 +45479,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath10IsPr
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath22AppendVariantSelectionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL19_GetRandomNameTokenv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL19_GetRandomNameTokenv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataISt6vectorINS_7TfTokenESaIS2_EEN12_GLOBAL__N_131nameTokens_Tf_StaticDataFactoryEE3GetEv()
   %3 = tail call i32 @rand() #29
   %4 = sext i32 %3 to i64

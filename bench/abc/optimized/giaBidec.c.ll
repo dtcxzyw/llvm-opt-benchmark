@@ -675,7 +675,7 @@ Gia_ManTruthNot.exit:                             ; preds = %select.unfold.i102,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ObjPerformBidec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef initializes((4, 8)) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @Gia_ObjPerformBidec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %8, align 4
   %9 = getelementptr i8, ptr %2, i64 32

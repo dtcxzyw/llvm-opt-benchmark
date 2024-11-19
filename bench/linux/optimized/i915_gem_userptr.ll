@@ -708,7 +708,7 @@ define internal fastcc void @i915_gem_object_put(ptr noundef nonnull %0) unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @i915_gem_init_userptr(ptr nocapture noundef writeonly initializes((8616, 8624)) %0) local_unnamed_addr #5 align 16 {
+define dso_local noundef i32 @i915_gem_init_userptr(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8616
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8620

@@ -1374,7 +1374,7 @@ define dso_local i32 @dm_rh_flush(ptr nocapture noundef readonly %0) #2 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dm_rh_delay(ptr noundef %0, ptr noundef initializes((0, 8)) %1) #2 align 16 {
+define dso_local void @dm_rh_delay(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_raw_read_lock(ptr noundef %3) #16
   %4 = getelementptr inbounds i8, ptr %1, i64 32

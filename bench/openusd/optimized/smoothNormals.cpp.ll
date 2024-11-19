@@ -279,7 +279,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21_ComputeSmoothNormalsINS_7GfVec3dES1_EENS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16Hd_SmoothNormals26ComputeSmoothNormalsPackedEPKNS_18Hd_VertexAdjacencyEiPKNS_7GfVec3fE(ptr dead_on_unwind noalias nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray.2") align 8 initializes((0, 40)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16Hd_SmoothNormals26ComputeSmoothNormalsPackedEPKNS_18Hd_VertexAdjacencyEiPKNS_7GfVec3fE(ptr dead_on_unwind noalias nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray.2") align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct._Filler, align 8
   %6 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", align 4
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::_SmoothNormalsWorker.52", align 8
@@ -343,7 +343,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21_ComputeSmoothNormalsINS_7GfVec3fENS_22Hd
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16Hd_SmoothNormals26ComputeSmoothNormalsPackedEPKNS_18Hd_VertexAdjacencyEiPKNS_7GfVec3dE(ptr dead_on_unwind noalias nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray.2") align 8 initializes((0, 40)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16Hd_SmoothNormals26ComputeSmoothNormalsPackedEPKNS_18Hd_VertexAdjacencyEiPKNS_7GfVec3dE(ptr dead_on_unwind noalias nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtArray.2") align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct._Filler, align 8
   %6 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::HdVec4f_2_10_10_10_REV", align 4
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::_SmoothNormalsWorker.71", align 8

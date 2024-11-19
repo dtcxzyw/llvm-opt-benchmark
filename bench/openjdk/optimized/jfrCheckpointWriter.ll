@@ -55,7 +55,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @_ZN19JfrCheckpointWriterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19JfrCheckpointWriterD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18JfrCheckpointFlushC2EP9JfrBuffermmP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN18JfrCheckpointFlushC2EP9JfrBuffermmP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = tail call noundef ptr @_ZN20JfrCheckpointManager5flushEP9JfrBuffermmP6Thread(ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) #9
   store ptr %6, ptr %0, align 8
   ret void
@@ -674,7 +674,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES2_16MemoryWriterHostI18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19JfrCheckpointWriter9set_countEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN19JfrCheckpointWriter9set_countEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
@@ -1185,7 +1185,7 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext(ptr nocapture noundef nonnull align 8 dereferenceable(73) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i1 noundef zeroext %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN19JfrCheckpointWriter12session_dataEPmbPK20JfrCheckpointContext(ptr nocapture noundef nonnull align 8 dereferenceable(73) %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %.not10 = icmp eq ptr %6, null
@@ -1275,7 +1275,7 @@ define hidden { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr nocapture noundef nonnull align 8 dereferenceable(73) initializes((64, 68)) %0, i64 %1, i32 %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr nocapture noundef nonnull align 8 dereferenceable(73) %0, i64 %1, i32 %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null

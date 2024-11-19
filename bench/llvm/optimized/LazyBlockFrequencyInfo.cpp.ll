@@ -87,7 +87,7 @@ define internal noundef nonnull ptr @_ZL44initializeLazyBlockFrequencyInfoPassPa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26LazyBlockFrequencyInfoPassC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm26LazyBlockFrequencyInfoPassC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

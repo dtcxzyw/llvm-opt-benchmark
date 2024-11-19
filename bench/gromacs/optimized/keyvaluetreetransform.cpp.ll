@@ -1153,7 +1153,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx32KeyValueTreeTransformRulesScopedC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #13 align 2 {
+define void @_ZN3gmx32KeyValueTreeTransformRulesScopedC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #13 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -5756,7 +5756,7 @@ define noundef ptr @_ZN3gmx23KeyValueTreeTransformer5rulesEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx23KeyValueTreeTransformer11mappedPathsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.146") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3gmx23KeyValueTreeTransformer11mappedPathsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.146") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::KeyValueTreePath", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8
@@ -6429,7 +6429,7 @@ _ZN3gmx18KeyValueTreeObjectD2Ev.exit:             ; preds = %_ZNSt6vectorIN3gmx2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_123KeyValueTreeBackMappingD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3gmx12_GLOBAL__N_123KeyValueTreeBackMappingD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_123KeyValueTreeBackMappingE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6466,7 +6466,7 @@ _ZN3gmx12_GLOBAL__N_123KeyValueTreeBackMapping5EntryD2Ev.exit: ; preds = %_ZSt8_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_123KeyValueTreeBackMappingD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3gmx12_GLOBAL__N_123KeyValueTreeBackMappingD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_123KeyValueTreeBackMappingE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6594,7 +6594,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3gmx12_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx32KeyValueTreeTransformRuleBuilderC2EPNS_8internal27KeyValueTreeTransformerImplERKNS_16KeyValueTreePathE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx32KeyValueTreeTransformRuleBuilderC2EPNS_8internal27KeyValueTreeTransformerImplERKNS_16KeyValueTreePathE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #26
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(117) %4, ptr noundef nonnull align 8 dereferenceable(24) %2)

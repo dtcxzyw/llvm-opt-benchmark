@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pm_constant_pool_bucket_t = type { i32, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @pm_constant_id_list_init(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #0 {
+define hidden void @pm_constant_id_list_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }

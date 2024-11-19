@@ -229,7 +229,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt17PenaltyLSAcceptorC2ERKNS_8SmartPtrINS_14PDSystemSolverEEE(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((0, 12), (16, 49), (144, 160), (216, 224)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt17PenaltyLSAcceptorC2ERKNS_8SmartPtrINS_14PDSystemSolverEEE(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -278,7 +278,7 @@ define void @_ZN5Ipopt17PenaltyLSAcceptorC2ERKNS_8SmartPtrINS_14PDSystemSolverEE
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt17PenaltyLSAcceptorD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN5Ipopt17PenaltyLSAcceptorD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt17PenaltyLSAcceptorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load ptr, ptr %2, align 8
@@ -1272,7 +1272,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt17PenaltyLSAcceptor18InitThisLineSearchEb(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((112, 128)) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt17PenaltyLSAcceptor18InitThisLineSearchEb(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
@@ -3045,7 +3045,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit13: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5Ipopt17PenaltyLSAcceptor5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((192, 200)) %0) unnamed_addr #10 align 2 {
+define void @_ZN5Ipopt17PenaltyLSAcceptor5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 192

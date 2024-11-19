@@ -1701,7 +1701,7 @@ declare ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE5beginE
 declare ptr @_ZNK4llvm8LoopBaseINS_17MachineBasicBlockENS_11MachineLoopEE3endEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16MachinePipeliner24setPragmaPipelineOptionsERNS_11MachineLoopE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(616) initializes((424, 425), (428, 432)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16MachinePipeliner24setPragmaPipelineOptionsERNS_11MachineLoopE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(616) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 424
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 428
@@ -6753,7 +6753,7 @@ _ZNSt10unique_ptrIN4llvm17ScheduleDAGInstrsESt14default_deleteIS1_EED2Ev.exit: ;
 declare void @_ZN4llvm19MachineSchedContextD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm17SwingSchedulerDAG6setMIIEjj(ptr nocapture noundef nonnull align 8 dereferenceable(3240) initializes((2632, 2636)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4llvm17SwingSchedulerDAG6setMIIEjj(ptr nocapture noundef nonnull align 8 dereferenceable(3240) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10SwpForceII, i64 128), align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %10, label %6
@@ -6776,7 +6776,7 @@ define dso_local void @_ZN4llvm17SwingSchedulerDAG6setMIIEjj(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv(ptr nocapture noundef nonnull align 8 dereferenceable(3240) initializes((2636, 2640)) %0) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4llvm17SwingSchedulerDAG9setMAX_IIEv(ptr nocapture noundef nonnull align 8 dereferenceable(3240) %0) local_unnamed_addr #7 align 2 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10SwpForceII, i64 128), align 8
   %3 = icmp sgt i32 %2, 0
   br i1 %3, label %12, label %4
@@ -32869,7 +32869,7 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit: ; preds = %6, %50, %43, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL10getPhiRegsRN4llvm12MachineInstrEPNS_17MachineBasicBlockERjS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef readnone %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) unnamed_addr #8 {
+define internal fastcc void @_ZL10getPhiRegsRN4llvm12MachineInstrEPNS_17MachineBasicBlockERjS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %0, ptr noundef readnone %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #8 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -36678,7 +36678,7 @@ _ZNSt15_Deque_iteratorIPN4llvm5SUnitERS2_PS2_EppEv.exit: ; preds = %.loopexit, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm10SMSchedule19reorderInstructionsEPKNS_17SwingSchedulerDAGERKSt5dequeIPNS_5SUnitESaIS6_EE(ptr dead_on_unwind noalias writable sret(%"class.std::deque") align 8 initializes((0, 80)) %0, ptr noundef nonnull align 8 dereferenceable(592) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm10SMSchedule19reorderInstructionsEPKNS_17SwingSchedulerDAGERKSt5dequeIPNS_5SUnitESaIS6_EE(ptr dead_on_unwind noalias writable sret(%"class.std::deque") align 8 %0, ptr noundef nonnull align 8 dereferenceable(592) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::_Deque_iterator", align 8
   %6 = alloca %"struct.std::_Deque_iterator", align 8
   %7 = alloca %"struct.std::_Deque_iterator", align 8
@@ -39056,7 +39056,7 @@ declare noundef zeroext i1 @_ZN4llvm13DFAPacketizer19canReserveResourcesERNS_12M
 declare void @_ZN4llvm13DFAPacketizer16reserveResourcesERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15ResourceManager4initEi(ptr noundef nonnull align 8 dereferenceable(488) initializes((480, 484)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15ResourceManager4initEi(ptr noundef nonnull align 8 dereferenceable(488) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.571", align 8
   %4 = alloca %"class.llvm::SmallVector.52", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 480

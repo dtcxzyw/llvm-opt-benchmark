@@ -271,7 +271,7 @@ define internal noundef zeroext i1 @TableFuncRecheck(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tfuncFetchRows(ptr noundef initializes((328, 336)) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @tfuncFetchRows(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1

@@ -2801,7 +2801,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #5
 declare void @free(ptr allocptr nocapture noundef) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @nanoexr_set_defaults(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9), (12, 64)) %1) local_unnamed_addr #8 {
+define void @nanoexr_set_defaults(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -15476,7 +15476,7 @@ define internal fastcc i32 @exr_set_screen_window_width(ptr noundef %0, i32 noun
 declare double @erf(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @internal_exr_alloc_context(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
+define internal fastcc i32 @internal_exr_alloc_context(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -17935,7 +17935,7 @@ ceil_log2.exit:                                   ; preds = %floor_log2.exit131,
 declare i1 @llvm.is.fpclass.f32(float, i32 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_bad_attrsz(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %6) unnamed_addr #1 {
+define internal fastcc i32 @check_bad_attrsz(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i32 noundef range(i32 1, 5) %3, ptr noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #1 {
   store i32 %2, ptr %6, align 4
   %8 = icmp slt i32 %2, 0
   br i1 %8, label %9, label %13
@@ -20353,7 +20353,7 @@ define internal range(i64 -1, -9223372036854775808) i64 @default_write_func(ptr 
 declare noundef i64 @pwrite(i32 noundef, ptr nocapture noundef readonly, i64 noundef, i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @internal_exr_revert_add_part(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #1 {
+define internal fastcc void @internal_exr_revert_add_part(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr %1, align 8
@@ -32474,7 +32474,7 @@ declare <8 x i16> @llvm.sadd.sat.v8i16(<8 x i16>, <8 x i16>) #5
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @deflate_flush_block(ptr noundef initializes((6052, 6056)) %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #29 {
+define internal fastcc void @deflate_flush_block(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #29 {
   %7 = zext i32 %3 to i64
   %8 = load i64, ptr %1, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -33749,7 +33749,7 @@ gen_codewords.exit:                               ; preds = %.preheader.i45
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @deflate_precompute_huffman_header(ptr noundef initializes((6052, 6056)) %0) unnamed_addr #14 {
+define internal fastcc void @deflate_precompute_huffman_header(ptr noundef %0) unnamed_addr #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4600
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 6052
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2680
@@ -34009,7 +34009,7 @@ deflate_compute_precode_items.exit:               ; preds = %._crit_edge86.i
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @deflate_optimize_and_flush_block(ptr noundef initializes((32, 1312)) %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #29 {
+define internal fastcc void @deflate_optimize_and_flush_block(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #29 {
   %9 = alloca %struct.deflate_sequence, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 9011684
   %11 = load i32, ptr %10, align 4
@@ -37366,7 +37366,7 @@ pack.exit.us:                                     ; preds = %258, %262
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DwaCompressor_construct(ptr nocapture noundef nonnull initializes((0, 208)) %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc i32 @DwaCompressor_construct(ptr nocapture noundef nonnull %0, i32 noundef range(i32 0, 2) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 {
   %.b.i = load i1, ptr @initializeFuncs.done, align 4
   br i1 %.b.i, label %initializeFuncs.exit, label %5
 
@@ -37813,7 +37813,7 @@ exr_get_zip_compression_level.exit.thread129:     ; preds = %134, %._crit_edge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @DwaCompressor_compress(ptr nocapture noundef nonnull initializes((72, 88)) %0) unnamed_addr #1 {
+define internal fastcc i32 @DwaCompressor_compress(ptr nocapture noundef nonnull %0) unnamed_addr #1 {
   %2 = alloca [3 x ptr], align 16
   %3 = alloca i64, align 8
   %4 = alloca %struct._LossyDctEncoder, align 8
@@ -39199,7 +39199,7 @@ float_to_half.exit:                               ; preds = %15, %18, %28, %30, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fromHalfZigZag_scalar(ptr noundef readonly %0, ptr noundef writeonly initializes((0, 256)) %1) #35 {
+define internal void @fromHalfZigZag_scalar(ptr noundef readonly %0, ptr noundef writeonly %1) #35 {
   %3 = load i16, ptr %0, align 2
   %4 = zext i16 %3 to i32
   %5 = shl nuw nsw i32 %4, 13
@@ -41922,7 +41922,7 @@ convertFloatToHalf64_scalar.exit:                 ; preds = %float_to_half.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @fromHalfZigZag_f16c(ptr noundef %0, ptr noundef initializes((0, 256)) %1) #35 {
+define internal void @fromHalfZigZag_f16c(ptr noundef %0, ptr noundef %1) #35 {
   tail call void @fromHalfZigZag_scalar(ptr noundef %0, ptr noundef %1)
   ret void
 }
@@ -43682,7 +43682,7 @@ define internal fastcc range(i32 0, 2) i32 @DctCoderChannelData_push_row(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull initializes((8, 24)) %2) unnamed_addr #37 {
+define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #37 {
   %4 = alloca [3 x ptr], align 16
   %5 = alloca [64 x i16], align 16
   %6 = alloca [64 x i16], align 16
@@ -44615,7 +44615,7 @@ dctForward8x8.exit.preheader.us:                  ; preds = %250
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @LossyDctEncoder_construct(ptr nocapture noundef nonnull writeonly initializes((0, 24), (52, 80)) %0, float noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #38 {
+define internal fastcc void @LossyDctEncoder_construct(ptr nocapture noundef nonnull writeonly %0, float noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #38 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store float %1, ptr %9, align 4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -45529,7 +45529,7 @@ define internal fastcc i32 @write_tile_chunk(ptr noundef nonnull %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_chunk_table(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3) unnamed_addr #1 {
+define internal fastcc i32 @extract_chunk_table(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 248
@@ -60402,7 +60402,7 @@ half_to_float.exit83:                             ; preds = %287, %289, %291, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @half_to_float4(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1) unnamed_addr #35 {
+define internal fastcc void @half_to_float4(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #35 {
   %3 = load i16, ptr %1, align 2
   %4 = zext i16 %3 to i32
   %5 = shl nuw nsw i32 %4, 13

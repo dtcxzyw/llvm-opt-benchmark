@@ -180,7 +180,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev21ExponentTransformImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.13") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev21ExponentTransformImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev17ExponentTransformEED2Ev.exit:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   call void @_ZN19OpenColorIO_v2_4dev17ExponentTransform6CreateEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp)
@@ -545,7 +545,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev21ExponentTransformImpl8getValueERA4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %vec4) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev21ExponentTransformImpl8getValueERA4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %vec4) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_redParams.i = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_redParams.i, align 8

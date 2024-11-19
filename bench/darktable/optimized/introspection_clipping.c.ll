@@ -778,7 +778,7 @@ define noundef i32 @distort_transform(ptr noundef %0, ptr noundef %1, ptr noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @keystone_get_matrix(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture noundef writeonly initializes((0, 4)) %7, ptr nocapture noundef writeonly initializes((0, 4)) %8, ptr nocapture noundef writeonly initializes((0, 4)) %9, ptr nocapture noundef writeonly initializes((0, 4)) %10, ptr nocapture noundef writeonly initializes((0, 4)) %11, ptr nocapture noundef writeonly initializes((0, 4)) %12) unnamed_addr #7 {
+define internal fastcc void @keystone_get_matrix(ptr nocapture noundef readonly %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, ptr nocapture noundef writeonly %11, ptr nocapture noundef writeonly %12) unnamed_addr #7 {
   %14 = fmul reassoc nsz arcp contract afn float %6, %6
   %15 = fmul reassoc nsz arcp contract afn float %6, %5
   %16 = fsub reassoc nsz arcp contract afn float %14, %15
@@ -1674,7 +1674,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare float @dt_interpolation_compute_sample(ptr noundef, ptr noundef, float noundef, float noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 20)) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #9 {
+define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #9 {
   %5 = load i64, ptr %3, align 4, !tbaa.struct !97
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load <2 x i32>, ptr %6, align 4, !tbaa !24
@@ -2517,7 +2517,7 @@ declare float @llvm.fabs.f32(float) #11
 declare float @llvm.maxnum.f32(float, float) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 20)) %3) local_unnamed_addr #12 {
+define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #12 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !57
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false), !tbaa.struct !97
@@ -3262,7 +3262,7 @@ declare i32 @dt_iop_have_required_input_format(i32 noundef, ptr noundef, i32 nou
 declare void @dt_interpolation_compute_pixel4c(ptr noundef, ptr noundef, ptr noundef, float noundef, float noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #13 {
+define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !107
@@ -4116,7 +4116,7 @@ define internal fastcc void @commit_box(ptr noundef %0, ptr nocapture noundef %1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #16 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #16 {
   %4 = tail call noalias dereferenceable_or_null(188) ptr @malloc(i64 noundef 188) #25
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !57
@@ -5209,7 +5209,7 @@ define internal void @aspect_presets_changed(ptr noundef %0, ptr noundef %1) #4 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #4 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca [20 x %struct.dt_iop_clipping_aspect_t], align 16
   %3 = tail call ptr @dt_alloc_aligned(i64 noundef 208) #26
   %4 = icmp eq ptr %3, null

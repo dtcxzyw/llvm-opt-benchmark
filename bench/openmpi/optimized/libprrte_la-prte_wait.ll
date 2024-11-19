@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @timer_const(ptr nocapture noundef writeonly initializes((136, 152)) %0) #0 {
+define internal void @timer_const(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call ptr @prte_event_alloc() #10
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr %2, ptr %3, align 8
@@ -56,7 +56,7 @@ define internal void @timer_dest(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @wccon(ptr nocapture noundef writeonly initializes((272, 296)) %0) #1 {
+define internal void @wccon(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void

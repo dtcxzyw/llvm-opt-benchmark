@@ -3665,7 +3665,7 @@ define linkonce_odr void @_ZN3nix3fmtIJiEEENSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef readonly %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.boost::io::detail::put_holder", align 8
   %5 = alloca %"class.boost::basic_format", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15123,7 +15123,7 @@ _ZN3nix19OptionalPathSettingD2Ev.exit:            ; preds = %_ZNSt8optionalINSt7
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN3nix10LocalStoreC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %4) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStoreC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %4) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   tail call void @_ZN3nix10LocalStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1, ptr nonnull align 8 poison)
@@ -15243,7 +15243,7 @@ _ZN3nix5ErrorD2Ev.exit:                           ; preds = %1, %_ZNSt22_Optiona
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3nix10LocalStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::shared_future", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15884,7 +15884,7 @@ define void @_ZN3nix10LocalStoreC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3nix10LocalStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define void @_ZN3nix10LocalStoreD1Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN3nix10LocalStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull @_ZTTN3nix10LocalStoreE) #35
   %2 = getelementptr inbounds i8, ptr %0, i64 2832
   tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix10LocalStoreE, i64 216)) #35
@@ -16090,7 +16090,7 @@ define void @_ZTv0_n40_N3nix10LocalStoreD1Ev(ptr noundef %0) unnamed_addr #15 al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3nix10LocalStoreD0Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define void @_ZN3nix10LocalStoreD0Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN3nix10LocalStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull @_ZTTN3nix10LocalStoreE) #35
   %2 = getelementptr inbounds i8, ptr %0, i64 2832
   tail call void @_ZN3nix5StoreD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN3nix10LocalStoreE, i64 216)) #35
@@ -21218,7 +21218,7 @@ define noundef zeroext i1 @_ZTv0_n56_N3nix10LocalStore19isValidPathUncachedERKNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10LocalStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i1 zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10LocalStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i1 zeroext %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
@@ -21305,7 +21305,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n64_N3nix10LocalStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZTv0_n64_N3nix10LocalStore15queryValidPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.155") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 zeroext %3) unnamed_addr #4 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -64
   %7 = load i64, ptr %6, align 8

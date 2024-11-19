@@ -90,7 +90,7 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__18TraceAggregateNodeE = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateTreeC1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateTreeC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateTreeC2Ev(ptr noundef nonnull align 8 dereferenceable(196) initializes((0, 12), (16, 32), (40, 44), (48, 56)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateTreeC2Ev(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

@@ -644,7 +644,7 @@ define dso_local void @ExecEndLimit(ptr nocapture noundef readonly %0) local_unn
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanLimit(ptr nocapture noundef initializes((224, 232)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanLimit(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call fastcc void @recompute_limits(ptr noundef %0)
@@ -662,7 +662,7 @@ define dso_local void @ExecReScanLimit(ptr nocapture noundef initializes((224, 2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @recompute_limits(ptr nocapture noundef initializes((224, 232)) %0) unnamed_addr #0 {
+define internal fastcc void @recompute_limits(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8

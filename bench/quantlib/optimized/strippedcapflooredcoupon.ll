@@ -1364,7 +1364,7 @@ _ZN5boost10shared_ptrIN8QuantLib17InterestRateIndexEED2Ev.exit: ; preds = %_ZN8Q
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27StrippedCappedFlooredCouponC1ERKN5boost10shared_ptrINS_19CappedFlooredCouponEEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((192, 200), (208, 212), (216, 224)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %underlying) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27StrippedCappedFlooredCouponC1ERKN5boost10shared_ptrINS_19CappedFlooredCouponEEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %underlying) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
@@ -3289,7 +3289,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19CappedFlooredCouponEEptEv.exit: ; preds = %en
 declare void @_ZN8QuantLib18FloatingRateCoupon9setPricerERKN5boost10shared_ptrINS_24FloatingRateCouponPricerEEE(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib30StrippedCappedFlooredCouponLegC2ESt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef %underlyingLeg) unnamed_addr #13 align 2 {
+define void @_ZN8QuantLib30StrippedCappedFlooredCouponLegC2ESt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef %underlyingLeg) unnamed_addr #13 align 2 {
 entry:
   %0 = load ptr, ptr %underlyingLeg, align 8, !tbaa !104
   store ptr %0, ptr %this, align 8, !tbaa !104
@@ -3306,7 +3306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib30StrippedCappedFlooredCouponLegcvSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EEEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.53") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib30StrippedCappedFlooredCouponLegcvSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EEEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.53") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %c = alloca %"class.boost::shared_ptr.51", align 8
   %ref.tmp10 = alloca %"class.boost::shared_ptr.58", align 8

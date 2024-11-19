@@ -34,7 +34,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC24RandomLinearCongruential7SetSeedEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %nSeed) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC24RandomLinearCongruential7SetSeedEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %nSeed) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %nSeed, -1
   br i1 %cmp, label %if.then, label %if.else
@@ -129,7 +129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC10RandomTaus7SetSeedEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %nSeed) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC10RandomTaus7SetSeedEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %this, i32 noundef %nSeed) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %nSeed, -1
   br i1 %cmp, label %if.then, label %if.end
@@ -180,7 +180,7 @@ _ZN2EA4StdC10RandomTaus7SetSeedEPKj.exit:         ; preds = %if.end21.i, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC10RandomTaus7SetSeedEPKj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %this, ptr noundef readonly %pSeedArray) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC10RandomTaus7SetSeedEPKj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %this, ptr noundef readonly %pSeedArray) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %pSeedArray, null
   %arrayidx8.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -470,7 +470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC21RandomMersenneTwisterC2Ej(ptr noundef nonnull align 8 dereferenceable(2508) initializes((2496, 2508)) %this, i32 noundef %nSeed) unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC21RandomMersenneTwisterC2Ej(ptr noundef nonnull align 8 dereferenceable(2508) %this, i32 noundef %nSeed) unnamed_addr #0 align 2 {
 entry:
   %mpNextState = getelementptr inbounds i8, ptr %this, i64 2496
   store ptr null, ptr %mpNextState, align 8
@@ -592,7 +592,7 @@ _ZN2EA4StdC21RandomMersenneTwister6ReloadEv.exit: ; preds = %for.body20.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA4StdC21RandomMersenneTwisterC2EPKjj(ptr noundef nonnull align 8 dereferenceable(2508) initializes((2496, 2508)) %this, ptr noundef readonly %seedArray, i32 noundef %nSeedArraySize) unnamed_addr #1 align 2 {
+define dso_local void @_ZN2EA4StdC21RandomMersenneTwisterC2EPKjj(ptr noundef nonnull align 8 dereferenceable(2508) %this, ptr noundef readonly %seedArray, i32 noundef %nSeedArraySize) unnamed_addr #1 align 2 {
 entry:
   %mpNextState = getelementptr inbounds i8, ptr %this, i64 2496
   store ptr null, ptr %mpNextState, align 8
@@ -670,7 +670,7 @@ if.end20:                                         ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(2508) ptr @_ZN2EA4StdC21RandomMersenneTwisteraSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(2508) initializes((0, 2496)) %this, ptr noundef nonnull align 8 dereferenceable(2508) %randomMT) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(2508) ptr @_ZN2EA4StdC21RandomMersenneTwisteraSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(2508) %this, ptr noundef nonnull align 8 dereferenceable(2508) %randomMT) local_unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2496) %this, ptr noundef nonnull align 8 dereferenceable(2496) %randomMT, i64 2496, i1 false)
   %mpNextState = getelementptr inbounds i8, ptr %randomMT, i64 2496

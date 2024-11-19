@@ -219,7 +219,7 @@ define dso_local void @mempool_destroy(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @mempool_init_node(ptr noundef initializes((0, 8), (24, 48)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @mempool_init_node(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
   store i32 0, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %8, align 4
@@ -301,7 +301,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @mempool_init(ptr noundef initializes((0, 8), (24, 48)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @mempool_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
   %6 = tail call i32 @mempool_init_node(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 3264, i32 noundef -1)
   ret i32 %6
 }

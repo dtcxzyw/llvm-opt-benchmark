@@ -149,7 +149,7 @@ _ZN11QReadLockerD2Ev.exit:                        ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22MLThreadSafeMemoryInfoC2El(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22MLThreadSafeMemoryInfoC2El(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -168,7 +168,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN22MLThreadSafeMemoryInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN22MLThreadSafeMemoryInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV22MLThreadSafeMemoryInfo, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #7

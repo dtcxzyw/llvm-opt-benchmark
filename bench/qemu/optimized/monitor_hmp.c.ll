@@ -1740,7 +1740,7 @@ declare ptr @qemu_coroutine_self() local_unnamed_addr #1
 declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @handle_hmp_command_co(ptr nocapture noundef initializes((24, 25)) %opaque) #0 {
+define internal void @handle_hmp_command_co(ptr nocapture noundef %opaque) #0 {
 entry:
   %err.i.i = alloca ptr, align 8
   %0 = load ptr, ptr %opaque, align 8

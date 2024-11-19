@@ -291,7 +291,7 @@ _ZN12actix_router6quoter16hex_pair_to_char17hb687a94a0395628fE.exit: ; preds = %
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN12actix_router6quoter6Quoter17requote_str_lossy17h67379eef7d7509dfE(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 8)) %0, ptr align 1 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
+define void @_ZN12actix_router6quoter6Quoter17requote_str_lossy17h67379eef7d7509dfE(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr align 1 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8

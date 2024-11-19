@@ -2162,7 +2162,7 @@ return:                                           ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb18WriteableCacheFileD2Ev(ptr noundef nonnull align 8 dereferenceable(273) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18WriteableCacheFileD2Ev(ptr noundef nonnull align 8 dereferenceable(273) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18WriteableCacheFileE, i64 16), ptr %this, align 8
   %rwlock_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -3421,7 +3421,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit3:                  ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ThreadedWriterC2EPNS_19PersistentCacheTierEmm(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 32)) %this, ptr noundef %cache, i64 noundef %qdepth, i64 noundef %io_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ThreadedWriterC2EPNS_19PersistentCacheTierEmm(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %cache, i64 noundef %qdepth, i64 noundef %io_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.122", align 8
   %th = alloca %"class.std::thread", align 8

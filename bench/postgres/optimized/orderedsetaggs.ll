@@ -1689,7 +1689,7 @@ define dso_local i64 @hypothetical_rank_final(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @hypothetical_rank_common(ptr nocapture noundef readonly %0, i32 noundef range(i32 -1, 2) %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc i64 @hypothetical_rank_common(ptr nocapture noundef readonly %0, i32 noundef range(i32 -1, 2) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 30
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32

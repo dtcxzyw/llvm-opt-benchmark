@@ -169,7 +169,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm282692EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN4EdgeC1EPKS_13UnifiedOopRef = hidden unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN4EdgeC2EPKS_13UnifiedOopRef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN4EdgeC2EPKS_13UnifiedOopRef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1, i64 %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8

@@ -80,7 +80,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang12threadSafety3til6Future5forceEv(ptr noundef nonnull align 8 dereferenceable(40) initializes((24, 28)) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN5clang12threadSafety3til6Future5forceEv(ptr noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
@@ -582,7 +582,7 @@ define dso_local noundef ptr @_ZN5clang12threadSafety3til22simplifyToCanonicalVa
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3PhiE(ptr noundef initializes((2, 4)) %0) local_unnamed_addr #4 {
+define dso_local void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3PhiE(ptr noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %2, align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16

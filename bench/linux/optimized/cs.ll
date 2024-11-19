@@ -362,7 +362,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @kthread_create_on_node(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @pccardd(ptr noundef initializes((8, 20), (400, 408)) %0) #0 align 16 {
+define internal noundef i32 @pccardd(ptr noundef %0) #0 align 16 {
   %2 = alloca i32, align 4
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #8, !srcloc !9
   %4 = inttoptr i64 %3 to ptr

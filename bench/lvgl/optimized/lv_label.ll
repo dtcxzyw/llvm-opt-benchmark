@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"Text\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_label_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 72), (76, 80)) %1) #0 {
+define internal void @lv_label_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -1576,7 +1576,7 @@ define void @lv_label_set_long_mode(ptr noundef %0, i32 noundef %1) local_unname
 declare zeroext i1 @lv_anim_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @set_ofs_x_anim(ptr noundef initializes((108, 112)) %0, i32 noundef %1) #0 {
+define internal void @set_ofs_x_anim(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i32 %1, ptr %3, align 4, !tbaa !33
   tail call void @lv_obj_invalidate(ptr noundef %0) #7
@@ -1584,7 +1584,7 @@ define internal void @set_ofs_x_anim(ptr noundef initializes((108, 112)) %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @set_ofs_y_anim(ptr noundef initializes((112, 116)) %0, i32 noundef %1) #0 {
+define internal void @set_ofs_y_anim(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %1, ptr %3, align 4, !tbaa !35
   tail call void @lv_obj_invalidate(ptr noundef %0) #7
@@ -1594,7 +1594,7 @@ define internal void @set_ofs_y_anim(ptr noundef initializes((112, 116)) %0, i32
 declare void @lv_point_set(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_label_set_text_selection_start(ptr noundef initializes((92, 96)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_label_set_text_selection_start(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %1, ptr %3, align 4, !tbaa !18
   tail call void @lv_obj_invalidate(ptr noundef %0) #7
@@ -1602,7 +1602,7 @@ define void @lv_label_set_text_selection_start(ptr noundef initializes((92, 96))
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_label_set_text_selection_end(ptr noundef initializes((96, 100)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_label_set_text_selection_end(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %1, ptr %3, align 8, !tbaa !19
   tail call void @lv_obj_invalidate(ptr noundef %0) #7

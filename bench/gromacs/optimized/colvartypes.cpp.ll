@@ -798,7 +798,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZrsRSiRN12colvarmodule1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK12colvarmodule10quaternion25position_derivative_innerERKNS_7rvectorES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.colvarmodule::quaternion") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define void @_ZNK12colvarmodule10quaternion25position_derivative_innerERKNS_7rvectorES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.colvarmodule::quaternion") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -896,7 +896,7 @@ define void @_ZNK12colvarmodule10quaternion25position_derivative_innerERKNS_7rve
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarmodule8rotation4initEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) initializes((488, 489)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN12colvarmodule8rotation4initEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 488
@@ -1066,7 +1066,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule8rotationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) initializes((0, 72), (488, 489), (496, 568)) %0) unnamed_addr #0 align 2 {
+define void @_ZN12colvarmodule8rotationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 496
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
@@ -1077,7 +1077,7 @@ define void @_ZN12colvarmodule8rotationC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule8rotationC2ERKNS_10quaternionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) initializes((0, 72), (488, 489), (496, 568)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define void @_ZN12colvarmodule8rotationC2ERKNS_10quaternionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 496
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
@@ -1093,7 +1093,7 @@ define void @_ZN12colvarmodule8rotationC2ERKNS_10quaternionE(ptr nocapture nound
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule8rotationC2EdRKNS_7rvectorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) initializes((0, 72), (488, 489), (496, 568)) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
+define void @_ZN12colvarmodule8rotationC2EdRKNS_7rvectorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 496
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false)
@@ -1397,7 +1397,7 @@ define void @_ZN12colvarmodule8rotation24build_correlation_matrixERKSt6vectorINS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12colvarmodule8rotation22compute_overlap_matrixEv(ptr nocapture noundef nonnull align 8 dereferenceable(568) initializes((72, 200)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN12colvarmodule8rotation22compute_overlap_matrixEv(ptr nocapture noundef nonnull align 8 dereferenceable(568) %0) local_unnamed_addr #3 align 2 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load double, ptr %3, align 8
@@ -1466,7 +1466,7 @@ define void @_ZN12colvarmodule8rotation22compute_overlap_matrixEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2NR18diagonalize_matrixEPA4_dPdS1_(ptr noundef %0, ptr noundef initializes((0, 32)) %1, ptr noundef initializes((0, 128)) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2NR18diagonalize_matrixEPA4_dPdS1_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -1575,7 +1575,7 @@ declare noundef i32 @_ZN9NR_Jacobi6eigsrtEPdPA4_d(ptr noundef, ptr noundef) loca
 declare noundef i32 @_ZN9NR_Jacobi9transposeEPA4_d(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule8rotation21calc_optimal_rotationERKSt6vectorINS_7rvectorESaIS2_EES6_(ptr noundef nonnull align 8 dereferenceable(568) initializes((0, 72)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN12colvarmodule8rotation21calc_optimal_rotationERKSt6vectorINS_7rvectorESaIS2_EES6_(ptr noundef nonnull align 8 dereferenceable(568) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   tail call void @_ZN12colvarmodule8rotation24build_correlation_matrixERKSt6vectorINS_7rvectorESaIS2_EES6_(ptr noundef nonnull align 8 dereferenceable(568) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   tail call void @_ZN12colvarmodule8rotation26calc_optimal_rotation_implEv(ptr noundef nonnull align 8 dereferenceable(568) %0)
@@ -1593,7 +1593,7 @@ define void @_ZN12colvarmodule8rotation21calc_optimal_rotationERKSt6vectorINS_7r
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule8rotation26calc_optimal_rotation_implEv(ptr noundef nonnull align 8 dereferenceable(568) initializes((72, 200)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12colvarmodule8rotation26calc_optimal_rotation_implEv(ptr noundef nonnull align 8 dereferenceable(568) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.colvarmodule::matrix2d.63", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6784,7 +6784,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorI
 declare double @llvm.fabs.f64(double) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12colvarmodule8rotation21calc_optimal_rotationERKSt6vectorINS_4atomESaIS2_EERKS1_INS_7rvectorESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(568) initializes((0, 72)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN12colvarmodule8rotation21calc_optimal_rotationERKSt6vectorINS_4atomESaIS2_EERKS1_INS_7rvectorESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(568) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   tail call void @_ZN12colvarmodule8rotation24build_correlation_matrixERKSt6vectorINS_4atomESaIS2_EERKS1_INS_7rvectorESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(568) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   tail call void @_ZN12colvarmodule8rotation26calc_optimal_rotation_implEv(ptr noundef nonnull align 8 dereferenceable(568) %0)

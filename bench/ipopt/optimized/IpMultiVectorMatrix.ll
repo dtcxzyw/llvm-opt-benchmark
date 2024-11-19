@@ -477,7 +477,7 @@ define linkonce_odr void @_ZThn16_N5Ipopt17MultiVectorMatrixD0Ev(ptr noundef %0)
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt17MultiVectorMatrixC2EPKNS_22MultiVectorMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 12), (16, 48)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt17MultiVectorMatrixC2EPKNS_22MultiVectorMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2479,7 +2479,7 @@ declare noundef i32 @_ZN5Ipopt8SnprintfEPclPKcz(ptr noundef, i64 noundef, ptr no
 declare void @_ZNK5Ipopt6Vector5PrintENS_8SmartPtrIKNS_10JournalistEEENS_13EJournalLevelENS_16EJournalCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSE_(ptr noundef nonnull align 8 dereferenceable(205), ptr noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt22MultiVectorMatrixSpaceC2EiRKNS_11VectorSpaceE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt22MultiVectorMatrixSpaceC2EiRKNS_11VectorSpaceE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8

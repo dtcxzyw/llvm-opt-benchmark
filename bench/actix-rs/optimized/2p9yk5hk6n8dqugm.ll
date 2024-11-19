@@ -96,7 +96,7 @@ define hidden { ptr, i64 } @"_ZN73_$LT$alloc..string..String$u20$as$u20$core..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$alloc..string..String$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17had248f93a5fbef67E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN77_$LT$alloc..string..String$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17had248f93a5fbef67E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, ptr align 8 %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -106,7 +106,7 @@ define void @"_ZN77_$LT$alloc..string..String$u20$as$u20$actix_router..pattern..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN81_$LT$$RF$alloc..string..String$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h53f0e32a2175f607E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define void @"_ZN81_$LT$$RF$alloc..string..String$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h53f0e32a2175f607E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -130,7 +130,7 @@ define { ptr, i64 } @"_ZN83_$LT$alloc..string..String$u20$as$u20$actix_router..r
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$1$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h1dda93bd3211a2b1E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$1$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h1dda93bd3211a2b1E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %3, ptr align 8 %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -140,7 +140,7 @@ define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$1$u5d$$u20$as$u20$ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$2$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h4323afb9e5d7a6b1E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$2$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h4323afb9e5d7a6b1E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = icmp ne ptr %1, null
@@ -153,7 +153,7 @@ define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$2$u5d$$u20$as$u20$ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$3$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h62be9e35dc2a4e36E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$3$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h62be9e35dc2a4e36E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = icmp ne ptr %1, null
@@ -166,7 +166,7 @@ define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$3$u5d$$u20$as$u20$ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$4$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h563845ce7ef46347E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$4$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h563845ce7ef46347E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 96
   %5 = icmp ne ptr %1, null
@@ -179,7 +179,7 @@ define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$4$u5d$$u20$as$u20$ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$5$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h117fc04df98dc454E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$5$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h117fc04df98dc454E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 120
   %5 = icmp ne ptr %1, null
@@ -192,7 +192,7 @@ define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$5$u5d$$u20$as$u20$ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$6$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h2a4cf10607eda0f6E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$6$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h2a4cf10607eda0f6E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 144
   %5 = icmp ne ptr %1, null
@@ -205,7 +205,7 @@ define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$6$u5d$$u20$as$u20$ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$7$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h2d92afddbf187f49E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$7$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h2d92afddbf187f49E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 168
   %5 = icmp ne ptr %1, null
@@ -218,7 +218,7 @@ define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$7$u5d$$u20$as$u20$ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$8$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h3370f127e66ca0e6E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$8$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h3370f127e66ca0e6E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 192
   %5 = icmp ne ptr %1, null
@@ -231,7 +231,7 @@ define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$8$u5d$$u20$as$u20$ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$9$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h0dab8c2c12a7b055E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$9$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h0dab8c2c12a7b055E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 216
   %5 = icmp ne ptr %1, null
@@ -244,7 +244,7 @@ define void @"_ZN98_$LT$$u5b$alloc..string..String$u3b$$u20$9$u5d$$u20$as$u20$ac
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$10$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h60ed7658ea6f1260E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$10$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h60ed7658ea6f1260E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 240
   %5 = icmp ne ptr %1, null
@@ -257,7 +257,7 @@ define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$10$u5d$$u20$as$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$11$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h7b7a82c82cefc80dE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$11$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h7b7a82c82cefc80dE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 264
   %5 = icmp ne ptr %1, null
@@ -270,7 +270,7 @@ define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$11$u5d$$u20$as$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$12$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h87bf7f4e0de4ee24E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$12$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h87bf7f4e0de4ee24E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 288
   %5 = icmp ne ptr %1, null
@@ -283,7 +283,7 @@ define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$12$u5d$$u20$as$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$13$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17hd6abee162f22c17bE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$13$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17hd6abee162f22c17bE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 312
   %5 = icmp ne ptr %1, null
@@ -296,7 +296,7 @@ define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$13$u5d$$u20$as$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$14$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17hd6c48999b33deacaE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$14$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17hd6c48999b33deacaE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 336
   %5 = icmp ne ptr %1, null
@@ -309,7 +309,7 @@ define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$14$u5d$$u20$as$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$15$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h9fc9200b8102b61dE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$15$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h9fc9200b8102b61dE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = icmp ne ptr %1, null
@@ -322,7 +322,7 @@ define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$15$u5d$$u20$as$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$16$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h2bc37730dbac96ccE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #2 {
+define void @"_ZN99_$LT$$u5b$alloc..string..String$u3b$$u20$16$u5d$$u20$as$u20$actix_router..pattern..IntoPatterns$GT$8patterns17h2bc37730dbac96ccE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 384
   %5 = icmp ne ptr %1, null

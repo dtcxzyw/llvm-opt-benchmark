@@ -202,7 +202,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN2cv10BmpDecoder8initMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1424) initializes((1376, 1408)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv10BmpDecoder8initMaskEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1424) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1376
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 1392
@@ -285,7 +285,7 @@ define hidden void @_ZN2cv10BmpDecoder5closeEv(ptr noundef nonnull align 8 deref
 declare void @_ZN2cv11RBaseStream5closeEv(ptr noundef nonnull align 8 dereferenceable(57)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv10BmpDecoder10newDecoderEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv10BmpDecoder10newDecoderEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_10BmpDecoderEED2Ev.exit:
   %2 = alloca %"class.std::allocator.18", align 1
   %3 = alloca %"class.std::shared_ptr.7", align 8
@@ -2478,7 +2478,7 @@ define linkonce_odr hidden void @_ZN2cv16BaseImageEncoderD2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv10BmpEncoderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv10BmpEncoderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv16BaseImageEncoderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
@@ -2490,7 +2490,7 @@ define hidden void @_ZN2cv10BmpEncoderD2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv10BmpEncoderD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv10BmpEncoderD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv16BaseImageEncoderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18

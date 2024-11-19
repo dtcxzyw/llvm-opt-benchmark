@@ -3185,7 +3185,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h8e3ed7aeae878f9aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(1488) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h8e3ed7aeae878f9aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([16 x i8]) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(1488) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 976
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull readonly align 4 dereferenceable(16) %3, i64 16, i1 false), !alias.scope !524
   ret void

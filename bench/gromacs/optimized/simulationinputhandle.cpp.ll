@@ -301,7 +301,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx21SimulationInputHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx21SimulationInputHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i64 0, ptr %0, align 8
   invoke void @_ZN3gmx6detail32SimulationInputHandleImplDeleterC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZNSt10unique_ptrIN3gmx6detail25SimulationInputHandleImplENS1_32SimulationInputHandleImplDeleterEEC2IS3_vEEv.exit unwind label %2
@@ -516,7 +516,7 @@ _ZNSt10unique_ptrIN3gmx6detail25SimulationInputHandleImplENS1_32SimulationInputH
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx21SimulationInputHandleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx21SimulationInputHandleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store i64 0, ptr %0, align 8
   invoke void @_ZN3gmx6detail32SimulationInputHandleImplDeleterC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %_ZNSt10unique_ptrIN3gmx6detail25SimulationInputHandleImplENS1_32SimulationInputHandleImplDeleterEEC2IS3_vEEv.exit unwind label %3

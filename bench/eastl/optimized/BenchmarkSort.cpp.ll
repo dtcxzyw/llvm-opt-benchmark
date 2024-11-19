@@ -7504,7 +7504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEEC2ERKS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %x) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5eastl6vectorIN12_GLOBAL__N_116SortFunctionTypeENS_9allocatorEEC2ERKS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %x) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %x.val = load ptr, ptr %x, align 8
   %0 = getelementptr inbounds i8, ptr %x, i64 8
@@ -16472,7 +16472,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i668:  ; preds = %ehcleanup65.thread,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortStdVPERN2EA4StdC9StopwatchERSt6vectorINS_9ValuePairESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stdVectorVP) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortStdVPERN2EA4StdC9StopwatchERSt6vectorINS_9ValuePairESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stdVectorVP) unnamed_addr #1 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
@@ -16706,7 +16706,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19ValuePairESt6vectorIS3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117TestQuickSortEaVPERN2EA4StdC9StopwatchERN5eastl6vectorINS_9ValuePairENS4_9allocatorEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %eaVectorVP) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_117TestQuickSortEaVPERN2EA4StdC9StopwatchERN5eastl6vectorINS_9ValuePairENS4_9allocatorEEE(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %eaVectorVP) unnamed_addr #1 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
@@ -16896,7 +16896,7 @@ _ZN5eastl10quick_sortIPN12_GLOBAL__N_19ValuePairEEEvT_S4_.exit: ; preds = %for.e
 declare void @_ZN9Benchmark9AddResultEPKcillS1_(ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortEaIntERN2EA4StdC9StopwatchERN5eastl6vectorIjNS4_9allocatorEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %eaVectorInt) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortEaIntERN2EA4StdC9StopwatchERN5eastl6vectorIjNS4_9allocatorEEE(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %eaVectorInt) unnamed_addr #1 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
@@ -17053,7 +17053,7 @@ _ZN5eastl10quick_sortIPjEEvT_S2_.exit:            ; preds = %for.end.i.i21.i, %f
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortStdTOERN2EA4StdC9StopwatchERSt6vectorI10TestObjectSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stdVectorTO) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_118TestQuickSortStdTOERN2EA4StdC9StopwatchERSt6vectorI10TestObjectSaIS5_EE(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stdVectorTO) unnamed_addr #1 {
 entry:
   %ts.i.i.i = alloca %struct.timespec, align 8
   %mnUnits.i.i = getelementptr inbounds i8, ptr %stopwatch, i64 16
@@ -18918,7 +18918,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_4vJR15BenchmarkResultEE7InvokerES6_RKNS0_15functor_storageILi16EEE"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 16)) %args, ptr nocapture nonnull readnone align 8 %functor) #21 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_4vJR15BenchmarkResultEE7InvokerES6_RKNS0_15functor_storageILi16EEE"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %args, ptr nocapture nonnull readnone align 8 %functor) #21 align 2 {
 entry:
   %0 = load i32, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
   %conv.i.i.i = sext i32 %0 to i64
@@ -20747,7 +20747,7 @@ return:                                           ; preds = %entry, %sw.default,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_7vJR15BenchmarkResultEE7InvokerES6_RKNS0_15functor_storageILi16EEE"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %args, ptr nocapture nonnull readnone align 8 %functor) #21 align 2 {
+define internal void @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZL32CompareSmallInputSortPerformancevE3$_7vJR15BenchmarkResultEE7InvokerES6_RKNS0_15functor_storageILi16EEE"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %args, ptr nocapture nonnull readnone align 8 %functor) #21 align 2 {
 entry:
   %0 = load i32, ptr @_ZN12_GLOBAL__N_111SlowCompareIiE13nCompareCountE, align 4
   %conv.i.i.i = sext i32 %0 to i64

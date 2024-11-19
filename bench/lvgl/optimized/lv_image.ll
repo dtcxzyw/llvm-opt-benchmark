@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_image_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_image_constructor, ptr @lv_image_destructor, ptr @lv_image_event, ptr null, ptr @.str, i32 1073741823, i32 1073741823, i8 -128, i8 7, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_image_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 72)) %1) #0 {
+define internal void @lv_image_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -884,7 +884,7 @@ define internal fastcc void @update_align(ptr noundef %0) unnamed_addr #0 {
 declare void @lv_obj_refresh_ext_draw_size(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_image_set_offset_x(ptr noundef initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_image_set_offset_x(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8, !tbaa !49
   tail call void @lv_obj_invalidate(ptr noundef %0) #6
@@ -892,7 +892,7 @@ define void @lv_image_set_offset_x(ptr noundef initializes((80, 84)) %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_image_set_offset_y(ptr noundef initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_image_set_offset_y(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %1, ptr %3, align 4, !tbaa !50
   tail call void @lv_obj_invalidate(ptr noundef %0) #6
@@ -1022,7 +1022,7 @@ declare i32 @lv_obj_get_width(ptr noundef) local_unnamed_addr #2
 declare i32 @lv_obj_get_height(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_image_get_pivot(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define void @lv_image_get_pivot(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4, !tbaa !18
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1423,7 +1423,7 @@ lv_image_set_scale.exit:                          ; preds = %21, %17, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_image_set_bitmap_map_src(ptr noundef initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_image_set_bitmap_map_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8, !tbaa !36
   tail call void @lv_obj_invalidate(ptr noundef %0) #6

@@ -2619,7 +2619,7 @@ return:                                           ; preds = %if.then21.i, %luaM_
 declare void @longjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @resetstack(ptr noundef initializes((24, 32), (40, 48)) %L, i32 noundef range(i32 2, 6) %status) unnamed_addr #0 {
+define internal fastcc void @resetstack(ptr noundef %L, i32 noundef range(i32 2, 6) %status) unnamed_addr #0 {
 entry:
   %base_ci = getelementptr inbounds i8, ptr %L, i64 80
   %0 = load ptr, ptr %base_ci, align 8
@@ -31800,7 +31800,7 @@ for.end:                                          ; preds = %for.body, %if.end23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @field(ptr noundef nonnull initializes((8, 12)) %ls, ptr nocapture noundef nonnull %v) unnamed_addr #0 {
+define internal fastcc void @field(ptr noundef nonnull %ls, ptr nocapture noundef nonnull %v) unnamed_addr #0 {
 entry:
   %o.i.i.i = alloca %struct.lua_TValue, align 8
   %key = alloca %struct.expdesc, align 8
@@ -39755,7 +39755,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 4) i32 @io_flush(ptr noundef initializes((136, 148)) %L) #0 {
+define internal range(i32 1, 4) i32 @io_flush(ptr noundef %L) #0 {
 entry:
   %ci.i.i.i = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %ci.i.i.i, align 8
@@ -40218,7 +40218,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2147483648, 2147483647) i32 @io_read(ptr noundef initializes((136, 148)) %L) #0 {
+define internal range(i32 -2147483648, 2147483647) i32 @io_read(ptr noundef %L) #0 {
 entry:
   %ci.i.i.i = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %ci.i.i.i, align 8
@@ -40607,7 +40607,7 @@ if.end8:                                          ; preds = %lua_touserdata.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 4) i32 @io_write(ptr noundef initializes((136, 148)) %L) #0 {
+define internal range(i32 1, 4) i32 @io_write(ptr noundef %L) #0 {
 entry:
   %ci.i.i.i = getelementptr inbounds i8, ptr %L, i64 40
   %0 = load ptr, ptr %ci.i.i.i, align 8

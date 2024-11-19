@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @embed_graph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = mul nsw i32 %2, %1
   %7 = sext i32 %6 to i64
   %8 = tail call fastcc ptr @gv_calloc(i64 noundef %7, i64 noundef 4)

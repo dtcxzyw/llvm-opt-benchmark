@@ -789,7 +789,7 @@ define internal fastcc void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implE, i64 16), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !38
@@ -942,7 +942,7 @@ define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121resul
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost9unit_test16results_reporter12_GLOBAL__N_121results_reporter_implE, i64 16), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !38

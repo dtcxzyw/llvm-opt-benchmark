@@ -118,7 +118,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.100 = private unnamed_addr constant [5 x i8] c"\0A%*s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parse_options_start(ptr nocapture noundef initializes((0, 72)) %ctx, i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr nocapture noundef readonly %options, i32 noundef %flags) local_unnamed_addr #0 {
+define dso_local void @parse_options_start(ptr nocapture noundef %ctx, i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr nocapture noundef readonly %options, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %ctx, i8 0, i64 72, i1 false)
   tail call fastcc void @parse_options_start_1(ptr noundef %ctx, i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr noundef %options, i32 noundef %flags)
@@ -129,7 +129,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_options_start_1(ptr nocapture noundef initializes((0, 28), (40, 44), (48, 56)) %ctx, i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr nocapture noundef readonly %options, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc void @parse_options_start_1(ptr nocapture noundef %ctx, i32 noundef %argc, ptr noundef %argv, ptr noundef %prefix, ptr nocapture noundef readonly %options, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %short_opts.i = alloca [128 x i8], align 16
   %argc1 = getelementptr inbounds i8, ptr %ctx, i64 16
@@ -771,7 +771,7 @@ build_cmdmode_list.exit:                          ; preds = %for.inc.i36, %parse
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 4) i32 @parse_options_step(ptr noundef initializes((32, 40)) %ctx, ptr noundef %options, ptr noundef %usagestr) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 4) i32 @parse_options_step(ptr noundef %ctx, ptr noundef %options, ptr noundef %usagestr) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load i32, ptr %flags, align 8

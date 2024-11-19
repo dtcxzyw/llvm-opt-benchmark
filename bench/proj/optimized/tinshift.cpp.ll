@@ -626,7 +626,7 @@ define hidden noundef ptr @_ZNK8TINShift16ParsingException4whatEv(ptr noundef no
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8TINShift12TINShiftFile5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8TINShift12TINShiftFile5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -5747,7 +5747,7 @@ _ZNKSt14default_deleteIN8TINShift12TINShiftFileEEclEPS1_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN8TINShift9EvaluatorC2EOSt10unique_ptrINS_12TINShiftFileESt14default_deleteIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8TINShift9EvaluatorC2EOSt10unique_ptrINS_12TINShiftFileESt14default_deleteIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8

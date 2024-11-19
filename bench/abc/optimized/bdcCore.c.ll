@@ -103,14 +103,14 @@ define i32 @Bdc_FuncCopyInt(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Bdc_FuncSetCopy(ptr nocapture noundef writeonly initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @Bdc_FuncSetCopy(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Bdc_FuncSetCopyInt(ptr nocapture noundef writeonly initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @Bdc_FuncSetCopyInt(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
@@ -1097,7 +1097,7 @@ define void @Bdc_ManDecPrint(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Bdc_ManDecompose(ptr noundef initializes((8, 20)) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #5 {
+define i32 @Bdc_ManDecompose(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #5 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.Bdc_Isf_t_, align 8

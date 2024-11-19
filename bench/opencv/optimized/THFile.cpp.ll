@@ -185,49 +185,49 @@ define hidden noundef i32 @_ZN2TH15THFile_hasErrorEPNS_8THFile__E(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2TH13THFile_binaryEPNS_8THFile__E(ptr nocapture noundef writeonly initializes((20, 24)) %0) local_unnamed_addr #5 {
+define hidden void @_ZN2TH13THFile_binaryEPNS_8THFile__E(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 1, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2TH12THFile_asciiEPNS_8THFile__E(ptr nocapture noundef writeonly initializes((20, 24)) %0) local_unnamed_addr #5 {
+define hidden void @_ZN2TH12THFile_asciiEPNS_8THFile__E(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2TH18THFile_autoSpacingEPNS_8THFile__E(ptr nocapture noundef writeonly initializes((24, 28)) %0) local_unnamed_addr #5 {
+define hidden void @_ZN2TH18THFile_autoSpacingEPNS_8THFile__E(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2TH20THFile_noAutoSpacingEPNS_8THFile__E(ptr nocapture noundef writeonly initializes((24, 28)) %0) local_unnamed_addr #5 {
+define hidden void @_ZN2TH20THFile_noAutoSpacingEPNS_8THFile__E(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2TH12THFile_quietEPNS_8THFile__E(ptr nocapture noundef writeonly initializes((8, 12)) %0) local_unnamed_addr #5 {
+define hidden void @_ZN2TH12THFile_quietEPNS_8THFile__E(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2TH15THFile_pedanticEPNS_8THFile__E(ptr nocapture noundef writeonly initializes((8, 12)) %0) local_unnamed_addr #5 {
+define hidden void @_ZN2TH15THFile_pedanticEPNS_8THFile__E(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2TH17THFile_clearErrorEPNS_8THFile__E(ptr nocapture noundef writeonly initializes((28, 32)) %0) local_unnamed_addr #5 {
+define hidden void @_ZN2TH17THFile_clearErrorEPNS_8THFile__E(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %2, align 4
   ret void

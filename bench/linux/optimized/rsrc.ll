@@ -1851,7 +1851,7 @@ declare dso_local ptr @fget(i32 noundef) local_unnamed_addr #2
 declare dso_local zeroext i1 @io_is_uring_fops(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @io_file_bitmap_set(ptr nocapture noundef initializes((16, 20)) %0, i32 noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc void @io_file_bitmap_set(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = sext i32 %1 to i64
@@ -2243,7 +2243,7 @@ define internal fastcc range(i32 -14, 1) i32 @io_copy_iov(i16 %.4.val, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @io_sqe_buffer_register(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @io_sqe_buffer_register(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
   store ptr @dummy_ubuf, ptr %2, align 8

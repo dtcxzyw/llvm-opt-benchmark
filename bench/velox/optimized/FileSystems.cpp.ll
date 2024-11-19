@@ -1277,7 +1277,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystemD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystemD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox11filesystems10FileSystemE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1358,7 +1358,7 @@ _ZN8facebook5velox11filesystems10FileSystemD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystemD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox11filesystems12_GLOBAL__N_115LocalFileSystemD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox11filesystems10FileSystemE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16

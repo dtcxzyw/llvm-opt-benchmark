@@ -393,7 +393,7 @@ define hidden noundef i32 @lxb_html_token_data_skip_one_newline_begin(ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @lxb_html_token_data_split_ws_begin(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 96)) %1) local_unnamed_addr #4 {
+define hidden noundef i32 @lxb_html_token_data_split_ws_begin(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %0, i64 96, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -465,7 +465,7 @@ lxb_html_token_data_skip_ws_begin.exit:           ; preds = %14, %2, %12
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @lxb_html_token_doctype_parse(ptr nocapture noundef readonly %0, ptr noundef initializes((104, 112)) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @lxb_html_token_doctype_parse(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 184
@@ -627,7 +627,7 @@ define hidden ptr @lxb_html_token_find_attr(ptr nocapture noundef readonly %0, p
 declare ptr @lxb_dom_attr_data_by_local_name(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lxb_html_token_clean_noi(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #7 {
+define hidden void @lxb_html_token_clean_noi(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   ret void
 }

@@ -157,7 +157,7 @@ return:                                           ; preds = %cond.true, %iov_to_
 declare i64 @iov_size(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @eth_get_protocols(ptr noundef %iov, i64 noundef %iovcnt, i64 noundef %iovoff, ptr nocapture noundef writeonly initializes((0, 1)) %hasip4, ptr nocapture noundef writeonly initializes((0, 1)) %hasip6, ptr nocapture noundef initializes((0, 8)) %l3hdr_off, ptr nocapture noundef %l4hdr_off, ptr nocapture noundef writeonly %l5hdr_off, ptr noundef %ip6hdr_info, ptr noundef %ip4hdr_info, ptr noundef initializes((20, 24)) %l4hdr_info) local_unnamed_addr #2 {
+define dso_local void @eth_get_protocols(ptr noundef %iov, i64 noundef %iovcnt, i64 noundef %iovoff, ptr nocapture noundef writeonly %hasip4, ptr nocapture noundef writeonly %hasip6, ptr nocapture noundef %l3hdr_off, ptr nocapture noundef %l4hdr_off, ptr nocapture noundef writeonly %l5hdr_off, ptr noundef %ip6hdr_info, ptr noundef %ip4hdr_info, ptr noundef %l4hdr_info) local_unnamed_addr #2 {
 entry:
   %proto.i = alloca i16, align 2
   %p.i = alloca [18 x i8], align 16
@@ -464,7 +464,7 @@ sw.epilog:                                        ; preds = %eth_get_l3_proto.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @eth_parse_ipv6_hdr(ptr noundef %pkt, i32 noundef %pkt_frags, i64 noundef %ip6hdr_off, ptr noundef initializes((57, 58), (74, 75), (91, 92)) %info) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @eth_parse_ipv6_hdr(ptr noundef %pkt, i32 noundef %pkt_frags, i64 noundef %ip6hdr_off, ptr noundef %info) local_unnamed_addr #2 {
 entry:
   %opthdr.i = alloca %struct.ip6_option_hdr, align 2
   %rt_hdr.i = alloca %struct.ip6_ext_hdr_routing, align 8
@@ -1081,7 +1081,7 @@ return:                                           ; preds = %iov_to_buf.exit44, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @eth_fix_ip4_checksum(ptr noundef initializes((10, 12)) %l3hdr, i64 noundef %l3hdr_len) local_unnamed_addr #2 {
+define dso_local void @eth_fix_ip4_checksum(ptr noundef %l3hdr, i64 noundef %l3hdr_len) local_unnamed_addr #2 {
 entry:
   %ip_sum = getelementptr inbounds i8, ptr %l3hdr, i64 10
   store i16 0, ptr %ip_sum, align 2
@@ -1094,7 +1094,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @eth_calc_ip4_pseudo_hdr_csum(ptr nocapture noundef readonly %iphdr, i16 noundef zeroext %csl, ptr nocapture noundef writeonly initializes((0, 4)) %cso) local_unnamed_addr #2 {
+define dso_local i32 @eth_calc_ip4_pseudo_hdr_csum(ptr nocapture noundef readonly %iphdr, i16 noundef zeroext %csl, ptr nocapture noundef writeonly %cso) local_unnamed_addr #2 {
 entry:
   %ipph = alloca %struct.ip_pseudo_header, align 4
   %ip_src = getelementptr inbounds i8, ptr %iphdr, i64 12
@@ -1119,7 +1119,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @eth_calc_ip6_pseudo_hdr_csum(ptr nocapture noundef readonly %iphdr, i16 noundef zeroext %csl, i8 noundef zeroext %l4_proto, ptr nocapture noundef writeonly initializes((0, 4)) %cso) local_unnamed_addr #2 {
+define dso_local i32 @eth_calc_ip6_pseudo_hdr_csum(ptr nocapture noundef readonly %iphdr, i16 noundef zeroext %csl, i8 noundef zeroext %l4_proto, ptr nocapture noundef writeonly %cso) local_unnamed_addr #2 {
 entry:
   %ipph = alloca %struct.ip6_pseudo_header, align 4
   %ip6_src1 = getelementptr inbounds i8, ptr %iphdr, i64 8

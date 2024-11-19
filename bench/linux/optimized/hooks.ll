@@ -6819,7 +6819,7 @@ define internal noundef range(i32 0, 18) i32 @selinux_inode_listsecurity(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @selinux_inode_getsecid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #11 align 16 {
+define internal void @selinux_inode_getsecid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -8505,7 +8505,7 @@ define internal void @selinux_cred_transfer(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @selinux_cred_getsecid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #11 align 16 {
+define internal void @selinux_cred_getsecid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @selinux_blob_sizes, align 4
@@ -8842,7 +8842,7 @@ define internal i32 @selinux_task_getsid(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @selinux_current_getsecid_subj(ptr nocapture noundef writeonly initializes((0, 4)) %0) #15 align 16 {
+define internal void @selinux_current_getsecid_subj(ptr nocapture noundef writeonly %0) #15 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !6
   %3 = inttoptr i64 %2 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 1784
@@ -8859,7 +8859,7 @@ define internal void @selinux_current_getsecid_subj(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @selinux_task_getsecid_obj(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 align 16 {
+define internal void @selinux_task_getsecid_obj(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   tail call void @__rcu_read_lock() #24
   %3 = getelementptr inbounds i8, ptr %0, i64 1776
   %4 = load volatile ptr, ptr %3, align 16
@@ -9310,7 +9310,7 @@ define internal i32 @selinux_ipc_permission(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @selinux_ipc_getsecid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #11 align 16 {
+define internal void @selinux_ipc_getsecid(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 16
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @selinux_blob_sizes, i64 16), align 4
@@ -11328,7 +11328,7 @@ define internal i32 @selinux_socket_getpeersec_stream(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 align 16 {
+define internal range(i32 -22, 1) i32 @selinux_socket_getpeersec_dgram(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #1 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -11454,7 +11454,7 @@ define internal void @selinux_sk_clone_security(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @selinux_sk_getsecid(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #11 align 16 {
+define internal void @selinux_sk_getsecid(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) #11 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -11930,7 +11930,7 @@ define internal void @selinux_secmark_refcount_dec() #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @selinux_req_classify_flow(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((20, 24)) %1) #16 align 16 {
+define internal void @selinux_req_classify_flow(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #16 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 216
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 20
@@ -12089,7 +12089,7 @@ define internal i32 @selinux_key_permission(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @selinux_key_getsecurity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 align 16 {
+define internal i32 @selinux_key_getsecurity(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 80

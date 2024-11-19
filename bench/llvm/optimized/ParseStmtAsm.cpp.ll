@@ -4001,7 +4001,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser17ParseAsmStatementERb(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser17ParseAsmStatementERb(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
   %5 = alloca i16, align 2

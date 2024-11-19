@@ -1298,7 +1298,7 @@ ehcleanup12:                                      ; preds = %if.then.i.i.i41, %_
 declare noundef zeroext i1 @_ZN9FileCache14updateCopyFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21ClientMediaDownloaderC2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21ClientMediaDownloaderC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN22IClientMediaDownloaderC2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this)
   store ptr getelementptr inbounds (i8, ptr @_ZTV21ClientMediaDownloader, i64 16), ptr %this, align 8, !tbaa !37
@@ -1339,7 +1339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22IClientMediaDownloaderC2Ev(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22IClientMediaDownloaderC2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1436,7 +1436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21ClientMediaDownloaderD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21ClientMediaDownloaderD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV21ClientMediaDownloader, i64 16), ptr %this, align 8, !tbaa !37
   %m_httpfetch_caller = getelementptr inbounds i8, ptr %this, i64 136
@@ -1676,7 +1676,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21ClientMediaDownloaderD0Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN21ClientMediaDownloaderD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN21ClientMediaDownloaderD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -2972,7 +2972,7 @@ if.end38:                                         ; preds = %_ZN15HTTPFetchResul
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN21ClientMediaDownloader11initialStepEP6Client(ptr noundef nonnull align 8 dereferenceable(256) initializes((124, 128)) %this, ptr noundef %client) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21ClientMediaDownloader11initialStepEP6Client(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %client) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i277 = alloca i64, align 8
   %__dnew.i.i205 = alloca i64, align 8
@@ -8951,7 +8951,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #18
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21SingleMediaDownloaderC2Eb(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this, i1 noundef zeroext %write_to_cache) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21SingleMediaDownloaderC2Eb(ptr noundef nonnull align 8 dereferenceable(168) %this, i1 noundef zeroext %write_to_cache) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %write_to_cache to i8
   tail call void @_ZN22IClientMediaDownloaderC2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this)
@@ -8978,7 +8978,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21SingleMediaDownloaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21SingleMediaDownloaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV21SingleMediaDownloader, i64 16), ptr %this, align 8, !tbaa !37
   %m_httpfetch_caller = getelementptr inbounds i8, ptr %this, i64 152
@@ -9101,7 +9101,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21SingleMediaDownloaderD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN21SingleMediaDownloaderD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN21SingleMediaDownloaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31

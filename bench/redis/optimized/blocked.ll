@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.signalKeyAsReadyLogic = private unnamed_addr constant [6 x i64] [i64 1, i64 1, i64 6, i64 1, i64 4, i64 5], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @initClientBlockingState(ptr nocapture noundef writeonly initializes((464, 468), (472, 484), (488, 500), (504, 512), (520, 528)) %c) local_unnamed_addr #0 {
+define dso_local void @initClientBlockingState(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
 entry:
   %bstate = getelementptr inbounds i8, ptr %c, i64 464
   store i32 0, ptr %bstate, align 8
@@ -1035,7 +1035,7 @@ declare void @zfree(ptr noundef) local_unnamed_addr #1
 declare void @listRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @blockForKeys(ptr noundef initializes((472, 480)) %c, i32 noundef %btype, ptr nocapture noundef readonly %keys, i32 noundef %numkeys, i64 noundef %timeout, i32 noundef %unblock_on_nokey) local_unnamed_addr #0 {
+define dso_local void @blockForKeys(ptr noundef %c, i32 noundef %btype, ptr nocapture noundef readonly %keys, i32 noundef %numkeys, i64 noundef %timeout, i32 noundef %unblock_on_nokey) local_unnamed_addr #0 {
 entry:
   %db_blocked_existing_entry = alloca ptr, align 8
   %timeout1 = getelementptr inbounds i8, ptr %c, i64 472
@@ -1330,7 +1330,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @blockForReplication(ptr noundef initializes((472, 480), (496, 500), (504, 512)) %c, i64 noundef %timeout, i64 noundef %offset, i64 noundef %numreplicas) local_unnamed_addr #0 {
+define dso_local void @blockForReplication(ptr noundef %c, i64 noundef %timeout, i64 noundef %offset, i64 noundef %numreplicas) local_unnamed_addr #0 {
 entry:
   %timeout1 = getelementptr inbounds i8, ptr %c, i64 472
   store i64 %timeout, ptr %timeout1, align 8
@@ -1379,7 +1379,7 @@ blockClient.exit:                                 ; preds = %cond.end.i, %if.the
 declare ptr @listAddNodeHead(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @blockForAofFsync(ptr noundef initializes((472, 480), (496, 512)) %c, i64 noundef %timeout, i64 noundef %offset, i32 noundef %numlocal, i64 noundef %numreplicas) local_unnamed_addr #0 {
+define dso_local void @blockForAofFsync(ptr noundef %c, i64 noundef %timeout, i64 noundef %offset, i32 noundef %numlocal, i64 noundef %numreplicas) local_unnamed_addr #0 {
 entry:
   %timeout1 = getelementptr inbounds i8, ptr %c, i64 472
   store i64 %timeout, ptr %timeout1, align 8
@@ -1428,7 +1428,7 @@ blockClient.exit:                                 ; preds = %cond.end.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @blockPostponeClient(ptr noundef initializes((464, 468), (472, 480)) %c) local_unnamed_addr #0 {
+define dso_local void @blockPostponeClient(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %timeout = getelementptr inbounds i8, ptr %c, i64 472
   store i64 0, ptr %timeout, align 8

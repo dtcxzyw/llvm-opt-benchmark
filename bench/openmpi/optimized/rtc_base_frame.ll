@@ -192,7 +192,7 @@ define internal void @mdes(ptr nocapture noundef readonly %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rcon(ptr noundef initializes((144, 160), (200, 212), (216, 280)) %0) #1 {
+define internal void @rcon(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load i32, ptr @pmix_class_init_epoch, align 4

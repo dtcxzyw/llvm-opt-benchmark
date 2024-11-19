@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [10 x i8] c"CNAME: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @Curl_doh(ptr noundef initializes((392, 400)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @Curl_doh(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %3, align 4
@@ -665,7 +665,7 @@ declare i32 @curl_multi_remove_handle(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @Curl_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_doh_is_resolved(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_doh_is_resolved(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca i32, align 4
   %.sroa.0 = alloca i32, align 8

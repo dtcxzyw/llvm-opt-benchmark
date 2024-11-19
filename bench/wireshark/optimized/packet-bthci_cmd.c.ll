@@ -5552,7 +5552,7 @@ declare void @prefs_register_static_text_preference(ptr noundef, ptr noundef, pt
 declare ptr @register_decode_as_next_proto(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @bthci_cmd_vendor_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 10)) %1) #2 {
+define internal void @bthci_cmd_vendor_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1, ptr noundef nonnull align 1 dereferenceable(10) @.str.2559, i64 10, i1 false)
   ret void
 }

@@ -653,7 +653,7 @@ declare dso_local i32 @inet_release(ptr noundef) local_unnamed_addr #2
 declare dso_local void @fl6_free_socklist(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -107, 29) i32 @inet6_getname(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 2), (4, 8), (24, 28)) %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 -107, 29) i32 @inet6_getname(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 18
@@ -2473,7 +2473,7 @@ declare dso_local void @sock_init_data(ptr noundef, ptr noundef) local_unnamed_a
 declare dso_local void @sk_common_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @inet6_net_init(ptr noundef initializes((1741, 1742), (1744, 1751), (1752, 1768), (1842, 1843)) %0) #1 align 16 {
+define internal i32 @inet6_net_init(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1741
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 1744

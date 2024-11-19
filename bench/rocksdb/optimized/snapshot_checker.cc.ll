@@ -76,7 +76,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb28WritePreparedSnapshotCheckerC2EPNS_18WritePreparedTxnDBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %txn_db) unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb28WritePreparedSnapshotCheckerC2EPNS_18WritePreparedTxnDBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %txn_db) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb28WritePreparedSnapshotCheckerE, i64 16), ptr %this, align 8
   %txn_db_ = getelementptr inbounds i8, ptr %this, i64 8

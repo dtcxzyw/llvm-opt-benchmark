@@ -1495,7 +1495,7 @@ define void @_ZN16FollowStreamText10leaveEventEP6QEvent(ptr noundef nonnull alig
 declare void @_ZN7QWidget10leaveEventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16FollowStreamText5clearEv(ptr noundef nonnull align 8 dereferenceable(72) initializes((40, 41)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN16FollowStreamText5clearEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48

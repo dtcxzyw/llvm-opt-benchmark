@@ -417,7 +417,7 @@ if.end13:                                         ; preds = %if.end9, %if.then11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_SIG_INFO_set(ptr nocapture noundef writeonly initializes((0, 16)) %siginf, i32 noundef %mdnid, i32 noundef %pknid, i32 noundef %secbits, i32 noundef %flags) local_unnamed_addr #6 {
+define void @X509_SIG_INFO_set(ptr nocapture noundef writeonly %siginf, i32 noundef %mdnid, i32 noundef %pknid, i32 noundef %secbits, i32 noundef %flags) local_unnamed_addr #6 {
 entry:
   store i32 %mdnid, ptr %siginf, align 4
   %pknid2 = getelementptr inbounds i8, ptr %siginf, i64 4
@@ -480,7 +480,7 @@ X509_SIG_INFO_get.exit:                           ; preds = %if.end9.i, %if.then
 declare i32 @X509_check_purpose(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_x509_init_sig_info(ptr noundef initializes((176, 192)) %x) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_x509_init_sig_info(ptr noundef %x) local_unnamed_addr #0 {
 entry:
   %pknid.i = alloca i32, align 4
   %mdnid.i = alloca i32, align 4

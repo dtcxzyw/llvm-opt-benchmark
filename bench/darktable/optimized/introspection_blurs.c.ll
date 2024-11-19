@@ -1454,7 +1454,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 96) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

@@ -738,7 +738,7 @@ $_ZN5folly6detail18pretty_name_zarrayImNS0_14pretty_tag_gccEE6zarrayE = comdat a
 @_ZN8proxygen22PersistentQuicPskCacheC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6wangle21PersistentCacheConfigESt10unique_ptrIN4fizz7FactoryESt14default_deleteISD_EE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN8proxygen22PersistentQuicPskCacheC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6wangle21PersistentCacheConfigESt10unique_ptrIN4fizz7FactoryESt14default_deleteISD_EE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen22PersistentQuicPskCacheC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6wangle21PersistentCacheConfigESt10unique_ptrIN4fizz7FactoryESt14default_deleteISD_EE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef %config, ptr nocapture noundef %factory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen22PersistentQuicPskCacheC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6wangle21PersistentCacheConfigESt10unique_ptrIN4fizz7FactoryESt14default_deleteISD_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef %config, ptr nocapture noundef %factory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.wangle::PersistentCacheConfig", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22PersistentQuicPskCacheE, i64 16), ptr %this, align 8
@@ -1009,7 +1009,7 @@ _ZNSt10shared_ptrIN5folly8ExecutorEED2Ev.exit:    ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen22PersistentQuicPskCache13setMaxPskUsesEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 40)) %this, i64 noundef %maxUses) local_unnamed_addr #2 align 2 {
+define void @_ZN8proxygen22PersistentQuicPskCache13setMaxPskUsesEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i64 noundef %maxUses) local_unnamed_addr #2 align 2 {
 entry:
   %maxPskUses_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %maxUses, ptr %maxPskUses_, align 8
@@ -1017,7 +1017,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen22PersistentQuicPskCache10getPskUsesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %identity) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen22PersistentQuicPskCache10getPskUsesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %identity) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cachedPsk = alloca %"class.folly::Optional.8", align 8
   %cache_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -4029,7 +4029,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly9toDynamicIN8proxygen23PersistentQuicCachedPskEEENS_7dynamicERKT_(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %cached) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly9toDynamicIN8proxygen23PersistentQuicCachedPskEEENS_7dynamicERKT_(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %cached) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8

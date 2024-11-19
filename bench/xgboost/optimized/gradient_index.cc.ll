@@ -1027,7 +1027,7 @@ _ZN7xgboost6common12ColumnMatrix9PushBatchINS_4data20ColumnarAdapterBatchEEEviRK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost16GHistIndexMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 105), (112, 152)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost16GHistIndexMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   store i8 1, ptr %2, align 8
@@ -1261,7 +1261,7 @@ _ZNSt10shared_ptrIN7xgboost6common15ResourceHandlerEED2Ev.exit: ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost16GHistIndexMatrixC2EPKNS_7ContextEPNS_7DMatrixEidbNS_6common4SpanIKfLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 105), (112, 152)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost16GHistIndexMatrixC2EPKNS_7ContextEPNS_7DMatrixEidbNS_6common4SpanIKfLm18446744073709551615EEE(ptr noundef nonnull align 8 dereferenceable(233) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, double noundef %4, i1 noundef zeroext %5, ptr nocapture noundef readonly %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.dmlc::LogMessageFatal", align 1
   %9 = alloca %"class.xgboost::common::HistogramCuts", align 8
   %10 = alloca %"class.xgboost::common::Span.23", align 8
@@ -5741,7 +5741,7 @@ _ZN7xgboost6common5IndexD2Ev.exit:                ; preds = %47, %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost16GHistIndexMatrixC2EPKNS_7ContextERKNS_8MetaInfoERKNS_11EllpackPageERKNS_10BatchParamE(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 105), (112, 152)) %0, ptr nocapture readnone %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 1 %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost16GHistIndexMatrixC2EPKNS_7ContextERKNS_8MetaInfoERKNS_11EllpackPageERKNS_10BatchParamE(ptr noundef nonnull align 8 dereferenceable(233) %0, ptr nocapture readnone %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 1 %3, ptr nocapture nonnull readnone align 8 %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   store i8 1, ptr %6, align 8
@@ -6147,7 +6147,7 @@ _ZN7xgboost6common15RefResourceViewImED2Ev.exit14: ; preds = %_ZN7xgboost6common
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost16GHistIndexMatrixC2ERKNS_10SparsePageENS_6common4SpanIKNS_11FeatureTypeELm18446744073709551615EEENS4_13HistogramCutsEibdi(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 105), (112, 153), (156, 160)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, double noundef %6, i32 noundef %7) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost16GHistIndexMatrixC2ERKNS_10SparsePageENS_6common4SpanIKNS_11FeatureTypeELm18446744073709551615EEENS4_13HistogramCutsEibdi(ptr noundef nonnull align 8 dereferenceable(233) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, double noundef %6, i32 noundef %7) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca %"class.std::unique_ptr.37", align 8

@@ -1185,7 +1185,7 @@ cleanup:                                          ; preds = %_ZN3irr4core6string
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui18CGUIFileOpenDialogC1EPKwPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEibPc(ptr noundef nonnull align 8 dereferenceable(609) initializes((616, 636)) %this, ptr noundef readonly %title, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i1 noundef zeroext %restoreCWD, ptr noundef readonly %startDir) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui18CGUIFileOpenDialogC1EPKwPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEibPc(ptr noundef nonnull align 8 dereferenceable(609) %this, ptr noundef readonly %title, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i1 noundef zeroext %restoreCWD, ptr noundef readonly %startDir) unnamed_addr #0 align 2 {
 entry:
   %title433 = ptrtoint ptr %title to i64
   %empty.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1891,7 +1891,7 @@ return:                                           ; preds = %cond.end161, %cond.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui18CGUIFileOpenDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(609) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui18CGUIFileOpenDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(609) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -2225,7 +2225,7 @@ _ZN3irr4core6stringIcED2Ev.exit151:               ; preds = %if.then.i.i.i147, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui18CGUIFileOpenDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(609) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui18CGUIFileOpenDialogD1Ev(ptr noundef nonnull align 8 dereferenceable(609) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui18CGUIFileOpenDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(609) %this, ptr noundef nonnull @_ZTTN3irr3gui18CGUIFileOpenDialogE) #18
   ret void
@@ -2243,7 +2243,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui18CGUIFileOpenDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(609) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui18CGUIFileOpenDialogD0Ev(ptr noundef nonnull align 8 dereferenceable(609) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui18CGUIFileOpenDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(609) %this, ptr noundef nonnull @_ZTTN3irr3gui18CGUIFileOpenDialogE) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19

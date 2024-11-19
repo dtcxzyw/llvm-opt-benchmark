@@ -228,7 +228,7 @@ define hidden void @_ZN14MacroAssembler10as_AddressE14AddressLiteral(ptr dead_on
 declare void @_ZN7AddressC1EiPhN9relocInfo9relocTypeE(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14MacroAssembler10as_AddressE12ArrayAddress8Register(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 initializes((0, 21), (24, 44)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, i32 %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14MacroAssembler10as_AddressE12ArrayAddress8Register(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, i32 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.AddressLiteral, align 8
   %6 = alloca %class.AddressLiteral, align 8
   %7 = alloca %class.Address, align 8
@@ -18963,7 +18963,7 @@ declare void @_ZN9Assembler8vpcmpeqdE11XMMRegisterS0_S0_i(ptr noundef nonnull al
 declare void @_ZN9Assembler7pcmpeqdE11XMMRegisterS0_(ptr noundef nonnull align 8 dereferenceable(40), i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14MacroAssembler16argument_addressE18RegisterOrConstanti(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 initializes((0, 21), (24, 44)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %1, i32 %2, i64 %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN14MacroAssembler16argument_addressE18RegisterOrConstanti(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %1, i32 %2, i64 %3, i32 noundef %4) local_unnamed_addr #9 align 2 {
   %6 = icmp eq i32 %2, -1
   %.tr = trunc i64 %3 to i32
   %.010 = select i1 %6, i32 -1, i32 3
@@ -34604,7 +34604,7 @@ define hidden void @_ZN14MacroAssembler12cache_wbsyncEb(ptr noundef nonnull alig
 declare void @_ZN9Assembler6sfenceEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11SkipIfEqualC2EP14MacroAssemblerPKbb8Register(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 12), (28, 41)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN11SkipIfEqualC2EP14MacroAssemblerPKbb8Register(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i32 %4) unnamed_addr #0 align 2 {
   %6 = alloca %class.AddressLiteral, align 8
   %7 = alloca %class.ExternalAddress, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8

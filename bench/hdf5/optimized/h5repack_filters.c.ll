@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [22 x i8] c"H5Pget_filter2 failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @apply_filters(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 4)) %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @apply_filters(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca [256 x i8], align 16
   %9 = alloca [64 x i64], align 16
   %10 = alloca %struct.pack_info_t, align 8

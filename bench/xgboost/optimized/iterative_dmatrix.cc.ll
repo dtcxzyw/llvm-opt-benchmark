@@ -1078,7 +1078,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost4data16IterativeDMatrixC2EPvS2_St10shared_ptrINS_7DMatrixEEPFvS2_EPFiS2_Efii(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5, float noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost4data16IterativeDMatrixC2EPvS2_St10shared_ptrINS_7DMatrixEEPFvS2_EPFiS2_Efii(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef %5, float noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.xgboost::DeviceOrd", align 4
   %11 = alloca %"class.dmlc::LogMessageFatal", align 1
   %12 = alloca %"struct.xgboost::Context", align 8

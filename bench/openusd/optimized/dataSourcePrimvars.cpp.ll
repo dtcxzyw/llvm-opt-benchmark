@@ -362,7 +362,7 @@ $_ZTISt15_Sp_counted_ptrIPN32pxrInternal_v0_24__pxrReserved__32UsdImagingDataSou
 @_ZN32pxrInternal_v0_24__pxrReserved__27UsdImagingDataSourcePrimvarC1ERKNS_7SdfPathERKNS_7TfTokenERKNS_32UsdImagingDataSourceStageGlobalsENS_17UsdAttributeQueryESA_St10shared_ptrINS_24HdTypedSampledDataSourceIS4_EEESE_ = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__27UsdImagingDataSourcePrimvarC2ERKNS_7SdfPathERKNS_7TfTokenERKNS_32UsdImagingDataSourceStageGlobalsENS_17UsdAttributeQueryESA_St10shared_ptrINS_24HdTypedSampledDataSourceIS4_EEESE_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdImagingDataSourcePrimvarsC2ERKNS_7SdfPathERKNS_7UsdPrimENS_18UsdGeomPrimvarsAPIERKNS_32UsdImagingDataSourceStageGlobalsE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 20), (24, 56), (64, 68), (72, 80)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdImagingDataSourcePrimvarsC2ERKNS_7SdfPathERKNS_7UsdPrimENS_18UsdGeomPrimvarsAPIERKNS_32UsdImagingDataSourceStageGlobalsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
@@ -1147,7 +1147,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKc(ptr noundef no
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdImagingDataSourcePrimvars8GetNamesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdImagingDataSourcePrimvars8GetNamesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.std::vector.12", align 8
@@ -4454,7 +4454,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceCustomPrimvarsC2ERKNS_7SdfPathERKNS_7UsdPrimERKSt6vectorINS0_7MappingESaIS8_EERKNS_32UsdImagingDataSourceStageGlobalsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 20), (24, 56)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceCustomPrimvarsC2ERKNS_7SdfPathERKNS_7UsdPrimERKSt6vectorINS0_7MappingESaIS8_EERKNS_32UsdImagingDataSourceStageGlobalsE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceCustomPrimvarsE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %1, align 4
@@ -4690,7 +4690,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceCustomPrimvars8GetNamesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceCustomPrimvars8GetNamesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.7") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = load atomic i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_isEnabledE acquire, align 4
@@ -5584,7 +5584,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7UsdPrim12GetAttributeERKNS_
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryC1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceCustomPrimvars10InvalidateERKSt6vectorINS_7TfTokenESaIS2_EERKS1_INS0_7MappingESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet") align 8 initializes((448, 456)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__34UsdImagingDataSourceCustomPrimvars10InvalidateERKSt6vectorINS_7TfTokenESaIS2_EERKS1_INS0_7MappingESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair.64", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfDenseHashMap", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", align 8
@@ -6218,7 +6218,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27UsdImagingDataSourcePrimvarC2ERKNS_7SdfPathERKNS_7TfTokenERKNS_32UsdImagingDataSourceStageGlobalsENS_17UsdAttributeQueryESA_St10shared_ptrINS_24HdTypedSampledDataSourceIS4_EEESE_(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 16)) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27UsdImagingDataSourcePrimvarC2ERKNS_7SdfPathERKNS_7TfTokenERKNS_32UsdImagingDataSourceStageGlobalsENS_17UsdAttributeQueryESA_St10shared_ptrINS_24HdTypedSampledDataSourceIS4_EEESE_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %4, ptr noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", align 8
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", align 8
   %11 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", align 8

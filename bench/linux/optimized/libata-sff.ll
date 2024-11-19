@@ -497,7 +497,7 @@ define dso_local void @ata_sff_qc_fill_rtf(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_sff_freeze(ptr noundef initializes((169, 170)) %0) #1 align 16 {
+define dso_local void @ata_sff_freeze(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load i8, ptr %2, align 8
   %4 = or i8 %3, 2
@@ -1500,7 +1500,7 @@ define dso_local void @ata_sff_tf_load(ptr noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_sff_tf_read(ptr nocapture noundef %0, ptr nocapture noundef initializes((15, 22)) %1) #1 align 16 {
+define dso_local void @ata_sff_tf_read(ptr nocapture noundef %0, ptr nocapture noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @ioread8(ptr noundef %4) #13
@@ -4012,7 +4012,7 @@ declare dso_local i32 @sata_std_hardreset(ptr noundef, ptr noundef, i64 noundef)
 declare dso_local void @ata_do_eh(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ata_sff_std_ports(ptr nocapture noundef initializes((8, 88)) %0) #7 align 16 {
+define dso_local void @ata_sff_std_ports(ptr nocapture noundef %0) #7 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
@@ -6032,7 +6032,7 @@ define dso_local i32 @ata_pci_bmdma_init_one(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_sff_port_init(ptr noundef initializes((184, 192)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @ata_sff_port_init(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 192

@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @smtp_setup_connection(ptr nocapture noundef writeonly initializes((392, 400)) %data, ptr nocapture noundef %conn) #0 {
+define internal range(i32 0, 28) i32 @smtp_setup_connection(ptr nocapture noundef writeonly %data, ptr nocapture noundef %conn) #0 {
 entry:
   %bits = getelementptr inbounds i8, ptr %conn, i64 704
   %bf.load = load i32, ptr %bits, align 8
@@ -82,7 +82,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smtp_do(ptr noundef %data, ptr nocapture noundef initializes((0, 1)) %done) #0 {
+define internal i32 @smtp_do(ptr noundef %data, ptr nocapture noundef %done) #0 {
 entry:
   %ssldone3.i.i.i = alloca i8, align 1
   %host.i.i.i = alloca %struct.hostname, align 8
@@ -788,7 +788,7 @@ return:                                           ; preds = %if.end25, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @smtp_connect(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal i32 @smtp_connect(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
 entry:
   %ssldone3.i = alloca i8, align 1
   %localhost.i = alloca [1025 x i8], align 16

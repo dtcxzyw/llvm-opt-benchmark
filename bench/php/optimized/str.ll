@@ -70,14 +70,14 @@ define hidden ptr @lexbor_str_init_append(ptr noundef writeonly %0, ptr noundef 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_str_clean(ptr nocapture noundef writeonly initializes((8, 16)) %0) local_unnamed_addr #3 {
+define hidden void @lexbor_str_clean(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_str_clean_all(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #3 {
+define hidden void @lexbor_str_clean_all(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -1328,7 +1328,7 @@ define hidden i64 @lexbor_str_size_noi(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_str_data_set_noi(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden void @lexbor_str_data_set_noi(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
   ret void
 }

@@ -195,7 +195,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @init_presets(ptr noundef initializes((556, 560)) %0) local_unnamed_addr #5 {
+define void @init_presets(ptr noundef %0) local_unnamed_addr #5 {
   %2 = alloca %struct.dt_iop_sigmoid_params_t, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 556
   store i32 1, ptr %3, align 4, !tbaa !12
@@ -1458,7 +1458,7 @@ define void @process(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #13 {
+define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #26
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !70
@@ -1484,7 +1484,7 @@ define void @cleanup_global(ptr nocapture noundef %0) local_unnamed_addr #15 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #17 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #17 {
   %4 = tail call noalias dereferenceable_or_null(64) ptr @calloc(i64 noundef 1, i64 noundef 64) #23
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !22
@@ -1551,7 +1551,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #5
 declare void @dt_gui_update_collapsible_section(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #5 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #5 {
   %2 = alloca %struct.dt_iop_module_section_t, align 8
   %3 = tail call ptr @dt_alloc_aligned(i64 noundef 112) #24
   %4 = icmp eq ptr %3, null

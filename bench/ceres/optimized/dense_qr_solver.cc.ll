@@ -120,7 +120,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN5ceres8internal13DenseQRSolverC1ERKNS0_12LinearSolver7OptionsE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN5ceres8internal13DenseQRSolverC2ERKNS0_12LinearSolver7OptionsE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal13DenseQRSolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(272) initializes((8, 48), (56, 60), (64, 72)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal13DenseQRSolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 56

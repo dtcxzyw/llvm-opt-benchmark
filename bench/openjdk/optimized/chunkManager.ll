@@ -182,7 +182,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0
 declare noundef signext i8 @_ZNK9metaspace9Metachunk14get_state_charEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN9metaspace12ChunkManagerC2EPKcPNS_16VirtualSpaceListE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) initializes((0, 376)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN9metaspace12ChunkManagerC2EPKcPNS_16VirtualSpaceListE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(376) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
   store ptr %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8

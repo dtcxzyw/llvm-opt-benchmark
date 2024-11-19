@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17he61dee5bf4232210E"(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17he61dee5bf4232210E"(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds { i64, i64, i64, i64 }, ptr %5, i64 %2
@@ -26,7 +26,7 @@ define { i16, i64 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE"(ptr nocapture writeonly sret({ i8, [47 x i8] }) align 16 initializes((0, 1)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h02d24c6dbb4abeedE"(ptr nocapture writeonly sret({ i8, [47 x i8] }) align 16 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -49,7 +49,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1bae2c22232bd0c4E"(ptr nocapture writeonly sret({ i64, [8 x i64] }) align 8 initializes((0, 8)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1bae2c22232bd0c4E"(ptr nocapture writeonly sret({ i64, [8 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -72,7 +72,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f0557dd1ee108aaE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2f0557dd1ee108aaE"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -94,7 +94,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5048b1b98a98971bE"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 initializes((0, 8)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5048b1b98a98971bE"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -139,7 +139,7 @@ define { i16, i16 } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha438c32e88010148E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 8)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha438c32e88010148E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -162,7 +162,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7db9b6a9947f51cE"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 8)) %0, ptr nocapture align 8 %1) unnamed_addr #3 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha7db9b6a9947f51cE"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -189,7 +189,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2eb3176b70d1d144E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2eb3176b70d1d144E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -207,7 +207,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h75b7948fa6ea3ee8E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h75b7948fa6ea3ee8E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -225,7 +225,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h90ab1f9921cd8fd6E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h90ab1f9921cd8fd6E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -243,7 +243,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h94cb13447f7f416bE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h94cb13447f7f416bE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -261,7 +261,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha1489b4eb90fdfbaE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha1489b4eb90fdfbaE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -279,7 +279,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb63cd9f6061aaaddE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb63cd9f6061aaaddE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -297,7 +297,7 @@ define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he35184cba24b22b1E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he35184cba24b22b1E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1095,7 +1095,7 @@ define void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allocation_
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17h700d18f2d759947bE"(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1, i64 %2) unnamed_addr #2 {
+define void @"_ZN72_$LT$I$u20$as$u20$core..iter..adapters..zip..SpecTrustedRandomAccess$GT$17try_get_unchecked17h700d18f2d759947bE"(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 %0, ptr nocapture readonly align 8 %1, i64 %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   %6 = getelementptr inbounds { i64, i64, i64, i64 }, ptr %5, i64 %2

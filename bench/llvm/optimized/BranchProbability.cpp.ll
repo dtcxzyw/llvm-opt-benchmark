@@ -88,7 +88,7 @@ declare double @llvm.rint.f64(double) #1
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17BranchProbabilityC2Ejj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm17BranchProbabilityC2Ejj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = icmp eq i32 %2, -2147483648
   br i1 %4, label %14, label %5
 

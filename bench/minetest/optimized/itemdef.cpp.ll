@@ -691,7 +691,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16TouchInteractionC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(3) initializes((0, 3)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN16TouchInteractionC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(3) %this) unnamed_addr #6 align 2 {
 entry:
   store i8 0, ptr %this, align 1, !tbaa !15
   %pointed_node = getelementptr inbounds i8, ptr %this, i64 1
@@ -1219,7 +1219,7 @@ invoke.cont16:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14ItemDefinition12resetInitialEv(ptr noundef nonnull align 8 dereferenceable(918) initializes((520, 528)) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ItemDefinition12resetInitialEv(ptr noundef nonnull align 8 dereferenceable(918) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tool_capabilities = getelementptr inbounds i8, ptr %this, i64 520
   store ptr null, ptr %tool_capabilities, align 8, !tbaa !56
@@ -1880,7 +1880,7 @@ return:                                           ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14ItemDefinition5resetEv(ptr noundef nonnull align 8 dereferenceable(918) initializes((0, 1), (16, 24), (48, 56), (80, 88), (112, 120), (144, 152), (176, 184), (208, 216), (240, 248), (264, 284)) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ItemDefinition5resetEv(ptr noundef nonnull align 8 dereferenceable(918) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %struct.SoundSpec, align 8
   %ref.tmp7 = alloca %struct.SoundSpec, align 8
@@ -2331,7 +2331,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14ItemDefinitionD2Ev(ptr noundef nonnull align 8 dereferenceable(918) initializes((0, 1), (16, 24), (48, 56), (80, 88), (112, 120), (144, 152), (176, 184), (208, 216), (240, 248), (264, 284)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ItemDefinitionD2Ev(ptr noundef nonnull align 8 dereferenceable(918) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN14ItemDefinition5resetEv(ptr noundef nonnull align 8 dereferenceable(918) %this)
   %node_placement_prediction = getelementptr inbounds i8, ptr %this, i64 880
@@ -4327,7 +4327,7 @@ declare void @_ZNK14Pointabilities9serializeERSo(ptr noundef nonnull align 8 der
 declare void @_ZNK13WearBarParams9serializeERSo(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ItemDefinition11deSerializeERSit(ptr noundef nonnull align 8 dereferenceable(918) initializes((0, 1), (16, 24), (48, 56), (80, 88), (112, 120), (144, 152), (176, 184), (208, 216), (240, 248), (264, 284)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i16 noundef zeroext %protocol_version) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ItemDefinition11deSerializeERSit(ptr noundef nonnull align 8 dereferenceable(918) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i16 noundef zeroext %protocol_version) local_unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf.i651 = alloca [1 x i8], align 1
   %buf.i626 = alloca [1 x i8], align 1

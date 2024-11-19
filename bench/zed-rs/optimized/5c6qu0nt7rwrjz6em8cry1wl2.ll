@@ -16577,7 +16577,7 @@ define hidden void @_ZN7channel12channel_chat4init17h23fe94529a7a046bE(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7channel12channel_chat11ChannelChat3new17ha963da21ef46e396E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1192 x i8]) align 8 dereferenceable(1192) initializes((64, 128), (184, 240), (245, 246)) %0, ptr noundef nonnull %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noundef nonnull %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %5) unnamed_addr #6 {
+define void @_ZN7channel12channel_chat11ChannelChat3new17ha963da21ef46e396E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1192 x i8]) align 8 dereferenceable(1192) %0, ptr noundef nonnull %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noundef nonnull %4, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %5) unnamed_addr #6 {
   %7 = getelementptr inbounds i8, ptr %0, i64 224
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 64
@@ -17794,7 +17794,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h483738e2c2b7c150E.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7channel12channel_chat11ChannelChat26load_history_since_message17hf82f3c92e02cdeaaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) initializes((32, 64), (96, 104), (176, 216), (217, 218)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #6 {
+define void @_ZN7channel12channel_chat11ChannelChat26load_history_since_message17hf82f3c92e02cdeaaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 96
@@ -17894,7 +17894,7 @@ _ZN4gpui3app10AppContext6update17h696d6fdab647f83bE.exit: ; preds = %29, %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7channel12channel_chat11ChannelChat22handle_loaded_messages17h8048f6b7f2c3a02cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([912 x i8]) align 8 dereferenceable(912) initializes((0, 104), (264, 266)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2, ptr noundef nonnull %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4, i1 noundef zeroext %5, ptr noalias noundef align 8 dereferenceable(40) %6) unnamed_addr #6 {
+define void @_ZN7channel12channel_chat11ChannelChat22handle_loaded_messages17h8048f6b7f2c3a02cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([912 x i8]) align 8 dereferenceable(912) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2, ptr noundef nonnull %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4, i1 noundef zeroext %5, ptr noalias noundef align 8 dereferenceable(40) %6) unnamed_addr #6 {
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 56
@@ -18289,7 +18289,7 @@ define void @_ZN7channel12channel_chat11ChannelChat16pending_messages17h05220808
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7channel12channel_chat11ChannelChat19handle_message_sent17hbbd65c193ce2916aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([856 x i8]) align 8 dereferenceable(856) initializes((0, 248), (848, 849)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(176) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #6 {
+define hidden void @_ZN7channel12channel_chat11ChannelChat19handle_message_sent17hbbd65c193ce2916aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([856 x i8]) align 8 dereferenceable(856) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(176) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 176, i1 false)
@@ -18301,7 +18301,7 @@ define hidden void @_ZN7channel12channel_chat11ChannelChat19handle_message_sent1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7channel12channel_chat11ChannelChat22handle_message_removed17hdb541c34f2b30b03E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([136 x i8]) align 8 dereferenceable(136) initializes((0, 129)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #6 {
+define hidden void @_ZN7channel12channel_chat11ChannelChat22handle_message_removed17hdb541c34f2b30b03E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([136 x i8]) align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
@@ -18313,7 +18313,7 @@ define hidden void @_ZN7channel12channel_chat11ChannelChat22handle_message_remov
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7channel12channel_chat11ChannelChat22handle_message_updated17hc074feab2214f1c9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([848 x i8]) align 8 dereferenceable(848) initializes((0, 248), (840, 841)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(176) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #6 {
+define hidden void @_ZN7channel12channel_chat11ChannelChat22handle_message_updated17hc074feab2214f1c9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([848 x i8]) align 8 dereferenceable(848) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(176) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %0, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(176) %2, i64 176, i1 false)
@@ -20181,7 +20181,7 @@ _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.llvm.9435049372332397451.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7channel12channel_chat19messages_from_proto17h2e541564f85bba6cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([640 x i8]) align 8 dereferenceable(640) initializes((0, 40), (632, 633)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(40) %3) unnamed_addr #6 {
+define void @_ZN7channel12channel_chat19messages_from_proto17h2e541564f85bba6cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([640 x i8]) align 8 dereferenceable(640) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(40) %3) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %2, ptr %5, align 8
@@ -20193,7 +20193,7 @@ define void @_ZN7channel12channel_chat19messages_from_proto17h2e541564f85bba6cE(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7channel12channel_chat14ChannelMessage10from_proto17h9ddfd8beb45a28a5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([312 x i8]) align 8 dereferenceable(312) initializes((0, 144), (304, 305)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(40) %3) unnamed_addr #6 {
+define void @_ZN7channel12channel_chat14ChannelMessage10from_proto17h9ddfd8beb45a28a5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([312 x i8]) align 8 dereferenceable(312) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(128) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(40) %3) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %2, ptr %5, align 8
@@ -20212,7 +20212,7 @@ define noundef zeroext i1 @_ZN7channel12channel_chat14ChannelMessage10is_pending
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7channel12channel_chat14ChannelMessage14from_proto_vec17he86e8c8ff5e4a7cdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([592 x i8]) align 8 dereferenceable(592) initializes((0, 40), (80, 81)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(40) %3) unnamed_addr #6 {
+define void @_ZN7channel12channel_chat14ChannelMessage14from_proto_vec17he86e8c8ff5e4a7cdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([592 x i8]) align 8 dereferenceable(592) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias noundef align 8 dereferenceable(40) %3) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %2, ptr %5, align 8
@@ -20231,7 +20231,7 @@ define void @_ZN7channel12channel_chat17mentions_to_proto17hf290d38c7bac2283E(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN72_$LT$channel..channel_chat..ChannelMessage$u20$as$u20$sum_tree..Item$GT$7summary17h47ace189b3b96eaaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(144) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #6 {
+define void @"_ZN72_$LT$channel..channel_chat..ChannelMessage$u20$as$u20$sum_tree..Item$GT$7summary17h47ace189b3b96eaaE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(144) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #6 {
   %4 = load i64, ptr %1, align 16, !range !764, !noundef !5
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
@@ -20249,13 +20249,13 @@ define { i64, i64 } @"_ZN82_$LT$channel..channel_chat..ChannelMessageId$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN82_$LT$channel..channel_chat..ChannelMessageSummary$u20$as$u20$sum_tree..Summary$GT$4zero17hbc7ba7862515a85bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #10 {
+define void @"_ZN82_$LT$channel..channel_chat..ChannelMessageSummary$u20$as$u20$sum_tree..Summary$GT$4zero17hbc7ba7862515a85bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #10 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN82_$LT$channel..channel_chat..ChannelMessageSummary$u20$as$u20$sum_tree..Summary$GT$11add_summary17h86ef7a10a753e71eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #6 {
+define void @"_ZN82_$LT$channel..channel_chat..ChannelMessageSummary$u20$as$u20$sum_tree..Summary$GT$11add_summary17h86ef7a10a753e71eE"(ptr noalias nocapture noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #6 {
   %4 = load i64, ptr %1, align 8, !range !764, !noundef !5
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
@@ -20277,7 +20277,7 @@ define { i64, i64 } @"_ZN131_$LT$channel..channel_chat..ChannelMessageId$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN131_$LT$channel..channel_chat..ChannelMessageId$u20$as$u20$sum_tree..Dimension$LT$channel..channel_chat..ChannelMessageSummary$GT$$GT$11add_summary17hf858fefb53f3c34aE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #6 {
+define void @"_ZN131_$LT$channel..channel_chat..ChannelMessageId$u20$as$u20$sum_tree..Dimension$LT$channel..channel_chat..ChannelMessageSummary$GT$$GT$11add_summary17hf858fefb53f3c34aE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #6 {
   %4 = load i64, ptr %1, align 8, !range !764, !noundef !5
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5

@@ -1595,7 +1595,7 @@ declare ptr @OPENSSL_sk_delete(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @setup_verify(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_cert_chain(ptr noundef nonnull %cert, ptr noundef nonnull %store, ptr noundef %untrusted_certs, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %chain) unnamed_addr #0 {
+define internal fastcc i32 @get_cert_chain(ptr noundef nonnull %cert, ptr noundef nonnull %store, ptr noundef %untrusted_certs, ptr nocapture noundef nonnull writeonly %chain) unnamed_addr #0 {
 entry:
   %call = tail call ptr @app_get0_libctx() #5
   %call1 = tail call ptr @app_get0_propq() #5

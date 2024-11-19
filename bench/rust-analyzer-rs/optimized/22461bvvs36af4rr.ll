@@ -141,7 +141,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hcd8a45af7926c05aE.llvm.7578818
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN3fst9inner_map19MapBuilder$LT$W$GT$11extend_iter28_$u7b$$u7b$closure$u7d$$u7d$17hbefd4de363153b33E.llvm.7578818989620227732"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @"_ZN3fst9inner_map19MapBuilder$LT$W$GT$11extend_iter28_$u7b$$u7b$closure$u7d$$u7d$17hbefd4de363153b33E.llvm.7578818989620227732"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i64 }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -503,7 +503,7 @@ define hidden void @"_ZN3fst9inner_map36Map$LT$alloc..vec..Vec$LT$u8$GT$$GT$9fro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3ce4b2e68aa59383E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #2 {
+define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h3ce4b2e68aa59383E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i64 }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readnone align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #2 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 24
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
@@ -895,7 +895,7 @@ define hidden void @"_ZN62_$LT$T$u20$as$u20$alloc..vec..spec_from_elem..SpecFrom
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN73_$LT$fst..inner_map..Stream$LT$A$GT$$u20$as$u20$fst..stream..Streamer$GT$4next17h618600050ba40e1aE"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(136) %1) unnamed_addr #0 {
+define hidden void @"_ZN73_$LT$fst..inner_map..Stream$LT$A$GT$$u20$as$u20$fst..stream..Streamer$GT$4next17h618600050ba40e1aE"(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(136) %1) unnamed_addr #0 {
   %3 = alloca { ptr, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !196
   call void @"_ZN3fst3raw24StreamWithState$LT$A$GT$9next_with17hdff620030025757fE.llvm.5376302435122490944"(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(136) %1), !noalias !200

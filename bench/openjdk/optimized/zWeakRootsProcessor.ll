@@ -98,7 +98,7 @@ $_ZTV23ZPhantomCleanOopClosure = comdat any
 @_ZN19ZWeakRootsProcessorC1EP8ZWorkers = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN19ZWeakRootsProcessorC2EP8ZWorkers
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19ZWeakRootsProcessorC2EP8ZWorkers(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ZWeakRootsProcessorC2EP8ZWorkers(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

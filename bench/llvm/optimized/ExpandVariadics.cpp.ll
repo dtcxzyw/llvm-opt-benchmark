@@ -422,7 +422,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm25createExpandVariadicsPas
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19ExpandVariadicsPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 initializes((24, 28), (32, 40), (68, 72)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19ExpandVariadicsPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.(anonymous namespace)::ExpandVariadics", align 8
   %6 = load i32, ptr %1, align 4
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1522,7 +1522,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115ExpandVariadicsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115ExpandVariadicsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115ExpandVariadicsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -1543,7 +1543,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_115VariadicABIInfoESt14default_deleteIS1_EED2Ev.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm19ExpandVariadicsPassC2ENS_19ExpandVariadicsModeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm19ExpandVariadicsPassC2ENS_19ExpandVariadicsModeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
@@ -2009,7 +2009,7 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115ExpandVariadicsD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115ExpandVariadicsD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115ExpandVariadicsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8

@@ -611,14 +611,14 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib4DateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN8QuantLib4DateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
   store i64 0, ptr %this, align 8, !tbaa !3
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib4DateC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, i64 noundef %serialNumber) unnamed_addr #4 align 2 {
+define void @_ZN8QuantLib4DateC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i64 noundef %serialNumber) unnamed_addr #4 align 2 {
 entry:
   store i64 %serialNumber, ptr %this, align 8, !tbaa !3
   tail call void @_ZN8QuantLib4Date17checkSerialNumberEl(i64 noundef %serialNumber)
@@ -7519,7 +7519,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib2io14formatted_dateERKNS_4DateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"struct.QuantLib::detail::formatted_date_holder") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %d, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %f) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib2io14formatted_dateERKNS_4DateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"struct.QuantLib::detail::formatted_date_holder") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %d, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %f) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8

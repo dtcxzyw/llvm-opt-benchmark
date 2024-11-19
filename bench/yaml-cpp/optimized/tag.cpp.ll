@@ -80,7 +80,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML3TagC2ERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(84) %token) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML3TagC2ERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(84) %token) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data = getelementptr inbounds i8, ptr %token, i64 80
   %0 = load i32, ptr %data, align 8

@@ -5200,7 +5200,7 @@ _ZNK10open_spiel5chess10ChessState10ParentGameEv.exit: ; preds = %2, %30, %43, %
 declare void @_ZNK10open_spiel5chess10ChessBoard5ToFENB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(168), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5chess10ChessState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.64") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5chess10ChessState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.64") align 8 %0, ptr noundef nonnull align 8 dereferenceable(528) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::debian2::optional.69", align 8
   call void @_ZNK10open_spiel5chess10ChessState17MaybeFinalReturnsEv(ptr dead_on_unwind nonnull writable sret(%"class.absl::debian2::optional.69") align 8 %3, ptr noundef nonnull align 8 dereferenceable(528) %1)
   %4 = load i8, ptr %3, align 8

@@ -859,7 +859,7 @@ _ZN3ue29CharReachC2Ehh.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN3ue214fill_bitvectorERKNS_9CharReachEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %cr, ptr nocapture noundef initializes((0, 32)) %bits) local_unnamed_addr #5 {
+define hidden void @_ZN3ue214fill_bitvectorERKNS_9CharReachEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %cr, ptr nocapture noundef %bits) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %bits, i8 0, i64 32, i1 false)
   %0 = load i64, ptr %cr, align 8

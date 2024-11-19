@@ -1897,7 +1897,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc ptr @get_register_name_from_address(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef readonly %2) unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %4 = icmp ult i64 %0, 65536
   br i1 %4, label %5, label %8

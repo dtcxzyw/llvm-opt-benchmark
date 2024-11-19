@@ -393,7 +393,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %invoke.cont, %if.th
 declare void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp15ObjFileImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp15ObjFileImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp15ObjFileImporterE, i64 16), ptr %this, align 8
   %m_pRootObject = getelementptr inbounds i8, ptr %this, i64 96
@@ -484,7 +484,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp15ObjFileImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp15ObjFileImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp15ObjFileImporterE, i64 16), ptr %this, align 8
   %m_pRootObject.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -2305,7 +2305,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp15ObjFileImporter23appendChildToParentNodeEP6aiNodeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %this, ptr noundef %pParent, ptr noundef initializes((1096, 1104)) %pChild) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN6Assimp15ObjFileImporter23appendChildToParentNodeEP6aiNodeS2_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %this, ptr noundef %pParent, ptr noundef %pChild) local_unnamed_addr #11 align 2 {
 entry:
   %mParent = getelementptr inbounds i8, ptr %pChild, i64 1096
   store ptr %pParent, ptr %mParent, align 8
@@ -3567,7 +3567,7 @@ eh.resume:                                        ; preds = %lpad197, %lpad92, %
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp15ObjFileImporter12countObjectsERKSt6vectorIPNS_7ObjFile6ObjectESaIS4_EERi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rObjects, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %iNumMeshes) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN6Assimp15ObjFileImporter12countObjectsERKSt6vectorIPNS_7ObjFile6ObjectESaIS4_EERi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rObjects, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %iNumMeshes) local_unnamed_addr #12 align 2 {
 entry:
   store i32 0, ptr %iNumMeshes, align 4
   %0 = load ptr, ptr %rObjects, align 8

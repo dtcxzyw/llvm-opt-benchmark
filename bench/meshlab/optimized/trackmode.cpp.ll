@@ -1291,7 +1291,7 @@ _ZN3vcg10QuaternionIfEC2EfRKNS_6Point3IfEE.exit:  ; preds = %185, %190
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3vcg12CylinderMode5ApplyEPNS_9TrackballEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef initializes((0, 16)) %1, float noundef %2) unnamed_addr #5 align 2 {
+define void @_ZN3vcg12CylinderMode5ApplyEPNS_9TrackballEf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %0, ptr nocapture noundef %1, float noundef %2) unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load float, ptr %4, align 8
   %6 = fcmp oeq float %5, 0.000000e+00
@@ -1453,7 +1453,7 @@ _ZN3vcg8PathModeD2Ev.exit:                        ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg8PathMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((64, 68)) %0, ptr noundef %1, <2 x float> %2, float %3) unnamed_addr #3 align 2 {
+define void @_ZN3vcg8PathMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, <2 x float> %2, float %3) unnamed_addr #3 align 2 {
   %5 = alloca double, align 8
   %6 = alloca %"class.vcg::Point3", align 8
   %7 = alloca %"class.vcg::Point3", align 4
@@ -1606,7 +1606,7 @@ _ZN3vcg8PathMode9NormalizeEf.exit:                ; preds = %53, %59, %61
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg8PathMode5ApplyEPNS_9TrackballEf(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((64, 68)) %0, ptr noundef %1, float noundef %2) unnamed_addr #3 align 2 {
+define void @_ZN3vcg8PathMode5ApplyEPNS_9TrackballEf(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, float noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca double, align 8
   %5 = alloca %"class.vcg::Point3", align 4
   %6 = alloca %"class.vcg::Point3", align 4
@@ -1689,7 +1689,7 @@ define void @_ZN3vcg8PathMode9SetActionEv(ptr nocapture noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg8PathMode5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((36, 40)) %0) unnamed_addr #7 align 2 {
+define void @_ZN3vcg8PathMode5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load float, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 36
@@ -1738,7 +1738,7 @@ define noundef zeroext i1 @_ZN3vcg8PathMode8isStickyEv(ptr nocapture nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg8PathMode4UndoEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((36, 40)) %0) unnamed_addr #7 align 2 {
+define void @_ZN3vcg8PathMode4UndoEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load float, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 36
@@ -1803,7 +1803,7 @@ _ZN3vcg8AreaModeD2Ev.exit:                        ; preds = %_ZNSt6vectorIN3vcg6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg8AreaMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(216) initializes((152, 153)) %0, ptr noundef %1, <2 x float> %2, float %3) unnamed_addr #3 align 2 {
+define void @_ZN3vcg8AreaMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, <2 x float> %2, float %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.vcg::Point3", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i8, ptr %6, align 8
@@ -2029,7 +2029,7 @@ _ZN3vcg10trackutils8HitPlaneEPNS_9TrackballENS_6Point3IfEENS_6Plane3IfLb1EEE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg8AreaMode9SetActionEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((32, 33)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3vcg8AreaMode9SetActionEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2185,7 +2185,7 @@ define noundef zeroext i1 @_ZN3vcg8AreaMode8isStickyEv(ptr nocapture nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg8AreaMode4UndoEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((32, 33)) %0) unnamed_addr #7 align 2 {
+define void @_ZN3vcg8AreaMode4UndoEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2241,7 +2241,7 @@ define linkonce_odr void @_ZN3vcg9PolarModeD0Ev(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg9PolarMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %0, ptr noundef %1, <2 x float> %2, float %3) unnamed_addr #3 align 2 {
+define void @_ZN3vcg9PolarMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, <2 x float> %2, float %3) unnamed_addr #3 align 2 {
 _ZN3vcg10QuaternionIfEC2EfRKNS_6Point3IfEE.exit29:
   %4 = alloca %"class.vcg::Point3", align 8
   store <2 x float> %2, ptr %4, align 8
@@ -2318,7 +2318,7 @@ _ZN3vcg10QuaternionIfEC2EfRKNS_6Point3IfEE.exit29:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg9PolarMode9SetActionEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %0) unnamed_addr #7 align 2 {
+define void @_ZN3vcg9PolarMode9SetActionEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load float, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2331,7 +2331,7 @@ define void @_ZN3vcg9PolarMode9SetActionEv(ptr nocapture noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg9PolarMode5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %0) unnamed_addr #8 align 2 {
+define void @_ZN3vcg9PolarMode5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -2925,7 +2925,7 @@ define linkonce_odr void @_ZN3vcg9ScaleModeD0Ev(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3vcg9ScaleMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef initializes((28, 32)) %1, <2 x float> %2, float %3) unnamed_addr #5 align 2 {
+define void @_ZN3vcg9ScaleMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef %1, <2 x float> %2, float %3) unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 428
   %6 = load float, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 316
@@ -2982,7 +2982,7 @@ define linkonce_odr void @_ZN3vcg17NavigatorWasdModeD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg17NavigatorWasdMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull initializes((504, 508)) %1, <2 x float> %2, float %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3vcg17NavigatorWasdMode5ApplyEPNS_9TrackballENS_6Point3IfEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, <2 x float> %2, float %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.vcg::Matrix44", align 4
   %6 = alloca %"class.vcg::Matrix44", align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 496
@@ -3282,7 +3282,7 @@ define void @_ZN3vcg17NavigatorWasdMode9SetActionEv(ptr nocapture nonnull readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg17NavigatorWasdMode5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((8, 40)) %0) unnamed_addr #8 align 2 {
+define void @_ZN3vcg17NavigatorWasdMode5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void
@@ -4044,7 +4044,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #16
 declare float @sqrtf(float noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.vcg::Ray3") align 4 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) local_unnamed_addr #7 {
+define void @_ZN3vcg10trackutils8line2rayERKNS_5Line3IfLb0EEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.vcg::Ray3") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -4444,7 +4444,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit48:             ; preds = %_ZN3vcg6Point3IfE9N
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3vcg10trackutils13HitHyperOrthoENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_(<2 x float> %0, float %1, float noundef %2, <2 x float> %3, float %4, <2 x float> %5, <2 x float> %6, ptr nocapture noundef readonly byval(%"class.vcg::Point3") align 8 %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %8) local_unnamed_addr #18 {
+define noundef zeroext i1 @_ZN3vcg10trackutils13HitHyperOrthoENS_6Point3IfEEfS2_NS_6Plane3IfLb1EEES2_RS2_(<2 x float> %0, float %1, float noundef %2, <2 x float> %3, float %4, <2 x float> %5, <2 x float> %6, ptr nocapture noundef readonly byval(%"class.vcg::Point3") align 8 %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %8) local_unnamed_addr #18 {
   %.sroa.065.0.vec.extract = extractelement <2 x float> %0, i64 0
   %10 = load float, ptr %7, align 8
   %.sroa.065.4.vec.extract = extractelement <2 x float> %0, i64 1
@@ -5582,7 +5582,7 @@ _ZNK3vcg6Point3IfEeqERKS1_.exit.thread:           ; preds = %51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vcg10trackutils18ProjectLineOnPlaneERKNS_5Line3IfLb0EEERKNS_6Plane3IfLb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Line3") align 4 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2) local_unnamed_addr #18 {
+define void @_ZN3vcg10trackutils18ProjectLineOnPlaneERKNS_5Line3IfLb0EEERKNS_6Plane3IfLb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Line3") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2) local_unnamed_addr #18 {
   %.sroa.033.0.copyload = load float, ptr %1, align 4
   %.sroa.335.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 4
   %.sroa.335.0.copyload = load float, ptr %.sroa.335.0..sroa_idx, align 4
@@ -9495,7 +9495,7 @@ _ZN3vcg6Point3IfE9NormalizeEv.exit45:             ; preds = %_ZN3vcg6Point3IfE9N
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef float @_ZN3vcg8PathMode8HitPointEfNS_4Ray3IfLb1EEERNS_6Point3IfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, float noundef %1, ptr nocapture noundef readonly byval(%"class.vcg::Ray3.8") align 8 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #24 align 2 {
+define noundef float @_ZN3vcg8PathMode8HitPointEfNS_4Ray3IfLb1EEERNS_6Point3IfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, float noundef %1, ptr nocapture noundef readonly byval(%"class.vcg::Ray3.8") align 8 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %3) local_unnamed_addr #24 align 2 {
   %5 = alloca %"class.vcg::Point3", align 8
   %6 = alloca %"class.vcg::Point3", align 8
   %7 = alloca %"class.vcg::Point3", align 8
@@ -11491,7 +11491,7 @@ _ZN3vcg27SegmentPointSquaredDistanceIfEEvRKNS_8Segment3IT_EERKNS_6Point3IS2_EERS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg17NavigatorWasdModeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3vcg17NavigatorWasdModeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg17NavigatorWasdModeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 1, ptr %2, align 8
@@ -11519,7 +11519,7 @@ define void @_ZN3vcg17NavigatorWasdModeC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg17NavigatorWasdMode18SetTopSpeedsAndAccEfff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((48, 72)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #8 align 2 {
+define void @_ZN3vcg17NavigatorWasdMode18SetTopSpeedsAndAccEfff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #8 align 2 {
   %5 = fdiv float %1, 1.000000e+03
   %6 = fdiv float %2, 1.000000e+03
   %7 = fdiv float %3, 1.000000e+06
@@ -11572,7 +11572,7 @@ define void @_ZN3vcg17NavigatorWasdMode5FlipVEv(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3vcg17NavigatorWasdMode13SetStepOnWalkEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((72, 80)) %0, float noundef %1, float noundef %2) local_unnamed_addr #8 align 2 {
+define void @_ZN3vcg17NavigatorWasdMode13SetStepOnWalkEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, float noundef %1, float noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 76
   store float %1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 72

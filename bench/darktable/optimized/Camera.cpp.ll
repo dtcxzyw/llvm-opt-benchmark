@@ -4485,7 +4485,7 @@ define hidden void @_ZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeE(ptr noun
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeEENK3$_0clEPKc"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr nonnull %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN8rawspeed6Camera11parseSensorERKN4pugi8xml_nodeEENK3$_0clEPKc"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nonnull %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::basic_string_view", align 8
   %6 = alloca %"class.std::vector", align 8

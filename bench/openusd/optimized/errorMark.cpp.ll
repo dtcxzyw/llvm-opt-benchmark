@@ -142,7 +142,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr12_ReportErr
 declare ptr @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr10EraseRangeESt14_List_iteratorINS_7TfErrorEES3_(ptr noundef nonnull align 8 dereferenceable(481), ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__11TfErrorMarkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   %2 = alloca i8, align 1
   %3 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_15TfDiagnosticMgrEE9_instanceE seq_cst, align 8
   %.0.i.i.i = inttoptr i64 %3 to ptr

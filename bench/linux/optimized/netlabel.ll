@@ -121,13 +121,13 @@ netlbl_secattr_free.exit:                         ; preds = %.preheader.i, %.thr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @selinux_netlbl_sk_security_reset(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #2 align 16 {
+define dso_local void @selinux_netlbl_sk_security_reset(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 align 16 {
   store i32 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @selinux_netlbl_skbuff_getsid(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca %struct.netlbl_lsm_secattr, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
   %6 = tail call i32 @netlbl_enabled() #9

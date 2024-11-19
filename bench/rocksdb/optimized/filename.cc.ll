@@ -794,7 +794,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13InfoLogPrefixC2EbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) initializes((264, 280)) %this, i1 noundef zeroext %has_log_dir, ptr noundef nonnull align 8 dereferenceable(32) %db_absolute_path) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13InfoLogPrefixC2EbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(280) %this, i1 noundef zeroext %has_log_dir, ptr noundef nonnull align 8 dereferenceable(32) %db_absolute_path) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %prefix = getelementptr inbounds i8, ptr %this, i64 264

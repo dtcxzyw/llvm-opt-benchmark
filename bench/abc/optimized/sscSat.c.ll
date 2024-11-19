@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Gia_Obj_t_ = type <{ i64, i32 }>
 
 ; Function Attrs: nounwind uwtable
-define void @Ssc_ManStartSolver(ptr nocapture noundef initializes((40, 56), (64, 72)) %0) local_unnamed_addr #0 {
+define void @Ssc_ManStartSolver(ptr nocapture noundef %0) local_unnamed_addr #0 {
 Vec_IntAlloc.exit.i:
   %1 = getelementptr inbounds i8, ptr %0, i64 24
   %2 = load ptr, ptr %1, align 8
@@ -218,7 +218,7 @@ declare void @sat_solver_delete(ptr noundef) local_unnamed_addr #1
 declare i32 @sat_solver_simplify(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Ssc_ManCollectSatPattern(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
+define void @Ssc_ManCollectSatPattern(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 24

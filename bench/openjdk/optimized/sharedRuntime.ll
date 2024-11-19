@@ -4920,7 +4920,7 @@ _ZN13SharedRuntime12get_java_tidEP10JavaThread.exit: ; preds = %2, %30, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN13SharedRuntime16find_callee_infoERN9Bytecodes4CodeER8CallInfoP10JavaThread(ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN13SharedRuntime16find_callee_infoERN9Bytecodes4CodeER8CallInfoP10JavaThread(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.vframeStream, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 800
   %6 = load ptr, ptr %5, align 8
@@ -4959,7 +4959,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN13SharedRuntime23find_callee_info_helperER12vframeStreamRN9Bytecodes4CodeER8CallInfoP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5104) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden ptr @_ZN13SharedRuntime23find_callee_info_helperER12vframeStreamRN9Bytecodes4CodeER8CallInfoP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(5104) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.CompiledICLocker, align 8
   %6 = alloca %class.Handle, align 8
   %7 = alloca %class.methodHandle, align 8
@@ -5872,7 +5872,7 @@ declare void @_ZN10CompiledIC6updateEP8CallInfoP5Klass(ptr noundef nonnull align
 declare void @_ZN18CompiledDirectCall3setERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13SharedRuntime21handle_ic_miss_helperEP10JavaThread(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.methodHandle) align 8 initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13SharedRuntime21handle_ic_miss_helperEP10JavaThread(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.methodHandle) align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.vframeStream, align 8
   %4 = alloca %class.CallInfo, align 8
   %5 = alloca i32, align 4
@@ -9073,7 +9073,7 @@ define hidden void @_ZN13SharedRuntime26enable_stack_reserved_zoneEP10JavaThread
 declare void @_ZN13StackOverflow26enable_stack_reserved_zoneEb(ptr noundef nonnull align 8 dereferenceable(56), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13SharedRuntime40look_for_reserved_stack_annotated_methodEP10JavaThread5frame(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.frame) align 8 initializes((0, 37), (40, 56)) %0, ptr nocapture noundef readonly %1, ptr noundef byval(%class.frame) align 8 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13SharedRuntime40look_for_reserved_stack_annotated_methodEP10JavaThread5frame(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.frame) align 8 %0, ptr nocapture noundef readonly %1, ptr noundef byval(%class.frame) align 8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.RegisterMap, align 8
   %5 = alloca %class.EventReservedStackActivation, align 8
   %6 = alloca %class.frame, align 8

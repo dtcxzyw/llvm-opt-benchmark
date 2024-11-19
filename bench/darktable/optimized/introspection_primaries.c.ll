@@ -886,7 +886,7 @@ define internal fastcc void @_paint_purity_slider(ptr noundef nonnull %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 80) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -1137,7 +1137,7 @@ declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #6 {
+define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
   %2 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #21
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !88
@@ -1330,7 +1330,7 @@ declare float @dt_bauhaus_slider_get_hard_min(ptr noundef) local_unnamed_addr #3
 declare float @dt_bauhaus_slider_get_hard_max(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, i64 noundef range(i64 0, 3) %3, float noundef %4, float noundef %5, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %6) unnamed_addr #1 {
+define internal fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef readonly %2, i64 noundef range(i64 0, 3) %3, float noundef %4, float noundef %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #1 {
   %8 = alloca [4 x float], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -1474,7 +1474,7 @@ define internal fastcc void @_rotated_primary_to_display_RGB(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_apply_trc_if_nonlinear(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull writeonly initializes((0, 12)) %2) unnamed_addr #13 {
+define internal fastcc void @_apply_trc_if_nonlinear(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %0, i64 852
   %5 = load i32, ptr %4, align 4, !tbaa !96
   %6 = icmp eq i32 %5, 0

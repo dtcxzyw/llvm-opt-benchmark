@@ -1159,7 +1159,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN5arrow7compute8internal9FirstTypeEPNS0_13KernelContextERKSt6vectorINS_10TypeHolderESaIS5_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %types) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal9FirstTypeEPNS0_13KernelContextERKSt6vectorINS_10TypeHolderESaIS5_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %types) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %types, align 8
   store ptr null, ptr %agg.result, align 8
@@ -1198,7 +1198,7 @@ _ZN5arrow6ResultINS_10TypeHolderEEC2IRKS1_vEEOT_.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN5arrow7compute8internal8LastTypeEPNS0_13KernelContextERKSt6vectorINS_10TypeHolderESaIS5_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %types) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal8LastTypeEPNS0_13KernelContextERKSt6vectorINS_10TypeHolderESaIS5_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %types) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %types, i64 8
   %1 = load ptr, ptr %_M_finish.i.i, align 8
@@ -1239,7 +1239,7 @@ _ZN5arrow6ResultINS_10TypeHolderEEC2IRKS1_vEEOT_.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute8internal14ListValuesTypeEPNS0_13KernelContextERKSt6vectorINS_10TypeHolderESaIS5_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal14ListValuesTypeEPNS0_13KernelContextERKSt6vectorINS_10TypeHolderESaIS5_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Result") align 8 %agg.result, ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %args, align 8
   %2 = load ptr, ptr %1, align 8
@@ -3324,7 +3324,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow5int16Ev() loc
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4int8Ev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5arrow7compute8internal24CommonTemporalResolutionEPKNS_10TypeHolderEmPNS_8TimeUnit4typeE(ptr noundef readonly %begin, i64 noundef %count, ptr nocapture noundef writeonly initializes((0, 4)) %finest_unit) local_unnamed_addr #8 {
+define noundef zeroext i1 @_ZN5arrow7compute8internal24CommonTemporalResolutionEPKNS_10TypeHolderEmPNS_8TimeUnit4typeE(ptr noundef readonly %begin, i64 noundef %count, ptr nocapture noundef writeonly %finest_unit) local_unnamed_addr #8 {
 entry:
   store i32 0, ptr %finest_unit, align 4
   %add.ptr = getelementptr inbounds %"struct.arrow::TypeHolder", ptr %begin, i64 %count

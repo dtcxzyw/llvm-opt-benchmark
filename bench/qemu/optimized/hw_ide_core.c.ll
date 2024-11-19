@@ -1459,7 +1459,7 @@ if.end63:                                         ; preds = %if.then61, %done, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_abort_command(ptr nocapture noundef initializes((649, 650), (665, 666), (864, 888)) %s) local_unnamed_addr #0 {
+define dso_local void @ide_abort_command(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
   %status = getelementptr inbounds i8, ptr %s, i64 665
   %error = getelementptr inbounds i8, ptr %s, i64 649
@@ -1491,7 +1491,7 @@ ide_transfer_stop.exit:                           ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_transfer_stop(ptr nocapture noundef initializes((864, 888)) %s) #0 {
+define dso_local void @ide_transfer_stop(ptr nocapture noundef %s) #0 {
 entry:
   %end_transfer_func.i = getelementptr inbounds i8, ptr %s, i64 864
   store ptr @ide_transfer_stop, ptr %end_transfer_func.i, align 8
@@ -1523,7 +1523,7 @@ ide_cmd_done.exit:                                ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef zeroext i1 @ide_transfer_start_norecurse(ptr nocapture noundef initializes((872, 888)) %s, ptr noundef %buf, i32 noundef %size, ptr noundef %end_transfer_func) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @ide_transfer_start_norecurse(ptr nocapture noundef %s, ptr noundef %buf, i32 noundef %size, ptr noundef %end_transfer_func) local_unnamed_addr #0 {
 entry:
   %data_ptr = getelementptr inbounds i8, ptr %s, i64 872
   store ptr %buf, ptr %data_ptr, align 8
@@ -1660,7 +1660,7 @@ return:                                           ; preds = %if.end7, %if.then5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_transfer_start(ptr noundef initializes((872, 888)) %s, ptr noundef %buf, i32 noundef %size, ptr noundef %end_transfer_func) local_unnamed_addr #0 {
+define dso_local void @ide_transfer_start(ptr noundef %s, ptr noundef %buf, i32 noundef %size, ptr noundef %end_transfer_func) local_unnamed_addr #0 {
 entry:
   %call = tail call zeroext i1 @ide_transfer_start_norecurse(ptr noundef %s, ptr noundef %buf, i32 noundef %size, ptr noundef %end_transfer_func)
   br i1 %call, label %if.then, label %if.end
@@ -1761,7 +1761,7 @@ if.end50:                                         ; preds = %if.then2, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ide_set_sector(ptr nocapture noundef initializes((656, 659)) %s, i64 noundef %sector_num) local_unnamed_addr #3 {
+define dso_local void @ide_set_sector(ptr nocapture noundef %s, i64 noundef %sector_num) local_unnamed_addr #3 {
 entry:
   %select = getelementptr inbounds i8, ptr %s, i64 664
   %0 = load i8, ptr %select, align 8
@@ -2473,7 +2473,7 @@ declare void @ide_atapi_io_error(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @blk_error_action(ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_start_dma(ptr noundef initializes((704, 708)) %s, ptr noundef %cb) local_unnamed_addr #0 {
+define dso_local void @ide_start_dma(ptr noundef %s, ptr noundef %cb) local_unnamed_addr #0 {
 entry:
   %io_buffer_index = getelementptr inbounds i8, ptr %s, i64 704
   store i32 0, ptr %io_buffer_index, align 8
@@ -2866,7 +2866,7 @@ for.end:                                          ; preds = %ide_perform_srst.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ide_bus_reset(ptr noundef initializes((2128, 2130)) %bus) local_unnamed_addr #0 {
+define dso_local void @ide_bus_reset(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %dma = getelementptr inbounds i8, ptr %bus, i64 2120
@@ -3092,7 +3092,7 @@ ide_set_signature.exit:                           ; preds = %ide_set_signature.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @ide_init_drive(ptr noundef initializes((12, 48), (640, 648), (672, 680), (952, 954), (956, 961)) %s, ptr noundef %blk, i32 noundef %kind, ptr noundef %version, ptr noundef %serial, ptr noundef %model, i64 noundef %wwn, i32 noundef %cylinders, i32 noundef %heads, i32 noundef %secs, i32 noundef %chs_trans, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @ide_init_drive(ptr noundef %s, ptr noundef %blk, i32 noundef %kind, ptr noundef %version, ptr noundef %serial, ptr noundef %model, i64 noundef %wwn, i32 noundef %cylinders, i32 noundef %heads, i32 noundef %secs, i32 noundef %chs_trans, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %nb_sectors = alloca i64, align 8
   %blk1 = getelementptr inbounds i8, ptr %s, i64 672
@@ -3408,7 +3408,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare ptr @drive_get_by_index(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @trim_aio_cancel(ptr nocapture noundef initializes((56, 60), (80, 88)) %acb) #0 {
+define internal void @trim_aio_cancel(ptr nocapture noundef %acb) #0 {
 entry:
   %qiov = getelementptr inbounds i8, ptr %acb, i64 64
   %0 = load ptr, ptr %qiov, align 8
@@ -3479,7 +3479,7 @@ declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 declare void @qemu_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_cfa_req_ext_error_code(ptr nocapture noundef initializes((649, 650), (665, 666)) %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_cfa_req_ext_error_code(ptr nocapture noundef %s, i8 zeroext %cmd) #0 {
 entry:
   %error = getelementptr inbounds i8, ptr %s, i64 649
   store i8 9, ptr %error, align 1
@@ -3503,7 +3503,7 @@ ide_bus_set_irq.exit:                             ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_data_set_management(ptr noundef initializes((665, 666)) %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_data_set_management(ptr noundef %s, i8 zeroext %cmd) #0 {
 entry:
   %feature = getelementptr inbounds i8, ptr %s, i64 648
   %0 = load i8, ptr %feature, align 8
@@ -3558,7 +3558,7 @@ return:                                           ; preds = %if.then.i.i.i, %sw.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_device_reset(ptr noundef initializes((864, 888)) %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_device_reset(ptr noundef %s, i8 zeroext %cmd) #0 {
 entry:
   %end_transfer_func.i = getelementptr inbounds i8, ptr %s, i64 864
   store ptr @ide_transfer_stop, ptr %end_transfer_func.i, align 8
@@ -3585,7 +3585,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_read_pio(ptr noundef initializes((649, 650), (665, 666)) %s, i8 noundef zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_read_pio(ptr noundef %s, i8 noundef zeroext %cmd) #0 {
 entry:
   %cmp = icmp eq i8 %cmd, 36
   %drive_kind = getelementptr inbounds i8, ptr %s, i64 12
@@ -3705,7 +3705,7 @@ return:                                           ; preds = %if.then.i.i.i18, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_read_dma(ptr noundef initializes((665, 666)) %s, i8 noundef zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_read_dma(ptr noundef %s, i8 noundef zeroext %cmd) #0 {
 entry:
   %blk = getelementptr inbounds i8, ptr %s, i64 672
   %0 = load ptr, ptr %blk, align 8
@@ -3960,7 +3960,7 @@ return:                                           ; preds = %if.else29.i, %if.el
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_read_multiple(ptr noundef initializes((649, 650), (665, 666)) %s, i8 noundef zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_read_multiple(ptr noundef %s, i8 noundef zeroext %cmd) #0 {
 entry:
   %cmp = icmp eq i8 %cmd, 41
   %blk = getelementptr inbounds i8, ptr %s, i64 672
@@ -4042,7 +4042,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_write_pio(ptr noundef initializes((665, 666), (872, 888)) %s, i8 noundef zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_write_pio(ptr noundef %s, i8 noundef zeroext %cmd) #0 {
 entry:
   %blk = getelementptr inbounds i8, ptr %s, i64 672
   %0 = load ptr, ptr %blk, align 8
@@ -4130,7 +4130,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_write_dma(ptr noundef initializes((665, 666)) %s, i8 noundef zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_write_dma(ptr noundef %s, i8 noundef zeroext %cmd) #0 {
 entry:
   %blk = getelementptr inbounds i8, ptr %s, i64 672
   %0 = load ptr, ptr %blk, align 8
@@ -4217,7 +4217,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_write_multiple(ptr noundef initializes((665, 666), (872, 888)) %s, i8 noundef zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_write_multiple(ptr noundef %s, i8 noundef zeroext %cmd) #0 {
 entry:
   %cmp = icmp eq i8 %cmd, 57
   %blk = getelementptr inbounds i8, ptr %s, i64 672
@@ -4315,7 +4315,7 @@ return:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @cmd_verify(ptr nocapture noundef initializes((668, 669)) %s, i8 noundef zeroext %cmd) #3 {
+define internal noundef zeroext i1 @cmd_verify(ptr nocapture noundef %s, i8 noundef zeroext %cmd) #3 {
 entry:
   %cmp = icmp eq i8 %cmd, 66
   %conv.i = zext i1 %cmp to i8
@@ -4358,7 +4358,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_cfa_translate_sector(ptr nocapture noundef initializes((665, 666), (872, 888)) %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_cfa_translate_sector(ptr nocapture noundef %s, i8 zeroext %cmd) #0 {
 entry:
   %status = getelementptr inbounds i8, ptr %s, i64 665
   store i8 80, ptr %status, align 1
@@ -4544,7 +4544,7 @@ ide_bus_set_irq.exit:                             ; preds = %ide_transfer_start.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_exec_dev_diagnostic(ptr nocapture noundef initializes((649, 650), (652, 659), (664, 666)) %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_exec_dev_diagnostic(ptr nocapture noundef %s, i8 zeroext %cmd) #0 {
 entry:
   %select = getelementptr inbounds i8, ptr %s, i64 664
   store i8 -96, ptr %select, align 8
@@ -4668,7 +4668,7 @@ if.end:                                           ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @cmd_check_power_mode(ptr nocapture noundef writeonly initializes((652, 656)) %s, i8 zeroext %cmd) #9 {
+define internal noundef zeroext i1 @cmd_check_power_mode(ptr nocapture noundef writeonly %s, i8 zeroext %cmd) #9 {
 entry:
   %nsector = getelementptr inbounds i8, ptr %s, i64 652
   store i32 255, ptr %nsector, align 4
@@ -4676,7 +4676,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_packet(ptr noundef initializes((665, 666), (872, 888)) %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_packet(ptr noundef %s, i8 zeroext %cmd) #0 {
 entry:
   %feature = getelementptr inbounds i8, ptr %s, i64 648
   %0 = load i8, ptr %feature, align 8
@@ -5483,7 +5483,7 @@ return:                                           ; preds = %if.then.i.i.i, %abo
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @cmd_cfa_access_metadata_storage(ptr nocapture noundef initializes((872, 888)) %s, i8 zeroext %cmd) #0 {
+define internal noundef zeroext i1 @cmd_cfa_access_metadata_storage(ptr nocapture noundef %s, i8 zeroext %cmd) #0 {
 entry:
   %feature = getelementptr inbounds i8, ptr %s, i64 648
   %0 = load i8, ptr %feature, align 8
@@ -7199,7 +7199,7 @@ declare ptr @blk_get_aio_context(ptr noundef) local_unnamed_addr #1
 declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_sector_read(ptr noundef initializes((649, 650), (665, 666)) %s) #0 {
+define internal void @ide_sector_read(ptr noundef %s) #0 {
 entry:
   %total_sectors.i = alloca i64, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -7440,7 +7440,7 @@ return:                                           ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_sector_read_cb(ptr noundef initializes((744, 752)) %opaque, i32 noundef %ret) #0 {
+define internal void @ide_sector_read_cb(ptr noundef %opaque, i32 noundef %ret) #0 {
 entry:
   %pio_aiocb = getelementptr inbounds i8, ptr %opaque, i64 744
   store ptr null, ptr %pio_aiocb, align 8
@@ -7647,7 +7647,7 @@ return:                                           ; preds = %if.then.i40, %ide_t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_sector_write(ptr noundef initializes((665, 666)) %s) #0 {
+define internal void @ide_sector_write(ptr noundef %s) #0 {
 entry:
   %total_sectors.i = alloca i64, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -7864,7 +7864,7 @@ return:                                           ; preds = %if.end5, %ide_rw_er
 declare ptr @blk_aio_pwritev(ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_sector_write_cb(ptr noundef initializes((744, 752)) %opaque, i32 noundef %ret) #0 {
+define internal void @ide_sector_write_cb(ptr noundef %opaque, i32 noundef %ret) #0 {
 entry:
   %pio_aiocb = getelementptr inbounds i8, ptr %opaque, i64 744
   store ptr null, ptr %pio_aiocb, align 8
@@ -8286,7 +8286,7 @@ return:                                           ; preds = %if.then.i10.i, %ide
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_flush_cb(ptr noundef initializes((744, 752)) %opaque, i32 noundef %ret) #0 {
+define internal void @ide_flush_cb(ptr noundef %opaque, i32 noundef %ret) #0 {
 entry:
   %pio_aiocb = getelementptr inbounds i8, ptr %opaque, i64 744
   store ptr null, ptr %pio_aiocb, align 8
@@ -8355,7 +8355,7 @@ declare void @blk_set_enable_write_cache(ptr noundef, i1 noundef zeroext) local_
 declare void @ide_atapi_cmd_reply_end(ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @ide_dummy_transfer_stop(ptr nocapture noundef initializes((872, 888)) %s) #12 {
+define internal void @ide_dummy_transfer_stop(ptr nocapture noundef %s) #12 {
 entry:
   %io_buffer = getelementptr inbounds i8, ptr %s, i64 888
   %0 = load ptr, ptr %io_buffer, align 8
@@ -8377,7 +8377,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_cd_change_cb(ptr nocapture noundef initializes((40, 48), (689, 691), (693, 694), (695, 696)) %opaque, i1 noundef zeroext %load, ptr nocapture readnone %errp) #0 {
+define internal void @ide_cd_change_cb(ptr nocapture noundef %opaque, i1 noundef zeroext %load, ptr nocapture readnone %errp) #0 {
 entry:
   %nb_sectors = alloca i64, align 8
   %lnot = xor i1 %load, true
@@ -8414,7 +8414,7 @@ ide_bus_set_irq.exit:                             ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ide_cd_eject_request_cb(ptr nocapture noundef initializes((689, 690)) %opaque, i1 noundef zeroext %force) #0 {
+define internal void @ide_cd_eject_request_cb(ptr nocapture noundef %opaque, i1 noundef zeroext %force) #0 {
 entry:
   %events = getelementptr inbounds i8, ptr %opaque, i64 689
   store i8 1, ptr %events, align 1
@@ -8646,7 +8646,7 @@ if.end53:                                         ; preds = %if.else25, %if.then
 declare void @qemu_bh_schedule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ide_restart_dma(ptr noundef initializes((8, 9), (652, 659), (704, 708), (808, 812), (948, 952)) %s, i32 noundef range(i32 0, 3) %dma_cmd) unnamed_addr #0 {
+define internal fastcc void @ide_restart_dma(ptr noundef %s, i32 noundef range(i32 0, 3) %dma_cmd) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %retry_unit = getelementptr inbounds i8, ptr %0, i64 2148
@@ -8849,7 +8849,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal noundef i32 @ide_drive_pio_pre_save(ptr nocapture noundef initializes((900, 908)) %opaque) #13 {
+define internal noundef i32 @ide_drive_pio_pre_save(ptr nocapture noundef %opaque) #13 {
 entry:
   %data_ptr = getelementptr inbounds i8, ptr %opaque, i64 872
   %0 = load ptr, ptr %data_ptr, align 8

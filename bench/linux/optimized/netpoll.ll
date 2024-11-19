@@ -1224,7 +1224,7 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare dso_local zeroext i1 @mac_pton(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__netpoll_setup(ptr noundef initializes((0, 8)) %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @__netpoll_setup(ptr noundef %0, ptr noundef %1) #0 align 16 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 296

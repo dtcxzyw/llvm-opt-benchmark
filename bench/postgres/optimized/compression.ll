@@ -83,7 +83,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8), (24, 32)) %2) local_unnamed_addr #3 {
+define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -536,7 +536,7 @@ get_compress_algorithm_name.exit37:               ; preds = %33, %switch.lookup4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parse_compress_options(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
+define dso_local void @parse_compress_options(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %4, i32 noundef 10) #9
   %6 = load ptr, ptr %4, align 8

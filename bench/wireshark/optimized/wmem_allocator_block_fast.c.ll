@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wmem_block_fast_allocator_init(ptr nocapture noundef writeonly initializes((0, 48), (56, 64)) %0) local_unnamed_addr #0 {
+define hidden void @wmem_block_fast_allocator_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 16) #5
   store ptr @wmem_block_fast_alloc, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

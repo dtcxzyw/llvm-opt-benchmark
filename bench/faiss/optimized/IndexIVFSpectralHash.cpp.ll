@@ -2648,7 +2648,7 @@ define void @_ZN5faiss20IndexIVFSpectralHashC2Ev(ptr noundef nonnull align 8 der
 declare void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss20IndexIVFSpectralHashD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8), (40, 48)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss20IndexIVFSpectralHashD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20IndexIVFSpectralHashE, i64 296), ptr %2, align 8
@@ -3576,7 +3576,7 @@ _ZN5faiss12_GLOBAL__N_118binarize_with_freqEmfPKfS2_Ph.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(140) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(140) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3891,7 +3891,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4
 declare void @_ZNK5faiss19InvertedListScanner19iterate_codes_rangeEPNS_21InvertedListsIteratorEfRNS_16RangeQueryResultERm(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, float noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(140) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -3927,7 +3927,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EED0Ev(ptr noundef nonnull align 8 dereferenceable(140) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EED0Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer4EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -4131,7 +4131,7 @@ _ZN5faiss12_GLOBAL__N_118binarize_with_freqEmfPKfS2_Ph.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4446,7 +4446,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -4482,7 +4482,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EED0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_16HammingComputer8EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -4685,7 +4685,7 @@ _ZN5faiss12_GLOBAL__N_118binarize_with_freqEmfPKfS2_Ph.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4983,7 +4983,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -5019,7 +5019,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer16EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -5227,7 +5227,7 @@ _ZN5faiss12_GLOBAL__N_118binarize_with_freqEmfPKfS2_Ph.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5551,7 +5551,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -5587,7 +5587,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EED0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer20EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -5798,7 +5798,7 @@ _ZN5faiss12_GLOBAL__N_118binarize_with_freqEmfPKfS2_Ph.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(168) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -6152,7 +6152,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -6188,7 +6188,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EED0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EED0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer32EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -6415,7 +6415,7 @@ _ZN5faiss12_GLOBAL__N_118binarize_with_freqEmfPKfS2_Ph.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -6881,7 +6881,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -6917,7 +6917,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EED0Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EED0Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_17HammingComputer64EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -7124,7 +7124,7 @@ _ZN5faiss12_GLOBAL__N_118binarize_with_freqEmfPKfS2_Ph.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((8, 16)) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEE8set_listElf(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0, i64 noundef %1, float %2) unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -7431,7 +7431,7 @@ define internal void @_ZNK5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -7467,7 +7467,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEED0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_110IVFScannerINS_22HammingComputerDefaultEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8

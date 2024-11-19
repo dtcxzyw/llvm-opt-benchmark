@@ -330,7 +330,7 @@ define dso_local ptr @acpi_ds_get_current_walk_state(ptr noundef readonly %0) lo
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @acpi_ds_push_walk_state(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local void @acpi_ds_push_walk_state(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -402,7 +402,7 @@ define dso_local noundef ptr @acpi_ds_create_walk_state(i16 noundef zeroext %0, 
 declare dso_local void @acpi_ds_method_data_init(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ds_init_aml_walk(ptr noundef initializes((22, 23), (56, 80), (88, 96), (1096, 1104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ds_init_aml_walk(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i8 noundef zeroext %6) local_unnamed_addr #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %3, ptr %9, align 8

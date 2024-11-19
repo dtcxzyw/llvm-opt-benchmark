@@ -1033,7 +1033,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #13
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13Fdm2DimSolverC2ERKNS_13FdmSolverDescERKNS_13FdmSchemeDescEN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 12), (16, 56)) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(96) %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, ptr nocapture noundef %op) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13Fdm2DimSolverC2ERKNS_13FdmSolverDescERKNS_13FdmSchemeDescEN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(96) %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, ptr nocapture noundef %op) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca double, align 8
   %__begin1 = alloca %"class.QuantLib::FdmLinearOpIterator", align 8
@@ -2707,7 +2707,7 @@ _ZN5boost10shared_ptrIN8QuantLib9FdmMesherEED2Ev.exit: ; preds = %_ZNSt6vectorIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13Fdm2DimSolverC1ERKNS_13FdmSolverDescERKNS_13FdmSchemeDescEN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((312, 316), (320, 328)) %this, ptr noundef nonnull align 8 dereferenceable(96) %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, ptr nocapture noundef %op) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13Fdm2DimSolverC1ERKNS_13FdmSolverDescERKNS_13FdmSchemeDescEN5boost10shared_ptrINS_20FdmLinearOpCompositeEEE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull align 8 dereferenceable(96) %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, ptr nocapture noundef %op) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca double, align 8
   %__begin1 = alloca %"class.QuantLib::FdmLinearOpIterator", align 8

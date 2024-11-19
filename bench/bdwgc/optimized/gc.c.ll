@@ -16818,7 +16818,7 @@ define void @GC_change_stubborn(ptr nocapture noundef readnone %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GC_ptr_store_and_dirty(ptr noundef initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @GC_ptr_store_and_dirty(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   store ptr %1, ptr %0, align 8
   %.b = load i1, ptr @GC_manual_vdb, align 4
   br i1 %.b, label %3, label %12
@@ -43171,7 +43171,7 @@ GC_remove_counts.exit:                            ; preds = %.loopexit205, %next
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setup_header(ptr noundef initializes((16, 26), (32, 48)) %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setup_header(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #1 {
   %6 = icmp ugt i64 %2, 2048
   %7 = or disjoint i32 %4, 32
   %spec.select = select i1 %6, i32 %7, i32 %4

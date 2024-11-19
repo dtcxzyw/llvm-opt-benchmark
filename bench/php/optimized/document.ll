@@ -442,7 +442,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_version_write(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_strict_error_checking_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_strict_error_checking_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -482,7 +482,7 @@ declare ptr @dom_get_doc_props(ptr noundef) local_unnamed_addr #1
 declare i32 @zend_is_true(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_format_output_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_format_output_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -516,7 +516,7 @@ define hidden noundef i32 @dom_document_format_output_write(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_validate_on_parse_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_validate_on_parse_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -550,7 +550,7 @@ define hidden noundef i32 @dom_document_validate_on_parse_write(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_resolve_externals_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_resolve_externals_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -584,7 +584,7 @@ define hidden noundef i32 @dom_document_resolve_externals_write(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_preserve_whitespace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_preserve_whitespace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -618,7 +618,7 @@ define hidden noundef i32 @dom_document_preserve_whitespace_write(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_recover_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_recover_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -652,7 +652,7 @@ define hidden noundef i32 @dom_document_recover_write(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_document_substitue_entities_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_document_substitue_entities_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dom_get_doc_props_read_only(ptr noundef %4) #11
@@ -808,7 +808,7 @@ define hidden range(i32 -1, 1) i32 @dom_document_document_uri_write(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @dom_document_config_read(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #3 {
+define hidden noundef i32 @dom_document_config_read(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8
   ret i32 0
@@ -4722,7 +4722,7 @@ declare ptr @zval_try_get_string_func(ptr noundef) local_unnamed_addr #1
 declare void @_efree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_dom_finish_loading_document(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_dom_finish_loading_document(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %40, label %4
 

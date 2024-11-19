@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3zmq24socks_response_decoder_tC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq24socks_response_decoder_tC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq16socks_greeting_tC2Eh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((0, 1), (256, 264)) %this, i8 noundef zeroext %method_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq16socks_greeting_tC2Eh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) %this, i8 noundef zeroext %method_) unnamed_addr #0 align 2 {
 entry:
   %num_methods = getelementptr inbounds i8, ptr %this, i64 256
   store i64 1, ptr %num_methods, align 8
@@ -48,7 +48,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3zmq16socks_greeting_tC2EPKhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) initializes((256, 264)) %this, ptr nocapture noundef readonly %methods_, i8 noundef zeroext %num_methods_) unnamed_addr #1 align 2 {
+define void @_ZN3zmq16socks_greeting_tC2EPKhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(264) %this, ptr nocapture noundef readonly %methods_, i8 noundef zeroext %num_methods_) unnamed_addr #1 align 2 {
 entry:
   %num_methods = getelementptr inbounds i8, ptr %this, i64 256
   %conv = zext i8 %num_methods_ to i64
@@ -71,14 +71,14 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq24socks_greeting_encoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(273) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq24socks_greeting_encoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(273) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN3zmq24socks_greeting_encoder_t6encodeERKNS_16socks_greeting_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(273) initializes((16, 18)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %greeting_) local_unnamed_addr #1 align 2 {
+define void @_ZN3zmq24socks_greeting_encoder_t6encodeERKNS_16socks_greeting_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(273) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %greeting_) local_unnamed_addr #1 align 2 {
 entry:
   %_buf = getelementptr inbounds i8, ptr %this, i64 16
   %incdec.ptr = getelementptr inbounds i8, ptr %this, i64 17
@@ -158,21 +158,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(273) initializes((0, 16)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq24socks_greeting_encoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(273) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq14socks_choice_tC2Eh(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this, i8 noundef zeroext %method_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq14socks_choice_tC2Eh(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %this, i8 noundef zeroext %method_) unnamed_addr #0 align 2 {
 entry:
   store i8 %method_, ptr %this, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq22socks_choice_decoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq22socks_choice_decoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_bytes_read, align 8
@@ -266,7 +266,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq22socks_choice_decoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq22socks_choice_decoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_bytes_read, align 8
@@ -338,14 +338,14 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq34socks_basic_auth_request_encoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(529) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq34socks_basic_auth_request_encoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(529) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq34socks_basic_auth_request_encoder_t6encodeERKNS_26socks_basic_auth_request_tE(ptr noundef nonnull align 8 dereferenceable(529) initializes((16, 18)) %this, ptr noundef nonnull align 8 dereferenceable(64) %req_) local_unnamed_addr #7 align 2 {
+define void @_ZN3zmq34socks_basic_auth_request_encoder_t6encodeERKNS_26socks_basic_auth_request_tE(ptr noundef nonnull align 8 dereferenceable(529) %this, ptr noundef nonnull align 8 dereferenceable(64) %req_) local_unnamed_addr #7 align 2 {
 entry:
   %_buf = getelementptr inbounds i8, ptr %this, i64 16
   %incdec.ptr = getelementptr inbounds i8, ptr %this, i64 17
@@ -419,21 +419,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq34socks_basic_auth_request_encoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(529) initializes((0, 16)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq34socks_basic_auth_request_encoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(529) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq21socks_auth_response_tC2Eh(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this, i8 noundef zeroext %response_code_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq21socks_auth_response_tC2Eh(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %this, i8 noundef zeroext %response_code_) unnamed_addr #0 align 2 {
 entry:
   store i8 %response_code_, ptr %this, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq29socks_auth_response_decoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq29socks_auth_response_decoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_bytes_read, align 8
@@ -517,7 +517,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq29socks_auth_response_decoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq29socks_auth_response_decoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_bytes_read = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %_bytes_read, align 8
@@ -525,7 +525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq15socks_request_tC2EhNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEt(ptr noundef nonnull align 8 dereferenceable(42) initializes((0, 1)) %this, i8 noundef zeroext %command_, ptr noundef nonnull %hostname_, i16 noundef zeroext %port_) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq15socks_request_tC2EhNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEt(ptr noundef nonnull align 8 dereferenceable(42) %this, i8 noundef zeroext %command_, ptr noundef nonnull %hostname_, i16 noundef zeroext %port_) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 %command_, ptr %this, align 8
   %hostname = getelementptr inbounds i8, ptr %this, i64 8
@@ -558,14 +558,14 @@ do.end:                                           ; preds = %if.then, %entry
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq23socks_request_encoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(278) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq23socks_request_encoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(278) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq23socks_request_encoder_t6encodeERKNS_15socks_request_tE(ptr noundef nonnull align 8 dereferenceable(278) initializes((16, 21)) %this, ptr noundef nonnull align 8 dereferenceable(42) %req_) local_unnamed_addr #2 align 2 {
+define void @_ZN3zmq23socks_request_encoder_t6encodeERKNS_15socks_request_tE(ptr noundef nonnull align 8 dereferenceable(278) %this, ptr noundef nonnull align 8 dereferenceable(42) %req_) local_unnamed_addr #2 align 2 {
 entry:
   %hints = alloca %struct.addrinfo, align 8
   %res = alloca ptr, align 8
@@ -717,14 +717,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq23socks_request_encoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(278) initializes((0, 16)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq23socks_request_encoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(278) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq16socks_response_tC2EhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEt(ptr noundef nonnull align 8 dereferenceable(42) initializes((0, 1)) %this, i8 noundef zeroext %response_code_, ptr noundef nonnull align 8 dereferenceable(32) %address_, i16 noundef zeroext %port_) unnamed_addr #2 align 2 {
+define void @_ZN3zmq16socks_response_tC2EhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEt(ptr noundef nonnull align 8 dereferenceable(42) %this, i8 noundef zeroext %response_code_, ptr noundef nonnull align 8 dereferenceable(32) %address_, i16 noundef zeroext %port_) unnamed_addr #2 align 2 {
 entry:
   store i8 %response_code_, ptr %this, align 8
   %address = getelementptr inbounds i8, ptr %this, i64 8
@@ -735,7 +735,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq24socks_response_decoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((264, 272)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq24socks_response_decoder_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %this) unnamed_addr #0 align 2 {
 entry:
   %_bytes_read = getelementptr inbounds i8, ptr %this, i64 264
   store i64 0, ptr %_bytes_read, align 8
@@ -985,7 +985,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((264, 272)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq24socks_response_decoder_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_bytes_read = getelementptr inbounds i8, ptr %this, i64 264
   store i64 0, ptr %_bytes_read, align 8

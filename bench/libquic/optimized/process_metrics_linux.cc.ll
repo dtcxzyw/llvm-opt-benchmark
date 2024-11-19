@@ -1454,7 +1454,7 @@ eh.resume:                                        ; preds = %lpad3, %lpad
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base14ProcessMetricsC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %this, i32 noundef %process) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base14ProcessMetricsC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this, i32 noundef %process) unnamed_addr #0 align 2 {
 entry:
   store i32 %process, ptr %this, align 8
   %last_cpu_time_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1654,14 +1654,14 @@ entry:
 declare noundef i64 @_ZN4base8internal31ReadProcStatsAndGetFieldAsInt64EiNS0_15ProcStatsFieldsE(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base18SystemMemoryInfoKBC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4base18SystemMemoryInfoKBC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %this, i8 0, i64 72, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base18SystemMemoryInfoKBC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4base18SystemMemoryInfoKBC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other, i64 72, i1 false)
   ret void
@@ -1930,7 +1930,7 @@ declare void @_ZN4base15DictionaryValueC1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN4base15DictionaryValue10SetIntegerENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noundef nonnull align 8 dereferenceable(64), ptr, i64, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base16ParseProcMeminfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18SystemMemoryInfoKBE(ptr noundef nonnull align 8 dereferenceable(32) %meminfo_data, ptr noundef initializes((0, 4)) %meminfo) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4base16ParseProcMeminfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18SystemMemoryInfoKBE(ptr noundef nonnull align 8 dereferenceable(32) %meminfo_data, ptr noundef %meminfo) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.5", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
@@ -2406,14 +2406,14 @@ _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traits
 declare void @_ZN4base8FilePathC1ENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(32), ptr, i64) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base14SystemDiskInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4base14SystemDiskInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, i8 0, i64 88, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base14SystemDiskInfoC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %other) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4base14SystemDiskInfoC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %other) unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %other, i64 88, i1 false)
   ret void

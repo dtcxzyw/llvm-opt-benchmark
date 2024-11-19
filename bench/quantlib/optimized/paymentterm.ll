@@ -109,7 +109,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib11PaymentTermC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9EventTypeEiRKNS_8CalendarE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %eventType, i32 noundef %offsetDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib11PaymentTermC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9EventTypeEiRKNS_8CalendarE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %eventType, i32 noundef %offsetDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %eventType.addr = alloca i32, align 4
   %offsetDays.addr = alloca i32, align 4

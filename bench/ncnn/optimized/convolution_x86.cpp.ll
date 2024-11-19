@@ -40414,7 +40414,7 @@ declare void @_ZN4ncnn5LayerD2Ev(ptr noundef nonnull align 8 dereferenceable(208
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ncnnL20get_optimal_tile_mnkEiiiRiS0_S0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @_ZN4ncnnL20get_optimal_tile_mnkEiiiRiS0_S0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call noundef i32 @_ZN4ncnn25get_cpu_level2_cache_sizeEv()
   %9 = sext i32 %8 to i64
   %10 = icmp eq i32 %6, 0
@@ -40521,7 +40521,7 @@ declare noundef i32 @_ZN4ncnn22get_physical_cpu_countEv() local_unnamed_addr #2
 declare float @llvm.sqrt.f32(float) #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ncnnL44convolution_im2col_gemm_get_optimal_tile_mnkEiiiRiS0_S0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @_ZN4ncnnL44convolution_im2col_gemm_get_optimal_tile_mnkEiiiRiS0_S0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call noundef i32 @_ZN4ncnn25get_cpu_level2_cache_sizeEv()
   %9 = ashr i32 %8, 2
   %10 = icmp eq i32 %6, 0
@@ -45825,7 +45825,7 @@ declare float @llvm.log.f32(float) #12
 declare float @llvm.tanh.f32(float) #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ncnnL25get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @_ZN4ncnnL25get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call noundef i32 @_ZN4ncnn25get_cpu_level2_cache_sizeEv()
   %9 = ashr i32 %8, 1
   %10 = sext i32 %9 to i64
@@ -45922,7 +45922,7 @@ define internal fastcc void @_ZN4ncnnL25get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @_ZN4ncnnL49convolution_im2col_gemm_get_optimal_tile_mnk_int8EiiiRiS0_S0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call noundef i32 @_ZN4ncnn25get_cpu_level2_cache_sizeEv()
   %9 = sext i32 %8 to i64
   %10 = icmp eq i32 %6, 0

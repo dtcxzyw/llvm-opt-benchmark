@@ -364,7 +364,7 @@ define dso_local i32 @synaptics_init_smbus(ptr noundef %0) local_unnamed_addr #0
 declare dso_local i32 @psmouse_reset(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr nocapture noundef initializes((0, 56)) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @synaptics_query_hardware(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %union.anon.4, align 4
   %4 = alloca [3 x i8], align 1
   %5 = alloca %union.anon.4, align 4
@@ -1960,7 +1960,7 @@ define internal range(i32 0, 3) i32 @synaptics_process_byte(ptr nocapture nounde
 declare dso_local i32 @psmouse_process_byte(ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @synaptics_set_rate(ptr noundef initializes((380, 384)) %0, i32 noundef %1) #0 align 16 {
+define internal void @synaptics_set_rate(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = alloca [1 x i8], align 1
   %4 = load ptr, ptr %0, align 8
   %5 = icmp ugt i32 %1, 79

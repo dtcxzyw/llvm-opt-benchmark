@@ -391,7 +391,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local i64 @ktime_get() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -62, 1) i32 @clockevents_program_min_delta(ptr noundef initializes((24, 32)) %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -62, 1) i32 @clockevents_program_min_delta(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
@@ -495,7 +495,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @clockevents_register_device(ptr noundef initializes((56, 60)) %0) #0 align 16 {
+define dso_local void @clockevents_register_device(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 176
@@ -596,7 +596,7 @@ declare dso_local void @tick_check_new_device(ptr noundef) local_unnamed_addr #2
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @clockevents_config_and_register(ptr noundef initializes((136, 152)) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local void @clockevents_config_and_register(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   store i64 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 144

@@ -3490,7 +3490,7 @@ define internal void @icl_update_active_dpll(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @icl_update_dpll_ref_clks(ptr nocapture noundef initializes((5976, 5980)) %0) #8 align 16 {
+define internal void @icl_update_dpll_ref_clks(ptr nocapture noundef %0) #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2168
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 5976
@@ -5819,7 +5819,7 @@ define internal void @intel_put_dpll(ptr noundef %0, ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @bxt_update_dpll_ref_clks(ptr nocapture noundef writeonly initializes((5976, 5984)) %0) #10 align 16 {
+define internal void @bxt_update_dpll_ref_clks(ptr nocapture noundef writeonly %0) #10 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 5976
   %3 = getelementptr inbounds i8, ptr %0, i64 5980
   store i32 100000, ptr %3, align 4
@@ -7195,7 +7195,7 @@ define internal noundef range(i32 -22, 1) i32 @skl_get_dpll(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @skl_update_dpll_ref_clks(ptr nocapture noundef initializes((5976, 5980)) %0) #8 align 16 {
+define internal void @skl_update_dpll_ref_clks(ptr nocapture noundef %0) #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2168
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 5976
@@ -8132,7 +8132,7 @@ define internal noundef range(i32 -22, 1) i32 @hsw_get_dpll(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_update_dpll_ref_clks(ptr noundef initializes((5980, 5984)) %0) #0 align 16 {
+define internal void @hsw_update_dpll_ref_clks(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 5980
   store i32 135000, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 7368

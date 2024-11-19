@@ -4367,7 +4367,7 @@ declare noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 derefe
 declare noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1392), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17setLoopComponentsRPN4llvm5ValueES2_RPNS_14BinaryOperatorERNS_15SmallPtrSetImplIPNS_11InstructionEEE(ptr %.0.val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(28) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17setLoopComponentsRPN4llvm5ValueES2_RPNS_14BinaryOperatorERNS_15SmallPtrSetImplIPNS_11InstructionEEE(ptr %.0.val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(28) %2) unnamed_addr #0 {
   store ptr %.0.val, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8

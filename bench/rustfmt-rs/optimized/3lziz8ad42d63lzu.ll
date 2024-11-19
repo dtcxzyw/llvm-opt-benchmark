@@ -10914,7 +10914,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config12ConfigWasSet29print_misf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config9max_width17h90a68a63eb9a4c5eE(ptr nocapture noundef nonnull align 8 initializes((177, 178)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config9max_width17h90a68a63eb9a4c5eE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = getelementptr inbounds i8, ptr %0, i64 177
   store i8 1, ptr %3, align 1
@@ -10923,7 +10923,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config9max_width17h90a68a63eb9a4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config9hard_tabs17h23370f31137fdc96E(ptr nocapture noundef nonnull align 8 initializes((602, 603)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config9hard_tabs17h23370f31137fdc96E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 602
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 601
@@ -10933,7 +10933,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config9hard_tabs17h23370f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config10tab_spaces17h9f3e80f10f050d10E(ptr nocapture noundef nonnull align 8 initializes((193, 194)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config10tab_spaces17h9f3e80f10f050d10E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 193
   store i8 1, ptr %3, align 1
@@ -10942,7 +10942,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config10tab_spaces17h9f3e80f10f0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 4) i8 @_ZN15rustfmt_nightly6config6Config13newline_style17h95db29753169cca7E(ptr nocapture noundef nonnull align 8 initializes((606, 607)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 4) i8 @_ZN15rustfmt_nightly6config6Config13newline_style17h95db29753169cca7E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 606
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 605
@@ -10951,7 +10951,7 @@ define noundef range(i8 0, 4) i8 @_ZN15rustfmt_nightly6config6Config13newline_st
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config12indent_style17hf7ad6087598a1e23E(ptr nocapture noundef nonnull align 8 initializes((610, 611)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config12indent_style17hf7ad6087598a1e23E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 610
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 609
@@ -10961,7 +10961,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config12indent_style17hf7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config20use_small_heuristics17h904403422f7e6a6cE(ptr nocapture noundef nonnull align 8 initializes((614, 615)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config20use_small_heuristics17h904403422f7e6a6cE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 614
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 613
@@ -10970,7 +10970,7 @@ define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config20use_small_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15rustfmt_nightly6config6Config16width_heuristics17hc3ecc201d41326f4E(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr nocapture noundef nonnull align 8 initializes((593, 594)) %1) unnamed_addr #9 {
+define void @_ZN15rustfmt_nightly6config6Config16width_heuristics17hc3ecc201d41326f4E(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, i64, i64, i64, i64, i64 }) align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 8 %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 528
   %4 = getelementptr inbounds i8, ptr %1, i64 593
   store i8 1, ptr %4, align 1
@@ -11008,7 +11008,7 @@ define void @_ZN15rustfmt_nightly6config6Config16width_heuristics17hc3ecc201d413
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config13fn_call_width17hca327c4cb6b4f761E(ptr nocapture noundef nonnull align 8 initializes((209, 210)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config13fn_call_width17hca327c4cb6b4f761E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   %3 = getelementptr inbounds i8, ptr %0, i64 209
   store i8 1, ptr %3, align 1
@@ -11017,7 +11017,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config13fn_call_width17hca327c4c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config18attr_fn_like_width17hdb3dec7c68c6e14aE(ptr nocapture noundef nonnull align 8 initializes((225, 226)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config18attr_fn_like_width17hdb3dec7c68c6e14aE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = getelementptr inbounds i8, ptr %0, i64 225
   store i8 1, ptr %3, align 1
@@ -11026,7 +11026,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config18attr_fn_like_width17hdb3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config16struct_lit_width17hb90a64e45a839f1fE(ptr nocapture noundef nonnull align 8 initializes((241, 242)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config16struct_lit_width17hb90a64e45a839f1fE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = getelementptr inbounds i8, ptr %0, i64 241
   store i8 1, ptr %3, align 1
@@ -11035,7 +11035,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config16struct_lit_width17hb90a6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config20struct_variant_width17hd9d7f7296e90536dE(ptr nocapture noundef nonnull align 8 initializes((257, 258)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config20struct_variant_width17hd9d7f7296e90536dE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = getelementptr inbounds i8, ptr %0, i64 257
   store i8 1, ptr %3, align 1
@@ -11044,7 +11044,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config20struct_variant_width17hd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config11array_width17h2b4d071bee0a145eE(ptr nocapture noundef nonnull align 8 initializes((273, 274)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config11array_width17h2b4d071bee0a145eE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   %3 = getelementptr inbounds i8, ptr %0, i64 273
   store i8 1, ptr %3, align 1
@@ -11053,7 +11053,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config11array_width17h2b4d071bee
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config11chain_width17h05f2646ff93d01bcE(ptr nocapture noundef nonnull align 8 initializes((289, 290)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config11chain_width17h05f2646ff93d01bcE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   %3 = getelementptr inbounds i8, ptr %0, i64 289
   store i8 1, ptr %3, align 1
@@ -11062,7 +11062,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config11chain_width17h05f2646ff9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config29single_line_if_else_max_width17h77ddf91a424c714dE(ptr nocapture noundef nonnull align 8 initializes((305, 306)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config29single_line_if_else_max_width17h77ddf91a424c714dE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = getelementptr inbounds i8, ptr %0, i64 305
   store i8 1, ptr %3, align 1
@@ -11071,7 +11071,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config29single_line_if_else_max_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config30single_line_let_else_max_width17h1976fa1f377437dfE(ptr nocapture noundef nonnull align 8 initializes((321, 322)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config30single_line_let_else_max_width17h1976fa1f377437dfE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = getelementptr inbounds i8, ptr %0, i64 321
   store i8 1, ptr %3, align 1
@@ -11080,7 +11080,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config30single_line_let_else_max
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13wrap_comments17h6f846bd96648189eE(ptr nocapture noundef nonnull align 8 initializes((618, 619)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13wrap_comments17h6f846bd96648189eE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 618
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 617
@@ -11090,7 +11090,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13wrap_comments17h6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config27format_code_in_doc_comments17h177ec928f2ad3550E(ptr nocapture noundef nonnull align 8 initializes((622, 623)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config27format_code_in_doc_comments17h177ec928f2ad3550E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 622
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 621
@@ -11100,7 +11100,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config27format_code_in_do
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config28doc_comment_code_block_width17h6ae0f65db2a12c75E(ptr nocapture noundef nonnull align 8 initializes((337, 338)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config28doc_comment_code_block_width17h6ae0f65db2a12c75E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 328
   %3 = getelementptr inbounds i8, ptr %0, i64 337
   store i8 1, ptr %3, align 1
@@ -11109,7 +11109,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config28doc_comment_code_block_w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config13comment_width17he7b49cd29dac2988E(ptr nocapture noundef nonnull align 8 initializes((353, 354)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config13comment_width17he7b49cd29dac2988E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 344
   %3 = getelementptr inbounds i8, ptr %0, i64 353
   store i8 1, ptr %3, align 1
@@ -11118,7 +11118,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config13comment_width17he7b49cd2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18normalize_comments17h99c3b1f1edfd4ba5E(ptr nocapture noundef nonnull align 8 initializes((626, 627)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18normalize_comments17h99c3b1f1edfd4ba5E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 626
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 625
@@ -11128,7 +11128,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18normalize_comment
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24normalize_doc_attributes17hc9668d717270c3e8E(ptr nocapture noundef nonnull align 8 initializes((630, 631)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24normalize_doc_attributes17hc9668d717270c3e8E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 630
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 629
@@ -11138,7 +11138,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24normalize_doc_att
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14format_strings17hd09d5f808c8bee6dE(ptr nocapture noundef nonnull align 8 initializes((634, 635)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14format_strings17hd09d5f808c8bee6dE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 634
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 633
@@ -11148,7 +11148,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14format_strings17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config21format_macro_matchers17hfa118358efeaf80dE(ptr nocapture noundef nonnull align 8 initializes((638, 639)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config21format_macro_matchers17hfa118358efeaf80dE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 638
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 637
@@ -11158,7 +11158,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config21format_macro_matc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config19format_macro_bodies17h6ff7ede8d901bd75E(ptr nocapture noundef nonnull align 8 initializes((642, 643)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config19format_macro_bodies17h6ff7ede8d901bd75E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 642
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 641
@@ -11168,7 +11168,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config19format_macro_bodi
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15rustfmt_nightly6config6Config22skip_macro_invocations17hd616fe370d7f904aE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 initializes((49, 50)) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN15rustfmt_nightly6config6Config22skip_macro_invocations17hd616fe370d7f904aE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { i64, ptr }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 49
   store i8 1, ptr %4, align 1
@@ -11185,7 +11185,7 @@ define void @_ZN15rustfmt_nightly6config6Config22skip_macro_invocations17hd616fe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config16hex_literal_case17hdfa1710a2be9e74dE(ptr nocapture noundef nonnull align 8 initializes((646, 647)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config16hex_literal_case17hdfa1710a2be9e74dE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 646
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 645
@@ -11194,7 +11194,7 @@ define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config16hex_litera
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22empty_item_single_line17h2a7b71a2faf88a05E(ptr nocapture noundef nonnull align 8 initializes((650, 651)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22empty_item_single_line17h2a7b71a2faf88a05E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 650
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 649
@@ -11204,7 +11204,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22empty_item_single
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22struct_lit_single_line17ha3c5718600a279c2E(ptr nocapture noundef nonnull align 8 initializes((654, 655)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22struct_lit_single_line17ha3c5718600a279c2E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 654
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 653
@@ -11214,7 +11214,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22struct_lit_single
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14fn_single_line17hfb2ec9b593883093E(ptr nocapture noundef nonnull align 8 initializes((658, 659)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14fn_single_line17hfb2ec9b593883093E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 658
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 657
@@ -11224,7 +11224,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14fn_single_line17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17where_single_line17ha70639b6d6a6e6e9E(ptr nocapture noundef nonnull align 8 initializes((662, 663)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17where_single_line17ha70639b6d6a6e6e9E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 662
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 661
@@ -11234,7 +11234,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17where_single_line
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14imports_indent17hf7c50fc8361c6115E(ptr nocapture noundef nonnull align 8 initializes((666, 667)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14imports_indent17hf7c50fc8361c6115E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 666
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 665
@@ -11244,7 +11244,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config14imports_indent17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define { i64, i64 } @_ZN15rustfmt_nightly6config6Config14imports_layout17h07e447d4aebe4ff0E(ptr nocapture noundef nonnull align 8 initializes((17, 18)) %0) unnamed_addr #9 {
+define { i64, i64 } @_ZN15rustfmt_nightly6config6Config14imports_layout17h07e447d4aebe4ff0E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 1, ptr %2, align 1
   %3 = load i64, ptr %0, align 8, !range !960, !noundef !5
@@ -11256,7 +11256,7 @@ define { i64, i64 } @_ZN15rustfmt_nightly6config6Config14imports_layout17h07e447
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 5) i8 @_ZN15rustfmt_nightly6config6Config19imports_granularity17h5e6cb52bdcad49f6E(ptr nocapture noundef nonnull align 8 initializes((670, 671)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 5) i8 @_ZN15rustfmt_nightly6config6Config19imports_granularity17h5e6cb52bdcad49f6E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 670
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 669
@@ -11265,7 +11265,7 @@ define noundef range(i8 0, 5) i8 @_ZN15rustfmt_nightly6config6Config19imports_gr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config13group_imports17h3cfd30f644efaed3E(ptr nocapture noundef nonnull align 8 initializes((674, 675)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config13group_imports17h3cfd30f644efaed3E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 674
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 673
@@ -11274,7 +11274,7 @@ define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config13group_impo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13merge_imports17hcbc7c9af697e4402E(ptr nocapture noundef nonnull align 8 initializes((678, 679)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13merge_imports17hcbc7c9af697e4402E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 678
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 677
@@ -11284,7 +11284,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13merge_imports17hc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15reorder_imports17hb0cf8cb4c16ee66fE(ptr nocapture noundef nonnull align 8 initializes((682, 683)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15reorder_imports17hb0cf8cb4c16ee66fE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 682
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 681
@@ -11294,7 +11294,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15reorder_imports17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15reorder_modules17hda445354e9416ef8E(ptr nocapture noundef nonnull align 8 initializes((686, 687)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15reorder_modules17hda445354e9416ef8E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 686
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 685
@@ -11304,7 +11304,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15reorder_modules17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18reorder_impl_items17h1bedf362ac1303c3E(ptr nocapture noundef nonnull align 8 initializes((690, 691)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18reorder_impl_items17h1bedf362ac1303c3E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 690
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 689
@@ -11314,7 +11314,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18reorder_impl_item
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24type_punctuation_density17h46f23590b5b476afE(ptr nocapture noundef nonnull align 8 initializes((694, 695)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24type_punctuation_density17h46f23590b5b476afE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 694
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 693
@@ -11324,7 +11324,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24type_punctuation_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18space_before_colon17hab7c0d3ab9bcac4fE(ptr nocapture noundef nonnull align 8 initializes((698, 699)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18space_before_colon17hab7c0d3ab9bcac4fE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 698
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 697
@@ -11334,7 +11334,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18space_before_colo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17space_after_colon17ha6d6b965f90c0772E(ptr nocapture noundef nonnull align 8 initializes((702, 703)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17space_after_colon17ha6d6b965f90c0772E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 702
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 701
@@ -11344,7 +11344,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17space_after_colon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20spaces_around_ranges17h0db7a6555df345abE(ptr nocapture noundef nonnull align 8 initializes((706, 707)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20spaces_around_ranges17h0db7a6555df345abE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 706
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 705
@@ -11354,7 +11354,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20spaces_around_ran
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15binop_separator17hc8c78ec7531799ebE(ptr nocapture noundef nonnull align 8 initializes((710, 711)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15binop_separator17hc8c78ec7531799ebE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 710
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 709
@@ -11364,7 +11364,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config15binop_separator17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20remove_nested_parens17h458e74fd86eab453E(ptr nocapture noundef nonnull align 8 initializes((714, 715)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20remove_nested_parens17h458e74fd86eab453E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 714
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 713
@@ -11374,7 +11374,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20remove_nested_par
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20combine_control_expr17hc53579e73d12273dE(ptr nocapture noundef nonnull align 8 initializes((718, 719)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20combine_control_expr17hc53579e73d12273dE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 718
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 717
@@ -11384,7 +11384,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20combine_control_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config35short_array_element_width_threshold17h1a5633eef2a31e18E(ptr nocapture noundef nonnull align 8 initializes((369, 370)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config35short_array_element_width_threshold17h1a5633eef2a31e18E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 360
   %3 = getelementptr inbounds i8, ptr %0, i64 369
   store i8 1, ptr %3, align 1
@@ -11393,7 +11393,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config35short_array_element_widt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config23overflow_delimited_expr17h8f22a7842971441dE(ptr nocapture noundef nonnull align 8 initializes((722, 723)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config23overflow_delimited_expr17h8f22a7842971441dE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 722
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 721
@@ -11403,7 +11403,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config23overflow_delimite
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config28struct_field_align_threshold17hee5a2e333dea6d2bE(ptr nocapture noundef nonnull align 8 initializes((385, 386)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config28struct_field_align_threshold17hee5a2e333dea6d2bE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 376
   %3 = getelementptr inbounds i8, ptr %0, i64 385
   store i8 1, ptr %3, align 1
@@ -11412,7 +11412,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config28struct_field_align_thres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config28enum_discrim_align_threshold17ha43100f6d6b9ec52E(ptr nocapture noundef nonnull align 8 initializes((401, 402)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config28enum_discrim_align_threshold17ha43100f6d6b9ec52E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 392
   %3 = getelementptr inbounds i8, ptr %0, i64 401
   store i8 1, ptr %3, align 1
@@ -11421,7 +11421,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config28enum_discrim_align_thres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config16match_arm_blocks17hc75e32cab44bf469E(ptr nocapture noundef nonnull align 8 initializes((726, 727)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config16match_arm_blocks17hc75e32cab44bf469E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 726
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 725
@@ -11431,7 +11431,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config16match_arm_blocks1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config23match_arm_leading_pipes17h36e956d0098333baE(ptr nocapture noundef nonnull align 8 initializes((730, 731)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config23match_arm_leading_pipes17h36e956d0098333baE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 730
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 729
@@ -11440,7 +11440,7 @@ define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config23match_arm_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22force_multiline_blocks17h2fb65ef95f647865E(ptr nocapture noundef nonnull align 8 initializes((734, 735)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22force_multiline_blocks17h2fb65ef95f647865E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 734
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 733
@@ -11450,7 +11450,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22force_multiline_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config14fn_args_layout17hc65f75bfb4c26340E(ptr nocapture noundef nonnull align 8 initializes((738, 739)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config14fn_args_layout17hc65f75bfb4c26340E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 738
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 737
@@ -11459,7 +11459,7 @@ define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config14fn_args_la
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config16fn_params_layout17h49797dade87f3bc2E(ptr nocapture noundef nonnull align 8 initializes((742, 743)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config16fn_params_layout17h49797dade87f3bc2E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 742
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 741
@@ -11468,7 +11468,7 @@ define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config16fn_params_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config11brace_style17hde69fccbfb0c068dE(ptr nocapture noundef nonnull align 8 initializes((746, 747)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config11brace_style17hde69fccbfb0c068dE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 746
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 745
@@ -11477,7 +11477,7 @@ define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config11brace_styl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config19control_brace_style17hf4cb9bb8735edb4eE(ptr nocapture noundef nonnull align 8 initializes((750, 751)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config19control_brace_style17hf4cb9bb8735edb4eE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 750
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 749
@@ -11486,7 +11486,7 @@ define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config19control_br
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18trailing_semicolon17h33de48522e929de8E(ptr nocapture noundef nonnull align 8 initializes((754, 755)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18trailing_semicolon17h33de48522e929de8E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 754
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 753
@@ -11496,7 +11496,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18trailing_semicolo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config14trailing_comma17hba5b15c6efca2ac8E(ptr nocapture noundef nonnull align 8 initializes((758, 759)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config14trailing_comma17hba5b15c6efca2ac8E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 758
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 757
@@ -11505,7 +11505,7 @@ define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config14trailing_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config26match_block_trailing_comma17h4eb193f01160e963E(ptr nocapture noundef nonnull align 8 initializes((762, 763)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config26match_block_trailing_comma17h4eb193f01160e963E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 762
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 761
@@ -11515,7 +11515,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config26match_block_trail
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config23blank_lines_upper_bound17h1da0ededdc75c3eaE(ptr nocapture noundef nonnull align 8 initializes((417, 418)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config23blank_lines_upper_bound17h1da0ededdc75c3eaE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 408
   %3 = getelementptr inbounds i8, ptr %0, i64 417
   store i8 1, ptr %3, align 1
@@ -11524,7 +11524,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config23blank_lines_upper_bound1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config23blank_lines_lower_bound17h003574bbca5a5d8cE(ptr nocapture noundef nonnull align 8 initializes((433, 434)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config23blank_lines_lower_bound17h003574bbca5a5d8cE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 424
   %3 = getelementptr inbounds i8, ptr %0, i64 433
   store i8 1, ptr %3, align 1
@@ -11533,7 +11533,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config23blank_lines_lower_bound1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 4) i8 @_ZN15rustfmt_nightly6config6Config7edition17hf6f42089d6730182E(ptr nocapture noundef nonnull align 8 initializes((766, 767)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 4) i8 @_ZN15rustfmt_nightly6config6Config7edition17hf6f42089d6730182E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 766
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 765
@@ -11542,7 +11542,7 @@ define noundef range(i8 0, 4) i8 @_ZN15rustfmt_nightly6config6Config7edition17hf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config7version17hdd6f11fa6d2f642aE(ptr nocapture noundef nonnull align 8 initializes((770, 771)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config7version17hdd6f11fa6d2f642aE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 770
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 769
@@ -11552,7 +11552,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config7version17hdd6f11fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config22inline_attribute_width17h706c390f91296a02E(ptr nocapture noundef nonnull align 8 initializes((449, 450)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config22inline_attribute_width17h706c390f91296a02E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   %3 = getelementptr inbounds i8, ptr %0, i64 449
   store i8 1, ptr %3, align 1
@@ -11561,7 +11561,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config22inline_attribute_width17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22format_generated_files17haaa68744e44c3f29E(ptr nocapture noundef nonnull align 8 initializes((774, 775)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22format_generated_files17haaa68744e44c3f29E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 774
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 773
@@ -11571,7 +11571,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22format_generated_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef i64 @_ZN15rustfmt_nightly6config6Config34generated_marker_line_search_limit17h540b7bcb405e3feaE(ptr nocapture noundef nonnull align 8 initializes((465, 466)) %0) unnamed_addr #9 {
+define noundef i64 @_ZN15rustfmt_nightly6config6Config34generated_marker_line_search_limit17h540b7bcb405e3feaE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 456
   %3 = getelementptr inbounds i8, ptr %0, i64 465
   store i8 1, ptr %3, align 1
@@ -11580,7 +11580,7 @@ define noundef i64 @_ZN15rustfmt_nightly6config6Config34generated_marker_line_se
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13merge_derives17h922f25f7bd617af3E(ptr nocapture noundef nonnull align 8 initializes((778, 779)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13merge_derives17h922f25f7bd617af3E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 778
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 777
@@ -11590,7 +11590,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13merge_derives17h9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17use_try_shorthand17h23d468bbcb7fe7a7E(ptr nocapture noundef nonnull align 8 initializes((782, 783)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17use_try_shorthand17h23d468bbcb7fe7a7E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 782
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 781
@@ -11600,7 +11600,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17use_try_shorthand
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24use_field_init_shorthand17h747a4af3771e8088E(ptr nocapture noundef nonnull align 8 initializes((786, 787)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24use_field_init_shorthand17h747a4af3771e8088E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 786
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 785
@@ -11610,7 +11610,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config24use_field_init_sh
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18force_explicit_abi17h03cee856e4395e4eE(ptr nocapture noundef nonnull align 8 initializes((790, 791)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18force_explicit_abi17h03cee856e4395e4eE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 790
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 789
@@ -11620,7 +11620,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config18force_explicit_ab
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config26condense_wildcard_suffixes17h61ffa1e4328b3884E(ptr nocapture noundef nonnull align 8 initializes((794, 795)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config26condense_wildcard_suffixes17h61ffa1e4328b3884E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 794
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 793
@@ -11630,7 +11630,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config26condense_wildcard
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config5color17h660d830cdd37474bE(ptr nocapture noundef nonnull align 8 initializes((798, 799)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config5color17h660d830cdd37474bE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 798
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 797
@@ -11639,7 +11639,7 @@ define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config5color17h660
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15rustfmt_nightly6config6Config16required_version17ha5419fde5d7aa31bE(ptr noalias nocapture noundef sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 initializes((81, 82)) %1) unnamed_addr #1 {
+define void @_ZN15rustfmt_nightly6config6Config16required_version17ha5419fde5d7aa31bE(ptr noalias nocapture noundef sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = getelementptr inbounds i8, ptr %1, i64 81
   store i8 1, ptr %4, align 1
@@ -11648,7 +11648,7 @@ define void @_ZN15rustfmt_nightly6config6Config16required_version17ha5419fde5d7a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17unstable_features17h56d42a807b955259E(ptr nocapture noundef nonnull align 8 initializes((802, 803)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17unstable_features17h56d42a807b955259E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 802
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 801
@@ -11658,7 +11658,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17unstable_features
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22disable_all_formatting17h3ba0e901fdc7d1a0E(ptr nocapture noundef nonnull align 8 initializes((806, 807)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22disable_all_formatting17h3ba0e901fdc7d1a0E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 806
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 805
@@ -11668,7 +11668,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22disable_all_forma
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13skip_children17hf2dda5880ab1315fE(ptr nocapture noundef nonnull align 8 initializes((810, 811)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13skip_children17hf2dda5880ab1315fE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 810
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 809
@@ -11678,7 +11678,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config13skip_children17hf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17hide_parse_errors17h55a3cf069f7d58f9E(ptr nocapture noundef nonnull align 8 initializes((814, 815)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17hide_parse_errors17h55a3cf069f7d58f9E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 814
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 813
@@ -11688,7 +11688,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17hide_parse_errors
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17show_parse_errors17h0f91eb0f7ba06e29E(ptr nocapture noundef nonnull align 8 initializes((818, 819)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17show_parse_errors17h0f91eb0f7ba06e29E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 818
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 817
@@ -11698,7 +11698,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config17show_parse_errors
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22error_on_line_overflow17h5a8ce283f16f4053E(ptr nocapture noundef nonnull align 8 initializes((822, 823)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22error_on_line_overflow17h5a8ce283f16f4053E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 822
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 821
@@ -11708,7 +11708,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config22error_on_line_ove
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20error_on_unformatted17he26103ae97dc5f51E(ptr nocapture noundef nonnull align 8 initializes((826, 827)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20error_on_unformatted17he26103ae97dc5f51E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 826
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 825
@@ -11718,7 +11718,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config20error_on_unformat
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15rustfmt_nightly6config6Config6ignore17h2457051b36015329E(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 } } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }) align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 initializes((161, 162)) %1) unnamed_addr #1 {
+define void @_ZN15rustfmt_nightly6config6Config6ignore17h2457051b36015329E(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 } } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }) align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %4 = getelementptr inbounds i8, ptr %1, i64 161
   store i8 1, ptr %4, align 1
@@ -11727,7 +11727,7 @@ define void @_ZN15rustfmt_nightly6config6Config6ignore17h2457051b36015329E(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config7verbose17h2c6dc71a7a41e0b1E(ptr nocapture noundef nonnull align 8 initializes((830, 831)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config7verbose17h2c6dc71a7a41e0b1E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 830
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 829
@@ -11736,7 +11736,7 @@ define noundef range(i8 0, 3) i8 @_ZN15rustfmt_nightly6config6Config7verbose17h2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15rustfmt_nightly6config6Config10file_lines17h14e12306ca3a0a44E(ptr noalias nocapture noundef writeonly sret({ { ptr, [5 x i64] } }) align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 initializes((521, 522)) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN15rustfmt_nightly6config6Config10file_lines17h14e12306ca3a0a44E(ptr noalias nocapture noundef writeonly sret({ { ptr, [5 x i64] } }) align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, [3 x i64] }, align 8
   %4 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   %.sroa.0.i.sroa.5 = alloca { i64, i64, i64 }, align 8
@@ -11817,7 +11817,7 @@ define void @_ZN15rustfmt_nightly6config6Config10file_lines17h14e12306ca3a0a44E(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i8 0, 7) i8 @_ZN15rustfmt_nightly6config6Config9emit_mode17hcc5b40d1655768d6E(ptr nocapture noundef nonnull align 8 initializes((834, 835)) %0) unnamed_addr #9 {
+define noundef range(i8 0, 7) i8 @_ZN15rustfmt_nightly6config6Config9emit_mode17hcc5b40d1655768d6E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 834
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 833
@@ -11826,7 +11826,7 @@ define noundef range(i8 0, 7) i8 @_ZN15rustfmt_nightly6config6Config9emit_mode17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config11make_backup17hb915c82e4564a007E(ptr nocapture noundef nonnull align 8 initializes((838, 839)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config11make_backup17hb915c82e4564a007E(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 838
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 837
@@ -11836,7 +11836,7 @@ define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config11make_backup17hb91
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config29print_misformatted_file_names17h157a0432e99ea31dE(ptr nocapture noundef nonnull align 8 initializes((842, 843)) %0) unnamed_addr #9 {
+define noundef zeroext i1 @_ZN15rustfmt_nightly6config6Config29print_misformatted_file_names17h157a0432e99ea31dE(ptr nocapture noundef nonnull align 8 %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 842
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 841

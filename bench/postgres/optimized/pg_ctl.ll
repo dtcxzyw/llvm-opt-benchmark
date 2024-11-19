@@ -2448,7 +2448,7 @@ define internal fastcc i32 @get_pgpid(i1 noundef zeroext %0) unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #4 {
+define internal fastcc ptr @readfile(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #4 {
   %3 = alloca %struct.stat, align 8
   store i32 0, ptr %1, align 4
   %4 = tail call i32 (ptr, i32, ...) @open(ptr noundef %0, i32 noundef 0, i32 noundef 0) #17

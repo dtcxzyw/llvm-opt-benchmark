@@ -259,7 +259,7 @@ _ZN9grpc_core14promise_detail20FreestandingActivity6Handle12DropActivityEv.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14promise_detail20FreestandingActivity18MakeNonOwningWakerEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Waker") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14promise_detail20FreestandingActivity18MakeNonOwningWakerEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Waker") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mu_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNK4absl12lts_202308025Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(8) %mu_)

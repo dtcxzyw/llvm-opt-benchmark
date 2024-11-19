@@ -305,7 +305,7 @@ declare void @gnutls_transport_set_int2(ptr noundef, i32 noundef, i32 noundef) l
 declare void @_ZN3zmq11ws_engine_tD2Ev(ptr noundef nonnull align 8 dereferenceable(25696)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq12wss_engine_tD2Ev(ptr noundef nonnull align 8 dereferenceable(25720) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq12wss_engine_tD2Ev(ptr noundef nonnull align 8 dereferenceable(25720) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq12wss_engine_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16

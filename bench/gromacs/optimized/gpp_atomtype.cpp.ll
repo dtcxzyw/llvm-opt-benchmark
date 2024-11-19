@@ -337,7 +337,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22PreprocessingAtomTypes20atomNameFromAtomTypeB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::optional.10") align 8 initializes((32, 33)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK22PreprocessingAtomTypes20atomNameFromAtomTypeB5cxx11Ei(ptr dead_on_unwind noalias writable sret(%"class.std::optional.10") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::optional.20", align 8
   %5 = icmp sgt i32 %2, -1
   br i1 %5, label %_ZNK22PreprocessingAtomTypes5isSetEi.exit, label %_ZNSt8optionalIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IS5_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_T_EESt16is_constructibleIS6_JSC_EESt14is_convertibleISC_S6_ESA_ISt5__or_IJSF_IS6_JRKS_ISC_EEESF_IS6_JRSK_EESF_IS6_JOSL_EESF_IS6_JOSK_EESH_ISM_S6_ESH_ISO_S6_ESH_ISQ_S6_ESH_ISS_S6_EEEEEEbE4typeELb1EEESS_.exit.thread
@@ -585,7 +585,7 @@ _ZNK22PreprocessingAtomTypes5isSetEi.exit.thread: ; preds = %3, %_ZNK22Preproces
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22PreprocessingAtomTypesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22PreprocessingAtomTypesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %2, i64 24
@@ -607,7 +607,7 @@ define void @_ZN22PreprocessingAtomTypesC2Ev(ptr nocapture noundef nonnull write
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN22PreprocessingAtomTypesC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 align 2 {
+define void @_ZN22PreprocessingAtomTypesC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8

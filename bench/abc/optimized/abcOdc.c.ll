@@ -1928,7 +1928,7 @@ common.ret54:                                     ; preds = %28, %19, %10, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDontCareQuantify(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkDontCareQuantify(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2560,7 +2560,7 @@ Abc_NtkDontCareCountMintsWord.exit:               ; preds = %.lr.ph.i16, %Abc_Nt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkDontCareCompute(ptr noundef initializes((24, 40)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @Abc_NtkDontCareCompute(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8

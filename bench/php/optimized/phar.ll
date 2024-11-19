@@ -3661,7 +3661,7 @@ define hidden i32 @phar_open_or_create_filename(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_detect_phar_fname_ext(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   store i64 0, ptr %3, align 8
   %8 = icmp ult i64 %1, 2
@@ -7729,7 +7729,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #1
 declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zm_globals_ctor_phar(ptr noundef initializes((0, 536)) %0) #0 {
+define hidden void @zm_globals_ctor_phar(ptr noundef %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
@@ -9744,7 +9744,7 @@ declare noalias ptr @__zend_calloc(i64 noundef, i64 noundef) local_unnamed_addr 
 declare noalias ptr @zend_strndup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @phar_set_inode(ptr nocapture noundef nonnull initializes((152, 154)) %0) unnamed_addr #0 {
+define internal fastcc void @phar_set_inode(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [4096 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8

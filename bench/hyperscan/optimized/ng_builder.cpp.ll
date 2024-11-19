@@ -346,7 +346,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i64 16), ptr %this, align 8
   %id2vertex = getelementptr inbounds i8, ptr %this, i64 88
@@ -377,7 +377,7 @@ _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i64 16), ptr %this, align 8
   %id2vertex.i = getelementptr inbounds i8, ptr %this, i64 88

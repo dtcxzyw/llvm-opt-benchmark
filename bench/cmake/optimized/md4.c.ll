@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.md4_ctx = type { i32, i32, i32, i32, i32, i32, [64 x i8], [16 x i32] }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_md4it(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_md4it(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.md4_ctx, align 4
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 1732584193, ptr %5, align 4

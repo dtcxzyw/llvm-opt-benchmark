@@ -2366,7 +2366,7 @@ ehcleanup198:                                     ; preds = %lpad, %lpad.i.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarCons17getTypeToNtSymMapERKNS0_12SygusGrammarE(ptr noalias sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %g) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusGrammarCons17getTypeToNtSymMapERKNS0_12SygusGrammarE(ptr noalias sret(%"class.std::map") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %g) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.466", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.469", align 1

@@ -18,7 +18,7 @@ define i32 @ws_ipv4_get_subnet_mask(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ws_ipv4_addr_and_mask_init(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @ws_ipv4_addr_and_mask_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @llvm.bswap.i32(i32 %1)
   store i32 %4, ptr %0, align 4
   %5 = zext i32 %2 to i64

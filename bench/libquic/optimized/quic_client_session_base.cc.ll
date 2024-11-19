@@ -103,7 +103,7 @@ entry:
 declare void @_ZN3net15QuicSpdySessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2057), ptr noundef, ptr noundef nonnull align 8 dereferenceable(600)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net21QuicClientSessionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2140) initializes((0, 8), (2064, 2072)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net21QuicClientSessionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2140) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net21QuicClientSessionBaseE, i64 16), ptr %this, align 8
@@ -226,7 +226,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN3net15QuicSpdySessionD2Ev(ptr noundef nonnull align 8 dereferenceable(2057)) unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn2064_N3net21QuicClientSessionBaseD1Ev(ptr noundef initializes((-2064, -2056), (0, 8)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZThn2064_N3net21QuicClientSessionBaseD1Ev(ptr noundef %this) unnamed_addr #6 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -2064
   tail call void @_ZN3net21QuicClientSessionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2140) %0) #17

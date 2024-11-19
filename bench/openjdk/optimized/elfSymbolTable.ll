@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN14ElfSymbolTableD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14ElfSymbolTableD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ElfSymbolTableC2EP8_IO_FILER10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 16)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14ElfSymbolTableC2EP8_IO_FILER10Elf64_Shdr(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8

@@ -432,7 +432,7 @@ define internal void @notification_fn(i64 %0, i32 %1, ptr nocapture readnone %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr noundef initializes((224, 228)) %2) #0 {
+define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %8, label %4
 

@@ -866,7 +866,7 @@ _ZN3nix9BaseErrorD2Ev.exit:                       ; preds = %1, %_ZNSt22_Optiona
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10TarArchiveC2ERNS_6SourceEb(ptr noundef nonnull align 8 dereferenceable(40) initializes((16, 40)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10TarArchiveC2ERNS_6SourceEb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.4", align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1007,7 +1007,7 @@ define internal noundef i32 @_ZN3nixL13callback_openEP7archivePv(ptr nocapture r
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN3nixL13callback_readEP7archivePvPPKv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef i64 @_ZN3nixL13callback_readEP7archivePvPPKv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8
@@ -1085,7 +1085,7 @@ define internal noundef i32 @_ZN3nixL14callback_closeEP7archivePv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10TarArchiveC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10TarArchiveC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16

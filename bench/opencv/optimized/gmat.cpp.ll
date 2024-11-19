@@ -767,7 +767,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4gapi6detail11checkVectorERKNS_8GMatDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4gapi6detail11checkVectorERKNS_8GMatDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 12
@@ -908,7 +908,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit20:                  ; preds = %.lr.ph, %_ZNSt6vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi3own8descr_ofERKNS1_3MatE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::GMatDesc") align 8 initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3own8descr_ofERKNS1_3MatE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::GMatDesc") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1043,7 +1043,7 @@ define void @_ZN2cv8descr_ofERKNS_4UMatE(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9descrs_ofERKSt6vectorINS_4UMatESaIS1_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.11") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9descrs_ofERKSt6vectorINS_4UMatESaIS1_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.11") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::GMatDesc", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -1152,7 +1152,7 @@ _ZN12_GLOBAL__N_112vec_descr_ofIN2cv4UMatEEESt6vectorINS1_4util7variantIJNS4_9mo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9descrs_ofERKSt6vectorINS_3MatESaIS1_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.11") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9descrs_ofERKSt6vectorINS_3MatESaIS1_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.11") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::GMatDesc", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
@@ -1355,7 +1355,7 @@ _ZN12_GLOBAL__N_112vec_descr_ofIN2cv3MatEEESt6vectorINS1_4util7variantIJNS4_9mon
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi3own9descrs_ofERKSt6vectorINS1_3MatESaIS3_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.11") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3own9descrs_ofERKSt6vectorINS1_3MatESaIS3_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.11") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::GMatDesc", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)

@@ -290,7 +290,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #8 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16IborLegCashFlowsC2ERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EERKNS_6HandleINS_18YieldTermStructureEEEb(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %iborLeg, ptr noundef nonnull align 8 dereferenceable(16) %discountCurve, i1 noundef zeroext %contTenorSpread) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16IborLegCashFlowsC2ERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EERKNS_6HandleINS_18YieldTermStructureEEEb(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %iborLeg, ptr noundef nonnull align 8 dereferenceable(16) %discountCurve, i1 noundef zeroext %contTenorSpread) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.boost::shared_ptr.18", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.42", align 8
@@ -2674,7 +2674,7 @@ _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13SwapCashFlowsC2ERKN5boost10shared_ptrINS_19FixedVsFloatingSwapEEERKNS_6HandleINS_18YieldTermStructureEEEb(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 80)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swap, ptr noundef nonnull align 8 dereferenceable(16) %discountCurve, i1 noundef zeroext %contTenorSpread) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13SwapCashFlowsC2ERKN5boost10shared_ptrINS_19FixedVsFloatingSwapEEERKNS_6HandleINS_18YieldTermStructureEEEb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swap, ptr noundef nonnull align 8 dereferenceable(16) %discountCurve, i1 noundef zeroext %contTenorSpread) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.boost::shared_ptr.18", align 8
   %fixedLeg = alloca %"class.std::vector", align 8
@@ -3703,7 +3703,7 @@ _ZNSt6vectorIN5boost10shared_ptrIN8QuantLib8CashFlowEEESaIS4_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17SwaptionCashFlowsC2ERKN5boost10shared_ptrINS_8SwaptionEEERKNS_6HandleINS_18YieldTermStructureEEEb(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 80)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swaption, ptr noundef nonnull align 8 dereferenceable(16) %discountCurve, i1 noundef zeroext %contTenorSpread) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17SwaptionCashFlowsC2ERKN5boost10shared_ptrINS_8SwaptionEEERKNS_6HandleINS_18YieldTermStructureEEEb(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swaption, ptr noundef nonnull align 8 dereferenceable(16) %discountCurve, i1 noundef zeroext %contTenorSpread) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.boost::shared_ptr.18", align 8
   %dc = alloca %"class.QuantLib::Actual365Fixed", align 8

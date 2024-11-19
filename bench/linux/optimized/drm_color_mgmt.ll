@@ -124,7 +124,7 @@ define dso_local void @drm_crtc_enable_color_mgmt(ptr noundef %0, i32 noundef %1
 declare dso_local void @drm_object_attach_property(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @drm_mode_crtc_set_gamma_size(ptr nocapture noundef writeonly initializes((416, 420), (424, 432)) %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_mode_crtc_set_gamma_size(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 416
   store i32 %1, ptr %3, align 8
   %4 = sext i32 %1 to i64

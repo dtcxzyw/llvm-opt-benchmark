@@ -318,7 +318,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8compiler9ClassVarsB5cxx11EPKN6google8protobuf10DescriptorE7Options(ptr noalias sret(%"class.std::unordered_map") align 8 initializes((32, 40)) %agg.result, ptr noundef %descriptor, ptr noundef %options) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8compiler9ClassVarsB5cxx11EPKN6google8protobuf10DescriptorE7Options(ptr noalias sret(%"class.std::unordered_map") align 8 %agg.result, ptr noundef %descriptor, ptr noundef %options) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

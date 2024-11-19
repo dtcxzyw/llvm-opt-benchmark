@@ -1345,7 +1345,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit12: ; preds = %128, %115, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef21GetPathAtIntroductionEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef21GetPathAtIntroductionEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %5 = load ptr, ptr %1, align 8
@@ -1659,7 +1659,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef12GetIntroPathEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef12GetIntroPathEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %5 = load ptr, ptr %1, align 8
@@ -1989,7 +1989,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef16GetChildrenRang
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeRef_ChildrenIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #7 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeRef_ChildrenIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #7 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %2, align 8
@@ -1999,7 +1999,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeRef_ChildrenIteratorC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeRef_ChildrenIteratorC2ERKNS_10PcpNodeRefEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeRef_ChildrenIteratorC2ERKNS_10PcpNodeRefEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br i1 %2, label %14, label %4
 
@@ -2038,7 +2038,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeRef_ChildrenIterator9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__34PcpNodeRef_ChildrenReverseIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #7 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__34PcpNodeRef_ChildrenReverseIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #7 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 -1, ptr %2, align 8
@@ -2048,7 +2048,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__34PcpNodeRef_ChildrenReverseIt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__34PcpNodeRef_ChildrenReverseIteratorC2ERKNS_27PcpNodeRef_ChildrenIteratorE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #8 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__34PcpNodeRef_ChildrenReverseIteratorC2ERKNS_27PcpNodeRef_ChildrenIteratorE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #8 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2098,7 +2098,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__34PcpNodeRef_ChildrenReverseIt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__34PcpNodeRef_ChildrenReverseIteratorC2ERKNS_10PcpNodeRefEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__34PcpNodeRef_ChildrenReverseIteratorC2ERKNS_10PcpNodeRefEb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   br i1 %2, label %14, label %4
 

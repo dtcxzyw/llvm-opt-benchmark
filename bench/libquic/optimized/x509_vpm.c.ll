@@ -53,7 +53,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @x509_verify_param_zero(ptr nocapture noundef nonnull initializes((0, 8), (16, 44)) %param) unnamed_addr #0 {
+define internal fastcc void @x509_verify_param_zero(ptr nocapture noundef nonnull %param) unnamed_addr #0 {
 entry:
   store ptr null, ptr %param, align 8
   %inh_flags = getelementptr inbounds i8, ptr %param, i64 16
@@ -819,7 +819,7 @@ entry:
 declare i32 @X509_TRUST_set(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509_VERIFY_PARAM_set_depth(ptr nocapture noundef writeonly initializes((40, 44)) %param, i32 noundef %depth) local_unnamed_addr #8 {
+define hidden void @X509_VERIFY_PARAM_set_depth(ptr nocapture noundef writeonly %param, i32 noundef %depth) local_unnamed_addr #8 {
 entry:
   %depth1 = getelementptr inbounds i8, ptr %param, i64 40
   store i32 %depth, ptr %depth1, align 8
@@ -827,7 +827,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @X509_VERIFY_PARAM_set_time(ptr nocapture noundef initializes((8, 16)) %param, i64 noundef %t) local_unnamed_addr #6 {
+define hidden void @X509_VERIFY_PARAM_set_time(ptr nocapture noundef %param, i64 noundef %t) local_unnamed_addr #6 {
 entry:
   %check_time = getelementptr inbounds i8, ptr %param, i64 8
   store i64 %t, ptr %check_time, align 8

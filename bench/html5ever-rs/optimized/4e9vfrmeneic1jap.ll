@@ -657,7 +657,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %73, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN78_$LT$html5ever..tokenizer..TokenizerOpts$u20$as$u20$core..default..Default$GT$7default17h9a90af68ef9905d8E"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i8, i8 }, i8, i8, i8, [3 x i8] }) align 8 dereferenceable(32) initializes((0, 8), (24, 25), (26, 29)) %0) unnamed_addr #2 {
+define void @"_ZN78_$LT$html5ever..tokenizer..TokenizerOpts$u20$as$u20$core..default..Default$GT$7default17h9a90af68ef9905d8E"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i8, i8 }, i8, i8, i8, [3 x i8] }) align 8 dereferenceable(32) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 26
   store i8 0, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 27

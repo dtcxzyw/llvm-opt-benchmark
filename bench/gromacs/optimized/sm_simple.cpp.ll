@@ -190,7 +190,7 @@ define internal void @_ZL13evaluate_noneRKN3gmx20SelMethodEvalContextEP15gmx_ana
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL15evaluate_atomnrRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL15evaluate_atomnrRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -222,7 +222,7 @@ define internal void @_ZL15evaluate_atomnrRKN3gmx20SelMethodEvalContextEP15gmx_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL14evaluate_resnrRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -349,7 +349,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL17evaluate_resindexRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -520,7 +520,7 @@ define internal void @_ZL15check_moleculesPK10gmx_mtop_tiP18gmx_ana_selparam_tPv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL17evaluate_molindexRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -1000,7 +1000,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL17evaluate_atomnameRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -1156,7 +1156,7 @@ define internal void @_ZL13check_pdbinfoPK10gmx_mtop_tiP18gmx_ana_selparam_tPv(p
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #14 {
+define internal void @_ZL20evaluate_pdbatomnameRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #14 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -1327,7 +1327,7 @@ define internal void @_ZL14check_atomtypePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL17evaluate_atomtypeRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -1416,7 +1416,7 @@ _ZL20mtopGetMolblockIndexRK10gmx_mtop_tiPiS2_S2_.exit: ; preds = %32
 declare noundef zeroext i1 @_Z22gmx_mtop_has_atomtypesPK10gmx_mtop_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL16evaluate_resnameRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -1509,7 +1509,7 @@ _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL19evaluate_insertcodeRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -1602,7 +1602,7 @@ _ZL18mtopGetResidueInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL14evaluate_chainRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -1864,7 +1864,7 @@ define internal void @_ZL12check_chargePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL15evaluate_chargeRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -1952,7 +1952,7 @@ _ZL21mtopGetAtomParametersRK10gmx_mtop_tiPi.exit: ; preds = %32
 declare noundef zeroext i1 @_Z20gmx_mtop_has_chargesPK10gmx_mtop_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL15evaluate_altlocRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -2039,7 +2039,7 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL18evaluate_occupancyRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -2125,7 +2125,7 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL19evaluate_betafactorRKN3gmx20SelMethodEvalContextEP15gmx_ana_index_tP18gmx_ana_selvalue_tPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = load i32, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 %5, ptr %6, align 4
@@ -2211,7 +2211,7 @@ _ZL18mtopGetAtomPdbInfoRK10gmx_mtop_tiPi.exit:    ; preds = %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL10evaluate_xRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL10evaluate_xRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 4
@@ -2239,7 +2239,7 @@ _ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit:      ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL10evaluate_yRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL10evaluate_yRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 4
@@ -2267,7 +2267,7 @@ _ZL14evaluate_coordPfP13gmx_ana_pos_ti.exit:      ; preds = %.lr.ph.i, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL10evaluate_zRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL10evaluate_zRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 4

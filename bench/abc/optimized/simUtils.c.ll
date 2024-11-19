@@ -128,7 +128,7 @@ define void @Sim_UtilInfoAdd(ptr nocapture noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Sim_UtilInfoDetectDiffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #6 {
+define void @Sim_UtilInfoDetectDiffs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = icmp sgt i32 %2, 0
@@ -242,7 +242,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Sim_UtilInfoDetectNews(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #6 {
+define void @Sim_UtilInfoDetectNews(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = icmp sgt i32 %2, 0
@@ -1630,7 +1630,7 @@ Abc_Clock.exit11:                                 ; preds = %._crit_edge, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Sim_UtilCountPairsAll(ptr nocapture noundef initializes((168, 172), (176, 180)) %0) local_unnamed_addr #6 {
+define void @Sim_UtilCountPairsAll(ptr nocapture noundef %0) local_unnamed_addr #6 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)

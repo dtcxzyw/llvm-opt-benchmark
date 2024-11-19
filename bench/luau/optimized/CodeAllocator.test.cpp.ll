@@ -10060,7 +10060,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsImEeqIiEED
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL19DOCTEST_ANON_FUNC_9vEN3$_18__invokeEPvS0_"(ptr nocapture noundef writeonly initializes((32, 33)) %0, ptr noundef %1) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZL19DOCTEST_ANON_FUNC_9vEN3$_18__invokeEPvS0_"(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.doctest::detail::ResultBuilder", align 8
   %4 = alloca %"class.doctest::String", align 8
   %5 = alloca %"struct.doctest::detail::Result", align 8

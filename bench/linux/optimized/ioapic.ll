@@ -477,7 +477,7 @@ declare dso_local i32 @pci_request_region(ptr noundef, i32 noundef, ptr noundef)
 declare dso_local i32 @acpi_walk_resources(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 16388) i32 @setup_res(ptr noundef %0, ptr noundef initializes((24, 32)) %1) #0 align 16 {
+define internal noundef range(i32 0, 16388) i32 @setup_res(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca %struct.resource_win, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #8
   %4 = getelementptr inbounds i8, ptr %1, i64 24

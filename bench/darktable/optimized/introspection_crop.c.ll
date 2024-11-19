@@ -369,7 +369,7 @@ define void @distort_mask(ptr nocapture noundef readnone %0, ptr nocapture nound
 declare void @dt_iop_copy_image_roi(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 20)) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #6 {
+define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !29
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !6
@@ -435,7 +435,7 @@ define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture nou
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 20)) %3) local_unnamed_addr #6 {
+define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false), !tbaa.struct !29
@@ -954,7 +954,7 @@ define internal fastcc void @_commit_box(ptr noundef %0, ptr nocapture noundef %
 declare i64 @g_get_monotonic_time() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #8 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
   %4 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #24
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !6
@@ -2250,7 +2250,7 @@ declare void @dt_bauhaus_combobox_set(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @dt_gui_update_collapsible_section(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca [20 x %struct.dt_iop_crop_aspect_t], align 16
   %3 = tail call ptr @dt_alloc_aligned(i64 noundef 192) #23
   %4 = icmp eq ptr %3, null

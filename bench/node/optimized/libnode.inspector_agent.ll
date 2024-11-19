@@ -551,7 +551,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector5AgentC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(186) initializes((0, 40)) %this, ptr noundef %env) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9inspector5AgentC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(186) %this, ptr noundef %env) unnamed_addr #3 align 2 {
 entry:
   store ptr %env, ptr %this, align 8
   %client_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -712,7 +712,7 @@ _ZN4node11Environment19inspector_host_portEv.exit: ; preds = %_ZNSt10shared_ptrI
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector5AgentD2Ev(ptr noundef nonnull align 8 dereferenceable(186) initializes((72, 80)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9inspector5AgentD2Ev(ptr noundef nonnull align 8 dereferenceable(186) %this) unnamed_addr #3 align 2 {
 entry:
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
@@ -7067,7 +7067,7 @@ declare void @_ZN4node9inspector16Utf8ToStringViewESt17basic_string_viewIcSt11ch
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_126SameThreadInspectorSessionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_126SameThreadInspectorSessionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_126SameThreadInspectorSessionE, i64 16), ptr %this, align 8
   %client_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -7213,7 +7213,7 @@ _ZNSt8weak_ptrIN4node9inspector19NodeInspectorClientEED2Ev.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_126SameThreadInspectorSessionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_126SameThreadInspectorSessionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node9inspector12_GLOBAL__N_126SameThreadInspectorSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -9871,7 +9871,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare void @_ZN4node11Environment22RequestInterruptFromV8Ev(ptr noundef nonnull align 8 dereferenceable(2872)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9892,7 +9892,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector5Agent20RequestIoThreadStartEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16

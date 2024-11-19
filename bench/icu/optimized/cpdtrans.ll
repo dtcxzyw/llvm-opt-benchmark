@@ -50,7 +50,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522CompoundTransliteratorC2EPKPNS_14TransliteratorEiPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, ptr nocapture noundef readonly %transliterators, i32 noundef %transliteratorCount, ptr noundef %adoptedFilter) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522CompoundTransliteratorC2EPKPNS_14TransliteratorEiPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef readonly %transliterators, i32 noundef %transliteratorCount, ptr noundef %adoptedFilter) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i.i = alloca i16, align 2
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
@@ -215,7 +215,7 @@ lpad2:                                            ; preds = %lpad2.loopexit.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522CompoundTransliterator7joinIDsEPKPNS_14TransliteratorEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %this, ptr nocapture noundef readonly %transliterators, i32 noundef %transCount) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522CompoundTransliterator7joinIDsEPKPNS_14TransliteratorEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %this, ptr nocapture noundef readonly %transliterators, i32 noundef %transCount) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i = alloca i16, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
@@ -1259,7 +1259,7 @@ return:                                           ; preds = %entry, %if.end64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522CompoundTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522CompoundTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i64 16), ptr %this, align 8
   %trans.i = getelementptr inbounds i8, ptr %this, i64 88

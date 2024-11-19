@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4llvh13StringMapImplC1Ejj = hidden unnamed_addr alias void (ptr, i32, i32), ptr @_ZN4llvh13StringMapImplC2Ejj
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh13StringMapImplC2Ejj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, i32 noundef %InitSize, i32 noundef %itemSize) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh13StringMapImplC2Ejj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %InitSize, i32 noundef %itemSize) unnamed_addr #0 align 2 {
 entry:
   %NumBuckets = getelementptr inbounds i8, ptr %this, i64 8
   %ItemSize = getelementptr inbounds i8, ptr %this, i64 20
@@ -62,7 +62,7 @@ return:                                           ; preds = %if.end, %_ZN4llvh13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh13StringMapImpl4initEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, i32 noundef %InitSize) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh13StringMapImpl4initEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %InitSize) local_unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq i32 %InitSize, 0
   %cond = select i1 %tobool.not, i32 16, i32 %InitSize

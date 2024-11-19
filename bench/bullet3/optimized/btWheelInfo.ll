@@ -14,7 +14,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((280, 288)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %chassis, ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %raycastInfo) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN11btWheelInfo11updateWheelERK11btRigidBodyRNS_11RaycastInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %chassis, ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %raycastInfo) local_unnamed_addr #1 align 2 {
 entry:
   %m_isInContact = getelementptr inbounds i8, ptr %this, i64 84
   %0 = load i8, ptr %m_isInContact, align 4

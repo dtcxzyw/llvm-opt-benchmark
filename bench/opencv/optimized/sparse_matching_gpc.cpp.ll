@@ -664,7 +664,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv7optflow10GPCDetails23getCoordinatesFromIndexEmNS_5Size_IiEERiS4_(i64 noundef %0, i64 %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow10GPCDetails23getCoordinatesFromIndexEmNS_5Size_IiEERiS4_(i64 noundef %0, i64 %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #6 align 2 {
   %5 = shl i64 %1, 32
   %sext = add i64 %5, -85899345920
   %6 = ashr exact i64 %sext, 32
@@ -5647,7 +5647,7 @@ _ZNSt6vectorIN2cv7optflow18GPCPatchDescriptorESaIS2_EE2atEm.exit: ; preds = %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN2cv7optflow12_GLOBAL__N_121getWHTPatchDescriptorERNS0_18GPCPatchDescriptorEPKNS_3MatEii(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 144)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #16 {
+define internal void @_ZN2cv7optflow12_GLOBAL__N_121getWHTPatchDescriptorERNS0_18GPCPatchDescriptorEPKNS_3MatEii(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) #16 {
   %5 = add nsw i32 %2, -10
   %6 = add nsw i32 %3, -10
   %7 = getelementptr i8, ptr %1, i64 16

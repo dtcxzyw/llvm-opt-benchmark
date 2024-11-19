@@ -1249,7 +1249,7 @@ declare void @fill_active_slots() local_unnamed_addr #1
 declare ptr @new_http_object_request(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @process_object_response(ptr noundef initializes((56, 60)) %callback_data) #0 {
+define internal void @process_object_response(ptr noundef %callback_data) #0 {
 entry:
   %0 = load ptr, ptr %callback_data, align 8
   %1 = load ptr, ptr %0, align 8

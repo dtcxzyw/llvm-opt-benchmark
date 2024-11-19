@@ -67,7 +67,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN4base12SharedMemoryD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base12SharedMemoryD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base25SharedMemoryCreateOptionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((0, 9), (16, 26)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base25SharedMemoryCreateOptionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %open_existing_deprecated = getelementptr inbounds i8, ptr %this, i64 8
@@ -82,7 +82,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base12SharedMemoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 25), (32, 40)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base12SharedMemoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 -1, ptr %this, align 8
   %readonly_mapped_file_ = getelementptr inbounds i8, ptr %this, i64 4
@@ -95,7 +95,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base12SharedMemoryC2ERKNS_14FileDescriptorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 25), (32, 40)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %handle, i1 noundef zeroext %read_only) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base12SharedMemoryC2ERKNS_14FileDescriptorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(5) %handle, i1 noundef zeroext %read_only) unnamed_addr #1 align 2 {
 entry:
   %frombool = zext i1 %read_only to i8
   %0 = load i32, ptr %handle, align 4

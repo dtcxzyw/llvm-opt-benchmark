@@ -742,7 +742,7 @@ entry:
 declare void @throttle_get_config(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @throttle_group_register_tgm(ptr noundef initializes((0, 8), (96, 104)) %tgm, ptr noundef %groupname, ptr noundef %ctx) local_unnamed_addr #0 {
+define dso_local void @throttle_group_register_tgm(ptr noundef %tgm, ptr noundef %groupname, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @throttle_group_incref(ptr noundef %groupname)
   %throttle_state = getelementptr inbounds i8, ptr %tgm, i64 96

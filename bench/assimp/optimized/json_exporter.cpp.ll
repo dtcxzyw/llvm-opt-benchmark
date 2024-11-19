@@ -523,7 +523,7 @@ eh.resume:                                        ; preds = %ehcleanup25, %lpad.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK7aiScene(ptr noundef nonnull align 8 dereferenceable(504) initializes((496, 497)) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %ai) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK7aiScene(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1168) %ai) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i1445 = alloca %"class.std::allocator.25", align 1
   %ref.tmp1.i1446 = alloca %"class.std::allocator.25", align 1
@@ -9484,7 +9484,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK12aiMatrix4x4tIfEb(ptr noundef nonnull align 8 dereferenceable(504) initializes((496, 497)) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ai) unnamed_addr #0 {
+define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK12aiMatrix4x4tIfEb(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %ai) unnamed_addr #0 {
 entry:
   %first5.i = getelementptr inbounds i8, ptr %out, i64 496
   store i8 1, ptr %first5.i, align 8
@@ -10009,7 +10009,7 @@ _ZN6Assimp10JSONWriter8EndArrayEv.exit:           ; preds = %_ZN6Assimp10JSONWri
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db(ptr noundef nonnull align 8 dereferenceable(504) initializes((496, 497)) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %ai) unnamed_addr #0 {
+define internal fastcc void @_ZN6AssimpL5WriteERNS_10JSONWriterERK9aiColor3Db(ptr noundef nonnull align 8 dereferenceable(504) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %ai) unnamed_addr #0 {
 entry:
   %first5.i = getelementptr inbounds i8, ptr %out, i64 496
   store i8 1, ptr %first5.i, align 8

@@ -394,7 +394,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit69:          ; preds = %131, %137, %_ZN5cla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang16SourceMgrAdapterC2ERNS_13SourceManagerERNS_17DiagnosticsEngineEjjjNS_20CustomizableOptionalINS_12FileEntryRefEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 28), (32, 60)) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 %6) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang16SourceMgrAdapterC2ERNS_13SourceManagerERNS_17DiagnosticsEngineEjjjNS_20CustomizableOptionalINS_12FileEntryRefEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i64 %6) unnamed_addr #1 align 2 {
   %8 = inttoptr i64 %6 to ptr
   store ptr %1, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8

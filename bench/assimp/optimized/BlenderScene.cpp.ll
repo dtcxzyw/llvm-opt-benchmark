@@ -6281,7 +6281,7 @@ terminate.lpad:                                   ; preds = %lpad16
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp7Blender9Structure7ConvertINS0_4MTexEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(192) initializes((16, 24)) %dest, ptr noundef nonnull align 8 dereferenceable(232) %db) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp7Blender9Structure7ConvertINS0_4MTexEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(192) %dest, ptr noundef nonnull align 8 dereferenceable(232) %db) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp_short = alloca i32, align 4
   %temp = alloca i32, align 4
@@ -19357,7 +19357,7 @@ terminate.lpad:                                   ; preds = %lpad18
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp7Blender9Structure7ConvertINS0_3TexEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(1088) initializes((1064, 1072)) %dest, ptr noundef nonnull align 8 dereferenceable(232) %db) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp7Blender9Structure7ConvertINS0_3TexEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(1088) %dest, ptr noundef nonnull align 8 dereferenceable(232) %db) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp_short = alloca i16, align 2
   %temp = alloca i32, align 4

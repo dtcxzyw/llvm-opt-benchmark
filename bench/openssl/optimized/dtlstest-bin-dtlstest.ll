@@ -995,7 +995,7 @@ declare i64 @SSL_CTX_set_options(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @SSL_CTX_set_cookie_generate_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @generate_cookie_cb(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly initializes((0, 8)) %cookie, ptr nocapture noundef writeonly initializes((0, 4)) %cookie_len) #4 {
+define internal noundef i32 @generate_cookie_cb(ptr nocapture readnone %ssl, ptr nocapture noundef writeonly %cookie, ptr nocapture noundef writeonly %cookie_len) #4 {
 entry:
   store i64 15258147055874352, ptr %cookie, align 1
   store i32 8, ptr %cookie_len, align 4

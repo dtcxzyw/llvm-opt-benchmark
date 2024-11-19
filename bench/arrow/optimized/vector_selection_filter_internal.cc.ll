@@ -23578,7 +23578,7 @@ _ZN5arrow7compute11FunctionDocD2Ev.exit:          ; preds = %invoke.cont.i.i, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_118FilterMetaFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_118FilterMetaFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8FunctionE, i64 16), ptr %this, align 8
   %options_class.i.i.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -23621,7 +23621,7 @@ _ZN5arrow7compute12MetaFunctionD2Ev.exit:         ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_118FilterMetaFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow7compute8internal12_GLOBAL__N_118FilterMetaFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow7compute8FunctionE, i64 16), ptr %this, align 8
   %options_class.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 144

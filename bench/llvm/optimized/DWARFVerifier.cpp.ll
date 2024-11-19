@@ -1927,7 +1927,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm13DWARFVerifier12DieRangeInfo8cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRb(ptr noundef nonnull align 8 dereferenceable(242) %0, ptr noundef nonnull byval(%"class.llvm::DWARFDataExtractor") align 8 %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %4, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %5) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm13DWARFVerifier16verifyUnitHeaderENS_18DWARFDataExtractorEPmjRhRb(ptr noundef nonnull align 8 dereferenceable(242) %0, ptr noundef nonnull byval(%"class.llvm::DWARFDataExtractor") align 8 %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef nonnull align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull align 1 dereferenceable(1) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %"class.llvm::Error", align 8
   %9 = alloca %class.anon.564, align 1
@@ -9524,7 +9524,7 @@ declare noundef ptr @_ZN4llvm9DWARFUnit17getCompilationDirEv(ptr noundef nonnull
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13DWARFVerifierC2ERNS_11raw_ostreamERNS_12DWARFContextENS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(242) initializes((0, 41)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(105) %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13DWARFVerifierC2ERNS_11raw_ostreamERNS_12DWARFContextENS_13DIDumpOptionsE(ptr noundef nonnull align 8 dereferenceable(242) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(105) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -9652,7 +9652,7 @@ _ZN4llvm13DIDumpOptionsC2EOS0_.exit:              ; preds = %_ZNSt8functionIFvN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm13DWARFVerifier15handleDebugLineEv(ptr noundef nonnull align 8 dereferenceable(242) initializes((176, 180)) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm13DWARFVerifier15handleDebugLineEv(ptr noundef nonnull align 8 dereferenceable(242) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store i32 0, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
@@ -33865,7 +33865,7 @@ _ZN4llvm15format_providerINS_9StringRefEvE6formatERKS1_RNS_11raw_ostreamES1_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS2_14NameTableEntryEE4$_10JZNS1_22verifyNameIndexEntriesES5_S8_E4$_11EEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_13DWARFVerifier22verifyNameIndexEntriesERKNS_15DWARFDebugNames9NameIndexERKNS2_14NameTableEntryEE4$_10JZNS1_22verifyNameIndexEntriesES5_S8_E4$_11EEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISD_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %3) unnamed_addr #0 {
   %5 = alloca %"class.std::function.49", align 8
   %6 = alloca %"class.std::function.49", align 8
   %7 = load ptr, ptr %1, align 8

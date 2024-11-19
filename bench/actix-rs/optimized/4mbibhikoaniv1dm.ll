@@ -162,7 +162,7 @@ define hidden noundef i64 @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$A
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h8e1e0555a90c5cf6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %11) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_references..H9$LT$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h8e1e0555a90c5cf6E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %11) unnamed_addr #1 {
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %15 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -3165,7 +3165,7 @@ define hidden noundef i64 @"_ZN137_$LT$brotli..enc..backward_references..AdvHash
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h0afa1fb7cbfd2ffbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %11) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h0afa1fb7cbfd2ffbE"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %11) unnamed_addr #1 personality ptr @rust_eh_personality {
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %15 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -3630,7 +3630,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17h456073b07195e3c9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h370ebb74519927a3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %11) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h370ebb74519927a3E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %11) unnamed_addr #1 personality ptr @rust_eh_personality {
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %15 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -4158,7 +4158,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hf3f051a18e1469e6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h679fc27c3370c0c0E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %11) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17h679fc27c3370c0c0E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %11) unnamed_addr #1 personality ptr @rust_eh_personality {
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %15 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -4670,7 +4670,7 @@ _ZN6brotli3enc19backward_references24SearchInStaticDictionary17hfae9f379570ef1a5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17he43d18469aa321e9E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %11) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$16FindLongestMatch17he43d18469aa321e9E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i64 noundef %4, ptr noalias nocapture noundef nonnull readonly align 4 %5, i64 noundef %6, i64 noundef %7, i64 noundef %8, i64 noundef %9, i64 noundef %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %11) unnamed_addr #1 personality ptr @rust_eh_personality {
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %14 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %15 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

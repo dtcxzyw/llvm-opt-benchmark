@@ -272,7 +272,7 @@ define linkonce_odr dso_local void @_ZN17cmGeneratorTarget5NamesD2Ev(ptr noundef
 declare void @_ZN25cmMakefileTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1064)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN35cmMakefileExecutableTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1096) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN35cmMakefileExecutableTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV35cmMakefileExecutableTargetGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1064
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
@@ -281,7 +281,7 @@ define dso_local void @_ZN35cmMakefileExecutableTargetGeneratorD2Ev(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN35cmMakefileExecutableTargetGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1096) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN35cmMakefileExecutableTargetGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV35cmMakefileExecutableTargetGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1064
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18

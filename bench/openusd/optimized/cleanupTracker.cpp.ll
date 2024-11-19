@@ -427,7 +427,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_18Sdf_CleanupTrackerEE11Ge
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18Sdf_CleanupTrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18Sdf_CleanupTrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2)

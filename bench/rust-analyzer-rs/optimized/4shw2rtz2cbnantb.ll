@@ -1486,7 +1486,7 @@ _ZN4stdx13panic_context8with_ctx17h3f0e5e3f57b619c9E.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4stdx6thread7Builder3new17h4a1d6f636051a7fcE(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, i8, i8, [6 x i8] }) align 8 dereferenceable(48) initializes((0, 8), (16, 24), (40, 42)) %0, i1 noundef zeroext %1) unnamed_addr #9 {
+define void @_ZN4stdx6thread7Builder3new17h4a1d6f636051a7fcE(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, i8, i8, [6 x i8] }) align 8 dereferenceable(48) %0, i1 noundef zeroext %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8
@@ -1499,7 +1499,7 @@ define void @_ZN4stdx6thread7Builder3new17h4a1d6f636051a7fcE(ptr noalias nocaptu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4stdx6thread7Builder4name17hec81922246212f71E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, i8, i8, [6 x i8] }) align 8 dereferenceable(48) initializes((0, 42)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #0 {
+define void @_ZN4stdx6thread7Builder4name17hec81922246212f71E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, i8, i8, [6 x i8] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #0 {
   %4 = alloca { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, align 8
   %5 = alloca { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
@@ -1521,7 +1521,7 @@ define void @_ZN4stdx6thread7Builder4name17hec81922246212f71E(ptr noalias nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4stdx6thread7Builder10stack_size17hac32320f69201b5eE(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, i8, i8, [6 x i8] }) align 8 dereferenceable(48) initializes((0, 42)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2) unnamed_addr #10 {
+define void @_ZN4stdx6thread7Builder10stack_size17hac32320f69201b5eE(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, i8, i8, [6 x i8] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2) unnamed_addr #10 {
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load i8, ptr %4, align 8, !range !69, !noundef !4
@@ -1540,7 +1540,7 @@ define void @_ZN4stdx6thread7Builder10stack_size17hac32320f69201b5eE(ptr noalias
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4stdx6thread7Builder10allow_leak17h3709ff6d8e18e122E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, i8, i8, [6 x i8] }) align 8 dereferenceable(48) initializes((0, 42)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, i1 noundef zeroext %2) unnamed_addr #10 {
+define void @_ZN4stdx6thread7Builder10allow_leak17h3709ff6d8e18e122E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { i64, [2 x i64] } } }, i8, i8, [6 x i8] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, i1 noundef zeroext %2) unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load i8, ptr %4, align 8, !range !69, !noundef !4
   %6 = getelementptr inbounds i8, ptr %0, i64 40

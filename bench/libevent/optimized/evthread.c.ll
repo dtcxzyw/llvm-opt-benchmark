@@ -405,7 +405,7 @@ return:                                           ; preds = %entry, %if.end8, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @debug_lock_free(ptr noundef initializes((0, 4), (16, 20)) %lock_, i32 %locktype) #2 {
+define internal void @debug_lock_free(ptr noundef %lock_, i32 %locktype) #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @original_lock_fns_, i64 16), align 8
   %tobool.not = icmp eq ptr %0, null

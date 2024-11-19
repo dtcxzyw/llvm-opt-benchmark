@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.9bce6547454f1bc8f114e8d04151d100.19.llvm.7489863399021701693 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hde75e8264d7f8cabE"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17hde75e8264d7f8cabE"(ptr noundef nonnull writeonly align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3
@@ -1237,7 +1237,7 @@ _ZN6flate27deflate7bufread18reset_decoder_data17hee3c852b20c23fc5E.exit: ; preds
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98fdbd49b7bdb094E"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define hidden void @"_ZN88_$LT$image..image..Pixels$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h98fdbd49b7bdb094E"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !noundef !10
   %5 = getelementptr inbounds i8, ptr %1, i64 16

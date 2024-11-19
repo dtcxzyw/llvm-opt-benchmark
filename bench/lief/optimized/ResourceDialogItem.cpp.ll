@@ -470,7 +470,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEEaSERKS4_.exit19: ; preds
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LIEF6ObjectaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF2PE18ResourceDialogItemD2Ev(ptr noundef nonnull align 8 dereferenceable(106) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF2PE18ResourceDialogItemD2Ev(ptr noundef nonnull align 8 dereferenceable(106) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE18ResourceDialogItemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -669,7 +669,7 @@ define noundef i32 @_ZNK4LIEF2PE18ResourceDialogItem14extended_styleEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE18ResourceDialogItem19extended_style_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(106) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE18ResourceDialogItem19extended_style_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(106) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -787,7 +787,7 @@ define noundef i32 @_ZNK4LIEF2PE18ResourceDialogItem5styleEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE18ResourceDialogItem10style_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.48") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(106) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE18ResourceDialogItem10style_listEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.48") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(106) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

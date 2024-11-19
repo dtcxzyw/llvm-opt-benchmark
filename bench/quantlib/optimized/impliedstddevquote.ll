@@ -475,7 +475,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18ImpliedStdDevQuoteC2ENS_6Option4TypeENS_6HandleINS_5QuoteEEES5_dddj(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 20), (24, 36), (40, 60), (64, 96)) %this, ptr nocapture noundef readonly %vtt, i32 noundef %optionType, ptr nocapture noundef %forward, ptr nocapture noundef %price, double noundef %strike, double noundef %guess, double noundef %accuracy, i32 noundef %maxIter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18ImpliedStdDevQuoteC2ENS_6Option4TypeENS_6HandleINS_5QuoteEEES5_dddj(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef readonly %vtt, i32 noundef %optionType, ptr nocapture noundef %forward, ptr nocapture noundef %price, double noundef %strike, double noundef %guess, double noundef %accuracy, i32 noundef %maxIter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp21 = alloca %"class.boost::shared_ptr", align 8
@@ -1078,7 +1078,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18ImpliedStdDevQuoteC1ENS_6Option4TypeENS_6HandleINS_5QuoteEEES5_dddj(ptr noundef nonnull align 8 dereferenceable(96) initializes((112, 116), (120, 128)) %this, i32 noundef %optionType, ptr nocapture noundef %forward, ptr nocapture noundef %price, double noundef %strike, double noundef %guess, double noundef %accuracy, i32 noundef %maxIter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18ImpliedStdDevQuoteC1ENS_6Option4TypeENS_6HandleINS_5QuoteEEES5_dddj(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %optionType, ptr nocapture noundef %forward, ptr nocapture noundef %price, double noundef %strike, double noundef %guess, double noundef %accuracy, i32 noundef %maxIter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp14 = alloca %"class.boost::shared_ptr", align 8

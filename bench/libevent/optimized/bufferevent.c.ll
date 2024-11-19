@@ -1433,7 +1433,7 @@ declare void @evbuffer_set_parent_(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @evbuffer_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bufferevent_setcb(ptr nocapture noundef initializes((304, 336)) %bufev, ptr noundef %readcb, ptr noundef %writecb, ptr noundef %eventcb, ptr noundef %cbarg) local_unnamed_addr #0 {
+define dso_local void @bufferevent_setcb(ptr nocapture noundef %bufev, ptr noundef %readcb, ptr noundef %writecb, ptr noundef %eventcb, ptr noundef %cbarg) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -1703,7 +1703,7 @@ if.end22:                                         ; preds = %bufferevent_incref_
 declare void @event_debugx_(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_set_timeouts(ptr noundef initializes((336, 368)) %bufev, ptr noundef readonly %tv_read, ptr noundef readonly %tv_write) local_unnamed_addr #0 {
+define dso_local i32 @bufferevent_set_timeouts(ptr noundef %bufev, ptr noundef readonly %tv_read, ptr noundef readonly %tv_write) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %bufev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -1772,7 +1772,7 @@ do.end34:                                         ; preds = %if.then29, %do.body
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bufferevent_settimeout(ptr noundef initializes((336, 368)) %bufev, i32 noundef %timeout_read, i32 noundef %timeout_write) local_unnamed_addr #0 {
+define dso_local void @bufferevent_settimeout(ptr noundef %bufev, i32 noundef %timeout_read, i32 noundef %timeout_write) local_unnamed_addr #0 {
 entry:
   %tv_read = alloca %struct.timeval, align 8
   %tv_write = alloca %struct.timeval, align 8
@@ -2566,7 +2566,7 @@ do.end3:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bufferevent_free(ptr noundef initializes((304, 336)) %bufev) local_unnamed_addr #0 {
+define dso_local void @bufferevent_free(ptr noundef %bufev) local_unnamed_addr #0 {
 entry:
   %d.i = alloca %union.bufferevent_ctrl_data, align 8
   %lock = getelementptr inbounds i8, ptr %bufev, i64 448

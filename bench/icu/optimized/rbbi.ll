@@ -287,7 +287,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(745) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i64 16), ptr %this, align 8
   %fCharIter = getelementptr inbounds i8, ptr %this, i64 688
@@ -1549,7 +1549,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextEv(ptr noundef nonnull align 8 dereferenceable(745) initializes((640, 644), (680, 684)) %this) local_unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7522RuleBasedBreakIterator10handleNextEv(ptr noundef nonnull align 8 dereferenceable(745) %this) local_unnamed_addr #1 align 2 {
 entry:
   %fData = getelementptr inbounds i8, ptr %this, i64 624
   %0 = load ptr, ptr %fData, align 8
@@ -3847,7 +3847,7 @@ return:                                           ; preds = %for.body, %if.end3,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator14getBinaryRulesERj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %length) unnamed_addr #11 align 2 {
+define noundef ptr @_ZN6icu_7522RuleBasedBreakIterator14getBinaryRulesERj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(745) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %length) unnamed_addr #11 align 2 {
 entry:
   store i32 0, ptr %length, align 4
   %fData = getelementptr inbounds i8, ptr %this, i64 624

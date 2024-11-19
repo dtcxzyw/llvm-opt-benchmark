@@ -768,7 +768,7 @@ unreachable:                                      ; preds = %invoke.cont53, %inv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib13IntervalPriceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib13IntervalPriceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 {
 entry:
   store double 0x47EFFFFFE0000000, ptr %this, align 8, !tbaa !18
   %close_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -781,7 +781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib13IntervalPriceC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, double noundef %open, double noundef %close, double noundef %high, double noundef %low) unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib13IntervalPriceC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, double noundef %open, double noundef %close, double noundef %high, double noundef %low) unnamed_addr #6 align 2 {
 entry:
   store double %open, ptr %this, align 8, !tbaa !18
   %close_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1185,7 +1185,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib13IntervalPrice9setValuesEdddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, double noundef %open, double noundef %close, double noundef %high, double noundef %low) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib13IntervalPrice9setValuesEdddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, double noundef %open, double noundef %close, double noundef %high, double noundef %low) local_unnamed_addr #6 align 2 {
 entry:
   store double %open, ptr %this, align 8, !tbaa !18
   %close_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1655,7 +1655,7 @@ _ZNSt3mapIN8QuantLib4DateENS0_13IntervalPriceESt4lessIS1_ESaISt4pairIKS1_S2_EEED
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13IntervalPrice13extractValuesERKNS_10TimeSeriesIS0_St3mapINS_4DateES0_St4lessIS3_ESaISt4pairIKS3_S0_EEEEENS0_4TypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.6") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %ts, i32 noundef %t) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13IntervalPrice13extractValuesERKNS_10TimeSeriesIS0_St3mapINS_4DateES0_St4lessIS3_ESaISt4pairIKS3_S0_EEEEENS0_4TypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.6") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %ts, i32 noundef %t) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %ts, i64 40

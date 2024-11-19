@@ -30,7 +30,7 @@ define internal noundef i32 @module_init() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @segment_create(ptr noundef initializes((0, 5), (8, 12), (16, 4129)) %0, ptr nocapture readnone %1, i64 noundef %2) #1 {
+define internal range(i32 -1, 1) i32 @segment_create(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #1 {
   %4 = tail call i32 @getpid() #8
   store i32 0, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -172,7 +172,7 @@ opal_gethostname.exit45:                          ; preds = %46, %51
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ds_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4136)) %1) #2 {
+define internal noundef i32 @ds_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(4136) %1, ptr noundef nonnull align 8 dereferenceable(4136) %0, i64 4136, i1 false)
   ret i32 0
 }
@@ -276,7 +276,7 @@ opal_gethostname.exit24:                          ; preds = %41, %46
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @segment_detach(ptr nocapture noundef initializes((0, 5), (8, 12), (32, 4129)) %0) #1 {
+define internal range(i32 -1, 1) i32 @segment_detach(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

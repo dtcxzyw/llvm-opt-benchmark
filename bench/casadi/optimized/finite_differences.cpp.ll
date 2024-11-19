@@ -686,7 +686,7 @@ define void @_ZN6casadi10FiniteDiffC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
 declare void @_ZN6casadi16FunctionInternalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1304), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi10FiniteDiffD2Ev(ptr noundef nonnull align 8 dereferenceable(1392) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi10FiniteDiffD2Ev(ptr noundef nonnull align 8 dereferenceable(1392) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi10FiniteDiffE, i64 16), ptr %0, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %2 unwind label %3

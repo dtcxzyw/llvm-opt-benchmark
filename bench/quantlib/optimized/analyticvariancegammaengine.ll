@@ -508,7 +508,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19VarianceGammaEngineC2EN5boost10shared_ptrINS_20VarianceGammaProcessEEEd(ptr noundef nonnull align 8 dereferenceable(360) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, double noundef %absoluteError) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19VarianceGammaEngineC2EN5boost10shared_ptrINS_20VarianceGammaProcessEEEd(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr nocapture noundef %process, double noundef %absoluteError) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

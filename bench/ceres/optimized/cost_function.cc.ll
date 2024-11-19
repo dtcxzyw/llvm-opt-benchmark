@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5ceres12CostFunctionD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres12CostFunctionD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5ceres12CostFunctionC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN5ceres12CostFunctionC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull align 8 dereferenceable(36) %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres12CostFunctionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -34,7 +34,7 @@ define hidden void @_ZN5ceres12CostFunctionC2EOS0_(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN5ceres12CostFunctionaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(36) initializes((16, 36)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(36) ptr @_ZN5ceres12CostFunctionaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull align 8 dereferenceable(36) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %3, align 8
@@ -65,7 +65,7 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit:                 ; preds = %2, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5ceres12CostFunctionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN5ceres12CostFunctionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres12CostFunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
@@ -73,7 +73,7 @@ define hidden void @_ZN5ceres12CostFunctionC2Ev(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres12CostFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres12CostFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres12CostFunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

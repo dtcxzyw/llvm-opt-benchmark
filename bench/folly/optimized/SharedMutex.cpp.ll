@@ -7010,7 +7010,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly19shared_mutex_detail15annotationGuardEPv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_lock") align 8 initializes((0, 9)) %agg.result, ptr nocapture noundef readnone %ptr) local_unnamed_addr #11 {
+define void @_ZN5folly19shared_mutex_detail15annotationGuardEPv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_lock") align 8 %agg.result, ptr nocapture noundef readnone %ptr) local_unnamed_addr #11 {
 entry:
   store ptr null, ptr %agg.result, align 8, !tbaa !117
   %_M_owns.i = getelementptr inbounds i8, ptr %agg.result, i64 8

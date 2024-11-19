@@ -166,7 +166,7 @@ Wlc_NtkCleanCopy.exit:                            ; preds = %19, %Vec_IntGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Wlc_VecCopy(ptr nocapture noundef initializes((4, 8)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
+define ptr @Wlc_VecCopy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = icmp sgt i32 %2, 0
@@ -258,7 +258,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Wlc_VecLoadFanins(ptr nocapture noundef initializes((4, 8)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define ptr @Wlc_VecLoadFanins(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %11, label %6
 
@@ -471,7 +471,7 @@ declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed
 declare i32 @Gia_ManHashOr(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Wlc_NtkMuxTree2(ptr noundef %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef initializes((4, 8)) %5) local_unnamed_addr #1 {
+define i32 @Wlc_NtkMuxTree2(ptr noundef %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %7, align 4
   %8 = getelementptr i8, ptr %4, i64 4
@@ -603,7 +603,7 @@ define void @Wlc_NtkPrintNameArray(ptr nocapture noundef readonly %0) local_unna
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastShiftRightInt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef initializes((4, 8)) %6) local_unnamed_addr #1 {
+define void @Wlc_BlastShiftRightInt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6) local_unnamed_addr #1 {
   %8 = tail call ptr @Wlc_VecCopy(ptr noundef %6, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %14, label %9
@@ -792,7 +792,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastShiftLeftInt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef initializes((4, 8)) %6) local_unnamed_addr #1 {
+define void @Wlc_BlastShiftLeftInt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef %6) local_unnamed_addr #1 {
   %8 = tail call ptr @Wlc_VecCopy(ptr noundef %6, ptr noundef %1, i32 noundef %2)
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %9
@@ -950,7 +950,7 @@ define void @Wlc_BlastShiftLeft(ptr noundef %0, ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastRotateRight(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef initializes((4, 8)) %5) local_unnamed_addr #1 {
+define void @Wlc_BlastRotateRight(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
   %7 = tail call ptr @Wlc_VecCopy(ptr noundef %5, ptr noundef %1, i32 noundef %2)
   %8 = sext i32 %2 to i64
   %9 = shl nsw i64 %8, 2
@@ -1019,7 +1019,7 @@ define void @Wlc_BlastRotateRight(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastRotateLeft(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef initializes((4, 8)) %5) local_unnamed_addr #1 {
+define void @Wlc_BlastRotateLeft(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
   %7 = tail call ptr @Wlc_VecCopy(ptr noundef %5, ptr noundef %1, i32 noundef %2)
   %8 = sext i32 %2 to i64
   %9 = shl nsw i64 %8, 2
@@ -1238,7 +1238,7 @@ define i32 @Wlc_BlastLess2(ptr noundef %0, ptr nocapture noundef readonly %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastLess_rec(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #1 {
+define void @Wlc_BlastLess_rec(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = icmp sgt i32 %3, 1
@@ -1345,7 +1345,7 @@ Wlc_BlastLess.exit:                               ; preds = %4, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastFullAdder(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 4)) %4, ptr nocapture noundef initializes((0, 4)) %5) local_unnamed_addr #1 {
+define void @Wlc_BlastFullAdder(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
   %7 = icmp eq i32 %1, 1
   %8 = icmp eq i32 %2, 1
   %or.cond = or i1 %7, %8
@@ -1448,7 +1448,7 @@ define void @Wlc_BlastSubtract(ptr noundef %0, ptr nocapture noundef %1, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastAdderCLA_one(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef initializes((0, 4)) %5, ptr nocapture noundef writeonly initializes((0, 4)) %6) local_unnamed_addr #1 {
+define void @Wlc_BlastAdderCLA_one(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #1 {
   %8 = load i32, ptr %1, align 4
   %9 = getelementptr inbounds i8, ptr %2, i64 4
   %10 = load i32, ptr %9, align 4
@@ -1475,7 +1475,7 @@ define void @Wlc_BlastAdderCLA_one(ptr noundef %0, ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastAdderCLA_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr nocapture noundef initializes((0, 4)) %6) local_unnamed_addr #1 {
+define void @Wlc_BlastAdderCLA_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6) local_unnamed_addr #1 {
   %8 = alloca [2 x i32], align 4
   %9 = alloca [2 x i32], align 4
   %10 = icmp eq i32 %4, 2
@@ -2067,7 +2067,7 @@ define void @Wlc_BlastAdderFast(ptr noundef %0, ptr nocapture noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastMinus(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #1 {
+define void @Wlc_BlastMinus(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @Wlc_VecCopy(ptr noundef %3, ptr noundef %1, i32 noundef %2)
   %6 = icmp sgt i32 %2, 0
   br i1 %6, label %.lr.ph.preheader, label %._crit_edge
@@ -2337,7 +2337,7 @@ Wlc_BlastAdder.exit:                              ; preds = %Wlc_BlastFullAdder.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastFullAdderCtrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef initializes((0, 4)) %5, ptr nocapture noundef initializes((0, 4)) %6, i32 noundef %7) local_unnamed_addr #1 {
+define void @Wlc_BlastFullAdderCtrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, i32 noundef %7) local_unnamed_addr #1 {
   %9 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) #21
   %10 = icmp sgt i32 %7, 0
   %11 = zext i1 %10 to i32
@@ -2347,7 +2347,7 @@ define void @Wlc_BlastFullAdderCtrl(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastFullAdderSubtr(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 4)) %4, ptr nocapture noundef initializes((0, 4)) %5, i32 noundef %6) local_unnamed_addr #1 {
+define void @Wlc_BlastFullAdderSubtr(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = tail call i32 @Gia_ManHashXor(ptr noundef %0, i32 noundef %1, i32 noundef %6) #21
   tail call void @Wlc_BlastFullAdder(ptr noundef %0, i32 noundef %8, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   ret void
@@ -2823,7 +2823,7 @@ Wlc_BlastFullAdder.exit.us:                       ; preds = %99, %65
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastDivider(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 %4, i32 noundef %5, ptr nocapture noundef initializes((4, 8)) %6) local_unnamed_addr #1 {
+define void @Wlc_BlastDivider(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 %4, i32 noundef %5, ptr nocapture noundef %6) local_unnamed_addr #1 {
   %8 = tail call ptr @Wlc_VecCopy(ptr noundef %6, ptr noundef %1, i32 noundef %2)
   %9 = sext i32 %2 to i64
   %10 = shl nsw i64 %9, 2
@@ -3692,7 +3692,7 @@ Wlc_BlastReduction.exit:                          ; preds = %.lr.ph50.i, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastTable(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef initializes((4, 8)) %5) local_unnamed_addr #1 {
+define void @Wlc_BlastTable(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.Vec_Int_t_, align 8
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %8 = getelementptr inbounds i8, ptr %calloc, i64 8
@@ -3903,7 +3903,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare i32 @Kit_TruthToGia(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastLut(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef initializes((4, 8)) %5) local_unnamed_addr #1 {
+define void @Wlc_BlastLut(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture noundef %5) local_unnamed_addr #1 {
   %7 = alloca i64, align 8
   %8 = alloca %struct.Vec_Int_t_, align 8
   store i64 %1, ptr %7, align 8
@@ -9557,7 +9557,7 @@ Vec_WecFree.exit91:                               ; preds = %._crit_edge.i.i84, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_BlastDecoder(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef initializes((4, 8)) %4) local_unnamed_addr #1 {
+define void @Wlc_BlastDecoder(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
   %.not = icmp eq i32 %2, 31
@@ -24135,7 +24135,7 @@ declare ptr @Abc_FrameReadLibBox(...) local_unnamed_addr #2
 declare void @Abc_FrameSetLibBox(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Extra_FileReadFloat(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #3 {
+define noalias noundef ptr @Extra_FileReadFloat(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = tail call i32 @fseek(ptr noundef %0, i64 noundef 0, i32 noundef 2)
   %4 = tail call i64 @ftell(ptr noundef %0)
   %5 = trunc i64 %4 to i32

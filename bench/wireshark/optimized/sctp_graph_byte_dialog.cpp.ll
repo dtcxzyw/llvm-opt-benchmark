@@ -1210,7 +1210,7 @@ _ZN17QArrayDataPointerIdED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19SCTPGraphByteDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 {
+define void @_ZN19SCTPGraphByteDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19SCTPGraphByteDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV19SCTPGraphByteDialog, i64 488), ptr %2, align 8

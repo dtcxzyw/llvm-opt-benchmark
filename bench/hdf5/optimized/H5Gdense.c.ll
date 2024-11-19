@@ -856,7 +856,7 @@ define internal range(i32 -1, 1) i32 @H5G__dense_lookup_by_idx_bt2_cb(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__dense_build_table(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef initializes((0, 16)) %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__dense_build_table(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5G_dense_bt_ud_t, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
@@ -2016,7 +2016,7 @@ declare ptr @H5O_msg_decode(ptr noundef, ptr noundef, i32 noundef, i64 noundef, 
 declare ptr @H5O_msg_free(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__dense_iterate_fh_cb(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((8, 16)) %2) #0 {
+define internal range(i32 -1, 1) i32 @H5G__dense_iterate_fh_cb(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @H5O_msg_decode(ptr noundef %4, ptr noundef null, i32 noundef 6, i64 noundef %1, ptr noundef %0) #8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2202,7 +2202,7 @@ declare i32 @H5G__link_name_replace(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @H5O_link_delete(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__dense_remove_by_idx_fh_cb(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((8, 16)) %2) #0 {
+define internal range(i32 -1, 1) i32 @H5G__dense_remove_by_idx_fh_cb(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 {
   %4 = load ptr, ptr %2, align 8
   %5 = tail call ptr @H5O_msg_decode(ptr noundef %4, ptr noundef null, i32 noundef 6, i64 noundef %1, ptr noundef %0) #8
   %6 = getelementptr inbounds i8, ptr %2, i64 8

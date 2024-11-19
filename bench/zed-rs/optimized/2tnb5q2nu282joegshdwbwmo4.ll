@@ -259,7 +259,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h101907a87c1954feE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #0 {
+define hidden void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h101907a87c1954feE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(32) %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %.sroa.56 = alloca [16 x i8], align 8
@@ -2806,7 +2806,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hcb0b329b0e29103
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core4hash3sip15Hasher$LT$S$GT$5reset17hd877bad1e53e76ecE.llvm.5596008357701127451"(ptr noalias nocapture noundef align 8 dereferenceable(72) initializes((0, 32), (48, 56), (64, 72)) %0) unnamed_addr #8 {
+define hidden void @"_ZN4core4hash3sip15Hasher$LT$S$GT$5reset17hd877bad1e53e76ecE.llvm.5596008357701127451"(ptr noalias nocapture noundef align 8 dereferenceable(72) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -9092,7 +9092,7 @@ define hidden noundef zeroext i1 @"_ZN61_$LT$async_channel..RecvError$u20$as$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h466e56eb50febd1fE.llvm.5596008357701127451"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
+define hidden void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h466e56eb50febd1fE.llvm.5596008357701127451"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
@@ -12130,7 +12130,7 @@ define hidden { ptr, i64 } @"_ZN74_$LT$alloc..string..String$u20$as$u20$core..op
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN74_$LT$std..hash..random..RandomState$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17hbd177934c0b40333E.llvm.5596008357701127451"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #8 {
+define hidden void @"_ZN74_$LT$std..hash..random..RandomState$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17hbd177934c0b40333E.llvm.5596008357701127451"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #8 {
   %3 = load i64, ptr %1, align 8, !noundef !13
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !13
@@ -13545,7 +13545,7 @@ define void @"_ZN8worktree17worktree_settings1_103_$LT$impl$u20$schemars..JsonSc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN8worktree17worktree_settings1_103_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$worktree..worktree_settings..WorktreeSettingsContent$GT$9schema_id17h4297d748d29a6ab9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #19 {
+define void @"_ZN8worktree17worktree_settings1_103_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$worktree..worktree_settings..WorktreeSettingsContent$GT$9schema_id17h4297d748d29a6ab9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #19 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.6986de3146fa3d8809fa70eb86d767b6.276, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

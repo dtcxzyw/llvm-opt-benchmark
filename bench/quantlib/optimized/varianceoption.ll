@@ -586,7 +586,7 @@ declare void @_ZN8QuantLib10InstrumentC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14VarianceOptionC1EN5boost10shared_ptrINS_6PayoffEEEdRKNS_4DateES7_(ptr noundef nonnull align 8 dereferenceable(144) initializes((144, 152), (160, 164), (168, 176)) %this, ptr nocapture noundef %payoff, double noundef %notional, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %startDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %maturityDate) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14VarianceOptionC1EN5boost10shared_ptrINS_6PayoffEEEdRKNS_4DateES7_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef %payoff, double noundef %notional, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %startDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %maturityDate) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 144
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !35

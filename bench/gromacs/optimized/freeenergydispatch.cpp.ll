@@ -52,7 +52,7 @@ $_ZN3gmx17ThreadForceBufferINS_11BasicVectorIfEEED2Ev = comdat any
 @_ZN18FreeEnergyDispatchC1Ei = unnamed_addr alias void (ptr, i32), ptr @_ZN18FreeEnergyDispatchC2Ei
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18FreeEnergyDispatchC2Ei(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 4), (8, 128)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18FreeEnergyDispatchC2Ei(ptr noundef nonnull align 8 dereferenceable(288) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = mul nsw i32 %1, %1
   store i32 %3, ptr %0, align 8
   %.ptr.i = getelementptr inbounds i8, ptr %0, i64 8

@@ -163,7 +163,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15dynamic_routing18DynamicRoutingData6CreateENS0_22DynamicRoutingDataNameE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15dynamic_routing18DynamicRoutingData6CreateENS0_22DynamicRoutingDataNameE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::debian2::flat_hash_map", align 8
   %4 = alloca [5 x %"struct.std::pair"], align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

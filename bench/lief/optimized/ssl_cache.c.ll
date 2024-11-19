@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_cache_init(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_ssl_cache_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 86400, ptr %2, align 8
@@ -268,7 +268,7 @@ declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_a
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_cache_set_timeout(ptr nocapture noundef writeonly initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @mbedtls_ssl_cache_set_timeout(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %spec.store.select, ptr %3, align 8
@@ -276,7 +276,7 @@ define hidden void @mbedtls_ssl_cache_set_timeout(ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_cache_set_max_entries(ptr nocapture noundef writeonly initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @mbedtls_ssl_cache_set_max_entries(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %spec.store.select, ptr %3, align 4

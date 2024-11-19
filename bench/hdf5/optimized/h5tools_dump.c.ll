@@ -2650,7 +2650,7 @@ define range(i32 -1, 1) i32 @h5tools_print_dataspace(ptr noundef %0, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @h5tools_dump_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((16, 20)) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define void @h5tools_dump_data(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = alloca [32 x i64], align 16
   %7 = alloca %struct.h5tools_context_t, align 8
   %8 = alloca %struct.h5tools_str_t, align 8
@@ -7384,7 +7384,7 @@ declare i32 @H5Tconvert(i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr 
 declare void @h5tools_simple_prefix(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @h5tools_dump_datatype(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 20)) %2, i64 noundef %3) local_unnamed_addr #1 {
+define void @h5tools_dump_datatype(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.h5tools_str_t, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 1088
@@ -7446,7 +7446,7 @@ define void @h5tools_dump_datatype(ptr noundef %0, ptr noundef %1, ptr noundef i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @h5tools_dump_dataspace(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 20)) %2, i64 noundef %3) local_unnamed_addr #1 {
+define void @h5tools_dump_dataspace(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.h5tools_str_t, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 1088
@@ -7506,7 +7506,7 @@ define void @h5tools_dump_dataspace(ptr noundef %0, ptr noundef %1, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @h5tools_dump_oid(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 20)) %2, i64 noundef %3) local_unnamed_addr #1 {
+define void @h5tools_dump_oid(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.h5tools_str_t, align 8
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 1088
@@ -7568,7 +7568,7 @@ declare i64 @H5Screate_simple(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @H5Treclaim(i64 noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 20)) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define void @h5tools_dump_dcpl(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca [20 x i32], align 16
   %9 = alloca i32, align 4
@@ -8505,7 +8505,7 @@ define void @h5tools_dump_comment(ptr noundef %0, ptr noundef %1, ptr noundef %2
 declare i64 @H5Oget_comment(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @h5tools_dump_attribute(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 20)) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define void @h5tools_dump_attribute(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca %struct.h5tools_str_t, align 8
   %7 = alloca i64, align 8
   %8 = alloca %struct.h5tools_str_t, align 8
@@ -8765,7 +8765,7 @@ define void @h5tools_print_packed_bits(ptr noundef %0, i64 noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @h5tools_dump_subsetting_header(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 20)) %2, i32 noundef %3) local_unnamed_addr #1 {
+define void @h5tools_dump_subsetting_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %struct.h5tools_str_t, align 8
   %6 = alloca i64, align 8
   store i64 0, ptr %6, align 8

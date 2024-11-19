@@ -1271,7 +1271,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12FunnelActionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN12FunnelActionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12FunnelAction, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZN5QHashI7QString15QHashDummyValueED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #25
@@ -1329,7 +1329,7 @@ define noundef ptr @_ZNK12FunnelAction8callbackEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK12FunnelAction5titleEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12FunnelAction5titleEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -1370,7 +1370,7 @@ define void @_ZN12FunnelAction15triggerCallbackEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12FunnelAction17setPacketCallbackEPFvPvP10_GPtrArrayE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN12FunnelAction17setPacketCallbackEPFvPvP10_GPtrArrayE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8
   ret void
@@ -1431,7 +1431,7 @@ _ZN5QListI7QStringED2Ev.exit:                     ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN12FunnelAction23getPacketRequiredFieldsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QSet) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12FunnelAction23getPacketRequiredFieldsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QSet) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -1452,7 +1452,7 @@ _ZN4QSetI7QStringEC2ERKS1_.exit:                  ; preds = %2, %5, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12FunnelAction13setPacketDataEP10_GPtrArray(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN12FunnelAction13setPacketDataEP10_GPtrArray(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8
   ret void
@@ -1961,7 +1961,7 @@ _ZN7QStringD2Ev.exit87:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN12FunnelAction17getPacketSubmenusEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12FunnelAction17getPacketSubmenusEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -2444,7 +2444,7 @@ _ZN12QWeakPointerI7QObjectED2Ev.exit:             ; preds = %1, %3, %5, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19FunnelConsoleActionD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN19FunnelConsoleActionD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19FunnelConsoleAction, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
@@ -4226,7 +4226,7 @@ _ZN17QArrayDataPointerIcED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 declare void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16FunnelStatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN16FunnelStatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16FunnelStatistics, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8

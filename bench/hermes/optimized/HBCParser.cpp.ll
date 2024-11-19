@@ -750,7 +750,7 @@ _ZN6hermes3hbc15BytecodeVisitorD2Ev.exit:         ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes9HBCParser20buildProfileIndexMapEj(ptr noalias sret(%"class.std::unordered_map.50") align 8 initializes((0, 56)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %funcId) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes9HBCParser20buildProfileIndexMapEj(ptr noalias sret(%"class.std::unordered_map.50") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %funcId) local_unnamed_addr #0 align 2 {
 entry:
   %__alloc_node_gen.i.i = alloca %"struct.std::__detail::_AllocNode.138", align 8
   %rangeVisitor = alloca %"class.hermes::BasicBlockRangeVisitor", align 8

@@ -2763,7 +2763,7 @@ declare noundef zeroext i1 @_ZN7Compile9can_aliasEPK7TypePtri(ptr noundef nonnul
 declare void @_ZN4Node8add_precEPS_(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22Node_Backward_IteratorC2EP4NodeR9VectorSetR10Node_StackR8PhaseCFG(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(160) %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN22Node_Backward_IteratorC2EP4NodeR9VectorSetR10Node_StackR8PhaseCFG(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(160) %4) unnamed_addr #0 align 2 {
   store ptr %2, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %6, align 8
@@ -6984,7 +6984,7 @@ _ZN7CFGLoop10add_memberEP10CFGElement.exit74:     ; preds = %244, %251
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7CFGLoop18compute_loop_depthEi(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN7CFGLoop18compute_loop_depthEi(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -7539,7 +7539,7 @@ _ZN7CFGLoop15add_nested_loopEPS_.exit:            ; preds = %54, %57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7CFGLoop15add_nested_loopEPS_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef initializes((24, 32)) %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN7CFGLoop15add_nested_loopEPS_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40

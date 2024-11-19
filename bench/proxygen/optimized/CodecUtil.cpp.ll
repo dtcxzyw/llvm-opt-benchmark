@@ -78,7 +78,7 @@ $_ZGVZZN5folly13usingTCMallocEvENK11InitializerclEvE3ptr = comdat any
 @.str.13 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen9CodecUtil17hasGzipAndDeflateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbS9_(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %hasGzip, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %hasDeflate) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen9CodecUtil17hasGzipAndDeflateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbS9_(ptr noundef nonnull align 8 dereferenceable(32) %value, ptr nocapture noundef nonnull align 1 dereferenceable(1) %hasGzip, ptr nocapture noundef nonnull align 1 dereferenceable(1) %hasDeflate) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i.i.i.i.i.i = alloca %struct.Initializer, align 1
   %ref.tmp.i.i15 = alloca %"class.std::allocator", align 1

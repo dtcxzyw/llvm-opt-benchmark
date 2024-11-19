@@ -30,7 +30,7 @@ $_ZN20b3AlignedObjectArrayIPvE7reserveEi = comdat any
 @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(172) initializes((4, 12), (16, 25), (36, 44), (48, 57), (64, 68), (76, 84), (88, 97), (108, 116), (120, 129), (140, 148), (152, 161), (168, 172)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree9InitCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(172) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont15:
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8

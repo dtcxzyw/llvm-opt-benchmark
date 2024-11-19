@@ -27,7 +27,7 @@ $_ZZN8rawspeed14ThrowExceptionINS_15FileIOExceptionEEEvPKczE3buf = comdat any
 @_ZN8rawspeed10FileWriterC1EPKc = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN8rawspeed10FileWriterC2EPKc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8rawspeed10FileWriterC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN8rawspeed10FileWriterC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !6
   ret void
 }

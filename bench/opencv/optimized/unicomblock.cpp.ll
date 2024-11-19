@@ -21,7 +21,7 @@ $_ZTIN5zxing7CountedE = comdat any
 @_ZN5zxing11UnicomBlockD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5zxing11UnicomBlockD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5zxing11UnicomBlockC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 20), (24, 25), (32, 160)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing11UnicomBlockC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing11UnicomBlockE, i64 16), ptr %0, align 8
@@ -39,7 +39,7 @@ define hidden void @_ZN5zxing11UnicomBlockC2Eii(ptr nocapture noundef nonnull wr
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing11UnicomBlockD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing11UnicomBlockD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing11UnicomBlockE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
@@ -117,7 +117,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit7:                   ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing11UnicomBlockD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN5zxing11UnicomBlockD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN5zxing11UnicomBlockD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #9
   tail call void @_ZdlPv(ptr noundef nonnull %0) #10
   ret void
@@ -340,7 +340,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit55:                  ; preds = %52, %_ZNSt6vectorIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing11UnicomBlock5ResetENS_3RefINS_9BitMatrixEEE(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((20, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN5zxing11UnicomBlock5ResetENS_3RefINS_9BitMatrixEEE(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %1, align 8
   %.not.i.i = icmp eq ptr %4, null

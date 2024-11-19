@@ -107,7 +107,7 @@ $_ZNKSt14default_deleteIKN4llvm14MCRegisterInfoEEclEPS2_ = comdat any
 @_ZN4llvm13TargetMachineD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm13TargetMachineD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13TargetMachineC2ERKNS_6TargetENS_9StringRefERKNS_6TripleES4_S4_RKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(1232) initializes((0, 16)) %0, ptr noundef nonnull align 1 %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull align 8 dereferenceable(360) %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13TargetMachineC2ERKNS_6TargetENS_9StringRefERKNS_6TripleES4_S4_RKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(1232) %0, ptr noundef nonnull align 1 %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, ptr noundef nonnull align 8 dereferenceable(360) %7) unnamed_addr #0 align 2 {
   %9 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %10 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %11 = alloca %"class.std::allocator", align 1
@@ -231,7 +231,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13TargetMachineD2Ev(ptr noundef nonnull align 8 dereferenceable(1232) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13TargetMachineD2Ev(ptr noundef nonnull align 8 dereferenceable(1232) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN4llvm13TargetMachineE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 872
   tail call void @_ZN4llvm13TargetOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %2) #15

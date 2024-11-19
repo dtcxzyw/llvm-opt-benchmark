@@ -253,7 +253,7 @@ _ZNSt12_Vector_baseIN5Ipopt8SmartPtrIKNS0_6VectorEEESaIS4_EED2Ev.exit: ; preds =
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt22LowRankAugSystemSolverC2ERNS_15AugSystemSolverE(ptr nocapture noundef nonnull align 8 dereferenceable(204) initializes((0, 12), (16, 49), (56, 68), (72, 84), (88, 100), (104, 144), (152, 200)) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt22LowRankAugSystemSolverC2ERNS_15AugSystemSolverE(ptr nocapture noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -309,7 +309,7 @@ define void @_ZN5Ipopt22LowRankAugSystemSolverC2ERNS_15AugSystemSolverE(ptr noca
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt22LowRankAugSystemSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(204) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt22LowRankAugSystemSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt22LowRankAugSystemSolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
@@ -491,7 +491,7 @@ define void @_ZN5Ipopt22LowRankAugSystemSolverD0Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Ipopt22LowRankAugSystemSolver14InitializeImplERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(204) initializes((144, 145)) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN5Ipopt22LowRankAugSystemSolver14InitializeImplERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(204) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store i8 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152

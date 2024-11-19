@@ -107,7 +107,7 @@ define internal noundef range(i32 -400, 5) i32 @utf16le_code_to_mbclen(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal range(i32 2, 5) i32 @utf16le_code_to_mbc(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 2)) %1) #2 {
+define internal range(i32 2, 5) i32 @utf16le_code_to_mbc(i32 noundef %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = icmp ugt i32 %0, 65535
   br i1 %3, label %4, label %21
 

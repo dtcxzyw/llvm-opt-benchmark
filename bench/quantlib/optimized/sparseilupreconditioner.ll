@@ -3440,7 +3440,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib23SparseILUPreconditioner5applyERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib23SparseILUPreconditioner5applyERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Array", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #23
@@ -3478,7 +3478,7 @@ _ZN8QuantLib5ArrayD2Ev.exit3:                     ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib23SparseILUPreconditioner13backwardSolveERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib23SparseILUPreconditioner13backwardSolveERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %y) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %y, i64 8
   %0 = load i64, ptr %n_.i, align 8, !tbaa !79
@@ -3861,7 +3861,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond.cleanup32,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib23SparseILUPreconditioner12forwardSolveERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib23SparseILUPreconditioner12forwardSolveERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %0 = load i64, ptr %n_.i, align 8, !tbaa !79

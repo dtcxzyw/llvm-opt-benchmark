@@ -142,7 +142,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3re23RE27OptionsC2ENS0_13CannedOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(23) initializes((0, 23)) %this, i32 noundef %opt) unnamed_addr #1 align 2 {
+define void @_ZN3re23RE27OptionsC2ENS0_13CannedOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(23) %this, i32 noundef %opt) unnamed_addr #1 align 2 {
 entry:
   store i64 8388608, ptr %this, align 8
   %encoding_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -173,7 +173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re23RE2C2EPKc(ptr noundef nonnull align 8 dereferenceable(148) initializes((8, 31)) %this, ptr noundef %pattern) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re23RE2C2EPKc(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef %pattern) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.re2::RE2::Options", align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -739,7 +739,7 @@ eh.resume:                                        ; preds = %ehcleanup148, %lpad
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re23RE2C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(148) initializes((8, 31)) %this, ptr noundef nonnull align 8 dereferenceable(32) %pattern) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re23RE2C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr noundef nonnull align 8 dereferenceable(32) %pattern) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.re2::RE2::Options", align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -798,7 +798,7 @@ lpad:                                             ; preds = %invoke.cont4, %_ZN4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re23RE2C2EN4absl7debian211string_viewE(ptr noundef nonnull align 8 dereferenceable(148) initializes((8, 31)) %this, ptr %pattern.coerce0, i64 %pattern.coerce1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re23RE2C2EN4absl7debian211string_viewE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr %pattern.coerce0, i64 %pattern.coerce1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.re2::RE2::Options", align 8
   %options_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -850,7 +850,7 @@ lpad:                                             ; preds = %invoke.cont4, %entr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re23RE2C2EN4absl7debian211string_viewERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(148) initializes((8, 31)) %this, ptr %pattern.coerce0, i64 %pattern.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re23RE2C2EN4absl7debian211string_viewERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr %pattern.coerce0, i64 %pattern.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 8388608, ptr %options_, align 8

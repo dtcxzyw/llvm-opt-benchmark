@@ -155,7 +155,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118VZeroUpperInserterD2Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118VZeroUpperInserterD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_118VZeroUpperInserterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #12
@@ -186,7 +186,7 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_118VZeroUpperInserter10BlockStateELj8EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118VZeroUpperInserterD0Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118VZeroUpperInserterD0Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_118VZeroUpperInserterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #12
@@ -919,7 +919,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118VZeroUpperInserter16insertVZeroUpperEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERNS1_17MachineBasicBlockE(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((280, 281)) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(288) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118VZeroUpperInserter16insertVZeroUpperEN4llvm26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERNS1_17MachineBasicBlockE(ptr nocapture noundef nonnull align 8 dereferenceable(296) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(288) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::MIMetadata", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 56

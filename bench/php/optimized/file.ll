@@ -4910,7 +4910,7 @@ define hidden void @zif_ftruncate(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_fstat(ptr noundef %0, ptr nocapture noundef initializes((8, 12)) %1) local_unnamed_addr #1 {
+define void @php_fstat(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct._php_stream_statbuf, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8

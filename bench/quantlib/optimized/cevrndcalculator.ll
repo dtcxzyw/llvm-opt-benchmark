@@ -707,7 +707,7 @@ $_ZZN5boost4math5tools13toms748_solveINS0_6detail23generic_quantile_finderINS0_3
 @_ZN8QuantLib16CEVRNDCalculatorC1Eddd = unnamed_addr alias void (ptr, double, double, double), ptr @_ZN8QuantLib16CEVRNDCalculatorC2Eddd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16CEVRNDCalculatorC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, double noundef %f0, double noundef %alpha, double noundef %beta) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16CEVRNDCalculatorC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, double noundef %f0, double noundef %alpha, double noundef %beta) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

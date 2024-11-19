@@ -319,7 +319,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev7ContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev7ContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(328) ptr @_Znwm(i64 noundef 328) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %call, i8 0, i64 24, i1 false)
@@ -4353,7 +4353,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev13ConfigIOProxyEEaSERKS2_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK19OpenColorIO_v2_4dev7Context16getConfigIOProxyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.12") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev7Context16getConfigIOProxyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.12") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_configIOProxy = getelementptr inbounds i8, ptr %0, i64 312

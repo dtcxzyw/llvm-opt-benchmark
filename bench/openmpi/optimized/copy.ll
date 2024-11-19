@@ -357,7 +357,7 @@ define range(i32 0, 2) i32 @pmix20_bfrop_value_cmp(ptr nocapture noundef readonl
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @pmix20_bfrop_copy_string(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #6 {
+define noundef i32 @pmix20_bfrop_copy_string(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #6 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %7, label %5
 
@@ -546,7 +546,7 @@ define zeroext i1 @pmix_value_cmp(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_value_xfer(ptr nocapture noundef initializes((0, 2)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define i32 @pmix20_bfrop_value_xfer(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i16, ptr %1, align 8
   store i16 %3, ptr %0, align 8
   switch i16 %3, label %738 [
@@ -1993,7 +1993,7 @@ declare ptr @PMIx_Query_create(i64 noundef) local_unnamed_addr #1
 declare void @PMIx_Query_free(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_copy_value(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @pmix20_bfrop_copy_value(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #16
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -2011,7 +2011,7 @@ define i32 @pmix20_bfrop_copy_value(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_copy_info(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @pmix20_bfrop_copy_info(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(552) ptr @malloc(i64 noundef 552) #16
   store ptr %4, ptr %0, align 8
   br label %5
@@ -2095,7 +2095,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %9, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix20_bfrop_copy_app(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define noundef i32 @pmix20_bfrop_copy_app(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #16
   store ptr %4, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
@@ -2258,7 +2258,7 @@ pmix_obj_new_tma.exit.thread8:                    ; preds = %.lr.ph.i.i, %10
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -29, 1) i32 @pmix20_bfrop_copy_proc(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #11 {
+define range(i32 -29, 1) i32 @pmix20_bfrop_copy_proc(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #11 {
   %4 = tail call noalias dereferenceable_or_null(260) ptr @malloc(i64 noundef 260) #16
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -2296,7 +2296,7 @@ pmix_strncpy.exit:                                ; preds = %.preheader, %8
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define range(i32 -29, 1) i32 @pmix20_bfrop_copy_modex(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
+define range(i32 -29, 1) i32 @pmix20_bfrop_copy_modex(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = tail call noalias dereferenceable_or_null(280) ptr @malloc(i64 noundef 280) #16
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -2330,7 +2330,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_copy_modex(ptr nocapture noundef writ
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -29, 1) i32 @pmix20_bfrop_copy_persist(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #12 {
+define range(i32 -29, 1) i32 @pmix20_bfrop_copy_persist(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #12 {
   %4 = tail call noalias dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #16
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -2347,7 +2347,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_copy_persist(ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define range(i32 -29, 1) i32 @pmix20_bfrop_copy_bo(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
+define range(i32 -29, 1) i32 @pmix20_bfrop_copy_bo(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -2370,7 +2370,7 @@ define range(i32 -29, 1) i32 @pmix20_bfrop_copy_bo(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_copy_pdata(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @pmix20_bfrop_copy_pdata(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(808) ptr @malloc(i64 noundef 808) #16
   store ptr %4, ptr %0, align 8
   br label %5
@@ -2431,7 +2431,7 @@ pmix_strncpy.exit14:                              ; preds = %19, %22
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @pmix20_bfrop_copy_pinfo(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #13 {
+define noundef i32 @pmix20_bfrop_copy_pinfo(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #13 {
   %4 = tail call noalias dereferenceable_or_null(296) ptr @malloc(i64 noundef 296) #16
   store ptr %4, ptr %0, align 8
   br label %5
@@ -3580,7 +3580,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %259
 declare void @PMIx_Load_nspace(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix20_bfrop_copy_query(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @pmix20_bfrop_copy_query(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #16
   store ptr %4, ptr %0, align 8
   %5 = load ptr, ptr %1, align 8
@@ -3654,7 +3654,7 @@ pmix20_bfrop_copy_info.exit:                      ; preds = %20, %23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @pmix20_bfrop_copy_array(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
+define noundef i32 @pmix20_bfrop_copy_array(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   store ptr %4, ptr %0, align 8
   %5 = load i64, ptr %1, align 8

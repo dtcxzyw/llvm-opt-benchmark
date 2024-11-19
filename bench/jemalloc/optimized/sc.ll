@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
-define hidden void @sc_data_init(ptr nocapture noundef writeonly initializes((76, 94), (96, 122), (124, 132)) %sc_data) local_unnamed_addr #1 {
+define hidden void @sc_data_init(ptr nocapture noundef writeonly %sc_data) local_unnamed_addr #1 {
 entry:
   %sc2.i = getelementptr inbounds i8, ptr %sc_data, i64 76
   store i32 0, ptr %sc2.i, align 4
@@ -318,7 +318,7 @@ for.end:                                          ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write, inaccessiblemem: write) uwtable
-define hidden void @sc_boot(ptr nocapture noundef writeonly initializes((76, 94), (96, 122), (124, 132)) %data) local_unnamed_addr #1 {
+define hidden void @sc_boot(ptr nocapture noundef writeonly %data) local_unnamed_addr #1 {
 entry:
   tail call void @sc_data_init(ptr noundef %data)
   ret void

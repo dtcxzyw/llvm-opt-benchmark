@@ -158,7 +158,7 @@ define dso_local void @_ZN4llvm9SetTheory8Expander6anchorEv(ptr nocapture nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9SetTheoryC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((8, 12), (16, 24)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm9SetTheoryC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

@@ -850,7 +850,7 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit15:                  ; preds = %._crit_edge.i.i14, 
 declare void @_ZN3g2o6SBACamC1ERKNS_7SE3QuatE(ptr noundef nonnull align 16 dereferenceable(552), ptr noundef nonnull align 16 dereferenceable(56)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3g2o10EdgeSBACam23setMeasurementFromStateEv(ptr nocapture noundef nonnull align 16 dereferenceable(736) initializes((176, 232), (672, 728)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3g2o10EdgeSBACam23setMeasurementFromStateEv(ptr nocapture noundef nonnull align 16 dereferenceable(736) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.025 = alloca [48 x i8], align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -1098,7 +1098,7 @@ _ZNK3g2o7SE3QuatmlERKS0_.exit:                    ; preds = %._crit_edge.i.i, %1
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3g2o10EdgeSBACam14setMeasurementERKNS_7SE3QuatE(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(736) initializes((176, 232), (672, 728)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(56) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o10EdgeSBACam14setMeasurementERKNS_7SE3QuatE(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(736) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(56) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load <2 x double>, ptr %1, align 16
   store <2 x double> %4, ptr %3, align 16
@@ -1173,7 +1173,7 @@ define void @_ZN3g2o10EdgeSBACam14setMeasurementERKNS_7SE3QuatE(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN3g2o10EdgeSBACam18setMeasurementDataEPKd(ptr nocapture noundef nonnull align 16 dereferenceable(736) initializes((176, 232), (672, 728)) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3g2o10EdgeSBACam18setMeasurementDataEPKd(ptr nocapture noundef nonnull align 16 dereferenceable(736) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load <2 x double>, ptr %1, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1261,7 +1261,7 @@ define noundef zeroext i1 @_ZN3g2o10EdgeSBACam18setMeasurementDataEPKd(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK3g2o10EdgeSBACam18getMeasurementDataEPd(ptr nocapture noundef nonnull readonly align 16 dereferenceable(736) %0, ptr nocapture noundef writeonly initializes((0, 56)) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK3g2o10EdgeSBACam18getMeasurementDataEPd(ptr nocapture noundef nonnull readonly align 16 dereferenceable(736) %0, ptr nocapture noundef writeonly %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %5 = load <2 x double>, ptr %4, align 16
@@ -1284,7 +1284,7 @@ define noundef zeroext i1 @_ZNK3g2o10EdgeSBACam18getMeasurementDataEPd(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN3g2o10EdgeSBACam12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(736) initializes((528, 576)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o10EdgeSBACam12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(736) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %.sroa.048 = alloca [48 x i8], align 16
   %.sroa.019 = alloca [48 x i8], align 16

@@ -177,7 +177,7 @@ _ZNSt10shared_ptrIN3ade4meta8NodeInfo8IdStructEED2Ev.exit: ; preds = %1, %22, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ade4meta8NodeInfo13getIdInternalEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ade4meta8NodeInfo13getIdInternalEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -297,7 +297,7 @@ _ZNSt10shared_ptrIN3ade4meta8NodeInfo8IdStructEEC2ERKS4_.exit: ; preds = %_ZNSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ade4meta8NodeInfo4linkERS1_(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((64, 72)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ade4meta8NodeInfo4linkERS1_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   call void @_ZNK3ade4meta8NodeInfo13getIdInternalEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %3, ptr noundef nonnull align 8 dereferenceable(80) %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -468,7 +468,7 @@ define hidden noundef nonnull ptr @_ZN3ade4meta10DataObject4nameEv() local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ade4meta8CommNodeC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN3ade4meta8CommNodeC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)

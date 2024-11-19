@@ -203,7 +203,7 @@ define void @_ZN8UatModelC2EP7QObjectP8epan_uat(ptr noundef nonnull align 8 dere
 declare void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8UatModel7loadUatEP8epan_uat(ptr noundef nonnull align 8 dereferenceable(72) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8UatModel7loadUatEP8epan_uat(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %class.QMap, align 8
   %5 = alloca %class.QList.5, align 8
@@ -815,7 +815,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIi7QStringSt4lessI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8UatModel8checkRowEi(ptr dead_on_unwind noalias writable sret(%class.QList.5) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8UatModel8checkRowEi(ptr dead_on_unwind noalias writable sret(%class.QList.5) align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %class.QString, align 8
   %6 = alloca ptr, align 8
@@ -2558,7 +2558,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8UatModel11appendEntryE5QListI8QVariantE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QModelIndex) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8UatModel11appendEntryE5QListI8QVariantE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QModelIndex) align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8

@@ -1705,7 +1705,7 @@ check_dquot_block_header.exit.thread:             ; preds = %.thread6.i, %.threa
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr nocapture noundef %0, ptr noundef nonnull initializes((0, 10)) %1, i32 noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @put_free_dqblk(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %1, align 4

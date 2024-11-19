@@ -53,7 +53,7 @@ return:                                           ; preds = %if.end, %if.then10,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @SipHash_Init(ptr nocapture noundef initializes((0, 44), (48, 56)) %ctx, ptr nocapture noundef readonly %k, i32 noundef %crounds, i32 noundef %drounds) local_unnamed_addr #2 {
+define noundef i32 @SipHash_Init(ptr nocapture noundef %ctx, ptr nocapture noundef readonly %k, i32 noundef %crounds, i32 noundef %drounds) local_unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %k, align 1
   %1 = zext i32 %0 to i64

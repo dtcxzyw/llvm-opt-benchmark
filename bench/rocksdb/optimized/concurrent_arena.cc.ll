@@ -36,7 +36,7 @@ $_ZTVN7rocksdb15ConcurrentArenaE = comdat any
 @_ZN7rocksdb15ConcurrentArenaC1EmPNS_12AllocTrackerEm = unnamed_addr alias void (ptr, i64, ptr, i64), ptr @_ZN7rocksdb15ConcurrentArenaC2EmPNS_12AllocTrackerEm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15ConcurrentArenaC2EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2472) initializes((0, 8), (64, 80)) %this, i64 noundef %block_size, ptr noundef %tracker, i64 noundef %huge_page_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15ConcurrentArenaC2EmPNS_12AllocTrackerEm(ptr noundef nonnull align 16 dereferenceable(2472) %this, i64 noundef %block_size, ptr noundef %tracker, i64 noundef %huge_page_size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i64 16), ptr %this, align 16
   %shard_block_size_ = getelementptr inbounds i8, ptr %this, i64 64

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [44 x i8] c"@%u hash=%08x key=%d base=%zu distance=%zu\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -901, 1) i32 @nghttp2_map_init(ptr nocapture noundef writeonly initializes((0, 16), (24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_map_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -560,7 +560,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr nocapture nounde
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @nghttp2_map_clear(ptr nocapture noundef initializes((16, 24)) %0) local_unnamed_addr #7 {
+define dso_local void @nghttp2_map_clear(ptr nocapture noundef %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8

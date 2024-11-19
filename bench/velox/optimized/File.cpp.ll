@@ -482,7 +482,7 @@ entry:
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox13LocalReadFileC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %this, i64 %path.coerce0, ptr %path.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox13LocalReadFileC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 %path.coerce0, ptr %path.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -560,7 +560,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox13LocalReadFileC2Ei(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %this, i32 noundef %fd) unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox13LocalReadFileC2Ei(ptr noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %fd) unnamed_addr #6 align 2 {
 entry:
   %bytesRead_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %bytesRead_.i, align 8
@@ -1276,7 +1276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox14LocalWriteFileC2ESt17basic_string_viewIcSt11char_traitsIcEEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8), (24, 25)) %this, i64 %path.coerce0, ptr %path.coerce1, i1 noundef zeroext %shouldCreateParentDirectories, i1 noundef zeroext %shouldThrowOnFileAlreadyExists) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox14LocalWriteFileC2ESt17basic_string_viewIcSt11char_traitsIcEEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i64 %path.coerce0, ptr %path.coerce1, i1 noundef zeroext %shouldCreateParentDirectories, i1 noundef zeroext %shouldThrowOnFileAlreadyExists) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %path = alloca %"class.std::basic_string_view", align 8
   %dir = alloca %"class.std::filesystem::__cxx11::path", align 8

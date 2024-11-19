@@ -14972,7 +14972,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10MapBuilderC2EPNS_10MemoryPoolERKSt10shared_ptrINS_12ArrayBuilderEES7_RKS3_INS_8DataTypeEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 146)) %this, ptr noundef %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key_builder, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %item_builder, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10MapBuilderC2EPNS_10MemoryPoolERKSt10shared_ptrINS_12ArrayBuilderEES7_RKS3_INS_8DataTypeEE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %key_builder, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %item_builder, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool.addr = alloca ptr, align 8
   %ref.tmp11 = alloca %"class.std::shared_ptr.4", align 8
@@ -16602,7 +16602,7 @@ ehcleanup10:                                      ; preds = %ehcleanup, %lpad
 declare void @_ZN5arrow3mapESt10shared_ptrINS_8DataTypeEES2_b(ptr sret(%"class.std::shared_ptr.10") align 8, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10MapBuilderC2EPNS_10MemoryPoolERKSt10shared_ptrINS_12ArrayBuilderEERKS3_INS_8DataTypeEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 146)) %this, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(16) %struct_builder, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10MapBuilderC2EPNS_10MemoryPoolERKSt10shared_ptrINS_12ArrayBuilderEERKS3_INS_8DataTypeEE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(16) %struct_builder, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11 = alloca %"class.std::shared_ptr.4", align 8
   %ref.tmp20 = alloca %"class.std::shared_ptr.4", align 8
@@ -17436,7 +17436,7 @@ ehcleanup:                                        ; preds = %lpad54.body, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10MapBuilder6ResizeEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, i64 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10MapBuilder6ResizeEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, i64 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %list_builder_ = getelementptr inbounds i8, ptr %this, i64 248
@@ -17807,7 +17807,7 @@ declare void @_ZN5arrow4util8ArrowLogC1EPKciNS0_13ArrowLogLevelE(ptr noundef non
 declare void @_ZN5arrow4util8ArrowLogD1Ev(ptr noundef nonnull align 8 dereferenceable(17)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10MapBuilder12AppendValuesEPKilPKh(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %offsets, i64 noundef %length, ptr noundef %valid_bytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10MapBuilder12AppendValuesEPKilPKh(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, ptr noundef %offsets, i64 noundef %length, ptr noundef %valid_bytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   %ref.tmp23 = alloca %"class.arrow::Status", align 8
@@ -17911,7 +17911,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10MapBuilder6AppendEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10MapBuilder6AppendEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
@@ -18061,7 +18061,7 @@ return:                                           ; preds = %nrvo.skipdtor41, %n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10MapBuilder10AppendNullEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10MapBuilder10AppendNullEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i40 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
@@ -18225,7 +18225,7 @@ return:                                           ; preds = %nrvo.skipdtor41, %n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10MapBuilder11AppendNullsEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10MapBuilder11AppendNullsEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
@@ -18356,7 +18356,7 @@ return:                                           ; preds = %nrvo.skipdtor41, %n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10MapBuilder16AppendEmptyValueEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10MapBuilder16AppendEmptyValueEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i40 = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
@@ -18511,7 +18511,7 @@ return:                                           ; preds = %nrvo.skipdtor41, %n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10MapBuilder17AppendEmptyValuesEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10MapBuilder17AppendEmptyValuesEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(296) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
@@ -18642,7 +18642,7 @@ return:                                           ; preds = %nrvo.skipdtor41, %n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN5arrow20FixedSizeListBuilderC2EPNS_10MemoryPoolERKSt10shared_ptrINS_12ArrayBuilderEERKS3_INS_8DataTypeEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((0, 164), (168, 184)) %this, ptr noundef %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value_builder, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow20FixedSizeListBuilderC2EPNS_10MemoryPoolERKSt10shared_ptrINS_12ArrayBuilderEERKS3_INS_8DataTypeEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %this, ptr noundef %pool, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value_builder, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %pool, ptr %pool_.i, align 8
@@ -18993,7 +18993,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow20FixedSizeListBuilder6AppendEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow20FixedSizeListBuilder6AppendEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -19052,7 +19052,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow20FixedSizeListBuilder12AppendValuesElPKh(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %length, ptr noundef %valid_bytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow20FixedSizeListBuilder12AppendValuesElPKh(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %length, ptr noundef %valid_bytes) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes.addr.i.i = alloca ptr, align 8
   %i.i.i = alloca i64, align 8
@@ -19145,7 +19145,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow20FixedSizeListBuilder10AppendNullEv(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow20FixedSizeListBuilder10AppendNullEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -19223,7 +19223,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow20FixedSizeListBuilder11AppendNullsEl(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow20FixedSizeListBuilder11AppendNullsEl(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -19347,7 +19347,7 @@ return:                                           ; preds = %if.end8, %_ZN5arrow
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow20FixedSizeListBuilder16AppendEmptyValueEv(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow20FixedSizeListBuilder16AppendEmptyValueEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -19416,7 +19416,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow20FixedSizeListBuilder17AppendEmptyValuesEl(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow20FixedSizeListBuilder17AppendEmptyValuesEl(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -20516,7 +20516,7 @@ ehcleanup130:                                     ; preds = %ehcleanup128, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow13StructBuilderC2ERKSt10shared_ptrINS_8DataTypeEEPNS_10MemoryPoolESt6vectorIS1_INS_12ArrayBuilderEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 160)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr noundef %pool, ptr noundef %field_builders) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow13StructBuilderC2ERKSt10shared_ptrINS_8DataTypeEEPNS_10MemoryPoolESt6vectorIS1_INS_12ArrayBuilderEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr noundef %pool, ptr noundef %field_builders) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pool_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %pool, ptr %pool_.i, align 8
@@ -20594,7 +20594,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow13StructBuilder14FinishInternalEPSt10shared_ptrINS_9ArrayDataEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(160) initializes((64, 72), (88, 96)) %this, ptr nocapture noundef %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow13StructBuilder14FinishInternalEPSt10shared_ptrINS_9ArrayDataEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef %out) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %null_bitmap = alloca %"class.std::shared_ptr.46", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8

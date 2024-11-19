@@ -141,7 +141,7 @@ sw.epilog:                                        ; preds = %sw.bb10, %if.end, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @pmp_update_rule_nums(ptr nocapture noundef initializes((8336, 8340)) %env) local_unnamed_addr #1 {
+define dso_local void @pmp_update_rule_nums(ptr nocapture noundef %env) local_unnamed_addr #1 {
 entry:
   %num_rules = getelementptr inbounds i8, ptr %env, i64 8336
   store i32 0, ptr %num_rules, align 16

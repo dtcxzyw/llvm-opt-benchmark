@@ -6022,7 +6022,7 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_udp6router10udp_router9UdpRouter8register17h3547b28ab8f0f416E(ptr noalias nocapture noundef writeonly sret({ [73 x i64], ptr, [6 x i8], i8, [2057 x i8] }) align 8 dereferenceable(2656) initializes((584, 592), (598, 599)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1) unnamed_addr #4 {
+define void @_ZN19ockam_transport_udp6router10udp_router9UdpRouter8register17h3547b28ab8f0f416E(ptr noalias nocapture noundef writeonly sret({ [73 x i64], ptr, [6 x i8], i8, [2057 x i8] }) align 8 dereferenceable(2656) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 584
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 598
@@ -6031,7 +6031,7 @@ define void @_ZN19ockam_transport_udp6router10udp_router9UdpRouter8register17h35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19ockam_transport_udp6router10udp_router9UdpRouter22create_sender_listener17h9c926ba4e431bcf9E(ptr noalias nocapture noundef writeonly sret({ { i16, [15 x i16] }, ptr, [72 x i8], i8, [1943 x i8] }) align 8 dereferenceable(2056) initializes((0, 40), (112, 113)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %2) unnamed_addr #5 {
+define void @_ZN19ockam_transport_udp6router10udp_router9UdpRouter22create_sender_listener17h9c926ba4e431bcf9E(ptr noalias nocapture noundef writeonly sret({ { i16, [15 x i16] }, ptr, [72 x i8], i8, [1943 x i8] }) align 8 dereferenceable(2056) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %2, i64 32, i1 false)

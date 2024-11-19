@@ -81,7 +81,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19CalcTangentsProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp19CalcTangentsProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str, float noundef 4.500000e+01)
   %configMaxAngle = getelementptr inbounds i8, ptr %this, i64 24

@@ -1779,7 +1779,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 declare void @_ZN5clang18TokenConcatenationC1ERKNS_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(465), ptr noundef nonnull align 8 dereferenceable(3288)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124PrintPPOutputPPCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(1144) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124PrintPPOutputPPCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_124PrintPPOutputPPCallbacksE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %3 = load ptr, ptr %2, align 8
@@ -1812,7 +1812,7 @@ _ZN4llvm11SmallStringILj512EED2Ev.exit:           ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124PrintPPOutputPPCallbacksD0Ev(ptr noundef nonnull align 8 dereferenceable(1144) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124PrintPPOutputPPCallbacksD0Ev(ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_124PrintPPOutputPPCallbacksE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1080
   %3 = load ptr, ptr %2, align 8

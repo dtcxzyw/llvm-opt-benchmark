@@ -247,7 +247,7 @@ declare noundef ptr @_ZN13OopStorageSet11create_weakEPKc8MEMFLAGS(ptr noundef, i
 declare void @_ZN11StringDedup10StorageUseC1EP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11StringDedup9ProcessorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN11StringDedup9ProcessorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -572,7 +572,7 @@ declare void @_ZN11StringDedup4Stat20report_process_startEv(ptr noundef nonnull 
 declare void @_ZN11StringDedup4Stat18report_process_endEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define hidden void @_ZN11StringDedup9Processor3runEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11StringDedup9Processor3runEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.StringDedup::Stat", align 8
   %4 = alloca %"class.OopStorage::ParState", align 8
   %5 = alloca %"class.StringDedup::Processor::ProcessRequest", align 8

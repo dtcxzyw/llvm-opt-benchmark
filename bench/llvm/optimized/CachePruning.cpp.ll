@@ -585,7 +585,7 @@ _ZN4llvm8ExpectedINSt6chrono8durationIlSt5ratioILl1ELl1EEEEED2Ev.exit.thread: ; 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr %1, i64 %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13parseDurationN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8

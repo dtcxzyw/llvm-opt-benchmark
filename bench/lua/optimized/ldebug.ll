@@ -2274,7 +2274,7 @@ declare hidden ptr @luaH_new(ptr noundef) local_unnamed_addr #6
 declare hidden void @luaH_setint(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getobjname(ptr noundef %p, i32 noundef range(i32 -2147483648, 2147483647) %lastpc, i32 noundef range(i32 0, -2147483648) %reg, ptr nocapture noundef writeonly initializes((0, 8)) %name) unnamed_addr #5 {
+define internal fastcc ptr @getobjname(ptr noundef %p, i32 noundef range(i32 -2147483648, 2147483647) %lastpc, i32 noundef range(i32 0, -2147483648) %reg, ptr nocapture noundef writeonly %name) unnamed_addr #5 {
 entry:
   %pc.addr.i.i = alloca i32, align 4
   %pc.addr.i41 = alloca i32, align 4
@@ -2483,7 +2483,7 @@ return:                                           ; preds = %rname.exit.i, %knam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @basicgetobjname(ptr noundef %p, ptr nocapture noundef nonnull %ppc, i32 noundef range(i32 0, -2147483648) %reg, ptr nocapture noundef writeonly initializes((0, 8)) %name) unnamed_addr #5 {
+define internal fastcc noundef ptr @basicgetobjname(ptr noundef %p, ptr nocapture noundef nonnull %ppc, i32 noundef range(i32 0, -2147483648) %reg, ptr nocapture noundef writeonly %name) unnamed_addr #5 {
 entry:
   %0 = getelementptr i8, ptr %p, i64 64
   %.pre = load i32, ptr %ppc, align 4

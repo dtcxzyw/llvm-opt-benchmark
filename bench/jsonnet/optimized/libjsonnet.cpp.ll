@@ -1346,27 +1346,27 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7jsonnet8internal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_max_stack(ptr nocapture noundef writeonly initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_max_stack(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_gc_min_objects(ptr nocapture noundef writeonly initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_gc_min_objects(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_gc_growth_trigger(ptr nocapture noundef writeonly initializes((0, 8)) %0, double noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_gc_growth_trigger(ptr nocapture noundef writeonly %0, double noundef %1) local_unnamed_addr #15 {
   store double %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_string_output(ptr nocapture noundef writeonly initializes((184, 185)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_string_output(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = zext i1 %3 to i8
@@ -1375,7 +1375,7 @@ define void @jsonnet_string_output(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_import_callback(ptr nocapture noundef writeonly initializes((120, 128), (176, 184)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #15 {
+define void @jsonnet_import_callback(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #15 {
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 176
@@ -2457,7 +2457,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit16: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_fmt_debug_desugaring(ptr nocapture noundef writeonly initializes((236, 237)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_fmt_debug_desugaring(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 236
   %5 = zext i1 %3 to i8
@@ -2466,21 +2466,21 @@ define void @jsonnet_fmt_debug_desugaring(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_fmt_indent(ptr nocapture noundef writeonly initializes((220, 224)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_fmt_indent(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %0, i64 220
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_fmt_max_blank_lines(ptr nocapture noundef writeonly initializes((224, 228)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_fmt_max_blank_lines(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_fmt_string(ptr nocapture noundef writeonly initializes((216, 217)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_fmt_string(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = icmp ne i32 %1, 115
   %4 = and i32 %1, -9
   %5 = icmp ne i32 %4, 100
@@ -2493,7 +2493,7 @@ define void @jsonnet_fmt_string(ptr nocapture noundef writeonly initializes((216
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_fmt_comment(ptr nocapture noundef writeonly initializes((217, 218)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_fmt_comment(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = icmp ne i32 %1, 115
   %4 = and i32 %1, -5
   %5 = icmp ne i32 %4, 104
@@ -2506,7 +2506,7 @@ define void @jsonnet_fmt_comment(ptr nocapture noundef writeonly initializes((21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_fmt_pad_arrays(ptr nocapture noundef writeonly initializes((228, 229)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_fmt_pad_arrays(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 228
   %5 = zext i1 %3 to i8
@@ -2515,7 +2515,7 @@ define void @jsonnet_fmt_pad_arrays(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_fmt_pad_objects(ptr nocapture noundef writeonly initializes((229, 230)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_fmt_pad_objects(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 229
   %5 = zext i1 %3 to i8
@@ -2524,7 +2524,7 @@ define void @jsonnet_fmt_pad_objects(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_fmt_pretty_field_names(ptr nocapture noundef writeonly initializes((233, 234)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_fmt_pretty_field_names(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 233
   %5 = zext i1 %3 to i8
@@ -2533,7 +2533,7 @@ define void @jsonnet_fmt_pretty_field_names(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_fmt_sort_imports(ptr nocapture noundef writeonly initializes((234, 235)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_fmt_sort_imports(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 234
   %5 = zext i1 %3 to i8
@@ -2542,7 +2542,7 @@ define void @jsonnet_fmt_sort_imports(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jsonnet_max_trace(ptr nocapture noundef writeonly initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #15 {
+define void @jsonnet_max_trace(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void

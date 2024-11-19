@@ -110,7 +110,7 @@ cf_hc_reset.exit:                                 ; preds = %thread-pre-split, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef initializes((0, 1)) %3) #0 {
+define internal i32 @cf_hc_connect(ptr noundef %0, ptr noundef %1, i1 zeroext %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 36

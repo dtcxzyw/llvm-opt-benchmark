@@ -12670,7 +12670,7 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit:      ; preds = %2, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang13ASTDeclWriter25VisitRequiresExprBodyDeclEPNS_20RequiresExprBodyDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(241) initializes((232, 236)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang13ASTDeclWriter25VisitRequiresExprBodyDeclEPNS_20RequiresExprBodyDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(241) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 130, ptr %3, align 8
   ret void
@@ -15952,7 +15952,7 @@ define dso_local void @_ZN5clang13ASTDeclWriter24VisitOMPCapturedExprDeclEPNS_19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ASTWriter16WriteDeclAbbrevsEv(ptr nocapture noundef nonnull align 8 dereferenceable(3340) initializes((3228, 3240), (3244, 3340)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9ASTWriter16WriteDeclAbbrevsEv(ptr nocapture noundef nonnull align 8 dereferenceable(3340) %0) local_unnamed_addr #0 align 2 {
 _ZNSt10shared_ptrIN4llvm13BitCodeAbbrevEED2Ev.exit:
   %1 = alloca %"class.std::shared_ptr", align 8
   %2 = alloca %"class.std::shared_ptr", align 8

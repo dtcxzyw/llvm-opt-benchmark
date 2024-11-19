@@ -3133,7 +3133,7 @@ while.end.thread:                                 ; preds = %while.end, %entry
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @check_bad_attrsz(ptr noundef %ctxt, ptr nocapture noundef nonnull readonly %scratch, i32 noundef %attrsz, i32 noundef range(i32 1, 5) %eltsize, ptr noundef %aname, ptr noundef nonnull %tname, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %outsz) unnamed_addr #0 {
+define internal fastcc i32 @check_bad_attrsz(ptr noundef %ctxt, ptr nocapture noundef nonnull readonly %scratch, i32 noundef %attrsz, i32 noundef range(i32 1, 5) %eltsize, ptr noundef %aname, ptr noundef nonnull %tname, ptr nocapture noundef nonnull writeonly %outsz) unnamed_addr #0 {
 entry:
   store i32 %attrsz, ptr %outsz, align 4
   %cmp = icmp slt i32 %attrsz, 0

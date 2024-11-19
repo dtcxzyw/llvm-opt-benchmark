@@ -722,7 +722,7 @@ declare dso_local i32 @inet_add_offload(ptr noundef, i8 noundef zeroext) local_u
 declare dso_local i32 @inet6_add_offload(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @ipv6_gso_segment(ptr noundef initializes((180, 182)) %0, i64 noundef %1) #0 align 16 {
+define internal ptr @ipv6_gso_segment(ptr noundef %0, i64 noundef %1) #0 align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   store ptr null, ptr %3, align 8, !annotation !17

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN61_$LT$std..path..PathBuf$u20$as$u20$anki_io..ToUtf8PathBuf$GT$4utf817hf25bcf08dad9de84E"(ptr noalias nocapture noundef writeonly sret({ i64, [7 x i64] }) align 8 dereferenceable(64) initializes((0, 32)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define void @"_ZN61_$LT$std..path..PathBuf$u20$as$u20$anki_io..ToUtf8PathBuf$GT$4utf817hf25bcf08dad9de84E"(ptr noalias nocapture noundef writeonly sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %.sroa.4.i = alloca [48 x i8], align 8
   %3 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -40,7 +40,7 @@ define void @"_ZN61_$LT$std..path..PathBuf$u20$as$u20$anki_io..ToUtf8PathBuf$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN55_$LT$std..path..Path$u20$as$u20$anki_io..ToUtf8Path$GT$4utf817h873d8d413d1a4dafE"(ptr noalias nocapture noundef writeonly sret({ i64, [7 x i64] }) align 8 dereferenceable(64) initializes((0, 8)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define void @"_ZN55_$LT$std..path..Path$u20$as$u20$anki_io..ToUtf8Path$GT$4utf817h873d8d413d1a4dafE"(ptr noalias nocapture noundef writeonly sret({ i64, [7 x i64] }) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %.sroa.02.sroa.5 = alloca { { ptr, i64 }, i64 }, align 8
   %4 = tail call { ptr, i64 } @_ZN6camino8Utf8Path9from_path17h8df9cbc12a6db053E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %.fca.0.extract = extractvalue { ptr, i64 } %4, 0

@@ -54,7 +54,7 @@ $_ZN4toku3omtIPNS_8locktreeES2_Lb0EE15delete_internalEPNS_12omt_internal17subtre
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku16locktree_manager6createEPFiPNS_8locktreeEPvEPFvS2_EPFvmPKS1_RKNS_12range_bufferES3_ES3_St10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 16), (56, 89), (92, 120), (128, 176)) %this, ptr noundef %create_cb, ptr noundef %destroy_cb, ptr noundef %escalate_cb, ptr noundef %escalate_extra, ptr nocapture noundef readonly %mutex_factory_arg) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4toku16locktree_manager6createEPFiPNS_8locktreeEPvEPFvS2_EPFvmPKS1_RKNS_12range_bufferES3_ES3_St10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef %create_cb, ptr noundef %destroy_cb, ptr noundef %escalate_cb, ptr noundef %escalate_extra, ptr nocapture noundef readonly %mutex_factory_arg) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_factory = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %mutex_factory_arg, align 8
@@ -211,7 +211,7 @@ _ZNSt10shared_ptrIN7rocksdb25TransactionDBMutexFactoryEEaSERKS2_.exit: ; preds =
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4toku16locktree_manager14escalator_initEv(ptr noundef nonnull align 8 dereferenceable(392) initializes((176, 224)) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN4toku16locktree_manager14escalator_initEv(ptr noundef nonnull align 8 dereferenceable(392) %this) local_unnamed_addr #2 align 2 {
 entry:
   %m_escalation_mutex = getelementptr inbounds i8, ptr %this, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %m_escalation_mutex, i8 0, i64 48, i1 false)
@@ -1919,7 +1919,7 @@ if.end11:                                         ; preds = %if.then7, %land.lhs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4toku16locktree_manager18locktree_escalator6createEv(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 48)) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN4toku16locktree_manager18locktree_escalator6createEv(ptr noundef nonnull align 8 dereferenceable(105) %this) local_unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   %call1.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %this, ptr noundef null) #13

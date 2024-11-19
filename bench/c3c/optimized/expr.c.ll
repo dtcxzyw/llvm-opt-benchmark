@@ -2319,7 +2319,7 @@ define dso_local noundef ptr @expr_new_const_bool(i64 %0, ptr noundef %1, i1 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @expr_rewrite_to_builtin_access(ptr nocapture noundef initializes((0, 8), (24, 25), (28, 32)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @expr_rewrite_to_builtin_access(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i16, ptr %5, align 8
   %7 = and i16 %6, -256
@@ -2420,7 +2420,7 @@ define dso_local ptr @expr_variable(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @expr_rewrite_to_variable(ptr nocapture noundef initializes((32, 33)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define dso_local void @expr_rewrite_to_variable(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, -256
@@ -2553,7 +2553,7 @@ thread-pre-split:                                 ; preds = %22
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @expr_rewrite_to_string(ptr nocapture noundef initializes((0, 8), (32, 44)) %0, ptr noundef %1) local_unnamed_addr #8 {
+define dso_local void @expr_rewrite_to_string(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, -256
@@ -2582,7 +2582,7 @@ define dso_local void @expr_rewrite_to_string(ptr nocapture noundef initializes(
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @expr_rewrite_to_binary(ptr nocapture noundef initializes((24, 33)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define dso_local void @expr_rewrite_to_binary(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr @expr_arena, align 8
   %7 = ptrtoint ptr %1 to i64

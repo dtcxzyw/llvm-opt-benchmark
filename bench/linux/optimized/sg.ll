@@ -2779,7 +2779,7 @@ define internal i32 @sg_fasync(i32 noundef %0, ptr noundef %1, i32 noundef %2) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @sg_get_rq_mark(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) unnamed_addr #2 align 16 {
+define internal fastcc ptr @sg_get_rq_mark(ptr noundef nonnull %0, i32 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 align 16 {
   store i8 0, ptr %2, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = tail call i64 @_raw_write_lock_irqsave(ptr noundef %4) #17
@@ -3738,7 +3738,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @___ratelimit(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @sg_common_write(ptr noundef nonnull %0, ptr noundef nonnull initializes((53, 54), (120, 123), (124, 132), (136, 140)) %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc i32 @sg_common_write(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = alloca %struct.rq_map_data, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -4433,7 +4433,7 @@ declare dso_local void @blk_execute_rq_nowait(ptr noundef, i1 noundef zeroext) l
 declare dso_local ptr @scsi_alloc_request(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc void @sg_link_reserve(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((240, 241)) %1, i32 noundef range(i32 1, 268435456) %2) unnamed_addr #11 align 16 {
+define internal fastcc void @sg_link_reserve(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 1, 268435456) %2) unnamed_addr #11 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   %6 = getelementptr inbounds i8, ptr %1, i64 240
@@ -5717,7 +5717,7 @@ declare dso_local zeroext i1 @capable(i32 noundef) local_unnamed_addr #0
 declare dso_local i32 @kstrtoul_from_user(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @dev_seq_start(ptr nocapture noundef writeonly initializes((112, 120)) %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal ptr @dev_seq_start(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %5 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %4, i32 noundef 3264, i64 noundef 16) #19
@@ -5759,7 +5759,7 @@ define internal void @dev_seq_stop(ptr nocapture noundef readonly %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define internal ptr @dev_seq_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #14 align 16 {
+define internal ptr @dev_seq_next(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #14 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8
   %6 = load i64, ptr %5, align 8

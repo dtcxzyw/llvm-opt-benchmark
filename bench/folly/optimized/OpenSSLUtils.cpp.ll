@@ -1779,7 +1779,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly3ssl12OpenSSLUtils18newSocketBioMethodEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.29") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly3ssl12OpenSSLUtils18newSocketBioMethodEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.29") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call ptr @BIO_meth_new(i32 noundef 1285, ptr noundef nonnull @.str.10)
   %tobool.not = icmp eq ptr %call, null
@@ -2216,7 +2216,7 @@ declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5folly3sslL22getSubjectNamesFromBIOEP6bio_st(ptr dead_on_unwind noalias writable align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull %b) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5folly3sslL22getSubjectNamesFromBIOEP6bio_st(ptr dead_on_unwind noalias writable align 8 %agg.result, ptr noundef nonnull %b) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::unique_ptr.66", align 8
   %x509.i = alloca %"class.std::unique_ptr.57", align 8

@@ -2028,7 +2028,7 @@ invoke.cont4:                                     ; preds = %invoke.cont7.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal4Subs5toMapEv(ptr noalias sret(%"class.std::map.92") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal4Subs5toMapEv(ptr noalias sret(%"class.std::map.92") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.127", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.120", align 1

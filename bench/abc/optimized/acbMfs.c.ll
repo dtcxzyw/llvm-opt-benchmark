@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.5 = private unnamed_addr constant [19 x i8] c"Too many divisors.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Acb_DeriveCnfFromTruth(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define i32 @Acb_DeriveCnfFromTruth(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 4
@@ -920,7 +920,7 @@ define i32 @Acb_NtkCountRoots(ptr nocapture noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_DeriveCnfForNode(ptr nocapture noundef initializes((508, 512)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Acb_DeriveCnfForNode(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 504
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %7 = getelementptr inbounds i8, ptr %6, i64 4
@@ -4357,7 +4357,7 @@ Vec_IntPush.exit51:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_ObjDeriveTfo(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, i32 noundef %6) local_unnamed_addr #0 {
+define void @Acb_ObjDeriveTfo(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call i32 @Acb_ObjLabelTfo(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %6)
   %9 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %10 = getelementptr inbounds i8, ptr %9, i64 4
@@ -5811,7 +5811,7 @@ Vec_IntFree.exit54:                               ; preds = %Vec_IntFree.exit52,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Acb_NtkFindSupp1(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, ptr nocapture noundef initializes((4, 8)) %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Acb_NtkFindSupp1(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 %4, ptr nocapture readnone %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 0, ptr %8, align 4
   %9 = getelementptr i8, ptr %0, i64 136

@@ -498,7 +498,7 @@ define dso_local void @_ZN4llvm13LiveVariablesC2ERNS_15MachineFunctionE(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13LiveVariables7analyzeERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(200) initializes((80, 104)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13LiveVariables7analyzeERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::df_iterator", align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

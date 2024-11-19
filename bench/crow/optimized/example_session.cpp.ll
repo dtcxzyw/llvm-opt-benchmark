@@ -8409,7 +8409,7 @@ define linkonce_odr dso_local void @_ZNSt13unordered_mapINSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z8redirectv(ptr dead_on_unwind noalias nonnull writable sret(%"struct.crow::response") align 8 initializes((0, 4)) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z8redirectv(ptr dead_on_unwind noalias nonnull writable sret(%"struct.crow::response") align 8 %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 200, ptr %0, align 8, !tbaa !26
   %3 = getelementptr inbounds i8, ptr %0, i64 8

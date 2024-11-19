@@ -3851,7 +3851,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen11HTTPSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(2504) initializes((0, 8), (64, 72), (1584, 1640), (1672, 1680), (1688, 1704)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(2504) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.folly::Function.679", align 16
   %ref.tmp16 = alloca %"class.google::LogMessage", align 8
@@ -7790,7 +7790,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPSession13getReadBufferEPPvPm(ptr noundef nonnull align 8 dereferenceable(2504) %this, ptr nocapture noundef writeonly initializes((0, 8)) %buf, ptr nocapture noundef writeonly initializes((0, 8)) %bufSize) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPSession13getReadBufferEPPvPm(ptr noundef nonnull align 8 dereferenceable(2504) %this, ptr nocapture noundef writeonly %buf, ptr nocapture noundef writeonly %bufSize) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %readBuf_ = getelementptr inbounds i8, ptr %this, i64 1848
   %0 = load i32, ptr @_ZN8proxygen15HTTPSessionBase18maxReadBufferSize_E, align 4
@@ -7830,7 +7830,7 @@ _ZN5folly10IOBufQueue11preallocateEmmm.exit:      ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn1672_N8proxygen11HTTPSession13getReadBufferEPPvPm(ptr noundef %this, ptr nocapture noundef writeonly initializes((0, 8)) %buf, ptr nocapture noundef writeonly initializes((0, 8)) %bufSize) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn1672_N8proxygen11HTTPSession13getReadBufferEPPvPm(ptr noundef %this, ptr nocapture noundef writeonly %buf, ptr nocapture noundef writeonly %bufSize) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %readBuf_.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr @_ZN8proxygen15HTTPSessionBase18maxReadBufferSize_E, align 4
@@ -24812,7 +24812,7 @@ if.end7:                                          ; preds = %if.then, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPSession18getFlowControlInfoEPNS_15FlowControlInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2504) %this, ptr nocapture noundef writeonly initializes((0, 3)) %info) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen11HTTPSession18getFlowControlInfoEPNS_15FlowControlInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2504) %this, ptr nocapture noundef writeonly %info) unnamed_addr #3 align 2 {
 entry:
   %writes_.i = getelementptr inbounds i8, ptr %this, i64 2393
   %0 = load i8, ptr %writes_.i, align 1
@@ -24872,7 +24872,7 @@ declare noundef i32 @_ZNK8proxygen6Window7getSizeEv(ptr noundef nonnull align 4 
 declare noundef i32 @_ZNK8proxygen6Window14getOutstandingEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn1584_N8proxygen11HTTPSession18getFlowControlInfoEPNS_15FlowControlInfoE(ptr nocapture noundef readonly %this, ptr nocapture noundef writeonly initializes((0, 3)) %info) unnamed_addr #15 align 2 {
+define void @_ZThn1584_N8proxygen11HTTPSession18getFlowControlInfoEPNS_15FlowControlInfoE(ptr nocapture noundef readonly %this, ptr nocapture noundef writeonly %info) unnamed_addr #15 align 2 {
 entry:
   %writes_.i.i = getelementptr inbounds i8, ptr %this, i64 809
   %0 = load i8, ptr %writes_.i.i, align 1

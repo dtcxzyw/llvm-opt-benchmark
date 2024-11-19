@@ -143,7 +143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal9CodeTimerC2ERNS0_9TimerStatEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(8) %timer, i1 noundef zeroext %allow_reentrant) unnamed_addr #2 align 2 {
+define hidden void @_ZN4cvc58internal9CodeTimerC2ERNS0_9TimerStatEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(8) %timer, i1 noundef zeroext %allow_reentrant) unnamed_addr #2 align 2 {
 entry:
   store ptr %timer, ptr %this, align 8
   %d_reentrant = getelementptr inbounds i8, ptr %this, i64 8

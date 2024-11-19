@@ -601,7 +601,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame16
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10TsKeyFrame7GetZeroEv(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8, ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetExtrapolationSlopeEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 initializes((8, 16)) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetExtrapolationSlopeEN9__gnu_cxx17__normal_iteratorIPKNS_10TsKeyFrameESt6vectorIS2_SaIS2_EEEERKNS_8TsSplineENS_6TsSideE(ptr dead_on_unwind noalias writable align 8 %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
@@ -2581,7 +2581,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline4EvalEdNS_6TsSideE(
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__8TsSpline9GetTypeidEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__9Ts_SampleERKNS_8TsSplineEddddd(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__9Ts_SampleERKNS_8TsSplineEddddd(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::TsValueSample", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8

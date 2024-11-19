@@ -253,7 +253,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 declare dso_local i32 @wbinvd_on_all_cpus() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @lookup_address_in_pgd(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @lookup_address_in_pgd(ptr noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = load i64, ptr %0, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds (i8, ptr @boot_cpu_data, i64 106)) #11
@@ -366,7 +366,7 @@ define dso_local ptr @lookup_address_in_pgd(ptr noundef readonly %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @lookup_address(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
+define dso_local ptr @lookup_address(i64 noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @init_mm, i64 128), align 64
   %4 = load i32, ptr @pgdir_shift, align 4
   %5 = zext nneg i32 %4 to i64

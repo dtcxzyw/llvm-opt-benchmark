@@ -101,7 +101,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @background_thread_enabled_state = external local_unnamed_addr global %struct.atomic_b_t, align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @arena_basic_stats_merge(ptr nocapture noundef readnone %tsdn, ptr noundef %arena, ptr nocapture noundef %nthreads, ptr nocapture noundef writeonly initializes((0, 8)) %dss, ptr nocapture noundef writeonly initializes((0, 8)) %dirty_decay_ms, ptr nocapture noundef writeonly initializes((0, 8)) %muzzy_decay_ms, ptr noundef %nactive, ptr noundef %ndirty, ptr noundef %nmuzzy) local_unnamed_addr #0 {
+define hidden void @arena_basic_stats_merge(ptr nocapture noundef readnone %tsdn, ptr noundef %arena, ptr nocapture noundef %nthreads, ptr nocapture noundef writeonly %dss, ptr nocapture noundef writeonly %dirty_decay_ms, ptr nocapture noundef writeonly %muzzy_decay_ms, ptr noundef %nactive, ptr noundef %ndirty, ptr noundef %nmuzzy) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i32, ptr %arena monotonic, align 4
   %1 = load i32, ptr %nthreads, align 4
@@ -150,7 +150,7 @@ entry:
 declare void @pa_shard_basic_stats_merge(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @arena_stats_merge(ptr noundef %tsdn, ptr noundef %arena, ptr nocapture noundef %nthreads, ptr nocapture noundef writeonly initializes((0, 8)) %dss, ptr nocapture noundef writeonly initializes((0, 8)) %dirty_decay_ms, ptr nocapture noundef writeonly initializes((0, 8)) %muzzy_decay_ms, ptr noundef %nactive, ptr noundef %ndirty, ptr noundef %nmuzzy, ptr noundef %astats, ptr noundef %bstats, ptr nocapture noundef %lstats, ptr noundef %estats, ptr noundef %hpastats, ptr noundef %secstats) local_unnamed_addr #0 {
+define hidden void @arena_stats_merge(ptr noundef %tsdn, ptr noundef %arena, ptr nocapture noundef %nthreads, ptr nocapture noundef writeonly %dss, ptr nocapture noundef writeonly %dirty_decay_ms, ptr nocapture noundef writeonly %muzzy_decay_ms, ptr noundef %nactive, ptr noundef %ndirty, ptr noundef %nmuzzy, ptr noundef %astats, ptr noundef %bstats, ptr nocapture noundef %lstats, ptr noundef %estats, ptr noundef %hpastats, ptr noundef %secstats) local_unnamed_addr #0 {
 entry:
   %base_allocated = alloca i64, align 8
   %base_resident = alloca i64, align 8
@@ -4462,7 +4462,7 @@ if.end:                                           ; preds = %arena_slab_dalloc.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @arena_ralloc_no_move(ptr noundef %tsdn, ptr noundef %ptr, i64 noundef %oldsize, i64 noundef %size, i64 noundef %extra, i1 noundef zeroext %zero, ptr nocapture noundef writeonly initializes((0, 8)) %newsize) local_unnamed_addr #0 {
+define hidden zeroext i1 @arena_ralloc_no_move(ptr noundef %tsdn, ptr noundef %ptr, i64 noundef %oldsize, i64 noundef %size, i64 noundef %extra, i1 noundef zeroext %zero, ptr nocapture noundef writeonly %newsize) local_unnamed_addr #0 {
 entry:
   %rtree_ctx_fallback.i = alloca %struct.rtree_ctx_s, align 8
   %tmp.i = alloca %struct.rtree_contents_s, align 8

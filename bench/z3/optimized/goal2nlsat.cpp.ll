@@ -197,7 +197,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10goal2nlsatC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN10goal2nlsatC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   ret void
@@ -225,7 +225,7 @@ declare void @_ZN12param_descrs6insertEPKc12cmd_arg_kindS1_S1_S1_(ptr noundef no
 declare void @_ZN10polynomial13factor_params16get_param_descrsER12param_descrs(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10goal2nlsatclERK4goalRK10params_refRN5nlsat6solverER8expr2varSA_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(124) %g, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(16) %s, ptr noundef nonnull align 8 dereferenceable(41) %a2b, ptr noundef nonnull align 8 dereferenceable(41) %t2x) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10goal2nlsatclERK4goalRK10params_refRN5nlsat6solverER8expr2varSA_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(124) %g, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 8 dereferenceable(16) %s, ptr noundef nonnull align 8 dereferenceable(41) %a2b, ptr noundef nonnull align 8 dereferenceable(41) %t2x) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %local_imp = alloca %"struct.goal2nlsat::imp", align 8
   %0 = load ptr, ptr %g, align 8
@@ -547,7 +547,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10nlsat2goalC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #5 align 2 {
+define hidden void @_ZN10nlsat2goalC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #5 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
   store ptr %m, ptr %call, align 8

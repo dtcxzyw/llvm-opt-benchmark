@@ -329,7 +329,7 @@ if.end22:                                         ; preds = %if.end14, %if.end20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @sd_set_cb(ptr nocapture noundef initializes((912, 928)) %sd, ptr noundef %readonly, ptr noundef %insert) local_unnamed_addr #0 {
+define dso_local void @sd_set_cb(ptr nocapture noundef %sd, ptr noundef %readonly, ptr noundef %insert) local_unnamed_addr #0 {
 entry:
   %readonly_cb = getelementptr inbounds i8, ptr %sd, i64 912
   store ptr %readonly, ptr %readonly_cb, align 8
@@ -2932,7 +2932,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @sd_enable(ptr nocapture noundef writeonly initializes((936, 937)) %sd, i1 noundef zeroext %enable) #5 {
+define dso_local void @sd_enable(ptr nocapture noundef writeonly %sd, i1 noundef zeroext %enable) #5 {
 entry:
   %frombool = zext i1 %enable to i8
   %enable1 = getelementptr inbounds i8, ptr %sd, i64 936
@@ -3085,7 +3085,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare ptr @sd_cmd_name(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @sd_function_switch(ptr nocapture noundef initializes((396, 413)) %sd, i32 noundef %arg) unnamed_addr #9 {
+define internal fastcc void @sd_function_switch(ptr nocapture noundef %sd, i32 noundef %arg) unnamed_addr #9 {
 entry:
   %tobool = icmp slt i32 %arg, 0
   %data = getelementptr inbounds i8, ptr %sd, i64 396
@@ -3461,7 +3461,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @sd_cmd_SEND_OP_CMD(ptr nocapture noundef writeonly initializes((300, 304)) %sd, i64 %req.coerce0, i8 %req.coerce1) #5 {
+define internal noundef i32 @sd_cmd_SEND_OP_CMD(ptr nocapture noundef writeonly %sd, i64 %req.coerce0, i8 %req.coerce1) #5 {
 entry:
   %state = getelementptr inbounds i8, ptr %sd, i64 300
   store i32 4, ptr %state, align 4

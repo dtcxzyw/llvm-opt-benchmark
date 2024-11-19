@@ -69,7 +69,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10GPUProgramC2EP9GPUShaderS1_S1_iii(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 24), (40, 44), (48, 56)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10GPUProgramC2EP9GPUShaderS1_S1_iii(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca i32, align 4
   store ptr %1, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -425,7 +425,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10GPUProgramC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_iii(ptr noundef nonnull align 8 dereferenceable(188) initializes((40, 44), (48, 56)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10GPUProgramC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_iii(ptr noundef nonnull align 8 dereferenceable(188) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %9, align 8

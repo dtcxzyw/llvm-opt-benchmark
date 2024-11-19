@@ -279,7 +279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9LuaCameraC2EP6Camera(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %m) unnamed_addr #5 align 2 {
+define dso_local void @_ZN9LuaCameraC2EP6Camera(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %m) unnamed_addr #5 align 2 {
 entry:
   store ptr %m, ptr %this, align 8, !tbaa !12
   ret void

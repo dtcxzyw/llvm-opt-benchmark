@@ -4719,7 +4719,7 @@ declare void @_ZN4node9inspector5Agent17AsyncTaskFinishedEPv(ptr noundef nonnull
 declare void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr, i32 noundef, double noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEEE, i64 16), ptr %this, align 8
   %callback_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -4752,7 +4752,7 @@ _ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEEE, i64 16), ptr %this, align 8
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -5037,7 +5037,7 @@ declare noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7Isol
 declare void @_ZN4node9inspector5Agent7ConnectESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS3_EEb(ptr sret(%"class.std::unique_ptr.316") align 8, ptr noundef nonnull align 8 dereferenceable(186), ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE25JSBindingsSessionDelegateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE25JSBindingsSessionDelegateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE25JSBindingsSessionDelegateE, i64 16), ptr %this, align 8
   %connection_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -5054,7 +5054,7 @@ _ZN4node17BaseObjectPtrImplINS_9inspector12_GLOBAL__N_120JSBindingsConnectionINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE25JSBindingsSessionDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE25JSBindingsSessionDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_15LocalConnectionEE25JSBindingsSessionDelegateE, i64 16), ptr %this, align 8
   %connection_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -5257,7 +5257,7 @@ declare void @_ZN4node12TwoByteValueC1EPN2v87IsolateENS1_5LocalINS1_5ValueEEE(pt
 declare void @_ZN12v8_inspector12StringBuffer6createENS_10StringViewE(ptr sret(%"class.std::unique_ptr.380") align 8, ptr noundef byval(%"class.v8_inspector::StringView") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEEE, i64 16), ptr %this, align 8
   %callback_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -5290,7 +5290,7 @@ _ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEEE, i64 16), ptr %this, align 8
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -5496,7 +5496,7 @@ entry:
 declare void @_ZN4node9inspector5Agent19ConnectToMainThreadESt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS3_EEb(ptr sret(%"class.std::unique_ptr.316") align 8, ptr noundef nonnull align 8 dereferenceable(186), ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE25JSBindingsSessionDelegateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE25JSBindingsSessionDelegateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE25JSBindingsSessionDelegateE, i64 16), ptr %this, align 8
   %connection_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -5513,7 +5513,7 @@ _ZN4node17BaseObjectPtrImplINS_9inspector12_GLOBAL__N_120JSBindingsConnectionINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE25JSBindingsSessionDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE25JSBindingsSessionDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120JSBindingsConnectionINS1_20MainThreadConnectionEE25JSBindingsSessionDelegateE, i64 16), ptr %this, align 8
   %connection_.i = getelementptr inbounds i8, ptr %this, i64 16

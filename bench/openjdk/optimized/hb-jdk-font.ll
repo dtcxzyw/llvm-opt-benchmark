@@ -213,7 +213,7 @@ declare ptr @hb_font_funcs_create() local_unnamed_addr #3
 declare void @hb_font_funcs_set_nominal_glyph_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL24hb_jdk_get_nominal_glyphP9hb_font_tPvjPjS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((0, 4)) %3, ptr nocapture readnone %4) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL24hb_jdk_get_nominal_glyphP9hb_font_tPvjPjS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -253,7 +253,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL24hb_jdk_get_nominal_glyphP9hb_f
 declare void @hb_font_funcs_set_variation_glyph_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 2) i32 @_ZL26hb_jdk_get_variation_glyphP9hb_font_tPvjjPjS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #0 {
+define internal noundef range(i32 0, 2) i32 @_ZL26hb_jdk_get_variation_glyphP9hb_font_tPvjjPjS1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture readnone %5) #0 {
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -403,7 +403,7 @@ define internal noundef i32 @_ZL24hb_jdk_get_glyph_extentsP9hb_font_tPvjP18hb_gl
 declare void @hb_font_funcs_set_glyph_contour_point_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL30hb_jdk_get_glyph_contour_pointP9hb_font_tPvjjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr nocapture readnone %6) #0 {
+define internal noundef i32 @_ZL30hb_jdk_get_glyph_contour_pointP9hb_font_tPvjjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture readnone %6) #0 {
   %8 = and i32 %2, 65534
   %9 = icmp eq i32 %8, 65534
   br i1 %9, label %10, label %11

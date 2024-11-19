@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @hash_algos = external local_unnamed_addr constant [3 x %struct.git_hash_algo], align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @oidtree_init(ptr noundef initializes((0, 8)) %ot) local_unnamed_addr #0 {
+define dso_local void @oidtree_init(ptr noundef %ot) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %ot, align 8
   %mem_pool = getelementptr inbounds i8, ptr %ot, i64 8

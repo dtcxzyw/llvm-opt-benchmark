@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [10 x i8] c"Transpose\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @dlasyf_rook_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6, ptr noundef %7, ptr noundef %8, ptr nocapture noundef initializes((0, 4)) %9) local_unnamed_addr #0 {
+define void @dlasyf_rook_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef %6, ptr noundef %7, ptr noundef %8, ptr nocapture noundef %9) local_unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4

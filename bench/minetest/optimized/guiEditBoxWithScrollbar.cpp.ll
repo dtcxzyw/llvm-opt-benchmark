@@ -695,7 +695,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23GUIEditBoxWithScrollBar16createVScrollBarEv(ptr nocapture noundef nonnull align 8 dereferenceable(512) initializes((480, 484)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23GUIEditBoxWithScrollBar16createVScrollBarEv(ptr nocapture noundef nonnull align 8 dereferenceable(512) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp37 = alloca i32, align 4
   %ref.tmp39 = alloca i32, align 4
@@ -883,7 +883,7 @@ if.end32:                                         ; preds = %if.then5, %if.end, 
 declare void @_ZN10GUIEditBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(496), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23GUIEditBoxWithScrollBarC1EPKwbPN3irr3gui15IGUIEnvironmentEPNS3_11IGUIElementEiRKNS2_4core4rectIiEEP20ISimpleTextureSourcebb(ptr noundef nonnull align 8 dereferenceable(512) initializes((512, 532)) %this, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rectangle, ptr noundef %tsrc, i1 noundef zeroext %writable, i1 noundef zeroext %has_vscrollbar) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23GUIEditBoxWithScrollBarC1EPKwbPN3irr3gui15IGUIEnvironmentEPNS3_11IGUIElementEiRKNS2_4core4rectIiEEP20ISimpleTextureSourcebb(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef readonly %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rectangle, ptr noundef %tsrc, i1 noundef zeroext %writable, i1 noundef zeroext %has_vscrollbar) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %text64 = ptrtoint ptr %text to i64
   %first.i = alloca ptr, align 8
@@ -1306,7 +1306,7 @@ invoke.cont36:                                    ; preds = %invoke.cont32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23GUIEditBoxWithScrollBar17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) initializes((496, 497)) %this, i1 noundef zeroext %draw) unnamed_addr #5 align 2 {
+define dso_local void @_ZN23GUIEditBoxWithScrollBar17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) %this, i1 noundef zeroext %draw) unnamed_addr #5 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %m_background = getelementptr inbounds i8, ptr %this, i64 496
@@ -4866,7 +4866,7 @@ declare void @_ZN12GUIScrollBar12setSmallStepERKi(ptr noundef nonnull align 8 de
 declare void @_ZN12GUIScrollBar12setLargeStepERKi(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23GUIEditBoxWithScrollBar18setBackgroundColorERKN3irr5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) initializes((497, 498), (500, 504)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %bg_color) unnamed_addr #9 align 2 {
+define dso_local void @_ZN23GUIEditBoxWithScrollBar18setBackgroundColorERKN3irr5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %bg_color) unnamed_addr #9 align 2 {
 entry:
   %m_bg_color = getelementptr inbounds i8, ptr %this, i64 500
   %0 = load i32, ptr %bg_color, align 4, !tbaa !51

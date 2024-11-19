@@ -184,7 +184,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.11") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev29ExposureContrastTransformImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.11") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25ExposureContrastTransformEED2Ev.exit:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   call void @_ZN19OpenColorIO_v2_4dev25ExposureContrastTransform6CreateEv(ptr nonnull sret(%"class.std::shared_ptr") align 8 %ref.tmp)
@@ -1546,7 +1546,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8setPivotEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((232, 240)) %this, double noundef %pivot) unnamed_addr #13 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl8setPivotEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %this, double noundef %pivot) unnamed_addr #13 align 2 {
 entry:
   %m_pivot.i = getelementptr inbounds i8, ptr %this, i64 232
   store double %pivot, ptr %m_pivot.i, align 8
@@ -1562,7 +1562,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl18setLogExposureStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((240, 248)) %this, double noundef %logExposureStep) unnamed_addr #13 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl18setLogExposureStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %this, double noundef %logExposureStep) unnamed_addr #13 align 2 {
 entry:
   %m_logExposureStep.i = getelementptr inbounds i8, ptr %this, i64 240
   store double %logExposureStep, ptr %m_logExposureStep.i, align 8
@@ -1578,7 +1578,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl13setLogMidGrayEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((248, 256)) %this, double noundef %logMidGray) unnamed_addr #13 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev29ExposureContrastTransformImpl13setLogMidGrayEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %this, double noundef %logMidGray) unnamed_addr #13 align 2 {
 entry:
   %m_logMidGray.i = getelementptr inbounds i8, ptr %this, i64 248
   store double %logMidGray, ptr %m_logMidGray.i, align 8

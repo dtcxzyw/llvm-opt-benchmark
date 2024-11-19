@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [6 x i8] c"%4ldP\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 268435458, 268435457) i32 @Curl_pgrsDone(ptr noundef initializes((2672, 2680), (2728, 2752)) %0) local_unnamed_addr #0 {
+define dso_local range(i32 268435458, 268435457) i32 @Curl_pgrsDone(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2672
   store i64 0, ptr %2, align 8
   %3 = tail call i32 @Curl_pgrsUpdate(ptr noundef %0)
@@ -61,7 +61,7 @@ define dso_local range(i32 268435458, 268435457) i32 @Curl_pgrsDone(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 268435458, 268435457) i32 @Curl_pgrsUpdate(ptr noundef initializes((2728, 2752)) %0) local_unnamed_addr #0 {
+define dso_local range(i32 268435458, 268435457) i32 @Curl_pgrsUpdate(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [6 x [10 x i8]], align 16
   %3 = alloca [10 x i8], align 1
   %4 = alloca [10 x i8], align 1
@@ -585,7 +585,7 @@ progress_meter.exit:                              ; preds = %266, %269, %271
 declare i32 @curl_mfprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @Curl_pgrsResetTransferSizes(ptr nocapture noundef initializes((2680, 2696)) %0) local_unnamed_addr #2 {
+define dso_local void @Curl_pgrsResetTransferSizes(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2680
   %3 = getelementptr inbounds i8, ptr %0, i64 2724
   store i64 0, ptr %2, align 8
@@ -598,7 +598,7 @@ define dso_local void @Curl_pgrsResetTransferSizes(ptr nocapture noundef initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @Curl_pgrsSetDownloadSize(ptr nocapture noundef initializes((2680, 2688)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local void @Curl_pgrsSetDownloadSize(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = icmp sgt i64 %1, -1
   %4 = getelementptr inbounds i8, ptr %0, i64 2680
   %5 = getelementptr inbounds i8, ptr %0, i64 2724
@@ -623,7 +623,7 @@ define dso_local void @Curl_pgrsSetDownloadSize(ptr nocapture noundef initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @Curl_pgrsSetUploadSize(ptr nocapture noundef initializes((2688, 2696)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define dso_local void @Curl_pgrsSetUploadSize(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = icmp sgt i64 %1, -1
   %4 = getelementptr inbounds i8, ptr %0, i64 2688
   %5 = getelementptr inbounds i8, ptr %0, i64 2724
@@ -770,7 +770,7 @@ define dso_local { i64, i32 } @Curl_pgrsTime(ptr nocapture noundef %0, i32 nound
 declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_pgrsStartNow(ptr nocapture noundef initializes((2808, 2820), (3064, 3068)) %0) local_unnamed_addr #0 {
+define dso_local void @Curl_pgrsStartNow(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3064
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2808
@@ -940,7 +940,7 @@ define dso_local i64 @Curl_pgrsLimitWaitTime(i64 noundef %0, i64 noundef %1, i64
 declare i64 @Curl_timediff_ceil(i64, i32, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @Curl_pgrsSetDownloadCounter(ptr nocapture noundef writeonly initializes((2696, 2704)) %0, i64 noundef %1) local_unnamed_addr #4 {
+define dso_local noundef i32 @Curl_pgrsSetDownloadCounter(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2696
   store i64 %1, ptr %3, align 8
   ret i32 0
@@ -949,7 +949,7 @@ define dso_local noundef i32 @Curl_pgrsSetDownloadCounter(ptr nocapture noundef 
 declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_pgrsSetUploadCounter(ptr nocapture noundef writeonly initializes((2704, 2712)) %0, i64 noundef %1) local_unnamed_addr #4 {
+define dso_local void @Curl_pgrsSetUploadCounter(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2704
   store i64 %1, ptr %3, align 8
   ret void

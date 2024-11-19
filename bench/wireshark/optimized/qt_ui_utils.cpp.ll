@@ -313,7 +313,7 @@ define void @_Z29gbytearray_free_to_qbytearrayP11_GByteArray(ptr dead_on_unwind 
 declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14int_to_qstringxii(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z14int_to_qstringxii(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -532,7 +532,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18address_to_qstringPK8_addressb(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z18address_to_qstringPK8_addressb(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -643,7 +643,7 @@ declare ptr @address_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26address_to_display_qstringPK8_address(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z26address_to_display_qstringPK8_address(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not = icmp eq ptr %1, null
@@ -697,7 +697,7 @@ _ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPoi
 declare ptr @address_to_display(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14val_to_qstringjPK13_value_stringPKc(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z14val_to_qstringjPK13_value_stringPKc(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = invoke ptr @val_to_str_wmem(ptr noundef null, i32 noundef %1, ptr noundef %2, ptr noundef %3)
@@ -747,7 +747,7 @@ _ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPoi
 declare ptr @val_to_str_wmem(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18val_ext_to_qstringjP17_value_string_extPKc(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z18val_ext_to_qstringjP17_value_string_extPKc(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = invoke ptr @val_to_str_ext_wmem(ptr noundef null, i32 noundef %1, ptr noundef %2, ptr noundef %3)
@@ -797,7 +797,7 @@ _ZN14QByteArrayViewC2IPKcTnNSt9enable_ifIXsr9QtPrivate28IsCompatibleByteArrayPoi
 declare ptr @val_to_str_ext_wmem(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z16range_to_qstringPK13_range_string(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z16range_to_qstringPK13_range_string(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -1609,7 +1609,7 @@ define void @_Z44set_action_shortcuts_visible_in_context_menu5QListIP7QActionE(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26qvector_rtpstream_ids_copy5QListIP13_rtpstream_idE(ptr dead_on_unwind noalias writable sret(%class.QList.13) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z26qvector_rtpstream_ids_copy5QListIP13_rtpstream_idE(ptr dead_on_unwind noalias writable sret(%class.QList.13) align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8, !noalias !16
@@ -1783,7 +1783,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP13_rtpstream_idEED2Ev.exit5: ; preds = 
 declare void @rtpstream_id_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z33make_filter_based_on_rtpstream_id5QListIP13_rtpstream_idE(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z33make_filter_based_on_rtpstream_id5QListIP13_rtpstream_idE(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8

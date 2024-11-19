@@ -127,7 +127,7 @@ $_ZN10tinyformat6detail15formatTruncatedIiEEvRNSt3__113basic_ostreamIcNS2_11char
 @_ZN7mitsuba14RadicalInverseC1Emi = unnamed_addr alias void (ptr, i64, i32), ptr @_ZN7mitsuba14RadicalInverseC2Emi
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba14RadicalInverseC2Emi(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 12), (16, 68)) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba14RadicalInverseC2Emi(ptr noundef nonnull align 8 dereferenceable(68) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__1::basic_string", align 8
   %5 = alloca %"class.std::__1::basic_string", align 8
   %6 = alloca %"class.std::__1::basic_string", align 8

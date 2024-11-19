@@ -168,7 +168,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core8channelz12ChannelTrace10TraceEventC2ENS1_8SeverityERK10grpc_sliceNS_13RefCountedPtrINS0_8BaseNodeEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 4), (8, 72)) %this, i32 noundef %severity, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %data, ptr nocapture noundef %referenced_entity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz12ChannelTrace10TraceEventC2ENS1_8SeverityERK10grpc_sliceNS_13RefCountedPtrINS0_8BaseNodeEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %severity, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %data, ptr nocapture noundef %referenced_entity) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::Timestamp", align 8
   store i32 %severity, ptr %this, align 8
@@ -244,7 +244,7 @@ declare noundef i64 @_Z23grpc_slice_memory_usage10grpc_slice(ptr noundef byval(%
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core8channelz12ChannelTrace10TraceEventC2ENS1_8SeverityERK10grpc_slice(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 4), (8, 72)) %this, i32 noundef %severity, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %data) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz12ChannelTrace10TraceEventC2ENS1_8SeverityERK10grpc_slice(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %severity, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %data) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::Timestamp", align 8
   store i32 %severity, ptr %this, align 8
@@ -369,7 +369,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core8channelz12ChannelTraceC2Em(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 48)) %this, i64 noundef %max_event_memory) unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core8channelz12ChannelTraceC2Em(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %max_event_memory) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp3 = alloca %"class.grpc_core::Timestamp", align 8
   %num_events_logged_ = getelementptr inbounds i8, ptr %this, i64 8

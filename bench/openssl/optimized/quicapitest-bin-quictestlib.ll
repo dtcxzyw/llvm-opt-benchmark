@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.40 = private unnamed_addr constant [36 x i8] c"BIO_ADDR_copy(dst->peer, src->peer)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %libctx, ptr noundef %clientctx, ptr noundef %serverctx, ptr noundef %certfile, ptr noundef %keyfile, i32 noundef %flags, ptr nocapture noundef initializes((0, 8)) %qtserv, ptr nocapture noundef %cssl, ptr noundef %fault, ptr noundef writeonly %tracebio) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %libctx, ptr noundef %clientctx, ptr noundef %serverctx, ptr noundef %certfile, ptr noundef %keyfile, i32 noundef %flags, ptr nocapture noundef %qtserv, ptr nocapture noundef %cssl, ptr noundef %fault, ptr noundef writeonly %tracebio) local_unnamed_addr #0 {
 entry:
   %alpn = alloca [9 x i8], align 1
   %tserver_args = alloca %struct.quic_tserver_args_st, align 8
@@ -1312,7 +1312,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @packet_plain_finish(ptr nocapture noundef initializes((104, 120)) %arg) #0 {
+define internal void @packet_plain_finish(ptr nocapture noundef %arg) #0 {
 entry:
   %pplainio = getelementptr inbounds i8, ptr %arg, i64 96
   %0 = load ptr, ptr %pplainio, align 8
@@ -1332,7 +1332,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @qtest_fault_set_packet_plain_listener(ptr noundef initializes((120, 136)) %fault, ptr noundef %pplaincb, ptr noundef %pplaincbarg) local_unnamed_addr #0 {
+define dso_local i32 @qtest_fault_set_packet_plain_listener(ptr noundef %fault, ptr noundef %pplaincb, ptr noundef %pplaincbarg) local_unnamed_addr #0 {
 entry:
   %pplaincb1 = getelementptr inbounds i8, ptr %fault, i64 120
   store ptr %pplaincb, ptr %pplaincb1, align 8
@@ -1509,7 +1509,7 @@ return:                                           ; preds = %qtest_fault_resize_
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @qtest_fault_set_handshake_listener(ptr noundef initializes((160, 176)) %fault, ptr noundef %handshakecb, ptr noundef %handshakecbarg) local_unnamed_addr #0 {
+define dso_local i32 @qtest_fault_set_handshake_listener(ptr noundef %fault, ptr noundef %handshakecb, ptr noundef %handshakecbarg) local_unnamed_addr #0 {
 entry:
   %handshakecb1 = getelementptr inbounds i8, ptr %fault, i64 160
   store ptr %handshakecb, ptr %handshakecb1, align 8
@@ -1612,7 +1612,7 @@ return:                                           ; preds = %lor.lhs.false5, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @qtest_fault_set_hand_enc_ext_listener(ptr noundef initializes((176, 192)) %fault, ptr noundef %encextcb, ptr noundef %encextcbarg) local_unnamed_addr #0 {
+define dso_local i32 @qtest_fault_set_hand_enc_ext_listener(ptr noundef %fault, ptr noundef %encextcb, ptr noundef %encextcbarg) local_unnamed_addr #0 {
 entry:
   %encextcb1 = getelementptr inbounds i8, ptr %fault, i64 176
   store ptr %encextcb, ptr %encextcb1, align 8
@@ -2056,7 +2056,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @BIO_meth_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @qtest_fault_set_packet_cipher_listener(ptr nocapture noundef writeonly initializes((192, 208)) %fault, ptr noundef %pciphercb, ptr noundef %pciphercbarg) local_unnamed_addr #7 {
+define dso_local noundef i32 @qtest_fault_set_packet_cipher_listener(ptr nocapture noundef writeonly %fault, ptr noundef %pciphercb, ptr noundef %pciphercbarg) local_unnamed_addr #7 {
 entry:
   %pciphercb1 = getelementptr inbounds i8, ptr %fault, i64 192
   store ptr %pciphercb, ptr %pciphercb1, align 8
@@ -2066,7 +2066,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @qtest_fault_set_datagram_listener(ptr nocapture noundef writeonly initializes((208, 224)) %fault, ptr noundef %datagramcb, ptr noundef %datagramcbarg) local_unnamed_addr #7 {
+define dso_local noundef i32 @qtest_fault_set_datagram_listener(ptr nocapture noundef writeonly %fault, ptr noundef %datagramcb, ptr noundef %datagramcbarg) local_unnamed_addr #7 {
 entry:
   %datagramcb1 = getelementptr inbounds i8, ptr %fault, i64 208
   store ptr %datagramcb, ptr %datagramcb1, align 8
@@ -2107,7 +2107,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @bio_msg_copy(ptr nocapture noundef initializes((8, 16), (32, 40)) %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @bio_msg_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %dst, align 8
   %1 = load ptr, ptr %src, align 8

@@ -54,7 +54,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8TGAImageC2Eiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 9)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8TGAImageC2Eiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4

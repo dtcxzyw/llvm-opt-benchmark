@@ -1154,7 +1154,7 @@ _ZN5boost10shared_ptrIN8QuantLib8Calendar4ImplEED2Ev.exit: ; preds = %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib11EquityIndexC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8CalendarENS_6HandleINS_18YieldTermStructureEEESA_NS8_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(224) initializes((16, 20), (24, 32)) %this, ptr noundef %name, ptr nocapture noundef %fixingCalendar, ptr nocapture noundef %interest, ptr nocapture noundef %dividend, ptr nocapture noundef %spot) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib11EquityIndexC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8CalendarENS_6HandleINS_18YieldTermStructureEEESA_NS8_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %name, ptr nocapture noundef %fixingCalendar, ptr nocapture noundef %interest, ptr nocapture noundef %dividend, ptr nocapture noundef %spot) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Calendar", align 8
@@ -1469,7 +1469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %_ZN
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib11EquityIndexC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8CalendarENS_8CurrencyENS_6HandleINS_18YieldTermStructureEEESB_NS9_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(224) initializes((16, 20), (24, 32)) %this, ptr noundef %name, ptr nocapture noundef %fixingCalendar, ptr nocapture noundef %currency, ptr nocapture noundef %interest, ptr nocapture noundef %dividend, ptr nocapture noundef %spot) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib11EquityIndexC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8CalendarENS_8CurrencyENS_6HandleINS_18YieldTermStructureEEESB_NS9_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %name, ptr nocapture noundef %fixingCalendar, ptr nocapture noundef %currency, ptr nocapture noundef %interest, ptr nocapture noundef %dividend, ptr nocapture noundef %spot) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8

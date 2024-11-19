@@ -257,7 +257,7 @@ define dso_local void @intel_gt_park_heartbeats(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_engine_init_heartbeat(ptr noundef initializes((224, 232)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_engine_init_heartbeat(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 232

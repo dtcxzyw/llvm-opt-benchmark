@@ -611,7 +611,7 @@ declare void @_ZN6colvar3cvc14get_atom_listsEv(ptr dead_on_unwind writable sret(
 declare void @_ZN6colvar3cvc9read_dataEv(ptr noundef nonnull align 8 dereferenceable(1648)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar9map_total10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1720) initializes((640, 648)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar9map_total10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1720) %0) unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_ZN12colvarmodule4mainEv()
   %3 = load ptr, ptr @_ZN12colvarmodule5proxyE, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1688

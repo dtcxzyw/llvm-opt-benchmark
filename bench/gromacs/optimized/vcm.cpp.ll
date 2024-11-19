@@ -85,7 +85,7 @@ define noundef ptr @_Z17enumValueToString19ComRemovalAlgorithm(i32 noundef %0) l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5t_vcmC2ERK16SimulationGroupsRK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 257)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %1, ptr noundef nonnull align 8 dereferenceable(856) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5t_vcmC2ERK16SimulationGroupsRK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(504) %1, ptr noundef nonnull align 8 dereferenceable(856) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8

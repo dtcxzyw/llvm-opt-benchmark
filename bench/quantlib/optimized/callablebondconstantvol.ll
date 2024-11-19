@@ -1284,7 +1284,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30CallableBondConstantVolatilityC1ERKNS_4DateEdNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(112) initializes((112, 120), (128, 132), (136, 144)) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, double noundef %volatility, ptr nocapture noundef %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30CallableBondConstantVolatilityC1ERKNS_4DateEdNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, double noundef %volatility, ptr nocapture noundef %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Calendar", align 8
   %ref.tmp2 = alloca %"class.QuantLib::DayCounter", align 8
@@ -1981,7 +1981,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30CallableBondConstantVolatilityC1ERKNS_4DateENS_6HandleINS_5QuoteEEENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(112) initializes((112, 120), (128, 132), (136, 144)) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef %volatility, ptr nocapture noundef %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30CallableBondConstantVolatilityC1ERKNS_4DateENS_6HandleINS_5QuoteEEENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr nocapture noundef %volatility, ptr nocapture noundef %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Calendar", align 8
   %ref.tmp2 = alloca %"class.QuantLib::DayCounter", align 8
@@ -2590,7 +2590,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 declare void @_ZN8QuantLib31CallableBondVolatilityStructureC2EjRKNS_8CalendarERKNS_10DayCounterENS_21BusinessDayConventionE(ptr noundef nonnull align 8 dereferenceable(68), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30CallableBondConstantVolatilityC1EjRKNS_8CalendarEdNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(112) initializes((112, 120), (128, 132), (136, 144)) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, double noundef %volatility, ptr nocapture noundef %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30CallableBondConstantVolatilityC1EjRKNS_8CalendarEdNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, double noundef %volatility, ptr nocapture noundef %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %ref.tmp3 = alloca %"class.boost::shared_ptr.21", align 8
@@ -3152,7 +3152,7 @@ eh.resume:                                        ; preds = %lpad17, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30CallableBondConstantVolatilityC1EjRKNS_8CalendarENS_6HandleINS_5QuoteEEENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(112) initializes((112, 120), (128, 132), (136, 144)) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, ptr nocapture noundef %volatility, ptr nocapture noundef %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30CallableBondConstantVolatilityC1EjRKNS_8CalendarENS_6HandleINS_5QuoteEEENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(112) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, ptr nocapture noundef %volatility, ptr nocapture noundef %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %ref.tmp6 = alloca %"class.boost::shared_ptr", align 8

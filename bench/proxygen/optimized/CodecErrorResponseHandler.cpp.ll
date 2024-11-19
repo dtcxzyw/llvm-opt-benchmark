@@ -92,7 +92,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen25CodecErrorResponseHandlerC2ENS_9ErrorCodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i8 zeroext %0) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen25CodecErrorResponseHandlerC2ENS_9ErrorCodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 zeroext %0) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen25CodecErrorResponseHandlerE, i64 16), ptr %this, align 8
   %txn_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -118,7 +118,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen25CodecErrorResponseHandler14setTransactionEPNS_15HTTPTransactionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this, ptr noundef %txn) unnamed_addr #3 align 2 {
+define void @_ZN8proxygen25CodecErrorResponseHandler14setTransactionEPNS_15HTTPTransactionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %txn) unnamed_addr #3 align 2 {
 entry:
   %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %txn, ptr %txn_, align 8

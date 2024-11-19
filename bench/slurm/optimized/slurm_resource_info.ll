@@ -870,7 +870,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare i32 @xstrncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #2 {
+define internal fastcc ptr @_expand_mult(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -1032,7 +1032,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #3
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @xlate_cpu_bind_str(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @xlate_cpu_bind_str(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %3, align 8

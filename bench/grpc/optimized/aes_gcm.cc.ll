@@ -94,7 +94,7 @@ $_ZTIN9grpc_core16GsecKeyInterfaceE = comdat any
 @_ZN9grpc_core7GsecKeyC1EN4absl12lts_202308024SpanIKhEEb = unnamed_addr alias void (ptr, ptr, i64, i1), ptr @_ZN9grpc_core7GsecKeyC2EN4absl12lts_202308024SpanIKhEEb
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14GsecKeyFactoryC2EN4absl12lts_202308024SpanIKhEEb(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((0, 32)) %this, ptr nocapture readonly %key.coerce0, i64 %key.coerce1, i1 noundef zeroext %is_rekey) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14GsecKeyFactoryC2EN4absl12lts_202308024SpanIKhEEb(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this, ptr nocapture readonly %key.coerce0, i64 %key.coerce1, i1 noundef zeroext %is_rekey) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -180,7 +180,7 @@ _ZNSt10unique_ptrIN9grpc_core7GsecKeyESt14default_deleteIS1_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core7GsecKeyC2EN4absl12lts_202308024SpanIKhEEb(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 9), (16, 136)) %this, ptr nocapture readonly %key.coerce0, i64 %key.coerce1, i1 noundef zeroext %is_rekey) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core7GsecKeyC2EN4absl12lts_202308024SpanIKhEEb(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture readonly %key.coerce0, i64 %key.coerce1, i1 noundef zeroext %is_rekey) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i8, align 1
   %frombool = zext i1 %is_rekey to i8

@@ -2222,7 +2222,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly9FormatArg8initSlowEv(ptr noundef nonnull align 8 dereferenceable(84) initializes((40, 56)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly9FormatArg8initSlowEv(ptr noundef nonnull align 8 dereferenceable(84) %this) local_unnamed_addr #0 align 2 {
 entry:
   %src.i.i.i = alloca %"class.folly::Range", align 8
   %src.i = alloca %"class.folly::Range", align 8

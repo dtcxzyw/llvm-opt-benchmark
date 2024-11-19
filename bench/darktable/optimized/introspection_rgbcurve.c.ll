@@ -1565,7 +1565,7 @@ define void @change_image(ptr nocapture noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 3240) #24
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -5154,7 +5154,7 @@ define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #1 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #1 {
+define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = tail call ptr @dt_alloc_aligned(i64 noundef 787544) #24
   call void @llvm.assume(i1 true) [ "align"(ptr %4, i64 64) ]
   %5 = getelementptr inbounds i8, ptr %0, i64 688
@@ -5729,7 +5729,7 @@ define void @init(ptr noundef %0) local_unnamed_addr #1 {
 declare void @dt_iop_default_init(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #1 {
+define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 4) #24
   call void @llvm.assume(i1 true) [ "align"(ptr %2, i64 64) ]
   %3 = getelementptr inbounds i8, ptr %0, i64 528
@@ -7458,7 +7458,7 @@ declare void @gtk_notebook_set_show_tabs(ptr noundef, i32 noundef) local_unnamed
 declare void @gtk_widget_set_visible(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 12)) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #19 {
+define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i32 noundef %4) unnamed_addr #19 {
   %6 = add nsw i32 %4, -1
   %7 = sitofp i32 %6 to float
   %8 = add nsw i32 %4, -2

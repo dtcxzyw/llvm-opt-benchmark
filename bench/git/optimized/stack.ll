@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.remove_maybe_stale_table.table_path = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @reftable_new_stack(ptr nocapture noundef writeonly initializes((0, 8)) %dest, ptr noundef %dir, ptr nocapture noundef byval(%struct.reftable_write_options) align 8 %config) local_unnamed_addr #0 {
+define dso_local i32 @reftable_new_stack(ptr nocapture noundef writeonly %dest, ptr noundef %dir, ptr nocapture noundef byval(%struct.reftable_write_options) align 8 %config) local_unnamed_addr #0 {
 strbuf_setlen.exit:
   %list_file_name = alloca %struct.strbuf, align 8
   %call = tail call ptr @reftable_calloc(i64 noundef 96) #14
@@ -671,7 +671,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 declare ptr @reader_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @stack_filename(ptr noundef nonnull initializes((8, 16)) %dest, ptr nocapture noundef readonly %st, ptr noundef %name) unnamed_addr #0 {
+define internal fastcc void @stack_filename(ptr noundef nonnull %dest, ptr nocapture noundef readonly %st, ptr noundef %name) unnamed_addr #0 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 0, ptr %len2.i, align 8
@@ -1129,7 +1129,7 @@ return:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -5, 2) i32 @reftable_stack_new_addition(ptr nocapture noundef initializes((0, 8)) %dest, ptr noundef %st) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 2) i32 @reftable_stack_new_addition(ptr nocapture noundef %dest, ptr noundef %st) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @reftable_calloc(i64 noundef 40) #14
   store ptr %call, ptr %dest, align 8
@@ -1153,7 +1153,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -5, 2) i32 @reftable_stack_init_addition(ptr noundef initializes((0, 16)) %add, ptr noundef %st) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 2) i32 @reftable_stack_init_addition(ptr noundef %add, ptr noundef %st) unnamed_addr #0 {
 entry:
   %names.i = alloca ptr, align 8
   %lock_file_name = alloca %struct.strbuf, align 8
@@ -1614,7 +1614,7 @@ if.end68:                                         ; preds = %if.then65, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @format_name(ptr noundef nonnull initializes((8, 16)) %dest, i64 noundef %min, i64 noundef %max) unnamed_addr #0 {
+define internal fastcc void @format_name(ptr noundef nonnull %dest, i64 noundef %min, i64 noundef %max) unnamed_addr #0 {
 entry:
   %buf = alloca [100 x i8], align 16
   %call = tail call i32 @git_rand() #14
@@ -2743,7 +2743,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @stack_compact_locked(ptr noundef %st, i32 noundef %first, i32 noundef %last, ptr noundef nonnull initializes((8, 16)) %temp_tab, ptr noundef readonly %config) unnamed_addr #0 {
+define internal fastcc i32 @stack_compact_locked(ptr noundef %st, i32 noundef %first, i32 noundef %last, ptr noundef nonnull %temp_tab, ptr noundef readonly %config) unnamed_addr #0 {
 format_name.exit:
   %mt.i = alloca ptr, align 8
   %it.i = alloca %struct.reftable_iterator, align 8

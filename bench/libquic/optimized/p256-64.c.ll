@@ -5328,7 +5328,7 @@ return:                                           ; preds = %flip_endian.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @felem_mul(ptr nocapture noundef nonnull writeonly initializes((0, 128)) %out, ptr nocapture noundef nonnull readonly %in1, ptr nocapture noundef nonnull readonly %in2) unnamed_addr #3 {
+define internal fastcc void @felem_mul(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull readonly %in1, ptr nocapture noundef nonnull readonly %in2) unnamed_addr #3 {
 entry:
   %small1 = alloca [4 x i64], align 16
   %small2 = alloca [4 x i64], align 16
@@ -5467,7 +5467,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @felem_contract(ptr nocapture noundef nonnull initializes((0, 32)) %out, ptr nocapture noundef nonnull readonly %in) unnamed_addr #4 {
+define internal fastcc void @felem_contract(ptr nocapture noundef nonnull %out, ptr nocapture noundef nonnull readonly %in) unnamed_addr #4 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %in, i64 48
   %0 = load i128, ptr %arrayidx.i, align 16
@@ -5616,7 +5616,7 @@ declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #1
 declare i64 @BN_bn2bin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @smallfelem_mul(ptr nocapture noundef nonnull writeonly initializes((0, 128)) %out, ptr nocapture noundef nonnull readonly %small1, ptr nocapture noundef nonnull readonly %small2) unnamed_addr #3 {
+define internal fastcc void @smallfelem_mul(ptr nocapture noundef nonnull writeonly %out, ptr nocapture noundef nonnull readonly %small1, ptr nocapture noundef nonnull readonly %small2) unnamed_addr #3 {
 entry:
   %0 = load i64, ptr %small1, align 8
   %conv = zext i64 %0 to i128
@@ -7837,7 +7837,7 @@ return:                                           ; preds = %copy_conditional.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @point_double(ptr nocapture noundef nonnull initializes((0, 64)) %x_out, ptr nocapture noundef nonnull writeonly initializes((0, 64)) %y_out, ptr nocapture noundef nonnull writeonly initializes((0, 64)) %z_out, ptr nocapture noundef nonnull readonly %x_in, ptr nocapture noundef nonnull readonly %y_in, ptr nocapture noundef nonnull readonly %z_in) unnamed_addr #3 {
+define internal fastcc void @point_double(ptr nocapture noundef nonnull %x_out, ptr nocapture noundef nonnull writeonly %y_out, ptr nocapture noundef nonnull writeonly %z_out, ptr nocapture noundef nonnull readonly %x_in, ptr nocapture noundef nonnull readonly %y_in, ptr nocapture noundef nonnull readonly %z_in) unnamed_addr #3 {
 entry:
   %small2.i573 = alloca [4 x i64], align 16
   %small2.i = alloca [4 x i64], align 16

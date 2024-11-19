@@ -93,7 +93,7 @@ define void @_ZN17ExtArgMultiSelectC2EP11_extcap_argP7QObject(ptr noundef nonnul
 declare void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17ExtArgMultiSelectD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN17ExtArgMultiSelectD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ExtArgMultiSelect, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
@@ -139,7 +139,7 @@ define void @_ZN17ExtArgMultiSelectD0Ev(ptr noundef nonnull align 8 dereferencea
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17ExtArgMultiSelect11valueWalkerE5QListI11ExtcapValueERS0_I7QStringE(ptr dead_on_unwind noalias writable sret(%class.QList.1) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17ExtArgMultiSelect11valueWalkerE5QListI11ExtcapValueERS0_I7QStringE(ptr dead_on_unwind noalias writable sret(%class.QList.1) align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QVariant, align 8

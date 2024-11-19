@@ -4089,7 +4089,7 @@ define dso_local void @zend_init_func_run_time_cache(ptr nocapture noundef %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_init_func_execute_data(ptr noundef initializes((0, 24), (48, 56)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local void @zend_init_func_execute_data(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %4, ptr %5, align 8
@@ -4411,7 +4411,7 @@ define internal fastcc void @init_func_run_time_cache(ptr nocapture noundef %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_init_code_execute_data(ptr noundef initializes((0, 24), (48, 56)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local void @zend_init_code_execute_data(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 488), align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %4, ptr %5, align 8
@@ -4479,7 +4479,7 @@ define dso_local void @zend_init_code_execute_data(ptr noundef initializes((0, 2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_init_execute_data(ptr noundef initializes((0, 24), (48, 56)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local void @zend_init_execute_data(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 1048576

@@ -2343,7 +2343,7 @@ _ZNSt10unique_ptrIN5arrow8internal19DictionaryMemoTable23DictionaryMemoTableImpl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_11BooleanTypeEbPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i1 noundef zeroext %value, ptr nocapture noundef writeonly initializes((0, 4)) %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal19DictionaryMemoTable11GetOrInsertEPKNS_11BooleanTypeEbPi(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %0, i1 noundef zeroext %value, ptr nocapture noundef writeonly %out) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
@@ -34369,7 +34369,7 @@ ehcleanup55:                                      ; preds = %ehcleanup51, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -35461,7 +35461,7 @@ ehcleanup55:                                      ; preds = %ehcleanup51, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -37479,7 +37479,7 @@ ehcleanup55:                                      ; preds = %ehcleanup51, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -42187,7 +42187,7 @@ cleanup91:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -45799,7 +45799,7 @@ cleanup90:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.212", align 8
   %vtable = load ptr, ptr %memo_table, align 8

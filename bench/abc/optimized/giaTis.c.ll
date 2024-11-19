@@ -845,7 +845,7 @@ Vec_IntPush.exit57:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManTisCollectMffc(ptr noundef %0, i32 noundef %1, ptr noundef initializes((4, 8)) %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define void @Gia_ManTisCollectMffc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %5, align 8
   %6 = sext i32 %1 to i64

@@ -52,7 +52,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11btUnionFind4FreeEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((4, 12)) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN11btUnionFind4FreeEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8
@@ -95,7 +95,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11btUnionFindC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((4, 12), (16, 25)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN11btUnionFindC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8

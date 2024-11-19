@@ -3301,7 +3301,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @rtl8139_pre_save(ptr nocapture noundef initializes((11116, 11120), (11776, 11780)) %opaque) #0 {
+define internal noundef i32 @rtl8139_pre_save(ptr nocapture noundef %opaque) #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #12
   %TCTR_base = getelementptr inbounds i8, ptr %opaque, i64 11128

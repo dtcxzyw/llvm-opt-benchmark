@@ -512,7 +512,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN27grpc_google_iam_credentialsC2EPKcS1_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 20), (56, 57)) %this, ptr noundef %token, ptr noundef %authority_selector) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN27grpc_google_iam_credentialsC2EPKcS1_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %token, ptr noundef %authority_selector) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp.i.i6 = alloca %struct.grpc_slice, align 8

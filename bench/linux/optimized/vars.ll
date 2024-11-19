@@ -516,7 +516,7 @@ declare dso_local i64 @efivar_set_variable_locked(ptr noundef, ptr noundef, i32 
 declare dso_local i32 @efi_status_to_err(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @efivar_entry_size(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @efivar_entry_size(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   store i64 0, ptr %1, align 8
   %3 = tail call i32 @efivar_lock() #14
   %4 = icmp eq i32 %3, 0
@@ -567,7 +567,7 @@ define dso_local i32 @efivar_entry_get(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @efivar_entry_set_get_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @efivar_entry_set_get_size(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 1024
   store i8 0, ptr %4, align 1
   %7 = load i64, ptr %2, align 8

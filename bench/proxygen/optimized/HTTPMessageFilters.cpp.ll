@@ -346,7 +346,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen17HTTPMessageFilter6resumeEm(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((48, 49)) %this, i64 noundef %offset) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen17HTTPMessageFilter6resumeEm(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this, i64 noundef %offset) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nextElementIsPaused_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %nextElementIsPaused_, align 8

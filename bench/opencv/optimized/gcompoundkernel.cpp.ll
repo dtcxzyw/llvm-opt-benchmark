@@ -120,7 +120,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv6detail16GCompoundContextC2ERKSt6vectorINS_4GArgESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv6detail16GCompoundContextC2ERKSt6vectorINS_4GArgESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::GScalar", align 8
   %4 = alloca %"class.cv::GMat", align 8
   %5 = alloca %"class.cv::util::bad_any_cast", align 8
@@ -856,7 +856,7 @@ _ZNSt12_Vector_baseIN2cv4GArgESaIS1_EED2Ev.exit:  ; preds = %_ZSt8_DestroyIPN2cv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail15GCompoundKernelC2ERKSt8functionIFvRNS0_16GCompoundContextEEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail15GCompoundKernelC2ERKSt8functionIFvRNS0_16GCompoundContextEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = getelementptr inbounds i8, ptr %1, i64 16

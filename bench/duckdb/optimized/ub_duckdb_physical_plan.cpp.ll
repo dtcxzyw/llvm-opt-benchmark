@@ -1312,7 +1312,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_ub_duckdb_physical_plan.cpp, ptr null }]
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb21PhysicalPlanGenerator10CreatePlanERNS_16LogicalAggregateE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(224) %op) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21PhysicalPlanGenerator10CreatePlanERNS_16LogicalAggregateE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(224) %op) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.duckdb::unique_ptr.87", align 8
   %ref.tmp24.i = alloca %"class.duckdb::BaseStatistics", align 8
@@ -17751,7 +17751,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11DuckCatalog17PlanCreateTableAsERNS_13ClientContextERNS_18LogicalCreateTableENS_10unique_ptrINS_16PhysicalOperatorESt14default_deleteIS6_ELb1EEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(120) %op, ptr noundef nonnull %plan) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11DuckCatalog17PlanCreateTableAsERNS_13ClientContextERNS_18LogicalCreateTableENS_10unique_ptrINS_16PhysicalOperatorESt14default_deleteIS6_ELb1EEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(120) %op, ptr noundef nonnull %plan) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i51 = alloca %"class.duckdb::unique_ptr.685", align 8
   %agg.tmp.i = alloca %"class.duckdb::unique_ptr.685", align 8
@@ -26393,7 +26393,7 @@ _ZN6duckdb6vectorImLb1EE3getILb1EEERmm.exit:      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb20CreateTableFilterSetERNS_14TableFilterSetERNS_6vectorImLb1EEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.1142") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %table_filters, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %column_ids) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb20CreateTableFilterSetERNS_14TableFilterSetERNS_6vectorImLb1EEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.1142") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %table_filters, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %column_ids) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %__node5.i.i = alloca %"struct.std::_Hashtable<unsigned long, std::pair<const unsigned long, duckdb::unique_ptr<duckdb::TableFilter>>, std::allocator<std::pair<const unsigned long, duckdb::unique_ptr<duckdb::TableFilter>>>, std::__detail::_Select1st, std::equal_to<unsigned long>, std::hash<unsigned long>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -29897,7 +29897,7 @@ _ZN6duckdb21PhysicalPlanGenerator13UseBatchIndexERNS_13ClientContextERNS_16Physi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11DuckCatalog10PlanInsertERNS_13ClientContextERNS_13LogicalInsertENS_10unique_ptrINS_16PhysicalOperatorESt14default_deleteIS6_ELb1EEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(432) %op, ptr noundef nonnull %plan) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11DuckCatalog10PlanInsertERNS_13ClientContextERNS_13LogicalInsertENS_10unique_ptrINS_16PhysicalOperatorESt14default_deleteIS6_ELb1EEE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(432) %op, ptr noundef nonnull %plan) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp17 = alloca %"class.duckdb::unique_ptr.676", align 8
   %ref.tmp20 = alloca %"class.duckdb::unique_ptr.694", align 8
@@ -30782,7 +30782,7 @@ _ZNSt10unique_ptrIN6duckdb16PhysicalOperatorESt14default_deleteIS1_EED2Ev.exit39
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb21PhysicalPlanGenerator10CreatePlanERNS_12LogicalLimitE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(136) %op) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21PhysicalPlanGenerator10CreatePlanERNS_12LogicalLimitE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(136) %op) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %plan = alloca %"class.duckdb::unique_ptr", align 8
   %ref.tmp6 = alloca %"class.duckdb::unique_ptr.1214", align 8
@@ -33262,7 +33262,7 @@ _ZNSt10unique_ptrIN6duckdb16PhysicalOperatorESt14default_deleteIS1_EED2Ev.exit92
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb21PhysicalPlanGenerator10CreatePlanERNS_19LogicalSetOperationE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(122) %op) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21PhysicalPlanGenerator10CreatePlanERNS_19LogicalSetOperationE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(122) %op) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i594 = alloca %"struct.duckdb::LogicalType", align 8
   %agg.tmp.i = alloca %"struct.duckdb::LogicalType", align 8
@@ -35603,7 +35603,7 @@ cleanup.action:                                   ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL27CreateNotDistinctComparisonERKNS_11LogicalTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %type, i64 noundef %i) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL27CreateNotDistinctComparisonERKNS_11LogicalTypeEm(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %type, i64 noundef %i) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i14 = alloca %"struct.duckdb::LogicalType", align 8
   %agg.tmp.i = alloca %"struct.duckdb::LogicalType", align 8
@@ -35694,7 +35694,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad, %clea
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL33CreatePartitionedRowNumExpressionERKNS_6vectorINS_11LogicalTypeELb1EEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %types) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL33CreatePartitionedRowNumExpressionERKNS_6vectorINS_11LogicalTypeELb1EEE(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %types) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.duckdb::LogicalType", align 8
   %expr = alloca %"class.duckdb::unique_ptr.270", align 8
@@ -36294,7 +36294,7 @@ _ZNSt10unique_ptrIN6duckdb13PhysicalResetESt14default_deleteIS1_EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb21PhysicalPlanGenerator10CreatePlanERNS_13LogicalSampleE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(112) %op) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21PhysicalPlanGenerator10CreatePlanERNS_13LogicalSampleE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(112) %op) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i105 = alloca %"class.duckdb::vector.42", align 8
   %agg.tmp.i = alloca %"class.duckdb::vector.42", align 16

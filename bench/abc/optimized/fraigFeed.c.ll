@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [50 x i8] c"Nodes %d and %d have the same D simulation info.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Fraig_FeedBackInit(ptr nocapture noundef initializes((152, 192)) %0) local_unnamed_addr #0 {
+define void @Fraig_FeedBackInit(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @Fraig_NodeVecAlloc(i32 noundef 500) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %2, ptr %3, align 8

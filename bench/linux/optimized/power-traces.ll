@@ -3525,7 +3525,7 @@ define internal i32 @trace_raw_output_cpu_frequency_limits(ptr noundef %0, i32 %
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @trace_event_get_offsets_device_pm_callback_start(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #7 align 16 {
+define internal fastcc i32 @trace_event_get_offsets_device_pm_callback_start(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #7 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

@@ -666,7 +666,7 @@ define dso_local void @ZSTD_row_update(ptr nocapture noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_btlazy2(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_btlazy2(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -2088,7 +2088,7 @@ ZSTD_safecopyLiterals.exit1834:                   ; preds = %ZSTD_count.exit1816
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy2(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy2(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -3083,7 +3083,7 @@ ZSTD_safecopyLiterals.exit1762:                   ; preds = %ZSTD_count.exit1744
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
@@ -3902,7 +3902,7 @@ ZSTD_safecopyLiterals.exit1732:                   ; preds = %ZSTD_count.exit1714
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_greedy(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_greedy(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %4
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
@@ -4565,7 +4565,7 @@ ZSTD_safecopyLiterals.exit1702:                   ; preds = %ZSTD_count.exit1684
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_btlazy2_dictMatchState(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -5858,7 +5858,7 @@ ZSTD_safecopyLiterals.exit1745:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -6735,7 +6735,7 @@ ZSTD_safecopyLiterals.exit1672:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
@@ -7513,7 +7513,7 @@ ZSTD_safecopyLiterals.exit1669:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %4
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
@@ -8173,7 +8173,7 @@ ZSTD_safecopyLiterals.exit1667:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -9050,7 +9050,7 @@ ZSTD_safecopyLiterals.exit1672:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
@@ -9828,7 +9828,7 @@ ZSTD_safecopyLiterals.exit1669:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %4
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
@@ -10488,7 +10488,7 @@ ZSTD_safecopyLiterals.exit1668:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy2_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -11934,7 +11934,7 @@ ZSTD_safecopyLiterals.exit1769:                   ; preds = %ZSTD_count.exit1751
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
@@ -13159,7 +13159,7 @@ ZSTD_safecopyLiterals.exit1739:                   ; preds = %ZSTD_count.exit1721
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_greedy_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %4
   %8 = getelementptr inbounds i8, ptr %7, i64 -16
@@ -14131,7 +14131,7 @@ ZSTD_safecopyLiterals.exit1709:                   ; preds = %ZSTD_count.exit1691
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy2_dictMatchState_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -15459,7 +15459,7 @@ ZSTD_safecopyLiterals.exit1679:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy_dictMatchState_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
@@ -16643,7 +16643,7 @@ ZSTD_safecopyLiterals.exit1676:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_greedy_dictMatchState_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %4
   %8 = getelementptr inbounds i8, ptr %7, i64 -16
@@ -17655,7 +17655,7 @@ ZSTD_safecopyLiterals.exit1674:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy2_dedicatedDictSearch_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -18983,7 +18983,7 @@ ZSTD_safecopyLiterals.exit1679:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy_dedicatedDictSearch_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
@@ -20167,7 +20167,7 @@ ZSTD_safecopyLiterals.exit1676:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_greedy_dedicatedDictSearch_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %4
   %8 = getelementptr inbounds i8, ptr %7, i64 -16
@@ -21179,7 +21179,7 @@ ZSTD_safecopyLiterals.exit1674:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_greedy_extDict(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_greedy_extDict(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %4
   %8 = getelementptr inbounds i8, ptr %7, i64 -8
@@ -21844,7 +21844,7 @@ ZSTD_safecopyLiterals.exit1446:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy_extDict(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy_extDict(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
@@ -22637,7 +22637,7 @@ ZSTD_safecopyLiterals.exit1452:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy2_extDict(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy2_extDict(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -23539,7 +23539,7 @@ ZSTD_safecopyLiterals.exit1458:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_btlazy2_extDict(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -24865,7 +24865,7 @@ ZSTD_safecopyLiterals.exit1531:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_greedy_extDict_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 %4
   %8 = getelementptr inbounds i8, ptr %7, i64 -16
@@ -25882,7 +25882,7 @@ ZSTD_safecopyLiterals.exit1453:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy_extDict_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
@@ -27081,7 +27081,7 @@ ZSTD_safecopyLiterals.exit1459:                   ; preds = %ZSTD_count_2segment
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef initializes((300, 304)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
+define dso_local i64 @ZSTD_compressBlock_lazy2_extDict_row(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8

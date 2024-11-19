@@ -135,7 +135,7 @@ $_ZNSt11__copy_moveILb0ELb0ESt26random_access_iterator_tagE8__copy_mIPN4ncnn3Mat
 @_ZN4ncnn9ExtractorC1ERKS0_ = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN4ncnn9ExtractorC2ERKS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn10NetPrivateC2ERNS_6OptionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((0, 216)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN4ncnn10NetPrivateC2ERNS_6OptionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %3, i8 0, i64 208, i1 false)
@@ -3531,7 +3531,7 @@ _ZNSt6vectorIPKcSaIS1_EE9push_backEOS1_.exit20:   ; preds = %78, %_ZNSt6vectorIP
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn3NetC2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn3NetC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4ncnn3NetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN4ncnn6OptionC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -3553,7 +3553,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn3NetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn3NetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4ncnn3NetE, i64 16), ptr %0, align 8
   invoke void @_ZN4ncnn3Net5clearEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
           to label %2 unwind label %8
@@ -4060,7 +4060,7 @@ _ZNSt6vectorIPN4ncnn5LayerESaIS2_EED2Ev.exit:     ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn3NetD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn3NetD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4ncnn3NetE, i64 16), ptr %0, align 8
   invoke void @_ZN4ncnn3Net5clearEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
           to label %2 unwind label %7
@@ -4089,7 +4089,7 @@ _ZN4ncnn3NetD2Ev.exit:                            ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn3NetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN4ncnn3NetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4ncnn3NetE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN4ncnn6OptionC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
@@ -8663,7 +8663,7 @@ define hidden noundef i32 @_ZN4ncnn3Net10load_modelEPKh(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4ncnn3Net16create_extractorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ncnn::Extractor") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4ncnn3Net16create_extractorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ncnn::Extractor") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -8996,7 +8996,7 @@ define hidden noundef ptr @_ZN4ncnn3Net30create_overwrite_builtin_layerEi(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn9ExtractorC2EPKNS_3NetEm(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn9ExtractorC2EPKNS_3NetEm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4ncnn9ExtractorE, i64 16), ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
   store ptr %1, ptr %4, align 8
@@ -9026,7 +9026,7 @@ _ZN4ncnn16ExtractorPrivateC2EPKNS_3NetE.exit:     ; preds = %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn9ExtractorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn9ExtractorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4ncnn9ExtractorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9251,14 +9251,14 @@ _ZNSt6vectorIN4ncnn3MatESaIS1_EE5clearEv.exit:    ; preds = %1, %_ZSt8_DestroyIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn9ExtractorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN4ncnn9ExtractorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN4ncnn9ExtractorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #28
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn9ExtractorC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn9ExtractorC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4ncnn9ExtractorE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #27
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8

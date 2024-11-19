@@ -686,7 +686,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser7DDLNode8setValueEPNS_5ValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((104, 112)) %this, ptr noundef %val) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN10ODDLParser7DDLNode8setValueEPNS_5ValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr noundef %val) local_unnamed_addr #11 align 2 {
 entry:
   %m_value = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %val, ptr %m_value, align 8
@@ -702,7 +702,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser7DDLNode16setDataArrayListEPNS_13DataArrayListE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((112, 120)) %this, ptr noundef %dtArrayList) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN10ODDLParser7DDLNode16setDataArrayListEPNS_13DataArrayListE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr noundef %dtArrayList) local_unnamed_addr #11 align 2 {
 entry:
   %m_dtArrayList = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %dtArrayList, ptr %m_dtArrayList, align 8
@@ -718,7 +718,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser7DDLNode13setReferencesEPNS_9ReferenceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((120, 128)) %this, ptr noundef %refs) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN10ODDLParser7DDLNode13setReferencesEPNS_9ReferenceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr noundef %refs) local_unnamed_addr #11 align 2 {
 entry:
   %m_references = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %refs, ptr %m_references, align 8

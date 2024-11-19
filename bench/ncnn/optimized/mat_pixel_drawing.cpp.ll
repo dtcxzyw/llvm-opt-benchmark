@@ -2818,7 +2818,7 @@ define hidden void @_ZN4ncnn18draw_line_yuv420spEPhiiiiiiji(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @_ZN4ncnn21get_text_drawing_sizeEPKciPiS2_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #1 {
+define hidden void @_ZN4ncnn21get_text_drawing_sizeEPKciPiS2_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #16

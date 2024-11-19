@@ -58,7 +58,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_211TileOffsetsC2ENS_9LevelModeEiiPKiS3_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %this, i32 noundef %mode, i32 noundef %numXLevels, i32 noundef %numYLevels, ptr nocapture noundef readonly %numXTiles, ptr nocapture noundef readonly %numYTiles) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_211TileOffsetsC2ENS_9LevelModeEiiPKiS3_(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %mode, i32 noundef %numXLevels, i32 noundef %numYLevels, ptr nocapture noundef readonly %numXTiles, ptr nocapture noundef readonly %numYTiles) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %mode, ptr %this, align 8
   %_numXLevels = getelementptr inbounds i8, ptr %this, i64 4

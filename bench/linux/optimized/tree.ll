@@ -3609,7 +3609,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare dso_local void @__wait_rcu_gp(i1 noundef zeroext, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @get_completed_synchronize_rcu_full(ptr nocapture noundef writeonly initializes((0, 16)) %0) #12 align 16 {
+define dso_local void @get_completed_synchronize_rcu_full(ptr nocapture noundef writeonly %0) #12 align 16 {
   store i64 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %2, align 8
@@ -3617,7 +3617,7 @@ define dso_local void @get_completed_synchronize_rcu_full(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @get_state_synchronize_rcu_full(ptr nocapture noundef writeonly initializes((0, 16)) %0) #1 align 16 {
+define dso_local void @get_state_synchronize_rcu_full(ptr nocapture noundef writeonly %0) #1 align 16 {
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !109
   %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @rcu_state, i64 8), align 8
   %3 = add i64 %2, 7
@@ -3699,7 +3699,7 @@ define internal fastcc void @start_poll_synchronize_rcu_common() unnamed_addr #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @start_poll_synchronize_rcu_full(ptr nocapture noundef writeonly initializes((0, 16)) %0) #1 align 16 {
+define dso_local void @start_poll_synchronize_rcu_full(ptr nocapture noundef writeonly %0) #1 align 16 {
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !109
   %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @rcu_state, i64 8), align 8
   %3 = add i64 %2, 7
@@ -8317,7 +8317,7 @@ declare dso_local void @schedule() local_unnamed_addr #7
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @start_poll_synchronize_rcu_expedited_full(ptr nocapture noundef writeonly initializes((0, 16)) %0) #1 align 16 {
+define dso_local void @start_poll_synchronize_rcu_expedited_full(ptr nocapture noundef writeonly %0) #1 align 16 {
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !109
   %2 = load volatile i64, ptr getelementptr inbounds (i8, ptr @rcu_state, i64 8), align 8
   %3 = add i64 %2, 7
@@ -14774,7 +14774,7 @@ declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #7
 declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @dyntick_save_progress_counter(ptr noundef initializes((272, 276)) %0) unnamed_addr #1 align 16 {
+define internal noundef range(i32 0, 2) i32 @dyntick_save_progress_counter(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 512
   %3 = load i32, ptr %2, align 8
   tail call void asm sideeffect "lock; addl $$0,-4(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !412
@@ -18402,7 +18402,7 @@ declare dso_local i32 @__SCT__tp_func_rcu_preempt_task(ptr noundef, ptr noundef,
 declare dso_local void @raise_softirq_irqoff(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @rcu_preempt_deferred_qs_handler(ptr nocapture noundef writeonly initializes((32, 33)) %0) #12 align 16 {
+define internal void @rcu_preempt_deferred_qs_handler(ptr nocapture noundef writeonly %0) #12 align 16 {
   %2 = getelementptr i8, ptr %0, i64 32
   store i8 0, ptr %2, align 8
   ret void

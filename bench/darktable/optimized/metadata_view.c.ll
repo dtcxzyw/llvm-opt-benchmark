@@ -2300,7 +2300,7 @@ declare void @gtk_menu_shell_append(ptr noundef, ptr noundef) local_unnamed_addr
 declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   store i32 0, ptr %1, align 4, !tbaa !45
   %3 = getelementptr i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !48
@@ -2473,7 +2473,7 @@ define internal fastcc void @_apply_preferences(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0(i64 noundef 24) #18
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !48

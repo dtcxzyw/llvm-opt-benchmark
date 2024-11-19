@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl13base_internal8SpinLockC2ENS0_14SchedulingModeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %mode) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4absl13base_internal8SpinLockC2ENS0_14SchedulingModeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %mode) unnamed_addr #1 align 2 {
 entry:
   %cmp.i = icmp eq i32 %mode, 1
   %cond = select i1 %cmp.i, i32 2, i32 0

@@ -150,7 +150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm11testhelpers11DummyObjectC2ERNS0_7HadesGCE(ptr noundef nonnull align 8 dereferenceable(104) initializes((4, 64), (72, 73), (80, 88), (96, 104)) %this, ptr noundef nonnull align 8 dereferenceable(8152) %gc) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm11testhelpers11DummyObjectC2ERNS0_7HadesGCE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8152) %gc) unnamed_addr #0 align 2 {
 entry:
   %other = getelementptr inbounds i8, ptr %this, i64 4
   store i32 0, ptr %other, align 4
@@ -302,7 +302,7 @@ _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE9setNonPtrES2_RNS0_7HadesGCE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm11testhelpers11DummyObject13acquireExtMemERNS0_7HadesGCEj(ptr noundef nonnull align 8 dereferenceable(104) initializes((80, 84)) %this, ptr noundef nonnull align 8 dereferenceable(8152) %gc, i32 noundef %sz) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm11testhelpers11DummyObject13acquireExtMemERNS0_7HadesGCEj(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8152) %gc, i32 noundef %sz) local_unnamed_addr #0 align 2 {
 entry:
   %externalBytes = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %sz, ptr %externalBytes, align 8
@@ -403,7 +403,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm20DummyObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes2vm20DummyObjectBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) local_unnamed_addr #0 {
 entry:
   %vtp_.i = getelementptr inbounds i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm11testhelpers11DummyObject2vtE, ptr %vtp_.i, align 8

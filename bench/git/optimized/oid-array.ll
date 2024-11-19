@@ -162,7 +162,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @oid_array_clear(ptr nocapture noundef initializes((8, 28)) %array) local_unnamed_addr #5 {
+define dso_local void @oid_array_clear(ptr nocapture noundef %array) local_unnamed_addr #5 {
 entry:
   %0 = load ptr, ptr %array, align 8
   tail call void @free(ptr noundef %0) #15

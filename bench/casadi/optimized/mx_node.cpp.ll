@@ -2570,7 +2570,7 @@ _ZNSt12_Vector_baseIN6casadi2MXESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN6c
 declare void @_ZN6casadi20SharedObjectInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.casadi::MX", align 8
   %3 = alloca %"class.std::stack", align 8
   %4 = alloca %"class.casadi::MX", align 8
@@ -9646,7 +9646,7 @@ _ZN6casadi8SparsityC2ERKS0_.exit:                 ; preds = %63
 declare void @_ZN6casadi12SparsityCastC1ERKNS_2MXENS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK6casadi6MXNode4infoB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map.97") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi6MXNode4infoB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map.97") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

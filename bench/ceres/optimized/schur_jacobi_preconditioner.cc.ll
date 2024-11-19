@@ -67,7 +67,7 @@ $_ZTIN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEEE = comdat a
 @_ZN5ceres8internal25SchurJacobiPreconditionerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal25SchurJacobiPreconditionerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerC2ERKNS0_27CompressedRowBlockStructureENS0_14Preconditioner7OptionsE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 96)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerC2ERKNS0_27CompressedRowBlockStructureENS0_14Preconditioner7OptionsE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %5 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %6 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
@@ -711,7 +711,7 @@ _ZN5ceres8internal12LinearSolver7OptionsD2Ev.exit7: ; preds = %69, %72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
@@ -756,7 +756,7 @@ _ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit: ; preds = %_ZNSt10unique_pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8

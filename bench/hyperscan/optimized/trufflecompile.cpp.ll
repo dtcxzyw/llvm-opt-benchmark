@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::array" = type { [4 x i64] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3ue217truffleBuildMasksERKNS_9CharReachEPhS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %cr, ptr nocapture noundef initializes((0, 16)) %shuf_mask_lo_highclear, ptr nocapture noundef initializes((0, 16)) %shuf_mask_lo_highset) local_unnamed_addr #0 {
+define hidden void @_ZN3ue217truffleBuildMasksERKNS_9CharReachEPhS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %cr, ptr nocapture noundef %shuf_mask_lo_highclear, ptr nocapture noundef %shuf_mask_lo_highset) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %shuf_mask_lo_highset, i8 0, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %shuf_mask_lo_highclear, i8 0, i64 16, i1 false)
@@ -117,7 +117,7 @@ for.end:                                          ; preds = %for.inc.i.i, %_ZNK3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress memory(argmem: readwrite) uwtable
-define hidden void @_ZN3ue210truffle2crEPKhS1_(ptr noalias nocapture sret(%"class.ue2::CharReach") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef readonly %highclear, ptr nocapture noundef readonly %highset) local_unnamed_addr #2 {
+define hidden void @_ZN3ue210truffle2crEPKhS1_(ptr noalias nocapture sret(%"class.ue2::CharReach") align 8 %agg.result, ptr nocapture noundef readonly %highclear, ptr nocapture noundef readonly %highset) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   br label %for.body

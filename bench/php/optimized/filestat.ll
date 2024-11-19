@@ -892,7 +892,7 @@ php_get_uid_by_name.exit:                         ; preds = %55
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_lchown(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #1 {
+define hidden void @zif_lchown(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 3, ptr %3, align 8
   tail call fastcc void @php_do_chown(ptr noundef %0, ptr noundef %1, i32 noundef 1)

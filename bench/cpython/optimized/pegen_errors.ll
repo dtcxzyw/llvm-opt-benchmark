@@ -487,7 +487,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr nocapture noundef initializes((96, 100)) %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
+define internal void @RAISE_ERROR_KNOWN_LOCATION(ptr nocapture noundef %p, ptr noundef %errtype, i64 noundef range(i64 -2147483648, 2147483648) %lineno, i64 noundef %col_offset, i64 noundef range(i64 -2147483648, 2147483648) %end_lineno, i64 noundef range(i64 -2147483648, 2147483648) %end_col_offset, ptr noundef %errmsg, ...) unnamed_addr #0 {
 entry:
   %va = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %va)
@@ -621,7 +621,7 @@ if.end14:                                         ; preds = %if.then1.i.i26, %if
 declare void @PyErr_Clear() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @_PyPegen_raise_error_known_location(ptr nocapture noundef initializes((96, 100)) %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr noundef %errmsg, ptr noundef %va) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @_PyPegen_raise_error_known_location(ptr nocapture noundef %p, ptr noundef %errtype, i64 noundef %lineno, i64 noundef %col_offset, i64 noundef %end_lineno, i64 noundef %end_col_offset, ptr noundef %errmsg, ptr noundef %va) local_unnamed_addr #0 {
 entry:
   %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator, align 8
@@ -1241,7 +1241,7 @@ return:                                           ; preds = %if.then1.i.i26, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_Pypegen_stack_overflow(ptr nocapture noundef writeonly initializes((96, 100)) %p) local_unnamed_addr #0 {
+define hidden void @_Pypegen_stack_overflow(ptr nocapture noundef writeonly %p) local_unnamed_addr #0 {
 entry:
   %error_indicator = getelementptr inbounds i8, ptr %p, i64 96
   store i32 1, ptr %error_indicator, align 8

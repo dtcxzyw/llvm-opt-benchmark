@@ -1872,14 +1872,14 @@ define internal i32 @dnsserver_dissect_element_DNS_RPC_SERVER_INFO_DOTNET_extens
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvOperation_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvOperation_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.458, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvOperation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvOperation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.458, ptr %8, align 8
@@ -1901,14 +1901,14 @@ define internal i32 @dnsserver_dissect_DnssrvOperation_response(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvQuery_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvQuery_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.459, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvQuery_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvQuery_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.459, ptr %8, align 8
@@ -1930,14 +1930,14 @@ define internal i32 @dnsserver_dissect_DnssrvQuery_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.460, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvComplexOperation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvComplexOperation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.460, ptr %8, align 8
@@ -1959,14 +1959,14 @@ define internal i32 @dnsserver_dissect_DnssrvComplexOperation_response(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvEnumRecords_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvEnumRecords_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.461, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvEnumRecords_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvEnumRecords_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.461, ptr %8, align 8
@@ -1988,14 +1988,14 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords_response(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.462, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.462, ptr %8, align 8
@@ -2017,14 +2017,14 @@ define internal i32 @dnsserver_dissect_DnssrvUpdateRecord_response(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvOperation2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvOperation2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.463, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvOperation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvOperation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.463, ptr %8, align 8
@@ -2046,7 +2046,7 @@ define internal i32 @dnsserver_dissect_DnssrvOperation2_response(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvQuery2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvQuery2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.464, ptr %8, align 8
@@ -2072,7 +2072,7 @@ define internal i32 @dnsserver_dissect_DnssrvQuery2_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvQuery2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvQuery2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.464, ptr %8, align 8
@@ -2100,14 +2100,14 @@ define internal i32 @dnsserver_dissect_DnssrvQuery2_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvComplexOperation2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.465, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvComplexOperation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvComplexOperation2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.465, ptr %8, align 8
@@ -2129,7 +2129,7 @@ define internal i32 @dnsserver_dissect_DnssrvComplexOperation2_response(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i16, align 2
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 80
@@ -2174,7 +2174,7 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_request(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.466, ptr %8, align 8
@@ -2202,14 +2202,14 @@ define internal i32 @dnsserver_dissect_DnssrvEnumRecords2_response(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @dnsserver_dissect_DnssrvUpdateRecord2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.467, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dnsserver_dissect_DnssrvUpdateRecord2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @dnsserver_dissect_DnssrvUpdateRecord2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.467, ptr %8, align 8

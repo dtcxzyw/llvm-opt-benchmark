@@ -786,7 +786,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen21getAllHTTP3ErrorCodesEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen21getAllHTTP3ErrorCodesEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #10

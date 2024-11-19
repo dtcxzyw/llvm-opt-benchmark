@@ -1084,7 +1084,7 @@ _ZNSt10shared_ptrIN2cv11ParallelJobEED2Ev.exit:   ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv10ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((136, 176)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv10ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 136

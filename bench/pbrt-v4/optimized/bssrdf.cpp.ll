@@ -678,7 +678,7 @@ _ZNSt8functionIFvlEED2Ev.exit26:                  ; preds = %lpad.body, %if.then
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11BSSRDFTableC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 32)) %this, i32 noundef %nRhoSamples, i32 noundef %nRadiusSamples, ptr %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt11BSSRDFTableC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %nRhoSamples, i32 noundef %nRadiusSamples, ptr %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = sext i32 %nRhoSamples to i64
   %0 = ptrtoint ptr %alloc.coerce to i64

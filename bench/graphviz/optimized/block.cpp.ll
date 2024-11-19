@@ -40,7 +40,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Block11addVariableEP8Variable(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef initializes((32, 40)) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Block11addVariableEP8Variable(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -139,7 +139,7 @@ _ZNSt6vectorIP8VariableSaIS1_EE9push_backERKS1_.exit: ; preds = %8, %_ZNSt6vecto
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5BlockC2EP8Variable(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 49), (56, 80)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5BlockC2EP8Variable(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -535,7 +535,7 @@ define internal noundef zeroext i1 @_ZL18compareConstraintsRKP10ConstraintS2_(pt
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Block5mergeEPS_P10Constraint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((40, 41)) %2) local_unnamed_addr #3 align 2 {
+define void @_ZN5Block5mergeEPS_P10Constraint(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
@@ -580,7 +580,7 @@ define void @_ZN5Block5mergeEPS_P10Constraint(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Block5mergeEPS_P10Constraintd(ptr noundef nonnull align 8 dereferenceable(80) initializes((24, 32)) %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((40, 41)) %2, double noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Block5mergeEPS_P10Constraintd(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, double noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40
@@ -1885,7 +1885,7 @@ define noundef ptr @_ZN5Block16findMinLMBetweenEP8VariableS1_(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Block18populateSplitBlockEPS_P8VariableS2_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr noundef initializes((32, 40)) %2, ptr noundef readnone %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5Block18populateSplitBlockEPS_P8VariableS2_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef readnone %3) local_unnamed_addr #3 align 2 {
   tail call void @_ZN5Block11addVariableEP8Variable(ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %2)
   %5 = getelementptr inbounds i8, ptr %2, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -2009,7 +2009,7 @@ _ZN5Block5splitERPS_S1_P10Constraint.exit:        ; preds = %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Block5splitERPS_S1_P10Constraint(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef initializes((40, 41)) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Block5splitERPS_S1_P10Constraint(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   store i8 0, ptr %5, align 8
   %6 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19

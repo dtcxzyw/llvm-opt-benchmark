@@ -82943,7 +82943,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit114:                 ; preds = %lpad.i, %ehcleanup1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE"(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef readonly byval(%"class.absl::BitGenRef") align 8 %gen_ref) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN12_GLOBAL__N_149RepeatedlyModifier_ForceSnakeEyesForManyDice_Test8TestBodyEvENK3$_0clEN4absl9BitGenRefE"(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef readonly byval(%"class.absl::BitGenRef") align 8 %gen_ref) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arg_tuple.i.i.i = alloca %"class.std::tuple.682", align 4
   %result.i.i.i = alloca i32, align 4

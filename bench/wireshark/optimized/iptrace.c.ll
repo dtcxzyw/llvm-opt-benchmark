@@ -92,7 +92,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @iptrace_read_1_0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal range(i32 0, 2) i32 @iptrace_read_1_0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #9
   store i64 %8, ptr %5, align 8
@@ -152,7 +152,7 @@ define internal range(i32 0, 2) i32 @iptrace_seek_read_1_0(ptr noundef %0, i64 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @iptrace_read_2_0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal range(i32 0, 2) i32 @iptrace_read_2_0(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #9
   store i64 %8, ptr %5, align 8
@@ -596,7 +596,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_new_if_info(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc void @add_new_if_info(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(7) ptr @g_malloc_n(i64 noundef 1, i64 noundef 7) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) %1, i64 7, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 8

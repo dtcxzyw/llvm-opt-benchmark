@@ -2219,7 +2219,7 @@ _ZN4llvm14MemoryUseOrDef17setDefiningAccessEPNS_12MemoryAccessEb.exit: ; preds =
 declare noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_(ptr noundef nonnull align 8 dereferenceable(124), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9MemorySSAC2ERNS_8FunctionEPNS_9AAResultsEPNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(325) initializes((0, 52), (56, 76), (80, 100), (104, 112)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9MemorySSAC2ERNS_8FunctionEPNS_9AAResultsEPNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(325) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::BatchAAResults", align 8
   store ptr null, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3075,7 +3075,7 @@ define dso_local noundef ptr @_ZN4llvm9MemorySSA9getWalkerEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9MemorySSAC2ERNS_4LoopEPNS_9AAResultsEPNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(325) initializes((0, 52), (56, 76), (80, 100), (104, 112)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9MemorySSAC2ERNS_4LoopEPNS_9AAResultsEPNS_13DominatorTreeE(ptr noundef nonnull align 8 dereferenceable(325) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.178", align 8
   %6 = alloca %"struct.std::pair", align 8
   %7 = alloca %"class.llvm::SmallPtrSet.431", align 8
@@ -9468,7 +9468,7 @@ define dso_local void @_ZNK4llvm12MemoryAccess4dumpEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17MemorySSAAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MemorySSAAnalysis::Result") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17MemorySSAAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MemorySSAAnalysis::Result") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN4llvm9MemorySSAESt14default_deleteIS1_EED2Ev.exit:
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm21DominatorTreeAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -10525,7 +10525,7 @@ _ZN12_GLOBAL__N_130MemorySSAWalkerAnnotatedWriterC2EPN4llvm9MemorySSAE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130MemorySSAWalkerAnnotatedWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_130MemorySSAWalkerAnnotatedWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(680) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_130MemorySSAWalkerAnnotatedWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 544
@@ -10608,7 +10608,7 @@ define dso_local void @_ZN4llvm21MemorySSAVerifierPass3runERNS_8FunctionERNS_15A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20MemorySSAWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20MemorySSAWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.415, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10667,7 +10667,7 @@ _ZNSt10unique_ptrIN4llvm9MemorySSAESt14default_deleteIS1_EE5resetEPS1_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm20MemorySSAWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm20MemorySSAWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage23addRequiredTransitiveIDERc(ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4llvm24DominatorTreeWrapperPass2IDE) #25
@@ -10790,7 +10790,7 @@ _ZNK4llvm9MemorySSA5printERNS_11raw_ostreamE.exit: ; preds = %3, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15MemorySSAWalkerC2EPNS_9MemorySSAE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm15MemorySSAWalkerC2EPNS_9MemorySSAE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm15MemorySSAWalkerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -10847,7 +10847,7 @@ _ZNK4llvm11Instruction11isFenceLikeEv.exit.thread: ; preds = %18, %18, %18, %12,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_113ClobberWalker11findClobberERN4llvm14BatchAAResultsEPNS1_12MemoryAccessERNS_18UpwardsMemoryQueryERj(ptr noundef nonnull align 8 dereferenceable(2384) initializes((16, 40)) %0, ptr noundef nonnull align 8 dereferenceable(656) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(73) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_113ClobberWalker11findClobberERN4llvm14BatchAAResultsEPNS1_12MemoryAccessERNS_18UpwardsMemoryQueryERj(ptr noundef nonnull align 8 dereferenceable(2384) %0, ptr noundef nonnull align 8 dereferenceable(656) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(73) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::optional.299", align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -14548,7 +14548,7 @@ declare noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnu
 declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130MemorySSAWalkerAnnotatedWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_130MemorySSAWalkerAnnotatedWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(680) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_130MemorySSAWalkerAnnotatedWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(680) %0) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 680) #29
   ret void

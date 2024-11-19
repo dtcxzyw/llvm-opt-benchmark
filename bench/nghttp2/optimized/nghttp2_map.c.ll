@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.map_resize = private unnamed_addr constant [50 x i8] c"int map_resize(nghttp2_map *, uint32_t, uint32_t)\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_map_init(ptr nocapture noundef writeonly initializes((0, 32)) %map, ptr noundef %mem) local_unnamed_addr #0 {
+define hidden void @nghttp2_map_init(ptr nocapture noundef writeonly %map, ptr noundef %mem) local_unnamed_addr #0 {
 entry:
   %mem1 = getelementptr inbounds i8, ptr %map, i64 8
   store ptr %mem, ptr %mem1, align 8

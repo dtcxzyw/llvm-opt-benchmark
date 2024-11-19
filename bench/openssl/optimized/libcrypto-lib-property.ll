@@ -1441,7 +1441,7 @@ declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @OPENSSL_rdtsc() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @impl_cache_flush_one_alg(i64 %idx, ptr nocapture noundef readonly %alg, ptr noundef initializes((0, 8)) %v) #0 {
+define internal void @impl_cache_flush_one_alg(i64 %idx, ptr nocapture noundef readonly %alg, ptr noundef %v) #0 {
 entry:
   %cache = getelementptr inbounds i8, ptr %alg, i64 16
   %0 = load ptr, ptr %cache, align 8

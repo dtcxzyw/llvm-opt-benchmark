@@ -829,7 +829,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #3
 declare void @ossl_prov_cleanup_nonce(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_prov_drbg_uninstantiate(ptr nocapture noundef writeonly initializes((240, 244)) %drbg) local_unnamed_addr #4 {
+define noundef i32 @ossl_prov_drbg_uninstantiate(ptr nocapture noundef writeonly %drbg) local_unnamed_addr #4 {
 entry:
   %state = getelementptr inbounds i8, ptr %drbg, i64 240
   store i32 0, ptr %state, align 8

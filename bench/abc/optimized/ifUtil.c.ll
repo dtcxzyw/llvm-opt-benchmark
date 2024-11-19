@@ -1428,7 +1428,7 @@ define i32 @If_ManCountSpecialPos(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_CutTraverse(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #1 {
+define void @If_CutTraverse(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 36

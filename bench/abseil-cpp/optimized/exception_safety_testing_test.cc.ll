@@ -34476,7 +34476,7 @@ _ZN7testing15AssertionResultD2Ev.exit133:         ; preds = %if.end103, %_ZNKSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7testing12_GLOBAL__N_122ExampleFunctionFactoryEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.237") align 8 initializes((0, 8)) %agg.result) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing12_GLOBAL__N_122ExampleFunctionFactoryEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.237") align 8 %agg.result) #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !231)
   %call.i = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #26, !noalias !231
@@ -35222,7 +35222,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nonnull %__l.coerce0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_113ExampleStructEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 for.body.i.i.i.i.preheader.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %call5.i.i.i.i5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #26
@@ -35433,7 +35433,7 @@ _ZN7testing7MessageD2Ev.exit6:                    ; preds = %lpad, %_ZNKSt14defa
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvENS2_3$_1EE9_M_invokeERKSt9_Any_data"(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.237") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvENS2_3$_1EE9_M_invokeERKSt9_Any_data"(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.237") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !251)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !254)
@@ -35525,7 +35525,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvENS2_4$_88EE9_M_invokeERKSt9_Any_data"(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.237") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_113ExampleStructESt14default_deleteIS3_EEvENS2_4$_88EE9_M_invokeERKSt9_Any_data"(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.237") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
@@ -36355,7 +36355,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.295") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_119FailsBasicGuaranteeESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.295") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i32, ptr %__functor, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !302)
@@ -36443,7 +36443,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_119FailsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.306", ptr %__l.coerce0, i64 %__l.coerce1
@@ -37330,7 +37330,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.324") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_121FollowsBasicGuaranteeESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.324") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i32, ptr %__functor, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
@@ -37415,7 +37415,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 4) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_121FollowsBasicGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 4) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.335", ptr %__l.coerce0, i64 %__l.coerce1
@@ -39484,7 +39484,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraC
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.365") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_132BasicGuaranteeWithExtraContractsESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.365") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i32, ptr %__functor, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !438)
@@ -39570,7 +39570,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_132BasicGuaranteeWithExtraContractsEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.376", ptr %__l.coerce0, i64 %__l.coerce1
@@ -41021,7 +41021,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeES
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.399") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_122FollowsStrongGuaranteeESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.399") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i32, ptr %__functor, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !495)
@@ -41102,7 +41102,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 4) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_122FollowsStrongGuaranteeEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 4) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.410", ptr %__l.coerce0, i64 %__l.coerce1
@@ -42569,7 +42569,7 @@ _ZN7testing15AssertionResultD2Ev.exit141:         ; preds = %if.end72, %_ZNKSt14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN7testing12_GLOBAL__N_122CheckHasResetContractsEPNS0_8HasResetE(ptr noalias nocapture writeonly sret(%"class.testing::AssertionResult") align 8 initializes((0, 1), (8, 16)) %agg.result, ptr nocapture noundef writeonly initializes((0, 4)) %h) #16 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing12_GLOBAL__N_122CheckHasResetContractsEPNS0_8HasResetE(ptr noalias nocapture writeonly sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr nocapture noundef writeonly %h) #16 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %h, align 4
   store i8 1, ptr %agg.result, align 8
@@ -42614,7 +42614,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_"(ptr noalias nocapture writeonly sret(%"class.testing::AssertionResult") align 8 initializes((0, 1), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121FollowsBasicGuaranteeEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_40ExceptionCheckTest_ModifyingChecker_Test8TestBodyEvE3$_1EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_"(ptr noalias nocapture writeonly sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.val = load ptr, ptr %__args, align 8
   %__args.val.val = load i32, ptr %__args.val, align 4
@@ -42775,7 +42775,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_dele
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.465") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_18HasResetESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.465") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i32, ptr %__functor, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !602)
@@ -45329,7 +45329,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EEvEZNS2_35ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data"(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.528") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_111NonCopyableESt14default_deleteIS3_EEvEZNS2_35ExceptionCheckTest_NonCopyable_Test8TestBodyEvE3$_0E9_M_invokeERKSt9_Any_data"(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.528") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !679)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !682)
@@ -45403,7 +45403,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorISt8functionIFN7testing15AssertionResultEPNS1_12_GLOBAL__N_111NonCopyableEEESaIS7_EEC2ESt16initializer_listIS7_ERKS8_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nonnull %__l.coerce0, i64 range(i64 1, 3) %__l.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %add.ptr.i = getelementptr inbounds %"class.std::function.539", ptr %__l.coerce0, i64 %__l.coerce1
@@ -46132,7 +46132,7 @@ _ZN7testing15AssertionResultD2Ev.exit36:          ; preds = %if.end39, %_ZNKSt14
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_"(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(32) %op, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %contracts) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN7testing19exceptions_internal19ExceptionSafetyTestINS_12_GLOBAL__N_121NonEqualityComparableEEC2IJPFNS_15AssertionResultEPNS2_11NonNegativeEEZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EEERKSt8functionIFSt10unique_ptrIS3_St14default_deleteIS3_EEvEERKSD_IFvPS3_EEDpRKT_"(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %f, ptr noundef nonnull align 8 dereferenceable(32) %op, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %contracts) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca [2 x %"class.std::function.581"], align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -46795,7 +46795,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.570") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_121NonEqualityComparableESt14default_deleteIS3_EEvENS1_19exceptions_internal14DefaultFactoryIS3_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.570") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i32, ptr %__functor, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !739)
@@ -46911,7 +46911,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121NonEqualityComparableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_"(ptr noalias nocapture writeonly sret(%"class.testing::AssertionResult") align 8 initializes((0, 1), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN7testing15AssertionResultEPNS0_12_GLOBAL__N_121NonEqualityComparableEEZNS0_19exceptions_internal19ExceptionSafetyTestIS3_E12WrapContractIZNS2_45ExceptionCheckTest_NonEqualityComparable_Test8TestBodyEvE3$_0EESt8functionIS5_ERKT_EUlS4_E_E9_M_invokeERKSt9_Any_dataOS4_"(ptr noalias nocapture writeonly sret(%"class.testing::AssertionResult") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %__args) #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.val = load ptr, ptr %__args, align 8
   %__args.val.val = load i32, ptr %__args.val, align 4
@@ -48578,7 +48578,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS4_EEvENS1_19exceptions_internal14DefaultFactoryIS4_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.612") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterIiEESt14default_deleteIS4_EEvENS1_19exceptions_internal14DefaultFactoryIS4_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.612") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !817)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !820)
@@ -48844,7 +48844,7 @@ _ZNSt8functionIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EEvENS1_19exceptions_internal14DefaultFactoryIS7_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.642") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt10unique_ptrIN7testing12_GLOBAL__N_120ExhaustivenessTesterINS1_13ThrowingValueILNS1_8TypeSpecE0EEEEESt14default_deleteIS7_EEvENS1_19exceptions_internal14DefaultFactoryIS7_EEE9_M_invokeERKSt9_Any_data(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.642") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !847)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !850)

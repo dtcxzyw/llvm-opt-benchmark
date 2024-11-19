@@ -444,7 +444,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declPS1_E13obj_map_entryE8obj_hashINS3_8key_
 declare void @_ZN7datalog8rule_setD1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6spacer12dl_interfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer12dl_interfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6spacer12dl_interfaceE, i64 16), ptr %this, align 8
   %m_context = getelementptr inbounds i8, ptr %this, i64 552
@@ -570,7 +570,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6spacer12dl_interfaceD0Ev(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6spacer12dl_interfaceD0Ev(ptr noundef nonnull align 8 dereferenceable(600) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN6spacer12dl_interfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20

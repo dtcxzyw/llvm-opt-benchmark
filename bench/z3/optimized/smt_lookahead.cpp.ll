@@ -72,7 +72,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3smt9lookaheadC2ERNS_7contextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt9lookaheadC2ERNS_7contextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx) unnamed_addr #3 align 2 {
 entry:
   store ptr %ctx, ptr %this, align 8
   %m = getelementptr inbounds i8, ptr %this, i64 8
@@ -998,7 +998,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt9lookahead10choose_recEj(ptr noalias nonnull sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %depth) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt9lookahead10choose_recEj(ptr noalias nonnull sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %depth) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %trail = alloca %class.ref_vector, align 8
   %m = getelementptr inbounds i8, ptr %this, i64 8

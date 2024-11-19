@@ -283,7 +283,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN11RegisterMapC1EPKS_ = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN11RegisterMapC2EPKS_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11RegisterMapC2EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4983) initializes((4952, 4953), (4960, 4983)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN11RegisterMapC2EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4983) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4968
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 4960
@@ -359,7 +359,7 @@ _ZN10HandleArea20allocate_null_handleEv.exit:     ; preds = %35, %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11RegisterMap5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(4983) initializes((4952, 4953)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11RegisterMap5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(4983) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4952
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4980
@@ -380,7 +380,7 @@ define hidden void @_ZN11RegisterMap5clearEv(ptr nocapture noundef nonnull align
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11RegisterMapC2EP7oopDescNS_9UpdateMapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4983) initializes((4952, 4953), (4960, 4983)) %0, ptr nocapture readnone %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN11RegisterMapC2EP7oopDescNS_9UpdateMapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4983) %0, ptr nocapture readnone %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4960
   %5 = icmp eq i32 %2, 1
   %6 = getelementptr inbounds i8, ptr %0, i64 4980
@@ -437,7 +437,7 @@ _ZN10HandleArea20allocate_null_handleEv.exit:     ; preds = %23, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN11RegisterMapC2EPKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4983) initializes((4952, 4953), (4960, 4983)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN11RegisterMapC2EPKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4983) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4968
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 4960
@@ -669,7 +669,7 @@ define hidden noundef zeroext i1 @_ZNK5frame20is_deoptimized_frameEv(ptr nocaptu
 declare noundef zeroext i1 @_ZN7nmethod23is_method_handle_returnEPh(ptr noundef nonnull align 8 dereferenceable(214), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5frame6set_pcEPh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((8, 24), (32, 36)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5frame6set_pcEPh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 2, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1234,7 +1234,7 @@ define hidden void @_ZN5frame10deoptimizeEP10JavaThread(ptr noundef nonnull alig
 declare void @_ZN5frame8patch_pcEP6ThreadPh(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5frame11java_senderEv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK5frame11java_senderEv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.RegisterMap, align 8
   %4 = alloca %class.frame, align 8
   %5 = alloca %class.frame, align 8

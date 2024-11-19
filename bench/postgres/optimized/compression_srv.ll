@@ -83,7 +83,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8), (24, 32)) %2) local_unnamed_addr #3 {
+define dso_local void @parse_compress_specification(i32 noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

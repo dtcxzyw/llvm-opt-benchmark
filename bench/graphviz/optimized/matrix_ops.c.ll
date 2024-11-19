@@ -709,7 +709,7 @@ declare double @llvm.fabs.f64(double) #7
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define void @mult_dense_mat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
+define void @mult_dense_mat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = mul nsw i32 %4, %2
   %8 = sext i32 %7 to i64
   %9 = tail call fastcc ptr @gv_calloc(i64 noundef %8, i64 noundef 8)
@@ -815,7 +815,7 @@ define void @mult_dense_mat(ptr nocapture noundef readonly %0, ptr nocapture nou
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: nofree nounwind uwtable
-define void @mult_dense_mat_d(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
+define void @mult_dense_mat_d(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = mul nsw i32 %4, %2
   %8 = sext i32 %7 to i64
   %9 = tail call fastcc ptr @gv_calloc(i64 noundef %8, i64 noundef 8)
@@ -917,7 +917,7 @@ define void @mult_dense_mat_d(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @mult_sparse_dense_mat_transpose(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #1 {
+define void @mult_sparse_dense_mat_transpose(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
   %6 = mul nsw i32 %3, %2
   %7 = sext i32 %6 to i64
   %8 = tail call fastcc ptr @gv_calloc(i64 noundef %7, i64 noundef 40)

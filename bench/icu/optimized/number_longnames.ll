@@ -3003,7 +3003,7 @@ _ZN6icu_7516MaybeStackVectorINS_14SingleUnitImplELi8EED2Ev.exit: ; preds = %for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117DerivedComponentsC2ERKN6icu_756LocaleEPKcS6_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 6)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %feature, ptr noundef %structure) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117DerivedComponentsC2ERKN6icu_756LocaleEPKcS6_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %feature, ptr noundef %structure) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %len.i9 = alloca i32, align 4
   %agg.tmp.i10 = alloca %"class.icu_75::ConstChar16Ptr", align 8

@@ -1708,7 +1708,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv18ChessBoardDetector15NeighborsFinderC2ERS0_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 4), (8, 88)) %0, ptr noundef nonnull align 8 dereferenceable(3204) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv18ChessBoardDetector15NeighborsFinderC2ERS0_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(3204) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"struct.cvflann::KDTreeSingleIndexParams", align 8

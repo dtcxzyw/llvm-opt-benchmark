@@ -202,7 +202,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core22SubchannelStreamClientC2ENS_13RefCountedPtrINS_19ConnectedSubchannelEEEP16grpc_pollset_setSt10unique_ptrINS0_16CallEventHandlerESt14default_deleteIS7_EEPKc(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 40)) %this, ptr nocapture noundef %connected_subchannel, ptr noundef %interested_parties, ptr nocapture noundef %event_handler, ptr noundef %tracer) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core22SubchannelStreamClientC2ENS_13RefCountedPtrINS_19ConnectedSubchannelEEEP16grpc_pollset_setSt10unique_ptrINS0_16CallEventHandlerESt14default_deleteIS7_EEPKc(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr nocapture noundef %connected_subchannel, ptr noundef %interested_parties, ptr nocapture noundef %event_handler, ptr noundef %tracer) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.13", align 8
   %ref.tmp13 = alloca %"class.grpc_core::BackOff::Options", align 8
@@ -734,7 +734,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core22SubchannelStreamClientD2Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core22SubchannelStreamClientD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22SubchannelStreamClientE, i64 16), ptr %this, align 8
   %tracer_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -2010,7 +2010,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit2:       ; preds = %_ZNSt8optionalIN17g
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core22SubchannelStreamClient9CallStateC2ENS_13RefCountedPtrIS0_EEP16grpc_pollset_set(ptr noundef nonnull align 8 dereferenceable(3648) initializes((0, 16)) %this, ptr nocapture noundef %health_check_client, ptr noundef %interested_parties) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core22SubchannelStreamClient9CallStateC2ENS_13RefCountedPtrIS0_EEP16grpc_pollset_set(ptr noundef nonnull align 8 dereferenceable(3648) %this, ptr nocapture noundef %health_check_client, ptr noundef %interested_parties) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22SubchannelStreamClient9CallStateE, i64 16), ptr %this, align 8
   %subchannel_stream_client_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2267,7 +2267,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core22SubchannelStreamClient9CallStateD2Ev(ptr noundef nonnull align 8 dereferenceable(3648) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core22SubchannelStreamClient9CallStateD2Ev(ptr noundef nonnull align 8 dereferenceable(3648) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core22SubchannelStreamClient9CallStateE, i64 16), ptr %this, align 8
   %subchannel_stream_client_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2769,7 +2769,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core22SubchannelStreamClient9CallState10StartBatchEP30grpc_transport_stream_op_batch(ptr noundef nonnull align 8 dereferenceable(3648) %this, ptr noundef initializes((24, 32), (40, 48)) %batch) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core22SubchannelStreamClient9CallState10StartBatchEP30grpc_transport_stream_op_batch(ptr noundef nonnull align 8 dereferenceable(3648) %this, ptr noundef %batch) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %call_ = getelementptr inbounds i8, ptr %this, i64 264

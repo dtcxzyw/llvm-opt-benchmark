@@ -107,7 +107,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str.1 = private unnamed_addr constant [13 x i8] c"Fast-forward\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_notes_merge_options(ptr noundef %r, ptr noundef initializes((0, 64)) %o) local_unnamed_addr #0 {
+define dso_local void @init_notes_merge_options(ptr noundef %r, ptr noundef %o) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %o, i8 0, i64 64, i1 false)
   %commit_msg = getelementptr inbounds i8, ptr %o, i64 24
@@ -124,7 +124,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @notes_merge(ptr noundef %o, ptr noundef %local_tree, ptr noundef initializes((0, 36)) %result_oid) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @notes_merge(ptr noundef %o, ptr noundef %local_tree, ptr noundef %result_oid) local_unnamed_addr #0 {
 entry:
   %result_buf.i.i.i.i.i = alloca %struct.s_mmbuffer, align 8
   %base.i.i.i.i.i = alloca %struct.s_mmfile, align 8

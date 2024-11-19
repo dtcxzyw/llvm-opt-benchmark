@@ -235,7 +235,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14MfStateProcessC2EdRKNS_5ArrayES3_(ptr noundef nonnull align 8 dereferenceable(176) initializes((16, 20), (24, 32)) %this, double noundef %reversion, ptr noundef nonnull align 8 dereferenceable(16) %times, ptr noundef nonnull align 8 dereferenceable(16) %vols) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14MfStateProcessC2EdRKNS_5ArrayES3_(ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %reversion, ptr noundef nonnull align 8 dereferenceable(16) %times, ptr noundef nonnull align 8 dereferenceable(16) %vols) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

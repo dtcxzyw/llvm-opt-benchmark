@@ -668,7 +668,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #2
 declare void @datapagemap_add(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @calculate_totals(ptr nocapture noundef initializes((0, 16)) %0) local_unnamed_addr #0 {
+define dso_local void @calculate_totals(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

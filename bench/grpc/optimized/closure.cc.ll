@@ -572,7 +572,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17grpc_event_engine12experimental27GrpcClosureToStatusCallbackEP12grpc_closure(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::AnyInvocable") align 16 initializes((0, 8), (16, 32)) %agg.result, ptr noundef %closure) local_unnamed_addr #6 {
+define void @_ZN17grpc_event_engine12experimental27GrpcClosureToStatusCallbackEP12grpc_closure(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::AnyInvocable") align 16 %agg.result, ptr noundef %closure) local_unnamed_addr #6 {
 entry:
   %0 = ptrtoint ptr %closure to i64
   store i64 %0, ptr %agg.result, align 16

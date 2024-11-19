@@ -83,7 +83,7 @@ $_ZTIN3g2o10HyperGraph17HyperGraphElementE = comdat any
 @_ZN3g2o10HyperGraphD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3g2o10HyperGraphD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o10HyperGraph4DataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define void @_ZN3g2o10HyperGraph4DataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o10HyperGraph4DataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -91,7 +91,7 @@ define void @_ZN3g2o10HyperGraph4DataC2Ev(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o10HyperGraph4DataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN3g2o10HyperGraph4DataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o10HyperGraph4DataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -119,7 +119,7 @@ define void @_ZN3g2o10HyperGraph4DataD0Ev(ptr nocapture nonnull readnone align 8
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o10HyperGraph6VertexC2Ei(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (24, 28), (32, 40)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o10HyperGraph6VertexC2Ei(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o10HyperGraph6VertexE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -137,7 +137,7 @@ define void @_ZN3g2o10HyperGraph6VertexC2Ei(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o10HyperGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o10HyperGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o10HyperGraph6VertexE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -185,7 +185,7 @@ define void @_ZN3g2o10HyperGraph6VertexD0Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o10HyperGraph4EdgeC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN3g2o10HyperGraph4EdgeC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o10HyperGraph4EdgeE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -195,7 +195,7 @@ define void @_ZN3g2o10HyperGraph4EdgeC2Ei(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o10HyperGraph4EdgeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o10HyperGraph4EdgeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o10HyperGraph4EdgeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -285,7 +285,7 @@ _ZNSt6vectorIPN3g2o10HyperGraph6VertexESaIS3_EE6resizeEmRKS3_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o10HyperGraph4Edge5setIdEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3g2o10HyperGraph4Edge5setIdEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
@@ -1795,7 +1795,7 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE4findERKS3_.exit.thread: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o10HyperGraphC2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o10HyperGraphC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN3g2o10HyperGraphE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1917,7 +1917,7 @@ _ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE5clearEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o10HyperGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o10HyperGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN3g2o10HyperGraphE, i64 16), ptr %0, align 8
   tail call void @_ZN3g2o10HyperGraph5clearEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64

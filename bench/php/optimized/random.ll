@@ -2261,7 +2261,7 @@ define hidden noundef i32 @zm_activate_random(i32 %0, i32 %1) #9 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zm_globals_ctor_random(ptr nocapture noundef writeonly initializes((0, 9), (16, 25), (28, 32)) %0) #0 {
+define internal void @zm_globals_ctor_random(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 -1, ptr %2, align 4
   %3 = load i64, ptr @php_random_algo_combinedlcg, align 8

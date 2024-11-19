@@ -281,7 +281,7 @@ define internal range(i32 0, 28) i32 @ftp_setup_connection(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftp_do(ptr noundef %0, ptr nocapture noundef initializes((0, 1)) %1) #0 {
+define internal i32 @ftp_do(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1660,7 +1660,7 @@ ftp_nb_type.exit.thread:                          ; preds = %.critedge.i.i.i, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftp_connect(ptr noundef %0, ptr noundef initializes((0, 1)) %1) #0 {
+define internal i32 @ftp_connect(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 824
@@ -1713,7 +1713,7 @@ define internal i32 @ftp_connect(ptr noundef %0, ptr noundef initializes((0, 1))
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftp_multi_statemach(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #0 {
+define internal i32 @ftp_multi_statemach(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 824
@@ -1727,7 +1727,7 @@ define internal i32 @ftp_multi_statemach(ptr noundef %0, ptr nocapture noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ftp_doing(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #0 {
+define internal i32 @ftp_doing(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 824
@@ -1975,7 +1975,7 @@ freedirs.exit:                                    ; preds = %38, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_GetFTPResponse(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @Curl_GetFTPResponse(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -6399,7 +6399,7 @@ declare void @Curl_conn_cf_discard_all(ptr noundef, ptr noundef, i32 noundef) lo
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @AllowServerConnect(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 1)) %1) unnamed_addr #0 {
+define internal fastcc i32 @AllowServerConnect(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.curltime, align 8
   store i8 0, ptr %1, align 1
   %.not = icmp eq ptr %0, null
@@ -6566,7 +6566,7 @@ define internal fastcc i32 @InitiateTransfer(ptr noundef %0) unnamed_addr #0 {
 declare { i64, i32 } @Curl_pgrsTime(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 13) i32 @ReceivedServerConnect(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 13) i32 @ReceivedServerConnect(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca %struct.curltime, align 8
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4

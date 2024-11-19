@@ -4191,7 +4191,7 @@ declare noundef ptr @_ZNK4llvm15DomTreeNodeBaseINS_17MachineBasicBlockEE7getIDom
 declare noundef ptr @_ZNK4llvm15DomTreeNodeBaseINS_17MachineBasicBlockEE8getBlockEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf8Liveness17getAllReachedUsesENS0_11RegisterRefENS0_8NodeAddrIPNS0_7DefNodeEEERKNS0_12RegisterAggrE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(504) %1, i32 %2, i64 %3, ptr nocapture readonly %4, i32 %5, ptr noundef nonnull align 8 dereferenceable(80) %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf8Liveness17getAllReachedUsesENS0_11RegisterRefENS0_8NodeAddrIPNS0_7DefNodeEEERKNS0_12RegisterAggrE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr noundef nonnull align 8 dereferenceable(504) %1, i32 %2, i64 %3, ptr nocapture readonly %4, i32 %5, ptr noundef nonnull align 8 dereferenceable(80) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::set", align 8
   %9 = alloca %"class.std::set", align 8
   %10 = alloca %"struct.llvm::rdf::RegisterAggr", align 8

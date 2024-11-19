@@ -225,7 +225,7 @@ $_ZTIN3net16HpackHeaderTable21DebugVisitorInterfaceE = comdat any
 @_ZN3net17QuicHeadersStreamD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net17QuicHeadersStreamD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net17QuicHeadersStream17HpackDebugVisitorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net17QuicHeadersStream17HpackDebugVisitorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStream17HpackDebugVisitorE, i64 16), ptr %this, align 8
   ret void
@@ -394,7 +394,7 @@ declare void @_ZN3net10SpdyFramerD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net17QuicHeadersStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net17QuicHeadersStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStreamE, i64 16), ptr %this, align 8
   %header_list_ = getelementptr inbounds i8, ptr %this, i64 720
@@ -420,7 +420,7 @@ _ZNSt10unique_ptrIN3net17QuicHeadersStream17SpdyFramerVisitorESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net17QuicHeadersStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net17QuicHeadersStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net17QuicHeadersStreamE, i64 16), ptr %this, align 8
   %header_list_.i = getelementptr inbounds i8, ptr %this, i64 720
@@ -1193,7 +1193,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net17QuicHeadersStream13OnPushPromiseEjjb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) initializes((392, 400)) %this, i32 noundef %stream_id, i32 noundef %promised_stream_id, i1 noundef zeroext %end) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net17QuicHeadersStream13OnPushPromiseEjjb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) %this, i32 noundef %stream_id, i32 noundef %promised_stream_id, i1 noundef zeroext %end) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end13:
   %stream_id_ = getelementptr inbounds i8, ptr %this, i64 392
   store i32 %stream_id, ptr %stream_id_, align 8
@@ -1348,7 +1348,7 @@ if.end95:                                         ; preds = %if.then82, %if.else
 declare noundef ptr @_ZN4base15LinearHistogram10FactoryGetEPKciiji(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net17QuicHeadersStream12OnHeaderListERKNS_14QuicHeaderListE(ptr nocapture noundef nonnull align 8 dereferenceable(816) initializes((416, 424)) %this, ptr noundef nonnull align 8 dereferenceable(96) %header_list) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN3net17QuicHeadersStream12OnHeaderListERKNS_14QuicHeaderListE(ptr nocapture noundef nonnull align 8 dereferenceable(816) %this, ptr noundef nonnull align 8 dereferenceable(96) %header_list) local_unnamed_addr #4 align 2 {
 entry:
   %prev_max_timestamp_ = getelementptr inbounds i8, ptr %this, i64 440
   %agg.tmp.sroa.0.0.copyload = load i64, ptr %prev_max_timestamp_, align 8
@@ -3330,7 +3330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3net12_GLOBAL__N_119ForceHolAckListenerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3net12_GLOBAL__N_119ForceHolAckListenerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_119ForceHolAckListenerE, i64 16), ptr %this, align 8
   %stream_ack_listener_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3358,7 +3358,7 @@ _ZN13scoped_refptrIN3net24QuicAckListenerInterfaceEED2Ev.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3net12_GLOBAL__N_119ForceHolAckListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3net12_GLOBAL__N_119ForceHolAckListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_119ForceHolAckListenerE, i64 16), ptr %this, align 8
   %stream_ack_listener_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3399,7 +3399,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3net12_GLOBAL__N_123HeaderTableDebugVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3net12_GLOBAL__N_123HeaderTableDebugVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_123HeaderTableDebugVisitorE, i64 16), ptr %this, align 8
   %headers_stream_hpack_visitor_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3420,7 +3420,7 @@ _ZNSt10unique_ptrIN3net17QuicHeadersStream17HpackDebugVisitorESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3net12_GLOBAL__N_123HeaderTableDebugVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3net12_GLOBAL__N_123HeaderTableDebugVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net12_GLOBAL__N_123HeaderTableDebugVisitorE, i64 16), ptr %this, align 8
   %headers_stream_hpack_visitor_.i = getelementptr inbounds i8, ptr %this, i64 16

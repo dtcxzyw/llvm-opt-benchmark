@@ -313,7 +313,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12t_oriresdataC2EP8_IO_FILERK10gmx_mtop_tRK10t_inputrecPK14gmx_multisim_tP7t_statePN3gmx19LocalAtomSetManagerE(ptr noundef nonnull align 8 dereferenceable(544) initializes((16, 20)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(768) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12t_oriresdataC2EP8_IO_FILERK10gmx_mtop_tRK10t_inputrecPK14gmx_multisim_tP7t_statePN3gmx19LocalAtomSetManagerE(ptr noundef nonnull align 8 dereferenceable(544) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(768) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.AtomIterator, align 8
   %9 = alloca %class.AtomIterator, align 8
   %10 = alloca %class.IListIterator, align 8

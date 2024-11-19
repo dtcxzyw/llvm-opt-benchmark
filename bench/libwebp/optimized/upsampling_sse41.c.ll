@@ -14,7 +14,7 @@ define hidden void @WebPInitUpsamplersSSE41() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef initializes((0, 3)) %6, ptr noundef %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) #1 {
   %10 = alloca [463 x i8], align 16
   %11 = alloca [17 x i8], align 16
   %12 = alloca [17 x i8], align 16
@@ -476,7 +476,7 @@ define internal void @UpsampleRgbLinePair_SSE41(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef initializes((0, 3)) %6, ptr noundef %7, i32 noundef %8) #1 {
+define internal void @UpsampleBgrLinePair_SSE41(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr noundef %6, ptr noundef %7, i32 noundef %8) #1 {
   %10 = alloca [463 x i8], align 16
   %11 = alloca [17 x i8], align 16
   %12 = alloca [17 x i8], align 16

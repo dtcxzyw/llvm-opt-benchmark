@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [35 x i8] c"must be a 32 byte (256 bit) string\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_random_xoshiro256starstar_seed256(ptr nocapture noundef writeonly initializes((0, 32)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @php_random_xoshiro256starstar_seed256(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   store i64 %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %6, align 8
@@ -47,7 +47,7 @@ define void @php_random_xoshiro256starstar_seed256(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_random_xoshiro256starstar_seed64(ptr nocapture noundef writeonly initializes((0, 32)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @php_random_xoshiro256starstar_seed64(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, -7046029254386353131
   %4 = lshr i64 %3, 30
   %5 = xor i64 %4, %3

@@ -81,7 +81,7 @@ $_ZTVN16MetaspaceClosure6MSORefI6SymbolEE = comdat any
 @_ZN17PackageEntryTableD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17PackageEntryTableD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12PackageEntryC2EP6SymbolP11ModuleEntry(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 23), (24, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN12PackageEntryC2EP6SymbolP11ModuleEntry(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -618,7 +618,7 @@ _ZN17GrowableArrayViewIP11ModuleEntryE9delete_atEi.exit: ; preds = %66, %61, %70
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17PackageEntryTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((0, 876)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN17PackageEntryTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(876) %0, i8 0, i64 876, i1 false)
   ret void
 }

@@ -231,7 +231,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10StreamPipeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10StreamPipeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamPipeE, i64 16), ptr %this, align 8
   %is_closed_.i = getelementptr inbounds i8, ptr %this, i64 62
@@ -451,7 +451,7 @@ entry:
 declare void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10StreamPipeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10StreamPipeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10StreamPipeE, i64 16), ptr %this, align 8
   %is_closed_.i.i = getelementptr inbounds i8, ptr %this, i64 62
@@ -1890,7 +1890,7 @@ declare void @_ZN4node10BaseObject17increase_refcountEv(ptr noundef nonnull alig
 declare void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10StreamPipe6UnpipeEbE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10StreamPipe6UnpipeEbE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
@@ -1921,7 +1921,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10StreamPipe6UnpipeEbE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10StreamPipe6UnpipeEbE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8

@@ -69,7 +69,7 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1775fbae45b0b460E"(ptr nocapture writeonly sret({ ptr, [9 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1775fbae45b0b460E"(ptr nocapture writeonly sret({ ptr, [9 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = alloca { { { { ptr, i64 }, i64 } }, { { ptr, i32 }, i32, [1 x i32] }, i64, { ptr, [2 x i64] } }, align 8
   %4 = tail call align 8 ptr @"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3aa3c480102ea3aaE"(ptr align 8 %1)
   %5 = icmp eq ptr %4, null

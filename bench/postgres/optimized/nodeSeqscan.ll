@@ -103,7 +103,7 @@ define dso_local void @ExecReScanSeqScan(ptr noundef %0) local_unnamed_addr #0 {
 declare void @ExecScanReScan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecSeqScanEstimate(ptr nocapture noundef initializes((224, 232)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecSeqScanEstimate(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 200
@@ -131,7 +131,7 @@ declare i64 @table_parallelscan_estimate(ptr noundef, ptr noundef) local_unnamed
 declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecSeqScanInitializeDSM(ptr nocapture noundef initializes((208, 216)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecSeqScanInitializeDSM(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 88
@@ -183,7 +183,7 @@ define dso_local void @ExecSeqScanReInitializeDSM(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecSeqScanInitializeWorker(ptr nocapture noundef initializes((208, 216)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecSeqScanInitializeWorker(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

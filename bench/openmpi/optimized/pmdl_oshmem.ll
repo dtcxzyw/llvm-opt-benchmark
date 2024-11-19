@@ -1618,7 +1618,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @nscon(ptr nocapture noundef writeonly initializes((400, 401), (404, 420)) %0) #9 {
+define internal void @nscon(ptr nocapture noundef writeonly %0) #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 400
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 404

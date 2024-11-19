@@ -554,7 +554,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26gatherUnrollingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERKNS_19TargetTransformInfoEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_25OptimizationRemarkEmitterEiSt8optionalIjESE_SD_IbESF_SF_SE_(ptr dead_on_unwind noalias nonnull writable sret(%"struct.llvm::TargetTransformInfo::UnrollingPreferences") align 4 initializes((0, 61)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1392) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %7, i64 %8, i64 %9, i16 %10, i16 %11, i16 %12, i64 %13) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm26gatherUnrollingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERKNS_19TargetTransformInfoEPNS_18BlockFrequencyInfoEPNS_18ProfileSummaryInfoERNS_25OptimizationRemarkEmitterEiSt8optionalIjESE_SD_IbESF_SF_SE_(ptr dead_on_unwind noalias nonnull writable sret(%"struct.llvm::TargetTransformInfo::UnrollingPreferences") align 4 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1392) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %7, i64 %8, i64 %9, i16 %10, i16 %11, i16 %12, i64 %13) local_unnamed_addr #0 {
   %.sroa.023.0.extract.trunc = trunc i64 %8 to i32
   %.sroa.018.0.extract.trunc = trunc i64 %9 to i32
   %.sroa.016.0.extract.trunc = trunc i16 %10 to i8
@@ -828,7 +828,7 @@ declare noundef i32 @_ZN4llvm23hasUnrollTransformationEPKNS_4LoopE(ptr noundef) 
 declare noundef zeroext i1 @_ZN4llvm21shouldOptimizeForSizeEPKNS_10BasicBlockEPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoENS_13PGSOQueryTypeE(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19UnrollCostEstimatorC2EPKNS_4LoopERKNS_19TargetTransformInfoERKNS_15SmallPtrSetImplIPKNS_5ValueEEEj(ptr nocapture noundef nonnull align 8 dereferenceable(29) initializes((0, 12)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19UnrollCostEstimatorC2EPKNS_4LoopERKNS_19TargetTransformInfoERKNS_15SmallPtrSetImplIPKNS_5ValueEEEj(ptr nocapture noundef nonnull align 8 dereferenceable(29) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.llvm::CodeMetrics", align 8
   store i64 0, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8485,7 +8485,7 @@ declare noundef zeroext i1 @_ZN4llvm20UnrolledInstAnalyzer12visitCmpInstERNS_7Cm
 declare noundef zeroext i1 @_ZN4llvm20UnrolledInstAnalyzer12visitPHINodeERNS_7PHINodeE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(76)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_117UnrolledInstStateENS_6detail13DenseSetEmptyENS2_24UnrolledInstStateKeyInfoENS4_12DenseSetPairIS3_EEEES3_S5_S6_S8_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_117UnrolledInstStateENS_6detail13DenseSetEmptyENS2_24UnrolledInstStateKeyInfoENS4_12DenseSetPairIS3_EEEES3_S5_S6_S8_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

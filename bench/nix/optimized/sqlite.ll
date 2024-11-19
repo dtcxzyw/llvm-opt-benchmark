@@ -1720,7 +1720,7 @@ _ZN3nix5ErrorD2Ev.exit:                           ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix6SQLiteC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14SQLiteOpenModeE(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix6SQLiteC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_14SQLiteOpenModeE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2898,7 +2898,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10SQLiteStmt3UseC2ERS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #2 align 2 {
+define void @_ZN3nix10SQLiteStmt3UseC2ERS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8
@@ -3388,7 +3388,7 @@ define noundef zeroext i1 @_ZN3nix10SQLiteStmt3Use6isNullEi(ptr nocapture nounde
 declare i32 @sqlite3_column_type(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix9SQLiteTxnC2EP7sqlite3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix9SQLiteTxnC2EP7sqlite3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.4", align 1
   store i8 0, ptr %0, align 8

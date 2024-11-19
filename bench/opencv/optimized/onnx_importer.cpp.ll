@@ -5828,7 +5828,7 @@ _ZN2cv3PtrINS_3dnn14dnn4_v202405215LayerEED2Ev.exit: ; preds = %_ZNSt6vectorIS_I
 declare void @_ZN2cv3dnn14dnn4_v2024052112LayerFactory19createLayerInstanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS1_11LayerParamsE(ptr dead_on_unwind writable sret(%"struct.cv::Ptr.51") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, i32 %.4.val, ptr %.64.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.4.val, ptr %.64.val) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !32
   %2 = sext i32 %.4.val to i64
   %3 = getelementptr inbounds i32, ptr %.64.val, i64 %2
@@ -6009,7 +6009,7 @@ _ZNSt10shared_ptrIN2cv3dnn14dnn4_v202405215LayerEED2Ev.exit: ; preds = %1, %20, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter15getGraphTensorsB5cxx11ERKN11opencv_onnx10GraphProtoE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(585) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter15getGraphTensorsB5cxx11ERKN11opencv_onnx10GraphProtoE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %0, ptr noundef nonnull align 8 dereferenceable(585) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.68", align 8
   %5 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6500,7 +6500,7 @@ declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dere
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter14getLayerParamsERKN11opencv_onnx9NodeProtoE(ptr dead_on_unwind noalias writable sret(%"class.cv::dnn::dnn4_v20240521::LayerParams") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3dnn14dnn4_v2024052112ONNXImporter14getLayerParamsERKN11opencv_onnx9NodeProtoE(ptr dead_on_unwind noalias writable sret(%"class.cv::dnn::dnn4_v20240521::LayerParams") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.opencv_onnx::AttributeProto", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

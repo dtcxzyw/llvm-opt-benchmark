@@ -49,7 +49,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z30grpc_chttp2_goaway_parser_initP25grpc_chttp2_goaway_parser(ptr nocapture noundef writeonly initializes((16, 24)) %p) local_unnamed_addr #3 {
+define void @_Z30grpc_chttp2_goaway_parser_initP25grpc_chttp2_goaway_parser(ptr nocapture noundef writeonly %p) local_unnamed_addr #3 {
 entry:
   %debug_data = getelementptr inbounds i8, ptr %p, i64 16
   store ptr null, ptr %debug_data, align 8

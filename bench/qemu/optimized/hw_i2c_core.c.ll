@@ -79,7 +79,7 @@ entry:
 declare ptr @qbus_new(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @i2c_slave_set_address(ptr nocapture noundef writeonly initializes((160, 161)) %dev, i8 noundef zeroext %address) local_unnamed_addr #2 {
+define dso_local void @i2c_slave_set_address(ptr nocapture noundef writeonly %dev, i8 noundef zeroext %address) local_unnamed_addr #2 {
 entry:
   %address1 = getelementptr inbounds i8, ptr %dev, i64 160
   store i8 %address, ptr %address1, align 8
@@ -342,7 +342,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #1
 declare void @qemu_bh_schedule(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @i2c_bus_release(ptr noundef initializes((152, 160)) %bus) local_unnamed_addr #0 {
+define dso_local void @i2c_bus_release(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   %bh = getelementptr inbounds i8, ptr %bus, i64 152
   store ptr null, ptr %bh, align 8
@@ -949,7 +949,7 @@ declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i
 declare i32 @vmstate_register_with_alias_id(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @i2c_bus_pre_save(ptr nocapture noundef initializes((144, 145)) %opaque) #5 {
+define internal noundef i32 @i2c_bus_pre_save(ptr nocapture noundef %opaque) #5 {
 entry:
   %saved_address = getelementptr inbounds i8, ptr %opaque, i64 144
   store i8 -1, ptr %saved_address, align 8

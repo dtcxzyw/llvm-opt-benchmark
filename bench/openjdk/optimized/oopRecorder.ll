@@ -1311,7 +1311,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %1, %6, %10, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12ObjectLookupC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12ObjectLookupC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 4, i32 noundef 16) #12
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4

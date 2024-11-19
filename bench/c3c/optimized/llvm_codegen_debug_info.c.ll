@@ -241,7 +241,7 @@ declare ptr @LLVMDIBuilderCreateFunction(ptr noundef, ptr noundef, ptr noundef, 
 declare void @LLVMSetSubprogram(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_debug_local_var(ptr nocapture noundef %0, ptr nocapture noundef initializes((96, 104)) %1) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_debug_local_var(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -447,7 +447,7 @@ declare ptr @LLVMDIBuilderCreateDebugLocation(ptr noundef, i32 noundef, i32 noun
 declare ptr @LLVMGetInsertBlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_debug_parameter(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((96, 104)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_debug_parameter(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %4, null
   %spec.select = select i1 %.not, ptr @.str.1, ptr %4
@@ -952,7 +952,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_simple_type(ptr %.304.val, ptr nocapture noundef initializes((48, 56)) %0, i32 noundef range(i32 2, 9) %1) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_simple_type(ptr %.304.val, ptr nocapture noundef %0, i32 noundef range(i32 2, 9) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #9
@@ -1077,7 +1077,7 @@ define internal fastcc ptr @llvm_debug_vector_type(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @llvm_debug_typeid_type(ptr %.304.val, ptr nocapture noundef writeonly initializes((48, 56)) %0) unnamed_addr #0 {
+define internal fastcc ptr @llvm_debug_typeid_type(ptr %.304.val, ptr nocapture noundef writeonly %0) unnamed_addr #0 {
   %2 = load ptr, ptr @type_voidptr, align 8
   %3 = tail call i32 @type_size(ptr noundef %2) #8
   %4 = shl i32 %3, 3

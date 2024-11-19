@@ -943,7 +943,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev16CDLTransformImplELN9__gnu_cxx12_Lock
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27CDLReaderColorCorrectionElt17setCDLParsingInfoERKSt10shared_ptrINS_14CDLParsingInfoEE(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((96, 104)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pTransformList) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27CDLReaderColorCorrectionElt17setCDLParsingInfoERKSt10shared_ptrINS_14CDLParsingInfoEE(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pTransformList) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_parsingInfo = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %pTransformList, align 8

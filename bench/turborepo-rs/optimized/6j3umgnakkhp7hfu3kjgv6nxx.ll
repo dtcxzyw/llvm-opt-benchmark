@@ -162,7 +162,7 @@ _RINvMs6_NtCs7oQ2vmvFkJi_9hashbrown3rawINtB6_8RawTableTNtNtCs68wO5nsWeTG_5alloc6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RINvMs1_NtCs7oQ2vmvFkJi_9hashbrown3mapINtB6_7HashMapNtNtCs68wO5nsWeTG_5alloc6string6StringBO_NtNtNtCsapf13pIxsjn_3std4hash6random11RandomStateE6removeBO_ECsff1zCjKRl2o_13turborepo_env(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RINvMs1_NtCs7oQ2vmvFkJi_9hashbrown3mapINtB6_7HashMapNtNtCs68wO5nsWeTG_5alloc6string6StringBO_NtNtNtCsapf13pIxsjn_3std4hash6random11RandomStateE6removeBO_ECsff1zCjKRl2o_13turborepo_env(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @_RINvMs1_NtCs7oQ2vmvFkJi_9hashbrown3mapINtB6_7HashMapNtNtCs68wO5nsWeTG_5alloc6string6StringBO_NtNtNtCsapf13pIxsjn_3std4hash6random11RandomStateE12remove_entryBO_ECsff1zCjKRl2o_13turborepo_env(ptr noalias nocapture noundef nonnull sret([48 x i8]) align 8 dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2)
@@ -370,7 +370,7 @@ define hidden void @_RINvYNtNtCsapf13pIxsjn_3std3env4VarsNtNtNtNtCs1LoaDTb72WA_4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_RNvMs0_NtCs7oQ2vmvFkJi_9hashbrown3mapINtB5_7HashMapNtNtCs68wO5nsWeTG_5alloc6string6StringBN_NtNtNtCsapf13pIxsjn_3std4hash6random11RandomStateE4iterCsff1zCjKRl2o_13turborepo_env(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 26), (32, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #2 {
+define void @_RNvMs0_NtCs7oQ2vmvFkJi_9hashbrown3mapINtB5_7HashMapNtNtCs68wO5nsWeTG_5alloc6string6StringBN_NtNtNtCsapf13pIxsjn_3std4hash6random11RandomStateE4iterCsff1zCjKRl2o_13turborepo_env(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #2 {
   %3 = load ptr, ptr %1, align 8, !nonnull !17, !noundef !17
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !17
@@ -710,7 +710,7 @@ define { ptr, ptr } @_RNvXsW_NtCs7oQ2vmvFkJi_9hashbrown3mapINtB5_4IterNtNtCs68wO
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter6traits7collectNtNtCsapf13pIxsjn_3std3env4VarsNtB4_12IntoIterator9into_iterCsff1zCjKRl2o_13turborepo_env.llvm.14060919928473967912(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
+define hidden void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter6traits7collectNtNtCsapf13pIxsjn_3std3env4VarsNtB4_12IntoIterator9into_iterCsff1zCjKRl2o_13turborepo_env.llvm.14060919928473967912(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }

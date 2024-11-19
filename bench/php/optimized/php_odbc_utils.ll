@@ -68,7 +68,7 @@ define range(i64 3, 2) i64 @php_odbc_connstr_estimate_quote_length(ptr nocapture
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define i64 @php_odbc_connstr_quote(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
+define i64 @php_odbc_connstr_quote(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 123, ptr %0, align 1
   %5 = add i64 %2, -1

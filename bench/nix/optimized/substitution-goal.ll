@@ -1021,7 +1021,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix20PathSubstitutionGoalC2ERKNS_9StorePathERNS_6WorkerENS_10RepairFlagESt8optionalINS_14ContentAddressEE(ptr noundef nonnull align 8 dereferenceable(1080) initializes((0, 32), (40, 44), (48, 56)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(649) %2, i1 noundef zeroext %3, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix20PathSubstitutionGoalC2ERKNS_9StorePathERNS_6WorkerENS_10RepairFlagESt8optionalINS_14ContentAddressEE(ptr noundef nonnull align 8 dereferenceable(1080) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(649) %2, i1 noundef zeroext %3, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.boost::io::detail::put_holder", align 8
   %7 = alloca %"class.boost::basic_format", align 8
   %8 = alloca %"class.std::allocator.10", align 1
@@ -2639,7 +2639,7 @@ _ZNSt23enable_shared_from_thisIN3nix4GoalEED2Ev.exit: ; preds = %_ZNSt3setISt10s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3nix20PathSubstitutionGoalD2Ev(ptr noundef nonnull align 8 dereferenceable(1080) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix20PathSubstitutionGoalD2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix20PathSubstitutionGoalE, i64 16), ptr %0, align 8
   invoke void @_ZN3nix20PathSubstitutionGoal7cleanupEv(ptr noundef nonnull align 8 dereferenceable(1080) %0)
           to label %2 unwind label %172
@@ -3119,7 +3119,7 @@ define void @_ZN3nix20PathSubstitutionGoalD0Ev(ptr noundef nonnull align 8 deref
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix20PathSubstitutionGoal4doneENS_4Goal8ExitCodeENS_11BuildResult6StatusESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(1080) initializes((192, 196)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix20PathSubstitutionGoal4doneENS_4Goal8ExitCodeENS_11BuildResult6StatusESt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(1080) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::optional.27", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 192

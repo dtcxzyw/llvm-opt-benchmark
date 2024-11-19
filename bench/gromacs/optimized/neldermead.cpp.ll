@@ -786,7 +786,7 @@ declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef n
 declare void @_ZNSt8__detail15_List_node_base4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx17NelderMeadSimplex23evaluateReflectionPointERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.gmx::RealFunctionvalueAtCoordinate") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3gmx17NelderMeadSimplex23evaluateReflectionPointERKSt8functionIFfNS_8ArrayRefIKfEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.gmx::RealFunctionvalueAtCoordinate") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::ArrayRef", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = getelementptr inbounds i8, ptr %1, i64 56

@@ -1905,7 +1905,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl18NonlinearExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(4264) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl18NonlinearExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(4264) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith2nl18NonlinearExtensionE, i64 16), ptr %this, align 8
   %d_branches.i.i = getelementptr inbounds i8, ptr %this, i64 4240
@@ -2060,7 +2060,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc57context3CD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl18NonlinearExtensionD0Ev(ptr noundef nonnull align 8 dereferenceable(4264) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl18NonlinearExtensionD0Ev(ptr noundef nonnull align 8 dereferenceable(4264) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory5arith2nl18NonlinearExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(4264) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
@@ -3180,7 +3180,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory5arith6BoundsESt4lessIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl18NonlinearExtension24getUnsatisfiedAssertionsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4264) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %assertions) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl18NonlinearExtension24getUnsatisfiedAssertionsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EE(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4264) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %assertions) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %litv = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.685", align 8

@@ -108,7 +108,7 @@ $_ZTV13G1ServiceTask = comdat any
 @_ZN18G1ServiceTaskQueueC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN18G1ServiceTaskQueueC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14G1SentinelTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24), (32, 40)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14G1SentinelTaskC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @.str, ptr %3, align 8
@@ -122,7 +122,7 @@ define hidden void @_ZN14G1SentinelTaskC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13G1ServiceTaskC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13G1ServiceTaskC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13G1ServiceTask, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
@@ -134,14 +134,14 @@ define hidden void @_ZN13G1ServiceTaskC2EPKc(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13G1ServiceTask8set_timeEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13G1ServiceTask8set_timeEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13G1ServiceTask8set_nextEPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13G1ServiceTask8set_nextEPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -277,7 +277,7 @@ define hidden noundef ptr @_ZN13G1ServiceTask4nameEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13G1ServiceTask18set_service_threadEP15G1ServiceThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13G1ServiceTask18set_service_threadEP15G1ServiceThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret void
@@ -663,7 +663,7 @@ define hidden void @_ZN13G1ServiceTask8scheduleEl(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18G1ServiceTaskQueueC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24), (32, 40)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18G1ServiceTaskQueueC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @.str, ptr %3, align 8

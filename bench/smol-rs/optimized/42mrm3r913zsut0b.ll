@@ -925,7 +925,7 @@ define hidden noundef zeroext i1 @"_ZN14event_listener3sys48_$LT$impl$u20$event_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$4lock17h9efb6800586cb7e3E.llvm.6090777742988092048"(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i8 } }) align 8 dereferenceable(24) initializes((0, 17)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
+define hidden void @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$4lock17h9efb6800586cb7e3E.llvm.6090777742988092048"(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i8 } }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   %3 = cmpxchg ptr %1, i32 0, i32 1 acquire monotonic, align 4
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %3, 1
   br i1 %.sroa.18.0.in.i.i, label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit, label %4
@@ -959,7 +959,7 @@ _ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.60907777
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$4lock17hac8e237ee8e86bdeE.llvm.6090777742988092048"(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i8 } }) align 8 dereferenceable(24) initializes((0, 17)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
+define hidden void @"_ZN14event_listener3sys48_$LT$impl$u20$event_listener..Inner$LT$T$GT$$GT$4lock17hac8e237ee8e86bdeE.llvm.6090777742988092048"(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i8 } }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   %3 = cmpxchg ptr %1, i32 0, i32 1 acquire monotonic, align 4
   %.sroa.18.0.in.i.i = extractvalue { i32, i1 } %3, 1
   br i1 %.sroa.18.0.in.i.i, label %_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f8557e8fE.llvm.6090777742988092048.exit, label %4

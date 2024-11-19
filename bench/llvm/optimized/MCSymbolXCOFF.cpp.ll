@@ -14,7 +14,7 @@ define dso_local noundef ptr @_ZNK4llvm13MCSymbolXCOFF19getRepresentedCsectEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm13MCSymbolXCOFF19setRepresentedCsectEPNS_14MCSectionXCOFFE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm13MCSymbolXCOFF19setRepresentedCsectEPNS_14MCSectionXCOFFE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void

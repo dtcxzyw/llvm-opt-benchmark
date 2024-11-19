@@ -951,7 +951,7 @@ _ZN4llvm9SourceMgrD2Ev.exit:                      ; preds = %_ZSt8_DestroyIPN4ll
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4yaml7Scanner7getNextEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::yaml::Token") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4yaml7Scanner7getNextEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::yaml::Token") align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm4yaml7Scanner8peekNextEv(ptr noundef nonnull align 8 dereferenceable(344) %1)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2060,7 +2060,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit63:              ; preds = %35, %_ZN4llvmeqENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4yaml7ScannerC2ENS_9StringRefERNS_9SourceMgrEbPSt10error_code(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 40), (76, 77), (80, 96)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4yaml7ScannerC2ENS_9StringRefERNS_9SourceMgrEbPSt10error_code(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::MemoryBufferRef", align 8
   %8 = zext i1 %4 to i8
   store ptr %3, ptr %0, align 8
@@ -2103,7 +2103,7 @@ define dso_local void @_ZN4llvm4yaml7ScannerC2ENS_9StringRefERNS_9SourceMgrEbPSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4yaml7Scanner4initENS_15MemoryBufferRefE(ptr nocapture noundef nonnull align 8 dereferenceable(344) initializes((8, 76)) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4yaml7Scanner4initENS_15MemoryBufferRefE(ptr nocapture noundef nonnull align 8 dereferenceable(344) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"struct.llvm::SourceMgr::SrcBuffer", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2180,7 +2180,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit3: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4yaml7ScannerC2ENS_15MemoryBufferRefERNS_9SourceMgrEbPSt10error_code(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 40), (76, 77), (80, 96)) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4yaml7ScannerC2ENS_15MemoryBufferRefERNS_9SourceMgrEbPSt10error_code(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #1 align 2 {
   %6 = zext i1 %3 to i8
   store ptr %2, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4182,7 +4182,7 @@ _ZN4llvm4yaml7Scanner12skip_b_breakEPKc.exit:     ; preds = %116, %_ZN4llvm4yaml
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner15scanStreamStartEv(ptr noundef nonnull align 8 dereferenceable(344) initializes((72, 73)) %0) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner15scanStreamStartEv(ptr noundef nonnull align 8 dereferenceable(344) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"struct.llvm::yaml::Token", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 0, ptr %3, align 8
@@ -6776,7 +6776,7 @@ _ZN4llvm13AllocatorListINS_4yaml5TokenENS_20BumpPtrAllocatorImplINS_15MallocAllo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner25scanBlockScalarIndicatorsERcS2_RjRb(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner25scanBlockScalarIndicatorsERcS2_RjRb(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull align 1 dereferenceable(1) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6838,7 +6838,7 @@ define dso_local noundef signext range(i8 32, 125) i8 @_ZN4llvm4yaml7Scanner23sc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner21scanBlockScalarHeaderERcRjRb(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner21scanBlockScalarHeaderERcRjRb(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr nocapture noundef nonnull align 1 dereferenceable(1) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::ArrayRef.71", align 8
   %6 = alloca %"struct.llvm::yaml::Token", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -8401,7 +8401,7 @@ _ZN4llvm13AllocatorListINS_4yaml5TokenENS_20BumpPtrAllocatorImplINS_15MallocAllo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4yaml6StreamC2ENS_9StringRefERNS_9SourceMgrEbPSt10error_code(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4yaml6StreamC2ENS_9StringRefERNS_9SourceMgrEbPSt10error_code(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #1 align 2 {
   %7 = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #28
   tail call void @_ZN4llvm4yaml7ScannerC1ENS_9StringRefERNS_9SourceMgrEbPSt10error_code(ptr noundef nonnull align 8 dereferenceable(344) %7, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i1 noundef zeroext %4, ptr noundef %5) #25
   store ptr %7, ptr %0, align 8
@@ -8414,7 +8414,7 @@ define dso_local void @_ZN4llvm4yaml6StreamC2ENS_9StringRefERNS_9SourceMgrEbPSt1
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4yaml6StreamC2ENS_15MemoryBufferRefERNS_9SourceMgrEbPSt10error_code(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4yaml6StreamC2ENS_15MemoryBufferRefERNS_9SourceMgrEbPSt10error_code(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #1 align 2 {
   %6 = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #28
   tail call void @_ZN4llvm4yaml7ScannerC1ENS_15MemoryBufferRefERNS_9SourceMgrEbPSt10error_code(ptr noundef nonnull align 8 dereferenceable(344) %6, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %1, ptr noundef nonnull align 8 dereferenceable(64) %2, i1 noundef zeroext %3, ptr noundef %4) #25
   store ptr %6, ptr %0, align 8
@@ -8727,7 +8727,7 @@ _ZN4llvm4yaml8Document7getNextEv.exit:            ; preds = %31, %.thread.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4yaml4NodeC2EjRSt10unique_ptrINS0_8DocumentESt14default_deleteIS3_EENS_9StringRefES8_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 36), (40, 72)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4yaml4NodeC2EjRSt10unique_ptrINS0_8DocumentESt14default_deleteIS3_EENS_9StringRefES8_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm4yaml4NodeE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -9320,7 +9320,7 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm4yaml8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4yaml4Node7getNextEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::yaml::Token") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4yaml4Node7getNextEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::yaml::Token") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -9362,7 +9362,7 @@ _ZN4llvm4yaml8Document7getNextEv.exit:            ; preds = %15, %.thread.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4yaml8Document7getNextEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::yaml::Token") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4yaml8Document7getNextEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::yaml::Token") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN4llvm4yaml7Scanner8peekNextEv(ptr noundef nonnull align 8 dereferenceable(344) %4), !noalias !90
@@ -12937,7 +12937,7 @@ _ZNK4llvm4yaml4Node8setErrorERKNS_5TwineERNS0_5TokenE.exit15: ; preds = %170, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm4yaml8DocumentC2ERNS0_6StreamE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm4yaml8DocumentC2ERNS0_6StreamE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"struct.llvm::yaml::Token", align 8

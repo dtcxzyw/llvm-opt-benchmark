@@ -568,7 +568,7 @@ if.end16:                                         ; preds = %if.end12, %trace_vi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_snd_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly initializes((0, 12)) %config) #0 {
+define internal void @virtio_snd_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %call = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.10, i32 noundef 95, ptr noundef nonnull @__func__.virtio_snd_get_config) #11
@@ -2439,7 +2439,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_snd_handle_pcm_start_stop(ptr nocapture noundef readonly %s, ptr nocapture noundef initializes((20, 24)) %cmd, i1 noundef zeroext %start) unnamed_addr #0 {
+define internal fastcc void @virtio_snd_handle_pcm_start_stop(ptr nocapture noundef readonly %s, ptr nocapture noundef %cmd, i1 noundef zeroext %start) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %req = alloca %struct.virtio_snd_pcm_hdr, align 8

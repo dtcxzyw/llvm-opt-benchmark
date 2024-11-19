@@ -5540,7 +5540,7 @@ define internal void @"_ZN2rc3GenIcE7GenImplINS_3gen6detail6MapGenISt5tupleIJhEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3GenIcE7GenImplINS_3gen6detail6MapGenISt5tupleIJhEEZNS3_5applyIZNS_13storePathCharEvE3$_0JhEEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSB_DpNS0_ISC_EEEUlOS7_E_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc3GenIcE7GenImplINS_3gen6detail6MapGenISt5tupleIJhEEZNS3_5applyIZNS_13storePathCharEvE3$_0JhEEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSB_DpNS0_ISC_EEEUlOS7_E_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3GenIcE7GenImplINS_3gen6detail6MapGenISt5tupleIJhEEZNS3_5applyIZNS_13storePathCharEvE3$_0JhEEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSB_DpNS0_ISC_EEEUlOS7_E_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -5585,7 +5585,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3GenIcE7GenImplINS_3gen6detail6MapGenISt5tupleIJhEEZNS3_5applyIZNS_13storePathCharEvE3$_0JhEEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSB_DpNS0_ISC_EEEUlOS7_E_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc3GenIcE7GenImplINS_3gen6detail6MapGenISt5tupleIJhEEZNS3_5applyIZNS_13storePathCharEvE3$_0JhEEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSB_DpNS0_ISC_EEEUlOS7_E_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3GenIcE7GenImplINS_3gen6detail6MapGenISt5tupleIJhEEZNS3_5applyIZNS_13storePathCharEvE3$_0JhEEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSB_DpNS0_ISC_EEEUlOS7_E_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -5815,7 +5815,7 @@ define internal void @"_ZN2rc10ShrinkableIcE14ShrinkableImplINS_10shrinkable6det
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc10ShrinkableIcE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSD_DpNSB_ISE_EEEUlOS7_E_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc10ShrinkableIcE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSD_DpNSB_ISE_EEEUlOS7_E_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc10ShrinkableIcE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSD_DpNSB_ISE_EEEUlOS7_E_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val = load ptr, ptr %2, align 8
@@ -5841,7 +5841,7 @@ define internal void @"_ZN2rc10ShrinkableIcE14ShrinkableImplINS_10shrinkable6det
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc10ShrinkableIcE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSD_DpNSB_ISE_EEEUlOS7_E_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc10ShrinkableIcE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSD_DpNSB_ISE_EEEUlOS7_E_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc10ShrinkableIcE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSD_DpNSB_ISE_EEEUlOS7_E_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %2, align 8
@@ -6083,7 +6083,7 @@ define internal void @"_ZNK2rc3SeqINS_10ShrinkableIcEEE7SeqImplINS_3seq6detail6M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3SeqINS_10ShrinkableIcEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSI_DpNSG_ISJ_EEEUlOSC_E_E7shrinksEvEUlONS1_ISC_EEE_SU_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @"_ZN2rc3SeqINS_10ShrinkableIcEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSI_DpNSG_ISJ_EEEUlOSC_E_E7shrinksEvEUlONS1_ISC_EEE_SU_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3SeqINS_10ShrinkableIcEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSI_DpNSG_ISJ_EEEUlOSC_E_E7shrinksEvEUlONS1_ISC_EEE_SU_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -6103,7 +6103,7 @@ _ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableISt5tupleIJhEEEEE8ISeqImplEEclEP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3SeqINS_10ShrinkableIcEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSI_DpNSG_ISJ_EEEUlOSC_E_E7shrinksEvEUlONS1_ISC_EEE_SU_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @"_ZN2rc3SeqINS_10ShrinkableIcEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSI_DpNSG_ISJ_EEEUlOSC_E_E7shrinksEvEUlONS1_ISC_EEE_SU_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3SeqINS_10ShrinkableIcEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJhEEZNS_3gen5applyIZNS_13storePathCharEvE3$_0JhEEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSI_DpNSG_ISJ_EEEUlOSC_E_E7shrinksEvEUlONS1_ISC_EEE_SU_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -11945,7 +11945,7 @@ define internal void @"_ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail9FilterGenIS6_ZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail9FilterGenIS6_ZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail9FilterGenIS6_ZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -11990,7 +11990,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail9FilterGenIS6_ZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail9FilterGenIS6_ZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail9FilterGenIS6_ZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -12466,7 +12466,7 @@ define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail20MapShrinksShrinkableIS6_ZNS9_6filterIS6_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS0_IT_EEEESM_OT0_EUlONS_3SeqIS7_EEE_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail20MapShrinksShrinkableIS6_ZNS9_6filterIS6_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS0_IT_EEEESM_OT0_EUlONS_3SeqIS7_EEE_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail20MapShrinksShrinkableIS6_ZNS9_6filterIS6_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS0_IT_EEEESM_OT0_EUlONS_3SeqIS7_EEE_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val = load ptr, ptr %2, align 8
@@ -12492,7 +12492,7 @@ define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail20MapShrinksShrinkableIS6_ZNS9_6filterIS6_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS0_IT_EEEESM_OT0_EUlONS_3SeqIS7_EEE_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail20MapShrinksShrinkableIS6_ZNS9_6filterIS6_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS0_IT_EEEESM_OT0_EUlONS_3SeqIS7_EEE_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail20MapShrinksShrinkableIS6_ZNS9_6filterIS6_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS0_IT_EEEESM_OT0_EUlONS_3SeqIS7_EEE_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %2, align 8
@@ -12672,7 +12672,7 @@ define internal void @"_ZNK2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNSB_8mapMaybeIS8_ZZNS_10shrinkable6filterIS7_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS1_IT_EEEESQ_OT0_ENKUlOS9_E_clESU_EUlOS8_E_EENS0_INSt13invoke_resultISS_JSP_EE4type9ValueTypeEEENS0_ISP_EEST_EUlONSO_IS8_EEE_S14_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @"_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNSB_8mapMaybeIS8_ZZNS_10shrinkable6filterIS7_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS1_IT_EEEESQ_OT0_ENKUlOS9_E_clESU_EUlOS8_E_EENS0_INSt13invoke_resultISS_JSP_EE4type9ValueTypeEEENS0_ISP_EEST_EUlONSO_IS8_EEE_S14_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNSB_8mapMaybeIS8_ZZNS_10shrinkable6filterIS7_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS1_IT_EEEESQ_OT0_ENKUlOS9_E_clESU_EUlOS8_E_EENS0_INSt13invoke_resultISS_JSP_EE4type9ValueTypeEEENS0_ISP_EEST_EUlONSO_IS8_EEE_S14_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -12692,7 +12692,7 @@ _ZNKSt14default_deleteIN2rc3SeqINS0_5MaybeINS0_10ShrinkableINSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNSB_8mapMaybeIS8_ZZNS_10shrinkable6filterIS7_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS1_IT_EEEESQ_OT0_ENKUlOS9_E_clESU_EUlOS8_E_EENS0_INSt13invoke_resultISS_JSP_EE4type9ValueTypeEEENS0_ISP_EEST_EUlONSO_IS8_EEE_S14_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @"_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNSB_8mapMaybeIS8_ZZNS_10shrinkable6filterIS7_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS1_IT_EEEESQ_OT0_ENKUlOS9_E_clESU_EUlOS8_E_EENS0_INSt13invoke_resultISS_JSP_EE4type9ValueTypeEEENS0_ISP_EEST_EUlONSO_IS8_EEE_S14_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNSB_8mapMaybeIS8_ZZNS_10shrinkable6filterIS7_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS_5MaybeINS1_IT_EEEESQ_OT0_ENKUlOS9_E_clESU_EUlOS8_E_EENS0_INSt13invoke_resultISS_JSP_EE4type9ValueTypeEEENS0_ISP_EEST_EUlONSO_IS8_EEE_S14_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -12876,7 +12876,7 @@ define internal void @"_ZNK2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail9FilterSeqIZNSD_8mapMaybeIS9_ZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESR_OT0_ENKUlONS0_IS9_EEE_clESW_EUlOS9_E_EENS0_INSt13invoke_resultIST_JSQ_EE4type9ValueTypeEEENS0_ISQ_EESU_EUlRKSA_E_SA_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @"_ZN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail9FilterSeqIZNSD_8mapMaybeIS9_ZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESR_OT0_ENKUlONS0_IS9_EEE_clESW_EUlOS9_E_EENS0_INSt13invoke_resultIST_JSQ_EE4type9ValueTypeEEENS0_ISQ_EESU_EUlRKSA_E_SA_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail9FilterSeqIZNSD_8mapMaybeIS9_ZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESR_OT0_ENKUlONS0_IS9_EEE_clESW_EUlOS9_E_EENS0_INSt13invoke_resultIST_JSQ_EE4type9ValueTypeEEENS0_ISQ_EESU_EUlRKSA_E_SA_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -12896,7 +12896,7 @@ _ZNKSt14default_deleteIN2rc3SeqINS0_5MaybeINS0_10ShrinkableINSt7__cxx1112basic_s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail9FilterSeqIZNSD_8mapMaybeIS9_ZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESR_OT0_ENKUlONS0_IS9_EEE_clESW_EUlOS9_E_EENS0_INSt13invoke_resultIST_JSQ_EE4type9ValueTypeEEENS0_ISQ_EESU_EUlRKSA_E_SA_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @"_ZN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail9FilterSeqIZNSD_8mapMaybeIS9_ZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESR_OT0_ENKUlONS0_IS9_EEE_clESW_EUlOS9_E_EENS0_INSt13invoke_resultIST_JSQ_EE4type9ValueTypeEEENS0_ISQ_EESU_EUlRKSA_E_SA_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail9FilterSeqIZNSD_8mapMaybeIS9_ZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESR_OT0_ENKUlONS0_IS9_EEE_clESW_EUlOS9_E_EENS0_INSt13invoke_resultIST_JSQ_EE4type9ValueTypeEEENS0_ISQ_EESU_EUlRKSA_E_SA_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -13158,7 +13158,7 @@ define internal void @"_ZNK2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail6MapSeqIZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESQ_OT0_ENKUlONS0_IS9_EEE_clESV_EUlOS9_E_S9_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @"_ZN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail6MapSeqIZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESQ_OT0_ENKUlONS0_IS9_EEE_clESV_EUlOS9_E_S9_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail6MapSeqIZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESQ_OT0_ENKUlONS0_IS9_EEE_clESV_EUlOS9_E_S9_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -13178,7 +13178,7 @@ _ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableINSt7__cxx1112basic_stringIcSt11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail6MapSeqIZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESQ_OT0_ENKUlONS0_IS9_EEE_clESV_EUlOS9_E_S9_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @"_ZN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail6MapSeqIZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESQ_OT0_ENKUlONS0_IS9_EEE_clESV_EUlOS9_E_S9_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3SeqINS_5MaybeINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEE7SeqImplINS_3seq6detail6MapSeqIZZNS_10shrinkable6filterIS8_RKZNS_9ArbitraryIN3nix13StorePathNameEvE9arbitraryEvE3$_0EENS1_INS2_IT_EEEESQ_OT0_ENKUlONS0_IS9_EEE_clESV_EUlOS9_E_S9_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -15868,7 +15868,7 @@ define internal void @"_ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix13StorePathNameEEEZNS9_5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSM_DpNS0_ISN_EEEUlOSF_E_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix13StorePathNameEEEZNS9_5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSM_DpNS0_ISN_EEEUlOSF_E_EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix13StorePathNameEEEZNS9_5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSM_DpNS0_ISN_EEEUlOSF_E_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -15913,7 +15913,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix13StorePathNameEEEZNS9_5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSM_DpNS0_ISN_EEEUlOSF_E_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix13StorePathNameEEEZNS9_5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSM_DpNS0_ISN_EEEUlOSF_E_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3GenINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7GenImplINS_3gen6detail6MapGenISt5tupleIJN3nix13StorePathNameEEEZNS9_5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS0_INSt13invoke_resultIT_JDpT0_EE4typeEEEOSM_DpNS0_ISN_EEEUlOSF_E_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -16210,7 +16210,7 @@ define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSO_DpNSM_ISP_EEEUlOSF_E_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSO_DpNSM_ISP_EEEUlOSF_E_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSO_DpNSM_ISP_EEEUlOSF_E_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val = load ptr, ptr %2, align 8
@@ -16236,7 +16236,7 @@ define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSO_DpNSM_ISP_EEEUlOSF_E_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSO_DpNSM_ISP_EEEUlOSF_E_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14ShrinkableImplINS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSD_9StorePathEvE9arbitraryEvE3$_0JSE_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOSO_DpNSM_ISP_EEEUlOSF_E_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %2, align 8
@@ -16524,7 +16524,7 @@ define internal void @"_ZNK2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSI_9StorePathEvE9arbitraryEvE3$_0JSJ_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOST_DpNSR_ISU_EEEUlOSK_E_E7shrinksEvEUlONS1_ISK_EEE_S15_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @"_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSI_9StorePathEvE9arbitraryEvE3$_0JSJ_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOST_DpNSR_ISU_EEEUlOSK_E_E7shrinksEvEUlONS1_ISK_EEE_S15_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSI_9StorePathEvE9arbitraryEvE3$_0JSJ_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOST_DpNSR_ISU_EEEUlOSK_E_E7shrinksEvEUlONS1_ISK_EEE_S15_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -16544,7 +16544,7 @@ _ZNKSt14default_deleteIN2rc3SeqINS0_10ShrinkableISt5tupleIJN3nix13StorePathNameE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSI_9StorePathEvE9arbitraryEvE3$_0JSJ_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOST_DpNSR_ISU_EEEUlOSK_E_E7shrinksEvEUlONS1_ISK_EEE_S15_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @"_ZN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSI_9StorePathEvE9arbitraryEvE3$_0JSJ_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOST_DpNSR_ISU_EEEUlOSK_E_E7shrinksEvEUlONS1_ISK_EEE_S15_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN2rc3SeqINS_10ShrinkableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE7SeqImplINS_3seq6detail6MapSeqIZNKS_10shrinkable6detail13MapShrinkableISt5tupleIJN3nix13StorePathNameEEEZNS_3gen5applyIZNS_9ArbitraryINSI_9StorePathEvE9arbitraryEvE3$_0JSJ_EEENS_3GenINSt13invoke_resultIT_JDpT0_EE4typeEEEOST_DpNSR_ISU_EEEUlOSK_E_E7shrinksEvEUlONS1_ISK_EEE_S15_EEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8

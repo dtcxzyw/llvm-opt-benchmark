@@ -99,7 +99,7 @@ declare void @_ZN5clang4ento11SValBuilderC2ERN4llvm20BumpPtrAllocatorImplINS2_15
 declare void @_ZN5clang4ento11SValBuilder6anchorEv(ptr noundef nonnull align 8 dereferenceable(412)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117SimpleSValBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(412) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117SimpleSValBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(412) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang4ento11SValBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @_ZN5clang4ento16MemRegionManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %2) #16
@@ -111,7 +111,7 @@ define internal void @_ZN12_GLOBAL__N_117SimpleSValBuilderD2Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117SimpleSValBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(412) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117SimpleSValBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(412) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang4ento11SValBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   tail call void @_ZN5clang4ento16MemRegionManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(152) %2) #16
@@ -4815,7 +4815,7 @@ declare noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvm5APIntppEv(ptr 
 declare void @_ZN4llvm5APInt19flipAllBitsSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15decomposeSymbolPKN5clang4ento7SymExprERNS0_17BasicValueFactoryE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8), (16, 20)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL15decomposeSymbolPKN5clang4ento7SymExprERNS0_17BasicValueFactoryE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APSInt", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16

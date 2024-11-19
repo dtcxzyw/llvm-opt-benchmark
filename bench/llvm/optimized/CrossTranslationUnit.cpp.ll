@@ -897,7 +897,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8cross_tu12shouldImportEPKNS_7VarD
 declare noundef zeroext i1 @_ZNK5clang8QualType13isTrivialTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContextC2ERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 20), (24, 48)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContextC2ERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(352) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2331,7 +2331,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %196, %202, %115, %1
 declare noundef nonnull align 8 dereferenceable(1304) ptr @_ZNK5clang10ASTContext14getDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContext14ASTUnitStorageC2ERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 72)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContext14ASTUnitStorageC2ERNS_16CompilerInstanceE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(352) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   store i32 16, ptr %3, align 4
@@ -2378,7 +2378,7 @@ define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContext14ASTUnitS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContext14ASTUnitStorage17getASTUnitForFileEN4llvm9StringRefEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.551") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContext14ASTUnitStorage17getASTUnitForFileEN4llvm9StringRefEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.551") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Expected.558", align 8
   %7 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %2, i64 %3) #18
   %8 = tail call noundef i32 @_ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr %2, i64 %3, i32 noundef %7) #18
@@ -2709,7 +2709,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %46, %50
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContext14ASTUnitStorage21getASTUnitForFunctionEN4llvm9StringRefES4_S4_b(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.551") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContext14ASTUnitStorage21getASTUnitForFunctionEN4llvm9StringRefES4_S4_b(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.551") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::Error", align 8
   %10 = alloca %"class.llvm::Expected.551", align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3157,7 +3157,7 @@ declare noundef zeroext i1 @_ZN4llvm3sys4path11is_absoluteERKNS_5TwineENS1_5Styl
 declare void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContext15loadExternalASTEN4llvm9StringRefES3_S3_b(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.551") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContext15loadExternalASTEN4llvm9StringRefES3_S3_b(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.551") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::Expected.551", align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @_ZN5clang8cross_tu27CrossTranslationUnitContext14ASTUnitStorage21getASTUnitForFunctionEN4llvm9StringRefES4_S4_b(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.551") align 8 %9, ptr noundef nonnull align 8 dereferenceable(168) %10, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %6, i1 noundef zeroext %7)
@@ -3215,7 +3215,7 @@ _ZN4llvm8ExpectedIPN5clang7ASTUnitEED2Ev.exit:    ; preds = %_ZN4llvm8ExpectedIP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContext9ASTLoaderC2ERNS_16CompilerInstanceEN4llvm9StringRefES6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) initializes((0, 4), (8, 48), (72, 73), (80, 84)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang8cross_tu27CrossTranslationUnitContext9ASTLoaderC2ERNS_16CompilerInstanceEN4llvm9StringRefES6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #4 align 2 {
   store i32 1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
@@ -5664,7 +5664,7 @@ _ZNSt10unique_ptrIN5clang11ASTImporterESt14default_deleteIS1_EE5resetEPS1_.exit:
 declare void @_ZN5clang11ASTImporterC1ERNS_10ASTContextERNS_11FileManagerES2_S4_bSt10shared_ptrINS_22ASTImporterSharedStateEE(ptr noundef nonnull align 8 dereferenceable(280360), ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(808), ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(808), i1 noundef zeroext, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK5clang8cross_tu27CrossTranslationUnitContext41getMacroExpansionContextForSourceLocationERKNS_14SourceLocationE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.957") align 8 initializes((72, 73)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %1, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK5clang8cross_tu27CrossTranslationUnitContext41getMacroExpansionContextForSourceLocationERKNS_14SourceLocationE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.957") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %1, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 0, ptr %4, align 8
   ret void

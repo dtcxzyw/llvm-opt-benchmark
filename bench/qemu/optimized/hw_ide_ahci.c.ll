@@ -371,7 +371,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_sysbus_ahci_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_init(ptr noundef initializes((0, 8)) %s, ptr noundef %qdev) local_unnamed_addr #0 {
+define dso_local void @ahci_init(ptr noundef %s, ptr noundef %qdev) local_unnamed_addr #0 {
 entry:
   store ptr %qdev, ptr %s, align 16
   %mem = getelementptr inbounds i8, ptr %s, i64 48
@@ -384,7 +384,7 @@ entry:
 declare void @memory_region_init_io(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ahci_realize(ptr noundef initializes((8, 20), (28, 36), (600, 604), (616, 624)) %s, ptr noundef %qdev, ptr noundef %as, i32 noundef %ports) local_unnamed_addr #0 {
+define dso_local void @ahci_realize(ptr noundef %s, ptr noundef %qdev, ptr noundef %as, i32 noundef %ports) local_unnamed_addr #0 {
 entry:
   %as1 = getelementptr inbounds i8, ptr %s, i64 616
   store ptr %as, ptr %as1, align 8
@@ -4430,7 +4430,7 @@ declare void @dma_acct_start(ptr noundef, ptr noundef, ptr noundef, i32 noundef)
 declare ptr @dma_blk_read(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ncq_cb(ptr noundef initializes((8, 16)) %opaque, i32 noundef %ret) #0 {
+define internal void @ncq_cb(ptr noundef %opaque, i32 noundef %ret) #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %opaque, align 8
@@ -4712,7 +4712,7 @@ if.end10:                                         ; preds = %if.else, %if.then7,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ahci_start_dma(ptr nocapture noundef readonly %dma, ptr noundef initializes((800, 808)) %s, ptr nocapture noundef readonly %dma_cb) #0 {
+define internal void @ahci_start_dma(ptr nocapture noundef readonly %dma, ptr noundef %s, ptr nocapture noundef readonly %dma_cb) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %hba = getelementptr inbounds i8, ptr %dma, i64 2440
@@ -5429,7 +5429,7 @@ declare void @ide_bus_reset(ptr noundef) local_unnamed_addr #1
 declare void @blk_aio_cancel(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ahci_set_signature(ptr nocapture noundef initializes((844, 851)) %ad, i32 noundef range(i32 -351010559, 258) %sig) unnamed_addr #0 {
+define internal fastcc void @ahci_set_signature(ptr nocapture noundef %ad, i32 noundef range(i32 -351010559, 258) %sig) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %shr = lshr i32 %sig, 24

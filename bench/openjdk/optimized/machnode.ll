@@ -473,7 +473,7 @@ define hidden noundef zeroext i1 @_ZNK8MachNode3cmpERK4Node(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK8MachNode17fill_new_machnodeEPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef initializes((40, 44)) %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZNK8MachNode17fill_new_machnodeEPS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -658,7 +658,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZNK8MachNode10in
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK8MachNode13memory_inputsERP4NodeS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZNK8MachNode13memory_inputsERP4NodeS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 312
   %6 = load ptr, ptr %5, align 8
@@ -828,7 +828,7 @@ define hidden noundef i32 @_ZNK8MachNode13operand_indexEj(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK8MachNode17get_base_and_dispERlRPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZNK8MachNode17get_base_and_dispERlRPK7TypePtr(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #6 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = call noundef ptr @_ZNK8MachNode13memory_inputsERP4NodeS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)

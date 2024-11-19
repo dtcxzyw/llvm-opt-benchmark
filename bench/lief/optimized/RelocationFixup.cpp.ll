@@ -609,7 +609,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF5MachO15RelocationFixupD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN4LIEF5MachO15RelocationFixupD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO15RelocationFixupE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
@@ -1189,7 +1189,7 @@ define noundef i64 @_ZNK4LIEF5MachO15RelocationFixup7addressEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF5MachO15RelocationFixup7addressEm(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((72, 76)) %0, i64 noundef %1) unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO15RelocationFixup7addressEm(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 %1, %4
@@ -1200,7 +1200,7 @@ define void @_ZN4LIEF5MachO15RelocationFixup7addressEm(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details30dyld_chained_ptr_arm64e_rebaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((76, 88)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details30dyld_chained_ptr_arm64e_rebaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 1, ptr %3, align 4
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
@@ -1212,7 +1212,7 @@ define void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details30dyld_chained_pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details35dyld_chained_ptr_arm64e_auth_rebaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((76, 88)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details35dyld_chained_ptr_arm64e_auth_rebaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 2, ptr %3, align 4
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
@@ -1224,7 +1224,7 @@ define void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details35dyld_chained_pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details26dyld_chained_ptr_64_rebaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((76, 88)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details26dyld_chained_ptr_64_rebaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 3, ptr %3, align 4
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #26
@@ -1236,7 +1236,7 @@ define void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details26dyld_chained_pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details26dyld_chained_ptr_32_rebaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((76, 88)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN4LIEF5MachO15RelocationFixup3setERKNS0_7details26dyld_chained_ptr_32_rebaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 4, ptr %3, align 4
   %4 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #26

@@ -1254,7 +1254,7 @@ declare i32 @jv_equal(i64, ptr, i64, ptr) local_unnamed_addr #1
 declare { i64, ptr } @jv_object_get(i64, ptr, i64, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
+define internal fastcc i32 @load_library(ptr noundef %0, i64 %1, ptr %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
   %10 = alloca %struct.block, align 8
   %11 = icmp eq i32 %3, 0
   %12 = icmp ne i32 %4, 0

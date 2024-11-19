@@ -51,7 +51,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11RasterPlaneC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11RasterPlaneC2ERKS_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QImage, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %4, align 8
@@ -139,7 +139,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11RasterPlaneC2ERK7QStringi(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11RasterPlaneC2ERK7QStringi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QImage, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
@@ -171,7 +171,7 @@ define void @_ZN11RasterPlaneC2ERK7QStringi(ptr noundef nonnull align 8 derefere
 declare void @_ZN6QImageC1ERK7QStringPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11RasterPlaneC2ERK6QImageRK7QStringi(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11RasterPlaneC2ERK6QImageRK7QStringi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -195,7 +195,7 @@ define void @_ZN11RasterPlaneC2ERK6QImageRK7QStringi(ptr noundef nonnull align 8
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6QImageaSERKS_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19MeshLabRenderRasterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 132), (136, 144)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19MeshLabRenderRasterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %0, i8 0, i64 56, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 60
@@ -222,7 +222,7 @@ define void @_ZN19MeshLabRenderRasterC2Ev(ptr nocapture noundef nonnull writeonl
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19MeshLabRenderRasterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 132), (136, 144)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19MeshLabRenderRasterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %0, ptr noundef nonnull align 8 dereferenceable(132) %1, i64 132, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -575,7 +575,7 @@ define void @_ZN19MeshLabRenderRaster8addPlaneEP11RasterPlane(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((144, 152)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19MeshLabRenderRasterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 136

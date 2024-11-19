@@ -282,7 +282,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev30DynamicPropertyGradingT
 @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplC1ERKNS_11GradingToneERKNS_20GradingTonePreRenderEb = hidden unnamed_addr alias void (ptr, ptr, ptr, i1), ptr @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplC2ERKNS_11GradingToneERKNS_20GradingTonePreRenderEb
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev20DynamicPropertyValue8AsDoubleERSt10shared_ptrINS_15DynamicPropertyEE(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %prop) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev20DynamicPropertyValue8AsDoubleERSt10shared_ptrINS_15DynamicPropertyEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %prop) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %0 = load ptr, ptr %prop, align 8, !noalias !4
@@ -452,7 +452,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev21DynamicPropertyDoubleELN9__gnu_cxx12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev20DynamicPropertyValue16AsGradingPrimaryERSt10shared_ptrINS_15DynamicPropertyEE(ptr noalias sret(%"class.std::shared_ptr.3") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %prop) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev20DynamicPropertyValue16AsGradingPrimaryERSt10shared_ptrINS_15DynamicPropertyEE(ptr noalias sret(%"class.std::shared_ptr.3") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %prop) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %0 = load ptr, ptr %prop, align 8, !noalias !7
@@ -608,7 +608,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev29DynamicPropertyGradingPrimaryELN9__g
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev20DynamicPropertyValue17AsGradingRGBCurveERSt10shared_ptrINS_15DynamicPropertyEE(ptr noalias sret(%"class.std::shared_ptr.6") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %prop) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev20DynamicPropertyValue17AsGradingRGBCurveERSt10shared_ptrINS_15DynamicPropertyEE(ptr noalias sret(%"class.std::shared_ptr.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %prop) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %0 = load ptr, ptr %prop, align 8, !noalias !10
@@ -764,7 +764,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingRGBCurveELN9__
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev20DynamicPropertyValue13AsGradingToneERSt10shared_ptrINS_15DynamicPropertyEE(ptr noalias sret(%"class.std::shared_ptr.9") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %prop) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev20DynamicPropertyValue13AsGradingToneERSt10shared_ptrINS_15DynamicPropertyEE(ptr noalias sret(%"class.std::shared_ptr.9") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %prop) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %0 = load ptr, ptr %prop, align 8, !noalias !13
@@ -1085,7 +1085,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19DynamicPropertyImplC2ENS_19DynamicPropertyTypeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(13) initializes((0, 13)) %this, i32 noundef %type, i1 noundef zeroext %dynamic) unnamed_addr #6 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19DynamicPropertyImplC2ENS_19DynamicPropertyTypeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(13) %this, i32 noundef %type, i1 noundef zeroext %dynamic) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %dynamic to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19DynamicPropertyImplE, i64 16), ptr %this, align 8
@@ -1103,7 +1103,7 @@ declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_15GradingRGBCurveES2
 declare noundef zeroext i1 @_ZN19OpenColorIO_v2_4deveqERKNS_11GradingToneES2_(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplC2ENS_19DynamicPropertyTypeEdb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 13), (16, 32)) %this, i32 noundef %type, double noundef %value, i1 noundef zeroext %dynamic) unnamed_addr #6 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplC2ENS_19DynamicPropertyTypeEdb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %type, double noundef %value, i1 noundef zeroext %dynamic) unnamed_addr #6 align 2 {
 entry:
   %frombool.i = zext i1 %dynamic to i8
   %m_type.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1119,7 +1119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev25DynamicPropertyDoubleImpl18createEditableCopyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.15") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev25DynamicPropertyDoubleImpl18createEditableCopyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.15") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %0 = load ptr, ptr %vtable, align 8
@@ -1156,7 +1156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplC2ENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryEb(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 13), (16, 386)) %this, i32 noundef %style, i32 noundef %dir, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %value, i1 noundef zeroext %dynamic) unnamed_addr #4 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplC2ENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryEb(ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %style, i32 noundef %dir, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %value, i1 noundef zeroext %dynamic) unnamed_addr #4 align 2 {
 entry:
   %frombool.i = zext i1 %dynamic to i8
   %m_type.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1185,7 +1185,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN19OpenColorIO_v2_4dev23GradingPrimaryPreRender6updateENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryE(ptr noundef nonnull align 8 dereferenceable(82), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(272)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplC2ENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryERKNS_23GradingPrimaryPreRenderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((0, 13), (16, 392)) %this, i32 noundef %style, i32 noundef %dir, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %value, ptr nocapture noundef nonnull readonly align 8 dereferenceable(82) %comp, i1 noundef zeroext %dynamic) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImplC2ENS_12GradingStyleENS_18TransformDirectionERKNS_14GradingPrimaryERKNS_23GradingPrimaryPreRenderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) %this, i32 noundef %style, i32 noundef %dir, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %value, ptr nocapture noundef nonnull readonly align 8 dereferenceable(82) %comp, i1 noundef zeroext %dynamic) unnamed_addr #8 align 2 {
 entry:
   %frombool.i = zext i1 %dynamic to i8
   %m_type.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1207,7 +1207,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImpl18createEditableCopyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.18") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImpl18createEditableCopyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.18") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_style = getelementptr inbounds i8, ptr %this, i64 24
   %m_direction = getelementptr inbounds i8, ptr %this, i64 28
@@ -1249,7 +1249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImpl8setValueERKNS_14GradingPrimaryE(ptr noundef nonnull align 8 dereferenceable(392) initializes((32, 304)) %this, ptr noundef nonnull align 8 dereferenceable(272) %value) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImpl8setValueERKNS_14GradingPrimaryE(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef nonnull align 8 dereferenceable(272) %value) unnamed_addr #0 align 2 {
 entry:
   %m_style = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %m_style, align 8
@@ -1267,7 +1267,7 @@ entry:
 declare void @_ZNK19OpenColorIO_v2_4dev14GradingPrimary8validateENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(272), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn16_N19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImpl8setValueERKNS_14GradingPrimaryE(ptr noundef initializes((16, 288)) %this, ptr noundef nonnull align 8 dereferenceable(272) %value) unnamed_addr #9 align 2 {
+define hidden void @_ZThn16_N19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImpl8setValueERKNS_14GradingPrimaryE(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(272) %value) unnamed_addr #9 align 2 {
 entry:
   %m_style.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_style.i, align 8
@@ -1283,7 +1283,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImpl8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(392) initializes((24, 28), (32, 304)) %this, i32 noundef %style) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev33DynamicPropertyGradingPrimaryImpl8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %style) local_unnamed_addr #0 align 2 {
 entry:
   %m_style = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %style, ptr %m_style, align 8
@@ -1361,7 +1361,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplC2ERKSt10shared_ptrIKNS_15GradingRGBCurveEEb(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 13), (16, 40)) %this, ptr noundef nonnull align 8 dereferenceable(16) %value, i1 noundef zeroext %dynamic) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplC2ERKSt10shared_ptrIKNS_15GradingRGBCurveEEb(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(16) %value, i1 noundef zeroext %dynamic) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.26", align 8
   %frombool.i = zext i1 %dynamic to i8
@@ -1658,7 +1658,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit25:                  ; preds = %_ZNSt6vectorIiSaIiE
 declare void @_ZN19OpenColorIO_v2_4dev15GradingRGBCurve6CreateERKSt10shared_ptrIKS0_E(ptr sret(%"class.std::shared_ptr.26") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl10precomputeEv(ptr noundef nonnull align 8 dereferenceable(144) initializes((40, 41)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl10precomputeEv(ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca [4 x i32], align 4
   %curve = alloca %"class.std::shared_ptr.29", align 8
@@ -1952,7 +1952,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl8setValueERKSt10shared_ptrIKNS_15GradingRGBCurveEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((24, 32), (40, 41)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl8setValueERKSt10shared_ptrIKNS_15GradingRGBCurveEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.26", align 8
   %0 = load ptr, ptr %value, align 8
@@ -2123,7 +2123,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15GradingRGBCurveEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn16_N19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl8setValueERKSt10shared_ptrIKNS_15GradingRGBCurveEE(ptr noundef initializes((8, 16), (24, 25)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) unnamed_addr #9 align 2 {
+define hidden void @_ZThn16_N19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl8setValueERKSt10shared_ptrIKNS_15GradingRGBCurveEE(ptr noundef %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %value) unnamed_addr #9 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl8setValueERKSt10shared_ptrIKNS_15GradingRGBCurveEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(16) %value)
@@ -2296,7 +2296,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev19GradingBSplineCurveELN9__gnu_cxx12_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.37") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.37") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -2450,7 +2450,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev34DynamicPropertyGradingRGBCurveImplEL
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplC2ERKNS_11GradingToneENS_12GradingStyleEb(ptr noundef nonnull align 8 dereferenceable(1208) initializes((0, 13), (16, 272)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %value, i32 noundef %style, i1 noundef zeroext %dynamic) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplC2ERKNS_11GradingToneENS_12GradingStyleEb(ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %value, i32 noundef %style, i1 noundef zeroext %dynamic) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool.i = zext i1 %dynamic to i8
   %m_type.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2473,7 +2473,7 @@ declare void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC1ENS_12GradingStyle
 declare void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(936), ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplC2ERKNS_11GradingToneERKNS_20GradingTonePreRenderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1208) initializes((0, 13), (16, 1208)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %value, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %comp, i1 noundef zeroext %dynamic) unnamed_addr #8 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplC2ERKNS_11GradingToneERKNS_20GradingTonePreRenderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %value, ptr nocapture noundef nonnull readonly align 8 dereferenceable(936) %comp, i1 noundef zeroext %dynamic) unnamed_addr #8 align 2 {
 entry:
   %frombool.i = zext i1 %dynamic to i8
   %m_type.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2491,7 +2491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl18createEditableCopyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.40") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1208) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl18createEditableCopyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.40") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1208) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_value = getelementptr inbounds i8, ptr %this, i64 24
   %m_preRenderValues = getelementptr inbounds i8, ptr %this, i64 272
@@ -2525,7 +2525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl8setValueERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(1208) initializes((24, 272)) %this, ptr noundef nonnull align 8 dereferenceable(248) %value) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl8setValueERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(1208) %this, ptr noundef nonnull align 8 dereferenceable(248) %value) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK19OpenColorIO_v2_4dev11GradingTone8validateEv(ptr noundef nonnull align 8 dereferenceable(248) %value)
   %m_value = getelementptr inbounds i8, ptr %this, i64 24
@@ -2538,7 +2538,7 @@ entry:
 declare void @_ZNK19OpenColorIO_v2_4dev11GradingTone8validateEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn16_N19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl8setValueERKNS_11GradingToneE(ptr noundef initializes((8, 256)) %this, ptr noundef nonnull align 8 dereferenceable(248) %value) unnamed_addr #9 align 2 {
+define hidden void @_ZThn16_N19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl8setValueERKNS_11GradingToneE(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(248) %value) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZNK19OpenColorIO_v2_4dev11GradingTone8validateEv(ptr noundef nonnull align 8 dereferenceable(248) %value)
   %m_value.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2549,7 +2549,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(1208) initializes((24, 272)) %this, i32 noundef %style) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl8setStyleENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(1208) %this, i32 noundef %style) local_unnamed_addr #0 align 2 {
 entry:
   switch i32 %style, label %cond.false35.i [
     i32 1, label %_ZN19OpenColorIO_v2_4dev11GradingToneC2ENS_12GradingStyleE.exit

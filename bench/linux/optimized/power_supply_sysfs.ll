@@ -190,7 +190,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_power_supply
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_power_supply_charge_behaviour_parse312, ptr @__UNIQUE_ID___addressable_power_supply_charge_behaviour_show311], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @power_supply_init_attrs(ptr nocapture noundef writeonly initializes((8, 16)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @power_supply_init_attrs(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @power_supply_attr_groups, ptr %2, align 8
   br label %3

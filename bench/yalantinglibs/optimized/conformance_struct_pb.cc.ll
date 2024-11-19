@@ -647,7 +647,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl13DataLossErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.absl::Status") align 8 initializes((0, 4), (8, 24)) %agg.result, i64 %message.coerce0, ptr %message.coerce1) local_unnamed_addr #3 {
+define dso_local void @_ZN4absl13DataLossErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.absl::Status") align 8 %agg.result, i64 %message.coerce0, ptr %message.coerce1) local_unnamed_addr #3 {
 entry:
   store i32 15, ptr %agg.result, align 8
   %msg_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1289,7 +1289,7 @@ lpad6:                                            ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl13NotFoundErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.absl::Status") align 8 initializes((0, 4), (8, 24)) %agg.result, i64 %message.coerce0, ptr %message.coerce1) local_unnamed_addr #3 {
+define dso_local void @_ZN4absl13NotFoundErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.absl::Status") align 8 %agg.result, i64 %message.coerce0, ptr %message.coerce1) local_unnamed_addr #3 {
 entry:
   store i32 5, ptr %agg.result, align 8
   %msg_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1300,7 +1300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl20InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.absl::Status") align 8 initializes((0, 4), (8, 24)) %agg.result, i64 %message.coerce0, ptr %message.coerce1) local_unnamed_addr #3 {
+define dso_local void @_ZN4absl20InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.absl::Status") align 8 %agg.result, i64 %message.coerce0, ptr %message.coerce1) local_unnamed_addr #3 {
 entry:
   store i32 3, ptr %agg.result, align 8
   %msg_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1311,7 +1311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl18UnimplementedErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.absl::Status") align 8 initializes((0, 4), (8, 24)) %agg.result, i64 %message.coerce0, ptr %message.coerce1) local_unnamed_addr #3 {
+define dso_local void @_ZN4absl18UnimplementedErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.absl::Status") align 8 %agg.result, i64 %message.coerce0, ptr %message.coerce1) local_unnamed_addr #3 {
 entry:
   store i32 12, ptr %agg.result, align 8
   %msg_.i = getelementptr inbounds i8, ptr %agg.result, i64 8

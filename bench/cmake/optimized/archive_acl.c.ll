@@ -536,7 +536,7 @@ archive_acl_count.exit:                           ; preds = %.lr.ph.i, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -30, 2) i32 @archive_acl_next(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly initializes((0, 4)) %6, ptr noundef initializes((0, 8)) %7) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 2) i32 @archive_acl_next(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7) local_unnamed_addr #0 {
   store ptr null, ptr %7, align 8
   store i32 -1, ptr %6, align 4
   %9 = getelementptr inbounds i8, ptr %1, i64 24

@@ -4399,7 +4399,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__9SdfListOpINS_7SdfPathEE16ModifyOperationsERKSt8functionIFSt8optionalIS1_ERKS1_EEb(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_ReplacePathERKNS_7SdfPathES2_S2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.98") align 4 initializes((8, 9)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L12_ReplacePathERKNS_7SdfPathES2_S2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.98") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) #5 personality ptr @__gxx_personality_v0 {
   %.0.copyload.i.i = load i64, ptr %3, align 4
   %.0.copyload.i2.i = load i64, ptr %1, align 4
   %5 = icmp eq i64 %.0.copyload.i.i, %.0.copyload.i2.i

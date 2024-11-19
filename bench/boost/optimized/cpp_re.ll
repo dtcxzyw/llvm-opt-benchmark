@@ -40,7 +40,7 @@ define noundef zeroext i1 @_ZN5boost4wave8cpplexer7re2clex12is_backslashEPhS3_Ri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC2EPhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
+define void @_ZN5boost4wave8cpplexer7re2clex13uchar_wrapperC2EPhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8, !tbaa !12

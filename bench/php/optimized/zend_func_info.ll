@@ -625,7 +625,7 @@ define hidden i32 @zend_get_internal_func_info(ptr nocapture noundef readonly %0
 declare ptr @zend_hash_find_known_hash(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @zend_get_func_info(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, ptr noundef initializes((0, 1)) %3) local_unnamed_addr #0 {
+define i32 @zend_get_func_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   store ptr null, ptr %2, align 8

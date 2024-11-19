@@ -307,7 +307,7 @@ define internal void @uat_devicenet_records_mac_id_set_cb(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_devicenet_records_mac_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_devicenet_records_mac_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 4
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.137, i32 noundef %6) #5
   store ptr %7, ptr %1, align 8
@@ -320,7 +320,7 @@ define internal void @uat_devicenet_records_mac_id_tostr_cb(ptr nocapture nounde
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_devicenet_records_behavior_set_cb(ptr nocapture noundef writeonly initializes((4, 8)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_devicenet_records_behavior_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #5
   %8 = getelementptr inbounds i8, ptr %0, i64 4

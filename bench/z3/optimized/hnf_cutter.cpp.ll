@@ -214,7 +214,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10hnf_cutterC2ERNS_10int_solverE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 100), (104, 116), (120, 128)) %this, ptr noundef nonnull align 8 dereferenceable(504) %lia) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10hnf_cutterC2ERNS_10int_solverE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(504) %lia) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %lia, ptr %this, align 8
   %lra = getelementptr inbounds i8, ptr %this, i64 8
@@ -700,7 +700,7 @@ lpad:                                             ; preds = %_ZNK6vectorIjLb0EjE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2lp10hnf_cutter4varsEv(ptr noalias sret(%class.svector) align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2lp10hnf_cutter4varsEv(ptr noalias sret(%class.svector) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_var_register = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -3064,7 +3064,7 @@ _ZN11mpq_managerILb1EE3subERK3mpqS3_RS1_.exit:    ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10hnf_cutter8create_bERK7svectorIjjE(ptr noalias sret(%class.vector.4) align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %basis_rows) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10hnf_cutter8create_bERK7svectorIjjE(ptr noalias sret(%class.vector.4) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %basis_rows) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %basis_rows, align 8
   %cmp.i = icmp eq ptr %0, null

@@ -100,7 +100,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_758numparse4impl15PlusSignMatcherC1ERKNS_20DecimalFormatSymbolsEb = unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN6icu_758numparse4impl15PlusSignMatcherC2ERKNS_20DecimalFormatSymbolsEb
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(64) %symbolString, i32 noundef %key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl13SymbolMatcherC2ERKNS_13UnicodeStringENS_7unisets3KeyE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(64) %symbolString, i32 noundef %key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString = getelementptr inbounds i8, ptr %this, i64 8
@@ -274,7 +274,7 @@ entry:
 declare void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl17IgnorablesMatcherC2Ei(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, i32 noundef %parseFlags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl17IgnorablesMatcherC2Ei(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %parseFlags) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ref.tmp, align 8
@@ -349,7 +349,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl15InfinityMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl15InfinityMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 904
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
@@ -414,7 +414,7 @@ entry:
 declare void @_ZN6icu_758numparse4impl12ParsedNumber16setCharsConsumedERKNS_13StringSegmentE(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl16MinusSignMatcherC2ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs, i1 noundef zeroext %allowTrailing) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl16MinusSignMatcherC2ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs, i1 noundef zeroext %allowTrailing) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 392
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
@@ -489,7 +489,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl10NanMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl10NanMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 968
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
@@ -549,7 +549,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl14PaddingMatcherC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(64) %padString) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl14PaddingMatcherC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(64) %padString) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
   %fString.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -608,7 +608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl14PercentMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl14PercentMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 200
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
@@ -671,7 +671,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl15PermilleMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl15PermilleMatcherC2ERKNS_20DecimalFormatSymbolsE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 776
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8
@@ -734,7 +734,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl15PlusSignMatcherC2ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs, i1 noundef zeroext %allowTrailing) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758numparse4impl15PlusSignMatcherC2ERKNS_20DecimalFormatSymbolsEb(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull align 8 dereferenceable(2883) %dfs, i1 noundef zeroext %allowTrailing) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %dfs, i64 456
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl13SymbolMatcherE, i64 16), ptr %this, align 8

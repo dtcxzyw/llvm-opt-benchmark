@@ -662,7 +662,7 @@ define internal i32 @complete_vecs_callback(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @nbc_req_constructor(ptr nocapture noundef writeonly initializes((160, 192), (200, 208)) %0) #5 {
+define internal void @nbc_req_constructor(ptr nocapture noundef writeonly %0) #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr null, ptr %3, align 8
@@ -744,7 +744,7 @@ declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_coll_base_file_getnext_string(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_coll_base_file_getnext_string(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1

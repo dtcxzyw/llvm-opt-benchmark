@@ -2675,7 +2675,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef nonnull ptr @ThreadHandle_after_fork_dead(ptr nocapture noundef writeonly initializes((32, 33)) %self, ptr nocapture readnone %ignored) #4 {
+define internal noundef nonnull ptr @ThreadHandle_after_fork_dead(ptr nocapture noundef writeonly %self, ptr nocapture readnone %ignored) #4 {
 entry:
   %joinable = getelementptr inbounds i8, ptr %self, i64 32
   store i8 0, ptr %joinable, align 8

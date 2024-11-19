@@ -770,7 +770,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @regcbfunc(i32 noundef %0, i64 %1, ptr noundef initializes((212, 216)) %2) #0 {
+define internal void @regcbfunc(i32 noundef %0, i64 %1, ptr noundef %2) #0 {
   fence acquire
   %4 = getelementptr inbounds i8, ptr %2, i64 212
   store i32 %0, ptr %4, align 4

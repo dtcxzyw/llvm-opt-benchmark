@@ -6718,7 +6718,7 @@ _ZN2cv4gapi4s11n12_GLOBAL__N_113getFromStreamINS_6detail9VectorRefESt5tupleIJidf
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6detail10OpaqueKindE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6detail10OpaqueKindE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
@@ -8218,7 +8218,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6GShapeE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6GShapeE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
@@ -8242,7 +8242,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6detail7ArgKindE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_6detail7ArgKindE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
@@ -8266,7 +8266,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_5gimpl4Data7StorageE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_5gimpl4Data7StorageE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
@@ -8959,7 +8959,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4GArgE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_4GArgE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i32, align 4
@@ -10107,7 +10107,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_10GFrameDescE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) initializes((0, 4)) %1) local_unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_10GFrameDescE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(12) %1) local_unnamed_addr #3 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
   store i32 0, ptr %3, align 4
@@ -10547,7 +10547,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nlsERNS1_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_5gimpl4DataE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 4)) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsERNS1_8IIStreamERNS_5gimpl4DataE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14101,7 +14101,7 @@ _ZNSt6vectorIN2cv5gimpl2OpESaIS2_EED2Ev.exit:     ; preds = %_ZSt8_DestroyIPN2cv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4s11n11deserializeERNS1_8IIStreamE(ptr dead_on_unwind noalias nonnull writable sret(%"struct.cv::gapi::s11n::GSerialized") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi4s11n11deserializeERNS1_8IIStreamE(ptr dead_on_unwind noalias nonnull writable sret(%"struct.cv::gapi::s11n::GSerialized") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(248) %0, i8 0, i64 48, i1 false)
@@ -21441,7 +21441,7 @@ declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr 
 declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv4gapi4s11n18ByteMemoryInStreamC2ERKSt6vectorIcSaIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #12 align 2 {
+define void @_ZN2cv4gapi4s11n18ByteMemoryInStreamC2ERKSt6vectorIcSaIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #12 align 2 {
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN2cv4gapi4s11n18ByteMemoryInStreamE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -21451,7 +21451,7 @@ define void @_ZN2cv4gapi4s11n18ByteMemoryInStreamC2ERKSt6vectorIcSaIcEE(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERj(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERj(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21491,7 +21491,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERb(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERb(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21539,7 +21539,7 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERc(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERc(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21554,7 +21554,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERm(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERm(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #14 align 2 {
   store i64 0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21584,7 +21584,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERh(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERh(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21599,7 +21599,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERs(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERs(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21623,7 +21623,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERt(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERt(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21647,7 +21647,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERi(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERi(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21687,7 +21687,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERf(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERf(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21731,7 +21731,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMem
 declare i32 @ntohl(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERd(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11n18ByteMemoryInStreamrsERd(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -22047,7 +22047,7 @@ _ZN2cv4gapi4s11nlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS1_8I
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4s11n21meta_args_deserializeERNS1_8IIStreamE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.172") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi4s11n21meta_args_deserializeERNS1_8IIStreamE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.172") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsINS_4util7variantIJNS3_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEEEERNS1_8IIStreamESD_RSt6vectorIT_SaISF_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %6 unwind label %4
@@ -22222,7 +22222,7 @@ _ZNSt12_Vector_baseIN2cv4util7variantIJNS1_9monostateENS0_8GMatDescENS0_11GScala
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4s11n20run_args_deserializeERNS1_8IIStreamE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.177") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi4s11n20run_args_deserializeERNS1_8IIStreamE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.177") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsINS_7GRunArgEEERNS1_8IIStreamES5_RSt6vectorIT_SaIS7_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %6 unwind label %4
@@ -22359,7 +22359,7 @@ _ZNSt12_Vector_baseIN2cv7GRunArgESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi4s11n29vector_of_strings_deserializeB5cxx11ERNS1_8IIStreamE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.182") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi4s11n29vector_of_strings_deserializeB5cxx11ERNS1_8IIStreamE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.182") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv4gapi4s11nrsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERNS1_8IIStreamESA_RSt6vectorIT_SaISC_EE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
           to label %6 unwind label %4

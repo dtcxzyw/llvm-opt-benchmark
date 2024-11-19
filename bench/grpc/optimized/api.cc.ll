@@ -136,7 +136,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core28ResourceQuotaFromChannelArgsEPK17grpc_channel_args(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 initializes((0, 8)) %agg.result, ptr noundef %args) local_unnamed_addr #3 {
+define void @_ZN9grpc_core28ResourceQuotaFromChannelArgsEPK17grpc_channel_args(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 %agg.result, ptr noundef %args) local_unnamed_addr #3 {
 entry:
   %call.i = tail call noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr noundef %args, ptr noundef nonnull @.str)
   %cmp.i = icmp eq ptr %call.i, null
@@ -162,7 +162,7 @@ _Z30grpc_channel_args_find_pointerIN9grpc_core13ResourceQuotaEEPT_PK17grpc_chann
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core31ResourceQuotaFromEndpointConfigERKN17grpc_event_engine12experimental14EndpointConfigE(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %config) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core31ResourceQuotaFromEndpointConfigERKN17grpc_event_engine12experimental14EndpointConfigE(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %config) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %config, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32

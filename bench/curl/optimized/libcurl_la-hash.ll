@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_hash_init(ptr nocapture noundef writeonly initializes((0, 36), (40, 48)) %h, i32 noundef %slots, ptr noundef %hfunc, ptr noundef %comparator, ptr noundef %dtor) local_unnamed_addr #0 {
+define hidden void @Curl_hash_init(ptr nocapture noundef writeonly %h, i32 noundef %slots, ptr noundef %hfunc, ptr noundef %comparator, ptr noundef %dtor) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %h, align 8
   %hash_func = getelementptr inbounds i8, ptr %h, i64 8
@@ -140,7 +140,7 @@ return:                                           ; preds = %for.end26, %if.then
 declare void @Curl_llist_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @hash_element_dtor(ptr nocapture noundef readonly %user, ptr noundef initializes((32, 40)) %element) #1 {
+define internal void @hash_element_dtor(ptr nocapture noundef readonly %user, ptr noundef %element) #1 {
 entry:
   %ptr = getelementptr inbounds i8, ptr %element, i64 24
   %0 = load ptr, ptr %ptr, align 8
@@ -513,7 +513,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_hash_start_iterate(ptr noundef %hash, ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %iter) local_unnamed_addr #0 {
+define hidden void @Curl_hash_start_iterate(ptr noundef %hash, ptr nocapture noundef writeonly %iter) local_unnamed_addr #0 {
 entry:
   store ptr %hash, ptr %iter, align 8
   %slot_index = getelementptr inbounds i8, ptr %iter, i64 8

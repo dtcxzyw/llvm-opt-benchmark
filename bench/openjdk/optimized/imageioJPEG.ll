@@ -2140,7 +2140,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_setSource(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @imageio_set_stream(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((40, 48), (56, 60), (64, 72)) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @imageio_set_stream(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca [200 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -3679,7 +3679,7 @@ GET_ARRAYS.exit:                                  ; preds = %289, %287, %GET_ARR
 declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setPixelBuffer(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef nonnull %2) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setPixelBuffer(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 168
   %6 = load ptr, ptr %5, align 8
@@ -4075,7 +4075,7 @@ define void @Java_com_sun_imageio_plugins_jpeg_JPEGImageReader_resetReader(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @imageio_reset(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((40, 48), (56, 60), (64, 72), (96, 97)) %2) unnamed_addr #1 {
+define internal fastcc void @imageio_reset(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #1 {
   %4 = alloca [200 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -4202,7 +4202,7 @@ imageio_dispose.exit:                             ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @destroyImageioData(ptr noundef %0, ptr nocapture noundef initializes((40, 48), (56, 60), (64, 72)) %1) unnamed_addr #1 {
+define internal fastcc ptr @destroyImageioData(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1816

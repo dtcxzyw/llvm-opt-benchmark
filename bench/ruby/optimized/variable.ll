@@ -136,7 +136,7 @@ declare void @rb_gc_register_mark_object(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_ident_hash_new() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i64 1, 0) i64 @rb_mod_name0(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #2 {
+define hidden range(i64 1, 0) i64 @rb_mod_name0(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   store i8 0, ptr %1, align 1
   %3 = inttoptr i64 %0 to ptr
   %4 = getelementptr inbounds i8, ptr %3, i64 152
@@ -331,7 +331,7 @@ define dso_local i64 @rb_class_path(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_tmp_class_path(i64 noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc i64 @rb_tmp_class_path(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   store i8 0, ptr %1, align 1
   %5 = inttoptr i64 %0 to ptr
@@ -1129,7 +1129,7 @@ define dso_local i64 @rb_gvar_var_getter(i64 %0, ptr noundef readonly %1) #7 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @rb_gvar_var_setter(i64 noundef %0, i64 %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #8 {
+define dso_local void @rb_gvar_var_setter(i64 noundef %0, i64 %1, ptr nocapture noundef writeonly %2) #8 {
   store i64 %0, ptr %2, align 8
   ret void
 }

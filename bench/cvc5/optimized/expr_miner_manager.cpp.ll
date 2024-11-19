@@ -465,7 +465,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers22ExpressionMinerManager27enableFilterStrongSolutionsEv(ptr noundef nonnull align 8 dereferenceable(592) initializes((16, 17)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers22ExpressionMinerManager27enableFilterStrongSolutionsEv(ptr noundef nonnull align 8 dereferenceable(592) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_doFilterLogicalStrength = getelementptr inbounds i8, ptr %this, i64 16
   store i8 1, ptr %d_doFilterLogicalStrength, align 8
@@ -477,7 +477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers22ExpressionMinerManager25enableFilterWeakSolutionsEv(ptr noundef nonnull align 8 dereferenceable(592) initializes((16, 17)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers22ExpressionMinerManager25enableFilterWeakSolutionsEv(ptr noundef nonnull align 8 dereferenceable(592) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_doFilterLogicalStrength = getelementptr inbounds i8, ptr %this, i64 16
   store i8 1, ptr %d_doFilterLogicalStrength, align 8

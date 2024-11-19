@@ -273,7 +273,7 @@ define internal noundef float @_ZN5faiss3nsg12_GLOBAL__N_124NegativeDistanceComp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss3nsg12_GLOBAL__N_124NegativeDistanceComputerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss3nsg12_GLOBAL__N_124NegativeDistanceComputerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss3nsg12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -292,7 +292,7 @@ define internal void @_ZN5faiss3nsg12_GLOBAL__N_124NegativeDistanceComputerD2Ev(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss3nsg12_GLOBAL__N_124NegativeDistanceComputerD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN5faiss3nsg12_GLOBAL__N_124NegativeDistanceComputerD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss3nsg12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -312,7 +312,7 @@ _ZN5faiss3nsg12_GLOBAL__N_124NegativeDistanceComputerD2Ev.exit: ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss3NSGC2Ei(ptr noundef nonnull align 8 dereferenceable(5048) initializes((0, 8), (16, 20), (24, 41)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss3NSGC2Ei(ptr noundef nonnull align 8 dereferenceable(5048) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
@@ -2996,7 +2996,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss3NSG5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(5048) initializes((0, 4), (24, 32), (40, 41)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss3NSG5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(5048) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32

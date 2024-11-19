@@ -1624,7 +1624,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi8ExternalD2Ev(ptr noundef nonnull align 8 dereferenceable(1456) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi8ExternalD2Ev(ptr noundef nonnull align 8 dereferenceable(1456) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi8ExternalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1320
   %3 = load ptr, ptr %2, align 8

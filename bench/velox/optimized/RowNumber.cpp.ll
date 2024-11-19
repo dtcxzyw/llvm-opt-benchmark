@@ -1511,7 +1511,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN8facebook5velox4exec14WindowFunctionESt14default_deleteIS4_EERKSt6vectorINS3_17WindowFunctionArgESaIS9_EERKSt10shared_ptrIKNS2_4TypeEEbPNS2_6memory10MemoryPoolEPNS2_19HashStringAllocatorERKNS2_4core11QueryConfigEEZNS2_9functions6window17registerRowNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_8TypeKindEE3$_0E9_M_invokeERKSt9_Any_dataSD_SJ_ObOSM_OSO_SS_"(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__args1, ptr nocapture nonnull readonly align 1 %__args3, ptr nocapture nonnull readnone align 8 %__args5, ptr nocapture nonnull readnone align 8 %__args7, ptr nocapture nonnull readnone align 8 %__args9) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN8facebook5velox4exec14WindowFunctionESt14default_deleteIS4_EERKSt6vectorINS3_17WindowFunctionArgESaIS9_EERKSt10shared_ptrIKNS2_4TypeEEbPNS2_6memory10MemoryPoolEPNS2_19HashStringAllocatorERKNS2_4core11QueryConfigEEZNS2_9functions6window17registerRowNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_8TypeKindEE3$_0E9_M_invokeERKSt9_Any_dataSD_SJ_ObOSM_OSO_SS_"(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__args1, ptr nocapture nonnull readonly align 1 %__args3, ptr nocapture nonnull readnone align 8 %__args5, ptr nocapture nonnull readnone align 8 %__args7, ptr nocapture nonnull readnone align 8 %__args9) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args1.val = load ptr, ptr %__args1, align 8
   %0 = getelementptr inbounds i8, ptr %__args1, i64 8
@@ -1605,7 +1605,7 @@ sw.epilog:                                        ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_117RowNumberFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_117RowNumberFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec14WindowFunctionE, i64 16), ptr %this, align 8
   %invalidRows_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -1696,7 +1696,7 @@ _ZN8facebook5velox4exec14WindowFunctionD2Ev.exit: ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_117RowNumberFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_117RowNumberFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec14WindowFunctionE, i64 16), ptr %this, align 8
   %invalidRows_.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -1788,7 +1788,7 @@ _ZN8facebook5velox9functions6window12_GLOBAL__N_117RowNumberFunctionD2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_117RowNumberFunction14resetPartitionEPKNS0_4exec15WindowPartitionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((80, 88)) %this, ptr nocapture readnone %0) unnamed_addr #12 align 2 {
+define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_117RowNumberFunction14resetPartitionEPKNS0_4exec15WindowPartitionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr nocapture readnone %0) unnamed_addr #12 align 2 {
 entry:
   %rowNumber_ = getelementptr inbounds i8, ptr %this, i64 80
   store i64 1, ptr %rowNumber_, align 8

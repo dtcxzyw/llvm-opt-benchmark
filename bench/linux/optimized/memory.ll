@@ -6776,7 +6776,7 @@ define dso_local void @unmap_mapping_range(ptr noundef %0, i64 noundef %1, i64 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @do_swap_page(ptr noundef initializes((88, 96)) %0) local_unnamed_addr #2 align 16 {
+define dso_local i32 @do_swap_page(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -7815,7 +7815,7 @@ declare dso_local void @folio_add_anon_rmap_ptes(ptr noundef, ptr noundef, i32 n
 declare dso_local void @folio_unlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @do_wp_page(ptr noundef initializes((80, 88)) %0) unnamed_addr #2 align 16 {
+define internal fastcc i32 @do_wp_page(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
@@ -13845,7 +13845,7 @@ declare dso_local i32 @simple_attr_release(ptr noundef, ptr noundef) #4
 declare dso_local i32 @simple_attr_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none)
-define internal noundef i32 @fault_around_bytes_get(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #14 align 16 {
+define internal noundef i32 @fault_around_bytes_get(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #14 align 16 {
   %3 = load i64, ptr @fault_around_pages, align 8
   %4 = shl i64 %3, 12
   store i64 %4, ptr %1, align 8

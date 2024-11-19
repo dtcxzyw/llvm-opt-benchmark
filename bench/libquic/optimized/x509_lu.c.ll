@@ -1778,7 +1778,7 @@ entry:
 declare i32 @X509_VERIFY_PARAM_set1(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509_STORE_set_verify_cb(ptr nocapture noundef writeonly initializes((96, 104)) %ctx, ptr noundef %verify_cb) local_unnamed_addr #5 {
+define hidden void @X509_STORE_set_verify_cb(ptr nocapture noundef writeonly %ctx, ptr noundef %verify_cb) local_unnamed_addr #5 {
 entry:
   %verify_cb1 = getelementptr inbounds i8, ptr %ctx, i64 96
   store ptr %verify_cb, ptr %verify_cb1, align 8
@@ -1786,7 +1786,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509_STORE_set_lookup_crls_cb(ptr nocapture noundef writeonly initializes((160, 168)) %ctx, ptr noundef %cb) local_unnamed_addr #5 {
+define hidden void @X509_STORE_set_lookup_crls_cb(ptr nocapture noundef writeonly %ctx, ptr noundef %cb) local_unnamed_addr #5 {
 entry:
   %lookup_crls = getelementptr inbounds i8, ptr %ctx, i64 160
   store ptr %cb, ptr %lookup_crls, align 8

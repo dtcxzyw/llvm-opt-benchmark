@@ -125,7 +125,7 @@ define hidden void @_ZN25NMTPreInitAllocationTabledlEPv(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN25NMTPreInitAllocationTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65532) initializes((0, 65532)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN25NMTPreInitAllocationTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65532) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 65528
   store i32 -1, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(65528) %0, i8 0, i64 65528, i1 false)

@@ -990,7 +990,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St6vectorIS3_SaIS
 declare void @_ZN4cvc58internal6theory7strings9RegExpOprD1Ev(ptr noundef nonnull align 8 dereferenceable(544)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory7strings12RegExpSolver17computeAssertionsENS0_4kind6Kind_tE(ptr noalias sret(%"class.std::map.46") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(680) %this, i32 noundef %k) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory7strings12RegExpSolver17computeAssertionsENS0_4kind6Kind_tE(ptr noalias sret(%"class.std::map.46") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(680) %this, i32 noundef %k) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.567", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.570", align 1
@@ -14013,7 +14013,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory7strings12RegExpSolver18getNormalSymRegExpENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(680) %this, ptr nocapture noundef readonly %r, ptr noundef nonnull align 8 dereferenceable(24) %nf_exp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings12RegExpSolver18getNormalSymRegExpENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(680) %this, ptr nocapture noundef readonly %r, ptr noundef nonnull align 8 dereferenceable(24) %nf_exp) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.cvc5::internal::NodeTemplate.549", align 8
   %nb.i223 = alloca %"class.cvc5::internal::NodeBuilder", align 8

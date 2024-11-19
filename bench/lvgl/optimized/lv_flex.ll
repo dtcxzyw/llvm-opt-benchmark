@@ -512,7 +512,7 @@ declare i32 @lv_obj_get_scroll_y(ptr noundef) local_unnamed_addr #2
 declare i32 @lv_obj_get_scroll_x(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2, -2147483648) i32 @find_track_end(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 0, 65535) %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull initializes((0, 28)) %5) unnamed_addr #1 {
+define internal fastcc range(i32 -2, -2147483648) i32 @find_track_end(ptr noundef %0, ptr nocapture noundef nonnull %1, i32 noundef range(i32 0, 65535) %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #1 {
   %7 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 1) #7
   %8 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 2) #7
   %9 = ptrtoint ptr %8 to i64

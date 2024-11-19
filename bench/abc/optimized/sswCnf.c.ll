@@ -870,7 +870,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_CollectSuper(ptr noundef %0, i32 noundef %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
+define void @Ssw_CollectSuper(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   tail call void @Ssw_CollectSuper_rec(ptr noundef %0, ptr noundef %2, i32 noundef 1, i32 noundef %1)

@@ -1021,7 +1021,7 @@ _ZN3pxr9rapidjson15GenericDocumentINS0_4UTF8IcEENS0_19MemoryPoolAllocatorINS0_12
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L19_JsValueToImplValueIN3pxr9rapidjson19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEENS2_12GenericValueINS2_4UTF8IcEES5_EERKNS_7JsValueERT_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pxr::rapidjson::GenericStringRef", align 8
   %5 = alloca %"class.pxr::rapidjson::GenericValue", align 8
   %6 = alloca %"class.pxr::rapidjson::GenericValue", align 8

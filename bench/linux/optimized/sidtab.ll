@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched147], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local noundef i32 @sidtab_init(ptr noundef initializes((0, 32)) %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @sidtab_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   br label %3
@@ -620,7 +620,7 @@ define dso_local ptr @sidtab_search_entry_force(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #4 align 16 {
+define dso_local i32 @sidtab_context_to_sid(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 align 16 {
   %4 = tail call i32 @context_compute_hash(ptr noundef %1) #13
   %5 = tail call fastcc i32 @context_to_sid(ptr noundef %0, ptr noundef %1, i32 noundef %4)
   store i32 %5, ptr %2, align 4
@@ -945,7 +945,7 @@ define internal fastcc ptr @sidtab_do_lookup(ptr nocapture noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @context_destroy(ptr noundef initializes((0, 16)) %0) unnamed_addr #6 align 16 {
+define internal fastcc void @context_destroy(ptr noundef %0) unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1246,7 +1246,7 @@ define dso_local void @sidtab_cancel_convert(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sidtab_freeze_begin(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 align 16 {
+define dso_local void @sidtab_freeze_begin(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 52
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %3) #13
   store i64 %4, ptr %1, align 8

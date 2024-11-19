@@ -34,7 +34,7 @@ $_ZN10OpenSubdiv6v3_6_03Vtr8internal11StackBufferINS0_3Bfr10FaceVertexELj4ELb0EE
 @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyC1ENS0_3Sdc10SchemeTypeENS3_7OptionsE = unnamed_addr alias void (ptr, i32, i32), ptr @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyC2ENS0_3Sdc10SchemeTypeENS3_7OptionsE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyC2ENS0_3Sdc10SchemeTypeENS3_7OptionsE(ptr noundef nonnull align 8 dereferenceable(944) initializes((0, 8), (12, 16)) %0, i32 noundef %1, i32 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopologyC2ENS0_3Sdc10SchemeTypeENS3_7OptionsE(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1, i32 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
@@ -62,7 +62,7 @@ declare noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits18GetRegularFac
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology10InitializeEi(ptr noundef nonnull align 8 dereferenceable(944) initializes((8, 12), (16, 22)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology10InitializeEi(ptr noundef nonnull align 8 dereferenceable(944) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -250,7 +250,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology8FinalizeEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology23ResolveUnOrderedCornersEPKi(ptr nocapture noundef nonnull align 8 dereferenceable(944) initializes((20, 22)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr12FaceTopology23ResolveUnOrderedCornersEPKi(ptr nocapture noundef nonnull align 8 dereferenceable(944) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i16 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

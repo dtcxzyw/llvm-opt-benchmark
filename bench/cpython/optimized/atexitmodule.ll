@@ -80,7 +80,7 @@ declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #1
 declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyAtExit_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr nocapture noundef writeonly initializes((4304, 4320)) %interp) local_unnamed_addr #0 {
+define hidden void @_PyAtExit_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr nocapture noundef writeonly %interp) local_unnamed_addr #0 {
 entry:
   %callback_len = getelementptr inbounds i8, ptr %interp, i64 4316
   store i32 32, ptr %callback_len, align 4

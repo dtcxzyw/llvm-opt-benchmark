@@ -3576,7 +3576,7 @@ my_strndup.exit476:                               ; preds = %667, %670, %681
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @tinyobj_attrib_init(ptr nocapture noundef writeonly initializes((0, 20), (24, 72)) %0) local_unnamed_addr #4 {
+define hidden void @tinyobj_attrib_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -9131,7 +9131,7 @@ cgltf_free_extensions.exit719:                    ; preds = %.lr.ph.i716, %._cri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cgltf_node_transform_local(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 64)) %1) local_unnamed_addr #19 {
+define hidden void @cgltf_node_transform_local(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #19 {
   %3 = getelementptr inbounds i8, ptr %0, i64 92
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -9236,7 +9236,7 @@ define hidden void @cgltf_node_transform_local(ptr nocapture noundef readonly %0
 declare float @llvm.fmuladd.f32(float, float, float) #20
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @cgltf_node_transform_world(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 64)) %1) local_unnamed_addr #21 {
+define hidden void @cgltf_node_transform_world(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #21 {
   tail call void @cgltf_node_transform_local(ptr noundef %0, ptr noundef %1)
   %.0.in37 = getelementptr inbounds i8, ptr %0, i64 8
   %.038 = load ptr, ptr %.0.in37, align 8
@@ -14957,14 +14957,14 @@ _m3dstbi__do_png.exit:                            ; preds = %_m3dstbi__parse_png
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_m3d_getpr(ptr nocapture noundef writeonly initializes((9, 10)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #4 {
+define hidden void @_m3d_getpr(ptr nocapture noundef writeonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 9
   store i8 -65, ptr %5, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_m3d_mul(ptr nocapture noundef writeonly initializes((0, 64)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #19 {
+define hidden void @_m3d_mul(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #19 {
   %4 = load float, ptr %2, align 4
   %5 = load float, ptr %1, align 4
   %6 = getelementptr inbounds i8, ptr %2, i64 16
@@ -15458,7 +15458,7 @@ define hidden void @_m3d_inv(ptr nocapture noundef %0) local_unnamed_addr #19 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_m3d_mat(ptr nocapture noundef writeonly initializes((0, 64)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #19 {
+define hidden void @_m3d_mat(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #19 {
   %4 = load float, ptr %2, align 4
   %5 = fcmp oeq float %4, 0.000000e+00
   %6 = getelementptr inbounds i8, ptr %2, i64 4
@@ -22901,7 +22901,7 @@ define hidden void @m3d_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @par_shapes__compute_welded_normals(ptr nocapture noundef initializes((32, 40)) %0) local_unnamed_addr #0 {
+define hidden void @par_shapes__compute_welded_normals(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load float, ptr @par_shapes__epsilon_welded_normals, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
@@ -25301,7 +25301,7 @@ par_shapes_invert.exit.loopexit.us.us:            ; preds = %.lr.ph.i.us.us
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal void @par_shapes__klein(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture readnone %2) #27 {
+define internal void @par_shapes__klein(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #27 {
   %4 = load float, ptr %0, align 4
   %5 = fpext float %4 to double
   %6 = fmul double %5, 0x400921FB54442EEA
@@ -25431,7 +25431,7 @@ define hidden noundef ptr @par_shapes_create_trefoil_knot(i32 noundef %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal void @par_shapes__trefoil(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture noundef readonly %2) #27 {
+define internal void @par_shapes__trefoil(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #27 {
   %4 = load float, ptr %2, align 4
   %5 = load float, ptr %0, align 4
   %6 = fsub float 1.000000e+00, %5
@@ -26496,7 +26496,7 @@ define hidden void @par_shapes_merge_and_free(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @par_shapes_compute_aabb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) local_unnamed_addr #21 {
+define hidden void @par_shapes_compute_aabb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #21 {
   %3 = load ptr, ptr %0, align 8
   %4 = load float, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 12
@@ -30216,7 +30216,7 @@ define void @DrawGrid(i32 noundef %0, float noundef %1) local_unnamed_addr #0 {
 declare void @rlColor3f(float noundef, float noundef, float noundef) local_unnamed_addr #36
 
 ; Function Attrs: nounwind uwtable
-define void @LoadModel(ptr dead_on_unwind noalias nocapture writable sret(%struct.Model) align 8 initializes((0, 120)) %0, ptr noundef %1) local_unnamed_addr #25 {
+define void @LoadModel(ptr dead_on_unwind noalias nocapture writable sret(%struct.Model) align 8 %0, ptr noundef %1) local_unnamed_addr #25 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.Image, align 8
   %5 = alloca %struct.Texture, align 4
@@ -35491,7 +35491,7 @@ define void @UploadMesh(ptr nocapture noundef %0, i1 noundef zeroext %1) local_u
 declare void @TraceLog(i32 noundef, ptr noundef, ...) local_unnamed_addr #36
 
 ; Function Attrs: nounwind uwtable
-define void @LoadMaterialDefault(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Material) align 8 initializes((0, 40)) %0) local_unnamed_addr #0 {
+define void @LoadMaterialDefault(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Material) align 8 %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %2 = tail call noalias dereferenceable_or_null(336) ptr @calloc(i64 noundef 12, i64 noundef 28) #56
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -35519,7 +35519,7 @@ define void @LoadMaterialDefault(ptr dead_on_unwind noalias nocapture writable w
 }
 
 ; Function Attrs: nounwind uwtable
-define void @LoadModelFromMesh(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Model) align 8 initializes((0, 120)) %0, ptr nocapture noundef readonly byval(%struct.Mesh) align 8 %1) local_unnamed_addr #0 {
+define void @LoadModelFromMesh(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Model) align 8 %0, ptr nocapture noundef readonly byval(%struct.Mesh) align 8 %1) local_unnamed_addr #0 {
   %3 = alloca %struct.Matrix, align 4
   call void @MatrixIdentity(ptr dead_on_unwind nonnull writable sret(%struct.Matrix) align 4 %3) #53
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -35716,7 +35716,7 @@ define void @UnloadMesh(ptr nocapture noundef readonly byval(%struct.Mesh) align
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GetModelBoundingBox(ptr dead_on_unwind noalias nocapture writable sret(%struct.BoundingBox) align 4 initializes((0, 24)) %0, ptr noundef byval(%struct.Model) align 8 %1) local_unnamed_addr #25 {
+define void @GetModelBoundingBox(ptr dead_on_unwind noalias nocapture writable sret(%struct.BoundingBox) align 4 %0, ptr noundef byval(%struct.Model) align 8 %1) local_unnamed_addr #25 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load i32, ptr %3, align 8
@@ -37628,7 +37628,7 @@ define zeroext i1 @ExportMeshAsCode(ptr nocapture noundef readonly byval(%struct
 declare ptr @GetFileNameWithoutExt(ptr noundef) local_unnamed_addr #36
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @LoadMaterials(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @LoadMaterials(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
@@ -39920,7 +39920,7 @@ define noundef zeroext i1 @IsModelAnimationValid(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GenMeshPoly(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 initializes((0, 112)) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 {
+define void @GenMeshPoly(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, i32 noundef %1, float noundef %2) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %4 = icmp slt i32 %1, 3
   br i1 %4, label %76, label %.lr.ph.preheader
@@ -40081,7 +40081,7 @@ define void @GenMeshPoly(ptr dead_on_unwind noalias nocapture writable sret(%str
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 initializes((0, 112)) %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %6 = add nsw i32 %3, 1
   %7 = add i32 %4, 1
@@ -40355,7 +40355,7 @@ define void @GenMeshPlane(ptr dead_on_unwind noalias nocapture writable sret(%st
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GenMeshCube(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 initializes((0, 112)) %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #0 {
+define void @GenMeshCube(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %5 = fmul float %1, -5.000000e-01
   %6 = fmul float %2, -5.000000e-01
@@ -40556,7 +40556,7 @@ define void @GenMeshCube(ptr dead_on_unwind noalias nocapture writable sret(%str
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GenMeshSphere(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 initializes((0, 112)) %0, float noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @GenMeshSphere(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, float noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %5 = icmp sgt i32 %2, 2
   %6 = icmp sgt i32 %3, 2
@@ -40702,7 +40702,7 @@ define void @GenMeshSphere(ptr dead_on_unwind noalias nocapture writable sret(%s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GenMeshHemiSphere(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 initializes((0, 112)) %0, float noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @GenMeshHemiSphere(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, float noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %5 = icmp sgt i32 %2, 2
   %6 = icmp sgt i32 %3, 2
@@ -40850,7 +40850,7 @@ define void @GenMeshHemiSphere(ptr dead_on_unwind noalias nocapture writable sre
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GenMeshCylinder(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 initializes((0, 112)) %0, float noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @GenMeshCylinder(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, float noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [3 x float], align 4
   %6 = alloca [3 x float], align 4
   %7 = alloca [3 x float], align 4
@@ -41147,7 +41147,7 @@ par_shapes_translate.exit:                        ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GenMeshCone(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 initializes((0, 112)) %0, float noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @GenMeshCone(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, float noundef %1, float noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [3 x float], align 4
   %6 = alloca [3 x float], align 4
   %7 = alloca [3 x float], align 4
@@ -41361,7 +41361,7 @@ define void @GenMeshCone(ptr dead_on_unwind noalias nocapture writable sret(%str
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GenMeshTorus(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 initializes((0, 112)) %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @GenMeshTorus(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %6 = icmp sgt i32 %4, 2
   %7 = icmp sgt i32 %3, 2
@@ -41520,7 +41520,7 @@ define void @GenMeshTorus(ptr dead_on_unwind noalias nocapture writable sret(%st
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GenMeshKnot(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 initializes((0, 112)) %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @GenMeshKnot(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, float noundef %1, float noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca float, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %7 = icmp sgt i32 %4, 2
@@ -41679,7 +41679,7 @@ par_shapes_create_trefoil_knot.exit:              ; preds = %9, %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 initializes((0, 112)) %0, ptr noundef byval(%struct.Image) align 8 %1, <2 x float> %2, float %3) local_unnamed_addr #25 {
+define void @GenMeshHeightmap(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, ptr noundef byval(%struct.Image) align 8 %1, <2 x float> %2, float %3) local_unnamed_addr #25 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %5, i8 0, i64 88, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -41995,7 +41995,7 @@ declare ptr @LoadImageColors(ptr noundef byval(%struct.Image) align 8) local_unn
 declare void @UnloadImageColors(ptr noundef) local_unnamed_addr #36
 
 ; Function Attrs: nounwind uwtable
-define void @GenMeshCubicmap(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 initializes((0, 112)) %0, ptr noundef byval(%struct.Image) align 8 %1, <2 x float> %2, float %3) local_unnamed_addr #25 {
+define void @GenMeshCubicmap(ptr dead_on_unwind noalias nocapture writable sret(%struct.Mesh) align 8 %0, ptr noundef byval(%struct.Image) align 8 %1, <2 x float> %2, float %3) local_unnamed_addr #25 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %5 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %1) #53
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -43931,7 +43931,7 @@ define zeroext i1 @CheckCollisionBoxSphere(ptr nocapture noundef readonly byval(
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GetRayCollisionSphere(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.RayCollision) align 4 initializes((0, 32)) %0, ptr nocapture noundef readonly byval(%struct.Ray) align 8 %1, <2 x float> %2, float %3, float noundef %4) local_unnamed_addr #25 {
+define void @GetRayCollisionSphere(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.RayCollision) align 4 %0, ptr nocapture noundef readonly byval(%struct.Ray) align 8 %1, <2 x float> %2, float %3, float noundef %4) local_unnamed_addr #25 {
   store i32 0, ptr %0, align 4
   %.sroa.096.0.copyload = load <2 x float>, ptr %1, align 8
   %.sroa.297.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
@@ -44016,7 +44016,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #30
 declare { <2 x float>, float } @Vector3Negate(<2 x float>, float) local_unnamed_addr #36
 
 ; Function Attrs: nounwind uwtable
-define void @GetRayCollisionBox(ptr dead_on_unwind noalias nocapture writable sret(%struct.RayCollision) align 4 initializes((0, 32)) %0, ptr nocapture noundef byval(%struct.Ray) align 8 %1, ptr nocapture noundef readonly byval(%struct.BoundingBox) align 8 %2) local_unnamed_addr #25 {
+define void @GetRayCollisionBox(ptr dead_on_unwind noalias nocapture writable sret(%struct.RayCollision) align 4 %0, ptr nocapture noundef byval(%struct.Ray) align 8 %1, ptr nocapture noundef readonly byval(%struct.BoundingBox) align 8 %2) local_unnamed_addr #25 {
   store i32 0, ptr %0, align 4
   %4 = load float, ptr %1, align 8
   %5 = load float, ptr %2, align 8
@@ -44205,7 +44205,7 @@ declare { <2 x float>, float } @Vector3Lerp(<2 x float>, float, <2 x float>, flo
 declare { <2 x float>, float } @Vector3Divide(<2 x float>, float, <2 x float>, float) local_unnamed_addr #36
 
 ; Function Attrs: nounwind uwtable
-define void @GetRayCollisionMesh(ptr dead_on_unwind noalias nocapture writable sret(%struct.RayCollision) align 4 initializes((0, 32)) %0, ptr nocapture noundef readonly byval(%struct.Ray) align 8 %1, ptr nocapture noundef readonly byval(%struct.Mesh) align 8 %2, ptr noundef byval(%struct.Matrix) align 8 %3) local_unnamed_addr #25 {
+define void @GetRayCollisionMesh(ptr dead_on_unwind noalias nocapture writable sret(%struct.RayCollision) align 4 %0, ptr nocapture noundef readonly byval(%struct.Ray) align 8 %1, ptr nocapture noundef readonly byval(%struct.Mesh) align 8 %2, ptr noundef byval(%struct.Matrix) align 8 %3) local_unnamed_addr #25 {
   %5 = alloca %struct.RayCollision, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -44340,7 +44340,7 @@ define void @GetRayCollisionMesh(ptr dead_on_unwind noalias nocapture writable s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GetRayCollisionTriangle(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.RayCollision) align 4 initializes((0, 32)) %0, ptr nocapture noundef readonly byval(%struct.Ray) align 8 %1, <2 x float> %2, float %3, <2 x float> %4, float %5, <2 x float> %6, float %7) local_unnamed_addr #25 {
+define void @GetRayCollisionTriangle(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.RayCollision) align 4 %0, ptr nocapture noundef readonly byval(%struct.Ray) align 8 %1, <2 x float> %2, float %3, <2 x float> %4, float %5, <2 x float> %6, float %7) local_unnamed_addr #25 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %9 = tail call { <2 x float>, float } @Vector3Subtract(<2 x float> %4, float %5, <2 x float> %2, float %3) #53
   %.fca.0.extract92 = extractvalue { <2 x float>, float } %9, 0
@@ -44424,7 +44424,7 @@ define void @GetRayCollisionTriangle(ptr dead_on_unwind noalias nocapture writab
 }
 
 ; Function Attrs: nounwind uwtable
-define void @GetRayCollisionQuad(ptr dead_on_unwind noalias nocapture writable sret(%struct.RayCollision) align 4 initializes((0, 32)) %0, ptr nocapture noundef readonly byval(%struct.Ray) align 8 %1, <2 x float> %2, float %3, <2 x float> %4, float %5, <2 x float> %6, float %7, <2 x float> %8, float %9) local_unnamed_addr #25 {
+define void @GetRayCollisionQuad(ptr dead_on_unwind noalias nocapture writable sret(%struct.RayCollision) align 4 %0, ptr nocapture noundef readonly byval(%struct.Ray) align 8 %1, <2 x float> %2, float %3, <2 x float> %4, float %5, <2 x float> %6, float %7, <2 x float> %8, float %9) local_unnamed_addr #25 {
   tail call void @GetRayCollisionTriangle(ptr dead_on_unwind nonnull writable sret(%struct.RayCollision) align 4 %0, ptr noundef nonnull byval(%struct.Ray) align 8 %1, <2 x float> %2, float %3, <2 x float> %4, float %5, <2 x float> %8, float %9)
   %11 = load i8, ptr %0, align 4
   %12 = trunc i8 %11 to i1
@@ -61916,7 +61916,7 @@ cgltf_skip_json.exit.thread6:                     ; preds = %21, %17, %cgltf_ski
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @_m3dstbi__zbuild_huffman(ptr nocapture noundef nonnull initializes((0, 1024)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #44 {
+define internal fastcc range(i32 0, 2) i32 @_m3dstbi__zbuild_huffman(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #44 {
   %4 = alloca [16 x i32], align 16
   %5 = alloca [17 x i32], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %5, i8 0, i64 68, i1 false)
@@ -62513,7 +62513,7 @@ _m3dstbi__malloc_mad2.exit.thread:                ; preds = %_m3dstbi__malloc_ma
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_m3dstbi__create_png_image_raw(ptr nocapture noundef nonnull initializes((24, 32)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 7) %7) unnamed_addr #26 {
+define internal fastcc range(i32 0, 2) i32 @_m3dstbi__create_png_image_raw(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 7) %7) unnamed_addr #26 {
   %9 = icmp eq i32 %6, 16
   %10 = load ptr, ptr %0, align 8
   %11 = mul i32 %4, %3
@@ -63801,7 +63801,7 @@ define internal void @ReleaseFileGLTFCallback(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @LoadImageFromCgltfImage(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @LoadImageFromCgltfImage(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.cgltf_options, align 8
   %6 = alloca %struct.Image, align 8

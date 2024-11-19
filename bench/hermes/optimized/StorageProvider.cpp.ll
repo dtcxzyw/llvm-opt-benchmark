@@ -43,7 +43,7 @@ $_ZN4llvh8DenseMapIPvS1_NS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S1_EE
 @_ZN6hermes2vm15StorageProviderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm15StorageProviderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm15StorageProviderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm15StorageProviderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 16), ptr %this, align 8
   ret void
@@ -60,7 +60,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm15StorageProvider12mmapProviderEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6hermes2vm15StorageProvider12mmapProviderEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   %numSucceededAllocs_.i.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -121,7 +121,7 @@ _ZNSt10unique_ptrIN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm15StorageProvider14mallocProviderEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6hermes2vm15StorageProvider14mallocProviderEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
   %numSucceededAllocs_.i.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -363,7 +363,7 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 16), ptr %this, align 8
   ret void
@@ -377,7 +377,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProvider14newStorageImplEPKc(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 initializes((0, 4)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef %name) unnamed_addr #3 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProvider14newStorageImplEPKc(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef %name) unnamed_addr #3 align 2 {
 entry:
   %result = alloca %"class.llvh::ErrorOr", align 8
   %call3 = tail call fastcc noundef ptr @_ZN6hermes2vm12_GLOBAL__N_111getMmapHintEv()
@@ -436,7 +436,7 @@ declare void @_ZN6hermes8oscompat7vm_nameEPvmPKc(ptr noundef, i64 noundef, ptr n
 declare void @_ZN6hermes8oscompat15vm_free_alignedEPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProviderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProviderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
   %lowLimToAllocHandle_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %lowLimToAllocHandle_, align 8

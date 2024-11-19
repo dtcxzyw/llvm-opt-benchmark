@@ -146,7 +146,7 @@ define dso_local zeroext i1 @zend_fiber_switch_blocked() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_fiber_init_context(ptr noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #6 {
+define dso_local range(i32 -1, 1) i32 @zend_fiber_init_context(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #6 {
   %5 = load i64, ptr @zend_fiber_get_page_size.page_size, align 8
   %.not.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i, label %6, label %zend_fiber_get_page_size.exit.i
@@ -679,7 +679,7 @@ define hidden void @zim_Fiber_start(ptr noundef %0, ptr nocapture noundef writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_fiber_execute(ptr nocapture noundef initializes((0, 8)) %0) #10 {
+define internal void @zend_fiber_execute(ptr nocapture noundef %0) #10 {
   %2 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i8, ptr %3, align 8
@@ -2043,7 +2043,7 @@ declare zeroext i1 @zend_is_unwind_exit(ptr noundef) local_unnamed_addr #7
 declare void @zend_clear_exception() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @zend_fiber_cleanup(ptr nocapture noundef initializes((104, 112), (224, 240)) %0) #6 {
+define internal void @zend_fiber_cleanup(ptr nocapture noundef %0) #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @zend_ce_fiber, align 8

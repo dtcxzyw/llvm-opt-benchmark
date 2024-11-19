@@ -492,7 +492,7 @@ define noundef zeroext i1 @"_ZN68_$LT$example_test_helper..CmdBuilder$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN19example_test_helper10CmdBuilder3new17h43a8fd3e1b067f52E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] }, i32, [1 x i32] }) align 8 dereferenceable(56) initializes((0, 32), (48, 52)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN19example_test_helper10CmdBuilder3new17h43a8fd3e1b067f52E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] }, i32, [1 x i32] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   %6 = load atomic i32, ptr @_ZN19example_test_helper10CmdBuilder3new4ONCE17h9b049a89247c6385E acquire, align 4
@@ -529,7 +529,7 @@ _ZN3std4sync4once4Once9call_once17h0fe9ad241bd5ff13E.exit: ; preds = %3, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19example_test_helper10CmdBuilder11set_timeout17hd59fc3eae4586074E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] }, i32, [1 x i32] }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) initializes((48, 52)) %1, i32 noundef %2) unnamed_addr #5 {
+define void @_ZN19example_test_helper10CmdBuilder11set_timeout17hd59fc3eae4586074E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] }, i32, [1 x i32] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1, i32 noundef %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   store i32 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
@@ -5211,7 +5211,7 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN95_$LT$example_test_helper..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h0fc56c7e964dd08aE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #7 {
+define void @"_ZN95_$LT$example_test_helper..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h0fc56c7e964dd08aE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i64 1, ptr %0, align 8
@@ -5219,7 +5219,7 @@ define void @"_ZN95_$LT$example_test_helper..Error$u20$as$u20$core..convert..Fro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN93_$LT$example_test_helper..Error$u20$as$u20$core..convert..From$LT$regex..error..Error$GT$$GT$4from17h621cd6570431cb6dE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
+define void @"_ZN93_$LT$example_test_helper..Error$u20$as$u20$core..convert..From$LT$regex..error..Error$GT$$GT$4from17h621cd6570431cb6dE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 2, ptr %0, align 8
@@ -5227,7 +5227,7 @@ define void @"_ZN93_$LT$example_test_helper..Error$u20$as$u20$core..convert..Fro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN102_$LT$example_test_helper..Error$u20$as$u20$core..convert..From$LT$shellwords..MismatchedQuotes$GT$$GT$4from17hc1be99f35d434871E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #7 {
+define void @"_ZN102_$LT$example_test_helper..Error$u20$as$u20$core..convert..From$LT$shellwords..MismatchedQuotes$GT$$GT$4from17hc1be99f35d434871E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0) unnamed_addr #7 {
   store i64 3, ptr %0, align 8
   ret void
 }

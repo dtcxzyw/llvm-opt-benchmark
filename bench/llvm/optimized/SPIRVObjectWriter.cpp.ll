@@ -85,7 +85,7 @@ define dso_local void @_ZN4llvm17SPIRVObjectWriter11writeHeaderERKNS_11MCAssembl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17SPIRVObjectWriter15setBuildVersionEjjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((128, 140)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17SPIRVObjectWriter15setBuildVersionEjjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 132
@@ -202,7 +202,7 @@ define dso_local noundef i64 @_ZN4llvm17SPIRVObjectWriter11writeObjectERNS_11MCA
 declare void @_ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE(ptr noundef nonnull align 8 dereferenceable(372), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23createSPIRVObjectWriterESt10unique_ptrINS_25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EERNS_17raw_pwrite_streamE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.26") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm23createSPIRVObjectWriterESt10unique_ptrINS_25MCSPIRVObjectTargetWriterESt14default_deleteIS1_EERNS_17raw_pwrite_streamE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.26") align 8 %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN4llvm17SPIRVObjectWriterESt14default_deleteIS1_EED2Ev.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #10, !noalias !4
   %4 = load i64, ptr %1, align 8, !noalias !4

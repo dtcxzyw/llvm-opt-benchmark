@@ -8797,7 +8797,7 @@ unreachable:                                      ; preds = %invoke.cont17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z17llama_batch_clearR11llama_batch(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 4)) %batch) local_unnamed_addr #16 {
+define void @_Z17llama_batch_clearR11llama_batch(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %batch) local_unnamed_addr #16 {
 entry:
   store i32 0, ptr %batch, align 8
   ret void

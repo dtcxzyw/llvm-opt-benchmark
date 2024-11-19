@@ -65,7 +65,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_client_m
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_drm_client_modeset_check377, ptr @__UNIQUE_ID___addressable_drm_client_modeset_commit379, ptr @__UNIQUE_ID___addressable_drm_client_modeset_commit_locked378, ptr @__UNIQUE_ID___addressable_drm_client_modeset_dpms380, ptr @__UNIQUE_ID___addressable_drm_client_modeset_probe375, ptr @__UNIQUE_ID___addressable_drm_client_rotation376], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @drm_client_modeset_create(ptr noundef initializes((80, 88)) %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_client_modeset_create(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 728
   %4 = load i32, ptr %3, align 8

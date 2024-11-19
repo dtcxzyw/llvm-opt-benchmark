@@ -852,7 +852,7 @@ declare { ptr, i64 } @_ZN4llvm4wasm8toStringENS0_14WasmSymbolTypeE(i32 noundef) 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object10ObjectFile20createWasmObjectFileENS_15MemoryBufferRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object10ObjectFile20createWasmObjectFileENS_15MemoryBufferRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %2 = alloca %"class.llvm::Error", align 8
   store ptr null, ptr %2, align 8
@@ -3616,7 +3616,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %._crit_edge, %162, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object14WasmObjectFile17parseTableSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) initializes((680, 684)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object14WasmObjectFile17parseTableSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %.sroa.3 = alloca [36 x i8], align 4
@@ -4105,7 +4105,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %._crit_edge, %93
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object14WasmObjectFile15parseTagSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) initializes((672, 676)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object14WasmObjectFile15parseTagSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -4460,7 +4460,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %._crit_edge, %158, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object14WasmObjectFile18parseGlobalSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) initializes((676, 680)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object14WasmObjectFile18parseGlobalSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"struct.llvm::wasm::WasmGlobal", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -6632,7 +6632,7 @@ _ZN4llvm4wasm15WasmElemSegmentD2Ev.exit:          ; preds = %.critedge, %408
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object14WasmObjectFile16parseCodeSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) initializes((664, 668)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object14WasmObjectFile16parseCodeSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -7128,7 +7128,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %._crit_edge104, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object14WasmObjectFile16parseDataSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) initializes((668, 672)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object14WasmObjectFile16parseDataSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -7694,7 +7694,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %35, %_ZL13readVarui
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object14WasmObjectFile18parseDylinkSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) initializes((589, 590)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object14WasmObjectFile18parseDylinkSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 589
   store i8 1, ptr %5, align 1
@@ -8162,7 +8162,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %._crit_edge, %209
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object14WasmObjectFile19parseDylink0SectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) initializes((589, 590)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object14WasmObjectFile19parseDylink0SectionERNS1_11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 589
@@ -10349,7 +10349,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4llvm6obje
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object14WasmObjectFile19parseLinkingSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) initializes((588, 589)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object14WasmObjectFile19parseLinkingSectionERNS1_11ReadContextE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(684) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -16789,7 +16789,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture readonly %.0.val.536.val, i32 %.8.val.4.val, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextEENK3$_0clES2_"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture readonly %.0.val.536.val, i32 %.8.val.4.val, ptr %1, i64 %2) unnamed_addr #0 align 2 {
 _ZN4llvmplERKNS_5TwineES2_.exit:
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
@@ -17686,7 +17686,7 @@ _ZL12parseValTypeRN4llvm6object14WasmObjectFile11ReadContextEj.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12readInitExprRN4llvm4wasm12WasmInitExprERNS_6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 1)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL12readInitExprRN4llvm4wasm12WasmInitExprERNS_6object14WasmObjectFile11ReadContextE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -18333,7 +18333,7 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile14moveSymbolNextERNS0_11D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4llvm6object14WasmObjectFile14getSymbolFlagsENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.186") align 8 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(684) %1, i64 %2) unnamed_addr #9 align 2 {
+define dso_local void @_ZNK4llvm6object14WasmObjectFile14getSymbolFlagsENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.186") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(684) %1, i64 %2) unnamed_addr #9 align 2 {
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %5 = load ptr, ptr %4, align 8
@@ -18410,7 +18410,7 @@ define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZNK4llvm6obj
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4llvm6object14WasmObjectFile13getSymbolNameENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.190") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(684) %1, i64 %2) unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4llvm6object14WasmObjectFile13getSymbolNameENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.190") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(684) %1, i64 %2) unnamed_addr #10 align 2 {
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %5 = load ptr, ptr %4, align 8
@@ -18992,7 +18992,7 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile15moveSectionNextERNS0_11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object14WasmObjectFile14getSectionNameENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.190") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(684) %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm6object14WasmObjectFile14getSectionNameENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.190") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(684) %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.153", align 1
   %6 = alloca %"class.llvm::Error", align 8
@@ -19111,7 +19111,7 @@ define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile14getSectionSizeEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4llvm6object14WasmObjectFile18getSectionContentsENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.208") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(684) %1, i64 %2) unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4llvm6object14WasmObjectFile18getSectionContentsENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.208") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(684) %1, i64 %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = and i64 %2, 4294967295
   %6 = load ptr, ptr %4, align 8
@@ -19407,7 +19407,7 @@ define dso_local noundef range(i32 55, 57) i32 @_ZNK4llvm6object14WasmObjectFile
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object14WasmObjectFile11getFeaturesEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.217") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm6object14WasmObjectFile11getFeaturesEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.217") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
 _ZN4llvm17SubtargetFeaturesD2Ev.exit:
   %2 = alloca %"class.llvm::SubtargetFeatures", align 8
   call void @_ZN4llvm17SubtargetFeaturesC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nonnull @.str.120, i64 0) #25

@@ -64,7 +64,7 @@ $_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdSt6vec
 @_ZN8QuantLib21TqrEigenDecompositionC1ERKNS_5ArrayES3_NS0_22EigenVectorCalculationENS0_13ShiftStrategyE = unnamed_addr alias void (ptr, ptr, ptr, i32, i32), ptr @_ZN8QuantLib21TqrEigenDecompositionC2ERKNS_5ArrayES3_NS0_22EigenVectorCalculationENS0_13ShiftStrategyE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21TqrEigenDecompositionC2ERKNS_5ArrayES3_NS0_22EigenVectorCalculationENS0_13ShiftStrategyE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %diag, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %sub, i32 noundef %calc, i32 noundef %strategy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21TqrEigenDecompositionC2ERKNS_5ArrayES3_NS0_22EigenVectorCalculationENS0_13ShiftStrategyE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %diag, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %sub, i32 noundef %calc, i32 noundef %strategy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -1053,7 +1053,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIN6herm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc25BytecodeFunctionGenerator12setJumpTableEOSt6vectorIjSaIjEE(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((184, 200)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %jumpTable) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc25BytecodeFunctionGenerator12setJumpTableEOSt6vectorIjSaIjEE(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %jumpTable) local_unnamed_addr #0 align 2 {
 entry:
   %jumpTable_ = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %jumpTable_, align 8
@@ -1080,7 +1080,7 @@ _ZNSt6vectorIjSaIjEEaSEOS1_.exit:                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc25BytecodeFunctionGenerator24generateBytecodeFunctionENS_8Function14DefinitionKindENS_9ValueKindEbjjj(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %definitionKind, i8 noundef zeroext %valueKind, i1 noundef zeroext %strictMode, i32 noundef %paramCount, i32 noundef %environmentSize, i32 noundef %nameID) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc25BytecodeFunctionGenerator24generateBytecodeFunctionENS_8Function14DefinitionKindENS_9ValueKindEbjjj(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %definitionKind, i8 noundef zeroext %valueKind, i1 noundef zeroext %strictMode, i32 noundef %paramCount, i32 noundef %environmentSize, i32 noundef %nameID) local_unnamed_addr #0 align 2 {
 entry:
   %complete_ = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i8, ptr %complete_, align 8
@@ -1183,7 +1183,7 @@ sw.epilog:                                        ; preds = %switch.lookup, %sw.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc25BytecodeFunctionGenerator26bytecodeGenerationCompleteEv(ptr noundef nonnull align 8 dereferenceable(200) initializes((164, 169)) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc25BytecodeFunctionGenerator26bytecodeGenerationCompleteEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca i8, align 1
   %complete_ = getelementptr inbounds i8, ptr %this, i64 168
@@ -2625,7 +2625,7 @@ return:                                           ; preds = %_ZN4llvh12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc23BytecodeModuleGenerator28initializeSerializedLiteralsEOSt6vectorIhSaIhEES5_S5_ON4llvh8DenseMapIPKNS_11InstructionESt4pairIjjENS6_12DenseMapInfoISA_EENS6_6detail12DenseMapPairISA_SC_EEEE(ptr nocapture noundef nonnull align 8 dereferenceable(964) initializes((848, 864), (872, 888), (896, 912), (920, 932)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %arrayBuffer, ptr nocapture noundef nonnull align 8 dereferenceable(24) %keyBuffer, ptr nocapture noundef nonnull align 8 dereferenceable(24) %valBuffer, ptr nocapture noundef nonnull align 8 dereferenceable(20) %offsetMap) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc23BytecodeModuleGenerator28initializeSerializedLiteralsEOSt6vectorIhSaIhEES5_S5_ON4llvh8DenseMapIPKNS_11InstructionESt4pairIjjENS6_12DenseMapInfoISA_EENS6_6detail12DenseMapPairISA_SC_EEEE(ptr nocapture noundef nonnull align 8 dereferenceable(964) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %arrayBuffer, ptr nocapture noundef nonnull align 8 dereferenceable(24) %keyBuffer, ptr nocapture noundef nonnull align 8 dereferenceable(24) %valBuffer, ptr nocapture noundef nonnull align 8 dereferenceable(20) %offsetMap) local_unnamed_addr #0 align 2 {
 entry:
   %arrayBuffer_ = getelementptr inbounds i8, ptr %this, i64 840
   %0 = load ptr, ptr %arrayBuffer_, align 8
@@ -3154,7 +3154,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EE9push_backEOS1_.exit: ; preds = %if.then.i.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc23BytecodeModuleGenerator8generateEv(ptr noalias nocapture sret(%"class.std::unique_ptr.177") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(964) initializes((958, 959)) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc23BytecodeModuleGenerator8generateEv(ptr noalias nocapture sret(%"class.std::unique_ptr.177") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(964) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ConstFoundBucket.i.i.i.i.i.i35 = alloca ptr, align 8
   %str.i.i.i.i36 = alloca %"class.llvh::StringRef", align 8

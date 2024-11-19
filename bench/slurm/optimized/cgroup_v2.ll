@@ -1467,7 +1467,7 @@ define range(i32 -1, 1) i32 @cgroup_p_task_addto(i32 %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @cgroup_p_step_get_pids(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define noundef i32 @cgroup_p_step_get_pids(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.foreach_pid_array_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 8

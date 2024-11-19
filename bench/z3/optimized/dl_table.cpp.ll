@@ -512,7 +512,7 @@ _ZN7datalog10table_base11mk_iteratorEPNS0_13iterator_coreE.exit: ; preds = %land
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog15hashtable_table3endEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::iterator") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7datalog15hashtable_table3endEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7datalog10table_base11mk_iteratorEPNS0_13iterator_coreE.exit:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 80)
   %m_ref_cnt.i.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -618,7 +618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog15bitvector_tableC2ERNS_22bitvector_table_pluginERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28), (32, 36), (40, 60), (64, 80)) %this, ptr noundef nonnull align 8 dereferenceable(32) %plugin, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog15bitvector_tableC2ERNS_22bitvector_table_pluginERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %plugin, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::allocator", align 1
@@ -1311,7 +1311,7 @@ _ZN7datalog10table_base11mk_iteratorEPNS0_13iterator_coreE.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog15bitvector_table3endEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::iterator") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7datalog15bitvector_table3endEv(ptr noalias nocapture writeonly sret(%"class.datalog::table_base::iterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
   %m_ref_cnt.i.i = getelementptr inbounds i8, ptr %call, i64 8

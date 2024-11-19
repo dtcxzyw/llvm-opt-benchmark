@@ -171,7 +171,7 @@ define dso_local void @inet_twsk_put(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @inet_twsk_hashdance(ptr noundef initializes((200, 216)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local void @inet_twsk_hashdance(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = load ptr, ptr %2, align 64

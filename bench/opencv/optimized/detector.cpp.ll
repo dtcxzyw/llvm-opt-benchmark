@@ -143,7 +143,7 @@ $_ZTIN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEEE = comdat any
 @_ZN5zxing6qrcode8DetectorC1ENS_3RefINS_9BitMatrixEEENS2_INS_11UnicomBlockEEE = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5zxing6qrcode8DetectorC2ENS_3RefINS_9BitMatrixEEENS2_INS_11UnicomBlockEEE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode8DetectorC2ENS_3RefINS_9BitMatrixEEENS2_INS_11UnicomBlockEEE(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((0, 12), (16, 60)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode8DetectorC2ENS_3RefINS_9BitMatrixEEENS2_INS_11UnicomBlockEEE(ptr nocapture noundef nonnull align 8 dereferenceable(60) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5zxing6qrcode8DetectorE, i64 16), ptr %0, align 8
@@ -223,7 +223,7 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode13PatternResultEEESaIS4_EE5clearEv.exit: ; p
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK5zxing6qrcode8Detector8getImageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK5zxing6qrcode8Detector8getImageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -10031,7 +10031,7 @@ _ZN5zxing3RefINS_11ResultPointEED2Ev.exit:        ; preds = %1249, %1244, %.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -1, 2) i32 @_ZN5zxing6qrcode8Detector7fitLineERSt6vectorINS_3RefINS_11ResultPointEEESaIS5_EERfS9_Ri(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 -1, 2) i32 @_ZN5zxing6qrcode8Detector7fitLineERSt6vectorINS_3RefINS_11ResultPointEEESaIS5_EERfS9_Ri(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector.31", align 8
   store i32 1, ptr %4, align 4
   store float 0.000000e+00, ptr %2, align 4

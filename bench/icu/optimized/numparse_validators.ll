@@ -138,7 +138,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758numparse4impl32RequireDecimalSeparatorValidatorC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, i1 noundef zeroext %patternHasDecimalSeparator) unnamed_addr #3 align 2 {
+define void @_ZN6icu_758numparse4impl32RequireDecimalSeparatorValidatorC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this, i1 noundef zeroext %patternHasDecimalSeparator) unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %patternHasDecimalSeparator to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl32RequireDecimalSeparatorValidatorE, i64 16), ptr %this, align 8
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_758numparse4impl22MultiplierParseHandlerC2ENS_6number5ScaleE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this, ptr noundef nonnull %multiplier) unnamed_addr #4 align 2 {
+define void @_ZN6icu_758numparse4impl22MultiplierParseHandlerC2ENS_6number5ScaleE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %multiplier) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758numparse4impl22MultiplierParseHandlerE, i64 16), ptr %this, align 8
   %fMultiplier = getelementptr inbounds i8, ptr %this, i64 8

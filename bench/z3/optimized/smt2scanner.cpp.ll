@@ -2774,7 +2774,7 @@ unreachable:                                      ; preds = %invoke.cont132, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4smt27scannerC2ER11cmd_contextRSib(ptr noundef nonnull align 8 dereferenceable(1408) initializes((0, 9), (12, 18), (20, 28), (32, 44), (48, 60), (64, 76), (1356, 1364), (1368, 1385), (1392, 1408)) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(16) %stream, i1 noundef zeroext %interactive) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4smt27scannerC2ER11cmd_contextRSib(ptr noundef nonnull align 8 dereferenceable(1408) %this, ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull align 8 dereferenceable(16) %stream, i1 noundef zeroext %interactive) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %interactive to i8
   store ptr %ctx, ptr %this, align 8
@@ -2916,7 +2916,7 @@ _ZN6vectorIcLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 1, 10) i32 @_ZN4smt27scanner4scanEv(ptr noundef nonnull align 8 dereferenceable(1408) initializes((24, 28)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 1, 10) i32 @_ZN4smt27scanner4scanEv(ptr noundef nonnull align 8 dereferenceable(1408) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ex = alloca %class.cmd_exception, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3386,7 +3386,7 @@ _ZN6vectorIcLb0EjE9push_backEOc.exit:             ; preds = %lor.lhs.false.i19, 
 declare i32 @isspace(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4smt27scanner11reset_inputERSib(ptr noundef nonnull align 8 dereferenceable(1408) initializes((8, 9), (17, 18), (1356, 1364), (1376, 1384)) %this, ptr noundef nonnull align 8 dereferenceable(16) %stream, i1 noundef zeroext %interactive) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4smt27scanner11reset_inputERSib(ptr noundef nonnull align 8 dereferenceable(1408) %this, ptr noundef nonnull align 8 dereferenceable(16) %stream, i1 noundef zeroext %interactive) local_unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %interactive to i8
   %m_stream = getelementptr inbounds i8, ptr %this, i64 1376

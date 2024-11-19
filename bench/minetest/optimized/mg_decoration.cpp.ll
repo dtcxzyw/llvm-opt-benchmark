@@ -2492,7 +2492,7 @@ return:                                           ; preds = %for.body123.us.epil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13DecoSchematicD2Ev(ptr noundef nonnull align 8 dereferenceable(329) initializes((0, 8), (56, 64)) %this) unnamed_addr #11 align 2 {
+define dso_local void @_ZN13DecoSchematicD2Ev(ptr noundef nonnull align 8 dereferenceable(329) %this) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13DecoSchematic, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -2521,7 +2521,7 @@ if.end:                                           ; preds = %delete.notnull, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N13DecoSchematicD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZThn56_N13DecoSchematicD1Ev(ptr noundef %this) unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTV13DecoSchematic, i64 16), ptr %0, align 8, !tbaa !4
@@ -2550,7 +2550,7 @@ _ZN13DecoSchematicD2Ev.exit:                      ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13DecoSchematicD0Ev(ptr noundef nonnull align 8 dereferenceable(329) initializes((0, 8), (56, 64)) %this) unnamed_addr #11 align 2 {
+define dso_local void @_ZN13DecoSchematicD0Ev(ptr noundef nonnull align 8 dereferenceable(329) %this) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13DecoSchematic, i64 16), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -2580,7 +2580,7 @@ _ZN13DecoSchematicD2Ev.exit:                      ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N13DecoSchematicD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #12 align 2 {
+define dso_local void @_ZThn56_N13DecoSchematicD0Ev(ptr noundef %this) unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTV13DecoSchematic, i64 16), ptr %0, align 8, !tbaa !4

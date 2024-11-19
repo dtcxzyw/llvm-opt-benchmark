@@ -423,7 +423,7 @@ define void @_ZN3cfg10CfgOptions10apply_diff17h04e9e3f3aad52ea2E(ptr noalias nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN3cfg10CfgOptions12get_cfg_keys17h67f8917aa1e25c5bE(ptr noalias nocapture noundef writeonly sret({ { { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }, {} }) align 8 dereferenceable(40) initializes((0, 26), (32, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
+define void @_ZN3cfg10CfgOptions12get_cfg_keys17h67f8917aa1e25c5bE(ptr noalias nocapture noundef writeonly sret({ { { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }, {} }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !83)
   %3 = load ptr, ptr %1, align 8, !alias.scope !83, !noalias !86, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -450,7 +450,7 @@ define void @_ZN3cfg10CfgOptions12get_cfg_keys17h67f8917aa1e25c5bE(ptr noalias n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN3cfg10CfgOptions14get_cfg_values17h6f00d1eb0324a9cdE(ptr noalias nocapture noundef writeonly sret({ { { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }, { { ptr, i64 } } }) align 8 dereferenceable(56) initializes((0, 26), (32, 56)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #3 {
+define void @_ZN3cfg10CfgOptions14get_cfg_values17h6f00d1eb0324a9cdE(ptr noalias nocapture noundef writeonly sret({ { { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }, { { ptr, i64 } } }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
   %5 = load ptr, ptr %1, align 8, !alias.scope !93, !noalias !96, !nonnull !4, !noundef !4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -481,7 +481,7 @@ define void @_ZN3cfg10CfgOptions14get_cfg_values17h6f00d1eb0324a9cdE(ptr noalias
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$cfg..CfgOptions$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h081b3a92146ecf29E"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }) align 8 dereferenceable(64) initializes((0, 50), (56, 64)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$cfg..CfgOptions$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h081b3a92146ecf29E"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [2 x i64] }, { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64, i64, i64 }, {}, {} }, align 8
   %.sroa.01.sroa.0 = alloca { i64, [2 x i64] }, align 8
   %.sroa.0.sroa.0.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
@@ -525,7 +525,7 @@ define void @"_ZN77_$LT$cfg..CfgOptions$u20$as$u20$core..iter..traits..collect..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @"_ZN81_$LT$$RF$cfg..CfgOptions$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hff293dcec5696d8fE"(ptr noalias nocapture noundef writeonly sret({ { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }) align 8 dereferenceable(40) initializes((0, 26), (32, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
+define void @"_ZN81_$LT$$RF$cfg..CfgOptions$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hff293dcec5696d8fE"(ptr noalias nocapture noundef writeonly sret({ { { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } } } }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !120)
   %3 = load ptr, ptr %1, align 8, !alias.scope !120, !noalias !123, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8

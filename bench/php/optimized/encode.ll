@@ -248,13 +248,13 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_encode_utf_8(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @lxb_encoding_encode_auto(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden noundef i32 @lxb_encoding_encode_auto(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
   store ptr %2, ptr %1, align 8
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @lxb_encoding_encode_undefined(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden noundef i32 @lxb_encoding_encode_undefined(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
   store ptr %2, ptr %1, align 8
   ret i32 1
 }
@@ -3714,7 +3714,7 @@ lexbor_shs_hash_get_static.exit:                  ; preds = %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @lxb_encoding_encode_replacement(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden noundef i32 @lxb_encoding_encode_replacement(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
   store ptr %2, ptr %1, align 8
   ret i32 1
 }

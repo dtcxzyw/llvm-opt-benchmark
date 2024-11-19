@@ -797,7 +797,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZN5clang4ento22PathDiagnosticConsumer6anchorEv(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116SarifDiagnosticsD2Ev(ptr noundef nonnull align 8 dereferenceable(4792) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116SarifDiagnosticsD2Ev(ptr noundef nonnull align 8 dereferenceable(4792) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_116SarifDiagnosticsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN5clang19SarifDocumentWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(4720) %2) #15
@@ -808,7 +808,7 @@ define internal void @_ZN12_GLOBAL__N_116SarifDiagnosticsD2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116SarifDiagnosticsD0Ev(ptr noundef nonnull align 8 dereferenceable(4792) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116SarifDiagnosticsD0Ev(ptr noundef nonnull align 8 dereferenceable(4792) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_116SarifDiagnosticsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZN5clang19SarifDocumentWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(4720) %2) #15
@@ -1816,7 +1816,7 @@ declare void @_ZN5clang19getClangFullVersionB5cxx11Ev(ptr dead_on_unwind writabl
 declare void @_ZN5clang19SarifDocumentWriter9createRunEN4llvm9StringRefES2_S2_(ptr noundef nonnull align 8 dereferenceable(4720), ptr, i64, ptr, i64, ptr noundef byval(%"class.llvm::StringRef") align 8) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17createRuleMappingRKSt6vectorIPKN5clang4ento14PathDiagnosticESaIS4_EERNS0_19SarifDocumentWriterE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(4720) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL17createRuleMappingRKSt6vectorIPKN5clang4ento14PathDiagnosticESaIS4_EERNS0_19SarifDocumentWriterE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(4720) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::StringSet", align 8
   %4 = alloca %"class.clang::SarifRule", align 8
   %5 = alloca %"class.clang::SarifRule", align 8

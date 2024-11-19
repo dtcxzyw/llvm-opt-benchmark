@@ -267,7 +267,7 @@ define hidden { ptr, i64 } @"_ZN3std4path95_$LT$impl$u20$core..convert..AsRef$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha7dd12306f579b54E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17ha7dd12306f579b54E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6

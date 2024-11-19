@@ -282,7 +282,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms10FSICFRNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 13), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms10FSICFRNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2090,7 +2090,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms12FSICFRSolverC2ERKNS_4GameEiRKSt6vectorIiSaIiEEPKNS0_11FSICFRGraphE(ptr nocapture noundef nonnull align 8 dereferenceable(5072) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms12FSICFRSolverC2ERKNS_4GameEiRKSt6vectorIiSaIiEEPKNS0_11FSICFRGraphE(ptr nocapture noundef nonnull align 8 dereferenceable(5072) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = zext i32 %2 to i64
@@ -3708,7 +3708,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10algorithms12FSICFRSolver16GetAveragePolicyEv(ptr dead_on_unwind noalias writable sret(%"class.open_spiel::TabularPolicy") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5072) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10algorithms12FSICFRSolver16GetAveragePolicyEv(ptr dead_on_unwind noalias writable sret(%"class.open_spiel::TabularPolicy") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5072) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.55", align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8

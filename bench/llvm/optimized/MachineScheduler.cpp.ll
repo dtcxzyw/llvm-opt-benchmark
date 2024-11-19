@@ -798,7 +798,7 @@ define dso_local void @_ZN4llvm19ScheduleDAGMutation6anchorEv(ptr nocapture nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19MachineSchedContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19MachineSchedContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm19MachineSchedContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -815,7 +815,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 declare void @_ZN4llvm17RegisterClassInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(320)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19MachineSchedContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19MachineSchedContextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm19MachineSchedContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -1158,7 +1158,7 @@ _ZN4llvm19MachinePassRegistryIPFPNS_17ScheduleDAGInstrsEPNS_19MachineSchedContex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13ScheduleDAGMID2Ev(ptr noundef nonnull align 8 dereferenceable(2704) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13ScheduleDAGMID2Ev(ptr noundef nonnull align 8 dereferenceable(2704) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm13ScheduleDAGMIE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2648
   %3 = load ptr, ptr %2, align 8
@@ -2305,7 +2305,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5SUnitELb1EE9push_backES2_.exit12: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13ScheduleDAGMI10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 dereferenceable(2704) initializes((2688, 2704)) %0, ptr readonly %1, i64 %2, ptr readonly %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13ScheduleDAGMI10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 dereferenceable(2704) %0, ptr readonly %1, i64 %2, ptr readonly %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2696
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   %8 = getelementptr inbounds ptr, ptr %1, i64 %2
@@ -3061,7 +3061,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5SUnitELb1EE28reserveForParamAndGetAddress
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17ScheduleDAGMILiveD2Ev(ptr noundef nonnull align 8 dereferenceable(5184) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17ScheduleDAGMILiveD2Ev(ptr noundef nonnull align 8 dereferenceable(5184) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm17ScheduleDAGMILiveE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2712
   %3 = load ptr, ptr %2, align 8
@@ -5203,7 +5203,7 @@ _ZNSt6vectorIN4llvm14PressureChangeESaIS1_EE5clearEv.exit: ; preds = %6, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17ScheduleDAGMILive10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 dereferenceable(5184) initializes((2688, 2704)) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17ScheduleDAGMILive10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 dereferenceable(5184) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm13ScheduleDAGMI10initQueuesENS_8ArrayRefIPNS_5SUnitEEES4_(ptr noundef nonnull align 8 dereferenceable(2704) %0, ptr %1, i64 %2, ptr %3, i64 %4)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3112
   %7 = load i8, ptr %6, align 8
@@ -6795,7 +6795,7 @@ declare void @_ZN4llvm18RegPressureTracker21recedeSkipDebugValuesEv(ptr noundef 
 declare void @_ZN4llvm18RegPressureTracker6recedeERKNS_16RegisterOperandsEPNS_15SmallVectorImplINS_16RegisterMaskPairEEE(ptr noundef nonnull align 8 dereferenceable(352), ptr noundef nonnull align 8 dereferenceable(432), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28createLoadClusterDAGMutationEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.233") align 8 initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm28createLoadClusterDAGMutationEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.233") align 8 %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL18EnableMemOpCluster, i64 128), align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119LoadClusterMutationESt14default_deleteIS1_EED2Ev.exit
@@ -6821,7 +6821,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119LoadClusterMutationESt14default_deleteIS1_EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm29createStoreClusterDAGMutationEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.233") align 8 initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm29createStoreClusterDAGMutationEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.233") align 8 %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL18EnableMemOpCluster, i64 128), align 8
   %6 = trunc i8 %5 to i1
   br i1 %6, label %7, label %_ZNSt10unique_ptrIN12_GLOBAL__N_120StoreClusterMutationESt14default_deleteIS1_EED2Ev.exit
@@ -6847,7 +6847,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120StoreClusterMutationESt14default_deleteIS1_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30createCopyConstrainDAGMutationEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.233") align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm30createCopyConstrainDAGMutationEPKNS_15TargetInstrInfoEPKNS_18TargetRegisterInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.233") align 8 %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_113CopyConstrainESt14default_deleteIS1_EED2Ev.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29, !noalias !53
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_113CopyConstrainE, i64 16), ptr %3, align 8, !noalias !53
@@ -6995,7 +6995,7 @@ _ZN4llvm10ReadyQueueD2Ev.exit3:                   ; preds = %_ZN4llvm10ReadyQueu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13SchedBoundary5resetEv(ptr noundef nonnull align 8 dereferenceable(712) initializes((160, 161), (164, 188), (272, 281)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13SchedBoundary5resetEv(ptr noundef nonnull align 8 dereferenceable(712) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -7124,7 +7124,7 @@ _ZN4llvm15SmallVectorImplINS_5APIntEE5clearEv.exit: ; preds = %_ZN4llvm5APIntD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14SchedRemainder4initEPNS_13ScheduleDAGMIEPKNS_16TargetSchedModelE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 13)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14SchedRemainder4initEPNS_13ScheduleDAGMIEPKNS_16TargetSchedModelE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 13, i1 false)
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #28
@@ -7235,7 +7235,7 @@ declare noundef zeroext i1 @_ZNK4llvm16TargetSchedModel18hasInstrSchedModelEv(pt
 declare noundef i32 @_ZNK4llvm16TargetSchedModel14getNumMicroOpsEPKNS_12MachineInstrEPKNS_16MCSchedClassDescE(ptr noundef nonnull align 8 dereferenceable(280), ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13SchedBoundary4initEPNS_13ScheduleDAGMIEPKNS_16TargetSchedModelEPNS_14SchedRemainderE(ptr noundef nonnull align 8 dereferenceable(712) initializes((160, 161), (164, 188), (272, 281)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13SchedBoundary4initEPNS_13ScheduleDAGMIEPKNS_16TargetSchedModelEPNS_14SchedRemainderE(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   tail call void @_ZN4llvm13SchedBoundary5resetEv(ptr noundef nonnull align 8 dereferenceable(712) %0)
   store ptr %1, ptr %0, align 8
@@ -8033,7 +8033,7 @@ _ZNK4llvm13SchedBoundary21getUnscheduledLatencyEPNS_5SUnitE.exit: ; preds = %12,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm13SchedBoundary21getOtherResourceCountERj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(712) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm13SchedBoundary21getOtherResourceCountERj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(712) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %1, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -11141,7 +11141,7 @@ _ZN4llvm10tryGreaterEiiRNS_20GenericSchedulerBase14SchedCandidateES2_NS0_10CandR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16GenericScheduler10initializeEPNS_13ScheduleDAGMIE(ptr noundef nonnull align 8 dereferenceable(1664) initializes((16, 45), (128, 136)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16GenericScheduler10initializeEPNS_13ScheduleDAGMIE(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 600
@@ -11221,7 +11221,7 @@ define dso_local void @_ZN4llvm16GenericScheduler10initializeEPNS_13ScheduleDAGM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16GenericScheduler10initPolicyENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES3_j(ptr noundef nonnull align 8 dereferenceable(1664) initializes((136, 137)) %0, ptr nonnull %1, ptr nocapture readnone %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16GenericScheduler10initPolicyENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES3_j(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr nonnull %1, ptr nocapture readnone %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_ZNK4llvm12MachineInstr5getMFEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #28
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -11387,7 +11387,7 @@ define dso_local void @_ZN4llvm16GenericScheduler19checkAcyclicLatencyEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16GenericScheduler13registerRootsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1664) initializes((32, 36)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16GenericScheduler13registerRootsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1664) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 582
@@ -11783,7 +11783,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN4llvm11biasPhysRegEPKNS_5SUnit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16GenericScheduler13initCandidateERNS_20GenericSchedulerBase14SchedCandidateEPNS_5SUnitEbRKNS_18RegPressureTrackerERS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %0, ptr noundef nonnull align 8 dereferenceable(48) initializes((16, 24), (25, 26)) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(352) %4, ptr noundef nonnull align 8 dereferenceable(352) %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16GenericScheduler13initCandidateERNS_20GenericSchedulerBase14SchedCandidateEPNS_5SUnitEbRKNS_18RegPressureTrackerERS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1664) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(352) %4, ptr noundef nonnull align 8 dereferenceable(352) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::ArrayRef.429", align 8
   %8 = alloca %"class.llvm::ArrayRef.429", align 8
   %9 = alloca %"class.llvm::ArrayRef.429", align 8
@@ -12655,7 +12655,7 @@ _ZN4llvm20GenericSchedulerBase14SchedCandidate17initResourceDeltaEPKNS_13Schedul
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm16GenericScheduler21pickNodeBidirectionalERb(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm16GenericScheduler21pickNodeBidirectionalERb(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::GenericSchedulerBase::CandPolicy", align 4
   %4 = alloca %"struct.llvm::GenericSchedulerBase::CandPolicy", align 4
   %5 = alloca %"struct.llvm::GenericSchedulerBase::SchedCandidate", align 8
@@ -13533,7 +13533,7 @@ define internal noundef nonnull ptr @_ZL21createConvergingSchedPN4llvm19MachineS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20PostGenericScheduler10initializeEPNS_13ScheduleDAGMIE(ptr noundef nonnull align 8 dereferenceable(1664) initializes((16, 45), (128, 136)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20PostGenericScheduler10initializeEPNS_13ScheduleDAGMIE(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 600
@@ -13629,7 +13629,7 @@ define dso_local void @_ZN4llvm20PostGenericScheduler10initPolicyENS_26MachineIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20PostGenericScheduler13registerRootsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1664) initializes((32, 36)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20PostGenericScheduler13registerRootsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1664) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 582
@@ -14143,7 +14143,7 @@ _ZN4llvm20GenericSchedulerBase14SchedCandidate17initResourceDeltaEPKNS_13Schedul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm20PostGenericScheduler21pickNodeBidirectionalERb(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm20PostGenericScheduler21pickNodeBidirectionalERb(ptr noundef nonnull align 8 dereferenceable(1664) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::GenericSchedulerBase::CandPolicy", align 4
   %4 = alloca %"struct.llvm::GenericSchedulerBase::CandPolicy", align 4
   %5 = alloca %"struct.llvm::GenericSchedulerBase::SchedCandidate", align 8
@@ -18630,7 +18630,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm19ScheduleDAGMutationESt14default_delet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112ILPSchedulerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112ILPSchedulerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_112ILPSchedulerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -18651,7 +18651,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EED2Ev.exit:     ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112ILPSchedulerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112ILPSchedulerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN12_GLOBAL__N_112ILPSchedulerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -18673,7 +18673,7 @@ _ZN12_GLOBAL__N_112ILPSchedulerD2Ev.exit:         ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112ILPScheduler10initializeEPN4llvm13ScheduleDAGMIE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((8, 32)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112ILPScheduler10initializeEPN4llvm13ScheduleDAGMIE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   tail call void @_ZN4llvm17ScheduleDAGMILive16computeDFSResultEv(ptr noundef nonnull align 8 dereferenceable(5184) %1)
@@ -21870,7 +21870,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_14MachineOperandELb1EE18uninitialized_cop
 declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoELj32EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIN12_GLOBAL__N_124BaseMemOpClusterMutation9MemOpInfoELj32EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS6_EEEEjS6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

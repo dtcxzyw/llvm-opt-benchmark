@@ -2597,7 +2597,7 @@ declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Bdc_SpfdReadFiles5(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Bdc_SpfdReadFiles5(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 3863759, ptr %2, align 8
@@ -2626,7 +2626,7 @@ define noalias noundef ptr @Bdc_SpfdReadFiles5(ptr nocapture noundef writeonly i
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Bdc_SpfdReadFiles6(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Bdc_SpfdReadFiles6(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 12776759, ptr %2, align 8

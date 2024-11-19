@@ -1089,7 +1089,7 @@ return:                                           ; preds = %while.body, %if.end
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @mpd_parse_fmt_str(ptr nocapture noundef initializes((0, 20), (24, 48)) %spec, ptr noundef %fmt, i32 noundef %caps) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mpd_parse_fmt_str(ptr nocapture noundef %spec, ptr noundef %fmt, i32 noundef %caps) local_unnamed_addr #0 {
 entry:
   %cp = alloca ptr, align 8
   store ptr %fmt, ptr %cp, align 8
@@ -2069,7 +2069,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @mpd_snprint_flags(ptr noundef initializes((0, 1)) %dest, i32 noundef %nmemb, i32 noundef %flags) local_unnamed_addr #10 {
+define hidden noundef i32 @mpd_snprint_flags(ptr noundef %dest, i32 noundef %nmemb, i32 noundef %flags) local_unnamed_addr #10 {
 entry:
   store i8 0, ptr %dest, align 1
   br label %for.body
@@ -2133,7 +2133,7 @@ return:                                           ; preds = %if.then, %if.end10
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @mpd_lsnprint_flags(ptr noundef initializes((0, 2)) %dest, i32 noundef %nmemb, i32 noundef %flags, ptr noundef readonly %flag_string) local_unnamed_addr #10 {
+define hidden noundef i32 @mpd_lsnprint_flags(ptr noundef %dest, i32 noundef %nmemb, i32 noundef %flags, ptr noundef readonly %flag_string) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %flag_string, null
   %spec.store.select = select i1 %cmp, ptr @mpd_flag_string, ptr %flag_string
@@ -2195,7 +2195,7 @@ return:                                           ; preds = %if.then3, %for.end
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden noundef i32 @mpd_lsnprint_signals(ptr noundef initializes((0, 2)) %dest, i32 noundef %nmemb, i32 noundef %flags, ptr noundef readonly %signal_string) local_unnamed_addr #10 {
+define hidden noundef i32 @mpd_lsnprint_signals(ptr noundef %dest, i32 noundef %nmemb, i32 noundef %flags, ptr noundef readonly %signal_string) local_unnamed_addr #10 {
 entry:
   %cmp = icmp eq ptr %signal_string, null
   %spec.store.select = select i1 %cmp, ptr @mpd_signal_string, ptr %signal_string
@@ -2784,7 +2784,7 @@ declare hidden i32 @mpd_word_digits(i64 noundef) local_unnamed_addr #1
 declare hidden void @mpd_qrescale_fmt(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_mpd_add_sep_dot(ptr nocapture noundef nonnull initializes((8, 24)) %dest, ptr noundef readonly %sign, ptr nocapture noundef readonly %src, i64 noundef %n_src, ptr noundef readonly %dot, ptr nocapture noundef readonly %rest, i64 noundef %n_rest, ptr nocapture noundef readonly %spec) unnamed_addr #13 {
+define internal fastcc void @_mpd_add_sep_dot(ptr nocapture noundef nonnull %dest, ptr noundef readonly %sign, ptr nocapture noundef readonly %src, i64 noundef %n_src, ptr noundef readonly %dot, ptr nocapture noundef readonly %rest, i64 noundef %n_rest, ptr nocapture noundef readonly %spec) unnamed_addr #13 {
 entry:
   %tobool.not = icmp ne ptr %sign, null
   %conv = zext i1 %tobool.not to i64

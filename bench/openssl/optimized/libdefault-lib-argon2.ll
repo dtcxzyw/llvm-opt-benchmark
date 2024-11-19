@@ -178,7 +178,7 @@ return:                                           ; preds = %entry, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @kdf_argon2_reset(ptr nocapture noundef initializes((0, 16), (28, 32), (44, 48), (60, 64), (76, 100), (104, 128)) %vctx) #0 {
+define internal void @kdf_argon2_reset(ptr nocapture noundef %vctx) #0 {
 entry:
   %type1 = getelementptr inbounds i8, ptr %vctx, i64 100
   %0 = load i32, ptr %type1, align 4

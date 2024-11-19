@@ -466,7 +466,7 @@ define noalias noundef ptr @_ZN2cv23allocSingletonNewBufferEm(i64 noundef %0) lo
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv9ExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define void @_ZN2cv9ExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
@@ -487,7 +487,7 @@ define void @_ZN2cv9ExceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(14
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9ExceptionC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_i(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9ExceptionC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_i(ptr noundef nonnull align 8 dereferenceable(148) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv9ExceptionE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #28
@@ -731,7 +731,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define void @_ZN2cv9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv9ExceptionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
@@ -2184,7 +2184,7 @@ define range(i32 -214, -1) i32 @cvErrorFromIppStatus(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv7details14TlsAbstractionC2Ev(ptr noundef nonnull align 4 dereferenceable(5) initializes((4, 5)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv7details14TlsAbstractionC2Ev(ptr noundef nonnull align 4 dereferenceable(5) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -2600,7 +2600,7 @@ _ZNK2cv7details14TlsAbstraction7getDataEv.exit.thread: ; preds = %7, %_ZNK2cv7de
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16TLSDataContainerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16TLSDataContainerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
   %2 = load atomic i8, ptr @_ZGVZN2cv7detailsL13getTlsStorageEvE8instance acquire, align 8
   %3 = icmp eq i8 %2, 0
@@ -2823,7 +2823,7 @@ _ZNSt6vectorIN2cv7details10TlsStorage11TlsSlotInfoESaIS3_EE9push_backEOS3_.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv16TLSDataContainerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16TLSDataContainerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv16TLSDataContainerE, i64 16), ptr %0, align 8
@@ -5134,7 +5134,7 @@ define noundef nonnull align 8 dereferenceable(196) ptr @_ZN2cv5instr8NodeDataaS
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv5instr8NodeDataD2Ev(ptr noundef nonnull align 8 dereferenceable(196) initializes((80, 88)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5instr8NodeDataD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEEE, i64 16), ptr %2, align 8
   invoke void @_ZN2cv18TLSDataAccumulatorINS_5instr11NodeDataTlsEE7releaseEv(ptr noundef nonnull align 8 dereferenceable(105) %2)
@@ -5288,7 +5288,7 @@ define void @_ZN2cv3ipp18setUseIPP_NotExactEb(i1 noundef zeroext %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv7details24setFPDenormalsIgnoreHintEbRNS0_20FPDenormalsModeStateE(i1 noundef zeroext %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) initializes((0, 8)) %1) local_unnamed_addr #8 {
+define void @_ZN2cv7details24setFPDenormalsIgnoreHintEbRNS0_20FPDenormalsModeStateE(i1 noundef zeroext %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) %1) local_unnamed_addr #8 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = select i1 %0, i32 32768, i32 0
@@ -5318,7 +5318,7 @@ declare void @llvm.x86.sse.stmxcsr(ptr) #27
 declare void @llvm.x86.sse.ldmxcsr(ptr) #28
 
 ; Function Attrs: mustprogress nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN2cv7details20saveFPDenormalsStateERNS0_20FPDenormalsModeStateE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) initializes((0, 8)) %0) local_unnamed_addr #29 {
+define noundef i32 @_ZN2cv7details20saveFPDenormalsStateERNS0_20FPDenormalsModeStateE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) %0) local_unnamed_addr #29 {
   %2 = alloca i32, align 4
   %3 = load i8, ptr getelementptr inbounds (i8, ptr @_ZN2cvL15featuresEnabledE, i64 4), align 1
   %4 = trunc i8 %3 to i1
@@ -6671,7 +6671,7 @@ _ZN2cv11CoreTLSDataD2Ev.exit:                     ; preds = %4, %23, %36, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN2cv7TLSDataINS_12_GLOBAL__N_18ThreadIDEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN2cv7TLSDataINS_12_GLOBAL__N_18ThreadIDEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv7TLSDataINS_12_GLOBAL__N_18ThreadIDEEE, i64 16), ptr %0, align 8
@@ -6720,7 +6720,7 @@ _ZN2cv16TLSDataContainerD2Ev.exit:                ; preds = %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN2cv7TLSDataINS_12_GLOBAL__N_18ThreadIDEED0Ev(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define internal void @_ZN2cv7TLSDataINS_12_GLOBAL__N_18ThreadIDEED0Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #8 align 2 {
   tail call void @_ZN2cv7TLSDataINS_12_GLOBAL__N_18ThreadIDEED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #42
   ret void

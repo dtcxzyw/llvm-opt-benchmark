@@ -3436,7 +3436,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #4
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @local_getfields(ptr noundef %0, ptr noundef nonnull initializes((0, 8)) %1) unnamed_addr #1 {
+define internal fastcc void @local_getfields(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #1 {
   store ptr null, ptr %1, align 8
   %3 = load i8, ptr %0, align 1
   %.not48 = icmp eq i8 %3, 0

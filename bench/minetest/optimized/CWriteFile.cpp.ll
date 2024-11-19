@@ -35,7 +35,7 @@ $_ZTIN3irr2io10IWriteFileE = comdat any
 @_ZTIN3irr2io10CWriteFileE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr2io10CWriteFileE, ptr @_ZTIN3irr2io10IWriteFileE }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CWriteFileC2ERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %append) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io10CWriteFileC2ERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %append) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -105,7 +105,7 @@ _ZN3irr2io10CWriteFile8openFileEb.exit:           ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN3irr2io10CWriteFile8openFileEb(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((40, 48)) %this, i1 noundef zeroext %append) local_unnamed_addr #1 align 2 {
+define void @_ZN3irr2io10CWriteFile8openFileEb(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, i1 noundef zeroext %append) local_unnamed_addr #1 align 2 {
 entry:
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !10
@@ -143,7 +143,7 @@ if.end15:                                         ; preds = %if.then8, %if.end, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CWriteFileC1ERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (56, 76)) %this, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %append) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io10CWriteFileC1ERKNS_4core6stringIcEEb(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %fileName, i1 noundef zeroext %append) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -203,7 +203,7 @@ _ZN3irr2io10CWriteFile8openFileEb.exit:           ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CWriteFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io10CWriteFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -248,7 +248,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CWriteFileD1Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (56, 64)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io10CWriteFileD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -326,7 +326,7 @@ _ZN3irr2io10CWriteFileD1Ev.exit:                  ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CWriteFileD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (56, 64)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io10CWriteFileD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CWriteFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56

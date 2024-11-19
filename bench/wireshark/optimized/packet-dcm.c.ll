@@ -8842,7 +8842,7 @@ declare i32 @have_tap_listener(i32 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
+define internal fastcc i32 @dissect_dcm_tag(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
@@ -10885,7 +10885,7 @@ declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 1, 4) %5, ptr nocapture noundef nonnull initializes((0, 8)) %6, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %7, ptr nocapture noundef readonly %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc void @dissect_dcm_assoc_item(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 1, 4) %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef readonly %8, i32 noundef %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   store ptr null, ptr %7, align 8

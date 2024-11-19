@@ -2211,7 +2211,7 @@ pmix_obj_run_destructors.exit187:                 ; preds = %.lr.ph.i184, %291
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_value_cbfunc(i32 noundef %0, ptr noundef %1, ptr noundef initializes((500, 504)) %2) #0 {
+define internal void @_value_cbfunc(i32 noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   fence acquire
   %4 = getelementptr inbounds i8, ptr %2, i64 500
   store i32 %0, ptr %4, align 4
@@ -2254,7 +2254,7 @@ define internal void @_value_cbfunc(i32 noundef %0, ptr noundef %1, ptr noundef 
 declare i32 @pmix_event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_data(i32 %0, i16 signext %1, ptr noundef initializes((508, 509), (736, 744)) %2) #0 {
+define internal void @get_data(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %4 = alloca %struct.pmix_cb_t, align 8
   %5 = alloca %struct.pmix_proc, align 4
   %6 = alloca %struct.pmix_info, align 8

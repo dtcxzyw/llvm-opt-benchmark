@@ -16898,7 +16898,7 @@ declare void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN6QTimer4stopEv(ptr noundef nonnull align 8 dereferenceable(29)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11LayerDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11LayerDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11LayerDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV11LayerDialog, i64 448), ptr %2, align 8
@@ -21321,7 +21321,7 @@ declare void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN25DecoratorParamsTreeWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 {
+define void @_ZN25DecoratorParamsTreeWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV25DecoratorParamsTreeWidget, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV25DecoratorParamsTreeWidget, i64 448), ptr %2, align 8

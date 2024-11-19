@@ -6616,7 +6616,7 @@ _ZN5vcpkg14to_string_viewENS_12DownloadToolE.exit: ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg15to_linkage_typeENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.250") align 1 initializes((0, 2)) %0, ptr %1, i64 %2) local_unnamed_addr #6 {
+define dso_local void @_ZN5vcpkg15to_linkage_typeENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.250") align 1 %0, ptr %1, i64 %2) local_unnamed_addr #6 {
   %4 = tail call noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr %1, i64 %2, ptr nonnull @.str.5, i64 7) #26
   br i1 %4, label %7, label %5
 
@@ -10597,7 +10597,7 @@ _ZN5vcpkg14ExpectedHolderISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg12PreBuildInfoC2ERKNS_10VcpkgPathsENS_7TripletERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 11)) %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg12PreBuildInfoC2ERKNS_10VcpkgPathsENS_7TripletERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::msg::TagArg.391", align 8
   %6 = alloca %"struct.vcpkg::Path", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11544,7 +11544,7 @@ define internal fastcc void @_ZN5vcpkgL15from_cmake_boolENS_10StringViewES0_(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5vcpkg19ExtendedBuildResultC2ENS_11BuildResultE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 4), (8, 41), (48, 49), (80, 104)) %0, i32 noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg19ExtendedBuildResultC2ENS_11BuildResultE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, i32 noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -11556,7 +11556,7 @@ define dso_local void @_ZN5vcpkg19ExtendedBuildResultC2ENS_11BuildResultE(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg19ExtendedBuildResultC2ENS_11BuildResultENS_4PathEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 4), (8, 41)) %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg19ExtendedBuildResultC2ENS_11BuildResultENS_4PathEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -11746,7 +11746,7 @@ _ZNKSt14default_deleteIN5vcpkg17BinaryControlFileEEclEPS1_.exit: ; preds = %_ZSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5vcpkg19ExtendedBuildResultC2ENS_11BuildResultEOSt10unique_ptrINS_17BinaryControlFileESt14default_deleteIS3_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 4), (8, 41), (48, 49), (80, 104)) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #11 align 2 {
+define dso_local void @_ZN5vcpkg19ExtendedBuildResultC2ENS_11BuildResultEOSt10unique_ptrINS_17BinaryControlFileESt14default_deleteIS3_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #11 align 2 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -11764,7 +11764,7 @@ define dso_local void @_ZN5vcpkg19ExtendedBuildResultC2ENS_11BuildResultEOSt10un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5vcpkg19ExtendedBuildResultC2ENS_11BuildResultEOSt6vectorINS_11FeatureSpecESaIS3_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 4), (8, 41), (48, 49), (80, 104)) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg19ExtendedBuildResultC2ENS_11BuildResultEOSt6vectorINS_11FeatureSpecESaIS3_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %2, align 8

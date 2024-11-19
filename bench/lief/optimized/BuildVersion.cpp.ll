@@ -463,7 +463,7 @@ _ZNSt12_Vector_baseIN4LIEF5MachO16BuildToolVersionESaIS2_EED2Ev.exit: ; preds = 
 declare void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF5MachO12BuildVersionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF5MachO12BuildVersionD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO12BuildVersionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
@@ -786,7 +786,7 @@ define { i64, i32 } @_ZNK4LIEF5MachO12BuildVersion5minosEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO12BuildVersion5minosESt5arrayIjLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((60, 72)) %0, i64 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO12BuildVersion5minosESt5arrayIjLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i64 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   store i64 %1, ptr %4, align 4
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 68
@@ -806,7 +806,7 @@ define { i64, i32 } @_ZNK4LIEF5MachO12BuildVersion3sdkEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO12BuildVersion3sdkESt5arrayIjLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((72, 84)) %0, i64 %1, i32 %2) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO12BuildVersion3sdkESt5arrayIjLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i64 %1, i32 %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 %1, ptr %4, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 80
@@ -822,7 +822,7 @@ define noundef i32 @_ZNK4LIEF5MachO12BuildVersion8platformEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO12BuildVersion8platformENS1_9PLATFORMSE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO12BuildVersion8platformENS1_9PLATFORMSE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void

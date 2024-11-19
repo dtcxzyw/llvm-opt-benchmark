@@ -373,7 +373,7 @@ declare void @_ZN4cvc57context7ContextD1Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN4cvc58internal14ProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal7CDProofD2Ev(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal7CDProofD2Ev(ptr noundef nonnull align 8 dereferenceable(217) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7CDProofE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -392,7 +392,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn16_N4cvc58internal7CDProofD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn16_N4cvc58internal7CDProofD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7CDProofE, i64 16), ptr %0, align 8
@@ -408,7 +408,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal7CDProofD0Ev(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal7CDProofD0Ev(ptr noundef nonnull align 8 dereferenceable(217) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7CDProofE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -428,7 +428,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn16_N4cvc58internal7CDProofD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn16_N4cvc58internal7CDProofD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7CDProofE, i64 16), ptr %0, align 8

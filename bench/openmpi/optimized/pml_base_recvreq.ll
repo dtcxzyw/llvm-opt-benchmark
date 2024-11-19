@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_convertor_t_class = external global %struct.opal_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_base_recv_request_construct(ptr noundef initializes((168, 172), (192, 200)) %0) #0 {
+define internal void @mca_pml_base_recv_request_construct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 2, ptr %2, align 8
   %3 = load i32, ptr @opal_class_init_epoch, align 4

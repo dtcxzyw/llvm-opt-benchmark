@@ -286,7 +286,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @dt_masks_write_masks_history_item(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 20)) %3) local_unnamed_addr #1 {
+define void @modify_roi_in(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1537,7 +1537,7 @@ define void @distort_mask(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init(ptr nocapture noundef writeonly initializes((676, 700), (704, 712), (752, 760)) %0) local_unnamed_addr #11 {
+define void @init(ptr nocapture noundef writeonly %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 752
   store ptr null, ptr %2, align 16, !tbaa !109
   %3 = tail call noalias dereferenceable_or_null(512) ptr @calloc(i64 noundef 1, i64 noundef 512) #21
@@ -1702,7 +1702,7 @@ declare i64 @gtk_toggle_button_get_type() local_unnamed_addr #13
 declare void @dt_masks_change_form_gui(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #14 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #14 {
   %4 = tail call noalias dereferenceable_or_null(512) ptr @malloc(i64 noundef 512) #19
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !81
@@ -2552,7 +2552,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #3
 declare void @dt_control_queue_redraw_center(...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 40) #18
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

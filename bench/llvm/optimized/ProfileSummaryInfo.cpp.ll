@@ -376,7 +376,7 @@ declare noundef ptr @_ZNK4llvm6Module17getProfileSummaryEb(ptr noundef nonnull a
 declare noundef ptr @_ZN4llvm14ProfileSummary9getFromMDEPNS_8MetadataE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18ProfileSummaryInfo17computeThresholdsEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((16, 25), (32, 41), (48, 52)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18ProfileSummaryInfo17computeThresholdsEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1006,7 +1006,7 @@ define internal noundef nonnull ptr @_ZL47initializeProfileSummaryInfoWrapperPas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm29ProfileSummaryInfoWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm29ProfileSummaryInfoWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.237, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1162,7 +1162,7 @@ _ZNSt10unique_ptrIN4llvm18ProfileSummaryInfoESt14default_deleteIS1_EE5resetEPS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22ProfileSummaryAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.llvm::ProfileSummaryInfo") align 8 initializes((0, 16), (24, 25), (40, 41), (49, 50), (51, 52), (56, 76)) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm22ProfileSummaryAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.llvm::ProfileSummaryInfo") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   store ptr %2, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8

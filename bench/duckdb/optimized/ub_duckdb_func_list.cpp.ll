@@ -747,7 +747,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb17ListSliceBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(34) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN6duckdb17ListSliceBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb17ListSliceBindDataE, i64 16), ptr %this, align 8, !tbaa !3
   %return_type = getelementptr inbounds i8, ptr %this, i64 8
@@ -7940,7 +7940,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb22ListAggregatesBindDataC2ERKNS_11LogicalTypeENS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(24) %stype_p, ptr nocapture noundef %aggr_expr_p) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb22ListAggregatesBindDataC2ERKNS_11LogicalTypeENS_10unique_ptrINS_10ExpressionESt14default_deleteIS5_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(24) %stype_p, ptr nocapture noundef %aggr_expr_p) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22ListAggregatesBindDataE, i64 16), ptr %this, align 8, !tbaa !3
   %stype = getelementptr inbounds i8, ptr %this, i64 8
@@ -7964,7 +7964,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb22ListAggregatesBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN6duckdb22ListAggregatesBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb22ListAggregatesBindDataE, i64 16), ptr %this, align 8, !tbaa !3
   %aggr_expr = getelementptr inbounds i8, ptr %this, i64 32
@@ -14191,7 +14191,7 @@ _ZN6duckdbL22ListAggregatesFunctionINS_13UniqueFunctorELb0EEEvRNS_9DataChunkERNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6duckdbL14ListUniqueBindERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(264) initializes((144, 146)) %bound_function, ptr noundef nonnull align 8 dereferenceable(24) %arguments) #5 {
+define internal void @_ZN6duckdbL14ListUniqueBindERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(264) %bound_function, ptr noundef nonnull align 8 dereferenceable(24) %arguments) #5 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::LogicalType", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #26
@@ -14870,7 +14870,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16ListSortBindDataC2ENS_9OrderTypeENS_15OrderByNullTypeEbRKNS_11LogicalTypeES5_RNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 10)) %this, i8 noundef zeroext %order_type_p, i8 noundef zeroext %null_order_p, i1 noundef zeroext %is_grade_up_p, ptr noundef nonnull align 8 dereferenceable(24) %return_type_p, ptr noundef nonnull align 8 dereferenceable(24) %child_type_p, ptr noundef nonnull align 8 dereferenceable(592) %context_p) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16ListSortBindDataC2ENS_9OrderTypeENS_15OrderByNullTypeEbRKNS_11LogicalTypeES5_RNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(240) %this, i8 noundef zeroext %order_type_p, i8 noundef zeroext %null_order_p, i1 noundef zeroext %is_grade_up_p, ptr noundef nonnull align 8 dereferenceable(24) %return_type_p, ptr noundef nonnull align 8 dereferenceable(24) %child_type_p, ptr noundef nonnull align 8 dereferenceable(592) %context_p) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i95 = alloca %"class.duckdb::unique_ptr.52", align 8
   %agg.tmp.i.i.i = alloca %"class.duckdb::unique_ptr.52", align 8
@@ -15497,7 +15497,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb16ListSortBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16ListSortBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb16ListSortBindDataE, i64 16), ptr %this, align 8, !tbaa !3
   %orders = getelementptr inbounds i8, ptr %this, i64 216

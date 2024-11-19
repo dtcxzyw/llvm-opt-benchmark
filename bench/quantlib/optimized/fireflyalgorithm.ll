@@ -123,7 +123,7 @@ $_ZTIN8QuantLib18OptimizationMethodE = comdat any
 @_ZN8QuantLib16FireflyAlgorithmC1EmN5boost10shared_ptrINS0_9IntensityEEENS2_INS0_10RandomWalkEEEmddm = unnamed_addr alias void (ptr, i64, ptr, ptr, i64, double, double, i64), ptr @_ZN8QuantLib16FireflyAlgorithmC2EmN5boost10shared_ptrINS0_9IntensityEEENS2_INS0_10RandomWalkEEEmddm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16FireflyAlgorithmC2EmN5boost10shared_ptrINS0_9IntensityEEENS2_INS0_10RandomWalkEEEmddm(ptr noundef nonnull align 8 dereferenceable(10232) initializes((0, 160), (168, 224)) %this, i64 noundef %M, ptr nocapture noundef %intensity, ptr nocapture noundef %randomWalk, i64 noundef %Mde, double noundef %mutation, double noundef %crossover, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16FireflyAlgorithmC2EmN5boost10shared_ptrINS0_9IntensityEEENS2_INS0_10RandomWalkEEEmddm(ptr noundef nonnull align 8 dereferenceable(10232) %this, i64 noundef %M, ptr nocapture noundef %intensity, ptr nocapture noundef %randomWalk, i64 noundef %Mde, double noundef %mutation, double noundef %crossover, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -697,7 +697,7 @@ _ZNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EED2Ev.exit: ; preds = %invoke.cont, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16FireflyAlgorithm10startStateERNS_7ProblemERKNS_11EndCriteriaE(ptr noundef nonnull align 8 dereferenceable(10232) initializes((160, 168)) %this, ptr noundef nonnull align 8 dereferenceable(56) %P, ptr nocapture nonnull readnone align 8 %endCriteria) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16FireflyAlgorithm10startStateERNS_7ProblemERKNS_11EndCriteriaE(ptr noundef nonnull align 8 dereferenceable(10232) %this, ptr noundef nonnull align 8 dereferenceable(56) %P, ptr nocapture nonnull readnone align 8 %endCriteria) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Array", align 8
   %ref.tmp9 = alloca %"class.QuantLib::Array", align 8

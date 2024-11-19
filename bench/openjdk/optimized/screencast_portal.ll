@@ -672,7 +672,7 @@ unregisterScreenCastCallback.exit:                ; preds = %errHandle.exit, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callbackScreenCastCreateSession(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr noundef %5, ptr nocapture noundef initializes((16, 20)) %6) #0 {
+define internal void @callbackScreenCastCreateSession(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr noundef %5, ptr nocapture noundef %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
@@ -902,7 +902,7 @@ unregisterScreenCastCallback.exit:                ; preds = %errHandle.exit, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callbackScreenCastSelectSources(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr noundef %5, ptr nocapture noundef writeonly initializes((8, 20)) %6) #0 {
+define internal void @callbackScreenCastSelectSources(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr noundef %5, ptr nocapture noundef writeonly %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 8
@@ -1096,7 +1096,7 @@ unregisterScreenCastCallback.exit:                ; preds = %errHandle.exit, %91
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callbackScreenCastStart(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr noundef %5, ptr nocapture noundef initializes((16, 20)) %6) #0 {
+define internal void @callbackScreenCastStart(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr noundef %5, ptr nocapture noundef %6) #0 {
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
   %10 = alloca %struct._GVariantIter, align 8

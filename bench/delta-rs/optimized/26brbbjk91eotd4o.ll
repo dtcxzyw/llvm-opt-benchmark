@@ -3405,7 +3405,7 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17ha7b47ef49a756a91E
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN74_$LT$std..hash..random..RandomState$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17h90d0f1d08d385eeaE.llvm.956944259081774161"(ptr noalias nocapture noundef writeonly sret({ { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }) align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #10 {
+define hidden void @"_ZN74_$LT$std..hash..random..RandomState$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17h90d0f1d08d385eeaE.llvm.956944259081774161"(ptr noalias nocapture noundef writeonly sret({ { { { i64, i64, i64, i64 }, i64, i64, i64, i64, i64, {} } } }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #10 {
   %3 = load i64, ptr %1, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -3839,7 +3839,7 @@ define void @"_ZN93_$LT$deltalake_azure..AzureFactory$u20$as$u20$deltalake_core.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN91_$LT$deltalake_azure..AzureFactory$u20$as$u20$deltalake_core..logstore..LogStoreFactory$GT$12with_options17h78a2ba60b2d558b0E"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) initializes((0, 24)) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noalias noundef readonly align 8 dereferenceable(88) %4, ptr noalias noundef readonly align 8 dereferenceable(48) %5) unnamed_addr #0 {
+define void @"_ZN91_$LT$deltalake_azure..AzureFactory$u20$as$u20$deltalake_core..logstore..LogStoreFactory$GT$12with_options17h78a2ba60b2d558b0E"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noalias noundef readonly align 8 dereferenceable(88) %4, ptr noalias noundef readonly align 8 dereferenceable(48) %5) unnamed_addr #0 {
   %7 = tail call { ptr, ptr } @_ZN14deltalake_core8logstore16default_logstore17h4e18d0e234cea11eE(ptr noundef nonnull %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1

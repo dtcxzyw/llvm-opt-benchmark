@@ -267,7 +267,7 @@ $_ZTVN16MetaspaceClosure6MSORefI13InstanceKlassEE = comdat any
 @_ZN15DictionaryEntryD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15DictionaryEntryD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10DictionaryC2EP15ClassLoaderDatam(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (16, 24)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10DictionaryC2EP15ClassLoaderDatam(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
@@ -508,7 +508,7 @@ _ZN15DictionaryEntryD2Ev.exit:                    ; preds = %.lr.ph.i, %6
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15DictionaryEntryC2EP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15DictionaryEntryC2EP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !9

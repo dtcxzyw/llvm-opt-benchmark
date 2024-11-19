@@ -541,7 +541,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6memory10MemoryPoolC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_4KindESt10shared_ptrIS2_ERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %kind, ptr nocapture noundef %parent, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory10MemoryPoolC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_4KindESt10shared_ptrIS2_ERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %kind, ptr nocapture noundef %parent, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -877,7 +877,7 @@ _ZNSt8weak_ptrIN8facebook5velox6memory10MemoryPoolEED2Ev.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox6memory10MemoryPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory10MemoryPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6memory10MemoryPoolE, i64 16), ptr %this, align 8
   %children_ = getelementptr inbounds i8, ptr %this, i64 112
@@ -2280,7 +2280,7 @@ return:                                           ; preds = %if.end4, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6memory14MemoryPoolImplC2EPNS1_13MemoryManagerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10MemoryPool4KindESt10shared_ptrISD_ESt10unique_ptrINS1_15MemoryReclaimerESt14default_deleteISI_EESt8functionIFvPSD_EERKNSD_7OptionsE(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 24)) %this, ptr noundef %memoryManager, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %kind, ptr nocapture noundef readonly %parent, ptr nocapture noundef %reclaimer, ptr nocapture noundef %destructionCb, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory14MemoryPoolImplC2EPNS1_13MemoryManagerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_10MemoryPool4KindESt10shared_ptrISD_ESt10unique_ptrINS1_15MemoryReclaimerESt14default_deleteISI_EESt8functionIFvPSD_EERKNSD_7OptionsE(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef %memoryManager, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %kind, ptr nocapture noundef readonly %parent, ptr nocapture noundef %reclaimer, ptr nocapture noundef %destructionCb, ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp = alloca %"class.folly::LockedPtr", align 8
@@ -2692,7 +2692,7 @@ _ZNSt10_HashtableImSt4pairIKmN8facebook5velox6memory14MemoryPoolImpl16Allocation
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox6memory14MemoryPoolImplD2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory14MemoryPoolImplD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca ptr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6memory14MemoryPoolImplE, i64 16), ptr %this, align 8
@@ -3022,7 +3022,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8facebook5velox6memory14MemoryPoolImpl11statsLockedEv(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::memory::MemoryPool::Stats") align 8 initializes((0, 88)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %this) local_unnamed_addr #12 align 2 {
+define void @_ZNK8facebook5velox6memory14MemoryPoolImpl11statsLockedEv(ptr noalias nocapture writeonly sret(%"struct.facebook::velox::memory::MemoryPool::Stats") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %this) local_unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 56, i1 false)
@@ -8035,7 +8035,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK8facebook5velox6memory14MemoryPoolImpl16reclaimableBytesERm(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %reclaimableBytes) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZNK8facebook5velox6memory14MemoryPoolImpl16reclaimableBytesERm(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef nonnull align 8 dereferenceable(8) %reclaimableBytes) unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %reclaimableBytes, align 8
   %vtable = load ptr, ptr %this, align 8

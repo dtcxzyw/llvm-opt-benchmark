@@ -48,7 +48,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17ha93a1baa6fc65cd0E = external global { i64 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h02002188862d45aeE(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h02002188862d45aeE(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h2c83d87f31735336E.llvm.3707938170552112821, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8

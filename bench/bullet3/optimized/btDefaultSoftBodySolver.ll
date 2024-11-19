@@ -38,7 +38,7 @@ $_ZTI16btSoftBodySolver = comdat any
 @_ZN23btDefaultSoftBodySolverD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN23btDefaultSoftBodySolverD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolverC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 21), (28, 36), (40, 49)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btDefaultSoftBodySolverC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m_numberOfPositionIterations.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_timeScale.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -63,7 +63,7 @@ invoke.cont:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btDefaultSoftBodySolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btDefaultSoftBodySolver, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -100,7 +100,7 @@ _ZN20btAlignedObjectArrayIP10btSoftBodyED2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23btDefaultSoftBodySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btDefaultSoftBodySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btDefaultSoftBodySolver, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40

@@ -565,7 +565,7 @@ declare dso_local i32 @rtnl_is_locked() local_unnamed_addr #4
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @devinet_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef initializes((15, 16)) %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @devinet_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr i8, ptr %2, i64 15
   store i8 0, ptr %5, align 1

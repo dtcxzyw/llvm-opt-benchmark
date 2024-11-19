@@ -38,7 +38,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib7BSplineC1EjjRKSt6vectorIdSaIdEE = unnamed_addr alias void (ptr, i32, i32, ptr), ptr @_ZN8QuantLib7BSplineC2EjjRKSt6vectorIdSaIdEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib7BSplineC2EjjRKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, i32 noundef %p, i32 noundef %n, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %knots) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib7BSplineC2EjjRKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %p, i32 noundef %n, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %knots) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

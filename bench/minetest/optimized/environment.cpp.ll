@@ -400,7 +400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11EnvironmentC2EP8IGameDef(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (12, 16), (24, 29), (32, 40), (64, 112)) %this, ptr noundef %gamedef) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11EnvironmentC2EP8IGameDef(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %gamedef) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i150 = alloca i64, align 8
   %__dnew.i.i114 = alloca i64, align 8

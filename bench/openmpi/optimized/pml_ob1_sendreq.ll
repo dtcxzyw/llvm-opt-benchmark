@@ -550,7 +550,7 @@ mca_pml_ob1_send_request_schedule_exclusive.exit: ; preds = %mca_pml_ob1_send_re
 declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_send_request_construct(ptr noundef initializes((112, 136), (168, 172), (568, 569), (584, 588), (656, 664), (720, 728)) %0) #0 {
+define internal void @mca_pml_ob1_send_request_construct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
@@ -4253,7 +4253,7 @@ mca_pml_ob1_send_request_schedule.exit:           ; preds = %.preheader.i33, %mc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_pml_ob1_copy_frag_completion(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef initializes((72, 80)) %2, i32 %3) #0 {
+define internal void @mca_pml_ob1_copy_frag_completion(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, i32 %3) #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 72

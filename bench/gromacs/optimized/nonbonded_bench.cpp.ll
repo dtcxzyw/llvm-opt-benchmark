@@ -318,7 +318,7 @@ $_ZTIN3gmx8internal14EnumIndexStoreIN5Nbnxm17BenchMarkCombRuleEEE = comdat any
 @_ZTVN3gmx14FileNameOptionE = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3gmx22NonbondedBenchmarkInfo6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3gmx22NonbondedBenchmarkInfo6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN3gmx12_GLOBAL__N_118NonbondedBenchmarkESt14default_deleteIS2_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #11, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118NonbondedBenchmarkE, i64 16), ptr %1, align 8, !noalias !5
@@ -367,7 +367,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmarkD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmarkD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118NonbondedBenchmarkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
@@ -376,7 +376,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmarkD2Ev(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmarkD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmarkD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_118NonbondedBenchmarkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
@@ -851,7 +851,7 @@ _ZNSt6vectorIPKcSaIS1_EED2Ev.exit33:              ; preds = %248, %246, %244, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark15optionsFinishedEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((40, 44)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN3gmx12_GLOBAL__N_118NonbondedBenchmark15optionsFinishedEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   %3 = load float, ptr %2, align 4
   %4 = tail call noundef float @_Z17calc_ewaldcoeff_qff(float noundef %3, float noundef 0x3EE4F8B580000000)

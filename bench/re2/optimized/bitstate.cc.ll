@@ -71,7 +71,7 @@ $__clang_call_terminate = comdat any
 @_ZN3re28BitStateC1EPNS_4ProgE = unnamed_addr alias void (ptr, ptr), ptr @_ZN3re28BitStateC2EPNS_4ProgE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3re28BitStateC2EPNS_4ProgE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) initializes((0, 43), (48, 60), (64, 116)) %this, ptr noundef %prog) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re28BitStateC2EPNS_4ProgE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) %this, ptr noundef %prog) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %prog, ptr %this, align 8
   %text_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -335,7 +335,7 @@ terminate.lpad:                                   ; preds = %call2.i.noexc, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re28BitState9TrySearchEiPKc(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((112, 116)) %this, i32 noundef %id0, ptr noundef %p0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3re28BitState9TrySearchEiPKc(ptr nocapture noundef nonnull align 8 dereferenceable(116) %this, i32 noundef %id0, ptr noundef %p0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.LogMessage, align 8
   %text_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -826,7 +826,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 declare noundef i32 @_ZN3re24Prog10EmptyFlagsEN4absl7debian211string_viewEPKc(ptr, i64, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re28BitState6SearchEN4absl7debian211string_viewES3_bbPS3_i(ptr nocapture noundef nonnull align 8 dereferenceable(116) initializes((8, 40)) %this, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i1 noundef zeroext %anchored, i1 noundef zeroext %longest, ptr noundef %submatch, i32 noundef %nsubmatch) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3re28BitState6SearchEN4absl7debian211string_viewES3_bbPS3_i(ptr nocapture noundef nonnull align 8 dereferenceable(116) %this, ptr %text.coerce0, i64 %text.coerce1, ptr %context.coerce0, i64 %context.coerce1, i1 noundef zeroext %anchored, i1 noundef zeroext %longest, ptr noundef %submatch, i32 noundef %nsubmatch) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %text_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %text.coerce0, ptr %text_, align 8

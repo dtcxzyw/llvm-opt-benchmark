@@ -502,7 +502,7 @@ cleanup.done11:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly10SSLContext21setVerificationOptionERKNS0_23VerifyClientCertificateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) initializes((20, 24)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyClient) unnamed_addr #2 align 2 {
+define void @_ZN5folly10SSLContext21setVerificationOptionERKNS0_23VerifyClientCertificateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyClient) unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %verifyClient, align 4, !tbaa !75
   %verifyClient_ = getelementptr inbounds i8, ptr %this, i64 20
@@ -511,7 +511,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly10SSLContext21setVerificationOptionERKNS0_23VerifyServerCertificateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) initializes((24, 28)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyServer) unnamed_addr #2 align 2 {
+define void @_ZN5folly10SSLContext21setVerificationOptionERKNS0_23VerifyServerCertificateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %verifyServer) unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %verifyServer, align 4, !tbaa !77
   %verifyServer_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -580,7 +580,7 @@ _ZN5folly10SSLContext19getVerificationModeERKNS0_17SSLVerifyPeerEnumE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContext12authenticateEbbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(304) initializes((28, 29)) %this, i1 noundef zeroext %checkPeerCert, i1 noundef zeroext %checkPeerName, ptr noundef nonnull align 8 dereferenceable(32) %peerName) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContext12authenticateEbbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(304) %this, i1 noundef zeroext %checkPeerCert, i1 noundef zeroext %checkPeerName, ptr noundef nonnull align 8 dereferenceable(32) %peerName) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br i1 %checkPeerCert, label %if.then, label %if.else
 
@@ -2874,7 +2874,7 @@ _ZNSt6vectorISt8functionIFvP6ssl_stEESaIS4_EE9push_backERKS4_.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContextC2ENS0_10SSLVersionE(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8), (16, 28)) %this, i32 noundef %version) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContextC2ENS0_10SSLVersionE(ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %version) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4257,7 +4257,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10SSLContextD2Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContextD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10SSLContextE, i64 16), ptr %this, align 8, !tbaa !7
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -5194,7 +5194,7 @@ declare ptr @EC_KEY_new_by_curve_name(i32 noundef) local_unnamed_addr #3
 declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SSLContextC2EP10ssl_ctx_st(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 28)) %this, ptr noundef %ctx) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SSLContextC2EP10ssl_ctx_st(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef %ctx) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10SSLContextE, i64 16), ptr %this, align 8, !tbaa !7
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 8

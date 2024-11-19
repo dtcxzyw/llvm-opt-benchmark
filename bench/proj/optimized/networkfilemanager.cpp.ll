@@ -817,7 +817,7 @@ _ZNKSt14default_deleteIN5osgeo4proj14DiskChunkCacheEEclEPS2_.exit: ; preds = %1
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj14DiskChunkCacheC2EP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj14DiskChunkCacheC2EP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -4113,7 +4113,7 @@ _ZNSt12__shared_ptrISt6vectorIhSaIhEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj17NetworkChunkCache3getEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEy(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj17NetworkChunkCache3getEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEy(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.osgeo::proj::NetworkChunkCache::Key", align 8
   %7 = alloca %"class.std::unique_ptr", align 8
   %8 = alloca %"class.std::unique_ptr.45", align 8
@@ -4699,7 +4699,7 @@ _ZNSt6vectorIhSaIhEE18_M_assign_dispatchIPKhEEvT_S5_St12__false_type.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj17NetworkChunkCache3getEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEyRNS0_14FilePropertiesE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(80) %5) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN5osgeo4proj17NetworkChunkCache3getEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEyRNS0_14FilePropertiesE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(80) %5) local_unnamed_addr #3 align 2 {
   %7 = tail call noundef zeroext i1 @_ZN5osgeo4proj26NetworkFilePropertiesCache6tryGetEP6pj_ctxRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_14FilePropertiesE(ptr noundef nonnull align 8 dereferenceable(144) @_ZN5osgeo4projL22gNetworkFilePropertiesE, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(80) %5)
   br i1 %7, label %9, label %8
 
@@ -7496,7 +7496,7 @@ define hidden noundef i64 @_ZN5osgeo4proj11NetworkFile4tellEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj11NetworkFileD2Ev(ptr noundef nonnull align 8 dereferenceable(241) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj11NetworkFileD2Ev(ptr noundef nonnull align 8 dereferenceable(241) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj11NetworkFileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -7535,7 +7535,7 @@ define hidden void @_ZN5osgeo4proj11NetworkFileD2Ev(ptr noundef nonnull align 8 
 declare void @_ZN5osgeo4proj4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(73)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj11NetworkFileD0Ev(ptr noundef nonnull align 8 dereferenceable(241) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj11NetworkFileD0Ev(ptr noundef nonnull align 8 dereferenceable(241) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj11NetworkFileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -7572,7 +7572,7 @@ _ZN5osgeo4proj11NetworkFileD2Ev.exit:             ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj11NetworkFile16reassign_contextEP6pj_ctx(ptr nocapture noundef nonnull align 8 dereferenceable(241) initializes((80, 88)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN5osgeo4proj11NetworkFile16reassign_contextEP6pj_ctx(ptr nocapture noundef nonnull align 8 dereferenceable(241) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 232
@@ -8344,7 +8344,7 @@ _ZNKSt14default_deleteIN5osgeo4proj14CurlFileHandleEEclEPS2_.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5osgeo4proj11FileManager27fillDefaultNetworkInterfaceEP6pj_ctx(ptr nocapture noundef writeonly initializes((376, 408)) %0) local_unnamed_addr #17 align 2 {
+define hidden void @_ZN5osgeo4proj11FileManager27fillDefaultNetworkInterfaceEP6pj_ctx(ptr nocapture noundef writeonly %0) local_unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 376
   store ptr @_ZN5osgeo4proj14CurlFileHandle4openEP6pj_ctxPKcymPvPmmPcS6_, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 384

@@ -19,7 +19,7 @@ define void @_ZN6gmxapi18ResourceAssignmentD0Ev(ptr nocapture nonnull readnone a
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK6gmxapi18ResourceAssignment17applyCommunicatorEPNS_10CommHandleE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) unnamed_addr #1 align 2 {
+define void @_ZNK6gmxapi18ResourceAssignment17applyCommunicatorEPNS_10CommHandleE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 align 2 {
   store ptr null, ptr %1, align 8
   ret void
 }

@@ -4730,7 +4730,7 @@ define weak_odr dso_local void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg3msg27get_sorted_english_messagesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg3msg27get_sorted_english_messagesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .noexc:
   %1 = alloca %"class.std::allocator", align 1
   %2 = alloca %"class.std::__cxx11::basic_string", align 8

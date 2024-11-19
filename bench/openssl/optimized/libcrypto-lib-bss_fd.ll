@@ -370,7 +370,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb9, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fd_new(ptr nocapture noundef writeonly initializes((40, 44), (48, 52), (56, 60), (64, 72)) %bi) #5 {
+define internal noundef i32 @fd_new(ptr nocapture noundef writeonly %bi) #5 {
 entry:
   %init = getelementptr inbounds i8, ptr %bi, i64 40
   store i32 0, ptr %init, align 8

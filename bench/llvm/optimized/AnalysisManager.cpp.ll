@@ -52,7 +52,7 @@ define dso_local void @_ZN5clang4ento15AnalysisManager6anchorEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15AnalysisManagerC2ERNS_10ASTContextERNS_12PreprocessorERKSt6vectorIPNS0_22PathDiagnosticConsumerESaIS8_EEPFSt10unique_ptrINS0_12StoreManagerESt14default_deleteISE_EERNS0_19ProgramStateManagerEEPFSD_INS0_17ConstraintManagerESF_ISM_EESJ_PNS0_10ExprEngineEEPNS0_14CheckerManagerERNS_15AnalyzerOptionsEPNS_12CodeInjectorE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 8 dereferenceable(3288) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(488) %7, ptr noundef %8) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang4ento15AnalysisManagerC2ERNS_10ASTContextERNS_12PreprocessorERKSt6vectorIPNS0_22PathDiagnosticConsumerESaIS8_EEPFSt10unique_ptrINS0_12StoreManagerESt14default_deleteISE_EERNS0_19ProgramStateManagerEEPFSD_INS0_17ConstraintManagerESF_ISM_EESJ_PNS0_10ExprEngineEEPNS0_14CheckerManagerERNS_15AnalyzerOptionsEPNS_12CodeInjectorE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 8 dereferenceable(3288) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(488) %7, ptr noundef %8) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang4ento15AnalysisManagerE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 196
   %11 = load i32, ptr %10, align 4
@@ -171,7 +171,7 @@ _ZNSt6vectorIPN5clang4ento22PathDiagnosticConsumerESaIS3_EEC2ERKS5_.exit: ; pred
 declare void @_ZN5clang26AnalysisDeclContextManagerC1ERNS_10ASTContextEbbbbbbbbbbbbbPNS_12CodeInjectorE(ptr noundef nonnull align 8 dereferenceable(161), ptr noundef nonnull align 8 dereferenceable(23096), i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15AnalysisManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang4ento15AnalysisManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #1 align 2 {
   %2 = alloca %"class.clang::ento::PathDiagnosticConsumer::FilesMade", align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang4ento15AnalysisManagerE, i64 16), ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %2)

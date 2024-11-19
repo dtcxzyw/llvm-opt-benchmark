@@ -3193,7 +3193,7 @@ GetBits.exit76:                                   ; preds = %GetBits.exit76.loop
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @GetSignedBits(ptr nocapture noundef readonly %0, i64 noundef range(i64 1, 0) %1, i64 noundef range(i64 4, 8) %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull %4) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2) i32 @GetSignedBits(ptr nocapture noundef readonly %0, i64 noundef range(i64 1, 0) %1, i64 noundef range(i64 4, 8) %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #7 {
   store i32 0, ptr %3, align 4
   br label %6
 

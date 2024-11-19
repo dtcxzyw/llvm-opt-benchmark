@@ -34,7 +34,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.uprv_decNumberClassToString_75 = private unnamed_addr constant [10 x ptr] [ptr @.str.13, ptr @.str.12, ptr @.str.11, ptr @.str.5, ptr @.str.9, ptr @.str.7, ptr @.str.6, ptr @.str.8, ptr @.str.4, ptr @.str.10], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_decNumberFromInt32_75(ptr noundef returned initializes((0, 10)) %dn, i32 noundef %in) local_unnamed_addr #0 {
+define noundef ptr @uprv_decNumberFromInt32_75(ptr noundef returned %dn, i32 noundef %in) local_unnamed_addr #0 {
 entry:
   %bits.i.i = getelementptr inbounds i8, ptr %dn, i64 8
   store i8 0, ptr %bits.i.i, align 4
@@ -103,7 +103,7 @@ if.end7:                                          ; preds = %entry, %if.then6, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_decNumberFromUInt32_75(ptr noundef returned initializes((0, 10)) %dn, i32 noundef %uin) local_unnamed_addr #0 {
+define noundef ptr @uprv_decNumberFromUInt32_75(ptr noundef returned %dn, i32 noundef %uin) local_unnamed_addr #0 {
 entry:
   %bits.i = getelementptr inbounds i8, ptr %dn, i64 8
   store i8 0, ptr %bits.i, align 4
@@ -163,7 +163,7 @@ return:                                           ; preds = %entry, %_ZL12decGet
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @uprv_decNumberZero_75(ptr noundef returned writeonly initializes((0, 10)) %dn) local_unnamed_addr #1 {
+define noundef ptr @uprv_decNumberZero_75(ptr noundef returned writeonly %dn) local_unnamed_addr #1 {
 entry:
   %bits = getelementptr inbounds i8, ptr %dn, i64 8
   store i8 0, ptr %bits, align 4
@@ -11620,7 +11620,7 @@ if.end4:                                          ; preds = %_ZL9decStatusP9decN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef returned %dn, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 0, 2) %all, i8 noundef zeroext range(i8 0, 2) %noclamp, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %dropped) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL7decTrimP9decNumberP10decContexthhPi(ptr noundef returned %dn, ptr nocapture noundef readonly %set, i8 noundef zeroext range(i8 0, 2) %all, i8 noundef zeroext range(i8 0, 2) %noclamp, ptr nocapture noundef nonnull writeonly %dropped) unnamed_addr #0 {
 entry:
   store i32 0, ptr %dropped, align 4
   %bits = getelementptr inbounds i8, ptr %dn, i64 8
@@ -12502,7 +12502,7 @@ return:                                           ; preds = %entry, %for.end82, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @uprv_decNumberSameQuantum_75(ptr noundef returned writeonly initializes((0, 10)) %res, ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #10 {
+define noundef ptr @uprv_decNumberSameQuantum_75(ptr noundef returned writeonly %res, ptr nocapture noundef readonly %lhs, ptr nocapture noundef readonly %rhs) local_unnamed_addr #10 {
 entry:
   %bits = getelementptr inbounds i8, ptr %lhs, i64 8
   %0 = load i8, ptr %bits, align 4

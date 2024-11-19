@@ -119,7 +119,7 @@ define internal noundef nonnull ptr @_ZL47initializeLazyBranchProbabilityInfoPas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm29LazyBranchProbabilityInfoPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm29LazyBranchProbabilityInfoPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

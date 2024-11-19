@@ -237,7 +237,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
 declare void @_ZN18colvarproxy_system10add_energyEd(ptr noundef nonnull align 8 dereferenceable(256), double noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx18ColvarProxyGromacs17position_distanceERKN12colvarmodule7rvectorES4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.colvarmodule::rvector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(1728) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #1 align 2 {
+define void @_ZNK3gmx18ColvarProxyGromacs17position_distanceERKN12colvarmodule7rvectorES4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.colvarmodule::rvector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1728) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #1 align 2 {
   %5 = alloca [3 x float], align 4
   %6 = alloca [3 x float], align 4
   %7 = alloca [3 x float], align 4
@@ -3200,7 +3200,7 @@ define void @_ZN3gmx18ColvarProxyGromacs20updateAtomPropertiesEi(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx18ColvarProxyGromacsD2Ev(ptr noundef nonnull align 8 dereferenceable(1728) initializes((0, 8), (256, 264), (456, 464), (648, 656), (768, 776), (792, 808), (824, 832), (840, 848)) %0) unnamed_addr #0 align 2 {
+define void @_ZN3gmx18ColvarProxyGromacsD2Ev(ptr noundef nonnull align 8 dereferenceable(1728) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18ColvarProxyGromacsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18ColvarProxyGromacsE, i64 272), ptr %2, align 8

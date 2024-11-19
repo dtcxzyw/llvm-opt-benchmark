@@ -562,7 +562,7 @@ xdp_rxq_info_unreg_mem_model.exit:                ; preds = %27, %15, %13, %9
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @xdp_rxq_info_unused(ptr nocapture noundef writeonly initializes((12, 16)) %0) #4 align 16 {
+define dso_local void @xdp_rxq_info_unused(ptr nocapture noundef writeonly %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 3, ptr %2, align 4
   ret void
@@ -1339,7 +1339,7 @@ define dso_local void @xdp_return_buff(ptr nocapture noundef readonly %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @xdp_attachment_setup(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define dso_local void @xdp_attachment_setup(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8

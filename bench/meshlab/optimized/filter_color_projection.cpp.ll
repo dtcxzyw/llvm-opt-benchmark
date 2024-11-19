@@ -847,7 +847,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11floatbufferC2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 20), (24, 32)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11floatbufferC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr @_ZN10QArrayData11shared_nullE, ptr %3, align 8
@@ -934,7 +934,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11floatbufferC2EPS_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 20), (24, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11floatbufferC2EPS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3402,7 +3402,7 @@ define void @_ZN11ShaderUtils17linkShaderProgramEj(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12RenderHelperC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 16), (40, 44), (56, 64), (72, 88)) %0) unnamed_addr #22 align 2 {
+define void @_ZN12RenderHelperC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #22 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3825,7 +3825,7 @@ define noundef i32 @_ZN12RenderHelper21initializeMeshBuffersEP9MeshModelPFbiPKcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12RenderHelper11renderSceneERKN3vcg4ShotIfNS0_8Matrix44IfEEEEP9MeshModelNS_13RenderingModeEP17MLPluginGLContextff(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((40, 44)) %0, ptr noundef nonnull align 4 dereferenceable(132) %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12RenderHelper11renderSceneERKN3vcg4ShotIfNS0_8Matrix44IfEEEEP9MeshModelNS_13RenderingModeEP17MLPluginGLContextff(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 4 dereferenceable(132) %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QSize, align 4
   %10 = alloca %class.QGLFramebufferObjectFormat, align 8
@@ -6782,7 +6782,7 @@ declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull a
 declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN27FilterColorProjectionPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((80, 89)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN27FilterColorProjectionPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [3 x i32], align 4
   %3 = alloca %"class.std::__cxx11::list.185", align 8
   %4 = alloca %class.QString, align 8
@@ -7029,14 +7029,14 @@ declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterColorProjectionPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterColorProjectionPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.37, i32 noundef 21)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK27FilterColorProjectionPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #26 align 2 {
+define void @_ZTv0_n40_NK27FilterColorProjectionPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #26 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.37, i32 noundef 21), !noalias !75
   store ptr %3, ptr %0, align 8, !alias.scope !75
@@ -7044,7 +7044,7 @@ define void @_ZTv0_n40_NK27FilterColorProjectionPlugin10pluginNameEv(ptr dead_on
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterColorProjectionPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterColorProjectionPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   switch i32 %2, label %10 [
     i32 0, label %4
     i32 1, label %6
@@ -7070,7 +7070,7 @@ define void @_ZNK27FilterColorProjectionPlugin10filterNameEi(ptr dead_on_unwind 
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK27FilterColorProjectionPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #26 align 2 {
+define void @_ZThn16_NK27FilterColorProjectionPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #26 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   switch i32 %2, label %_ZNK27FilterColorProjectionPlugin10filterNameEi.exit [
     i32 0, label %4
@@ -7097,7 +7097,7 @@ _ZNK27FilterColorProjectionPlugin10filterNameEi.exit: ; preds = %3, %4, %6, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterColorProjectionPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterColorProjectionPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   switch i32 %2, label %10 [
     i32 0, label %4
     i32 1, label %6
@@ -7123,7 +7123,7 @@ define void @_ZNK27FilterColorProjectionPlugin16pythonFilterNameEi(ptr dead_on_u
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK27FilterColorProjectionPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #26 align 2 {
+define void @_ZThn16_NK27FilterColorProjectionPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #26 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   switch i32 %2, label %_ZNK27FilterColorProjectionPlugin16pythonFilterNameEi.exit [
     i32 0, label %4
@@ -7150,7 +7150,7 @@ _ZNK27FilterColorProjectionPlugin16pythonFilterNameEi.exit: ; preds = %3, %4, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterColorProjectionPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterColorProjectionPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   switch i32 %2, label %10 [
     i32 0, label %4
     i32 1, label %6
@@ -7180,7 +7180,7 @@ define void @_ZNK27FilterColorProjectionPlugin10filterInfoEi(ptr dead_on_unwind 
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK27FilterColorProjectionPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #26 align 2 {
+define void @_ZThn16_NK27FilterColorProjectionPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #26 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   switch i32 %2, label %10 [
     i32 0, label %4

@@ -81,7 +81,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib15BespokeCalendar4ImplEEE = comdat 
 @_ZN8QuantLib15BespokeCalendarC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib15BespokeCalendarC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @_ZN8QuantLib15BespokeCalendar4ImplC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((16, 20), (24, 32)) %this, ptr noundef %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15BespokeCalendar4ImplC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !3
@@ -228,7 +228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15BespokeCalendarC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15BespokeCalendarC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.3", align 8
   %bespokeImpl_ = getelementptr inbounds nuw i8, ptr %this, i64 16

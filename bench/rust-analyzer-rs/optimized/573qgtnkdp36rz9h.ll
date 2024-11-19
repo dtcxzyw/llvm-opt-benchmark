@@ -591,7 +591,7 @@ define hidden void @_ZN5paths7AbsPath4join17hd45d6a45b59778ddE(ptr noalias nocap
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.llvm.12041220681261970885"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(64) initializes((0, 59)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #5 {
+define hidden void @"_ZN60_$LT$std..path..Components$u20$as$u20$core..clone..Clone$GT$5clone17h223e8afa40ab5202E.llvm.12041220681261970885"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #5 {
   %.sroa.5 = alloca [39 x i8], align 1
   %3 = load ptr, ptr %1, align 8, !nonnull !20, !align !39, !noundef !20
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1206,7 +1206,7 @@ _ZN3vfs13path_interner12PathInterner6lookup17h9b03c2c42fdeecaaE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3vfs3Vfs4iter17hccce57f3f97e9442E(ptr noalias nocapture noundef writeonly sret({ { ptr, { { i64, i64 }, {} } }, ptr }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 dereferenceable(128) %1) unnamed_addr #8 {
+define void @_ZN3vfs3Vfs4iter17hccce57f3f97e9442E(ptr noalias nocapture noundef writeonly sret({ { ptr, { { i64, i64 }, {} } }, ptr }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(128) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load i64, ptr %3, align 8, !noundef !20
   store ptr %1, ptr %0, align 8

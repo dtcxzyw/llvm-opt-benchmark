@@ -1428,7 +1428,7 @@ GetSpanData.exit.thread:                          ; preds = %16, %11, %GetSpanDa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ShapeSIGetPathBox(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #4 {
+define internal void @ShapeSIGetPathBox(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
   %4 = getelementptr inbounds i8, ptr %1, i64 92
   %5 = load float, ptr %4, align 4
   %6 = tail call float @llvm.floor.f32(float %5)

@@ -304,7 +304,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN14ZRelocationSetC1EP11ZGeneration = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN14ZRelocationSetC2EP11ZGeneration
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZRelocationSetC2EP11ZGeneration(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14ZRelocationSetC2EP11ZGeneration(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN20ZForwardingAllocatorC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15

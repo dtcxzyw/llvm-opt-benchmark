@@ -1081,7 +1081,7 @@ declare ptr @zend_get_executed_filename_ex() local_unnamed_addr #2
 declare i32 @phar_split_fname(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @phar_get_archive(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @phar_get_archive(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca %struct._zval_struct, align 8

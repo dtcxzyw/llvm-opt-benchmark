@@ -423,14 +423,14 @@ define internal i32 @IWbemServices_dissect_element_IWbemContext_intPtr_(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum0_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum0_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.40, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.40, ptr %8, align 8
@@ -452,14 +452,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum0_response(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum1_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum1_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.41, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.41, ptr %8, align 8
@@ -481,14 +481,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum1_response(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.42, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.42, ptr %8, align 8
@@ -510,14 +510,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum2_response(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.43, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.43, ptr %8, align 8
@@ -539,14 +539,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_OpenNamespace_response(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.44, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.44, ptr %8, align 8
@@ -568,14 +568,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_CancelAsyncCall_respons
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.45, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.45, ptr %8, align 8
@@ -597,7 +597,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_QueryObjectSink_respons
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_GetObject_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_GetObject_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.46, ptr %7, align 8
   %8 = load i32, ptr @hf_IWbemServices_GetObject_orpcthis, align 4
@@ -625,7 +625,7 @@ define internal i32 @IWbemServices_dissect_GetObject_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_GetObject_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_GetObject_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.46, ptr %8, align 8
@@ -656,14 +656,14 @@ define internal i32 @IWbemServices_dissect_GetObject_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum7_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum7_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.47, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.47, ptr %8, align 8
@@ -685,14 +685,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum7_response(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum8_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum8_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.48, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.48, ptr %8, align 8
@@ -714,14 +714,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum8_response(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum9_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum9_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.49, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.49, ptr %8, align 8
@@ -743,14 +743,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum9_response(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum10_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum10_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.50, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.50, ptr %8, align 8
@@ -772,14 +772,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum10_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum11_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum11_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.51, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.51, ptr %8, align 8
@@ -801,14 +801,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum11_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum12_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum12_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.52, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.52, ptr %8, align 8
@@ -830,14 +830,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum12_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum13_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum13_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.53, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.53, ptr %8, align 8
@@ -859,14 +859,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum13_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum14_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum14_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.54, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.54, ptr %8, align 8
@@ -888,14 +888,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum14_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum15_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum15_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.55, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.55, ptr %8, align 8
@@ -917,14 +917,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum15_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum16_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum16_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.56, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.56, ptr %8, align 8
@@ -946,14 +946,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum16_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum17_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum17_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.57, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.57, ptr %8, align 8
@@ -975,14 +975,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum17_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum18_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum18_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.58, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.58, ptr %8, align 8
@@ -1004,14 +1004,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum18_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum19_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum19_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.59, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.59, ptr %8, align 8
@@ -1033,14 +1033,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum19_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum20_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum20_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.60, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.60, ptr %8, align 8
@@ -1062,14 +1062,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum20_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum21_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum21_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.61, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.61, ptr %8, align 8
@@ -1091,14 +1091,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum21_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum22_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum22_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.62, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.62, ptr %8, align 8
@@ -1120,14 +1120,14 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum22_response(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum23_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @IWbemServices_dissect_iwbemservices_opnum23_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.63, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.63, ptr %8, align 8
@@ -1149,7 +1149,7 @@ define internal i32 @IWbemServices_dissect_iwbemservices_opnum23_response(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_ExecMethod_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_ExecMethod_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.64, ptr %7, align 8
   %8 = load i32, ptr @hf_IWbemServices_ExecMethod_orpcthis, align 4
@@ -1171,7 +1171,7 @@ define internal i32 @IWbemServices_dissect_ExecMethod_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @IWbemServices_dissect_ExecMethod_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @IWbemServices_dissect_ExecMethod_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.64, ptr %8, align 8

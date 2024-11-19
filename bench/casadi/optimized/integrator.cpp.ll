@@ -1496,7 +1496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi10Integrator7bdyn_inB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 8), (16, 24)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi10Integrator7bdyn_inB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(352) ptr @_Znwm(i64 noundef 352) #33
@@ -1719,7 +1719,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi10Integrator8bdyn_outB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 8), (16, 24)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi10Integrator8bdyn_outB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #33
@@ -6539,7 +6539,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi13integrator_inB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 8), (16, 24)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi13integrator_inB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .noexc:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #33
@@ -6829,7 +6829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit34: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi14integrator_outB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 8), (16, 24)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi14integrator_outB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .noexc:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #33
@@ -7410,7 +7410,7 @@ declare void @_ZN6casadi8FunctionC1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN6casadi14OracleFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1520)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi10IntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1905) initializes((0, 8), (1520, 1528)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi10IntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1905) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi10IntegratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi10IntegratorE, i64 1000), ptr %2, align 8
@@ -30276,7 +30276,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit680:    ; preds = %_ZSt8_DestroyIPN6ca
 declare { i64, i64 } @_ZNK6casadi8Function7size_inEx(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi10Integrator20getDerivativeOptionsB5cxx11Eb(ptr dead_on_unwind noalias writable sret(%"class.std::map.12") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1905) %1, i1 zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi10Integrator20getDerivativeOptionsB5cxx11Eb(ptr dead_on_unwind noalias writable sret(%"class.std::map.12") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1905) %1, i1 zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, casadi::GenericType>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, casadi::GenericType>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -30669,7 +30669,7 @@ define void @_ZN6casadi19FixedStepIntegratorC2ERKNSt7__cxx1112basic_stringIcSt11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi19FixedStepIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) initializes((0, 8), (1520, 1528)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi19FixedStepIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 1008), ptr %2, align 8
@@ -32416,7 +32416,7 @@ declare double @llvm.ceil.f64(double) #13
 declare noundef i64 @_ZNK6casadi8Function7nnz_outEx(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6casadi19FixedStepIntegrator8set_workEPvRPPKdRPPdRPxRS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1976) %0, ptr nocapture noundef writeonly initializes((144, 288)) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #14 align 2 {
+define void @_ZNK6casadi19FixedStepIntegrator8set_workEPvRPPKdRPPdRPxRS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1976) %0, ptr nocapture noundef writeonly %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #14 align 2 {
   %7 = load ptr, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %7, ptr %8, align 8
@@ -34381,7 +34381,7 @@ define void @_ZN6casadi27ImplicitFixedStepIntegratorC2ERKNSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi27ImplicitFixedStepIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) initializes((0, 8), (1520, 1528)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi27ImplicitFixedStepIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 1008), ptr %2, align 8

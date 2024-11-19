@@ -5651,7 +5651,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau16ConstraintSolverC2ENS_7NotNullINS_10NormalizerEEENS1_INS_5ScopeEEESt6vectorINS1_INS_10ConstraintEEESaIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_INS_14ModuleResolverEEES6_INS_12RequireCycleESaISJ_EEPNS_9DcrLoggerENS_15TypeCheckLimitsE(ptr noundef nonnull align 8 dereferenceable(952) initializes((0, 48)) %0, ptr %1, ptr %2, ptr nocapture noundef %3, ptr noundef %4, ptr %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau16ConstraintSolverC2ENS_7NotNullINS_10NormalizerEEENS1_INS_5ScopeEEESt6vectorINS1_INS_10ConstraintEEESaIS8_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_INS_14ModuleResolverEEES6_INS_12RequireCycleESaISJ_EEPNS_9DcrLoggerENS_15TypeCheckLimitsE(ptr noundef nonnull align 8 dereferenceable(952) %0, ptr %1, ptr %2, ptr nocapture noundef %3, ptr noundef %4, ptr %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.Luau::InstantiationSignature", align 8
   %11 = alloca %"class.Luau::DenseHashSet.119", align 8
   %12 = getelementptr inbounds i8, ptr %1, i64 312

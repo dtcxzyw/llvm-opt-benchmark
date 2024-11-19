@@ -409,7 +409,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl13cord_internal25InitializeCordRepExternalESt17basic_string_viewIcSt11char_traitsIcEEPNS0_15CordRepExternalE(i64 %data.coerce0, ptr %data.coerce1, ptr nocapture noundef writeonly initializes((0, 8), (12, 13), (16, 24)) %rep) local_unnamed_addr #4 {
+define dso_local void @_ZN4absl13cord_internal25InitializeCordRepExternalESt17basic_string_viewIcSt11char_traitsIcEEPNS0_15CordRepExternalE(i64 %data.coerce0, ptr %data.coerce1, ptr nocapture noundef writeonly %rep) local_unnamed_addr #4 {
 entry:
   store i64 %data.coerce0, ptr %rep, align 8
   %tag = getelementptr inbounds i8, ptr %rep, i64 12
@@ -1048,7 +1048,7 @@ if.end:                                           ; preds = %if.then.i2, %_ZN4ab
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %this, i64 %src.coerce0, ptr %src.coerce1, i32 noundef %method) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 %src.coerce0, ptr %src.coerce1, i32 noundef %method) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp ult i64 %src.coerce0, 16
   br i1 %cmp, label %if.then, label %if.else
@@ -4290,7 +4290,7 @@ eh.resume:                                        ; preds = %lpad34, %ehcleanup,
 declare noundef ptr @_ZN4absl13cord_internal12CordRepBtree12RemoveSuffixEPS1_m(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl4Cord7SubcordEmm(ptr noalias sret(%"class.absl::Cord") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %pos, i64 noundef %new_size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4absl4Cord7SubcordEmm(ptr noalias sret(%"class.absl::Cord") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %pos, i64 noundef %new_size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %it = alloca %"class.absl::Cord::ChunkIterator", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
@@ -6559,7 +6559,7 @@ return:                                           ; preds = %if.else29, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl4Cord13ChunkIterator19AdvanceAndReadBytesEm(ptr noalias sret(%"class.absl::Cord") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i64 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl4Cord13ChunkIterator19AdvanceAndReadBytesEm(ptr noalias sret(%"class.absl::Cord") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i64 noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::Cord", align 8
   %rep = alloca ptr, align 8

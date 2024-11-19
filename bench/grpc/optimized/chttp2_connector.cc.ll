@@ -251,7 +251,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core15Chttp2ConnectorD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core15Chttp2ConnectorD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core15Chttp2ConnectorE, i64 16), ptr %this, align 8
   %endpoint_ = getelementptr inbounds i8, ptr %this, i64 80

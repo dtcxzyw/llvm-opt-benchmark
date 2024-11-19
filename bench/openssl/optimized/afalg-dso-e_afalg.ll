@@ -1180,7 +1180,7 @@ declare i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @afalg_init_aio(ptr noundef nonnull initializes((8, 16)) %aio) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @afalg_init_aio(ptr noundef nonnull %aio) unnamed_addr #1 {
 entry:
   %aio_ctx = getelementptr inbounds i8, ptr %aio, i64 8
   store i64 0, ptr %aio_ctx, align 8

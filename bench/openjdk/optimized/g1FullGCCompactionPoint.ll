@@ -330,7 +330,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN23G1FullGCCompactionPointD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN23G1FullGCCompactionPointD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23G1FullGCCompactionPointC2EP15G1FullCollectorP14PreservedMarks(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 52)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN23G1FullGCCompactionPointC2EP15G1FullCollectorP14PreservedMarks(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -425,7 +425,7 @@ define hidden noundef zeroext i1 @_ZN23G1FullGCCompactionPoint14is_initializedEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZN23G1FullGCCompactionPoint17initialize_valuesEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((16, 24)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN23G1FullGCCompactionPoint17initialize_valuesEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -451,7 +451,7 @@ define hidden noundef zeroext i1 @_ZN23G1FullGCCompactionPoint11has_regionsEv(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZN23G1FullGCCompactionPoint10initializeEP12G1HeapRegion(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((8, 24)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN23G1FullGCCompactionPoint10initializeEP12G1HeapRegion(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8

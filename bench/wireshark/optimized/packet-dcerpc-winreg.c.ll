@@ -1458,7 +1458,7 @@ define internal i32 @winreg_dissect_element_QueryMultipleValue_ve_valuename_(ptr
 declare i32 @misc_dissect_enum_winreg_Type(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKCR_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKCR_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.296, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
@@ -1471,7 +1471,7 @@ define internal i32 @winreg_dissect_OpenHKCR_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKCR_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKCR_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.296, ptr %8, align 8
@@ -1496,7 +1496,7 @@ define internal i32 @winreg_dissect_OpenHKCR_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKCU_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKCU_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.297, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
@@ -1509,7 +1509,7 @@ define internal i32 @winreg_dissect_OpenHKCU_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKCU_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKCU_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.297, ptr %8, align 8
@@ -1534,7 +1534,7 @@ define internal i32 @winreg_dissect_OpenHKCU_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKLM_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKLM_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.298, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
@@ -1547,7 +1547,7 @@ define internal i32 @winreg_dissect_OpenHKLM_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKLM_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKLM_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.298, ptr %8, align 8
@@ -1572,7 +1572,7 @@ define internal i32 @winreg_dissect_OpenHKLM_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKPD_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKPD_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.299, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
@@ -1585,7 +1585,7 @@ define internal i32 @winreg_dissect_OpenHKPD_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKPD_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKPD_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.299, ptr %8, align 8
@@ -1610,7 +1610,7 @@ define internal i32 @winreg_dissect_OpenHKPD_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKU_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKU_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.300, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
@@ -1623,7 +1623,7 @@ define internal i32 @winreg_dissect_OpenHKU_request(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKU_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKU_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.300, ptr %8, align 8
@@ -1648,7 +1648,7 @@ define internal i32 @winreg_dissect_OpenHKU_response(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_CloseKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_CloseKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.301, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -1658,7 +1658,7 @@ define internal i32 @winreg_dissect_CloseKey_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_CloseKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_CloseKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.301, ptr %8, align 8
@@ -1683,7 +1683,7 @@ define internal i32 @winreg_dissect_CloseKey_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_CreateKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_CreateKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.302, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -1711,7 +1711,7 @@ define internal i32 @winreg_dissect_CreateKey_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_CreateKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_CreateKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.302, ptr %8, align 8
@@ -1739,7 +1739,7 @@ define internal i32 @winreg_dissect_CreateKey_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_DeleteKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_DeleteKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.303, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -1752,7 +1752,7 @@ define internal i32 @winreg_dissect_DeleteKey_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_DeleteKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_DeleteKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.303, ptr %8, align 8
@@ -1774,7 +1774,7 @@ define internal i32 @winreg_dissect_DeleteKey_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_DeleteValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_DeleteValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.304, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -1787,7 +1787,7 @@ define internal i32 @winreg_dissect_DeleteValue_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_DeleteValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_DeleteValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.304, ptr %8, align 8
@@ -1809,7 +1809,7 @@ define internal i32 @winreg_dissect_DeleteValue_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_EnumKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_EnumKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.305, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -1831,7 +1831,7 @@ define internal i32 @winreg_dissect_EnumKey_request(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_EnumKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_EnumKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.305, ptr %8, align 8
@@ -1862,7 +1862,7 @@ define internal i32 @winreg_dissect_EnumKey_response(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_EnumValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_EnumValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.306, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -1890,7 +1890,7 @@ define internal i32 @winreg_dissect_EnumValue_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_EnumValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_EnumValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.306, ptr %8, align 8
@@ -1927,7 +1927,7 @@ define internal i32 @winreg_dissect_EnumValue_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_FlushKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_FlushKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.307, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -1937,7 +1937,7 @@ define internal i32 @winreg_dissect_FlushKey_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_FlushKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_FlushKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.307, ptr %8, align 8
@@ -1959,7 +1959,7 @@ define internal i32 @winreg_dissect_FlushKey_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_GetKeySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_GetKeySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.308, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -1975,7 +1975,7 @@ define internal i32 @winreg_dissect_GetKeySecurity_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_GetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_GetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.308, ptr %8, align 8
@@ -2000,7 +2000,7 @@ define internal i32 @winreg_dissect_GetKeySecurity_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_LoadKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_LoadKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.309, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -2016,7 +2016,7 @@ define internal i32 @winreg_dissect_LoadKey_request(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_LoadKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_LoadKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.309, ptr %8, align 8
@@ -2038,7 +2038,7 @@ define internal i32 @winreg_dissect_LoadKey_response(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_NotifyChangeKeyValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_NotifyChangeKeyValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.310, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -2066,7 +2066,7 @@ define internal i32 @winreg_dissect_NotifyChangeKeyValue_request(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_NotifyChangeKeyValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_NotifyChangeKeyValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.310, ptr %8, align 8
@@ -2088,7 +2088,7 @@ define internal i32 @winreg_dissect_NotifyChangeKeyValue_response(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.311, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_OpenKey_parent_handle, align 4
@@ -2107,7 +2107,7 @@ define internal i32 @winreg_dissect_OpenKey_request(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.311, ptr %8, align 8
@@ -2132,7 +2132,7 @@ define internal i32 @winreg_dissect_OpenKey_response(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_QueryInfoKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_QueryInfoKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.312, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -2145,7 +2145,7 @@ define internal i32 @winreg_dissect_QueryInfoKey_request(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_QueryInfoKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_QueryInfoKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.312, ptr %8, align 8
@@ -2194,7 +2194,7 @@ define internal i32 @winreg_dissect_QueryInfoKey_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_QueryValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_QueryValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.313, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -2219,7 +2219,7 @@ define internal i32 @winreg_dissect_QueryValue_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_QueryValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_QueryValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.313, ptr %8, align 8
@@ -2253,7 +2253,7 @@ define internal i32 @winreg_dissect_QueryValue_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_ReplaceKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_ReplaceKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.314, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_ReplaceKey_handle, align 4
@@ -2272,7 +2272,7 @@ define internal i32 @winreg_dissect_ReplaceKey_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_ReplaceKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_ReplaceKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.314, ptr %8, align 8
@@ -2294,7 +2294,7 @@ define internal i32 @winreg_dissect_ReplaceKey_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_RestoreKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_RestoreKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.315, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_RestoreKey_handle, align 4
@@ -2310,7 +2310,7 @@ define internal i32 @winreg_dissect_RestoreKey_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_RestoreKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_RestoreKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.315, ptr %8, align 8
@@ -2332,7 +2332,7 @@ define internal i32 @winreg_dissect_RestoreKey_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_SaveKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_SaveKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.316, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_SaveKey_handle, align 4
@@ -2348,7 +2348,7 @@ define internal i32 @winreg_dissect_SaveKey_request(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_SaveKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_SaveKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.316, ptr %8, align 8
@@ -2370,7 +2370,7 @@ define internal i32 @winreg_dissect_SaveKey_response(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_SetKeySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_SetKeySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.317, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -2386,7 +2386,7 @@ define internal i32 @winreg_dissect_SetKeySecurity_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_SetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_SetKeySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.317, ptr %8, align 8
@@ -2408,7 +2408,7 @@ define internal i32 @winreg_dissect_SetKeySecurity_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_SetValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_SetValue_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.318, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -2430,7 +2430,7 @@ define internal i32 @winreg_dissect_SetValue_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_SetValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_SetValue_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.318, ptr %8, align 8
@@ -2452,7 +2452,7 @@ define internal i32 @winreg_dissect_SetValue_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_UnLoadKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_UnLoadKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.319, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_UnLoadKey_handle, align 4
@@ -2465,7 +2465,7 @@ define internal i32 @winreg_dissect_UnLoadKey_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_UnLoadKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_UnLoadKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.319, ptr %8, align 8
@@ -2487,7 +2487,7 @@ define internal i32 @winreg_dissect_UnLoadKey_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_InitiateSystemShutdown_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_InitiateSystemShutdown_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.320, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_InitiateSystemShutdown_hostname, align 4
@@ -2509,7 +2509,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdown_request(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_InitiateSystemShutdown_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_InitiateSystemShutdown_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.320, ptr %8, align 8
@@ -2531,7 +2531,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdown_response(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_AbortSystemShutdown_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_AbortSystemShutdown_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.321, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_AbortSystemShutdown_server, align 4
@@ -2541,7 +2541,7 @@ define internal i32 @winreg_dissect_AbortSystemShutdown_request(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_AbortSystemShutdown_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_AbortSystemShutdown_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.321, ptr %8, align 8
@@ -2563,7 +2563,7 @@ define internal i32 @winreg_dissect_AbortSystemShutdown_response(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_GetVersion_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_GetVersion_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.322, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_handle, align 4
@@ -2573,7 +2573,7 @@ define internal i32 @winreg_dissect_GetVersion_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_GetVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_GetVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.322, ptr %8, align 8
@@ -2598,7 +2598,7 @@ define internal i32 @winreg_dissect_GetVersion_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKCC_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKCC_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.323, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
@@ -2611,7 +2611,7 @@ define internal i32 @winreg_dissect_OpenHKCC_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKCC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKCC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.323, ptr %8, align 8
@@ -2636,7 +2636,7 @@ define internal i32 @winreg_dissect_OpenHKCC_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKDD_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKDD_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.324, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
@@ -2649,7 +2649,7 @@ define internal i32 @winreg_dissect_OpenHKDD_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKDD_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKDD_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.324, ptr %8, align 8
@@ -2674,7 +2674,7 @@ define internal i32 @winreg_dissect_OpenHKDD_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_QueryMultipleValues_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_QueryMultipleValues_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.325, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_QueryMultipleValues_key_handle, align 4
@@ -2696,7 +2696,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues_request(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_QueryMultipleValues_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_QueryMultipleValues_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.325, ptr %8, align 8
@@ -2727,7 +2727,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues_response(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_InitiateSystemShutdownEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_InitiateSystemShutdownEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.326, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_InitiateSystemShutdownEx_hostname, align 4
@@ -2752,7 +2752,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdownEx_request(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_InitiateSystemShutdownEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_InitiateSystemShutdownEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.326, ptr %8, align 8
@@ -2774,7 +2774,7 @@ define internal i32 @winreg_dissect_InitiateSystemShutdownEx_response(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_SaveKeyEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_SaveKeyEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.327, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_SaveKeyEx_handle, align 4
@@ -2793,7 +2793,7 @@ define internal i32 @winreg_dissect_SaveKeyEx_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_SaveKeyEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_SaveKeyEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.327, ptr %8, align 8
@@ -2815,7 +2815,7 @@ define internal i32 @winreg_dissect_SaveKeyEx_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKPT_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKPT_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.328, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
@@ -2828,7 +2828,7 @@ define internal i32 @winreg_dissect_OpenHKPT_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKPT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKPT_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.328, ptr %8, align 8
@@ -2853,7 +2853,7 @@ define internal i32 @winreg_dissect_OpenHKPT_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKPN_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKPN_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.329, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_system_name, align 4
@@ -2866,7 +2866,7 @@ define internal i32 @winreg_dissect_OpenHKPN_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_OpenHKPN_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_OpenHKPN_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.329, ptr %8, align 8
@@ -2891,7 +2891,7 @@ define internal i32 @winreg_dissect_OpenHKPN_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_QueryMultipleValues2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_QueryMultipleValues2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.330, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_QueryMultipleValues2_key_handle, align 4
@@ -2913,7 +2913,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues2_request(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_QueryMultipleValues2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_QueryMultipleValues2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.330, ptr %8, align 8
@@ -2944,7 +2944,7 @@ define internal i32 @winreg_dissect_QueryMultipleValues2_response(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_DeleteKeyEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_DeleteKeyEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.331, ptr %7, align 8
   %8 = load i32, ptr @hf_winreg_winreg_DeleteKeyEx_handle, align 4
@@ -2963,7 +2963,7 @@ define internal i32 @winreg_dissect_DeleteKeyEx_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @winreg_dissect_DeleteKeyEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @winreg_dissect_DeleteKeyEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.331, ptr %8, align 8

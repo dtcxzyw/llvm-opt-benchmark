@@ -5730,7 +5730,7 @@ return:                                           ; preds = %if.end9.i.i.i71, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 1, 258) i16 @_ZN4node6crypto12DHBitsTraits12EncodeOutputEPNS_11EnvironmentERKNS0_12DHBitsConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr noundef %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %params, ptr noundef nonnull %out, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 1, 258) i16 @_ZN4node6crypto12DHBitsTraits12EncodeOutputEPNS_11EnvironmentERKNS0_12DHBitsConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr noundef %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %params, ptr noundef nonnull %out, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call ptr @_ZN4node6crypto10ByteSource13ToArrayBufferEPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef %env) #18
   store ptr %call, ptr %result, align 8

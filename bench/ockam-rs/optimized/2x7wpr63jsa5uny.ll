@@ -7610,7 +7610,7 @@ define { ptr, i64 } @_ZN25ockam_transport_websocket7workers6sender10WorkerPair9h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN25ockam_transport_websocket7workers6sender10WorkerPair4peer17h59c644255f492a9dE(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64 }, i8, [7 x i8] }) align 8 dereferenceable(32) initializes((0, 25)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN25ockam_transport_websocket7workers6sender10WorkerPair4peer17h59c644255f492a9dE(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64 }, i8, [7 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i8, ptr %4, align 8, !noundef !5
@@ -7635,7 +7635,7 @@ define void @_ZN25ockam_transport_websocket7workers6sender10WorkerPair4peer17h59
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN25ockam_transport_websocket7workers6sender10WorkerPair7tx_addr17h0b40dbf545462400E(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64 }, i8, [7 x i8] }) align 8 dereferenceable(32) initializes((0, 25)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN25ockam_transport_websocket7workers6sender10WorkerPair7tx_addr17h0b40dbf545462400E(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64 }, i8, [7 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load i8, ptr %4, align 8, !noundef !5
@@ -7660,7 +7660,7 @@ define void @_ZN25ockam_transport_websocket7workers6sender10WorkerPair7tx_addr17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN25ockam_transport_websocket7workers6sender10WorkerPair11from_client17h1cb59d5e8b0e776bE(ptr noalias nocapture noundef writeonly sret({ { i16, [15 x i16] }, ptr, { { ptr, i64 }, i64 }, [96 x i8], i8, [1623 x i8] }) align 8 dereferenceable(1784) initializes((0, 64), (160, 161)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #7 {
+define void @_ZN25ockam_transport_websocket7workers6sender10WorkerPair11from_client17h1cb59d5e8b0e776bE(ptr noalias nocapture noundef writeonly sret({ { i16, [15 x i16] }, ptr, { { ptr, i64 }, i64 }, [96 x i8], i8, [1623 x i8] }) align 8 dereferenceable(1784) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #7 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %2, i64 32, i1 false)
@@ -7672,7 +7672,7 @@ define void @_ZN25ockam_transport_websocket7workers6sender10WorkerPair11from_cli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN25ockam_transport_websocket7workers6sender10WorkerPair11from_server17hd61883ca43c432ffE(ptr noalias nocapture noundef writeonly sret({ { { { { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, ptr, ptr }, { { { i64, i64 }, { i64, i64 }, { i64, i64 }, i64, i64, i8, [7 x i8] }, { { i8, [23 x i8] }, { { { { ptr, i64 }, i64 }, i64 }, ptr }, { { ptr, i64 }, i64 }, i64, i64 }, { [24 x i8], i8, [15 x i8] }, { [24 x i8], i8, [7 x i8] }, i8, i8, i8, [5 x i8] } }, i8, i8, i8, [5 x i8] }, { i16, [15 x i16] }, ptr, { { ptr, i64 }, i64 }, [96 x i8], i8, [1623 x i8] }) align 8 dereferenceable(2096) initializes((0, 376), (472, 473)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(312) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #7 {
+define hidden void @_ZN25ockam_transport_websocket7workers6sender10WorkerPair11from_server17hd61883ca43c432ffE(ptr noalias nocapture noundef writeonly sret({ { { { { { { { i64, ptr }, ptr }, i32, [1 x i32] } }, ptr, ptr }, { { { i64, i64 }, { i64, i64 }, { i64, i64 }, i64, i64, i8, [7 x i8] }, { { i8, [23 x i8] }, { { { { ptr, i64 }, i64 }, i64 }, ptr }, { { ptr, i64 }, i64 }, i64, i64 }, { [24 x i8], i8, [15 x i8] }, { [24 x i8], i8, [7 x i8] }, i8, i8, i8, [5 x i8] } }, i8, i8, i8, [5 x i8] }, { i16, [15 x i16] }, ptr, { { ptr, i64 }, i64 }, [96 x i8], i8, [1623 x i8] }) align 8 dereferenceable(2096) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(312) %2, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #7 {
   %6 = getelementptr inbounds i8, ptr %0, i64 344
   store ptr %1, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(312) %2, i64 312, i1 false)
@@ -7759,7 +7759,7 @@ define void @"_ZN25ockam_transport_websocket7workers6sender61WebSocketSendWorker
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN25ockam_transport_websocket7workers6sender110WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$3new17h24732702739c6f5fE"(ptr noalias nocapture noundef writeonly sret({ { i64, [6 x i64] }, { i64, i32 }, { i16, [15 x i16] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { ptr, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { ptr, i64 }, i64 }, ptr }, ptr }) align 8 dereferenceable(216) initializes((0, 8), (64, 68), (72, 216)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %3) unnamed_addr #7 {
+define void @"_ZN25ockam_transport_websocket7workers6sender110WebSocketSendWorker$LT$tokio_tungstenite..stream..MaybeTlsStream$LT$tokio..net..tcp..stream..TcpStream$GT$$GT$3new17h24732702739c6f5fE"(ptr noalias nocapture noundef writeonly sret({ { i64, [6 x i64] }, { i64, i32 }, { i16, [15 x i16] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { ptr, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { ptr, i64 }, i64 }, ptr }, ptr }) align 8 dereferenceable(216) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %3) unnamed_addr #7 {
   %5 = getelementptr inbounds i8, ptr %0, i64 208
   store ptr null, ptr %5, align 8
   store i64 7, ptr %0, align 8

@@ -103,7 +103,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btLemkeAlgorithm5solveEj(ptr noalias sret(%struct.btVectorX) align 8 initializes((4, 12), (16, 25)) %agg.result, ptr noundef nonnull align 8 dereferenceable(140) initializes((128, 132)) %this, i32 noundef %maxloops) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btLemkeAlgorithm5solveEj(ptr noalias sret(%struct.btVectorX) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(140) %this, i32 noundef %maxloops) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__profile.i.i = alloca %class.CProfileSample, align 1
   %ident = alloca %struct.btMatrixX, align 8
@@ -1313,7 +1313,7 @@ for.end36:                                        ; preds = %for.inc34, %for.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN16btLemkeAlgorithm24findLexicographicMinimumERK9btMatrixXIfERKiS5_Rb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %A, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %pivotColIndex, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %z0Row, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %isRayTermination) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN16btLemkeAlgorithm24findLexicographicMinimumERK9btMatrixXIfERKiS5_Rb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %A, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %pivotColIndex, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %z0Row, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %isRayTermination) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %activeRows = alloca %class.btAlignedObjectArray.4, align 8
   %activeRowsCopy = alloca %class.btAlignedObjectArray.4, align 8

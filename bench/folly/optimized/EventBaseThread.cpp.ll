@@ -31,7 +31,7 @@ $_ZSt11make_uniqueIN5folly21ScopedEventBaseThreadEJRNS0_9EventBase7OptionsERPNS0
 @_ZN5folly15EventBaseThreadC1EOS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN5folly15EventBaseThreadC2EOS0_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15EventBaseThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 9), (16, 57), (64, 72)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15EventBaseThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.folly::EventBase::Options", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
@@ -92,7 +92,7 @@ _ZN5folly15EventBaseThreadC2EbPNS_16EventBaseManagerENS_5RangeIPKcEE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15EventBaseThreadC2EbPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 9), (16, 57), (64, 72)) %this, i1 noundef zeroext %autostart, ptr noundef %ebm, ptr %threadName.coerce0, ptr %threadName.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15EventBaseThreadC2EbPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext %autostart, ptr noundef %ebm, ptr %threadName.coerce0, ptr %threadName.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.folly::EventBase::Options", align 8
   store i8 0, ptr %agg.tmp, align 8, !tbaa !7
@@ -154,7 +154,7 @@ _ZN5folly9EventBase7OptionsD2Ev.exit11:           ; preds = %if.then.i.i7, %lpad
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15EventBaseThreadC2EbNS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 9), (16, 57), (64, 72)) %this, i1 noundef zeroext %autostart, ptr nocapture noundef %eventBaseOptions, ptr noundef %ebm, ptr %threadName.coerce0, ptr %threadName.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15EventBaseThreadC2EbNS_9EventBase7OptionsEPNS_16EventBaseManagerENS_5RangeIPKcEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext %autostart, ptr nocapture noundef %eventBaseOptions, ptr noundef %ebm, ptr %threadName.coerce0, ptr %threadName.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %threadName.i = alloca %"class.folly::Range", align 8
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
@@ -339,7 +339,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15EventBaseThreadC2EPNS_16EventBaseManagerE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 9), (16, 57), (64, 72)) %this, ptr noundef %ebm) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15EventBaseThreadC2EPNS_16EventBaseManagerE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %ebm) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.folly::EventBase::Options", align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %agg.tmp.i)
@@ -438,7 +438,7 @@ _ZN5folly9EventBase7OptionsD2Ev.exit:             ; preds = %if.then.i.i, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly15EventBaseThreadC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 9), (16, 57), (64, 72)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15EventBaseThreadC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = load ptr, ptr %0, align 8, !tbaa !22
   store ptr %1, ptr %this, align 8, !tbaa !22
@@ -479,7 +479,7 @@ _ZN5folly9EventBase7OptionsC2EOS1_.exit:          ; preds = %if.then.i.i, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN5folly15EventBaseThreadaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) initializes((0, 9)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN5folly15EventBaseThreadaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function", align 8

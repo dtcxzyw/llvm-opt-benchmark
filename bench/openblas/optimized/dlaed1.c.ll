@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c_n1 = internal global i32 -1, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef initializes((0, 4)) %9) local_unnamed_addr #0 {
+define void @dlaed1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4

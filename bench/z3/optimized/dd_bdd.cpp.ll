@@ -155,7 +155,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_managerC2Ej(ptr noundef nonnull align 8 dereferenceable(728) initializes((0, 4), (8, 16)) %this, i32 noundef %num_vars) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_managerC2Ej(ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %num_vars) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -2289,7 +2289,7 @@ for.end11:                                        ; preds = %_ZNK6vectorIjLb0EjE
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager7mk_trueEv(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2dd11bdd_manager7mk_trueEv(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this) local_unnamed_addr #3 align 2 {
 entry:
   store i32 1, ptr %agg.result, align 8
   %m3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2345,7 +2345,7 @@ _ZN2dd3bddC2EjPNS_11bdd_managerE.exit:            ; preds = %for.cond.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager8mk_falseEv(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2dd11bdd_manager8mk_falseEv(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this) local_unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %m3.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2400,7 +2400,7 @@ _ZN2dd3bddC2EjPNS_11bdd_managerE.exit:            ; preds = %for.cond.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager6mk_andERKNS_3bddES3_(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2dd11bdd_manager6mk_andERKNS_3bddES3_(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -2460,7 +2460,7 @@ _ZN2dd3bddC2EjPNS_11bdd_managerE.exit:            ; preds = %for.cond.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager5mk_orERKNS_3bddES3_(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2dd11bdd_manager5mk_orERKNS_3bddES3_(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -2520,7 +2520,7 @@ _ZN2dd3bddC2EjPNS_11bdd_managerE.exit:            ; preds = %for.cond.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager6mk_xorERKNS_3bddES3_(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2dd11bdd_manager6mk_xorERKNS_3bddES3_(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %a, align 8
   %1 = load i32, ptr %b, align 8
@@ -2580,7 +2580,7 @@ _ZN2dd3bddC2EjPNS_11bdd_managerE.exit:            ; preds = %for.cond.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager9mk_existsEjRKNS_3bddE(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2dd11bdd_manager9mk_existsEjRKNS_3bddE(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %0 = load i32, ptr %b, align 8, !noalias !20
@@ -2727,7 +2727,7 @@ _ZN2dd3bddC2EjPNS_11bdd_managerE.exit:            ; preds = %for.cond.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager9mk_forallEjRKNS_3bddE(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2dd11bdd_manager9mk_forallEjRKNS_3bddE(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %v, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %0 = load i32, ptr %b, align 8, !noalias !24
@@ -2901,7 +2901,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2dd11bdd_manager10push_entryEPNS0_8op_entryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(728) initializes((80, 88)) %this, ptr noundef %e) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN2dd11bdd_manager10push_entryEPNS0_8op_entryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(728) %this, ptr noundef %e) local_unnamed_addr #9 align 2 {
 entry:
   %m_spare_entry = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %e, ptr %m_spare_entry, align 8
@@ -3178,7 +3178,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %lor.lhs.false.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN2dd11bdd_manager9make_nodeEjjj(ptr noundef nonnull align 8 dereferenceable(728) initializes((673, 674)) %this, i32 noundef %lvl, i32 noundef %l, i32 noundef %h) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN2dd11bdd_manager9make_nodeEjjj(ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %lvl, i32 noundef %l, i32 noundef %h) local_unnamed_addr #3 align 2 {
 entry:
   %temp.i.i15 = alloca %"struct.dd::bdd_manager::bdd_node", align 4
   %et.i16 = alloca ptr, align 8
@@ -4384,7 +4384,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager15try_cnf_reorderERKNS_3bddE(ptr noundef nonnull align 8 dereferenceable(728) initializes((720, 728)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2dd11bdd_manager15try_cnf_reorderERKNS_3bddE(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %b, align 8
   %m_cost_bdd = getelementptr inbounds i8, ptr %this, i64 724
@@ -6629,7 +6629,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager6mk_varEj(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2dd11bdd_manager6mk_varEj(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN2dd11bdd_manager11reserve_varEj(ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %i)
   %m_var2bdd = getelementptr inbounds i8, ptr %this, i64 88
@@ -6693,7 +6693,7 @@ _ZN2dd3bddC2EjPNS_11bdd_managerE.exit:            ; preds = %for.cond.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager7mk_nvarEj(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2dd11bdd_manager7mk_nvarEj(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN2dd11bdd_manager11reserve_varEj(ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %i)
   %m_var2bdd = getelementptr inbounds i8, ptr %this, i64 88
@@ -9728,7 +9728,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager5mk_eqERKNS_4bddvES3_(ptr noalias sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_manager5mk_eqERKNS_4bddvES3_(ptr noalias sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.dd::bdd", align 8
   %ref.tmp = alloca %"class.dd::bdd", align 8
@@ -10479,7 +10479,7 @@ terminate.lpad:                                   ; preds = %if.then9.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager5mk_eqERKNS_4bddvERK8rational(ptr noalias sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(32) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_manager5mk_eqERKNS_4bddvERK8rational(ptr noalias sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr noundef nonnull align 8 dereferenceable(32) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.dd::bdd", align 8
   %ref.tmp = alloca %"class.dd::bdd", align 8
@@ -10780,7 +10780,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager5mk_eqERK7svectorIjjERK8rational(ptr noalias sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %vars, ptr noundef nonnull align 8 dereferenceable(32) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_manager5mk_eqERK7svectorIjjERK8rational(ptr noalias sret(%"class.dd::bdd") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %vars, ptr noundef nonnull align 8 dereferenceable(32) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.dd::bdd", align 8
   %ref.tmp = alloca %"class.dd::bdd", align 8
@@ -18301,7 +18301,7 @@ ehcleanup47:                                      ; preds = %lpad2.loopexit, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager7mk_usubERKNS_4bddvE(ptr noalias sret(%"class.dd::bddv") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_manager7mk_usubERKNS_4bddvE(ptr noalias sret(%"class.dd::bddv") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %carry = alloca %"class.dd::bdd", align 8
   %ref.tmp = alloca %"class.dd::bdd", align 8
@@ -18772,7 +18772,7 @@ ehcleanup19:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager7mk_usubERK7svectorIbjE(ptr noalias sret(%class.svector.7) align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_manager7mk_usubERK7svectorIbjE(ptr noalias sret(%class.svector.7) align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %0 = load ptr, ptr %b, align 8
@@ -19211,7 +19211,7 @@ ehcleanup:                                        ; preds = %lpad.split, %lpad.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager7mk_zeroEj(ptr noalias sret(%"class.dd::bddv") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %num_bits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_manager7mk_zeroEj(ptr noalias sret(%"class.dd::bddv") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %num_bits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.dd::bdd", align 8
   store ptr null, ptr %agg.result, align 8
@@ -20012,7 +20012,7 @@ ehcleanup37:                                      ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager9mk_concatERKNS_4bddvES3_(ptr noalias sret(%"class.dd::bddv") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_manager9mk_concatERKNS_4bddvES3_(ptr noalias sret(%"class.dd::bddv") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %0 = load ptr, ptr %a, align 8
@@ -21754,7 +21754,7 @@ if.end:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager6mk_numERK8rationalj(ptr noalias sret(%"class.dd::bddv") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %n, i32 noundef %num_bits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_manager6mk_numERK8rationalj(ptr noalias sret(%"class.dd::bddv") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(32) %n, i32 noundef %num_bits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.dd::bdd", align 8
   store ptr null, ptr %agg.result, align 8
@@ -22001,7 +22001,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager7mk_onesEj(ptr noalias sret(%"class.dd::bddv") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %num_bits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_manager7mk_onesEj(ptr noalias sret(%"class.dd::bddv") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %num_bits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.dd::bdd", align 8
   store ptr null, ptr %agg.result, align 8
@@ -22184,7 +22184,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager6mk_varEjPKj(ptr noalias sret(%"class.dd::bddv") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %num_bits, ptr nocapture noundef readonly %vars) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_manager6mk_varEjPKj(ptr noalias sret(%"class.dd::bddv") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, i32 noundef %num_bits, ptr nocapture noundef readonly %vars) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.dd::bdd", align 8
   store ptr null, ptr %agg.result, align 8
@@ -22386,7 +22386,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager6mk_varERK7svectorIjjE(ptr noalias sret(%"class.dd::bddv") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %vars) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2dd11bdd_manager6mk_varERK7svectorIjjE(ptr noalias sret(%"class.dd::bddv") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %vars) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %vars, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -22433,7 +22433,7 @@ return:                                           ; preds = %for.body, %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd11bdd_manager6to_valERKNS_4bddvE(ptr noalias sret(%class.rational) align 8 initializes((0, 4), (8, 20), (24, 32)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd11bdd_manager6to_valERKNS_4bddvE(ptr noalias sret(%class.rational) align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(728) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.rational, align 8
   store i32 0, ptr %agg.result, align 8
@@ -22738,7 +22738,7 @@ lpad:                                             ; preds = %_ZN2dd11bdd_manager
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2dd4bddv4all0Ev(ptr noalias sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2dd4bddv4all0Ev(ptr noalias sret(%"class.dd::bdd") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.dd::bdd", align 8
   %ref.tmp = alloca %"class.dd::bdd", align 8
@@ -22973,7 +22973,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2dd4bddv4all1Ev(ptr noalias sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2dd4bddv4all1Ev(ptr noalias sret(%"class.dd::bdd") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.dd::bdd", align 8
   %m = getelementptr inbounds i8, ptr %this, i64 8
@@ -26207,7 +26207,7 @@ return:                                           ; preds = %if.end48, %if.then3
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN2dd3bddEjEZNS0_11bdd_manager6mk_mulERKNS0_4bddvES6_E3$_0E9_M_invokeERKSt9_Any_dataOj"(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args) #3 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN2dd3bddEjEZNS0_11bdd_manager6mk_mulERKNS0_4bddvES6_E3$_0E9_M_invokeERKSt9_Any_dataOj"(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args) #3 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %__args.val = load i32, ptr %__args, align 4
@@ -26390,7 +26390,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #19
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN2dd3bddEjEZNS0_11bdd_manager6mk_mulERKNS0_4bddvERK7svectorIbjEE3$_0E9_M_invokeERKSt9_Any_dataOj"(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args) #3 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN2dd3bddEjEZNS0_11bdd_manager6mk_mulERKNS0_4bddvERK7svectorIbjEE3$_0E9_M_invokeERKSt9_Any_dataOj"(ptr noalias nocapture writeonly sret(%"class.dd::bdd") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %__args) #3 align 2 {
 entry:
   %__functor.val = load ptr, ptr %__functor, align 8
   %__args.val = load i32, ptr %__args, align 4

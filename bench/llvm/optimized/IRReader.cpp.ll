@@ -1344,7 +1344,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i32 0, 2) i32 @LLVMParseIRInContext(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8)) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @LLVMParseIRInContext(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN4llvm6ModuleESt14default_deleteIS1_EED2Ev.exit:
   %4 = alloca %"class.llvm::SMDiagnostic", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
@@ -1828,7 +1828,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm9StringRefES9_EZNS8_7parseIRENS8_15MemoryBufferRefERNS8_12SMDiagnosticERNS8_11LLVMContextENS8_15ParserCallbacksEE3$_0E9_M_invokeERKSt9_Any_dataOS9_SM_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.54") align 8 initializes((32, 33)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readonly align 8 %2, ptr nocapture nonnull readonly align 8 %3) #8 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN4llvm9StringRefES9_EZNS8_7parseIRENS8_15MemoryBufferRefERNS8_12SMDiagnosticERNS8_11LLVMContextENS8_15ParserCallbacksEE3$_0E9_M_invokeERKSt9_Any_dataOS9_SM_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.54") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readonly align 8 %2, ptr nocapture nonnull readonly align 8 %3) #8 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %5, align 8, !alias.scope !35
   ret void
@@ -2180,7 +2180,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit32: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_15getLazyIRModuleESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EERNS_12SMDiagnosticERNS_11LLVMContextEbE3$_0JEEENS_5ErrorES1_INS_13ErrorInfoBaseES3_ISC_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_15getLazyIRModuleESt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EERNS_12SMDiagnosticERNS_11LLVMContextEbE3$_0JEEENS_5ErrorES1_INS_13ErrorInfoBaseES3_ISC_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::SMDiagnostic", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load ptr, ptr %1, align 8
@@ -2377,7 +2377,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN4llvm12function_refIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_9StringRefES9_EE11callback_fnINS_3$_1EEES8_lS9_S9_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.54") align 8 initializes((32, 33)) %0, i64 %1, ptr nocapture readnone %2, i64 %3, ptr nocapture readnone %4, i64 %5) #8 align 2 {
+define internal void @"_ZN4llvm12function_refIFSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENS_9StringRefES9_EE11callback_fnINS_3$_1EEES8_lS9_S9_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.54") align 8 %0, i64 %1, ptr nocapture readnone %2, i64 %3, ptr nocapture readnone %4, i64 %5) #8 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %7, align 8
   ret void
@@ -2387,7 +2387,7 @@ define internal void @"_ZN4llvm12function_refIFSt8optionalINSt7__cxx1112basic_st
 declare void @_ZN4llvm6ModuleD1Ev(ptr noundef nonnull align 8 dereferenceable(857)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_7parseIRENS_15MemoryBufferRefERNS_12SMDiagnosticERNS_11LLVMContextENS_15ParserCallbacksEE3$_1JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISA_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define internal fastcc void @"_ZN4llvm15handleErrorImplIZNS_7parseIRENS_15MemoryBufferRefERNS_12SMDiagnosticERNS_11LLVMContextENS_15ParserCallbacksEE3$_1JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteISA_EEOT_DpOT0_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::SMDiagnostic", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load ptr, ptr %1, align 8

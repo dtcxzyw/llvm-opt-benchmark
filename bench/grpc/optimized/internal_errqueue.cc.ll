@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [29 x i8] c"ERRQUEUE support not enabled\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN17grpc_event_engine12experimental16GetSocketTcpInfoEPNS0_8tcp_infoEi(ptr noundef initializes((0, 232)) %info, i32 noundef %fd) local_unnamed_addr #0 {
+define noundef i32 @_ZN17grpc_event_engine12experimental16GetSocketTcpInfoEPNS0_8tcp_infoEi(ptr noundef %info, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %info, i8 0, i64 232, i1 false)
   %length = getelementptr inbounds i8, ptr %info, i64 224

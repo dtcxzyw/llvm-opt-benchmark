@@ -3025,7 +3025,7 @@ _jobacctinfo_aggregate_tres_usage.exit:           ; preds = %195, %56, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jobacctinfo_2_stats(ptr nocapture noundef writeonly initializes((0, 144)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @jobacctinfo_2_stats(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.assoc_mgr_lock_t, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 36
   %5 = load i32, ptr %4, align 4
@@ -3149,7 +3149,7 @@ declare zeroext i1 @acct_gather_profile_test() local_unnamed_addr #4
 declare i32 @pthread_cond_wait(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_init_tres_usage(ptr nocapture noundef initializes((112, 116), (120, 128), (136, 248)) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_init_tres_usage(ptr nocapture noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %2, ptr %4, align 8
   %5 = zext i32 %2 to i64

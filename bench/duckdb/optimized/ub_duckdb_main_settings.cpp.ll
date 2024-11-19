@@ -765,7 +765,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17AccessModeSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((200, 201)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb17AccessModeSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -927,7 +927,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 declare noundef i64 @_ZN6duckdb8DBConfig16ParseMemoryLimitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb26CheckpointThresholdSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((208, 216)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb26CheckpointThresholdSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -1222,7 +1222,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb20DebugCheckpointAbort11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((327, 328)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb20DebugCheckpointAbort11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -2007,7 +2007,7 @@ unreachable:                                      ; preds = %invoke.cont20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb15DebugWindowMode11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((388, 392)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb15DebugWindowMode11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -2941,7 +2941,7 @@ unreachable:                                      ; preds = %invoke.cont21
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb19DefaultOrderSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((320, 321)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb19DefaultOrderSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -3438,7 +3438,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb23DefaultNullOrderSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((321, 322)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb23DefaultNullOrderSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -4815,7 +4815,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17EnableFSSTVectors9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((545, 546)) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb17EnableFSSTVectors9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6duckdb5Value8GetValueIbEET_v(ptr noundef nonnull align 8 dereferenceable(64) %input)
   %enable_fsst_vectors = getelementptr inbounds i8, ptr %config, i64 545
@@ -4825,7 +4825,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17EnableFSSTVectors11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((545, 546)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb17EnableFSSTVectors11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -5014,7 +5014,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb24EnableObjectCacheSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((323, 324)) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb24EnableObjectCacheSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6duckdb5Value8GetValueIbEET_v(ptr noundef nonnull align 8 dereferenceable(64) %input)
   %object_cache_enable = getelementptr inbounds i8, ptr %config, i64 323
@@ -5024,7 +5024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb24EnableObjectCacheSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((323, 324)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb24EnableObjectCacheSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -5049,7 +5049,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb30EnableHTTPMetadataCacheSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((324, 325)) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb30EnableHTTPMetadataCacheSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6duckdb5Value8GetValueIbEET_v(ptr noundef nonnull align 8 dereferenceable(64) %input)
   %http_metadata_cache_enable = getelementptr inbounds i8, ptr %config, i64 324
@@ -5059,7 +5059,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb30EnableHTTPMetadataCacheSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((324, 325)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb30EnableHTTPMetadataCacheSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -6497,7 +6497,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb26AutoinstallKnownExtensions9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((219, 220)) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb26AutoinstallKnownExtensions9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6duckdb5Value8GetValueIbEET_v(ptr noundef nonnull align 8 dereferenceable(64) %input)
   %autoinstall_known_extensions = getelementptr inbounds i8, ptr %config, i64 219
@@ -6507,7 +6507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb26AutoinstallKnownExtensions11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((219, 220)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb26AutoinstallKnownExtensions11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -6532,7 +6532,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb23AutoloadKnownExtensions9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((218, 219)) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb23AutoloadKnownExtensions9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6duckdb5Value8GetValueIbEET_v(ptr noundef nonnull align 8 dereferenceable(64) %input)
   %autoload_known_extensions = getelementptr inbounds i8, ptr %config, i64 218
@@ -6542,7 +6542,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb23AutoloadKnownExtensions11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((218, 219)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb23AutoloadKnownExtensions11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -7496,7 +7496,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb22ExternalThreadsSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((240, 248)) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb22ExternalThreadsSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK6duckdb5Value8GetValueIlEET_v(ptr noundef nonnull align 8 dereferenceable(64) %input)
   %external_threads = getelementptr inbounds i8, ptr %config, i64 240
@@ -7507,7 +7507,7 @@ entry:
 declare noundef i64 @_ZNK6duckdb5Value8GetValueIlEET_v(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb22ExternalThreadsSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((240, 248)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb22ExternalThreadsSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -8032,7 +8032,7 @@ declare void @_ZN6duckdb10StringUtil4JoinERKNS_6vectorINSt7__cxx1112basic_string
 declare void @_ZN6duckdb20ListCompressionTypesB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.duckdb::vector.245") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb23ForceCompressionSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((384, 385)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb23ForceCompressionSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -8275,7 +8275,7 @@ unreachable:                                      ; preds = %invoke.cont8
 declare noundef zeroext i8 @_ZN6duckdb24BitpackingModeFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb26ForceBitpackingModeSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((385, 386)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb26ForceBitpackingModeSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -9149,7 +9149,7 @@ _ZN6duckdb10unique_ptrINS_18BufferedFileWriterESt14default_deleteIS1_ELb1EE13Ass
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb24LockConfigurationSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((608, 609)) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb24LockConfigurationSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6duckdb5Value8GetValueIbEET_v(ptr noundef nonnull align 8 dereferenceable(64) %input)
   %frombool = zext i1 %call to i8
@@ -9159,7 +9159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb24LockConfigurationSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((608, 609)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb24LockConfigurationSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -9184,7 +9184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb31ImmediateTransactionModeSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((546, 547)) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb31ImmediateTransactionModeSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN6duckdb12BooleanValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64) %input)
   %immediate_transaction_mode = getelementptr inbounds i8, ptr %config, i64 546
@@ -9196,7 +9196,7 @@ entry:
 declare noundef zeroext i1 @_ZN6duckdb12BooleanValue3GetERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb31ImmediateTransactionModeSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((546, 547)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb31ImmediateTransactionModeSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -9941,7 +9941,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb22PreserveInsertionOrder9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((392, 393)) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb22PreserveInsertionOrder9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6duckdb5Value8GetValueIbEET_v(ptr noundef nonnull align 8 dereferenceable(64) %input)
   %preserve_insertion_order = getelementptr inbounds i8, ptr %config, i64 392
@@ -9951,7 +9951,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb22PreserveInsertionOrder11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((392, 393)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb22PreserveInsertionOrder11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -9976,7 +9976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb22ExportLargeBufferArrow9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((396, 400)) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb22ExportLargeBufferArrow9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6duckdb5Value8GetValueIbEET_v(ptr noundef nonnull align 8 dereferenceable(64) %input)
   %cond = zext i1 %call to i32
@@ -9986,7 +9986,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb22ExportLargeBufferArrow11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) initializes((396, 400)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb22ExportLargeBufferArrow11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr nocapture noundef readnone %db, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23
@@ -12105,7 +12105,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %if.t
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb13BufferManager16GetBufferManagerERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14ThreadsSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr noundef %db, ptr nocapture noundef nonnull align 8 dereferenceable(896) initializes((232, 240)) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb14ThreadsSetting9SetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigERKNS_5ValueE(ptr noundef %db, ptr nocapture noundef nonnull align 8 dereferenceable(896) %config, ptr noundef nonnull align 8 dereferenceable(64) %input) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i64 @_ZNK6duckdb5Value8GetValueIlEET_v(ptr noundef nonnull align 8 dereferenceable(64) %input)
   %maximum_threads = getelementptr inbounds i8, ptr %config, i64 232
@@ -12247,7 +12247,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt7__c
 declare void @_ZN6duckdb13TaskScheduler25SetAllocatorFlushTresholdEm(ptr noundef nonnull align 8 dereferenceable(112), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb21FlushAllocatorSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr noundef %db, ptr nocapture noundef nonnull align 8 dereferenceable(896) initializes((616, 624)) %config) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb21FlushAllocatorSetting11ResetGlobalEPNS_16DatabaseInstanceERNS_8DBConfigE(ptr noundef %db, ptr nocapture noundef nonnull align 8 dereferenceable(896) %config) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::DBConfig", align 8
   call void @llvm.lifetime.start.p0(i64 896, ptr nonnull %ref.tmp) #23

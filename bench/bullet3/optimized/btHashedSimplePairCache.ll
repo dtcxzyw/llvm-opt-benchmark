@@ -26,7 +26,7 @@ $__clang_call_terminate = comdat any
 @_ZN23btHashedSimplePairCacheD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN23btHashedSimplePairCacheD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btHashedSimplePairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8), (12, 20), (24, 33), (44, 52), (56, 65), (76, 84), (88, 97)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btHashedSimplePairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btHashedSimplePairCache, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -441,7 +441,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23btHashedSimplePairCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btHashedSimplePairCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btHashedSimplePairCache, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -538,7 +538,7 @@ _ZN20btAlignedObjectArrayI12btSimplePairED2Ev.exit: ; preds = %_ZN20btAlignedObj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23btHashedSimplePairCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN23btHashedSimplePairCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN23btHashedSimplePairCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #9
   tail call void @_ZdlPv(ptr noundef nonnull %this) #11
@@ -549,7 +549,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btHashedSimplePairCache14removeAllPairsEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((12, 20), (44, 52), (76, 84)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btHashedSimplePairCache14removeAllPairsEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i, align 8

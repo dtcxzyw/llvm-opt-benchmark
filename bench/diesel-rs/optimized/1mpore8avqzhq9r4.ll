@@ -10,13 +10,13 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.5bf90de322b617f1007da5947dda79be.2.llvm.14418932532550506065 = external hidden unnamed_addr constant <{ [7 x i8] }>, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN117_$LT$diesel..query_builder..where_clause..NoWhereClause$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h0a6597009584f3b4E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(32) %2) unnamed_addr #0 {
+define hidden void @"_ZN117_$LT$diesel..query_builder..where_clause..NoWhereClause$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17h0a6597009584f3b4E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(32) %2) unnamed_addr #0 {
   store i64 -9223372036854775798, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN122_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc8058c57c9b8e54aE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @"_ZN122_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hc8058c57c9b8e54aE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %2) unnamed_addr #1 {
   %.sroa.28.i.i = alloca [3 x i64], align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
@@ -49,7 +49,7 @@ define hidden void @"_ZN122_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN122_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17he0d7f4f7826dc3d6E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @"_ZN122_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17he0d7f4f7826dc3d6E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef align 8 dereferenceable(32) %2) unnamed_addr #1 {
   %.sroa.28.i = alloca [3 x i64], align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
@@ -79,7 +79,7 @@ define hidden void @"_ZN122_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN122_$LT$diesel..query_builder..group_by_clause..NoGroupByClause$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hbda38e1fdc623052E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(32) %2) unnamed_addr #0 {
+define hidden void @"_ZN122_$LT$diesel..query_builder..group_by_clause..NoGroupByClause$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hbda38e1fdc623052E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(32) %2) unnamed_addr #0 {
   store i64 -9223372036854775798, ptr %0, align 8
   ret void
 }
@@ -266,7 +266,7 @@ define hidden { i64, i64 } @"_ZN130_$LT$diesel..insertable..DefaultableColumnIns
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN179_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$u20$as$u20$diesel..insertable..InsertValues$LT$$LT$Col$u20$as$u20$diesel..query_source..Column$GT$..Table$C$DB$GT$$GT$12column_names17h0914ee4cf9430e7fE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @"_ZN179_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$u20$as$u20$diesel..insertable..InsertValues$LT$$LT$Col$u20$as$u20$diesel..query_source..Column$GT$..Table$C$DB$GT$$GT$12column_names17h0914ee4cf9430e7fE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.28 = alloca [3 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
@@ -313,7 +313,7 @@ define hidden void @"_ZN179_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN179_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$u20$as$u20$diesel..insertable..InsertValues$LT$$LT$Col$u20$as$u20$diesel..query_source..Column$GT$..Table$C$DB$GT$$GT$12column_names17h241c412aa1ede28bE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @"_ZN179_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$u20$as$u20$diesel..insertable..InsertValues$LT$$LT$Col$u20$as$u20$diesel..query_source..Column$GT$..Table$C$DB$GT$$GT$12column_names17h241c412aa1ede28bE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.28 = alloca [3 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
@@ -360,7 +360,7 @@ define hidden void @"_ZN179_$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$E
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN264_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..insertable..InsertValues$LT$$LT$Col$u20$as$u20$diesel..query_source..Column$GT$..Table$C$diesel..sqlite..backend..Sqlite$GT$$GT$12column_names17h3daa2e2f24994c8eE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @"_ZN264_$LT$diesel..insertable..DefaultableColumnInsertValue$LT$diesel..insertable..ColumnInsertValue$LT$Col$C$Expr$GT$$GT$$u20$as$u20$diesel..insertable..InsertValues$LT$$LT$Col$u20$as$u20$diesel..query_source..Column$GT$..Table$C$diesel..sqlite..backend..Sqlite$GT$$GT$12column_names17h3daa2e2f24994c8eE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.28 = alloca [3 x i64], align 8
   %5 = load ptr, ptr %1, align 8, !noundef !11
@@ -2432,7 +2432,7 @@ default.unreachable1.i70:                         ; preds = %43, %"_ZN6diesel13q
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h1457e4780046a9b8E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
+define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h1457e4780046a9b8E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.210 = alloca [3 x i64], align 8
   %5 = alloca { { i64, [2 x i64] }, ptr }, align 8
@@ -2478,7 +2478,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h1457e4780
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h4586b9d5b56a220dE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
+define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h4586b9d5b56a220dE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
   %.sroa.210 = alloca [3 x i64], align 8
   %4 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -2520,7 +2520,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h4586b9d5b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h5262e80c0757f2aeE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
+define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h5262e80c0757f2aeE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   %.sroa.210 = alloca [3 x i64], align 8
   %5 = alloca { { i64, [2 x i64] }, ptr }, align 8
@@ -2563,7 +2563,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h5262e80c0
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h66cd8d458e38e6b5E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
+define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h66cd8d458e38e6b5E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
   %.sroa.210 = alloca [3 x i64], align 8
   %4 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -2605,7 +2605,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h66cd8d458
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h68b8b306b712d91aE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
+define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h68b8b306b712d91aE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
   %.sroa.210 = alloca [3 x i64], align 8
   %4 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -2647,7 +2647,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h68b8b306b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h9de95f00d4825e2dE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
+define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h9de95f00d4825e2dE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
   %.sroa.210 = alloca [3 x i64], align 8
   %4 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
@@ -2689,7 +2689,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h9de95f00d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17hdf8f19f6b8af1cbdE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
+define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17hdf8f19f6b8af1cbdE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %.sroa.210 = alloca [3 x i64], align 8
@@ -2744,7 +2744,7 @@ define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17hdf8f19f6b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN6diesel6sqlite13query_builder12limit_offset287_$LT$impl$u20$diesel..query_builder..QueryFragment$LT$diesel..sqlite..backend..Sqlite$GT$$u20$for$u20$diesel..query_builder..limit_offset_clause..LimitOffsetClause$LT$diesel..query_builder..limit_clause..LimitClause$LT$L$GT$$C$diesel..query_builder..offset_clause..NoOffsetClause$GT$$GT$8walk_ast17h4c5b2f135186818eE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
+define hidden void @"_ZN6diesel6sqlite13query_builder12limit_offset287_$LT$impl$u20$diesel..query_builder..QueryFragment$LT$diesel..sqlite..backend..Sqlite$GT$$u20$for$u20$diesel..query_builder..limit_offset_clause..LimitOffsetClause$LT$diesel..query_builder..limit_clause..LimitClause$LT$L$GT$$C$diesel..query_builder..offset_clause..NoOffsetClause$GT$$GT$8walk_ast17h4c5b2f135186818eE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %.sroa.28 = alloca [3 x i64], align 8

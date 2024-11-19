@@ -1161,7 +1161,7 @@ _ZN8unscanny7Scanner4snap17h2e39fcdb92f477b4E.llvm.1264627266016737169.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12typst_syntax5lexer5Lexer3new17h624b95ffe796a245E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { ptr, i64 }, i64 }, i8, i8, [6 x i8] }) align 8 dereferenceable(80) initializes((0, 8), (24, 74)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i8 noundef %3) unnamed_addr #6 {
+define hidden void @_ZN12typst_syntax5lexer5Lexer3new17h624b95ffe796a245E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { ptr, i64 }, i64 }, i8, i8, [6 x i8] }) align 8 dereferenceable(80) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i8 noundef %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
@@ -1190,7 +1190,7 @@ define hidden noundef range(i8 0, 4) i8 @_ZN12typst_syntax5lexer5Lexer4mode17hfa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12typst_syntax5lexer5Lexer8set_mode17h2c05ee1e942f7bb7E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) initializes((73, 74)) %0, i8 noundef %1) unnamed_addr #6 {
+define hidden void @_ZN12typst_syntax5lexer5Lexer8set_mode17h2c05ee1e942f7bb7E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) %0, i8 noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 73
   store i8 %1, ptr %3, align 1
   ret void
@@ -1246,7 +1246,7 @@ define hidden noundef zeroext i1 @_ZN12typst_syntax5lexer5Lexer7newline17hfcb61b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12typst_syntax5lexer5Lexer10take_error17hdfb13459d30dd525E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(80) %1) unnamed_addr #9 {
+define hidden void @_ZN12typst_syntax5lexer5Lexer10take_error17hdfb13459d30dd525E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(80) %1) unnamed_addr #9 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 0, ptr %1, align 8
   ret void
@@ -5677,7 +5677,7 @@ _ZN12typst_syntax5lexer5Lexer5error17h58bd6cab52ecad32E.exit: ; preds = %162, %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef range(i8 12, -127) i8 @_ZN12typst_syntax5lexer5Lexer3raw17h07310df23937fa6aE(ptr noalias noundef nonnull align 8 dereferenceable(80) initializes((40, 48)) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal fastcc noundef range(i8 12, -127) i8 @_ZN12typst_syntax5lexer5Lexer3raw17h07310df23937fa6aE(ptr noalias noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
   %2 = alloca [4 x i8], align 4
   %3 = alloca ptr, align 8
   %4 = alloca { { i64, [1 x i64] }, { ptr, [2 x i64] } }, align 8

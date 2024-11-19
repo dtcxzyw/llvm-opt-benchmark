@@ -292,7 +292,7 @@ return:                                           ; preds = %if.else.i.i.i.i.i16
 declare noundef zeroext i1 @_ZN6hermes2vmeqERKNS0_16SamplingProfiler10StackFrameES4_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm17ChromeTraceFormat6createEjRKN4llvh8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_12DenseMapInfoImEENS2_6detail12DenseMapPairImS9_EEEERKSt6vectorINS0_16SamplingProfiler10StackTraceESaISK_EE(ptr noalias sret(%"class.hermes::vm::ChromeTraceFormat") align 8 initializes((0, 4), (8, 28)) %agg.result, i32 noundef %pid, ptr noundef nonnull align 8 dereferenceable(20) %threadNames, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sampledStacks) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm17ChromeTraceFormat6createEjRKN4llvh8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS2_12DenseMapInfoImEENS2_6detail12DenseMapPairImS9_EEEERKSt6vectorINS0_16SamplingProfiler10StackTraceESaISK_EE(ptr noalias sret(%"class.hermes::vm::ChromeTraceFormat") align 8 %agg.result, i32 noundef %pid, ptr noundef nonnull align 8 dereferenceable(20) %threadNames, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sampledStacks) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %leafNode = alloca %"class.std::shared_ptr", align 8
@@ -1280,7 +1280,7 @@ _ZN4llvh8DenseMapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12Dens
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm21ChromeTraceSerializerC2ERKNS0_16SamplingProfilerEONS0_17ChromeTraceFormatE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 12), (16, 36), (40, 88)) %this, ptr noundef nonnull align 8 dereferenceable(256) %sp, ptr nocapture noundef nonnull align 8 dereferenceable(72) %chromeTrace) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm21ChromeTraceSerializerC2ERKNS0_16SamplingProfilerEONS0_17ChromeTraceFormatE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(256) %sp, ptr nocapture noundef nonnull align 8 dereferenceable(72) %chromeTrace) unnamed_addr #0 align 2 {
 entry:
   store ptr %sp, ptr %this, align 8
   %trace_ = getelementptr inbounds i8, ptr %this, i64 8

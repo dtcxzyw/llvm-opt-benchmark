@@ -137,7 +137,7 @@ $_ZNSt6vectorIjSaIjEE17_M_default_appendEm = comdat any
 @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64D1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64D2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64C2Ebj(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 48)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen3A6418AssemblyBuilderA64C2Ebj(ptr noundef nonnull align 8 dereferenceable(176) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 48

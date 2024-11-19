@@ -283,7 +283,7 @@ $_ZTIN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEEE = comdat a
 @_ZN5ceres8internal29VisibilityBasedPreconditionerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal29VisibilityBasedPreconditionerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditionerC2ERKNS0_27CompressedRowBlockStructureENS0_14Preconditioner7OptionsE(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 136), (144, 148), (152, 160)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditionerC2ERKNS0_27CompressedRowBlockStructureENS0_14Preconditioner7OptionsE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %5 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %6 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
@@ -1797,7 +1797,7 @@ _ZNSt8_Rb_treeISt4pairIiiES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal29VisibilityBasedPreconditionerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   %3 = load ptr, ptr %2, align 8
@@ -1934,7 +1934,7 @@ _ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit: ; preds = %_ZNSt6vectorIN5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN5ceres8internal29VisibilityBasedPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN5ceres8internal29VisibilityBasedPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
@@ -2434,7 +2434,7 @@ _ZNSt6vectorISt3setIiSt4lessIiESaIiEESaIS4_EE6resizeEm.exit24: ; preds = %31, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK5ceres8internal29VisibilityBasedPreconditioner18CreateClusterGraphERKSt6vectorISt3setIiSt4lessIiESaIiEESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.52") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5ceres8internal29VisibilityBasedPreconditioner18CreateClusterGraphERKSt6vectorISt3setIiSt4lessIiESaIiEESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.52") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::unordered_set<int>>, std::allocator<std::pair<const int, std::unordered_set<int>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %5 = alloca %"struct.std::_Hashtable<int, std::pair<const int, std::unordered_set<int>>, std::allocator<std::pair<const int, std::unordered_set<int>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node", align 8
   %6 = alloca %"struct.std::__detail::_AllocNode.280", align 8

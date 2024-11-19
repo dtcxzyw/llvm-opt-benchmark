@@ -2328,7 +2328,7 @@ define internal noundef range(i32 -2147483647, -2147483648) i32 @_ZN7glslang12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 4) i32 @_ZN7glslang10TPpContext11MacroExpandEPNS_8TPpTokenEbb(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef initializes((24, 25)) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 4) i32 @_ZN7glslang10TPpContext11MacroExpandEPNS_8TPpTokenEbb(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string.26", align 8
   %6 = alloca %"struct.glslang::TSourceLoc", align 8
   %7 = alloca %"class.glslang::TPpToken", align 8
@@ -4754,7 +4754,7 @@ _ZN7glslang10TPpContext15extraTokenCheckEiPNS_8TPpTokenEi.exit: ; preds = %134, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang10TPpContext8CPPerrorEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) initializes((968, 969)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN7glslang10TPpContext8CPPerrorEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string.26", align 8
   %4 = alloca %"struct.glslang::TSourceLoc", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 968

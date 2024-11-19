@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z14genQmmmIndicesRK10gmx_mtop_t(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z14genQmmmIndicesRK10gmx_mtop_t(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 664
   %4 = load ptr, ptr %3, align 8

@@ -628,7 +628,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27UsdImagingGeomSubsetAdapterD
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27UsdImagingGeomSubsetAdapter18GetImagingSubprimsERKNS_7UsdPrimE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27UsdImagingGeomSubsetAdapter18GetImagingSubprimsERKNS_7UsdPrimE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
@@ -3490,7 +3490,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubsetD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27UsdImagingGeomSubsetAdapter24InvalidateImagingSubprimERKNS_7UsdPrimERKNS_7TfTokenERKSt6vectorIS4_SaIS4_EENS_34UsdImagingPropertyInvalidationTypeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet") align 8 initializes((448, 456)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27UsdImagingGeomSubsetAdapter24InvalidateImagingSubprimERKNS_7UsdPrimERKNS_7TfTokenERKSt6vectorIS4_SaIS4_EENS_34UsdImagingPropertyInvalidationTypeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i32 noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocator", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::HdDataSourceLocatorSet", align 8
@@ -4043,7 +4043,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27UsdImagingGeomSubsetAdapter8PopulateERKNS_7UsdPrimEPNS_20UsdImagingIndexProxyEPKNS_26UsdImagingInstancerContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27UsdImagingGeomSubsetAdapter8PopulateERKNS_7UsdPrimEPNS_20UsdImagingIndexProxyEPKNS_26UsdImagingInstancerContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath9EmptyPathEv()
   %7 = load i32, ptr %6, align 4
   store i32 %7, ptr %0, align 4
@@ -9483,7 +9483,7 @@ define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ElementTypeConversionDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ElementTypeConversionDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ElementTypeConversionDataSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -9564,7 +9564,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ElementTypeConversionDataSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ElementTypeConversionDataSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ElementTypeConversionDataSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -9646,7 +9646,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ElementTypeConversionDataS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ElementTypeConversionDataSource8GetValueEf(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, float noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_132_ElementTypeConversionDataSource8GetValueEf(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, float noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32

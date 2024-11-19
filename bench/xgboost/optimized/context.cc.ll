@@ -1707,7 +1707,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost7ContextC2Ev(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 1)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost7ContextC2Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   store i8 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8

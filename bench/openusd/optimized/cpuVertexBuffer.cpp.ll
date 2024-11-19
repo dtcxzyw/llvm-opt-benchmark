@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferD1Ev = unnamed_addr alias void (ptr), ptr @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Osd15CpuVertexBufferC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4

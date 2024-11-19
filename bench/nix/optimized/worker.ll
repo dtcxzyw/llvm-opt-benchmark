@@ -1417,7 +1417,7 @@ define internal void @__cxx_global_var_init.9() #4 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix6WorkerC2ERNS_5StoreES2_(ptr noundef nonnull align 8 dereferenceable(649) initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(264) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix6WorkerC2ERNS_5StoreES2_(ptr noundef nonnull align 8 dereferenceable(649) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(264) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector", align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector", align 8
@@ -2265,7 +2265,7 @@ _ZNSt3setISt10shared_ptrIN3nix4GoalEENS1_15CompareGoalPtrsESaIS3_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix6Worker24makeDerivationGoalCommonERKNS_9StorePathERKNS_11OutputsSpecESt8functionIFSt10shared_ptrINS_14DerivationGoalEEvEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.79") align 8 initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(649) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix6Worker24makeDerivationGoalCommonERKNS_9StorePathERKNS_11OutputsSpecESt8functionIFSt10shared_ptrINS_14DerivationGoalEEvEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.79") align 8 %0, ptr noundef nonnull align 8 dereferenceable(649) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr.79", align 8
   %7 = alloca %"class.std::shared_ptr.84", align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 176
@@ -3046,7 +3046,7 @@ _ZNSt12__shared_ptrIN3nix4GoalELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds 
 declare void @_ZN3nix14DerivationGoal16addWantedOutputsERKNS_11OutputsSpecE(ptr noundef nonnull align 8 dereferenceable(1328), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix6Worker18makeDerivationGoalERKNS_9StorePathERKNS_11OutputsSpecENS_9BuildModeE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.79") align 8 initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(649) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix6Worker18makeDerivationGoalERKNS_9StorePathERKNS_11OutputsSpecENS_9BuildModeE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.79") align 8 %0, ptr noundef nonnull align 8 dereferenceable(649) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, i32 noundef %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::function", align 8
   store i32 %4, ptr %6, align 4
@@ -3110,7 +3110,7 @@ _ZNSt8functionIFSt10shared_ptrIN3nix14DerivationGoalEEvEED2Ev.exit7: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix6Worker23makeBasicDerivationGoalERKNS_9StorePathERKNS_15BasicDerivationERKNS_11OutputsSpecENS_9BuildModeE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.79") align 8 initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(649) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(272) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix6Worker23makeBasicDerivationGoalERKNS_9StorePathERKNS_15BasicDerivationERKNS_11OutputsSpecENS_9BuildModeE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.79") align 8 %0, ptr noundef nonnull align 8 dereferenceable(649) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(272) %3, ptr noundef nonnull align 8 dereferenceable(56) %4, i32 noundef %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca %"class.std::function", align 8
   store i32 %5, ptr %7, align 4
@@ -3176,7 +3176,7 @@ _ZNSt8functionIFSt10shared_ptrIN3nix14DerivationGoalEEvEED2Ev.exit8: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix6Worker24makePathSubstitutionGoalERKNS_9StorePathENS_10RepairFlagESt8optionalINS_14ContentAddressEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.252") align 8 initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(649) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef byval(%"class.std::optional.255") align 8 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix6Worker24makePathSubstitutionGoalERKNS_9StorePathENS_10RepairFlagESt8optionalINS_14ContentAddressEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.252") align 8 %0, ptr noundef nonnull align 8 dereferenceable(649) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef byval(%"class.std::optional.255") align 8 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr.84", align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 224
   %8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIN3nix9StorePathESt8weak_ptrINS0_20PathSubstitutionGoalEESt4lessIS1_ESaISt4pairIKS1_S4_EEEixERS8_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -3746,7 +3746,7 @@ _ZNSt12__shared_ptrIN3nix20PathSubstitutionGoalELN9__gnu_cxx12_Lock_policyE2EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix6Worker29makeDrvOutputSubstitutionGoalERKNS_9DrvOutputENS_10RepairFlagESt8optionalINS_14ContentAddressEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.279") align 8 initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(649) %1, ptr noundef nonnull align 8 dereferenceable(112) %2, i1 noundef zeroext %3, ptr noundef byval(%"class.std::optional.255") align 8 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix6Worker29makeDrvOutputSubstitutionGoalERKNS_9DrvOutputENS_10RepairFlagESt8optionalINS_14ContentAddressEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.279") align 8 %0, ptr noundef nonnull align 8 dereferenceable(649) %1, ptr noundef nonnull align 8 dereferenceable(112) %2, i1 noundef zeroext %3, ptr noundef byval(%"class.std::optional.255") align 8 %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr.84", align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 272
   %8 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt3mapIN3nix9DrvOutputESt8weak_ptrINS0_25DrvOutputSubstitutionGoalEESt4lessIS1_ESaISt4pairIKS1_S4_EEEixERS8_(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(112) %2)
@@ -12716,7 +12716,7 @@ _ZNKSt4lessIN3nix9StorePathEEclERKS1_S4_.exit:    ; preds = %_ZNSt11char_traitsI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3nix11upcast_goalESt10shared_ptrINS_20PathSubstitutionGoalEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.84") align 8 initializes((0, 16)) %0, ptr nocapture noundef %1) local_unnamed_addr #16 {
+define void @_ZN3nix11upcast_goalESt10shared_ptrINS_20PathSubstitutionGoalEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.84") align 8 %0, ptr nocapture noundef %1) local_unnamed_addr #16 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12729,7 +12729,7 @@ define void @_ZN3nix11upcast_goalESt10shared_ptrINS_20PathSubstitutionGoalEE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3nix11upcast_goalESt10shared_ptrINS_25DrvOutputSubstitutionGoalEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.84") align 8 initializes((0, 16)) %0, ptr nocapture noundef %1) local_unnamed_addr #16 {
+define void @_ZN3nix11upcast_goalESt10shared_ptrINS_25DrvOutputSubstitutionGoalEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.84") align 8 %0, ptr nocapture noundef %1) local_unnamed_addr #16 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

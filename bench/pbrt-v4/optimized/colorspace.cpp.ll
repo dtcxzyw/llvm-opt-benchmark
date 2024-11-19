@@ -146,7 +146,7 @@ $_ZTSN4pbrt12SquareMatrixILi3EEE = comdat any
 @_ZN4pbrt13RGBColorSpaceC1ENS_6Point2IfEES2_S2_NS_8SpectrumEPKNS_18RGBToSpectrumTableEN4pstd3pmr21polymorphic_allocatorISt4byteEE = dso_local unnamed_addr alias void (ptr, <2 x float>, <2 x float>, <2 x float>, ptr, ptr, ptr), ptr @_ZN4pbrt13RGBColorSpaceC2ENS_6Point2IfEES2_S2_NS_8SpectrumEPKNS_18RGBToSpectrumTableEN4pstd3pmr21polymorphic_allocatorISt4byteEE
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13RGBColorSpaceC2ENS_6Point2IfEES2_S2_NS_8SpectrumEPKNS_18RGBToSpectrumTableEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 32)) %this, <2 x float> %r.coerce, <2 x float> %g.coerce, <2 x float> %b.coerce, ptr nocapture noundef readonly %illuminant, ptr noundef %rgbToSpec, ptr %alloc.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt13RGBColorSpaceC2ENS_6Point2IfEES2_S2_NS_8SpectrumEPKNS_18RGBToSpectrumTableEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(152) %this, <2 x float> %r.coerce, <2 x float> %g.coerce, <2 x float> %b.coerce, ptr nocapture noundef readonly %illuminant, ptr noundef %rgbToSpec, ptr %alloc.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inv.i36 = alloca %"class.pstd::optional", align 4
   %inv.i = alloca %"class.pstd::optional", align 4

@@ -16,7 +16,7 @@ $__clang_call_terminate = comdat any
 @_ZN3zmq6dist_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq6dist_tD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq6dist_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq6dist_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %this, i8 0, i64 49, i1 false)
   ret void
@@ -533,7 +533,7 @@ for.end:                                          ; preds = %_ZN3zmq7array_tINS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq6dist_t7unmatchEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((24, 32)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq6dist_t7unmatchEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_matching = getelementptr inbounds i8, ptr %this, i64 24
   store i64 0, ptr %_matching, align 8
@@ -859,7 +859,7 @@ if.end16:                                         ; preds = %_ZN3zmq7array_tINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq6dist_t11send_to_allEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((24, 32)) %this, ptr noundef nonnull %msg_) local_unnamed_addr #6 align 2 {
+define noundef i32 @_ZN3zmq6dist_t11send_to_allEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull %msg_) local_unnamed_addr #6 align 2 {
 entry:
   %_active = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %_active, align 8

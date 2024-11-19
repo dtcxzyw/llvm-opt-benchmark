@@ -4484,7 +4484,7 @@ define dso_local range(i64 -1152921504606846976, 1152921504606846976) i64 @ruby_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @rb_ec_stack_check(ptr nocapture noundef initializes((160, 168)) %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @rb_ec_stack_check(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = tail call ptr asm sideeffect "movq\09%rsp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #39, !srcloc !33
@@ -7322,7 +7322,7 @@ rbimpl_intern_const.exit82:                       ; preds = %.lr.ph.i80, %rbimpl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @rb_gc_ractor_newobj_cache_clear(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #14 {
+define hidden void @rb_gc_ractor_newobj_cache_clear(ptr nocapture noundef %0) local_unnamed_addr #14 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   br label %3
@@ -11051,7 +11051,7 @@ rb_vm_lock_leave.exit:                            ; preds = %29, %31
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gc_mark_children(ptr noundef initializes((1480, 1488)) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @gc_mark_children(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = inttoptr i64 %1 to ptr
   %5 = load i64, ptr %4, align 8
@@ -20370,7 +20370,7 @@ shrink_stack_chunk_cache.exit:                    ; preds = %pop_mark_stack.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gc_mark_roots(ptr noundef initializes((1480, 1488)) %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @gc_mark_roots(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca %union.anon.64, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8

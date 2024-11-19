@@ -3246,7 +3246,7 @@ common.resume:                                    ; preds = %.body, %59, %56, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12node_runtime11NodeRuntime8instance17h9c875d6e99024d45E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5176 x i8]) align 8 dereferenceable(5176) initializes((0, 8), (72, 73)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
+define void @_ZN12node_runtime11NodeRuntime8instance17h9c875d6e99024d45E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5176 x i8]) align 8 dereferenceable(5176) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 0, ptr %3, align 8
@@ -3254,7 +3254,7 @@ define void @_ZN12node_runtime11NodeRuntime8instance17h9c875d6e99024d45E(ptr dea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12node_runtime11NodeRuntime11binary_path17h20557b0953cddee1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5192 x i8]) align 8 dereferenceable(5192) initializes((0, 8), (5184, 5185)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
+define void @_ZN12node_runtime11NodeRuntime11binary_path17h20557b0953cddee1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5192 x i8]) align 8 dereferenceable(5192) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 5184
   store i8 0, ptr %3, align 8
@@ -3262,7 +3262,7 @@ define void @_ZN12node_runtime11NodeRuntime11binary_path17h20557b0953cddee1E(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12node_runtime11NodeRuntime18run_npm_subcommand17ha57af124d95de671E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5312 x i8]) align 8 dereferenceable(5312) initializes((0, 56), (128, 129)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 %6, i64 noundef %7) unnamed_addr #5 {
+define void @_ZN12node_runtime11NodeRuntime18run_npm_subcommand17ha57af124d95de671E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5312 x i8]) align 8 dereferenceable(5312) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 %6, i64 noundef %7) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %9, align 8
@@ -3282,7 +3282,7 @@ define void @_ZN12node_runtime11NodeRuntime18run_npm_subcommand17ha57af124d95de6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12node_runtime11NodeRuntime29npm_package_installed_version17he7536fd7ad5e0747E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5256 x i8]) align 8 dereferenceable(5256) initializes((0, 40), (72, 73)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #5 {
+define void @_ZN12node_runtime11NodeRuntime29npm_package_installed_version17he7536fd7ad5e0747E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5256 x i8]) align 8 dereferenceable(5256) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -3298,7 +3298,7 @@ define void @_ZN12node_runtime11NodeRuntime29npm_package_installed_version17he75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12node_runtime11NodeRuntime26npm_package_latest_version17h5ca51c327aab4ac3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5248 x i8]) align 8 dereferenceable(5248) initializes((0, 24), (64, 65)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #5 {
+define void @_ZN12node_runtime11NodeRuntime26npm_package_latest_version17h5ca51c327aab4ac3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5248 x i8]) align 8 dereferenceable(5248) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -3310,7 +3310,7 @@ define void @_ZN12node_runtime11NodeRuntime26npm_package_latest_version17h5ca51c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12node_runtime11NodeRuntime20npm_install_packages17h97f318fa30af62e9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5408 x i8]) align 8 dereferenceable(5408) initializes((0, 40), (5400, 5401)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5) unnamed_addr #5 {
+define void @_ZN12node_runtime11NodeRuntime20npm_install_packages17h97f318fa30af62e9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5408 x i8]) align 8 dereferenceable(5408) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -3326,7 +3326,7 @@ define void @_ZN12node_runtime11NodeRuntime20npm_install_packages17h97f318fa30af
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12node_runtime11NodeRuntime26should_install_npm_package17h11627c7bfacb0f49E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5392 x i8]) align 8 dereferenceable(5392) initializes((0, 72), (128, 129)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %9) unnamed_addr #5 {
+define void @_ZN12node_runtime11NodeRuntime26should_install_npm_package17h11627c7bfacb0f49E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5392 x i8]) align 8 dereferenceable(5392) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7, ptr noalias noundef nonnull readonly align 1 %8, i64 noundef %9) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %11, align 8
@@ -3350,7 +3350,7 @@ define void @_ZN12node_runtime11NodeRuntime26should_install_npm_package17h11627c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12node_runtime18ManagedNodeRuntime17install_if_needed17h75044189a44840ceE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5096 x i8]) align 8 dereferenceable(5096) initializes((568, 576), (580, 581)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #5 {
+define void @_ZN12node_runtime18ManagedNodeRuntime17install_if_needed17h75044189a44840ceE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([5096 x i8]) align 8 dereferenceable(5096) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 568
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 580
@@ -3359,7 +3359,7 @@ define void @_ZN12node_runtime18ManagedNodeRuntime17install_if_needed17h75044189
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12node_runtime17SystemNodeRuntime3new17h92df83b4fef145f1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1080 x i8]) align 8 dereferenceable(1080) initializes((0, 48), (240, 241)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #6 {
+define void @_ZN12node_runtime17SystemNodeRuntime3new17h92df83b4fef145f1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1080 x i8]) align 8 dereferenceable(1080) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -3369,14 +3369,14 @@ define void @_ZN12node_runtime17SystemNodeRuntime3new17h92df83b4fef145f1E(ptr de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12node_runtime17SystemNodeRuntime6detect17h22727f78550c0ffaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1088 x i8]) align 8 dereferenceable(1088) initializes((1080, 1081)) %0) unnamed_addr #5 {
+define void @_ZN12node_runtime17SystemNodeRuntime6detect17h22727f78550c0ffaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1088 x i8]) align 8 dereferenceable(1088) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1080
   store i8 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12node_runtime30read_package_installed_version17h0dca8420ea36b955E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([264 x i8]) align 8 dereferenceable(264) initializes((0, 40), (64, 65)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #6 {
+define void @_ZN12node_runtime30read_package_installed_version17h0dca8420ea36b955E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([264 x i8]) align 8 dereferenceable(264) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %2, ptr %5, align 8
@@ -8770,7 +8770,7 @@ define { ptr, ptr } @"_ZN87_$LT$node_runtime..UnavailableNodeRuntime$u20$as$u20$
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @"_ZN87_$LT$node_runtime..UnavailableNodeRuntime$u20$as$u20$node_runtime..NodeRuntimeTrait$GT$11binary_path17hd63a49c6d252450cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture nonnull readonly align 1 %1) unnamed_addr #7 {
+define void @"_ZN87_$LT$node_runtime..UnavailableNodeRuntime$u20$as$u20$node_runtime..NodeRuntimeTrait$GT$11binary_path17hd63a49c6d252450cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture nonnull readonly align 1 %1) unnamed_addr #7 {
   %3 = alloca [48 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3)
   store ptr @anon.a31af4e2f69e3b80426fbb95f24236bb.125, ptr %3, align 8

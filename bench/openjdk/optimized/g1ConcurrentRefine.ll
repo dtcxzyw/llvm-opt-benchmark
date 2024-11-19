@@ -434,7 +434,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31G1ConcurrentRefineThreadControlC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN31G1ConcurrentRefineThreadControlC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = icmp eq i32 %1, 0
@@ -627,7 +627,7 @@ define hidden noundef zeroext i1 @_ZN31G1ConcurrentRefineThreadControl22ensure_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 -4, 1) i32 @_ZN31G1ConcurrentRefineThreadControl10initializeEP18G1ConcurrentRefine(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 -4, 1) i32 @_ZN31G1ConcurrentRefineThreadControl10initializeEP18G1ConcurrentRefine(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -846,7 +846,7 @@ define hidden noundef i64 @_ZNK18G1ConcurrentRefine24adjust_threads_period_msEv(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18G1ConcurrentRefineC2EP8G1Policy(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN18G1ConcurrentRefineC2EP8G1Policy(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile i32 0, ptr %3, align 8
@@ -901,7 +901,7 @@ define hidden noundef range(i32 -4, 1) i32 @_ZN18G1ConcurrentRefine10initializeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN18G1ConcurrentRefine6createEP8G1PolicyPi(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN18G1ConcurrentRefine6createEP8G1PolicyPi(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 136, i8 noundef zeroext 5, i32 noundef 0) #17
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1574,7 +1574,7 @@ define hidden noundef zeroext i1 @_ZNK18G1ConcurrentRefine27is_thread_adjustment
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18G1ConcurrentRefine31record_thread_adjustment_neededEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((56, 57)) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN18G1ConcurrentRefine31record_thread_adjustment_neededEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i8 1, ptr %2, align 8
   ret void

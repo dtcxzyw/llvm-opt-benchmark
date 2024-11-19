@@ -36,7 +36,7 @@ $_ZTV25EpsilonGenerationCounters = comdat any
 @_ZN24EpsilonMonitoringSupportC1EP11EpsilonHeap = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN24EpsilonMonitoringSupportC2EP11EpsilonHeap
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24EpsilonMonitoringSupportC2EP11EpsilonHeap(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24EpsilonMonitoringSupportC2EP11EpsilonHeap(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #7
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 120

@@ -577,14 +577,14 @@ return:                                           ; preds = %if.then3, %entry, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %c, ptr noundef %addr, i32 noundef %port, ptr noundef readonly %timeout, ptr noundef %source_addr) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef readonly %timeout, ptr noundef %source_addr) unnamed_addr #0 {
 entry:
   %n = alloca i32, align 4
   %_port = alloca [6 x i8], align 1
@@ -993,7 +993,7 @@ return:                                           ; preds = %end, %if.then212, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextConnectBindTcp(ptr noundef initializes((168, 172), (208, 212)) %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef %source_addr) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextConnectBindTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef %source_addr) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @_redisContextConnectTcp(ptr noundef %c, ptr noundef %addr, i32 noundef %port, ptr noundef %timeout, ptr noundef %source_addr)
   ret i32 %call

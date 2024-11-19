@@ -82,7 +82,7 @@ declare void @_ZN3zmq16mechanism_base_tC2EPNS_14session_base_tERKNS_9options_tE(
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq16null_mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1576) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 {
+define void @_ZN3zmq16null_mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq16null_mechanism_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1576) initializes((0, 8), (80, 88)) %this) unnamed_addr #2 align 2 {
+define void @_ZN3zmq16null_mechanism_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1576) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 24), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq16null_mechanism_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1576) initializes((0, 8), (80, 88)) %this) unnamed_addr #2 align 2 {
+define void @_ZN3zmq16null_mechanism_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1576) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq16null_mechanism_tE0_NS_12zap_client_tE, i64 24), ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -464,7 +464,7 @@ declare void @_ZN3zmq13socket_base_t31event_handshake_failed_protocolERKNS_19end
 declare noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq16null_mechanism_t21process_ready_commandEPKhm(ptr noundef nonnull align 8 dereferenceable(1576) initializes((74, 75)) %this, ptr noundef %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq16null_mechanism_t21process_ready_commandEPKhm(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr noundef %cmd_data_, i64 noundef %data_size_) local_unnamed_addr #0 align 2 {
 entry:
   %_ready_command_received = getelementptr inbounds i8, ptr %this, i64 74
   store i8 1, ptr %_ready_command_received, align 2

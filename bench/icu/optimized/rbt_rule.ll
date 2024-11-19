@@ -505,7 +505,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7519TransliterationRuleC2ERKNS_13UnicodeStringEiiS3_iiPPNS_14UnicodeFunctorEiaaPKNS_23TransliterationRuleDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (40, 50), (104, 112), (128, 136)) %this, ptr noundef nonnull align 8 dereferenceable(64) %input, i32 noundef %anteContextPos, i32 noundef %postContextPos, ptr noundef nonnull align 8 dereferenceable(64) %outputStr, i32 noundef %cursorPosition, i32 noundef %cursorOffset, ptr noundef %segs, i32 noundef %segsCount, i8 noundef signext %anchorStart, i8 noundef signext %anchorEnd, ptr noundef %theData, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7519TransliterationRuleC2ERKNS_13UnicodeStringEiiS3_iiPPNS_14UnicodeFunctorEiaaPKNS_23TransliterationRuleDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(64) %input, i32 noundef %anteContextPos, i32 noundef %postContextPos, ptr noundef nonnull align 8 dereferenceable(64) %outputStr, i32 noundef %cursorPosition, i32 noundef %cursorOffset, ptr noundef %segs, i32 noundef %segsCount, i8 noundef signext %anchorStart, i8 noundef signext %anchorEnd, ptr noundef %theData, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519TransliterationRuleE, i64 16), ptr %this, align 8
   %pattern = getelementptr inbounds i8, ptr %this, i64 40
@@ -797,7 +797,7 @@ declare void @_ZN6icu_7514StringReplacerC1ERKNS_13UnicodeStringEiPKNS_23Translit
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7519TransliterationRuleC2ERS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(136) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7519TransliterationRuleC2ERS0_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519TransliterationRuleE, i64 16), ptr %this, align 8
   %anteContext = getelementptr inbounds i8, ptr %this, i64 8
@@ -923,7 +923,7 @@ invoke.cont45:                                    ; preds = %if.end42
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7519TransliterationRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7519TransliterationRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7519TransliterationRuleE, i64 16), ptr %this, align 8
   %segments = getelementptr inbounds i8, ptr %this, i64 104
@@ -1595,7 +1595,7 @@ declare void @_ZN6icu_7511ICU_Utility12appendToRuleERNS_13UnicodeStringERKS1_aaS
 declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7519TransliterationRule7setDataEPKNS_23TransliterationRuleDataE(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((128, 136)) %this, ptr noundef %d) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7519TransliterationRule7setDataEPKNS_23TransliterationRuleDataE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %d) local_unnamed_addr #1 align 2 {
 entry:
   %data = getelementptr inbounds i8, ptr %this, i64 128
   store ptr %d, ptr %data, align 8

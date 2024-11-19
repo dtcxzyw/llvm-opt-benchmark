@@ -312,7 +312,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core29StaticDataCertificateProviderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_14PemKeyCertPairESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 24)) %this, ptr noundef %root_certificate, ptr nocapture noundef %pem_key_cert_pairs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core29StaticDataCertificateProviderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorINS_14PemKeyCertPairESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %root_certificate, ptr nocapture noundef %pem_key_cert_pairs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::function", align 8
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -748,7 +748,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core30FileWatcherCertificateProviderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_l(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 16)) %this, ptr noundef nonnull %private_key_path, ptr noundef %identity_certificate_path, ptr noundef %root_cert_path, i64 noundef %refresh_interval_sec) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core30FileWatcherCertificateProviderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_l(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull %private_key_path, ptr noundef %identity_certificate_path, ptr noundef %root_cert_path, i64 noundef %refresh_interval_sec) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::function", align 8
   %ref.tmp = alloca %"class.grpc_core::Thread", align 8

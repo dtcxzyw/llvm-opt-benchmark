@@ -452,7 +452,7 @@ _ZN4llvm11SmallStringILj128EED2Ev.exit:           ; preds = %._crit_edge91, %161
 declare { ptr, i64 } @_ZNK5clang12Preprocessor11getSpellingERKNS_5TokenERN4llvm15SmallVectorImplIcEEPb(ptr noundef nonnull align 8 dereferenceable(3288), ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16MacroPPCallbacksC2EPNS_13CodeGeneratorERNS_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 36)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(3288) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16MacroPPCallbacksC2EPNS_13CodeGeneratorERNS_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(3288) %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang16MacroPPCallbacksE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -738,7 +738,7 @@ define dso_local void @_ZN5clang16MacroPPCallbacks11FileChangedENS_14SourceLocat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang16MacroPPCallbacks18InclusionDirectiveENS_14SourceLocationERKNS_5TokenEN4llvm9StringRefEbNS_15CharSourceRangeENS_20CustomizableOptionalINS_12FileEntryRefEEES6_S6_PKNS_6ModuleEbNS_6SrcMgr18CharacteristicKindE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((24, 28)) %0, i32 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4, i1 zeroext %5, ptr nocapture noundef readnone byval(%"class.clang::CharSourceRange") align 8 %6, i64 %7, ptr nocapture noundef readnone byval(%"class.llvm::StringRef") align 8 %8, ptr nocapture noundef readnone byval(%"class.llvm::StringRef") align 8 %9, ptr nocapture readnone %10, i1 zeroext %11, i32 %12) unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang16MacroPPCallbacks18InclusionDirectiveENS_14SourceLocationERKNS_5TokenEN4llvm9StringRefEbNS_15CharSourceRangeENS_20CustomizableOptionalINS_12FileEntryRefEEES6_S6_PKNS_6ModuleEbNS_6SrcMgr18CharacteristicKindE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, i64 %4, i1 zeroext %5, ptr nocapture noundef readnone byval(%"class.clang::CharSourceRange") align 8 %6, i64 %7, ptr nocapture noundef readnone byval(%"class.llvm::StringRef") align 8 %8, ptr nocapture noundef readnone byval(%"class.llvm::StringRef") align 8 %9, ptr nocapture readnone %10, i1 zeroext %11, i32 %12) unnamed_addr #6 align 2 {
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %14, align 8
   ret void

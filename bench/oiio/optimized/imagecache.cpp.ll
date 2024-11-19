@@ -2446,7 +2446,7 @@ cond.end:                                         ; preds = %entry, %_ZN18OpenIm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_03pvt20ImageCacheStatistics4initEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((0, 20), (24, 52), (56, 196), (200, 232)) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_03pvt20ImageCacheStatistics4initEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) %this) local_unnamed_addr #6 align 2 {
 entry:
   %files_totalsize = getelementptr inbounds i8, ptr %this, i64 24
   %fileio_time = getelementptr inbounds i8, ptr %this, i64 56
@@ -3500,7 +3500,7 @@ _ZN18OpenImageIO_v2_6_07ustring6assignERKNSt7__cxx1112basic_stringIcSt11char_tra
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile10udim_setupEv(ptr noundef nonnull align 8 dereferenceable(360) initializes((126, 130)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile10udim_setupEv(ptr noundef nonnull align 8 dereferenceable(360) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i259 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp.i143 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -4755,7 +4755,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile5resetEPFPNS_10ImageInputEvEPKNS_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(360) initializes((320, 328)) %this, ptr noundef %creator, ptr noundef %config) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile5resetEPFPNS_10ImageInputEvEPKNS_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef %creator, ptr noundef %config) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_inputcreator = getelementptr inbounds i8, ptr %this, i64 320
   store ptr %creator, ptr %m_inputcreator, align 8
@@ -4790,7 +4790,7 @@ lpad:                                             ; preds = %cond.true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile14get_imageinputEPNS0_23ImageCachePerThreadInfoE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.21") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(360) %this, ptr nocapture noundef readnone %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile14get_imageinputEPNS0_23ImageCachePerThreadInfoE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.21") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(360) %this, ptr nocapture noundef readnone %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__lock.i.i = alloca %"struct.std::_Sp_locker", align 1
   %m_input = getelementptr inbounds i8, ptr %this, i64 64
@@ -4983,7 +4983,7 @@ _ZNSt10shared_ptrIN18OpenImageIO_v2_6_010ImageInputEED2Ev.exit42: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile12SubimageInfo4initERS1_RKNS_9ImageSpecEb(ptr noundef nonnull align 8 dereferenceable(128) initializes((24, 32), (42, 43), (44, 45), (88, 92), (96, 100), (120, 128)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %icfile, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %forcefloat) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile12SubimageInfo4initERS1_RKNS_9ImageSpecEb(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(360) %icfile, ptr noundef nonnull align 8 dereferenceable(160) %spec, i1 noundef zeroext %forcefloat) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -8206,7 +8206,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN18OpenImageIO_v2_6_010ImageInput6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPKNS_9ImageSpecENS_17basic_string_viewIcS4_EE(ptr sret(%"class.std::unique_ptr.85") align 8, ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile11mark_brokenENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(360) initializes((25, 26)) %this, ptr noundef %error) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile11mark_brokenENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef %error) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_broken = getelementptr inbounds i8, ptr %this, i64 25
   store i8 1, ptr %m_broken, align 1
@@ -8294,7 +8294,7 @@ _ZNSt6vectorIN18OpenImageIO_v2_6_03pvt14ImageCacheFile12SubimageInfoESaIS3_EE5cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile15mark_not_brokenEv(ptr noundef nonnull align 8 dereferenceable(360) initializes((25, 26)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile15mark_not_brokenEv(ptr noundef nonnull align 8 dereferenceable(360) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_broken = getelementptr inbounds i8, ptr %this, i64 25
   store i8 0, ptr %m_broken, align 1
@@ -8703,7 +8703,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef i64 @_ZN18OpenImageIO_v2_6_010Filesystem9file_sizeENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile14init_from_specEv(ptr noundef nonnull align 8 dereferenceable(360) initializes((104, 108)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheFile14init_from_specEv(ptr noundef nonnull align 8 dereferenceable(360) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -15012,7 +15012,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %if.en
 declare noundef i64 @_ZNK18OpenImageIO_v2_6_09ImageSpec11tile_pixelsEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheTile4readEPNS0_23ImageCachePerThreadInfoE(ptr noundef nonnull align 8 dereferenceable(88) initializes((64, 72)) %this, ptr noundef %thread_info) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheTile4readEPNS0_23ImageCachePerThreadInfoE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %thread_info) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -15473,7 +15473,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImplC2Ev(ptr noundef nonnull align 64 dereferenceable(25280) initializes((0, 40)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImplC2Ev(ptr noundef nonnull align 64 dereferenceable(25280) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_03pvt14ImageCacheImplE, i64 16), ptr %this, align 64
   %m_perthread_info = getelementptr inbounds i8, ptr %this, i64 8
@@ -15841,7 +15841,7 @@ if.end7:                                          ; preds = %if.else, %delete.no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl4initEv(ptr noundef nonnull align 64 dereferenceable(25280) initializes((40, 44)) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl4initEv(ptr noundef nonnull align 64 dereferenceable(25280) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -16219,7 +16219,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl18set_max_open_filesEi(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(25280) initializes((40, 44)) %this, i32 noundef %max_open_files) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl18set_max_open_filesEi(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(25280) %this, i32 noundef %max_open_files) local_unnamed_addr #5 align 2 {
 entry:
   %call = tail call noundef i64 @_ZN18OpenImageIO_v2_6_07Sysutil14max_open_filesEv()
   %.sroa.speculated7 = tail call i64 @llvm.umin.i64(i64 %call, i64 2147483647)
@@ -16859,7 +16859,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK18OpenImageIO_v2_6_03pvt14ImageCacheImpl10mergestatsERNS0_20ImageCacheStatisticsE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(25280) %this, ptr nocapture noundef nonnull align 8 dereferenceable(232) initializes((0, 20), (24, 52), (56, 196), (200, 232)) %stats) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK18OpenImageIO_v2_6_03pvt14ImageCacheImpl10mergestatsERNS0_20ImageCacheStatisticsE(ptr nocapture noundef nonnull readonly align 64 dereferenceable(25280) %this, ptr nocapture noundef nonnull align 8 dereferenceable(232) %stats) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %files_totalsize.i = getelementptr inbounds i8, ptr %stats, i64 24
   %fileio_time.i = getelementptr inbounds i8, ptr %stats, i64 56
@@ -30304,7 +30304,7 @@ return:                                           ; preds = %_ZN18OpenImageIO_v2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK18OpenImageIO_v2_6_03pvt14ImageCacheImpl11tile_formatEPKNS0_14ImageCacheTileE(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::TypeDesc") align 4 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 64 %this, ptr nocapture noundef readonly %tile) unnamed_addr #13 align 2 {
+define hidden void @_ZNK18OpenImageIO_v2_6_03pvt14ImageCacheImpl11tile_formatEPKNS0_14ImageCacheTileE(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::TypeDesc") align 4 %agg.result, ptr nocapture nonnull readnone align 64 %this, ptr nocapture noundef readonly %tile) unnamed_addr #13 align 2 {
 entry:
   %m_file.i = getelementptr inbounds i8, ptr %tile, i64 40
   %0 = load ptr, ptr %m_file.i, align 8
@@ -30339,7 +30339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK18OpenImageIO_v2_6_03pvt14ImageCacheImpl8tile_roiEPKNS0_14ImageCacheTileE(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 initializes((0, 32)) %agg.result, ptr nocapture nonnull readnone align 64 %this, ptr nocapture noundef readonly %tile) unnamed_addr #13 align 2 {
+define hidden void @_ZNK18OpenImageIO_v2_6_03pvt14ImageCacheImpl8tile_roiEPKNS0_14ImageCacheTileE(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 %agg.result, ptr nocapture nonnull readnone align 64 %this, ptr nocapture noundef readonly %tile) unnamed_addr #13 align 2 {
 entry:
   %m_id.i = getelementptr inbounds i8, ptr %tile, i64 8
   %m_file.i = getelementptr inbounds i8, ptr %tile, i64 40
@@ -31966,7 +31966,7 @@ declare void @_ZN18OpenImageIO_v2_6_010Filesystem17filename_to_regexB5cxx11ENS_1
 declare void @_ZN18OpenImageIO_v2_6_07Strutil7replaceB5cxx11ENS_17basic_string_viewIcSt11char_traitsIcEEES4_S4_b(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl14inventory_udimEPNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERSt6vectorINS_7ustringESaIS7_EERiSB_(ptr nocapture noundef nonnull readnone align 64 dereferenceable(25280) %this, ptr noundef readonly %udimfile, ptr nocapture noundef readnone %thread_info, ptr noundef nonnull align 8 dereferenceable(24) %filenames, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %nutiles, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %nvtiles) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_03pvt14ImageCacheImpl14inventory_udimEPNS0_14ImageCacheFileEPNS0_23ImageCachePerThreadInfoERSt6vectorINS_7ustringESaIS7_EERiSB_(ptr nocapture noundef nonnull readnone align 64 dereferenceable(25280) %this, ptr noundef readonly %udimfile, ptr nocapture noundef readnone %thread_info, ptr noundef nonnull align 8 dereferenceable(24) %filenames, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nutiles, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %nvtiles) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %udimfile, null
   br i1 %tobool.not, label %if.then, label %lor.lhs.false

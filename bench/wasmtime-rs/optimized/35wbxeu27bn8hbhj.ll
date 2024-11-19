@@ -95,7 +95,7 @@ define zeroext i1 @"_ZN95_$LT$cranelift_codegen_meta..cdsl..formats..Instruction
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats17InstructionFormat9structure17h97497efc21f41bc1E(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 }, i64, i64, i8, [7 x i8] }) align 8 initializes((0, 41)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats17InstructionFormat9structure17h97497efc21f41bc1E(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 }, i64, i64, i8, [7 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load i64, ptr %4, align 8, !noundef !3
@@ -120,7 +120,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats17InstructionFormat9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatBuilder3new17h66b6d7ffc831cd81E(ptr nocapture writeonly sret({ { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] } }) align 8 initializes((0, 8), (16, 73)) %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatBuilder3new17h66b6d7ffc831cd81E(ptr nocapture writeonly sret({ { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] } }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
@@ -138,7 +138,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatBuilder5value17h35e1ba2ecbf29780E(ptr nocapture writeonly sret({ { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] } }) align 8 initializes((0, 80)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatBuilder5value17h35e1ba2ecbf29780E(ptr nocapture writeonly sret({ { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] } }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = add i64 %4, 1
@@ -148,7 +148,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatBuilder7varargs17hc921cedbeab8a174E(ptr nocapture writeonly sret({ { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] } }) align 8 initializes((0, 80)) %0, ptr nocapture align 8 initializes((72, 73)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatBuilder7varargs17hc921cedbeab8a174E(ptr nocapture writeonly sret({ { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] } }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   store i8 1, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
@@ -156,7 +156,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatBuilder5block17hbe9ad069bb1cc53aE(ptr nocapture writeonly sret({ { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] } }) align 8 initializes((0, 80)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl7formats24InstructionFormatBuilder5block17hbe9ad069bb1cc53aE(ptr nocapture writeonly sret({ { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { ptr, i64 }, i64, i64, i8, [7 x i8] } }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = add i64 %4, 1

@@ -3613,7 +3613,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17CaptureFileDialog8fileTypeEiR5QListI7QStringE(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17CaptureFileDialog8fileTypeEiR5QListI7QStringE(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -3894,7 +3894,7 @@ _ZN7QStringD2Ev.exit5:                            ; preds = %11, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17CaptureFileDialog21buildFileOpenTypeListEv(ptr dead_on_unwind noalias writable sret(%class.QList.3) align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17CaptureFileDialog21buildFileOpenTypeListEv(ptr dead_on_unwind noalias writable sret(%class.QList.3) align 8 %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -8548,7 +8548,7 @@ _ZN7QStringD2Ev.exit39:                           ; preds = %96, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17CaptureFileDialog23buildFileSaveAsTypeListEb(ptr dead_on_unwind noalias writable sret(%class.QList.3) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(572) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17CaptureFileDialog23buildFileSaveAsTypeListEb(ptr dead_on_unwind noalias writable sret(%class.QList.3) align 8 %0, ptr noundef nonnull align 8 dereferenceable(572) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8

@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.zerr_to_string = private unnamed_addr constant [9 x ptr] [ptr @.str.15, ptr @.str.19, ptr @.str.14, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.19, ptr @.str.19, ptr @.str.16], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @git_inflate_init(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm) local_unnamed_addr #0 {
+define dso_local void @git_inflate_init(ptr noundef %strm) local_unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %0 = load ptr, ptr %next_in.i, align 8
@@ -139,7 +139,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @git_inflate_init_gzip_only(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm) local_unnamed_addr #0 {
+define dso_local void @git_inflate_init_gzip_only(ptr noundef %strm) local_unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %0 = load ptr, ptr %next_in.i, align 8
@@ -230,7 +230,7 @@ if.end:                                           ; preds = %zlib_post_call.exit
 declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @git_inflate_end(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm) local_unnamed_addr #0 {
+define dso_local void @git_inflate_end(ptr noundef %strm) local_unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %0 = load ptr, ptr %next_in.i, align 8
@@ -344,7 +344,7 @@ declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #1
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, -4) i32 @git_inflate(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm, i32 noundef %flush) local_unnamed_addr #0 {
+define dso_local range(i32 -3, -4) i32 @git_inflate(ptr noundef %strm, i32 noundef %flush) local_unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
@@ -508,7 +508,7 @@ entry:
 declare i64 @deflateBound(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @git_deflate_init(ptr noundef initializes((0, 160)) %strm, i32 noundef %level) local_unnamed_addr #0 {
+define dso_local void @git_deflate_init(ptr noundef %strm, i32 noundef %level) local_unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
@@ -585,14 +585,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare i32 @deflateInit_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @git_deflate_init_gzip(ptr noundef initializes((0, 160)) %strm, i32 noundef %level) local_unnamed_addr #0 {
+define dso_local void @git_deflate_init_gzip(ptr noundef %strm, i32 noundef %level) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @do_git_deflate_init(ptr noundef %strm, i32 noundef %level, i32 noundef 31)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_git_deflate_init(ptr noundef initializes((0, 160)) %strm, i32 noundef %level, i32 noundef range(i32 -15, 32) %windowBits) unnamed_addr #0 {
+define internal fastcc void @do_git_deflate_init(ptr noundef %strm, i32 noundef %level, i32 noundef range(i32 -15, 32) %windowBits) unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152
@@ -664,14 +664,14 @@ if.end:                                           ; preds = %zlib_post_call.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @git_deflate_init_raw(ptr noundef initializes((0, 160)) %strm, i32 noundef %level) local_unnamed_addr #0 {
+define dso_local void @git_deflate_init_raw(ptr noundef %strm, i32 noundef %level) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @do_git_deflate_init(ptr noundef %strm, i32 noundef %level, i32 noundef -15)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @git_deflate_abort(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm) local_unnamed_addr #0 {
+define dso_local i32 @git_deflate_abort(ptr noundef %strm) local_unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %0 = load ptr, ptr %next_in.i, align 8
@@ -749,7 +749,7 @@ zlib_post_call.exit:                              ; preds = %if.end.i
 declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @git_deflate_end(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm) local_unnamed_addr #0 {
+define dso_local void @git_deflate_end(ptr noundef %strm) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @git_deflate_abort(ptr noundef %strm)
   switch i32 %call, label %sw.default.i [
@@ -790,7 +790,7 @@ return:                                           ; preds = %entry, %zerr_to_str
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @git_deflate_end_gently(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm) local_unnamed_addr #0 {
+define dso_local i32 @git_deflate_end_gently(ptr noundef %strm) local_unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %0 = load ptr, ptr %next_in.i, align 8
@@ -866,7 +866,7 @@ zlib_post_call.exit:                              ; preds = %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, -4) i32 @git_deflate(ptr noundef initializes((0, 12), (16, 36), (40, 48)) %strm, i32 noundef %flush) local_unnamed_addr #0 {
+define dso_local range(i32 -3, -4) i32 @git_deflate(ptr noundef %strm, i32 noundef %flush) local_unnamed_addr #0 {
 entry:
   %next_in.i = getelementptr inbounds i8, ptr %strm, i64 144
   %next_out.i = getelementptr inbounds i8, ptr %strm, i64 152

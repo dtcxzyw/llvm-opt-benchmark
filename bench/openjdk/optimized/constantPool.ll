@@ -617,7 +617,7 @@ _ZN15MetadataFactory9new_arrayIhEEP5ArrayIT_EP15ClassLoaderDataiS2_P10JavaThread
 declare noundef ptr @_ZN12MetaspaceObjnwEmP15ClassLoaderDatamNS_4TypeEP10JavaThread(i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12ConstantPool11copy_fieldsEPKS_(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((48, 56)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN12ConstantPool11copy_fieldsEPKS_(ptr nocapture noundef nonnull align 8 dereferenceable(68) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 8
@@ -652,13 +652,13 @@ define hidden void @_ZN12ConstantPool11copy_fieldsEPKS_(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ConstantPoolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN12ConstantPoolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV12ConstantPool, i64 16), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12ConstantPoolC2EP5ArrayIhE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((0, 16), (60, 64)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN12ConstantPoolC2EP5ArrayIhE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTV12ConstantPool, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

@@ -79,7 +79,7 @@ define dso_local void @_ZN4llvm3pdb22NativeSymbolEnumeratorC2ERNS0_13NativeSessi
 declare void @_ZN4llvm3pdb15NativeRawSymbolC2ERNS0_13NativeSessionENS0_11PDB_SymTypeEj(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(584), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb22NativeSymbolEnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb22NativeSymbolEnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 1448) (i8, ptr @_ZTVN4llvm3pdb22NativeSymbolEnumeratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i32, ptr %2, align 8
@@ -665,7 +665,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb22NativeSymbolEnumerator15isUn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb22NativeSymbolEnumerator8getValueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::pdb::Variant") align 8 initializes((0, 4), (8, 9)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb22NativeSymbolEnumerator8getValueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::pdb::Variant") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm3pdb14NativeTypeEnum24getUnderlyingBuiltinTypeEv(ptr noundef nonnull align 8 dereferenceable(114) %4) #7

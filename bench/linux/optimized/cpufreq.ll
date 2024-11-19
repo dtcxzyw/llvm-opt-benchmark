@@ -419,7 +419,7 @@ declare dso_local i64 @get_cpu_idle_time_us(i32 noundef, ptr noundef) local_unna
 declare dso_local i64 @get_cpu_iowait_time_us(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none)
-define dso_local void @cpufreq_generic_init(ptr nocapture noundef writeonly initializes((0, 8), (48, 52), (336, 344)) %0, ptr noundef %1, i32 noundef %2) #5 align 16 {
+define dso_local void @cpufreq_generic_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 336
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48

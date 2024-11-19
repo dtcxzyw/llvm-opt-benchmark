@@ -156,7 +156,7 @@ $_ZTV14GenerateOopMap = comdat any
 @_ZN8ciMethodC1EP15ciInstanceKlassP8ciSymbolS3_S1_ = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr), ptr @_ZN8ciMethodC2EP15ciInstanceKlassP8ciSymbolS3_S1_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ciMethodC2ERK12methodHandleP15ciInstanceKlass(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 12), (16, 30), (40, 48), (64, 92), (104, 117), (120, 160)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN8ciMethodC2ERK12methodHandleP15ciInstanceKlass(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.constantPoolHandle, align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -620,7 +620,7 @@ declare void @_ZN8ciReplay10initializeEP8ciMethod(ptr noundef) local_unnamed_add
 declare void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ciMethodC2EP15ciInstanceKlassP8ciSymbolS3_S1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 12), (16, 30), (32, 72), (84, 88), (100, 104), (113, 115), (136, 160)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN8ciMethodC2EP15ciInstanceKlassP8ciSymbolS3_S1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %class.constantPoolHandle, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
@@ -676,7 +676,7 @@ define hidden void @_ZN8ciMethodC2EP15ciInstanceKlassP8ciSymbolS3_S1_(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ciMethod9load_codeEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((120, 128)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8ciMethod9load_codeEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -1786,7 +1786,7 @@ define hidden noundef range(i32 0, -2147483648) i32 @_ZN8ciMethod14check_overflo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ciMethod19call_profile_at_bciEi(ptr dead_on_unwind noalias nocapture writable sret(%class.ciCallProfile) align 8 initializes((0, 16), (24, 32)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8ciMethod19call_profile_at_bciEi(ptr dead_on_unwind noalias nocapture writable sret(%class.ciCallProfile) align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(160) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 800

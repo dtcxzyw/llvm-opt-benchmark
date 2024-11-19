@@ -99,7 +99,7 @@ $_ZTVN4llvm16CachedFileStreamE = comdat any
 @_ZN4llvm7ECError2IDE = external global i8, align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10localCacheERKNS_5TwineES2_S2_St8functionIFvjS2_St10unique_ptrINS_12MemoryBufferESt14default_deleteIS5_EEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm10localCacheERKNS_5TwineES2_S2_St8functionIFvjS2_St10unique_ptrINS_12MemoryBufferESt14default_deleteIS5_EEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::SmallString", align 8
   %7 = alloca %"class.llvm::SmallString", align 8
   %8 = alloca %"class.llvm::SmallString", align 8
@@ -1331,7 +1331,7 @@ declare void @_ZN4llvm17createStringErrorEONSt7__cxx1112basic_stringIcSt11char_t
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEEjRKNS0_5TwineEEZZNS0_10localCacheESA_SA_SA_St8functionIFvjSA_S2_INS0_12MemoryBufferES4_ISD_EEEEENK3$_0clEjNS0_9StringRefESA_EUlmSA_E_E9_M_invokeERKSt9_Any_dataOjSA_"(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.30") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(34) %3) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN4llvm8ExpectedISt10unique_ptrINS0_16CachedFileStreamESt14default_deleteIS3_EEEEjRKNS0_5TwineEEZZNS0_10localCacheESA_SA_SA_St8functionIFvjSA_S2_INS0_12MemoryBufferES4_ISD_EEEEENK3$_0clEjNS0_9StringRefESA_EUlmSA_E_E9_M_invokeERKSt9_Any_dataOjSA_"(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.30") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(34) %3) #0 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::function", align 8
   %7 = alloca %"class.llvm::sys::fs::TempFile", align 8
@@ -1859,7 +1859,7 @@ declare void @_ZN4llvm3sys2fs8TempFileD1Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZZN4llvm10localCacheERKNS_5TwineES2_S2_St8functionIFvjS2_St10unique_ptrINS_12MemoryBufferESt14default_deleteIS5_EEEEENK3$_0clEjNS_9StringRefES2_EN11CacheStreamD2Ev"(ptr noundef nonnull align 8 dereferenceable(164) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @"_ZZZN4llvm10localCacheERKNS_5TwineES2_S2_St8functionIFvjS2_St10unique_ptrINS_12MemoryBufferESt14default_deleteIS5_EEEEENK3$_0clEjNS_9StringRefES2_EN11CacheStreamD2Ev"(ptr noundef nonnull align 8 dereferenceable(164) %0) unnamed_addr #0 align 2 {
   %2 = alloca i32, align 4
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::Error", align 8
@@ -2255,7 +2255,7 @@ _ZN4llvm16CachedFileStreamD2Ev.exit:              ; preds = %_ZNSt8functionIFvjR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZZZN4llvm10localCacheERKNS_5TwineES2_S2_St8functionIFvjS2_St10unique_ptrINS_12MemoryBufferESt14default_deleteIS5_EEEEENK3$_0clEjNS_9StringRefES2_EN11CacheStreamD0Ev"(ptr noundef nonnull align 8 dereferenceable(164) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @"_ZZZN4llvm10localCacheERKNS_5TwineES2_S2_St8functionIFvjS2_St10unique_ptrINS_12MemoryBufferESt14default_deleteIS5_EEEEENK3$_0clEjNS_9StringRefES2_EN11CacheStreamD0Ev"(ptr noundef nonnull align 8 dereferenceable(164) %0) unnamed_addr #0 align 2 {
   tail call void @"_ZZZN4llvm10localCacheERKNS_5TwineES2_S2_St8functionIFvjS2_St10unique_ptrINS_12MemoryBufferESt14default_deleteIS5_EEEEENK3$_0clEjNS_9StringRefES2_EN11CacheStreamD2Ev"(ptr noundef nonnull align 8 dereferenceable(164) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 168) #18
   ret void

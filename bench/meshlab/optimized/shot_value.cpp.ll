@@ -126,7 +126,7 @@ define linkonce_odr { <2 x float>, float } @_ZNK5Value9getPoint3Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK9ShotValue7getShotEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Shot") align 4 initializes((0, 132)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %1) unnamed_addr #2 align 2 {
+define void @_ZNK9ShotValue7getShotEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Shot") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %0, ptr noundef nonnull align 8 dereferenceable(132) %3, i64 132, i1 false)
   ret void
@@ -183,14 +183,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK5Value7isColorEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9ShotValue8typeNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
+define void @_ZNK9ShotValue8typeNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str, i32 noundef 4)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9ShotValue3setERK5Value(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((8, 140)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 {
+define void @_ZN9ShotValue3setERK5Value(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.vcg::Shot", align 4
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 64
@@ -248,7 +248,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9ShotValueC2ERKN3vcg4ShotIfNS0_8Matrix44IfEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((0, 140)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %1) unnamed_addr #2 align 2 {
+define void @_ZN9ShotValueC2ERKN3vcg4ShotIfNS0_8Matrix44IfEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9ShotValue, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %3, ptr noundef nonnull align 4 dereferenceable(132) %1, i64 132, i1 false)

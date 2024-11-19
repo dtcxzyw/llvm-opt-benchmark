@@ -484,7 +484,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759BytesTrie8IteratorC2EPKviR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, ptr noundef %trieBytes, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759BytesTrie8IteratorC2EPKviR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %trieBytes, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %trieBytes, ptr %this, align 8
   %pos_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -578,7 +578,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 declare void @_ZN6icu_759UVector32C1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_759BytesTrie8IteratorC2ERKS0_iR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %trie, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_759BytesTrie8IteratorC2ERKS0_iR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %trie, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes_2 = getelementptr inbounds i8, ptr %trie, i64 8
   %0 = load ptr, ptr %bytes_2, align 8
@@ -725,7 +725,7 @@ delete.end4:                                      ; preds = %delete.notnull3, %d
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_759BytesTrie8Iterator5resetEv(ptr noundef nonnull returned align 8 dereferenceable(56) initializes((8, 16), (24, 28)) %this) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_759BytesTrie8Iterator5resetEv(ptr noundef nonnull returned align 8 dereferenceable(56) %this) local_unnamed_addr #1 align 2 {
 entry:
   %initialPos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %initialPos_, align 8
@@ -1304,7 +1304,7 @@ return:                                           ; preds = %if.else, %if.then
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), i8 noundef signext, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef signext i8 @_ZN6icu_759BytesTrie8Iterator15truncateAndStopEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((8, 16), (44, 48)) %this) local_unnamed_addr #9 align 2 {
+define noundef signext i8 @_ZN6icu_759BytesTrie8Iterator15truncateAndStopEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this) local_unnamed_addr #9 align 2 {
 entry:
   %pos_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %pos_, align 8

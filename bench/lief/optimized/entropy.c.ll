@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_entropy_init(ptr noundef initializes((0, 4), (224, 228), (232, 1032)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_entropy_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 232
@@ -758,7 +758,7 @@ mbedtls_entropy_free.exit:                        ; preds = %mbedtls_entropy_add
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @entropy_dummy_source(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #6 {
+define internal noundef i32 @entropy_dummy_source(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #6 {
   tail call void @llvm.memset.p0.i64(ptr align 1 %1, i8 42, i64 %2, i1 false)
   store i64 %2, ptr %3, align 8
   ret i32 0

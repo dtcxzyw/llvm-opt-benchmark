@@ -10314,7 +10314,7 @@ declare ptr @proto_tree_add_float(ptr noundef, i32 noundef, ptr noundef, i32 nou
 declare signext i16 @tvb_get_gint16(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_kafka_bytes_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_bytes_new(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca i64, align 8
   store i32 0, ptr %5, align 4
   %8 = call i32 @tvb_get_varint(ptr noundef %0, i32 noundef %4, i32 noundef 5, ptr noundef nonnull %7, i32 noundef 8) #6

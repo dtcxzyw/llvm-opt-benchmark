@@ -3630,7 +3630,7 @@ define dso_local void @stream_cleanup_files(i32 noundef %0, i32 noundef %1) loca
 declare void @BufFileDeleteFileSet(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_stream_options(ptr nocapture noundef writeonly initializes((0, 1), (8, 28), (32, 41), (48, 57), (64, 72)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @set_stream_options(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   store i8 1, ptr %0, align 8
   %4 = load i64, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5341,7 +5341,7 @@ define internal fastcc void @slot_store_data(ptr noundef %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @apply_handle_tuple_routing(ptr nocapture noundef initializes((24, 40)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 2, 5) %3) unnamed_addr #0 {
+define internal fastcc void @apply_handle_tuple_routing(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 2, 5) %3) unnamed_addr #0 {
   %5 = alloca %struct.EPQState, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8

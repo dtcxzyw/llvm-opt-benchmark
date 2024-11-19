@@ -246,7 +246,7 @@ define hidden i32 @SplashTime() local_unnamed_addr #7 {
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @msec2timeval(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #9 {
+define hidden void @msec2timeval(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
   %3 = udiv i32 %0, 1000
   %4 = zext nneg i32 %3 to i64
   store i64 %4, ptr %1, align 8
@@ -321,7 +321,7 @@ define hidden void @FreeColors(ptr noundef %0, ptr noundef %1, i32 noundef %2, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SplashCreateWindow(ptr nocapture noundef initializes((10636, 10644), (11792, 11800)) %0) local_unnamed_addr #0 {
+define hidden void @SplashCreateWindow(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.XSizeHints, align 8
   %3 = alloca %struct.XSetWindowAttributes, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
@@ -416,7 +416,7 @@ SplashUpdateSizeHints.exit:                       ; preds = %1, %29
 declare i64 @XCreateFontCursor(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SplashCenter(ptr nocapture noundef initializes((10636, 10644)) %0) unnamed_addr #0 {
+define internal fastcc void @SplashCenter(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = alloca i32, align 4
   %4 = alloca i64, align 8
@@ -796,7 +796,7 @@ declare i32 @XMapWindow(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @XFlush(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SplashReconfigureNow(ptr noundef initializes((10636, 10644)) %0) local_unnamed_addr #0 {
+define hidden void @SplashReconfigureNow(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.XSizeHints, align 8
   tail call fastcc void @SplashCenter(ptr noundef %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 11720
@@ -1856,7 +1856,7 @@ sendctl.exit:                                     ; preds = %1, %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i8 @SplashGetScaledImageName(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define zeroext i8 @SplashGetScaledImageName(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   store float 1.000000e+00, ptr %2, align 4
   %6 = tail call double (...) @getNativeScaleFactor() #16
   %7 = fptrunc double %6 to float

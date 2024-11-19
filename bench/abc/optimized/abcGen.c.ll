@@ -1737,7 +1737,7 @@ declare i32 @Aig_ManRandom(i32 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_GenFsmCond(ptr nocapture noundef initializes((4, 8)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @Abc_GenFsmCond(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = icmp sgt i32 %1, 0

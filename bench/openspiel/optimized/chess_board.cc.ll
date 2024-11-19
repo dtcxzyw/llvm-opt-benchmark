@@ -3902,7 +3902,7 @@ _ZNR4absl7debian28optionalIN10open_spiel12chess_common6SquareEEdeEv.exit128: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN10open_spiel5chess10ChessBoardC2Eibb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((0, 6), (134, 137), (140, 148)) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #12 align 2 {
+define void @_ZN10open_spiel5chess10ChessBoardC2Eibb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #12 align 2 {
   %5 = zext i1 %2 to i8
   %6 = zext i1 %3 to i8
   store i32 %1, ptr %0, align 8
@@ -5552,14 +5552,14 @@ define void @_ZN10open_spiel5chess10ChessBoard11SetEpSquareENS_12chess_common6Sq
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel5chess10ChessBoard26SetIrreversibleMoveCounterEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((140, 144)) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define void @_ZN10open_spiel5chess10ChessBoard26SetIrreversibleMoveCounterEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel5chess10ChessBoard13SetMovenumberEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((144, 148)) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define void @_ZN10open_spiel5chess10ChessBoard13SetMovenumberEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %1, ptr %3, align 8
   ret void

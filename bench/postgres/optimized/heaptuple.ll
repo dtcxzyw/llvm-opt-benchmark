@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.fetch_att = private unnamed_addr constant [10 x i8] c"fetch_att\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @getmissingattr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
+define dso_local i64 @getmissingattr(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.HASHCTL, align 8
   %5 = alloca %struct.missing_cache_key, align 8
   %6 = alloca i8, align 1
@@ -1409,7 +1409,7 @@ fetch_att.exit:                                   ; preds = %261, %255, %252, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
+define dso_local i64 @heap_getsysattr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   switch i32 %1, label %29 [
     i32 -1, label %5
@@ -1511,7 +1511,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_copytuple_with_tuple(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #0 {
+define dso_local void @heap_copytuple_with_tuple(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 

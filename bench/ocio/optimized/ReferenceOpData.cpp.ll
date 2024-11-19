@@ -46,7 +46,7 @@ declare void @_ZN19OpenColorIO_v2_4dev6OpDataC2Ev(ptr noundef nonnull align 8 de
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev15ReferenceOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(244) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev15ReferenceOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(244) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15ReferenceOpDataE, i64 16), ptr %this, align 8
   %m_alias = getelementptr inbounds i8, ptr %this, i64 208
@@ -63,7 +63,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev15ReferenceOpDataD0Ev(ptr noundef nonnull align 8 dereferenceable(244) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev15ReferenceOpDataD0Ev(ptr noundef nonnull align 8 dereferenceable(244) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15ReferenceOpDataE, i64 16), ptr %this, align 8
   %m_alias.i = getelementptr inbounds i8, ptr %this, i64 208

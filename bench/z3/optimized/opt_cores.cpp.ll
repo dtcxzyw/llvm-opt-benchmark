@@ -162,7 +162,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3opt5coresC2ER6solverRNS_11lns_contextE(ptr noundef nonnull align 8 dereferenceable(117) initializes((0, 28), (32, 36), (40, 52), (56, 64)) %this, ptr noundef nonnull align 8 dereferenceable(96) %s, ptr noundef nonnull align 8 dereferenceable(8) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3opt5coresC2ER6solverRNS_11lns_contextE(ptr noundef nonnull align 8 dereferenceable(117) %this, ptr noundef nonnull align 8 dereferenceable(96) %s, ptr noundef nonnull align 8 dereferenceable(8) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %s, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
@@ -5393,7 +5393,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3opt5cores10unsat_coreEv(ptr noalias sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(117) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3opt5cores10unsat_coreEv(ptr noalias sret(%class.ref_vector) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(117) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -7435,7 +7435,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit110, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3opt5cores11core_weightEjPKP4expr(ptr noalias sret(%class.rational) align 8 initializes((0, 4), (8, 20), (24, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(117) %this, i32 noundef %sz, ptr nocapture noundef readonly %core) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3opt5cores11core_weightEjPKP4expr(ptr noalias sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(117) %this, i32 noundef %sz, ptr nocapture noundef readonly %core) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i32 %sz, 0
   br i1 %cmp, label %if.then, label %if.end

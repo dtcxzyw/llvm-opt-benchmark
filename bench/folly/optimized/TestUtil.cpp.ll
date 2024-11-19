@@ -1290,7 +1290,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4test13TemporaryFileC2ENS_5RangeIPKcEEN5boost10filesystem4pathENS1_5ScopeEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 5), (8, 12)) %this, ptr %namePrefix.coerce0, ptr %namePrefix.coerce1, ptr noundef %dir, i32 noundef %scope, i1 noundef zeroext %closeOnDestruction) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4test13TemporaryFileC2ENS_5RangeIPKcEEN5boost10filesystem4pathENS1_5ScopeEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %namePrefix.coerce0, ptr %namePrefix.coerce1, ptr noundef %dir, i32 noundef %scope, i1 noundef zeroext %closeOnDestruction) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.boost::filesystem::path", align 8
@@ -2930,7 +2930,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4test18TemporaryDirectoryC2ENS_5RangeIPKcEEN5boost10filesystem4pathENS1_5ScopeE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %this, ptr %namePrefix.coerce0, ptr %namePrefix.coerce1, ptr noundef %dir, i32 noundef %scope) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4test18TemporaryDirectoryC2ENS_5RangeIPKcEEN5boost10filesystem4pathENS1_5ScopeE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr %namePrefix.coerce0, ptr %namePrefix.coerce1, ptr noundef %dir, i32 noundef %scope) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::filesystem::path", align 8
   %agg.tmp = alloca %"class.boost::filesystem::path", align 8
@@ -54214,7 +54214,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4test9CaptureFDC2EiSt8functionIFvNS_5RangeIPKcEEEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 32)) %this, i32 noundef %fd, ptr nocapture noundef %chunk_cob) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4test9CaptureFDC2EiSt8functionIFvNS_5RangeIPKcEEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %fd, ptr nocapture noundef %chunk_cob) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.google::LogMessageFatal", align 8
   %agg.tmp2 = alloca %"class.boost::filesystem::path", align 8

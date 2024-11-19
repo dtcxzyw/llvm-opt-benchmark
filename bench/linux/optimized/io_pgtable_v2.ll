@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [34 x i8] c"drivers/iommu/amd/io_pgtable_v2.c\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @v2_alloc_pgtable(ptr noundef initializes((272, 280)) %0, ptr noundef %1) #0 align 16 {
+define internal ptr @v2_alloc_pgtable(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 428
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -1

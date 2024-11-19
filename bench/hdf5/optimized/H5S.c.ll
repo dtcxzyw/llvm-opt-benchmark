@@ -472,7 +472,7 @@ declare i32 @H5CX_pop(i1 noundef zeroext) local_unnamed_addr #1
 declare i32 @H5E_dump_api_stack() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5S__extent_release(ptr nocapture noundef initializes((48, 60)) %0) local_unnamed_addr #0 {
+define noundef i32 @H5S__extent_release(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 1
@@ -833,7 +833,7 @@ H5S_extent_copy.exit.thread26:                    ; preds = %18, %11, %H5S_exten
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5S_extent_copy(ptr noundef initializes((44, 60)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5S_extent_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @H5S__extent_copy_real(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %5, label %9
@@ -868,7 +868,7 @@ define range(i32 -1, 1) i32 @H5S_extent_copy(ptr noundef initializes((44, 60)) %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5S__extent_copy_real(ptr noundef initializes((44, 60)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5S__extent_copy_real(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 1

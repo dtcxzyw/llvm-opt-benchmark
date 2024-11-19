@@ -70,7 +70,7 @@ declare dso_local i32 @snd_seq_kernel_client_dispatch(i32 noundef, ptr noundef, 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_seq_system_notify(i32 noundef %0, i32 noundef %1, ptr noundef initializes((1, 2), (12, 16)) %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @snd_seq_system_notify(i32 noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 1
   store i8 0, ptr %4, align 1
   %5 = load i32, ptr @sysclient, align 4

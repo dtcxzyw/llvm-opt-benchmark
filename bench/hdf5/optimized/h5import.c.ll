@@ -3184,7 +3184,7 @@ define dso_local void @usage(ptr noundef %0) local_unnamed_addr #6 {
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @setDefaultValues(ptr noundef initializes((0, 4), (5104, 5116), (5120, 5128), (5136, 5144)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define dso_local void @setDefaultValues(ptr noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = alloca [255 x i8], align 16
   %4 = alloca [255 x i8], align 16
   store i32 0, ptr %0, align 8
@@ -5155,7 +5155,7 @@ declare i32 @H5check_version(i32 noundef, i32 noundef, i32 noundef) local_unname
 declare i64 @H5Fcreate(ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @processConfigurationFile(ptr noundef nonnull %0, ptr noundef nonnull initializes((5116, 5124)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @processConfigurationFile(ptr noundef nonnull %0, ptr noundef nonnull %1) unnamed_addr #0 {
 OutputByteOrderStrToInt.exit:
   %2 = alloca [255 x i8], align 16
   %3 = alloca i64, align 8

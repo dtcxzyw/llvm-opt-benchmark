@@ -244,7 +244,7 @@ entry:
 declare void @llvm.trap() #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217RoseDedupeAuxImplC2ERKNS_13RoseBuildImplE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(780) %build_in) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217RoseDedupeAuxImplC2ERKNS_13RoseBuildImplE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(780) %build_in) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %__z.i274 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::set<const ue2::OutfixInfo *>>, std::_Select1st<std::pair<const unsigned int, std::set<const ue2::OutfixInfo *>>>, std::less<unsigned int>>::_Auto_node", align 8
   %__z.i178 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::set<ue2::suffix_id>>, std::_Select1st<std::pair<const unsigned int, std::set<ue2::suffix_id>>>, std::less<unsigned int>>::_Auto_node", align 8
@@ -4860,7 +4860,7 @@ entry:
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L8makePathERKNS_15rose_literal_idE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(124) %lit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L8makePathERKNS_15rose_literal_idE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(124) %lit) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_string_length.i.i.i = getelementptr inbounds i8, ptr %lit, i64 8
   %0 = load i64, ptr %_M_string_length.i.i.i, align 8

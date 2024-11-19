@@ -175,7 +175,7 @@ define internal void @tty_port_default_wakeup(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tty_port_init(ptr noundef initializes((0, 376)) %0) #0 align 16 {
+define dso_local void @tty_port_init(ptr noundef %0) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(376) %0, i8 0, i64 376, i1 false)
   tail call void @tty_buffer_init(ptr noundef %0) #6
   %2 = getelementptr inbounds i8, ptr %0, i64 184
@@ -1269,7 +1269,7 @@ define dso_local void @tty_port_close(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tty_port_install(ptr noundef %0, ptr noundef %1, ptr noundef initializes((24, 32)) %2) #0 align 16 {
+define dso_local i32 @tty_port_install(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %0, ptr %4, align 8
   %5 = tail call i32 @tty_standard_install(ptr noundef %1, ptr noundef %2) #6

@@ -56,7 +56,7 @@ define void @Sfm_PrintCnf(ptr nocapture noundef readonly %0) local_unnamed_addr 
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_TruthToCnf(i64 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef initializes((4, 8)) %4) local_unnamed_addr #2 {
+define i32 @Sfm_TruthToCnf(i64 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca i64, align 8
   store i64 %0, ptr %6, align 8
   %7 = icmp slt i32 %2, 7

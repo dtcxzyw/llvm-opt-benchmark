@@ -5762,7 +5762,7 @@ define hidden void @_ZN4time10formatting22format_number_pad_zero17he5277f3937805
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4time10formatting5write17h55ed8727e4fb65a1E(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
+define hidden void @_ZN4time10formatting5write17h55ed8727e4fb65a1E(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !704, !noalias !711, !noundef !4
   %7 = load i64, ptr %1, align 8, !alias.scope !714, !noalias !711, !noundef !4

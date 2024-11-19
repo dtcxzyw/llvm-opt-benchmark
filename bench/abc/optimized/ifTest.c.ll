@@ -386,7 +386,7 @@ define void @Gia_ParTestSimulateObj(ptr nocapture noundef readonly %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ParTestSimulate(ptr nocapture noundef initializes((768, 776), (784, 788)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @Gia_ParTestSimulate(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 @Gia_ManRandom(i32 noundef 1) #16
   %4 = getelementptr i8, ptr %0, i64 24
   %.val.i = load i32, ptr %4, align 8
@@ -754,7 +754,7 @@ define noalias noundef nonnull ptr @Gia_ParWorkerThread(ptr noundef %0) #4 {
 declare void @pthread_exit(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ParTestSimulate2(ptr noundef initializes((768, 776), (784, 788)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Gia_ParTestSimulate2(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca [100 x i64], align 16
   %5 = alloca [100 x %struct.Par_ThData_t_], align 16
   %6 = tail call i32 @Gia_ManRandom(i32 noundef 1) #16
@@ -1341,7 +1341,7 @@ declare void @Gia_ObjPrint(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @Gia_ManStaticFanoutStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ParTest(ptr noundef initializes((768, 776), (784, 788)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Gia_ParTest(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8

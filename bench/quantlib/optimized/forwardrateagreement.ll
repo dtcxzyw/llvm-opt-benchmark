@@ -2146,7 +2146,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_18YieldTermStructureEE4LinkEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20ForwardRateAgreementC1ERKN5boost10shared_ptrINS_9IborIndexEEERKNS_4DateENS_8Position4TypeEddNS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(304) initializes((304, 312), (320, 324), (328, 336)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr noundef nonnull align 8 dereferenceable(8) %valueDate, i32 noundef %type, double noundef %strikeForwardRate, double noundef %notionalAmount, ptr nocapture noundef %discountCurve) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20ForwardRateAgreementC1ERKN5boost10shared_ptrINS_9IborIndexEEERKNS_4DateENS_8Position4TypeEddNS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr noundef nonnull align 8 dereferenceable(8) %valueDate, i32 noundef %type, double noundef %strikeForwardRate, double noundef %notionalAmount, ptr nocapture noundef %discountCurve) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
@@ -2230,7 +2230,7 @@ lpad:                                             ; preds = %_ZNK5boost10shared_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20ForwardRateAgreementC1ERKN5boost10shared_ptrINS_9IborIndexEEERKNS_4DateES9_NS_8Position4TypeEddNS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(304) initializes((304, 312), (320, 324), (328, 336)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %valueDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %maturityDate, i32 noundef %type, double noundef %strikeForwardRate, double noundef %notionalAmount, ptr nocapture noundef %discountCurve) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20ForwardRateAgreementC1ERKN5boost10shared_ptrINS_9IborIndexEEERKNS_4DateES9_NS_8Position4TypeEddNS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %valueDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %maturityDate, i32 noundef %type, double noundef %strikeForwardRate, double noundef %notionalAmount, ptr nocapture noundef %discountCurve) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp29 = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp43 = alloca %"class.boost::shared_ptr", align 8
@@ -4167,7 +4167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib20ForwardRateAgreement11forwardRateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::InterestRate") align 8 initializes((0, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib20ForwardRateAgreement11forwardRateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::InterestRate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !35
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -4200,7 +4200,7 @@ _ZN8QuantLib12InterestRateC2ERKS0_.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib20ForwardRateAgreement12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(304) initializes((16, 40)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib20ForwardRateAgreement12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %NPV_.i = getelementptr inbounds nuw i8, ptr %this, i64 16

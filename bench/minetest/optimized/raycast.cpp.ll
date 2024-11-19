@@ -131,7 +131,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12RaycastStateC2ERKN3irr4core6line3dIfEEbbRKSt8optionalI14PointabilitiesE(ptr noundef nonnull align 8 dereferenceable(389) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %shootline, i1 noundef zeroext %objects_pointable, i1 noundef zeroext %liquids_pointable, ptr noundef nonnull align 8 dereferenceable(232) %pointabilities) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12RaycastStateC2ERKN3irr4core6line3dIfEEbbRKSt8optionalI14PointabilitiesE(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %shootline, i1 noundef zeroext %objects_pointable, i1 noundef zeroext %liquids_pointable, ptr noundef nonnull align 8 dereferenceable(232) %pointabilities) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.irr::core::vector3d.0", align 8
   %ref.tmp3 = alloca %"class.irr::core::vector3d.0", align 8

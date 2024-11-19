@@ -2106,7 +2106,7 @@ define dso_local noundef zeroext i1 @vma_migratable(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__get_vma_policy(ptr noundef %0, i64 noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @__get_vma_policy(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   store i64 0, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
@@ -2134,7 +2134,7 @@ define dso_local ptr @__get_vma_policy(ptr noundef %0, i64 noundef %1, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @get_vma_policy(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 align 16 {
+define dso_local ptr @get_vma_policy(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   store i64 0, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8
@@ -2468,7 +2468,7 @@ define dso_local i32 @mempolicy_slab_node() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @huge_node(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @huge_node(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #19
@@ -3948,7 +3948,7 @@ define dso_local void @mpol_put_task_policy(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpol_shared_policy_init(ptr noundef initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @mpol_shared_policy_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.nodemask_t, align 8
   %4 = alloca %struct.nodemask_scratch, align 8
   %5 = icmp eq ptr %1, null
@@ -5410,7 +5410,7 @@ define internal noundef range(i32 -22, 1) i32 @mpol_new_preferred(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @mpol_rebind_preferred(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr nocapture noundef readonly %1) #16 align 16 {
+define internal void @mpol_rebind_preferred(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #16 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -6585,7 +6585,7 @@ declare dso_local ptr @mas_prev(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare dso_local ptr @vma_modify(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -22, 1) i32 @get_nodes(ptr noundef initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @get_nodes(ptr noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = add i64 %2, -1
   store i64 0, ptr %0, align 8

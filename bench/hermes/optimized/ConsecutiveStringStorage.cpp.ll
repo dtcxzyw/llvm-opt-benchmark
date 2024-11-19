@@ -4180,7 +4180,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118StringTableBuilder19generateStringTableEN4llvh8ArrayRefIhEEm(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, i64 noundef %u16OffsetAdjust) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118StringTableBuilder19generateStringTableEN4llvh8ArrayRefIhEEm(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, i64 noundef %u16OffsetAdjust) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %asciiStrings_ = getelementptr inbounds i8, ptr %this, i64 80
@@ -6083,7 +6083,7 @@ return:                                           ; preds = %for.cond, %for.end,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_112StringPackerIhE12HashedSuffixESt6vectorIPNS4_11StringEntryESaIS8_EES5_NS_6detail12DenseMapPairIS5_SA_EEEES5_SA_S5_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %this, i32 noundef %AtLeast) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_112StringPackerIhE12HashedSuffixESt6vectorIPNS4_11StringEntryESaIS8_EES5_NS_6detail12DenseMapPairIS5_SA_EEEES5_SA_S5_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %AtLeast) unnamed_addr #0 align 2 {
 entry:
   %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets.i, align 8
@@ -6305,7 +6305,7 @@ declare void @_ZSt17__throw_bad_allocv() local_unnamed_addr #8
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_112StringPackerIhE11StringEntryENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS7_EENS8_12DenseSetPairIS7_EEEES7_S9_SB_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %this, i32 noundef %AtLeast) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_112StringPackerIhE11StringEntryENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS7_EENS8_12DenseSetPairIS7_EEEES7_S9_SB_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %AtLeast) unnamed_addr #0 align 2 {
 entry:
   %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets.i, align 8
@@ -7103,7 +7103,7 @@ return:                                           ; preds = %for.cond, %for.end,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_112StringPackerIDsE12HashedSuffixESt6vectorIPNS4_11StringEntryESaIS8_EES5_NS_6detail12DenseMapPairIS5_SA_EEEES5_SA_S5_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %this, i32 noundef %AtLeast) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvh12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_112StringPackerIDsE12HashedSuffixESt6vectorIPNS4_11StringEntryESaIS8_EES5_NS_6detail12DenseMapPairIS5_SA_EEEES5_SA_S5_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %AtLeast) unnamed_addr #0 align 2 {
 entry:
   %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets.i, align 8
@@ -7314,7 +7314,7 @@ _ZN4llvh8DenseMapIN12_GLOBAL__N_112StringPackerIDsE12HashedSuffixESt6vectorIPNS3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_112StringPackerIDsE11StringEntryENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS7_EENS8_12DenseSetPairIS7_EEEES7_S9_SB_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %this, i32 noundef %AtLeast) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_112StringPackerIDsE11StringEntryENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS7_EENS8_12DenseSetPairIS7_EEEES7_S9_SB_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %this, i32 noundef %AtLeast) unnamed_addr #0 align 2 {
 entry:
   %NumBuckets.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %NumBuckets.i, align 8

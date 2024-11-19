@@ -75,7 +75,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN3net22CryptoHandshakeMessageD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net22CryptoHandshakeMessageD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net22CryptoHandshakeMessageC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 4), (16, 20), (24, 32)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22CryptoHandshakeMessageC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -92,7 +92,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22CryptoHandshakeMessageC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 4), (16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22CryptoHandshakeMessageC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned int, std::__cxx11::basic_string<char>>>, std::less<unsigned int>>::_Alloc_node", align 8
   %0 = load i32, ptr %other, align 8
@@ -157,7 +157,7 @@ _ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3net22CryptoHandshakeMessageC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 4), (16, 20), (24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22CryptoHandshakeMessageC2EOS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -254,7 +254,7 @@ _ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN3net22CryptoHandshakeMessageaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(72) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN3net22CryptoHandshakeMessageaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -283,7 +283,7 @@ _ZNSt10unique_ptrIN3net8QuicDataESt14default_deleteIS1_EE5resetEPS1_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN3net22CryptoHandshakeMessageaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN3net22CryptoHandshakeMessageaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -363,7 +363,7 @@ _ZNSt10unique_ptrIN3net8QuicDataESt14default_deleteIS1_EEaSEOS4_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22CryptoHandshakeMessage5ClearEv(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 4)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22CryptoHandshakeMessage5ClearEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %tag_value_map_ = getelementptr inbounds i8, ptr %this, i64 8

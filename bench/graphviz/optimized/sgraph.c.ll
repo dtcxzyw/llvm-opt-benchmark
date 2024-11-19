@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @gsave(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
+define void @gsave(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %3, align 8
@@ -45,7 +45,7 @@ define void @gsave(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @reset(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
+define void @reset(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   store i32 %3, ptr %0, align 8
@@ -106,7 +106,7 @@ define void @reset(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @initSEdges(ptr nocapture noundef initializes((24, 32)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @initSEdges(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 8
   %4 = mul nsw i32 %3, 6
   %5 = shl nsw i32 %1, 1

@@ -616,7 +616,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4LIEF12MemoryStreamC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN4LIEF12MemoryStreamC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF12BinaryStreamE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -632,7 +632,7 @@ define hidden void @_ZN4LIEF12MemoryStreamC2EOS0_(ptr nocapture noundef nonnull 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF12MemoryStreamaSEOS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(48) initializes((8, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF12MemoryStreamaSEOS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)

@@ -1853,7 +1853,7 @@ _ZNSt10unique_ptrIN4llvm23DebugLocDwarfExpression10TempBufferESt14default_delete
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm23DebugLocDwarfExpression22disableTemporaryBufferEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 105)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm23DebugLocDwarfExpression22disableTemporaryBufferEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 0, ptr %2, align 8
   ret void
@@ -2155,7 +2155,7 @@ define dso_local noundef zeroext i1 @_ZN4llvmltERKNS_14EntryValueInfoES2_(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3Loc6SingleC2ENS_11DbgValueLocE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3Loc6SingleC2ENS_11DbgValueLocE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #28, !noalias !28
   %4 = load ptr, ptr %1, align 8, !noalias !28
@@ -2201,7 +2201,7 @@ _ZSt11make_uniqueIN4llvm11DbgValueLocEJRS1_EENSt8__detail9_MakeUniqIT_E15__singl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3Loc6SingleC2EPKNS_12MachineInstrE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3Loc6SingleC2EPKNS_12MachineInstrE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DbgValueLoc", align 8
   call fastcc void @_ZL16getDebugLocValuePKN4llvm12MachineInstrE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef %1)
   call void @llvm.experimental.noalias.scope.decl(metadata !31)
@@ -3075,7 +3075,7 @@ declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext)
 declare noundef zeroext i1 @_ZNK4llvm13TargetOptions26ShouldEmitDebugEntryValuesEv(ptr noundef nonnull align 8 dereferenceable(360)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10DwarfDebugD2Ev(ptr noundef nonnull align 8 dereferenceable(5828) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10DwarfDebugD2Ev(ptr noundef nonnull align 8 dereferenceable(5828) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm10DwarfDebugE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5624
   tail call void @_ZN4llvm14AccelTableBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %2) #27
@@ -15949,7 +15949,7 @@ _ZNK4llvm7DIScope7getFileEv.exit:                 ; preds = %thread-pre-split, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10DwarfDebug17beginFunctionImplEPKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(5828) initializes((2880, 2888)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10DwarfDebug17beginFunctionImplEPKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(5828) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DebugLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2880
   store ptr %1, ptr %4, align 8

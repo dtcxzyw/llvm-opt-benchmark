@@ -44,7 +44,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19MeshLabPluginLoggerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 {
+define void @_ZN19MeshLabPluginLoggerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19MeshLabPluginLogger, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -66,7 +66,7 @@ define linkonce_odr void @_ZN19MeshLabPluginLoggerD0Ev(ptr noundef nonnull align
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19MeshLabPluginLogger6setLogEP11GLLogStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN19MeshLabPluginLogger6setLogEP11GLLogStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void

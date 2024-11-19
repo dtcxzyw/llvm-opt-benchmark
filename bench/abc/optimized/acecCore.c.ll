@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.7 = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Acec_ManCecSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #0 {
+define void @Acec_ManCecSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %2, align 4
   store i32 1000, ptr %0, align 4
@@ -1325,7 +1325,7 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_IntAlloc.exit.t
 declare void @Gia_ManSetPhase(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Acec_ComputeEquivClasses(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #2 {
+define void @Acec_ComputeEquivClasses(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)

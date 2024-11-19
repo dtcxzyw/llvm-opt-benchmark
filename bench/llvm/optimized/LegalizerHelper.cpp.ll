@@ -445,7 +445,7 @@ $_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable = comdat any
 @_ZN4llvm15LegalizerHelperC1ERNS_15MachineFunctionERKNS_13LegalizerInfoERNS_19GISelChangeObserverERNS_16MachineIRBuilderEPNS_14GISelKnownBitsE = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERKNS_13LegalizerInfoERNS_19GISelChangeObserverERNS_16MachineIRBuilderEPNS_14GISelKnownBitsE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERNS_19GISelChangeObserverERNS_16MachineIRBuilderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(88) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERNS_19GISelChangeObserverERNS_16MachineIRBuilderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(88) %3) unnamed_addr #0 align 2 {
   store ptr %3, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -474,7 +474,7 @@ define dso_local void @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERNS_19G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERKNS_13LegalizerInfoERNS_19GISelChangeObserverERNS_16MachineIRBuilderEPNS_14GISelKnownBitsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(121040) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15LegalizerHelperC2ERNS_15MachineFunctionERKNS_13LegalizerInfoERNS_19GISelChangeObserverERNS_16MachineIRBuilderEPNS_14GISelKnownBitsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(121040) %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(88) %4, ptr noundef %5) unnamed_addr #0 align 2 {
   store ptr %4, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %7, align 8
@@ -16330,7 +16330,7 @@ _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %_ZNK4llvm3LLT14getS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, ptr } @_ZN4llvm15LegalizerHelper20createStackTemporaryENS_8TypeSizeENS_5AlignERNS_18MachinePointerInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 %1, i8 %2, i8 %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %4) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, ptr } @_ZN4llvm15LegalizerHelper20createStackTemporaryENS_8TypeSizeENS_5AlignERNS_18MachinePointerInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, i64 %1, i8 %2, i8 %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %8 = alloca %"class.llvm::DstOp", align 8

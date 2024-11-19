@@ -7525,7 +7525,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit72: ; preds = %395, %392, 
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__26UsdSkelIsSkelAnimationPrimERKNS_7UsdPrimE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSkelBindingAPI27GetInheritedAnimationSourceEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8 initializes((0, 4), (8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSkelBindingAPI27GetInheritedAnimationSourceEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdPrim") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelBindingAPI", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8

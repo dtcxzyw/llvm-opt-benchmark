@@ -1128,7 +1128,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PhaseOutput20estimate_buffer_sizeERi(ptr noundef nonnull align 8 dereferenceable(700) initializes((576, 580)) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11PhaseOutput20estimate_buffer_sizeERi(ptr noundef nonnull align 8 dereferenceable(700) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
   store i32 4096, ptr %1, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -6622,7 +6622,7 @@ declare void @_ZN21ExceptionHandlerTable12add_subtableEiP13GrowableArrayIlES2_S2
 declare void @_ZN22ImplicitExceptionTable6appendEjj(ptr noundef nonnull align 8 dereferenceable(17), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10SchedulingC2EP5ArenaR7Compile(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 24), (32, 44), (48, 60), (64, 76), (80, 92), (104, 116), (120, 132), (136, 148), (152, 164), (192, 200), (216, 224)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(2316) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10SchedulingC2EP5ArenaR7Compile(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(2316) %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %2, i64 2136
@@ -6970,7 +6970,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %._crit_edge, %184
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10Scheduling4stepEj(ptr nocapture noundef nonnull align 8 dereferenceable(472) initializes((452, 456)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN10Scheduling4stepEj(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -7035,7 +7035,7 @@ _ZN12Pipeline_Use4stepEj.exit:                    ; preds = %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10Scheduling14step_and_clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(472) initializes((224, 444), (452, 456)) %0) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN10Scheduling14step_and_clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -8928,7 +8928,7 @@ _ZN10Scheduling18DecrementUseCountsEP4NodePK5Block.exit: ; preds = %339, %288
 declare void @_ZN12Pipeline_Use9add_usageERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Scheduling15ComputeUseCountEPK5Block(ptr noundef nonnull align 8 dereferenceable(472) initializes((56, 60), (88, 92), (200, 208)) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10Scheduling15ComputeUseCountEPK5Block(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -10905,7 +10905,7 @@ declare noundef i32 @_ZN10C2Compiler24initial_code_buffer_sizeEi(i32 noundef) lo
 declare noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN11PhaseOutput17scratch_emit_sizeEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(700) initializes((572, 573)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN11PhaseOutput17scratch_emit_sizeEPK4Node(ptr nocapture noundef nonnull align 8 dereferenceable(700) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.CodeBuffer, align 8
   %4 = alloca %class.Label, align 8
   %5 = alloca ptr, align 8
@@ -11163,7 +11163,7 @@ define hidden void @_ZN11PhaseOutput12install_stubEPKc(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PhaseOutput12install_codeEP8ciMethodiP16AbstractCompilerbb(ptr noundef nonnull align 8 dereferenceable(700) initializes((584, 588), (592, 596)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11PhaseOutput12install_codeEP8ciMethodiP16AbstractCompilerbb(ptr noundef nonnull align 8 dereferenceable(700) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.Compile::TracePhase", align 8
   call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %7, ptr noundef nonnull @.str.21, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZN5Phase6timersE, i64 1224)) #14
   %8 = getelementptr inbounds i8, ptr %0, i64 8

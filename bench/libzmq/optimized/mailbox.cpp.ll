@@ -80,7 +80,7 @@ $_ZTIN3zmq7ypipe_tINS_9command_tELi16EEE = comdat any
 @_ZN3zmq9mailbox_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq9mailbox_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq9mailbox_tC2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq9mailbox_tC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq9mailbox_tE, i64 16), ptr %this, align 8
   %_cpipe = getelementptr inbounds i8, ptr %this, i64 8

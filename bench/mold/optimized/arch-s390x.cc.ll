@@ -254,7 +254,7 @@ _ZNSt12_Vector_baseIPN4mold7CounterESaIS2_EED2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @_ZN4mold3elf16write_plt_headerINS0_5S390XEEEvRNS0_7ContextIT_EEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly initializes((0, 48)) %buf) local_unnamed_addr #5 {
+define dso_local void @_ZN4mold3elf16write_plt_headerINS0_5S390XEEEvRNS0_7ContextIT_EEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly %buf) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %buf, ptr noundef nonnull align 16 dereferenceable(48) @_ZZN4mold3elf16write_plt_headerINS0_5S390XEEEvRNS0_7ContextIT_EEPhE4insn, i64 48, i1 false)
   %gotplt = getelementptr inbounds i8, ptr %ctx, i64 4032
@@ -281,7 +281,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @_ZN4mold3elf15write_plt_entryINS0_5S390XEEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly initializes((0, 16)) %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(51) %sym) local_unnamed_addr #5 {
+define dso_local void @_ZN4mold3elf15write_plt_entryINS0_5S390XEEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(51) %sym) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %buf, ptr noundef nonnull align 16 dereferenceable(16) @_ZZN4mold3elf15write_plt_entryINS0_5S390XEEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 16, i1 false)
   %gotplt.i = getelementptr inbounds i8, ptr %ctx, i64 4032
@@ -361,7 +361,7 @@ _ZNK4mold3elf6SymbolINS0_5S390XEE12get_plt_addrERNS0_7ContextIS2_EE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @_ZN4mold3elf18write_pltgot_entryINS0_5S390XEEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly initializes((0, 16)) %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(51) %sym) local_unnamed_addr #5 {
+define dso_local void @_ZN4mold3elf18write_pltgot_entryINS0_5S390XEEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(4568) %ctx, ptr nocapture noundef writeonly %buf, ptr nocapture noundef nonnull readonly align 8 dereferenceable(51) %sym) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %buf, ptr noundef nonnull align 16 dereferenceable(16) @_ZZN4mold3elf18write_pltgot_entryINS0_5S390XEEEvRNS0_7ContextIT_EEPhRNS0_6SymbolIS4_EEE4insn, i64 16, i1 false)
   %0 = load ptr, ptr %sym, align 8
@@ -2475,7 +2475,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_5S390XEEEElsIRA25_KcEERS5_OT_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold3elf12InputSectionINS0_5S390XEE16scan_relocationsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(94) initializes((64, 68)) %this, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4mold3elf12InputSectionINS0_5S390XEE16scan_relocationsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(94) %this, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp65 = alloca %"class.mold::Error", align 8

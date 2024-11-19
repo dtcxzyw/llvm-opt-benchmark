@@ -252,7 +252,7 @@ $_ZTIN3fmt2v919basic_memory_bufferIiLm500ESaIiEEE = comdat any
 @_ZN5folly4FileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly4FileD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly4FileC2Eib(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((0, 5)) %this, i32 noundef %fd, i1 noundef zeroext %ownsFd) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4FileC2Eib(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) %this, i32 noundef %fd, i1 noundef zeroext %ownsFd) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %v1.addr.i = alloca i32, align 4
   %v2.addr.i = alloca i32, align 4
@@ -429,7 +429,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIc
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4FileC2EPKcij(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((0, 5)) %this, ptr noundef %name, i32 noundef %flags, i32 noundef %mode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly4FileC2EPKcij(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) %this, ptr noundef %name, i32 noundef %flags, i32 noundef %mode) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %compiled.i = alloca %"struct.fmt::v9::detail::concat", align 8
   %name.addr = alloca ptr, align 8
@@ -7736,7 +7736,7 @@ _ZNK3fmt2v99formatterIjcvE6formatINS0_20basic_format_contextISt20back_insert_ite
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly4FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEij(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((0, 5)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, i32 noundef %flags, i32 noundef %mode) unnamed_addr #7 align 2 {
+define void @_ZN5folly4FileC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEij(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, i32 noundef %flags, i32 noundef %mode) unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %name, align 8, !tbaa !32
   tail call void @_ZN5folly4FileC2EPKcij(ptr noundef nonnull align 4 dereferenceable(5) %this, ptr noundef %0, i32 noundef %flags, i32 noundef %mode)
@@ -7851,7 +7851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9: ; preds = %if.t
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly4FileC2EOS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((0, 5)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(5) %other) unnamed_addr #28 align 2 {
+define void @_ZN5folly4FileC2EOS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) %this, ptr nocapture noundef nonnull align 4 dereferenceable(5) %other) unnamed_addr #28 align 2 {
 entry:
   %0 = load i32, ptr %other, align 4, !tbaa !7
   store i32 %0, ptr %this, align 4, !tbaa !7
@@ -7865,7 +7865,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN5folly4File7releaseEv(ptr nocapture noundef nonnull align 4 dereferenceable(5) initializes((4, 5)) %this) local_unnamed_addr #28 align 2 {
+define noundef i32 @_ZN5folly4File7releaseEv(ptr nocapture noundef nonnull align 4 dereferenceable(5) %this) local_unnamed_addr #28 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4, !tbaa !7
   store i32 -1, ptr %this, align 4, !tbaa !7

@@ -2936,7 +2936,7 @@ declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dere
 declare noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115ThreadSanitizer10initializeERN4llvm6ModuleERKNS1_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(2584) initializes((0, 72)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115ThreadSanitizer10initializeERN4llvm6ModuleERKNS1_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(2584) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.llvm::AttributeList", align 8
   %6 = alloca %"class.llvm::AttributeList", align 8

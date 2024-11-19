@@ -4089,7 +4089,7 @@ define i32 @Sbd_StoComputeCutsNode(ptr noundef %0, i32 noundef %1) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Sbd_StoSaveBestDelayCut(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #1 {
+define void @Sbd_StoSaveBestDelayCut(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96272
   %5 = getelementptr inbounds i8, ptr %0, i64 100288
   %6 = load i32, ptr %5, align 8

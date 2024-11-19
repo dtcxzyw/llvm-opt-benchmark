@@ -9502,7 +9502,7 @@ declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17ba
 declare void @_ZN4absl12lts_2023080212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16), i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteMapINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteMapINS1_23UnparseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(16) %msg, ptr noundef %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %c.addr.i1.i219.i = alloca i8, align 1
   %c.addr.i.i220.i = alloca i8, align 1
@@ -18199,7 +18199,7 @@ return:                                           ; preds = %if.end, %_ZNK4absl1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE_EES9_PKNSJ_5FieldESC_(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull %f, ptr nonnull %body.coerce0, ptr nonnull %body.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE_EES9_PKNSJ_5FieldESC_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %f, ptr nonnull %body.coerce0, ptr nonnull %body.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m = alloca %"class.absl::lts_20230802::StatusOr", align 8
   call void @_ZNK6google8protobuf13json_internal12ResolverPool5Field11MessageTypeEv(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %m, ptr noundef nonnull align 8 dereferenceable(32) %f)
@@ -18276,7 +18276,7 @@ _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE0_EES9_PKNSJ_5FieldESC_(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull %f, ptr nonnull %body.coerce0, ptr nonnull %body.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal10Proto3Type13WithFieldTypeIZNS1_12_GLOBAL__N_110WriteValueINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgERKNSC_4DescEbEUlRKNS1_12ResolverPool7MessageEE0_EES9_PKNSJ_5FieldESC_(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %f, ptr nonnull %body.coerce0, ptr nonnull %body.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m = alloca %"class.absl::lts_20230802::StatusOr", align 8
   call void @_ZNK6google8protobuf13json_internal12ResolverPool5Field11MessageTypeEv(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %m, ptr noundef nonnull align 8 dereferenceable(32) %f)
@@ -18355,7 +18355,7 @@ _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool
 declare void @_ZNK6google8protobuf13json_internal12ResolverPool5Field11MessageTypeEv(ptr sret(%"class.absl::lts_20230802::StatusOr") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteMapINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr nocapture noundef readonly %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18WriteMapINS1_17UnparseProto3TypeEEEN4absl12lts_202308026StatusERNS1_10JsonWriterERKNT_3MsgENSA_5FieldE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %writer, ptr noundef nonnull align 8 dereferenceable(40) %msg, ptr nocapture noundef readonly %field) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %c.addr.i1.i213.i = alloca i8, align 1
   %c.addr.i.i214.i = alloca i8, align 1

@@ -821,7 +821,7 @@ define internal fastcc range(i32 -1000, -2147483648) i32 @nfs4_async_handle_exce
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @nfs4_init_sequence(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
+define dso_local void @nfs4_init_sequence(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #4 align 16 {
   store ptr null, ptr %0, align 8
   %5 = trunc i32 %2 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1037,7 +1037,7 @@ declare dso_local void @rpc_sleep_on_priority(ptr noundef, ptr noundef, i32 noun
 declare dso_local void @rpc_sleep_on(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs4_call_sync(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 8)) %3, ptr noundef initializes((0, 8)) %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local i32 @nfs4_call_sync(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca %struct.nfs4_call_sync_data, align 8
   %8 = alloca %struct.rpc_task_setup, align 8
   store ptr null, ptr %3, align 8
@@ -3513,7 +3513,7 @@ define dso_local i32 @nfs4_set_rw_stateid(ptr noundef %0, ptr nocapture noundef 
 declare dso_local i32 @nfs4_select_rw_stateid(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @nfs4_bitmask_set(ptr nocapture noundef initializes((0, 12)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 align 16 {
+define dso_local void @nfs4_bitmask_set(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #5 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 872
@@ -6224,7 +6224,7 @@ define internal i32 @nfs4_proc_remove(ptr noundef %0, ptr noundef %1) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs4_proc_unlink_setup(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
+define internal void @nfs4_proc_unlink_setup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6372,7 +6372,7 @@ thread-pre-split:                                 ; preds = %37
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs4_proc_rename_setup(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define internal void @nfs4_proc_rename_setup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7941,7 +7941,7 @@ define internal range(i32 -5, 1) i32 @nfs4_proc_pgio_rpc_prepare(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal void @nfs4_proc_read_setup(ptr nocapture noundef initializes((592, 600), (704, 712), (776, 784)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #7 align 16 {
+define internal void @nfs4_proc_read_setup(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #7 align 16 {
   %3 = load volatile i64, ptr @jiffies, align 64
   %4 = getelementptr inbounds i8, ptr %0, i64 776
   store i64 %3, ptr %4, align 8
@@ -8106,7 +8106,7 @@ thread-pre-split:                                 ; preds = %43, %.thread-pre-sp
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs4_proc_write_setup(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture readnone %2) #0 align 16 {
+define internal void @nfs4_proc_write_setup(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -8269,7 +8269,7 @@ define internal i32 @nfs4_write_done(ptr noundef %0, ptr noundef %1) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @nfs4_proc_commit_setup(ptr nocapture noundef initializes((520, 528), (568, 576), (624, 632)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture readnone %2) #8 align 16 {
+define internal void @nfs4_proc_commit_setup(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
@@ -9821,7 +9821,7 @@ default.unreachable5:                             ; preds = %26
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs4_open_done(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((992, 993), (996, 1000)) %1) #0 align 16 {
+define internal void @nfs4_open_done(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 996
@@ -9986,7 +9986,7 @@ define internal void @nfs4_open_confirm_prepare(ptr noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs4_open_confirm_done(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((996, 1000)) %1) #0 align 16 {
+define internal void @nfs4_open_confirm_done(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 536
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -11575,7 +11575,7 @@ define internal void @nfs4_setclientid_done(ptr nocapture noundef readonly %0, p
 declare dso_local i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @nfs4_get_uniquifier(ptr %.792.val, ptr noundef initializes((0, 1)) %0) unnamed_addr #0 align 16 {
+define internal fastcc i64 @nfs4_get_uniquifier(ptr %.792.val, ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = load i32, ptr @nfs_net_id, align 4
   tail call void @__rcu_read_lock() #22
   %3 = getelementptr inbounds i8, ptr %.792.val, i64 2536
@@ -12050,7 +12050,7 @@ define internal void @nfs4_lock_prepare(ptr noundef %0, ptr noundef %1) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs4_lock_done(ptr noundef %0, ptr noundef initializes((440, 444)) %1) #0 align 16 {
+define internal void @nfs4_lock_done(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 200
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 128
@@ -12360,7 +12360,7 @@ define internal void @nfs4_lock_release(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @locks_lock_inode_wait(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @nfs4_do_unlck(ptr noundef initializes((84, 85)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @nfs4_do_unlck(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca %struct.rpc_message, align 8
   %6 = alloca %struct.rpc_task_setup, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #22
@@ -15883,7 +15883,7 @@ declare dso_local i32 @nfs_post_op_update_inode(ptr noundef, ptr noundef) local_
 declare dso_local void @inc_nlink(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nfs4_do_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull initializes((32, 40), (128, 136)) %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nfs4_do_create(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.nfs4_call_sync_data, align 8
   %5 = alloca %struct.rpc_task_setup, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40

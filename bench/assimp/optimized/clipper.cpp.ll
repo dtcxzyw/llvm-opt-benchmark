@@ -282,7 +282,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ClipperLib8PolyNodeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 69)) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN10ClipperLib8PolyNodeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 16), ptr %this, align 8
   %Contour = getelementptr inbounds i8, ptr %this, i64 8
@@ -504,7 +504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ClipperLib9Int128MulExx(ptr noalias nocapture writeonly sret(%"class.ClipperLib::Int128") align 8 initializes((0, 16)) %agg.result, i64 noundef %lhs, i64 noundef %rhs) local_unnamed_addr #2 {
+define hidden void @_ZN10ClipperLib9Int128MulExx(ptr noalias nocapture writeonly sret(%"class.ClipperLib::Int128") align 8 %agg.result, i64 noundef %lhs, i64 noundef %rhs) local_unnamed_addr #2 {
 entry:
   %cmp3.not.unshifted = xor i64 %rhs, %lhs
   %cmp3.not = icmp sgt i64 %cmp3.not.unshifted, -1
@@ -1365,7 +1365,7 @@ return:                                           ; preds = %if.else, %_ZN10Clip
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10ClipperLib14IntersectPointERNS_5TEdgeES1_RNS_8IntPointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %Edge1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %Edge2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %ip) local_unnamed_addr #7 {
+define hidden void @_ZN10ClipperLib14IntersectPointERNS_5TEdgeES1_RNS_8IntPointE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %Edge1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %Edge2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %ip) local_unnamed_addr #7 {
 entry:
   %Dx = getelementptr inbounds i8, ptr %Edge1, i64 48
   %0 = load double, ptr %Dx, align 8
@@ -1811,7 +1811,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN10ClipperLib17GetOverlapSegmentENS_8IntPointES0_S0_S0_RS0_S1_(i64 %pt1a.coerce0, i64 %pt1a.coerce1, i64 %pt1b.coerce0, i64 %pt1b.coerce1, i64 %pt2a.coerce0, i64 %pt2a.coerce1, ptr nocapture noundef byval(%"struct.ClipperLib::IntPoint") align 8 %pt2b, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %pt1, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %pt2) local_unnamed_addr #7 {
+define hidden noundef zeroext i1 @_ZN10ClipperLib17GetOverlapSegmentENS_8IntPointES0_S0_S0_RS0_S1_(i64 %pt1a.coerce0, i64 %pt1a.coerce1, i64 %pt1b.coerce0, i64 %pt1b.coerce1, i64 %pt2a.coerce0, i64 %pt2a.coerce1, ptr nocapture noundef byval(%"struct.ClipperLib::IntPoint") align 8 %pt2b, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pt1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pt2) local_unnamed_addr #7 {
 entry:
   %sub = sub nsw i64 %pt1a.coerce0, %pt1b.coerce0
   %cond.i = tail call noundef i64 @llvm.abs.i64(i64 %sub, i1 true)
@@ -2279,7 +2279,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ClipperLib11ClipperBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((0, 41), (48, 72), (80, 104), (112, 136)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ClipperLib11ClipperBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib11ClipperBaseE, i64 16), ptr %this, align 8
   %m_CurrentLM = getelementptr inbounds i8, ptr %this, i64 8
@@ -2296,7 +2296,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ClipperLib11ClipperBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 16)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ClipperLib11ClipperBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10ClipperLib11ClipperBaseE, i64 16), ptr %this, align 8
   %m_MinimaList.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2415,7 +2415,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ClipperLib11ClipperBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16)) %this) unnamed_addr #9 align 2 {
+define hidden void @_ZN10ClipperLib11ClipperBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN10ClipperLib11ClipperBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
@@ -4380,7 +4380,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ClipperLib11ClipperBase5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ClipperLib11ClipperBase5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_MinimaList.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_MinimaList.i, align 8
@@ -4448,7 +4448,7 @@ _ZNSt6vectorIPN10ClipperLib5TEdgeESaIS2_EE5clearEv.exit: ; preds = %for.end, %in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10ClipperLib11ClipperBase22DisposeLocalMinimaListEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ClipperLib11ClipperBase22DisposeLocalMinimaListEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_MinimaList = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_MinimaList, align 8
@@ -4468,7 +4468,7 @@ _ZNSt6vectorIN10ClipperLib12LocalMinimumESaIS1_EE5clearEv.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ClipperLib11ClipperBase5ResetEv(ptr noundef nonnull align 8 dereferenceable(144) initializes((8, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ClipperLib11ClipperBase5ResetEv(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %Y.addr.i = alloca i64, align 8
   %m_MinimaList = getelementptr inbounds i8, ptr %this, i64 16
@@ -4601,7 +4601,7 @@ return:                                           ; preds = %lor.rhs, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10ClipperLib11ClipperBase9GetBoundsEv(ptr noalias nocapture writeonly sret(%"struct.ClipperLib::IntRect") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #18 align 2 {
+define hidden void @_ZN10ClipperLib11ClipperBase9GetBoundsEv(ptr noalias nocapture writeonly sret(%"struct.ClipperLib::IntRect") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) local_unnamed_addr #18 align 2 {
 entry:
   %m_MinimaList = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_MinimaList, align 8
@@ -5554,7 +5554,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10ClipperLib7ClipperC2Ei(ptr noundef nonnull align 8 dereferenceable(135) initializes((0, 80)) %this, ptr nocapture noundef readonly %vtt, i32 noundef %initOptions) unnamed_addr #17 align 2 {
+define hidden void @_ZN10ClipperLib7ClipperC2Ei(ptr noundef nonnull align 8 dereferenceable(135) %this, ptr nocapture noundef readonly %vtt, i32 noundef %initOptions) unnamed_addr #17 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
@@ -5606,7 +5606,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ClipperLib7ClipperC1Ei(ptr noundef nonnull align 8 dereferenceable(135) initializes((0, 80), (136, 176), (184, 208), (216, 240), (248, 272)) %this, i32 noundef %initOptions) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ClipperLib7ClipperC1Ei(ptr noundef nonnull align 8 dereferenceable(135) %this, i32 noundef %initOptions) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 136
   %m_CurrentLM.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -9709,7 +9709,7 @@ if.end17:                                         ; preds = %_ZN10ClipperLib13Di
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ClipperLib7Clipper15FixupOutPolygonERNS_6OutRecE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(135) %this, ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((32, 40)) %outrec) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN10ClipperLib7Clipper15FixupOutPolygonERNS_6OutRecE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(135) %this, ptr nocapture noundef nonnull align 8 dereferenceable(40) %outrec) local_unnamed_addr #9 align 2 {
 entry:
   %BottomPt = getelementptr inbounds i8, ptr %outrec, i64 32
   store ptr null, ptr %BottomPt, align 8
@@ -14725,7 +14725,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10ClipperLib16GetHorzDirectionERNS_5TEdgeERNS_9DirectionERxS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %HorzEdge, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %Dir, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %Left, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %Right) local_unnamed_addr #7 {
+define hidden void @_ZN10ClipperLib16GetHorzDirectionERNS_5TEdgeERNS_9DirectionERxS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %HorzEdge, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %Dir, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %Left, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %Right) local_unnamed_addr #7 {
 entry:
   %0 = load i64, ptr %HorzEdge, align 8
   %Top = getelementptr inbounds i8, ptr %HorzEdge, i64 32
@@ -16464,7 +16464,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN10ClipperLib10GetOverlapExxxxRxS0_(i64 noundef %a1, i64 noundef %a2, i64 noundef %b1, i64 noundef %b2, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %Left, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %Right) local_unnamed_addr #7 {
+define hidden noundef zeroext i1 @_ZN10ClipperLib10GetOverlapExxxxRxS0_(i64 noundef %a1, i64 noundef %a2, i64 noundef %b1, i64 noundef %b2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %Left, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %Right) local_unnamed_addr #7 {
 entry:
   %cmp = icmp slt i64 %a1, %a2
   %cmp1 = icmp slt i64 %b1, %b2
@@ -18102,7 +18102,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ClipperLib13ClipperOffsetC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((0, 112), (160, 245)) %this, double noundef %miterLimit, double noundef %arcTolerance) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ClipperLib13ClipperOffsetC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %this, double noundef %miterLimit, double noundef %arcTolerance) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_destPolys = getelementptr inbounds i8, ptr %this, i64 16
   %m_lowest = getelementptr inbounds i8, ptr %this, i64 160
@@ -22243,7 +22243,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10ClipperLib13ClipperOffset11OffsetPointEiRiNS_8JoinTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((120, 128)) %this, i32 noundef %j, ptr nocapture noundef nonnull align 4 dereferenceable(4) %k, i32 noundef %jointype) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10ClipperLib13ClipperOffset11OffsetPointEiRiNS_8JoinTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %this, i32 noundef %j, ptr nocapture noundef nonnull align 4 dereferenceable(4) %k, i32 noundef %jointype) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_normals = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i32, ptr %k, align 4

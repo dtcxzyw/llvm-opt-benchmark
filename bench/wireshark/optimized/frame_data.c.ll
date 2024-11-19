@@ -559,7 +559,7 @@ frame_delta_abs_time.exit25:                      ; preds = %16, %.thread.i24
 declare void @g_log(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @frame_data_init(ptr nocapture noundef initializes((0, 4), (16, 50), (56, 84), (88, 97)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define void @frame_data_init(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %6, align 8
   store i32 %1, ptr %0, align 8
@@ -805,7 +805,7 @@ define void @frame_data_set_before_dissect(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @frame_data_set_after_dissect(ptr nocapture noundef initializes((12, 16)) %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
+define void @frame_data_set_after_dissect(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 50
   %4 = load i16, ptr %3, align 2
   %5 = and i16 %4, 32
@@ -828,7 +828,7 @@ define void @frame_data_set_after_dissect(ptr nocapture noundef initializes((12,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @frame_data_reset(ptr nocapture noundef initializes((48, 50)) %0) local_unnamed_addr #0 {
+define void @frame_data_reset(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 50
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, -9

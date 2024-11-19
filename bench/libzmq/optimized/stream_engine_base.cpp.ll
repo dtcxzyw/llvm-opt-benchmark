@@ -1248,7 +1248,7 @@ _ZNSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EED2Ev.exit: ; preds = %_ZNSt3setIj
 declare void @_ZN3zmq11io_object_tD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689) initializes((0, 8), (16, 24)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq20stream_engine_base_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -1464,7 +1464,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq20stream_engine_base_t4plugEPNS_11io_thread_tEPNS_14session_base_tE(ptr noundef nonnull align 8 dereferenceable(1689) initializes((1680, 1688)) %this, ptr noundef %io_thread_, ptr noundef %session_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq20stream_engine_base_t4plugEPNS_11io_thread_tEPNS_14session_base_tE(ptr noundef nonnull align 8 dereferenceable(1689) %this, ptr noundef %io_thread_, ptr noundef %session_) unnamed_addr #0 align 2 {
 entry:
   %_plugged = getelementptr inbounds i8, ptr %this, i64 1592
   %0 = load i8, ptr %_plugged, align 8
@@ -1533,7 +1533,7 @@ declare void @_ZN3zmq11io_object_t4plugEPNS_11io_thread_tE(ptr noundef nonnull a
 declare noundef ptr @_ZN3zmq11io_object_t6add_fdEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N3zmq20stream_engine_base_t4plugEPNS_11io_thread_tEPNS_14session_base_tE(ptr noundef initializes((1664, 1672)) %this, ptr noundef %io_thread_, ptr noundef %session_) unnamed_addr #10 align 2 {
+define void @_ZThn16_N3zmq20stream_engine_base_t4plugEPNS_11io_thread_tEPNS_14session_base_tE(ptr noundef %this, ptr noundef %io_thread_, ptr noundef %session_) unnamed_addr #10 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN3zmq20stream_engine_base_t4plugEPNS_11io_thread_tEPNS_14session_base_tE(ptr noundef nonnull align 8 dereferenceable(1689) %0, ptr noundef %io_thread_, ptr noundef %session_)

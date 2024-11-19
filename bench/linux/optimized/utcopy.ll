@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [27 x i8] c"Package allocation failure\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ut_copy_iobject_to_eobject(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ut_copy_iobject_to_eobject(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.acpi_pkg_info, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 9
   %5 = load i8, ptr %4, align 1
@@ -66,7 +66,7 @@ define dso_local i32 @acpi_ut_copy_iobject_to_eobject(ptr noundef %0, ptr nocapt
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 16) i32 @acpi_ut_copy_isimple_to_esimple(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 16) i32 @acpi_ut_copy_isimple_to_esimple(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 align 16 {
   store i64 0, ptr %3, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %72, label %6
@@ -367,7 +367,7 @@ define dso_local range(i32 0, 16) i32 @acpi_ut_copy_eobject_to_iobject(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ut_copy_iobject_to_iobject(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ut_copy_iobject_to_iobject(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 9
   %6 = load i8, ptr %5, align 1

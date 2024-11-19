@@ -142,7 +142,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN5arrow18RecordBatchBuilderC1ERKSt10shared_ptrINS_6SchemaEEPNS_10MemoryPoolEl = unnamed_addr alias void (ptr, ptr, ptr, i64), ptr @_ZN5arrow18RecordBatchBuilderC2ERKSt10shared_ptrINS_6SchemaEEPNS_10MemoryPoolEl
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN5arrow18RecordBatchBuilderC2ERKSt10shared_ptrINS_6SchemaEEPNS_10MemoryPoolEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %schema, ptr noundef %pool, i64 noundef %initial_capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow18RecordBatchBuilderC2ERKSt10shared_ptrINS_6SchemaEEPNS_10MemoryPoolEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %schema, ptr noundef %pool, i64 noundef %initial_capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %schema, align 8
   store ptr %0, ptr %this, align 8
@@ -498,7 +498,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow18RecordBatchBuilder14CreateBuildersEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow18RecordBatchBuilder14CreateBuildersEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %field_builders_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -725,7 +725,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow18RecordBatchBuilder12InitBuildersEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow18RecordBatchBuilder12InitBuildersEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %this, align 8

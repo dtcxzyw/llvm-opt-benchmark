@@ -338,7 +338,7 @@ H5FD__onion_header_encode.exit:                   ; preds = %56
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @H5FD__onion_header_encode(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 12)) %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define noundef i64 @H5FD__onion_header_encode(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   store i32 1212434511, ptr %1, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load i8, ptr %0, align 8

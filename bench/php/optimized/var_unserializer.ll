@@ -441,14 +441,14 @@ define ptr @php_var_unserialize_get_allowed_classes(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_var_unserialize_set_allowed_classes(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @php_var_unserialize_set_allowed_classes(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_var_unserialize_set_max_depth(ptr nocapture noundef writeonly initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #4 {
+define void @php_var_unserialize_set_max_depth(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret void
@@ -462,7 +462,7 @@ define i64 @php_var_unserialize_get_max_depth(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_var_unserialize_set_cur_depth(ptr nocapture noundef writeonly initializes((40, 48)) %0, i64 noundef %1) local_unnamed_addr #4 {
+define void @php_var_unserialize_set_cur_depth(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %3, align 8
   ret void

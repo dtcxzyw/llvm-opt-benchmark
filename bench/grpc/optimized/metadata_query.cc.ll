@@ -238,7 +238,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core13MetadataQueryC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_P19grpc_polling_entityN4absl12lts_2023080212AnyInvocableIFvS6_NSA_8StatusOrIS6_EEEEENS_8DurationE(ptr noundef nonnull align 16 dereferenceable(176) initializes((0, 16)) %this, ptr noundef %metadata_server_name, ptr noundef nonnull %attribute, ptr noundef %pollent, ptr noundef %callback, i64 %timeout.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13MetadataQueryC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_P19grpc_polling_entityN4absl12lts_2023080212AnyInvocableIFvS6_NSA_8StatusOrIS6_EEEEENS_8DurationE(ptr noundef nonnull align 16 dereferenceable(176) %this, ptr noundef %metadata_server_name, ptr noundef nonnull %attribute, ptr noundef %pollent, ptr noundef %callback, i64 %timeout.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %uri = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1493,7 +1493,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core13MetadataQueryD2Ev(ptr noundef nonnull align 16 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13MetadataQueryD2Ev(ptr noundef nonnull align 16 dereferenceable(176) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13MetadataQueryE, i64 16), ptr %this, align 16
   %response_ = getelementptr inbounds i8, ptr %this, i64 120

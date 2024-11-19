@@ -93,7 +93,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7524WholeStringBreakIterator7setTextERKNS_13UnicodeStringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(484) initializes((480, 484)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text) unnamed_addr #5 align 2 {
+define void @_ZN6icu_7524WholeStringBreakIterator7setTextERKNS_13UnicodeStringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(484) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %text) unnamed_addr #5 align 2 {
 entry:
   %fUnion.i.i = getelementptr inbounds i8, ptr %text, i64 8
   %0 = load i16, ptr %fUnion.i.i, align 8

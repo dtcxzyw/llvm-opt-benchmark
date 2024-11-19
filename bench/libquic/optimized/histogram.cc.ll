@@ -1212,7 +1212,7 @@ _ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit28: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base9Histogram18SnapshotFinalDeltaEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.32") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((80, 81)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base9Histogram18SnapshotFinalDeltaEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.32") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %final_delta_created_ = getelementptr inbounds i8, ptr %this, i64 80
   store i8 1, ptr %final_delta_created_, align 8
@@ -2128,7 +2128,7 @@ _ZNSt10unique_ptrIN4base12SampleVectorESt14default_deleteIS1_EED2Ev.exit: ; pred
 declare void @_ZN4base12SampleVectorC1EmPimPNS_16HistogramSamples8MetadataEPKNS_12BucketRangesE(ptr noundef nonnull align 8 dereferenceable(88), i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base9HistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 8)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base9HistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base9HistogramE, i64 16), ptr %this, align 8
   %logged_samples_ = getelementptr inbounds i8, ptr %this, i64 72
@@ -2164,7 +2164,7 @@ _ZNSt10unique_ptrIN4base12SampleVectorESt14default_deleteIS1_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base9HistogramD0Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 8)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base9HistogramD0Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base9HistogramE, i64 16), ptr %this, align 8
   %logged_samples_.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -2766,7 +2766,7 @@ declare void @_ZN4base15DictionaryValueC1Ev(ptr noundef nonnull align 8 derefere
 declare noundef zeroext i1 @_ZN4base9ListValue3SetEmPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base15LinearHistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base15LinearHistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base15LinearHistogramE, i64 16), ptr %this, align 8
   %bucket_description_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -2817,7 +2817,7 @@ _ZN4base9HistogramD2Ev.exit:                      ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base15LinearHistogramD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base15LinearHistogramD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base15LinearHistogramE, i64 16), ptr %this, align 8
   %bucket_description_.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -3982,7 +3982,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base15CustomHistogram19ArrayToCustomRangesEPKij(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef readonly %values, i32 noundef %num_values) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base15CustomHistogram19ArrayToCustomRangesEPKij(ptr noalias nocapture sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef readonly %values, i32 noundef %num_values) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp17.not = icmp eq i32 %num_values, 0

@@ -1184,7 +1184,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z13luaG_isnativeP9lua_Statei(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z14lua_singlestepP9lua_Statei(ptr nocapture noundef writeonly initializes((6, 7)) %0, i32 noundef %1) local_unnamed_addr #9 {
+define dso_local void @_Z14lua_singlestepP9lua_Statei(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = icmp ne i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 6
   %5 = zext i1 %3 to i8

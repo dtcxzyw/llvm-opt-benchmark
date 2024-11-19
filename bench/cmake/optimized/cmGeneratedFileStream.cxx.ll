@@ -805,7 +805,7 @@ _ZN25cmGeneratedFileStreamBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21cmGeneratedFileStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(348) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21cmGeneratedFileStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(348) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 40
@@ -870,7 +870,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN21cmGeneratedFileStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(348) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN21cmGeneratedFileStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(348) %0, ptr noundef nonnull @_ZTT21cmGeneratedFileStream) #16
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #16
@@ -890,7 +890,7 @@ define dso_local void @_ZTv0_n24_N21cmGeneratedFileStreamD1Ev(ptr noundef %0) un
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21cmGeneratedFileStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(348) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN21cmGeneratedFileStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(348) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN21cmGeneratedFileStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(348) %0, ptr noundef nonnull @_ZTT21cmGeneratedFileStream) #16
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264) %2) #16
@@ -1141,7 +1141,7 @@ _ZN25cmGeneratedFileStreamBase10RenameFileERKNSt7__cxx1112basic_stringIcSt11char
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN21cmGeneratedFileStream18SetCopyIfDifferentEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(348) initializes((344, 345)) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN21cmGeneratedFileStream18SetCopyIfDifferentEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(348) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 344
   store i8 %3, ptr %4, align 8
@@ -1149,7 +1149,7 @@ define dso_local void @_ZN21cmGeneratedFileStream18SetCopyIfDifferentEb(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN21cmGeneratedFileStream14SetCompressionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(348) initializes((346, 347)) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN21cmGeneratedFileStream14SetCompressionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(348) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 346
   store i8 %3, ptr %4, align 2
@@ -1157,7 +1157,7 @@ define dso_local void @_ZN21cmGeneratedFileStream14SetCompressionEb(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN21cmGeneratedFileStream28SetCompressionExtraExtensionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(348) initializes((347, 348)) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN21cmGeneratedFileStream28SetCompressionExtraExtensionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(348) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 347
   store i8 %3, ptr %4, align 1

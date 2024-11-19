@@ -32,7 +32,7 @@ define noundef ptr @decContextClearStatus(ptr noundef returned %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @decContextDefault(ptr noundef returned writeonly initializes((0, 25)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define noundef ptr @decContextDefault(ptr noundef returned writeonly %0, i32 noundef %1) local_unnamed_addr #1 {
   store i32 9, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 999999999, ptr %3, align 4
@@ -145,7 +145,7 @@ define i32 @decContextSaveStatus(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @decContextSetRounding(ptr noundef returned writeonly initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define noundef ptr @decContextSetRounding(ptr noundef returned writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret ptr %0
@@ -698,7 +698,7 @@ define range(i32 0, 2) i32 @decContextTestStatus(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @decContextZeroStatus(ptr noundef returned writeonly initializes((20, 24)) %0) local_unnamed_addr #3 {
+define noundef ptr @decContextZeroStatus(ptr noundef returned writeonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %2, align 4
   ret ptr %0

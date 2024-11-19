@@ -1621,7 +1621,7 @@ mkTree.exit:                                      ; preds = %genCnt.exit
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @makeRandomTree(ptr nocapture noundef initializes((24, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @makeRandomTree(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %4, align 8
@@ -1958,7 +1958,7 @@ writeTree.exit:                                   ; preds = %169, %genTree.exit
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @freeTreeGen(ptr nocapture noundef initializes((24, 40)) %0) local_unnamed_addr #8 {
+define dso_local void @freeTreeGen(ptr nocapture noundef %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #14

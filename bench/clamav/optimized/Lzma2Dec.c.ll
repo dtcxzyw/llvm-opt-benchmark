@@ -102,7 +102,7 @@ Lzma2Dec_GetOldProps.exit:                        ; preds = %3, %15
 declare i32 @LzmaDec_Allocate(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Lzma2Dec_Init(ptr noundef initializes((144, 148), (152, 164)) %0) local_unnamed_addr #0 {
+define void @Lzma2Dec_Init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -118,7 +118,7 @@ define void @Lzma2Dec_Init(ptr noundef initializes((144, 148), (152, 164)) %0) l
 declare void @LzmaDec_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef initializes((0, 4)) %5) local_unnamed_addr #0 {
+define i32 @Lzma2Dec_DecodeToDic(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = load i64, ptr %3, align 8
   store i64 0, ptr %3, align 8
@@ -504,7 +504,7 @@ declare void @LzmaDec_InitDicAndState(ptr noundef, i32 noundef, i32 noundef) loc
 declare i32 @LzmaDec_DecodeToDic(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5, ptr noundef initializes((0, 4)) %6) local_unnamed_addr #0 {
+define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = load i64, ptr %2, align 8
   %10 = load i64, ptr %4, align 8
@@ -571,7 +571,7 @@ define i32 @Lzma2Dec_DecodeToBuf(ptr noundef %0, ptr nocapture noundef writeonly
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @Lzma2Decode(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef initializes((0, 4)) %6, ptr noundef %7) local_unnamed_addr #0 {
+define i32 @Lzma2Decode(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, i8 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.CLzma2Dec, align 8
   %10 = alloca [5 x i8], align 1
   %11 = load i64, ptr %1, align 8

@@ -2003,7 +2003,7 @@ _ZN4llvm8codeview16TypeDeserializer11MappingInfoD2Ev.exit: ; preds = %_ZN4llvm8c
 declare void @_ZN4llvm8codeview23visitMemberRecordStreamENS_8ArrayRefIhEERNS0_20TypeVisitorCallbacksE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, ptr, i64, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumeratorsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumeratorsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125NativeEnumEnumEnumeratorsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN12_GLOBAL__N_125NativeEnumEnumEnumeratorsE, i64 96), ptr %2, align 8
@@ -2059,7 +2059,7 @@ _ZNSt6vectorIN4llvm8codeview16EnumeratorRecordESaIS2_EED2Ev.exit: ; preds = %_ZS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumeratorsD0Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumeratorsD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125NativeEnumEnumEnumeratorsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN12_GLOBAL__N_125NativeEnumEnumEnumeratorsE, i64 96), ptr %2, align 8
@@ -2234,14 +2234,14 @@ define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumerators7getNextEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumerators5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) initializes((64, 68)) %0) unnamed_addr #10 align 2 {
+define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumerators5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(68) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumerators16visitKnownMemberERN4llvm8codeview14CVMemberRecordERNS2_16EnumeratorRecordE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(68) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumerators16visitKnownMemberERN4llvm8codeview14CVMemberRecordERNS2_16EnumeratorRecordE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(68) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2299,7 +2299,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %31, %_ZNSt16allocat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumerators16visitKnownMemberERN4llvm8codeview14CVMemberRecordERNS2_22ListContinuationRecordE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(68) initializes((56, 60)) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %3) unnamed_addr #11 align 2 {
+define internal void @_ZN12_GLOBAL__N_125NativeEnumEnumEnumerators16visitKnownMemberERN4llvm8codeview14CVMemberRecordERNS2_22ListContinuationRecordE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(68) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %3) unnamed_addr #11 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %7 = load i8, ptr %6, align 4
@@ -2319,7 +2319,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %10, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N12_GLOBAL__N_125NativeEnumEnumEnumeratorsD1Ev(ptr nocapture noundef initializes((-8, 8)) %0) unnamed_addr #12 align 2 {
+define internal void @_ZThn8_N12_GLOBAL__N_125NativeEnumEnumEnumeratorsD1Ev(ptr nocapture noundef %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125NativeEnumEnumEnumeratorsE, i64 16), ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN12_GLOBAL__N_125NativeEnumEnumEnumeratorsE, i64 96), ptr %0, align 8
@@ -2375,7 +2375,7 @@ _ZN12_GLOBAL__N_125NativeEnumEnumEnumeratorsD2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N12_GLOBAL__N_125NativeEnumEnumEnumeratorsD0Ev(ptr noundef initializes((-8, 8)) %0) unnamed_addr #12 align 2 {
+define internal void @_ZThn8_N12_GLOBAL__N_125NativeEnumEnumEnumeratorsD0Ev(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_125NativeEnumEnumEnumeratorsE, i64 16), ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN12_GLOBAL__N_125NativeEnumEnumEnumeratorsE, i64 96), ptr %0, align 8
@@ -2642,7 +2642,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N12_GLOBAL__N_125NativeEnumEnumEnumerators16visitKnownMemberERN4llvm8codeview14CVMemberRecordERNS2_16EnumeratorRecordE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #12 align 2 {
+define internal void @_ZThn8_N12_GLOBAL__N_125NativeEnumEnumEnumerators16visitKnownMemberERN4llvm8codeview14CVMemberRecordERNS2_16EnumeratorRecordE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #12 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8, !noalias !23
@@ -2701,7 +2701,7 @@ _ZN12_GLOBAL__N_125NativeEnumEnumEnumerators16visitKnownMemberERN4llvm8codeview1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZThn8_N12_GLOBAL__N_125NativeEnumEnumEnumerators16visitKnownMemberERN4llvm8codeview14CVMemberRecordERNS2_22ListContinuationRecordE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef initializes((48, 52)) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %3) unnamed_addr #13 align 2 {
+define internal void @_ZThn8_N12_GLOBAL__N_125NativeEnumEnumEnumerators16visitKnownMemberERN4llvm8codeview14CVMemberRecordERNS2_22ListContinuationRecordE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %3) unnamed_addr #13 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %6 = getelementptr inbounds i8, ptr %1, i64 52

@@ -1591,7 +1591,7 @@ define zeroext i1 @WasmEdge_ValTypeIsRefNull(i64 %0) local_unnamed_addr #0 perso
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @WasmEdge_ValueGenI32(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @WasmEdge_ValueGenI32(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 %0, i32 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.sroa.0.0.insert.ext.i = zext i32 %1 to i128
   store i128 %.sroa.0.0.insert.ext.i, ptr %0, align 16, !alias.scope !4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1600,7 +1600,7 @@ define void @WasmEdge_ValueGenI32(ptr dead_on_unwind noalias nocapture writable 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @WasmEdge_ValueGenI64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @WasmEdge_ValueGenI64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 %0, i64 noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.sroa.01.0.insert.ext.i = zext i64 %1 to i128
   store i128 %.sroa.01.0.insert.ext.i, ptr %0, align 16, !alias.scope !7
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1609,7 +1609,7 @@ define void @WasmEdge_ValueGenI64(ptr dead_on_unwind noalias nocapture writable 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @WasmEdge_ValueGenF32(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 initializes((0, 24)) %0, float noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @WasmEdge_ValueGenF32(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 %0, float noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = bitcast float %1 to i32
   %.sroa.0.0.insert.ext.i = zext i32 %3 to i128
   store i128 %.sroa.0.0.insert.ext.i, ptr %0, align 16, !alias.scope !10
@@ -1619,7 +1619,7 @@ define void @WasmEdge_ValueGenF32(ptr dead_on_unwind noalias nocapture writable 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @WasmEdge_ValueGenF64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 initializes((0, 24)) %0, double noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @WasmEdge_ValueGenF64(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 %0, double noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = bitcast double %1 to i64
   %.sroa.01.0.insert.ext.i = zext i64 %3 to i128
   store i128 %.sroa.01.0.insert.ext.i, ptr %0, align 16, !alias.scope !13
@@ -1629,7 +1629,7 @@ define void @WasmEdge_ValueGenF64(ptr dead_on_unwind noalias nocapture writable 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @WasmEdge_ValueGenV128(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 initializes((0, 24)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @WasmEdge_ValueGenV128(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.sroa.2.0.insert.ext = zext i64 %2 to i128
   %.sroa.2.0.insert.shift = shl nuw i128 %.sroa.2.0.insert.ext, 64
   %.sroa.0.0.insert.ext = zext i64 %1 to i128
@@ -1641,7 +1641,7 @@ define void @WasmEdge_ValueGenV128(ptr dead_on_unwind noalias nocapture writable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @WasmEdge_ValueGenFuncRef(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @WasmEdge_ValueGenFuncRef(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %.sroa.25.0.insert.ext = zext i64 %3 to i128
   %.sroa.25.0.insert.shift = shl nuw i128 %.sroa.25.0.insert.ext, 64
@@ -1653,7 +1653,7 @@ define void @WasmEdge_ValueGenFuncRef(ptr dead_on_unwind noalias nocapture writa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @WasmEdge_ValueGenExternRef(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @WasmEdge_ValueGenExternRef(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %.sroa.25.0.insert.ext = zext i64 %3 to i128
   %.sroa.25.0.insert.shift = shl nuw i128 %.sroa.25.0.insert.ext, 64
@@ -12816,7 +12816,7 @@ define noundef ptr @WasmEdge_GlobalInstanceGetGlobalType(ptr noundef readnone re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_GlobalInstanceGetValue(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 initializes((0, 24)) %0, ptr noundef readonly %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @WasmEdge_GlobalInstanceGetValue(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.WasmEdge_Value) align 16 %0, ptr noundef readonly %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -59005,7 +59005,7 @@ _ZN8WasmEdge6SymbolIFvPvS1_PKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112CAPIHostFuncD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_112CAPIHostFuncD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -59057,7 +59057,7 @@ _ZN8WasmEdge7Runtime16HostFunctionBaseD2Ev.exit:  ; preds = %_ZN8WasmEdge3AST13C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112CAPIHostFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_112CAPIHostFuncD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8WasmEdge7Runtime16HostFunctionBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 120

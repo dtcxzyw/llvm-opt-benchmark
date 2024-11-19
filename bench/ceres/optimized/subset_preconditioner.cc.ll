@@ -79,7 +79,7 @@ $_ZTIN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEEE = comdat a
 @_ZN5ceres8internal20SubsetPreconditionerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal20SubsetPreconditionerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal20SubsetPreconditionerC2ENS0_14Preconditioner7OptionsERKNS0_17BlockSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 84), (88, 104)) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal20SubsetPreconditionerC2ENS0_14Preconditioner7OptionsERKNS0_17BlockSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %5 = alloca %"struct.google::CheckOpString", align 8
   %6 = alloca %"class.google::LogMessageFatal", align 8
@@ -358,7 +358,7 @@ _ZNKSt14default_deleteIN5ceres8internal20InnerProductComputerEEclEPS2_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal20SubsetPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal20SubsetPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal20SubsetPreconditionerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -423,7 +423,7 @@ _ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit: ; preds = %_ZNSt10unique_pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal20SubsetPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal20SubsetPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal20SubsetPreconditionerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8

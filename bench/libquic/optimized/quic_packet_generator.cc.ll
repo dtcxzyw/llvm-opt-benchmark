@@ -36,7 +36,7 @@ $__clang_call_terminate = comdat any
 @_ZN3net19QuicPacketGeneratorD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net19QuicPacketGeneratorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19QuicPacketGeneratorC2EmPNS_10QuicFramerEPNS_10QuicRandomEPNS_19QuicBufferAllocatorEPNS0_17DelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8)) %this, i64 noundef %connection_id, ptr noundef %framer, ptr noundef %random_generator, ptr noundef %buffer_allocator, ptr noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net19QuicPacketGeneratorC2EmPNS_10QuicFramerEPNS_10QuicRandomEPNS_19QuicBufferAllocatorEPNS0_17DelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(472) %this, i64 noundef %connection_id, ptr noundef %framer, ptr noundef %random_generator, ptr noundef %buffer_allocator, ptr noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %delegate, ptr %this, align 8
   %packet_creator_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1138,7 +1138,7 @@ return:                                           ; preds = %cleanup.done, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net19QuicPacketGenerator20StartBatchOperationsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) initializes((344, 345)) %this) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN3net19QuicPacketGenerator20StartBatchOperationsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) %this) local_unnamed_addr #8 align 2 {
 entry:
   %batch_mode_ = getelementptr inbounds i8, ptr %this, i64 344
   store i8 1, ptr %batch_mode_, align 8
@@ -1146,7 +1146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) initializes((344, 345)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net19QuicPacketGenerator21FinishBatchOperationsEv(ptr noundef nonnull align 8 dereferenceable(472) %this) local_unnamed_addr #0 align 2 {
 entry:
   %batch_mode_ = getelementptr inbounds i8, ptr %this, i64 344
   store i8 0, ptr %batch_mode_, align 8
@@ -1426,7 +1426,7 @@ entry:
 declare void @_ZN3net17QuicPacketCreator24UpdatePacketNumberLengthEmm(ptr noundef nonnull align 8 dereferenceable(312), i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net19QuicPacketGenerator21SetConnectionIdLengthEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) initializes((120, 124)) %this, i32 noundef %length) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN3net19QuicPacketGenerator21SetConnectionIdLengthEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) %this, i32 noundef %length) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp eq i32 %length, 0
   %spec.select = select i1 %cmp, i32 0, i32 8
@@ -1436,7 +1436,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net19QuicPacketGenerator20set_encryption_levelENS_15EncryptionLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) initializes((225, 226)) %this, i8 noundef signext %level) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN3net19QuicPacketGenerator20set_encryption_levelENS_15EncryptionLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(472) %this, i8 noundef signext %level) local_unnamed_addr #8 align 2 {
 entry:
   %encryption_level.i = getelementptr inbounds i8, ptr %this, i64 225
   store i8 %level, ptr %encryption_level.i, align 1

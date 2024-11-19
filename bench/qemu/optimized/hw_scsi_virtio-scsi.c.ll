@@ -289,7 +289,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_scsi_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly initializes((0, 36)) %config) #0 {
+define internal void @virtio_scsi_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 28, ptr noundef nonnull @__func__.VIRTIO_SCSI_COMMON) #13
   %conf = getelementptr inbounds i8, ptr %call.i, i64 520
@@ -2828,7 +2828,7 @@ declare void @defer_call_end() local_unnamed_addr #1
 declare i32 @virtio_queue_empty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_scsi_complete_cmd_req(ptr noundef initializes((184, 192)) %req) unnamed_addr #0 {
+define internal fastcc void @virtio_scsi_complete_cmd_req(ptr noundef %req) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = getelementptr i8, ptr %req, i64 214
@@ -2901,7 +2901,7 @@ declare i32 @scsi_req_enqueue(ptr noundef) local_unnamed_addr #1
 declare void @scsi_req_continue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @virtio_scsi_parse_cdb(ptr nocapture readnone %dev, ptr nocapture noundef initializes((24, 32), (40, 44)) %cmd, ptr nocapture noundef readonly %buf, i64 %buf_len, ptr nocapture noundef readonly %hba_private) #8 {
+define internal noundef i32 @virtio_scsi_parse_cdb(ptr nocapture readnone %dev, ptr nocapture noundef %cmd, ptr nocapture noundef readonly %buf, i64 %buf_len, ptr nocapture noundef readonly %hba_private) #8 {
 entry:
   %len = getelementptr inbounds i8, ptr %cmd, i64 16
   %0 = load i32, ptr %len, align 8

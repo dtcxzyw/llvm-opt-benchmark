@@ -632,7 +632,7 @@ vm_cref_new_toplevel.exit:                        ; preds = %0, %19, %25
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_vm_block_ep_update(i64 noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden void @rb_vm_block_ep_update(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %2, ptr %4, align 8
   %5 = getelementptr i8, ptr %2, i64 8
@@ -715,7 +715,7 @@ declare i32 @rb_during_gc() local_unnamed_addr #4
 declare void @rb_bug(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @ec_stack_overflow(ptr noundef initializes((136, 137)) %0) unnamed_addr #5 {
+define internal fastcc void @ec_stack_overflow(ptr noundef %0) unnamed_addr #5 {
 rb_ec_vm_ptr.exit:
   %1 = getelementptr i8, ptr %0, i64 48
   %.val = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
@@ -3090,7 +3090,7 @@ rb_obj_write.exit:                                ; preds = %65, %58, %1, %67
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @rb_vm_cc_general(ptr nocapture noundef writeonly initializes((24, 32)) %0) local_unnamed_addr #12 {
+define hidden void @rb_vm_cc_general(ptr nocapture noundef writeonly %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr @vm_call_general, ptr %2, align 8
   ret void
@@ -15748,7 +15748,7 @@ rb_obj_write.exit63:                              ; preds = %157, %146, %217, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @setup_method_cfunc_struct(ptr nocapture noundef writeonly initializes((0, 8), (16, 20)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @setup_method_cfunc_struct(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %2, ptr %4, align 8
@@ -33672,7 +33672,7 @@ define hidden range(i64 0, 21) i64 @rb_obj_is_thread(i64 noundef %0) local_unnam
 declare i32 @rb_typeddata_is_kind_of(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @rb_ec_set_vm_stack(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #12 {
+define hidden void @rb_ec_set_vm_stack(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #12 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -33680,7 +33680,7 @@ define hidden void @rb_ec_set_vm_stack(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_ec_initialize_vm_stack(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define hidden void @rb_ec_initialize_vm_stack(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -33717,7 +33717,7 @@ vm_push_frame.exit:                               ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @rb_ec_clear_vm_stack(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #12 {
+define hidden void @rb_ec_clear_vm_stack(ptr nocapture noundef writeonly %0) local_unnamed_addr #12 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -33755,7 +33755,7 @@ rb_current_ractor.exit:                           ; preds = %1, %5, %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @th_init(ptr noundef initializes((16, 24)) %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
+define internal fastcc void @th_init(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %4, align 8
   tail call void @rb_threadptr_root_fiber_setup(ptr noundef %0) #21
@@ -40380,7 +40380,7 @@ vm_push_frame.exit:                               ; preds = %.lr.ph.i, %.prehead
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @vm_call_iseq_setup_tailcall_opt_start(ptr nocapture noundef initializes((16, 24)) %0, ptr noundef %1, ptr nocapture noundef %2) #2 {
+define internal noundef i64 @vm_call_iseq_setup_tailcall_opt_start(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 16
@@ -42963,7 +42963,7 @@ define internal i64 @builtin_invoker0(ptr noundef %0, i64 noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @vm_call_iseq_setup_tailcall_0start(ptr nocapture noundef initializes((16, 24)) %0, ptr noundef %1, ptr nocapture noundef %2) #2 {
+define internal noundef i64 @vm_call_iseq_setup_tailcall_0start(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2) #2 {
   tail call fastcc void @vm_call_iseq_setup_tailcall(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i64 36
 }
@@ -43057,7 +43057,7 @@ vm_push_frame.exit:                               ; preds = %.lr.ph.i, %.prehead
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vm_call_iseq_setup_tailcall(ptr nocapture noundef initializes((16, 24)) %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc void @vm_call_iseq_setup_tailcall(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
@@ -48283,7 +48283,7 @@ rb_class_of.exit:                                 ; preds = %63, %66, %67, %68, 
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @vm_raise_method_missing(ptr noundef initializes((128, 136)) %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #5 {
+define internal fastcc void @vm_raise_method_missing(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #5 {
   %6 = getelementptr inbounds i8, ptr %0, i64 128
   store i64 0, ptr %6, align 8
   %7 = or i32 %4, 32
@@ -48864,7 +48864,7 @@ rb_callable_method_entry.exit.thread:             ; preds = %47, %.lr.ph, %44, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @method_missing(ptr noundef initializes((137, 138)) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 65, 64) %5, i32 noundef %6) unnamed_addr #2 {
+define internal fastcc i64 @method_missing(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef range(i32 65, 64) %5, i32 noundef %6) unnamed_addr #2 {
   %8 = alloca %struct.rb_callcache, align 8
   %9 = alloca i64, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 128

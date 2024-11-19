@@ -28,7 +28,7 @@ $_ZNSt6vectorIPN6Assimp5Q3BSP14sQ3BSPLightmapESaIS3_EE17_M_default_appendEm = co
 @_ZN6Assimp15Q3BSPFileParserD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp15Q3BSPFileParserD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp15Q3BSPFileParserC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18ZipArchiveIOSystemE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %mapName, ptr noundef %pZipArchive) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp15Q3BSPFileParserC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_18ZipArchiveIOSystemE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %mapName, ptr noundef %pZipArchive) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_Data = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)

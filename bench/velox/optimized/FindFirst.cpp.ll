@@ -10264,7 +10264,7 @@ lpad.body:                                        ; preds = %lpad, %lpad.i.i41, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_(ptr noalias nonnull align 8 initializes((0, 36), (37, 38)) %agg.result, i32 noundef %numElements, ptr nocapture noundef nonnull align 8 dereferenceable(38) %arrayRows, ptr noundef %rawNulls, ptr noundef %rawOffsets, ptr noundef %rawSizes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_121FindFirstFunctionBase13toElementRowsEiRKNS0_17SelectivityVectorEPKmPKiSA_(ptr noalias nonnull align 8 %agg.result, i32 noundef %numElements, ptr nocapture noundef nonnull align 8 dereferenceable(38) %arrayRows, ptr noundef %rawNulls, ptr noundef %rawOffsets, ptr noundef %rawSizes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.197, align 8

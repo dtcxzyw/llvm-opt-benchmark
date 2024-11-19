@@ -30,7 +30,7 @@ $_ZTSN5boost12noncopyable_10base_tokenE = comdat any
 @_ZN5boost7archive6detail17basic_iserializerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5boost7archive6detail17basic_iserializerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost7archive6detail17basic_iserializerC2ERKNS_13serialization18extended_type_infoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define void @_ZN5boost7archive6detail17basic_iserializerC2ERKNS_13serialization18extended_type_infoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !3
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5boost7archive6detail17basic_iserializerE, i64 16), ptr %0, align 8, !tbaa !8

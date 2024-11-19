@@ -55,7 +55,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8ximgproc18EstimateCovarianceC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 40)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv8ximgproc18EstimateCovarianceC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 8

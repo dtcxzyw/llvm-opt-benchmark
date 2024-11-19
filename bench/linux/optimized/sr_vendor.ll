@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @sr_vendor_init(ptr nocapture noundef initializes((16, 20)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @sr_vendor_init(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 232

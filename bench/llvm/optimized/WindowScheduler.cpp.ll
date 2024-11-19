@@ -328,7 +328,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15WindowSchedulerC2EPNS_19MachineSchedContextERNS_11MachineLoopE(ptr noundef nonnull align 8 dereferenceable(6436) initializes((0, 80)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(152) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15WindowSchedulerC2EPNS_19MachineSchedContextERNS_11MachineLoopE(ptr noundef nonnull align 8 dereferenceable(6436) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(152) %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN4llvm15WindowSchedulerE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8

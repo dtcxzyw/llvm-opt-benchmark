@@ -5687,7 +5687,7 @@ rc_read_init.exit:                                ; preds = %17, %8, %2635, %rc_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @lzma_decoder_reset(ptr nocapture noundef initializes((28300, 28304)) %0, ptr nocapture noundef readonly %1) #3 {
+define internal void @lzma_decoder_reset(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load i32, ptr %3, align 4
   %notmask = shl nsw i32 -1, %4
@@ -5915,7 +5915,7 @@ literal_init.exit:                                ; preds = %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @lzma_decoder_uncompressed(ptr nocapture noundef writeonly initializes((28312, 28320)) %0, i64 noundef %1) #4 {
+define internal void @lzma_decoder_uncompressed(ptr nocapture noundef writeonly %0, i64 noundef %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28312
   store i64 %1, ptr %3, align 8
   ret void

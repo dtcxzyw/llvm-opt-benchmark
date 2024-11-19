@@ -115,7 +115,7 @@ define void @Pla_ReadPlaRemoveComments(ptr noundef %0, ptr noundef readnone %1) 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @Pla_ReadPlaHeader(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Pla_ReadPlaHeader(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca [100 x i8], align 16
   store i32 0, ptr %5, align 4
   store i32 -1, ptr %4, align 4

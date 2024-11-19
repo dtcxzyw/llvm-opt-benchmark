@@ -143,7 +143,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN96_$LT$iterto
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9itertools8adaptors8put_back17h008b404ff3d00e89E(ptr noalias nocapture noundef writeonly sret({ { { ptr, [1 x i64] } }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN9itertools8adaptors8put_back17h008b404ff3d00e89E(ptr noalias nocapture noundef writeonly sret({ { { ptr, [1 x i64] } }, ptr }) align 8 dereferenceable(24) %0, ptr noundef %1, ptr %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %4, align 8
   store ptr %1, ptr %0, align 8

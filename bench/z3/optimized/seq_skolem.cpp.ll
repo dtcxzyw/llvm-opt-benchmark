@@ -133,7 +133,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3seq6skolemC2ER11ast_managerR11th_rewriter(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 44)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(16) %rw) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3seq6skolemC2ER11ast_managerR11th_rewriter(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(16) %rw) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %class.symbol, align 8
   store ptr %m, ptr %this, align 8
@@ -320,7 +320,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6symbolaSEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3seq6skolem2mkERK6symbolP4exprS5_S5_S5_P4sortb(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef %e1, ptr noundef %e2, ptr noundef %e3, ptr noundef %e4, ptr noundef %range, i1 noundef zeroext %rw) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3seq6skolem2mkERK6symbolP4exprS5_S5_S5_P4sortb(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(8) %s, ptr noundef %e1, ptr noundef %e2, ptr noundef %e3, ptr noundef %e4, ptr noundef %range, i1 noundef zeroext %rw) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %es = alloca [4 x ptr], align 16
   store ptr %e1, ptr %es, align 16
@@ -3704,7 +3704,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3seq6skolem11mk_digit2bvEP4exprP4sort(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %ch, ptr noundef %bv_sort) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3seq6skolem11mk_digit2bvEP4exprP4sort(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %ch, ptr noundef %bv_sort) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %es.i = alloca [4 x ptr], align 16
   %ref.tmp = alloca %class.symbol, align 8

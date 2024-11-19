@@ -15334,7 +15334,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -15503,7 +15503,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE1EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -21263,7 +21263,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -21432,7 +21432,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE2EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -27212,7 +27212,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -27381,7 +27381,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE3EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE3_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -30566,7 +30566,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE4EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE4EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -34479,7 +34479,7 @@ _ZNSt14_Function_base13_Base_managerIZN3gmxL13getConnectionILNS1_16IntegrationSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE5EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt17_Function_handlerIFSt8functionIFvlEEvEZN3gmxL13getConnectionILNS4_16IntegrationStageE5EEENS4_20PropagatorConnectionEPNS4_10PropagatorIXT_EEERKNS4_13PropagatorTagEEUlvE0_E9_M_invokeERKSt9_Any_data(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.109") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #18 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 24

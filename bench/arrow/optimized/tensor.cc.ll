@@ -1449,7 +1449,7 @@ if.end:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow6TensorC2ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_6BufferEERKSt6vectorIlSaIlEESE_RKSA_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strides, ptr noundef nonnull align 8 dereferenceable(24) %dim_names) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow6TensorC2ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_6BufferEERKSt6vectorIlSaIlEESE_RKSA_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strides, ptr noundef nonnull align 8 dereferenceable(24) %dim_names) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp13 = alloca %"class.arrow::util::ArrowLog", align 8
   %_s = alloca %"class.arrow::Status", align 8
@@ -2310,7 +2310,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow6TensorC2ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_6BufferEERKSt6vectorIlSaIlEESE_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strides) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow6TensorC2ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_6BufferEERKSt6vectorIlSaIlEESE_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shape, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strides) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.10", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp, i8 0, i64 24, i1 false)
@@ -2358,7 +2358,7 @@ lpad:                                             ; preds = %entry
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow6TensorC2ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_6BufferEERKSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shape) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow6TensorC2ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_6BufferEERKSt6vectorIlSaIlEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %data, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shape) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.2", align 8
   %ref.tmp2 = alloca %"class.std::vector.10", align 8

@@ -79,7 +79,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2dC2ERKNS_9GfRange2fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange2dC2ERKNS_9GfRange2fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   store double %4, ptr %0, align 8
@@ -200,7 +200,7 @@ define { double, double } @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d9GetC
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33), i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d11GetQuadrantEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRange2d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d11GetQuadrantEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRange2d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = icmp ugt i64 %2, 3
   br i1 %5, label %6, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange2d9GetCornerEm.exit

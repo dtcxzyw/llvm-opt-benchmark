@@ -400,7 +400,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23make_p3m_bspline_moduliiiii(ptr dead_on_unwind noalias writable sret(%"struct.std::array") align 8 initializes((0, 72)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z23make_p3m_bspline_moduliiiii(ptr dead_on_unwind noalias writable sret(%"struct.std::array") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"class.std::vector", align 8

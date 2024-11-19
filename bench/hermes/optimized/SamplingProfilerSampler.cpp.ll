@@ -65,7 +65,7 @@ $_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm17sampling_profi
 @_ZN6hermes2vm17sampling_profiler7SamplerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm17sampling_profiler7SamplerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm17sampling_profiler7SamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm17sampling_profiler7SamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm17sampling_profiler7SamplerE, i64 16), ptr %this, align 8
   %enabledCondVar_ = getelementptr inbounds i8, ptr %this, i64 160
@@ -127,7 +127,7 @@ _ZNSt13unordered_setIPN6hermes2vm16SamplingProfilerESt4hashIS3_ESt8equal_toIS3_E
 declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm17sampling_profiler7SamplerD0Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm17sampling_profiler7SamplerD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm17sampling_profiler7SamplerE, i64 16), ptr %this, align 8
   %enabledCondVar_.i = getelementptr inbounds i8, ptr %this, i64 160

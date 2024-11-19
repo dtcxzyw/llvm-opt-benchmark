@@ -235,7 +235,7 @@ $_ZTVN5clang4ento20SMTConstraintManagerE = comdat any
 @switch.table._ZN5clang4ento7SMTConv10getSymExprERSt10shared_ptrIN4llvm9SMTSolverEERNS_10ASTContextEPKNS0_7SymExprEPNS_8QualTypeEPb = private unnamed_addr constant [3 x i64] [i64 160, i64 168, i64 264], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento25CreateZ3ConstraintManagerERNS0_19ProgramStateManagerEPNS0_10ExprEngineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang4ento25CreateZ3ConstraintManagerERNS0_19ProgramStateManagerEPNS0_10ExprEngineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1, ptr noundef %2) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN5clang4ento20SMTConstraintManagerESt14default_deleteIS2_EED2Ev.exit:
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %4 = load ptr, ptr %3, align 8

@@ -2733,7 +2733,7 @@ proto_item_set_generated.exit:                    ; preds = %3, %7, %10
 declare ptr @proto_tree_add_uint_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_add_cmd_to_pending_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef initializes((0, 8), (80, 96)) %2, ptr noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden void @nvme_add_cmd_to_pending_list(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [3 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = zext i16 %4 to i32
@@ -2788,7 +2788,7 @@ define hidden ptr @nvme_lookup_cmd_in_pending_list(ptr nocapture noundef readonl
 declare ptr @wmem_tree_lookup32_array(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nvme_add_data_request(ptr nocapture noundef readonly %0, ptr noundef initializes((12, 76)) %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @nvme_add_data_request(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %5 = getelementptr inbounds i8, ptr %1, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %5, i8 0, i64 64, i1 false)
@@ -3041,7 +3041,7 @@ declare double @nstime_to_msec(ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_double_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, double noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nvme_update_cmd_end_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 8), (96, 112)) %1) local_unnamed_addr #4 {
+define hidden void @nvme_update_cmd_end_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
@@ -7676,7 +7676,7 @@ dissect_nvme_get_logpage_err_inf_resp.exit:       ; preds = %.lr.ph.i191, %disse
 declare ptr @proto_tree_add_bytes_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nvmeof_fabric_cmd(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((122, 123), (160, 161)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden void @dissect_nvmeof_fabric_cmd(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = add i32 %5, 4
   %10 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %9) #10
@@ -8295,7 +8295,7 @@ get_cqe_sc_string.exit:                           ; preds = %4, %30, %33, %35, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dissect_nvme_cmd(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((160, 161)) %4) local_unnamed_addr #0 {
+define hidden void @dissect_nvme_cmd(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8

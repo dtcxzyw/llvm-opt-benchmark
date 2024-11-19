@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.Curl_getinfo = private unnamed_addr constant [5 x ptr] [ptr @.str.2, ptr @.str.2, ptr @.str.2, ptr @.str.3, ptr @.str.1], align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_initinfo(ptr noundef initializes((2800, 2808), (2832, 2880), (5056, 5068), (5072, 5112), (5128, 5141), (5188, 5192), (5196, 5197), (5244, 5260)) %data) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_initinfo(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %info1 = getelementptr inbounds i8, ptr %data, i64 5056
   %t_nslookup = getelementptr inbounds i8, ptr %data, i64 2832

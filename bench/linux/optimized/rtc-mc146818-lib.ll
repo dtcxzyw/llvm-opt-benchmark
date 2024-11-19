@@ -255,7 +255,7 @@ thread-pre-split:                                 ; preds = %8, %36
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @mc146818_get_time_callback(i8 noundef zeroext %0, ptr nocapture noundef initializes((8, 10)) %1) #0 align 16 {
+define internal void @mc146818_get_time_callback(i8 noundef zeroext %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = zext i8 %0 to i32
   %4 = load ptr, ptr %1, align 8
   store i32 %3, ptr %4, align 4

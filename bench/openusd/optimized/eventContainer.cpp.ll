@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_NodeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_NodeD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -50,7 +50,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = add i64 %3, -32
@@ -129,7 +129,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_Node11D
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerC2EOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainerC2EOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -364,7 +364,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer8AllocateEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_Node4JoinEPS1_S2_(ptr noundef initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_Node4JoinEPS1_S2_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -389,7 +389,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_NodeC2EPNS_10TraceEventEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19TraceEventContainer5_NodeC2EPNS_10TraceEventEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %1, i64 %2

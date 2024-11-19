@@ -1540,7 +1540,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_28OptionletVolatilityStructureEE4Lin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17TenorOptionletVTSC1ERKNS_6HandleINS_28OptionletVolatilityStructureEEEN5boost10shared_ptrINS_9IborIndexEEES9_NS7_INS0_20CorrelationStructureEEE(ptr noundef nonnull align 8 dereferenceable(136) initializes((136, 144), (152, 156), (160, 168)) %this, ptr noundef nonnull align 8 dereferenceable(16) %baseVTS, ptr nocapture noundef %baseIndex, ptr nocapture noundef %targIndex, ptr nocapture noundef %correlation) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17TenorOptionletVTSC1ERKNS_6HandleINS_28OptionletVolatilityStructureEEEN5boost10shared_ptrINS_9IborIndexEEES9_NS7_INS0_20CorrelationStructureEEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %baseVTS, ptr nocapture noundef %baseIndex, ptr nocapture noundef %targIndex, ptr nocapture noundef %correlation) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Calendar", align 8
   %ref.tmp23 = alloca %"class.QuantLib::DayCounter", align 8
@@ -4152,7 +4152,7 @@ _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17TenorOptionletVTS26TenorOptionletSmileSectionC1ERKS0_d(ptr noundef nonnull align 8 dereferenceable(192) initializes((192, 200), (208, 212), (216, 224)) %this, ptr noundef nonnull align 8 dereferenceable(136) %volTS, double noundef %optionTime) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17TenorOptionletVTS26TenorOptionletSmileSectionC1ERKS0_d(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(136) %volTS, double noundef %optionTime) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i84 = alloca %"class.QuantLib::Date", align 8
   %retval.i = alloca %"class.QuantLib::Date", align 8

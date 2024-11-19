@@ -1482,7 +1482,7 @@ _ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.thread: ; preds = %36, %36, %36, %3
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5vcpkg4Json5Array9push_backEONS0_6ObjectE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"struct.vcpkg::StringView") align 8 %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13make_resourceNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_S4_N5vcpkg10StringViewES6_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"struct.vcpkg::StringView") align 8 %6) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"struct.vcpkg::StringView", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8

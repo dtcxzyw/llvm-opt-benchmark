@@ -664,7 +664,7 @@ declare { i64, i32 } @_ZN4absl3NowEv() local_unnamed_addr #8
 declare void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4absl13cord_internal9CordzInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(1332) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl13cord_internal9CordzInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(1332) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i64 16), ptr %this, align 8
   %rep_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -707,7 +707,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4absl13cord_internal9CordzInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(1332) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl13cord_internal9CordzInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(1332) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i64 16), ptr %this, align 8
   %rep_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -801,7 +801,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl13cord_internal9CordzInfo18GetCordzStatisticsEv(ptr noalias sret(%"struct.absl::cord_internal::CordzStatistics") align 8 initializes((0, 336)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1332) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4absl13cord_internal9CordzInfo18GetCordzStatisticsEv(ptr noalias sret(%"struct.absl::cord_internal::CordzStatistics") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1332) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %analyzer = alloca %"class.absl::cord_internal::(anonymous namespace)::CordRepAnalyzer", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %agg.result, i8 0, i64 336, i1 false)

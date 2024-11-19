@@ -163,7 +163,7 @@ declare ptr @cs_counts(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local
 declare ptr @cs_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull initializes((0, 8), (32, 40)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cs_vcount(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4

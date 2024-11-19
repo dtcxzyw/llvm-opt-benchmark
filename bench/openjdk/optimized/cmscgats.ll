@@ -9141,7 +9141,7 @@ AllocChunk.exit.thread:                           ; preds = %36, %45, %AllocChun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @ReadReal(ptr noundef nonnull initializes((271376, 271384)) %0, i32 noundef %1) unnamed_addr #4 {
+define internal fastcc void @ReadReal(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #4 {
   %3 = sitofp i32 %1 to double
   %4 = getelementptr inbounds i8, ptr %0, i64 271376
   store double %3, ptr %4, align 8

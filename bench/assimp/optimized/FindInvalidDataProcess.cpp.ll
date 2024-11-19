@@ -139,7 +139,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp22FindInvalidDataProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) initializes((24, 29)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
+define void @_ZN6Assimp22FindInvalidDataProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str, float noundef 0.000000e+00)
   %cmp = fcmp une float %call, 0.000000e+00

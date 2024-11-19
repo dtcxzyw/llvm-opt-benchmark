@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.22 = private unnamed_addr constant [10 x i8] c"IntelCore\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hwloc_internal_cpukinds_init(ptr nocapture noundef writeonly initializes((760, 776)) %0) local_unnamed_addr #0 {
+define hidden void @hwloc_internal_cpukinds_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 760
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -1418,7 +1418,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc void @hwloc__cpukinds_summarize_info(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull initializes((0, 12)) %1) unnamed_addr #13 {
+define internal fastcc void @hwloc__cpukinds_summarize_info(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #13 {
   store i32 1, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 1, ptr %3, align 4

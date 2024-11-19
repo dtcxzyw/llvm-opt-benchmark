@@ -46,7 +46,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6EffectC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(74) initializes((0, 74)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6EffectC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(74) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   store i8 1, ptr %2, align 8
@@ -58,7 +58,7 @@ define dso_local void @_ZN6EffectC2Ev(ptr nocapture noundef nonnull writeonly al
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6EffectC2ERKS_(ptr nocapture noundef nonnull align 8 dereferenceable(74) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(74) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6EffectC2ERKS_(ptr nocapture noundef nonnull align 8 dereferenceable(74) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(74) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -2517,7 +2517,7 @@ define dso_local noundef zeroext i1 @_ZNK6Effect8is_emptyEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN6Effect5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(74) initializes((72, 74)) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6Effect5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(74) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8

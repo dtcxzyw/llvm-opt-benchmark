@@ -219,7 +219,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @luaJIT_profile_dumpstack(ptr noundef %L, ptr noundef %fmt, i32 noundef %depth, ptr nocapture noundef writeonly initializes((0, 8)) %len) local_unnamed_addr #0 {
+define dso_local ptr @luaJIT_profile_dumpstack(ptr noundef %L, ptr noundef %fmt, i32 noundef %depth, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %0 = ptrtoint ptr %L to i64
   store i64 %0, ptr getelementptr inbounds (i8, ptr @profile_state, i64 48), align 8

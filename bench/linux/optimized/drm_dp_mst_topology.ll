@@ -320,7 +320,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_dp_mst_d
 @llvm.compiler.used = appending global [43 x ptr] [ptr @__UNIQUE_ID___addressable_drm_atomic_get_mst_payload_state473, ptr @__UNIQUE_ID___addressable_drm_atomic_get_mst_topology_state542, ptr @__UNIQUE_ID___addressable_drm_atomic_get_new_mst_topology_state544, ptr @__UNIQUE_ID___addressable_drm_atomic_get_old_mst_topology_state543, ptr @__UNIQUE_ID___addressable_drm_dp_add_payload_part1490, ptr @__UNIQUE_ID___addressable_drm_dp_add_payload_part2493, ptr @__UNIQUE_ID___addressable_drm_dp_atomic_find_time_slots523, ptr @__UNIQUE_ID___addressable_drm_dp_atomic_release_time_slots526, ptr @__UNIQUE_ID___addressable_drm_dp_calc_pbn_mode532, ptr @__UNIQUE_ID___addressable_drm_dp_check_act_status531, ptr @__UNIQUE_ID___addressable_drm_dp_get_vc_payload_bw496, ptr @__UNIQUE_ID___addressable_drm_dp_mst_add_affected_dsc_crtcs537, ptr @__UNIQUE_ID___addressable_drm_dp_mst_atomic_check540, ptr @__UNIQUE_ID___addressable_drm_dp_mst_atomic_check_mgr539, ptr @__UNIQUE_ID___addressable_drm_dp_mst_atomic_enable_dsc538, ptr @__UNIQUE_ID___addressable_drm_dp_mst_atomic_setup_commit527, ptr @__UNIQUE_ID___addressable_drm_dp_mst_atomic_wait_for_dependencies528, ptr @__UNIQUE_ID___addressable_drm_dp_mst_connector_early_unregister479, ptr @__UNIQUE_ID___addressable_drm_dp_mst_connector_late_register478, ptr @__UNIQUE_ID___addressable_drm_dp_mst_detect_port516, ptr @__UNIQUE_ID___addressable_drm_dp_mst_dsc_aux_for_port547, ptr @__UNIQUE_ID___addressable_drm_dp_mst_dump_topology533, ptr @__UNIQUE_ID___addressable_drm_dp_mst_edid_read517, ptr @__UNIQUE_ID___addressable_drm_dp_mst_get_edid518, ptr @__UNIQUE_ID___addressable_drm_dp_mst_get_port_malloc471, ptr @__UNIQUE_ID___addressable_drm_dp_mst_hpd_irq_handle_event513, ptr @__UNIQUE_ID___addressable_drm_dp_mst_hpd_irq_send_new_request515, ptr @__UNIQUE_ID___addressable_drm_dp_mst_port_downstream_of_parent536, ptr @__UNIQUE_ID___addressable_drm_dp_mst_put_port_malloc472, ptr @__UNIQUE_ID___addressable_drm_dp_mst_root_conn_atomic_check529, ptr @__UNIQUE_ID___addressable_drm_dp_mst_topology_mgr_destroy546, ptr @__UNIQUE_ID___addressable_drm_dp_mst_topology_mgr_init545, ptr @__UNIQUE_ID___addressable_drm_dp_mst_topology_mgr_resume502, ptr @__UNIQUE_ID___addressable_drm_dp_mst_topology_mgr_set_mst500, ptr @__UNIQUE_ID___addressable_drm_dp_mst_topology_mgr_suspend501, ptr @__UNIQUE_ID___addressable_drm_dp_mst_topology_state_funcs541, ptr @__UNIQUE_ID___addressable_drm_dp_mst_update_slots530, ptr @__UNIQUE_ID___addressable_drm_dp_read_mst_cap497, ptr @__UNIQUE_ID___addressable_drm_dp_remove_payload_part1491, ptr @__UNIQUE_ID___addressable_drm_dp_remove_payload_part2492, ptr @__UNIQUE_ID___addressable_drm_dp_send_power_updown_phy488, ptr @__UNIQUE_ID___addressable_drm_dp_send_query_stream_enc_status489, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @drm_dp_encode_sideband_req(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @drm_dp_encode_sideband_req(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = load i8, ptr %0, align 8
   %4 = and i8 %3, 127
   store i8 %4, ptr %1, align 1
@@ -663,7 +663,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @drm_dp_decode_sideband_req(ptr noundef %0, ptr nocapture noundef initializes((0, 1)) %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_dp_decode_sideband_req(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 16 {
   %3 = load i8, ptr %0, align 1
   %4 = and i8 %3, 127
   store i8 %4, ptr %1, align 8
@@ -1639,7 +1639,7 @@ define internal fastcc i32 @drm_dp_send_dpcd_write(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @drm_dp_mst_connector_late_register(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((1080, 1088)) %1) #3 align 16 {
+define dso_local noundef i32 @drm_dp_mst_connector_late_register(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 1368
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 88
@@ -2260,7 +2260,7 @@ declare dso_local i32 @drm_modeset_lock(ptr noundef, ptr noundef) local_unnamed_
 declare dso_local void @drm_modeset_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 4, 3) i32 @drm_dp_add_payload_part1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((8, 9), (24, 28)) %2) #3 align 16 {
+define dso_local range(i32 4, 3) i32 @drm_dp_add_payload_part1(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 849
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0
@@ -3053,7 +3053,7 @@ define dso_local void @drm_dp_mst_topology_mgr_suspend(ptr noundef %0) #3 align 
 declare dso_local zeroext i1 @flush_work(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nofree nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @drm_dp_mst_topology_mgr_invalidate_mstb(ptr noundef nonnull initializes((72, 73)) %0) unnamed_addr #10 align 16 {
+define internal fastcc void @drm_dp_mst_topology_mgr_invalidate_mstb(ptr noundef nonnull %0) unnamed_addr #10 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3261,7 +3261,7 @@ define dso_local noundef range(i32 -1, 1) i32 @drm_dp_mst_topology_mgr_resume(pt
 declare dso_local i64 @drm_dp_dpcd_read(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) #3 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @drm_dp_mst_hpd_irq_handle_event(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = alloca ptr, align 8
   store i8 0, ptr %3, align 1
   %6 = load i8, ptr %1, align 1
@@ -5279,7 +5279,7 @@ define dso_local i32 @drm_dp_mst_root_conn_atomic_check(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_dp_mst_update_slots(ptr noundef initializes((72, 74)) %0, i8 noundef zeroext %1) #3 align 16 {
+define dso_local void @drm_dp_mst_update_slots(ptr noundef %0, i8 noundef zeroext %1) #3 align 16 {
   %3 = icmp ne i8 %1, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = getelementptr inbounds i8, ptr %0, i64 73
@@ -6578,7 +6578,7 @@ define dso_local i32 @drm_dp_mst_atomic_enable_dsc(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @drm_dp_mst_atomic_check_mgr(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_dp_mst_atomic_check_mgr(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 848
   %6 = load i8, ptr %5, align 8

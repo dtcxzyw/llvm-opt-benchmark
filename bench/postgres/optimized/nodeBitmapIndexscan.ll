@@ -150,7 +150,7 @@ declare void @index_rescan(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i
 declare void @InstrStopNode(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanBitmapIndexScan(ptr nocapture noundef initializes((276, 277)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanBitmapIndexScan(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

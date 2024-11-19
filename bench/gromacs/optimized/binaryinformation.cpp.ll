@@ -3443,7 +3443,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx25BinaryInformationSettingsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %0) unnamed_addr #12 align 2 {
+define void @_ZN3gmx25BinaryInformationSettingsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %0, align 8
   store ptr @.str.86, ptr %2, align 8

@@ -1050,7 +1050,7 @@ pmix_obj_run_destructors.exit192:                 ; preds = %.lr.ph.i189, %344
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_cbfunc(i32 noundef %0, ptr noundef initializes((500, 504)) %1) #0 {
+define internal void @op_cbfunc(i32 noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 500
   store i32 %0, ptr %3, align 4
   fence release

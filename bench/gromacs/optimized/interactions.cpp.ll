@@ -969,7 +969,7 @@ _ZNKSt4lessISt5tupleIJN5nblib10StrongTypeINSt7__cxx1112basic_stringIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5nblib25ParticleTypesInteractionsC2ENS_15CombinationRuleE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 4), (16, 20), (24, 32)) %0, i32 noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib25ParticleTypesInteractionsC2ENS_15CombinationRuleE(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %3, align 8
@@ -2402,7 +2402,7 @@ define linkonce_odr void @_ZZN5nblib12formatStringIJNSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5nblib25ParticleTypesInteractions13generateTableEv(ptr dead_on_unwind noalias writable sret(%"class.nblib::NonBondedInteractionMap") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5nblib25ParticleTypesInteractions13generateTableEv(ptr dead_on_unwind noalias writable sret(%"class.nblib::NonBondedInteractionMap") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

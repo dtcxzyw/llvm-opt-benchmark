@@ -429,7 +429,7 @@ _ZN5Ipopt8SmartPtrINS_14SensBacksolverEED2Ev.exit: ; preds = %74, %66, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt16IndexPCalculatorD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt16IndexPCalculatorD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt16IndexPCalculatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = getelementptr inbounds i8, ptr %0, i64 104
@@ -530,7 +530,7 @@ define void @_ZN5Ipopt16IndexPCalculatorD0Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Ipopt16IndexPCalculator14InitializeImplERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((80, 84)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5Ipopt16IndexPCalculator14InitializeImplERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.22", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2293,7 +2293,7 @@ define void @_ZNK5Ipopt16IndexPCalculator9PrintImplERKNS_10JournalistENS_13EJour
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Ipopt7PColumnC2EPd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define void @_ZN5Ipopt7PColumnC2EPd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt7PColumnE, i64 16), ptr %0, align 8
@@ -2303,7 +2303,7 @@ define void @_ZN5Ipopt7PColumnC2EPd(ptr nocapture noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt7PColumnD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define void @_ZN5Ipopt7PColumnD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt7PColumnE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8

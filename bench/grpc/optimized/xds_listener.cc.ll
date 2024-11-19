@@ -3648,7 +3648,7 @@ lpad.i.i.i.i9.i.i.i:                              ; preds = %sw.bb2.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core23XdsListenerResourceType6DecodeERKNS_15XdsResourceType13DecodeContextESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.grpc_core::XdsResourceType::DecodeResult") align 8 initializes((32, 33)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(40) %context, i64 %serialized_resource.coerce0, ptr %serialized_resource.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core23XdsListenerResourceType6DecodeERKNS_15XdsResourceType13DecodeContextESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.grpc_core::XdsResourceType::DecodeResult") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(40) %context, i64 %serialized_resource.coerce0, ptr %serialized_resource.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %destination_ip.i.i.i.i = alloca %"struct.grpc_core::XdsListenerResource::FilterChainMap::DestinationIp", align 8
   %__guard.i.i.i.i.i.i.i.i.i.i.i.i = alloca %struct._Guard, align 8

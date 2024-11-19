@@ -41,7 +41,7 @@ define noalias noundef ptr @Gia_Rsb2ManAlloc() local_unnamed_addr #0 {
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Gia_Rsb2ManFree(ptr nocapture noundef initializes((56, 64), (72, 80), (88, 96), (104, 112), (120, 128), (136, 144), (152, 160)) %0) local_unnamed_addr #2 {
+define void @Gia_Rsb2ManFree(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
@@ -165,7 +165,7 @@ Vec_IntErase.exit19:                              ; preds = %Vec_IntErase.exit17
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_Rsb2ManStart(ptr noundef initializes((0, 24), (60, 64)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #4 {
+define void @Gia_Rsb2ManStart(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #4 {
   store i32 %3, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %4, ptr %10, align 4
@@ -907,7 +907,7 @@ define void @Gia_Rsb2ManPrint(ptr nocapture noundef readonly %0) local_unnamed_a
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 1073741824) i32 @Gia_Rsb2ManLevel(ptr nocapture noundef initializes((124, 128)) %0) local_unnamed_addr #4 {
+define range(i32 0, 1073741824) i32 @Gia_Rsb2ManLevel(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 0, ptr %3, align 4
@@ -2748,7 +2748,7 @@ Vec_IntFind.exit.thread:                          ; preds = %Vec_IntFind.exit.lo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_ResubComputeWindow(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef writeonly initializes((0, 8)) %8, ptr noundef writeonly %9) local_unnamed_addr #4 {
+define i32 @Abc_ResubComputeWindow(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #4 {
   %11 = alloca ptr, align 8
   %12 = alloca %struct.Vec_Int_t_, align 8
   %13 = tail call noalias noundef dereferenceable_or_null(208) ptr @calloc(i64 noundef 1, i64 noundef 208) #29
@@ -3095,7 +3095,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @Abc_ResubComputeWindow2(ptr nocapture noundef readonly %0, i32 noundef returned %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef writeonly initializes((0, 8)) %8, ptr noundef writeonly %9) local_unnamed_addr #11 {
+define noundef i32 @Abc_ResubComputeWindow2(ptr nocapture noundef readonly %0, i32 noundef returned %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr nocapture noundef writeonly %8, ptr noundef writeonly %9) local_unnamed_addr #11 {
   %11 = shl nsw i32 %1, 1
   %12 = sext i32 %11 to i64
   %13 = shl nsw i64 %12, 2
@@ -5277,7 +5277,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Gia_RsbWindowExplore(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Gia_RsbWindowExplore(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #4 {
   %7 = getelementptr i8, ptr %1, i64 4
   %.val44 = load i32, ptr %7, align 4
   store i32 0, ptr %5, align 4
@@ -7007,7 +7007,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_WinCreateFromCut(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef initializes((4, 8)) %4) local_unnamed_addr #4 {
+define void @Gia_WinCreateFromCut(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #32
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4
@@ -8480,7 +8480,7 @@ Gia_RsbFindFaninAdd.exit74:                       ; preds = %42, %Gia_RsbFindFan
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_RsbWindowGrow2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((4, 8)) %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define void @Gia_RsbWindowGrow2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %7, align 4
   %8 = tail call i32 @Gia_RsbExpandCut(ptr noundef %0, ptr noundef %4)
@@ -8686,7 +8686,7 @@ Vec_IntFree.exit:                                 ; preds = %74, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Gia_RsbWindowCompute(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Gia_RsbWindowCompute(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #4 {
   store ptr null, ptr %7, align 8
   store ptr null, ptr %6, align 8
   %9 = tail call ptr @Gia_RsbWindowInit(ptr noundef %0, ptr noundef %5, i32 noundef %1, i32 noundef %3)

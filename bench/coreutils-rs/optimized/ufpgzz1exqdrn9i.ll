@@ -284,7 +284,7 @@ define hidden { ptr, i64 } @"_ZN3std3ffi6os_str85_$LT$impl$u20$core..convert..As
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef nonnull align 1 dereferenceable_or_null(1) ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17ha0ac967b89cd4bb4E.llvm.17569681730523550952"(ptr noundef nonnull writeonly align 1 initializes((0, 2)) %0, ptr noalias nocapture noundef align 1 dereferenceable_or_null(2) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 1 dereferenceable_or_null(1) ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17ha0ac967b89cd4bb4E.llvm.17569681730523550952"(ptr noundef nonnull writeonly align 1 %0, ptr noalias nocapture noundef align 1 dereferenceable_or_null(2) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h75f72a0019e0a34fE.exit", label %3
@@ -1107,7 +1107,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc119a7c75e48
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc409ee80fd7c632dE.llvm.17569681730523550952"(ptr noalias nocapture noundef writeonly sret({ i128, [18 x i64] }) align 16 dereferenceable(160) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(160) %1) unnamed_addr #5 {
+define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc409ee80fd7c632dE.llvm.17569681730523550952"(ptr noalias nocapture noundef writeonly sret({ i128, [18 x i64] }) align 16 dereferenceable(160) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(160) %1) unnamed_addr #5 {
   %3 = load i128, ptr %1, align 16, !range !121, !noundef !4
   %4 = icmp eq i128 %3, 3
   br i1 %4, label %6, label %5

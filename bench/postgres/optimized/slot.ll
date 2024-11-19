@@ -1885,7 +1885,7 @@ define dso_local i64 @ReplicationSlotsComputeLogicalRestartLSN() local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @ReplicationSlotsCountDBSlots(i32 noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @ReplicationSlotsCountDBSlots(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
   %4 = load i32, ptr @max_replication_slots, align 4

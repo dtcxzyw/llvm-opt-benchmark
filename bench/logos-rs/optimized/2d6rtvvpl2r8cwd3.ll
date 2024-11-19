@@ -945,7 +945,7 @@ define void @_ZN9hashbrown3raw13RawTableInner13drop_elements17hdccf055401ab3cbfE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h22fbe7eda4d3e4c8E(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readnone align 8 %1, ptr align 1 %2, i64 %3, i64 %4, i64 %5, i1 zeroext %6) unnamed_addr #0 {
+define void @_ZN9hashbrown3raw13RawTableInner14prepare_resize17h22fbe7eda4d3e4c8E(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readnone align 8 %1, ptr align 1 %2, i64 %3, i64 %4, i64 %5, i1 zeroext %6) unnamed_addr #0 {
   %8 = alloca [24 x i8], align 8
   %9 = icmp eq i64 %5, 0
   br i1 %9, label %_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17ha2fa1f2f2f97fbbfE.exit.thread32, label %10
@@ -1255,7 +1255,7 @@ define void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17he11f2271b2b06f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hd4abd3819867f495E(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 24)) %0, ptr align 1 %1, i64 %2, i64 %3, i64 %4, i1 zeroext %5) unnamed_addr #1 {
+define void @_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hd4abd3819867f495E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 1 %1, i64 %2, i64 %3, i64 %4, i1 zeroext %5) unnamed_addr #1 {
   %7 = alloca [24 x i8], align 8
   call void @_ZN9hashbrown3raw11TableLayout20calculate_layout_for17hd74580f72f3c701fE(ptr nonnull sret([24 x i8]) align 8 %7, i64 %2, i64 %3, i64 %4)
   %8 = load i64, ptr %7, align 8
@@ -1314,7 +1314,7 @@ define void @_ZN9hashbrown3raw13RawTableInner17new_uninitialized17hd4abd3819867f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17ha2fa1f2f2f97fbbfE(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 24)) %0, ptr align 1 %1, i64 %2, i64 %3, i64 %4, i1 zeroext %5) unnamed_addr #0 {
+define void @_ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17ha2fa1f2f2f97fbbfE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 1 %1, i64 %2, i64 %3, i64 %4, i1 zeroext %5) unnamed_addr #0 {
   %7 = alloca [24 x i8], align 8
   %8 = icmp eq i64 %4, 0
   br i1 %8, label %9, label %10
@@ -1567,7 +1567,7 @@ define void @"_ZN9hashbrown3raw16RawIter$LT$T$GT$13drop_elements17h23907764ec553
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17h1a80ff69dacd8a05E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 26)) %0, ptr %1, ptr %2, i64 %3) unnamed_addr #1 {
+define void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17h1a80ff69dacd8a05E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr %1, ptr %2, i64 %3) unnamed_addr #1 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 %3
@@ -1589,7 +1589,7 @@ define void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17h1a80ff69dacd8a05E"(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17h39693531dd3df4ccE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 26)) %0, ptr %1, ptr %2, i64 %3) unnamed_addr #1 {
+define void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17h39693531dd3df4ccE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr %1, ptr %2, i64 %3) unnamed_addr #1 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 %3
@@ -1611,7 +1611,7 @@ define void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17h39693531dd3df4ccE"(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17haf58bafa8da6e6a1E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 26)) %0, ptr %1, ptr %2, i64 %3) unnamed_addr #1 {
+define void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17haf58bafa8da6e6a1E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr %1, ptr %2, i64 %3) unnamed_addr #1 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 %3
@@ -1633,7 +1633,7 @@ define void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17haf58bafa8da6e6a1E"(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17hb3ac3f3bbd4942edE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 26)) %0, ptr %1, ptr %2, i64 %3) unnamed_addr #1 {
+define void @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$3new17hb3ac3f3bbd4942edE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr %1, ptr %2, i64 %3) unnamed_addr #1 {
   %5 = alloca [16 x i8], align 16
   %6 = alloca [16 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 %3

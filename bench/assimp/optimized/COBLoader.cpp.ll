@@ -4271,7 +4271,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11COBImporter19ReadChunkInfo_AsciiERNS_3COB9ChunkInfoERKNS_12LineSplitterE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((8, 12)) %out, ptr noundef nonnull align 8 dereferenceable(51) %splitter) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11COBImporter19ReadChunkInfo_AsciiERNS_3COB9ChunkInfoERKNS_12LineSplitterE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %out, ptr noundef nonnull align 8 dereferenceable(51) %splitter) local_unnamed_addr #0 align 2 {
 entry:
   %in.addr.i = alloca ptr, align 8
   %all_tokens = alloca [8 x ptr], align 16

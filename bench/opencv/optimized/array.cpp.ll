@@ -7449,7 +7449,7 @@ define ptr @cvPtrND(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvGet1D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvGet1D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7572,7 +7572,7 @@ define void @cvGet1D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvGet2D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvGet2D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca i32, align 4
@@ -7718,7 +7718,7 @@ common.resume:                                    ; preds = %54, %56, %29, %31
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvGet3D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @cvGet3D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca i32, align 4
@@ -7792,7 +7792,7 @@ define void @cvGet3D(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @cvGetND(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @cvGetND(ptr dead_on_unwind noalias writable sret(%struct.CvScalar) align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !55
   store i32 0, ptr %4, align 4

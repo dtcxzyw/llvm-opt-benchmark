@@ -457,7 +457,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21ConstantRecoveryModelC2ERKNS_6HandleINS_17RecoveryRateQuoteEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16), (24, 28), (32, 40)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %quote) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21ConstantRecoveryModelC2ERKNS_6HandleINS_17RecoveryRateQuoteEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %quote) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -811,7 +811,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_17RecoveryRateQuoteEE4LinkEED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21ConstantRecoveryModelC1ERKNS_6HandleINS_17RecoveryRateQuoteEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((96, 100), (104, 112)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %quote) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21ConstantRecoveryModelC1ERKNS_6HandleINS_17RecoveryRateQuoteEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %quote) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 80
@@ -1071,7 +1071,7 @@ lpad4:                                            ; preds = %lor.end.i.i, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21ConstantRecoveryModelC2EdNS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16), (24, 28), (32, 40)) %this, ptr nocapture noundef readonly %vtt, double noundef %recovery, i32 noundef %sen) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21ConstantRecoveryModelC2EdNS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %vtt, double noundef %recovery, i32 noundef %sen) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %recovery.addr = alloca double, align 8
   %sen.addr = alloca i32, align 4
@@ -1395,7 +1395,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21ConstantRecoveryModelC1EdNS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(80) initializes((96, 100), (104, 112)) %this, double noundef %recovery, i32 noundef %sen) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21ConstantRecoveryModelC1EdNS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(80) %this, double noundef %recovery, i32 noundef %sen) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %recovery.addr = alloca double, align 8
   %sen.addr = alloca i32, align 4

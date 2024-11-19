@@ -3575,7 +3575,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3SkyC1EiP15RenderingEngineP14ITextureSourceP13IShaderSource(ptr noundef nonnull align 8 dereferenceable(3016) initializes((3016, 3036)) %this, i32 noundef %id, ptr nocapture noundef readonly %rendering_engine, ptr noundef %tsrc, ptr noundef %ssrc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3SkyC1EiP15RenderingEngineP14ITextureSourceP13IShaderSource(ptr noundef nonnull align 8 dereferenceable(3016) %this, i32 noundef %id, ptr nocapture noundef readonly %rendering_engine, ptr noundef %tsrc, ptr noundef %ssrc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i771 = alloca i64, align 8
   %__dnew.i.i661 = alloca i64, align 8
@@ -8625,7 +8625,7 @@ _Z18getWickedTimeOfDayf.exit:                     ; preds = %if.else7.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3Sky13draw_sky_bodyERSt5arrayIN3irr5video9S3DVertexELm4EEffRKNS2_6SColorE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(3016) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(144) initializes((0, 144)) %vertices, float noundef %pos_1, float noundef %pos_2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %c) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN3Sky13draw_sky_bodyERSt5arrayIN3irr5video9S3DVertexELm4EEffRKNS2_6SColorE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(3016) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(144) %vertices, float noundef %pos_1, float noundef %pos_2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %c) local_unnamed_addr #15 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %c, align 4, !tbaa !94
   store float %pos_1, ptr %vertices, align 4, !tbaa !22
@@ -10386,7 +10386,7 @@ declare void @_ZN9PcgRandomC1Emm(ptr noundef nonnull align 8 dereferenceable(16)
 declare noundef i32 @_ZN9PcgRandom5rangeEii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3Sky12setSkyColorsERK8SkyColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3016) initializes((2668, 2696)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %sky_color) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN3Sky12setSkyColorsERK8SkyColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3016) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %sky_color) local_unnamed_addr #15 align 2 {
 entry:
   %sky_color2 = getelementptr inbounds i8, ptr %this, i64 2668
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %sky_color2, ptr noundef nonnull align 4 dereferenceable(28) %sky_color, i64 28, i1 false), !tbaa.struct !277
@@ -10394,7 +10394,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3Sky14setHorizonTintEN3irr5video6SColorES2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3016) initializes((2696, 2704), (2964, 2965)) %this, i32 %sun_tint.coerce, i32 %moon_tint.coerce, ptr noundef nonnull align 8 dereferenceable(32) %use_sun_tint) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN3Sky14setHorizonTintEN3irr5video6SColorES2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(3016) %this, i32 %sun_tint.coerce, i32 %moon_tint.coerce, ptr noundef nonnull align 8 dereferenceable(32) %use_sun_tint) local_unnamed_addr #9 align 2 {
 entry:
   %fog_sun_tint = getelementptr inbounds i8, ptr %this, i64 2696
   store i32 %sun_tint.coerce, ptr %fog_sun_tint, align 8, !tbaa !94

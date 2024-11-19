@@ -34,7 +34,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_writebac
 @llvm.compiler.used = appending global [7 x ptr] [ptr @__UNIQUE_ID___addressable_drm_writeback_cleanup_job380, ptr @__UNIQUE_ID___addressable_drm_writeback_connector_init374, ptr @__UNIQUE_ID___addressable_drm_writeback_connector_init_with_encoder375, ptr @__UNIQUE_ID___addressable_drm_writeback_get_out_fence387, ptr @__UNIQUE_ID___addressable_drm_writeback_prepare_job378, ptr @__UNIQUE_ID___addressable_drm_writeback_queue_job379, ptr @__UNIQUE_ID___addressable_drm_writeback_signal_completion384], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_writeback_connector_init(ptr noundef %0, ptr noundef initializes((2048, 2052), (2088, 2096)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
+define dso_local i32 @drm_writeback_connector_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
   %8 = getelementptr inbounds i8, ptr %1, i64 1976
   %9 = getelementptr inbounds i8, ptr %1, i64 2088
   store ptr %3, ptr %9, align 8

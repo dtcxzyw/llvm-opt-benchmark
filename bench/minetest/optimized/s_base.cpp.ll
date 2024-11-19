@@ -459,7 +459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ScriptApiBaseC2E13ScriptingType(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 48)) %this, i8 noundef zeroext %type) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBaseC2E13ScriptingType(ptr noundef nonnull align 8 dereferenceable(137) %this, i8 noundef zeroext %type) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13ScriptApiBase, i64 16), ptr %this, align 8, !tbaa !12
   %m_luastackmutex = getelementptr inbounds i8, ptr %this, i64 8
@@ -1229,7 +1229,7 @@ declare void @lua_setfield(ptr noundef, i32 noundef, ptr noundef) local_unnamed_
 declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13ScriptApiBase, i64 16), ptr %this, align 8, !tbaa !12
   %m_luastack = getelementptr inbounds i8, ptr %this, i64 96
@@ -1281,7 +1281,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13ScriptApiBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ScriptApiBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13ScriptApiBase, i64 16), ptr %this, align 8, !tbaa !12
   %m_luastack.i = getelementptr inbounds i8, ptr %this, i64 96

@@ -2371,7 +2371,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4core3ops8function6FnOnce9call_once17h35d8fd6a2dcb690fE.llvm.12760481706496575883(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #3 {
+define hidden void @_ZN4core3ops8function6FnOnce9call_once17h35d8fd6a2dcb690fE.llvm.12760481706496575883(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8, !alias.scope !948, !noalias !951
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2984,7 +2984,7 @@ define internal void @_ZN4core5error5Error7provide17h993d1c86c2d8cd4bE(ptr noali
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h444eded0ababa599E.llvm.12760481706496575883"(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noundef %1) unnamed_addr #3 {
+define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h444eded0ababa599E.llvm.12760481706496575883"(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #3 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -3064,7 +3064,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h602a402346d9
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7daea9b281acd7b8E.llvm.12760481706496575883"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
+define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7daea9b281acd7b8E.llvm.12760481706496575883"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = load i64, ptr %1, align 8, !range !967, !noundef !11
   %4 = icmp eq i64 %3, -9223372036854775808
   br i1 %4, label %7, label %5
@@ -3092,7 +3092,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7daea9b281ac
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h402d0fa040312a5aE.llvm.12760481706496575883"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h402d0fa040312a5aE.llvm.12760481706496575883"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb98e93f08ac7f736E"(i64 noundef %2, i1 noundef zeroext false)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -3487,7 +3487,7 @@ define internal noundef zeroext i1 @"_ZN69_$LT$core..alloc..layout..LayoutError$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt17h79ea9ce2d436d4abE.llvm.12760481706496575883(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 {
+define hidden void @_ZN6chrono5naive8datetime13NaiveDateTime18from_timestamp_opt17h79ea9ce2d436d4abE.llvm.12760481706496575883(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #1 {
   %4 = sdiv i64 %1, 86400
   %5 = srem i64 %1, 86400
   %.lobit.i = ashr i64 %5, 63
@@ -3581,7 +3581,7 @@ define hidden void @_ZN6diesel11deserialize7FromSql17from_nullable_sql17h60fcdfd
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define hidden void @"_ZN68_$LT$T$u20$as$u20$diesel..deserialize..FromSqlRow$LT$ST$C$DB$GT$$GT$14build_from_row17hbf1340d473030a38E.llvm.12760481706496575883"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #10 {
+define hidden void @"_ZN68_$LT$T$u20$as$u20$diesel..deserialize..FromSqlRow$LT$ST$C$DB$GT$$GT$14build_from_row17hbf1340d473030a38E.llvm.12760481706496575883"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #10 {
   %3 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromStaticSqlRow$LT$ST$C$DB$GT$$GT$14build_from_row17ha145ea3974926698E"(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1)
@@ -4003,7 +4003,7 @@ define hidden void @"_ZN6diesel13query_builder11from_clause19FromClause$LT$F$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN122_$LT$diesel..query_builder..from_clause..FromClause$LT$F$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17ha05477d0541486c5E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 {
+define hidden void @"_ZN122_$LT$diesel..query_builder..from_clause..FromClause$LT$F$GT$$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17ha05477d0541486c5E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %2) unnamed_addr #0 {
   %.sroa.28.i.i.i = alloca [3 x i64], align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = load i64, ptr %2, align 8, !range !1156, !noundef !11
@@ -5193,7 +5193,7 @@ define noundef align 1 ptr @"_ZN113_$LT$diesel..mysql..connection..MysqlConnecti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types13date_and_time6chrono148_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Time$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$chrono..naive..time..NaiveTime$GT$6to_sql17he6a3c362d3256275E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define void @"_ZN6diesel5mysql5types13date_and_time6chrono148_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Time$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$chrono..naive..time..NaiveTime$GT$6to_sql17he6a3c362d3256275E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4, !noundef !11
   %5 = load ptr, ptr %2, align 8, !alias.scope !1420, !nonnull !11, !align !12, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1423)
@@ -5593,7 +5593,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha3835fee03d6a9b8E.exit.i: ; preds = %.n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types123_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..TinyInt$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$i8$GT$6to_sql17hdcf20ad7a3247a74E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN6diesel5mysql5types123_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..TinyInt$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$i8$GT$6to_sql17hdcf20ad7a3247a74E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load i8, ptr %1, align 1, !noundef !11
   %5 = load ptr, ptr %2, align 8, !nonnull !11, !align !12, !noundef !11
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -5643,7 +5643,7 @@ define void @"_ZN6diesel5mysql5types127_$LT$impl$u20$diesel..deserialize..FromSq
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types161_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..TinyInt$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u8$GT$6to_sql17h2c82a68c4fa3c4a6E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN6diesel5mysql5types161_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..TinyInt$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u8$GT$6to_sql17h2c82a68c4fa3c4a6E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load i8, ptr %1, align 1, !noundef !11
   %5 = load ptr, ptr %2, align 8, !alias.scope !1529, !nonnull !11, !align !12, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1532)
@@ -5695,7 +5695,7 @@ define void @"_ZN6diesel5mysql5types165_$LT$impl$u20$diesel..deserialize..FromSq
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types163_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..SmallInt$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u16$GT$6to_sql17h4699180bbc6fa923E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN6diesel5mysql5types163_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..SmallInt$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u16$GT$6to_sql17h4699180bbc6fa923E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load i16, ptr %1, align 2, !noundef !11
   %5 = load ptr, ptr %2, align 8, !alias.scope !1562, !nonnull !11, !align !12, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1565)
@@ -5727,7 +5727,7 @@ define void @"_ZN6diesel5mysql5types163_$LT$impl$u20$diesel..serialize..ToSql$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types167_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..SmallInt$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u16$GT$8from_sql17hcd303926c72e5fd7E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 10)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define void @"_ZN6diesel5mysql5types167_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..SmallInt$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u16$GT$8from_sql17hcd303926c72e5fd7E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca { ptr, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @"_ZN6diesel5mysql5types10primitives128_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..Integer$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$i32$GT$8from_sql17hf5a850cacb88e86fE"(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
@@ -5756,7 +5756,7 @@ define void @"_ZN6diesel5mysql5types167_$LT$impl$u20$diesel..deserialize..FromSq
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types162_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..Integer$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u32$GT$6to_sql17ha2f9858dec36bf1bE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN6diesel5mysql5types162_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..Integer$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u32$GT$6to_sql17ha2f9858dec36bf1bE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load i32, ptr %1, align 4, !noundef !11
   %5 = load ptr, ptr %2, align 8, !alias.scope !1589, !nonnull !11, !align !12, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1592)
@@ -5788,7 +5788,7 @@ define void @"_ZN6diesel5mysql5types162_$LT$impl$u20$diesel..serialize..ToSql$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types166_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..Integer$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u32$GT$8from_sql17h597803039a1ec423E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 12)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define void @"_ZN6diesel5mysql5types166_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..Integer$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u32$GT$8from_sql17h597803039a1ec423E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca { ptr, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @"_ZN6diesel5mysql5types10primitives127_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..BigInt$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$i64$GT$8from_sql17he17a515d9ce208b5E"(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
@@ -5816,7 +5816,7 @@ define void @"_ZN6diesel5mysql5types166_$LT$impl$u20$diesel..deserialize..FromSq
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types161_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..BigInt$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u64$GT$6to_sql17h728426edaf5b1f91E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN6diesel5mysql5types161_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..BigInt$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u64$GT$6to_sql17h728426edaf5b1f91E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %1, align 8, !noundef !11
   %5 = load ptr, ptr %2, align 8, !alias.scope !1616, !nonnull !11, !align !12, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1619)
@@ -5848,7 +5848,7 @@ define void @"_ZN6diesel5mysql5types161_$LT$impl$u20$diesel..serialize..ToSql$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types165_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..BigInt$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u64$GT$8from_sql17hfc65feeac3169c6fE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define void @"_ZN6diesel5mysql5types165_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..mysql..types..Unsigned$LT$diesel..sql_types..BigInt$GT$$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$u64$GT$8from_sql17hfc65feeac3169c6fE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca { ptr, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @"_ZN6diesel5mysql5types10primitives127_$LT$impl$u20$diesel..deserialize..FromSql$LT$diesel..sql_types..BigInt$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$i64$GT$8from_sql17he17a515d9ce208b5E"(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
@@ -5864,7 +5864,7 @@ define void @"_ZN6diesel5mysql5types165_$LT$impl$u20$diesel..deserialize..FromSq
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types122_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Bool$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$bool$GT$6to_sql17h4011ecc9b09ea50cE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN6diesel5mysql5types122_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Bool$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$bool$GT$6to_sql17h4011ecc9b09ea50cE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load i8, ptr %1, align 1, !range !270, !noundef !11
   %5 = load ptr, ptr %2, align 8, !alias.scope !1643, !nonnull !11, !align !12, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1646)
@@ -5924,7 +5924,7 @@ define void @"_ZN6diesel5mysql5types126_$LT$impl$u20$diesel..deserialize..FromSq
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types125_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..SmallInt$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$i16$GT$6to_sql17h79aebea72eaa2297E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN6diesel5mysql5types125_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..SmallInt$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$i16$GT$6to_sql17h79aebea72eaa2297E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 2 dereferenceable(2) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h150f5e9e471a1db5E.exit":
   %3 = load i16, ptr %1, align 2, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1676)
@@ -5957,7 +5957,7 @@ define void @"_ZN6diesel5mysql5types125_$LT$impl$u20$diesel..serialize..ToSql$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types124_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Integer$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$i32$GT$6to_sql17h6b2f57f059c783f6E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN6diesel5mysql5types124_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Integer$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$i32$GT$6to_sql17h6b2f57f059c783f6E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h150f5e9e471a1db5E.exit":
   %3 = load i32, ptr %1, align 4, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1696)
@@ -5990,7 +5990,7 @@ define void @"_ZN6diesel5mysql5types124_$LT$impl$u20$diesel..serialize..ToSql$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types123_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..BigInt$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$i64$GT$6to_sql17h57c069d3dcc7e0eeE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN6diesel5mysql5types123_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..BigInt$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$i64$GT$6to_sql17h57c069d3dcc7e0eeE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h150f5e9e471a1db5E.exit":
   %3 = load i64, ptr %1, align 8, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1716)
@@ -6023,7 +6023,7 @@ define void @"_ZN6diesel5mysql5types123_$LT$impl$u20$diesel..serialize..ToSql$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types123_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Double$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$f64$GT$6to_sql17h2c4adcac310dc0cdE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN6diesel5mysql5types123_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Double$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$f64$GT$6to_sql17h2c4adcac310dc0cdE"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h150f5e9e471a1db5E.exit":
   %3 = load i64, ptr %1, align 8, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1736)
@@ -6056,7 +6056,7 @@ define void @"_ZN6diesel5mysql5types123_$LT$impl$u20$diesel..serialize..ToSql$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6diesel5mysql5types122_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Float$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$f32$GT$6to_sql17hddeef7ba74c6d843E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN6diesel5mysql5types122_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Float$C$diesel..mysql..backend..Mysql$GT$$u20$for$u20$f32$GT$6to_sql17hddeef7ba74c6d843E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h150f5e9e471a1db5E.exit":
   %3 = load i32, ptr %1, align 4, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1756)
@@ -6089,13 +6089,13 @@ define void @"_ZN6diesel5mysql5types122_$LT$impl$u20$diesel..serialize..ToSql$LT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN133_$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$u20$as$u20$diesel..pg..expression..expression_methods..private..JsonRemoveIndex$GT$26into_json_index_expression17hb44165f6a7d9121eE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #13 {
+define void @"_ZN133_$LT$alloc..vec..Vec$LT$alloc..string..String$GT$$u20$as$u20$diesel..pg..expression..expression_methods..private..JsonRemoveIndex$GT$26into_json_index_expression17hb44165f6a7d9121eE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN119_$LT$alloc..vec..Vec$LT$$RF$str$GT$$u20$as$u20$diesel..pg..expression..expression_methods..private..JsonRemoveIndex$GT$26into_json_index_expression17h9d78da7e69e0bd18E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #13 {
+define void @"_ZN119_$LT$alloc..vec..Vec$LT$$RF$str$GT$$u20$as$u20$diesel..pg..expression..expression_methods..private..JsonRemoveIndex$GT$26into_json_index_expression17h9d78da7e69e0bd18E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -6678,7 +6678,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha3835fee03d6a9b8E.exit.i: ; preds = %.n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6diesel6sqlite10connection9functions8register17h695b8df60274e963E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN6diesel6sqlite10connection9functions8register17h695b8df60274e963E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.28 = alloca [3 x i64], align 8
   %6 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
@@ -6814,7 +6814,7 @@ common.resume:                                    ; preds = %13, %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6diesel6sqlite10connection9functions27process_sql_function_result17h84693d42ada422b0E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #13 personality ptr @rust_eh_personality {
+define hidden void @_ZN6diesel6sqlite10connection9functions27process_sql_function_result17h84693d42ada422b0E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #13 personality ptr @rust_eh_personality {
   %3 = load i32, ptr %1, align 4, !alias.scope !1937, !noalias !1940, !noundef !11
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 4, ptr %4, align 8
@@ -7048,7 +7048,7 @@ define hidden void @"_ZN126_$LT$diesel..sqlite..connection..functions..FunctionR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @"_ZN126_$LT$diesel..sqlite..connection..functions..FunctionRow$u20$as$u20$diesel..row..Row$LT$diesel..sqlite..backend..Sqlite$GT$$GT$11partial_row17h3f662184713acc71E"(ptr noalias nocapture noundef writeonly sret({ ptr, { i64, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #14 personality ptr @rust_eh_personality {
+define void @"_ZN126_$LT$diesel..sqlite..connection..functions..FunctionRow$u20$as$u20$diesel..row..Row$LT$diesel..sqlite..backend..Sqlite$GT$$GT$11partial_row17h3f662184713acc71E"(ptr noalias nocapture noundef writeonly sret({ ptr, { i64, i64 } }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #14 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1969)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1972)
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7153,7 +7153,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN133_$LT$diesel..sqlite..connectio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6diesel6sqlite5types13date_and_time6chrono12parse_julian17h8fc9f1e0cd0011d4E(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) initializes((0, 4)) %0, double noundef %1) unnamed_addr #0 {
+define hidden void @_ZN6diesel6sqlite5types13date_and_time6chrono12parse_julian17h8fc9f1e0cd0011d4E(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 4 dereferenceable(16) %0, double noundef %1) unnamed_addr #0 {
   %3 = fadd double %1, 0xC1429EC5C0000000
   %4 = fmul double %3, 8.640000e+04
   %5 = tail call i64 @llvm.fptosi.sat.i64.f64(double %4)
@@ -7427,7 +7427,7 @@ define void @"_ZN6diesel6sqlite5types13date_and_time6chrono150_$LT$impl$u20$dies
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN6diesel10type_impls10primitives94_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Text$C$DB$GT$$u20$for$u20$str$GT$6to_sql17h74a732141d3d2f40E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 9)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN6diesel10type_impls10primitives94_$LT$impl$u20$diesel..serialize..ToSql$LT$diesel..sql_types..Text$C$DB$GT$$u20$for$u20$str$GT$6to_sql17h74a732141d3d2f40E"(ptr noalias nocapture noundef writeonly sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = load ptr, ptr %3, align 8, !nonnull !11, !align !12, !noundef !11
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !2069, !noalias !2074, !noundef !11
@@ -7502,7 +7502,7 @@ define hidden { ptr, ptr } @"_ZN6diesel10type_impls10primitives94_$LT$impl$u20$d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN119_$LT$diesel..query_builder..having_clause..NoHavingClause$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb4d191b830548d2aE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(40) %2) unnamed_addr #15 {
+define hidden void @"_ZN119_$LT$diesel..query_builder..having_clause..NoHavingClause$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hb4d191b830548d2aE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(40) %2) unnamed_addr #15 {
   store i64 -9223372036854775798, ptr %0, align 8
   ret void
 }
@@ -7518,7 +7518,7 @@ define hidden void @"_ZN105_$LT$diesel..query_builder..nodes..StaticQueryFragmen
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6diesel6result5Error20DeserializationError17hb51be1074e69c131E.llvm.12760481706496575883(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #3 {
+define hidden void @_ZN6diesel6result5Error20DeserializationError17hb51be1074e69c131E.llvm.12760481706496575883(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7690,7 +7690,7 @@ define noundef zeroext i1 @"_ZN85_$LT$diesel..pg..types..ranges.._..InternalBitF
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$diesel..pg..types..ranges.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h6c00438403fe8150E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define void @"_ZN93_$LT$diesel..pg..types..ranges.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h6c00438403fe8150E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZN8bitflags6parser8from_str17hc69fea9d549ea83aE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -7772,7 +7772,7 @@ define noundef zeroext i1 @"_ZN86_$LT$diesel..pg..types..ranges.._..InternalBitF
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN108_$LT$diesel..pg..types..ranges.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h33f2ef4065028c12E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #15 {
+define void @"_ZN108_$LT$diesel..pg..types..ranges.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h33f2ef4065028c12E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #15 {
   store ptr @anon.79a827165c543c4357c85996b6252779.136, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -7832,7 +7832,7 @@ define noundef zeroext i1 @"_ZN6diesel2pg5types6ranges1_87_$LT$impl$u20$core..fm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN6diesel2pg5types6ranges1_109_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$diesel..pg..types..ranges..RangeFlags$GT$9into_iter17h4526956b86a54c41E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #15 {
+define void @"_ZN6diesel2pg5types6ranges1_109_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$diesel..pg..types..ranges..RangeFlags$GT$9into_iter17h4526956b86a54c41E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #15 {
   store ptr @anon.79a827165c543c4357c85996b6252779.136, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -7902,13 +7902,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls4j
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN6diesel10type_impls4json1_118_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Json$GT$$u20$for$u20$serde_json..value..Value$GT$13as_expression17h600432a54547d48cE"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] }, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #13 {
+define void @"_ZN6diesel10type_impls4json1_118_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Json$GT$$u20$for$u20$serde_json..value..Value$GT$13as_expression17h600432a54547d48cE"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] }, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN6diesel10type_impls4json1_153_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Json$GT$$GT$$u20$for$u20$serde_json..value..Value$GT$13as_expression17hf24fe0abda3570f8E"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] }, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #13 {
+define void @"_ZN6diesel10type_impls4json1_153_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Json$GT$$GT$$u20$for$u20$serde_json..value..Value$GT$13as_expression17hf24fe0abda3570f8E"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] }, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
@@ -7934,13 +7934,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls4j
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN6diesel10type_impls4json1_130_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Jsonb$GT$$u20$for$u20$serde_json..value..Value$GT$13as_expression17h108c1f4551e06d20E"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] }, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #13 {
+define void @"_ZN6diesel10type_impls4json1_130_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Jsonb$GT$$u20$for$u20$serde_json..value..Value$GT$13as_expression17h108c1f4551e06d20E"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] }, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN6diesel10type_impls4json1_165_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Jsonb$GT$$GT$$u20$for$u20$serde_json..value..Value$GT$13as_expression17h7e9821d737bd4c31E"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] }, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #13 {
+define void @"_ZN6diesel10type_impls4json1_165_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Jsonb$GT$$GT$$u20$for$u20$serde_json..value..Value$GT$13as_expression17h7e9821d737bd4c31E"(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] }, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
@@ -7966,13 +7966,13 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN6diesel10type_impls10primitives13foreign_impls1_121_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Binary$GT$$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17h7c4d9d3e1ca15a49E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #13 {
+define void @"_ZN6diesel10type_impls10primitives13foreign_impls1_121_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Binary$GT$$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17h7c4d9d3e1ca15a49E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN6diesel10type_impls10primitives13foreign_impls1_156_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Binary$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17h0a4965664c80de06E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #13 {
+define void @"_ZN6diesel10type_impls10primitives13foreign_impls1_156_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Binary$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17h0a4965664c80de06E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #13 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }

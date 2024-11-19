@@ -3879,7 +3879,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN7rocksdb15RemapFileSystem12NewDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt10unique_ptrINS_11FSDirectoryESt14default_deleteISD_EEPNS_14IODebugContextEEN16RemapFSDirectoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb15RemapFileSystem12NewDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt10unique_ptrINS_11FSDirectoryESt14default_deleteISD_EEPNS_14IODebugContextEEN16RemapFSDirectoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18FSDirectoryWrapperE, i64 16), ptr %this, align 8
   %guard_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3900,7 +3900,7 @@ _ZN7rocksdb18FSDirectoryWrapperD2Ev.exit:         ; preds = %entry, %_ZNKSt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN7rocksdb15RemapFileSystem12NewDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt10unique_ptrINS_11FSDirectoryESt14default_deleteISD_EEPNS_14IODebugContextEEN16RemapFSDirectoryD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb15RemapFileSystem12NewDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt10unique_ptrINS_11FSDirectoryESt14default_deleteISD_EEPNS_14IODebugContextEEN16RemapFSDirectoryD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18FSDirectoryWrapperE, i64 16), ptr %this, align 8
   %guard_.i.i = getelementptr inbounds i8, ptr %this, i64 8

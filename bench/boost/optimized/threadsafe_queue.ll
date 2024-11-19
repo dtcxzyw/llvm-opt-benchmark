@@ -253,7 +253,7 @@ define void @_ZN5boost3log11v2_mt_posix3aux21threadsafe_queue_impl7destroyEPS3_(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN5boost3log11v2_mt_posix3aux21threadsafe_queue_impl15reset_last_nodeEPS3_(ptr nocapture noundef initializes((128, 136)) %0) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZN5boost3log11v2_mt_posix3aux21threadsafe_queue_impl15reset_last_nodeEPS3_(ptr nocapture noundef %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 64, !tbaa !20
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr null, ptr %3, align 64, !tbaa !16

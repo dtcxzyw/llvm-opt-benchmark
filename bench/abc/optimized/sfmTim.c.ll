@@ -293,7 +293,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_TimCriticalPath(ptr nocapture noundef initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @Sfm_TimCriticalPath(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = mul nsw i32 %4, %1
@@ -787,7 +787,7 @@ Vec_IntFill.exit23:                               ; preds = %.lr.ph.i17, %Vec_In
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Sfm_TimStop(ptr nocapture noundef initializes((32, 40), (48, 56)) %0) local_unnamed_addr #0 {
+define void @Sfm_TimStop(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -1063,7 +1063,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_TimSortArrayByArrival(ptr nocapture noundef initializes((100, 104)) %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Sfm_TimSortArrayByArrival(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 40
   %.val34 = load ptr, ptr %4, align 8
   %5 = shl nsw i32 %2, 1
@@ -1290,7 +1290,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare void @Abc_QuickSort3(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Sfm_TimPriorityNodes(ptr nocapture noundef initializes((84, 88)) %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Sfm_TimPriorityNodes(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @Sfm_TimCriticalPath(ptr noundef %0, i32 noundef %2)
   %5 = getelementptr i8, ptr %0, i64 68
   %.val1823.i = load i32, ptr %5, align 4
@@ -1814,7 +1814,7 @@ define noundef i32 @Sfm_TimEvalRemapping(ptr nocapture noundef readonly %0, ptr 
 declare i32 @Mio_GateReadPinNum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Sfm_TimGateArrival(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc void @Sfm_TimGateArrival(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   store i32 0, ptr %2, align 4

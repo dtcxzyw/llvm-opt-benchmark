@@ -100,7 +100,7 @@ $_ZTVN4llvm18BinaryStreamReaderE = comdat any
 @.str.4 = private unnamed_addr constant [12 x i8] c"::__unnamed\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13hashTagRecordERKNS_8codeview8CVRecordINS1_12TypeLeafKindEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm3pdb13hashTagRecordERKNS_8codeview8CVRecordINS1_12TypeLeafKindEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::codeview::EnumRecord", align 8
   %5 = alloca %"class.llvm::Error", align 8
@@ -393,7 +393,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %2, %_ZNK4llvm8codev
 declare { i32, ptr } @_ZN4llvm22inconvertibleErrorCodeEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb14hashTypeRecordERKNS_8codeview8CVRecordINS1_12TypeLeafKindEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm3pdb14hashTypeRecordERKNS_8codeview8CVRecordINS1_12TypeLeafKindEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.1") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::codeview::UdtModSourceLineRecord", align 4
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca [4 x i8], align 4

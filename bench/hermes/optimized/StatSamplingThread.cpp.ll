@@ -25,7 +25,7 @@ $_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN6hermes2vm18StatSamplingTh
 @_ZN6hermes2vm18StatSamplingThreadD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm18StatSamplingThreadD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm18StatSamplingThreadC2ENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 1), (8, 48)) %this, i64 %interval.coerce) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm18StatSamplingThreadC2ENSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEE(ptr noundef nonnull align 8 dereferenceable(184) %this, i64 %interval.coerce) unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   store i8 0, ptr %this, align 8

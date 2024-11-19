@@ -358,7 +358,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17MachineBasicBlockC2ERNS_15MachineFunctionEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17MachineBasicBlockC2ERNS_15MachineFunctionEPKNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %4, align 8
@@ -939,7 +939,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit11:               ; preds = %31, %29, %35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17printMBBReferenceERKNS_17MachineBasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #5 {
+define dso_local void @_ZN4llvm17printMBBReferenceERKNS_17MachineBasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #5 {
 _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   %2 = ptrtoint ptr %1 to i64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1076,7 +1076,7 @@ define dso_local void @_ZN4llvm21ilist_callback_traitsINS_17MachineBasicBlockEE1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull initializes((24, 32)) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %3, ptr %4, align 8
@@ -5818,7 +5818,7 @@ _ZN4llvm11SmallVectorINS_14MachineOperandELj4EED2Ev.exit: ; preds = %198, %_ZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17MachineBasicBlock18findBranchDebugLocEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DebugLoc") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17MachineBasicBlock18findBranchDebugLocEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DebugLoc") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DebugLoc", align 8
   store ptr null, ptr %0, align 8
   %4 = tail call ptr @_ZN4llvm17MachineBasicBlock18getFirstTerminatorEv(ptr noundef nonnull align 8 dereferenceable(288) %1)
@@ -11656,7 +11656,7 @@ _ZN4llvm11iplist_implINS_12simple_ilistINS_12MachineInstrEJNS_23ilist_sentinel_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN4llvm17MachineBasicBlock6insertENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEPS4_(ptr noundef nonnull readonly align 8 dereferenceable(288) %0, ptr %1, ptr noundef returned initializes((24, 32)) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN4llvm17MachineBasicBlock6insertENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEPS4_(ptr noundef nonnull readonly align 8 dereferenceable(288) %0, ptr %1, ptr noundef returned %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %.not = icmp eq ptr %1, %4
   br i1 %.not, label %.critedge, label %5

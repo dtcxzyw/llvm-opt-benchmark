@@ -587,7 +587,7 @@ declare void @_ZN5clang4ento10ExprEngine10removeDeadEPNS0_12ExplodedNodeERNS0_15
 declare noundef ptr @_ZNK5clang19AnalysisDeclContext7getBodyEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine39removeStateTraitsUsedForArrayEvaluationEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine39removeStateTraitsUsedForArrayEvaluationEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS_16CXXConstructExprEPKNS_15LocationContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -2222,7 +2222,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4ento10ExprEngine6isHugeEPNS_19An
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine18examineStackFramesEPKNS_4DeclEPKNS_15LocationContextERbRj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine18examineStackFramesEPKNS_4DeclEPKNS_15LocationContextERbRj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(796) %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #0 align 2 {
   store i8 0, ptr %3, align 1
   store i32 0, ptr %4, align 4
   %.not22 = icmp eq ptr %2, null

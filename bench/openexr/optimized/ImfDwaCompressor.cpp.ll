@@ -307,7 +307,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseC2EPcS2_S2_PKtii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 9), (12, 20), (24, 136)) %this, ptr noundef %packedAc, ptr noundef %packedAcEnd, ptr noundef %packedDc, ptr noundef %toLinear, i32 noundef %width, i32 noundef %height) unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseC2EPcS2_S2_PKtii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr noundef %packedAc, ptr noundef %packedAcEnd, ptr noundef %packedDc, ptr noundef %toLinear, i32 noundef %width, i32 noundef %height) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 16), ptr %this, align 8
   %_packedAcCount = getelementptr inbounds i8, ptr %this, i64 12
@@ -344,7 +344,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 16), ptr %this, align 8
   %_dctData = getelementptr inbounds i8, ptr %this, i64 112
@@ -476,7 +476,7 @@ _ZNSt12_Vector_baseISt6vectorIPcSaIS1_EESaIS3_EED2Ev.exit: ; preds = %invoke.con
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #36
   tail call void @_ZdlPv(ptr noundef nonnull %this) #37
@@ -2199,7 +2199,7 @@ declare void @_ZN7Iex_3_28InputExcC1EPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZN7Iex_3_28InputExcD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseC2EfPcS2_PKtii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((0, 20), (24, 128)) %this, float noundef %quantBaseError, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #14 align 2 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseC2EfPcS2_PKtii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %quantBaseError, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #14 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 16), ptr %this, align 8
   %_quantBaseError = getelementptr inbounds i8, ptr %this, i64 8
@@ -2243,7 +2243,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(640) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 16), ptr %this, align 8
   %_dctData = getelementptr inbounds i8, ptr %this, i64 88
@@ -2334,7 +2334,7 @@ _ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EED2Ev.exit:     ; preds = %invoke.cont.i12, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) #36
   tail call void @_ZdlPv(ptr noundef nonnull %this) #37
@@ -3996,7 +3996,7 @@ _ZNSt3mapIN7Imf_3_24NameENS0_7ChannelESt4lessIS1_ESaISt4pairIKS1_S2_EEED2Ev.exit
 declare void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_213DwaCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213DwaCompressorE, i64 16), ptr %this, align 8
   %_packedAcBuffer = getelementptr inbounds i8, ptr %this, i64 168
@@ -4158,7 +4158,7 @@ _ZN7Imf_3_211ChannelListD2Ev.exit:                ; preds = %_ZNSt6vectorIN7Imf_
 declare void @_ZN7Imf_3_23ZipD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213DwaCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN7Imf_3_213DwaCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7Imf_3_213DwaCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) #36
   tail call void @_ZdlPv(ptr noundef nonnull %this) #37
@@ -13392,7 +13392,7 @@ for.end:                                          ; preds = %_ZN9Imath_3_24halfC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_121fromHalfZigZag_scalarEPtPf(ptr noundef readonly %src, ptr noundef writeonly initializes((0, 256)) %dst) #22 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_121fromHalfZigZag_scalarEPtPf(ptr noundef readonly %src, ptr noundef writeonly %dst) #22 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i16, ptr %src, align 2
   %1 = load ptr, ptr @imath_half_to_float_table, align 8

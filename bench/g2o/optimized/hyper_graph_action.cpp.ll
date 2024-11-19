@@ -263,7 +263,7 @@ define void @_ZN3g2o16HyperGraphAction10ParametersD0Ev(ptr noundef nonnull align
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o16HyperGraphAction19ParametersIterationC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #6 align 2 {
+define void @_ZN3g2o16HyperGraphAction19ParametersIterationC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, i32 noundef %1) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o16HyperGraphAction19ParametersIterationE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -303,7 +303,7 @@ define void @_ZN3g2o23HyperGraphElementAction10ParametersD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o23HyperGraphElementActionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 align 2 {
+define void @_ZN3g2o23HyperGraphElementActionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o23HyperGraphElementActionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -337,7 +337,7 @@ define noalias noundef ptr @_ZN3g2o23HyperGraphElementActionclEPKNS_10HyperGraph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o23HyperGraphElementActionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN3g2o23HyperGraphElementActionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o23HyperGraphElementActionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -1847,7 +1847,7 @@ _ZNSt7__cxx114listIPN3g2o33HyperGraphElementActionCollectionESaIS3_EED2Ev.exit11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o18WriteGnuplotActionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o18WriteGnuplotActionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o23HyperGraphElementActionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -1872,7 +1872,7 @@ define void @_ZN3g2o18WriteGnuplotActionC2ERKNSt7__cxx1112basic_stringIcSt11char
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o10DrawAction10ParametersC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((16, 20), (24, 32)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o10DrawAction10ParametersC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1888,7 +1888,7 @@ define void @_ZN3g2o10DrawAction10ParametersC2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o10DrawActionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o10DrawActionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3g2o23HyperGraphElementActionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)

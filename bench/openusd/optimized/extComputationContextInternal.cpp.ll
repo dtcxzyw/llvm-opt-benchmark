@@ -54,7 +54,7 @@ $_ZNKSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_7Vt
 @_ZN32pxrInternal_v0_24__pxrReserved__31HdExtComputationContextInternalD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__31HdExtComputationContextInternalD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__31HdExtComputationContextInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 32)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__31HdExtComputationContextInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__31HdExtComputationContextInternalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -340,7 +340,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__31HdExtComputati
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__31HdExtComputationContextInternal21RaiseComputationErrorEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 105)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__31HdExtComputationContextInternal21RaiseComputationErrorEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 1, ptr %2, align 8
   ret void

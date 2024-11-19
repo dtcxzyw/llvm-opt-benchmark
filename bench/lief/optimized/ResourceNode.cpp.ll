@@ -669,7 +669,7 @@ define void @_ZN4LIEF2PE12ResourceNodeC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF2PE12ResourceNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF2PE12ResourceNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE12ResourceNodeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -1680,7 +1680,7 @@ define noundef i32 @_ZNK4LIEF2PE12ResourceNode2idEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF2PE12ResourceNode6childsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(76) %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF2PE12ResourceNode6childsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(76) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1692,7 +1692,7 @@ define void @_ZN4LIEF2PE12ResourceNode6childsEv(ptr dead_on_unwind noalias nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF2PE12ResourceNode6childsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.58") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(76) %1) local_unnamed_addr #9 align 2 {
+define void @_ZNK4LIEF2PE12ResourceNode6childsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.58") align 8 %0, ptr noundef nonnull align 8 dereferenceable(76) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2735,7 +2735,7 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF2PE12ResourceNodeESt14default_deleteIS3_EESaIS
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE12ResourceNode2idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
+define void @_ZN4LIEF2PE12ResourceNode2idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void

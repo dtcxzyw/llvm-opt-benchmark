@@ -4832,7 +4832,7 @@ declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnam
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 536870912) i32 @amf_get_u29(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 536870912) i32 @amf_get_u29(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #8
   %5 = and i8 %4, 127
   %6 = zext nneg i8 %5 to i32

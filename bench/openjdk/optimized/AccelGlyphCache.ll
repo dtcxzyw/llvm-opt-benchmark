@@ -343,7 +343,7 @@ define hidden void @AccelGlyphCache_RemoveCellInfo(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @AccelGlyphCache_AddCellInfo(ptr noundef %0, ptr noundef initializes((8, 16), (24, 32)) %1) local_unnamed_addr #4 {
+define hidden void @AccelGlyphCache_AddCellInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

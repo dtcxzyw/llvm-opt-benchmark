@@ -222,7 +222,7 @@ declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @phpdbg_copy_param(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define void @phpdbg_copy_param(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 8
   store i32 %3, ptr %1, align 8
   switch i32 %3, label %75 [

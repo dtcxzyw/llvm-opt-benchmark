@@ -1421,7 +1421,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %21, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #11 {
+define noundef i32 @_Z27gmx_structurefactors_get_sfP20gmx_structurefactorsiPfS1_S1_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #11 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1978,7 +1978,7 @@ declare void @_Z8rd_indexPKciPiPS1_PPc(ptr noundef, i32 noundef, ptr noundef, pt
 declare noundef zeroext i1 @_Z16read_first_framePK16gmx_output_env_tPP11t_trxstatusRKNSt10filesystem7__cxx114pathEP10t_trxframei(ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold mustprogress uwtable
-define noundef ptr @_Z31compute_scattering_factor_tableP20gmx_structurefactorsP16structure_factor(ptr noundef %0, ptr nocapture noundef initializes((8, 16), (24, 32)) %1) local_unnamed_addr #12 {
+define noundef ptr @_Z31compute_scattering_factor_tableP20gmx_structurefactorsP16structure_factor(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load double, ptr %3, align 8
   %5 = fmul double %4, 0x40B88B2F704A9409

@@ -6166,7 +6166,7 @@ define zeroext i1 @remove_user_shutdown_function(ptr noundef %0, i64 noundef %1)
 declare i32 @zend_hash_str_del(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @php_get_highlight_struct(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #0 {
+define void @php_get_highlight_struct(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @zend_ini_string_ex(ptr noundef nonnull @.str.22, i64 noundef 17, i32 noundef 0, ptr noundef null) #18
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8

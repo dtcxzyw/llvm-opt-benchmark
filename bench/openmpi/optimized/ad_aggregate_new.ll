@@ -191,7 +191,7 @@ declare i32 @PMPI_Type_commit(ptr noundef) local_unnamed_addr #1
 declare ptr @ADIOI_Flatten_datatype(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Calc_file_realms_aar(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6) local_unnamed_addr #0 {
+define void @ADIOI_Calc_file_realms_aar(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca [9 x i8], align 1
@@ -345,7 +345,7 @@ define void @ADIOI_Calc_file_realms_fsize(ptr noundef %0, i32 noundef %1, i64 no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Calc_file_realms_user_size(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define void @ADIOI_Calc_file_realms_user_size(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 136

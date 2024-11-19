@@ -56,7 +56,7 @@ $_ZTIN5zxing18ReaderErrorHandlerE = comdat any
 @_ZN5zxing6qrcode22AlignmentPatternFinderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5zxing6qrcode22AlignmentPatternFinderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinderC2ENS_3RefINS_9BitMatrixEEEiiiif(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 12), (16, 24)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinderC2ENS_3RefINS_9BitMatrixEEEiiiif(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, float noundef %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode22AlignmentPatternFinderE, i64 16), ptr %0, align 8
@@ -146,7 +146,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinderC2ENS_3RefINS_9BitMatrixEEEf(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 12), (16, 24), (48, 52)) %0, ptr nocapture noundef readonly %1, float noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinderC2ENS_3RefINS_9BitMatrixEEEf(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture noundef readonly %1, float noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode22AlignmentPatternFinderE, i64 16), ptr %0, align 8
@@ -961,7 +961,7 @@ declare void @_ZN5zxing6qrcode16AlignmentPatternC1Efff(ptr noundef nonnull align
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode22AlignmentPatternFinderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -1052,7 +1052,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %37, %40, %45
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinderD0Ev(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN5zxing6qrcode22AlignmentPatternFinderD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5zxing6qrcode22AlignmentPatternFinderD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #12
   tail call void @_ZdlPv(ptr noundef nonnull %0) #14
   ret void

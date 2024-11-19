@@ -253,7 +253,7 @@ define internal noundef nonnull ptr @_ZL37initializeMachineTraceMetricsPassOnceR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19MachineTraceMetricsC2Ev(ptr noundef nonnull align 8 dereferenceable(456) initializes((0, 28), (32, 288)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19MachineTraceMetricsC2Ev(ptr noundef nonnull align 8 dereferenceable(456) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -289,7 +289,7 @@ define dso_local void @_ZN4llvm19MachineTraceMetricsC2Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm19MachineTraceMetrics16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm19MachineTraceMetrics16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage13addRequiredIDERc(ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4llvm39MachineBranchProbabilityInfoWrapperPass2IDE) #21
@@ -301,7 +301,7 @@ define dso_local void @_ZNK4llvm19MachineTraceMetrics16getAnalysisUsageERNS_13An
 declare void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(161)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm19MachineTraceMetrics20runOnMachineFunctionERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(456) initializes((56, 88)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm19MachineTraceMetrics20runOnMachineFunctionERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -390,7 +390,7 @@ _ZNK4llvm4Pass11getAnalysisINS_26MachineLoopInfoWrapperPassEEERT_v.exit: ; preds
 declare void @_ZN4llvm16TargetSchedModel4initEPKNS_19TargetSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(280), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19MachineTraceMetrics13releaseMemoryEv(ptr noundef nonnull align 8 dereferenceable(456) initializes((56, 64)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19MachineTraceMetrics13releaseMemoryEv(ptr noundef nonnull align 8 dereferenceable(456) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -646,7 +646,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm19MachineTraceMetrics22getProcReleaseAtC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19MachineTraceMetrics8EnsembleC2EPS0_(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19MachineTraceMetrics8EnsembleC2EPS0_(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm19MachineTraceMetrics8EnsembleE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -681,7 +681,7 @@ define dso_local void @_ZN4llvm19MachineTraceMetrics8EnsembleC2EPS0_(ptr noundef
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19MachineTraceMetrics8EnsembleD2Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19MachineTraceMetrics8EnsembleD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm19MachineTraceMetrics8EnsembleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 416
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
@@ -8632,13 +8632,13 @@ define internal noundef ptr @_ZN12_GLOBAL__N_121MinInstrCountEnsemble13pickTrace
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121MinInstrCountEnsembleD2Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121MinInstrCountEnsembleD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm19MachineTraceMetrics8EnsembleD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121MinInstrCountEnsembleD0Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121MinInstrCountEnsembleD0Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm19MachineTraceMetrics8EnsembleD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 440) #25
   ret void
@@ -8665,13 +8665,13 @@ define internal noalias noundef ptr @_ZN12_GLOBAL__N_113LocalEnsemble13pickTrace
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113LocalEnsembleD2Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113LocalEnsembleD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm19MachineTraceMetrics8EnsembleD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113LocalEnsembleD0Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113LocalEnsembleD0Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm19MachineTraceMetrics8EnsembleD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 440) #25
   ret void

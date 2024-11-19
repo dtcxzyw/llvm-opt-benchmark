@@ -86,7 +86,7 @@ entry:
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E(ptr nocapture noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %coord) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN7msdfgen10readCoordSEPPKcRNS_7Vector2E(ptr nocapture noundef %input, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %coord) local_unnamed_addr #0 {
 entry:
   %end = alloca ptr, align 8
   store ptr null, ptr %end, align 8

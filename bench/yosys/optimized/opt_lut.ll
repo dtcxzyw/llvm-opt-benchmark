@@ -2542,7 +2542,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNK5Yosys5RTLIL6Design16selected_modulesEv(ptr dead_on_unwind writable sret(%"class.std::vector.29") align 8, ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112OptLutWorkerC2ERKSt6vectorINS_8dlogic_tESaIS2_EEPN5Yosys5RTLIL6ModuleEi(ptr noundef nonnull align 8 dereferenceable(488) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112OptLutWorkerC2ERKSt6vectorINS_8dlogic_tESaIS2_EEPN5Yosys5RTLIL6ModuleEi(ptr noundef nonnull align 8 dereferenceable(488) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [75 x i32], align 4
   %6 = alloca %"class.std::allocator.10", align 1
   %7 = alloca [75 x i32], align 4

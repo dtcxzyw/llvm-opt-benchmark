@@ -121,7 +121,7 @@ declare void @_ZN9QMimeData7setTextERK7QString(ptr noundef nonnull align 8 deref
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20ToolbarEntryMimeDataC2E7QStringi(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20ToolbarEntryMimeDataC2E7QStringi(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @_ZN9QMimeDataC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
   store ptr getelementptr inbounds (i8, ptr @_ZTV20ToolbarEntryMimeData, i64 16), ptr %0, align 8
@@ -155,7 +155,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %3, %12
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK20ToolbarEntryMimeData7elementEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK20ToolbarEntryMimeData7elementEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -258,7 +258,7 @@ define void @_ZN20ToolbarEntryMimeData9setFilterE7QString(ptr noundef nonnull al
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK20ToolbarEntryMimeData6filterEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK20ToolbarEntryMimeData6filterEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8

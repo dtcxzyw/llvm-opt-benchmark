@@ -304,7 +304,7 @@ BTreeTupleIsPosting.exit.thread:                  ; preds = %1, %8, %BTreeTupleI
 declare ptr @index_getprocinfo(ptr noundef, i16 noundef signext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef range(i32 -2147483648, 32768) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef range(i32 -2147483648, 32768) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 6
   %6 = load i16, ptr %5, align 2
@@ -2001,7 +2001,7 @@ define internal fastcc noundef zeroext i1 @_bt_compare_scankey_args(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @_bt_checkkeys(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_bt_checkkeys(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
   store i8 1, ptr %4, align 1

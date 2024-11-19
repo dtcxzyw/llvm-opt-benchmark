@@ -80,7 +80,7 @@ $_ZTV20CachedNMTInformation = comdat any
 @_ZN19MappingPrintSessionC1EP12outputStreamRK20CachedNMTInformation = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN19MappingPrintSessionC2EP12outputStreamRK20CachedNMTInformation
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19MappingPrintSessionC2EP12outputStreamRK20CachedNMTInformation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN19MappingPrintSessionC2EP12outputStreamRK20CachedNMTInformation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8

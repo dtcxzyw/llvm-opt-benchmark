@@ -2930,7 +2930,7 @@ declare i32 @proto_register_protocol_in_name_only(ptr noundef, ptr noundef, ptr 
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_macmgmt(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_macmgmt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8

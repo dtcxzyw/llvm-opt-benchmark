@@ -474,7 +474,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dma_pool_free(ptr noundef %0, ptr noundef initializes((0, 16)) %1, i64 noundef %2) #0 align 16 {
+define dso_local void @dma_pool_free(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @init_on_free, i32 2) #8

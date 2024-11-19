@@ -71,7 +71,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5sexprC2ENS_6kind_tEjj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %this, i32 noundef %k, i32 noundef %line, i32 noundef %pos) unnamed_addr #3 align 2 {
+define hidden void @_ZN5sexprC2ENS_6kind_tEjj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %this, i32 noundef %k, i32 noundef %line, i32 noundef %pos) unnamed_addr #3 align 2 {
 entry:
   store i32 %k, ptr %this, align 4
   %m_ref_count = getelementptr inbounds i8, ptr %this, i64 4

@@ -2633,7 +2633,7 @@ declare void @Gia_ManStopP(ptr noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Lms_ManPrepare(ptr nocapture noundef initializes((48, 56)) %0) local_unnamed_addr #0 {
+define void @Lms_ManPrepare(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 4

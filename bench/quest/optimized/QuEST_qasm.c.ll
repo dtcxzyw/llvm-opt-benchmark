@@ -128,7 +128,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.99 = private unnamed_addr constant [2 x i8] c"w\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @qasm_setup(ptr nocapture noundef initializes((128, 136)) %0) local_unnamed_addr #0 {
+define void @qasm_setup(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #15
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %2, ptr %3, align 8

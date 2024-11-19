@@ -99,7 +99,7 @@ $_ZTVN4llvm13format_objectIJPKcEEE = comdat any
 @_ZTVN4llvm13format_objectIJPKcEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm18format_object_base4homeEv, ptr @_ZNK4llvm13format_objectIJPKcEE7snprintEPcj] }, comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18DWARFDebugPubTable7extractENS_18DWARFDataExtractorEbNS_12function_refIFvNS_5ErrorEEEE(ptr noundef nonnull align 8 dereferenceable(25) initializes((24, 25)) %0, ptr noundef byval(%"class.llvm::DWARFDataExtractor") align 8 %1, i1 noundef zeroext %2, ptr nocapture readonly %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18DWARFDebugPubTable7extractENS_18DWARFDataExtractorEbNS_12function_refIFvNS_5ErrorEEEE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef byval(%"class.llvm::DWARFDataExtractor") align 8 %1, i1 noundef zeroext %2, ptr nocapture readonly %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

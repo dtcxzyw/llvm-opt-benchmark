@@ -4228,7 +4228,7 @@ declare void @_Z9get_indexPK7t_atomsPKciPiPS4_PPc(ptr noundef, ptr noundef, i32 
 declare noundef ptr @_Z11ftp2fn_nulliiPK8t_filenm(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull initializes((0, 12)) %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, i1 noundef zeroext %6) unnamed_addr #8 {
+define internal fastcc noundef float @_ZL9calc_geomiPKiPA3_fPfS3_S3_b(i32 noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, i1 noundef zeroext %6) unnamed_addr #8 {
   store float 0.000000e+00, ptr %3, align 4
   %8 = getelementptr inbounds i8, ptr %3, i64 4
   store float 0.000000e+00, ptr %8, align 4
@@ -4666,7 +4666,7 @@ declare noundef i32 @_Z11gmx_ffcloseP8_IO_FILE(ptr noundef) local_unnamed_addr #
 declare void @_Z22write_sto_conf_indexedRKNSt10filesystem7__cxx114pathEPKcPK7t_atomsPA3_KfSB_7PbcTypeSB_iPi(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold mustprogress uwtable
-define internal fastcc void @_ZL9read_bfacPKcPiPPdPS1_(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 4)) %1, ptr nocapture noundef nonnull initializes((0, 8)) %2, ptr nocapture noundef nonnull initializes((0, 8)) %3) unnamed_addr #12 {
+define internal fastcc void @_ZL9read_bfacPKcPiPPdPS1_(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #12 {
   %5 = alloca ptr, align 8
   %6 = call noundef i32 @_Z9get_linesPKcPPPc(ptr noundef %0, ptr noundef nonnull %5)
   store i32 %6, ptr %1, align 4

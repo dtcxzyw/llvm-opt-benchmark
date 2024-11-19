@@ -574,7 +574,7 @@ declare void @dt_iop_setup_binfo(ptr noundef, ptr noundef, ptr noundef, float no
 declare void @dt_iop_image_fill(ptr noundef, float noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 20)) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #10 {
+define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #10 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !54
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !28
@@ -805,7 +805,7 @@ define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture nou
 declare float @llvm.round.f32(float) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 20)) %3) local_unnamed_addr #11 {
+define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #11 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false), !tbaa.struct !54
@@ -892,7 +892,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noun
 declare void @dt_iop_copy_image_with_border(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #12 {
+define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #12 {
   %2 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #21
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !60
@@ -921,7 +921,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #15 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #15 {
   %4 = tail call noalias dereferenceable_or_null(120) ptr @malloc(i64 noundef 120) #21
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !28
@@ -1392,7 +1392,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #6
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #6 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #6 {
   %2 = alloca %struct._GdkRGBA, align 16
   %3 = tail call ptr @dt_alloc_aligned(i64 noundef 120) #22
   %4 = icmp eq ptr %3, null

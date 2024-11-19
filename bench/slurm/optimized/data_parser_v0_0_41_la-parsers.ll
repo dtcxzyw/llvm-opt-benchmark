@@ -3218,7 +3218,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2907 = private unnamed_addr constant [20 x i8] c"JOB_RES_CORE_IN_USE\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @get_parsers(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define void @get_parsers(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   store i32 481, ptr %1, align 4
   store ptr @parsers, ptr %0, align 8
   ret void

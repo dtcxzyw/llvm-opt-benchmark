@@ -2284,7 +2284,7 @@ declare ptr @null_oid() local_unnamed_addr #1
 declare i32 @prepare_revision_walk(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @process_commit(ptr nocapture noundef readonly %commit, ptr nocapture noundef writeonly initializes((0, 36)) %data) #12 {
+define internal void @process_commit(ptr nocapture noundef readonly %commit, ptr nocapture noundef writeonly %data) #12 {
 entry:
   %oid = getelementptr inbounds i8, ptr %commit, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %data, ptr noundef nonnull align 4 dereferenceable(36) %oid, i64 36, i1 false)

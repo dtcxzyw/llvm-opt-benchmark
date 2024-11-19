@@ -74,7 +74,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7datalog16rule_transformerC2ERNS_7contextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 17), (24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog16rule_transformerC2ERNS_7contextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) unnamed_addr #3 align 2 {
 entry:
   store ptr %ctx, ptr %this, align 8
   %m_rule_manager = getelementptr inbounds i8, ptr %this, i64 8

@@ -481,7 +481,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5kinfu6detail13PoseGraphImpl4EdgeC2EmmRKNS_7Affine3IfEERKNS_4MatxIfLi6ELi6EEE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 16)) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(144) %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5kinfu6detail13PoseGraphImpl4EdgeC2EmmRKNS_7Affine3IfEERKNS_4MatxIfLi6ELi6EEE(ptr noundef nonnull align 8 dereferenceable(216) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(144) %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::Quat", align 8
   %7 = alloca %"class.cv::_InputArray", align 8
   %8 = alloca %"class.cv::Matx.7", align 8
@@ -1723,7 +1723,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5kinfu6detail9PoseGraph6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5kinfu6detail9PoseGraph6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_5kinfu6detail13PoseGraphImplEED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26, !noalias !87
   %2 = getelementptr inbounds i8, ptr %1, i64 8

@@ -613,7 +613,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib6BasketC2ERKNS_4DateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EES4_IdSaIdEEN5boost10shared_ptrINS_4PoolEEEddNSI_INS_5ClaimEEE(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 12), (16, 120), (152, 272)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %refDate, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %names, ptr nocapture noundef %notionals, ptr nocapture noundef %pool, double noundef %attachment, double noundef %detachment, ptr nocapture noundef %claim) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib6BasketC2ERKNS_4DateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EES4_IdSaIdEEN5boost10shared_ptrINS_4PoolEEEddNSI_INS_5ClaimEEE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %refDate, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %names, ptr nocapture noundef %notionals, ptr nocapture noundef %pool, double noundef %attachment, double noundef %detachment, ptr nocapture noundef %claim) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2551,7 +2551,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib6BasketC1ERKNS_4DateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EES4_IdSaIdEEN5boost10shared_ptrINS_4PoolEEEddNSI_INS_5ClaimEEE(ptr noundef nonnull align 8 dereferenceable(272) initializes((288, 292), (296, 304)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %refDate, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %names, ptr nocapture noundef %notionals, ptr nocapture noundef %pool, double noundef %attachment, double noundef %detachment, ptr nocapture noundef %claim) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib6BasketC1ERKNS_4DateERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EES4_IdSaIdEEN5boost10shared_ptrINS_4PoolEEEddNSI_INS_5ClaimEEE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %refDate, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %names, ptr nocapture noundef %notionals, ptr nocapture noundef %pool, double noundef %attachment, double noundef %detachment, ptr nocapture noundef %claim) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6658,7 +6658,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib6Basket8liveListERKNS_4DateE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.27") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(8) %endDate) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib6Basket8liveListERKNS_4DateE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.27") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef nonnull align 8 dereferenceable(8) %endDate) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.80", align 8
   %ref.tmp13 = alloca %"class.std::vector.37", align 8

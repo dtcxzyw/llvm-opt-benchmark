@@ -145,7 +145,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13defined_names4implC2ER11ast_managerPKc(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 44)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %prefix) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13defined_names4implC2ER11ast_managerPKc(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %prefix) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13defined_names4implE, i64 16), ptr %this, align 8
   %m2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -409,7 +409,7 @@ _ZN14core_hashtableIN7obj_mapI4exprP3appE13obj_map_entryE8obj_hashINS4_8key_data
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13defined_names4implD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13defined_names4implD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13defined_names4implE, i64 16), ptr %this, align 8
   %m_lims = getelementptr inbounds i8, ptr %this, i64 120
@@ -662,7 +662,7 @@ _ZN7obj_mapI4exprP3appED2Ev.exit53:               ; preds = %_ZN7obj_mapI4exprP3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13defined_names4implD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN13defined_names4implD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN13defined_names4implD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -4218,7 +4218,7 @@ _ZN6vectorIjLb0EjE5resetEv.exit:                  ; preds = %_ZN15ref_vector_cor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13defined_namesC2ER11ast_managerPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %fresh_prefix) unnamed_addr #3 align 2 {
+define hidden void @_ZN13defined_namesC2ER11ast_managerPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %fresh_prefix) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
   tail call void @_ZN13defined_names4implC2ER11ast_managerPKc(ptr noundef nonnull align 8 dereferenceable(128) %call, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %fresh_prefix)
@@ -4301,7 +4301,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13defined_names13mk_definitionEP4exprP3app(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %e, ptr noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13defined_names13mk_definitionEP4exprP3app(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %e, ptr noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %var_sorts = alloca %class.ref_buffer, align 8
   %var_names = alloca %class.buffer.49, align 8

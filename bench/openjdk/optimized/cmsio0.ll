@@ -1457,7 +1457,7 @@ define hidden i32 @cmsGetHeaderRenderingIntent(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cmsSetHeaderRenderingIntent(ptr nocapture noundef writeonly initializes((92, 96)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @cmsSetHeaderRenderingIntent(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 %1, ptr %3, align 4
   ret void
@@ -1471,7 +1471,7 @@ define hidden i32 @cmsGetHeaderFlags(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cmsSetHeaderFlags(ptr nocapture noundef writeonly initializes((100, 104)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @cmsSetHeaderFlags(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 100
   store i32 %1, ptr %3, align 4
   ret void
@@ -1485,7 +1485,7 @@ define hidden i32 @cmsGetHeaderManufacturer(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cmsSetHeaderManufacturer(ptr nocapture noundef writeonly initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @cmsSetHeaderManufacturer(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8
   ret void
@@ -1506,14 +1506,14 @@ define hidden i32 @cmsGetHeaderModel(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cmsSetHeaderModel(ptr nocapture noundef writeonly initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @cmsSetHeaderModel(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 108
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cmsGetHeaderAttributes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #13 {
+define hidden void @cmsGetHeaderAttributes(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -1521,28 +1521,28 @@ define hidden void @cmsGetHeaderAttributes(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cmsSetHeaderAttributes(ptr nocapture noundef writeonly initializes((112, 120)) %0, i64 noundef %1) local_unnamed_addr #12 {
+define hidden void @cmsSetHeaderAttributes(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cmsGetHeaderProfileID(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #13 {
+define hidden void @cmsGetHeaderProfileID(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 124
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cmsSetHeaderProfileID(ptr nocapture noundef writeonly initializes((124, 140)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #13 {
+define hidden void @cmsSetHeaderProfileID(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 124
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @cmsGetHeaderCreationDateTime(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 56)) %1) local_unnamed_addr #13 {
+define hidden noundef i32 @cmsGetHeaderCreationDateTime(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   ret i32 1
@@ -1556,7 +1556,7 @@ define hidden i32 @cmsGetPCS(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cmsSetPCS(ptr nocapture noundef writeonly initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @cmsSetPCS(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %3, align 8
   ret void
@@ -1570,7 +1570,7 @@ define hidden i32 @cmsGetColorSpace(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cmsSetColorSpace(ptr nocapture noundef writeonly initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @cmsSetColorSpace(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 84
   store i32 %1, ptr %3, align 4
   ret void
@@ -1584,7 +1584,7 @@ define hidden i32 @cmsGetDeviceClass(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cmsSetDeviceClass(ptr nocapture noundef writeonly initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @cmsSetDeviceClass(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret void
@@ -1598,7 +1598,7 @@ define hidden i32 @cmsGetEncodedICCversion(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @cmsSetEncodedICCversion(ptr nocapture noundef writeonly initializes((76, 80)) %0, i32 noundef %1) local_unnamed_addr #12 {
+define hidden void @cmsSetEncodedICCversion(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %1, ptr %3, align 4
   ret void

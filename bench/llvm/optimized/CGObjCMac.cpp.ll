@@ -1367,7 +1367,7 @@ _ZN12_GLOBAL__N_122CGObjCNonFragileABIMacC2ERN5clang7CodeGen13CodeGenModuleE.exi
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115CGObjCCommonMacC2ERN5clang7CodeGen13CodeGenModuleE(ptr noundef nonnull align 8 dereferenceable(1968) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115CGObjCCommonMacC2ERN5clang7CodeGen13CodeGenModuleE(ptr noundef nonnull align 8 dereferenceable(1968) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 368) (i8, ptr @_ZTVN12_GLOBAL__N_115CGObjCCommonMacE, i64 16), ptr %0, align 8
@@ -1546,13 +1546,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_115CGObjCCommonMac13EmitImageInfoEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCMacD2Ev(ptr noundef nonnull align 8 dereferenceable(2336) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCMacD2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_115CGObjCCommonMacD2Ev(ptr noundef nonnull align 8 dereferenceable(1968) %0) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCMacD0Ev(ptr noundef nonnull align 8 dereferenceable(2336) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCMacD0Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_115CGObjCCommonMacD2Ev(ptr noundef nonnull align 8 dereferenceable(2336) %0) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 2336) #26
   ret void
@@ -2901,7 +2901,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_19CGObjCMac11GetSelectorERN5clang7C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CGObjCMac17GetAddrOfSelectorERN5clang7CodeGen15CodeGenFunctionENS1_8SelectorE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(2336) %1, ptr nocapture nonnull readnone align 8 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CGObjCMac17GetAddrOfSelectorERN5clang7CodeGen15CodeGenFunctionENS1_8SelectorE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2336) %1, ptr nocapture nonnull readnone align 8 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CodeGen::ConstantAddress", align 8
   call fastcc void @_ZN12_GLOBAL__N_19CGObjCMac16EmitSelectorAddrEN5clang8SelectorE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(2336) %1, i64 %3)
   %.sroa.02.0.copyload = load i64, ptr %5, align 8
@@ -10244,7 +10244,7 @@ _ZN4llvm14WeakTrackingVHaSEPNS_5ValueE.exit:      ; preds = %24, %_ZN4llvm15Valu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115CGObjCCommonMacD2Ev(ptr noundef nonnull align 8 dereferenceable(1968) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115CGObjCCommonMacD2Ev(ptr noundef nonnull align 8 dereferenceable(1968) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 368) (i8, ptr @_ZTVN12_GLOBAL__N_115CGObjCCommonMacE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1956
@@ -10694,7 +10694,7 @@ _ZN4llvm8DenseSetINS_16CachedHashStringENS_12DenseMapInfoIS1_vEEED2Ev.exit: ; pr
 declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121ObjCCommonTypesHelperC2ERN5clang7CodeGen13CodeGenModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 184)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121ObjCCommonTypesHelperC2ERN5clang7CodeGen13CodeGenModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1) unnamed_addr #0 align 2 {
   %3 = alloca [3 x ptr], align 8
   %4 = alloca [3 x ptr], align 8
   %5 = alloca [2 x ptr], align 8
@@ -19531,7 +19531,7 @@ declare noundef zeroext i1 @_ZN5clang7CodeGen13CodeGenModule18ReturnTypeUsesSRet
 declare noundef zeroext i1 @_ZNK5clang14ObjCMethodDecl25hasParamDestroyedInCalleeEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115NullReturnState4initERN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115NullReturnState4initERN5clang7CodeGen15CodeGenFunctionEPN4llvm5ValueE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -28725,7 +28725,7 @@ declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), pt
 declare void @_ZN4llvm15ValueHandleBase12AddToUseListEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122CGObjCNonFragileABIMacD2Ev(ptr noundef nonnull align 8 dereferenceable(2464) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122CGObjCNonFragileABIMacD2Ev(ptr noundef nonnull align 8 dereferenceable(2464) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 368) (i8, ptr @_ZTVN12_GLOBAL__N_122CGObjCNonFragileABIMacE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2440
   %3 = load ptr, ptr %2, align 8
@@ -28775,7 +28775,7 @@ _ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EED2Ev.exit: ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122CGObjCNonFragileABIMacD0Ev(ptr noundef nonnull align 8 dereferenceable(2464) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122CGObjCNonFragileABIMacD0Ev(ptr noundef nonnull align 8 dereferenceable(2464) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_122CGObjCNonFragileABIMacD2Ev(ptr noundef nonnull align 8 dereferenceable(2464) %0) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 2464) #26
   ret void
@@ -28967,7 +28967,7 @@ define internal noundef ptr @_ZN12_GLOBAL__N_122CGObjCNonFragileABIMac11GetSelec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122CGObjCNonFragileABIMac17GetAddrOfSelectorERN5clang7CodeGen15CodeGenFunctionENS1_8SelectorE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(2464) %1, ptr nocapture nonnull readnone align 8 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122CGObjCNonFragileABIMac17GetAddrOfSelectorERN5clang7CodeGen15CodeGenFunctionENS1_8SelectorE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2464) %1, ptr nocapture nonnull readnone align 8 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CodeGen::ConstantAddress", align 8
   call fastcc void @_ZN12_GLOBAL__N_122CGObjCNonFragileABIMac16EmitSelectorAddrEN5clang8SelectorE(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull align 8 dereferenceable(2464) %1, i64 %3)
   %.sroa.02.0.copyload = load i64, ptr %5, align 8

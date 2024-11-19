@@ -954,7 +954,7 @@ define dso_local i32 @stack_depot_save(ptr noundef %0, i32 noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @stack_depot_fetch(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #3 align 16 {
+define dso_local i32 @stack_depot_fetch(i32 noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
   store ptr null, ptr %1, align 8
   %3 = icmp ne i32 %0, 0
   %4 = load i8, ptr @stack_depot_disabled, align 1, !range !13

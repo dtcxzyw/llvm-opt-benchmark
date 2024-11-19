@@ -69,7 +69,7 @@ $_ZNSt6vectorIiSaIiEE17_M_default_appendEm = comdat any
 @_ZN3gmx22WholeMoleculeTransformC1ERK10gmx_mtop_t7PbcTypeb = unnamed_addr alias void (ptr, ptr, i32, i1), ptr @_ZN3gmx22WholeMoleculeTransformC2ERK10gmx_mtop_t7PbcTypeb
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx22WholeMoleculeTransformC2ERK10gmx_mtop_t7PbcTypeb(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 4), (8, 73), (80, 132), (144, 168)) %0, ptr noundef nonnull align 8 dereferenceable(768) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx22WholeMoleculeTransformC2ERK10gmx_mtop_t7PbcTypeb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(768) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.gmx_localtop_t, align 8
   %6 = alloca %struct.t_graph, align 8
   store i32 %2, ptr %0, align 8

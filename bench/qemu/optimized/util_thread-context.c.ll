@@ -616,7 +616,7 @@ declare ptr @object_get_canonical_path_component(ptr noundef) local_unnamed_addr
 declare void @qemu_thread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noalias noundef ptr @thread_context_run(ptr noundef initializes((40, 44)) %opaque) #0 {
+define internal noalias noundef ptr @thread_context_run(ptr noundef %opaque) #0 {
 entry:
   %call = tail call i32 @qemu_get_thread_id() #8
   %thread_id = getelementptr inbounds i8, ptr %opaque, i64 40

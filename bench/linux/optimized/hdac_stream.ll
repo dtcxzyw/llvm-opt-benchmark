@@ -135,7 +135,7 @@ define dso_local range(i32 0, 4) i32 @snd_hdac_get_stream_stripe_ctl(ptr nocaptu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stream_init(ptr noundef %0, ptr noundef initializes((0, 8), (72, 76), (96, 104), (136, 140), (164, 166)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
+define dso_local void @snd_hdac_stream_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #1 align 16 {
   store ptr %0, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
@@ -828,7 +828,7 @@ define dso_local noundef i32 @snd_hdac_stream_setup(ptr nocapture noundef %0, i1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stream_cleanup(ptr nocapture noundef initializes((76, 84), (160, 164)) %0) #0 align 16 {
+define dso_local void @snd_hdac_stream_cleanup(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 24
@@ -946,7 +946,7 @@ define dso_local ptr @snd_hdac_stream_assign(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @snd_hdac_stream_release_locked(ptr nocapture noundef initializes((144, 152)) %0) #3 align 16 {
+define dso_local void @snd_hdac_stream_release_locked(ptr nocapture noundef %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 172
   %3 = load i8, ptr %2, align 4
   %4 = and i8 %3, -4
@@ -957,7 +957,7 @@ define dso_local void @snd_hdac_stream_release_locked(ptr nocapture noundef init
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hdac_stream_release(ptr nocapture noundef initializes((144, 152)) %0) #0 align 16 {
+define dso_local void @snd_hdac_stream_release(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 1192
   tail call void @_raw_spin_lock_irq(ptr noundef %3) #10

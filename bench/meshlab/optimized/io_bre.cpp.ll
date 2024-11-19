@@ -6445,7 +6445,7 @@ _ZN3vcg8Matrix44IfE15FromEigenMatrixIN5Eigen6MatrixIdLi4ELi4ELi0ELi4ELi4EEEEEvRK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK3vcg3tri2io9BreHeader6MatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Matrix44") align 4 initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #18 align 2 {
+define void @_ZNK3vcg3tri2io9BreHeader6MatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.vcg::Matrix44") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #18 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -11018,14 +11018,14 @@ define void @_ZThn16_N15BreMeshIOPlugin4saveERK7QStringS2_R9MeshModeliRK17RichPa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK15BreMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
+define void @_ZNK15BreMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.34, i32 noundef 5)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK15BreMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #12 align 2 {
+define void @_ZTv0_n40_NK15BreMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #12 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !124)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.34, i32 noundef 5), !noalias !124
   store ptr %3, ptr %0, align 8, !alias.scope !124
@@ -11755,7 +11755,7 @@ define void @_ZThn16_NK15BreMeshIOPlugin20exportMaskCapabilityERK7QStringRiS3_(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg3tri2io9BreHeaderC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #10 align 2 {
+define void @_ZN3vcg3tri2io9BreHeaderC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri2io9BreHeaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN10QByteArrayC1Eic(ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef 1024, i8 noundef signext 0)
@@ -11765,7 +11765,7 @@ define void @_ZN3vcg3tri2io9BreHeaderC2Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN10QByteArrayC1Eic(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i8 noundef signext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3vcg3tri2io9BreHeaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3vcg3tri2io9BreHeaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3vcg3tri2io9BreHeaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -12006,7 +12006,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg3tri2io10VertexGridC2Eii(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3vcg3tri2io10VertexGridC2Eii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4

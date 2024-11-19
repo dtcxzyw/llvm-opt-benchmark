@@ -402,7 +402,7 @@ $_ZTIZN7mitsuba6detail23get_unserialize_functorINS_6StructETnNSt3__19enable_ifIX
 @_ZN7mitsuba15StructConverterC1EPKNS_6StructES3_b = unnamed_addr alias void (ptr, ptr, ptr, i1), ptr @_ZN7mitsuba15StructConverterC2EPKNS_6StructES3_b
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7mitsuba6StructC2EbNS0_9ByteOrderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 41), (44, 48)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba6StructC2EbNS0_9ByteOrderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -424,7 +424,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba6StructC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 12), (16, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba6StructC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__1::__exception_guard_exceptions.107", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -2184,7 +2184,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_4pairIN7mitsuba3refIKNS3_6Stru
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba15StructConverterC2EPKNS_6StructES3_b(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12), (16, 32)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba15StructConverterC2EPKNS_6StructES3_b(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__1::tuple.129", align 8
   %6 = alloca %"class.std::__1::tuple.85", align 1
   %7 = alloca ptr, align 8

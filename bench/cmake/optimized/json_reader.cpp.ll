@@ -221,7 +221,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Json8FeaturesC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4Json8FeaturesC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(4) %0) unnamed_addr #3 align 2 {
   store i8 1, ptr %0, align 1
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1
@@ -362,7 +362,7 @@ define dso_local noundef zeroext i1 @_ZN4Json6Reader15containsNewLineEPKcS2_(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json6ReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(269) initializes((0, 80)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Json6ReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(269) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseIPN4Json5ValueESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 0)
   %2 = getelementptr inbounds i8, ptr %0, i64 80
@@ -435,7 +435,7 @@ _ZNSt5dequeIPN4Json5ValueESaIS2_EED2Ev.exit:      ; preds = %1, %_ZNSt11_Deque_b
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json6ReaderC2ERKNS_8FeaturesE(ptr noundef nonnull align 8 dereferenceable(269) initializes((0, 80)) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Json6ReaderC2ERKNS_8FeaturesE(ptr noundef nonnull align 8 dereferenceable(269) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseIPN4Json5ValueESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -495,7 +495,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Json6Reader5parseEPKcS2_RNS_5ValueEb(ptr noundef nonnull align 8 dereferenceable(269) initializes((192, 232), (268, 269)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i1 noundef zeroext %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Json6Reader5parseEPKcS2_RNS_5ValueEb(ptr noundef nonnull align 8 dereferenceable(269) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i1 noundef zeroext %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Json::Reader::ErrorInfo", align 8
   %7 = alloca %"struct.std::_Deque_iterator.5", align 8
   %8 = alloca ptr, align 8
@@ -5611,7 +5611,7 @@ _ZNSt5dequeIN4Json6Reader9ErrorInfoESaIS2_EE17_M_default_appendEm.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4Json6Reader24getLocationLineAndColumnEPKcRiS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(269) %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZNK4Json6Reader24getLocationLineAndColumnEPKcRiS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(269) %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #11 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %2, align 4
@@ -6005,7 +6005,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4Json6Reader19getStructuredErrorsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(269) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4Json6Reader19getStructuredErrorsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(269) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Json::Reader::StructuredError", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 96
@@ -6323,7 +6323,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json6Reader4goodEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Json11OurFeatures3allEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Json::OurFeatures") align 8 initializes((0, 24)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4Json11OurFeatures3allEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Json::OurFeatures") align 8 %0) local_unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -6451,7 +6451,7 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader15containsNewLineEPKcS2_(
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json9OurReaderC2ERKNS_11OurFeaturesE(ptr noundef nonnull align 8 dereferenceable(297) initializes((0, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Json9OurReaderC2ERKNS_11OurFeaturesE(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseIPN4Json5ValueESaIS2_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef 0)
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -6480,7 +6480,7 @@ _ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EEC2Ev.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Json9OurReader5parseEPKcS2_RNS_5ValueEb(ptr noundef nonnull align 8 dereferenceable(297) initializes((192, 232), (296, 297)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i1 noundef zeroext %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Json9OurReader5parseEPKcS2_RNS_5ValueEb(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i1 noundef zeroext %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Json::OurReader::ErrorInfo", align 8
   %7 = alloca %"class.Json::OurReader::ErrorInfo", align 8
   %8 = alloca %"struct.std::_Deque_iterator.22", align 8
@@ -10482,7 +10482,7 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader5matchEPKci(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Json9OurReader17readCStyleCommentEPb(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #11 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Json9OurReader17readCStyleCommentEPb(ptr nocapture noundef nonnull align 8 dereferenceable(297) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 align 2 {
   store i8 0, ptr %1, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = getelementptr inbounds i8, ptr %0, i64 200
@@ -11640,7 +11640,7 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader12decodeDoubleERNS0_5Toke
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Json9OurReader22decodeUnicodeCodePointERNS0_5TokenERPKcS4_Rj(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Json9OurReader22decodeUnicodeCodePointERNS0_5TokenERPKcS4_Rj(ptr noundef nonnull align 8 dereferenceable(297) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.Json::OurReader::ErrorInfo", align 8
   %7 = alloca %"class.Json::OurReader::ErrorInfo", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12288,7 +12288,7 @@ _ZNSt5dequeIN4Json9OurReader9ErrorInfoESaIS2_EE17_M_default_appendEm.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4Json9OurReader24getLocationLineAndColumnEPKcRiS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(297) %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZNK4Json9OurReader24getLocationLineAndColumnEPKcRiS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(297) %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #11 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %2, align 4
@@ -12640,7 +12640,7 @@ _ZNSt15_Deque_iteratorIN4Json9OurReader9ErrorInfoERKS2_PS3_EppEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4Json9OurReader19getStructuredErrorsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.24") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(297) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4Json9OurReader19getStructuredErrorsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.24") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(297) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Json::OurReader::StructuredError", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 96
@@ -12769,7 +12769,7 @@ _ZNSt12_Vector_baseIN4Json9OurReader15StructuredErrorESaIS2_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json17CharReaderBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Json17CharReaderBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json17CharReaderBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 0)
@@ -12954,7 +12954,7 @@ define dso_local void @_ZN4Json17CharReaderBuilder11setDefaultsEPNS_5ValueE(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Json17CharReaderBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define dso_local void @_ZN4Json17CharReaderBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json17CharReaderBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #26
@@ -12962,7 +12962,7 @@ define dso_local void @_ZN4Json17CharReaderBuilderD2Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Json17CharReaderBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define dso_local void @_ZN4Json17CharReaderBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json17CharReaderBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #26

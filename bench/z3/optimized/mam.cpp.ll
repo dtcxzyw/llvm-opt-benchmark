@@ -1324,7 +1324,7 @@ _ZN10ptr_vectorI5trailED2Ev.exit:                 ; preds = %_ZN7svectorIjjED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_18mam_implD2Ev(ptr noundef nonnull align 8 dereferenceable(98976) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_18mam_implD2Ev(ptr noundef nonnull align 8 dereferenceable(98976) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_18mam_implE, i64 16), ptr %this, align 8
   %m_trail_stack = getelementptr inbounds i8, ptr %this, i64 32
@@ -1797,7 +1797,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_18mam_implD0Ev(ptr noundef nonnull align 8 dereferenceable(98976) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_18mam_implD0Ev(ptr noundef nonnull align 8 dereferenceable(98976) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_18mam_implD2Ev(ptr noundef nonnull align 8 dereferenceable(98976) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -10233,7 +10233,7 @@ if.end20:                                         ; preds = %entry, %if.end17, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18compiler4initEPNS_9code_treeEP10quantifierP3appj(ptr noundef nonnull align 8 dereferenceable(176) initializes((72, 100)) %this, ptr noundef %t, ptr noundef %qa, ptr noundef %mp, i32 noundef %first_idx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18compiler4initEPNS_9code_treeEP10quantifierP3appj(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %t, ptr noundef %qa, ptr noundef %mp, i32 noundef %first_idx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator.333", align 1
@@ -14716,7 +14716,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN12_GLOBAL__N_18compiler7mk_treeEP10quantifierP3appjb(ptr noundef nonnull align 8 dereferenceable(176) initializes((72, 100)) %this, ptr noundef %qa, ptr noundef %mp, i32 noundef %first_idx, i1 noundef zeroext %filter_candidates) unnamed_addr #3 align 2 {
+define internal fastcc noundef ptr @_ZN12_GLOBAL__N_18compiler7mk_treeEP10quantifierP3appjb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %qa, ptr noundef %mp, i32 noundef %first_idx, i1 noundef zeroext %filter_candidates) unnamed_addr #3 align 2 {
 entry:
   %m_args.i = getelementptr inbounds i8, ptr %mp, i64 32
   %idxprom.i = zext i32 %first_idx to i64

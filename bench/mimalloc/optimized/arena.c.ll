@@ -76,7 +76,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_arena_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i64 noundef %align_offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef initializes((0, 24)) %memid, ptr noundef %tld) local_unnamed_addr #2 {
+define hidden ptr @_mi_arena_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i64 noundef %align_offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef %memid, ptr noundef %tld) local_unnamed_addr #2 {
 entry:
   %arena_id = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid, i8 0, i64 24, i1 false)
@@ -451,7 +451,7 @@ declare ptr @_mi_os_alloc_aligned_at_offset(i64 noundef, i64 noundef, i64 nounde
 declare ptr @_mi_os_alloc_aligned(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_arena_alloc(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef initializes((0, 24)) %memid, ptr noundef %tld) local_unnamed_addr #2 {
+define hidden ptr @_mi_arena_alloc(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef %memid, ptr noundef %tld) local_unnamed_addr #2 {
 entry:
   %call = tail call ptr @_mi_arena_alloc_aligned(i64 noundef %size, i64 noundef 33554432, i64 noundef 0, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef %memid, ptr noundef %tld) #12
   ret ptr %call

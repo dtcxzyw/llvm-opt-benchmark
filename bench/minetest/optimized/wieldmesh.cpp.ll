@@ -1362,7 +1362,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18WieldMeshSceneNodeC1EPN3irr5scene13ISceneManagerEib(ptr noundef nonnull align 8 dereferenceable(312) initializes((312, 332)) %this, ptr noundef %mgr, i32 noundef %id, i1 noundef zeroext %lighting) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18WieldMeshSceneNodeC1EPN3irr5scene13ISceneManagerEib(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef %mgr, i32 noundef %id, i1 noundef zeroext %lighting) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %resolution.i = alloca i32, align 4
   %__dnew.i.i173 = alloca i64, align 8
@@ -1882,7 +1882,7 @@ _ZNSt6vectorI13ItemPartColorSaIS0_EED2Ev.exit:    ; preds = %if.then.i.i.i, %ehc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18WieldMeshSceneNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18WieldMeshSceneNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !15
@@ -2036,7 +2036,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 declare void @_ZN14ShadowRenderer24removeNodeFromShadowListEPN3irr5scene10ISceneNodeE(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18WieldMeshSceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN18WieldMeshSceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN18WieldMeshSceneNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull @_ZTT18WieldMeshSceneNode) #27
   ret void
@@ -2054,7 +2054,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18WieldMeshSceneNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN18WieldMeshSceneNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN18WieldMeshSceneNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull @_ZTT18WieldMeshSceneNode) #27
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28

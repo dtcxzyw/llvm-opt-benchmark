@@ -784,7 +784,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26grpc_iomgr_register_objectP17grpc_iomgr_objectPKc(ptr noundef initializes((0, 24)) %obj, ptr noundef %name) local_unnamed_addr #5 {
+define void @_Z26grpc_iomgr_register_objectP17grpc_iomgr_objectPKc(ptr noundef %obj, ptr noundef %name) local_unnamed_addr #5 {
 entry:
   %call = tail call ptr @gpr_strdup(ptr noundef %name)
   store ptr %call, ptr %obj, align 8

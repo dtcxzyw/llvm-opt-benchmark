@@ -171,7 +171,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o5CacheC2EPNS_14CacheContainerERKSt6vectorIPNS_9ParameterESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 9), (16, 40)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o5CacheC2EPNS_14CacheContainerERKSt6vectorIPNS_9ParameterESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o5CacheE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %4, align 8
@@ -857,7 +857,7 @@ define noundef zeroext i1 @_ZN3g2o5Cache19resolveDependenciesEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o14CacheContainerC2EPNS_16OptimizableGraph6VertexE(ptr noundef nonnull align 8 dereferenceable(65) initializes((16, 20), (24, 32)) %0, ptr noundef %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o14CacheContainerC2EPNS_16OptimizableGraph6VertexE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1132,7 +1132,7 @@ define void @_ZN3g2o14CacheContainer6updateEv(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define void @_ZN3g2o14CacheContainer15setUpdateNeededEb(ptr noundef nonnull align 8 dereferenceable(65) initializes((64, 65)) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define void @_ZN3g2o14CacheContainer15setUpdateNeededEb(ptr noundef nonnull align 8 dereferenceable(65) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %3, ptr %4, align 8
@@ -1157,7 +1157,7 @@ define void @_ZN3g2o14CacheContainer15setUpdateNeededEb(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o14CacheContainerD2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o14CacheContainerD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o14CacheContainerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32

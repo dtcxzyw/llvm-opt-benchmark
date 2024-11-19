@@ -2070,7 +2070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 declare void @_ZN6PlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(432)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12RemotePlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(970) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12RemotePlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(970) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12RemotePlayer, i64 16), ptr %this, align 8, !tbaa !12
   %m_sao = getelementptr inbounds i8, ptr %this, i64 440
@@ -2307,7 +2307,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12RemotePlayerD0Ev(ptr noundef nonnull align 8 dereferenceable(970) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN12RemotePlayerD0Ev(ptr noundef nonnull align 8 dereferenceable(970) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN12RemotePlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(970) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -2455,7 +2455,7 @@ cleanup:                                          ; preds = %if.end29, %_ZN11Str
 declare float @llvm.fmuladd.f32(float, float, float) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN12RemotePlayer16onSuccessfulSaveEv(ptr nocapture noundef nonnull align 8 dereferenceable(970) initializes((448, 449)) %this) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN12RemotePlayer16onSuccessfulSaveEv(ptr nocapture noundef nonnull align 8 dereferenceable(970) %this) local_unnamed_addr #14 align 2 {
 entry:
   %m_dirty.i = getelementptr inbounds i8, ptr %this, i64 448
   store i8 0, ptr %m_dirty.i, align 8, !tbaa !52

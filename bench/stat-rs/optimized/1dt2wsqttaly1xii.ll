@@ -1213,7 +1213,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$14view_range_mut17h8cd2f6ca804f290bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$14view_range_mut17h8cd2f6ca804f290bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #7 personality ptr @rust_eh_personality {
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$16generic_view_mut17h80970aa5b15fe700E.llvm.4752837998330011175.exit":
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -1239,7 +1239,7 @@ define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..bas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$14view_range_mut17hd0753ad8847c5985E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$14view_range_mut17hd0753ad8847c5985E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #7 personality ptr @rust_eh_personality {
 "_ZN8nalgebra4base11matrix_view69_$LT$impl$u20$nalgebra..base..matrix..Matrix$LT$T$C$R$C$C$C$S$GT$$GT$16generic_view_mut17h638edabb8fb462a6E.llvm.4752837998330011175.exit":
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4

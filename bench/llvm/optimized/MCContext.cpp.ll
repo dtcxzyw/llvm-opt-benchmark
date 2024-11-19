@@ -330,7 +330,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4llvm9MCContextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm9MCContextD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9MCContextC2ERKNS_6TripleEPKNS_9MCAsmInfoEPKNS_14MCRegisterInfoEPKNS_15MCSubtargetInfoEPKNS_9SourceMgrEPKNS_15MCTargetOptionsEbNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(2432) initializes((8, 24)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9MCContextC2ERKNS_6TripleEPKNS_9MCAsmInfoEPKNS_14MCRegisterInfoEPKNS_15MCSubtargetInfoEPKNS_9SourceMgrEPKNS_15MCTargetOptionsEbNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8) unnamed_addr #0 align 2 {
   %10 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = alloca %"class.std::allocator", align 1
@@ -1251,7 +1251,7 @@ _ZNSt10unique_ptrIN4llvm9SourceMgrESt14default_deleteIS1_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9MCContext5resetEv(ptr noundef nonnull align 8 dereferenceable(2432) initializes((80, 88)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9MCContext5resetEv(ptr noundef nonnull align 8 dereferenceable(2432) %0) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %2 = alloca %"class.std::function", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -5502,7 +5502,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_4wasm13WasmSignatureEE8AllocateEm.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) initializes((2352, 2353)) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(2432) %0, ptr %1, ptr noundef nonnull align 8 dereferenceable(34) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SMLoc", align 8
   %5 = alloca %"class.std::function.412", align 8
   store ptr %1, ptr %4, align 8
@@ -16503,7 +16503,7 @@ declare void @_ZN4llvm15SmallVectorBaseIjE20set_allocation_rangeEPvm(ptr noundef
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRN4llvm12SMDiagnosticEPKNS0_9SourceMgrEEZNS0_9MCContext11reportErrorENS0_5SMLocERKNS0_5TwineEE3$_0E9_M_invokeERKSt9_Any_dataS2_OS5_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 16)) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRN4llvm12SMDiagnosticEPKNS0_9SourceMgrEEZNS0_9MCContext11reportErrorENS0_5SMLocERKNS0_5TwineEE3$_0E9_M_invokeERKSt9_Any_dataS2_OS5_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) #0 align 2 {
   %4 = alloca %"class.llvm::SMDiagnostic", align 8
   %5 = alloca %"class.llvm::ArrayRef.614", align 8
   %6 = alloca %"class.llvm::ArrayRef.615", align 8
@@ -16886,7 +16886,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SMFixItELb0EE21takeAllocationForGrowEPS1_m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRN4llvm12SMDiagnosticEPKNS0_9SourceMgrEEZNS0_9MCContext13reportWarningENS0_5SMLocERKNS0_5TwineEE3$_0E9_M_invokeERKSt9_Any_dataS2_OS5_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 16)) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFvRN4llvm12SMDiagnosticEPKNS0_9SourceMgrEEZNS0_9MCContext13reportWarningENS0_5SMLocERKNS0_5TwineEE3$_0E9_M_invokeERKSt9_Any_dataS2_OS5_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) #0 align 2 {
   %4 = alloca %"class.llvm::SMDiagnostic", align 8
   %5 = alloca %"class.llvm::ArrayRef.614", align 8
   %6 = alloca %"class.llvm::ArrayRef.615", align 8

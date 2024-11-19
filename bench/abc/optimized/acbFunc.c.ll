@@ -4228,7 +4228,7 @@ define void @Acb_VerilogSimpleReadTest(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Acb_NtkFree(ptr noundef initializes((24, 32), (40, 48), (56, 64), (72, 80), (112, 120), (128, 136), (144, 152), (160, 168), (176, 184), (192, 200), (208, 216), (224, 232), (240, 248), (256, 264), (272, 280), (288, 296), (304, 312), (320, 328), (336, 344), (352, 360), (368, 376), (384, 392), (400, 408), (416, 424)) %0) unnamed_addr #0 {
+define internal fastcc void @Acb_NtkFree(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
@@ -5312,7 +5312,7 @@ define range(i32 0, 2) i32 @Acb_NtkFindRoots_rec(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Acb_NtkFindRoots(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Acb_NtkFindRoots(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4
@@ -6831,7 +6831,7 @@ Acb_NtkIncTravId.exit:                            ; preds = %3, %Acb_NtkCleanObj
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Acb_ObjToGia(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define i32 @Acb_ObjToGia(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 136
@@ -7357,7 +7357,7 @@ declare void @Gia_ManHashStop(ptr noundef) local_unnamed_addr #1
 declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Acb_NtkSaveNames(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr nocapture noundef initializes((632, 640)) %6) local_unnamed_addr #0 {
+define noundef i32 @Acb_NtkSaveNames(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
   %8 = alloca [100 x i8], align 16
   %9 = getelementptr i8, ptr %6, i64 64
   %.val71 = load ptr, ptr %9, align 8
@@ -10863,7 +10863,7 @@ declare void @satoko_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @satoko_minimize_assumptions(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Acb_EnumerateSatAssigns(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr noundef initializes((4, 8)) %5) local_unnamed_addr #0 {
+define ptr @Acb_EnumerateSatAssigns(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca [2 x i32], align 4
   %8 = shl nsw i32 %1, 1
   %9 = or disjoint i32 %8, 1
@@ -12434,7 +12434,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_CollectIntNodes(ptr noundef %0, ptr noundef initializes((4, 8)) %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
+define void @Acb_CollectIntNodes(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 4

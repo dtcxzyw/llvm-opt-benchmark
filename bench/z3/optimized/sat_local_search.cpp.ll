@@ -617,7 +617,7 @@ _ZN7svectorIjjED2Ev.exit:                         ; preds = %arraydestroy.done8,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3sat12local_search14set_parametersEv(ptr nocapture noundef nonnull align 8 dereferenceable(232) initializes((144, 152), (208, 212)) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3sat12local_search14set_parametersEv(ptr nocapture noundef nonnull align 8 dereferenceable(232) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_rand = getelementptr inbounds i8, ptr %this, i64 208
   %m_config = getelementptr inbounds i8, ptr %this, i64 16
@@ -3985,7 +3985,7 @@ for.end:                                          ; preds = %_ZN3sat12local_sear
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat12local_searchC2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 30), (32, 94), (96, 121), (124, 168)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat12local_searchC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3sat12local_searchE, i64 16), ptr %this, align 8
   %m_stats = getelementptr inbounds i8, ptr %this, i64 8
@@ -4224,7 +4224,7 @@ terminate.lpad:                                   ; preds = %_ZN6vectorIN3sat12l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat12local_search6reinitERNS_6solverERK7svectorIbjE(ptr noundef nonnull align 8 dereferenceable(232) initializes((92, 93)) %this, ptr noundef nonnull align 8 dereferenceable(4408) %s, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %phase) unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat12local_search6reinitERNS_6solverERK7svectorIbjE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(4408) %s, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %phase) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN3sat12local_search6importERKNS_6solverEb(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(4408) %s, i1 noundef zeroext true)
   %0 = load ptr, ptr %phase, align 8
@@ -4277,7 +4277,7 @@ for.end:                                          ; preds = %_ZN3sat12local_sear
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat12local_search6importERKNS_6solverEb(ptr noundef nonnull align 8 dereferenceable(232) initializes((92, 93)) %this, ptr noundef nonnull align 8 dereferenceable(4408) %s, i1 noundef zeroext %_init) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat12local_search6importERKNS_6solverEb(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(4408) %s, i1 noundef zeroext %_init) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ls = alloca [2 x %"class.sat::literal"], align 4
   %card = alloca %"class.std::function", align 8
@@ -4958,7 +4958,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3sat12local_searchD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat12local_searchD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3sat12local_searchE, i64 16), ptr %this, align 8
   %m_model = getelementptr inbounds i8, ptr %this, i64 224
@@ -5238,7 +5238,7 @@ _ZN6vectorIN3sat12local_search8var_infoELb1EjED2Ev.exit: ; preds = %_ZN7svectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3sat12local_searchD0Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN3sat12local_searchD0Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN3sat12local_searchD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -5259,7 +5259,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat12local_search7walksatEv(ptr noundef nonnull align 8 dereferenceable(232) initializes((128, 144)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat12local_search7walksatEv(ptr noundef nonnull align 8 dereferenceable(232) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1

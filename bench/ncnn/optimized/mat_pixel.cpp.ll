@@ -438,7 +438,7 @@ define hidden void @_ZN4ncnn17yuv420sp2rgb_halfEPKhiiPh(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn3Mat11from_pixelsEPKhiiiPNS_9AllocatorE(ptr dead_on_unwind noalias writable sret(%"class.ncnn::Mat") align 8 initializes((0, 28), (32, 60), (64, 72)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN4ncnn3Mat11from_pixelsEPKhiiiPNS_9AllocatorE(ptr dead_on_unwind noalias writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
   %7 = and i32 %2, 65535
   %8 = add nsw i32 %7, -1
   %or.cond = icmp ult i32 %8, 2
@@ -484,7 +484,7 @@ define hidden void @_ZN4ncnn3Mat11from_pixelsEPKhiiiPNS_9AllocatorE(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn3Mat11from_pixelsEPKhiiiiPNS_9AllocatorE(ptr dead_on_unwind noalias writable sret(%"class.ncnn::Mat") align 8 initializes((0, 28), (32, 60), (64, 72)) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn3Mat11from_pixelsEPKhiiiiPNS_9AllocatorE(ptr dead_on_unwind noalias writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.ncnn::Mat", align 8
   %9 = alloca %"class.ncnn::Mat", align 8
   %10 = alloca %"class.ncnn::Mat", align 8
@@ -2663,7 +2663,7 @@ declare void @_ZN4ncnn18resize_bilinear_c1EPKhiiiPhiii(ptr noundef, i32 noundef,
 declare void @_ZN4ncnn18resize_bilinear_c4EPKhiiiPhiii(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn3Mat15from_pixels_roiEPKhiiiiiiiPNS_9AllocatorE(ptr dead_on_unwind noalias writable sret(%"class.ncnn::Mat") align 8 initializes((0, 28), (32, 60), (64, 72)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN4ncnn3Mat15from_pixels_roiEPKhiiiiiiiPNS_9AllocatorE(ptr dead_on_unwind noalias writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9) local_unnamed_addr #1 align 2 {
   %11 = or i32 %6, %5
   %or.cond = icmp slt i32 %11, 0
   %12 = icmp slt i32 %7, 1
@@ -2750,7 +2750,7 @@ define hidden void @_ZN4ncnn3Mat15from_pixels_roiEPKhiiiiiiiPNS_9AllocatorE(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn3Mat15from_pixels_roiEPKhiiiiiiiiPNS_9AllocatorE(ptr dead_on_unwind noalias writable sret(%"class.ncnn::Mat") align 8 initializes((0, 28), (32, 60), (64, 72)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN4ncnn3Mat15from_pixels_roiEPKhiiiiiiiiPNS_9AllocatorE(ptr dead_on_unwind noalias writable sret(%"class.ncnn::Mat") align 8 %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #1 align 2 {
   %12 = or i32 %7, %6
   %or.cond = icmp slt i32 %12, 0
   %13 = icmp slt i32 %8, 1

@@ -950,7 +950,7 @@ define dso_local ptr @drm_atomic_get_plane_state(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_private_obj_init(ptr noundef %0, ptr noundef initializes((0, 88)) %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local void @drm_atomic_private_obj_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @drm_modeset_lock_init(ptr noundef %5) #10

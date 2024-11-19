@@ -461,7 +461,7 @@ define hidden void @"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..ker
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h235ec50b386c97fbE"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h235ec50b386c97fbE"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = load ptr, ptr %1, align 8, !nonnull !9, !align !73, !noundef !9
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
@@ -503,7 +503,7 @@ define hidden noundef i64 @"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..un
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN88_$LT$std..io..stdio..StdinLock$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hf7ce0844b567d2e8E.llvm.14589055975246679480"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN88_$LT$std..io..stdio..StdinLock$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hf7ce0844b567d2e8E.llvm.14589055975246679480"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = load ptr, ptr %1, align 8, !nonnull !9, !align !73, !noundef !9
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !9, !noundef !9

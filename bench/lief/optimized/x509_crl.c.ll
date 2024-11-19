@@ -430,7 +430,7 @@ define hidden void @mbedtls_x509_crl_free(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_x509_crl_init(ptr nocapture noundef writeonly initializes((0, 416)) %0) local_unnamed_addr #3 {
+define hidden void @mbedtls_x509_crl_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %0, i8 0, i64 416, i1 false)
   ret void
 }

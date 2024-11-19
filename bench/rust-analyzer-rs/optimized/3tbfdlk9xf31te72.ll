@@ -9927,7 +9927,7 @@ define hidden noundef align 8 dereferenceable_or_null(56) ptr @"_ZN91_$LT$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0d6770840cf3131bE.llvm.6473071382847885441"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #6 {
+define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0d6770840cf3131bE.llvm.6473071382847885441"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !8, !noundef !8
   %5 = load ptr, ptr %1, align 8, !nonnull !8, !noundef !8
@@ -9965,7 +9965,7 @@ define hidden { ptr, ptr } @"_ZN97_$LT$indexmap..map..iter..Iter$LT$K$C$V$GT$$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9itertools8adaptors8put_back17h0dabe2ccceb395f6E(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] } }, { i64, [1 x i64] } }) align 8 dereferenceable(32) initializes((0, 24)) %0, i64 noundef %1, ptr %2) unnamed_addr #8 personality ptr @rust_eh_personality {
+define hidden void @_ZN9itertools8adaptors8put_back17h0dabe2ccceb395f6E(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] } }, { i64, [1 x i64] } }) align 8 dereferenceable(32) %0, i64 noundef %1, ptr %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 3, ptr %4, align 8
   store i64 %1, ptr %0, align 8

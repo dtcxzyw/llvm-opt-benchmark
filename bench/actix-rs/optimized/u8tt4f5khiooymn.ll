@@ -3965,7 +3965,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN19brotli_decompressor6decode22PrepareLiteralDecoding17hc65c7b51e9859663E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(2592) initializes((1904, 1912)) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN19brotli_decompressor6decode22PrepareLiteralDecoding17hc65c7b51e9859663E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(2592) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2108
   %3 = load i32, ptr %2, align 4, !noundef !5
   %4 = zext i32 %3 to i64
@@ -6887,7 +6887,7 @@ thread-pre-split:                                 ; preds = %1123, %1138, %_ZN19
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24BrotliAllocateRingBuffer17h7879f552e214c6ecE(ptr noalias noundef nonnull align 8 dereferenceable(2592) initializes((2184, 2188)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN19brotli_decompressor6decode24BrotliAllocateRingBuffer17h7879f552e214c6ecE(ptr noalias noundef nonnull align 8 dereferenceable(2592) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 2318
@@ -8502,7 +8502,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12align_to_mut17hd0d293d2707e367dE"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #9 {
+define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12align_to_mut17hd0d293d2707e367dE"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #9 {
   %4 = ptrtoint ptr %1 to i64
   %5 = add i64 %4, 3
   %6 = and i64 %5, -4
@@ -8643,7 +8643,7 @@ define hidden { i64, i64 } @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16alig
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checked17h109ff768c68a0ab9E.llvm.13158767072824543338"(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #10 {
+define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checked17h109ff768c68a0ab9E.llvm.13158767072824543338"(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #10 {
   %.not = icmp ugt i64 %3, %2
   br i1 %.not, label %8, label %5
 
@@ -8891,7 +8891,7 @@ define hidden void @_ZN5bytes9bytes_mut8BytesMut6freeze17h898a604450b8798fE.llvm
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5bytes9bytes_mut8BytesMut8from_vec17h46aaf2ae3c84b632E.llvm.13158767072824543338(ptr noalias nocapture noundef writeonly sret({ ptr, i64, i64, ptr }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN5bytes9bytes_mut8BytesMut8from_vec17h46aaf2ae3c84b632E.llvm.13158767072824543338(ptr noalias nocapture noundef writeonly sret({ ptr, i64, i64, ptr }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !5, !noundef !5
@@ -9227,7 +9227,7 @@ define hidden void @"_ZN70_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN76_$LT$ahash..random_state..RandomState$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17he4305e7e7e4d722aE.llvm.13158767072824543338"(ptr noalias nocapture noundef writeonly sret({ [2 x i64], i64, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #6 {
+define hidden void @"_ZN76_$LT$ahash..random_state..RandomState$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17he4305e7e7e4d722aE.llvm.13158767072824543338"(ptr noalias nocapture noundef writeonly sret({ [2 x i64], i64, i64 }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = load i64, ptr %1, align 8, !noundef !5
@@ -9283,7 +9283,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6traits5Flags10intersects17hc6920b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN8bitflags6traits5Flags10iter_names17hf25be42b4dce42f9E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(32) initializes((0, 26)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #17 personality ptr @rust_eh_personality {
+define hidden void @_ZN8bitflags6traits5Flags10iter_names17hf25be42b4dce42f9E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #17 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1126)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1129)
   %3 = load i8, ptr %1, align 1, !alias.scope !1129, !noalias !1126, !noundef !5
@@ -9380,7 +9380,7 @@ define hidden { i1, i8 } @_ZN8bitflags6traits5Flags9from_name17h4def2fbf6052c788
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN10actix_http8encoding6Writer3new17h3ee66135772b357cE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64, i64, ptr } }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN10actix_http8encoding6Writer3new17h3ee66135772b357cE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64, i64, ptr } }) align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h6e5f59cc06b1616aE"(i64 noundef 8192, i1 noundef zeroext false)
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
@@ -9595,7 +9595,7 @@ define void @"_ZN73_$LT$actix_http..extensions..NoOpHasher$u20$as$u20$core..hash
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN73_$LT$actix_http..extensions..NoOpHasher$u20$as$u20$core..hash..Hasher$GT$9write_u6417h97c2561bd83d4dceE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #21 {
+define void @"_ZN73_$LT$actix_http..extensions..NoOpHasher$u20$as$u20$core..hash..Hasher$GT$9write_u6417h97c2561bd83d4dceE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #21 {
   store i64 %1, ptr %0, align 8
   ret void
 }
@@ -9676,7 +9676,7 @@ define noundef zeroext i1 @"_ZN71_$LT$actix_http..extensions..Extensions$u20$as$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN78_$LT$actix_http..h1..client..ClientCodec$u20$as$u20$core..default..Default$GT$7default17h653c5604e98c81e8E"(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] } }) align 8 dereferenceable(64) initializes((0, 8), (16, 17), (24, 33), (48, 59)) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN78_$LT$actix_http..h1..client..ClientCodec$u20$as$u20$core..default..Default$GT$7default17h653c5604e98c81e8E"(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] } }) align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca { i16, [15 x i16] }, align 4
   %3 = tail call { i64, i32 } @_ZN4core4time8Duration3new17h2b271a0fd6558ad7E.llvm.10804153884081904121(i64 noundef 5, i32 noundef 0)
   %4 = extractvalue { i64, i32 } %3, 0
@@ -9724,7 +9724,7 @@ define noundef zeroext i1 @"_ZN72_$LT$actix_http..h1..client..ClientCodec$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10actix_http2h16client11ClientCodec3new17h69dd924368962c9aE(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] } }) align 8 dereferenceable(64) initializes((0, 8), (16, 17), (24, 33), (48, 59)) %0, ptr noundef nonnull %1) unnamed_addr #18 personality ptr @rust_eh_personality {
+define void @_ZN10actix_http2h16client11ClientCodec3new17h69dd924368962c9aE(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] } }) align 8 dereferenceable(64) %0, ptr noundef nonnull %1) unnamed_addr #18 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load i32, ptr %3, align 8, !range !1215, !noundef !5
   %.not = icmp eq i32 %4, 1000000001
@@ -9778,7 +9778,7 @@ define noundef range(i8 0, 3) i8 @_ZN10actix_http2h16client11ClientCodec12messag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10actix_http2h16client11ClientCodec18into_payload_codec17h899f0ea87c153556E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] } }) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #18 {
+define void @_ZN10actix_http2h16client11ClientCodec18into_payload_codec17h899f0ea87c153556E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] } }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #18 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }
@@ -9792,7 +9792,7 @@ define noundef zeroext i1 @_ZN10actix_http2h16client18ClientPayloadCodec10keep_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10actix_http2h16client18ClientPayloadCodec18into_message_codec17he8a9ca8ac29274f2E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] } }) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #18 {
+define void @_ZN10actix_http2h16client18ClientPayloadCodec18into_message_codec17he8a9ca8ac29274f2E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] } }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #18 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }
@@ -11508,7 +11508,7 @@ _ZN10actix_http2h17payload5Inner8register17hfcd81d6cd64d8e1dE.exit48.i: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10actix_http2h17payload5Inner3new17h459e784c58fa4d32E.llvm.13158767072824543338(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64, i64 }, { i8, [39 x i8] }, i64, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, [6 x i8] }) align 8 dereferenceable(120) initializes((0, 33), (72, 88), (96, 104), (112, 114)) %0, i1 noundef zeroext %1) unnamed_addr #21 {
+define hidden void @_ZN10actix_http2h17payload5Inner3new17h459e784c58fa4d32E.llvm.13158767072824543338(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64, i64 }, { i8, [39 x i8] }, i64, { ptr, [1 x i64] }, { ptr, [1 x i64] }, i8, i8, [6 x i8] }) align 8 dereferenceable(120) %0, i1 noundef zeroext %1) unnamed_addr #21 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -11721,7 +11721,7 @@ define void @_ZN10actix_http2h17payload5Inner11unread_data17h589e8f04fb98289bE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN94_$LT$actix_http..header..shared..http_date..HttpDate$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc8f3912d739635e6E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8), (16, 17)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN94_$LT$actix_http..header..shared..http_date..HttpDate$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hc8f3912d739635e6E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = tail call { i64, i32 } @_ZN8httpdate15parse_http_date17h92fe45eb6153ab37E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %5 = extractvalue { i64, i32 } %4, 1
   %6 = icmp eq i32 %5, 1000000000
@@ -12139,7 +12139,7 @@ define noundef zeroext i1 @"_ZN82_$LT$actix_http..h1..client.._..InternalBitFlag
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN90_$LT$actix_http..h1..client.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h3382e0c22cb13c5dE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN90_$LT$actix_http..h1..client.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h3382e0c22cb13c5dE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZN8bitflags6parser8from_str17hc048882d60f899d9E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -12221,7 +12221,7 @@ define noundef zeroext i1 @"_ZN83_$LT$actix_http..h1..client.._..InternalBitFlag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN105_$LT$actix_http..h1..client.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he2e508c2d769ddd5E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #21 {
+define void @"_ZN105_$LT$actix_http..h1..client.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he2e508c2d769ddd5E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #21 {
   store ptr @anon.8a12d939c1772332335ccf3bc40882f3.227, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 3, ptr %.sroa.4.0..sroa_idx, align 8
@@ -12281,7 +12281,7 @@ define noundef zeroext i1 @"_ZN10actix_http2h16client1_79_$LT$impl$u20$core..fmt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN10actix_http2h16client1_101_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$actix_http..h1..client..Flags$GT$9into_iter17h2c610efdc8dc9a88E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #21 {
+define void @"_ZN10actix_http2h16client1_101_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$actix_http..h1..client..Flags$GT$9into_iter17h2c610efdc8dc9a88E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #21 {
   store ptr @anon.8a12d939c1772332335ccf3bc40882f3.227, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 3, ptr %.sroa.4.0..sroa_idx, align 8
@@ -12376,7 +12376,7 @@ define noundef zeroext i1 @"_ZN79_$LT$actix_http..message.._..InternalBitFlags$u
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN87_$LT$actix_http..message.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1578230f7c2f117aE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN87_$LT$actix_http..message.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h1578230f7c2f117aE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZN8bitflags6parser8from_str17ha652c6fa7acfd029E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -12458,7 +12458,7 @@ define noundef zeroext i1 @"_ZN80_$LT$actix_http..message.._..InternalBitFlags$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN102_$LT$actix_http..message.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h42a519580432cac1E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #21 {
+define void @"_ZN102_$LT$actix_http..message.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h42a519580432cac1E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #21 {
   store ptr @anon.8a12d939c1772332335ccf3bc40882f3.234, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 6, ptr %.sroa.4.0..sroa_idx, align 8
@@ -12518,7 +12518,7 @@ define noundef zeroext i1 @"_ZN10actix_http7message1_76_$LT$impl$u20$core..fmt..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN10actix_http7message1_98_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$actix_http..message..Flags$GT$9into_iter17hb29a2a9d2524a0e5E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #21 {
+define void @"_ZN10actix_http7message1_98_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$actix_http..message..Flags$GT$9into_iter17hb29a2a9d2524a0e5E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #21 {
   store ptr @anon.8a12d939c1772332335ccf3bc40882f3.234, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 6, ptr %.sroa.4.0..sroa_idx, align 8

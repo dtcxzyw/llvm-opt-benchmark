@@ -177,7 +177,7 @@ define void @_ZN6google8protobuf7strings22UncheckedArrayByteSink6AppendEPKcm(ptr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf7strings20CheckedArrayByteSinkC2EPcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 33)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #7 align 2 {
+define void @_ZN6google8protobuf7strings20CheckedArrayByteSinkC2EPcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf7strings20CheckedArrayByteSinkE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -230,7 +230,7 @@ define void @_ZN6google8protobuf7strings20CheckedArrayByteSink6AppendEPKcm(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf7strings20GrowingArrayByteSinkC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf7strings20GrowingArrayByteSinkC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf7strings20GrowingArrayByteSinkE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -246,7 +246,7 @@ define void @_ZN6google8protobuf7strings20GrowingArrayByteSinkC2Em(ptr nocapture
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf7strings20GrowingArrayByteSinkD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #9 align 2 {
+define void @_ZN6google8protobuf7strings20GrowingArrayByteSinkD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #9 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf7strings20GrowingArrayByteSinkE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -363,7 +363,7 @@ define void @_ZN6google8protobuf7strings20GrowingArrayByteSink6ExpandEm(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf7strings20GrowingArrayByteSink9GetBufferEPm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6google8protobuf7strings20GrowingArrayByteSink9GetBufferEPm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp ugt i64 %4, 256
@@ -484,7 +484,7 @@ define void @_ZN6google8protobuf7strings15ArrayByteSource4SkipEm(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf7strings15LimitByteSourceC2EPNS1_10ByteSourceEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #7 align 2 {
+define void @_ZN6google8protobuf7strings15LimitByteSourceC2EPNS1_10ByteSourceEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf7strings15LimitByteSourceE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8

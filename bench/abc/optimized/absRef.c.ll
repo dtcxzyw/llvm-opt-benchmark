@@ -2152,7 +2152,7 @@ Gia_ObjTerSimCo.exit:                             ; preds = %Gia_ObjTerSimGet1Fa
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Rnm_ManRefine(ptr noundef initializes((8, 32)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define ptr @Rnm_ManRefine(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8

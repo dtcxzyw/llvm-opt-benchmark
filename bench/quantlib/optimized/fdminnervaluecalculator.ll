@@ -273,7 +273,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib26FdmCellAveragingInnerValueC2EN5boost10shared_ptrINS_6PayoffEEENS2_INS_9FdmMesherEEEmSt8functionIFddEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 104)) %this, ptr nocapture noundef %payoff, ptr nocapture noundef %mesher, i64 noundef %direction, ptr nocapture noundef %gridMapping) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib26FdmCellAveragingInnerValueC2EN5boost10shared_ptrINS_6PayoffEEENS2_INS_9FdmMesherEEEmSt8functionIFddEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr nocapture noundef %payoff, ptr nocapture noundef %mesher, i64 noundef %direction, ptr nocapture noundef %gridMapping) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib26FdmCellAveragingInnerValueE, i64 16), ptr %this, align 8, !tbaa !14
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1284,7 +1284,7 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #9
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib16FdmLogInnerValueC2ERKN5boost10shared_ptrINS_6PayoffEEERKNS2_INS_9FdmMesherEEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 104)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesher, i64 noundef %direction) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16FdmLogInnerValueC2ERKN5boost10shared_ptrINS_6PayoffEEERKNS2_INS_9FdmMesherEEEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesher, i64 noundef %direction) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %payoff, align 8, !tbaa !18
   %pn3.i = getelementptr inbounds nuw i8, ptr %payoff, i64 8
@@ -1333,7 +1333,7 @@ _ZN8QuantLib26FdmCellAveragingInnerValueC2EN5boost10shared_ptrINS_6PayoffEEENS2_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib22FdmLogBasketInnerValueC2EN5boost10shared_ptrINS_12BasketPayoffEEENS2_INS_9FdmMesherEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef %payoff, ptr nocapture noundef %mesher) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib22FdmLogBasketInnerValueC2EN5boost10shared_ptrINS_12BasketPayoffEEENS2_INS_9FdmMesherEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef %payoff, ptr nocapture noundef %mesher) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib22FdmLogBasketInnerValueE, i64 16), ptr %this, align 8, !tbaa !14
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8

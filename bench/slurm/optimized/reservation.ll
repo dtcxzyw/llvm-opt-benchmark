@@ -2355,7 +2355,7 @@ declare ptr @find_part_record(ptr noundef) local_unnamed_addr #1
 declare i32 @xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2046) i32 @_build_account_list(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, ptr nocapture noundef nonnull initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2046) i32 @_build_account_list(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.slurmdb_assoc_rec, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2523,7 +2523,7 @@ _is_account_valid.exit:                           ; preds = %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2011) i32 @_build_uid_list(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, ptr nocapture noundef nonnull initializes((0, 1)) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2011) i32 @_build_uid_list(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -13412,7 +13412,7 @@ _free_constraint_planning.exit:                   ; preds = %205, %206
 declare void @slurm_make_time_str(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2119) i32 @job_test_resv(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2, ptr noundef initializes((0, 8)) %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 1)) %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2119) i32 @job_test_resv(ptr noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = tail call i64 @time(ptr noundef null) #21
   store i8 0, ptr %5, align 1
@@ -14776,7 +14776,7 @@ _post_resv_delete.exit:                           ; preds = %86, %90
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_resv_list_reset_cnt(ptr nocapture noundef writeonly initializes((152, 160)) %0, ptr nocapture readnone %1) #10 {
+define internal noundef i32 @_resv_list_reset_cnt(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 156
@@ -15172,7 +15172,7 @@ define dso_local noundef i32 @send_resvs_to_accounting(i32 noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_post_resv_create(ptr nocapture noundef initializes((40, 44)) %0) unnamed_addr #0 {
+define internal fastcc void @_post_resv_create(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.slurmdb_reservation_rec_t, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %3, align 8
@@ -15251,7 +15251,7 @@ _set_boot_time.exit:                              ; preds = %1, %6, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_post_resv_update(ptr nocapture noundef initializes((40, 44)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
+define internal fastcc void @_post_resv_update(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = alloca %struct.slurmdb_reservation_rec_t, align 8
   %4 = tail call i64 @time(ptr noundef null) #21
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -16154,7 +16154,7 @@ define internal noundef i32 @_update_resv_group_uid_access_list(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @set_reserved_license_count(ptr noundef initializes((16, 20)) %0) local_unnamed_addr #0 {
+define dso_local void @set_reserved_license_count(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = load ptr, ptr @resv_list, align 8

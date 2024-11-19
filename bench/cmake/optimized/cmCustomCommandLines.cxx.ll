@@ -38,7 +38,7 @@ $_ZNSt6vectorI19cmCustomCommandLineSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_c
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z17cmMakeCommandLineSt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr dead_on_unwind noalias nonnull writable sret(%class.cmCustomCommandLine) align 8 initializes((0, 24)) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z17cmMakeCommandLineSt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr dead_on_unwind noalias nonnull writable sret(%class.cmCustomCommandLine) align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::basic_string_view", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %2)
@@ -236,7 +236,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z23cmMakeSingleCommandLineSt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr dead_on_unwind noalias writable sret(%class.cmCustomCommandLines) align 8 initializes((0, 24)) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z23cmMakeSingleCommandLineSt16initializer_listISt17basic_string_viewIcSt11char_traitsIcEEE(ptr dead_on_unwind noalias writable sret(%class.cmCustomCommandLines) align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::basic_string_view", align 8
   %5 = alloca %class.cmCustomCommandLine, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

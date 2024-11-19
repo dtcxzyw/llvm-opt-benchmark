@@ -3405,7 +3405,7 @@ H5P__find_prop_pclass.exit:                       ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5P__get_nprops_plist(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #3 {
+define noundef i32 @H5P__get_nprops_plist(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -3413,7 +3413,7 @@ define noundef i32 @H5P__get_nprops_plist(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5P_get_nprops_pclass(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+define noundef i32 @H5P_get_nprops_pclass(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %1, align 8

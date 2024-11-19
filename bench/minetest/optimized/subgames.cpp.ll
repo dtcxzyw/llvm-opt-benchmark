@@ -6447,7 +6447,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt7__cxx1112basi
 declare noundef zeroext i1 @_ZN2fs10PathExistsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z14getEnvModPathsB5cxx11v(ptr dead_on_unwind noalias writable sret(%"class.std::vector.14") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z14getEnvModPathsB5cxx11v(ptr dead_on_unwind noalias writable sret(%"class.std::vector.14") align 8 %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %search_paths = alloca %class.BasicStrfnd, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9089,7 +9089,7 @@ ehcleanup91:                                      ; preds = %if.then.i.i320, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z19getAvailableGameIdsB5cxx11v(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z19getAvailableGameIdsB5cxx11v(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
   %__dnew.i.i.i373 = alloca i64, align 8
@@ -10965,7 +10965,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z17getAvailableGamesv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.57") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z17getAvailableGamesv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.57") align 8 %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %gameids = alloca %"class.std::set", align 8
   %ref.tmp = alloca %struct.SubgameSpec, align 8
@@ -12196,7 +12196,7 @@ cleanup.done24:                                   ; preds = %cleanup.action23.cr
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_Z18getAvailableWorldsv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.62") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z18getAvailableWorldsv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.62") align 8 %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i23.i = alloca i64, align 8
   %__dnew.i.i11.i = alloca i64, align 8

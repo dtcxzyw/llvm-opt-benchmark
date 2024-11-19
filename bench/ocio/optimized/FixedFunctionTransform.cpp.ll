@@ -327,7 +327,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i10, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev26FixedFunctionTransformImplC2ENS_18FixedFunctionStyleE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this, i32 noundef %style) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev26FixedFunctionTransformImplC2ENS_18FixedFunctionStyleE(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %style) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev26FixedFunctionTransformImplE, i64 16), ptr %this, align 8
   %call = tail call noundef i32 @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpData12ConvertStyleENS_18FixedFunctionStyleENS_18TransformDirectionE(i32 noundef %style, i32 noundef 0)
@@ -341,7 +341,7 @@ declare noundef i32 @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpData12ConvertStyle
 declare void @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpDataC1ENS0_5StyleE(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev26FixedFunctionTransformImplC2ENS_18FixedFunctionStyleERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this, i32 noundef %style, ptr noundef nonnull align 8 dereferenceable(24) %p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev26FixedFunctionTransformImplC2ENS_18FixedFunctionStyleERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(208) %this, i32 noundef %style, ptr noundef nonnull align 8 dereferenceable(24) %p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev26FixedFunctionTransformImplE, i64 16), ptr %this, align 8
   %call = tail call noundef i32 @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpData12ConvertStyleENS_18FixedFunctionStyleENS_18TransformDirectionE(i32 noundef %style, i32 noundef 0)
@@ -353,7 +353,7 @@ entry:
 declare void @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpDataC1ENS0_5StyleERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev26FixedFunctionTransformImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.13") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev26FixedFunctionTransformImpl18createEditableCopyEv(ptr noalias sret(%"class.std::shared_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp9 = alloca %"class.std::shared_ptr", align 8

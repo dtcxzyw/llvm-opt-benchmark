@@ -531,7 +531,7 @@ _ZNSt12_Vector_baseI27cmCursesCacheEntryCompositeSaIS0_EED2Ev.exit: ; preds = %_
 declare void @_ZN12cmCursesFormD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16cmCursesMainFormD2Ev(ptr noundef nonnull align 8 dereferenceable(297) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16cmCursesMainFormD2Ev(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16cmCursesMainForm, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -746,7 +746,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare i32 @free_form(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16cmCursesMainFormD0Ev(ptr noundef nonnull align 8 dereferenceable(297) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN16cmCursesMainFormD0Ev(ptr noundef nonnull align 8 dereferenceable(297) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN16cmCursesMainFormD2Ev(ptr noundef nonnull align 8 dereferenceable(297) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
@@ -1492,7 +1492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16cmCursesMainForm6RePostEv(ptr noundef nonnull align 8 dereferenceable(297) initializes((184, 192)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16cmCursesMainForm6RePostEv(ptr noundef nonnull align 8 dereferenceable(297) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

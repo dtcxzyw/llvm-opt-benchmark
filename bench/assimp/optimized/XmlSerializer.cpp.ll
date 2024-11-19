@@ -234,7 +234,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp4D3MF13XmlSerializerC2EPNS_10TXmlParserIN4pugi8xml_nodeEEE(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 96)) %this, ptr noundef %xmlParser) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4D3MF13XmlSerializerC2EPNS_10TXmlParserIN4pugi8xml_nodeEEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %xmlParser) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 80
   %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96

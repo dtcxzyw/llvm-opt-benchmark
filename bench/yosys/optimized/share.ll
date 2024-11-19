@@ -9898,7 +9898,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117ShareWorkerConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 7), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117ShareWorkerConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %0, ptr noundef nonnull align 8 dereferenceable(7) %1, i64 7, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -10289,7 +10289,7 @@ _ZN5Yosys7hashlib4poolINS_5RTLIL8IdStringENS0_8hash_opsIS3_EEED2Ev.exit39: ; pre
 declare void @_ZNK5Yosys5RTLIL6Design16selected_modulesEv(ptr dead_on_unwind writable sret(%"class.std::vector.125") align 8, ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111ShareWorkerclEPN5Yosys5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(1408) initializes((232, 236), (304, 312)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111ShareWorkerclEPN5Yosys5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(1408) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple.821", align 8
   %4 = alloca %"class.std::tuple.784", align 1
   %5 = alloca %"class.std::tuple.821", align 8

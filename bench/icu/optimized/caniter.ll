@@ -50,7 +50,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517CanonicalIteratorC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 18), (80, 92), (96, 116), (120, 130)) %this, ptr noundef nonnull align 8 dereferenceable(64) %sourceStr, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517CanonicalIteratorC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(64) %sourceStr, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CanonicalIteratorE, i64 16), ptr %this, align 8
   %source = getelementptr inbounds i8, ptr %this, i64 8
@@ -589,7 +589,7 @@ entry:
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7517CanonicalIterator5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((72, 73)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7517CanonicalIterator5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #7 align 2 {
 entry:
   %done = getelementptr inbounds i8, ptr %this, i64 72
   store i8 0, ptr %done, align 8

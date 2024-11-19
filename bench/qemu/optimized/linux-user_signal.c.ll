@@ -128,7 +128,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @host_to_target_sigset_internal(ptr nocapture noundef initializes((0, 8)) %d, ptr noundef %s) local_unnamed_addr #1 {
+define dso_local void @host_to_target_sigset_internal(ptr nocapture noundef %d, ptr noundef %s) local_unnamed_addr #1 {
 entry:
   store i64 0, ptr %d, align 8
   br label %host_to_target_signal.exit
@@ -572,7 +572,7 @@ return:                                           ; preds = %sas_ss_flags.exit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @target_save_altstack(ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %uss, ptr nocapture noundef readonly %env) local_unnamed_addr #8 {
+define dso_local void @target_save_altstack(ptr nocapture noundef writeonly %uss, ptr nocapture noundef readonly %env) local_unnamed_addr #8 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @thread_cpu)
   %1 = load ptr, ptr %0, align 8
@@ -656,7 +656,7 @@ return:                                           ; preds = %sw.bb15, %if.end, %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tswap_siginfo(ptr nocapture noundef writeonly initializes((0, 12)) %tinfo, ptr nocapture noundef readonly %info) local_unnamed_addr #1 {
+define dso_local void @tswap_siginfo(ptr nocapture noundef writeonly %tinfo, ptr nocapture noundef readonly %info) local_unnamed_addr #1 {
 entry:
   %si_code = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load i32, ptr %si_code, align 8
@@ -768,7 +768,7 @@ sw.epilog:                                        ; preds = %do.body77, %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @host_to_target_siginfo(ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %tinfo, ptr nocapture noundef readonly %info) local_unnamed_addr #8 {
+define dso_local void @host_to_target_siginfo(ptr nocapture noundef writeonly %tinfo, ptr nocapture noundef readonly %info) local_unnamed_addr #8 {
 entry:
   %0 = load i32, ptr %info, align 8
   %cmp.i.i = icmp slt i32 %0, 1
@@ -919,7 +919,7 @@ tswap_siginfo.exit:                               ; preds = %do.body11.i, %do.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @target_to_host_siginfo(ptr nocapture noundef writeonly initializes((0, 12), (16, 32)) %info, ptr nocapture noundef readonly %tinfo) local_unnamed_addr #9 {
+define dso_local void @target_to_host_siginfo(ptr nocapture noundef writeonly %info, ptr nocapture noundef readonly %tinfo) local_unnamed_addr #9 {
 entry:
   %tinfo.val = load i32, ptr %tinfo, align 1
   store i32 %tinfo.val, ptr %info, align 8
@@ -2218,7 +2218,7 @@ while.end56:                                      ; preds = %while.end48, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @handle_pending_signal(ptr noundef %cpu_env, i32 noundef %sig, ptr noundef initializes((0, 4)) %k) unnamed_addr #1 {
+define internal fastcc void @handle_pending_signal(ptr noundef %cpu_env, i32 noundef %sig, ptr noundef %k) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %set = alloca %struct.__sigset_t, align 8

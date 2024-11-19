@@ -212,7 +212,7 @@ declare void @_ZN8QPainter9drawLinesEPK5QLinei(ptr noundef nonnull align 8 deref
 declare void @_ZN8QPainter9drawRectsEPK5QRecti(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %1) unnamed_addr #8 align 2 {
+define void @_ZNK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = sdiv i32 %4, -2
@@ -232,7 +232,7 @@ define void @_ZNK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZThn16_NK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #9 align 2 {
+define void @_ZThn16_NK8EqHandle12boundingRectEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QRectF) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #9 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8, !noalias !5

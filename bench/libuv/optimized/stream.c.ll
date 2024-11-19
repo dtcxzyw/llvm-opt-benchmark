@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [44 x i8] c"ignoring non-SCM_RIGHTS ancillary data: %d\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @uv__stream_init(ptr noundef %loop, ptr noundef initializes((8, 20), (32, 48), (88, 92)) %stream, i32 noundef %type) local_unnamed_addr #0 {
+define hidden void @uv__stream_init(ptr noundef %loop, ptr noundef %stream, i32 noundef %type) local_unnamed_addr #0 {
 entry:
   %loop1 = getelementptr inbounds i8, ptr %stream, i64 8
   store ptr %loop, ptr %loop1, align 8
@@ -1875,7 +1875,7 @@ return:                                           ; preds = %if.end32, %if.end32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @uv__read_start(ptr noundef initializes((104, 120)) %stream, ptr noundef %alloc_cb, ptr noundef %read_cb) local_unnamed_addr #0 {
+define hidden noundef i32 @uv__read_start(ptr noundef %stream, ptr noundef %alloc_cb, ptr noundef %read_cb) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %stream, i64 88
   %0 = load i32, ptr %flags, align 8

@@ -2541,7 +2541,7 @@ declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 n
 declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_payload_and_padding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -250, 2147483647) %4, ptr noundef nonnull initializes((0, 4)) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_payload_and_padding(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 -250, 2147483647) %4, ptr noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %struct.pw_atm_phdr, align 4
   store i32 0, ptr %5, align 4
   %8 = icmp sgt i32 %3, 0

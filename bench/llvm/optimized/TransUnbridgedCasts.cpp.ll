@@ -55591,7 +55591,7 @@ declare noundef ptr @_ZNK5clang9ParentMap28getParentIgnoreParenImpCastsEPNS_4Stm
 declare void @_ZN5clang5arcmt16TransformActions10reportNoteEN4llvm9StringRefENS_14SourceLocationENS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, i32, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121UnbridgedCastRewriter19getBlockMacroRangesEPN5clang8CastExprERNS1_11SourceRangeES5_(ptr nonnull %.0.val.0.val.2104.val, ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121UnbridgedCastRewriter19getBlockMacroRangesEPN5clang8CastExprERNS1_11SourceRangeES5_(ptr nonnull %.0.val.0.val.2104.val, ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %5 = tail call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %.0.val.0.val.2104.val, i32 %4) #17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -351,7 +351,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6PlayerC2EPKcP15IItemDefManager(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 44)) %this, ptr noundef %name, ptr noundef %idef) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6PlayerC2EPKcP15IItemDefManager(ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef %name, ptr noundef %idef) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -719,7 +719,7 @@ declare void @_ZN13InventoryList8setWidthEj(ptr noundef nonnull align 8 derefere
 declare void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6PlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6PlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV6Player, i64 16), ptr %this, align 8, !tbaa !12
   invoke void @_ZN6Player8clearHudEv(ptr noundef nonnull align 8 dereferenceable(432) %this)
@@ -1542,7 +1542,7 @@ if.end62:                                         ; preds = %if.then30, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13PlayerControl17unpackKeysPressedEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 7)) %this, i32 noundef %keypress_bits) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN13PlayerControl17unpackKeysPressedEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %this, i32 noundef %keypress_bits) local_unnamed_addr #13 align 2 {
 entry:
   %0 = trunc i32 %keypress_bits to i8
   %conv = and i8 %0, 15

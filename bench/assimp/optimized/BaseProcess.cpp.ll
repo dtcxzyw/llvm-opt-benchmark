@@ -32,7 +32,7 @@ $__clang_call_terminate = comdat any
 declare void @llvm.trap() #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Assimp11BaseProcessC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #1 align 2 {
+define void @_ZN6Assimp11BaseProcessC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11BaseProcessE, i64 16), ptr %this, align 8
   %shared = getelementptr inbounds i8, ptr %this, i64 8

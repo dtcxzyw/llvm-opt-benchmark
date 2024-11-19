@@ -2278,7 +2278,7 @@ _ZN13SafePointNode9set_stackEP8JVMStatejP4Node.exit: ; preds = %_ZN4Node7del_out
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7Compile21optimize_virtual_callEP8ciMethodP15ciInstanceKlassP7ciKlassS1_PK10TypeOopPtrbRbRib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2316) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN7Compile21optimize_virtual_callEP8ciMethodP15ciInstanceKlassP7ciKlassS1_PK10TypeOopPtrbRbRib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2316) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
   store i8 1, ptr %7, align 1
   store i32 -4, ptr %8, align 4
   %11 = tail call noundef ptr @_ZN7Compile17optimize_inliningEP8ciMethodP15ciInstanceKlassP7ciKlassS1_PK10TypeOopPtrb(ptr noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %9)

@@ -378,7 +378,7 @@ declare noundef ptr @_ZNK13ObjectSampler4lastEv(ptr noundef nonnull align 8 dere
 declare noundef i64 @_ZN13ObjectSampler10last_sweepEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9BlobCache3getEPK12ObjectSample(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RefCountHandle) align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((40, 48)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9BlobCache3getEPK12ObjectSample(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RefCountHandle) align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 72
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40
@@ -442,7 +442,7 @@ _ZNK22JfrBasicHashtableEntryI14RefCountHandleI15RefCountPointerI7JfrBlob23MultiT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9BlobCache3putEPK12ObjectSampleRK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((40, 48)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9BlobCache3putEPK12ObjectSampleRK14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -500,7 +500,7 @@ _ZN13HashTableHostI14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23StackTraceBlobInstaller7installEP12ObjectSample(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((40, 48)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN23StackTraceBlobInstaller7installEP12ObjectSample(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.JfrCheckpointWriter, align 8
   %4 = alloca %class.RefCountHandle, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 72

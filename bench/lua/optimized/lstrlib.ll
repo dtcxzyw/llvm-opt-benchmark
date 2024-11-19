@@ -4377,7 +4377,7 @@ declare ptr @lua_pushstring(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @toupper(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 11) i32 @getdetails(ptr nocapture noundef nonnull %h, i64 noundef %totalsize, ptr nocapture noundef nonnull %fmt, ptr nocapture noundef nonnull initializes((0, 4)) %psize, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %ntoalign) unnamed_addr #0 {
+define internal fastcc range(i32 0, 11) i32 @getdetails(ptr nocapture noundef nonnull %h, i64 noundef %totalsize, ptr nocapture noundef nonnull %fmt, ptr nocapture noundef nonnull %psize, ptr nocapture noundef nonnull writeonly %ntoalign) unnamed_addr #0 {
 entry:
   %align = alloca i32, align 4
   %call = tail call fastcc i32 @getoption(ptr noundef %h, ptr noundef %fmt, ptr noundef %psize)
@@ -4441,7 +4441,7 @@ if.end39:                                         ; preds = %if.end11, %if.end31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 11) i32 @getoption(ptr nocapture noundef nonnull %h, ptr nocapture noundef nonnull %fmt, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %size) unnamed_addr #0 {
+define internal fastcc range(i32 0, 11) i32 @getoption(ptr nocapture noundef nonnull %h, ptr nocapture noundef nonnull %fmt, ptr nocapture noundef nonnull writeonly %size) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %fmt, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1

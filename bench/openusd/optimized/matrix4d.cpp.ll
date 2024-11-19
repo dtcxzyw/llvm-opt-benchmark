@@ -139,7 +139,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__lsERSoNS_14TfStreamDoubleE(ptr noundef nonnull align 8 dereferenceable(8), double) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2ERKNS_10GfMatrix4fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %1) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2ERKNS_10GfMatrix4fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %1) unnamed_addr #2 align 2 {
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   %5 = getelementptr inbounds i8, ptr %1, i64 4
@@ -804,7 +804,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2ERKSt6vectorIfSa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2ERKNS_10GfRotationERKNS_7GfVec3dE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2ERKNS_10GfRotationERKNS_7GfVec3dE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !17
@@ -884,7 +884,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2ERKNS_10GfRotati
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTransformERKNS_10GfRotationERKNS_7GfVec3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTransformERKNS_10GfRotationERKNS_7GfVec3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !20
@@ -964,7 +964,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2ERKNS_10GfMatrix3dERKNS_7GfVec3dE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2ERKNS_10GfMatrix3dERKNS_7GfVec3dE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #2 align 2 {
   %4 = load double, ptr %1, align 8
   store double %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1023,7 +1023,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dC2ERKNS_10GfMatrix
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTransformERKNS_10GfMatrix3dERKNS_7GfVec3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTransformERKNS_10GfMatrix3dERKNS_7GfVec3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 {
   %4 = load double, ptr %1, align 8
   store double %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1082,7 +1082,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, double noundef %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, double noundef %1) local_unnamed_addr #5 align 2 {
   store double %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1100,7 +1100,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalERKNS_7GfVec4dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d11SetDiagonalERKNS_7GfVec4dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1125,7 +1125,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d3GetEPA4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0, ptr noundef returned writeonly initializes((0, 128)) %1) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d3GetEPA4_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0, ptr noundef returned writeonly %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %0, align 8
   store double %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1472,7 +1472,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4deqE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12GetTransposeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12GetTransposeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1539,7 +1539,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12GetTransposeEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfRotationE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !23
@@ -1607,7 +1607,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d16SetTranslateOnlyERKNS_7GfVec3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((96, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d16SetTranslateOnlyERKNS_7GfVec3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   store double %3, ptr %4, align 8
@@ -1625,7 +1625,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfMatrix3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_10GfMatrix3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1672,7 +1672,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, ptr noundef writeonly %2, double noundef %3) local_unnamed_addr #2 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, ptr noundef writeonly %2, double noundef %3) local_unnamed_addr #2 align 2 {
   %5 = load double, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load double, ptr %6, align 8
@@ -1884,7 +1884,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8SetScaleEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, double noundef %1) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8SetScaleEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, double noundef %1) local_unnamed_addr #5 align 2 {
   store double %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2190,7 +2190,7 @@ declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__7GfVec3d18Ortho
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__20Tf_PostWarningHelperERKNS_13TfCallContextEPKcz(ptr noundef nonnull align 8 dereferenceable(33), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d18GetOrthonormalizedEb(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d18GetOrthonormalizedEb(ptr dead_on_unwind noalias nocapture nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   %4 = tail call noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d14OrthonormalizeEb(ptr noundef nonnull align 8 dereferenceable(128) %0, i1 noundef zeroext %2)
   ret void
@@ -2466,7 +2466,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__ngERKNS_10GfMatrix4dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__ngERKNS_10GfMatrix4dE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #2 {
   %3 = load double, ptr %1, align 8
   %4 = fneg double %3
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2890,7 +2890,7 @@ define { <2 x float>, <2 x float> } @_ZN32pxrInternal_v0_24__pxrReserved__mlERKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d18_SetRotateFromQuatEdRKNS_7GfVec3dE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 24), (32, 56), (64, 88)) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d18_SetRotateFromQuatEdRKNS_7GfVec3dE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load double, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
@@ -2966,7 +2966,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d18_SetRotateFromQu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_7GfQuatdE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetRotateERKNS_7GfQuatdE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3052,7 +3052,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d13SetRotateOnlyERKNS_7GfQuatdE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 24), (32, 56), (64, 88)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d13SetRotateOnlyERKNS_7GfQuatdE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3130,7 +3130,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d13SetRotateOnlyERKNS_10GfRotationE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 24), (32, 56), (64, 88)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d13SetRotateOnlyERKNS_10GfRotationE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation7GetQuatEv(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1), !noalias !26
@@ -3190,7 +3190,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d13SetRotateOnlyERKNS_10GfMatrix3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 24), (32, 56), (64, 88)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d13SetRotateOnlyERKNS_10GfMatrix3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3229,7 +3229,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8SetScaleERKNS_7GfVec3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8SetScaleERKNS_7GfVec3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3252,7 +3252,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d12SetTranslateERKNS_7GfVec3dE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   store double 1.000000e+00, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3281,7 +3281,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dES3_S3_(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dES3_S3_(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #2 align 2 {
   %.sroa.0.0.copyload.i = load double, ptr %2, align 8, !noalias !29
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.4.0.copyload.i = load double, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !29
@@ -3393,7 +3393,7 @@ define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d9SetLookAtERKNS_7GfVec3dERKNS_10GfRotationE(ptr noundef nonnull returned writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfRotation", align 8
   %6 = load double, ptr %1, align 8, !noalias !35
@@ -3556,7 +3556,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation10GetInverseEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d6FactorEPS0_PNS_7GfVec3dES1_S3_S1_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly initializes((0, 128)) %5, double noundef %6) local_unnamed_addr #9 align 2 {
+define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d6FactorEPS0_PNS_7GfVec3dES1_S3_S1_d(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, double noundef %6) local_unnamed_addr #9 align 2 {
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
@@ -4132,7 +4132,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d6Fa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8_Jacobi3EPNS_7GfVec3dES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0, ptr nocapture noundef initializes((0, 24)) %1, ptr nocapture noundef initializes((0, 72)) %2) local_unnamed_addr #10 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8_Jacobi3EPNS_7GfVec3dES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #10 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
@@ -4428,7 +4428,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d8_Jacobi3EPNS_7Gf
 declare double @sqrt(double noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d16RemoveScaleShearEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d16RemoveScaleShearEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
@@ -4580,7 +4580,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__10GfMatrix4d14OrthonormalizeEb.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d19ExtractRotationQuatEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #12 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d19ExtractRotationQuatEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #12 align 2 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %4 = load double, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -4723,7 +4723,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d17DecomposeRotati
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfRotation9DecomposeERKNS_7GfVec3dES3_S3_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d21ExtractRotationMatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d") align 8 initializes((0, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d21ExtractRotationMatrixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8

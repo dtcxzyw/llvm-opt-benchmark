@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kBrotliLog2Table = external hidden local_unnamed_addr constant [256 x double], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @BrotliInitDistanceParams(ptr nocapture noundef writeonly initializes((0, 8)) %dist_params, i32 noundef %npostfix, i32 noundef %ndirect, i32 noundef %large_window) local_unnamed_addr #0 {
+define hidden void @BrotliInitDistanceParams(ptr nocapture noundef writeonly %dist_params, i32 noundef %npostfix, i32 noundef %ndirect, i32 noundef %large_window) local_unnamed_addr #0 {
 entry:
   store i32 %npostfix, ptr %dist_params, align 8
   %num_direct_distance_codes = getelementptr inbounds i8, ptr %dist_params, i64 4
@@ -1583,7 +1583,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitBlockSplitterCommand(ptr noundef %m, ptr nocapture noundef initializes((0, 40), (48, 56), (5720, 5744), (5776, 5784)) %self, i64 noundef %num_symbols, ptr noundef %split, ptr nocapture noundef writeonly %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
+define internal fastcc void @InitBlockSplitterCommand(ptr noundef %m, ptr nocapture noundef %self, i64 noundef %num_symbols, ptr noundef %split, ptr nocapture noundef writeonly %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
 entry:
   %div69 = lshr i64 %num_symbols, 10
   %add = add nuw nsw i64 %div69, 1
@@ -1699,7 +1699,7 @@ if.end55:                                         ; preds = %if.end50, %if.end21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @InitBlockSplitterDistance(ptr noundef %m, ptr nocapture noundef initializes((0, 40), (48, 56), (4440, 4464), (4496, 4504)) %self, i64 noundef %num_symbols, ptr noundef %split, ptr nocapture noundef writeonly %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
+define internal fastcc void @InitBlockSplitterDistance(ptr noundef %m, ptr nocapture noundef %self, i64 noundef %num_symbols, ptr noundef %split, ptr nocapture noundef writeonly %histograms, ptr noundef %histograms_size) unnamed_addr #1 {
 entry:
   %div69 = lshr i64 %num_symbols, 9
   %add = add nuw nsw i64 %div69, 1

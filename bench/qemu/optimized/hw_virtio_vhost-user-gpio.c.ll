@@ -293,7 +293,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vu_gpio_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly initializes((0, 8)) %config) #0 {
+define internal void @vu_gpio_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 19, ptr noundef nonnull @__func__.VHOST_USER_GPIO) #7
   %config1 = getelementptr inbounds i8, ptr %call.i, i64 576

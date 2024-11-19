@@ -5075,7 +5075,7 @@ declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 n
 declare float @llvm.fmuladd.f32(float, float, float) #16
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull initializes((0, 4)) %1, ptr nocapture readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZL11parse_namesPPcPiN3gmx8ArrayRefIS_EE(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   store i32 0, ptr %1, align 4
   %5 = load ptr, ptr %0, align 8
@@ -5200,7 +5200,7 @@ _ZL12is_name_charc.exit31.thread:                 ; preds = %_ZL12is_name_charc.
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL16select_atomnamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_b(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) unnamed_addr #17 {
+define internal fastcc noundef i32 @_ZL16select_atomnamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_b(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) unnamed_addr #17 {
   store i32 0, ptr %3, align 4
   %7 = load i32, ptr %0, align 8
   %8 = icmp sgt i32 %7, 0
@@ -5552,7 +5552,7 @@ define internal fastcc noundef zeroext i1 @_ZL25atoms_from_residuenumbersPK7t_at
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL21select_residueindicesPPcPK7t_atomsihPiS4_S_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull initializes((0, 4)) %4, ptr nocapture noundef writeonly %5, ptr noundef nonnull %6) unnamed_addr #17 {
+define internal fastcc noundef i32 @_ZL21select_residueindicesPPcPK7t_atomsihPiS4_S_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef writeonly %5, ptr noundef nonnull %6) unnamed_addr #17 {
   %8 = alloca [4096 x i8], align 16
   %9 = alloca i32, align 4
   store i32 0, ptr %4, align 4
@@ -5785,7 +5785,7 @@ _ZL14parse_int_charPPcPiPh.exit.thread:           ; preds = %._crit_edge.i, %107
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL21select_residuenumbersPPcPK7t_atomsihPiS4_S_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull initializes((0, 4)) %4, ptr nocapture noundef writeonly %5, ptr noundef nonnull %6) unnamed_addr #17 {
+define internal fastcc noundef i32 @_ZL21select_residuenumbersPPcPK7t_atomsihPiS4_S_(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef writeonly %5, ptr noundef nonnull %6) unnamed_addr #17 {
   %8 = alloca [4096 x i8], align 16
   %9 = alloca i32, align 4
   store i32 0, ptr %4, align 4
@@ -6024,7 +6024,7 @@ _ZL14parse_int_charPPcPiPh.exit.thread:           ; preds = %._crit_edge.i, %113
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL19select_residuenamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef writeonly %4) unnamed_addr #17 {
+define internal fastcc noundef i32 @_ZL19select_residuenamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef writeonly %4) unnamed_addr #17 {
   store i32 0, ptr %3, align 4
   %6 = load i32, ptr %0, align 8
   %7 = icmp sgt i32 %6, 0
@@ -6238,7 +6238,7 @@ _ZL9comp_namePKcS0_.exit.thread.us.us:            ; preds = %.thread.i.us.us
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef i32 @_ZL17select_chainnamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef writeonly %4) unnamed_addr #17 {
+define internal fastcc noundef i32 @_ZL17select_chainnamesPK7t_atomsiN3gmx8ArrayRefIPcEEPiS6_(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef writeonly %4) unnamed_addr #17 {
   %6 = alloca [2 x i8], align 1
   %7 = getelementptr inbounds i8, ptr %6, i64 1
   store i8 0, ptr %7, align 1

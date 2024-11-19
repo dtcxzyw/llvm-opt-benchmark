@@ -1038,7 +1038,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @_ZN4llvm20GIMatchTableExecutor12MatcherStateC1Ej(ptr noundef nonnull align 8 dereferenceable(168), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126AArch64InstructionSelectorD2Ev(ptr noundef nonnull align 8 dereferenceable(1480) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126AArch64InstructionSelectorD2Ev(ptr noundef nonnull align 8 dereferenceable(1480) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_126AArch64InstructionSelectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load i32, ptr %2, align 8
@@ -1076,7 +1076,7 @@ _ZN4llvm16MachineIRBuilderD2Ev.exit:              ; preds = %_ZN4llvm20GIMatchTa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126AArch64InstructionSelectorD0Ev(ptr noundef nonnull align 8 dereferenceable(1480) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126AArch64InstructionSelectorD0Ev(ptr noundef nonnull align 8 dereferenceable(1480) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_126AArch64InstructionSelectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %3 = load i32, ptr %2, align 8
@@ -1115,7 +1115,7 @@ _ZN12_GLOBAL__N_126AArch64InstructionSelectorD2Ev.exit: ; preds = %_ZN4llvm20GIM
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126AArch64InstructionSelector30setupGeneratedPerFunctionStateERN4llvm15MachineFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(1480) initializes((232, 248)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126AArch64InstructionSelector30setupGeneratedPerFunctionStateERN4llvm15MachineFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(1480) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -1246,7 +1246,7 @@ _ZNK12_GLOBAL__N_126AArch64InstructionSelector32computeAvailableFunctionFeatures
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126AArch64InstructionSelector7setupMFERN4llvm15MachineFunctionEPNS1_14GISelKnownBitsEPNS1_15CodeGenCoverageEPNS1_18ProfileSummaryInfoEPNS1_18BlockFrequencyInfoE(ptr noundef nonnull align 8 dereferenceable(1480) initializes((8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126AArch64InstructionSelector7setupMFERN4llvm15MachineFunctionEPNS1_14GISelKnownBitsEPNS1_15CodeGenCoverageEPNS1_18ProfileSummaryInfoEPNS1_18BlockFrequencyInfoE(ptr noundef nonnull align 8 dereferenceable(1480) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::MachineIRBuilder", align 8
   %8 = alloca %"class.llvm::DstOp", align 8
   %9 = alloca %"class.llvm::SrcOp", align 8

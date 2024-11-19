@@ -663,7 +663,7 @@ return:                                           ; preds = %if.else, %if.then
 declare i32 @ppoll(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @timer_init_full(ptr nocapture noundef writeonly initializes((0, 32), (40, 48)) %ts, ptr noundef readonly %timer_list_group, i32 noundef %type, i32 noundef %scale, i32 noundef %attributes, ptr noundef %cb, ptr noundef %opaque) local_unnamed_addr #9 {
+define dso_local void @timer_init_full(ptr nocapture noundef writeonly %ts, ptr noundef readonly %timer_list_group, i32 noundef %type, i32 noundef %scale, i32 noundef %attributes, ptr noundef %cb, ptr noundef %opaque) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %timer_list_group, null
   %spec.store.select = select i1 %tobool.not, ptr @main_loop_tlg, ptr %timer_list_group
@@ -757,7 +757,7 @@ if.end:                                           ; preds = %timer_del_locked.ex
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @timer_mod_ns(ptr noundef initializes((0, 8)) %ts, i64 noundef %expire_time) local_unnamed_addr #0 {
+define dso_local void @timer_mod_ns(ptr noundef %ts, i64 noundef %expire_time) local_unnamed_addr #0 {
 entry:
   %timer_list1 = getelementptr inbounds i8, ptr %ts, i64 8
   %0 = load ptr, ptr %timer_list1, align 8
@@ -1014,7 +1014,7 @@ if.end12:                                         ; preds = %qemu_lockable_auto_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @timer_mod(ptr noundef initializes((0, 8)) %ts, i64 noundef %expire_time) local_unnamed_addr #0 {
+define dso_local void @timer_mod(ptr noundef %ts, i64 noundef %expire_time) local_unnamed_addr #0 {
 entry:
   %scale = getelementptr inbounds i8, ptr %ts, i64 44
   %0 = load i32, ptr %scale, align 4

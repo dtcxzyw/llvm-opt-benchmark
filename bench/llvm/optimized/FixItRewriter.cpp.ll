@@ -90,7 +90,7 @@ $_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESa
 @_ZN5clang12FixItOptionsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang12FixItOptionsD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13FixItRewriterC2ERNS_17DiagnosticsEngineERNS_13SourceManagerERKNS_11LangOptionsEPNS_12FixItOptionsE(ptr noundef nonnull align 8 dereferenceable(501) initializes((0, 48), (56, 60), (64, 72)) %0, ptr noundef nonnull align 8 dereferenceable(1304) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 1 %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13FixItRewriterC2ERNS_17DiagnosticsEngineERNS_13SourceManagerERKNS_11LangOptionsEPNS_12FixItOptionsE(ptr noundef nonnull align 8 dereferenceable(501) %0, ptr noundef nonnull align 8 dereferenceable(1304) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 1 %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -180,7 +180,7 @@ _ZNSt10unique_ptrIN5clang18DiagnosticConsumerESt14default_deleteIS1_EED2Ev.exit:
 declare void @_ZN5clang17DiagnosticsEngine9setClientEPNS_18DiagnosticConsumerEb(ptr noundef nonnull align 8 dereferenceable(1304), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13FixItRewriterD2Ev(ptr noundef nonnull align 8 dereferenceable(501) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13FixItRewriterD2Ev(ptr noundef nonnull align 8 dereferenceable(501) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang13FixItRewriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8

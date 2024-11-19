@@ -27,7 +27,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN17GCOverheadCheckerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17GCOverheadCheckerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17GCOverheadCheckerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17GCOverheadCheckerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4

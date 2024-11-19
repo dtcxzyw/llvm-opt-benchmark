@@ -613,7 +613,7 @@ Wlc_ObjFaninId.exit:                              ; preds = %13, %Wlc_ObjHasArra
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_WinCompute(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #2 {
+define void @Wlc_WinCompute(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 4

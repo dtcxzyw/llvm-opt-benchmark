@@ -18945,7 +18945,7 @@ define dso_local void @_ZN11V3LexerBase21yyensure_buffer_stackEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11V3LexerBase20yy_load_buffer_stateEv(ptr noundef nonnull align 8 dereferenceable(732) initializes((8, 16), (604, 616)) %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN11V3LexerBase20yy_load_buffer_stateEv(ptr noundef nonnull align 8 dereferenceable(732) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 648
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 632
@@ -20108,7 +20108,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN11V3LexerBase18yy_get_next_buff
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11V3LexerBaseC2EPSiPSo(ptr noundef nonnull align 8 dereferenceable(732) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11V3LexerBaseC2EPSiPSo(ptr noundef nonnull align 8 dereferenceable(732) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 .invoke:
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3LexerBase, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -20169,7 +20169,7 @@ declare void @_ZNSiC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonn
 declare void @_ZNSoC1EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11V3LexerBase11ctor_commonEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(732) initializes((20, 36), (40, 48), (608, 628), (632, 656), (672, 680), (712, 732)) %0) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN11V3LexerBase11ctor_commonEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(732) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 608
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8
@@ -20200,7 +20200,7 @@ declare void @_ZNSoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_
 declare void @_ZNSiD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11V3LexerBaseC2ERSiRSo(ptr noundef nonnull align 8 dereferenceable(732) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11V3LexerBaseC2ERSiRSo(ptr noundef nonnull align 8 dereferenceable(732) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3LexerBase, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %1, align 8
@@ -20252,7 +20252,7 @@ define dso_local void @_ZN11V3LexerBaseC2ERSiRSo(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11V3LexerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(732) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11V3LexerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(732) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3LexerBase, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   %3 = load ptr, ptr %2, align 8
@@ -20326,7 +20326,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11V3LexerBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(732) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN11V3LexerBaseD0Ev(ptr noundef nonnull align 8 dereferenceable(732) %0) unnamed_addr #8 align 2 {
   tail call void @_ZN11V3LexerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(732) %0) #34
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
@@ -21500,7 +21500,7 @@ define dso_local noundef i32 @_ZN10V3ParseImp18stateVerilogRecentEv() #3 align 2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10V3ParseImp12yylexReadTokEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) initializes((64, 68)) %0) #4 align 2 {
+define dso_local void @_ZN10V3ParseImp12yylexReadTokEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(496) %0) #4 align 2 {
   %2 = load ptr, ptr @_ZN10V3ParseImp8s_parsepE, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   %4 = load ptr, ptr %3, align 8

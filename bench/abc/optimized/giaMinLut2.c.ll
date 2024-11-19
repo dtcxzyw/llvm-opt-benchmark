@@ -2646,7 +2646,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_TtMin(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((4, 8)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define ptr @Abc_TtMin(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = add nsw i32 %2, -6
   %8 = shl nuw i32 1, %7
   %9 = icmp slt i32 %2, 7
@@ -3018,7 +3018,7 @@ Vec_WecFree.exit:                                 ; preds = %._crit_edge.i.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_TtSimpleMin_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly initializes((0, 4)) %7, ptr noundef %8) local_unnamed_addr #0 {
+define ptr @Abc_TtSimpleMin_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = getelementptr inbounds i8, ptr %4, i64 4
@@ -3534,7 +3534,7 @@ Abc_TtClear.exit:                                 ; preds = %33, %.lr.ph.i209, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 -2147483648, 7) %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i64 @Abc_TtSimple6Min_rec(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 -2147483648, 7) %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = and i64 %2, %1
@@ -4351,7 +4351,7 @@ declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #9
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_TtGiaMin_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly initializes((0, 4)) %7, ptr noundef %8) local_unnamed_addr #0 {
+define ptr @Abc_TtGiaMin_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = icmp slt i32 %3, 7
@@ -4942,7 +4942,7 @@ Abc_TtClear.exit:                                 ; preds = %37, %.lr.ph.i311, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @Abc_TtGia6Min_rec(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 -2147483648, 7) %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i64 @Abc_TtGia6Min_rec(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 -2147483648, 7) %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   store i32 0, ptr %5, align 4

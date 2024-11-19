@@ -67502,7 +67502,7 @@ return:                                           ; preds = %for.body.i.i.i10, %
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS4_18coro_http_responseEEZ4mainE3$_0E9_M_invokeERKSt9_Any_dataS6_S8_"(ptr noalias nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(33) %__args, ptr noundef nonnull align 8 dereferenceable(168) %__args1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS4_18coro_http_responseEEZ4mainE3$_0E9_M_invokeERKSt9_Any_dataS6_S8_"(ptr noalias nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(33) %__args, ptr noundef nonnull align 8 dereferenceable(168) %__args1) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !853)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !856)

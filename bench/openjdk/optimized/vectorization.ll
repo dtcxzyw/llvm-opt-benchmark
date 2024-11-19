@@ -404,7 +404,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN10VLoopTypes27compute_vector_element_typeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14VLoopVPointers17compute_vpointersEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((32, 36)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14VLoopVPointers17compute_vpointersEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1152,7 +1152,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %320, %322
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @_ZN14VLoopVPointers15count_vpointersEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((32, 36)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN14VLoopVPointers15count_vpointersEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1270,7 +1270,7 @@ _ZNK5VLoop5in_bbEPK4Node.exit.thread.i:           ; preds = %64, %_ZNK5VLoop5in_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14VLoopVPointers24allocate_vpointers_arrayEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((24, 32)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14VLoopVPointers24allocate_vpointers_arrayEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = shl i32 %3, 6
@@ -1845,7 +1845,7 @@ _ZN20VLoopDependencyGraph13PredsIterator4nextEv.exit: ; preds = %121, %128
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20VLoopDependencyGraph13PredsIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((24, 32)) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN20VLoopDependencyGraph13PredsIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 36
@@ -1901,7 +1901,7 @@ define hidden void @_ZN20VLoopDependencyGraph13PredsIterator4nextEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20VLoopDependencyGraph14DependencyNodeC2EP7MemNodeR13GrowableArrayIiEP5Arena(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN20VLoopDependencyGraph14DependencyNodeC2EP7MemNodeR13GrowableArrayIiEP5Arena(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %2, align 8
@@ -1942,7 +1942,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %20, %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20VLoopDependencyGraph13PredsIteratorC2ERKS_PK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %2) unnamed_addr #6 align 2 {
+define hidden void @_ZN20VLoopDependencyGraph13PredsIteratorC2ERKS_PK4Node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef %2) unnamed_addr #6 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -2032,7 +2032,7 @@ _ZN20VLoopDependencyGraph13PredsIterator4nextEv.exit: ; preds = %42, %49, %51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8VPointerC2EP7MemNodeRK5VLoopP10Node_Stackb(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 57), (60, 64)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN8VPointerC2EP7MemNodeRK5VLoopP10Node_Stackb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %4 to i8
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2563,7 +2563,7 @@ _ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit:        ; preds = %70, %99
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN8VPointerC2EPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 57), (60, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 2 {
+define hidden void @_ZN8VPointerC2EPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

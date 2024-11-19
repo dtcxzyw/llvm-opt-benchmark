@@ -445,7 +445,7 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJPFPvS3_EPN6wangle18LRUPersis
 @_ZN8proxygen24PersistentQuicTokenCacheC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6wangle21PersistentCacheConfigE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8proxygen24PersistentQuicTokenCacheC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6wangle21PersistentCacheConfigE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen24PersistentQuicTokenCacheC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6wangle21PersistentCacheConfigE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef %config) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen24PersistentQuicTokenCacheC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6wangle21PersistentCacheConfigE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef %config) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.wangle::PersistentCacheConfig", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen24PersistentQuicTokenCacheE, i64 16), ptr %this, align 8

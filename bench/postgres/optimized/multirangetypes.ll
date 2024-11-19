@@ -894,7 +894,7 @@ declare void @initStringInfo(ptr noundef) local_unnamed_addr #1
 declare void @appendStringInfoChar(ptr noundef, i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @multirange_deserialize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local void @multirange_deserialize(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 4
   store i32 %6, ptr %2, align 4

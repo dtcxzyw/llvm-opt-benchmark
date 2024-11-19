@@ -1073,7 +1073,7 @@ _ZSt4sortIPN3nix4AttrEEvT_S3_.exit:               ; preds = %4, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3nix5Value7mkAttrsERNS_15BindingsBuilderE(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3nix5Value7mkAttrsERNS_15BindingsBuilderE(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4

@@ -428,7 +428,7 @@ define dso_local void @_ZN25cmCPackInnoSetupGeneratorC2Ev(ptr noundef nonnull al
 declare void @_ZN16cmCPackGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN25cmCPackInnoSetupGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(656) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25cmCPackInnoSetupGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV25cmCPackInnoSetupGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 632
   %3 = load ptr, ptr %2, align 8
@@ -782,7 +782,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 declare void @_ZN16cmCPackGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN25cmCPackInnoSetupGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(656) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN25cmCPackInnoSetupGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN25cmCPackInnoSetupGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void

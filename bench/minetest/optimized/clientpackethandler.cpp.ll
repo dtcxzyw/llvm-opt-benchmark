@@ -2220,7 +2220,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %if.th
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6Client26handleCommand_AccessDeniedEP13NetworkPacket(ptr noundef nonnull align 8 dereferenceable(1746) initializes((1032, 1033)) %this, ptr noundef %pkt) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6Client26handleCommand_AccessDeniedEP13NetworkPacket(ptr noundef nonnull align 8 dereferenceable(1746) %this, ptr noundef %pkt) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %wide_reason = alloca %"class.std::__cxx11::basic_string.205", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

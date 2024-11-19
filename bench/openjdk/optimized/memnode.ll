@@ -17906,7 +17906,7 @@ _ZN12MachProjNodeC2EP4NodejRK7RegMaskj.exit:      ; preds = %32, %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10MemBarNode14set_store_pairEPS_S0_(ptr nocapture noundef writeonly initializes((64, 68)) %0, ptr nocapture noundef writeonly initializes((64, 68)) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN10MemBarNode14set_store_pairEPS_S0_(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 2, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -17915,7 +17915,7 @@ define hidden void @_ZN10MemBarNode14set_store_pairEPS_S0_(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10MemBarNode19set_load_store_pairEPS_S0_(ptr nocapture noundef writeonly initializes((64, 68)) %0, ptr nocapture noundef writeonly initializes((64, 68)) %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN10MemBarNode19set_load_store_pairEPS_S0_(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 4, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -18385,7 +18385,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %70, %60, %_ZN4Node7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14InitializeNode12set_completeEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(73) initializes((68, 72)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14InitializeNode12set_completeEP8PhaseGVN(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 24

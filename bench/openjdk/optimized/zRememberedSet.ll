@@ -102,7 +102,7 @@ define hidden void @_ZN14ZRememberedSet4flipEv() local_unnamed_addr #0 align 2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14ZRememberedSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 17), (24, 41)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZRememberedSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %0, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 5, ptr %2, align 8
@@ -290,7 +290,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i.i:      ; preds = %29, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14ZRememberedSet25iterator_reverse_previousEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ZBitMap::ReverseIterator") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN14ZRememberedSet25iterator_reverse_previousEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ZBitMap::ReverseIterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
   %4 = xor i32 %3, 1
   %5 = sext i32 %4 to i64
@@ -467,7 +467,7 @@ define hidden noundef i64 @_ZN32ZRememberedSetContainingIterator7to_addrEm(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN32ZRememberedSetContainingIteratorC2EP5ZPage(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN32ZRememberedSetContainingIteratorC2EP5ZPage(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)
@@ -689,7 +689,7 @@ _ZN7ZBitMap15ReverseIterator4nextEPm.exit22.thread: ; preds = %75, %.loopexit45.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN38ZRememberedSetContainingInLiveIteratorC2EP5ZPage(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 104)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN38ZRememberedSetContainingInLiveIteratorC2EP5ZPage(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)

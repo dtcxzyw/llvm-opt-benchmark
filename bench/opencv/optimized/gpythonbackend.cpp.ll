@@ -721,7 +721,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi6python13GPythonKernelC2ESt8functionIFSt6vectorINS_7GRunArgESaIS5_EERKNS1_14GPythonContextEEES3_IFNS_4GArgERKS4_INS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKS4_ISD_SaISD_EEEE(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi6python13GPythonKernelC2ESt8functionIFSt6vectorINS_7GRunArgESaIS5_EERKNS1_14GPythonContextEEES3_IFNS_4GArgERKS4_INS_4util7variantIJNSE_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISM_EERKS4_ISD_SaISD_EEEE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -832,7 +832,7 @@ _ZNSt8functionIFN2cv4GArgERKSt6vectorINS0_4util7variantIJNS3_9monostateENS0_8GMa
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi6python14GPythonFunctorC2EPKcRKSt8functionIFSt6vectorINS_4util7variantIJNS7_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISF_EERKSH_RKS6_INS_4GArgESaISK_EEEERKS5_IFS6_INS_7GRunArgESaIST_EERKNS1_14GPythonContextEEERKS5_IFSK_SJ_SO_EE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi6python14GPythonFunctorC2EPKcRKSt8functionIFSt6vectorINS_4util7variantIJNS7_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISF_EERKSH_RKS6_INS_4GArgESaISK_EEEERKS5_IFS6_INS_7GRunArgESaIST_EERKNS1_14GPythonContextEEERKS5_IFSK_SJ_SO_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::gapi::python::GPythonKernel", align 8
   %7 = alloca %"class.std::function", align 8
   %8 = alloca %"class.std::function.0", align 8
@@ -6508,7 +6508,7 @@ _ZNSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Meta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_110PythonUnitEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_110PythonUnitEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_110PythonUnitEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -6550,7 +6550,7 @@ _ZN12_GLOBAL__N_110PythonUnitD2Ev.exit:           ; preds = %_ZNSt8functionIFN2c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_110PythonUnitEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_110PythonUnitEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_110PythonUnitEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -6695,7 +6695,7 @@ define internal fastcc ptr @"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIPKN3ade
 declare void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ade15ConstTypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEEC2ERKNS_5GraphE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ade15ConstTypedGraphIJN2cv5gimpl2OpEN12_GLOBAL__N_110PythonUnitEEEC2ERKNS_5GraphE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.85", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8888,7 +8888,7 @@ define internal noundef zeroext i1 @_ZNK12_GLOBAL__N_117GPythonExecutable16alloc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_117GPythonExecutable8allocateERKN2cv8GMatDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::RMat") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #18 align 2 {
+define internal void @_ZNK12_GLOBAL__N_117GPythonExecutable8allocateERKN2cv8GMatDescE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::RMat") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #18 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }

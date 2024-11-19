@@ -72,7 +72,7 @@ $_ZTV11PhaseValues = comdat any
 @_ZN13PhasePeepholeC1EP13PhaseRegAllocR8PhaseCFG = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN13PhasePeepholeC2EP13PhaseRegAllocR8PhaseCFG
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8NodeHashC2EP5Arenaj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 20), (24, 40)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN8NodeHashC2EP5Arenaj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = tail call i32 @llvm.umax.i32(i32 %2, i32 255)
@@ -815,7 +815,7 @@ define hidden noundef zeroext i1 @_ZN8NodeHash11hash_deleteEPK4Node(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8NodeHash4growEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((12, 20)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8NodeHash4growEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1756,7 +1756,7 @@ define hidden noundef i32 @_ZN17PhaseRenumberLive9new_indexEi(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11PhaseValues15init_con_cachesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2400) initializes((48, 2400)) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN11PhaseValues15init_con_cachesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2400) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2352) %2, i8 0, i64 2352, i1 false)
   ret void

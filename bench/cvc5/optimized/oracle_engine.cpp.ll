@@ -1370,7 +1370,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12OracleEngine11reset_roundENS1_6Theory6EffortE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(137) initializes((136, 137)) %this, i32 %e) unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12OracleEngine11reset_roundENS1_6Theory6EffortE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(137) %this, i32 %e) unnamed_addr #6 align 2 {
 entry:
   %d_consistencyCheckPassed = getelementptr inbounds i8, ptr %this, i64 136
   store i8 0, ptr %d_consistencyCheckPassed, align 8
@@ -5083,7 +5083,7 @@ _ZN4cvc57context6CDListINS_8internal12NodeTemplateILb1EEENS0_14DefaultCleanUpIS4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers12OracleEngine13getOracleFunsEv(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers12OracleEngine13getOracleFunsEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(137) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %d_list.i = getelementptr inbounds i8, ptr %this, i64 88

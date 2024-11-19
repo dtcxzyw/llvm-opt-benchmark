@@ -229,7 +229,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx20SelectionTreeElementC2E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) initializes((96, 128)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx20SelectionTreeElementC2E11e_selelem_tRKNS_17SelectionLocationE(ptr noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
@@ -375,7 +375,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx20SelectionTreeElementD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((96, 104)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx20SelectionTreeElementD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104

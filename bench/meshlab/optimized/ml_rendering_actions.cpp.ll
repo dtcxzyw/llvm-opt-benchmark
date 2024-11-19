@@ -3618,7 +3618,7 @@ _ZN7QStringD2Ev.exit15:                           ; preds = %19, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32MLRenderingPerVertexNormalAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define void @_ZN32MLRenderingPerVertexNormalAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
@@ -3815,7 +3815,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %9, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN33MLRenderingPerVertTextCoordAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define void @_ZN33MLRenderingPerVertTextCoordAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
@@ -5699,7 +5699,7 @@ _ZN7QStringD2Ev.exit13:                           ; preds = %17, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN26MLRenderingNoShadingAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define void @_ZN26MLRenderingNoShadingAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
@@ -6617,7 +6617,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %9, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN29MLRenderingPerMeshColorAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((20, 24)) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define void @_ZN29MLRenderingPerMeshColorAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
@@ -6994,7 +6994,7 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %2, %5, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN29MLRenderingPerMeshColorAction8setColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 20)) %0, ptr noundef nonnull align 4 dereferenceable(14) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN29MLRenderingPerMeshColorAction8setColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(14) %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef i32 @_ZNK6QColor3redEv(ptr noundef nonnull align 4 dereferenceable(14) %1) #24
   %4 = tail call noundef i32 @_ZNK6QColor5greenEv(ptr noundef nonnull align 4 dereferenceable(14) %1) #24
   %5 = tail call noundef i32 @_ZNK6QColor4blueEv(ptr noundef nonnull align 4 dereferenceable(14) %1) #24
@@ -7026,7 +7026,7 @@ declare noundef i32 @_ZNK6QColor4blueEv(ptr noundef nonnull align 4 dereferencea
 declare noundef i32 @_ZNK6QColor5alphaEv(ptr noundef nonnull align 4 dereferenceable(14)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN29MLRenderingPerMeshColorAction8setColorERKN3vcg6Color4IhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 20)) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %1) local_unnamed_addr #16 align 2 {
+define void @_ZN29MLRenderingPerMeshColorAction8setColorERKN3vcg6Color4IhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %1, align 1
   store i32 %4, ptr %3, align 8
@@ -7262,7 +7262,7 @@ _ZN7QStringD2Ev.exit15:                           ; preds = %19, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN31MLRenderingPerVertexColorAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define void @_ZN31MLRenderingPerVertexColorAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
@@ -7733,7 +7733,7 @@ _ZNK17MLRenderingAction6meshIdEv.exit:            ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN40MLRenderingUserDefinedGeneralColorAction8setColorERKN3vcg6Color4IhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %1) local_unnamed_addr #16 align 2 {
+define void @_ZN40MLRenderingUserDefinedGeneralColorAction8setColorERKN3vcg6Color4IhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %1, align 1
   store i32 %4, ptr %3, align 8
@@ -7747,7 +7747,7 @@ define noundef nonnull align 1 dereferenceable(4) ptr @_ZN40MLRenderingUserDefin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN40MLRenderingUserDefinedGeneralColorAction8setColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, ptr noundef nonnull align 4 dereferenceable(14) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN40MLRenderingUserDefinedGeneralColorAction8setColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(14) %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef i32 @_ZNK6QColor3redEv(ptr noundef nonnull align 4 dereferenceable(14) %1) #24
   %4 = tail call noundef i32 @_ZNK6QColor5greenEv(ptr noundef nonnull align 4 dereferenceable(14) %1) #24
   %5 = tail call noundef i32 @_ZNK6QColor4blueEv(ptr noundef nonnull align 4 dereferenceable(14) %1) #24
@@ -7964,7 +7964,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %11, %_ZN9QtPrivate8
 declare void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN33MLRenderingUserDefinedColorAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((20, 24)) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define void @_ZN33MLRenderingUserDefinedColorAction15switchPrimitiveEN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
@@ -10611,7 +10611,7 @@ _ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit: ; preds = %.noexc, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN33MLRenderingBBoxPerMeshColorAction8setColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, ptr noundef nonnull align 4 dereferenceable(14) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN33MLRenderingBBoxPerMeshColorAction8setColorERK6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(14) %1) local_unnamed_addr #4 align 2 {
   %3 = tail call noundef i32 @_ZNK6QColor3redEv(ptr noundef nonnull align 4 dereferenceable(14) %1) #24
   %4 = tail call noundef i32 @_ZNK6QColor5greenEv(ptr noundef nonnull align 4 dereferenceable(14) %1) #24
   %5 = tail call noundef i32 @_ZNK6QColor4blueEv(ptr noundef nonnull align 4 dereferenceable(14) %1) #24
@@ -10631,7 +10631,7 @@ define void @_ZN33MLRenderingBBoxPerMeshColorAction8setColorERK6QColor(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN33MLRenderingBBoxPerMeshColorAction8setColorERKN3vcg6Color4IhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %1) local_unnamed_addr #16 align 2 {
+define void @_ZN33MLRenderingBBoxPerMeshColorAction8setColorERKN3vcg6Color4IhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %1, align 1
   store i32 %4, ptr %3, align 8

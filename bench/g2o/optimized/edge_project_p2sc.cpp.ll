@@ -440,7 +440,7 @@ _ZNK3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE22writeInformationM
 declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3g2o15EdgeProjectP2SC12computeErrorEv(ptr nocapture noundef nonnull align 8 dereferenceable(384) initializes((272, 296)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o15EdgeProjectP2SC12computeErrorEv(ptr nocapture noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.2.i.i.i.i.i.i.i.i.i.i.i.i = alloca { %"class.Eigen::Matrix", %"struct.Eigen::internal::evaluator.243" }, align 16
   %.sroa.0 = alloca [4 x double], align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8

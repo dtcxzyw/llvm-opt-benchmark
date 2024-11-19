@@ -465,7 +465,7 @@ declare i32 @CBS_get_asn1(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @CBS_get_asn1_uint64(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_integer(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %out) unnamed_addr #0 {
+define internal fastcc i32 @parse_integer(ptr noundef nonnull %cbs, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @BN_new() #5
   store ptr %call.i, ptr %out, align 8

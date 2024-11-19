@@ -433,7 +433,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define void @_ZN17MeshLabPluginTypeC2EPK13MeshLabPlugin(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noundef readonly %1) unnamed_addr #12 align 2 {
+define void @_ZN17MeshLabPluginTypeC2EPK13MeshLabPlugin(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr noundef readonly %1) unnamed_addr #12 align 2 {
   store i32 0, ptr %0, align 4
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.sink.split, label %4

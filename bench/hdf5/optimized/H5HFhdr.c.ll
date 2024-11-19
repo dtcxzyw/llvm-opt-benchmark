@@ -145,7 +145,7 @@ declare zeroext i8 @H5F_sizeof_size(ptr noundef) local_unnamed_addr #1
 declare zeroext i8 @H5F_sizeof_addr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__hdr_finish_init_phase1(ptr noundef initializes((697, 698)) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__hdr_finish_init_phase1(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   %4 = load i32, ptr %3, align 8
@@ -425,7 +425,7 @@ declare i32 @H5HF__huge_init(ptr noundef) local_unnamed_addr #1
 declare i32 @H5HF__tiny_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__hdr_finish_init(ptr noundef initializes((697, 698)) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__hdr_finish_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @H5HF__hdr_finish_init_phase1(ptr noundef %0)
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %4, label %8
@@ -1011,7 +1011,7 @@ H5HF__hdr_dirty.exit:                             ; preds = %17, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__hdr_adjust_heap(ptr noundef initializes((504, 512)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__hdr_adjust_heap(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 504
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 376

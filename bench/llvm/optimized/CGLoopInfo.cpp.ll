@@ -1894,7 +1894,7 @@ _ZSt4copyIPKPN4llvm8MetadataEPS2_ET0_T_S7_S6_.exit: ; preds = %85, %._crit_edge,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang7CodeGen14LoopAttributesC2Eb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(57) initializes((0, 1), (4, 45), (48, 57)) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang7CodeGen14LoopAttributesC2Eb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(57) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1905,7 +1905,7 @@ define dso_local void @_ZN5clang7CodeGen14LoopAttributesC2Eb(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang7CodeGen14LoopAttributes5clearEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(57) initializes((0, 1), (4, 45), (48, 57)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang7CodeGen14LoopAttributes5clearEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(57) %0) local_unnamed_addr #3 align 2 {
   store i8 0, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1915,7 +1915,7 @@ define dso_local void @_ZN5clang7CodeGen14LoopAttributes5clearEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen8LoopInfoC2EPN4llvm10BasicBlockERKNS0_14LoopAttributesERKNS2_8DebugLocESA_PS1_(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 76), (80, 96)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(57) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen8LoopInfoC2EPN4llvm10BasicBlockERKNS0_14LoopAttributesERKNS2_8DebugLocESA_PS1_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(57) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr noundef %5) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8

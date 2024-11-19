@@ -249,7 +249,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #8 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24AmericanBasketPathPricerC2EmN5boost10shared_ptrINS_6PayoffEEEmNS_14LsmBasisSystem14PolynomialTypeE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 40)) %this, i64 noundef %assetNumber, ptr nocapture noundef %payoff, i64 noundef %polynomialOrder, i32 noundef %polynomialType) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24AmericanBasketPathPricerC2EmN5boost10shared_ptrINS_6PayoffEEEmNS_14LsmBasisSystem14PolynomialTypeE(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %assetNumber, ptr nocapture noundef %payoff, i64 noundef %polynomialOrder, i32 noundef %polynomialType) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

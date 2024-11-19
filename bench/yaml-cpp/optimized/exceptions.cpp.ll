@@ -60,7 +60,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4YAML7BadFileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4YAML7BadFileD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg = getelementptr inbounds i8, ptr %this, i64 32
@@ -87,7 +87,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML15ParserExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML15ParserExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -105,7 +105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML23RepresentationExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML23RepresentationExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -123,7 +123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML13InvalidScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML13InvalidScalarD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -141,7 +141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML11KeyNotFoundD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML11KeyNotFoundD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -159,7 +159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML11InvalidNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML11InvalidNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -177,7 +177,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML13BadConversionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML13BadConversionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -195,7 +195,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML14BadDereferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML14BadDereferenceD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -213,7 +213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML12BadSubscriptD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML12BadSubscriptD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -231,7 +231,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML11BadPushbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML11BadPushbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -249,7 +249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML9BadInsertD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML9BadInsertD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -267,7 +267,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML16EmitterExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML16EmitterExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -285,7 +285,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML7BadFileD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN4YAML7BadFileD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML9ExceptionE, i64 16), ptr %this, align 8
   %msg.i = getelementptr inbounds i8, ptr %this, i64 32

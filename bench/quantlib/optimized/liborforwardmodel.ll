@@ -1559,7 +1559,7 @@ _ZNSt6vectorIN8QuantLib9ParameterESaIS1_EED2Ev.exit: ; preds = %invoke.cont.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17LiborForwardModelC1ERKN5boost10shared_ptrINS_24LiborForwardModelProcessEEERKNS2_INS_17LmVolatilityModelEEERKNS2_INS_18LmCorrelationModelEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((184, 192), (200, 204), (208, 216)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volaModel, ptr noundef nonnull align 8 dereferenceable(16) %corrModel) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17LiborForwardModelC1ERKN5boost10shared_ptrINS_24LiborForwardModelProcessEEERKNS2_INS_17LmVolatilityModelEEERKNS2_INS_18LmCorrelationModelEEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volaModel, ptr noundef nonnull align 8 dereferenceable(16) %corrModel) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.64", align 8
   %ref.tmp114 = alloca %"class.QuantLib::Array", align 8
@@ -3863,7 +3863,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib17LiborForwardModel3w_0Emm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i64 noundef %alpha, i64 noundef %beta) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib17LiborForwardModel3w_0Emm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i64 noundef %alpha, i64 noundef %beta) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

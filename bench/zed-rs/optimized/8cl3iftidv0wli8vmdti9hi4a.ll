@@ -6873,7 +6873,7 @@ _ZN4core3ops8function6FnOnce9call_once17h5c4df8cc4a7abcf8E.llvm.8319093192543795
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h9dbd085bc6853ae9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8), (16, 17)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
+define hidden void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h9dbd085bc6853ae9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #2 {
   %3 = cmpxchg ptr %1, i32 0, i32 1 acquire monotonic, align 4
   %4 = extractvalue { i32, i1 } %3, 1
   br i1 %4, label %5, label %17

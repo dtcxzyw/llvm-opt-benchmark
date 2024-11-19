@@ -2519,7 +2519,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @repo_dwim_ref(ptr noundef %r, ptr noundef %str, i32 noundef %len, ptr noundef %oid, ptr nocapture noundef writeonly initializes((0, 8)) %ref, i32 noundef %nonfatal_dangling_mark) local_unnamed_addr #5 {
+define dso_local i32 @repo_dwim_ref(ptr noundef %r, ptr noundef %str, i32 noundef %len, ptr noundef %oid, ptr nocapture noundef writeonly %ref, i32 noundef %nonfatal_dangling_mark) local_unnamed_addr #5 {
 entry:
   %buf.i = alloca %struct.strbuf, align 8
   %options.i = alloca %struct.interpret_branch_name_options, align 4
@@ -2556,7 +2556,7 @@ substitute_branch_name.exit:                      ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @expand_ref(ptr noundef %repo, ptr noundef %str, i32 noundef %len, ptr noundef %oid, ptr nocapture noundef writeonly initializes((0, 8)) %ref) local_unnamed_addr #5 {
+define dso_local i32 @expand_ref(ptr noundef %repo, ptr noundef %str, i32 noundef %len, ptr noundef %oid, ptr nocapture noundef writeonly %ref) local_unnamed_addr #5 {
 entry:
   %fullref = alloca %struct.strbuf, align 8
   %oid_from_ref = alloca %struct.object_id, align 4
@@ -3688,7 +3688,7 @@ set_read_ref_cutoffs.exit:                        ; preds = %if.end9.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @read_ref_at_ent(ptr nocapture noundef readonly %ooid, ptr nocapture noundef readonly %noid, ptr nocapture readnone %email, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %message, ptr nocapture noundef initializes((108, 120)) %cb_data) #5 {
+define internal i32 @read_ref_at_ent(ptr nocapture noundef readonly %ooid, ptr nocapture noundef readonly %noid, ptr nocapture readnone %email, i64 noundef %timestamp, i32 noundef %tz, ptr noundef %message, ptr nocapture noundef %cb_data) #5 {
 entry:
   %tz1 = getelementptr inbounds i8, ptr %cb_data, i64 108
   store i32 %tz, ptr %tz1, align 4
@@ -6649,7 +6649,7 @@ declare ptr @git_common_path(ptr noundef, ...) local_unnamed_addr #7
 declare ptr @get_git_common_dir() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @base_ref_store_init(ptr nocapture noundef writeonly initializes((0, 24)) %refs, ptr noundef %repo, ptr noundef %path, ptr noundef %be) local_unnamed_addr #5 {
+define dso_local void @base_ref_store_init(ptr nocapture noundef writeonly %refs, ptr noundef %repo, ptr noundef %path, ptr noundef %be) local_unnamed_addr #5 {
 entry:
   store ptr %be, ptr %refs, align 8
   %repo2 = getelementptr inbounds i8, ptr %refs, i64 8

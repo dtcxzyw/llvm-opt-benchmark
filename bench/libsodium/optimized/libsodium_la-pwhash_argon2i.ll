@@ -200,7 +200,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @_sodium_argon2i_hash_raw(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local range(i32 -1, 1) i32 @crypto_pwhash_argon2i_str(ptr noundef nonnull initializes((0, 128)) %out, ptr noundef nonnull %passwd, i64 noundef %passwdlen, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @crypto_pwhash_argon2i_str(ptr noundef nonnull %out, ptr noundef nonnull %passwd, i64 noundef %passwdlen, i64 noundef %opslimit, i64 noundef %memlimit) local_unnamed_addr #1 {
 entry:
   %salt = alloca [16 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %out, i8 0, i64 128, i1 false)

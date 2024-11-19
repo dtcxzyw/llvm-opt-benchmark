@@ -321,7 +321,7 @@ _ZN3irr3gui11IGUIElement11setTabOrderEi.exit:     ; preds = %if.then11.i, %if.th
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui12CGUICheckBoxC1EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(316) initializes((320, 340)) %this, i1 noundef zeroext %checked, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef readonly byval(%"class.irr::core::rect") align 8 %rectangle) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui12CGUICheckBoxC1EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(316) %this, i1 noundef zeroext %checked, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef readonly byval(%"class.irr::core::rect") align 8 %rectangle) unnamed_addr #0 align 2 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -1045,7 +1045,7 @@ if.end:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui12CGUICheckBox10setCheckedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((313, 314)) %this, i1 noundef zeroext %checked) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui12CGUICheckBox10setCheckedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) %this, i1 noundef zeroext %checked) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %checked to i8
   %Checked = getelementptr inbounds i8, ptr %this, i64 313
@@ -1063,7 +1063,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui12CGUICheckBox17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((315, 316)) %this, i1 noundef zeroext %draw) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui12CGUICheckBox17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) %this, i1 noundef zeroext %draw) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %Background = getelementptr inbounds i8, ptr %this, i64 315
@@ -1081,7 +1081,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui12CGUICheckBox13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) initializes((314, 315)) %this, i1 noundef zeroext %draw) unnamed_addr #4 align 2 {
+define void @_ZN3irr3gui12CGUICheckBox13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(316) %this, i1 noundef zeroext %draw) unnamed_addr #4 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %Border = getelementptr inbounds i8, ptr %this, i64 314

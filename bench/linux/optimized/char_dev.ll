@@ -532,7 +532,7 @@ define dso_local noundef ptr @cdev_alloc() #0 align 16 {
 declare dso_local i32 @kobject_set_name(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cdev_add(ptr noundef initializes((96, 104)) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local i32 @cdev_add(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 100
@@ -944,7 +944,7 @@ declare dso_local ptr @kobject_get(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kfree_const(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cdev_set_parent(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1) #0 align 16 {
+define dso_local void @cdev_set_parent(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 60
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 1
@@ -1077,7 +1077,7 @@ declare dso_local void @device_del(ptr noundef) local_unnamed_addr #2
 declare dso_local void @kobject_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cdev_init(ptr noundef initializes((0, 104)) %0, ptr noundef %1) #0 align 16 {
+define dso_local void @cdev_init(ptr noundef %0, ptr noundef %1) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store volatile ptr %3, ptr %3, align 8

@@ -42,7 +42,7 @@ define hidden void @_ZN8PhaseIFGC2EP5Arena(ptr noundef nonnull align 8 dereferen
 declare void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8PhaseIFG4initEj(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 25), (32, 44), (56, 64)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8PhaseIFG4initEj(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2555,7 +2555,7 @@ _ZNK5Block8get_nodeEj.exit:                       ; preds = %62, %67
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12PhaseChaitin27compute_exit_block_pressureEP5Block(ptr nocapture noundef nonnull align 8 dereferenceable(364) initializes((284, 288), (304, 308)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12PhaseChaitin27compute_exit_block_pressureEP5Block(ptr nocapture noundef nonnull align 8 dereferenceable(364) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.IndexSetIterator, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8

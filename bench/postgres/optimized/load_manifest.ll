@@ -95,7 +95,7 @@ define dso_local void @manifest_files_destroy(ptr noundef %0) local_unnamed_addr
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @manifest_files_reset(ptr nocapture noundef initializes((8, 12)) %0) local_unnamed_addr #2 {
+define dso_local void @manifest_files_reset(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
@@ -699,7 +699,7 @@ define dso_local void @manifest_files_start_iterate(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @manifest_files_start_iterate_at(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9)) %1, i32 noundef %2) local_unnamed_addr #8 {
+define dso_local void @manifest_files_start_iterate_at(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, %2

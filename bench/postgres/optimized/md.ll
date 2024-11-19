@@ -1209,7 +1209,7 @@ declare i32 @FileFallocate(i32 noundef, i64 noundef, i64 noundef, i32 noundef) l
 declare i32 @FileZero(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @mdopen(ptr nocapture noundef writeonly initializes((40, 56)) %0) local_unnamed_addr #4 {
+define dso_local void @mdopen(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void

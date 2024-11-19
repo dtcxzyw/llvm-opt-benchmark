@@ -1180,7 +1180,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef 
 declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 39, 153) i32 @_ZN7glslang10TPpContext16characterLiteralEPNS_8TPpTokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(969) %0, ptr noundef initializes((32, 36), (40, 41)) %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 39, 153) i32 @_ZN7glslang10TPpContext16characterLiteralEPNS_8TPpTokenE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(969) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1325,7 +1325,7 @@ define noundef range(i32 39, 153) i32 @_ZN7glslang10TPpContext16characterLiteral
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 -2147483648, 163) i32 @_ZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef initializes((0, 20), (24, 26), (32, 41)) %1) unnamed_addr #0 align 2 {
+define noundef range(i32 -2147483648, 163) i32 @_ZN7glslang10TPpContext12tStringInput4scanEPNS_8TPpTokenE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32

@@ -719,7 +719,7 @@ define dso_local i32 @i915_vm_map_pt_stash(ptr noundef %0, ptr nocapture noundef
 declare dso_local i32 @map_pt_dma_locked(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ppgtt_init(ptr noundef initializes((296, 312), (320, 336), (544, 552)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @ppgtt_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 296
   store ptr %1, ptr %5, align 8

@@ -227,7 +227,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @context_init(ptr noundef initializes((0, 8)) %ctx) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @context_init(ptr noundef %ctx) unnamed_addr #0 {
 entry:
   %call = tail call ptr @CRYPTO_THREAD_lock_new() #3
   store ptr %call, ptr %ctx, align 8

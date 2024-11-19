@@ -870,7 +870,7 @@ define internal i32 @hsu_dma_tx_status(ptr noundef %0, i32 noundef %1, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @hsu_dma_slave_config(ptr nocapture noundef writeonly initializes((272, 344)) %0, ptr nocapture noundef readonly %1) #3 align 16 {
+define internal noundef i32 @hsu_dma_slave_config(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(72) %3, ptr noundef align 8 dereferenceable(72) %1, i64 72, i1 false)
   ret i32 0

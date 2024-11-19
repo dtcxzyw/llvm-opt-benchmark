@@ -25,7 +25,7 @@ define noundef i32 @MPL_gpu_ipc_handle_unmap(ptr nocapture noundef readnone %0) 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define noundef i32 @MPL_gpu_malloc_host(ptr nocapture noundef writeonly initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define noundef i32 @MPL_gpu_malloc_host(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = icmp sgt i64 %1, -1
   br i1 %3, label %4, label %MPL_malloc.exit
 

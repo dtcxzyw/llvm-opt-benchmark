@@ -939,7 +939,7 @@ return:                                           ; preds = %while.end8.i, %gdb_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gdb_feature_builder_init(ptr nocapture noundef writeonly initializes((0, 20)) %builder, ptr noundef %feature, ptr noundef %name, ptr noundef %xmlname, i32 noundef %base_reg) local_unnamed_addr #0 {
+define dso_local void @gdb_feature_builder_init(ptr nocapture noundef writeonly %builder, ptr noundef %feature, ptr noundef %name, ptr noundef %xmlname, i32 noundef %base_reg) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr (ptr, ...) @g_markup_printf_escaped(ptr noundef nonnull @.str.3, ptr noundef %name) #18
   store ptr %feature, ptr %builder, align 8

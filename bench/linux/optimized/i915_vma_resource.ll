@@ -462,7 +462,7 @@ define dso_local noundef zeroext i1 @i915_vma_resource_hold(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @i915_vma_resource_unbind(ptr noundef returned initializes((288, 296)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @i915_vma_resource_unbind(ptr noundef returned %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 288
@@ -608,7 +608,7 @@ declare dso_local i64 @intel_runtime_pm_get_if_in_use(ptr noundef) local_unnamed
 declare dso_local void @i915_sw_fence_commit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__i915_vma_resource_init(ptr noundef initializes((64, 68)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @__i915_vma_resource_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 0, ptr %2, align 8
   tail call void @dma_fence_init(ptr noundef %0, ptr noundef nonnull @unbind_fence_ops, ptr noundef %2, i64 noundef 0, i64 noundef 0) #8
@@ -1351,7 +1351,7 @@ declare dso_local ptr @rb_next(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__rb_erase_color(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @vma_res_itree_augment_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((24, 32)) %1) #3 align 16 {
+define internal void @vma_res_itree_augment_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
   %3 = getelementptr i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr i8, ptr %1, i64 24

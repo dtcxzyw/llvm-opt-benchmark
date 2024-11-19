@@ -443,7 +443,7 @@ declare void @_ZN5vcpkg10StringViewC1ERKNSt7__cxx1112basic_stringIcSt11char_trai
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg24internalize_feature_listENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15ImplicitDefaultE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::InternalFeatureSet") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg24internalize_feature_listENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS_15ImplicitDefaultE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::InternalFeatureSet") align 8 %0, ptr %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::StringView", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %1, i64 %2

@@ -442,7 +442,7 @@ _ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit: ; preds = 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24cmInstallTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(282) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN24cmInstallTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(282) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV24cmInstallTargetGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
@@ -456,7 +456,7 @@ define dso_local void @_ZN24cmInstallTargetGeneratorD2Ev(ptr noundef nonnull ali
 declare void @_ZN18cmInstallGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24cmInstallTargetGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(282) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN24cmInstallTargetGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(282) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV24cmInstallTargetGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
@@ -804,7 +804,7 @@ _ZNSt8functionIFvRSo23cmScriptGeneratorIndentRKNSt7__cxx1112basic_stringIcSt11ch
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK24cmInstallTargetGenerator8GetFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"struct.cmInstallTargetGenerator::Files") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(282) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK24cmInstallTargetGenerator8GetFilesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"struct.cmInstallTargetGenerator::Files") align 8 %0, ptr noundef nonnull align 8 dereferenceable(282) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"struct.std::pair.699"], align 8
   %5 = alloca %class.cmAlphaNum, align 8
   %6 = alloca [2 x %"struct.std::pair.699"], align 8

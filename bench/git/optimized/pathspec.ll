@@ -333,7 +333,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @parse_pathspec(ptr nocapture noundef initializes((0, 24)) %pathspec, i32 noundef %magic_mask, i32 noundef %flags, ptr noundef %prefix, ptr noundef readonly %argv) local_unnamed_addr #0 {
+define dso_local void @parse_pathspec(ptr nocapture noundef %pathspec, i32 noundef %magic_mask, i32 noundef %flags, ptr noundef %prefix, ptr noundef readonly %argv) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %argv, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -622,7 +622,7 @@ declare void @die(ptr noundef, ...) local_unnamed_addr #3
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_pathspec_item(ptr nocapture noundef initializes((36, 56)) %item, i32 noundef %flags, ptr noundef %prefix, i32 noundef %prefixlen, ptr noundef %elt) unnamed_addr #0 {
+define internal fastcc void @init_pathspec_item(ptr nocapture noundef %item, i32 noundef %flags, ptr noundef %prefix, i32 noundef %prefixlen, ptr noundef %elt) unnamed_addr #0 {
 entry:
   %list.i.i.i = alloca %struct.string_list, align 8
   %endptr.i.i = alloca ptr, align 8
@@ -1662,7 +1662,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
 declare void @strvec_clear(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @copy_pathspec(ptr nocapture noundef initializes((0, 24)) %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local void @copy_pathspec(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dst, ptr noundef nonnull align 8 dereferenceable(24) %src, i64 24, i1 false)
   %0 = load i32, ptr %dst, align 8

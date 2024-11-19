@@ -49,7 +49,7 @@ $_ZTVN3url15RawCanonOutputTIcLi1024EEE = comdat any
 @.str = private unnamed_addr constant [8 x i8] c"file://\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url19CanonicalizeFileURLEPKciRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %query_converter, ptr noundef %output, ptr noundef initializes((0, 4), (8, 24), (32, 40)) %new_parsed) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url19CanonicalizeFileURLEPKciRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %query_converter, ptr noundef %output, ptr noundef %new_parsed) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"struct.url::URLComponentSource", align 8
   store ptr %spec, ptr %ref.tmp, align 8
@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_121DoCanonicalizeFileURLIchEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %source, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %query_converter, ptr noundef %output, ptr noundef initializes((0, 4), (8, 24), (32, 40)) %new_parsed) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_121DoCanonicalizeFileURLIchEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %source, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %query_converter, ptr noundef %output, ptr noundef %new_parsed) unnamed_addr #0 {
 entry:
   %sub_path.i = alloca %"struct.url::Component", align 8
   %fake_output_path.i = alloca %"struct.url::Component", align 4
@@ -237,7 +237,7 @@ _ZN3url12_GLOBAL__N_122DoFileCanonicalizePathIchEEbPKT_RKNS_9ComponentEPNS_12Can
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url19CanonicalizeFileURLEPKtiRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %query_converter, ptr noundef %output, ptr noundef initializes((0, 4), (8, 24), (32, 40)) %new_parsed) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url19CanonicalizeFileURLEPKtiRKNS_6ParsedEPNS_16CharsetConverterEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %query_converter, ptr noundef %output, ptr noundef %new_parsed) local_unnamed_addr #0 {
 entry:
   %sub_path.i.i = alloca %"struct.url::Component", align 8
   %fake_output_path.i.i = alloca %"struct.url::Component", align 4
@@ -394,7 +394,7 @@ _ZN3url12_GLOBAL__N_121DoCanonicalizeFileURLIttEEbRKNS_18URLComponentSourceIT_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url20FileCanonicalizePathEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr noundef %output, ptr nocapture noundef initializes((0, 4)) %out_path) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url20FileCanonicalizePathEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr noundef %output, ptr nocapture noundef %out_path) local_unnamed_addr #0 {
 entry:
   %sub_path.i = alloca %"struct.url::Component", align 8
   %fake_output_path.i = alloca %"struct.url::Component", align 4
@@ -476,7 +476,7 @@ _ZN3url12_GLOBAL__N_122DoFileCanonicalizePathIchEEbPKT_RKNS_9ComponentEPNS_12Can
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url20FileCanonicalizePathEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr noundef %output, ptr nocapture noundef initializes((0, 4)) %out_path) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url20FileCanonicalizePathEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr noundef %output, ptr nocapture noundef %out_path) local_unnamed_addr #0 {
 entry:
   %sub_path.i = alloca %"struct.url::Component", align 8
   %fake_output_path.i = alloca %"struct.url::Component", align 4

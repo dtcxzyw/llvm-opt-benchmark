@@ -3388,7 +3388,7 @@ _ZNSt12__shared_ptrIN6Assimp12StreamReaderILb0ELb0EEELN9__gnu_cxx12_Lock_policyE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4STEP8ReadFileERNS0_2DBERKNS0_7EXPRESS16ConversionSchemaEPKPKcmSA_m(ptr noundef nonnull align 8 dereferenceable(376) initializes((368, 376)) %db, ptr noundef nonnull align 8 dereferenceable(48) %scheme, ptr noundef %types_to_track, i64 noundef %len, ptr noundef %inverse_indices_to_track, i64 noundef %len2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4STEP8ReadFileERNS0_2DBERKNS0_7EXPRESS16ConversionSchemaEPKPKcmSA_m(ptr noundef nonnull align 8 dereferenceable(376) %db, ptr noundef nonnull align 8 dereferenceable(48) %scheme, ptr noundef %types_to_track, i64 noundef %len, ptr noundef %inverse_indices_to_track, i64 noundef %len2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp31 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6243,7 +6243,7 @@ _ZNSt12__shared_ptrIN6Assimp4STEP7EXPRESS4LISTELN9__gnu_cxx12_Lock_policyE2EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4STEP10LazyObjectC2ERNS0_2DBEmmPKcS5_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(376) %db, i64 noundef %id, i64 %0, ptr noundef %type, ptr noundef %args) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4STEP10LazyObjectC2ERNS0_2DBEmmPKcS5_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(376) %db, i64 noundef %id, i64 %0, ptr noundef %type, ptr noundef %args) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i = alloca ptr, align 8
   store i64 %id, ptr %this, align 8

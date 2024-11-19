@@ -288,7 +288,7 @@ define hidden void @_ZN19ShenandoahCodeRoots5purgeEv() local_unnamed_addr #0 ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27ShenandoahCodeRootsIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN27ShenandoahCodeRootsIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %2 = load ptr, ptr @CodeCache_lock, align 8
   %.not.i.i = icmp eq ptr %2, null

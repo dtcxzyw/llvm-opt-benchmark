@@ -1379,7 +1379,7 @@ declare i32 @wc_InitRng_ex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bench_stats_start(ptr nocapture noundef nonnull writeonly initializes((0, 4)) %count, ptr nocapture noundef nonnull writeonly %start) unnamed_addr #0 {
+define internal fastcc void @bench_stats_start(ptr nocapture noundef nonnull writeonly %count, ptr nocapture noundef nonnull writeonly %start) unnamed_addr #0 {
 entry:
   %tv.i = alloca %struct.timespec, align 8
   store i32 0, ptr %count, align 4

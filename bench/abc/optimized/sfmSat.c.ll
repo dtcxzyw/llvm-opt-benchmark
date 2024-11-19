@@ -1721,7 +1721,7 @@ declare i32 @sat_solver_nvars(ptr noundef) local_unnamed_addr #1
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Sfm_ComputeInterpolantInt(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 16)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Sfm_ComputeInterpolantInt(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8

@@ -585,7 +585,7 @@ $_ZZN5boost4math6detail15float_prior_impIdNS0_8policies6policyINS3_14default_pol
 @_ZN8QuantLib6detail14D0InterpolatorC1Edddddd = unnamed_addr alias void (ptr, double, double, double, double, double, double), ptr @_ZN8QuantLib6detail14D0InterpolatorC2Edddddd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14NoArbSabrModelC2Edddddd(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 48), (72, 80), (88, 112)) %this, double noundef %expiryTime, double noundef %forward, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14NoArbSabrModelC2Edddddd(ptr noundef nonnull align 8 dereferenceable(112) %this, double noundef %expiryTime, double noundef %forward, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream.i.i = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4464,7 +4464,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib14NoArbSabrModel12forwardErrorEd(ptr noundef nonnull align 8 dereferenceable(112) initializes((72, 80)) %this, double noundef %forward) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib14NoArbSabrModel12forwardErrorEd(ptr noundef nonnull align 8 dereferenceable(112) %this, double noundef %forward) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function", align 8
   %0 = tail call double @llvm.fmuladd.f64(double %forward, double %forward, double 0x3EB0C6F7A0B5ED8D)
@@ -4837,7 +4837,7 @@ declare double @exp(double noundef) local_unnamed_addr #6
 declare noundef double @_ZN8QuantLib46modifiedBesselFunction_i_exponentiallyWeightedEdd(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib6detail14D0InterpolatorC2Edddddd(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 184)) %this, double noundef %forward, double noundef %expiryTime, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib6detail14D0InterpolatorC2Edddddd(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this, double noundef %forward, double noundef %expiryTime, double noundef %alpha, double noundef %beta, double noundef %nu, double noundef %rho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   store double %forward, ptr %this, align 8, !tbaa !97
   %expiryTime_ = getelementptr inbounds nuw i8, ptr %this, i64 8

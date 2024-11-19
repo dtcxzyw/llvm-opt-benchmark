@@ -14676,7 +14676,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt8functionIFvvEEC2IZN5sim_t17interactive_untilERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS9_SaIS9_EEbE3$_0vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt8functionIFvvEEC2IZN5sim_t17interactive_untilERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS9_SaIS9_EEbE3$_0vEEOT_"(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(65) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)

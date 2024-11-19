@@ -2446,7 +2446,7 @@ Vec_IntPushOrderCost.exit:                        ; preds = %55, %Vec_IntGrow.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntAppendMinus(ptr nocapture noundef initializes((4, 8)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @Vec_IntAppendMinus(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 4

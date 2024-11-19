@@ -1111,7 +1111,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14Plug_TaskArenaC2ENS0_11SynchronousE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14Plug_TaskArenaC2ENS0_11SynchronousE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -1147,7 +1147,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14Plug_TaskArena4WaitEv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25Plug_RegistrationMetadataC2ERKNS_7JsValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25Plug_RegistrationMetadataC2ERKNS_7JsValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3982,7 +3982,7 @@ declare void @_ZN3tbb6detail2r114notify_waitersEm(i64 noundef) local_unnamed_add
 declare noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_0EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_0EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(136) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
@@ -3990,7 +3990,7 @@ define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__px
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_0EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_0EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(136) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
@@ -7085,7 +7085,7 @@ define internal fastcc void @"_ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_110_AddPluginEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_mRKNS3_7JsValueEE3$_0EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(280) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_110_AddPluginEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_mRKNS3_7JsValueEE3$_0EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(280) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_110_AddPluginEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_mRKNS3_7JsValueEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
@@ -7113,7 +7113,7 @@ define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__px
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_110_AddPluginEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_mRKNS3_7JsValueEE3$_0EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(280) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_110_AddPluginEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_mRKNS3_7JsValueEE3$_0EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(280) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_110_AddPluginEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_mRKNS3_7JsValueEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
@@ -7367,7 +7367,7 @@ define linkonce_odr noundef ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_113_ReadPlugInfoEPNS6_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_113_ReadPlugInfoEPNS6_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_113_ReadPlugInfoEPNS6_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
@@ -7375,7 +7375,7 @@ define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__px
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_113_ReadPlugInfoEPNS6_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_113_ReadPlugInfoEPNS6_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_113_ReadPlugInfoEPNS6_12_ReadContextENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
@@ -7479,7 +7479,7 @@ define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0
 declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
@@ -7487,7 +7487,7 @@ define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__px
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
@@ -29749,7 +29749,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(144) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 16
@@ -29831,7 +29831,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(144) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_126_ReadPlugInfoWithWildcardsEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_1EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 16
@@ -34628,7 +34628,7 @@ _ZNSt6vectorINSt7__cxx119sub_matchIN9__gnu_cxx17__normal_iteratorIPKcNS0_12basic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_0EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_0EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
@@ -34636,7 +34636,7 @@ define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__px
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_0EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_0EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_0EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
@@ -34954,7 +34954,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_1EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_1EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(144) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_1EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 16
@@ -35036,7 +35036,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_1EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_1EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(144) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_12_GLOBAL__N_118_TraverseDirectoryEPNS6_12_ReadContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS9_11basic_regexIcNS9_12regex_traitsIcEEEEEE3$_1EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 16
@@ -35209,7 +35209,7 @@ define internal noundef ptr @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_1EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_1EEED2Ev"(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_1EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
@@ -35217,7 +35217,7 @@ define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__px
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_1EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @"_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_1EEED0Ev"(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @"_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskIKZNS3_17Plug_ReadPlugInfoERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEbRKSt8functionIFbRKSC_EERKSH_IFvRKNS3_25Plug_RegistrationMetadataEEEPNS3_14Plug_TaskArenaEE3$_1EEEE", i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26

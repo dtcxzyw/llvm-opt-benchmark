@@ -148,7 +148,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdBufferSourc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__14HdBufferSource19GetPreChainedBufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #4 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__14HdBufferSource19GetPreChainedBufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -159,7 +159,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__14HdBufferSourc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__14HdBufferSource17GetChainedBuffersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #4 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__14HdBufferSource17GetChainedBuffersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }

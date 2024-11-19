@@ -343,7 +343,7 @@ _ZN17BarrierSetC2State4liveEPK4Node.exit:         ; preds = %_ZNK10Node_ArrayixE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13BarrierStubC2C2EPK8MachNode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((0, 12), (28, 41), (48, 52), (68, 81), (88, 184)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN13BarrierStubC2C2EPK8MachNode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %3, align 8
@@ -1419,7 +1419,7 @@ _ZN4NodenwEm.exit:                                ; preds = %24, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19C2AtomicParseAccess10set_memoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((64, 72)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN19C2AtomicParseAccess10set_memoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -4400,7 +4400,7 @@ declare void @_ZN8GraphKit38set_predefined_output_for_runtime_callEP4NodeS1_PK7T
 declare void @_ZN8GraphKit14set_all_memoryEP4Node(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK12BarrierSetC212obj_allocateEP16PhaseMacroExpandP4NodeS3_S3_RS3_S4_S4_S4_l(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %8, i64 noundef %9) unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZNK12BarrierSetC212obj_allocateEP16PhaseMacroExpandP4NodeS3_S3_RS3_S4_S4_S4_l(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %8, i64 noundef %9) unnamed_addr #2 align 2 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   store ptr %2, ptr %11, align 8

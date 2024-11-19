@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN15G1SurvRateGroupC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15G1SurvRateGroupC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1SurvRateGroupC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1SurvRateGroupC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
 ._crit_edge.i:
   %1 = getelementptr inbounds i8, ptr %0, i64 4
   %2 = getelementptr inbounds i8, ptr %0, i64 8
@@ -39,7 +39,7 @@ _ZN15G1SurvRateGroup5resetEv.exit:                ; preds = %._crit_edge.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1SurvRateGroup5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((4, 8), (24, 32)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1SurvRateGroup5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -93,7 +93,7 @@ define hidden void @_ZN15G1SurvRateGroup5resetEv(ptr nocapture noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15G1SurvRateGroup20start_adding_regionsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((4, 8)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15G1SurvRateGroup20start_adding_regionsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   ret void

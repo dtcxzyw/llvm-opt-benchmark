@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9VectorSetC1EP5Arena = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN9VectorSetC2EP5Arena
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9VectorSetC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN9VectorSetC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 800
@@ -51,7 +51,7 @@ _ZN9VectorSet4initEP5Arena.exit:                  ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9VectorSet4initEP5Arena(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9VectorSet4initEP5Arena(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   store i32 2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -88,7 +88,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %10, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9VectorSetC2EP5Arena(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 20), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9VectorSetC2EP5Arena(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store i32 2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8

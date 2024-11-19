@@ -1931,7 +1931,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core12_GLOBAL__N_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterE, i64 16), ptr %this, align 8
   %service_config_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -2366,7 +2366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_129ServiceConfigChannelArgFilterE, i64 16), ptr %this, align 8
   %service_config_.i = getelementptr inbounds i8, ptr %this, i64 24

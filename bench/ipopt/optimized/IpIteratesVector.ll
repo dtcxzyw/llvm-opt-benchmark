@@ -233,7 +233,7 @@ define void @_ZThn16_N5Ipopt14IteratesVectorD0Ev(ptr noundef %0) unnamed_addr #3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Ipopt14IteratesVector21MakeNewIteratesVectorEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.15") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZNK5Ipopt14IteratesVector21MakeNewIteratesVectorEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.15") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 272
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -256,7 +256,7 @@ _ZN5Ipopt8SmartPtrINS_14IteratesVectorEEC2EPS1_.exit: ; preds = %10, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Ipopt14IteratesVector16MakeNewContainerEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.Ipopt::SmartPtr.15") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5Ipopt14IteratesVector16MakeNewContainerEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.Ipopt::SmartPtr.15") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %3 = getelementptr inbounds i8, ptr %1, i64 272
   %4 = load ptr, ptr %3, align 8, !noalias !7
@@ -1488,7 +1488,7 @@ _ZNSt6vectorIN5Ipopt8SmartPtrIKNS0_11VectorSpaceEEESaIS4_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt19IteratesVectorSpaceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt19IteratesVectorSpaceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt19IteratesVectorSpaceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8

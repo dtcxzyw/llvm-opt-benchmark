@@ -253,7 +253,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z31alts_reset_reader_output_bufferP17alts_frame_readerPh(ptr nocapture noundef writeonly initializes((0, 8)) %reader, ptr noundef %buffer) local_unnamed_addr #5 {
+define void @_Z31alts_reset_reader_output_bufferP17alts_frame_readerPh(ptr nocapture noundef writeonly %reader, ptr noundef %buffer) local_unnamed_addr #5 {
 entry:
   store ptr %buffer, ptr %reader, align 8
   ret void

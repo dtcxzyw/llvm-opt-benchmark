@@ -454,7 +454,7 @@ define noundef i32 @_ZNK2cv4RMat4View4typeEv(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(112) ptr @_ZN2cv4RMat4ViewaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(112) initializes((0, 17)) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(112) ptr @_ZN2cv4RMat4ViewaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %3 = alloca %"class.std::function", align 8
   %4 = alloca [1 x i64], align 8

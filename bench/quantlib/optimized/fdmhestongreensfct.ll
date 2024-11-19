@@ -110,7 +110,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib18FdmHestonGreensFctC2EN5boost10shared_ptrINS_9FdmMesherEEENS2_INS_13HestonProcessEEENS_18FdmSquareRootFwdOp18TransformationTypeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %this, ptr nocapture noundef %mesher, ptr nocapture noundef %process, i32 noundef %trafoType_, double noundef %l0) unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib18FdmHestonGreensFctC2EN5boost10shared_ptrINS_9FdmMesherEEENS2_INS_13HestonProcessEEENS_18FdmSquareRootFwdOp18TransformationTypeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this, ptr nocapture noundef %mesher, ptr nocapture noundef %process, i32 noundef %trafoType_, double noundef %l0) unnamed_addr #6 align 2 {
 entry:
   store double %l0, ptr %this, align 8, !tbaa !3
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 8

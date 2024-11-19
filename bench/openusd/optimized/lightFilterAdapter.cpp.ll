@@ -2738,7 +2738,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__21ArResolverScopedCacheD1Ev(p
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__23ArResolverContextBinderD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdImagingLightFilterAdapter18GetImagingSubprimsERKNS_7UsdPrimE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.10") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28UsdImagingLightFilterAdapter18GetImagingSubprimsERKNS_7UsdPrimE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.10") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #18

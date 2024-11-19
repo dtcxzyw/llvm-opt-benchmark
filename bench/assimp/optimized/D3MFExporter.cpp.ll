@@ -541,7 +541,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp4D3MF12D3MFExporter13exportArchiveEPKc(ptr noundef nonnull align 8 dereferenceable(1224) initializes((32, 40)) %this, ptr noundef %file) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6Assimp4D3MF12D3MFExporter13exportArchiveEPKc(ptr noundef nonnull align 8 dereferenceable(1224) %this, ptr noundef %file) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call ptr @zip_open(ptr noundef %file, i32 noundef 6, i8 noundef signext 119)
   %m_zipArchive = getelementptr inbounds i8, ptr %this, i64 32

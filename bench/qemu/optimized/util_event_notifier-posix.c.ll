@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @event_notifier_set.value = internal constant i64 1, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @event_notifier_init_fd(ptr nocapture noundef writeonly initializes((0, 9)) %e, i32 noundef %fd) local_unnamed_addr #0 {
+define dso_local void @event_notifier_init_fd(ptr nocapture noundef writeonly %e, i32 noundef %fd) local_unnamed_addr #0 {
 entry:
   store i32 %fd, ptr %e, align 4
   %wfd = getelementptr inbounds i8, ptr %e, i64 4

@@ -666,7 +666,7 @@ _ZNSt10shared_ptrIN6json119JsonValueEEC2ERKS2_.exit: ; preds = %_ZN6json11L7stat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6json114JsonC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, double noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6json114JsonC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, double noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN6json1110JsonDoubleEED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !7
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -685,7 +685,7 @@ _ZNSt10shared_ptrIN6json1110JsonDoubleEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6json114JsonC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6json114JsonC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN6json117JsonIntEED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !10
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -814,7 +814,7 @@ _ZNSt10shared_ptrIN6json1110JsonStringEED2Ev.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6json114JsonC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6json114JsonC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN6json1110JsonStringEED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #23, !noalias !16
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -834,7 +834,7 @@ _ZNSt10shared_ptrIN6json1110JsonStringEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6json114JsonC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6json114JsonC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN6json1110JsonStringEED2Ev.exit:
   %2 = alloca %"class.std::allocator.30", align 1
   %3 = alloca ptr, align 8
@@ -854,7 +854,7 @@ _ZNSt10shared_ptrIN6json1110JsonStringEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6json114JsonC2ERKSt6vectorIS0_SaIS0_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6json114JsonC2ERKSt6vectorIS0_SaIS0_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN6json119JsonArrayEED2Ev.exit:
   %2 = alloca %"class.std::allocator.30", align 1
   %3 = alloca %"class.std::shared_ptr.15", align 8
@@ -872,7 +872,7 @@ _ZNSt10shared_ptrIN6json119JsonArrayEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6json114JsonC2EOSt6vectorIS0_SaIS0_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6json114JsonC2EOSt6vectorIS0_SaIS0_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN6json119JsonArrayEED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23, !noalias !25
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -975,7 +975,7 @@ _ZNSt10shared_ptrIN6json1110JsonObjectEED2Ev.exit: ; preds = %23, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6json114JsonC2EOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_St4lessIS7_ESaISt4pairIKS7_S0_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6json114JsonC2EOSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_St4lessIS7_ESaISt4pairIKS7_S0_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23, !noalias !34
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !34
@@ -3216,7 +3216,7 @@ _ZN6json1112_GLOBAL__N_110JsonParser18consume_whitespaceEv.exit4: ; preds = %159
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6json1112_GLOBAL__N_110JsonParser4failEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.json11::Json", align 8
   call void @_ZN6json114JsonC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
@@ -3454,7 +3454,7 @@ _ZNSt10shared_ptrIN6json119JsonValueEED2Ev.exit:  ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6json114Json11parse_multiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmRS6_NS_9JsonParseE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6json114Json11parse_multiERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmRS6_NS_9JsonParseE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.json11::(anonymous namespace)::JsonParser", align 8
   %7 = alloca %"class.json11::Json", align 8
   store ptr %1, ptr %6, align 8

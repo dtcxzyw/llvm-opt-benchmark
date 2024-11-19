@@ -95,7 +95,7 @@ declare void @_ZN7Imf_3_23ZipD1Ev(ptr noundef nonnull align 8 dereferenceable(20
 declare void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213ZipCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN7Imf_3_213ZipCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213ZipCompressorE, i64 16), ptr %this, align 8
   %_outBuffer = getelementptr inbounds i8, ptr %this, i64 24
@@ -118,7 +118,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Imf_3_213ZipCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN7Imf_3_213ZipCompressorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_213ZipCompressorE, i64 16), ptr %this, align 8
   %_outBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -150,7 +150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213ZipCompressor8compressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213ZipCompressor8compressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %inSize, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -177,7 +177,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef i32 @_ZN7Imf_3_23Zip8compressEPKciPc(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213ZipCompressor10uncompressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPtr) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213ZipCompressor10uncompressEPKciiRS2_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %inPtr, i32 noundef %inSize, i32 %minY, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %inSize, 0
   br i1 %cmp, label %if.then, label %if.end

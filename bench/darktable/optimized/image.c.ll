@@ -459,7 +459,7 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca [2 x ptr], align 8
   %3 = tail call noalias dereferenceable_or_null(208) ptr @malloc(i64 noundef 208) #12
   %4 = getelementptr inbounds i8, ptr %0, i64 280

@@ -11447,7 +11447,7 @@ define internal i32 @utime_internal(ptr noundef %0, ptr nocapture noundef readon
 declare noalias nonnull ptr @rb_alloc_tmp_buffer(ptr noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @no_gvl_apply2files(ptr nocapture noundef initializes((0, 4)) %0) #0 {
+define internal noundef ptr @no_gvl_apply2files(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %0, align 8
   %3 = load i32, ptr %2, align 4

@@ -807,7 +807,7 @@ return:                                           ; preds = %if.then4, %if.then6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriCopyAuthorityA(ptr nocapture noundef writeonly initializes((16, 56)) %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriCopyAuthorityA(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %userInfo = getelementptr inbounds i8, ptr %dest, i64 16
   %userInfo1 = getelementptr inbounds i8, ptr %source, i64 16
@@ -1790,7 +1790,7 @@ return:                                           ; preds = %if.then4, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriCopyAuthorityW(ptr nocapture noundef writeonly initializes((16, 56)) %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriCopyAuthorityW(ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %source, ptr noundef %memory) local_unnamed_addr #4 {
 entry:
   %userInfo = getelementptr inbounds i8, ptr %dest, i64 16
   %userInfo1 = getelementptr inbounds i8, ptr %source, i64 16

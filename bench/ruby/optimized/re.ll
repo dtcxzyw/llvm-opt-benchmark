@@ -656,7 +656,7 @@ rb_memsearch_with_char_size.exit:                 ; preds = %20, %4, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local range(i32 0, 33) i32 @rb_char_to_option_kcode(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #5 {
+define dso_local range(i32 0, 33) i32 @rb_char_to_option_kcode(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
   switch i32 %0, label %7 [
     i32 110, label %4
     i32 101, label %11
@@ -1297,7 +1297,7 @@ rb_enc_asciicompat.exit43.thread:                 ; preds = %rb_reg_fixed_encodi
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @rb_reg_preprocess(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull initializes((0, 8)) %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef %5) unnamed_addr #1 {
+define internal fastcc i64 @rb_reg_preprocess(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   store i32 0, ptr %8, align 4
@@ -10182,7 +10182,7 @@ declare ptr @onigenc_get_left_adjust_char_head(ptr noundef, ptr noundef, ptr nou
 declare void @rb_error_arity(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, -7) i64 @reg_extract_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull initializes((8, 16)) %2) unnamed_addr #1 {
+define internal fastcc range(i64 1, -7) i64 @reg_extract_args(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

@@ -6920,7 +6920,7 @@ define internal void @neigh_timer_handler(ptr noundef %0) #0 align 16 {
 declare dso_local i64 @ktime_get() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @neigh_invalidate(ptr noundef initializes((32, 40)) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @neigh_invalidate(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 576

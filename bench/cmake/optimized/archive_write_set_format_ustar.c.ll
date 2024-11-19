@@ -311,7 +311,7 @@ define internal i32 @archive_write_ustar_finish_entry(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr noundef %0, ptr noundef initializes((0, 512)) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @__archive_write_format_header_ustar(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8

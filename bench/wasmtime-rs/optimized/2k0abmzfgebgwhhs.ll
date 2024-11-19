@@ -29,7 +29,7 @@ define { ptr, ptr } @"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbd550e1c53dd4901E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN105_$LT$std..collections..hash..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hbd550e1c53dd4901E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8, !noundef !3
   store i64 %4, ptr %0, align 8
@@ -48,7 +48,7 @@ define align 2 ptr @"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h54a83b087ebfd66dE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN105_$LT$std..collections..hash..map..Keys$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h54a83b087ebfd66dE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8, !noundef !3
   store i64 %4, ptr %0, align 8
@@ -72,7 +72,7 @@ define void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7cf5756fea409497E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7cf5756fea409497E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load i64, ptr %3, align 8, !noundef !3
   store i64 %4, ptr %0, align 8
@@ -84,7 +84,7 @@ define void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdff0fd9af9fa0488E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hdff0fd9af9fa0488E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load i64, ptr %3, align 8, !noundef !3
   store i64 %4, ptr %0, align 8
@@ -236,7 +236,7 @@ define { ptr, ptr } @_ZN4core4iter6traits8iterator8Iterator10max_by_key17hf3684a
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator3map17hfeeea14e8ba4ac85E(ptr nocapture writeonly sret({ { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } }, { {} } }) align 8 initializes((0, 40)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @_ZN4core4iter6traits8iterator8Iterator3map17hfeeea14e8ba4ac85E(ptr nocapture writeonly sret({ { { { { ptr, ptr, ptr, i16, [3 x i16] }, i64 }, {} } }, { {} } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   ret void
 }

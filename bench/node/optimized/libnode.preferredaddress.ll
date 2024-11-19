@@ -155,7 +155,7 @@ declare void @abort() local_unnamed_addr #4
 declare i64 @_ZNK2v85Value11Uint32ValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node4quic16PreferredAddressC2EP11ngtcp2_pathPK21ngtcp2_preferred_addr(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %dest, ptr noundef %paddr) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4node4quic16PreferredAddressC2EP11ngtcp2_pathPK21ngtcp2_preferred_addr(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %dest, ptr noundef %paddr) unnamed_addr #5 align 2 {
 entry:
   store ptr %dest, ptr %this, align 8
   %paddr_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -164,7 +164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node4quic16PreferredAddress4ipv4Ev(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 initializes((1056, 1057)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node4quic16PreferredAddress4ipv4Ev(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %address.i = alloca %"struct.node::quic::PreferredAddress::AddressInfo", align 8
   %paddr_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -210,7 +210,7 @@ _ZN4node4quic12_GLOBAL__N_116get_address_infoILi2EEESt8optionalIKNS0_16Preferred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node4quic16PreferredAddress4ipv6Ev(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 initializes((1056, 1057)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node4quic16PreferredAddress4ipv6Ev(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #3 align 2 {
 entry:
   %address.i = alloca %"struct.node::quic::PreferredAddress::AddressInfo", align 8
   %paddr_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -353,7 +353,7 @@ sw.epilog:                                        ; preds = %entry
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN4node4quic12_GLOBAL__N_124copy_to_transport_paramsILi2EEEvP23ngtcp2_transport_paramsPK8sockaddr(ptr nocapture noundef writeonly initializes((32, 34), (36, 40), (275, 276)) %params, ptr noundef %addr) unnamed_addr #7 {
+define internal fastcc void @_ZN4node4quic12_GLOBAL__N_124copy_to_transport_paramsILi2EEEvP23ngtcp2_transport_paramsPK8sockaddr(ptr nocapture noundef writeonly %params, ptr noundef %addr) unnamed_addr #7 {
 entry:
   %preferred_address_present = getelementptr inbounds i8, ptr %params, i64 275
   store i8 1, ptr %preferred_address_present, align 1
@@ -371,7 +371,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind uwtable
-define internal fastcc void @_ZN4node4quic12_GLOBAL__N_124copy_to_transport_paramsILi10EEEvP23ngtcp2_transport_paramsPK8sockaddr(ptr nocapture noundef writeonly initializes((34, 36), (40, 44), (275, 276)) %params, ptr noundef %addr) unnamed_addr #7 {
+define internal fastcc void @_ZN4node4quic12_GLOBAL__N_124copy_to_transport_paramsILi10EEEvP23ngtcp2_transport_paramsPK8sockaddr(ptr nocapture noundef writeonly %params, ptr noundef %addr) unnamed_addr #7 {
 entry:
   %preferred_address_present = getelementptr inbounds i8, ptr %params, i64 275
   store i8 1, ptr %preferred_address_present, align 1

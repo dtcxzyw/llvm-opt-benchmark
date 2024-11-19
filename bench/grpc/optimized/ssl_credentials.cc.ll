@@ -152,7 +152,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20grpc_ssl_credentialsC2EPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 16), (24, 32), (56, 80)) %this, ptr noundef %pem_root_certs, ptr noundef %pem_key_cert_pair, ptr noundef %verify_options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20grpc_ssl_credentialsC2EPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef %pem_root_certs, ptr noundef %pem_key_cert_pair, ptr noundef %verify_options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
@@ -202,7 +202,7 @@ if.end22:                                         ; preds = %if.then7, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20grpc_ssl_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr nocapture noundef nonnull align 8 dereferenceable(84) initializes((24, 32)) %this, ptr noundef %pem_root_certs, ptr noundef readonly %pem_key_cert_pair, ptr noundef readonly %verify_options) local_unnamed_addr #3 align 2 {
+define void @_ZN20grpc_ssl_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairPK28grpc_ssl_verify_peer_options(ptr nocapture noundef nonnull align 8 dereferenceable(84) %this, ptr noundef %pem_root_certs, ptr noundef readonly %pem_key_cert_pair, ptr noundef readonly %verify_options) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call ptr @gpr_strdup(ptr noundef %pem_root_certs)
   %config_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -467,7 +467,7 @@ return:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN20grpc_ssl_credentialsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(84) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20grpc_ssl_credentialsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV20grpc_ssl_credentials, i64 16), ptr %this, align 8
   %pem_root_certs = getelementptr inbounds i8, ptr %this, i64 24
@@ -985,7 +985,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN20grpc_ssl_credentials19set_min_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) initializes((56, 60)) %this, i32 noundef %min_tls_version) local_unnamed_addr #11 align 2 {
+define void @_ZN20grpc_ssl_credentials19set_min_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %this, i32 noundef %min_tls_version) local_unnamed_addr #11 align 2 {
 entry:
   %min_tls_version2 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 %min_tls_version, ptr %min_tls_version2, align 8
@@ -993,7 +993,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN20grpc_ssl_credentials19set_max_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) initializes((60, 64)) %this, i32 noundef %max_tls_version) local_unnamed_addr #11 align 2 {
+define void @_ZN20grpc_ssl_credentials19set_max_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %this, i32 noundef %max_tls_version) local_unnamed_addr #11 align 2 {
 entry:
   %max_tls_version2 = getelementptr inbounds i8, ptr %this, i64 60
   store i32 %max_tls_version, ptr %max_tls_version2, align 4
@@ -1162,7 +1162,7 @@ lpad:                                             ; preds = %do.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN27grpc_ssl_server_credentialsC2ERK35grpc_ssl_server_credentials_options(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 76), (80, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN27grpc_ssl_server_credentialsC2ERK35grpc_ssl_server_credentials_options(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
@@ -1225,7 +1225,7 @@ if.end:                                           ; preds = %_ZN27grpc_ssl_serve
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm40grpc_ssl_client_certificate_request_type(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((40, 68)) %this, ptr noundef %pem_root_certs, ptr noundef %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs, i32 noundef %client_certificate_request) local_unnamed_addr #3 align 2 {
+define void @_ZN27grpc_ssl_server_credentials12build_configEPKcP26grpc_ssl_pem_key_cert_pairm40grpc_ssl_client_certificate_request_type(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr noundef %pem_root_certs, ptr noundef %pem_key_cert_pairs, i64 noundef %num_key_cert_pairs, i32 noundef %client_certificate_request) local_unnamed_addr #3 align 2 {
 entry:
   %config_ = getelementptr inbounds i8, ptr %this, i64 40
   %client_certificate_request2 = getelementptr inbounds i8, ptr %this, i64 64
@@ -1453,7 +1453,7 @@ for.end:                                          ; preds = %do.end17, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN27grpc_ssl_server_credentials19set_min_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((68, 72)) %this, i32 noundef %min_tls_version) local_unnamed_addr #11 align 2 {
+define void @_ZN27grpc_ssl_server_credentials19set_min_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, i32 noundef %min_tls_version) local_unnamed_addr #11 align 2 {
 entry:
   %min_tls_version2 = getelementptr inbounds i8, ptr %this, i64 68
   store i32 %min_tls_version, ptr %min_tls_version2, align 4
@@ -1461,7 +1461,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN27grpc_ssl_server_credentials19set_max_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((72, 76)) %this, i32 noundef %max_tls_version) local_unnamed_addr #11 align 2 {
+define void @_ZN27grpc_ssl_server_credentials19set_max_tls_versionE16grpc_tls_version(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, i32 noundef %max_tls_version) local_unnamed_addr #11 align 2 {
 entry:
   %max_tls_version2 = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %max_tls_version, ptr %max_tls_version2, align 8

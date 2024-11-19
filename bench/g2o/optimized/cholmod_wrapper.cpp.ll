@@ -151,7 +151,7 @@ define noundef zeroext i1 @_ZN3g2o7cholmod7Cholmod3amdERNS1_10SparseViewEPi(ptr 
 declare i32 @cholmod_amd(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3g2o7cholmod7Cholmod10sparseViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::cholmod::Cholmod::SparseView") align 8 initializes((0, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN3g2o7cholmod7Cholmod10sparseViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::cholmod::Cholmod::SparseView") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2664
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2672
@@ -177,7 +177,7 @@ define void @_ZN3g2o7cholmod7Cholmod10sparseViewEv(ptr dead_on_unwind noalias no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3g2o7cholmod7Cholmod6factorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::cholmod::Cholmod::FactorView") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN3g2o7cholmod7Cholmod6factorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::cholmod::Cholmod::FactorView") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2760
   %5 = load ptr, ptr %4, align 8

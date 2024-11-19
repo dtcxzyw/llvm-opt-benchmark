@@ -251,7 +251,7 @@ declare void @_ZN17EpsilonMemoryPoolC1EP11EpsilonHeap(ptr noundef nonnull align 
 declare void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11EpsilonHeap15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(480) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11EpsilonHeap15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray) align 8 %0, ptr noundef nonnull align 8 dereferenceable(480) %1) unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 1, i32 noundef 8) #8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -267,7 +267,7 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11EpsilonHeap12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.1) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11EpsilonHeap12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.1) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %1) unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 1, i32 noundef 8) #8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -843,7 +843,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11EpsilonHeap12mem_allocateEmPb(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11EpsilonHeap12mem_allocateEmPb(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 align 2 {
   store i8 0, ptr %2, align 1
   %4 = tail call noundef ptr @_ZN11EpsilonHeap13allocate_workEmb(ptr noundef nonnull align 8 dereferenceable(480) %0, i64 noundef %1, i1 noundef zeroext true)
   ret ptr %4

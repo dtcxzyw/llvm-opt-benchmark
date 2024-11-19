@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [11 x i8] c"%9.2f sec\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Ssw_RarSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #0 {
+define void @Ssw_RarSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 48, i1 false)
   store i32 20, ptr %0, align 8
@@ -495,7 +495,7 @@ define void @transpose64(ptr nocapture noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @transpose64Simple(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 512)) %1) local_unnamed_addr #4 {
+define void @transpose64Simple(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
 .preheader.preheader:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %1, i8 0, i64 512, i1 false)
   br label %.preheader
@@ -1393,7 +1393,7 @@ define i32 @Ssw_RarManObjWhichOne(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @Ssw_RarManCheckNonConstOutputs(ptr nocapture noundef initializes((96, 104)) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @Ssw_RarManCheckNonConstOutputs(ptr nocapture noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 -1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 100

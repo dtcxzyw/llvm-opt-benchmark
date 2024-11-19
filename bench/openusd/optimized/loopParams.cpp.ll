@@ -24,7 +24,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12TsLoopParamsC2Ebddddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 1), (8, 17), (24, 33), (40, 49), (56, 65), (72, 80)) %0, i1 noundef zeroext %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12TsLoopParamsC2Ebddddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i1 noundef zeroext %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6) unnamed_addr #3 align 2 {
   %8 = zext i1 %1 to i8
   store i8 %8, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -75,7 +75,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12TsLoopParamsC2Ebddddd(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12TsLoopParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 1), (8, 17), (24, 33), (40, 49), (56, 65), (72, 80)) %0) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12TsLoopParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 0.000000e+00, ptr %2, align 8
@@ -99,7 +99,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12TsLoopParamsC2Ev(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12TsLoopParams10SetLoopingEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 1)) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12TsLoopParams10SetLoopingEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 8
   ret void
@@ -214,7 +214,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12TsLoopParams14SetValueOffsetEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((72, 80)) %0, double noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12TsLoopParams14SetValueOffsetEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, double noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store double %1, ptr %3, align 8
   ret void

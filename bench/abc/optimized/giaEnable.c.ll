@@ -179,7 +179,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_CollectSuper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
+define void @Gia_CollectSuper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %.val13 = load i64, ptr %1, align 4

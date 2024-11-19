@@ -350,7 +350,7 @@ define internal fastcc void @free_stat_node(ptr noundef nonnull %0) unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stats_tree_reset(ptr nocapture noundef initializes((16, 40), (96, 100), (120, 124)) %0) local_unnamed_addr #0 {
+define void @stats_tree_reset(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store double -1.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -363,7 +363,7 @@ define void @stats_tree_reset(ptr nocapture noundef initializes((16, 40), (96, 1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reset_stat_node(ptr nocapture noundef initializes((16, 20), (40, 44)) %0) unnamed_addr #0 {
+define internal fastcc void @reset_stat_node(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -889,7 +889,7 @@ declare ptr @g_ptr_array_new() local_unnamed_addr #2
 declare void @g_ptr_array_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @stats_tree_packet(ptr noundef initializes((24, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @stats_tree_packet(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = tail call double @nstime_to_msec(ptr noundef nonnull %6) #19
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -991,7 +991,7 @@ define void @stats_tree_presentation(ptr noundef %0, ptr noundef %1, ptr noundef
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @setup_tree_presentation(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((80, 88), (104, 112)) %1, ptr nocapture noundef readonly %2) #7 {
+define internal void @setup_tree_presentation(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #7 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 80
   store ptr %4, ptr %5, align 8

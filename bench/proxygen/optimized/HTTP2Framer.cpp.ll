@@ -815,7 +815,7 @@ terminate.lpad:                                   ; preds = %invoke.cont13, %inv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext range(i8 0, 2) i8 @_ZN8proxygen5http212parseDataEndERN5folly2io6CursorEmmRm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %bufLen, i64 noundef %pendingDataFramePaddingBytes, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %toSkip) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 2) i8 @_ZN8proxygen5http212parseDataEndERN5folly2io6CursorEmmRm(ptr noundef nonnull align 8 dereferenceable(56) %cursor, i64 noundef %bufLen, i64 noundef %pendingDataFramePaddingBytes, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %toSkip) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %bufLen, i64 %pendingDataFramePaddingBytes)
   store i64 %.sroa.speculated, ptr %toSkip, align 8

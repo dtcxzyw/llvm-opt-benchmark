@@ -1045,14 +1045,14 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cut_ManSetFanoutCounts(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @Cut_ManSetFanoutCounts(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cut_ManSetNodeAttrs(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @Cut_ManSetNodeAttrs(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void

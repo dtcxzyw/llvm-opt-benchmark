@@ -66,7 +66,7 @@ declare void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN19btContactConstraintD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(952) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN19btContactConstraintD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(952) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17btTypedConstraint, i64 16), ptr %this, align 8
   ret void
@@ -83,7 +83,7 @@ entry:
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN19btContactConstraint18setContactManifoldEP20btPersistentManifold(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(952) initializes((72, 952)) %this, ptr nocapture noundef readonly %contactManifold) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN19btContactConstraint18setContactManifoldEP20btPersistentManifold(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(952) %this, ptr nocapture noundef readonly %contactManifold) local_unnamed_addr #7 align 2 {
 entry:
   %m_contactManifold = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(880) %m_contactManifold, ptr noundef nonnull align 8 dereferenceable(880) %contactManifold, i64 880, i1 false)
@@ -510,7 +510,7 @@ if.end7:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %body1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pos1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %body2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pos2, float noundef %distance, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normal, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %impulse, float noundef %timeStep) local_unnamed_addr #10 {
+define dso_local void @_Z22resolveSingleBilateralR11btRigidBodyRK9btVector3S0_S3_fS3_Rff(ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %body1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pos1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(744) %body2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pos2, float noundef %distance, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %normal, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %impulse, float noundef %timeStep) local_unnamed_addr #10 {
 entry:
   %0 = load float, ptr %normal, align 4
   %arrayidx5.i.i = getelementptr inbounds i8, ptr %normal, i64 4

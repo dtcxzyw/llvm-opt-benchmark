@@ -1648,7 +1648,7 @@ _ZNSt8functionIFSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1_11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi3oak11ColorCameraC2Ev(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3oak11ColorCameraC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr.82", align 8
   %3 = alloca %"class.std::unique_ptr.90", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1729,7 +1729,7 @@ _ZNSt10unique_ptrIN2cv10MediaFrame8IAdapterESt14default_deleteIS2_EED2Ev.exit6.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi3oak11ColorCameraC2ERKNS1_17ColorCameraParamsE(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3oak11ColorCameraC2ERKNS1_17ColorCameraParamsE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.82", align 8
   %4 = alloca %"class.std::unique_ptr.90", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

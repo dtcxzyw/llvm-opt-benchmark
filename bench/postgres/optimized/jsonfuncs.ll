@@ -1612,7 +1612,7 @@ get_jsonb_path_all.exit:                          ; preds = %15, %.sink.split.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local i64 @jsonb_get_element(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %3, align 1
@@ -6438,7 +6438,7 @@ makeJsonLexContext.exit:                          ; preds = %10, %19, %22
 declare i32 @json_lex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @json_categorize_type(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local void @json_categorize_type(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
   %7 = tail call i32 @getBaseType(i32 noundef %0) #15
@@ -7489,7 +7489,7 @@ define internal noundef i32 @elements_array_element_end(ptr nocapture noundef %0
 declare ptr @MemoryContextAllocZero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_record_type_from_argument(ptr %.0.val, ptr noundef %0, ptr noundef initializes((0, 4), (8, 16)) %1) unnamed_addr #0 {
+define internal fastcc void @get_record_type_from_argument(ptr %.0.val, ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call i32 @get_fn_expr_argtype(ptr noundef %.0.val, i32 noundef 0) #15
   store i32 %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -7826,7 +7826,7 @@ JsValueToJsObject.exit:                           ; preds = %98
 declare i32 @get_fn_expr_argtype(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prepare_column_cache(ptr noundef initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @prepare_column_cache(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   store i32 %1, ptr %0, align 8
@@ -8453,7 +8453,7 @@ declare i64 @hash_get_num_entries(ptr noundef) local_unnamed_addr #1
 declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @populate_record_field(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef initializes((0, 1)) %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i64 @populate_record_field(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef nonnull readonly %6, ptr nocapture noundef %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca %struct.PopulateArrayState, align 8
   %11 = alloca %struct.JsonSemAction, align 8
   %12 = alloca %struct.PopulateArrayContext, align 8

@@ -1561,7 +1561,7 @@ declare i32 @oid_object_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @type_name(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @check_ref_valid(ptr noundef nonnull %object, ptr noundef nonnull %prev, ptr noundef nonnull initializes((8, 16)) %ref, i32 noundef %force) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @check_ref_valid(ptr noundef nonnull %object, ptr noundef nonnull %prev, ptr noundef nonnull %ref, i32 noundef %force) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @ref_namespace, i64 80), align 16
   %len2.i = getelementptr inbounds i8, ptr %ref, i64 8

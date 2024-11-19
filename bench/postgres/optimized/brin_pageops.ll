@@ -496,7 +496,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 declare void @brinRevmapExtend(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1, i64 noundef range(i64 0, 8153) %2, ptr nocapture noundef nonnull initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i32 @brin_getinsertbuffer(ptr noundef %0, i32 noundef %1, i64 noundef range(i64 0, 8153) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = icmp ne i32 %1, 0
   br i1 %5, label %6, label %8
 

@@ -508,7 +508,7 @@ define internal void @color_filters_clone_cb(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @color_filters_apply(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @color_filters_apply(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

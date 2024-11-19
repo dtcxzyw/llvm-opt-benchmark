@@ -1601,7 +1601,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb15ExtensionHelper19GetDefaultExtensionEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.duckdb::DefaultExtension") align 8 initializes((0, 24)) %agg.result, i64 noundef %index) local_unnamed_addr #6 align 2 {
+define void @_ZN6duckdb15ExtensionHelper19GetDefaultExtensionEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.duckdb::DefaultExtension") align 8 %agg.result, i64 noundef %index) local_unnamed_addr #6 align 2 {
 entry:
   %arrayidx = getelementptr inbounds [23 x %"struct.duckdb::DefaultExtension"], ptr @_ZN6duckdbL19internal_extensionsE, i64 0, i64 %index
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %arrayidx, i64 24, i1 false), !tbaa.struct !17
@@ -25588,7 +25588,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb13ExtensionUtil17RegisterCollationERNS_16DatabaseInstanceERNS_19CreateCollationInfoE(ptr noundef nonnull align 8 dereferenceable(1088) %db, ptr noundef nonnull align 8 dereferenceable(418) initializes((80, 81)) %info) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb13ExtensionUtil17RegisterCollationERNS_16DatabaseInstanceERNS_19CreateCollationInfoE(ptr noundef nonnull align 8 dereferenceable(1088) %db, ptr noundef nonnull align 8 dereferenceable(418) %info) local_unnamed_addr #3 align 2 {
 entry:
   %data = alloca %"struct.duckdb::CatalogTransaction", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb7Catalog16GetSystemCatalogERNS_16DatabaseInstanceE(ptr noundef nonnull align 8 dereferenceable(1088) %db)

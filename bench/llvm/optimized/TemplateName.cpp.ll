@@ -85,7 +85,7 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 @_ZN5clang12TemplateNameC1EPNS_15UsingShadowDeclE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang12TemplateNameC2EPNS_15UsingShadowDeclE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK5clang36SubstTemplateTemplateParmPackStorage15getArgumentPackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::TemplateArgument") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang36SubstTemplateTemplateParmPackStorage15getArgumentPackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::TemplateArgument") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 8
@@ -216,7 +216,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit6:   ; preds = %_ZN4llvm16FoldingSe
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang36SubstTemplateTemplateParmPackStorageC2EN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4DeclEjb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, ptr %1, i64 %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang36SubstTemplateTemplateParmPackStorageC2EN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4DeclEjb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #5 align 2 {
   %7 = trunc i64 %2 to i32
   %8 = shl i32 %4, 2
   %9 = shl i32 %7, 17
@@ -321,14 +321,14 @@ define dso_local noundef zeroext i1 @_ZNK5clang36SubstTemplateTemplateParmPackSt
 declare void @_ZNK5clang16TemplateArgument7ProfileERN4llvm16FoldingSetNodeIDERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12TemplateNameC2EPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12TemplateNameC2EPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = ptrtoint ptr %1 to i64
   store i64 %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12TemplateNameC2EPNS_12TemplateDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12TemplateNameC2EPNS_12TemplateDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -7
   store i64 %4, ptr %0, align 8
@@ -336,7 +336,7 @@ define dso_local void @_ZN5clang12TemplateNameC2EPNS_12TemplateDeclE(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12TemplateNameC2EPNS_25OverloadedTemplateStorageE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12TemplateNameC2EPNS_25OverloadedTemplateStorageE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -7
   %5 = or disjoint i64 %4, 2
@@ -345,7 +345,7 @@ define dso_local void @_ZN5clang12TemplateNameC2EPNS_25OverloadedTemplateStorage
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12TemplateNameC2EPNS_22AssumedTemplateStorageE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12TemplateNameC2EPNS_22AssumedTemplateStorageE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -7
   %5 = or disjoint i64 %4, 2
@@ -354,7 +354,7 @@ define dso_local void @_ZN5clang12TemplateNameC2EPNS_22AssumedTemplateStorageE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12TemplateNameC2EPNS_32SubstTemplateTemplateParmStorageE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12TemplateNameC2EPNS_32SubstTemplateTemplateParmStorageE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -7
   %5 = or disjoint i64 %4, 2
@@ -363,7 +363,7 @@ define dso_local void @_ZN5clang12TemplateNameC2EPNS_32SubstTemplateTemplateParm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12TemplateNameC2EPNS_36SubstTemplateTemplateParmPackStorageE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12TemplateNameC2EPNS_36SubstTemplateTemplateParmPackStorageE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -7
   %5 = or disjoint i64 %4, 2
@@ -372,7 +372,7 @@ define dso_local void @_ZN5clang12TemplateNameC2EPNS_36SubstTemplateTemplateParm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12TemplateNameC2EPNS_21QualifiedTemplateNameE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12TemplateNameC2EPNS_21QualifiedTemplateNameE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -7
   %5 = or disjoint i64 %4, 4
@@ -381,7 +381,7 @@ define dso_local void @_ZN5clang12TemplateNameC2EPNS_21QualifiedTemplateNameE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12TemplateNameC2EPNS_21DependentTemplateNameE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12TemplateNameC2EPNS_21DependentTemplateNameE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = or i64 %3, 6
   store i64 %4, ptr %0, align 8
@@ -389,7 +389,7 @@ define dso_local void @_ZN5clang12TemplateNameC2EPNS_21DependentTemplateNameE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12TemplateNameC2EPNS_15UsingShadowDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang12TemplateNameC2EPNS_15UsingShadowDeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, -7
   store i64 %4, ptr %0, align 8

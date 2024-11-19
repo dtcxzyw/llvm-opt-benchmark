@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.7 = private unnamed_addr constant [24 x i8] c"Refining abstraction...\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Gia_ManAbsSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 76)) %0) local_unnamed_addr #0 {
+define void @Gia_ManAbsSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %0, i8 0, i64 44, i1 false)
   store i32 10, ptr %2, align 4
@@ -292,7 +292,7 @@ define range(i32 -2147483648, 2147483647) i32 @Saig_ManCexFirstFlopPi(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Saig_ManCexRefine(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef writeonly initializes((0, 4)) %9, ptr noundef %10) local_unnamed_addr #2 {
+define ptr @Saig_ManCexRefine(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr nocapture noundef writeonly %9, ptr noundef %10) local_unnamed_addr #2 {
   %12 = alloca %struct.Pdr_Par_t_, align 8
   %13 = alloca %struct.Saig_ParBbr_t_, align 4
   store i32 -1, ptr %9, align 4

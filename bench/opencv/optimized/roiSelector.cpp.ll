@@ -112,7 +112,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %19, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { i64, i64 } @_ZN12_GLOBAL__N_111ROISelector6selectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3MatEbbb(ptr noundef nonnull align 8 dereferenceable(164) initializes((144, 145), (152, 164)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { i64, i64 } @_ZN12_GLOBAL__N_111ROISelector6selectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN2cv3MatEbbb(ptr noundef nonnull align 8 dereferenceable(164) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::_InputArray", align 8
   %8 = alloca %"class.cv::Mat", align 8
   %9 = alloca %"class.cv::_InputOutputArray", align 8

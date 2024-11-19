@@ -46,7 +46,7 @@ $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPPN3p2t5PointESt6vectorIS4_SaI
 @_ZN3p2t12SweepContextD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3p2t12SweepContextD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3p2t12SweepContextC2ERKSt6vectorIPNS_5PointESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 57), (64, 73), (80, 104)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %polyline) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3p2t12SweepContextC2ERKSt6vectorIPNS_5PointESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %polyline) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %edge_event = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %edge_event, align 8

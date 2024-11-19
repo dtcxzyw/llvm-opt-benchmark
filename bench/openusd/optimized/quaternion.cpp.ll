@@ -54,7 +54,7 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternion9GetL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternion13GetNormalizedEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, double noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternion13GetNormalizedEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, double noundef %2) local_unnamed_addr #2 align 2 {
   %4 = load double, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
@@ -137,7 +137,7 @@ define noundef double @_ZN32pxrInternal_v0_24__pxrReserved__12GfQuaternion9Norma
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternion10GetInverseEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfQuaternion10GetInverseEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
   %3 = load double, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
@@ -237,7 +237,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN32pxrInternal_v0_24__
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpERKNS_12GfQuaternionES2_d(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, double noundef %3) local_unnamed_addr #5 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpERKNS_12GfQuaternionES2_d(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, double noundef %3) local_unnamed_addr #5 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -324,7 +324,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionES2_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionES2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion") align 8 initializes((0, 32)) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) local_unnamed_addr #6 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfSlerpEdRKNS_12GfQuaternionES2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion") align 8 %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load double, ptr %5, align 8

@@ -53,7 +53,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN7nanogui10RenderPassD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7nanogui10RenderPassD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui10RenderPassC2ESt6vectorIPNS_6ObjectESaIS3_EES3_S3_S3_b(ptr noundef nonnull align 8 dereferenceable(173) initializes((0, 12)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui10RenderPassC2ESt6vectorIPNS_6ObjectESaIS3_EES3_S3_S3_b(ptr noundef nonnull align 8 dereferenceable(173) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.nanogui::Array.10", align 8
   %8 = alloca %"struct.nanogui::Array.10", align 4
   %9 = alloca %"struct.nanogui::Array.10", align 4
@@ -1007,7 +1007,7 @@ _ZNSt12_Vector_baseIN7nanogui3refINS0_6ObjectEEESaIS3_EED2Ev.exit: ; preds = %_Z
 declare void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7nanogui10RenderPassD2Ev(ptr noundef nonnull align 8 dereferenceable(173) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui10RenderPassD2Ev(ptr noundef nonnull align 8 dereferenceable(173) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui10RenderPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 132
   invoke void @glDeleteFramebuffers(i32 noundef 1, ptr noundef nonnull %2)
@@ -1094,7 +1094,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7nanogui10RenderPassD0Ev(ptr noundef nonnull align 8 dereferenceable(173) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define hidden void @_ZN7nanogui10RenderPassD0Ev(ptr noundef nonnull align 8 dereferenceable(173) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN7nanogui10RenderPassD2Ev(ptr noundef nonnull align 8 dereferenceable(173) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
   ret void
@@ -1104,7 +1104,7 @@ define hidden void @_ZN7nanogui10RenderPassD0Ev(ptr noundef nonnull align 8 dere
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui10RenderPass5beginEv(ptr noundef nonnull align 8 dereferenceable(173) initializes((128, 129)) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN7nanogui10RenderPass5beginEv(ptr noundef nonnull align 8 dereferenceable(173) %0) local_unnamed_addr #5 align 2 {
   %2 = alloca i8, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 1, ptr %3, align 8
@@ -1242,7 +1242,7 @@ declare void @glGetBooleanv(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare zeroext i8 @glIsEnabled(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui10RenderPass12set_viewportERKNS_5ArrayIiLm2EEES4_(ptr nocapture noundef nonnull align 8 dereferenceable(173) initializes((80, 96)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN7nanogui10RenderPass12set_viewportERKNS_5ArrayIiLm2EEES4_(ptr nocapture noundef nonnull align 8 dereferenceable(173) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load i64, ptr %1, align 4
   store i64 %5, ptr %4, align 8
@@ -1317,7 +1317,7 @@ declare void @glClearBufferfi(i32 noundef, i32 noundef, float noundef, i32 nound
 declare void @glClearBufferfv(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui10RenderPass14set_depth_testENS0_9DepthTestEb(ptr nocapture noundef nonnull align 8 dereferenceable(173) initializes((104, 109)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui10RenderPass14set_depth_testENS0_9DepthTestEb(ptr nocapture noundef nonnull align 8 dereferenceable(173) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %1, ptr %5, align 8
@@ -1375,7 +1375,7 @@ switch.lookup:                                    ; preds = %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui10RenderPass13set_cull_modeENS0_8CullModeE(ptr nocapture noundef nonnull align 8 dereferenceable(173) initializes((112, 116)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui10RenderPass13set_cull_modeENS0_8CullModeE(ptr nocapture noundef nonnull align 8 dereferenceable(173) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 128
@@ -1779,14 +1779,14 @@ _ZNSt6vectorIN7nanogui5ColorESaIS1_EE2atEm.exit:  ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7nanogui10RenderPass15set_clear_depthEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(173) initializes((72, 76)) %0, float noundef %1) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN7nanogui10RenderPass15set_clear_depthEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(173) %0, float noundef %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store float %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7nanogui10RenderPass17set_clear_stencilEh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(173) initializes((76, 77)) %0, i8 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN7nanogui10RenderPass17set_clear_stencilEh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(173) %0, i8 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   store i8 %1, ptr %3, align 4
   ret void

@@ -1371,7 +1371,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @__archive_reset_read_data(ptr nocapture noundef writeonly initializes((96, 129), (136, 144)) %0) local_unnamed_addr #6 {
+define dso_local void @__archive_reset_read_data(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96
@@ -2999,7 +2999,7 @@ __archive_read_free_filters.exit:                 ; preds = %.lr.ph.i, %26, %clo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_archive_read_next_header(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @_archive_read_next_header(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   store ptr null, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8

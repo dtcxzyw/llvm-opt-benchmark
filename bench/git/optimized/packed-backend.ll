@@ -2841,7 +2841,7 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @prefix_ref_iterator_begin(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 1) i32 @packed_ref_iterator_advance(ptr noundef initializes((176, 184)) %ref_iterator) #0 {
+define internal range(i32 -2, 1) i32 @packed_ref_iterator_advance(ptr noundef %ref_iterator) #0 {
 entry:
   %p.i = alloca ptr, align 8
   %refname_buf.i = getelementptr inbounds i8, ptr %ref_iterator, i64 168

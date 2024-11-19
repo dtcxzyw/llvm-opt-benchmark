@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [3 x i8] c"wb\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @tmpFile(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @tmpFile(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #11
   %6 = add i64 %4, 7

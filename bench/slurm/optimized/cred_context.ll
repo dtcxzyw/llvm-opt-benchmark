@@ -1072,7 +1072,7 @@ declare ptr @create_mmap_buf(ptr noundef) local_unnamed_addr #1
 declare i32 @slurm_unpack_list(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_job_state_unpack(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 zeroext %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @_job_state_unpack(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 160, ptr noundef nonnull @__func__._job_state_unpack) #12
   store ptr %5, ptr %4, align 8
@@ -1143,7 +1143,7 @@ define internal range(i32 -1, 1) i32 @_job_state_unpack(ptr nocapture noundef wr
 declare void @warning(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_cred_state_unpack(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 zeroext %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @_cred_state_unpack(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.3, i32 noundef 197, ptr noundef nonnull @__func__._cred_state_unpack) #12
   store ptr %5, ptr %4, align 8

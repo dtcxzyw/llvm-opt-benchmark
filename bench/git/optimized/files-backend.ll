@@ -3883,7 +3883,7 @@ out:                                              ; preds = %if.else, %land.lhs.
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef range(i32 -1, 1) i32 @open_or_create_logfile(ptr nocapture noundef readonly %path, ptr nocapture noundef writeonly initializes((0, 4)) %cb) #9 {
+define internal noundef range(i32 -1, 1) i32 @open_or_create_logfile(ptr nocapture noundef readonly %path, ptr nocapture noundef writeonly %cb) #9 {
 entry:
   %call = tail call i32 (ptr, i32, ...) @open64(ptr noundef %path, i32 noundef 1089, i32 noundef 438) #19
   store i32 %call, ptr %cb, align 4

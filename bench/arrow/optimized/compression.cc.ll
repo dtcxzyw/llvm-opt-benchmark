@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow4util5Codec4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define void @_ZN5arrow4util5Codec4InitEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !4
   ret void

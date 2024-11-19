@@ -2012,7 +2012,7 @@ define hidden range(i8 -1, 2) i8 @"_ZN74_$LT$cranelift_isle..serialize..Score$u2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN75_$LT$cranelift_isle..serialize..Candidate$u20$as$u20$core..clone..Clone$GT$5clone17h3a9b1bbe3f331158E"(ptr nocapture writeonly sret({ { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }) align 8 initializes((0, 9), (16, 22)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define hidden void @"_ZN75_$LT$cranelift_isle..serialize..Candidate$u20$as$u20$core..clone..Clone$GT$5clone17h3a9b1bbe3f331158E"(ptr nocapture writeonly sret({ { i64, i8, [7 x i8] }, { { i16, [2 x i16] } }, [1 x i16] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %.sroa.01 = alloca { i16, [2 x i16] }, align 8
   %3 = load i64, ptr %1, align 8, !noundef !3
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2210,7 +2210,7 @@ default.unreachable:                              ; preds = %13
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN80_$LT$cranelift_isle..serialize..EqualCandidate$u20$as$u20$core..clone..Clone$GT$5clone17h5b75841a52d99705E"(ptr nocapture writeonly sret({ { i64, i8, [7 x i8] }, i16, [3 x i16] }) align 8 initializes((0, 9), (16, 18)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define hidden void @"_ZN80_$LT$cranelift_isle..serialize..EqualCandidate$u20$as$u20$core..clone..Clone$GT$5clone17h5b75841a52d99705E"(ptr nocapture writeonly sret({ { i64, i8, [7 x i8] }, i16, [3 x i16] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %3 = load i64, ptr %1, align 8, !noundef !3
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8, !range !17, !noundef !3

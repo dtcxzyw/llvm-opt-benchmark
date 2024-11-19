@@ -1914,7 +1914,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %47, %49
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20DeclarationNameTableC2ERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(824) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang20DeclarationNameTableC2ERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(824) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN4llvm14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 6) #16

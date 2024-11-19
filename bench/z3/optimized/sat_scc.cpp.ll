@@ -120,7 +120,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat3sccC2ERNS_6solverERK10params_ref(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(4408) %s, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat3sccC2ERNS_6solverERK10params_ref(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(4408) %s, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i = alloca %struct.sat_scc_params, align 8
   store ptr %s, ptr %this, align 8
@@ -178,7 +178,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 declare void @_ZN3sat3bigC1ER10random_gen(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3sat3scc16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((12, 20)) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3sat3scc16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_num_elim = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %m_num_elim, align 4

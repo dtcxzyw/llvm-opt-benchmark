@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [5 x i8] c"cuda\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @coll_base_module_construct(ptr nocapture noundef writeonly initializes((16, 592)) %0) #0 {
+define internal void @coll_base_module_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(576) %2, i8 0, i64 576, i1 false)
   ret void
@@ -114,7 +114,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @coll_base_comm_construct(ptr nocapture noundef writeonly initializes((16, 152)) %0) #0 {
+define internal void @coll_base_comm_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(136) %2, i8 0, i64 136, i1 false)
   ret void

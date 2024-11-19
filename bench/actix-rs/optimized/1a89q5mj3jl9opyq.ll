@@ -1430,7 +1430,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.12734530818944442833.e
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN86_$LT$http..header..name..HeaderName$u20$as$u20$actix_http..header..as_name..Sealed$GT$11try_as_name17h9eb332c938ef8667E.llvm.12734530818944442833"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #8 {
+define hidden void @"_ZN86_$LT$http..header..name..HeaderName$u20$as$u20$actix_http..header..as_name..Sealed$GT$11try_as_name17h9eb332c938ef8667E.llvm.12734530818944442833"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 %1) unnamed_addr #8 {
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1915,7 +1915,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5ae82b950fabfc
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833"(ptr noalias nocapture noundef writeonly sret({ ptr, i64, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #9 {
+define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h910d68a6a4249954E.llvm.12734530818944442833"(ptr noalias nocapture noundef writeonly sret({ ptr, i64, i64 }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 168
   %4 = load i64, ptr %3, align 8, !noundef !7
   %5 = icmp ugt i64 %4, 4
@@ -1964,7 +1964,7 @@ define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$6inline17
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN90_$LT$$RF$http..header..name..HeaderName$u20$as$u20$actix_http..header..as_name..Sealed$GT$11try_as_name17h55cb22516d5a1439E.llvm.12734530818944442833"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #11 {
+define hidden void @"_ZN90_$LT$$RF$http..header..name..HeaderName$u20$as$u20$actix_http..header..as_name..Sealed$GT$11try_as_name17h55cb22516d5a1439E.llvm.12734530818944442833"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #11 {
   %3 = load ptr, ptr %1, align 8, !nonnull !7, !align !22, !noundef !7
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

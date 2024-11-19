@@ -367,7 +367,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21NewDefaultCacheDumperERKNS_16CacheDumpOptionsERKSt10shared_ptrINS_5CacheEEOSt10unique_ptrINS_15CacheDumpWriterESt14default_deleteIS9_EEPS8_INS_11CacheDumperESA_ISE_EE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %dump_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cache, ptr nocapture noundef nonnull align 8 dereferenceable(8) %writer, ptr nocapture noundef %cache_dumper) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21NewDefaultCacheDumperERKNS_16CacheDumpOptionsERKSt10shared_ptrINS_5CacheEEOSt10unique_ptrINS_15CacheDumpWriterESt14default_deleteIS9_EEPS8_INS_11CacheDumperESA_ISE_EE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %dump_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cache, ptr nocapture noundef nonnull align 8 dereferenceable(8) %writer, ptr nocapture noundef %cache_dumper) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15CacheDumperImplE, i64 16), ptr %call, align 8
@@ -435,7 +435,7 @@ _ZNSt10unique_ptrIN7rocksdb11CacheDumperESt14default_deleteIS1_EE5resetEPS1_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb27NewDefaultCacheDumpedLoaderERKNS_16CacheDumpOptionsERKNS_22BlockBasedTableOptionsERKSt10shared_ptrINS_14SecondaryCacheEEOSt10unique_ptrINS_15CacheDumpReaderESt14default_deleteISC_EEPSB_INS_17CacheDumpedLoaderESD_ISH_EE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %dump_options, ptr nocapture noundef nonnull readnone align 8 dereferenceable(248) %toptions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %secondary_cache, ptr nocapture noundef nonnull align 8 dereferenceable(8) %reader, ptr nocapture noundef %cache_dump_loader) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb27NewDefaultCacheDumpedLoaderERKNS_16CacheDumpOptionsERKNS_22BlockBasedTableOptionsERKSt10shared_ptrINS_14SecondaryCacheEEOSt10unique_ptrINS_15CacheDumpReaderESt14default_deleteISC_EEPSB_INS_17CacheDumpedLoaderESD_ISH_EE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %dump_options, ptr nocapture noundef nonnull readnone align 8 dereferenceable(248) %toptions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %secondary_cache, ptr nocapture noundef nonnull align 8 dereferenceable(8) %reader, ptr nocapture noundef %cache_dump_loader) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb21CacheDumpedLoaderImplE, i64 16), ptr %call, align 8

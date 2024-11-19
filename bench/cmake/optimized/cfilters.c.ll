@@ -332,7 +332,7 @@ define dso_local i64 @Curl_conn_send(ptr noundef %0, i32 noundef %1, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 28) i32 @Curl_cf_create(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 28) i32 @Curl_cf_create(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @Curl_ccalloc, align 8
   %5 = tail call ptr %4(i64 noundef 1, i64 noundef 40) #11
   %.not = icmp eq ptr %5, null
@@ -351,7 +351,7 @@ define dso_local range(i32 0, 28) i32 @Curl_cf_create(ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_conn_cf_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((8, 16), (24, 36)) %3) local_unnamed_addr #0 {
+define dso_local void @Curl_conn_cf_add(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 432
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds [2 x ptr], ptr %5, i64 0, i64 %6
@@ -1638,7 +1638,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @Curl_conn_get_max_concu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_pollset_reset(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #6 {
+define dso_local void @Curl_pollset_reset(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %3, i8 0, i64 12, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1, i8 -1, i64 20, i1 false)

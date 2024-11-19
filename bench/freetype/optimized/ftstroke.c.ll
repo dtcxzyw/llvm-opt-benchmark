@@ -296,7 +296,7 @@ declare i64 @FT_Atan2(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare void @FT_Vector_From_Polar(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ft_stroker_subpath_start(ptr nocapture noundef nonnull initializes((136, 137)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @ft_stroker_subpath_start(ptr nocapture noundef nonnull %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = alloca %struct.FT_Vector_, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 104

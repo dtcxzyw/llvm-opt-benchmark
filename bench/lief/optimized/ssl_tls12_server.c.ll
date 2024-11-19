@@ -215,7 +215,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_dtls_cookies(ptr nocapture noundef writeonly initializes((136, 160)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define hidden void @mbedtls_ssl_conf_dtls_cookies(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 144
@@ -3508,7 +3508,7 @@ declare i32 @mbedtls_ssl_write_finished(ptr noundef) local_unnamed_addr #6
 declare void @mbedtls_ssl_handshake_wrapup(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_conf_preference_order(ptr nocapture noundef writeonly initializes((19, 20)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden void @mbedtls_ssl_conf_preference_order(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 19
   store i8 %3, ptr %4, align 1

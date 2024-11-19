@@ -1551,7 +1551,7 @@ return:                                           ; preds = %if.then.i, %if.end,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @do_ioctl_usbdevfs_reapurb(ptr nocapture noundef readonly %ie, ptr noundef initializes((0, 8)) %buf_temp, i32 noundef %fd, i32 %cmd, i64 noundef %arg) #2 {
+define internal i64 @do_ioctl_usbdevfs_reapurb(ptr nocapture noundef readonly %ie, ptr noundef %buf_temp, i32 noundef %fd, i32 %cmd, i64 noundef %arg) #2 {
 entry:
   %usbfsurb_arg_type = alloca [2 x i32], align 8
   %ptrvoid_arg_type = alloca [3 x i32], align 4
@@ -10431,7 +10431,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocaptur
 declare ptr @lock_user_string(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @host_to_target_termios(ptr nocapture noundef writeonly initializes((0, 36)) %dst, ptr nocapture noundef readonly %src) #2 {
+define internal void @host_to_target_termios(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #2 {
 entry:
   %0 = load i32, ptr %src, align 4
   %call = tail call i32 @host_to_target_bitmask_len(i32 noundef %0, ptr noundef nonnull @iflag_tbl, i64 noundef 15) #27
@@ -10528,7 +10528,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @target_to_host_termios(ptr nocapture noundef writeonly initializes((0, 36)) %dst, ptr nocapture noundef readonly %src) #2 {
+define internal void @target_to_host_termios(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src) #2 {
 entry:
   %0 = load i32, ptr %src, align 4
   %call1 = tail call i32 @target_to_host_bitmask_len(i32 noundef %0, ptr noundef nonnull @iflag_tbl, i64 noundef 15) #27
@@ -19213,7 +19213,7 @@ declare i64 @qemu_guest_random_seed_thread_part1() local_unnamed_addr #5
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal noalias noundef nonnull ptr @clone_func(ptr noundef initializes((104, 108)) %arg) #23 {
+define internal noalias noundef nonnull ptr @clone_func(ptr noundef %arg) #23 {
 entry:
   tail call void @rcu_register_thread() #27
   tail call void @tcg_register_thread() #27

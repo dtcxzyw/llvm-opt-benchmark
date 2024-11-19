@@ -614,7 +614,7 @@ define { i64, i64 } @_ZN7xgboost10collective10SockAddrV49InaddrAnyEv() local_unn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10collective10SockAddrV68LoopbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::collective::SockAddrV6") align 4 initializes((0, 28)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN7xgboost10collective10SockAddrV68LoopbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::collective::SockAddrV6") align 4 %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %"class.xgboost::collective::SockAddress", align 4
   call void @_ZN7xgboost10collective15MakeSockAddressENS_10StringViewEt(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::collective::SockAddress") align 4 %2, ptr nonnull @.str.5, i64 3, i16 noundef zeroext 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false)
@@ -622,7 +622,7 @@ define void @_ZN7xgboost10collective10SockAddrV68LoopbackEv(ptr dead_on_unwind n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10collective10SockAddrV69InaddrAnyEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::collective::SockAddrV6") align 4 initializes((0, 28)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN7xgboost10collective10SockAddrV69InaddrAnyEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::collective::SockAddrV6") align 4 %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %"class.xgboost::collective::SockAddress", align 4
   call void @_ZN7xgboost10collective15MakeSockAddressENS_10StringViewEt(ptr dead_on_unwind nonnull writable sret(%"class.xgboost::collective::SockAddress") align 4 %2, ptr nonnull @.str.6, i64 2, i16 noundef zeroext 0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %2, i64 28, i1 false)

@@ -1564,7 +1564,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122InlineCostCallAnalyzerC2ERN4llvm8FunctionERNS1_8CallBaseERKNS1_12InlineParamsERKNS1_19TargetTransformInfoENS1_12function_refIFRNS1_15AssumptionCacheES3_EEENSC_IFRNS1_18BlockFrequencyInfoES3_EEEPNS1_18ProfileSummaryInfoEPNS1_25OptimizationRemarkEmitterEbb(ptr noundef nonnull align 8 dereferenceable(768) initializes((0, 97), (104, 140), (144, 164), (168, 188), (192, 212)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 4 dereferenceable(66) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.0.val, i64 %.8.val, ptr nocapture noundef readonly byval(%"class.llvm::function_ref.79") align 8 %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122InlineCostCallAnalyzerC2ERN4llvm8FunctionERNS1_8CallBaseERKNS1_12InlineParamsERKNS1_19TargetTransformInfoENS1_12function_refIFRNS1_15AssumptionCacheES3_EEENSC_IFRNS1_18BlockFrequencyInfoES3_EEEPNS1_18ProfileSummaryInfoEPNS1_25OptimizationRemarkEmitterEbb(ptr noundef nonnull align 8 dereferenceable(768) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 4 dereferenceable(66) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr %.0.val, i64 %.8.val, ptr nocapture noundef readonly byval(%"class.llvm::function_ref.79") align 8 %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN12_GLOBAL__N_112CallAnalyzerE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %11, align 8
@@ -2972,7 +2972,7 @@ _ZNSt8optionalIN4llvm15CostBenefitPairEED2Ev.exit: ; preds = %1, %_ZN4llvm5APInt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23getInliningCostFeaturesERNS_8CallBaseERNS_19TargetTransformInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS4_IFRNS_18BlockFrequencyInfoES8_EEEPNS_18ProfileSummaryInfoEPNS_25OptimizationRemarkEmitterE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.121") align 4 initializes((100, 101)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::function_ref.79") align 8 %5, ptr noundef %6, ptr nocapture noundef readnone %7) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm23getInliningCostFeaturesERNS_8CallBaseERNS_19TargetTransformInfoENS_12function_refIFRNS_15AssumptionCacheERNS_8FunctionEEEENS4_IFRNS_18BlockFrequencyInfoES8_EEEPNS_18ProfileSummaryInfoEPNS_25OptimizationRemarkEmitterE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.121") align 4 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::function_ref.79") align 8 %5, ptr noundef %6, ptr nocapture noundef readnone %7) local_unnamed_addr #0 {
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i:
   %8 = alloca %"class.(anonymous namespace)::InlineCostFeaturesAnalyzer", align 8
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
@@ -3080,7 +3080,7 @@ _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyzerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(736) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyzerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(736) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -3888,7 +3888,7 @@ _ZNSt8optionalIN4llvm15CostBenefitPairEED2Ev.exit: ; preds = %_ZN4llvm10InlineCo
 declare noundef ptr @_ZN4llvm12BlockAddress3getEPNS_10BasicBlockE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm15getInlineParamsEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::InlineParams") align 4 initializes((0, 9), (16, 17), (24, 25), (32, 33), (36, 41), (48, 49), (52, 57), (61, 62), (63, 66)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local void @_ZN4llvm15getInlineParamsEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::InlineParams") align 4 %0, i32 noundef %1) local_unnamed_addr #5 {
 _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEESA_ISt6__and_IJSt9is_scalarIiESB_IiNSt5decayISE_E4typeEEEEESt16is_constructibleIiJSE_EESt13is_assignableIRiSE_EEERS0_E4typeEOSE_.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3964,7 +3964,7 @@ _ZNSt8optionalIiEaSIRN4llvm2cl3optIiLb0ENS3_6parserIiEEEEEENSt9enable_ifIX7__and
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN4llvm15getInlineParamsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::InlineParams") align 4 initializes((0, 9), (16, 17), (24, 25), (32, 33), (36, 41), (48, 49), (52, 57), (61, 62), (63, 66)) %0) local_unnamed_addr #6 {
+define dso_local void @_ZN4llvm15getInlineParamsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::InlineParams") align 4 %0) local_unnamed_addr #6 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL16DefaultThreshold, i64 128), align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4041,7 +4041,7 @@ _ZN4llvm15getInlineParamsEi.exit:                 ; preds = %27, %.sink.split.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN4llvm15getInlineParamsEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::InlineParams") align 4 initializes((0, 9), (16, 17), (24, 25), (32, 33), (36, 41), (48, 49), (52, 57), (61, 62), (63, 66)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define dso_local void @_ZN4llvm15getInlineParamsEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::InlineParams") align 4 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp ugt i32 %1, 2
   br i1 %4, label %_ZL29computeThresholdFromOptLevelsjj.exit, label %5
 
@@ -5879,7 +5879,7 @@ define internal void @_ZN12_GLOBAL__N_122InlineCostCallAnalyzerD0Ev(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN12_GLOBAL__N_122InlineCostCallAnalyzer12onBlockStartEPKN4llvm10BasicBlockE(ptr nocapture noundef nonnull align 8 dereferenceable(768) initializes((656, 660)) %0, ptr nocapture readnone %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_122InlineCostCallAnalyzer12onBlockStartEPKN4llvm10BasicBlockE(ptr nocapture noundef nonnull align 8 dereferenceable(768) %0, ptr nocapture readnone %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 652
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 656
@@ -8129,7 +8129,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10AllocaInstEiNS_12DenseMapInfoIS3_vEENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112CallAnalyzerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(592) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112CallAnalyzerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN12_GLOBAL__N_112CallAnalyzerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -8240,7 +8240,7 @@ _ZN4llvm8DenseMapIPNS_5ValueESt4pairIS2_NS_5APIntEENS_12DenseMapInfoIS2_vEENS_6d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112CallAnalyzerD0Ev(ptr noundef nonnull align 8 dereferenceable(592) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112CallAnalyzerD0Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_112CallAnalyzerD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %0) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 592) #29
   ret void
@@ -8981,7 +8981,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEN12_GLOBAL__N_121Instruct
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEN12_GLOBAL__N_121InstructionCostDetailENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionEN12_GLOBAL__N_121InstructionCostDetailENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -22614,7 +22614,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZSt9__find_ifIN4llvm10SwitchInst16Case
 declare noundef ptr @_ZNK4llvm11Instruction12getSuccessorEj(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyzerD0Ev(ptr noundef nonnull align 8 dereferenceable(736) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyzerD0Ev(ptr noundef nonnull align 8 dereferenceable(736) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 712
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 728
@@ -22852,7 +22852,7 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyze
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noalias noundef ptr @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyzer15onAnalysisStartEv(ptr nocapture noundef nonnull align 8 dereferenceable(736) initializes((668, 676), (696, 704)) %0) unnamed_addr #0 align 2 {
+define internal noalias noundef ptr @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyzer15onAnalysisStartEv(ptr nocapture noundef nonnull align 8 dereferenceable(736) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -23023,7 +23023,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_10AllocaInstEjNS_12DenseMapInfoIS3_vEENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyzer24onDisableLoadEliminationEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(736) initializes((600, 604)) %0) unnamed_addr #22 align 2 {
+define internal void @_ZN12_GLOBAL__N_126InlineCostFeaturesAnalyzer24onDisableLoadEliminationEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(736) %0) unnamed_addr #22 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 600
   store i32 1, ptr %2, align 8
   ret void

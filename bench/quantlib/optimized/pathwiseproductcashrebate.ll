@@ -85,7 +85,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29MarketModelPathwiseCashRebateC2ENS_20EvolutionDescriptionERKSt6vectorIdSaIdEENS_6MatrixEm(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 160)) %this, ptr nocapture noundef %evolution, ptr noundef nonnull align 8 dereferenceable(24) %paymentTimes, ptr nocapture noundef %amounts, i64 noundef %numberOfProducts) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib29MarketModelPathwiseCashRebateC2ENS_20EvolutionDescriptionERKSt6vectorIdSaIdEENS_6MatrixEm(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef %evolution, ptr noundef nonnull align 8 dereferenceable(24) %paymentTimes, ptr nocapture noundef %amounts, i64 noundef %numberOfProducts) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1044,7 +1044,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit26:                  ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib29MarketModelPathwiseCashRebate21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib29MarketModelPathwiseCashRebate21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %paymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 144
@@ -1104,7 +1104,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib29MarketModelPathwiseCashRebate5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((192, 200)) %this) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib29MarketModelPathwiseCashRebate5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %this) unnamed_addr #8 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i64 0, ptr %currentIndex_, align 8, !tbaa !55

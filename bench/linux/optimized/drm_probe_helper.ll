@@ -1450,7 +1450,7 @@ define dso_local void @drm_kms_helper_poll_disable(ptr noundef %0) #0 align 16 {
 declare dso_local zeroext i1 @cancel_delayed_work_sync(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_kms_helper_poll_init(ptr noundef initializes((816, 824)) %0) #0 align 16 {
+define dso_local void @drm_kms_helper_poll_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 816
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 824

@@ -103,7 +103,7 @@ $_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_lengt
 @_ZN7mitsuba6LoggerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7mitsuba6LoggerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba6LoggerC2ENS_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba6LoggerC2ENS_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba6LoggerE, i64 16), ptr %0, align 8
@@ -144,7 +144,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 declare void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7mitsuba6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba6LoggerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -273,7 +273,7 @@ define noundef ptr @_ZNK7mitsuba6Logger9formatterEv(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7mitsuba6Logger13set_log_levelENS_8LogLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN7mitsuba6Logger13set_log_levelENS_8LogLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void

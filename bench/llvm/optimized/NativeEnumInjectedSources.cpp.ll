@@ -71,7 +71,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_
 @_ZN4llvm3pdb25NativeEnumInjectedSourcesC1ERNS0_7PDBFileERKNS0_20InjectedSourceStreamERKNS0_14PDBStringTableE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN4llvm3pdb25NativeEnumInjectedSourcesC2ERNS0_7PDBFileERKNS0_20InjectedSourceStreamERKNS0_14PDBStringTableE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm3pdb25NativeEnumInjectedSourcesC2ERNS0_7PDBFileERKNS0_20InjectedSourceStreamERKNS0_14PDBStringTableE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(124) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb25NativeEnumInjectedSourcesC2ERNS0_7PDBFileERKNS0_20InjectedSourceStreamERKNS0_14PDBStringTableE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(104) %2, ptr noundef nonnull align 8 dereferenceable(124) %3) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm3pdb25NativeEnumInjectedSourcesE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -266,7 +266,7 @@ _ZNSt10unique_ptrIN4llvm3pdb12_GLOBAL__N_120NativeInjectedSourceESt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb25NativeEnumInjectedSources7getNextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.85") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm3pdb25NativeEnumInjectedSources7getNextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.85") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -318,7 +318,7 @@ _ZNK4llvm3pdb17HashTableIteratorINS0_19SrcHeaderBlockEntryEEeqERKS3_.exit.thread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3pdb25NativeEnumInjectedSources5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((32, 40)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm3pdb25NativeEnumInjectedSources5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 {
 _ZNK4llvm3pdb20InjectedSourceStream5beginEv.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load ptr, ptr %1, align 8

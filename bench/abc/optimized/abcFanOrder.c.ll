@@ -323,7 +323,7 @@ declare i32 @Abc_SopGetCubeNum(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkSopTranspose(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Abc_NtkSopTranspose(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4
   %6 = load i8, ptr %0, align 1
@@ -2528,7 +2528,7 @@ define i32 @Abc_NodeCompareCubes2(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NodeSortCubes(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Abc_NodeSortCubes(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr i8, ptr %0, i64 28

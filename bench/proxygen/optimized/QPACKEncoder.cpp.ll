@@ -546,7 +546,7 @@ _ZN8proxygen17HPACKEncodeBufferD2Ev.exit:         ; preds = %entry, %_ZNK5folly1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen12QPACKEncoder6encodeERKSt6vectorINS_11HPACKHeaderESaIS2_EEjmj(ptr noalias nocapture writeonly sret(%"struct.proxygen::QPACKEncoder::EncodeResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(624) initializes((344, 352)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %headers, i32 noundef %headroom, i64 noundef %streamId, i32 noundef %maxEncoderStreamBytes) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen12QPACKEncoder6encodeERKSt6vectorINS_11HPACKHeaderESaIS2_EEjmj(ptr noalias nocapture writeonly sret(%"struct.proxygen::QPACKEncoder::EncodeResult") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(624) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %headers, i32 noundef %headroom, i64 noundef %streamId, i32 noundef %maxEncoderStreamBytes) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %controlQueue = alloca %"class.folly::IOBufQueue", align 8
   %ref.tmp = alloca %"struct.folly::IOBufQueue::Options", align 1
@@ -744,7 +744,7 @@ ehcleanup25:                                      ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen12QPACKEncoder11startEncodeERN5folly10IOBufQueueEjj(ptr noundef nonnull align 8 dereferenceable(624) initializes((344, 352)) %this, ptr noundef nonnull align 8 dereferenceable(72) %controlQueue, i32 noundef %headroom, i32 noundef %maxEncoderStreamBytes) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8proxygen12QPACKEncoder11startEncodeERN5folly10IOBufQueueEjj(ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(72) %controlQueue, i32 noundef %headroom, i32 noundef %maxEncoderStreamBytes) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 344
   store ptr %controlQueue, ptr %0, align 8
@@ -1870,7 +1870,7 @@ eh.resume:                                        ; preds = %lpad38, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen12QPACKEncoder13getNameIndexQERKNS_15HPACKHeaderNameE(ptr noalias nocapture writeonly sret(%"class.std::tuple.39") align 4 initializes((0, 9)) %agg.result, ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(8) %headerName) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen12QPACKEncoder13getNameIndexQERKNS_15HPACKHeaderNameE(ptr noalias nocapture writeonly sret(%"class.std::tuple.39") align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(624) %this, ptr noundef nonnull align 8 dereferenceable(8) %headerName) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 152
   %call.i = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN8proxygen22QPACKStaticHeaderTable3getEv()
@@ -3692,7 +3692,7 @@ return:                                           ; preds = %entry, %while.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen12QPACKEncoder26setMaxNumOutstandingBlocksEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(624) initializes((620, 624)) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
+define void @_ZN8proxygen12QPACKEncoder26setMaxNumOutstandingBlocksEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(624) %this, i32 noundef %value) local_unnamed_addr #8 align 2 {
 entry:
   %maxNumOutstandingBlocks_ = getelementptr inbounds i8, ptr %this, i64 620
   store i32 %value, ptr %maxNumOutstandingBlocks_, align 4

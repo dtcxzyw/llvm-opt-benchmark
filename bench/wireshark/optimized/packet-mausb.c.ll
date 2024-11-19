@@ -520,7 +520,7 @@ define hidden zeroext range(i8 0, 16) i8 @mausb_ep_handle_bus_num(i16 noundef ze
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mausb_set_usb_conv_info(ptr nocapture noundef writeonly initializes((0, 5), (8, 12), (20, 28)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden void @mausb_set_usb_conv_info(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %1, i64 1
   %.val = load i8, ptr %3, align 1
   %4 = icmp eq i8 %.val, -128

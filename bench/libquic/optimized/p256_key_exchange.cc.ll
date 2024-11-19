@@ -43,7 +43,7 @@ $_ZTIN3net11KeyExchangeE = comdat any
 @_ZN3net15P256KeyExchangeD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net15P256KeyExchangeD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net15P256KeyExchangeC2EP9ec_key_stPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((0, 81)) %this, ptr noundef %private_key, ptr nocapture noundef readonly %public_key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net15P256KeyExchangeC2EP9ec_key_stPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) %this, ptr noundef %private_key, ptr nocapture noundef readonly %public_key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %this, align 8
   %private_key_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -57,7 +57,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net15P256KeyExchangeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net15P256KeyExchangeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %this, align 8
   %private_key_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -105,7 +105,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net15P256KeyExchangeD0Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net15P256KeyExchangeD0Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net15P256KeyExchangeE, i64 16), ptr %this, align 8
   %private_key_.i = getelementptr inbounds i8, ptr %this, i64 8

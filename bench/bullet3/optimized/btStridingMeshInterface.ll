@@ -616,7 +616,7 @@ for.end434:                                       ; preds = %sw.epilog429, %entr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btStridingMeshInterface23calculateAabbBruteForceER9btVector3S1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(16) initializes((0, 16)) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) initializes((0, 16)) %aabbMax) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btStridingMeshInterface23calculateAabbBruteForceER9btVector3S1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %aabbCallback = alloca %struct.AabbCalculationCallback, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN23btStridingMeshInterface23calculateAabbBruteForceER9btVector3S1_E23AabbCalculationCallback, i64 16), ptr %aabbCallback, align 8
@@ -679,7 +679,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK23btStridingMeshInterface9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 8), (24, 28)) %dataBuffer, ptr noundef %serializer) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK23btStridingMeshInterface9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %dataBuffer, ptr noundef %serializer) unnamed_addr #3 align 2 {
 entry:
   %vertexbase = alloca ptr, align 8
   %indexbase = alloca ptr, align 8

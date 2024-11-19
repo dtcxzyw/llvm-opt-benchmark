@@ -45,7 +45,7 @@ define internal ptr @winfnt_get_service(ptr nocapture readnone %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248, 256)) %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.WinMZ_HeaderRec_, align 2
   %8 = alloca %struct.WinNE_HeaderRec_, align 2
@@ -1315,7 +1315,7 @@ define internal range(i32 0, 24) i32 @FNT_Size_Request(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FNT_Size_Select(ptr nocapture noundef initializes((48, 64), (72, 80)) %0, i64 %1) #0 {
+define internal noundef i32 @FNT_Size_Select(ptr nocapture noundef %0, i64 %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8
@@ -1348,7 +1348,7 @@ define internal noundef i32 @FNT_Size_Select(ptr nocapture noundef initializes((
 declare hidden ptr @ft_service_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @winfnt_get_header(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 208)) %1) #2 {
+define internal noundef i32 @winfnt_get_header(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1452,7 +1452,7 @@ declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare hidden i32 @FT_Stream_ExtractFrame(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @fnt_cmap_init(ptr nocapture noundef initializes((24, 32)) %0, ptr nocapture readnone %1) #5 {
+define internal noundef i32 @fnt_cmap_init(ptr nocapture noundef %0, ptr nocapture readnone %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 248
   %5 = load ptr, ptr %4, align 8

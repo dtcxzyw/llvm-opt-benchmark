@@ -8399,7 +8399,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114ql_dsp_macc_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(700) initializes((120, 121)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114ql_dsp_macc_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(700) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [75 x i32], align 4
   %4 = alloca %"class.std::allocator.10", align 1
   %5 = alloca [75 x i32], align 4

@@ -426,7 +426,7 @@ $_ZTVSt23_Sp_counted_ptr_inplaceIN4llvm13BitCodeAbbrevESaIvELN9__gnu_cxx12_Lock_
 @_ZN5clang17GlobalModuleIndexD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang17GlobalModuleIndexD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17GlobalModuleIndexC2ESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS3_EENS2_15BitstreamCursorE(ptr noundef nonnull align 8 dereferenceable(1496) initializes((0, 16)) %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang17GlobalModuleIndexC2ESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS3_EENS2_15BitstreamCursorE(ptr noundef nonnull align 8 dereferenceable(1496) %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -14370,7 +14370,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang13serialization10ModuleFileEjNS_12De
 declare void @_ZN4llvm13StringMapImpl9RemoveKeyEPNS_18StringMapEntryBaseE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN5clang17GlobalModuleIndex10writeIndexERNS5_11FileManagerERKNS5_18PCHContainerReaderENS0_9StringRefEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN4llvm5ErrorERNS0_11raw_ostreamEEZN5clang17GlobalModuleIndex10writeIndexERNS5_11FileManagerERKNS5_18PCHContainerReaderENS0_9StringRefEE3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) #0 align 2 {
   %.val = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
   %4 = load ptr, ptr %.val, align 8, !noalias !412

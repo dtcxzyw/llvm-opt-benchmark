@@ -1284,7 +1284,7 @@ declare i32 @slurmdb_get_first_het_job_cluster(ptr noundef, ptr noundef, ptr nou
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_copy_other_port(ptr nocapture noundef writeonly initializes((472, 474)) %0, ptr nocapture noundef readonly %1) #4 {
+define internal noundef i32 @_copy_other_port(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #4 {
   %3 = load i16, ptr %1, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 472
   store i16 %3, ptr %4, align 8

@@ -647,7 +647,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4LIEF10FileStreamC2EOS0_(ptr noundef nonnull align 8 dereferenceable(552) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(552) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4LIEF10FileStreamC2EOS0_(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(552) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF12BinaryStreamE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -678,7 +678,7 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EOS2_(ptr noundef nonn
 declare void @_ZN4LIEF12BinaryStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(552) ptr @_ZN4LIEF10FileStreamaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(552) initializes((8, 24)) %0, ptr noundef nonnull align 8 dereferenceable(552) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(552) ptr @_ZN4LIEF10FileStreamaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(552) %0, ptr noundef nonnull align 8 dereferenceable(552) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false)
@@ -695,7 +695,7 @@ define hidden noundef nonnull align 8 dereferenceable(552) ptr @_ZN4LIEF10FileSt
 declare noundef nonnull align 8 dereferenceable(256) ptr @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEaSEOS2_(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 8 dereferenceable(256)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4LIEF10FileStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(552) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN4LIEF10FileStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF10FileStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %2) #22
@@ -707,7 +707,7 @@ define hidden void @_ZN4LIEF10FileStreamD2Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4LIEF10FileStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(552) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN4LIEF10FileStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(552) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF10FileStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %2) #22

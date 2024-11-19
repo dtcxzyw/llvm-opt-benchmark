@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [5 x i8] c"%5d \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManFanoutStart(ptr nocapture noundef initializes((232, 244)) %0) local_unnamed_addr #0 {
+define void @Gia_ManFanoutStart(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %2, align 8
   %3 = shl nsw i32 %.val, 1
@@ -252,7 +252,7 @@ Gia_ObjWhatFanin.exit:                            ; preds = %36, %42, %Gia_ObjFa
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Gia_ManFanoutStop(ptr nocapture noundef initializes((240, 244)) %0) local_unnamed_addr #3 {
+define void @Gia_ManFanoutStop(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

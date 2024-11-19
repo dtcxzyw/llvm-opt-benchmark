@@ -285,7 +285,7 @@ declare void @__gmpz_powm(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 declare void @__gmpz_clear(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z16srp_verifier_new17SRP_HashAlgorithm10SRP_NGTypePKcPKhmS4_mS4_mS4_mPPhPmS2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %bytes_v, i64 noundef %len_v, ptr noundef %bytes_A, i64 noundef %len_A, ptr noundef %bytes_b, i64 noundef %len_b, ptr nocapture noundef initializes((0, 8)) %bytes_B, ptr nocapture noundef writeonly initializes((0, 8)) %len_B, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
+define dso_local noundef ptr @_Z16srp_verifier_new17SRP_HashAlgorithm10SRP_NGTypePKcPKhmS4_mS4_mS4_mPPhPmS2_S2_(i32 noundef %alg, i32 noundef %ng_type, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %bytes_v, i64 noundef %len_v, ptr noundef %bytes_A, i64 noundef %len_A, ptr noundef %bytes_b, i64 noundef %len_b, ptr nocapture noundef %bytes_B, ptr nocapture noundef writeonly %len_B, ptr noundef %n_hex, ptr noundef %g_hex) local_unnamed_addr #4 {
 entry:
   %v = alloca [1 x %struct.__mpz_struct], align 16
   %A = alloca [1 x %struct.__mpz_struct], align 16
@@ -886,7 +886,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z27srp_verifier_verify_sessionP11SRPVerifierPKhPPh(ptr noundef %ver, ptr nocapture noundef readonly %user_M, ptr nocapture noundef writeonly initializes((0, 8)) %bytes_HAMK) local_unnamed_addr #13 {
+define dso_local void @_Z27srp_verifier_verify_sessionP11SRPVerifierPKhPPh(ptr noundef %ver, ptr nocapture noundef readonly %user_M, ptr nocapture noundef writeonly %bytes_HAMK) local_unnamed_addr #13 {
 entry:
   %M = getelementptr inbounds i8, ptr %ver, i64 36
   %0 = load i32, ptr %ver, align 8, !tbaa !19
@@ -1160,7 +1160,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_Z29srp_user_start_authenticationP7SRPUserPPcPKhmPPhPm(ptr noundef %usr, ptr noundef writeonly %username, ptr noundef %bytes_a, i64 noundef %len_a, ptr nocapture noundef initializes((0, 8)) %bytes_A, ptr nocapture noundef writeonly initializes((0, 8)) %len_A) local_unnamed_addr #4 {
+define dso_local noundef range(i32 0, 2) i32 @_Z29srp_user_start_authenticationP7SRPUserPPcPKhmPPhPm(ptr noundef %usr, ptr noundef writeonly %username, ptr noundef %bytes_a, i64 noundef %len_a, ptr nocapture noundef %bytes_A, ptr nocapture noundef writeonly %len_A) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq ptr %bytes_a, null
   %a1 = getelementptr inbounds i8, ptr %usr, i64 16
@@ -1251,7 +1251,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z26srp_user_process_challengeP7SRPUserPKhmS2_mPPhPm(ptr noundef %usr, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %bytes_B, i64 noundef %len_B, ptr nocapture noundef writeonly initializes((0, 8)) %bytes_M, ptr nocapture noundef writeonly initializes((0, 8)) %len_M) local_unnamed_addr #4 {
+define dso_local void @_Z26srp_user_process_challengeP7SRPUserPKhmS2_mPPhPm(ptr noundef %usr, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef %bytes_B, i64 noundef %len_B, ptr nocapture noundef writeonly %bytes_M, ptr nocapture noundef writeonly %len_M) local_unnamed_addr #4 {
 entry:
   %B = alloca [1 x %struct.__mpz_struct], align 16
   %u = alloca [1 x %struct.__mpz_struct], align 16

@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched88], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_migrate_init(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_migrate_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.i915_vm_pt_stash, align 8
   %4 = alloca %struct.insert_pte_data, align 8
   %5 = alloca %struct.i915_gem_ww_ctx, align 8
@@ -362,7 +362,7 @@ define dso_local ptr @intel_migrate_create_context(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr nocapture noundef initializes((0, 8)) %8) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_context_migrate_copy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6, i1 noundef zeroext %7, ptr nocapture noundef %8) local_unnamed_addr #0 align 16 {
   %10 = alloca %struct.sgt_dma, align 8
   %11 = alloca %struct.sgt_dma, align 8
   %12 = alloca %struct.sgt_dma, align 8
@@ -1410,7 +1410,7 @@ define internal fastcc i32 @emit_copy_ccs(ptr noundef %0, i32 noundef range(i32 
 declare dso_local void @i915_request_add(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef initializes((0, 8)) %6) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr nocapture noundef %6) local_unnamed_addr #0 align 16 {
   %8 = alloca %struct.sgt_dma, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -1786,7 +1786,7 @@ define dso_local i32 @intel_context_migrate_clear(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_migrate_copy(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr nocapture noundef initializes((0, 8)) %9) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_migrate_copy(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr nocapture noundef %9) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %9, align 8
   %11 = load ptr, ptr %0, align 8
   %12 = icmp eq ptr %11, null
@@ -1915,7 +1915,7 @@ define dso_local i32 @intel_migrate_copy(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_migrate_clear(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef initializes((0, 8)) %7) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_migrate_clear(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
   %10 = icmp eq ptr %9, null

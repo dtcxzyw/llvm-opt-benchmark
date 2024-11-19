@@ -5340,7 +5340,7 @@ define hidden void @proto_register_isakmp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev1_users_icookie_set_cb(ptr nocapture noundef initializes((8, 12)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev1_users_icookie_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -5360,7 +5360,7 @@ define internal void @ikev1_users_icookie_set_cb(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev1_users_icookie_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev1_users_icookie_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -5386,7 +5386,7 @@ define internal void @ikev1_users_icookie_tostr_cb(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev1_users_key_set_cb(ptr nocapture noundef initializes((24, 28)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev1_users_key_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -5407,7 +5407,7 @@ define internal void @ikev1_users_key_set_cb(ptr nocapture noundef initializes((
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev1_users_key_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev1_users_key_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5434,7 +5434,7 @@ define internal void @ikev1_users_key_tostr_cb(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_spii_set_cb(ptr nocapture noundef initializes((8, 12)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_spii_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -5454,7 +5454,7 @@ define internal void @ikev2_users_spii_set_cb(ptr nocapture noundef initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_spii_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_spii_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -5480,7 +5480,7 @@ define internal void @ikev2_users_spii_tostr_cb(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_spir_set_cb(ptr nocapture noundef initializes((24, 28)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_spir_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -5501,7 +5501,7 @@ define internal void @ikev2_users_spir_set_cb(ptr nocapture noundef initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_spir_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_spir_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5528,7 +5528,7 @@ define internal void @ikev2_users_spir_tostr_cb(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_sk_ei_set_cb(ptr nocapture noundef initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_sk_ei_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -5549,7 +5549,7 @@ define internal void @ikev2_users_sk_ei_set_cb(ptr nocapture noundef initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_sk_ei_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_sk_ei_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5576,7 +5576,7 @@ define internal void @ikev2_users_sk_ei_tostr_cb(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_sk_er_set_cb(ptr nocapture noundef initializes((64, 68)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_sk_er_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -5597,7 +5597,7 @@ define internal void @ikev2_users_sk_er_set_cb(ptr nocapture noundef initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_sk_er_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_sk_er_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5626,7 +5626,7 @@ define internal void @ikev2_users_sk_er_tostr_cb(ptr nocapture noundef readonly 
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_encr_alg_set_cb(ptr nocapture noundef writeonly initializes((32, 36)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_encr_alg_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #17
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5716,7 +5716,7 @@ define internal void @ikev2_users_encr_alg_tostr_cb(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_sk_ai_set_cb(ptr nocapture noundef initializes((80, 84)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_sk_ai_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -5737,7 +5737,7 @@ define internal void @ikev2_users_sk_ai_set_cb(ptr nocapture noundef initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_sk_ai_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_sk_ai_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5764,7 +5764,7 @@ define internal void @ikev2_users_sk_ai_tostr_cb(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_sk_ar_set_cb(ptr nocapture noundef initializes((96, 100)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_sk_ar_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -5785,7 +5785,7 @@ define internal void @ikev2_users_sk_ar_set_cb(ptr nocapture noundef initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_sk_ar_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_sk_ar_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5812,7 +5812,7 @@ define internal void @ikev2_users_sk_ar_tostr_cb(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ikev2_users_auth_alg_set_cb(ptr nocapture noundef writeonly initializes((36, 40)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @ikev2_users_auth_alg_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #17
   %8 = getelementptr inbounds i8, ptr %0, i64 36
@@ -6394,7 +6394,7 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ikev1_uat_data_copy_cb(ptr noundef returned writeonly initializes((0, 12), (16, 28)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @ikev1_uat_data_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
@@ -6470,7 +6470,7 @@ define internal void @ikev1_uat_data_free_cb(ptr nocapture noundef readonly %0) 
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ikev2_uat_data_copy_cb(ptr noundef returned writeonly initializes((0, 12), (16, 28), (32, 52), (56, 68), (72, 84), (88, 100), (104, 120)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @ikev2_uat_data_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
@@ -6743,7 +6743,7 @@ declare void @dissector_add_uint_with_preference(ptr noundef, i32 noundef, ptr n
 declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @dissect_payload_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -65535, -2147483648) %3, i32 noundef %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %6, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @dissect_payload_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 -65535, -2147483648) %3, i32 noundef %4, i8 noundef zeroext %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr noundef %8) unnamed_addr #0 {
   %10 = icmp slt i32 %3, 4
   br i1 %10, label %11, label %13
 
@@ -7882,7 +7882,7 @@ define internal fastcc i32 @dissect_ipsec_attribute(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct._attribute_common_fields) align 8 %3, ptr noundef %4, ptr nocapture noundef nonnull initializes((0, 4)) %5, ptr nocapture noundef nonnull initializes((0, 4)) %6, ptr nocapture noundef nonnull initializes((0, 4)) %7, ptr nocapture noundef nonnull initializes((0, 8)) %8, ptr nocapture noundef nonnull initializes((0, 8)) %9) unnamed_addr #0 {
+define internal fastcc void @dissect_attribute_header(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly byval(%struct._attribute_common_fields) align 8 %3, ptr noundef %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull %8, ptr nocapture noundef nonnull %9) unnamed_addr #0 {
   %11 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %2) #17
   %.not = icmp sgt i16 %11, -1
   %12 = and i16 %11, 32767

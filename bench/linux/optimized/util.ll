@@ -76,7 +76,7 @@ define internal noundef i32 @ipc_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ipc_init_ids(ptr noundef initializes((0, 6)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @ipc_init_ids(ptr noundef %0) local_unnamed_addr #1 align 16 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i16 0, ptr %2, align 4
@@ -1098,7 +1098,7 @@ declare dso_local zeroext i1 @ns_capable(ptr noundef, i32 noundef) local_unnamed
 declare dso_local i32 @security_ipc_permission(ptr noundef, i16 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @kernel_to_ipc64_perm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 26)) %1) local_unnamed_addr #5 align 16 {
+define dso_local void @kernel_to_ipc64_perm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4
   store i32 %4, ptr %1, align 8
@@ -1142,7 +1142,7 @@ define dso_local void @kernel_to_ipc64_perm(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ipc64_perm_to_ipc_perm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 26)) %1) local_unnamed_addr #6 align 16 {
+define dso_local void @ipc64_perm_to_ipc_perm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 align 16 {
   %3 = load i32, ptr %0, align 8
   store i32 %3, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4

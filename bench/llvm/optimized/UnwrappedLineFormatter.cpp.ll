@@ -2960,7 +2960,7 @@ _ZN5clang6format9LineStateD2Ev.exit:              ; preds = %22, %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang6format12_GLOBAL__N_123OptimizingLineFormatterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3302,7 +3302,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnul
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang6format12_GLOBAL__N_118LevelIndentTracker8nextLineERKNS0_13AnnotatedLineE(ptr noundef nonnull align 8 dereferenceable(96) initializes((88, 92)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang6format12_GLOBAL__N_118LevelIndentTracker8nextLineERKNS0_13AnnotatedLineE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 422
   %5 = load i8, ptr %4, align 2
@@ -5451,7 +5451,7 @@ define internal void @_ZN5clang6format12_GLOBAL__N_120NoLineBreakFormatterD0Ev(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 136) #17
   ret void

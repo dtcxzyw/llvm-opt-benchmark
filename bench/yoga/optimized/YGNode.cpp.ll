@@ -561,7 +561,7 @@ declare void @_ZN8facebook4yoga19assertFatalWithNodeEPKNS0_4NodeEbPKc(ptr nounde
 declare void @_ZN8facebook4yoga4Node21markDirtyAndPropagateEv(ptr noundef nonnull align 8 dereferenceable(640)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @YGNodeSetDirtiedFunc(ptr nocapture noundef writeonly initializes((40, 48)) %node, ptr noundef %dirtiedFunc) local_unnamed_addr #6 {
+define void @YGNodeSetDirtiedFunc(ptr nocapture noundef writeonly %node, ptr noundef %dirtiedFunc) local_unnamed_addr #6 {
 entry:
   %dirtiedFunc_.i = getelementptr inbounds i8, ptr %node, i64 40
   store ptr %dirtiedFunc, ptr %dirtiedFunc_.i, align 8
@@ -1189,7 +1189,7 @@ entry:
 declare void @_ZN8facebook4yoga4Node9setConfigEPNS0_6ConfigE(ptr noundef nonnull align 8 dereferenceable(640), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @YGNodeSetContext(ptr nocapture noundef writeonly initializes((8, 16)) %node, ptr noundef %context) local_unnamed_addr #6 {
+define void @YGNodeSetContext(ptr nocapture noundef writeonly %node, ptr noundef %context) local_unnamed_addr #6 {
 entry:
   %context_.i = getelementptr inbounds i8, ptr %node, i64 8
   store ptr %context, ptr %context_.i, align 8
@@ -1223,7 +1223,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @YGNodeSetBaselineFunc(ptr nocapture noundef writeonly initializes((24, 32)) %node, ptr noundef %baselineFunc) local_unnamed_addr #6 {
+define void @YGNodeSetBaselineFunc(ptr nocapture noundef writeonly %node, ptr noundef %baselineFunc) local_unnamed_addr #6 {
 entry:
   %baselineFunc_.i = getelementptr inbounds i8, ptr %node, i64 24
   store ptr %baselineFunc, ptr %baselineFunc_.i, align 8
@@ -1293,7 +1293,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @YGNodeSetPrintFunc(ptr nocapture noundef writeonly initializes((32, 40)) %node, ptr noundef %printFunc) local_unnamed_addr #6 {
+define void @YGNodeSetPrintFunc(ptr nocapture noundef writeonly %node, ptr noundef %printFunc) local_unnamed_addr #6 {
 entry:
   %printFunc_.i = getelementptr inbounds i8, ptr %node, i64 32
   store ptr %printFunc, ptr %printFunc_.i, align 8

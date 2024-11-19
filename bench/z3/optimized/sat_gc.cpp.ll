@@ -1652,7 +1652,7 @@ return:                                           ; preds = %if.else.i.i, %for.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat6solver7gc_varsEj(ptr noundef nonnull align 8 dereferenceable(4408) initializes((3992, 3996)) %this, i32 noundef %max_var) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3sat6solver7gc_varsEj(ptr noundef nonnull align 8 dereferenceable(4408) %this, i32 noundef %max_var) local_unnamed_addr #4 align 2 {
 entry:
   %m_visited.i = getelementptr inbounds i8, ptr %this, i64 3984
   %m_justification.i.i = getelementptr inbounds i8, ptr %this, i64 3448

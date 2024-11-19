@@ -116,7 +116,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN28ReferenceProcessorPhaseTimesD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN28ReferenceProcessorPhaseTimesD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24RefProcWorkerTimeTrackerC2EP15WorkerDataArrayIdEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN24RefProcWorkerTimeTrackerC2EP15WorkerDataArrayIdEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = tail call noundef double @_ZN2os11elapsedTimeEv() #11
@@ -159,7 +159,7 @@ _ZN15WorkerDataArrayIdE10set_or_addEjd.exit:      ; preds = %1, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN33RefProcSubPhasesWorkerTimeTrackerC2EN18ReferenceProcessor16RefProcSubPhasesEP28ReferenceProcessorPhaseTimesj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 28)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN33RefProcSubPhasesWorkerTimeTrackerC2EN18ReferenceProcessor16RefProcSubPhasesEP28ReferenceProcessorPhaseTimesj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = zext i32 %1 to i64
   %7 = getelementptr inbounds [5 x ptr], ptr %2, i64 0, i64 %6
@@ -182,7 +182,7 @@ define hidden noundef ptr @_ZNK28ReferenceProcessorPhaseTimes25sub_phase_worker_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27RefProcPhaseTimeBaseTrackerC2EPKcN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 44)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN27RefProcPhaseTimeBaseTrackerC2EPKcN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr %3, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -297,7 +297,7 @@ _ZN27RefProcPhaseTimeBaseTracker9end_ticksEv.exit: ; preds = %._crit_edge.i, %6
 declare void @_ZN7GCTimer21register_gc_phase_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31RefProcBalanceQueuesTimeTrackerC2EN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 44)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN31RefProcBalanceQueuesTimeTrackerC2EN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -389,7 +389,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes26set_balance_queues_time_m
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN29RefProcTotalPhaseTimesTrackerC2EN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 44)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN29RefProcTotalPhaseTimesTrackerC2EN18ReferenceProcessor13RefProcPhasesEP28ReferenceProcessorPhaseTimes(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds [3 x ptr], ptr @_ZL10PhaseNames, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
@@ -484,7 +484,7 @@ define hidden void @_ZN28ReferenceProcessorPhaseTimes17set_phase_time_msEN18Refe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ReferenceProcessorPhaseTimesC2EP7GCTimerj(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((168, 169), (176, 184)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN28ReferenceProcessorPhaseTimesC2EP7GCTimerj(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 176

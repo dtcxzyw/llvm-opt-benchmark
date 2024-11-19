@@ -8,7 +8,7 @@ $_ZN9metaspace9BlockTree21remove_node_from_treeEPNS0_4NodeE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0, ptr noundef initializes((0, 8)) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace10FreeBlocks9add_blockEPP12MetaWordImplm(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 296
   %5 = load i64, ptr %4, align 8
   %6 = icmp ugt i64 %2, %5

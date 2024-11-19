@@ -270,7 +270,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare ptr @strerror(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16cmFileLockResultC2ENS_9ErrorTypeEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 align 2 {
+define dso_local void @_ZN16cmFileLockResultC2ENS_9ErrorTypeEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #6 align 2 {
   store i32 %1, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4

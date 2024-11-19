@@ -4337,7 +4337,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSo
 declare void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto17SignConfigurationC2EOS1_(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(120) %other) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto17SignConfigurationC2EOS1_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %other) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto17SignConfigurationE, i64 16), ptr %this, align 8
   %job_mode = getelementptr inbounds i8, ptr %this, i64 8
@@ -4818,7 +4818,7 @@ if.end:                                           ; preds = %_ZN4node13MemoryTra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 258) i16 @_ZN4node6crypto10SignTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_17SignConfigurationE(i32 noundef %mode, ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef %offset, ptr noundef initializes((8, 12)) %params) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6crypto10SignTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_17SignConfigurationE(i32 noundef %mode, ptr noundef nonnull align 8 dereferenceable(20) %args, i32 noundef %offset, ptr noundef %params) local_unnamed_addr #3 align 2 {
 entry:
   %key = alloca %"class.node::crypto::ManagedEVPPKey", align 8
   %keyParamOffset = alloca i32, align 4

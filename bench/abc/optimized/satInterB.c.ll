@@ -200,7 +200,7 @@ define i32 @Intb_ManGlobalVars(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Intb_ManResize(ptr nocapture noundef initializes((116, 120)) %0) local_unnamed_addr #4 {
+define void @Intb_ManResize(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 116
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -2098,7 +2098,7 @@ Intb_ManEnqueue.exit76:                           ; preds = %144
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Intb_ManProcessRoots(ptr nocapture noundef initializes((40, 44)) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @Intb_ManProcessRoots(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2345,7 +2345,7 @@ define void @Intb_ManPrepareInter(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Intb_ManInterpolate(ptr nocapture noundef initializes((0, 20), (88, 96), (116, 120)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @Intb_ManInterpolate(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)

@@ -83,7 +83,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers25QuantifiersBoundInferenceC2Ejb(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 5)) %this, i32 noundef %cardMax, i1 noundef zeroext %isFmf) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers25QuantifiersBoundInferenceC2Ejb(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %cardMax, i1 noundef zeroext %isFmf) unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %isFmf to i8
   store i32 %cardMax, ptr %this, align 8
@@ -104,7 +104,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers25QuantifiersBoundInference10finishInitEPNS2_15BoundedIntegersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((64, 72)) %this, ptr noundef %b) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers25QuantifiersBoundInference10finishInitEPNS2_15BoundedIntegersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr noundef %b) local_unnamed_addr #3 align 2 {
 entry:
   %d_bint = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %b, ptr %d_bint, align 8

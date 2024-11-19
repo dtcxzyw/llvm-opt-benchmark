@@ -341,7 +341,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21ForwardMeasureProcess21setForwardMeasureTimeEd(ptr noundef nonnull align 8 dereferenceable(136) initializes((128, 136)) %this, double noundef %T) unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib21ForwardMeasureProcess21setForwardMeasureTimeEd(ptr noundef nonnull align 8 dereferenceable(136) %this, double noundef %T) unnamed_addr #6 align 2 {
 entry:
   %T_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   store double %T, ptr %T_, align 8, !tbaa !34
@@ -481,7 +481,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23ForwardMeasureProcess1D21setForwardMeasureTimeEd(ptr noundef nonnull align 8 dereferenceable(152) initializes((144, 152)) %this, double noundef %T) unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib23ForwardMeasureProcess1D21setForwardMeasureTimeEd(ptr noundef nonnull align 8 dereferenceable(152) %this, double noundef %T) unnamed_addr #6 align 2 {
 entry:
   %T_ = getelementptr inbounds nuw i8, ptr %this, i64 144
   store double %T, ptr %T_, align 8, !tbaa !47

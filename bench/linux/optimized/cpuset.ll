@@ -1828,7 +1828,7 @@ define dso_local void @cpuset_init_smp() local_unnamed_addr #4 section ".init.te
 declare dso_local ptr @alloc_workqueue(ptr noundef, i32 noundef, i32 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cpuset_cpus_allowed(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #2 align 16 {
+define dso_local void @cpuset_cpus_allowed(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 16 {
   %3 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull @callback_lock) #19
   tail call void @__rcu_read_lock() #19
   %4 = getelementptr inbounds i8, ptr %0, i64 2272
@@ -3947,7 +3947,7 @@ define internal fastcc range(i32 0, 9) i32 @update_parent_effective_cpumask(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @remote_partition_disable(ptr noundef %0, ptr noundef initializes((16, 24)) %1) unnamed_addr #2 align 16 {
+define internal fastcc void @remote_partition_disable(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.css_task_iter, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -7310,7 +7310,7 @@ update_tasks_cpumask.exit:                        ; preds = %112, %100
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @remote_partition_check(i64 %.240.val, i64 %.0.val, ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @remote_partition_check(i64 %.240.val, i64 %.0.val, ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = xor i64 %.0.val, -1
   %4 = and i64 %.240.val, %3
   store i64 %4, ptr %0, align 8

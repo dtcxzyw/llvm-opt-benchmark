@@ -2699,7 +2699,7 @@ declare noundef ptr @_ZNK4llvm10BasicBlock9getModuleEv(ptr noundef nonnull align
 declare noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopLatchEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115LoopPredication13parseLoopICmpEPN4llvm8ICmpInstE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((24, 25)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115LoopPredication13parseLoopICmpEPN4llvm8ICmpInstE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1, ptr nocapture noundef nonnull readonly %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %5 = load i16, ptr %4, align 2
   %6 = and i16 %5, 63

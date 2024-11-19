@@ -220,7 +220,7 @@ HorizontalUnfilter_C.exit:                        ; preds = %.lr.ph, %.lr.ph.i, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @HorizontalFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #3 {
+define internal void @HorizontalFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #3 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 1
@@ -310,7 +310,7 @@ DoHorizontalFilter_C.exit:                        ; preds = %.lr.ph.split.i, %Pr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VerticalFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #3 {
+define internal void @VerticalFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #3 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 1
@@ -377,7 +377,7 @@ DoVerticalFilter_C.exit:                          ; preds = %PredictLine_C.exit5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @GradientFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) #3 {
+define internal void @GradientFilter_C(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #3 {
   %6 = load i8, ptr %0, align 1
   store i8 %6, ptr %4, align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 1

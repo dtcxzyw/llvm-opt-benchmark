@@ -1378,7 +1378,7 @@ _ZN6IfNode10cmpi_foldsEP12PhaseIterGVNb.exit.thread: ; preds = %61, %24, %29, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6IfNode17has_shared_regionEP8ProjNodeRS1_S2_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6IfNode17has_shared_regionEP8ProjNodeRS1_S2_(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef ptr @_ZNK8ProjNode13other_if_projEv(ptr noundef nonnull align 8 dereferenceable(57) %1) #8
   %6 = tail call noundef ptr @_ZNK4Node23unique_ctrl_out_or_nullEv(ptr noundef nonnull align 8 dereferenceable(52) %5) #8
   %.not = icmp eq ptr %6, null
@@ -1543,7 +1543,7 @@ declare noundef ptr @_ZN8ciMethod17get_flow_analysisEv(ptr noundef nonnull align
 declare noundef zeroext i1 @_ZN10ciTypeFlow15is_dominated_byEii(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK6IfNode18uncommon_trap_projERP18CallStaticJavaNode(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK6IfNode18uncommon_trap_projERP18CallStaticJavaNode(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   br label %3
 
 3:                                                ; preds = %2, %9

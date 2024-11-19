@@ -772,7 +772,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers4inst15TriggerTermInfo23isUsableRelationTriggerENS0_12NodeTemplateILb1EEERbS7_RS6_(ptr nocapture noundef readonly %n, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %hasPol, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %pol, ptr nocapture noundef nonnull align 8 dereferenceable(8) %lit) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers4inst15TriggerTermInfo23isUsableRelationTriggerENS0_12NodeTemplateILb1EEERbS7_RS6_(ptr nocapture noundef readonly %n, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %hasPol, ptr nocapture noundef nonnull align 1 dereferenceable(1) %pol, ptr nocapture noundef nonnull align 8 dereferenceable(8) %lit) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp4 = alloca %"class.cvc5::internal::TypeNode", align 8

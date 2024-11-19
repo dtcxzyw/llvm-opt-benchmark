@@ -116,7 +116,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.104 = private unnamed_addr constant [2 x i8] c"\FF\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @telnet_do(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal i32 @telnet_do(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
 entry:
   %buf.i23.i233.i = alloca [3 x i8], align 1
   %buf.i.i234.i = alloca [3 x i8], align 1

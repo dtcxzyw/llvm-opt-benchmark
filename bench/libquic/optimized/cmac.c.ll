@@ -315,7 +315,7 @@ return:                                           ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CMAC_Final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly initializes((0, 8)) %out_len) local_unnamed_addr #0 {
+define hidden i32 @CMAC_Final(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #0 {
 entry:
   store i64 16, ptr %out_len, align 8
   %cmp = icmp eq ptr %out, null
@@ -420,7 +420,7 @@ declare i32 @EVP_EncryptInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr nound
 declare i32 @EVP_Cipher(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @CMAC_Reset(ptr noundef initializes((200, 204)) %ctx) local_unnamed_addr #0 {
+define hidden i32 @CMAC_Reset(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %block_used = getelementptr inbounds i8, ptr %ctx, i64 200
   store i32 0, ptr %block_used, align 8

@@ -1344,7 +1344,7 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEEixEOS2_.exit46: ; 
 declare void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK9Statement21get_dereferenced_ptrsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.102") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZNK9Statement21get_dereferenced_ptrsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.102") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #8 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -1570,7 +1570,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit3:       ; preds = %9, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN9StatementC2E14eStatementTypeP5Block(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #9 align 2 {
+define dso_local void @_ZN9StatementC2E14eStatementTypeP5Block(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #9 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9Statement, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8

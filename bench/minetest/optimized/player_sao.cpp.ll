@@ -1376,7 +1376,7 @@ _ZN18ServerActiveObjectD2Ev.exit:                 ; preds = %if.end.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9PlayerSAO8finalizeEP12RemotePlayerRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1089) initializes((856, 864)) %this, ptr noundef %player, ptr noundef nonnull align 8 dereferenceable(48) %privs) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN9PlayerSAO8finalizeEP12RemotePlayerRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1089) %this, ptr noundef %player, ptr noundef nonnull align 8 dereferenceable(48) %privs) local_unnamed_addr #4 align 2 {
 entry:
   %m_player = getelementptr inbounds i8, ptr %this, i64 856
   store ptr %player, ptr %m_player, align 8, !tbaa !17
@@ -2895,7 +2895,7 @@ declare void @_Z17serializeString16B5cxx11St17basic_string_viewIcSt11char_traits
 declare void @_Z17serializeString32B5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9PlayerSAO17getPropertyPacketB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1089) initializes((633, 634)) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN9PlayerSAO17getPropertyPacketB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1089) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_prop = getelementptr inbounds i8, ptr %this, i64 280
   %is_visible = getelementptr inbounds i8, ptr %this, i64 633
@@ -5249,7 +5249,7 @@ return:                                           ; preds = %_ZN9PlayerSAO15setB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN9PlayerSAO12setPlayerYawEf(ptr nocapture noundef nonnull align 8 dereferenceable(1089) initializes((196, 200), (204, 208)) %this, float noundef %yaw) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN9PlayerSAO12setPlayerYawEf(ptr nocapture noundef nonnull align 8 dereferenceable(1089) %this, float noundef %yaw) local_unnamed_addr #11 align 2 {
 entry:
   %m_player = getelementptr inbounds i8, ptr %this, i64 856
   %0 = load ptr, ptr %m_player, align 8, !tbaa !17
@@ -5319,7 +5319,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9PlayerSAO19setPlayerYawAndSendEf(ptr noundef nonnull align 8 dereferenceable(1089) initializes((196, 200), (204, 208)) %this, float noundef %yaw) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN9PlayerSAO19setPlayerYawAndSendEf(ptr noundef nonnull align 8 dereferenceable(1089) %this, float noundef %yaw) local_unnamed_addr #6 align 2 {
 entry:
   %m_player.i = getelementptr inbounds i8, ptr %this, i64 856
   %0 = load ptr, ptr %m_player.i, align 8, !tbaa !17
@@ -7059,7 +7059,7 @@ return:                                           ; preds = %if.then4.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZNK9PlayerSAO15getCollisionBoxEPN3irr4core8aabbox3dIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1089) %this, ptr nocapture noundef writeonly initializes((0, 24)) %toset) unnamed_addr #17 align 2 {
+define dso_local noundef zeroext i1 @_ZNK9PlayerSAO15getCollisionBoxEPN3irr4core8aabbox3dIfEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1089) %this, ptr nocapture noundef writeonly %toset) unnamed_addr #17 align 2 {
 entry:
   %collisionbox = getelementptr inbounds i8, ptr %this, i64 328
   %Z.i = getelementptr inbounds i8, ptr %this, i64 336

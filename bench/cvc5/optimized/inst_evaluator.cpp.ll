@@ -3450,7 +3450,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @_ZN4cvc57context7Context5poptoEj(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval13InstEvaluator19getInstantiationForENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector.55") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1040) %this, ptr nocapture noundef readonly %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval13InstEvaluator19getInstantiationForENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector.55") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1040) %this, ptr nocapture noundef readonly %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp9 = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -3860,7 +3860,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers5ieval5State16setEvaluatorMod
 declare void @_ZNK4cvc58internal6theory11quantifiers5ieval5State13getFailureExpENS0_12NodeTemplateILb1EEERSt13unordered_setIS6_St4hashIS6_ESt8equal_toIS6_ESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(424), ptr noundef, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval13InstEvaluator15getCurrentTermsEv(ptr noalias sret(%"class.std::vector.55") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1040) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval13InstEvaluator15getCurrentTermsEv(ptr noalias sret(%"class.std::vector.55") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1040) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp17 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)

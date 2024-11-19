@@ -5689,7 +5689,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_10Tf_RemnantEED2Ev.exit: ; pre
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__15HdSceneDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(9790) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(9790) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 432) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1376
   %3 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__8TfNotice6RevokeERNS0_3KeyE(ptr noundef nonnull align 8 dereferenceable(16) %2)
@@ -9881,7 +9881,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__7SdfPathENS0_18UsdImagin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegate20_GetDisplayPredicateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimFlagsConjunction") align 8 initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9790) %1) local_unnamed_addr #10 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegate20_GetDisplayPredicateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimFlagsConjunction") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9790) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 9789
   %4 = load i8, ptr %3, align 1
   %5 = trunc i8 %4 to i1
@@ -9904,7 +9904,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__aaERKNS_24Usd_PrimFlagsConjunctionENS_8Usd_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegate33_GetDisplayPredicateForPrototypesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimFlagsConjunction") align 8 initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9790) %1) local_unnamed_addr #11 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegate33_GetDisplayPredicateForPrototypesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimFlagsConjunction") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9790) %1) local_unnamed_addr #11 align 2 {
 _ZN32pxrInternal_v0_24__pxrReserved__aaERKNS_24Usd_PrimFlagsConjunctionENS_8Usd_TermE.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 9789
   %3 = load i8, ptr %2, align 1
@@ -45787,7 +45787,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1Em(ptr noundef n
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegate15GetReprSelectorERKNS_7SdfPathE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::HdReprSelector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9790) %1, ptr nocapture nonnull readnone align 4 %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegate15GetReprSelectorERKNS_7SdfPathE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::HdReprSelector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9790) %1, ptr nocapture nonnull readnone align 4 %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1312
   %5 = load i64, ptr %4, align 8
   store i64 %5, ptr %0, align 8
@@ -47952,7 +47952,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit15: ; preds = %_ZN32pxrInt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegate22GetInstancerPrototypesERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(9790) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdImagingDelegate22GetInstancerPrototypesERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(9790) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.std::vector", align 8
@@ -77611,7 +77611,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_PopulateMaterialBindingCac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_12_GLOBAL__N_129_PopulateMaterialBindingCacheEEEED2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_12_GLOBAL__N_129_PopulateMaterialBindingCacheEEEED2Ev(ptr nocapture noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_12_GLOBAL__N_129_PopulateMaterialBindingCacheEEEEE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
@@ -77680,7 +77680,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS_12_GLOBAL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_12_GLOBAL__N_129_PopulateMaterialBindingCacheEEEED0Ev(ptr noundef nonnull align 64 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_12_GLOBAL__N_129_PopulateMaterialBindingCacheEEEED0Ev(ptr noundef nonnull align 64 dereferenceable(128) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDispatcher12_InvokerTaskINS3_12_GLOBAL__N_129_PopulateMaterialBindingCacheEEEEE, i64 16), ptr %0, align 64
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8

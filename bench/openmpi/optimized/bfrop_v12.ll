@@ -2442,7 +2442,7 @@ declare i32 @pmix12_bfrop_copy_payload(ptr noundef, ptr noundef) #1
 declare i32 @pmix12_bfrop_value_xfer(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @pmix12_bfrop_value_load(ptr nocapture noundef writeonly initializes((0, 2)) %0, ptr noundef readonly %1, i16 noundef zeroext %2) #2 {
+define void @pmix12_bfrop_value_load(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, i16 noundef zeroext %2) #2 {
   store i16 %2, ptr %0, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %7

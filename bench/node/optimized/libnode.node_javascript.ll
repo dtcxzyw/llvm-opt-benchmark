@@ -5903,7 +5903,7 @@ _ZN4node11CopyOnWriteINS_21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node8builtins13BuiltinLoader20LoadJavaScriptSourceEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node8builtins13BuiltinLoader20LoadJavaScriptSourceEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN4node8builtins12_GLOBAL__N_117global_source_mapB5cxx11E, align 8
   store ptr %0, ptr %this, align 8

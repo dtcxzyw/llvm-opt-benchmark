@@ -1198,7 +1198,7 @@ define void @_ZN8uu_rmdir6uu_app17h303fedb70338be0aE(ptr noalias nocapture nound
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8uu_rmdir6uumain6uumain19points_to_directory17h21cf8dea487b7256E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN8uu_rmdir6uumain6uumain19points_to_directory17h21cf8dea487b7256E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [21 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 176, ptr nonnull %4), !noalias !420
   call void @_ZN3std3sys3pal4unix2fs4stat17hbcda46c435a7da25E(ptr noalias nocapture noundef nonnull sret({ i64, [21 x i64] }) align 8 dereferenceable(176) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !424

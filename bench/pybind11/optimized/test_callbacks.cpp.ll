@@ -29722,7 +29722,7 @@ _ZN8pybind116detail15pyobject_casterINS_12cpp_functionEE4castERKNS_6handleENS_19
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_12cpp_functionENS0_9void_typeERZ24test_submodule_callbacksRNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_12cpp_functionENS0_9void_typeERZ24test_submodule_callbacksRNS_7module_EE3$_5EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr", align 8
   %3 = alloca %"struct.pybind11::arg", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !822)
@@ -45371,7 +45371,7 @@ _ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_va
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_4listENS0_9void_typeERZ24test_submodule_callbacksRNS_7module_EE4$_15EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_4listENS0_9void_typeERZ24test_submodule_callbacksRNS_7module_EE4$_15EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"struct.std::type_index", align 8
@@ -48073,7 +48073,7 @@ _ZNSt14_Function_base13_Base_managerIPFdRZ24test_submodule_callbacksRN8pybind117
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFdRZ24test_submodule_callbacksRNS_7module_EE12AbstractBaseEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pybind11::gil_scoped_acquire", align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -54872,7 +54872,7 @@ _ZNSt14_Function_base13_Base_managerIPFvRZ24test_submodule_callbacksRN8pybind117
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN8pybind116detail11type_casterISt8functionIFvRZ24test_submodule_callbacksRNS_7module_EE13MovableObjectEEvE4loadENS_6handleEbEN11func_handleC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pybind11::gil_scoped_acquire", align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -59191,7 +59191,7 @@ declare void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14defaul
 declare void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24test_submodule_callbacksRN8pybind117module_EENK4$_24clERKSt8functionIFviEERKNS3_4listEENKUliE_clEiEUlvE_EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24test_submodule_callbacksRN8pybind117module_EENK4$_24clERKSt8functionIFviEERKNS3_4listEENKUliE_clEiEUlvE_EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24test_submodule_callbacksRN8pybind117module_EENK4$_24clERKSt8functionIFviEERKNS3_4listEENKUliE_clEiEUlvE_EEEEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -59216,7 +59216,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24tes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24test_submodule_callbacksRN8pybind117module_EENK4$_24clERKSt8functionIFviEERKNS3_4listEENKUliE_clEiEUlvE_EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24test_submodule_callbacksRN8pybind117module_EENK4$_24clERKSt8functionIFviEERKNS3_4listEENKUliE_clEiEUlvE_EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZZZ24test_submodule_callbacksRN8pybind117module_EENK4$_24clERKSt8functionIFviEERKNS3_4listEENKUliE_clEiEUlvE_EEEEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8

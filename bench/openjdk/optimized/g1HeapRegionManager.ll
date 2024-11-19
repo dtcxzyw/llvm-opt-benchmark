@@ -468,7 +468,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN19G1HeapRegionClaimerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19G1HeapRegionClaimerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1HeapRegionManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1HeapRegionManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @_ZN20G1CommittedRegionMapC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #16
@@ -495,7 +495,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @_ZN16G1FreeRegionListC1EPKcP22G1HeapRegionSetChecker(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1HeapRegionManager10initializeEP21G1RegionToSpaceMapperS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 16), (80, 84), (144, 160)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1HeapRegionManager10initializeEP21G1RegionToSpaceMapperS1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 144
@@ -1837,7 +1837,7 @@ declare void @_ZN20G1CommittedRegionMap10deactivateEjj(ptr noundef nonnull align
 declare void @_ZN21G1RegionToSpaceMapper22signal_mapping_changedEjm(ptr noundef nonnull align 8 dereferenceable(129), i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK19G1HeapRegionManager31get_auxiliary_data_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK19G1HeapRegionManager31get_auxiliary_data_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -3156,7 +3156,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12G1HeapRegion18get_short_type_strEv
 declare void @_ZN16G1FreeRegionList6verifyEv(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1HeapRegionClaimerC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1HeapRegionClaimerC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8

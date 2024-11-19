@@ -65,7 +65,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Star
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17CreateHTMLPrinterESt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS2_EERNS_12PreprocessorEbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(3288) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang17CreateHTMLPrinterESt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS2_EERNS_12PreprocessorEbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(3288) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_111HTMLPrinterESt14default_deleteIS1_EED2Ev.exit:
   %5 = zext i1 %3 to i8
   %6 = zext i1 %4 to i8
@@ -106,7 +106,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111HTMLPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(98) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111HTMLPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_111HTMLPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -130,7 +130,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111HTMLPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(98) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111HTMLPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(98) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_111HTMLPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -155,7 +155,7 @@ _ZN12_GLOBAL__N_111HTMLPrinterD2Ev.exit:          ; preds = %1, %_ZNKSt14default
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN12_GLOBAL__N_111HTMLPrinter10InitializeERN5clang10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) initializes((16, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %1) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_111HTMLPrinter10InitializeERN5clang10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(98) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(23096) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2104
   %5 = load ptr, ptr %4, align 8

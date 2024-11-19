@@ -14595,7 +14595,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8V3PreLex11endOfStreamB5cxx11ERb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(264) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8V3PreLex11endOfStreamB5cxx11ERb(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(264) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.6", align 1
   %5 = alloca %"class.std::allocator.6", align 1
   %6 = alloca %"class.std::allocator.6", align 1

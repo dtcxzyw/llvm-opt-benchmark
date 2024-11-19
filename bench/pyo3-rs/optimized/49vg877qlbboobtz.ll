@@ -10180,7 +10180,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$16extend_desugared17hf980b8a7d16573
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h24c406ff08afd29bE"(ptr nocapture writeonly sret([112 x i8]) align 8 initializes((0, 8)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
+define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h24c406ff08afd29bE"(ptr nocapture writeonly sret([112 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -10204,7 +10204,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h24c406ff08afd29bE"(ptr nocap
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h4fe6cd008698d233E"(ptr nocapture writeonly sret([144 x i8]) align 8 initializes((0, 8)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
+define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h4fe6cd008698d233E"(ptr nocapture writeonly sret([144 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0
@@ -11160,14 +11160,14 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf8467e53efaa8b74E"(ptr alig
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5clear17he3a827c148f9ccf8E"(ptr nocapture writeonly align 8 initializes((16, 24)) %0) unnamed_addr #4 {
+define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5clear17he3a827c148f9ccf8E"(ptr nocapture writeonly align 8 %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hd122e83d7324a356E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 40)) %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hd122e83d7324a356E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17h1018a32ee370692aE(i64 %4, ptr nonnull align 8 @anon.450564ef7dc3b5ef396704f8db835115.7)
@@ -11192,7 +11192,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hd122e83d7324a356E"(ptr noc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17he9feb6575e331f1fE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 40)) %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17he9feb6575e331f1fE"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17h1018a32ee370692aE(i64 %4, ptr nonnull align 8 @anon.450564ef7dc3b5ef396704f8db835115.7)
@@ -11655,7 +11655,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf8537f2e507af284E"(ptr a
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0f768622cce065a0E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h0f768622cce065a0E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11673,7 +11673,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h123af659365a8d5fE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h123af659365a8d5fE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11691,7 +11691,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h18e207d20bfd72fbE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h18e207d20bfd72fbE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11709,7 +11709,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2b7642fcb1463d49E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2b7642fcb1463d49E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11727,7 +11727,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2bbb537f50d3c8a5E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2bbb537f50d3c8a5E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11745,7 +11745,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2d03e3ef9e6c8c8fE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2d03e3ef9e6c8c8fE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11763,7 +11763,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2de04bb33208be7cE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2de04bb33208be7cE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11781,7 +11781,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h3e6ab75b066e451aE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h3e6ab75b066e451aE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11799,7 +11799,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h4d13284ccc7787dbE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h4d13284ccc7787dbE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11817,7 +11817,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h4e6a7c69ca553a8fE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h4e6a7c69ca553a8fE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11835,7 +11835,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6e41c91e8fb0bfb4E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h6e41c91e8fb0bfb4E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11853,7 +11853,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h717cade5a98c6cc5E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h717cade5a98c6cc5E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11871,7 +11871,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7de15b785a672ca1E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7de15b785a672ca1E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11889,7 +11889,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h87a3ecfb5a827ff1E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h87a3ecfb5a827ff1E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11907,7 +11907,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h91b6a4c76ee0725bE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h91b6a4c76ee0725bE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11925,7 +11925,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h9597952c50fb49a6E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h9597952c50fb49a6E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11943,7 +11943,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hce6b4480fe880859E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hce6b4480fe880859E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11961,7 +11961,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hcea30840f699162cE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hcea30840f699162cE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11979,7 +11979,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hcff66b9762754a65E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hcff66b9762754a65E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -11997,7 +11997,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd0922847d1b0564cE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd0922847d1b0564cE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -12015,7 +12015,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd4acce7cff60bdecE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd4acce7cff60bdecE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -12033,7 +12033,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he55464d0b062eef9E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he55464d0b062eef9E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -12051,7 +12051,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf87327a90915cd9dE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf87327a90915cd9dE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -12069,7 +12069,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf91e3cb870ccf21bE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hf91e3cb870ccf21bE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8
@@ -12087,7 +12087,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfeb78e77ecfad8d3E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hfeb78e77ecfad8d3E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8

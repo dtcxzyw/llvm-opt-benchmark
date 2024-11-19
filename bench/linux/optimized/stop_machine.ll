@@ -576,7 +576,7 @@ define internal i32 @multi_cpu_stop(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @stop_one_cpu_nowait(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 48)) %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @stop_one_cpu_nowait(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call ptr @llvm.returnaddress(i32 0)
   %6 = ptrtoint ptr %5 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)

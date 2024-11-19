@@ -1717,7 +1717,7 @@ define dso_local noundef ptr @traceprobe_expand_meta_args(i32 noundef %0, ptr no
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @traceprobe_finish_parse(ptr nocapture noundef writeonly initializes((40, 48)) %0) local_unnamed_addr #7 align 16 {
+define dso_local void @traceprobe_finish_parse(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   ret void

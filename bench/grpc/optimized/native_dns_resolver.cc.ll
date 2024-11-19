@@ -128,7 +128,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN17grpc_event_engine12experimental17NativeDNSResolverC2ESt10shared_ptrINS0_11EventEngineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef %event_engine) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental17NativeDNSResolverC2ESt10shared_ptrINS0_11EventEngineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef %event_engine) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8

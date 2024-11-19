@@ -1561,13 +1561,13 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$cranelift_codegen..
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7bad5eb1b8954652E.llvm.15687030032196409338"(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #4 {
+define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h7bad5eb1b8954652E.llvm.15687030032196409338"(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h1651a47ddcb64821E.llvm.15687030032196409338"(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 4 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h1651a47ddcb64821E.llvm.15687030032196409338"(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 4 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !alias.scope !172
   ret void
 }
@@ -1914,7 +1914,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen8machinst8MachInst17align_basic
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17cranelift_codegen8machinst8MachInst15gen_block_start17he51ec2c22e9ad2bdE(ptr noalias nocapture noundef writeonly sret({ i8, [39 x i8] }) align 8 dereferenceable(40) initializes((0, 1)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #7 {
+define hidden void @_ZN17cranelift_codegen8machinst8MachInst15gen_block_start17he51ec2c22e9ad2bdE(ptr noalias nocapture noundef writeonly sret({ i8, [39 x i8] }) align 8 dereferenceable(40) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #7 {
   store i8 103, ptr %0, align 8
   ret void
 }
@@ -3344,7 +3344,7 @@ _ZN17cranelift_codegen3isa3x644inst4args11OperandSize7from_ty17ha9426046c4f320a6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17simm32_from_value17h014b070daa2dd4b5E"(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 1)) %0, ptr %.0.val, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$17simm32_from_value17h014b070daa2dd4b5E"(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, ptr %.0.val, i32 noundef %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca i32, align 4
   %4 = alloca { i32, [3 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -92339,7 +92339,7 @@ _ZN17cranelift_codegen2ir5types4Type4bits17h6ac7b92b6381a3ecE.exit: ; preds = %s
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E"(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 4)) %0, i16 noundef %1) unnamed_addr #9 {
+define internal fastcc void @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10multi_lane17he439e720b4627e74E"(ptr noalias nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, i16 noundef %1) unnamed_addr #9 {
   %3 = and i16 %1, -128
   %or.cond.not = icmp eq i16 %3, 128
   br i1 %or.cond.not, label %4, label %_ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.thread

@@ -395,7 +395,7 @@ define ptr @cuddAddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_addPermute(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_addPermute(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   store i32 0, ptr %4, align 8
   %5 = tail call ptr @cuddHashTableInit(ptr noundef %0, i32 noundef 1, i32 noundef 2) #7
@@ -641,7 +641,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddPermute(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_bddPermute(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   store i32 0, ptr %4, align 8
   %5 = tail call ptr @cuddHashTableInit(ptr noundef %0, i32 noundef 1, i32 noundef 2) #7
@@ -1204,7 +1204,7 @@ define ptr @Cudd_bddAdjPermuteX(ptr noundef %0, ptr noundef %1, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_addVectorCompose(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_addVectorCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   store i32 0, ptr %4, align 8
   %5 = tail call ptr @cuddHashTableInit(ptr noundef %0, i32 noundef 1, i32 noundef 2) #7
@@ -1418,7 +1418,7 @@ define internal fastcc ptr @cuddAddVectorComposeRecur(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_addGeneralVectorCompose(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @Cudd_addGeneralVectorCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 448
   store i32 0, ptr %5, align 8
   %6 = tail call ptr @cuddHashTableInit(ptr noundef %0, i32 noundef 1, i32 noundef 2) #7
@@ -2230,7 +2230,7 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddVectorCompose(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_bddVectorCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   store i32 0, ptr %4, align 8
   %5 = tail call ptr @cuddHashTableInit(ptr noundef %0, i32 noundef 1, i32 noundef 2) #7

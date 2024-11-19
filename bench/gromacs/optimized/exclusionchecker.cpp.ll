@@ -41,7 +41,7 @@ $_ZNSt10unique_ptrIN16ExclusionChecker4ImplESt14default_deleteIS1_EED2Ev = comda
 @_ZN16ExclusionCheckerC1EOS_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN16ExclusionCheckerC2EOS_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN16ExclusionChecker4ImplC2EPK9t_commrecRK10gmx_mtop_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 56)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16ExclusionChecker4ImplC2EPK9t_commrecRK10gmx_mtop_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %2, i64 136
@@ -645,7 +645,7 @@ _ZNSt10unique_ptrIN16ExclusionChecker4ImplESt14default_deleteIS1_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16ExclusionCheckerC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #11 align 2 {
+define void @_ZN16ExclusionCheckerC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #11 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8

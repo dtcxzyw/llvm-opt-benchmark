@@ -66,7 +66,7 @@ define internal void @"_ZN4core3ptr151drop_in_place$LT$$LT$breadcrumbs..Breadcru
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN67_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$core..default..Default$GT$7default17ha2fd3f85130febf0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 8), (24, 32), (40, 41)) %0) unnamed_addr #2 {
+define void @"_ZN67_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$core..default..Default$GT$7default17ha2fd3f85130febf0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %2, align 8, !alias.scope !11
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -76,7 +76,7 @@ define void @"_ZN67_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$core..default..Defau
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN11breadcrumbs11Breadcrumbs3new17h0383c902caf646b4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 8), (24, 32), (40, 41)) %0) unnamed_addr #2 {
+define void @_ZN11breadcrumbs11Breadcrumbs3new17h0383c902caf646b4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -977,7 +977,7 @@ define internal void @"_ZN80_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$workspace..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN80_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$workspace..toolbar..ToolbarItemView$GT$17pane_focus_update17h108d5e022275b2d9E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) initializes((40, 41)) %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define void @"_ZN80_$LT$breadcrumbs..Breadcrumbs$u20$as$u20$workspace..toolbar..ToolbarItemView$GT$17pane_focus_update17h108d5e022275b2d9E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0, i1 noundef zeroext %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(24) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %4, align 8

@@ -927,7 +927,7 @@ _ZNSt12__shared_ptrIKN10open_spiel4GameELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel7pentago12PentagoState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.9") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(93) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel7pentago12PentagoState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.9") align 8 %0, ptr noundef nonnull align 8 dereferenceable(93) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
@@ -1906,7 +1906,7 @@ define noundef range(i32 0, 3) i32 @_ZNK10open_spiel7pentago12PentagoState3getEi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel7pentago12PentagoState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(93) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel7pentago12PentagoState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(93) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %4 = load i32, ptr %3, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

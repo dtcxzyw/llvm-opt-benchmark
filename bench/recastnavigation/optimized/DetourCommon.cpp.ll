@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = load float, ptr %3, align 4
   %7 = load float, ptr %2, align 4
   %8 = fsub float %6, %7
@@ -212,7 +212,7 @@ define void @_Z24dtClosestPtPointTrianglePfPKfS1_S1_S1_(ptr nocapture noundef wr
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_Z24dtIntersectSegmentPoly2DPKfS0_S0_iRfS1_RiS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %7) local_unnamed_addr #2 {
+define noundef zeroext i1 @_Z24dtIntersectSegmentPoly2DPKfS0_S0_iRfS1_RiS2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7) local_unnamed_addr #2 {
   store float 0.000000e+00, ptr %4, align 4
   store float 1.000000e+00, ptr %5, align 4
   store i32 -1, ptr %6, align 4
@@ -313,7 +313,7 @@ define noundef zeroext i1 @_Z24dtIntersectSegmentPoly2DPKfS0_S0_iRfS1_RiS2_(ptr 
 declare float @llvm.fabs.f32(float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #0 {
+define noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #0 {
   %5 = load float, ptr %2, align 4
   %6 = load float, ptr %1, align 4
   %7 = fsub float %5, %6
@@ -363,7 +363,7 @@ define noundef float @_Z20dtDistancePtSegSqr2DPKfS0_S0_Rf(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z16dtCalcPolyCenterPfPKtiPKf(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
+define void @_Z16dtCalcPolyCenterPfPKtiPKf(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #2 {
   store float 0.000000e+00, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %5, align 4

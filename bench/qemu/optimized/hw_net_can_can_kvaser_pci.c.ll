@@ -173,7 +173,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare ptr @qemu_allocate_irq(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @kvaser_pci_irq_handler(ptr noundef initializes((3668, 3672)) %opaque, i32 %irq_num, i32 noundef %level) #0 {
+define internal void @kvaser_pci_irq_handler(ptr noundef %opaque, i32 %irq_num, i32 noundef %level) #0 {
 entry:
   %s5920_irqstate = getelementptr inbounds i8, ptr %opaque, i64 3668
   store i32 %level, ptr %s5920_irqstate, align 4

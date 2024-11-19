@@ -3532,7 +3532,7 @@ return:                                           ; preds = %for.cond8.i, %retur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @vmxnet3_pre_save(ptr nocapture noundef initializes((14860, 14864)) %opaque) #9 {
+define internal noundef i32 @vmxnet3_pre_save(ptr nocapture noundef %opaque) #9 {
 entry:
   %mcast_list_len = getelementptr inbounds i8, ptr %opaque, i64 14856
   %0 = load i32, ptr %mcast_list_len, align 8
@@ -3543,7 +3543,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @vmxnet3_mcast_list_pre_load(ptr nocapture noundef initializes((14848, 14856)) %opaque) #0 {
+define internal noundef i32 @vmxnet3_mcast_list_pre_load(ptr nocapture noundef %opaque) #0 {
 entry:
   %mcast_list_buff_size = getelementptr inbounds i8, ptr %opaque, i64 14860
   %0 = load i32, ptr %mcast_list_buff_size, align 4

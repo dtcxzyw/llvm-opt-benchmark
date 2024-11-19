@@ -364,7 +364,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN23G1ConcGCMonitoringScopeC1EP19G1MonitoringSupport = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN23G1ConcGCMonitoringScopeC2EP19G1MonitoringSupport
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1MonitoringSupportC2EP15G1CollectedHeap(ptr noundef nonnull align 8 dereferenceable(752) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1MonitoringSupportC2EP15G1CollectedHeap(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN15GCMemoryManagerC1EPKc(ptr noundef nonnull align 8 dereferenceable(191) %3, ptr noundef nonnull @.str) #10
@@ -494,7 +494,7 @@ _ZN25G1YoungGenerationCountersC2EP19G1MonitoringSupportPKcm.exit: ; preds = %_ZN
 declare void @_ZN15GCMemoryManagerC1EPKc(ptr noundef nonnull align 8 dereferenceable(191), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1MonitoringSupport17recalculate_sizesEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) initializes((680, 752)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1MonitoringSupport17recalculate_sizesEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @MonitoringSupport_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %3
@@ -636,7 +636,7 @@ define hidden void @_ZN19G1MonitoringSupportD2Ev(ptr noundef nonnull align 8 der
 declare void @_ZN15GCMemoryManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(191)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1MonitoringSupport25initialize_serviceabilityEv(ptr noundef nonnull align 8 dereferenceable(752) initializes((584, 608)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1MonitoringSupport25initialize_serviceabilityEv(ptr noundef nonnull align 8 dereferenceable(752) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 216, i8 noundef zeroext 9, i32 noundef 0) #10
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 712
@@ -693,7 +693,7 @@ declare void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull al
 declare void @_ZN15GCMemoryManager8add_poolEP10MemoryPoolb(ptr noundef nonnull align 8 dereferenceable(191), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1MonitoringSupport12memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1MonitoringSupport12memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @MonitoringSupport_lock, align 8
   %.not.i.i = icmp eq ptr %3, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %4
@@ -731,7 +731,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1MonitoringSupport15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.7) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(752) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1MonitoringSupport15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.7) align 8 %0, ptr noundef nonnull align 8 dereferenceable(752) %1) local_unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit9:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 3, i32 noundef 8) #10
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -753,7 +753,7 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1MonitoringSupport12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.10) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1MonitoringSupport12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.10) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1) local_unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit9:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 3, i32 noundef 8) #10
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -781,7 +781,7 @@ _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.
 declare noundef i64 @_ZNK15G1CollectedHeap13used_unlockedEv(ptr noundef nonnull align 8 dereferenceable(1488)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1MonitoringSupport12update_sizesEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) initializes((680, 752)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1MonitoringSupport12update_sizesEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN19G1MonitoringSupport17recalculate_sizesEv(ptr noundef nonnull align 8 dereferenceable(752) %0)
   %2 = load i8, ptr @UsePerfData, align 1
   %3 = trunc i8 %2 to i1
@@ -837,7 +837,7 @@ declare void @_ZN14HSpaceCounters15update_capacityEm(ptr noundef nonnull align 8
 declare void @_ZN17MetaspaceCounters27update_performance_countersEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1MonitoringSupport16update_eden_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) initializes((680, 752)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1MonitoringSupport16update_eden_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN19G1MonitoringSupport17recalculate_sizesEv(ptr noundef nonnull align 8 dereferenceable(752) %0)
   %2 = load i8, ptr @UsePerfData, align 1
   %3 = trunc i8 %2 to i1
@@ -856,7 +856,7 @@ define hidden void @_ZN19G1MonitoringSupport16update_eden_sizeEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1MonitoringSupport23eden_space_memory_usageEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1MonitoringSupport23eden_space_memory_usageEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr @MonitoringSupport_lock, align 8
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %10
@@ -891,7 +891,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1MonitoringSupport27survivor_space_memory_usageEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1MonitoringSupport27survivor_space_memory_usageEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr @MonitoringSupport_lock, align 8
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %10
@@ -926,7 +926,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1MonitoringSupport20old_gen_memory_usageEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1MonitoringSupport20old_gen_memory_usageEmm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr @MonitoringSupport_lock, align 8
   %.not.i.i = icmp eq ptr %5, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread, label %10
@@ -961,7 +961,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17G1MonitoringScopeC2EP19G1MonitoringSupportP17CollectorCountersP15GCMemoryManagerPKcb(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN17G1MonitoringScopeC2EP19G1MonitoringSupportP17CollectorCountersP15GCMemoryManagerPKcb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN19TraceCollectorStatsC1EP17CollectorCounters(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %2) #10
@@ -998,7 +998,7 @@ declare void @_ZN23TraceMemoryManagerStatsD1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN19TraceCollectorStatsD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24G1YoungGCMonitoringScopeC2EP19G1MonitoringSupportb(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN24G1YoungGCMonitoringScopeC2EP19G1MonitoringSupportb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 608
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1014,7 +1014,7 @@ define hidden void @_ZN24G1YoungGCMonitoringScopeC2EP19G1MonitoringSupportb(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23G1FullGCMonitoringScopeC2EP19G1MonitoringSupport(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23G1FullGCMonitoringScopeC2EP19G1MonitoringSupport(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 616
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 200
@@ -1030,7 +1030,7 @@ define hidden void @_ZN23G1FullGCMonitoringScopeC2EP19G1MonitoringSupport(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23G1ConcGCMonitoringScopeC2EP19G1MonitoringSupport(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN23G1ConcGCMonitoringScopeC2EP19G1MonitoringSupport(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 624
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 392

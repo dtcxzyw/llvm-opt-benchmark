@@ -5151,7 +5151,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolESt4pairIiS3_ENS_12DenseMapInfo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13WinEHFuncInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(720) initializes((0, 20), (24, 44), (48, 68), (72, 92), (96, 116)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13WinEHFuncInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(720) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)

@@ -47,7 +47,7 @@ $_ZN5folly6detail18ToAppendStrImplAllISt16integer_sequenceImJLm0ELm1ELm2ELm3EEEE
 @_ZN5folly23JemallocNodumpAllocatorC1ENS0_5StateE = unnamed_addr alias void (ptr, i32), ptr @_ZN5folly23JemallocNodumpAllocatorC2ENS0_5StateE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly23JemallocNodumpAllocatorC2ENS0_5StateE(ptr noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %state) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly23JemallocNodumpAllocatorC2ENS0_5StateE(ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %state) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   store i32 0, ptr %this, align 4, !tbaa !7

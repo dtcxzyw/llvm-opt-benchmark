@@ -1085,7 +1085,7 @@ _ZN5vcpkg8OptionalINS_4PathEED2Ev.exit:           ; preds = %_ZN5vcpkg8OptionalI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5vcpkg7ZipTool4makeERKNS_9ToolCacheERNS_11MessageSinkE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::ExpectedT.14") align 8 initializes((32, 33)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readnone align 1 %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg7ZipTool4makeERKNS_9ToolCacheERNS_11MessageSinkE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::ExpectedT.14") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readnone align 1 %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %4, align 8
   ret void

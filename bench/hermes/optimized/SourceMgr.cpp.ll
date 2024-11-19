@@ -501,7 +501,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4llvh9SourceMgr9SrcBufferC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %Other) unnamed_addr #5 align 2 {
+define hidden void @_ZN4llvh9SourceMgr9SrcBufferC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %Other) unnamed_addr #5 align 2 {
 entry:
   %0 = load i64, ptr %Other, align 8
   store i64 %0, ptr %this, align 8
@@ -2939,7 +2939,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4errsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh12SMDiagnosticC2ERKNS_9SourceMgrENS_5SMLocENS_9StringRefEiiNS1_8DiagKindES5_S5_NS_8ArrayRefISt4pairIjjEEENS7_INS_7SMFixItEEE(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(120) %sm, ptr %L.coerce, ptr %FN.coerce0, i64 %FN.coerce1, i32 noundef %Line, i32 noundef %Col, i32 noundef %Kind, ptr nocapture noundef readonly byval(%"class.llvh::StringRef") align 8 %Msg, ptr nocapture noundef readonly byval(%"class.llvh::StringRef") align 8 %LineStr, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef.56") align 8 %Ranges, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef.41") align 8 %Hints) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh12SMDiagnosticC2ERKNS_9SourceMgrENS_5SMLocENS_9StringRefEiiNS1_8DiagKindES5_S5_NS_8ArrayRefISt4pairIjjEEENS7_INS_7SMFixItEEE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef nonnull align 8 dereferenceable(120) %sm, ptr %L.coerce, ptr %FN.coerce0, i64 %FN.coerce1, i32 noundef %Line, i32 noundef %Col, i32 noundef %Kind, ptr nocapture noundef readonly byval(%"class.llvh::StringRef") align 8 %Msg, ptr nocapture noundef readonly byval(%"class.llvh::StringRef") align 8 %LineStr, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef.56") align 8 %Ranges, ptr nocapture noundef readonly byval(%"class.llvh::ArrayRef.41") align 8 %Hints) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i7 = alloca %"class.std::allocator", align 1
   %ref.tmp.i.i1 = alloca %"class.std::allocator", align 1

@@ -476,7 +476,7 @@ define dso_local zeroext i1 @launch_common_step_retry_errno(i32 noundef %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @launch_g_setup_srun_opt(ptr nocapture noundef readnone %0, ptr nocapture noundef initializes((72, 80)) %1) local_unnamed_addr #1 {
+define dso_local noundef i32 @launch_g_setup_srun_opt(ptr nocapture noundef readnone %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 68

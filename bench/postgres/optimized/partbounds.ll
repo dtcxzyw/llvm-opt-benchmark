@@ -1175,7 +1175,7 @@ list_length.exit249:                              ; preds = %374
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @partition_bounds_create(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @partition_bounds_create(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %1 to i64
   %6 = shl nsw i64 %5, 2
   %7 = tail call ptr @palloc(i64 noundef %6) #11
@@ -2484,7 +2484,7 @@ declare ptr @bms_copy(ptr noundef) local_unnamed_addr #1
 declare i64 @datumCopy(i64 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @partition_bounds_merge(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef initializes((0, 8)) %6, ptr nocapture noundef initializes((0, 8)) %7) local_unnamed_addr #0 {
+define dso_local noundef ptr @partition_bounds_merge(i32 noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.PartitionMap, align 8
   %10 = alloca %struct.PartitionMap, align 8
   %11 = alloca %struct.PartitionRangeBound, align 8

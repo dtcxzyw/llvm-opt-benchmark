@@ -81,7 +81,7 @@ _ZN4llvm12StringSwitchISt8optionalINS_12RoundingModeEES3_E4CaseENS_13StringLiter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.6") align 8 initializes((16, 17)) %0, i8 noundef signext %1) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm24convertRoundingModeToStrENS_12RoundingModeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.6") align 8 %0, i8 noundef signext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
   %4 = icmp ult i8 %1, 8
@@ -141,7 +141,7 @@ _ZN4llvm12StringSwitchISt8optionalINS_2fp17ExceptionBehaviorEES4_E4CaseENS_13Str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.6") align 8 initializes((16, 17)) %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm29convertExceptionBehaviorToStrENS_2fp17ExceptionBehaviorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.6") align 8 %0, i8 noundef zeroext %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
   %4 = icmp ult i8 %1, 3

@@ -650,7 +650,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_08Filter1D14get_filterdescEiPNS_10FilterDescE(i32 noundef %filternum, ptr nocapture noundef writeonly initializes((0, 24)) %filterdesc) local_unnamed_addr #5 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08Filter1D14get_filterdescEiPNS_10FilterDescE(i32 noundef %filternum, ptr nocapture noundef writeonly %filterdesc) local_unnamed_addr #5 align 2 {
 entry:
   %idxprom.i = sext i32 %filternum to i64
   %arrayidx.i = getelementptr inbounds [15 x %"class.OpenImageIO_v2_6_0::FilterDesc"], ptr @_ZN18OpenImageIO_v2_6_012_GLOBAL__N_113filter1d_listE, i64 0, i64 %idxprom.i
@@ -957,7 +957,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_08Filter2D14get_filterdescEiPNS_10FilterDescE(i32 noundef %filternum, ptr nocapture noundef writeonly initializes((0, 24)) %filterdesc) local_unnamed_addr #5 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08Filter2D14get_filterdescEiPNS_10FilterDescE(i32 noundef %filternum, ptr nocapture noundef writeonly %filterdesc) local_unnamed_addr #5 align 2 {
 entry:
   %idxprom.i = sext i32 %filternum to i64
   %arrayidx.i = getelementptr inbounds [17 x %"class.OpenImageIO_v2_6_0::FilterDesc"], ptr @_ZN18OpenImageIO_v2_6_0L13filter2d_listE, i64 0, i64 %idxprom.i

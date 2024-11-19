@@ -256,7 +256,7 @@ return:                                           ; preds = %if.end8, %if.end8.u
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @create_object(ptr nocapture noundef readonly %r, ptr nocapture noundef readonly %oid, ptr noundef returned initializes((4, 40)) %o) local_unnamed_addr #2 {
+define dso_local noundef ptr @create_object(ptr nocapture noundef readonly %r, ptr nocapture noundef readonly %oid, ptr noundef returned %o) local_unnamed_addr #2 {
 entry:
   %bf.load = load i32, ptr %o, align 4
   %bf.clear2 = and i32 %bf.load, 14
@@ -542,7 +542,7 @@ declare ptr @lookup_blob(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @parse_object_buffer(ptr noundef %r, ptr noundef %oid, i32 noundef %type, i64 noundef %size, ptr noundef %buffer, ptr nocapture noundef writeonly initializes((0, 4)) %eaten_p) local_unnamed_addr #2 {
+define dso_local ptr @parse_object_buffer(ptr noundef %r, ptr noundef %oid, i32 noundef %type, i64 noundef %size, ptr noundef %buffer, ptr nocapture noundef writeonly %eaten_p) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %eaten_p, align 4
   switch i32 %type, label %if.else53 [
@@ -921,7 +921,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @object_array_init(ptr nocapture noundef writeonly initializes((0, 16)) %array) local_unnamed_addr #10 {
+define dso_local void @object_array_init(ptr nocapture noundef writeonly %array) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %array, i8 0, i64 16, i1 false)
   ret void

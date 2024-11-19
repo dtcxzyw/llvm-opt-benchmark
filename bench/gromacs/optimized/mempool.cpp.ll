@@ -820,7 +820,7 @@ define void @_Z24_gmx_sel_mempool_reserveP17gmx_sel_mempool_tm(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z28_gmx_sel_mempool_alloc_groupP17gmx_sel_mempool_tP15gmx_ana_index_ti(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @_Z28_gmx_sel_mempool_alloc_groupP17gmx_sel_mempool_tP15gmx_ana_index_ti(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sext i32 %2 to i64
   %5 = shl nsw i64 %4, 2
   %6 = tail call noundef ptr @_Z22_gmx_sel_mempool_allocP17gmx_sel_mempool_tm(ptr noundef %0, i64 noundef %5)

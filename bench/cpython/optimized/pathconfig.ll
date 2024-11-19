@@ -66,7 +66,7 @@ declare void @PyMem_RawFree(ptr noundef) local_unnamed_addr #2
 declare void @PyMem_SetAllocator(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyPathConfig_ReadGlobal(ptr noalias nocapture sret(%struct.PyStatus) align 8 initializes((0, 32)) %agg.result, ptr noundef %config) local_unnamed_addr #1 {
+define hidden void @_PyPathConfig_ReadGlobal(ptr noalias nocapture sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %config) local_unnamed_addr #1 {
 entry:
   %tmp = alloca %struct.PyStatus, align 8
   %tmp10 = alloca %struct.PyStatus, align 8

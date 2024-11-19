@@ -624,7 +624,7 @@ define hidden void @"_ZN70_$LT$http..header..name..Repr$LT$T$GT$$u20$as$u20$core
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN76_$LT$ahash..random_state..RandomState$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17he4305e7e7e4d722aE.llvm.15438266989197742398"(ptr noalias nocapture noundef writeonly sret({ [2 x i64], i64, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #4 {
+define hidden void @"_ZN76_$LT$ahash..random_state..RandomState$u20$as$u20$core..hash..BuildHasher$GT$12build_hasher17he4305e7e7e4d722aE.llvm.15438266989197742398"(ptr noalias nocapture noundef writeonly sret({ [2 x i64], i64, i64 }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = load i64, ptr %1, align 8, !noundef !4
@@ -717,7 +717,7 @@ define hidden { i64, ptr } @"_ZN94_$LT$tokio..io..util..write_all..WriteAll$LT$W
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN9rand_core11SeedableRng8from_rng17hf872c3ee3795dc0dE(ptr noalias nocapture noundef writeonly sret({ i64, [7 x i64] }) align 16 dereferenceable(64) initializes((0, 8), (16, 24)) %0, ptr noalias noundef nonnull align 1 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN9rand_core11SeedableRng8from_rng17hf872c3ee3795dc0dE(ptr noalias nocapture noundef writeonly sret({ i64, [7 x i64] }) align 16 dereferenceable(64) %0, ptr noalias noundef nonnull align 1 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 1
   %.sroa.0 = alloca { { [2 x i64] }, { [2 x i64] }, { [2 x i64] } }, align 16
   %4 = alloca [32 x i8], align 1
@@ -856,7 +856,7 @@ define { ptr, ptr } @_ZN15actix_multipart4form4json10JsonConfig9map_error17hdb7b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15actix_multipart4form4json10JsonConfig21validate_content_type17ha742215b6f5d3e5aE(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i8, [7 x i8] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) initializes((16, 17)) %1, i1 noundef zeroext %2) unnamed_addr #9 {
+define void @_ZN15actix_multipart4form4json10JsonConfig21validate_content_type17ha742215b6f5d3e5aE(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i8, [7 x i8] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 8
@@ -865,7 +865,7 @@ define void @_ZN15actix_multipart4form4json10JsonConfig21validate_content_type17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN82_$LT$actix_multipart..form..json..JsonConfig$u20$as$u20$core..default..Default$GT$7default17h48a9ce6a15264c59E"(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i8, [7 x i8] }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #9 {
+define void @"_ZN82_$LT$actix_multipart..form..json..JsonConfig$u20$as$u20$core..default..Default$GT$7default17h48a9ce6a15264c59E"(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i8, [7 x i8] }) align 8 dereferenceable(24) %0) unnamed_addr #9 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) @anon.9536fa9df9a5f210434f3342f71a6d78.38, i64 24, i1 false)
   ret void
 }

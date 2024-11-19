@@ -1143,7 +1143,7 @@ declare ptr @mca_fcoll_base_component_lookup(ptr noundef) local_unnamed_addr #1
 declare i32 @mca_fcoll_base_file_select(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @mca_common_ompio_fview_duplicate(ptr nocapture noundef initializes((0, 88)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @mca_common_ompio_fview_duplicate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8

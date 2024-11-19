@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @Curl_conncache_init(ptr noundef initializes((88, 96)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @Curl_conncache_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @curl_easy_init() #7
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %3, ptr %4, align 8
@@ -473,7 +473,7 @@ declare void @Curl_hash_start_iterate(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @Curl_hash_next_element(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @Curl_conncache_return_conn(ptr noundef %0, ptr noundef writeonly initializes((376, 388)) %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @Curl_conncache_return_conn(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 428

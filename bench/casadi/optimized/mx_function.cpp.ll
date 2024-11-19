@@ -1708,7 +1708,7 @@ define linkonce_odr void @_ZN6casadi9XFunctionINS_10MXFunctionENS_2MXENS_6MXNode
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi10MXFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1450) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi10MXFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1450) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi10MXFunctionE, i64 16), ptr %0, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %2 unwind label %44

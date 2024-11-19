@@ -1120,7 +1120,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08SgiInput5closeEv(ptr noundef nonnull align 8 dereferenceable(376) initializes((216, 324)) %this) unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08SgiInput5closeEv(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #6 align 2 {
 entry:
   %m_sgi_header.i = getelementptr inbounds i8, ptr %this, i64 216
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(108) %m_sgi_header.i, i8 0, i64 108, i1 false)

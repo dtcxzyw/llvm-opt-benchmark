@@ -593,7 +593,7 @@ declare ptr @type_int_unsigned_by_bitsize(i64 noundef) local_unnamed_addr #1
 declare ptr @abi_arg_new_indirect_by_val(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @c_abi_func_create_aarch64(ptr nocapture noundef initializes((56, 64)) %0) local_unnamed_addr #0 {
+define dso_local void @c_abi_func_create_aarch64(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = load i16, ptr %0, align 8

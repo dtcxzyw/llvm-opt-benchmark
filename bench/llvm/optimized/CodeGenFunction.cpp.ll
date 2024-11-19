@@ -498,7 +498,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZN5clang7CodeGen15CodeGenFunction14SanitizerScopeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang7CodeGen15CodeGenFunction14SanitizerScopeD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunctionC2ERNS0_13CodeGenModuleEb(ptr noundef nonnull align 8 dereferenceable(6488) initializes((0, 168)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunctionC2ERNS0_13CodeGenModuleEb(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::ConstantFolder", align 8
   %5 = alloca %"class.clang::CodeGen::CGBuilderInserter", align 8
   %6 = alloca %"class.llvm::ConstantFolder", align 8
@@ -936,7 +936,7 @@ define linkonce_odr hidden void @_ZN5clang7CodeGen17CGBuilderInserterD2Ev(ptr no
 declare void @_ZN5clang7CodeGen15CodeGenFunction10CGCoroInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16SetFastMathFlagsENS_9FPOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(6488) initializes((384, 388)) %0, i32 %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16SetFastMathFlagsENS_9FPOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(6488) %0, i32 %1) local_unnamed_addr #4 align 2 {
   %3 = lshr i32 %1, 9
   %4 = and i32 %3, 31
   %5 = lshr i32 %1, 8
@@ -1511,7 +1511,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15CGFPOptionsRAIIC2ERS1_PKNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 14), (48, 49)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15CGFPOptionsRAIIC2ERS1_PKNS_4ExprE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 248, ptr %4, align 8
@@ -1527,7 +1527,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15CGFPOptionsRAIIC2ERS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15CGFPOptionsRAII17ConstructorHelperENS_9FPOptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((8, 14)) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15CGFPOptionsRAII17ConstructorHelperENS_9FPOptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Attribute", align 8
   %4 = alloca %"class.llvm::Attribute", align 8
   %5 = alloca %"class.llvm::Attribute", align 8
@@ -1760,7 +1760,7 @@ _ZNK5clang9FPOptions15getRoundingModeEv.exit:     ; preds = %_ZNSt8optionalIN4ll
 declare i32 @_ZNK5clang4Expr21getFPFeaturesInEffectERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(841)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15CGFPOptionsRAIIC2ERS1_NS_9FPOptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 14), (48, 49)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15CGFPOptionsRAIIC2ERS1_NS_9FPOptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 248, ptr %4, align 8
@@ -1828,13 +1828,13 @@ _ZNSt8optionalIN4llvm13IRBuilderBase17FastMathFlagGuardEED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction26MakeNaturalAlignAddrLValueEPN4llvm5ValueENS_8QualTypeENS0_14KnownNonNull_tE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 initializes((0, 4), (8, 56), (64, 80), (84, 136)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1, ptr noundef %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction26MakeNaturalAlignAddrLValueEPN4llvm5ValueENS_8QualTypeENS0_14KnownNonNull_tE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1, ptr noundef %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   tail call fastcc void @_ZL26makeNaturalAlignAddrLValuePN4llvm5ValueEN5clang8QualTypeEbbRNS2_7CodeGen15CodeGenFunctionENS4_14KnownNonNull_tE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %2, i64 %3, i1 noundef zeroext false, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 noundef %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26makeNaturalAlignAddrLValuePN4llvm5ValueEN5clang8QualTypeEbbRNS2_7CodeGen15CodeGenFunctionENS4_14KnownNonNull_tE(ptr dead_on_unwind noalias nocapture writable align 8 initializes((0, 4), (8, 56), (64, 80), (84, 136)) %0, ptr noundef %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc void @_ZL26makeNaturalAlignAddrLValuePN4llvm5ValueEN5clang8QualTypeEbbRNS2_7CodeGen15CodeGenFunctionENS4_14KnownNonNull_tE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %9 = alloca %"class.clang::CodeGen::LValueBaseInfo", align 4
   %10 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
@@ -1960,19 +1960,19 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction33MakeNaturalAlignPointeeAddrLValueEPN4llvm5ValueENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 initializes((0, 4), (8, 56), (64, 80), (84, 136)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1, ptr noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction33MakeNaturalAlignPointeeAddrLValueEPN4llvm5ValueENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1, ptr noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   tail call fastcc void @_ZL26makeNaturalAlignAddrLValuePN4llvm5ValueEN5clang8QualTypeEbbRNS2_7CodeGen15CodeGenFunctionENS4_14KnownNonNull_tE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %2, i64 %3, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction29MakeNaturalAlignRawAddrLValueEPN4llvm5ValueENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 initializes((0, 4), (8, 56), (64, 80), (84, 136)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1, ptr noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction29MakeNaturalAlignRawAddrLValueEPN4llvm5ValueENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1, ptr noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   tail call fastcc void @_ZL26makeNaturalAlignAddrLValuePN4llvm5ValueEN5clang8QualTypeEbbRNS2_7CodeGen15CodeGenFunctionENS4_14KnownNonNull_tE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %2, i64 %3, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction36MakeNaturalAlignPointeeRawAddrLValueEPN4llvm5ValueENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 initializes((0, 4), (8, 56), (64, 80), (84, 136)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1, ptr noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction36MakeNaturalAlignPointeeRawAddrLValueEPN4llvm5ValueENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1, ptr noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   tail call fastcc void @_ZL26makeNaturalAlignAddrLValuePN4llvm5ValueEN5clang8QualTypeEbbRNS2_7CodeGen15CodeGenFunctionENS4_14KnownNonNull_tE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %2, i64 %3, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 noundef 0)
   ret void
 }
@@ -2074,7 +2074,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang7CodeGen15CodeGenFunction
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitReturnBlockEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DebugLoc") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitReturnBlockEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DebugLoc") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4652,7 +4652,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen15CodeGenFunction14hasInAl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction13StartFunctionENS_10GlobalDeclENS_8QualTypeEPN4llvm8FunctionERKNS0_14CGFunctionInfoERKNS0_15FunctionArgListENS_14SourceLocationESD_(ptr noundef nonnull align 8 dereferenceable(6488) initializes((1800, 1840), (3197, 3198)) %0, i64 %1, i32 %2, i64 %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(144) %6, i32 %7, i32 %8) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction13StartFunctionENS_10GlobalDeclENS_8QualTypeEPN4llvm8FunctionERKNS0_14CGFunctionInfoERKNS0_15FunctionArgListENS_14SourceLocationESD_(ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %1, i32 %2, i64 %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(144) %6, i32 %7, i32 %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca [21 x i8], align 16
   %12 = alloca %"class.std::allocator", align 1
@@ -11562,7 +11562,7 @@ declare noundef ptr @_ZN5clang17ImplicitParamDecl6CreateERNS_10ASTContextEPNS_11
 declare i64 @_ZNK5clang10ASTContext11getSizeTypeEv(ptr noundef nonnull align 8 dereferenceable(23096)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction12GenerateCodeENS_10GlobalDeclEPN4llvm8FunctionERKNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(6488) initializes((1912, 1924)) %0, i64 %1, i32 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction12GenerateCodeENS_10GlobalDeclEPN4llvm8FunctionERKNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %1, i32 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(40) %4) local_unnamed_addr #0 align 2 {
   %.sroa.4.i.i = alloca [23 x i8], align 1
   %6 = alloca %"class.clang::CodeGen::AggValueSlot", align 8
   %7 = alloca %"class.clang::CodeGen::Address", align 8
@@ -16049,7 +16049,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction24EmitPointerWithAlignmentEPKNS_
 declare void @_ZN5clang7CodeGen15CodeGenFunction10EmitLValueEPKNS_4ExprENS0_14KnownNonNull_tE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::LValue") align 8, ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitMSVAListRefEPKNS_4ExprE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitMSVAListRefEPKNS_4ExprE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CodeGen::LValue", align 8
   call void @_ZN5clang7CodeGen15CodeGenFunction10EmitLValueEPKNS_4ExprENS0_14KnownNonNull_tE(ptr dead_on_unwind nonnull writable sret(%"class.clang::CodeGen::LValue") align 8 %4, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, i32 noundef 0) #21
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -16930,7 +16930,7 @@ _ZN5clangneENS_22specific_attr_iteratorINS_12AnnotateAttrEN4llvm11SmallVectorIPN
 declare noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
@@ -16960,7 +16960,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction18CGCapturedStmtInfoD0E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction14SanitizerScopeC2EPS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction14SanitizerScopeC2EPS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2104
   store i8 1, ptr %3, align 8
@@ -18940,7 +18940,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24EmitMultiVersionResol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction27EmitX86MultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_26MultiVersionResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6488) initializes((328, 346)) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction27EmitX86MultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_26MultiVersionResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -19188,7 +19188,7 @@ _ZN4llvm13IRBuilderBase17CreateUnreachableEv.exit: ; preds = %.lr.ph.i.i.i35, %.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction31EmitAArch64MultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_26MultiVersionResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6488) initializes((328, 346)) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction31EmitAArch64MultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_26MultiVersionResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8

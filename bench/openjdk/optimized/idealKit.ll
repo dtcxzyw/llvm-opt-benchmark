@@ -44,7 +44,7 @@ $_ZN26GrowableArrayWithAllocatorIP4Node13GrowableArrayIS1_EE9expand_toEi = comda
 @_ZN13IdealVariableC1ER8IdealKit = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN13IdealVariableC2ER8IdealKit
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8IdealKitC2EP8GraphKitbb(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 37), (40, 64)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN8IdealKitC2EP8GraphKitbb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -111,7 +111,7 @@ define hidden void @_ZN8IdealKitC2EP8GraphKitbb(ptr nocapture noundef nonnull al
 declare noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8IdealKit17declarations_doneEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((24, 32)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8IdealKit17declarations_doneEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -3448,7 +3448,7 @@ declare void @_ZN4NodeC1Ej(ptr noundef nonnull align 8 dereferenceable(52), i32 
 declare noundef ptr @_ZN12MergeMemNode4makeEP4Node(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13IdealVariableC2ER8IdealKit(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN13IdealVariableC2ER8IdealKit(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 1

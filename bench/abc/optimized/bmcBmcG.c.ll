@@ -2863,7 +2863,7 @@ declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #2
 declare i32 @bmcg_sat_solver_solve(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @Bmcg_ManPerform(ptr noundef %0, ptr noundef initializes((24, 28)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @Bmcg_ManPerform(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 1, ptr %3, align 8
   %4 = tail call i32 @Bmcg_ManPerformOne(ptr noundef %0, ptr noundef %1)

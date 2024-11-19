@@ -5079,7 +5079,7 @@ define void @_ZN8LightGBM17SerialTreeLearnerD0Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM17SerialTreeLearner4InitEPKNS_7DatasetEb(ptr noundef nonnull align 8 dereferenceable(536) initializes((8, 24)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM17SerialTreeLearner4InitEPKNS_7DatasetEb(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 88
@@ -6898,7 +6898,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit51:                  ; preds = %148, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM17SerialTreeLearner22ResetTrainingDataInnerEPKNS_7DatasetEbb(ptr noundef nonnull align 8 dereferenceable(536) initializes((8, 12), (16, 24)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM17SerialTreeLearner22ResetTrainingDataInnerEPKNS_7DatasetEbb(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 88
@@ -9189,7 +9189,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM17SerialTreeLearnerC2EPKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 8), (40, 48), (72, 273), (280, 356), (360, 368)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM17SerialTreeLearnerC2EPKNS_6ConfigE(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN8LightGBM17SerialTreeLearnerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %3, align 8
@@ -10839,7 +10839,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit12:                  ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8LightGBM17SerialTreeLearnerD2Ev(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM17SerialTreeLearnerD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 192) (i8, ptr @_ZTVN8LightGBM17SerialTreeLearnerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8
@@ -282937,7 +282937,7 @@ _ZN24json11_internal_lightgbm4JsonD2Ev.exit:      ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM17SerialTreeLearner20FindAllForceFeaturesEN24json11_internal_lightgbm4JsonE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %1, ptr noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM17SerialTreeLearner20FindAllForceFeaturesEN24json11_internal_lightgbm4JsonE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(536) %1, ptr noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::queue.626", align 8
   %5 = alloca %"class.json11_internal_lightgbm::Json", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

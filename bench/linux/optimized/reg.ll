@@ -7846,7 +7846,7 @@ split:                                            ; preds = %41, %._crit_edge
 declare dso_local i32 @scnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc range(i32 -22, 1) i32 @reg_rules_intersect(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef initializes((0, 8)) %4) unnamed_addr #22 align 16 {
+define internal fastcc range(i32 -22, 1) i32 @reg_rules_intersect(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef %4) unnamed_addr #22 align 16 {
   %6 = getelementptr inbounds i8, ptr %2, i64 12
   %7 = getelementptr inbounds i8, ptr %3, i64 12
   %8 = getelementptr inbounds i8, ptr %4, i64 12

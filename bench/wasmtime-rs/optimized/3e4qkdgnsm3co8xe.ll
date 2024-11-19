@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.bdabe76a8f6d7fe5708a6db693f850b8.3 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.bdabe76a8f6d7fe5708a6db693f850b8.1, [16 x i8] c"O\00\00\00\00\00\00\00\8F\04\00\00$\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h83bca286cc5876e3E"(ptr nocapture writeonly sret({ { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }) align 8 initializes((0, 48)) %0, i32 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
+define hidden void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h83bca286cc5876e3E"(ptr nocapture writeonly sret({ { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }) align 8 %0, i32 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 4
   store i32 0, ptr %5, align 4
   %6 = call { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h84916b10df855455E(i32 %1, ptr nonnull align 1 %5, i64 4)
@@ -175,7 +175,7 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$core..str..pattern..MatchOnly$u20$a
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17h653b82e53d9c6a97E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 24)) %0, i64 %1, i64 %2) unnamed_addr #3 {
+define hidden void @"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17h653b82e53d9c6a97E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, i64 %1, i64 %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -185,7 +185,7 @@ define hidden void @"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..st
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$9rejecting17h356e3a250eedc1abE"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 8)) %0, i64 %1, i64 %2) unnamed_addr #3 {
+define hidden void @"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$9rejecting17h356e3a250eedc1abE"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, i64 %1, i64 %2) unnamed_addr #3 {
   store i64 0, ptr %0, align 8
   ret void
 }
@@ -385,7 +385,7 @@ define hidden noundef zeroext i1 @"_ZN89_$LT$core..str..pattern..RejectAndMatch$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN89_$LT$core..str..pattern..RejectAndMatch$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17h8bcce51b6f47d283E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 24)) %0, i64 %1, i64 %2) unnamed_addr #3 {
+define hidden void @"_ZN89_$LT$core..str..pattern..RejectAndMatch$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17h8bcce51b6f47d283E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, i64 %1, i64 %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -395,7 +395,7 @@ define hidden void @"_ZN89_$LT$core..str..pattern..RejectAndMatch$u20$as$u20$cor
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN89_$LT$core..str..pattern..RejectAndMatch$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$9rejecting17h5640f49c5ba70aa6E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 24)) %0, i64 %1, i64 %2) unnamed_addr #3 {
+define hidden void @"_ZN89_$LT$core..str..pattern..RejectAndMatch$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$9rejecting17h5640f49c5ba70aa6E"(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, i64 %1, i64 %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

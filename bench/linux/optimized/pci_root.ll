@@ -437,7 +437,7 @@ define internal fastcc void @acpi_pci_root_validate_resources(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 24)) %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local ptr @acpi_pci_root_create(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %7 = trunc i64 %6 to i32

@@ -2692,7 +2692,7 @@ _ZN17GrowableArrayViewIN17SaveLiveRegisters15XMMRegisterDataEE4sortEPFiPS1_S3_E.
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZNK13BarrierStubC212preserve_setEv(ptr noundef nonnull align 8 dereferenceable(184)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17SaveLiveRegistersC2EP14MacroAssemblerP13BarrierStubC2(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 72)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN17SaveLiveRegistersC2EP14MacroAssemblerP13BarrierStubC2(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8
   store ptr %1, ptr %0, align 8

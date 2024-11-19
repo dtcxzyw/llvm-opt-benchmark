@@ -3432,7 +3432,7 @@ declare noundef zeroext i1 @_ZNK8Function10is_var_oosEPK8VariablePK9Statement(pt
 declare noundef i32 @_Z20find_variable_in_setRKSt6vectorIPK8VariableSaIS2_EES2_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7FactMgrC2EPK8Function(ptr noundef nonnull align 8 dereferenceable(392) initializes((8, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7FactMgrC2EPK8Function(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

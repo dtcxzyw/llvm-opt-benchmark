@@ -132,7 +132,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen17HTTPParallelCodecC2ENS_18TransportDirectionE(ptr noundef nonnull align 8 dereferenceable(92) initializes((0, 9), (24, 56)) %this, i8 noundef zeroext %direction) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen17HTTPParallelCodecC2ENS_18TransportDirectionE(ptr noundef nonnull align 8 dereferenceable(92) %this, i8 noundef zeroext %direction) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen17HTTPParallelCodecE, i64 16), ptr %this, align 8

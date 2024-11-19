@@ -373,7 +373,7 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib10InstrumentC2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 12), (16, 32)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib10InstrumentC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   %ref.tmp17 = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8

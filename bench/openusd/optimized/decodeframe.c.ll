@@ -202,7 +202,7 @@ define hidden range(i32 -1, 1) i32 @av1_check_trailing_bits(ptr nocapture nounde
 declare i32 @aom_rb_read_literal(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_set_single_tile_decoding_mode(ptr nocapture noundef initializes((27720, 27724)) %0) local_unnamed_addr #2 {
+define hidden void @av1_set_single_tile_decoding_mode(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 27720
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 27716
@@ -404,7 +404,7 @@ define hidden void @av1_free_mc_tmp_buf(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_read_film_grain_params(ptr noundef initializes((24164, 24172), (24796, 24800), (24808, 24810)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @av1_read_film_grain_params(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24164
   %4 = tail call i32 @aom_rb_read_bit(ptr noundef %1) #16
   store i32 %4, ptr %3, align 4
@@ -902,7 +902,7 @@ declare void @aom_internal_error(ptr noundef, i32 noundef, ptr noundef, ...) loc
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_read_color_config(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((76, 78), (80, 104), (108, 109)) %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @av1_read_color_config(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @aom_rb_read_bit(ptr noundef %0) #16
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 69
   %7 = load i8, ptr %6, align 1
@@ -1135,7 +1135,7 @@ read_bitdepth.exit:                               ; preds = %10, %17, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_read_timing_info_header(ptr nocapture noundef initializes((0, 12)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @av1_read_timing_info_header(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @aom_rb_read_unsigned_literal(ptr noundef %2, i32 noundef 32) #16
   store i32 %4, ptr %0, align 4
   %5 = tail call i32 @aom_rb_read_unsigned_literal(ptr noundef %2, i32 noundef 32) #16
@@ -1182,7 +1182,7 @@ declare i32 @aom_rb_read_unsigned_literal(ptr noundef, i32 noundef) local_unname
 declare i32 @aom_rb_read_uvlc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_read_decoder_model_info(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @av1_read_decoder_model_info(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @aom_rb_read_literal(ptr noundef %1, i32 noundef 5) #16
   %4 = add nsw i32 %3, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1201,7 +1201,7 @@ define hidden void @av1_read_decoder_model_info(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_read_op_parameters_info(ptr nocapture noundef writeonly initializes((24, 36)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @av1_read_op_parameters_info(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @aom_rb_read_unsigned_literal(ptr noundef %2, i32 noundef %1) #16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %5, align 8
@@ -1215,7 +1215,7 @@ define hidden void @av1_read_op_parameters_info(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_read_sequence_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 17), (28, 29), (32, 57), (59, 69)) %2) local_unnamed_addr #0 {
+define hidden void @av1_read_sequence_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @aom_rb_read_literal(ptr noundef %1, i32 noundef 4) #16
   %5 = add nsw i32 %4, 1
   %6 = tail call i32 @aom_rb_read_literal(ptr noundef %1, i32 noundef 4) #16
@@ -1415,7 +1415,7 @@ define hidden void @av1_read_sequence_header(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @av1_init_read_bit_buffer(ptr noundef %0, ptr noundef returned writeonly initializes((0, 20), (24, 40)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
+define hidden noundef ptr @av1_init_read_bit_buffer(ptr noundef %0, ptr noundef returned writeonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1437,7 +1437,7 @@ define internal void @error_handler(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_read_frame_size(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #0 {
+define hidden void @av1_read_frame_size(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = tail call i32 @aom_rb_read_literal(ptr noundef %0, i32 noundef %1) #16
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr %3, align 4
@@ -1653,7 +1653,7 @@ get_ref_frame_map_idx.exit.i:                     ; preds = %72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_uncompressed_header(ptr noundef initializes((458940, 458948)) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @read_uncompressed_header(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 47968
@@ -11031,7 +11031,7 @@ declare void @av1_build_interintra_predictor(ptr noundef, ptr noundef, ptr nound
 declare void @av1_build_inter_predictors(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @dec_calc_subpel_params_and_extend(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly initializes((0, 8)) %7, ptr nocapture noundef writeonly initializes((0, 16)) %8, ptr nocapture noundef writeonly initializes((0, 4)) %9) #0 {
+define internal void @dec_calc_subpel_params_and_extend(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9) #0 {
   %11 = alloca %struct.mv, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -13268,7 +13268,7 @@ declare i32 @aom_reader_has_overflowed(ptr noundef) local_unnamed_addr #1
 declare void @aom_merge_corrupted_flag(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_decode_block(ptr noundef %0, ptr noundef initializes((7864, 7872), (7912, 7924)) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #0 {
+define internal void @parse_decode_block(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) #0 {
   %8 = zext i8 %6 to i64
   %9 = getelementptr inbounds [22 x i8], ptr @mi_size_wide, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
@@ -14025,7 +14025,7 @@ set_txfm_ctxs.exit:                               ; preds = %._crit_edge.us, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @decode_block(ptr noundef %0, ptr noundef initializes((7864, 7872), (7912, 7924)) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i8 zeroext %5, i8 noundef zeroext %6) #0 {
+define internal void @decode_block(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i8 zeroext %5, i8 noundef zeroext %6) #0 {
   %8 = zext i8 %6 to i64
   %9 = getelementptr inbounds [22 x i8], ptr @mi_size_wide, i64 0, i64 %8
   %10 = load i8, ptr %9, align 1
@@ -14984,7 +14984,7 @@ get_vartx_max_txsize.exit.us:                     ; preds = %218, %217, %216, %2
 declare void @av1_read_mode_info(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @set_mi_row_col(ptr nocapture noundef initializes((0, 8), (12, 13), (7872, 7876), (7880, 7896), (7924, 7940), (8308, 8310), (10632, 10634)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, i32 noundef %4, i32 noundef range(i32 0, 256) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #12 {
+define internal fastcc void @set_mi_row_col(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, i32 noundef %4, i32 noundef range(i32 0, 256) %5, i32 noundef %6, i32 noundef %7) unnamed_addr #12 {
   %.neg = mul nsw i32 %2, -32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 7932
   store i32 %.neg, ptr %9, align 4

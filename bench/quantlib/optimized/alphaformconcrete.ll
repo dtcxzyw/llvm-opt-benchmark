@@ -30,7 +30,7 @@ $_ZTIN8QuantLib9AlphaFormE = comdat any
 @_ZN8QuantLib25AlphaFormLinearHyperbolicC1ESt6vectorIdSaIdEEd = unnamed_addr alias void (ptr, ptr, double), ptr @_ZN8QuantLib25AlphaFormLinearHyperbolicC2ESt6vectorIdSaIdEEd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib22AlphaFormInverseLinearC2ESt6vectorIdSaIdEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef %times, double noundef %alpha) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib22AlphaFormInverseLinearC2ESt6vectorIdSaIdEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef %times, double noundef %alpha) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib22AlphaFormInverseLinearE, i64 16), ptr %this, align 8, !tbaa !3
   %times_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -69,7 +69,7 @@ entry:
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib22AlphaFormInverseLinear8setAlphaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((32, 40)) %this, double noundef %alpha) unnamed_addr #3 align 2 {
+define void @_ZN8QuantLib22AlphaFormInverseLinear8setAlphaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, double noundef %alpha) unnamed_addr #3 align 2 {
 entry:
   %alpha_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %alpha, ptr %alpha_, align 8, !tbaa !12
@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib25AlphaFormLinearHyperbolicC2ESt6vectorIdSaIdEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef %times, double noundef %alpha) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib25AlphaFormLinearHyperbolicC2ESt6vectorIdSaIdEEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef %times, double noundef %alpha) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib25AlphaFormLinearHyperbolicE, i64 16), ptr %this, align 8, !tbaa !3
   %times_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -123,7 +123,7 @@ declare double @atan(double noundef) local_unnamed_addr #5
 declare double @sqrt(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib25AlphaFormLinearHyperbolic8setAlphaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((32, 40)) %this, double noundef %alpha) unnamed_addr #3 align 2 {
+define void @_ZN8QuantLib25AlphaFormLinearHyperbolic8setAlphaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, double noundef %alpha) unnamed_addr #3 align 2 {
 entry:
   %alpha_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   store double %alpha, ptr %alpha_, align 8, !tbaa !20

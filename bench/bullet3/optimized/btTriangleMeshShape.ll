@@ -244,7 +244,7 @@ _ZN19btTriangleMeshShapedlEPv.exit:               ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK19btTriangleMeshShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMax) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK19btTriangleMeshShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMax) unnamed_addr #0 align 2 {
 entry:
   %m_localAabbMax = getelementptr inbounds i8, ptr %this, i64 52
   %m_localAabbMin = getelementptr inbounds i8, ptr %this, i64 36
@@ -475,7 +475,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK19btTriangleMeshShape21calculateLocalInertiaEfR9btVector3(ptr nocapture nonnull readnone align 8 %this, float %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %inertia) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK19btTriangleMeshShape21calculateLocalInertiaEfR9btVector3(ptr nocapture nonnull readnone align 8 %this, float %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %inertia) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %inertia, i8 0, i64 16, i1 false)
   ret void

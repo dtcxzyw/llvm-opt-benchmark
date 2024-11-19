@@ -107,7 +107,7 @@ _ZN12ZGCIdPrinter21print_gc_id_uncheckedEjPcm.exit: ; preds = %8, %14, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZGCIdPrinterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN12ZGCIdPrinterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV12ZGCIdPrinter, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
@@ -119,21 +119,21 @@ define hidden void @_ZN12ZGCIdPrinterC2Ev(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZGCIdPrinter15set_minor_gc_idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN12ZGCIdPrinter15set_minor_gc_idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZGCIdPrinter15set_major_gc_idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN12ZGCIdPrinter15set_major_gc_idEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZGCIdPrinter13set_major_tagEc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((16, 17)) %0, i8 noundef signext %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN12ZGCIdPrinter13set_major_tagEc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, i8 noundef signext %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %1, ptr %3, align 8
   ret void

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [50 x i8] c"[%d/%d] ADIOI_TESTFS_SeekIndividual called on %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define i64 @ADIOI_TESTFS_SeekIndividual(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

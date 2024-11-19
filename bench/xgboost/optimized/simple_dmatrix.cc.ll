@@ -15405,7 +15405,7 @@ _ZNSt12__shared_ptrIN7xgboost13ExtSparsePageELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost4data13SimpleDMatrixC2EPN4dmlc6StreamE(ptr noundef nonnull align 8 dereferenceable(456) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost4data13SimpleDMatrixC2EPN4dmlc6StreamE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::allocator.226", align 1

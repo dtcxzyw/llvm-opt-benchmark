@@ -1395,7 +1395,7 @@ define dso_local void @_ZN10V3LangCodeC2EPKc(ptr nocapture noundef nonnull write
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10VTimescaleC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10VTimescaleC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERb(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   store i8 18, ptr %0, align 1
   store i8 1, ptr %2, align 1
@@ -2968,7 +2968,7 @@ _ZNSt8_Rb_treeIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIS6_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10VTimescale12parseSlashedEP8FileLinePKcRS_S4_b(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10VTimescale12parseSlashedEP8FileLinePKcRS_S4_b(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5557,7 +5557,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9V3Options5ccSetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1560) initializes((743, 744), (764, 765)) %0) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN9V3Options5ccSetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1560) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 743
   store i8 1, ptr %2, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 764
@@ -23131,7 +23131,7 @@ define linkonce_odr dso_local void @_Z8cvtToStrIbENSt7__cxx1112basic_stringIcSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9V3OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(1560) initializes((16, 20), (24, 32)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9V3OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(1560) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -23853,7 +23853,7 @@ _ZN9V3Options17addIncDirFallbackERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9V3Options8optimizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1560) initializes((1529, 1534), (1535, 1537), (1538, 1549), (1551, 1557)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN9V3Options8optimizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1560) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = icmp sgt i32 %1, 0
   %4 = zext i1 %3 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 1529

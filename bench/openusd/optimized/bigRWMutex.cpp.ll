@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutexC1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutexC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutexC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutexC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZSt11make_uniqueIA_N32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10_LockStateEENSt8__detail9_MakeUniqIT_E7__arrayEm.exit:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %1 = tail call noalias noundef nonnull dereferenceable(1024) ptr @_Znam(i64 noundef 1024) #8, !noalias !4

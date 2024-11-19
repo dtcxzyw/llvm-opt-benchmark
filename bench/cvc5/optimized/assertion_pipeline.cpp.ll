@@ -485,7 +485,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(164) initializes((160, 164)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(164) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_conflict = getelementptr inbounds i8, ptr %this, i64 160
   %d_nodes = getelementptr inbounds i8, ptr %this, i64 32
@@ -799,7 +799,7 @@ eh.resume:                                        ; preds = %lpad18, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline12markConflictEv(ptr noundef nonnull align 8 dereferenceable(164) initializes((160, 161)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline12markConflictEv(ptr noundef nonnull align 8 dereferenceable(164) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_conflict = getelementptr inbounds i8, ptr %this, i64 160
   store i8 1, ptr %d_conflict, align 8
@@ -1288,7 +1288,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal9TrustNode6isNullEv(ptr noundef no
 declare void @_ZNK4cvc58internal9TrustNode7getNodeEv(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline12enableProofsEPNS0_3smt24PreprocessProofGeneratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(164) initializes((152, 160)) %this, ptr noundef %pppg) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline12enableProofsEPNS0_3smt24PreprocessProofGeneratorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(164) %this, ptr noundef %pppg) local_unnamed_addr #6 align 2 {
 entry:
   %d_pppg = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %pppg, ptr %d_pppg, align 8
@@ -1296,7 +1296,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline26enableStoreSubstsInAssertsEv(ptr noundef nonnull align 8 dereferenceable(164) initializes((120, 121), (128, 136)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline26enableStoreSubstsInAssertsEv(ptr noundef nonnull align 8 dereferenceable(164) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp4 = alloca i8, align 1
@@ -1397,7 +1397,7 @@ lpad:                                             ; preds = %if.else.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline27disableStoreSubstsInAssertsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(164) initializes((120, 121)) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline27disableStoreSubstsInAssertsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(164) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_storeSubstsInAsserts = getelementptr inbounds i8, ptr %this, i64 120
   store i8 0, ptr %d_storeSubstsInAsserts, align 8
@@ -2916,7 +2916,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare noundef zeroext i1 @_ZN4cvc58internal7CDProof6isSameENS0_12NodeTemplateILb0EEES3_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline21markRefutationUnsoundEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(164) initializes((161, 162)) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline21markRefutationUnsoundEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(164) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_isRefutationUnsound = getelementptr inbounds i8, ptr %this, i64 161
   store i8 1, ptr %d_isRefutationUnsound, align 1
@@ -2924,7 +2924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline16markModelUnsoundEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(164) initializes((162, 163)) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal13preprocessing17AssertionPipeline16markModelUnsoundEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(164) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_isModelUnsound = getelementptr inbounds i8, ptr %this, i64 162
   store i8 1, ptr %d_isModelUnsound, align 2

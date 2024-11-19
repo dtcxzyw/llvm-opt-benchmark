@@ -1488,7 +1488,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_122AutocompleteNodeFinderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -1835,7 +1835,7 @@ define dso_local noundef ptr @_ZN4Luau18findExprAtPositionERKNS_12SourceModuleEN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau19findScopeAtPositionERKNS_6ModuleENS_8PositionE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.31") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %1, i64 %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau19findScopeAtPositionERKNS_6ModuleENS_8PositionE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.31") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(952) %1, i64 %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::Position", align 8
   %5 = alloca %"struct.Luau::Location", align 4
   store i64 %2, ptr %4, align 8
@@ -4290,7 +4290,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %46, %54
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4Luau12_GLOBAL__N_122AutocompleteNodeFinderD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 472) (i8, ptr @_ZTVN4Luau12_GLOBAL__N_122AutocompleteNodeFinderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8

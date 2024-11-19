@@ -136,7 +136,7 @@ _ZNSt12_Vector_baseIPN4mold7CounterESaIS2_EED2Ev.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold12demangle_cppESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 initializes((16, 17)) %agg.result, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #4 {
+define dso_local void @_ZN4mold12demangle_cppESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #4 {
 entry:
   %name = alloca %"class.std::basic_string_view", align 8
   %status = alloca i32, align 4
@@ -280,7 +280,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #5
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold13demangle_rustESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 initializes((16, 17)) %agg.result, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #4 {
+define dso_local void @_ZN4mold13demangle_rustESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #4 {
 entry:
   %name = alloca %"class.std::basic_string_view", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

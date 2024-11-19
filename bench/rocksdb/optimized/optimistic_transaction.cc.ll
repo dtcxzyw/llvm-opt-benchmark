@@ -974,7 +974,7 @@ _ZNSt8_Rb_treeIPN7rocksdb4port5MutexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21OptimisticTransaction8RollbackEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(328) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21OptimisticTransaction8RollbackEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(328) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 680

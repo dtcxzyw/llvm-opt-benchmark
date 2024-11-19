@@ -43,7 +43,7 @@ $_ZTIN2cv3reg6MapperE = comdat any
 @_ZN2cv3reg13MapperPyramidC1ENS_3PtrINS0_6MapperEEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN2cv3reg13MapperPyramidC2ENS_3PtrINS0_6MapperEEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv3reg13MapperPyramidC2ENS_3PtrINS0_6MapperEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define void @_ZN2cv3reg13MapperPyramidC2ENS_3PtrINS0_6MapperEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv3reg13MapperPyramidE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 3, ptr %3, align 8
@@ -1321,7 +1321,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK2cv3reg13MapperPyramid6getMapEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.0") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #5 align 2 {
+define void @_ZNK2cv3reg13MapperPyramid6getMapEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.0") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }

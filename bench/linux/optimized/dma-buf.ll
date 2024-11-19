@@ -1282,7 +1282,7 @@ define dso_local i32 @dma_buf_mmap(ptr noundef %0, ptr noundef %1, i64 noundef %
 declare dso_local void @vma_set_file(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dma_buf_vmap(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) #0 align 16 {
+define dso_local i32 @dma_buf_vmap(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca %struct.iosys_map, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #10
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1375,7 +1375,7 @@ define dso_local i32 @dma_buf_vmap(ptr noundef %0, ptr nocapture noundef initial
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @dma_buf_vmap_unlocked(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) #0 align 16 {
+define dso_local i32 @dma_buf_vmap_unlocked(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca %struct.iosys_map, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10

@@ -268,7 +268,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop13CadicalSolverC2ERNS0_3EnvERNS0_18StatisticsRegistryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(72) %registry, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop13CadicalSolverC2ERNS0_3EnvERNS0_18StatisticsRegistryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(72) %registry, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop14CDCLTSatSolverE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -431,7 +431,7 @@ declare noundef zeroext i1 @_ZN7CaDiCaL6Solver3setEPKci(ptr noundef nonnull alig
 declare void @_ZN7CaDiCaL6Solver3addEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal4prop13CadicalSolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 16)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop13CadicalSolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
@@ -490,7 +490,7 @@ _ZNSt10unique_ptrIN7CaDiCaL6SolverESt14default_deleteIS1_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn8_N4cvc58internal4prop13CadicalSolverD1Ev(ptr nocapture noundef initializes((-8, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZThn8_N4cvc58internal4prop13CadicalSolverD1Ev(ptr nocapture noundef %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %0, align 8
@@ -549,7 +549,7 @@ _ZN4cvc58internal4prop13CadicalSolverD2Ev.exit:   ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal4prop13CadicalSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop13CadicalSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -608,7 +608,7 @@ _ZN4cvc58internal4prop13CadicalSolverD2Ev.exit:   ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn8_N4cvc58internal4prop13CadicalSolverD0Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZThn8_N4cvc58internal4prop13CadicalSolverD0Ev(ptr noundef %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %0, align 8
@@ -2100,7 +2100,7 @@ declare ptr @_ZN4cvc58internal18StatisticsRegistry11registerIntERKNSt7__cxx1112b
 declare ptr @_ZN4cvc58internal18StatisticsRegistry13registerTimerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop13CadicalSolver10initializeEPNS_7context7ContextEPNS1_11TheoryProxyEPNS3_11UserContextEPNS0_16ProofNodeManagerE(ptr noundef nonnull align 8 dereferenceable(144) initializes((40, 56)) %this, ptr noundef %context, ptr noundef %theoryProxy, ptr nocapture readnone %userContext, ptr nocapture readnone %pnm) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop13CadicalSolver10initializeEPNS_7context7ContextEPNS1_11TheoryProxyEPNS3_11UserContextEPNS0_16ProofNodeManagerE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %context, ptr noundef %theoryProxy, ptr nocapture readnone %userContext, ptr nocapture readnone %pnm) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_context = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %context, ptr %d_context, align 8
@@ -3029,7 +3029,7 @@ return:                                           ; preds = %if.end, %if.then
 declare noundef i32 @_ZNK7CaDiCaL6Solver5fixedEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal4prop13CadicalSolver12getDecisionsEv(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal4prop13CadicalSolver12getDecisionsEv(ptr noalias nocapture sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %d_propagator = getelementptr inbounds i8, ptr %this, i64 56
@@ -3164,14 +3164,14 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK4cvc58internal4prop13CadicalSolver12getOrderHeapEv(ptr noalias nocapture writeonly sret(%"class.std::vector.330") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
+define hidden void @_ZNK4cvc58internal4prop13CadicalSolver12getOrderHeapEv(ptr noalias nocapture writeonly sret(%"class.std::vector.330") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal4prop13CadicalSolver8getProofEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
+define hidden void @_ZN4cvc58internal4prop13CadicalSolver8getProofEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   ret void

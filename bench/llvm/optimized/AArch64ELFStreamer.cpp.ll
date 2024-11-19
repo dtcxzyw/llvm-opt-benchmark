@@ -4068,7 +4068,7 @@ declare void @_ZN4llvm10MCStreamer23emitWindowsUnwindTablesEv(ptr noundef nonnul
 declare void @_ZN4llvm10MCStreamer15emitRawTextImplENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(288), ptr, i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(6637) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(6637) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN12_GLOBAL__N_118AArch64ELFStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6608
   %.val = load ptr, ptr %2, align 8
@@ -4082,7 +4082,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamerD2Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamerD0Ev(ptr noundef nonnull align 8 dereferenceable(6637) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamerD0Ev(ptr noundef nonnull align 8 dereferenceable(6637) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN12_GLOBAL__N_118AArch64ELFStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6608
   %.val.i = load ptr, ptr %2, align 8
@@ -4099,7 +4099,7 @@ define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamerD0Ev(ptr noundef nonn
 declare void @_ZN4llvm16MCObjectStreamer15visitUsedSymbolERKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(424), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer5resetEv(ptr noundef nonnull align 8 dereferenceable(6637) initializes((6600, 6601)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118AArch64ELFStreamer5resetEv(ptr noundef nonnull align 8 dereferenceable(6637) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 6600
   store i8 0, ptr %2, align 8
   tail call void @_ZN4llvm16MCObjectStreamer5resetEv(ptr noundef nonnull align 8 dereferenceable(6601) %0) #12
@@ -4724,7 +4724,7 @@ declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i
 declare void @_ZN4llvm13MCELFStreamer13changeSectionEPNS_9MCSectionEj(ptr noundef nonnull align 8 dereferenceable(6601), ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionEN12_GLOBAL__N_118AArch64ELFStreamer16ElfMappingSymbolENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

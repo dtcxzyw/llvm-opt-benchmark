@@ -632,7 +632,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13CacheLocality7uniformEm(ptr dead_on_unwind noalias writable sret(%"struct.folly::CacheLocality") align 8 initializes((0, 56)) %agg.result, i64 noundef %numCpus) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13CacheLocality7uniformEm(ptr dead_on_unwind noalias writable sret(%"struct.folly::CacheLocality") align 8 %agg.result, i64 noundef %numCpus) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 cond.true.i.i.i:
   %numCachesByLevel.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %numCachesByLevel.i, i8 0, i64 48, i1 false)
@@ -5718,7 +5718,7 @@ _ZN5folly12_GLOBAL__N_19Allocator10deallocateEPv.exit: ; preds = %if.else.i, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly18CoreAllocatorGuardC2Emm(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, i64 noundef %numStripes, i64 noundef %stripe) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18CoreAllocatorGuardC2Emm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %numStripes, i64 noundef %stripe) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   store i64 %numStripes, ptr %this, align 8, !tbaa !204

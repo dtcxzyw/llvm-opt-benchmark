@@ -3725,7 +3725,7 @@ define internal noundef zeroext i1 @"_ZN76_$LT$deltalake_core..errors..DeltaTabl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14deltalake_test11TestContext8from_env17hb707255de5b245dbE(ptr noalias nocapture noundef writeonly sret({ [33 x i8], i8, [6 x i8] }) align 8 dereferenceable(40) initializes((33, 34)) %0) unnamed_addr #3 {
+define void @_ZN14deltalake_test11TestContext8from_env17hb707255de5b245dbE(ptr noalias nocapture noundef writeonly sret({ [33 x i8], i8, [6 x i8] }) align 8 dereferenceable(40) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 33
   store i8 0, ptr %2, align 1
   ret void
@@ -4057,7 +4057,7 @@ select.unfold:                                    ; preds = %"_ZN9hashbrown3raw2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14deltalake_test11TestContext24create_table_from_schema17h2bbb13acb4841ea4E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr, { ptr, i64 }, [64 x i8], i8, [7 x i8] }) align 8 dereferenceable(144) initializes((0, 72), (136, 137)) %0, ptr noalias noundef align 8 dereferenceable(712) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4) unnamed_addr #4 {
+define void @_ZN14deltalake_test11TestContext24create_table_from_schema17h2bbb13acb4841ea4E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr, { ptr, i64 }, [64 x i8], i8, [7 x i8] }) align 8 dereferenceable(144) %0, ptr noalias noundef align 8 dereferenceable(712) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %2, ptr noalias noundef nonnull readonly align 8 %3, i64 noundef %4) unnamed_addr #4 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
@@ -4076,7 +4076,7 @@ define noundef i8 @_ZN14deltalake_test19setup_local_context17hc6f1bf9653931d2aE(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14deltalake_test8add_file17h9ddd0be98a125fe6E(ptr noalias nocapture noundef writeonly sret({ [4 x i64], { ptr, ptr, i64, { ptr } }, [10 x i64], { ptr, i64 }, i64, [3 x i64], ptr, ptr, [5 x i8], i8, i8, [1401 x i8] }) align 8 dereferenceable(1616) initializes((32, 64), (144, 168), (192, 208), (213, 215)) %0, ptr noalias noundef align 8 dereferenceable(632) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #4 {
+define void @_ZN14deltalake_test8add_file17h9ddd0be98a125fe6E(ptr noalias nocapture noundef writeonly sret({ [4 x i64], { ptr, ptr, i64, { ptr } }, [10 x i64], { ptr, i64 }, i64, [3 x i64], ptr, ptr, [5 x i8], i8, i8, [1401 x i8] }) align 8 dereferenceable(1616) %0, ptr noalias noundef align 8 dereferenceable(632) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5, i64 noundef %6, i1 noundef zeroext %7) unnamed_addr #4 {
   %9 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 200
@@ -4098,7 +4098,7 @@ define void @_ZN14deltalake_test8add_file17h9ddd0be98a125fe6E(ptr noalias nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14deltalake_test11remove_file17h70efb45a192ad12bE(ptr noalias nocapture noundef writeonly sret({ [6 x i64], { ptr, i64 }, { ptr, i64 }, i64, [1 x i64], ptr, [4 x i8], i8, [1403 x i8] }) align 8 dereferenceable(1512) initializes((48, 88), (96, 104), (108, 109)) %0, ptr noalias noundef align 8 dereferenceable(632) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5, i64 noundef %6) unnamed_addr #3 {
+define void @_ZN14deltalake_test11remove_file17h70efb45a192ad12bE(ptr noalias nocapture noundef writeonly sret({ [6 x i64], { ptr, i64 }, { ptr, i64 }, i64, [1 x i64], ptr, [4 x i8], i8, [1403 x i8] }) align 8 dereferenceable(1512) %0, ptr noalias noundef align 8 dereferenceable(632) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5, i64 noundef %6) unnamed_addr #3 {
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 48

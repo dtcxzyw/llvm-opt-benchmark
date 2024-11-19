@@ -59,14 +59,14 @@ declare ptr @gpr_malloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @grpc_empty_slice(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 32)) %agg.result) local_unnamed_addr #3 {
+define void @grpc_empty_slice(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false), !alias.scope !4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_slice_copy(ptr noalias nocapture sret(%struct.grpc_slice) align 8 initializes((0, 9)) %agg.result, ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %s) local_unnamed_addr #0 {
+define void @grpc_slice_copy(ptr noalias nocapture sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %s) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %s, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -116,7 +116,7 @@ grpc_slice_malloc.exit:                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_slice_malloc(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 9)) %agg.result, i64 noundef %length) local_unnamed_addr #0 {
+define void @grpc_slice_malloc(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i64 %length, 24
   br i1 %cmp, label %if.then, label %if.else
@@ -159,7 +159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @grpc_slice_from_static_buffer(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 32)) %agg.result, ptr noundef %s, i64 noundef %len) local_unnamed_addr #3 {
+define void @grpc_slice_from_static_buffer(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %s, i64 noundef %len) local_unnamed_addr #3 {
 entry:
   store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
   %ref.tmp.sroa.3.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -172,7 +172,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @grpc_slice_from_static_string(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 32)) %agg.result, ptr noundef %s) local_unnamed_addr #5 {
+define void @grpc_slice_from_static_string(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %s) local_unnamed_addr #5 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #24, !noalias !17
   store ptr inttoptr (i64 1 to ptr), ptr %agg.result, align 8
@@ -186,7 +186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_slice_new_with_user_data(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 24)) %agg.result, ptr noundef %p, i64 noundef %len, ptr noundef %destroy, ptr noundef %user_data) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @grpc_slice_new_with_user_data(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %p, i64 noundef %len, ptr noundef %destroy, ptr noundef %user_data) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   store i64 1, ptr %call, align 8
@@ -213,7 +213,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_slice_new(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 24)) %agg.result, ptr noundef %p, i64 noundef %len, ptr noundef %destroy) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @grpc_slice_new(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %p, i64 noundef %len, ptr noundef %destroy) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !20
@@ -233,7 +233,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_slice_new_with_len(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 24)) %agg.result, ptr noundef %p, i64 noundef %len, ptr noundef %destroy) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @grpc_slice_new_with_len(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef %p, i64 noundef %len, ptr noundef %destroy) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   store i64 1, ptr %call, align 8
@@ -254,7 +254,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_slice_from_copied_buffer(ptr noalias nocapture sret(%struct.grpc_slice) align 8 initializes((0, 9)) %agg.result, ptr nocapture noundef readonly %source, i64 noundef %len) local_unnamed_addr #0 {
+define void @grpc_slice_from_copied_buffer(ptr noalias nocapture sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly %source, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i64 %len, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -305,7 +305,7 @@ return:                                           ; preds = %grpc_slice_malloc.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_slice_from_copied_string(ptr noalias nocapture sret(%struct.grpc_slice) align 8 initializes((0, 9)) %agg.result, ptr nocapture noundef readonly %source) local_unnamed_addr #0 {
+define void @grpc_slice_from_copied_string(ptr noalias nocapture sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly %source) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %source) #24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)
@@ -361,7 +361,7 @@ grpc_slice_from_copied_buffer.exit:               ; preds = %if.then.i, %grpc_sl
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z28grpc_slice_from_moved_bufferSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEEm(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 9)) %agg.result, ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z28grpc_slice_from_moved_bufferSt10unique_ptrIcN9grpc_core17DefaultDeleteCharEEm(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef %p, i64 noundef %len) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %cmp = icmp ult i64 %len, 24
@@ -481,7 +481,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26grpc_slice_from_cpp_stringNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 9)) %agg.result, ptr noundef nonnull %str) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z26grpc_slice_from_cpp_stringNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef nonnull %str) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %str) #26
   %cmp = icmp ult i64 %call, 24
@@ -526,7 +526,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_slice_malloc_large(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 24)) %agg.result, i64 noundef %length) local_unnamed_addr #0 {
+define void @grpc_slice_malloc_large(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, i64 noundef %length) local_unnamed_addr #0 {
 entry:
   %add = add i64 %length, 16
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %add) #23
@@ -1460,7 +1460,7 @@ return:                                           ; preds = %for.inc, %if.end48,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @grpc_slice_dup(ptr noalias nocapture sret(%struct.grpc_slice) align 8 initializes((0, 9)) %agg.result, ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %a) local_unnamed_addr #0 {
+define void @grpc_slice_dup(ptr noalias nocapture sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %a) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %a, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -1510,7 +1510,7 @@ grpc_slice_malloc.exit:                           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @grpc_slice_ref(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %slice) local_unnamed_addr #16 {
+define void @grpc_slice_ref(ptr noalias nocapture writeonly sret(%struct.grpc_slice) align 8 %agg.result, ptr nocapture noundef readonly byval(%struct.grpc_slice) align 8 %slice) local_unnamed_addr #16 {
 entry:
   %0 = load ptr, ptr %slice, align 8
   %cmp.i = icmp ugt ptr %0, inttoptr (i64 1 to ptr)

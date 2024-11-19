@@ -998,7 +998,7 @@ declare i32 @pthread_mutex_init(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @tracker_constructor(ptr noundef initializes((144, 148), (152, 168)) %0) #7 {
+define internal void @tracker_constructor(ptr noundef %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152

@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [17 x i8] c"usb.dst.endpoint\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @col_setup(ptr nocapture noundef initializes((8, 12), (16, 40)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @col_setup(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @localeconv() #16
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr @col_decimal_point, align 8

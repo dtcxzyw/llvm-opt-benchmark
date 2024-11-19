@@ -1798,7 +1798,7 @@ declare i32 @errmsg(ptr noundef, ...) local_unnamed_addr #1
 declare void @errsave_finish(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @line_construct(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, double noundef %2) unnamed_addr #0 {
+define internal fastcc void @line_construct(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, double noundef %2) unnamed_addr #0 {
   %4 = tail call double @llvm.fabs.f64(double %2)
   %5 = fcmp oeq double %4, 0x7FF0000000000000
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -17245,7 +17245,7 @@ define dso_local i64 @poly_center(ptr nocapture noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @poly_to_circle(ptr nocapture noundef initializes((0, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @poly_to_circle(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 4

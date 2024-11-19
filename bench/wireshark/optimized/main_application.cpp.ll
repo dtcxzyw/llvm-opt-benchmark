@@ -5285,7 +5285,7 @@ declare void @_ZN11QTranslatorD1Ev(ptr noundef nonnull align 8 dereferenceable(1
 declare void @_ZN12QApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15MainApplication, i64 16), ptr %0, align 8
   store ptr null, ptr @mainApp, align 8
   invoke void @_ZN15MainApplication26clearDynamicMenuGroupItemsEv(ptr nonnull align 8 poison)
@@ -7831,7 +7831,7 @@ define void @_ZN15MainApplication22refreshLocalInterfacesEv(ptr nocapture nounde
 declare void @extcap_clear_interfaces() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15MainApplication12allSystemsGoEv(ptr noundef nonnull align 8 dereferenceable(216) initializes((48, 49)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15MainApplication12allSystemsGoEv(ptr noundef nonnull align 8 dereferenceable(216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
@@ -8077,7 +8077,7 @@ declare void @proto_reenable_all() local_unnamed_addr #2
 declare ptr @epan_load_settings() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK15MainApplication11recentItemsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK15MainApplication11recentItemsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(216) %1) local_unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr @_ZL16recent_captures_, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

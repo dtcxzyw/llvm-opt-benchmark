@@ -2354,7 +2354,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost15program_o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost15program_options22abstract_variables_mapC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #8 align 2 {
+define void @_ZN5boost15program_options22abstract_variables_mapC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options22abstract_variables_mapE, i64 16), ptr %0, align 8, !tbaa !51
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8, !tbaa !83
@@ -2362,7 +2362,7 @@ define void @_ZN5boost15program_options22abstract_variables_mapC2Ev(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost15program_options22abstract_variables_mapC2EPKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define void @_ZN5boost15program_options22abstract_variables_mapC2EPKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost15program_options22abstract_variables_mapE, i64 16), ptr %0, align 8, !tbaa !51
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !83
@@ -2422,14 +2422,14 @@ tailrecurse:                                      ; preds = %8, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost15program_options22abstract_variables_map4nextEPS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN5boost15program_options22abstract_variables_map4nextEPS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !83
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost15program_options13variables_mapC2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((8, 16), (24, 28), (32, 40)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost15program_options13variables_mapC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8, !tbaa !83
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2467,7 +2467,7 @@ define void @_ZN5boost15program_options13variables_mapC2Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost15program_options13variables_mapC2EPKNS0_22abstract_variables_mapE(ptr noundef nonnull align 8 dereferenceable(160) initializes((8, 16), (24, 28), (32, 40)) %0, ptr noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost15program_options13variables_mapC2EPKNS0_22abstract_variables_mapE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !83
   %4 = getelementptr inbounds i8, ptr %0, i64 24

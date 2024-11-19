@@ -110,7 +110,7 @@ define dso_local i64 @archive_position_uncompressed(ptr noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @archive_clear_error(ptr nocapture noundef writeonly initializes((36, 48), (56, 64)) %0) local_unnamed_addr #5 {
+define dso_local void @archive_clear_error(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -121,7 +121,7 @@ define dso_local void @archive_clear_error(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_set_error(ptr noundef initializes((36, 40)) %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
+define dso_local void @archive_set_error(ptr noundef %0, i32 noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %1, ptr %5, align 4
@@ -148,7 +148,7 @@ define dso_local void @archive_set_error(ptr noundef initializes((36, 40)) %0, i
 declare void @archive_string_vsprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_copy_error(ptr noundef initializes((36, 40), (56, 64)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @archive_copy_error(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 36

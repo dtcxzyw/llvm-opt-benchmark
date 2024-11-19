@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [8 x i8] c"%p: %p\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @phpdbg_btree_init(ptr nocapture noundef writeonly initializes((0, 17), (24, 32)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden void @phpdbg_btree_init(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -184,7 +184,7 @@ define hidden ptr @phpdbg_btree_find_closest(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @phpdbg_btree_find_between(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.phpdbg_btree_position) align 8 initializes((0, 24)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define hidden void @phpdbg_btree_find_between(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.phpdbg_btree_position) align 8 %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %5, align 8

@@ -1203,7 +1203,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK8datatype4util15datatype_paramsEP4sort(ptr noalias sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %this, ptr nocapture noundef readonly %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK8datatype4util15datatype_paramsEP4sort(ptr noalias sret(%class.ref_vector) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %this, ptr nocapture noundef readonly %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -3942,7 +3942,7 @@ _ZN7obj_mapI4sortPN8datatype10param_size4sizeEEixEPS0_.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8datatype4decl6pluginD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(101) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8datatype4decl6pluginD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(101) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8datatype4decl6pluginE, i64 16), ptr %this, align 8
   invoke void @_ZN8datatype4decl6plugin8finalizeEv(ptr noundef nonnull align 8 dereferenceable(101) %this)
@@ -4101,7 +4101,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8datatype4decl6pluginD0Ev(ptr noundef nonnull align 8 dereferenceable(101) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN8datatype4decl6pluginD0Ev(ptr noundef nonnull align 8 dereferenceable(101) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN8datatype4decl6pluginD2Ev(ptr noundef nonnull align 8 dereferenceable(101) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
@@ -7058,7 +7058,7 @@ lpad:                                             ; preds = %return.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK8datatype4decl6plugin16get_constructorsERK6symbol(ptr noalias sret(%class.ptr_vector.29) align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(101) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK8datatype4decl6plugin16get_constructorsERK6symbol(ptr noalias sret(%class.ptr_vector.29) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(101) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -7288,7 +7288,7 @@ _ZN6vectorIPN8datatype11constructorELb0EjED2Ev.exit: ; preds = %entry, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK8datatype4decl6plugin13get_accessorsERK6symbol(ptr noalias sret(%class.ptr_vector.44) align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(101) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK8datatype4decl6plugin13get_accessorsERK6symbol(ptr noalias sret(%class.ptr_vector.44) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(101) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -17301,7 +17301,7 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit: ; preds = %_ZN8ob
 declare noundef zeroext i1 @_ZNK8ast_mark9is_markedEP3ast(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8datatype4utilC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 12), (16, 44)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8datatype4utilC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_family_id = getelementptr inbounds i8, ptr %this, i64 8

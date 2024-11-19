@@ -70,7 +70,7 @@ define void @_ZN2cv4cuda6GpuMat20updateContinuityFlagEv(ptr nocapture noundef no
 declare noundef i32 @_ZN2cv20updateContinuityFlagEiiPKiPKm(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4cuda6GpuMatC2EiiiPvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 align 2 {
+define void @_ZN2cv4cuda6GpuMatC2EiiiPvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca [2 x i32], align 4
   %8 = alloca [2 x i64], align 16
   %9 = and i32 %3, 4095
@@ -140,7 +140,7 @@ define noalias noundef ptr @_ZN2cv4cuda6GpuMat16defaultAllocatorEv() local_unnam
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4cuda6GpuMatC2ENS_5Size_IiEEiPvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %0, i64 %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
+define void @_ZN2cv4cuda6GpuMatC2ENS_5Size_IiEEiPvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i64 %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca [2 x i32], align 4
   %7 = alloca [2 x i64], align 16
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
@@ -209,7 +209,7 @@ define void @_ZN2cv4cuda6GpuMatC2ENS_5Size_IiEEiPvm(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (16, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5RangeES4_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [2 x i32], align 4
   %6 = alloca [2 x i64], align 16
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -454,7 +454,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5Rect_IiEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5Rect_IiEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, i64 %2, i64 %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [2 x i32], align 4
   %6 = alloca [2 x i64], align 16
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -616,7 +616,7 @@ define void @_ZN2cv4cuda6GpuMatC2ERKS1_NS_5Rect_IiEE(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv4cuda6GpuMat7reshapeEii(ptr dead_on_unwind noalias nocapture writable sret(%"class.cv::cuda::GpuMat") align 8 initializes((0, 12), (16, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv4cuda6GpuMat7reshapeEii(ptr dead_on_unwind noalias nocapture writable sret(%"class.cv::cuda::GpuMat") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -853,7 +853,7 @@ _ZN2cv4cuda6GpuMatC2ERKS1_.exit:                  ; preds = %4, %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK2cv4cuda6GpuMat9locateROIERNS_5Size_IiEERNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #5 align 2 {
+define void @_ZNK2cv4cuda6GpuMat9locateROIERNS_5Size_IiEERNS_6Point_IiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #5 align 2 {
   %4 = load i32, ptr %0, align 8
   %5 = lshr i32 %4, 3
   %6 = and i32 %5, 511

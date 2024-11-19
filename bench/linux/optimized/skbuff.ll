@@ -706,7 +706,7 @@ define dso_local ptr @__build_skb(ptr noundef %0, i32 noundef %1) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__build_skb_around(ptr noundef nonnull initializes((208, 212)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @__build_skb_around(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp ne i32 %2, 0
   %5 = load i1, ptr @__build_skb_around.__already_done, align 1
   %6 = select i1 %4, i1 true, i1 %5
@@ -3531,7 +3531,7 @@ define dso_local ptr @alloc_skb_for_msg(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__copy_skb_header(ptr nocapture noundef initializes((16, 24), (32, 96), (104, 112), (124, 126), (127, 129), (132, 184)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__copy_skb_header(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3668,7 +3668,7 @@ define dso_local noundef ptr @skb_morph(ptr noundef returned %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @__skb_clone(ptr noundef returned initializes((0, 96), (104, 112), (124, 126), (127, 129), (132, 184)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef ptr @__skb_clone(ptr noundef returned %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -5592,7 +5592,7 @@ define dso_local void @skb_headers_offset_update(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @skb_copy_header(ptr nocapture noundef initializes((16, 24), (32, 96), (104, 112), (124, 126), (127, 129), (132, 184)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @skb_copy_header(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   tail call fastcc void @__copy_skb_header(ptr noundef %0, ptr noundef %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 192
   %4 = load ptr, ptr %3, align 8
@@ -11685,7 +11685,7 @@ define internal fastcc void @__skb_frag_unref(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @skb_prepare_seq_read(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 44)) %3) #16 align 16 {
+define dso_local void @skb_prepare_seq_read(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #16 align 16 {
   store i32 %1, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 %2, ptr %5, align 4
@@ -15362,7 +15362,7 @@ define dso_local void @skb_tstamp_tx(ptr noundef %0, ptr noundef %1) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @skb_complete_wifi_ack(ptr noundef initializes((40, 88)) %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local void @skb_complete_wifi_ack(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 129
@@ -16136,7 +16136,7 @@ __kfree_skb.exit:                                 ; preds = %30, %28, %26, %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @skb_try_coalesce(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local noundef zeroext i1 @skb_try_coalesce(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 112
   %6 = load i32, ptr %5, align 8
   store i8 0, ptr %2, align 1
@@ -16584,7 +16584,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skb_pp_frag_ref(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @skb_scrub_packet(ptr nocapture noundef initializes((144, 148)) %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local void @skb_scrub_packet(ptr nocapture noundef %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 144
@@ -18479,7 +18479,7 @@ skb_ensure_writable.exit.thread5:                 ; preds = %55, %57, %106, %skb
 declare i32 @llvm.bswap.i32(i32) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @alloc_skb_with_frags(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, i32 noundef %4) #0 align 16 {
+define dso_local ptr @alloc_skb_with_frags(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4) #0 align 16 {
   store i32 -90, ptr %3, align 4
   %6 = zext nneg i32 %2 to i64
   %7 = shl i64 4096, %6
@@ -19326,7 +19326,7 @@ define dso_local ptr @__skb_ext_alloc(i32 noundef %0) local_unnamed_addr #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__skb_ext_set(ptr nocapture noundef %0, i32 noundef %1, ptr noundef initializes((5, 6)) %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @__skb_ext_set(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 127
   %5 = load i8, ptr %4, align 1
   %6 = icmp eq i8 %5, 0

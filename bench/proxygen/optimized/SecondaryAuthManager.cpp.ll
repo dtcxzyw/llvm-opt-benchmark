@@ -128,7 +128,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN8proxygen20SecondaryAuthManagerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8proxygen20SecondaryAuthManagerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen20SecondaryAuthManagerC2ESt10unique_ptrIN4fizz8SelfCertESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 12), (24, 28), (32, 40)) %this, ptr nocapture noundef %cert) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20SecondaryAuthManagerC2ESt10unique_ptrIN4fizz8SelfCertESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef %cert) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20SecondaryAuthManagerE, i64 16), ptr %this, align 8
   %requestIdCounter_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -185,7 +185,7 @@ _ZNSt10unique_ptrIN4fizz8SelfCertESt14default_deleteIS1_EEaSEOS4_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen20SecondaryAuthManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen20SecondaryAuthManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20SecondaryAuthManagerE, i64 16), ptr %this, align 8
   %receivedCerts_ = getelementptr inbounds i8, ptr %this, i64 120

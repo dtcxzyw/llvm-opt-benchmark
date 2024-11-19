@@ -31,7 +31,7 @@ $_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE5writeILN8LogL
 @_ZN24JfrGTestFixedRateSamplerC1Emmm = hidden unnamed_addr alias void (ptr, i64, i64, i64), ptr @_ZN24JfrGTestFixedRateSamplerC2Emmm
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN16JfrSamplerWindowC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16JfrSamplerWindowC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store volatile i64 0, ptr %2, align 8
@@ -48,7 +48,7 @@ define hidden void @_ZN16JfrSamplerWindowC2Ev(ptr noundef nonnull align 8 derefe
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN18JfrAdaptiveSamplerC2Ev(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18JfrAdaptiveSamplerC2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV18JfrAdaptiveSampler, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = ptrtoint ptr %0 to i64
@@ -61,7 +61,7 @@ define hidden void @_ZN18JfrAdaptiveSamplerC2Ev(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18JfrAdaptiveSamplerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN18JfrAdaptiveSamplerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV18JfrAdaptiveSampler, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -220,7 +220,7 @@ _ZN10JfrTryLockD2Ev.exit:                         ; preds = %16, %10, %31, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK16JfrSamplerWindow6sampleElPb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK16JfrSamplerWindow6sampleElPb(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load volatile i64, ptr %4, align 8
   %6 = icmp eq i64 %1, 0
@@ -447,7 +447,7 @@ _ZN16JfrSamplerWindow10initializeERK16JfrSamplerParams.exit: ; preds = %29, %34
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParams(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((40, 72)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 25)) %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParams(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store double 0.000000e+00, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16

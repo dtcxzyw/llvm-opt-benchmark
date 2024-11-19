@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [5 x i8] c"poll\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PaSndio_Initialize(ptr nocapture noundef initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @PaSndio_Initialize(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %0, align 8
   %4 = tail call ptr @PaUtil_AllocateZeroInitializedMemory(i64 noundef 1552) #16

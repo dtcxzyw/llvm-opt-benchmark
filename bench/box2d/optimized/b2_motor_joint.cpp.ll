@@ -32,7 +32,7 @@ $_ZN12b2MotorJointD0Ev = comdat any
 @_ZN12b2MotorJointC1EPK15b2MotorJointDef = unnamed_addr alias void (ptr, ptr), ptr @_ZN12b2MotorJointC2EPK15b2MotorJointDef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15b2MotorJointDef10InitializeEP6b2BodyS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((16, 32), (36, 48)) %this, ptr noundef %bA, ptr noundef %bB) local_unnamed_addr #0 align 2 {
+define void @_ZN15b2MotorJointDef10InitializeEP6b2BodyS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this, ptr noundef %bA, ptr noundef %bB) local_unnamed_addr #0 align 2 {
 entry:
   %bodyA = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %bA, ptr %bodyA, align 8
@@ -110,7 +110,7 @@ declare void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferen
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN12b2MotorJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(252) initializes((164, 252)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
+define void @_ZN12b2MotorJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(252) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
   %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
@@ -581,7 +581,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12b2MotorJoint11SetMaxForceEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(252) initializes((152, 156)) %this, float noundef %force) local_unnamed_addr #10 align 2 {
+define void @_ZN12b2MotorJoint11SetMaxForceEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(252) %this, float noundef %force) local_unnamed_addr #10 align 2 {
 entry:
   %m_maxForce = getelementptr inbounds i8, ptr %this, i64 152
   store float %force, ptr %m_maxForce, align 8
@@ -597,7 +597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12b2MotorJoint12SetMaxTorqueEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(252) initializes((156, 160)) %this, float noundef %torque) local_unnamed_addr #10 align 2 {
+define void @_ZN12b2MotorJoint12SetMaxTorqueEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(252) %this, float noundef %torque) local_unnamed_addr #10 align 2 {
 entry:
   %m_maxTorque = getelementptr inbounds i8, ptr %this, i64 156
   store float %torque, ptr %m_maxTorque, align 4
@@ -613,7 +613,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12b2MotorJoint19SetCorrectionFactorEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(252) initializes((160, 164)) %this, float noundef %factor) local_unnamed_addr #10 align 2 {
+define void @_ZN12b2MotorJoint19SetCorrectionFactorEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(252) %this, float noundef %factor) local_unnamed_addr #10 align 2 {
 entry:
   %m_correctionFactor = getelementptr inbounds i8, ptr %this, i64 160
   store float %factor, ptr %m_correctionFactor, align 8

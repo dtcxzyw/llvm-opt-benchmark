@@ -211,7 +211,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN4llvm18ScheduleDAGSDNodesC2ERNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(632), ptr noundef nonnull align 8 dereferenceable(1041)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115ScheduleDAGFastD2Ev(ptr noundef nonnull align 8 dereferenceable(832) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115ScheduleDAGFastD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_115ScheduleDAGFastE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %3 = load ptr, ptr %2, align 8
@@ -276,7 +276,7 @@ _ZN4llvm18ScheduleDAGSDNodesD2Ev.exit:            ; preds = %_ZN12_GLOBAL__N_117
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115ScheduleDAGFastD0Ev(ptr noundef nonnull align 8 dereferenceable(832) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115ScheduleDAGFastD0Ev(ptr noundef nonnull align 8 dereferenceable(832) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_115ScheduleDAGFastD2Ev(ptr noundef nonnull align 8 dereferenceable(832) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 832) #19
   ret void
@@ -304,7 +304,7 @@ declare void @_ZN4llvm18ScheduleDAGSDNodes14computeLatencyEPNS_5SUnitE(ptr nound
 declare void @_ZNK4llvm18ScheduleDAGSDNodes21computeOperandLatencyEPNS_6SDNodeES2_jRNS_4SDepE(ptr noundef nonnull align 8 dereferenceable(632), ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115ScheduleDAGFast8ScheduleEv(ptr noundef nonnull align 8 dereferenceable(832) initializes((776, 780)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115ScheduleDAGFast8ScheduleEv(ptr noundef nonnull align 8 dereferenceable(832) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.std::pair.202", align 8
   %3 = alloca i32, align 4
   %4 = alloca %"struct.std::pair.202", align 8
@@ -4273,7 +4273,7 @@ declare void @_ZN4llvm5SUnit18setHeightToAtLeastEj(ptr noundef nonnull align 8 d
 declare void @_ZN4llvm5SUnit13ComputeHeightEv(ptr noundef nonnull align 8 dereferenceable(255)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120ScheduleDAGLinearizeD2Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120ScheduleDAGLinearizeD2Ev(ptr noundef nonnull align 8 dereferenceable(680) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_120ScheduleDAGLinearizeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %3 = load ptr, ptr %2, align 8
@@ -4318,7 +4318,7 @@ _ZN4llvm18ScheduleDAGSDNodesD2Ev.exit:            ; preds = %_ZNSt6vectorIPN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120ScheduleDAGLinearizeD0Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120ScheduleDAGLinearizeD0Ev(ptr noundef nonnull align 8 dereferenceable(680) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN12_GLOBAL__N_120ScheduleDAGLinearizeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %3 = load ptr, ptr %2, align 8

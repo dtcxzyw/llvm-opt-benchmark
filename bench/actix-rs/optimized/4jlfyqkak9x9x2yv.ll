@@ -1133,7 +1133,7 @@ define noundef i16 @_ZN12actix_router8resource11ResourceDef2id17hc8475f5d2ab86cd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12actix_router8resource11ResourceDef6set_id17h0438489da9f56e39E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(152) initializes((144, 146)) %0, i16 noundef %1) unnamed_addr #5 {
+define void @_ZN12actix_router8resource11ResourceDef6set_id17h0438489da9f56e39E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(152) %0, i16 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   store i16 %1, ptr %3, align 8
   ret void
@@ -1200,7 +1200,7 @@ define { ptr, i64 } @_ZN12actix_router8resource11ResourceDef7pattern17h6da34fe8e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12actix_router8resource11ResourceDef12pattern_iter17haec7d93bbf4d27e7E(ptr noalias nocapture noundef writeonly sret({ ptr, i64, i8, [7 x i8] }) align 8 dereferenceable(24) initializes((0, 17)) %0, ptr noalias noundef readonly align 8 dereferenceable(152) %1) unnamed_addr #5 {
+define void @_ZN12actix_router8resource11ResourceDef12pattern_iter17haec7d93bbf4d27e7E(ptr noalias nocapture noundef writeonly sret({ ptr, i64, i8, [7 x i8] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(152) %1) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
@@ -1268,7 +1268,7 @@ define { ptr, i64 } @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_iter..PatternIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h72385b1f3c30e92eE"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #7 {
+define void @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_iter..PatternIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h72385b1f3c30e92eE"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #7 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !105, !noundef !5
   %4 = load i64, ptr %3, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %4 to i1

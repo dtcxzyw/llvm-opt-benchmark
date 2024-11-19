@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @Curl_check_noproxy(ptr noundef %name, ptr noundef %no_proxy, ptr nocapture noundef writeonly initializes((0, 1)) %spacesep) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @Curl_check_noproxy(ptr noundef %name, ptr noundef %no_proxy, ptr nocapture noundef writeonly %spacesep) local_unnamed_addr #0 {
 entry:
   %address.i72 = alloca i32, align 4
   %check.i73 = alloca i32, align 4

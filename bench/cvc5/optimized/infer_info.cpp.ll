@@ -94,7 +94,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4bags9InferInfoC2EPNS1_24InferenceManagerBufferedENS1_11InferenceIdE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 12), (16, 24)) %this, ptr noundef %im, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4bags9InferInfoC2EPNS1_24InferenceManagerBufferedENS1_11InferenceIdE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %im, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_id.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %d_id.i, align 8

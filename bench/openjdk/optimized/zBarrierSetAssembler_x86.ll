@@ -91,7 +91,7 @@ $_ZN17ZRuntimeCallSpill7restoreEv = comdat any
 @_ZN20ZBarrierSetAssemblerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20ZBarrierSetAssemblerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20ZBarrierSetAssemblerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ZBarrierSetAssemblerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTV20ZBarrierSetAssembler, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)

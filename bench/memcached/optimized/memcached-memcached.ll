@@ -3702,7 +3702,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @try_read_command_udp(ptr noundef initializes((316, 320)) %c) #1 {
+define internal i32 @try_read_command_udp(ptr noundef %c) #1 {
 entry:
   %rbuf = getelementptr inbounds i8, ptr %c, i64 168
   %0 = load ptr, ptr %rbuf, align 8
@@ -3733,7 +3733,7 @@ declare i32 @try_read_command_asciiauth(ptr noundef) #2
 declare i32 @try_read_command_binary(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @try_read_command_negotiate(ptr noundef initializes((316, 320), (464, 472)) %c) #1 {
+define internal i32 @try_read_command_negotiate(ptr noundef %c) #1 {
 entry:
   %rbuf = getelementptr inbounds i8, ptr %c, i64 168
   %0 = load ptr, ptr %rbuf, align 8
@@ -3767,7 +3767,7 @@ if.end9:                                          ; preds = %if.then6, %entry
 declare void @event_set(ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @event_handler(i32 noundef %fd, i16 noundef signext %which, ptr noundef initializes((162, 164)) %arg) #1 {
+define internal void @event_handler(i32 noundef %fd, i16 noundef signext %which, ptr noundef %arg) #1 {
 entry:
   %which1 = getelementptr inbounds i8, ptr %arg, i64 162
   store i16 %which, ptr %which1, align 2
@@ -4243,7 +4243,7 @@ conn_set_state.exit:                              ; preds = %if.end20, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @resp_reset(ptr nocapture noundef initializes((16, 24), (112, 119)) %resp) local_unnamed_addr #1 {
+define dso_local void @resp_reset(ptr nocapture noundef %resp) local_unnamed_addr #1 {
 entry:
   %item = getelementptr inbounds i8, ptr %resp, i64 40
   %0 = load ptr, ptr %item, align 8
@@ -4299,7 +4299,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @resp_add_chunked_iov(ptr nocapture noundef initializes((112, 116), (117, 118)) %resp, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #15 {
+define dso_local void @resp_add_chunked_iov(ptr nocapture noundef %resp, ptr noundef %buf, i32 noundef %len) local_unnamed_addr #15 {
 entry:
   %iovcnt = getelementptr inbounds i8, ptr %resp, i64 116
   %0 = load i8, ptr %iovcnt, align 4
@@ -4325,7 +4325,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @resp_free(ptr noundef %th, ptr nocapture noundef initializes((119, 120)) %resp) local_unnamed_addr #1 {
+define dso_local void @resp_free(ptr noundef %th, ptr nocapture noundef %resp) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr %resp, align 8
   %free = getelementptr inbounds i8, ptr %resp, i64 119
@@ -4835,7 +4835,7 @@ return:                                           ; preds = %if.end.i26, %if.end
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @out_errstring(ptr nocapture noundef initializes((364, 365)) %c, ptr noundef %str) local_unnamed_addr #1 {
+define dso_local void @out_errstring(ptr nocapture noundef %c, ptr noundef %str) local_unnamed_addr #1 {
 entry:
   %noreply = getelementptr inbounds i8, ptr %c, i64 364
   store i8 0, ptr %noreply, align 4
@@ -6470,7 +6470,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @limited_get(ptr noundef %key, i64 noundef %nkey, ptr noundef %t, i32 noundef %exptime, i1 noundef zeroext %should_touch, i1 noundef zeroext %do_update, ptr nocapture noundef writeonly initializes((0, 1)) %overflow) local_unnamed_addr #1 {
+define dso_local ptr @limited_get(ptr noundef %key, i64 noundef %nkey, ptr noundef %t, i32 noundef %exptime, i1 noundef zeroext %should_touch, i1 noundef zeroext %do_update, ptr nocapture noundef writeonly %overflow) local_unnamed_addr #1 {
 entry:
   br i1 %should_touch, label %if.then, label %if.else
 
@@ -6509,7 +6509,7 @@ declare ptr @item_touch(ptr noundef, i64 noundef, i32 noundef, ptr noundef) loca
 declare ptr @item_get(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @limited_get_locked(ptr noundef %key, i64 noundef %nkey, ptr noundef %t, i1 noundef zeroext %do_update, ptr noundef %hv, ptr nocapture noundef writeonly initializes((0, 1)) %overflow) local_unnamed_addr #1 {
+define dso_local ptr @limited_get_locked(ptr noundef %key, i64 noundef %nkey, ptr noundef %t, i1 noundef zeroext %do_update, ptr noundef %hv, ptr nocapture noundef writeonly %overflow) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @item_get_locked(ptr noundef %key, i64 noundef %nkey, ptr noundef %t, i1 noundef zeroext %do_update, ptr noundef %hv) #36
   %tobool1.not = icmp eq ptr %call, null
@@ -9845,7 +9845,7 @@ declare void @logger_init() local_unnamed_addr #2
 declare void @restart_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_mc_meta_load_cb(ptr nocapture readnone %tag, ptr noundef %ctx, ptr noundef initializes((24, 44)) %data) #1 {
+define internal range(i32 -1, 1) i32 @_mc_meta_load_cb(ptr nocapture readnone %tag, ptr noundef %ctx, ptr noundef %data) #1 {
 entry:
   %key = alloca ptr, align 8
   %val = alloca ptr, align 8

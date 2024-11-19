@@ -290,7 +290,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @shakti_uart_receive(ptr nocapture noundef initializes((1096, 1100)) %opaque, ptr nocapture noundef readonly %buf, i32 %size) #3 {
+define internal void @shakti_uart_receive(ptr nocapture noundef %opaque, ptr nocapture noundef readonly %buf, i32 %size) #3 {
 entry:
   %0 = load i8, ptr %buf, align 1
   %conv = zext i8 %0 to i32

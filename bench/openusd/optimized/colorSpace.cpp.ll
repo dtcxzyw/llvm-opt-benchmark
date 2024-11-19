@@ -1460,7 +1460,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_Immortal
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceC2ERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceC2ERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.pxr_nc_1_0_ColorSpaceM33Descriptor, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %4, align 8
@@ -1636,7 +1636,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12GfColorSpace5_DataELN9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceC2ERKNS_7TfTokenERKNS_7GfVec2fES6_S6_S6_ff(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %5, float noundef %6, float noundef %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceC2ERKNS_7TfTokenERKNS_7GfVec2fES6_S6_S6_ff(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %5, float noundef %6, float noundef %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %struct.pxr_nc_1_0_ColorSpaceDescriptor, align 8
   %10 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %10, align 8
@@ -1712,7 +1712,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
 declare ptr @pxr_nc_1_0_CreateColorSpace(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceC2ERKNS_7TfTokenERKNS_10GfMatrix3fEff(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2, float noundef %3, float noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12GfColorSpaceC2ERKNS_7TfTokenERKNS_10GfMatrix3fEff(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(36) %2, float noundef %3, float noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct.pxr_nc_1_0_ColorSpaceM33Descriptor, align 8
   %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #15
   store ptr null, ptr %7, align 8
@@ -2177,7 +2177,7 @@ define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpace25GetTra
 declare void @pxr_nc_1_0_GetK0Phi(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpace25GetPrimariesAndWhitePointEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple") align 4 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__12GfColorSpace25GetPrimariesAndWhitePointEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.pxr_nc_1_0_ColorSpaceDescriptor, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = load ptr, ptr %4, align 8

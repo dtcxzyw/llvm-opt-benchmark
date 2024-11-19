@@ -1648,7 +1648,7 @@ define range(i32 0, 23) i32 @select_p_select_nodeinfo_free(ptr noundef %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @select_p_select_nodeinfo_unpack(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @select_p_select_nodeinfo_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.16, i32 noundef 893, ptr noundef nonnull @__func__.select_p_select_nodeinfo_alloc) #9

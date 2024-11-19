@@ -2402,7 +2402,7 @@ define internal fastcc ptr @hidinput_locate_usage(ptr noundef readonly %0, ptr n
 declare dso_local i32 @input_scancode_to_scalar(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, ptr noundef initializes((120, 128)) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
+define internal fastcc void @hidinput_configure_usage(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #2 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4884,7 +4884,7 @@ default.unreachable1:                             ; preds = %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @hid_map_usage(ptr %.24.val, ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext range(i8 1, 18) %3, i32 noundef range(i32 0, 66224) %4) unnamed_addr #9 align 16 {
+define internal fastcc void @hid_map_usage(ptr %.24.val, ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i8 noundef zeroext range(i8 1, 18) %3, i32 noundef range(i32 0, 66224) %4) unnamed_addr #9 align 16 {
   %6 = zext nneg i8 %3 to i32
   switch i8 %3, label %.thread [
     i8 3, label %11

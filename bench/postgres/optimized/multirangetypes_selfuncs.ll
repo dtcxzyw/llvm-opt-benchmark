@@ -1064,7 +1064,7 @@ get_distance.exit51:                              ; preds = %115, %119, %125, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc double @calc_hist_selectivity_contained(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull initializes((10, 11)) %2, ptr noundef %3, i32 noundef range(i32 2, -2147483648) %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc double @calc_hist_selectivity_contained(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef range(i32 2, -2147483648) %4, ptr nocapture noundef readonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 9
   %9 = load i8, ptr %8, align 1
   %10 = and i8 %9, 1

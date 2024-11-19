@@ -226,7 +226,7 @@ declare dso_local void @do_trace_netlink_extack(ptr noundef) local_unnamed_addr 
 declare dso_local ptr @tcf_chain_get_by_act(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @tcf_action_set_ctrlact(ptr noundef initializes((36, 40)) %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local ptr @tcf_action_set_ctrlact(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 184

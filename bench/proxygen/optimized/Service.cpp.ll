@@ -95,7 +95,7 @@ $_ZZN5folly3f146detail8F14ChunkISt4pairIKPN8proxygen7ServiceEPNS4_13ServiceWorke
 @_ZN8proxygen7ServiceD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8proxygen7ServiceD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen7ServiceC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN8proxygen7ServiceC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen7ServiceE, i64 16), ptr %this, align 8
   %workers_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen7ServiceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen7ServiceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen7ServiceE, i64 16), ptr %this, align 8
   %workerEvbs_ = getelementptr inbounds i8, ptr %this, i64 32

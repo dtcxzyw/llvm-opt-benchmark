@@ -76,7 +76,7 @@ declare ptr @EVP_aes_192_cbc() local_unnamed_addr #1
 declare ptr @EVP_aes_256_cbc() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EVP_CIPHER_CTX_init(ptr nocapture noundef writeonly initializes((0, 152)) %ctx) local_unnamed_addr #2 {
+define hidden void @EVP_CIPHER_CTX_init(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %ctx, i8 0, i64 152, i1 false)
   ret void
@@ -935,7 +935,7 @@ return:                                           ; preds = %if.end38, %if.then4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_DecryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly initializes((0, 4)) %out_len) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @EVP_DecryptFinal_ex(ptr noundef %ctx, ptr noundef %out, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %out_len, align 4
   %0 = load ptr, ptr %ctx, align 8
@@ -1228,7 +1228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EVP_CIPHER_CTX_set_app_data(ptr nocapture noundef writeonly initializes((8, 16)) %ctx, ptr noundef %data) local_unnamed_addr #2 {
+define hidden void @EVP_CIPHER_CTX_set_app_data(ptr nocapture noundef writeonly %ctx, ptr noundef %data) local_unnamed_addr #2 {
 entry:
   %app_data = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %data, ptr %app_data, align 8

@@ -3287,7 +3287,7 @@ define dso_local ptr @cmListFileLexer_yyget_text(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @cmListFileLexer_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #9 {
+define dso_local void @cmListFileLexer_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -3343,14 +3343,14 @@ define dso_local void @cmListFileLexer_yyset_column(i32 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @cmListFileLexer_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #9 {
+define dso_local void @cmListFileLexer_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @cmListFileLexer_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #9 {
+define dso_local void @cmListFileLexer_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -3364,7 +3364,7 @@ define dso_local i32 @cmListFileLexer_yyget_debug(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @cmListFileLexer_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #9 {
+define dso_local void @cmListFileLexer_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -3590,14 +3590,14 @@ define dso_local noalias noundef ptr @cmListFileLexer_New() local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cmListFileLexer_Delete(ptr noundef initializes((16, 28)) %0) local_unnamed_addr #0 {
+define dso_local void @cmListFileLexer_Delete(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @cmListFileLexer_SetFileName(ptr noundef %0, ptr noundef null, ptr noundef null)
   tail call void @free(ptr noundef %0) #31
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @cmListFileLexer_SetFileName(ptr noundef initializes((16, 28)) %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmListFileLexer_SetFileName(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i8], align 1
   %5 = alloca %struct._G_fpos_t, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3796,7 +3796,7 @@ cmListFileLexerInit.exit:                         ; preds = %.thread, %cmListFil
 declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture noundef readonly) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @cmListFileLexer_SetString(ptr noundef initializes((16, 28)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @cmListFileLexer_SetString(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 20

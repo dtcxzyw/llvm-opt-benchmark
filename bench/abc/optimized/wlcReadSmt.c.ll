@@ -3804,7 +3804,7 @@ declare ptr @Wlc_ObjName(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 51) i32 @Smt_StrToType(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #7 {
+define internal fastcc range(i32 0, 51) i32 @Smt_StrToType(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #7 {
   store i32 0, ptr %1, align 4
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(4) @.str.16) #18
   %.not = icmp eq i32 %3, 0

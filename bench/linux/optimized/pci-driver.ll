@@ -256,7 +256,7 @@ define weak dso_local void @pcibios_free_irq(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__pci_register_driver(ptr noundef initializes((104, 136), (208, 224), (248, 252)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @__pci_register_driver(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %4, ptr %5, align 8

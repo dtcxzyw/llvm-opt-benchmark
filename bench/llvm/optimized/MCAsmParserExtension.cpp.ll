@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm20MCAsmParserExtensionD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm20MCAsmParserExtensionD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm20MCAsmParserExtensionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20MCAsmParserExtensionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm20MCAsmParserExtensionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -45,7 +45,7 @@ define dso_local void @_ZN4llvm20MCAsmParserExtensionD0Ev(ptr noundef nonnull al
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm20MCAsmParserExtension10InitializeERNS_11MCAsmParserE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20MCAsmParserExtension10InitializeERNS_11MCAsmParserE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void

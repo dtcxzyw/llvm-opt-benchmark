@@ -16,7 +16,7 @@ $_ZN3url6Parsed16set_inner_parsedERKS0_ = comdat any
 @_ZN3url6ParsedD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3url6ParsedD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3url6ParsedC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3url6ParsedC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %len.i = getelementptr inbounds i8, ptr %this, i64 4
@@ -55,7 +55,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url6ParsedC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3url6ParsedC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %other, align 8
   store i64 %0, ptr %this, align 8
@@ -2503,7 +2503,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3url12ParsePathURLEPKcibPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, i1 noundef zeroext %trim_path_end, ptr nocapture noundef writeonly initializes((8, 64)) %parsed) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3url12ParsePathURLEPKcibPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, i1 noundef zeroext %trim_path_end, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
   store i32 0, ptr %username.i, align 4
@@ -2804,7 +2804,7 @@ _ZN3url12_GLOBAL__N_114DoParsePathURLIcEEvPKT_ibPNS_6ParsedE.exit: ; preds = %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3url12ParsePathURLEPKtibPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, i1 noundef zeroext %trim_path_end, ptr nocapture noundef writeonly initializes((8, 64)) %parsed) local_unnamed_addr #5 {
+define dso_local void @_ZN3url12ParsePathURLEPKtibPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, i1 noundef zeroext %trim_path_end, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 {
 entry:
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
   store i32 0, ptr %username.i, align 4
@@ -3105,7 +3105,7 @@ _ZN3url12_GLOBAL__N_114DoParsePathURLItEEvPKT_ibPNS_6ParsedE.exit: ; preds = %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url18ParseFileSystemURLEPKciPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef initializes((8, 64)) %parsed) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3url18ParseFileSystemURLEPKciPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %inner_scheme.i = alloca %"struct.url::Component", align 8
   %inner_parsed.i = alloca %"struct.url::Parsed", align 8
@@ -3524,7 +3524,7 @@ _ZN3url12_GLOBAL__N_120DoParseFileSystemURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url18ParseFileSystemURLEPKtiPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef initializes((8, 64)) %parsed) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3url18ParseFileSystemURLEPKtiPNS_6ParsedE(ptr noundef %url, i32 noundef %url_len, ptr noundef %parsed) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %inner_scheme.i = alloca %"struct.url::Component", align 8
   %inner_parsed.i = alloca %"struct.url::Parsed", align 8
@@ -3943,7 +3943,7 @@ _ZN3url12_GLOBAL__N_120DoParseFileSystemURLItEEvPKT_iPNS_6ParsedE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, ptr nocapture noundef writeonly initializes((8, 40), (48, 64)) %parsed) local_unnamed_addr #5 {
+define dso_local void @_ZN3url14ParseMailtoURLEPKciPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 {
 entry:
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
   store i32 0, ptr %username.i, align 4
@@ -4176,7 +4176,7 @@ _ZN3url12_GLOBAL__N_116DoParseMailtoURLIcEEvPKT_iPNS_6ParsedE.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, ptr nocapture noundef writeonly initializes((8, 40), (48, 64)) %parsed) local_unnamed_addr #5 {
+define dso_local void @_ZN3url14ParseMailtoURLEPKtiPNS_6ParsedE(ptr nocapture noundef readonly %url, i32 noundef %url_len, ptr nocapture noundef writeonly %parsed) local_unnamed_addr #5 {
 entry:
   %username.i = getelementptr inbounds i8, ptr %parsed, i64 8
   store i32 0, ptr %username.i, align 4

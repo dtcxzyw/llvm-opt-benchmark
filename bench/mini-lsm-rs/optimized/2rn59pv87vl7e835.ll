@@ -4413,7 +4413,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.i: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8mini_lsm11lsm_storage17LsmStorageOptions22default_for_week1_test17h195298633db84457E(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] }, i64, i64, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(72) initializes((0, 8), (40, 66)) %0) unnamed_addr #4 {
+define void @_ZN8mini_lsm11lsm_storage17LsmStorageOptions22default_for_week1_test17h195298633db84457E(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] }, i64, i64, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(72) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 4096, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4429,7 +4429,7 @@ define void @_ZN8mini_lsm11lsm_storage17LsmStorageOptions22default_for_week1_tes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8mini_lsm11lsm_storage17LsmStorageOptions27default_for_week1_day6_test17he4626820cb0c61e2E(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] }, i64, i64, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(72) initializes((0, 8), (40, 66)) %0) unnamed_addr #4 {
+define void @_ZN8mini_lsm11lsm_storage17LsmStorageOptions27default_for_week1_day6_test17he4626820cb0c61e2E(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] }, i64, i64, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(72) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 4096, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4445,7 +4445,7 @@ define void @_ZN8mini_lsm11lsm_storage17LsmStorageOptions27default_for_week1_day
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8mini_lsm11lsm_storage17LsmStorageOptions22default_for_week2_test17h1dd5353099ec1483E(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] }, i64, i64, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(72) initializes((0, 66)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #5 {
+define void @_ZN8mini_lsm11lsm_storage17LsmStorageOptions22default_for_week2_test17h1dd5353099ec1483E(ptr noalias nocapture noundef writeonly sret({ { i64, [4 x i64] }, i64, i64, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 4096, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48

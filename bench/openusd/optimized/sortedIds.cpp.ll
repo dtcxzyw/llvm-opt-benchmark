@@ -100,7 +100,7 @@ $_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EE17_M_default_a
 @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsC1EOS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsC2EOS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 52), (56, 64)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
@@ -384,7 +384,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8
@@ -668,7 +668,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 52), (56, 64)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

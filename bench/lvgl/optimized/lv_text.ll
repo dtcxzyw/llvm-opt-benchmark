@@ -511,7 +511,7 @@ define internal i32 @lv_text_utf8_get_length(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_text_get_size(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
+define void @lv_text_get_size(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -1122,7 +1122,7 @@ define noundef zeroext i1 @lv_text_is_cmd(ptr nocapture noundef %0, i32 noundef 
 declare zeroext i16 @lv_font_get_glyph_width(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_text_encoded_letter_next_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #3 {
+define void @lv_text_encoded_letter_next_2(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = tail call i32 @lv_text_utf8_next(ptr noundef %0, ptr noundef %3)
   store i32 %5, ptr %1, align 4, !tbaa !6
   %.not = icmp eq i32 %5, 0

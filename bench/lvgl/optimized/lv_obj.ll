@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_obj_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr null, ptr @lv_obj_constructor, ptr @lv_obj_destructor, ptr @lv_obj_event, ptr null, ptr @.str, i32 130, i32 130, i8 10, i8 4, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_obj_constructor(ptr nocapture readnone %0, ptr nocapture noundef initializes((56, 60)) %1) #0 {
+define internal void @lv_obj_constructor(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %.not = icmp eq ptr %4, null
@@ -1765,7 +1765,7 @@ define internal void @null_on_delete_cb(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_obj_set_user_data(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @lv_obj_set_user_data(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8, !tbaa !94
   ret void

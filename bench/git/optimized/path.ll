@@ -593,7 +593,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @git_path_buf(ptr noundef initializes((8, 16)) %buf, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local ptr @git_path_buf(ptr noundef %buf, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   %len2.i = getelementptr inbounds i8, ptr %buf, i64 8

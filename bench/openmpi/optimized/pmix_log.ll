@@ -1610,7 +1610,7 @@ pmix_obj_new_tma.exit461:                         ; preds = %.lr.ph.i.i458, %663
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opcbfunc(i32 noundef %0, ptr noundef initializes((500, 504)) %1) #0 {
+define internal void @opcbfunc(i32 noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 500
   store i32 %0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 400

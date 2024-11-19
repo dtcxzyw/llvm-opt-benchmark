@@ -240,7 +240,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco22FloatPointsTreeEncoderC2ENS_27PointCloudCompressionMethodE(ptr noundef nonnull align 8 dereferenceable(68) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN5draco22FloatPointsTreeEncoderC2ENS_27PointCloudCompressionMethodE(ptr noundef nonnull align 8 dereferenceable(68) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -258,7 +258,7 @@ define void @_ZN5draco22FloatPointsTreeEncoderC2ENS_27PointCloudCompressionMetho
 declare void @_ZN5draco13EncoderBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco22FloatPointsTreeEncoderC2ENS_27PointCloudCompressionMethodEjj(ptr noundef nonnull align 8 dereferenceable(68) initializes((8, 16)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 {
+define void @_ZN5draco22FloatPointsTreeEncoderC2ENS_27PointCloudCompressionMethodEjj(ptr noundef nonnull align 8 dereferenceable(68) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12

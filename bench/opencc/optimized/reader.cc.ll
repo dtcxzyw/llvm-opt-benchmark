@@ -54,7 +54,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6marisa8grimoire2io6ReaderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 12), (16, 25)) %0) unnamed_addr #3 align 2 {
+define void @_ZN6marisa8grimoire2io6ReaderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
@@ -290,7 +290,7 @@ define void @_ZN6marisa8grimoire2io6Reader4openEP8_IO_FILE(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6marisa8grimoire2io6Reader5open_EP8_IO_FILE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN6marisa8grimoire2io6Reader5open_EP8_IO_FILE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -345,7 +345,7 @@ define void @_ZN6marisa8grimoire2io6Reader4openEi(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6marisa8grimoire2io6Reader5open_Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN6marisa8grimoire2io6Reader5open_Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
@@ -383,7 +383,7 @@ define void @_ZN6marisa8grimoire2io6Reader4openERSi(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6marisa8grimoire2io6Reader5open_ERSi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN6marisa8grimoire2io6Reader5open_ERSi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void

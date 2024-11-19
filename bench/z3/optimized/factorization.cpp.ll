@@ -514,7 +514,7 @@ return:                                           ; preds = %.noexc.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3nla18const_iterator_mon25create_full_factorizationEPKNS_5monicE(ptr noalias sret(%"class.nla::factorization") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3nla18const_iterator_mon25create_full_factorizationEPKNS_5monicE(ptr noalias sret(%"class.nla::factorization") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not = icmp eq ptr %m, null
   br i1 %cmp.not, label %if.end, label %if.then.i
@@ -663,7 +663,7 @@ return:                                           ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3nla18const_iterator_mon27create_binary_factorizationENS_6factorES1_(ptr noalias nonnull sret(%"class.nla::factorization") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 %j.coerce0, i8 %j.coerce1, i64 %k.coerce0, i8 %k.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3nla18const_iterator_mon27create_binary_factorizationENS_6factorES1_(ptr noalias nonnull sret(%"class.nla::factorization") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 %j.coerce0, i8 %j.coerce1, i64 %k.coerce0, i8 %k.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   invoke void @_ZN6vectorIN3nla6factorELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(16) %agg.result)
@@ -826,7 +826,7 @@ for.end:                                          ; preds = %if.then5, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3nla18const_iterator_monppEv(ptr noalias sret(%"struct.nla::const_iterator_mon") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3nla18const_iterator_monppEv(ptr noalias sret(%"struct.nla::const_iterator_mon") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %0 = load ptr, ptr %this, align 8
@@ -1069,7 +1069,7 @@ _ZN7svectorIbjED2Ev.exit:                         ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3nla18const_iterator_monC2ERK7svectorIbjEPKNS_21factorization_factoryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 17), (20, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %mask, ptr noundef %f) unnamed_addr #3 align 2 {
+define hidden void @_ZN3nla18const_iterator_monC2ERK7svectorIbjEPKNS_21factorization_factoryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %mask, ptr noundef %f) unnamed_addr #3 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %0 = load ptr, ptr %mask, align 8

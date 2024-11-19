@@ -3712,7 +3712,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_Py_SourceAsString(ptr noundef %cmd, ptr noundef %funcname, ptr noundef %what, ptr nocapture noundef %cf, ptr nocapture noundef initializes((0, 8)) %cmd_copy) local_unnamed_addr #0 {
+define hidden noundef ptr @_Py_SourceAsString(ptr noundef %cmd, ptr noundef %funcname, ptr noundef %what, ptr nocapture noundef %cf, ptr nocapture noundef %cmd_copy) local_unnamed_addr #0 {
 entry:
   %size = alloca i64, align 8
   %view = alloca %struct.Py_buffer, align 8

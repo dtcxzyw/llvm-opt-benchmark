@@ -8658,7 +8658,7 @@ _ZN4core5slice6memchr12memchr_naive17hc161699a4e4d4b77E.exit.i.i74.i.i: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN101_$LT$test_fixture..IdentityProcMacroExpander$u20$as$u20$hir_expand..proc_macro..ProcMacroExpander$GT$6expand17h7655f29ebfe020f9E"(ptr noalias nocapture noundef writeonly sret({ [56 x i8], i8, [7 x i8] }) align 8 dereferenceable(64) initializes((0, 57)) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2, ptr noalias nocapture readonly align 8 %3, ptr noalias nocapture readonly align 8 %4, ptr noalias nocapture readnone align 4 %5, ptr noalias nocapture readnone align 4 %6, ptr noalias nocapture readnone align 4 %7) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN101_$LT$test_fixture..IdentityProcMacroExpander$u20$as$u20$hir_expand..proc_macro..ProcMacroExpander$GT$6expand17h7655f29ebfe020f9E"(ptr noalias nocapture noundef writeonly sret({ [56 x i8], i8, [7 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2, ptr noalias nocapture readonly align 8 %3, ptr noalias nocapture readonly align 8 %4, ptr noalias nocapture readnone align 4 %5, ptr noalias nocapture readnone align 4 %6, ptr noalias nocapture readnone align 4 %7) unnamed_addr #0 personality ptr @rust_eh_personality {
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1378)
   %10 = getelementptr inbounds i8, ptr %2, i64 16
@@ -8722,7 +8722,7 @@ define void @"_ZN101_$LT$test_fixture..IdentityProcMacroExpander$u20$as$u20$hir_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN114_$LT$test_fixture..AttributeInputReplaceProcMacroExpander$u20$as$u20$hir_expand..proc_macro..ProcMacroExpander$GT$6expand17h44ba6a83225e32c5E"(ptr noalias nocapture noundef writeonly sret({ [56 x i8], i8, [7 x i8] }) align 8 dereferenceable(64) initializes((0, 32), (56, 57)) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readonly align 8 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable_or_null(64) %3, ptr noalias nocapture readonly align 8 %4, ptr noalias nocapture readnone align 4 %5, ptr noalias nocapture readnone align 4 %6, ptr noalias nocapture readnone align 4 %7) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN114_$LT$test_fixture..AttributeInputReplaceProcMacroExpander$u20$as$u20$hir_expand..proc_macro..ProcMacroExpander$GT$6expand17h44ba6a83225e32c5E"(ptr noalias nocapture noundef writeonly sret({ [56 x i8], i8, [7 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readonly align 8 %2, ptr noalias nocapture noundef readonly align 8 dereferenceable_or_null(64) %3, ptr noalias nocapture readonly align 8 %4, ptr noalias nocapture readnone align 4 %5, ptr noalias nocapture readnone align 4 %6, ptr noalias nocapture readnone align 4 %7) unnamed_addr #0 personality ptr @rust_eh_personality {
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1405)
   %10 = icmp eq ptr %3, null
@@ -8811,7 +8811,7 @@ define void @"_ZN114_$LT$test_fixture..AttributeInputReplaceProcMacroExpander$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN99_$LT$test_fixture..MirrorProcMacroExpander$u20$as$u20$hir_expand..proc_macro..ProcMacroExpander$GT$6expand17ha4c2868b354d2891E"(ptr noalias nocapture noundef writeonly sret({ [56 x i8], i8, [7 x i8] }) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2, ptr noalias nocapture readonly align 8 %3, ptr noalias nocapture readonly align 8 %4, ptr noalias nocapture readnone align 4 %5, ptr noalias nocapture readnone align 4 %6, ptr noalias nocapture readnone align 4 %7) unnamed_addr #0 {
+define void @"_ZN99_$LT$test_fixture..MirrorProcMacroExpander$u20$as$u20$hir_expand..proc_macro..ProcMacroExpander$GT$6expand17ha4c2868b354d2891E"(ptr noalias nocapture noundef writeonly sret({ [56 x i8], i8, [7 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2, ptr noalias nocapture readonly align 8 %3, ptr noalias nocapture readonly align 8 %4, ptr noalias nocapture readnone align 4 %5, ptr noalias nocapture readnone align 4 %6, ptr noalias nocapture readnone align 4 %7) unnamed_addr #0 {
   %9 = alloca { { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9)
   call fastcc void @"_ZN99_$LT$test_fixture..MirrorProcMacroExpander$u20$as$u20$hir_expand..proc_macro..ProcMacroExpander$GT$6expand8traverse17h798574a5f2b54d74E"(ptr noalias nocapture noundef align 8 dereferenceable(64) %9, ptr noalias noundef readonly align 8 dereferenceable(64) %2)
@@ -9176,7 +9176,7 @@ default.unreachable:                              ; preds = %67, %28, %26
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN100_$LT$test_fixture..ShortenProcMacroExpander$u20$as$u20$hir_expand..proc_macro..ProcMacroExpander$GT$6expand17hae0c8b7c0ac189a9E"(ptr noalias nocapture noundef writeonly sret({ [56 x i8], i8, [7 x i8] }) align 8 dereferenceable(64) initializes((0, 60)) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2, ptr noalias nocapture readonly align 8 %3, ptr noalias nocapture readonly align 8 %4, ptr noalias nocapture readnone align 4 %5, ptr noalias nocapture readnone align 4 %6, ptr noalias nocapture readnone align 4 %7) unnamed_addr #0 {
+define void @"_ZN100_$LT$test_fixture..ShortenProcMacroExpander$u20$as$u20$hir_expand..proc_macro..ProcMacroExpander$GT$6expand17hae0c8b7c0ac189a9E"(ptr noalias nocapture noundef writeonly sret({ [56 x i8], i8, [7 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %2, ptr noalias nocapture readonly align 8 %3, ptr noalias nocapture readonly align 8 %4, ptr noalias nocapture readnone align 4 %5, ptr noalias nocapture readnone align 4 %6, ptr noalias nocapture readnone align 4 %7) unnamed_addr #0 {
   %9 = alloca { { i64, ptr, {} }, i64 }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1496)
   %10 = load ptr, ptr %2, align 8, !alias.scope !1496, !noalias !1499, !nonnull !5, !align !1404, !noundef !5
@@ -9199,7 +9199,7 @@ define void @"_ZN100_$LT$test_fixture..ShortenProcMacroExpander$u20$as$u20$hir_e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN100_$LT$test_fixture..ShortenProcMacroExpander$u20$as$u20$hir_expand..proc_macro..ProcMacroExpander$GT$6expand8traverse17h638a072e216a70eeE"(ptr noalias nocapture noundef writeonly sret({ { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }) align 8 dereferenceable(64) initializes((0, 60)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #0 {
+define hidden void @"_ZN100_$LT$test_fixture..ShortenProcMacroExpander$u20$as$u20$hir_expand..proc_macro..ProcMacroExpander$GT$6expand8traverse17h638a072e216a70eeE"(ptr noalias nocapture noundef writeonly sret({ { { { { ptr, i64 } }, {} }, {} }, { { i32, { i32, i32 }, { i32, i32 } }, { i32, { i32, i32 }, { i32, i32 } }, i8, [3 x i8] }, [1 x i32] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #0 {
   %3 = alloca { { i64, ptr, {} }, i64 }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !align !1404, !noundef !5
   %5 = getelementptr inbounds i8, ptr %1, i64 8

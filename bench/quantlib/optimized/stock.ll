@@ -803,7 +803,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost3anyESt4les
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib5StockC1ENS_6HandleINS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(120) initializes((120, 128), (136, 140), (144, 152)) %this, ptr nocapture noundef %quote) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib5StockC1ENS_6HandleINS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef %quote) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 120

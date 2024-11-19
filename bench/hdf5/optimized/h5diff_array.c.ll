@@ -148,7 +148,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.114 = private unnamed_addr constant [18 x i8] c"H5Tconvert failed\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef initializes((20, 24)) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define i64 @diff_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.mcomp_t, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 20
   store i32 1, ptr %7, align 4

@@ -424,7 +424,7 @@ if.end6:                                          ; preds = %_ZSt8_DestroyIPN4ll
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE(ptr noalias nocapture writeonly sret(%"struct.std::pair") align 8 initializes((0, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %seg) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes18SourceMapGenerator25getInputSegmentForSegmentERKNS_9SourceMap7SegmentE(ptr noalias nocapture writeonly sret(%"struct.std::pair") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %seg) local_unnamed_addr #0 align 2 {
 entry:
   %inputSeg.sroa.0 = alloca [28 x i8], align 4
   %inputSeg.sroa.3 = alloca [3 x i8], align 1
@@ -520,7 +520,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes18SourceMapGenerator21encodeSourceLocationsERKNS0_5StateEN4llvh8ArrayRefINS_9SourceMap7SegmentEEERNS4_11raw_ostreamE(ptr noalias nocapture sret(%"struct.hermes::SourceMapGenerator::State") align 4 initializes((0, 20)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %lastState, ptr readonly %segments.coerce0, i64 %segments.coerce1, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes18SourceMapGenerator21encodeSourceLocationsERKNS0_5StateEN4llvh8ArrayRefINS_9SourceMap7SegmentEEERNS4_11raw_ostreamE(ptr noalias nocapture sret(%"struct.hermes::SourceMapGenerator::State") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %lastState, ptr readonly %segments.coerce0, i64 %segments.coerce1, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
 entry:
   %state.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %lastState, i64 4
   %state.sroa.4.0.copyload = load i32, ptr %state.sroa.4.0..sroa_idx, align 4
@@ -723,7 +723,7 @@ declare void @_ZN4llvh18raw_string_ostreamD1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes18SourceMapGenerator10getSourcesEv(ptr noalias nocapture writeonly sret(%"class.std::vector.44") align 8 initializes((8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes18SourceMapGenerator10getSourcesEv(ptr noalias nocapture writeonly sret(%"class.std::vector.44") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_M_start.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_start.i.i, align 8, !noalias !17
@@ -818,7 +818,7 @@ _ZNSt6vectorIN4llvh9StringRefESaIS1_EEC2ISt15_Deque_iteratorINSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes18SourceMapGenerator25mergedWithInputSourceMapsEv(ptr noalias sret(%"class.hermes::SourceMapGenerator") align 8 initializes((0, 220)) %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes18SourceMapGenerator25mergedWithInputSourceMapsEv(ptr noalias sret(%"class.hermes::SourceMapGenerator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 {
 entry:
   %__dnew.i = alloca i64, align 8
   %ref.tmp.i.i.i = alloca %"class.std::allocator.35", align 1

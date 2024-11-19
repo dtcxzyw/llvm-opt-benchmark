@@ -464,7 +464,7 @@ return:                                           ; preds = %shpc_device_get_slo
 declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @shpc_init(ptr noundef initializes((2248, 2256)) %d, ptr noundef %sec_bus, ptr noundef %bar, i32 noundef %offset, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @shpc_init(ptr noundef %d, ptr noundef %sec_bus, ptr noundef %bar, i32 noundef %offset, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %val.i.i = alloca i64, align 8
   %call = tail call noalias dereferenceable_or_null(336) ptr @g_malloc0(i64 noundef 336) #11

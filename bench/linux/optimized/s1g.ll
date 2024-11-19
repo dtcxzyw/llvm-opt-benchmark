@@ -38,7 +38,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [7 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_drv_add_twt_setup.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2316, ptr @trace_drv_add_twt_setup.__UNIQUE_ID___addressable___SCK__tp_func_drv_add_twt_setup2315, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace804, ptr @trace_drv_return_void.__UNIQUE_ID___addressable___SCK__tp_func_drv_return_void803, ptr @trace_drv_twt_teardown_request.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace2330, ptr @trace_drv_twt_teardown_request.__UNIQUE_ID___addressable___SCK__tp_func_drv_twt_teardown_request2329], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ieee80211_s1g_sta_rate_init(ptr nocapture noundef initializes((1796, 1800)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ieee80211_s1g_sta_rate_init(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2385
   %3 = load i16, ptr %2, align 1
   %4 = or i16 %3, 8192

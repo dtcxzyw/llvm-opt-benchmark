@@ -2082,7 +2082,7 @@ return:                                           ; preds = %if.then26.i, %do.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ccid_post_load(ptr nocapture noundef initializes((268, 272)) %opaque, i32 %version_id) #6 {
+define internal noundef i32 @ccid_post_load(ptr nocapture noundef %opaque, i32 %version_id) #6 {
 entry:
   %state_vmstate = getelementptr inbounds i8, ptr %opaque, i64 75004
   %0 = load i32, ptr %state_vmstate, align 4
@@ -2092,7 +2092,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ccid_pre_save(ptr nocapture noundef initializes((75004, 75008)) %opaque) #6 {
+define internal noundef i32 @ccid_pre_save(ptr nocapture noundef %opaque) #6 {
 entry:
   %state = getelementptr inbounds i8, ptr %opaque, i64 268
   %0 = load i32, ptr %state, align 4

@@ -2193,7 +2193,7 @@ declare void @CRYPTO_ctr128_encrypt_ctr32(ptr noundef, ptr noundef, i64 noundef,
 declare ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @padlock_ctr32_encrypt_glue(ptr noundef %in, ptr noundef %out, i64 noundef %blocks, ptr noundef initializes((0, 16)) %ctx, ptr nocapture noundef readonly %ivec) #1 {
+define internal void @padlock_ctr32_encrypt_glue(ptr noundef %in, ptr noundef %out, i64 noundef %blocks, ptr noundef %ctx, ptr nocapture noundef readonly %ivec) #1 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %ctx, ptr noundef nonnull align 1 dereferenceable(16) %ivec, i64 16, i1 false)
   %mul = shl i64 %blocks, 4

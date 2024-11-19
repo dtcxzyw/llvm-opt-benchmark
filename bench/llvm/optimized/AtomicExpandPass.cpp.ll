@@ -373,7 +373,7 @@ _ZN12_GLOBAL__N_118AtomicExpandLegacyC2Ev.exit:   ; preds = %0
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16AtomicExpandPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 initializes((24, 28), (32, 40), (68, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16AtomicExpandPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.(anonymous namespace)::AtomicExpandImpl", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = load ptr, ptr %1, align 8
@@ -10695,7 +10695,7 @@ _ZN12_GLOBAL__N_120ReplacementIRBuilderD2Ev.exit: ; preds = %_ZL18extractMaskedV
 declare noundef zeroext i1 @_ZN4llvm18lowerAtomicRMWInstEPNS_13AtomicRMWInstE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 33), (40, 64)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i8 %5, i32 noundef range(i32 0, 536870912) %6) unnamed_addr #0 {
+define internal fastcc void @_ZL16createMaskInstrsRN4llvm13IRBuilderBaseEPNS_11InstructionEPNS_4TypeEPNS_5ValueENS_5AlignEj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef %4, i8 %5, i32 noundef range(i32 0, 536870912) %6) unnamed_addr #0 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8

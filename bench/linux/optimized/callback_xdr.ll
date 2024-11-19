@@ -671,7 +671,7 @@ define internal i32 @encode_getattr_res(ptr nocapture readnone %0, ptr noundef %
 declare dso_local i32 @nfs4_callback_recall(ptr noundef, ptr noundef, ptr noundef) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 572981249) i32 @decode_recall_args(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef initializes((148, 152)) %2) #0 align 16 {
+define internal noundef range(i32 0, 572981249) i32 @decode_recall_args(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 148
   store i32 4, ptr %4, align 4
   %5 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 16) #11

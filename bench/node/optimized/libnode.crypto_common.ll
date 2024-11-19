@@ -253,7 +253,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto18SSL_CTX_get_issuerEP10ssl_ctx_stP7x509_st(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %ctx, ptr noundef %cert) local_unnamed_addr #3 {
+define dso_local void @_ZN4node6crypto18SSL_CTX_get_issuerEP10ssl_ctx_stP7x509_st(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %ctx, ptr noundef %cert) local_unnamed_addr #3 {
 entry:
   %issuer = alloca ptr, align 8
   %call = tail call ptr @SSL_CTX_get_cert_store(ptr noundef %ctx) #17
@@ -423,7 +423,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @SSL_set_session(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto13GetTLSSessionEPKhm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.21") align 8 initializes((0, 8)) %agg.result, ptr noundef %buf, i64 noundef %length) local_unnamed_addr #3 {
+define dso_local void @_ZN4node6crypto13GetTLSSessionEPKhm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.21") align 8 %agg.result, ptr noundef %buf, i64 noundef %length) local_unnamed_addr #3 {
 entry:
   %buf.addr = alloca ptr, align 8
   store ptr %buf, ptr %buf.addr, align 8

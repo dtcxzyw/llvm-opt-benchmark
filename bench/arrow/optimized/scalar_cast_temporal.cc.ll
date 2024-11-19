@@ -691,7 +691,7 @@ $_ZTVSt18bad_variant_access = comdat any
 @.str.27 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal13GetDate32CastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal13GetDate32CastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::shared_ptr.3", align 8
   %ref.tmp = alloca i32, align 4
@@ -4212,7 +4212,7 @@ _ZNSt12__shared_ptrIN5arrow7compute8internal12CastFunctionELN9__gnu_cxx12_Lock_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal13GetDate64CastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal13GetDate64CastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::shared_ptr.3", align 8
   %ref.tmp = alloca i32, align 4
@@ -7307,7 +7307,7 @@ ehcleanup11:                                      ; preds = %lpad.i, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal15GetDurationCastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal15GetDurationCastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
   %agg.tmp = alloca %"class.arrow::compute::OutputType", align 8
@@ -8779,7 +8779,7 @@ ehcleanup30:                                      ; preds = %ehcleanup12, %lpad,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal15GetIntervalCastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal15GetIntervalCastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
   %agg.tmp = alloca %"class.arrow::compute::OutputType", align 8
@@ -8930,7 +8930,7 @@ ehcleanup:                                        ; preds = %lpad1, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal13GetTime32CastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal13GetTime32CastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i98 = alloca %"class.std::shared_ptr.3", align 8
   %agg.tmp.i = alloca %"class.std::shared_ptr.3", align 8
@@ -10642,7 +10642,7 @@ ehcleanup11:                                      ; preds = %lpad.i, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal13GetTime64CastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal13GetTime64CastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i98 = alloca %"class.std::shared_ptr.3", align 8
   %agg.tmp.i = alloca %"class.std::shared_ptr.3", align 8
@@ -12354,7 +12354,7 @@ ehcleanup11:                                      ; preds = %lpad.i, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal16GetTimestampCastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal16GetTimestampCastEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i103 = alloca %"class.std::shared_ptr.3", align 8
   %agg.tmp.i = alloca %"class.std::shared_ptr.3", align 8
@@ -15075,7 +15075,7 @@ ehcleanup30:                                      ; preds = %ehcleanup12, %lpad,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal16GetTemporalCastsEv(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal16GetTemporalCastsEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp3 = alloca %"class.std::shared_ptr", align 8

@@ -10034,7 +10034,7 @@ _ZN3mbe8expander7matcher15OpDelimitedIter4peek17hd0e558e6442d8eacE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN98_$LT$mbe..expander..matcher..OpDelimitedIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2af9c57a2ba0229dE"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #7 {
+define void @"_ZN98_$LT$mbe..expander..matcher..OpDelimitedIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2af9c57a2ba0229dE"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !8
   %5 = getelementptr inbounds i8, ptr %1, i64 64

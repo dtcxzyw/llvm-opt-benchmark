@@ -84,7 +84,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_btl_base_verbose = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_btl_base_descriptor_constructor(ptr nocapture noundef writeonly initializes((56, 88), (96, 100)) %0) #0 {
+define internal void @mca_btl_base_descriptor_constructor(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 0, ptr %3, align 8

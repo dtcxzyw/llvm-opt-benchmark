@@ -59,7 +59,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h3f761b8d6629f61eE.13" = private unnamed_addr constant [10 x ptr] [ptr @anon.e9aa4addaae35843cc997daa61b3cb56.33, ptr @anon.e9aa4addaae35843cc997daa61b3cb56.34, ptr @anon.e9aa4addaae35843cc997daa61b3cb56.35, ptr @anon.e9aa4addaae35843cc997daa61b3cb56.36, ptr @anon.e9aa4addaae35843cc997daa61b3cb56.37, ptr @anon.e9aa4addaae35843cc997daa61b3cb56.38, ptr @anon.e9aa4addaae35843cc997daa61b3cb56.39, ptr @anon.e9aa4addaae35843cc997daa61b3cb56.40, ptr @anon.e9aa4addaae35843cc997daa61b3cb56.41, ptr @anon.e9aa4addaae35843cc997daa61b3cb56.42], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h808e1d24e24eff34E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h808e1d24e24eff34E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !4, !nonnull !7, !noundef !7
   %5 = load ptr, ptr %1, align 8, !alias.scope !4, !nonnull !7, !noundef !7
@@ -1628,7 +1628,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %274
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN91_$LT$deltalake_mount..MountFactory$u20$as$u20$deltalake_core..logstore..LogStoreFactory$GT$12with_options17h44dfe8dcc8cfac75E"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) initializes((0, 24)) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noalias noundef readonly align 8 dereferenceable(88) %4, ptr noalias noundef readonly align 8 dereferenceable(48) %5) unnamed_addr #3 {
+define void @"_ZN91_$LT$deltalake_mount..MountFactory$u20$as$u20$deltalake_core..logstore..LogStoreFactory$GT$12with_options17h44dfe8dcc8cfac75E"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noundef nonnull %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3, ptr noalias noundef readonly align 8 dereferenceable(88) %4, ptr noalias noundef readonly align 8 dereferenceable(48) %5) unnamed_addr #3 {
   %7 = tail call { ptr, ptr } @_ZN14deltalake_core8logstore16default_logstore17h4e18d0e234cea11eE(ptr noundef nonnull %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %5)
   %8 = extractvalue { ptr, ptr } %7, 0
   %9 = extractvalue { ptr, ptr } %7, 1

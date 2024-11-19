@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Ssc_PerformVerification = private unnamed_addr constant [3 x ptr] [ptr @str.3, ptr @str.4, ptr @str.5], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Ssc_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 28)) %0) local_unnamed_addr #0 {
+define void @Ssc_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %2, i8 0, i64 12, i1 false)
   store i32 1, ptr %0, align 4
@@ -463,7 +463,7 @@ declare i32 @Gia_ManCheckCoPhase(ptr noundef) local_unnamed_addr #3
 declare void @Ssc_GiaClassesInit(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Ssc_ManPrintStats(ptr nocapture noundef initializes((192, 200)) %0) local_unnamed_addr #2 {
+define void @Ssc_ManPrintStats(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %2, i64 4

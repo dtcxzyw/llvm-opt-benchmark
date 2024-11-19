@@ -834,7 +834,7 @@ _ZNK3g2o8BaseEdgeILi3EN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE22writeInformationM
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3g2o15EdgeSE3XYZPrior12computeErrorEv(ptr nocapture noundef nonnull align 8 dereferenceable(344) initializes((272, 296)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o15EdgeSE3XYZPrior12computeErrorEv(ptr nocapture noundef nonnull align 8 dereferenceable(344) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -891,7 +891,7 @@ _ZN5Eigen5BlockINS_3MapINS_6MatrixIdLi3ELi6ELi0ELi3ELi6EEELi16ENS_6StrideILi0ELi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN3g2o15EdgeSE3XYZPrior23setMeasurementFromStateEv(ptr nocapture noundef nonnull align 8 dereferenceable(344) initializes((176, 200)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3g2o15EdgeSE3XYZPrior23setMeasurementFromStateEv(ptr nocapture noundef nonnull align 8 dereferenceable(344) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8

@@ -1551,7 +1551,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache17ComputeWorldBoundERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(522) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache17ComputeWorldBoundERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 %0, ptr noundef nonnull align 8 dereferenceable(522) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2003,7 +2003,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit22: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache35_GetCombinedBBoxForIncludedPurposesERKSt3mapINS_7TfTokenENS_8GfBBox3dENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS2_S3_EEE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(522) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache35_GetCombinedBBoxForIncludedPurposesERKSt3mapINS_7TfTokenENS_8GfBBox3dENS_28TfTokenFastArbitraryLessThanESaISt4pairIKS2_S3_EEE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(522) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store double 0x47EFFFFFE0000000, ptr %5, align 8
@@ -2140,7 +2140,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenESt4pairIKS1_NS0_8GfBB
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache20ComputeRelativeBoundERKNS_7UsdPrimES3_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(522) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache20ComputeRelativeBoundERKNS_7UsdPrimES3_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 %0, ptr noundef nonnull align 8 dereferenceable(522) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2315,7 +2315,7 @@ _ZNSt3mapIN32pxrInternal_v0_24__pxrReserved__7TfTokenENS0_8GfBBox3dENS0_28TfToke
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8, ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache17ComputeLocalBoundERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(522) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomBBoxCache17ComputeLocalBoundERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 %0, ptr noundef nonnull align 8 dereferenceable(522) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

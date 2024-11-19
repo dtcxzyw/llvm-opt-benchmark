@@ -662,7 +662,7 @@ define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl6detectERKN2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl17setCannyLowThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) initializes((16, 20)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl17setCannyLowThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
@@ -676,7 +676,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_127GeneralizedHoughBallardImpl17ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl18setCannyHighThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) initializes((20, 24)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl18setCannyHighThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
@@ -690,7 +690,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_127GeneralizedHoughBallardImpl18ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl10setMinDistEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) initializes((24, 32)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl10setMinDistEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store double %1, ptr %3, align 8
   ret void
@@ -704,7 +704,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_127GeneralizedHoughBallardImpl1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl5setDpEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) initializes((32, 40)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl5setDpEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store double %1, ptr %3, align 8
   ret void
@@ -728,7 +728,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_127GeneralizedHoughBallardImpl16ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl9setLevelsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) initializes((688, 692)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl9setLevelsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 688
   store i32 %1, ptr %3, align 8
   ret void
@@ -742,7 +742,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_127GeneralizedHoughBallardImpl9get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl17setVotesThresholdEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) initializes((692, 696)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_127GeneralizedHoughBallardImpl17setVotesThresholdEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(816) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 692
   store i32 %1, ptr %3, align 4
   ret void
@@ -1888,7 +1888,7 @@ declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120GeneralizedHoughBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_120GeneralizedHoughBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(680) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120GeneralizedHoughBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 656
   %3 = load ptr, ptr %2, align 8
@@ -5002,7 +5002,7 @@ define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl6detectERKN2cv1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl17setCannyLowThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((16, 20)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl17setCannyLowThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
@@ -5016,7 +5016,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl17getCa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl18setCannyHighThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((20, 24)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl18setCannyHighThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
@@ -5030,7 +5030,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl18getCa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl10setMinDistEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((24, 32)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl10setMinDistEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store double %1, ptr %3, align 8
   ret void
@@ -5044,7 +5044,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl10ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl5setDpEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((32, 40)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl5setDpEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store double %1, ptr %3, align 8
   ret void
@@ -5058,7 +5058,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl5get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl16setMaxBufferSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((688, 692)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl16setMaxBufferSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 688
   store i32 %1, ptr %3, align 8
   ret void
@@ -5072,7 +5072,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl16getMa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl5setXiEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((696, 704)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl5setXiEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 696
   store double %1, ptr %3, align 8
   ret void
@@ -5086,7 +5086,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl5get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl9setLevelsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((704, 708)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl9setLevelsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 704
   store i32 %1, ptr %3, align 8
   ret void
@@ -5100,7 +5100,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl9getLev
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl15setAngleEpsilonEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((712, 720)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl15setAngleEpsilonEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 712
   store double %1, ptr %3, align 8
   ret void
@@ -5114,7 +5114,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl15ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl11setMinAngleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((720, 728)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl11setMinAngleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 720
   store double %1, ptr %3, align 8
   ret void
@@ -5128,7 +5128,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl11ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl11setMaxAngleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((728, 736)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl11setMaxAngleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 728
   store double %1, ptr %3, align 8
   ret void
@@ -5142,7 +5142,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl11ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl12setAngleStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((736, 744)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl12setAngleStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 736
   store double %1, ptr %3, align 8
   ret void
@@ -5156,7 +5156,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl12ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl14setAngleThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((744, 748)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl14setAngleThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 744
   store i32 %1, ptr %3, align 8
   ret void
@@ -5170,7 +5170,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl14getAn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl11setMinScaleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((752, 760)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl11setMinScaleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 752
   store double %1, ptr %3, align 8
   ret void
@@ -5184,7 +5184,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl11ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl11setMaxScaleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((760, 768)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl11setMaxScaleEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 760
   store double %1, ptr %3, align 8
   ret void
@@ -5198,7 +5198,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl11ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl12setScaleStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((768, 776)) %0, double noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl12setScaleStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, double noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 768
   store double %1, ptr %3, align 8
   ret void
@@ -5212,7 +5212,7 @@ define internal noundef double @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl12ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl14setScaleThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((776, 780)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl14setScaleThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 776
   store i32 %1, ptr %3, align 8
   ret void
@@ -5226,7 +5226,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_124GeneralizedHoughGuilImpl14getSc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl12setPosThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((780, 784)) %0, i32 noundef %1) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_124GeneralizedHoughGuilImpl12setPosThreshEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0, i32 noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 780
   store i32 %1, ptr %3, align 4
   ret void

@@ -4201,7 +4201,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @exprCollation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformFrameOffset(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformFrameOffset(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   store i32 0, ptr %4, align 4
   %8 = icmp eq ptr %5, null
@@ -5047,7 +5047,7 @@ define dso_local noundef zeroext i1 @targetIsInSortList(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @transformOnConflictArbiter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef initializes((0, 4)) %4) local_unnamed_addr #0 {
+define dso_local void @transformOnConflictArbiter(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   store ptr null, ptr %2, align 8

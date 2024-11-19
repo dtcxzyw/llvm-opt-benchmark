@@ -6829,7 +6829,7 @@ proto_item_set_generated.exit:                    ; preds = %21, %18, %15, %25
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @reset_cip_request_info(ptr nocapture noundef writeonly initializes((0, 36)) %0) local_unnamed_addr #6 {
+define hidden void @reset_cip_request_info(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 -1, i64 32, i1 false)
   store i32 0, ptr %2, align 4
@@ -8731,7 +8731,7 @@ cip_get_attribute.exit.thread:                    ; preds = %77, %26, %.split39.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @load_cip_request_data(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 36)) %1) local_unnamed_addr #3 {
+define hidden void @load_cip_request_data(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = tail call ptr @wmem_file_scope() #13
   %4 = load i32, ptr @proto_cip, align 4
   %5 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef 0) #13

@@ -160,7 +160,7 @@ define internal range(i32 -1, 2) i32 @H5O__dset_isa(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @H5O__dset_open(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal ptr @H5O__dset_open(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   store i32 5, ptr %1, align 4
   %3 = tail call i64 @H5CX_get_lapl() #3
   %4 = load i64, ptr @H5P_LST_LINK_ACCESS_ID_g, align 8

@@ -753,7 +753,7 @@ declare noundef i32 @_ZN6icu_756number4impl15DecimalQuantity17adjustToZeroScaleE
 declare noundef zeroext i1 @_ZN6icu_756number4impl15DecimalQuantity15adjustMagnitudeEi(ptr noundef nonnull align 8 dereferenceable(66), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision14incrementExactEms(ptr noalias nocapture writeonly sret(%"class.icu_75::number::IncrementPrecision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i64 noundef %mantissa, i16 noundef signext %magnitude) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision14incrementExactEms(ptr noalias nocapture writeonly sret(%"class.icu_75::number::IncrementPrecision") align 8 %agg.result, i64 noundef %mantissa, i16 noundef signext %magnitude) local_unnamed_addr #8 align 2 {
 entry:
   %cmp.not = icmp eq i64 %mantissa, 0
   br i1 %cmp.not, label %if.else, label %if.then
@@ -809,7 +809,7 @@ entry:
 declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision9unlimitedEv(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 21), (24, 28)) %agg.result) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision9unlimitedEv(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result) local_unnamed_addr #8 align 2 {
 entry:
   store i32 1, ptr %agg.result, align 8
   %fUnion.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -820,7 +820,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision7integerEv(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 initializes((0, 4), (8, 16), (24, 28)) %agg.result) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision7integerEv(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result) local_unnamed_addr #8 align 2 {
 entry:
   store i32 2, ptr %agg.result, align 8, !alias.scope !10
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -837,7 +837,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision17constructFractionEii(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 initializes((0, 4), (8, 16), (24, 28)) %agg.result, i32 noundef %minFrac, i32 noundef %maxFrac) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision17constructFractionEii(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %minFrac, i32 noundef %maxFrac) local_unnamed_addr #8 align 2 {
 entry:
   %conv = trunc i32 %minFrac to i16
   %conv1 = trunc i32 %maxFrac to i16
@@ -856,7 +856,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision13fixedFractionEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %minMaxFractionPlaces) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision13fixedFractionEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %minMaxFractionPlaces) local_unnamed_addr #8 align 2 {
 entry:
   %or.cond = icmp ult i32 %minMaxFractionPlaces, 1000
   br i1 %or.cond, label %if.then, label %if.else
@@ -887,7 +887,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision11minFractionEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %minFractionPlaces) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision11minFractionEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %minFractionPlaces) local_unnamed_addr #8 align 2 {
 entry:
   %or.cond = icmp ult i32 %minFractionPlaces, 1000
   br i1 %or.cond, label %if.then, label %if.else
@@ -918,7 +918,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision11maxFractionEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %maxFractionPlaces) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision11maxFractionEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %maxFractionPlaces) local_unnamed_addr #8 align 2 {
 entry:
   %or.cond = icmp ult i32 %maxFractionPlaces, 1000
   br i1 %or.cond, label %if.then, label %if.else
@@ -949,7 +949,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision14minMaxFractionEii(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %minFractionPlaces, i32 noundef %maxFractionPlaces) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision14minMaxFractionEii(ptr noalias nocapture writeonly sret(%"class.icu_75::number::FractionPrecision") align 8 %agg.result, i32 noundef %minFractionPlaces, i32 noundef %maxFractionPlaces) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp slt i32 %minFractionPlaces, 0
   %cmp1 = icmp sgt i32 %maxFractionPlaces, 999
@@ -985,7 +985,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision22fixedSignificantDigitsEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %minMaxSignificantDigits) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision22fixedSignificantDigitsEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %minMaxSignificantDigits) local_unnamed_addr #8 align 2 {
 entry:
   %0 = add i32 %minMaxSignificantDigits, -1
   %or.cond = icmp ult i32 %0, 999
@@ -1017,7 +1017,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision20constructSignificantEii(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 16), (24, 28)) %agg.result, i32 noundef %minSig, i32 noundef %maxSig) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision20constructSignificantEii(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %minSig, i32 noundef %maxSig) local_unnamed_addr #8 align 2 {
 entry:
   %conv = trunc i32 %minSig to i16
   %conv1 = trunc i32 %maxSig to i16
@@ -1036,7 +1036,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision20minSignificantDigitsEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %minSignificantDigits) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision20minSignificantDigitsEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %minSignificantDigits) local_unnamed_addr #8 align 2 {
 entry:
   %0 = add i32 %minSignificantDigits, -1
   %or.cond = icmp ult i32 %0, 999
@@ -1068,7 +1068,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision20maxSignificantDigitsEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %maxSignificantDigits) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision20maxSignificantDigitsEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %maxSignificantDigits) local_unnamed_addr #8 align 2 {
 entry:
   %0 = add i32 %maxSignificantDigits, -1
   %or.cond = icmp ult i32 %0, 999
@@ -1100,7 +1100,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision23minMaxSignificantDigitsEii(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %minSignificantDigits, i32 noundef %maxSignificantDigits) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision23minMaxSignificantDigitsEii(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, i32 noundef %minSignificantDigits, i32 noundef %maxSignificantDigits) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp slt i32 %minSignificantDigits, 1
   %cmp1 = icmp sgt i32 %maxSignificantDigits, 999
@@ -1136,7 +1136,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_756number9Precision19trailingZeroDisplayE26UNumberTrailingZeroDisplay(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %trailingZeroDisplay) local_unnamed_addr #12 align 2 {
+define void @_ZNK6icu_756number9Precision19trailingZeroDisplayE26UNumberTrailingZeroDisplay(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %trailingZeroDisplay) local_unnamed_addr #12 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i64 32, i1 false)
   %fTrailingZeroDisplay = getelementptr inbounds i8, ptr %agg.result, i64 24
@@ -1212,7 +1212,7 @@ declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl1
 declare void @_ZN6icu_756number4impl15DecimalQuantity15roundToInfinityEv(ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision18constructIncrementEms(ptr noalias nocapture writeonly sret(%"class.icu_75::number::IncrementPrecision") align 8 initializes((0, 4), (8, 20), (24, 28)) %agg.result, i64 noundef %increment, i16 noundef signext %magnitude) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision18constructIncrementEms(ptr noalias nocapture writeonly sret(%"class.icu_75::number::IncrementPrecision") align 8 %agg.result, i64 noundef %increment, i16 noundef signext %magnitude) local_unnamed_addr #8 align 2 {
 entry:
   %switch.selectcmp = icmp eq i64 %increment, 5
   %switch.select = select i1 %switch.selectcmp, i32 7, i32 5
@@ -1234,7 +1234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision8currencyE14UCurrencyUsage(ptr noalias nocapture writeonly sret(%"class.icu_75::number::CurrencyPrecision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %currencyUsage) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision8currencyE14UCurrencyUsage(ptr noalias nocapture writeonly sret(%"class.icu_75::number::CurrencyPrecision") align 8 %agg.result, i32 noundef %currencyUsage) local_unnamed_addr #8 align 2 {
 entry:
   store i32 8, ptr %agg.result, align 8, !alias.scope !40
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1245,7 +1245,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number9Precision17constructCurrencyE14UCurrencyUsage(ptr noalias nocapture writeonly sret(%"class.icu_75::number::CurrencyPrecision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, i32 noundef %usage) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number9Precision17constructCurrencyE14UCurrencyUsage(ptr noalias nocapture writeonly sret(%"class.icu_75::number::CurrencyPrecision") align 8 %agg.result, i32 noundef %usage) local_unnamed_addr #8 align 2 {
 entry:
   store i32 8, ptr %agg.result, align 8
   %fUnion.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1256,7 +1256,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK6icu_756number17FractionPrecision21withSignificantDigitsEii23UNumberRoundingPriority(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %minSignificantDigits, i32 noundef %maxSignificantDigits, i32 noundef %priority) local_unnamed_addr #13 align 2 {
+define void @_ZNK6icu_756number17FractionPrecision21withSignificantDigitsEii23UNumberRoundingPriority(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %minSignificantDigits, i32 noundef %maxSignificantDigits, i32 noundef %priority) local_unnamed_addr #13 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 9
@@ -1313,7 +1313,7 @@ return:                                           ; preds = %if.else, %if.then6,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 28)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %base, i32 noundef %minSig, i32 noundef %maxSig, i32 noundef %priority, i1 noundef zeroext %retain) local_unnamed_addr #12 align 2 {
+define void @_ZN6icu_756number9Precision28constructFractionSignificantERKNS0_17FractionPrecisionEii23UNumberRoundingPriorityb(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %base, i32 noundef %minSig, i32 noundef %maxSig, i32 noundef %priority, i1 noundef zeroext %retain) local_unnamed_addr #12 align 2 {
 entry:
   %frombool = zext i1 %retain to i8
   %fUnion = getelementptr inbounds i8, ptr %base, i64 8
@@ -1340,7 +1340,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK6icu_756number17FractionPrecision13withMinDigitsEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %minSignificantDigits) local_unnamed_addr #13 align 2 {
+define void @_ZNK6icu_756number17FractionPrecision13withMinDigitsEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %minSignificantDigits) local_unnamed_addr #13 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 9
@@ -1391,7 +1391,7 @@ return:                                           ; preds = %if.else, %if.then4,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK6icu_756number17FractionPrecision13withMaxDigitsEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %maxSignificantDigits) local_unnamed_addr #13 align 2 {
+define void @_ZNK6icu_756number17FractionPrecision13withMaxDigitsEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %maxSignificantDigits) local_unnamed_addr #13 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 9
@@ -1442,7 +1442,7 @@ return:                                           ; preds = %if.else, %if.then4,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 16), (24, 28)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(28) %currency, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_756number9Precision12withCurrencyERKNS_12CurrencyUnitER10UErrorCode(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(28) %currency, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.icu_75::number::IncrementPrecision", align 8
   %0 = load i32, ptr %this, align 8
@@ -1500,7 +1500,7 @@ declare double @ucurr_getRoundingIncrementForUsage_75(ptr noundef, i32 noundef, 
 declare i32 @ucurr_getDefaultFractionDigitsForUsage_75(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number17CurrencyPrecision12withCurrencyERKNS_12CurrencyUnitE(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(28) %currency) local_unnamed_addr #1 align 2 {
+define void @_ZNK6icu_756number17CurrencyPrecision12withCurrencyERKNS_12CurrencyUnitE(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(28) %currency) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.icu_75::number::IncrementPrecision", align 8
   %localStatus = alloca i32, align 4
@@ -1602,7 +1602,7 @@ return:                                           ; preds = %_ZNK6icu_756number9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_756number18IncrementPrecision15withMinFractionEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 initializes((0, 4), (8, 12), (24, 28)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %minFrac) local_unnamed_addr #12 align 2 {
+define void @_ZNK6icu_756number18IncrementPrecision15withMinFractionEi(ptr noalias nocapture writeonly sret(%"class.icu_75::number::Precision") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, i32 noundef %minFrac) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 9
@@ -1639,7 +1639,7 @@ return:                                           ; preds = %if.else, %if.then4,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl12RoundingImplC2ERKNS0_9PrecisionE25UNumberFormatRoundingModeRKNS_12CurrencyUnitER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 37)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %precision, i32 noundef %roundingMode, ptr noundef nonnull align 8 dereferenceable(28) %currency, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl12RoundingImplC2ERKNS0_9PrecisionE25UNumberFormatRoundingModeRKNS_12CurrencyUnitER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %precision, i32 noundef %roundingMode, ptr noundef nonnull align 8 dereferenceable(28) %currency, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.icu_75::number::IncrementPrecision", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %precision, i64 32, i1 false)
@@ -1716,7 +1716,7 @@ if.end:                                           ; preds = %_ZNK6icu_756number9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl12RoundingImpl11passThroughEv(ptr noalias nocapture writeonly sret(%"class.icu_75::number::impl::RoundingImpl") align 8 initializes((0, 40)) %agg.result) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number4impl12RoundingImpl11passThroughEv(ptr noalias nocapture writeonly sret(%"class.icu_75::number::impl::RoundingImpl") align 8 %agg.result) local_unnamed_addr #8 align 2 {
 entry:
   %fPassThrough.i = getelementptr inbounds i8, ptr %agg.result, i64 36
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, i8 0, i64 40, i1 false)

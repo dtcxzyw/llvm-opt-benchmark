@@ -678,7 +678,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #1
 declare void @pg_log_generic(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @strtodouble(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @strtodouble(ptr noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call ptr @__errno_location() #25
   store i32 0, ptr %5, align 4
@@ -3649,7 +3649,7 @@ define internal fastcc void @listAvailableScripts() unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, -2147483648) i32 @parseScriptWeight(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, -2147483648) i32 @parseScriptWeight(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 64) #28
   %.not = icmp eq ptr %4, null
@@ -11293,7 +11293,7 @@ valueTruth.exit.thread:                           ; preds = %67, %69, %72, %valu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @coerceToBool(i32 %.0.val, i8 %.8.val, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @coerceToBool(i32 %.0.val, i8 %.8.val, ptr nocapture noundef nonnull writeonly %0) unnamed_addr #0 {
   %2 = icmp eq i32 %.0.val, 4
   br i1 %2, label %3, label %5
 

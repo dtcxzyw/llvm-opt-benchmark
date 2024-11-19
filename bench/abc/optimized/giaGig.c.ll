@@ -711,7 +711,7 @@ Vec_IntFree.exit52:                               ; preds = %Vec_IntFree.exit50,
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gls_ManCount(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 44)) %1) local_unnamed_addr #2 {
+define noalias noundef ptr @Gls_ManCount(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias dereferenceable_or_null(1000000) ptr @malloc(i64 noundef 1000000) #23
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %5 = getelementptr inbounds i8, ptr %4, i64 4

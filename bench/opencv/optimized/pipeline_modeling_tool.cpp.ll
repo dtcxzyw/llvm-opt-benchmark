@@ -2532,7 +2532,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK11DummySource8descr_ofEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::util::variant.7") align 8 initializes((0, 25), (32, 56)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK11DummySource8descr_ofEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::util::variant.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv8GMatDescD2Ev.exit:
   %2 = alloca %"struct.cv::GMatDesc", align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 32
@@ -3087,7 +3087,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8PipelineC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEON2cv12GComputationEOSt10shared_ptrI11DummySourceESt10unique_ptrI13StopCriterionSt14default_deleteISF_EEOSt6vectorINS7_11GCompileArgESaISK_EEm(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8PipelineC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEON2cv12GComputationEOSt10shared_ptrI11DummySourceESt10unique_ptrI13StopCriterionSt14default_deleteISF_EEOSt6vectorINS7_11GCompileArgESaISK_EEm(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV8Pipeline, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1) #33
@@ -8489,7 +8489,7 @@ _ZN2cv4GMatD2Ev.exit:                             ; preds = %_ZNSt6vectorIN2cv4u
 declare void @_ZN2cv4GMatC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20ElapsedTimeCriterionC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, i64 noundef %1) unnamed_addr #7 align 2 {
+define hidden void @_ZN20ElapsedTimeCriterionC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV20ElapsedTimeCriterion, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -8499,7 +8499,7 @@ define hidden void @_ZN20ElapsedTimeCriterionC2El(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ElapsedTimeCriterion5startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((16, 32)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN20ElapsedTimeCriterion5startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
   %2 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #33
   %3 = sdiv i64 %2, 1000
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8510,7 +8510,7 @@ define hidden void @_ZN20ElapsedTimeCriterion5startEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ElapsedTimeCriterion4iterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN20ElapsedTimeCriterion4iterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
   %2 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #33
   %3 = sdiv i64 %2, 1000
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8532,7 +8532,7 @@ define hidden noundef zeroext i1 @_ZN20ElapsedTimeCriterion4doneEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17NumItersCriterionC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #7 align 2 {
+define hidden void @_ZN17NumItersCriterionC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV17NumItersCriterion, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -8542,7 +8542,7 @@ define hidden void @_ZN17NumItersCriterionC2El(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17NumItersCriterion5startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %0) unnamed_addr #7 align 2 {
+define hidden void @_ZN17NumItersCriterion5startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   ret void
@@ -8568,7 +8568,7 @@ define hidden noundef zeroext i1 @_ZN17NumItersCriterion4doneEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15PipelineBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15PipelineBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(272) ptr @_Znwm(i64 noundef 272) #35
   %3 = getelementptr inbounds i8, ptr %2, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %3, i8 0, i64 240, i1 false)

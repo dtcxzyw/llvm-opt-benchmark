@@ -1067,7 +1067,7 @@ ompi_request_complete.exit:                       ; preds = %77, %74, %opal_thre
 declare i32 @NBC_Progress(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @libnbc_module_construct(ptr noundef initializes((592, 600)) %0) #0 {
+define internal void @libnbc_module_construct(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -1158,7 +1158,7 @@ opal_thread_add_fetch_32.exit:                    ; preds = %16, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @request_construct(ptr nocapture noundef writeonly initializes((56, 60), (76, 80), (112, 136)) %0) #3 {
+define internal void @request_construct(ptr nocapture noundef writeonly %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 4, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 76

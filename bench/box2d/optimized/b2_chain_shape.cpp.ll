@@ -25,7 +25,7 @@ $_ZTI7b2Shape = comdat any
 @_ZN12b2ChainShapeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN12b2ChainShapeD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12b2ChainShapeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12b2ChainShapeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12b2ChainShape, i64 16), ptr %this, align 8
   %m_vertices.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -48,7 +48,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12b2ChainShape5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((24, 28)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN12b2ChainShape5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_vertices, align 8
@@ -127,7 +127,7 @@ return:                                           ; preds = %entry, %for.cond.pr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12b2ChainShape11CreateChainEPK6b2Vec2iRS1_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((16, 44)) %this, ptr nocapture noundef readonly %vertices, i32 noundef %count, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %prevVertex, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %nextVertex) local_unnamed_addr #1 align 2 {
+define void @_ZN12b2ChainShape11CreateChainEPK6b2Vec2iRS1_S3_(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef readonly %vertices, i32 noundef %count, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %prevVertex, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %nextVertex) local_unnamed_addr #1 align 2 {
 entry:
   %m_count = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %count, ptr %m_count, align 8
@@ -196,7 +196,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK12b2ChainShape12GetChildEdgeEP11b2EdgeShapei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef writeonly initializes((8, 49)) %edge, i32 noundef %index) local_unnamed_addr #8 align 2 {
+define void @_ZNK12b2ChainShape12GetChildEdgeEP11b2EdgeShapei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef writeonly %edge, i32 noundef %index) local_unnamed_addr #8 align 2 {
 entry:
   %m_type = getelementptr inbounds i8, ptr %edge, i64 8
   store i32 1, ptr %m_type, align 8
@@ -285,7 +285,7 @@ entry:
 declare noundef zeroext i1 @_ZNK11b2EdgeShape7RayCastEP15b2RayCastOutputRK14b2RayCastInputRK11b2Transformi(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef, ptr noundef nonnull align 4 dereferenceable(20), ptr noundef nonnull align 4 dereferenceable(16), i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK12b2ChainShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef writeonly initializes((0, 16)) %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, i32 noundef %childIndex) unnamed_addr #10 align 2 {
+define void @_ZNK12b2ChainShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef writeonly %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xf, i32 noundef %childIndex) unnamed_addr #10 align 2 {
 entry:
   %add = add nsw i32 %childIndex, 1
   %m_count = getelementptr inbounds i8, ptr %this, i64 24
@@ -350,7 +350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK12b2ChainShape11ComputeMassEP10b2MassDataf(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((0, 16)) %massData, float %density) unnamed_addr #11 align 2 {
+define void @_ZNK12b2ChainShape11ComputeMassEP10b2MassDataf(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly %massData, float %density) unnamed_addr #11 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %massData, i8 0, i64 16, i1 false)
   ret void

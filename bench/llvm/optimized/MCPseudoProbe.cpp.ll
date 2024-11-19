@@ -1885,7 +1885,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit50:               ; preds = %190, %192
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm20MCPseudoProbeDecoder10readStringEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 initializes((0, 4), (8, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(313) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm20MCPseudoProbeDecoder10readStringEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(313) %1, i32 noundef %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %2 to i64
@@ -1921,7 +1921,7 @@ define dso_local void @_ZN4llvm20MCPseudoProbeDecoder10readStringEj(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm20MCPseudoProbeDecoder21buildGUID2FuncDescMapEPKhm(ptr noundef nonnull align 8 dereferenceable(313) initializes((296, 312)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm20MCPseudoProbeDecoder21buildGUID2FuncDescMapEPKhm(ptr noundef nonnull align 8 dereferenceable(313) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %.sroa.3.i.i25.i.i.i.i.i = alloca { i64, %"class.llvm::StringRef" }, align 8
   %4 = alloca %"struct.llvm::MCPseudoProbeFuncDesc", align 8
   %.sroa.3.i.i12.i.i.i.i.i = alloca { i64, %"class.llvm::StringRef" }, align 8
@@ -2438,7 +2438,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm21MCPseudoProbeFuncDes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm20MCPseudoProbeDecoder21buildAddress2ProbeMapEPKhmRKNS_8DenseSetImNS_12DenseMapInfoImvEEEERKNS_8DenseMapImmS5_NS_6detail12DenseMapPairImmEEEE(ptr noundef nonnull align 8 dereferenceable(313) initializes((296, 312)) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(20) %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm20MCPseudoProbeDecoder21buildAddress2ProbeMapEPKhmRKNS_8DenseSetImNS_12DenseMapInfoImvEEEERKNS_8DenseMapImmS5_NS_6detail12DenseMapPairImmEEEE(ptr noundef nonnull align 8 dereferenceable(313) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(20) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i8, align 1

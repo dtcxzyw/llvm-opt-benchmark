@@ -513,7 +513,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN19MinimapUpdateThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19MinimapUpdateThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19MinimapUpdateThread, i64 16), ptr %this, align 8, !tbaa !12
   %m_blocks_cache = getelementptr inbounds i8, ptr %this, i64 304
@@ -641,7 +641,7 @@ _ZNSt15_Deque_iteratorI19QueuedMinimapUpdateRS0_PS0_EppEv.exit: ; preds = %if.th
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN19MinimapUpdateThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN19MinimapUpdateThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN19MinimapUpdateThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) #34
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -1518,7 +1518,7 @@ for.end178:                                       ; preds = %for.cond58.for.inc1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7MinimapC2EP6Client(ptr noundef nonnull align 8 dereferenceable(200) initializes((48, 56), (72, 96), (112, 152)) %this, ptr noundef %client) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7MinimapC2EP6Client(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %client) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i500 = alloca i64, align 8
   %__dnew.i.i230 = alloca i64, align 8
@@ -4335,7 +4335,7 @@ if.end9:                                          ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7Minimap8setAngleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((108, 112)) %this, float noundef %angle) local_unnamed_addr #16 align 2 {
+define dso_local void @_ZN7Minimap8setAngleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %this, float noundef %angle) local_unnamed_addr #16 align 2 {
 entry:
   %m_angle = getelementptr inbounds i8, ptr %this, i64 108
   store float %angle, ptr %m_angle, align 4, !tbaa !133

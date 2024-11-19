@@ -5497,7 +5497,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry25GetOrLoadValidatorsByNameERKSt6vectorINS_7TfTokenESaIS2_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.97") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry25GetOrLoadValidatorsByNameERKSt6vectorINS_7TfTokenESaIS2_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.97") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -7484,7 +7484,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit6:   ; preds = %.lr.ph.i.i.i.i, %50
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry30GetOrLoadValidatorSuitesByNameERKSt6vectorINS_7TfTokenESaIS2_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.122") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry30GetOrLoadValidatorSuitesByNameERKSt6vectorINS_7TfTokenESaIS2_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.122") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -7755,7 +7755,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_10PlugPluginEEaSERKS2_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry23GetAllValidatorMetadataEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.133") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(392) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry23GetAllValidatorMetadataEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.133") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 336
   br label %4
@@ -8123,7 +8123,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8: ; preds = %.body, %49
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry30GetValidatorMetadataForPluginsERKSt6vectorINS_7TfTokenESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.133") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry30GetValidatorMetadataForPluginsERKSt6vectorINS_7TfTokenESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.133") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 280
   tail call void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_GetValidatorMetadataForTokenERKSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERKS5_(ptr dead_on_unwind writable sret(%"class.std::vector.133") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(24) %2)
   ret void
@@ -8494,7 +8494,7 @@ _ZNSt11shared_lockISt12shared_mutexED2Ev.exit3:   ; preds = %_ZNSt11shared_lockI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_GetValidatorMetadataForTokenERKSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERKS5_(ptr dead_on_unwind noalias writable sret(%"class.std::vector.133") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__21UsdValidationRegistry29_GetValidatorMetadataForTokenERKSt13unordered_mapINS_7TfTokenESt6vectorIS2_SaIS2_EENS2_11HashFunctorESt8equal_toIS2_ESaISt4pairIKS2_S5_EEERKS5_(ptr dead_on_unwind noalias writable sret(%"class.std::vector.133") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = load ptr, ptr %3, align 8

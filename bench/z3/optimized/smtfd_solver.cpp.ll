@@ -1087,7 +1087,7 @@ _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5smtfd14plugin_context11model_valueEP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %t) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5smtfd14plugin_context11model_valueEP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %t) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.obj_ref, align 8
   %0 = load ptr, ptr %this, align 8
@@ -1169,7 +1169,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5smtfd14plugin_context11model_valueEP4sort(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5smtfd14plugin_context11model_valueEP4sort(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.obj_ref, align 8
   %0 = load ptr, ptr %this, align 8

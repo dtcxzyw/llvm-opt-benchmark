@@ -9126,7 +9126,7 @@ _ZN4llvm13MemCpyOptPass13processMemSetEPNS_10MemSetInstERNS_21ilist_iterator_w_b
 declare noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE20isReachableFromEntryEPKS1_(ptr noundef nonnull align 8 dereferenceable(124), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13MemCpyOptPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13MemCpyOptPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MemorySSAUpdater", align 8
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm21TargetLibraryAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #18
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -9253,7 +9253,7 @@ _ZN4llvm13MemCpyOptPass7runImplERNS_8FunctionEPNS_17TargetLibraryInfoEPNS_9AARes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm13MemCpyOptPass7runImplERNS_8FunctionEPNS_17TargetLibraryInfoEPNS_9AAResultsEPNS_15AssumptionCacheEPNS_13DominatorTreeEPNS_17PostDominatorTreeEPNS_9MemorySSAE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm13MemCpyOptPass7runImplERNS_8FunctionEPNS_17TargetLibraryInfoEPNS_9AAResultsEPNS_15AssumptionCacheEPNS_13DominatorTreeEPNS_17PostDominatorTreeEPNS_9MemorySSAE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::MemorySSAUpdater", align 8
   store ptr %2, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8

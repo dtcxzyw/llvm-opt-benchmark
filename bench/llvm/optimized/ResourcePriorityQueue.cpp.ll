@@ -232,7 +232,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21ResourcePriorityQueueC2EPNS_16SelectionDAGISelE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 13), (24, 120)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21ResourcePriorityQueueC2EPNS_16SelectionDAGISelE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -629,7 +629,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %25, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21ResourcePriorityQueue9initNodesERSt6vectorINS_5SUnitESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(200) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21ResourcePriorityQueue9initNodesERSt6vectorINS_5SUnitESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8

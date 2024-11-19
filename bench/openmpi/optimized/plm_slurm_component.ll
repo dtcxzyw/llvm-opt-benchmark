@@ -43,7 +43,7 @@ define internal noundef i32 @plm_slurm_close() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @prte_mca_plm_slurm_component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly %1) #1 {
+define internal range(i32 -1, 1) i32 @prte_mca_plm_slurm_component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #1 {
   %3 = tail call ptr @getenv(ptr noundef nonnull @.str.5) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %13, label %4

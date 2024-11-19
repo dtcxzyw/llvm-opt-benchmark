@@ -3722,7 +3722,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8UsdStageEED2Ev.exit58: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset17GetAllGeomSubsetsERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.88") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset17GetAllGeomSubsetsERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.88") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimDataHandle", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimFlagsPredicate", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrimSiblingRange", align 8
@@ -4435,7 +4435,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubsetESaIS1_EED
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset14GetGeomSubsetsERKNS_16UsdGeomImageableERKNS_7TfTokenES6_(ptr dead_on_unwind noalias writable sret(%"class.std::vector.88") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset14GetGeomSubsetsERKNS_16UsdGeomImageableERKNS_7TfTokenES6_(ptr dead_on_unwind noalias writable sret(%"class.std::vector.88") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimDataHandle", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimFlagsPredicate", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrimSiblingRange", align 8
@@ -5261,7 +5261,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22UsdPrimSiblingIteratorppEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset27GetAllGeomSubsetFamilyNamesERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13UsdGeomSubset27GetAllGeomSubsetFamilyNamesERKNS_16UsdGeomImageableE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimDataHandle", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Usd_PrimFlagsPredicate", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrimSiblingRange", align 8

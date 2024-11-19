@@ -1145,7 +1145,7 @@ define internal noundef i32 @genphy_no_config_intr(ptr nocapture readnone %0) #3
 declare dso_local i32 @genphy_handle_interrupt_no_ack(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @rtl9000a_config_init(ptr nocapture noundef initializes((1016, 1024)) %0) #4 align 16 {
+define internal noundef i32 @rtl9000a_config_init(ptr nocapture noundef %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 988
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -8193
@@ -1191,7 +1191,7 @@ define internal i32 @rtl9000a_config_aneg(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtl9000a_read_status(ptr noundef initializes((1036, 1037), (1038, 1039)) %0) #2 align 16 {
+define internal i32 @rtl9000a_read_status(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1036
   store i8 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 1038

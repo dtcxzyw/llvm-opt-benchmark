@@ -347,7 +347,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN25G1CollectionSetCandidatesD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN25G1CollectionSetCandidatesD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25G1CollectionCandidateListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25G1CollectionCandidateListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 2, i32 noundef 24, i8 noundef zeroext 5) #18
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -675,7 +675,7 @@ define hidden noundef ptr @_ZN31G1CollectionCandidateRegionList2atEj(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN25G1CollectionCandidateList5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4)) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN25G1CollectionCandidateList5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) local_unnamed_addr #6 align 2 {
   store i32 0, ptr %0, align 8
   ret void
 }
@@ -731,7 +731,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN25G1CollectionCandidateList24comp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN31G1CollectionCandidateRegionListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN31G1CollectionCandidateRegionListC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 2, i32 noundef 8, i8 noundef zeroext 5) #18
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -820,13 +820,13 @@ _ZN17GrowableArrayViewIP12G1HeapRegionE11remove_tillEi.exit: ; preds = %10, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN31G1CollectionCandidateRegionList5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4)) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN31G1CollectionCandidateRegionList5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) local_unnamed_addr #6 align 2 {
   store i32 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25G1CollectionSetCandidatesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((8, 24)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25G1CollectionSetCandidatesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = tail call noundef ptr @_ZN27GrowableArrayCHeapAllocator8allocateEii8MEMFLAGS(i32 noundef 2, i32 noundef 24, i8 noundef zeroext 5) #18
   store i32 0, ptr %2, align 8
@@ -922,7 +922,7 @@ define hidden noundef zeroext i1 @_ZNK25G1CollectionSetCandidates15is_from_marki
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25G1CollectionSetCandidates10initializeEj(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((8, 12), (32, 36), (56, 68)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN25G1CollectionSetCandidates10initializeEj(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   %4 = zext i32 %1 to i64
@@ -957,7 +957,7 @@ _ZN25G1CollectionSetCandidates5clearEv.exit:      ; preds = %.lr.ph.i, %2
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN25G1CollectionSetCandidates5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((8, 12), (32, 36)) %0) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN25G1CollectionSetCandidates5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32

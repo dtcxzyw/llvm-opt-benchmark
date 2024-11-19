@@ -29,7 +29,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @KW_PCDATA = internal constant [7 x i8] c"PCDATA\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XmlPrologStateInit(ptr nocapture noundef writeonly initializes((0, 8), (16, 28)) %state) local_unnamed_addr #0 {
+define hidden void @PyExpat_XmlPrologStateInit(ptr nocapture noundef writeonly %state) local_unnamed_addr #0 {
 entry:
   store ptr @prolog0, ptr %state, align 8
   %documentEntity = getelementptr inbounds i8, ptr %state, i64 20
@@ -101,7 +101,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @PyExpat_XmlPrologStateInitExternalEntity(ptr nocapture noundef writeonly initializes((0, 8), (16, 24)) %state) local_unnamed_addr #0 {
+define hidden void @PyExpat_XmlPrologStateInitExternalEntity(ptr nocapture noundef writeonly %state) local_unnamed_addr #0 {
 entry:
   store ptr @externalSubset0, ptr %state, align 8
   %documentEntity = getelementptr inbounds i8, ptr %state, i64 20
@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 61) i32 @externalSubset0(ptr nocapture noundef initializes((0, 8)) %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
+define internal range(i32 -1, 61) i32 @externalSubset0(ptr nocapture noundef %state, i32 noundef %tok, ptr noundef %ptr, ptr noundef %end, ptr noundef %enc) #1 {
 entry:
   store ptr @externalSubset1, ptr %state, align 8
   %cmp = icmp eq i32 %tok, 12

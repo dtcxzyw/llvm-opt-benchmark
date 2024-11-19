@@ -8666,7 +8666,7 @@ declare i32 @EVP_PKEY_keygen(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @evp_keymgmt_util_export(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec_export_get_encoding_cb(ptr noundef %params, ptr nocapture noundef initializes((0, 4)) %arg) #1 {
+define internal range(i32 0, 2) i32 @ec_export_get_encoding_cb(ptr noundef %params, ptr nocapture noundef %arg) #1 {
 entry:
   %enc_name = alloca ptr, align 8
   store ptr null, ptr %enc_name, align 8

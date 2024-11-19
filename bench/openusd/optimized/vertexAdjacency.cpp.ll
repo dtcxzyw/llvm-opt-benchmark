@@ -29,7 +29,7 @@ $__clang_call_terminate = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__18Hd_VertexAdjacencyD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__18Hd_VertexAdjacencyD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18Hd_VertexAdjacencyC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18Hd_VertexAdjacencyC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIiEC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2)

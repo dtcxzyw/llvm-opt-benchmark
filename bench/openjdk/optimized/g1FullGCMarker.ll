@@ -470,7 +470,7 @@ define linkonce_odr hidden void @_ZN20G1MarkAndPushClosure6do_oopEPP7oopDesc(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14G1FullGCMarkerC2EP15G1FullCollectorjP17G1RegionMarkStats(ptr noundef nonnull align 8 dereferenceable(1608) initializes((0, 12), (16, 736)) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN14G1FullGCMarkerC2EP15G1FullCollectorjP17G1RegionMarkStats(ptr noundef nonnull align 8 dereferenceable(1608) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %5, align 8

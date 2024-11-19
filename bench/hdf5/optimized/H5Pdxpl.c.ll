@@ -2748,7 +2748,7 @@ define internal noundef i32 @H5P__dxfr_bkgr_buf_type_enc(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__dxfr_bkgr_buf_type_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #5 {
+define internal noundef i32 @H5P__dxfr_bkgr_buf_type_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -2946,7 +2946,7 @@ define internal noundef i32 @H5P__dxfr_io_xfer_mode_enc(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__dxfr_io_xfer_mode_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #5 {
+define internal noundef i32 @H5P__dxfr_io_xfer_mode_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -2978,7 +2978,7 @@ define internal noundef i32 @H5P__dxfr_mpio_collective_opt_enc(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__dxfr_mpio_collective_opt_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #5 {
+define internal noundef i32 @H5P__dxfr_mpio_collective_opt_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -3010,7 +3010,7 @@ define internal noundef i32 @H5P__dxfr_mpio_chunk_opt_hard_enc(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__dxfr_mpio_chunk_opt_hard_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #5 {
+define internal noundef i32 @H5P__dxfr_mpio_chunk_opt_hard_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -3046,7 +3046,7 @@ define internal noundef i32 @H5P__dxfr_edc_enc(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__dxfr_edc_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #5 {
+define internal noundef i32 @H5P__dxfr_edc_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -3634,7 +3634,7 @@ define internal noundef i32 @H5P__dxfr_selection_io_mode_enc(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__dxfr_selection_io_mode_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #5 {
+define internal noundef i32 @H5P__dxfr_selection_io_mode_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8
@@ -3666,7 +3666,7 @@ define internal noundef i32 @H5P__dxfr_modify_write_buf_enc(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__dxfr_modify_write_buf_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #5 {
+define internal noundef i32 @H5P__dxfr_modify_write_buf_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #5 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8

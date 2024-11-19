@@ -140,7 +140,7 @@ declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((336, 352)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 344
   store ptr %2, ptr %3, align 8, !tbaa !21

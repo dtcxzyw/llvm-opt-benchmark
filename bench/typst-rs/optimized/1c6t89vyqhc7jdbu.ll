@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E = global <{ [1 x i8], [7 x i8], [32 x i8] }> <{ [1 x i8] zeroinitializer, [7 x i8] undef, [32 x i8] c"\00\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12typst_timing8Recorder3new17h3940f356cbe7d6c7E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 {
+define void @_ZN12typst_timing8Recorder3new17h3940f356cbe7d6c7E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i64 }) align 8 dereferenceable(32) %0) unnamed_addr #0 {
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8

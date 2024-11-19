@@ -1301,7 +1301,7 @@ ehcleanup7:                                       ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_155UsageReportingDeathTest_TestSetProgramUsageMessage_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_155UsageReportingDeathTest_TestSetProgramUsageMessage_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -1330,7 +1330,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_155UsageReportingDeathTest_TestSetProgramUsageMessage_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_155UsageReportingDeathTest_TestSetProgramUsageMessage_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -2324,7 +2324,7 @@ declare void @_ZN4absl9FlagSaverD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118UsageReportingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_118UsageReportingTestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -3080,7 +3080,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_01_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_01_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -3109,7 +3109,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_01_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_01_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -3464,7 +3464,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_02_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_02_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -3493,7 +3493,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_02_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_02_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -3779,7 +3779,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_03_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_03_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -3808,7 +3808,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_03_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_03_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -4094,7 +4094,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_04_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_04_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -4123,7 +4123,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_04_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_04_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -4409,7 +4409,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_05_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_05_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -4438,7 +4438,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_05_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150UsageReportingTest_TestFlagHelpHRF_on_flag_05_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -4647,7 +4647,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140UsageReportingTest_TestFlagsHelpHRF_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_140UsageReportingTest_TestFlagsHelpHRF_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -4676,7 +4676,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140UsageReportingTest_TestFlagsHelpHRF_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_140UsageReportingTest_TestFlagsHelpHRF_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5965,7 +5965,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140UsageReportingTest_TestNoUsageFlags_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_140UsageReportingTest_TestNoUsageFlags_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -5994,7 +5994,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140UsageReportingTest_TestNoUsageFlags_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_140UsageReportingTest_TestNoUsageFlags_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -6274,7 +6274,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147UsageReportingTest_TestUsageFlag_helpshort_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_147UsageReportingTest_TestUsageFlag_helpshort_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -6303,7 +6303,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147UsageReportingTest_TestUsageFlag_helpshort_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_147UsageReportingTest_TestUsageFlag_helpshort_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -6703,7 +6703,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_149UsageReportingTest_TestUsageFlag_help_simple_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_149UsageReportingTest_TestUsageFlag_help_simple_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -6732,7 +6732,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_149UsageReportingTest_TestUsageFlag_help_simple_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_149UsageReportingTest_TestUsageFlag_help_simple_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -7055,7 +7055,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_151UsageReportingTest_TestUsageFlag_help_one_flag_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_151UsageReportingTest_TestUsageFlag_help_one_flag_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -7084,7 +7084,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_151UsageReportingTest_TestUsageFlag_help_one_flag_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_151UsageReportingTest_TestUsageFlag_help_one_flag_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -7485,7 +7485,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_156UsageReportingTest_TestUsageFlag_help_multiple_flag_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_156UsageReportingTest_TestUsageFlag_help_multiple_flag_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -7514,7 +7514,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_156UsageReportingTest_TestUsageFlag_help_multiple_flag_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_156UsageReportingTest_TestUsageFlag_help_multiple_flag_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -7838,7 +7838,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_149UsageReportingTest_TestUsageFlag_helppackage_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_149UsageReportingTest_TestUsageFlag_helppackage_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -7867,7 +7867,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_149UsageReportingTest_TestUsageFlag_helppackage_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_149UsageReportingTest_TestUsageFlag_helppackage_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -8190,7 +8190,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145UsageReportingTest_TestUsageFlag_version_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145UsageReportingTest_TestUsageFlag_version_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -8219,7 +8219,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145UsageReportingTest_TestUsageFlag_version_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145UsageReportingTest_TestUsageFlag_version_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -8619,7 +8619,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_153UsageReportingTest_TestUsageFlag_only_check_args_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_153UsageReportingTest_TestUsageFlag_only_check_args_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -8648,7 +8648,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_153UsageReportingTest_TestUsageFlag_only_check_args_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_153UsageReportingTest_TestUsageFlag_only_check_args_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -9048,7 +9048,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144UsageReportingTest_TestUsageFlag_helpon_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144UsageReportingTest_TestUsageFlag_helpon_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)
@@ -9077,7 +9077,7 @@ _ZN12_GLOBAL__N_118UsageReportingTestD2Ev.exit:   ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_144UsageReportingTest_TestUsageFlag_helpon_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144UsageReportingTest_TestUsageFlag_helpon_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_118UsageReportingTestE, i64 16), ptr %this, align 8
   invoke void @_ZN4absl14flags_internal16SetFlagsHelpModeENS0_8HelpModeE(i32 noundef 0)

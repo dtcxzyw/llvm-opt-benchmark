@@ -2339,7 +2339,7 @@ declare void @_ZN18TapParameterDialog16setDisplayFilterERK7QString(ptr noundef n
 declare void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN22LteRlcStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(300) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 {
+define void @_ZN22LteRlcStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(300) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV22LteRlcStatisticsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV22LteRlcStatisticsDialog, i64 560), ptr %2, align 8
@@ -4021,7 +4021,7 @@ define void @_ZN22LteRlcStatisticsDialog34useRLCFramesFromMacCheckBoxToggledEb(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LteRlcStatisticsDialog16filterExpressionEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(300) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22LteRlcStatisticsDialog16filterExpressionEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 dereferenceable(300) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.13, align 8
   %4 = alloca %class.QList.13, align 8
   %5 = alloca %class.QString, align 8

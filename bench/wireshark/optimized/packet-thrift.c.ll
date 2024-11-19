@@ -5513,7 +5513,7 @@ thrift_get_varint_enc.exit.thread:                ; preds = %63, %66, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_compact_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull initializes((24, 32)) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_compact_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct._thrift_field_header_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 24
@@ -5721,7 +5721,7 @@ default.unreachable74:                            ; preds = %6
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_thrift_binary_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull initializes((24, 32)) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_thrift_binary_fields(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct._thrift_field_header_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds i8, ptr %4, i64 24

@@ -169,7 +169,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_gt_assign_ggtt(ptr noundef initializes((32, 40)) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_gt_assign_ggtt(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 2
@@ -245,7 +245,7 @@ declare dso_local void @intel_gt_mcr_init(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @intel_engines_init_mmio(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_gt_init_hw(ptr noundef initializes((3480, 3488)) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_gt_init_hw(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -1764,7 +1764,7 @@ declare dso_local i64 @intel_runtime_pm_get(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @__intel_gt_reset(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_gt_driver_release(ptr noundef initializes((3104, 3128), (3136, 3144)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_driver_release(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4696
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8

@@ -1339,7 +1339,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm24UpgradeIntrinsicFunctionEPNS_8FunctionERS1_b(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm24UpgradeIntrinsicFunctionEPNS_8FunctionERS1_b(ptr noundef nonnull %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   %4 = tail call fastcc noundef zeroext i1 @_ZL25upgradeIntrinsicFunction1PN4llvm8FunctionERS1_b(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i1 noundef zeroext %2)
   %5 = load ptr, ptr %1, align 8

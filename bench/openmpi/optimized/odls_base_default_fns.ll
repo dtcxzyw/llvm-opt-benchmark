@@ -2496,7 +2496,7 @@ declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) 
 declare ptr @prte_job_state_to_str(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @prte_odls_base_spawn_proc(i32 %0, i16 signext %1, ptr noundef initializes((272, 280)) %2) #0 {
+define void @prte_odls_base_spawn_proc(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %4 = alloca %struct.pmix_proc, align 4
   %5 = alloca ptr, align 8
   %6 = alloca %struct.pmix_value, align 8
@@ -5582,7 +5582,7 @@ declare ptr @strsignal(i32 noundef) local_unnamed_addr #4
 declare void @prte_wait_cb_cancel(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @qcdcon(ptr nocapture noundef writeonly initializes((144, 152)) %0) #9 {
+define internal void @qcdcon(ptr nocapture noundef writeonly %0) #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   ret void

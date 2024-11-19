@@ -170,7 +170,7 @@ declare void @_ZN15QGuiApplication18setDesktopFileNameERK7QString(ptr noundef no
 declare void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN20WiresharkApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN20WiresharkApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV20WiresharkApplication, i64 16), ptr %0, align 8
   store ptr null, ptr @wsApp, align 8
   tail call void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #11

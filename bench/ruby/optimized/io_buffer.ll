@@ -781,7 +781,7 @@ io_buffer_extract_flags.exit:                     ; preds = %22
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_io_buffer_get_bytes(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define dso_local i32 @rb_io_buffer_get_bytes(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @rb_io_buffer_type) #20
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8

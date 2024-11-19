@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_thread_construct(ptr nocapture noundef writeonly initializes((120, 128), (136, 144)) %0) #0 {
+define internal void @pmix_thread_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 136

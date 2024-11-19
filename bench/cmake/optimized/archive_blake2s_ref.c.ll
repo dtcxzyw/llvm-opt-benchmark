@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @secure_zero_memory.memset_v = internal constant ptr @memset, align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @blake2s_init_param(ptr nocapture noundef initializes((0, 136)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @blake2s_init_param(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, i8 0, i64 104, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) @blake2s_IV, i64 32, i1 false)

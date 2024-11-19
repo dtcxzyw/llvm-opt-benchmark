@@ -65,7 +65,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN1q4evalC2ERN3euf6solverE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN1q4evalC2ERN3euf6solverE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %ctx, ptr %this, align 8
   %m = getelementptr inbounds i8, ptr %this, i64 8
@@ -178,7 +178,7 @@ _ZN10ptr_bufferI3astLj16EED2Ev.exit:              ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN1q4evalclEPKPN3euf5enodeERNS_6clauseERjR7svectorISt4pairIS3_S3_EjE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %binding, ptr nocapture noundef nonnull align 8 dereferenceable(56) %c, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %idx, ptr noundef nonnull align 8 dereferenceable(8) %evidence) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN1q4evalclEPKPN3euf5enodeERNS_6clauseERjR7svectorISt4pairIS3_S3_EjE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %binding, ptr nocapture noundef nonnull align 8 dereferenceable(56) %c, ptr nocapture noundef nonnull align 4 dereferenceable(4) %idx, ptr noundef nonnull align 8 dereferenceable(8) %evidence) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %l = alloca %"struct.q::lit", align 8
   store i32 -1, ptr %idx, align 4

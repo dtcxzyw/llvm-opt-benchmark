@@ -615,7 +615,7 @@ define noundef zeroext i1 @"_ZN57_$LT$uu_join..JoinError$u20$as$u20$core..fmt..D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN87_$LT$uu_join..JoinError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h750ef7d4f6a98eb8E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #5 {
+define void @"_ZN87_$LT$uu_join..JoinError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h750ef7d4f6a98eb8E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i64 -9223372036854775808, ptr %0, align 8
@@ -623,7 +623,7 @@ define void @"_ZN87_$LT$uu_join..JoinError$u20$as$u20$core..convert..From$LT$std
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN60_$LT$uu_join..Settings$u20$as$u20$core..default..Default$GT$7default17hb60f28403ad6fb37E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, { i8, [1 x i8] }, i8, i8, i8, i8, i8, i8, i8, i8, [6 x i8] }) align 8 dereferenceable(80) initializes((0, 65), (66, 74)) %0) unnamed_addr #5 {
+define void @"_ZN60_$LT$uu_join..Settings$u20$as$u20$core..default..Default$GT$7default17hb60f28403ad6fb37E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, i64, { i8, [1 x i8] }, i8, i8, i8, i8, i8, i8, i8, i8, [6 x i8] }) align 8 dereferenceable(80) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 66
   store i8 0, ptr %3, align 2
@@ -1932,7 +1932,7 @@ define internal fastcc noundef ptr @_ZN7uu_join5State15reset_read_line17h4610f30
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN7uu_join5State15reset_next_line17hc7f8ffb5b4616e98E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(96) %1, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %2) unnamed_addr #2 {
+define hidden void @_ZN7uu_join5State15reset_next_line17hc7f8ffb5b4616e98E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(96) %1, ptr noalias nocapture noundef readonly align 1 dereferenceable(4) %2) unnamed_addr #2 {
   %4 = alloca { i64, [5 x i64] }, align 8
   %5 = alloca { i64, [5 x i64] }, align 8
   %.sroa.7 = alloca [3 x i64], align 8

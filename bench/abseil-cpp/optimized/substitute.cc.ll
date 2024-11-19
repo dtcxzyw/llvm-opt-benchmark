@@ -150,7 +150,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @_ZN4absl19substitute_internal3ArgC2EPKv(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this, ptr noundef %value) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl19substitute_internal3ArgC2EPKv(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %value) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %cmp = icmp eq ptr %value, null

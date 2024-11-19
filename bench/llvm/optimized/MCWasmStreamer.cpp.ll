@@ -323,7 +323,7 @@ define dso_local void @_ZN4llvm14MCWasmStreamer16emitCommonSymbolEPNS_8MCSymbolE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14MCWasmStreamer11emitELFSizeEPNS_8MCSymbolEPKNS_6MCExprE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((176, 184)) %1, ptr noundef %2) unnamed_addr #7 align 2 {
+define dso_local void @_ZN4llvm14MCWasmStreamer11emitELFSizeEPNS_8MCSymbolEPKNS_6MCExprE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr %2, ptr %4, align 8
   ret void

@@ -242,7 +242,7 @@ declare i32 @setsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 
 declare noundef i32 @_Z25grpc_sockaddr_is_v4mappedPK21grpc_resolved_addressPS_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20add_socket_to_serverP15grpc_tcp_serveriPK21grpc_resolved_addressjjPP17grpc_tcp_listener(ptr noalias align 8 %agg.result, ptr noundef %s, i32 noundef %fd, ptr noundef %addr, i32 noundef %port_index, i32 noundef %fd_index, ptr nocapture noundef writeonly initializes((0, 8)) %listener) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20add_socket_to_serverP15grpc_tcp_serveriPK21grpc_resolved_addressjjPP17grpc_tcp_listener(ptr noalias align 8 %agg.result, ptr noundef %s, i32 noundef %fd, ptr noundef %addr, i32 noundef %port_index, i32 noundef %fd_index, ptr nocapture noundef writeonly %listener) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %port = alloca i32, align 4
   %err = alloca %"class.absl::lts_20230802::Status", align 8

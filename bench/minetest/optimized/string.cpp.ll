@@ -4391,7 +4391,7 @@ nrvo.skipdtor:                                    ; preds = %entry
 }
 
 ; Function Attrs: uwtable
-define internal fastcc void @_ZL13translate_allRKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERmP12TranslationsRS4_(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(8) %i, ptr noundef %translations, ptr noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %res) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13translate_allRKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEERmP12TranslationsRS4_(ptr noundef nonnull align 8 dereferenceable(32) %s, ptr noundef nonnull align 8 dereferenceable(8) %i, ptr noundef %translations, ptr noundef nonnull align 8 dereferenceable(32) %res) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i523 = alloca i64, align 8
   %__dnew.i.i.i.i.i486 = alloca i64, align 8

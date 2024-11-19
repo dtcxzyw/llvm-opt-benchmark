@@ -743,7 +743,7 @@ _ZN8JfrEventI23EventNativeMethodSampleE11write_eventEv.exit: ; preds = %9, %38, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN22JfrThreadSampleClosureC2EP20EventExecutionSampleP23EventNativeMethodSample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
+define hidden void @_ZN22JfrThreadSampleClosureC2EP20EventExecutionSampleP23EventNativeMethodSample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -932,7 +932,7 @@ define hidden void @_ZN16JfrThreadSamplerC2Ellj(ptr noundef nonnull align 8 dere
 declare void @_ZN13NonJavaThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(896)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16JfrThreadSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(993) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16JfrThreadSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(993) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV16JfrThreadSampler, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 936
   %3 = load ptr, ptr %2, align 8
@@ -953,7 +953,7 @@ declare void @_ZN11JfrCHeapObj4freeEPvm(ptr noundef, i64 noundef) local_unnamed_
 declare void @_ZN13NonJavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(896)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16JfrThreadSamplerD0Ev(ptr noundef nonnull align 8 dereferenceable(993) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16JfrThreadSamplerD0Ev(ptr noundef nonnull align 8 dereferenceable(993) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV16JfrThreadSampler, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 936
   %3 = load ptr, ptr %2, align 8
@@ -1683,7 +1683,7 @@ _ZN17JfrThreadSamplingD2Ev.exit:                  ; preds = %2, %4, %8, %11
 declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17JfrThreadSamplingC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #10 align 2 {
+define hidden void @_ZN17JfrThreadSamplingC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #10 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -1717,7 +1717,7 @@ _ZN16JfrThreadSampler9disenrollEv.exit:           ; preds = %10, %7, %3, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrThreadSampling14create_samplerEll(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrThreadSampling14create_samplerEll(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5

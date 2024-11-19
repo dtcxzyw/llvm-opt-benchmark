@@ -56,7 +56,7 @@ $_ZTIN5zxing8ArrayRefINS_15BINARIZER_BLOCKEEE = comdat any
 @_ZN5zxing9BinarizerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5zxing9BinarizerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing9BinarizerC2ENS_3RefINS_15LuminanceSourceEEE(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 12), (16, 26), (28, 44), (48, 72)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing9BinarizerC2ENS_3RefINS_15LuminanceSourceEEE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing9BinarizerE, i64 16), ptr %0, align 8
@@ -120,7 +120,7 @@ _ZN5zxing3RefINS_9BitMatrixEEaSEPS1_.exit12:      ; preds = %15, %10, %6, %2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing9BinarizerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN5zxing9BinarizerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing9BinarizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -214,7 +214,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %_ZN5zxing3RefINS_9B
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing9BinarizerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN5zxing9BinarizerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing9BinarizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -312,7 +312,7 @@ _ZN5zxing9BinarizerD2Ev.exit:                     ; preds = %_ZN5zxing3RefINS_9B
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK5zxing9Binarizer18getLuminanceSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK5zxing9Binarizer18getLuminanceSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -514,7 +514,7 @@ declare void @_ZN5zxing9BitMatrix6copyOfENS_3RefIS0_EERNS_12ErrorHandlerE(ptr no
 declare void @_ZN5zxing9BitMatrix7flipAllEv(ptr noundef nonnull align 8 dereferenceable(346)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing9Binarizer14getBlackMatrixERNS_12ErrorHandlerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref.0") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN5zxing9Binarizer14getBlackMatrixERNS_12ErrorHandlerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref.0") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8

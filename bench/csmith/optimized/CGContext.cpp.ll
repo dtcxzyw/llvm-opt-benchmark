@@ -93,7 +93,7 @@ _ZNSt12_Vector_baseIPK8VariableSaIS2_EED2Ev.exit: ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9CGContextC2EP8FunctionRK6EffectPS2_(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 20), (24, 88)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(74) %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9CGContextC2EP8FunctionRK6EffectPS2_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(74) %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -162,7 +162,7 @@ _ZNSt8_Rb_treeIPK8VariableSt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EED
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9CGContextC2ERKS_RK6EffectPS2_(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 20), (24, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, ptr noundef nonnull align 8 dereferenceable(74) %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9CGContextC2ERKS_RK6EffectPS2_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, ptr noundef nonnull align 8 dereferenceable(74) %2, ptr noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<const Variable *, std::pair<const Variable *const, unsigned int>, std::_Select1st<std::pair<const Variable *const, unsigned int>>, std::less<const Variable *>>::_Alloc_node", align 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
@@ -323,7 +323,7 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit:           ; preds = %73, %75
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9CGContextC2ERKS_P8FunctionRK6EffectPS4_(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 20), (24, 48)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(74) %3, ptr noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9CGContextC2ERKS_P8FunctionRK6EffectPS4_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(74) %3, ptr noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<const Variable *, std::pair<const Variable *const, unsigned int>, std::_Select1st<std::pair<const Variable *const, unsigned int>>, std::less<const Variable *>>::_Alloc_node", align 8
   store ptr %2, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -600,7 +600,7 @@ _ZNSt6vectorIPK5BlockSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIPK5B
 declare void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9CGContextC2ERKS_P11RWDirectivePK8Variablej(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 20), (24, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9CGContextC2ERKS_P11RWDirectivePK8Variablej(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<const Variable *, std::pair<const Variable *const, unsigned int>, std::_Select1st<std::pair<const Variable *const, unsigned int>>, std::less<const Variable *>>::_Alloc_node", align 8
   %7 = alloca ptr, align 8
   store ptr %3, ptr %7, align 8

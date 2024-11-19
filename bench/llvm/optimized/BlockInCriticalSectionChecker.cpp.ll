@@ -1620,7 +1620,7 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129BlockInCriticalSectionCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(1248) initializes((0, 8), (1144, 1152)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_129BlockInCriticalSectionCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(1248) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_129BlockInCriticalSectionCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1144
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -1709,7 +1709,7 @@ _ZNSt5arrayISt7variantIJN12_GLOBAL__N_123FirstArgMutexDescriptorENS1_21MemberMut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129BlockInCriticalSectionCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(1248) initializes((0, 8), (1144, 1152)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_129BlockInCriticalSectionCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(1248) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_129BlockInCriticalSectionCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(1248) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1248) #17
   ret void
@@ -3571,7 +3571,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit: ; preds = %1, %12
 declare noundef ptr @_ZN5clang4Decl19castFromDeclContextEPKNS_11DeclContextE(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_127CallDescriptionBasedMatcherC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_127CallDescriptionBasedMatcherC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16

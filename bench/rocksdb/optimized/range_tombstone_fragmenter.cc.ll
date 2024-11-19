@@ -332,7 +332,7 @@ if.end19:                                         ; preds = %if.else, %if.then, 
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb28FragmentedRangeTombstoneListC2ESt10unique_ptrINS_20InternalIteratorBaseINS_5SliceEEESt14default_deleteIS4_EERKNS_21InternalKeyComparatorEbRKSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 76), (88, 92), (96, 104)) %this, ptr nocapture noundef %unfragmented_tombstones, ptr noundef nonnull align 8 dereferenceable(16) %icmp, i1 noundef zeroext %for_compaction, ptr noundef nonnull align 8 dereferenceable(24) %snapshots) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb28FragmentedRangeTombstoneListC2ESt10unique_ptrINS_20InternalIteratorBaseINS_5SliceEEESt14default_deleteIS4_EERKNS_21InternalKeyComparatorEbRKSt6vectorImSaImEE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr nocapture noundef %unfragmented_tombstones, ptr noundef nonnull align 8 dereferenceable(16) %icmp, i1 noundef zeroext %for_compaction, ptr noundef nonnull align 8 dereferenceable(24) %snapshots) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i71 = alloca %"class.std::allocator.23", align 1
   %ref.tmp.i.i.i = alloca %"class.std::allocator.23", align 1
@@ -3169,7 +3169,7 @@ invoke.cont17:                                    ; preds = %lor.lhs.false, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator11SeekToFirstEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((136, 152)) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator11SeekToFirstEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 align 2 {
 entry:
   %tombstones_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %tombstones_, align 8
@@ -3184,7 +3184,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator14SeekToTopFirstEv(ptr noundef nonnull align 8 dereferenceable(200) initializes((136, 144)) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator14SeekToTopFirstEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #2 align 2 {
 entry:
   %tombstones_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %tombstones_, align 8
@@ -3473,7 +3473,7 @@ while.end:                                        ; preds = %lor.rhs, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator10SeekToLastEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((136, 152)) %this) unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator10SeekToLastEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 align 2 {
 entry:
   %tombstones_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %tombstones_, align 8
@@ -3491,7 +3491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator13SeekToTopLastEv(ptr noundef nonnull align 8 dereferenceable(200) initializes((136, 144)) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator13SeekToTopLastEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #2 align 2 {
 entry:
   %tombstones_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %tombstones_, align 8
@@ -4517,7 +4517,7 @@ cond.end:                                         ; preds = %_ZN7rocksdb32Fragme
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator15SplitBySnapshotERKSt6vectorImSaImEE(ptr noalias sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %snapshots) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb32FragmentedRangeTombstoneIterator15SplitBySnapshotERKSt6vectorImSaImEE(ptr noalias sret(%"class.std::map") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %snapshots) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__callable.i.i = alloca %class.anon.126, align 8
   %ref.tmp.i = alloca %class.anon.53, align 8

@@ -288,7 +288,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN1q4mbqiC2ERN3euf6solverERNS_6solverE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx, ptr noundef nonnull align 8 dereferenceable(3144) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN1q4mbqiC2ERN3euf6solverERNS_6solverE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(9136) %ctx, ptr noundef nonnull align 8 dereferenceable(3144) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %ctx, ptr %this, align 8
   %m_qs = getelementptr inbounds i8, ptr %this, i64 8
@@ -12825,7 +12825,7 @@ declare void @_ZN3euf6solver12update_modelER3refI5modelEb(ptr noundef nonnull al
 declare noundef ptr @_Z14mk_smt2_solverR11ast_managerRK10params_refRK6symbol(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN1q4mbqi11init_searchEv(ptr nocapture noundef nonnull align 8 dereferenceable(280) initializes((240, 244)) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN1q4mbqi11init_searchEv(ptr nocapture noundef nonnull align 8 dereferenceable(280) %this) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_mbqi_max_cexs = getelementptr inbounds i8, ptr %0, i64 1040

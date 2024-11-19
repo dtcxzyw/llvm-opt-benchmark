@@ -213,7 +213,7 @@ return:                                           ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lh_insert(ptr nocapture noundef %lh, ptr nocapture noundef writeonly initializes((0, 8)) %old_data, ptr noundef %data) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @lh_insert(ptr nocapture noundef %lh, ptr nocapture noundef writeonly %old_data, ptr noundef %data) local_unnamed_addr #5 {
 entry:
   store ptr null, ptr %old_data, align 8
   %hash1.i = getelementptr inbounds i8, ptr %lh, i64 40

@@ -554,7 +554,7 @@ return:                                           ; preds = %trace_vfio_spapr_re
 declare void @hw_error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_spapr_container_init(ptr noundef initializes((464, 472)) %container, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @vfio_spapr_container_init(ptr noundef %container, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %info = alloca %struct.vfio_iommu_spapr_tce_info, align 8
   %iommu_type = getelementptr inbounds i8, ptr %container, i64 400

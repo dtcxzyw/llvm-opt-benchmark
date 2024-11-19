@@ -282,7 +282,7 @@ declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc57context20ContextMemoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 104)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc57context20ContextMemoryManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_freeChunks = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %this, i8 0, i64 104, i1 false)
@@ -940,7 +940,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %if.then.i38, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc57context20ContextMemoryManager3popEv(ptr noundef nonnull align 8 dereferenceable(200) initializes((104, 120)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc57context20ContextMemoryManager3popEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_finish.i.i, align 8

@@ -2951,7 +2951,7 @@ declare ptr @llvm_emit_array_gep_raw(ptr noundef, ptr noundef, ptr noundef, i32 
 declare ptr @str_copy(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_emit_unreachable(ptr nocapture noundef initializes((80, 88)) %0) local_unnamed_addr #0 {
+define dso_local void @llvm_emit_unreachable(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @LLVMBuildUnreachable(ptr noundef %3) #9

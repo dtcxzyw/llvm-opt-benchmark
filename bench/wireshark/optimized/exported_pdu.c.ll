@@ -27,7 +27,7 @@ define noundef i32 @exp_pdu_data_dissector_table_num_value_size(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @exp_pdu_data_dissector_table_num_value_populate_data(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #1 {
+define noundef i32 @exp_pdu_data_dissector_table_num_value_populate_data(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = ptrtoint ptr %1 to i64
   store i8 0, ptr %2, align 1
   %6 = getelementptr i8, ptr %2, i64 1
@@ -168,7 +168,7 @@ define internal noundef i32 @exp_pdu_data_port_type_size(ptr nocapture readnone 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @exp_pdu_data_port_type_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i32 %3) #4 {
+define internal noundef i32 @exp_pdu_data_port_type_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #4 {
   store i8 0, ptr %2, align 1
   %5 = getelementptr i8, ptr %2, i64 1
   store i8 24, ptr %5, align 1
@@ -206,7 +206,7 @@ define internal noundef i32 @exp_pdu_data_port_size(ptr nocapture readnone %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @exp_pdu_data_src_port_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 %3) #5 {
+define internal noundef i32 @exp_pdu_data_src_port_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 284
   %6 = load i32, ptr %5, align 4
   store i8 0, ptr %2, align 1
@@ -235,7 +235,7 @@ define internal noundef i32 @exp_pdu_data_src_port_populate_data(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @exp_pdu_data_dst_port_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 %3) #5 {
+define internal noundef i32 @exp_pdu_data_dst_port_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 288
   %6 = load i32, ptr %5, align 8
   store i8 0, ptr %2, align 1
@@ -269,7 +269,7 @@ define internal noundef i32 @exp_pdu_data_orig_frame_num_size(ptr nocapture read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @exp_pdu_data_orig_frame_num_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 %3) #5 {
+define internal noundef i32 @exp_pdu_data_orig_frame_num_populate_data(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3) #5 {
   store i8 0, ptr %2, align 1
   %5 = getelementptr i8, ptr %2, i64 1
   store i8 30, ptr %5, align 1

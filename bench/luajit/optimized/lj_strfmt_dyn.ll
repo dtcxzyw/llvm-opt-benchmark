@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @lj_char_bits = external hidden local_unnamed_addr constant [257 x i8], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden i32 @lj_strfmt_parse(ptr nocapture noundef initializes((16, 24)) %fs) local_unnamed_addr #0 {
+define hidden i32 @lj_strfmt_parse(ptr nocapture noundef %fs) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -396,7 +396,7 @@ dig1:                                             ; preds = %if.then2, %dig2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly initializes((0, 2)) %p, ptr noundef %v) local_unnamed_addr #2 {
+define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly %p, ptr noundef %v) local_unnamed_addr #2 {
 entry:
   %0 = ptrtoint ptr %v to i64
   %cmp = icmp eq ptr %v, null

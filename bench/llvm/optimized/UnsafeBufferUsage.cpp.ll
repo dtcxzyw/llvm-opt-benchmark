@@ -11549,7 +11549,7 @@ _ZN17WarningGadgetSetsD2Ev.exit558:               ; preds = %_ZNSt5tupleIJSt6vec
 declare noundef zeroext i1 @_ZNK5clang12FunctionDecl9isExternCEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 28), (32, 80)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) unnamed_addr #1 {
+define internal fastcc void @_ZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) unnamed_addr #1 {
   %5 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %6 = alloca %"class.clang::ast_matchers::internal::Matcher.552", align 8
   %7 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
@@ -31285,7 +31285,7 @@ define linkonce_odr hidden void @_ZN21UPCPreIncrementGadgetD0Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_113FixableGadget23getStrategyImplicationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.958") align 8 initializes((16, 17)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #7 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113FixableGadget23getStrategyImplicationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.958") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
   ret void
@@ -79145,7 +79145,7 @@ declare void @_ZN5clang12ast_matchers11MatchFinderC1ENS1_18MatchFinderOptionsE(p
 declare void @_ZN5clang12ast_matchers11MatchFinder10addMatcherERKNS0_8internal7MatcherINS_4StmtEEEPNS1_13MatchCallbackE(ptr noundef nonnull align 8 dereferenceable(376), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_129SpanTwoParamConstructorGadget7matcherEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 12), (16, 24)) %0) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_129SpanTwoParamConstructorGadget7matcherEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #1 align 2 {
 _ZN5clang12ast_matchers14hasDeclContextERKNS0_8internal7MatcherINS_4DeclEEE.exit:
   %1 = alloca %"class.std::optional.2326", align 8
   %2 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
@@ -82651,7 +82651,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_14BinaryOperatorEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 1), (4, 12), (16, 24)) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN5clang12ast_matchersL14hasPointerTypeEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #1 {
   %2 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.2692", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::Matcher.478", align 8
@@ -82847,7 +82847,7 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4TypeEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 1), (4, 12), (16, 24)) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN5clang12ast_matchersL12hasArrayTypeEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #1 {
   %2 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.2700", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::Matcher.478", align 8
@@ -83385,7 +83385,7 @@ _ZNSt6vectorIN5clang12ast_matchers8internal15DynTypedMatcherESaIS3_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEbEN20GadgetFinderCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define internal void @_ZZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEbEN20GadgetFinderCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEbE20GadgetFinderCallback, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -83514,7 +83514,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteIS2
 declare void @_ZN5clang12ast_matchers11MatchFinderD1Ev(ptr noundef nonnull align 8 dereferenceable(376)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEbEN20GadgetFinderCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define internal void @_ZZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEbEN20GadgetFinderCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #1 align 2 {
   tail call void @_ZZL11findGadgetsPKN5clang4DeclERKNS_24UnsafeBufferUsageHandlerEbEN20GadgetFinderCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 88) #25
   ret void
@@ -84548,7 +84548,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113FixableGadgetESt14default_deleteIS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PointerDereferenceGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PointerDereferenceGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -84613,7 +84613,7 @@ _ZN12_GLOBAL__N_124PointerDereferenceGadgetC2ERKN5clang12ast_matchers11MatchFind
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_132UPCAddressofArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_132UPCAddressofArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -84651,7 +84651,7 @@ _ZN12_GLOBAL__N_132UPCAddressofArraySubscriptGadgetC2ERKN5clang12ast_matchers11M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126UPCStandalonePointerGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126UPCStandalonePointerGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -84792,7 +84792,7 @@ _ZN18UUCAddAssignGadgetC2ERKN5clang12ast_matchers11MatchFinder11MatchResultE.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PtrToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124PtrToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -84857,7 +84857,7 @@ _ZN12_GLOBAL__N_124PtrToPtrAssignmentGadgetC2ERKN5clang12ast_matchers11MatchFind
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127CArrayToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127CArrayToPtrAssignmentGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -84922,7 +84922,7 @@ _ZN12_GLOBAL__N_127CArrayToPtrAssignmentGadgetC2ERKN5clang12ast_matchers11MatchF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117PointerInitGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_117PointerInitGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -85072,7 +85072,7 @@ _ZNSt6vectorISt10unique_ptrIN12_GLOBAL__N_113WarningGadgetESt14default_deleteIS2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115IncrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115IncrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85110,7 +85110,7 @@ _ZN12_GLOBAL__N_115IncrementGadgetC2ERKN5clang12ast_matchers11MatchFinder11Match
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115DecrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115DecrementGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85148,7 +85148,7 @@ _ZN12_GLOBAL__N_115DecrementGadgetC2ERKN5clang12ast_matchers11MatchFinder11Match
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120ArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120ArraySubscriptGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85186,7 +85186,7 @@ _ZN12_GLOBAL__N_120ArraySubscriptGadgetC2ERKN5clang12ast_matchers11MatchFinder11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_123PointerArithmeticGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_123PointerArithmeticGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.clang::ASTNodeKind", align 4
@@ -85251,7 +85251,7 @@ _ZN12_GLOBAL__N_123PointerArithmeticGadgetC2ERKN5clang12ast_matchers11MatchFinde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127UnsafeBufferUsageAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_127UnsafeBufferUsageAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85289,7 +85289,7 @@ _ZN12_GLOBAL__N_127UnsafeBufferUsageAttrGadgetC2ERKN5clang12ast_matchers11MatchF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131UnsafeBufferUsageCtorAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131UnsafeBufferUsageCtorAttrGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85327,7 +85327,7 @@ _ZN12_GLOBAL__N_131UnsafeBufferUsageCtorAttrGadgetC2ERKN5clang12ast_matchers11Ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120DataInvocationGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120DataInvocationGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -85365,7 +85365,7 @@ _ZN12_GLOBAL__N_120DataInvocationGadgetC2ERKN5clang12ast_matchers11MatchFinder11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_129SpanTwoParamConstructorGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_129SpanTwoParamConstructorGadgetEJRKN5clang12ast_matchers11MatchFinder11MatchResultEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ASTNodeKind", align 4
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
@@ -87744,7 +87744,7 @@ _ZN4llvm11SmallVectorIN5clang9FixItHintELj4EED2Ev.exit: ; preds = %83, %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK12_GLOBAL__N_124PtrToPtrAssignmentGadget23getStrategyImplicationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.958") align 8 initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #17 align 2 {
+define internal void @_ZNK12_GLOBAL__N_124PtrToPtrAssignmentGadget23getStrategyImplicationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.958") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -88054,7 +88054,7 @@ _ZN4llvm11SmallVectorIN5clang9FixItHintELj4EED2Ev.exit: ; preds = %83, %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZNK12_GLOBAL__N_127CArrayToPtrAssignmentGadget23getStrategyImplicationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.958") align 8 initializes((16, 17)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #7 align 2 {
+define internal void @_ZNK12_GLOBAL__N_127CArrayToPtrAssignmentGadget23getStrategyImplicationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.958") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
   ret void
@@ -88271,7 +88271,7 @@ _ZN4llvm11SmallVectorIN5clang9FixItHintELj4EED2Ev.exit: ; preds = %81, %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK12_GLOBAL__N_117PointerInitGadget23getStrategyImplicationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.958") align 8 initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #17 align 2 {
+define internal void @_ZNK12_GLOBAL__N_117PointerInitGadget23getStrategyImplicationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.958") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -96413,7 +96413,7 @@ _ZNSt6vectorIN5clang12ast_matchers8internal15DynTypedMatcherESaIS3_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 1), (4, 12), (16, 24)) %0) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_119toSupportedVariableEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0) unnamed_addr #1 {
   %2 = alloca %"class.clang::ast_matchers::internal::DynTypedMatcher", align 8
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.426", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::Matcher.408", align 8
@@ -96575,7 +96575,7 @@ _ZN5clang12ast_matchers8internal15BindableMatcherINS_4DeclEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang12ast_matchersL28isInUnspecifiedLvalueContextENS0_8internal7MatcherINS_4ExprEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
+define internal fastcc void @_ZN5clang12ast_matchersL28isInUnspecifiedLvalueContextENS0_8internal7MatcherINS_4ExprEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.423", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.2430", align 8
   %5 = alloca [1 x ptr], align 8
@@ -104061,7 +104061,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_11DeclRefExprEED2Ev.exit3: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedUntypedContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
+define internal fastcc void @_ZN5clang12ast_matchersL29isInUnspecifiedUntypedContextENS0_8internal7MatcherINS_4StmtEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #1 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.423", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.2666", align 8
   %5 = alloca %"class.clang::ast_matchers::internal::Matcher.423", align 8
@@ -107051,7 +107051,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang9FixItHintELb0EE21takeAllocationForGrow
 declare void @_ZN5clang5Lexer13findNextTokenENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsE(ptr dead_on_unwind writable sret(%"class.std::optional.2794") align 8, i32, ptr noundef nonnull align 8 dereferenceable(696), ptr noundef nonnull align 8 dereferenceable(841)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24getVarDeclIdentifierTextPKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((16, 17)) %0, i32 %.24.val, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(841) %2) unnamed_addr #1 {
+define internal fastcc void @_ZL24getVarDeclIdentifierTextPKN5clang7VarDeclERKNS_13SourceManagerERKNS_11LangOptionsE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 %.24.val, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(841) %2) unnamed_addr #1 {
   %4 = alloca i8, align 1
   %5 = tail call i32 @_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE(i32 %.24.val, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(841) %2) #24
   %6 = icmp slt i32 %5, 0

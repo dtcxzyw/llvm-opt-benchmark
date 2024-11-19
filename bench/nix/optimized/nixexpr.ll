@@ -9384,7 +9384,7 @@ define void @_ZN3nix4Expr7setNameENS_6SymbolE(ptr nocapture nonnull readnone ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10ExprLambda7setNameENS_6SymbolE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((12, 16)) %0, i32 %1) unnamed_addr #4 align 2 {
+define void @_ZN3nix10ExprLambda7setNameENS_6SymbolE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 32

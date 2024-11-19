@@ -35,7 +35,7 @@ $_ZTIN8proxygen13HTTPErrorPageE = comdat any
 @_ZN8proxygen19HTTPStaticErrorPageC1ESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8proxygen19HTTPStaticErrorPageC2ESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen19HTTPStaticErrorPageC2ESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this, ptr nocapture noundef %content, ptr noundef nonnull align 8 dereferenceable(32) %contentType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen19HTTPStaticErrorPageC2ESt10unique_ptrIN5folly5IOBufESt14default_deleteIS3_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef %content, ptr noundef nonnull align 8 dereferenceable(32) %contentType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i64 16), ptr %this, align 8
   %content_ = getelementptr inbounds i8, ptr %this, i64 8

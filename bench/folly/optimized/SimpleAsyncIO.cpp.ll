@@ -626,7 +626,7 @@ _ZNSt11_Deque_baseISt10unique_ptrIN5folly11AsyncBaseOpESt14default_deleteIS2_EES
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly13SimpleAsyncIOD2Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SimpleAsyncIOD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i = alloca i32, align 4
   %state.i.i.i.i.i = alloca i32, align 4
@@ -1548,7 +1548,7 @@ declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #7
 declare { ptr, ptr } @_ZN5folly9AsyncBase13pollCompletedEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SimpleAsyncIO5getOpEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.122") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly13SimpleAsyncIO5getOpEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.122") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %"class.folly::Function.137", align 16

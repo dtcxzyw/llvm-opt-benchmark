@@ -999,7 +999,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @wolfssl_make_rng(ptr noundef %rng, ptr nocapture noundef writeonly initializes((0, 4)) %local) local_unnamed_addr #0 {
+define noundef ptr @wolfssl_make_rng(ptr noundef %rng, ptr nocapture noundef writeonly %local) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %local, align 4
   %cmp.not = icmp eq ptr %rng, null
@@ -8321,7 +8321,7 @@ if.end7:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @HashObject(ptr noundef %o, i32 noundef %len, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %error) unnamed_addr #0 {
+define internal fastcc i32 @HashObject(ptr noundef %o, i32 noundef %len, ptr nocapture noundef nonnull writeonly %error) unnamed_addr #0 {
 entry:
   %digest = alloca [64 x i8], align 16
   %call = call i32 @wc_Md5Hash(ptr noundef %o, i32 noundef %len, ptr noundef nonnull %digest) #20
@@ -8364,14 +8364,14 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TlsSessionCacheGetAndRdLock(ptr noundef %id, ptr nocapture noundef initializes((0, 8)) %sess, ptr nocapture noundef writeonly %lockedRow, i8 noundef zeroext %side) local_unnamed_addr #0 {
+define i32 @TlsSessionCacheGetAndRdLock(ptr noundef %id, ptr nocapture noundef %sess, ptr nocapture noundef writeonly %lockedRow, i8 noundef zeroext %side) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef %id, ptr noundef %sess, ptr noundef %lockedRow, i8 noundef zeroext 1, i8 noundef zeroext %side)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef %id, ptr nocapture noundef initializes((0, 8)) %sess, ptr nocapture noundef writeonly %lockedRow, i8 noundef zeroext range(i8 0, 2) %readOnly, i8 noundef zeroext %side) unnamed_addr #0 {
+define internal fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef %id, ptr nocapture noundef %sess, ptr nocapture noundef writeonly %lockedRow, i8 noundef zeroext range(i8 0, 2) %readOnly, i8 noundef zeroext %side) unnamed_addr #0 {
 entry:
   %digest.i = alloca [64 x i8], align 16
   store ptr null, ptr %sess, align 8
@@ -8485,7 +8485,7 @@ return:                                           ; preds = %HashObject.exit, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TlsSessionCacheGetAndWrLock(ptr noundef %id, ptr nocapture noundef initializes((0, 8)) %sess, ptr nocapture noundef writeonly %lockedRow, i8 noundef zeroext %side) local_unnamed_addr #0 {
+define i32 @TlsSessionCacheGetAndWrLock(ptr noundef %id, ptr nocapture noundef %sess, ptr nocapture noundef writeonly %lockedRow, i8 noundef zeroext %side) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc i32 @TlsSessionCacheGetAndLock(ptr noundef %id, ptr noundef %sess, ptr noundef %lockedRow, i8 noundef zeroext 0, i8 noundef zeroext %side)
   ret i32 %call

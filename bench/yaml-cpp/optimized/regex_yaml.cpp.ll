@@ -41,7 +41,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML5RegExC2ENS_8REGEX_OPE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this, i32 noundef %op) unnamed_addr #3 align 2 {
+define void @_ZN4YAML5RegExC2ENS_8REGEX_OPE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %op) unnamed_addr #3 align 2 {
 entry:
   store i32 %op, ptr %this, align 8
   %m_a = getelementptr inbounds i8, ptr %this, i64 4
@@ -57,7 +57,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML5RegExC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this) unnamed_addr #3 align 2 {
+define void @_ZN4YAML5RegExC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %m_a.i = getelementptr inbounds i8, ptr %this, i64 4
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML5RegExC2Ec(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this, i8 noundef signext %ch) unnamed_addr #3 align 2 {
+define void @_ZN4YAML5RegExC2Ec(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i8 noundef signext %ch) unnamed_addr #3 align 2 {
 entry:
   store i32 1, ptr %this, align 8
   %m_a = getelementptr inbounds i8, ptr %this, i64 4
@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4YAML5RegExC2Ecc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this, i8 noundef signext %a, i8 noundef signext %z) unnamed_addr #3 align 2 {
+define void @_ZN4YAML5RegExC2Ecc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i8 noundef signext %a, i8 noundef signext %z) unnamed_addr #3 align 2 {
 entry:
   store i32 2, ptr %this, align 8
   %m_a = getelementptr inbounds i8, ptr %this, i64 4
@@ -96,7 +96,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML5RegExC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8REGEX_OPE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 6), (8, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %str, i32 noundef %op) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML5RegExC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8REGEX_OPE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %str, i32 noundef %op) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %op, ptr %this, align 8
   %m_a = getelementptr inbounds i8, ptr %this, i64 4

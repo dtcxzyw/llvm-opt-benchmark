@@ -1890,7 +1890,7 @@ succ_index_table_invert.exit:                     ; preds = %50, %.preheader44.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_iseq_init_trace(ptr nocapture noundef initializes((32, 36)) %0) local_unnamed_addr #0 {
+define hidden void @rb_iseq_init_trace(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   %3 = load i32, ptr @ruby_vm_event_enabled_global_flags, align 4

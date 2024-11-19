@@ -721,7 +721,7 @@ define dso_local noundef ptr @tcp_ca_get_name_by_key(i32 noundef %0, ptr noundef
 declare dso_local ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_assign_congestion_control(ptr noundef initializes((1160, 1168), (1264, 1368)) %0) local_unnamed_addr #3 align 16 {
+define dso_local void @tcp_assign_congestion_control(ptr noundef %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   tail call void @__rcu_read_lock() #16
@@ -817,7 +817,7 @@ define dso_local void @tcp_assign_congestion_control(ptr noundef initializes((11
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_init_congestion_control(ptr noundef initializes((2140, 2144)) %0) local_unnamed_addr #3 align 16 {
+define dso_local void @tcp_init_congestion_control(ptr noundef %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2140
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 1160
@@ -1036,7 +1036,7 @@ define dso_local void @tcp_get_default_congestion_control(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_get_allowed_congestion_control(ptr nocapture noundef writeonly initializes((0, 1)) %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local void @tcp_get_allowed_congestion_control(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #3 align 16 {
   store i8 0, ptr %0, align 1
   tail call void @__rcu_read_lock() #16
   %3 = load volatile ptr, ptr @tcp_cong_list, align 8

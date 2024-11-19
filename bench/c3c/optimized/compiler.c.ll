@@ -283,7 +283,7 @@ declare void @vmem_init(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @find_lib_dir() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @thread_compile_task_llvm(ptr nocapture noundef initializes((8, 16)) %0) #0 {
+define dso_local void @thread_compile_task_llvm(ptr nocapture noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call ptr @llvm_codegen(ptr noundef %2) #20
   %4 = getelementptr inbounds i8, ptr %0, i64 8

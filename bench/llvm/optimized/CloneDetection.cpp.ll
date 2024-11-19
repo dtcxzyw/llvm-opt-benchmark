@@ -122,7 +122,7 @@ $_ZN4llvm15SmallVectorImplIN5clang12StmtSequenceEEaSERKS3_ = comdat any
 @_ZN5clang12StmtSequenceC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang12StmtSequenceC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12StmtSequenceC2EPKNS_12CompoundStmtEPKNS_4DeclEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12StmtSequenceC2EPKNS_12CompoundStmtEPKNS_4DeclEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -134,7 +134,7 @@ define dso_local void @_ZN5clang12StmtSequenceC2EPKNS_12CompoundStmtEPKNS_4DeclE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12StmtSequenceC2EPKNS_4StmtEPKNS_4DeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12StmtSequenceC2EPKNS_4StmtEPKNS_4DeclE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -146,7 +146,7 @@ define dso_local void @_ZN5clang12StmtSequenceC2EPKNS_4StmtEPKNS_4DeclE(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang12StmtSequenceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12StmtSequenceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }

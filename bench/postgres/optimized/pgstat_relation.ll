@@ -64,7 +64,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @pgstat_unlock_entry(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pgstat_init_relation(ptr nocapture noundef initializes((468, 469)) %0) local_unnamed_addr #3 {
+define dso_local void @pgstat_init_relation(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 115
@@ -134,7 +134,7 @@ define dso_local void @pgstat_unlink_relation(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pgstat_assoc_relation(ptr noundef initializes((472, 480)) %0) local_unnamed_addr #0 {
+define dso_local void @pgstat_assoc_relation(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56

@@ -1082,7 +1082,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal3smt9PfManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt9PfManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt9PfManagerE, i64 16), ptr %this, align 8
   %d_pfpp = getelementptr inbounds i8, ptr %this, i64 48
@@ -1221,7 +1221,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal3smt9PfManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal3smt9PfManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN4cvc58internal3smt9PfManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23

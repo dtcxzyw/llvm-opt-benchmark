@@ -90,7 +90,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nla_append: 
 @llvm.compiler.used = appending global [22 x ptr] [ptr @__UNIQUE_ID___addressable___nla_parse453, ptr @__UNIQUE_ID___addressable___nla_put470, ptr @__UNIQUE_ID___addressable___nla_put_64bit471, ptr @__UNIQUE_ID___addressable___nla_put_nohdr472, ptr @__UNIQUE_ID___addressable___nla_reserve464, ptr @__UNIQUE_ID___addressable___nla_reserve_64bit465, ptr @__UNIQUE_ID___addressable___nla_reserve_nohdr466, ptr @__UNIQUE_ID___addressable___nla_validate451, ptr @__UNIQUE_ID___addressable_nla_append476, ptr @__UNIQUE_ID___addressable_nla_find454, ptr @__UNIQUE_ID___addressable_nla_memcmp462, ptr @__UNIQUE_ID___addressable_nla_memcpy461, ptr @__UNIQUE_ID___addressable_nla_policy_len452, ptr @__UNIQUE_ID___addressable_nla_put473, ptr @__UNIQUE_ID___addressable_nla_put_64bit474, ptr @__UNIQUE_ID___addressable_nla_put_nohdr475, ptr @__UNIQUE_ID___addressable_nla_reserve467, ptr @__UNIQUE_ID___addressable_nla_reserve_64bit468, ptr @__UNIQUE_ID___addressable_nla_reserve_nohdr469, ptr @__UNIQUE_ID___addressable_nla_strcmp463, ptr @__UNIQUE_ID___addressable_nla_strdup458, ptr @__UNIQUE_ID___addressable_nla_strscpy457], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nla_get_range_unsigned(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @nla_get_range_unsigned(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 6

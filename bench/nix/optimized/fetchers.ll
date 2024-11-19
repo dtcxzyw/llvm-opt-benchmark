@@ -4144,7 +4144,7 @@ define noundef zeroext i1 @_ZNK3nix8fetchers5Input8isLockedEv(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3nix8fetchers5Input7toAttrsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map.37") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3nix8fetchers5Input7toAttrsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map.37") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::variant<std::__cxx11::basic_string<char>, unsigned long, nix::Explicit<bool>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::variant<std::__cxx11::basic_string<char>, unsigned long, nix::Explicit<bool>>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -6543,7 +6543,7 @@ _ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEEERKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3nix8fetchers5Input6getRevEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::optional.98") align 8 initializes((80, 81)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3nix8fetchers5Input6getRevEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::optional.98") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::optional", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.9", align 1
@@ -8024,7 +8024,7 @@ _ZNK3nix4Hash6gitRevB5cxx11Ev.exit:               ; preds = %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK3nix8fetchers11InputScheme13getSourcePathB5cxx11ERKNS0_5InputE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((32, 33)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #13 align 2 {
+define void @_ZNK3nix8fetchers11InputScheme13getSourcePathB5cxx11ERKNS0_5InputE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %4, align 8
   ret void

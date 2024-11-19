@@ -270,7 +270,7 @@ return:                                           ; preds = %entry, %_ZN8faceboo
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16tryToComputeNextEv(ptr noundef nonnull align 8 dereferenceable(72) initializes((52, 56)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8facebook5velox6common9Tokenizer16tryToComputeNextEv(ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   %state = getelementptr inbounds i8, ptr %this, i64 52
@@ -874,7 +874,7 @@ cleanup:                                          ; preds = %call.i24.noexc, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common9Tokenizer22matchWildcardSubscriptEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6common9Tokenizer22matchWildcardSubscriptEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN8facebook5velox6common8Subfield13AllSubscriptsESt14default_deleteIS4_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22, !noalias !22
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6common8Subfield13AllSubscriptsE, i64 16), ptr %call.i, align 8, !noalias !22

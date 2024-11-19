@@ -37,7 +37,7 @@ $_ZTVN4llvm18BinaryStreamReaderE = comdat any
 @_ZN4llvm8codeview28DebugSubsectionRecordBuilderC1ERKNS0_21DebugSubsectionRecordE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm8codeview28DebugSubsectionRecordBuilderC2ERKNS0_21DebugSubsectionRecordE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview21DebugSubsectionRecordC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 4), (8, 40), (48, 49)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview21DebugSubsectionRecordC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -47,7 +47,7 @@ define dso_local void @_ZN4llvm8codeview21DebugSubsectionRecordC2Ev(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZN4llvm8codeview21DebugSubsectionRecordC2ENS0_19DebugSubsectionKindENS_15BinaryStreamRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 4), (8, 56)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8codeview21DebugSubsectionRecordC2ENS0_19DebugSubsectionKindENS_15BinaryStreamRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %2, align 8
@@ -424,7 +424,7 @@ define dso_local noundef i32 @_ZNK4llvm8codeview21DebugSubsectionRecord4kindEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::BinaryStreamRef") align 8 initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm8codeview21DebugSubsectionRecord13getRecordDataEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::BinaryStreamRef") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -459,7 +459,7 @@ _ZN4llvm15BinaryStreamRefC2ERKS0_.exit:           ; preds = %2, %11, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview28DebugSubsectionRecordBuilderC2ESt10shared_ptrINS0_15DebugSubsectionEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %0, ptr nocapture noundef %1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm8codeview28DebugSubsectionRecordBuilderC2ESt10shared_ptrINS0_15DebugSubsectionEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -475,7 +475,7 @@ define dso_local void @_ZN4llvm8codeview28DebugSubsectionRecordBuilderC2ESt10sha
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZN4llvm8codeview28DebugSubsectionRecordBuilderC2ERKNS0_21DebugSubsectionRecordE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 20), (24, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8codeview28DebugSubsectionRecordBuilderC2ERKNS0_21DebugSubsectionRecordE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %1, align 8

@@ -1265,7 +1265,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9AllocatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau9AllocatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(8200) ptr @_Znwm(i64 noundef 8200) #24
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1278,7 +1278,7 @@ define dso_local void @_ZN4Luau9AllocatorC2Ev(ptr nocapture noundef nonnull writ
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau9AllocatorC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4Luau9AllocatorC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1353,7 +1353,7 @@ define dso_local noundef ptr @_ZN4Luau9Allocator8allocateEm(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau6LexemeC2ERKNS_8LocationENS0_4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4Luau6LexemeC2ERKNS_8LocationENS0_4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #3 align 2 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -1368,7 +1368,7 @@ define dso_local void @_ZN4Luau6LexemeC2ERKNS_8LocationENS0_4TypeE(ptr nocapture
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau6LexemeC2ERKNS_8LocationEc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i8 noundef signext %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4Luau6LexemeC2ERKNS_8LocationEc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i8 noundef signext %2) unnamed_addr #3 align 2 {
   %4 = zext i8 %2 to i32
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1381,7 +1381,7 @@ define dso_local void @_ZN4Luau6LexemeC2ERKNS_8LocationEc(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau6LexemeC2ERKNS_8LocationENS0_4TypeEPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4Luau6LexemeC2ERKNS_8LocationENS0_4TypeEPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i32 noundef %2, ptr noundef %3, i64 noundef %4) unnamed_addr #3 align 2 {
   store i32 %2, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -1394,7 +1394,7 @@ define dso_local void @_ZN4Luau6LexemeC2ERKNS_8LocationENS0_4TypeEPKcm(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau6LexemeC2ERKNS_8LocationENS0_4TypeEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4Luau6LexemeC2ERKNS_8LocationENS0_4TypeEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
   store i32 %2, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
@@ -2492,7 +2492,7 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4Luau12AstNameTable9E
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau12AstNameTableC2ERNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau12AstNameTableC2ERNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::AstNameTable::Entry", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 24, i1 false)
@@ -2900,7 +2900,7 @@ _ZNK4Luau12AstNameTable11getWithTypeEPKcm.exit:   ; preds = %2, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau5LexerC2EPKcmRNS_12AstNameTableE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 28), (32, 90), (96, 120)) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #13 align 2 {
+define dso_local void @_ZN4Luau5LexerC2EPKcmRNS_12AstNameTableE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(56) %3) unnamed_addr #13 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
@@ -2924,7 +2924,7 @@ define dso_local void @_ZN4Luau5LexerC2EPKcmRNS_12AstNameTableE(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau5Lexer15setSkipCommentsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((88, 89)) %0, i1 noundef zeroext %1) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN4Luau5Lexer15setSkipCommentsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, i1 noundef zeroext %1) local_unnamed_addr #13 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   store i8 %3, ptr %4, align 8
@@ -2932,7 +2932,7 @@ define dso_local void @_ZN4Luau5Lexer15setSkipCommentsEb(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau5Lexer12setReadNamesEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((89, 90)) %0, i1 noundef zeroext %1) local_unnamed_addr #13 align 2 {
+define dso_local void @_ZN4Luau5Lexer12setReadNamesEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, i1 noundef zeroext %1) local_unnamed_addr #13 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 89
   store i8 %3, ptr %4, align 1
@@ -4295,7 +4295,7 @@ define dso_local void @_ZN4Luau5Lexer8nextlineEv(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau5Lexer9lookaheadEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Lexeme") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau5Lexer9lookaheadEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.Luau::Lexeme") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::Lexeme", align 8
   %4 = alloca %"struct.Luau::Location", align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 16

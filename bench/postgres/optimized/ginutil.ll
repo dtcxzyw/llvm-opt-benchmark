@@ -141,7 +141,7 @@ declare i64 @gingetbitmap(ptr noundef, ptr noundef) #1
 declare void @ginendscan(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @initGinState(ptr noundef initializes((0, 9656)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @initGinState(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -386,7 +386,7 @@ define dso_local zeroext i16 @gintuple_get_attrnum(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 6
   %6 = load i16, ptr %5, align 2
@@ -481,7 +481,7 @@ fetch_att.exit:                                   ; preds = %40, %34, %31, %28, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @gintuple_get_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
+define dso_local i64 @gintuple_get_key(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1064,7 +1064,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 declare ptr @build_reloptions(i64 noundef, i1 noundef zeroext, i32 noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginGetStats(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 28)) %1) local_unnamed_addr #0 {
+define dso_local void @ginGetStats(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @ReadBuffer(ptr noundef %0, i32 noundef 0) #7
   tail call void @LockBuffer(i32 noundef %3, i32 noundef 1) #7
   %4 = icmp slt i32 %3, 0

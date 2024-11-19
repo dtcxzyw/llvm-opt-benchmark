@@ -5953,7 +5953,7 @@ _ZN4gpui3app10AppContext14default_global17h42da161c2e28eb63E.exit: ; preds = %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12image_viewer11persistence13ImageViewerDb21delete_unloaded_items17h6a98853b7b7cca7dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) initializes((0, 40), (96, 97)) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #15 {
+define void @_ZN12image_viewer11persistence13ImageViewerDb21delete_unloaded_items17h6a98853b7b7cca7dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([104 x i8]) align 8 dereferenceable(104) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #15 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5980,7 +5980,7 @@ define { ptr, i64 } @"_ZN82_$LT$image_viewer..persistence..ImageViewerDb$u20$as$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12image_viewer11persistence13ImageViewerDb19update_workspace_id17h41e8f0443e7a3c5fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 32), (40, 41)) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #16 {
+define void @_ZN12image_viewer11persistence13ImageViewerDb19update_workspace_id17h41e8f0443e7a3c5fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #16 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %6, align 8
@@ -5994,7 +5994,7 @@ define void @_ZN12image_viewer11persistence13ImageViewerDb19update_workspace_id1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12image_viewer11persistence13ImageViewerDb15save_image_path17he23f2a1cb9cc8f76E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 48), (56, 57)) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #15 {
+define void @_ZN12image_viewer11persistence13ImageViewerDb15save_image_path17he23f2a1cb9cc8f76E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1, i64 noundef %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #15 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32

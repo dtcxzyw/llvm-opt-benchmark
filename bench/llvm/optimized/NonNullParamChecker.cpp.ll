@@ -727,7 +727,7 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119NonNullParamCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (144, 152)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119NonNullParamCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_119NonNullParamCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -746,7 +746,7 @@ define internal void @_ZN12_GLOBAL__N_119NonNullParamCheckerD2Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119NonNullParamCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (144, 152)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119NonNullParamCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_119NonNullParamCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -1839,7 +1839,7 @@ declare ptr @_ZNK5clang4ento6nonloc11CompoundVal5beginEv(ptr noundef nonnull ali
 declare void @_ZN5clang4ento17ConstraintManager10assumeDualEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_11DefinedSValE(ptr dead_on_unwind writable sret(%"struct.std::pair.198") align 8, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr, i8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker24genReportNullAttrNonNullEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprEj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker24genReportNullAttrNonNullEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprEj(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %7 = alloca %"class.llvm::SmallString", align 8
   %8 = alloca %"class.llvm::raw_svector_ostream", align 8
@@ -1987,7 +1987,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %70, %74
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker31genReportReferenceToNullPointerEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_119NonNullParamChecker31genReportReferenceToNullPointerEPKN5clang4ento12ExplodedNodeEPKNS1_4ExprE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35)

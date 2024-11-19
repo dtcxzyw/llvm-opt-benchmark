@@ -1228,7 +1228,7 @@ declare i32 @H5G_loc_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @H5G_name_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__traverse_slink_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #0 {
+define internal range(i32 -1, 1) i32 @H5G__traverse_slink_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = icmp eq ptr %3, null
   br i1 %7, label %8, label %17
 

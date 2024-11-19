@@ -108,7 +108,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ossl_qrl_enc_level_set_discard(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_qtx_set_mutator(ptr nocapture noundef writeonly initializes((952, 976)) %qtx, ptr noundef %mutatecb, ptr noundef %finishmutatecb, ptr noundef %mutatearg) local_unnamed_addr #2 {
+define void @ossl_qtx_set_mutator(ptr nocapture noundef writeonly %qtx, ptr noundef %mutatecb, ptr noundef %finishmutatecb, ptr noundef %mutatearg) local_unnamed_addr #2 {
 entry:
   %mutatecb1 = getelementptr inbounds i8, ptr %qtx, i64 952
   store ptr %mutatecb, ptr %mutatecb1, align 8
@@ -169,7 +169,7 @@ entry:
 declare ptr @ossl_qrl_enc_level_set_get(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_qtx_calculate_ciphertext_payload_len(ptr noundef %qtx, i32 noundef %enc_level, i64 noundef %plaintext_len, ptr nocapture noundef writeonly initializes((0, 8)) %ciphertext_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qtx_calculate_ciphertext_payload_len(ptr noundef %qtx, i32 noundef %enc_level, i64 noundef %plaintext_len, ptr nocapture noundef writeonly %ciphertext_len) local_unnamed_addr #0 {
 entry:
   %el_set = getelementptr inbounds i8, ptr %qtx, i64 16
   %call = tail call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set, i32 noundef %enc_level, i32 noundef 1) #11
@@ -194,7 +194,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @ossl_qrl_get_suite_cipher_tag_len(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_qtx_calculate_plaintext_payload_len(ptr noundef %qtx, i32 noundef %enc_level, i64 noundef %ciphertext_len, ptr nocapture noundef writeonly initializes((0, 8)) %plaintext_len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qtx_calculate_plaintext_payload_len(ptr noundef %qtx, i32 noundef %enc_level, i64 noundef %ciphertext_len, ptr nocapture noundef writeonly %plaintext_len) local_unnamed_addr #0 {
 entry:
   %el_set = getelementptr inbounds i8, ptr %qtx, i64 16
   %call = tail call ptr @ossl_qrl_enc_level_set_get(ptr noundef nonnull %el_set, i32 noundef %enc_level, i32 noundef 1) #11
@@ -1616,7 +1616,7 @@ return:                                           ; preds = %entry, %qtx_pending
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_qtx_set_bio(ptr nocapture noundef writeonly initializes((848, 856)) %qtx, ptr noundef %bio) local_unnamed_addr #2 {
+define void @ossl_qtx_set_bio(ptr nocapture noundef writeonly %qtx, ptr noundef %bio) local_unnamed_addr #2 {
 entry:
   %bio1 = getelementptr inbounds i8, ptr %qtx, i64 848
   store ptr %bio, ptr %bio1, align 8
@@ -1739,7 +1739,7 @@ return:                                           ; preds = %entry, %if.end
 declare i64 @ossl_qrl_get_suite_max_pkt(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_qtx_set_msg_callback(ptr nocapture noundef writeonly initializes((976, 984), (992, 1000)) %qtx, ptr noundef %msg_callback, ptr noundef %msg_callback_ssl) local_unnamed_addr #2 {
+define void @ossl_qtx_set_msg_callback(ptr nocapture noundef writeonly %qtx, ptr noundef %msg_callback, ptr noundef %msg_callback_ssl) local_unnamed_addr #2 {
 entry:
   %msg_callback1 = getelementptr inbounds i8, ptr %qtx, i64 976
   store ptr %msg_callback, ptr %msg_callback1, align 8
@@ -1749,7 +1749,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_qtx_set_msg_callback_arg(ptr nocapture noundef writeonly initializes((984, 992)) %qtx, ptr noundef %msg_callback_arg) local_unnamed_addr #2 {
+define void @ossl_qtx_set_msg_callback_arg(ptr nocapture noundef writeonly %qtx, ptr noundef %msg_callback_arg) local_unnamed_addr #2 {
 entry:
   %msg_callback_arg1 = getelementptr inbounds i8, ptr %qtx, i64 984
   store ptr %msg_callback_arg, ptr %msg_callback_arg1, align 8

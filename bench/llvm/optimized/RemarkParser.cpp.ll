@@ -98,7 +98,7 @@ $_ZTVN4llvm7remarks12RemarkParserE = comdat any
 @_ZN4llvm7remarks17ParsedStringTableC1ENS_9StringRefE = unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN4llvm7remarks17ParsedStringTableC2ENS_9StringRefE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks17ParsedStringTableC2ENS_9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks17ParsedStringTableC2ENS_9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::StringRef", align 8
   store ptr %1, ptr %5, align 8
@@ -225,7 +225,7 @@ _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %27, %_ZNSt6vectorIm
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm7remarks17ParsedStringTableixEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm7remarks17ParsedStringTableixEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::raw_string_ostream", align 8

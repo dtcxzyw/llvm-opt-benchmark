@@ -18491,7 +18491,7 @@ _ZNSt6vectorIPK5arg_tSaIS2_EED2Ev.exit:           ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14disassembler_tC2EPK12isa_parser_t(ptr noundef nonnull align 8 dereferenceable(6144) initializes((0, 6144)) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14disassembler_tC2EPK12isa_parser_t(ptr noundef nonnull align 8 dereferenceable(6144) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -3621,7 +3621,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost3anyESt4les
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12SyntheticCDOC1ERKN5boost10shared_ptrINS_6BasketEEENS_10Protection4SideENS_8ScheduleEddRKNS_10DayCounterENS_21BusinessDayConventionENS1_8optionalIdEE(ptr noundef nonnull align 8 dereferenceable(264) initializes((264, 272), (280, 284), (288, 296)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %basket, i32 noundef %side, ptr nocapture noundef %schedule, double noundef %upfrontRate, double noundef %runningRate, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, i32 noundef %paymentConvention, ptr nocapture noundef readonly byval(%"class.boost::optional") align 8 %notional) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12SyntheticCDOC1ERKN5boost10shared_ptrINS_6BasketEEENS_10Protection4SideENS_8ScheduleEddRKNS_10DayCounterENS_21BusinessDayConventionENS1_8optionalIdEE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %basket, i32 noundef %side, ptr nocapture noundef %schedule, double noundef %upfrontRate, double noundef %runningRate, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, i32 noundef %paymentConvention, ptr nocapture noundef readonly byval(%"class.boost::optional") align 8 %notional) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5484,7 +5484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib12SyntheticCDO19expectedTrancheLossEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.16") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(264) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib12SyntheticCDO19expectedTrancheLossEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.16") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(264) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !33
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
@@ -6881,7 +6881,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib12SyntheticCDO12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(264) initializes((16, 40)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib12SyntheticCDO12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %NPV_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -7855,7 +7855,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12SyntheticCDO7results5resetEv(ptr noundef nonnull align 8 dereferenceable(160) initializes((8, 32)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12SyntheticCDO7results5resetEv(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.QuantLib::Date", align 8
   %errorEstimate.i = getelementptr inbounds nuw i8, ptr %this, i64 16

@@ -21,7 +21,7 @@ $_ZN20btAlignedObjectArrayI17CONTACT_KEY_TOKENE17quickSortInternalI22CONTACT_KEY
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14btContactArray14merge_contactsERKS_b(ptr noundef nonnull align 8 dereferenceable(25) initializes((4, 12)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %contacts, i1 noundef zeroext %normal_contact_average) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14btContactArray14merge_contactsERKS_b(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %contacts, i1 noundef zeroext %normal_contact_average) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %keycontacts = alloca %class.btAlignedObjectArray.0, align 8
   %ref.tmp18 = alloca %class.CONTACT_KEY_TOKEN_COMP, align 1
@@ -599,7 +599,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14btContactArray21merge_contacts_uniqueERKS_(ptr noundef nonnull align 8 dereferenceable(25) initializes((4, 12)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %contacts) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN14btContactArray21merge_contacts_uniqueERKS_(ptr noundef nonnull align 8 dereferenceable(25) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %contacts) local_unnamed_addr #0 align 2 {
 entry:
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_data.i.i, align 8

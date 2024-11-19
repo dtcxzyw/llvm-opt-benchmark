@@ -170,7 +170,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_4dev19GradingControlPointESaIS1_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19GradingRGBCurveImplC2ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, i32 noundef %style) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19GradingRGBCurveImplC2ENS_12GradingStyleE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %style) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp4 = alloca %"class.std::shared_ptr", align 8
@@ -923,7 +923,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveELN9__gnu_cxx12_L
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19GradingRGBCurveImplC2ERKSt10shared_ptrIKNS_19GradingBSplineCurveEES6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %red, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %green, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %blue, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %master) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19GradingRGBCurveImplC2ERKSt10shared_ptrIKNS_19GradingBSplineCurveEES6_S6_S6_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %red, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %green, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %blue, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %master) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp12 = alloca %"class.std::shared_ptr", align 8
@@ -1642,7 +1642,7 @@ declare void @_ZN19OpenColorIO_v2_4dev9ExceptionD1Ev(ptr noundef nonnull align 8
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19GradingRGBCurveImplC2ERKSt10shared_ptrIKNS_15GradingRGBCurveEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19GradingRGBCurveImplC2ERKSt10shared_ptrIKNS_15GradingRGBCurveEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19GradingRGBCurveImplE, i64 16), ptr %this, align 8

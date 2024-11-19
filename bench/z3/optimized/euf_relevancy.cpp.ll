@@ -3259,7 +3259,7 @@ declare void @_ZN3euf6egraph12set_relevantEPNS_5enodeE(ptr noundef nonnull align
 declare void @_ZN3euf6solver11relevant_ehEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(9136), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3euf9relevancy11set_enabledEb(ptr nocapture noundef nonnull align 8 dereferenceable(672) initializes((8, 9)) %this, i1 noundef zeroext %e) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN3euf9relevancy11set_enabledEb(ptr nocapture noundef nonnull align 8 dereferenceable(672) %this, i1 noundef zeroext %e) local_unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %e to i8
   %m_enabled = getelementptr inbounds i8, ptr %this, i64 8

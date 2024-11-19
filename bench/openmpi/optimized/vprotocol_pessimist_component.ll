@@ -89,7 +89,7 @@ define internal noundef i32 @mca_vprotocol_pessimist_component_register() #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @mca_vprotocol_pessimist_component_init(ptr nocapture noundef writeonly initializes((0, 4)) %0, i1 zeroext %1, i1 noundef zeroext %2) #1 {
+define internal noundef ptr @mca_vprotocol_pessimist_component_init(ptr nocapture noundef writeonly %0, i1 zeroext %1, i1 noundef zeroext %2) #1 {
   %4 = load i32, ptr @_priority, align 4
   store i32 %4, ptr %0, align 4
   %5 = load i32, ptr @ompi_vprotocol_pessimist_allow_thread_multiple, align 4

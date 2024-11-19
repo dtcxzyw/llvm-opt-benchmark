@@ -360,7 +360,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt13RestoIpoptNLPD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt13RestoIpoptNLPD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13RestoIpoptNLPE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8
@@ -9083,7 +9083,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Ipopt13RestoIpoptNLP1hERKNS_6VectorEdS3_S3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.26") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, double %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #10 align 2 {
+define void @_ZN5Ipopt13RestoIpoptNLP1hERKNS_6VectorEdS3_S3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.26") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, double %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #10 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }

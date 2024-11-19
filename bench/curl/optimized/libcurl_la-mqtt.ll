@@ -51,7 +51,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mqtt_do(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal noundef i32 @mqtt_do(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
 entry:
   %n.i = alloca i64, align 8
   %remain.i = alloca [4 x i8], align 4
@@ -329,7 +329,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mqtt_doing(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 1)) %done) #0 {
+define internal i32 @mqtt_doing(ptr noundef %data, ptr nocapture noundef writeonly %done) #0 {
 entry:
   %readbuf.i.i.i = alloca [1024 x i8], align 16
   %nread.i.i.i = alloca i64, align 8
@@ -928,7 +928,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @mqtt_getsock(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly initializes((0, 4)) %sock) #1 {
+define internal noundef i32 @mqtt_getsock(ptr nocapture readnone %data, ptr nocapture noundef readonly %conn, ptr nocapture noundef writeonly %sock) #1 {
 entry:
   %sock1 = getelementptr inbounds i8, ptr %conn, i64 392
   %0 = load i32, ptr %sock1, align 8

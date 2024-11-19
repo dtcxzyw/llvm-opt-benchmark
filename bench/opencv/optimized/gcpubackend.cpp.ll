@@ -1026,7 +1026,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5gimpl14GCPUExecutableC2ERKN3ade5GraphERKSt6vectorINS_11GCompileArgESaIS7_EERKS6_INS2_6HandleINS2_4NodeEEESaISE_EE(ptr noundef nonnull align 8 dereferenceable(1272) initializes((0, 208)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5gimpl14GCPUExecutableC2ERKN3ade5GraphERKSt6vectorINS_11GCompileArgESaIS7_EERKS6_INS2_6HandleINS2_4NodeEEESaISE_EE(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"class.ade::Handle", align 8

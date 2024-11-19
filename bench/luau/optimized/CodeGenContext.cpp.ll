@@ -267,7 +267,7 @@ define dso_local void @_ZN4Luau7CodeGen10setPerfLogEPvPFvS1_mjPKcE(ptr noundef %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen18BaseCodeGenContextC2EmmPFvPvS2_mS2_mES2_(ptr noundef nonnull align 8 dereferenceable(2792) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen18BaseCodeGenContextC2EmmPFvPvS2_mS2_mES2_(ptr noundef nonnull align 8 dereferenceable(2792) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4Luau7CodeGen18BaseCodeGenContextE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4Luau7CodeGen13CodeAllocatorC1EmmPFvPvS2_mS2_mES2_(ptr noundef nonnull align 8 dereferenceable(120) %6, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
@@ -360,7 +360,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen18BaseCodeGenContext19initH
 declare noundef zeroext i1 @_ZN4Luau7CodeGen3X6419initHeaderFunctionsERNS0_18BaseCodeGenContextE(ptr noundef nonnull align 8 dereferenceable(2792)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen24StandaloneCodeGenContextC2EmmPFvPvS2_mS2_mES2_(ptr noundef nonnull align 8 dereferenceable(2792) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen24StandaloneCodeGenContextC2EmmPFvPvS2_mS2_mES2_(ptr noundef nonnull align 8 dereferenceable(2792) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4Luau7CodeGen18BaseCodeGenContextE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4Luau7CodeGen13CodeAllocatorC1EmmPFvPvS2_mS2_mES2_(ptr noundef nonnull align 8 dereferenceable(120) %6, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
@@ -660,7 +660,7 @@ _ZN4Luau7CodeGenL15logPerfFunctionEP5Protomj.exit: ; preds = %51, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau7CodeGen24StandaloneCodeGenContext12onCloseStateEv(ptr noundef nonnull align 8 dereferenceable(2792) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen24StandaloneCodeGenContext12onCloseStateEv(ptr noundef nonnull align 8 dereferenceable(2792) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4Luau7CodeGen18BaseCodeGenContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -695,7 +695,7 @@ define dso_local void @_ZN4Luau7CodeGen24StandaloneCodeGenContext17onDestroyFunc
 declare void @_ZN4Luau7CodeGen26destroyNativeProtoExecDataEPKj(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen20SharedCodeGenContextC2EmmPFvPvS2_mS2_mES2_(ptr noundef nonnull align 8 dereferenceable(2904) initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen20SharedCodeGenContextC2EmmPFvPvS2_mS2_mES2_(ptr noundef nonnull align 8 dereferenceable(2904) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4Luau7CodeGen18BaseCodeGenContextE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4Luau7CodeGen13CodeAllocatorC1EmmPFvPvS2_mS2_mES2_(ptr noundef nonnull align 8 dereferenceable(120) %6, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4)
@@ -2948,7 +2948,7 @@ define internal void @_ZN4Luau7CodeGenL12onCloseStateEP9lua_State(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4Luau7CodeGenL17onDestroyFunctionEP9lua_StateP5Proto(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((32, 40), (48, 56)) %1) #6 {
+define internal void @_ZN4Luau7CodeGenL17onDestroyFunctionEP9lua_StateP5Proto(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #6 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val, i64 3360

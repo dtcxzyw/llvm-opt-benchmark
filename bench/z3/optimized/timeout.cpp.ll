@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN12_GLOBAL__N_112g_timeout_ehclE22event_handler_caller_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((8, 12)) %this, i32 noundef %caller_id) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_112g_timeout_ehclE22event_handler_caller_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %caller_id) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_caller_id = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %caller_id, ptr %m_caller_id, align 8

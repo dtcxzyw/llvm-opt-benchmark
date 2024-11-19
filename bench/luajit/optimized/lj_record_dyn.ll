@@ -153,7 +153,7 @@ declare hidden i32 @lj_ir_kgc(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare hidden i32 @lj_ir_knumint(ptr noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_record_vload(ptr noundef initializes((184, 190)) %J, i32 noundef %ref, i32 noundef %idx, i32 noundef %t) local_unnamed_addr #0 {
+define hidden i32 @lj_record_vload(ptr noundef %J, i32 noundef %ref, i32 noundef %idx, i32 noundef %t) local_unnamed_addr #0 {
 entry:
   %0 = trunc i32 %t to i16
   %conv = or i16 %0, 18560
@@ -174,7 +174,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_record_stop(ptr noundef initializes((106, 108), (116, 117), (236, 240)) %J, i32 noundef %linktype, i32 noundef %lnk) local_unnamed_addr #0 {
+define hidden void @lj_record_stop(ptr noundef %J, i32 noundef %linktype, i32 noundef %lnk) local_unnamed_addr #0 {
 entry:
   %state = getelementptr inbounds i8, ptr %J, i64 236
   store i32 20, ptr %state, align 4
@@ -1337,7 +1337,7 @@ return:                                           ; preds = %if.else197, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sload(ptr noundef initializes((184, 190)) %J, i32 noundef %slot) unnamed_addr #0 {
+define internal fastcc i32 @sload(ptr noundef %J, i32 noundef %slot) unnamed_addr #0 {
 entry:
   %L = getelementptr inbounds i8, ptr %J, i64 128
   %0 = load ptr, ptr %L, align 8
@@ -4742,7 +4742,7 @@ if.end1001:                                       ; preds = %sw.bb96, %lor.lhs.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_comp_fixup(ptr noundef initializes((181, 182)) %J, ptr noundef %pc, i32 noundef range(i32 0, 2) %cond) unnamed_addr #0 {
+define internal fastcc void @rec_comp_fixup(ptr noundef %J, ptr noundef %pc, i32 noundef range(i32 0, 2) %cond) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %pc, i64 4
   %0 = load i32, ptr %arrayidx, align 4
@@ -4794,7 +4794,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_mm_comp_cdata(ptr noundef %J, ptr nocapture noundef nonnull initializes((48, 52)) %ix, i32 noundef range(i32 0, 256) %op, i32 noundef range(i32 4, 8) %mm) unnamed_addr #0 {
+define internal fastcc void @rec_mm_comp_cdata(ptr noundef %J, ptr nocapture noundef nonnull %ix, i32 noundef range(i32 0, 256) %op, i32 noundef range(i32 4, 8) %mm) unnamed_addr #0 {
 entry:
   tail call void @lj_snap_add(ptr noundef %J) #7
   %val = getelementptr inbounds i8, ptr %ix, i64 56
@@ -4860,7 +4860,7 @@ declare hidden i32 @lj_ir_numcmp(double noundef, double noundef, i32 noundef) lo
 declare hidden i32 @lj_ir_strcmp(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_mm_comp(ptr noundef %J, ptr noundef nonnull initializes((0, 8), (48, 52)) %ix, i32 noundef range(i32 0, 256) %op) unnamed_addr #0 {
+define internal fastcc void @rec_mm_comp(ptr noundef %J, ptr noundef nonnull %ix, i32 noundef range(i32 0, 256) %op) unnamed_addr #0 {
 entry:
   %mo1v = alloca %union.TValue, align 8
   %val = getelementptr inbounds i8, ptr %ix, i64 56
@@ -4978,7 +4978,7 @@ while.end:                                        ; preds = %nomatch, %if.end48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_mm_equal(ptr noundef %J, ptr noundef nonnull initializes((0, 8), (48, 52)) %ix, i32 noundef range(i32 0, 256) %op) unnamed_addr #0 {
+define internal fastcc void @rec_mm_equal(ptr noundef %J, ptr noundef nonnull %ix, i32 noundef range(i32 0, 256) %op) unnamed_addr #0 {
 entry:
   %mo1v = alloca %union.TValue, align 8
   %val = getelementptr inbounds i8, ptr %ix, i64 56
@@ -7869,7 +7869,7 @@ declare hidden void @lj_ffrecord_func(ptr noundef) local_unnamed_addr #1
 declare hidden void @lj_trace_err_info(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_record_setup(ptr noundef initializes((176, 180), (402, 1636), (2852, 2980), (2984, 2994)) %J) local_unnamed_addr #0 {
+define hidden void @lj_record_setup(ptr noundef %J) local_unnamed_addr #0 {
 entry:
   %chain = getelementptr inbounds i8, ptr %J, i64 402
   %bpropcache = getelementptr inbounds i8, ptr %J, i64 2852
@@ -8251,7 +8251,7 @@ if.end150:                                        ; preds = %if.end142, %lor.lhs
 declare hidden i32 @lj_ir_emit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_for_loop(ptr noundef %J, ptr noundef %fori, ptr nocapture noundef writeonly initializes((0, 18)) %scev, i32 noundef range(i32 0, 2) %init) unnamed_addr #0 {
+define internal fastcc void @rec_for_loop(ptr noundef %J, ptr noundef %fori, ptr nocapture noundef writeonly %scev, i32 noundef range(i32 0, 2) %init) unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %fori, align 4
   %shr = lshr i32 %0, 8
@@ -8458,7 +8458,7 @@ declare hidden ptr @lj_tab_get(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare hidden i32 @lj_opt_narrow_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @rec_idx_abc(ptr noundef initializes((184, 190)) %J, i32 noundef %asizeref, i32 noundef %ikey, i32 noundef %asize) unnamed_addr #0 {
+define internal fastcc void @rec_idx_abc(ptr noundef %J, i32 noundef %asizeref, i32 noundef %ikey, i32 noundef %asize) unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %J, i64 168
   %0 = load i32, ptr %flags, align 8

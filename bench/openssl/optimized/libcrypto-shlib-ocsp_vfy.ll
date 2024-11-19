@@ -370,7 +370,7 @@ declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OCSP_resp_get0_signer(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly initializes((0, 8)) %signer, ptr noundef %extra_certs) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_resp_get0_signer(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %signer, ptr noundef %extra_certs) local_unnamed_addr #0 {
 entry:
   %responderId.i = getelementptr inbounds i8, ptr %bs, i64 8
   %call.i = tail call fastcc ptr @ocsp_find_signer_sk(ptr noundef %extra_certs, ptr noundef nonnull readonly %responderId.i)

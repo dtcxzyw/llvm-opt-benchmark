@@ -1164,7 +1164,7 @@ declare ptr @Gia_ManChoiceMiter(ptr noundef) local_unnamed_addr #1
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Dar_ManChoiceNewAig(ptr noundef %0, ptr noundef initializes((56, 64)) %1) local_unnamed_addr #0 {
+define ptr @Dar_ManChoiceNewAig(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 52
@@ -1344,7 +1344,7 @@ declare i32 @Aig_ManChoiceLevel(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define ptr @Dar_ManChoiceNew(ptr noundef %0, ptr noundef initializes((56, 64)) %1) local_unnamed_addr #0 {
+define ptr @Dar_ManChoiceNew(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 352

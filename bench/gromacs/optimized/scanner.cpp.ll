@@ -2200,7 +2200,7 @@ define noundef ptr @_Z19_gmx_sel_yyget_textPv(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z20_gmx_sel_yyset_extraP15gmx_sel_lexer_tPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #16 {
+define void @_Z20_gmx_sel_yyset_extraP15gmx_sel_lexer_tPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -2256,14 +2256,14 @@ define void @_Z21_gmx_sel_yyset_columniPv(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z17_gmx_sel_yyset_inP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #16 {
+define void @_Z17_gmx_sel_yyset_inP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z18_gmx_sel_yyset_outP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #16 {
+define void @_Z18_gmx_sel_yyset_outP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -2277,7 +2277,7 @@ define noundef i32 @_Z20_gmx_sel_yyget_debugPv(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z20_gmx_sel_yyset_debugiPv(i32 noundef %0, ptr nocapture noundef writeonly initializes((132, 136)) %1) local_unnamed_addr #16 {
+define void @_Z20_gmx_sel_yyset_debugiPv(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 132
   store i32 %0, ptr %3, align 4
   ret void

@@ -30915,7 +30915,7 @@ _ZN6GLArea2mmEv.exit.thread:                      ; preds = %_ZNK10MainWindow3GL
 declare void @_ZN6GLArea15toggleDecoratorE7QString(ptr noundef nonnull align 8 dereferenceable(1676), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow24extractVertFragFileNamesERK11QDomElement(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.412") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow24extractVertFragFileNamesERK11QDomElement(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.412") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QDomElement, align 8
@@ -48457,7 +48457,7 @@ declare void @_ZN24MLRenderingGlobalToolbar5resetEv(ptr noundef nonnull align 8 
 declare noundef ptr @_ZNK13QMdiSubWindow6widgetEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow20closeCurrentDocumentEv(ptr noundef nonnull align 8 dereferenceable(1376) initializes((1368, 1376)) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN10MainWindow20closeCurrentDocumentEv(ptr noundef nonnull align 8 dereferenceable(1376) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1368
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 160

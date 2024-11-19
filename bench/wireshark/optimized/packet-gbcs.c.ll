@@ -1517,7 +1517,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_gbcs_message_grouping_header(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4

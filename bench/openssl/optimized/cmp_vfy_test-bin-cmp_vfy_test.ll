@@ -1562,7 +1562,7 @@ return:                                           ; preds = %entry, %if.end16, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @execute_verify_popo_test(ptr nocapture noundef nonnull initializes((24, 32)) %fixture) unnamed_addr #0 {
+define internal fastcc i32 @execute_verify_popo_test(ptr nocapture noundef nonnull %fixture) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @ir_protected_f, align 8
   %1 = load ptr, ptr @libctx, align 8

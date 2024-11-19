@@ -184,7 +184,7 @@ define noundef i32 @PaUnixThreading_Initialize() local_unnamed_addr #11 {
 declare i64 @pthread_self() local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define i32 @PaUnixThread_New(ptr noundef initializes((0, 120)) %0, ptr noundef %1, ptr noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define i32 @PaUnixThread_New(ptr noundef %0, ptr noundef %1, ptr noundef %2, double noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.sched_param, align 4
   %7 = alloca %union.pthread_attr_t, align 8
   %8 = alloca %union.pthread_condattr_t, align 4
@@ -481,7 +481,7 @@ define range(i32 -9999, 1) i32 @PaUnixMutex_Unlock(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9999, 1) i32 @PaUnixThread_Terminate(ptr noundef initializes((12, 16)) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
+define range(i32 -9999, 1) i32 @PaUnixThread_Terminate(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5

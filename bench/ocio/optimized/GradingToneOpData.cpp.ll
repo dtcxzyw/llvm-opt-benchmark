@@ -566,7 +566,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplELN9__
 declare noundef nonnull align 8 dereferenceable(168) ptr @_ZN19OpenColorIO_v2_4dev6OpDataaSERKS0_(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17GradingToneOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(196) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17GradingToneOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(196) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17GradingToneOpDataE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -650,7 +650,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplEED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17GradingToneOpDataD0Ev(ptr noundef nonnull align 8 dereferenceable(196) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17GradingToneOpDataD0Ev(ptr noundef nonnull align 8 dereferenceable(196) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17GradingToneOpDataE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -738,7 +738,7 @@ _ZN19OpenColorIO_v2_4dev17GradingToneOpDataD2Ev.exit: ; preds = %entry, %_ZN9__g
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17GradingToneOpData5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.8") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(196) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17GradingToneOpData5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(196) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   store ptr null, ptr %agg.result, align 8, !alias.scope !10
@@ -888,7 +888,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17GradingToneOpData7inverseEv(ptr noalias sret(%"class.std::shared_ptr.8") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(196) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17GradingToneOpData7inverseEv(ptr noalias sret(%"class.std::shared_ptr.8") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(196) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
@@ -1195,7 +1195,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17GradingToneOpData12setDirectionENS_18TransformDirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(196) initializes((192, 196)) %this, i32 noundef %dir) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17GradingToneOpData12setDirectionENS_18TransformDirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(196) %this, i32 noundef %dir) local_unnamed_addr #10 align 2 {
 entry:
   %m_direction = getelementptr inbounds i8, ptr %this, i64 192
   store i32 %dir, ptr %m_direction, align 8
@@ -1203,7 +1203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17GradingToneOpData18getDynamicPropertyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.14") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(196) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17GradingToneOpData18getDynamicPropertyEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.14") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(196) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_value = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_value, align 8
@@ -1236,7 +1236,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEEC2INS0_30DynamicPrope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17GradingToneOpData22replaceDynamicPropertyESt10shared_ptrINS_30DynamicPropertyGradingToneImplEE(ptr nocapture noundef nonnull align 8 dereferenceable(196) initializes((176, 184)) %this, ptr nocapture noundef readonly %prop) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17GradingToneOpData22replaceDynamicPropertyESt10shared_ptrINS_30DynamicPropertyGradingToneImplEE(ptr nocapture noundef nonnull align 8 dereferenceable(196) %this, ptr nocapture noundef readonly %prop) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_value = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %prop, align 8

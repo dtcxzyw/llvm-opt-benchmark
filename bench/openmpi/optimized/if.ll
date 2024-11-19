@@ -1041,7 +1041,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 declare ptr @__ctype_b_loc() local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @opal_ifgetaliases(ptr noundef initializes((0, 8)) %0) local_unnamed_addr #4 {
+define void @opal_ifgetaliases(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca [16 x i8], align 16
   store ptr null, ptr %0, align 8
   %.09 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @opal_if_list, i64 32), align 8

@@ -340,7 +340,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.16a1457f15a8bdd65dd860daa07f2c8d.337 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"collect" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN19pyo3_macros_backend7pyclass11PyClassArgs16parse_stuct_args17h0d149b08d929a008E(ptr nocapture writeonly sret([312 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @_ZN19pyo3_macros_backend7pyclass11PyClassArgs16parse_stuct_args17h0d149b08d929a008E(ptr nocapture writeonly sret([312 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [304 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %3)
@@ -372,7 +372,7 @@ _ZN19pyo3_macros_backend7pyclass11PyClassArgs5parse17h6ec2ee4863f9bc82E.exit: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN19pyo3_macros_backend7pyclass11PyClassArgs15parse_enum_args17hdac233037cbdb23bE(ptr nocapture writeonly sret([312 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @_ZN19pyo3_macros_backend7pyclass11PyClassArgs15parse_enum_args17hdac233037cbdb23bE(ptr nocapture writeonly sret([312 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [304 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   call void @llvm.lifetime.start.p0(i64 304, ptr nonnull %3)
@@ -404,7 +404,7 @@ _ZN19pyo3_macros_backend7pyclass11PyClassArgs5parse17h6ec2ee4863f9bc82E.exit: ; 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option5Crate17h3af2596c0e2ce472E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 4), (8, 64)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option5Crate17h3af2596c0e2ce472E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   store i32 0, ptr %0, align 8
@@ -412,7 +412,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option5Crate17h
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option4Dict17hdeab4fc2fb6fefc7E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option4Dict17hdeab4fc2fb6fefc7E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 1, ptr %0, align 8
@@ -420,7 +420,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option4Dict17hd
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option2Eq17hc3975cb50c5882b1E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option2Eq17hc3975cb50c5882b1E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 2, ptr %0, align 8
@@ -428,7 +428,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option2Eq17hc39
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option5EqInt17haa60c49de5ab2306E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option5EqInt17haa60c49de5ab2306E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 3, ptr %0, align 8
@@ -436,7 +436,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option5EqInt17h
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option7Extends17h452935a46f2b763fE(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 4), (8, 64)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option7Extends17h452935a46f2b763fE(ptr nocapture writeonly sret([64 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   store i32 4, ptr %0, align 8
@@ -444,7 +444,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option7Extends1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option8Freelist17hd6a66766c79ce973E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 4), (8, 20)) %0, ptr align 8 %1, i32 %2) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option8Freelist17hd6a66766c79ce973E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, ptr align 8 %1, i32 %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -454,7 +454,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option8Freelist
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6Frozen17h7a2a934c1f725f63E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6Frozen17h7a2a934c1f725f63E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 6, ptr %0, align 8
@@ -462,7 +462,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6Frozen17
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6GetAll17h2ff5c3cc9adefd34E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6GetAll17h2ff5c3cc9adefd34E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 7, ptr %0, align 8
@@ -470,7 +470,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6GetAll17
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option4Hash17h0a04b58b7de1f832E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option4Hash17h0a04b58b7de1f832E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 8, ptr %0, align 8
@@ -478,7 +478,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option4Hash17h0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option7Mapping17hf2c635768605e865E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option7Mapping17hf2c635768605e865E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 9, ptr %0, align 8
@@ -486,7 +486,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option7Mapping1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6Module17h4e12bd8482c73f9fE(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 4), (8, 20)) %0, ptr align 8 %1, i32 %2) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6Module17h4e12bd8482c73f9fE(ptr nocapture writeonly sret([64 x i8]) align 8 %0, ptr align 8 %1, i32 %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -496,7 +496,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6Module17
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option4Name17hea6cd30091a6a3deE(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 4), (8, 40)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option4Name17hea6cd30091a6a3deE(ptr nocapture writeonly sret([64 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i32 11, ptr %0, align 8
@@ -504,7 +504,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option4Name17he
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option3Ord17h869e88aa2d44f56dE(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option3Ord17h869e88aa2d44f56dE(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 12, ptr %0, align 8
@@ -512,7 +512,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option3Ord17h86
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option9RenameAll17h24f87ff19eba6abcE(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 4), (8, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option9RenameAll17h24f87ff19eba6abcE(ptr nocapture writeonly sret([64 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i32 13, ptr %0, align 8
@@ -520,7 +520,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option9RenameAl
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option8Sequence17ha6ba72005e777821E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option8Sequence17ha6ba72005e777821E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 14, ptr %0, align 8
@@ -528,7 +528,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option8Sequence
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6SetAll17h4f2a9ce1889f92d6E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6SetAll17h4f2a9ce1889f92d6E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 15, ptr %0, align 8
@@ -536,7 +536,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option6SetAll17
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option8Subclass17h3ff9d422ecf9de89E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option8Subclass17h3ff9d422ecf9de89E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 16, ptr %0, align 8
@@ -544,7 +544,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option8Subclass
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option10Unsendable17h635058500a8419a8E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option10Unsendable17h635058500a8419a8E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 17, ptr %0, align 8
@@ -552,7 +552,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option10Unsenda
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option7Weakref17h9ec7f3900ce7d9d8E(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassPyO3Option7Weakref17h9ec7f3900ce7d9d8E(ptr nocapture writeonly sret([64 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 18, ptr %0, align 8
@@ -2851,7 +2851,7 @@ define void @_ZN19pyo3_macros_backend7pyclass14build_py_class17h61d04a95beddccc3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass15FieldPyO3Option3Get17h298bd4bdaab3859cE(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 4), (16, 17)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass15FieldPyO3Option3Get17h298bd4bdaab3859cE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 3, ptr %3, align 8
@@ -2859,7 +2859,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass15FieldPyO3Option3Get17h298b
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass15FieldPyO3Option3Set17h5a16819192980b5aE(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 4), (16, 17)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass15FieldPyO3Option3Set17h5a16819192980b5aE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 4, ptr %3, align 8
@@ -2867,7 +2867,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass15FieldPyO3Option3Set17h5a16
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass15FieldPyO3Option4Name17h578baf142b8a9911E(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass15FieldPyO3Option4Name17h578baf142b8a9911E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
@@ -3237,7 +3237,7 @@ default.unreachable:                              ; preds = %40
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass21get_class_python_name17hda7f5645ed810f8dE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8), (16, 17)) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass21get_class_python_name17hda7f5645ed810f8dE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 232
   %6 = load i8, ptr %5, align 8
@@ -6890,7 +6890,7 @@ define hidden zeroext i1 @_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3ne
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new25extract_unit_variant_data17h1b509bf5398f07e0E(ptr nocapture writeonly sret([96 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new25extract_unit_variant_data17h1b509bf5398f07e0E(ptr nocapture writeonly sret([96 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [88 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -6966,7 +6966,7 @@ define align 8 ptr @"_ZN114_$LT$pyo3_macros_backend..pyclass..PyClassEnumUnitVar
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass21EnumVariantPyO3Option4Name17hcc9c3a1d8dab75daE(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 40)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass21EnumVariantPyO3Option4Name17hcc9c3a1d8dab75daE(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
@@ -6974,7 +6974,7 @@ define hidden void @_ZN19pyo3_macros_backend7pyclass21EnumVariantPyO3Option4Name
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend7pyclass21EnumVariantPyO3Option11Constructor17h8bcd718f8e9a88ceE(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 56)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend7pyclass21EnumVariantPyO3Option11Constructor17h8bcd718f8e9a88ceE(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   ret void
 }

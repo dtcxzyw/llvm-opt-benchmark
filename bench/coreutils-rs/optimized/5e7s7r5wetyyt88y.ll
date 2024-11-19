@@ -1167,7 +1167,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5309981247668485026.exit:
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN5uu_wc2wc28_$u7b$$u7b$closure$u7d$$u7d$17h3d8f7c52e56b97e0E.llvm.5309981247668485026"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #1 {
+define hidden void @"_ZN5uu_wc2wc28_$u7b$$u7b$closure$u7d$$u7d$17h3d8f7c52e56b97e0E.llvm.5309981247668485026"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17haca2ca7f02853d9dE"(i64 noundef 21, i1 noundef zeroext false)
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1

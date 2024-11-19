@@ -464,7 +464,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CRYPTO_dup_ex_data(i32 noundef %class_index, ptr noundef initializes((0, 8)) %to, ptr noundef %from) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CRYPTO_dup_ex_data(i32 noundef %class_index, ptr noundef %to, ptr noundef %from) local_unnamed_addr #0 {
 entry:
   %ptr = alloca ptr, align 8
   %stack = alloca [10 x ptr], align 16

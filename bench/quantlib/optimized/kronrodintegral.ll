@@ -66,7 +66,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib20GaussKronrodAdaptiveC1Edm = unnamed_addr alias void (ptr, double, i64), ptr @_ZN8QuantLib20GaussKronrodAdaptiveC2Edm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib23GaussKronrodNonAdaptive19setRelativeAccuracyEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((40, 48)) %this, double noundef %relativeAccuracy) local_unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib23GaussKronrodNonAdaptive19setRelativeAccuracyEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, double noundef %relativeAccuracy) local_unnamed_addr #0 align 2 {
 entry:
   %relativeAccuracy_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   store double %relativeAccuracy, ptr %relativeAccuracy_, align 8, !tbaa !3

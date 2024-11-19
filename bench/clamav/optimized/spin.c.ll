@@ -1085,7 +1085,7 @@ define internal fastcc i32 @summit(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc signext i8 @exec86(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   %invariant.gep = getelementptr i8, ptr %2, i64 2
   br label %5

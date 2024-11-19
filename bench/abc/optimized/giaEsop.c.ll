@@ -3359,7 +3359,7 @@ Vec_IntDrop.exit:                                 ; preds = %56, %Vec_IntDrop.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Eso_ManMinimizeCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
+define void @Eso_ManMinimizeCopy(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3592,7 +3592,7 @@ define i32 @Eso_ManComputeAnd(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Eso_ManComputeOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define void @Eso_ManComputeOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 4
@@ -3845,7 +3845,7 @@ Eso_ManComputeAnd.exit.thread:                    ; preds = %88, %Eso_ManCompute
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Eso_ManTransformOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef returned initializes((4, 8)) %3) local_unnamed_addr #0 {
+define noundef ptr @Eso_ManTransformOne(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef returned %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %.not = icmp eq i32 %2, 0

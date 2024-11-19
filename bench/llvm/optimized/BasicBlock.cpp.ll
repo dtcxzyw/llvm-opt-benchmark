@@ -652,7 +652,7 @@ _ZN4llvm15LLVMContextImpl21setTrailingDbgRecordsEPNS_10BasicBlockEPNS_9DbgMarker
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10BasicBlock21convertToNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(80) initializes((40, 41)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10BasicBlock21convertToNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::SmallVector.26", align 8
   %3 = alloca %"class.llvm::DebugLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -888,7 +888,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 declare void @_ZN4llvm9DbgMarker15insertDbgRecordEPNS_9DbgRecordEb(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10BasicBlock23convertFromNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(80) initializes((40, 41)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10BasicBlock23convertFromNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2
   %3 = load i16, ptr %2, align 2
   %4 = and i16 %3, 32767
@@ -1018,7 +1018,7 @@ define dso_local void @_ZN4llvm10BasicBlock21setIsNewDbgInfoFormatEb(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm10BasicBlock23setNewDbgInfoFormatFlagEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((40, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm10BasicBlock23setNewDbgInfoFormatFlagEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8

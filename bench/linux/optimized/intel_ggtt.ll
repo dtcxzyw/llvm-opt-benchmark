@@ -2532,7 +2532,7 @@ define internal range(i64 1, 0) i64 @mtl_ggtt_pte_encode(i64 noundef %0, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ggtt_probe_common(ptr noundef initializes((784, 792)) %0, i64 noundef range(i64 0, 67108865) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ggtt_probe_common(ptr noundef %0, i64 noundef range(i64 0, 67108865) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8

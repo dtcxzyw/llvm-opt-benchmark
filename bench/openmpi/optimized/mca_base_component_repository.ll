@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ri_constructor(ptr nocapture noundef writeonly initializes((40, 72), (136, 144), (152, 168)) %0) #0 {
+define internal void @ri_constructor(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -116,14 +116,14 @@ mca_base_component_repository_release_internal.exit: ; preds = %8, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @clf_constructor(ptr nocapture noundef writeonly initializes((40, 56)) %0) #0 {
+define internal void @clf_constructor(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @clf_destructor(ptr nocapture noundef initializes((40, 48)) %0) #2 {
+define internal void @clf_destructor(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -565,7 +565,7 @@ declare i32 @opal_hash_table_init(ptr noundef, i64 noundef) local_unnamed_addr #
 declare i32 @mca_base_framework_close(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_base_component_repository_get_components(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #1 {
+define i32 @mca_base_component_repository_get_components(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   store ptr null, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8

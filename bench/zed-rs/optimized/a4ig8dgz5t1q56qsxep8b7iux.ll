@@ -613,7 +613,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17h8d55fe449dd82190E(ptr no
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h8dec87837e9a51dfE"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN3std3sys12thread_local6native4lazy20Storage$LT$T$C$D$GT$10initialize17h8dec87837e9a51dfE"(ptr noundef nonnull writeonly align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %5, label %4
 
@@ -2176,7 +2176,7 @@ define hidden noundef zeroext i1 @_ZN5bytes3buf8buf_impl3Buf13has_remaining17hca
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5prost8encoding93_$LT$impl$u20$prost..encoding..sealed..BytesAdapter$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$12replace_with17h5de69d442a384b46E"(ptr noalias noundef align 8 dereferenceable(24) initializes((16, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5prost8encoding93_$LT$impl$u20$prost..encoding..sealed..BytesAdapter$u20$for$u20$alloc..vec..Vec$LT$u8$GT$$GT$12replace_with17h5de69d442a384b46E"(ptr noalias noundef align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %4, align 8

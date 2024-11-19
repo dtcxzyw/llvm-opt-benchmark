@@ -177,7 +177,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z46grpc_ares_ev_driver_on_queries_complete_lockedP19grpc_ares_ev_driver(ptr noundef initializes((32, 33)) %ev_driver) local_unnamed_addr #3 {
+define void @_Z46grpc_ares_ev_driver_on_queries_complete_lockedP19grpc_ares_ev_driver(ptr noundef %ev_driver) local_unnamed_addr #3 {
 entry:
   %shutting_down = getelementptr inbounds i8, ptr %ev_driver, i64 32
   store i8 1, ptr %shutting_down, align 8
@@ -258,7 +258,7 @@ if.end14:                                         ; preds = %_ZN19grpc_ares_ev_d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z35grpc_ares_ev_driver_shutdown_lockedP19grpc_ares_ev_driver(ptr nocapture noundef initializes((32, 33)) %ev_driver) local_unnamed_addr #3 {
+define void @_Z35grpc_ares_ev_driver_shutdown_lockedP19grpc_ares_ev_driver(ptr nocapture noundef %ev_driver) local_unnamed_addr #3 {
 entry:
   %shutting_down = getelementptr inbounds i8, ptr %ev_driver, i64 32
   store i8 1, ptr %shutting_down, align 8
@@ -1267,7 +1267,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z33grpc_ares_ev_driver_create_lockedPP19grpc_ares_ev_driverP16grpc_pollset_setiP17grpc_ares_request(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef initializes((0, 8)) %ev_driver, ptr noundef %pollset_set, i32 noundef %query_timeout_ms, ptr noundef %request) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z33grpc_ares_ev_driver_create_lockedPP19grpc_ares_ev_driverP16grpc_pollset_setiP17grpc_ares_request(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef %ev_driver, ptr noundef %pollset_set, i32 noundef %query_timeout_ms, ptr noundef %request) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %opts = alloca %struct.ares_options, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2251,7 +2251,7 @@ declare noundef zeroext i1 @_Z24grpc_parse_ipv6_hostportSt17basic_string_viewIcS
 declare i32 @ares_set_servers_ports(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z30grpc_dns_lookup_ares_continuedP17grpc_ares_requestPKcS2_S2_P16grpc_pollset_setiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_b(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %r, ptr noundef %dns_server, ptr noundef %name, ptr noundef %default_port, ptr noundef %interested_parties, i32 noundef %query_timeout_ms, ptr noundef %host, ptr noundef %port, i1 noundef zeroext %check_port) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z30grpc_dns_lookup_ares_continuedP17grpc_ares_requestPKcS2_S2_P16grpc_pollset_setiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_b(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef %r, ptr noundef %dns_server, ptr noundef %name, ptr noundef %default_port, ptr noundef %interested_parties, i32 noundef %query_timeout_ms, ptr noundef %host, ptr noundef %port, i1 noundef zeroext %check_port) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp2 = alloca %"class.absl::lts_20230802::Status", align 8
@@ -4608,7 +4608,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit7:       ; preds = %if.end10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z14grpc_ares_initv(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #12 {
+define void @_Z14grpc_ares_initv(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result) local_unnamed_addr #12 {
 entry:
   store i64 0, ptr %agg.result, align 8, !alias.scope !42
   ret void
@@ -4628,7 +4628,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @ares_destroy(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL33grpc_ares_complete_request_lockedP17grpc_ares_request(ptr noundef initializes((80, 88)) %r) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL33grpc_ares_complete_request_lockedP17grpc_ares_request(ptr noundef %r) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp13 = alloca %"class.grpc_core::DebugLocation", align 1

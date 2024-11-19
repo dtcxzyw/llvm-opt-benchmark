@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [5 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @percpu_down_read.__UNIQUE_ID___addressable___SCK__preempt_schedule271, ptr @percpu_up_read.__UNIQUE_ID___addressable___SCK__preempt_schedule273, ptr @trace_io_uring_short_write.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace682, ptr @trace_io_uring_short_write.__UNIQUE_ID___addressable___SCK__tp_func_io_uring_short_write681], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_prep_rw(ptr nocapture noundef writeonly initializes((8, 16), (66, 68)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @io_prep_rw(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load volatile i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -136,7 +136,7 @@ declare dso_local i32 @ioprio_check_cap(i32 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_prep_rwv(ptr nocapture noundef initializes((8, 16), (66, 68)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @io_prep_rwv(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.iovec, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load volatile i64, ptr %4, align 8
@@ -285,7 +285,7 @@ define dso_local i32 @io_prep_rwv(ptr nocapture noundef initializes((8, 16), (66
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @io_prep_rw_fixed(ptr nocapture noundef initializes((8, 16), (66, 68)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @io_prep_rw_fixed(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2002,7 +2002,7 @@ define dso_local i32 @io_write(ptr noundef %0, i32 noundef %1) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @io_import_iovec(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc i32 @io_import_iovec(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 64

@@ -169,7 +169,7 @@ declare hidden ptr @luaS_newlstr(ptr noundef, ptr noundef, i64 noundef) local_un
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @open_func(ptr noundef nonnull %ls, ptr noundef nonnull initializes((0, 8), (16, 40)) %fs) unnamed_addr #0 {
+define internal fastcc void @open_func(ptr noundef nonnull %ls, ptr noundef nonnull %fs) unnamed_addr #0 {
 entry:
   %L1 = getelementptr inbounds i8, ptr %ls, i64 56
   %0 = load ptr, ptr %L1, align 8, !tbaa !11

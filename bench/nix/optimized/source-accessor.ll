@@ -498,7 +498,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix14SourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 16)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix14SourceAccessorC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix14SourceAccessorE, i64 16), ptr %0, align 8

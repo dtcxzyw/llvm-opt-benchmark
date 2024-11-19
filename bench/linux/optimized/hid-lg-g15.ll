@@ -1088,7 +1088,7 @@ define internal fastcc range(i32 5, 4) i32 @lg_g15_get_initial_led_brightness(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef initializes((0, 32), (456, 472), (608, 616)) %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc void @lg_g15_init_input_dev(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   store ptr %2, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 7328
   %5 = getelementptr inbounds i8, ptr %1, i64 8

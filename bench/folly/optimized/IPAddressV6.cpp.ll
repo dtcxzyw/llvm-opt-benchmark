@@ -2331,7 +2331,7 @@ terminate.lpad:                                   ; preds = %invoke.cont28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly11IPAddressV6C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) initializes((0, 18)) %this) unnamed_addr #21 align 2 {
+define void @_ZN5folly11IPAddressV6C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) %this) unnamed_addr #21 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(18) %this, i8 0, i64 18, i1 false)
   ret void
@@ -2341,7 +2341,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11IPAddressV6C2ENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) initializes((0, 18)) %this, ptr %addr.coerce0, ptr %addr.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11IPAddressV6C2ENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) %this, ptr %addr.coerce0, ptr %addr.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %addr = alloca %"class.folly::Range", align 8
@@ -2617,7 +2617,7 @@ entry:
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly11IPAddressV6C2ERK8in6_addr(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) initializes((0, 18)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %src) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11IPAddressV6C2ERK8in6_addr(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %src) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %src, i64 16, i1 false), !tbaa.struct !24
   %scope_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -2626,7 +2626,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly11IPAddressV6C2ERK12sockaddr_in6(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) initializes((0, 18)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %src) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11IPAddressV6C2ERK12sockaddr_in6(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %src) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sin6_addr = getelementptr inbounds i8, ptr %src, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(16) %sin6_addr, i64 16, i1 false), !tbaa.struct !24
@@ -2639,7 +2639,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly11IPAddressV6C2ERKSt5arrayIhLm16EE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) initializes((0, 18)) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %src) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11IPAddressV6C2ERKSt5arrayIhLm16EE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(18) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %src) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %this, ptr noundef nonnull align 1 dereferenceable(16) %src, i64 16, i1 false), !tbaa.struct !24
   %scope_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -2657,7 +2657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly11IPAddressV614AddressStorageC2ENS_10MacAddressE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %this, i64 %mac.coerce) unnamed_addr #21 align 2 {
+define void @_ZN5folly11IPAddressV614AddressStorageC2ENS_10MacAddressE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %this, i64 %mac.coerce) unnamed_addr #21 align 2 {
 entry:
   %mac.sroa.1.0.extract.shift = lshr i64 %mac.coerce, 16
   %mac.sroa.1.0.extract.trunc = trunc i64 %mac.sroa.1.0.extract.shift to i8
@@ -2693,7 +2693,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly11IPAddressV626getMacAddressFromLinkLocalEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional") align 1 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(18) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly11IPAddressV626getMacAddressFromLinkLocalEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional") align 1 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(18) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i.i = alloca %"class.folly::MacAddress", align 8
   %bytes.i = alloca %"struct.std::array.10", align 1
@@ -2811,7 +2811,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly11IPAddressV622getMacAddressFromEUI64Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional") align 1 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(18) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly11IPAddressV622getMacAddressFromEUI64Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Optional") align 1 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(18) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.folly::MacAddress", align 8
   %bytes = alloca %"struct.std::array.10", align 1

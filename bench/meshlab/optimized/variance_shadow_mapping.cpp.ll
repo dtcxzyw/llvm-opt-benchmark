@@ -1163,7 +1163,7 @@ define void @_ZN21VarianceShadowMappingC2Ef(ptr noundef nonnull align 8 derefere
 declare void @_ZN13ShadowMappingC2Ef(ptr noundef nonnull align 8 dereferenceable(44), float noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN21VarianceShadowMappingD2Ev(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21VarianceShadowMappingD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21VarianceShadowMapping, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @__glewDetachShader, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48

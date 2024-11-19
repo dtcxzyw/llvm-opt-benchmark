@@ -1731,7 +1731,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5oware10OwareState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.22") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5oware10OwareState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.22") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
@@ -2486,7 +2486,7 @@ define noundef zeroext i1 @_ZNK10open_spiel5oware10OwareState10IsTerminalEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5oware10OwareState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.27") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5oware10OwareState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.27") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -4731,7 +4731,7 @@ _ZNSt23enable_shared_from_thisIN10open_spiel4GameEED2Ev.exit: ; preds = %_ZN10op
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel5oware9OwareGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.15") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel5oware9OwareGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.15") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load i32, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

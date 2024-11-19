@@ -289,7 +289,7 @@ declare ptr @alloc_tag_node(ptr noundef) local_unnamed_addr #1
 declare ptr @object_as_type(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @release_tag_memory(ptr nocapture noundef initializes((40, 48), (56, 64)) %t) local_unnamed_addr #4 {
+define dso_local void @release_tag_memory(ptr nocapture noundef %t) local_unnamed_addr #4 {
 entry:
   %tag = getelementptr inbounds i8, ptr %t, i64 48
   %0 = load ptr, ptr %tag, align 8

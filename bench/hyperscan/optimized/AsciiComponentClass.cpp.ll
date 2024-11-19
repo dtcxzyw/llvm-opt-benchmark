@@ -425,7 +425,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZN3ue213make_caselessEPNS_9CharReachE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue219AsciiComponentClass13notePositionsERNS_18GlushkovBuildStateE(ptr noundef nonnull align 8 dereferenceable(72) initializes((32, 36)) %this, ptr noundef nonnull align 8 dereferenceable(8) %bs) unnamed_addr #0 align 2 {
+define hidden void @_ZN3ue219AsciiComponentClass13notePositionsERNS_18GlushkovBuildStateE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(8) %bs) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %bs, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -749,7 +749,7 @@ return:                                           ; preds = %entry, %if.end9
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue219AsciiComponentClass5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219AsciiComponentClass5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %position = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %position, align 8
@@ -767,7 +767,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue219AsciiComponentClass4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue219AsciiComponentClass4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %position = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %position, align 8

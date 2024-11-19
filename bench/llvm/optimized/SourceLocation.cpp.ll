@@ -1159,7 +1159,7 @@ _ZNK5clang13SourceManager26getImmediateMacroCallerLocENS_14SourceLocationE.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang13FullSourceLoc18getModuleImportLocEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.82") align 8 initializes((0, 4), (8, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang13FullSourceLoc18getModuleImportLocEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.82") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::pair.84", align 8
   %4 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %4, 0

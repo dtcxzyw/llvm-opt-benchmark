@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_K = internal unnamed_addr constant [4 x i32] [i32 1518500249, i32 1859775393, i32 -1894007588, i32 -899497514], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @pg_sha1_init(ptr nocapture noundef writeonly initializes((0, 104)) %0) local_unnamed_addr #0 {
+define dso_local void @pg_sha1_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 0, i64 88, i1 false)
   store i32 1732584193, ptr %0, align 8
@@ -474,7 +474,7 @@ define internal fastcc void @sha1_step(ptr noundef %0) unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 20)) %1) local_unnamed_addr #2 {
+define dso_local void @pg_sha1_final(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load i8, ptr %4, align 8

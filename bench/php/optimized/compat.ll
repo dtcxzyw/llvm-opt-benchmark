@@ -259,7 +259,7 @@ declare i32 @xmlCtxtUseOptions(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @xmlStrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetUserData(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetUserData(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void
@@ -273,7 +273,7 @@ define ptr @XML_GetUserData(ptr nocapture noundef readonly %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetElementHandler(ptr nocapture noundef writeonly initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define void @php_XML_SetElementHandler(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -282,63 +282,63 @@ define void @php_XML_SetElementHandler(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetCharacterDataHandler(ptr nocapture noundef writeonly initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetCharacterDataHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetProcessingInstructionHandler(ptr nocapture noundef writeonly initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetProcessingInstructionHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetCommentHandler(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetCommentHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetDefaultHandler(ptr nocapture noundef writeonly initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetDefaultHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetUnparsedEntityDeclHandler(ptr nocapture noundef writeonly initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetUnparsedEntityDeclHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetNotationDeclHandler(ptr nocapture noundef writeonly initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetNotationDeclHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetExternalEntityRefHandler(ptr nocapture noundef writeonly initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetExternalEntityRefHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetStartNamespaceDeclHandler(ptr nocapture noundef writeonly initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetStartNamespaceDeclHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @php_XML_SetEndNamespaceDeclHandler(ptr nocapture noundef writeonly initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @php_XML_SetEndNamespaceDeclHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %3, align 8
   ret void

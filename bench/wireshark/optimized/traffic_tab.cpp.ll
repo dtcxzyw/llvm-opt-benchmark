@@ -126,7 +126,7 @@ $_ZZN11QMetaTypeIdI7TabDataE14qt_metatype_idEvE11metatype_id = comdat any
 @_ZN10TrafficTabD1Ev = unnamed_addr alias void (ptr), ptr @_ZN10TrafficTabD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7TabDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
+define void @_ZN7TabDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 -1, ptr %2, align 8
@@ -134,7 +134,7 @@ define void @_ZN7TabDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7TabDataC2E7QStringi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7TabDataC2E7QStringi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -159,7 +159,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %3, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK7TabData4nameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7TabData4nameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -338,7 +338,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10TrafficTabD2Ev(ptr noundef nonnull align 8 dereferenceable(122) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10TrafficTabD2Ev(ptr noundef nonnull align 8 dereferenceable(122) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV10TrafficTab, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV10TrafficTab, i64 496), ptr %2, align 8

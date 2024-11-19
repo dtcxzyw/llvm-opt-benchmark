@@ -623,7 +623,7 @@ define dso_local void @sk_error_report(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 8, 17) i32 @sock_get_timeout(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i1 noundef zeroext %2) #3 align 16 {
+define dso_local noundef range(i32 8, 17) i32 @sock_get_timeout(i64 noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) #3 align 16 {
   %4 = icmp eq i64 %0, 9223372036854775807
   br i1 %4, label %9, label %5
 
@@ -4951,7 +4951,7 @@ define internal fastcc i32 @sock_getbindtodevice(ptr noundef %0, ptr %1, i8 %2, 
 declare dso_local i32 @sk_get_filter(ptr noundef, ptr, i8, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @sk_get_meminfo(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 36)) %1) local_unnamed_addr #8 align 16 {
+define dso_local void @sk_get_meminfo(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(36) %1, i8 0, i64 36, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = load volatile i32, ptr %3, align 4
@@ -5828,7 +5828,7 @@ declare dso_local void @cgroup_sk_clone(ptr noundef) local_unnamed_addr #1
 declare dso_local zeroext i1 @sk_filter_charge(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sk_free_unlock_clone(ptr noundef initializes((712, 720)) %0) #0 align 16 {
+define dso_local void @sk_free_unlock_clone(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 712
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -5859,7 +5859,7 @@ define dso_local void @sk_free_unlock_clone(ptr noundef initializes((712, 720)) 
 declare dso_local void @net_enable_timestamp() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sk_setup_caps(ptr noundef initializes((488, 496)) %0, ptr noundef %1) #0 align 16 {
+define dso_local void @sk_setup_caps(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 176
   %5 = load i64, ptr %4, align 8
@@ -8514,7 +8514,7 @@ define dso_local void @sk_stop_timer_sync(ptr noundef %0, ptr noundef %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sock_init_data_uid(ptr noundef %0, ptr noundef initializes((236, 240)) %1, i32 %2) #0 align 16 {
+define dso_local void @sock_init_data_uid(ptr noundef %0, ptr noundef %1, i32 %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 216
   %5 = getelementptr inbounds i8, ptr %1, i64 236
   store i32 0, ptr %5, align 4
@@ -8712,7 +8712,7 @@ define internal void @sock_def_destruct(ptr nocapture readnone %0) #11 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sock_init_data(ptr noundef %0, ptr noundef initializes((236, 240)) %1) #0 align 16 {
+define dso_local void @sock_init_data(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.split, label %sock_init_data_uid.exit
 
@@ -10214,7 +10214,7 @@ declare dso_local i32 @register_pernet_subsys(ptr noundef) local_unnamed_addr #1
 declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #20
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @sock_inuse_init_net(ptr nocapture noundef writeonly initializes((392, 400)) %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @sock_inuse_init_net(ptr nocapture noundef writeonly %0) #0 align 16 {
   %2 = tail call noalias dereferenceable_or_null(260) ptr @__alloc_percpu(i64 noundef 260, i64 noundef 4) #26
   %3 = getelementptr inbounds i8, ptr %0, i64 392
   store ptr %2, ptr %3, align 8

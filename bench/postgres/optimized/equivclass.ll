@@ -1522,7 +1522,7 @@ find_ec_member_matching_expr.exit.thread:         ; preds = %52, %.lr.ph37.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @generate_base_implied_equalities(ptr noundef initializes((184, 185)) %0) local_unnamed_addr #0 {
+define dso_local void @generate_base_implied_equalities(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   store i8 1, ptr %3, align 8

@@ -6394,7 +6394,7 @@ declare void @slurmdb_pack_qos_rec_with_usage(ptr noundef, i16 noundef zeroext, 
 declare void @slurmdb_pack_user_rec(ptr noundef, i16 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @assoc_mgr_info_unpack_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @assoc_mgr_info_unpack_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 3768, ptr noundef nonnull @__func__.assoc_mgr_info_unpack_msg) #20

@@ -191,7 +191,7 @@ define internal noundef i32 @init_fs_dcache_sysctls() #0 section ".init.text" al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @take_dentry_name_snapshot(ptr noundef initializes((0, 16)) %0, ptr noundef %1) #1 align 16 {
+define dso_local void @take_dentry_name_snapshot(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   tail call void @_raw_spin_lock(ptr noundef %3) #17
   %4 = getelementptr inbounds i8, ptr %1, i64 32
@@ -3607,7 +3607,7 @@ define dso_local ptr @d_obtain_root(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @d_add_ci(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2) #1 align 16 {
+define dso_local ptr @d_add_ci(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -3758,7 +3758,7 @@ define dso_local ptr @d_add_ci(ptr nocapture noundef readonly %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @d_hash_and_lookup(ptr noundef %0, ptr noundef initializes((0, 4)) %1) #1 align 16 {
+define dso_local ptr @d_hash_and_lookup(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4

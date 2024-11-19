@@ -56,7 +56,7 @@ $_ZN5Eigen8internal29general_matrix_vector_productIldNS0_22const_blas_data_mappe
 @_ZN5ceres8internal21DenseIterativeRefinerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal21DenseIterativeRefinerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5ceres8internal22SparseIterativeRefinerC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12), (16, 64)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal22SparseIterativeRefinerC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal22SparseIterativeRefinerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -68,7 +68,7 @@ define hidden void @_ZN5ceres8internal22SparseIterativeRefinerC2Ei(ptr nocapture
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @_ZN5ceres8internal22SparseIterativeRefinerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal22SparseIterativeRefinerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal22SparseIterativeRefinerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -83,7 +83,7 @@ define hidden void @_ZN5ceres8internal22SparseIterativeRefinerD2Ev(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal22SparseIterativeRefinerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal22SparseIterativeRefinerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal22SparseIterativeRefinerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -304,7 +304,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5ceres8internal21DenseIterativeRefinerC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal21DenseIterativeRefinerC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal21DenseIterativeRefinerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -314,7 +314,7 @@ define hidden void @_ZN5ceres8internal21DenseIterativeRefinerC2Ei(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @_ZN5ceres8internal21DenseIterativeRefinerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal21DenseIterativeRefinerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal21DenseIterativeRefinerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -326,7 +326,7 @@ define hidden void @_ZN5ceres8internal21DenseIterativeRefinerD2Ev(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal21DenseIterativeRefinerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal21DenseIterativeRefinerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal21DenseIterativeRefinerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8

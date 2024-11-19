@@ -44,7 +44,7 @@ entry:
 declare i32 @OSSL_trace_set_channel(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_cmp_log_parse_metadata(ptr noundef %buf, ptr nocapture noundef writeonly initializes((0, 4)) %level, ptr nocapture noundef writeonly initializes((0, 8)) %func, ptr nocapture noundef writeonly initializes((0, 8)) %file, ptr nocapture noundef writeonly initializes((0, 4)) %line) local_unnamed_addr #1 {
+define ptr @ossl_cmp_log_parse_metadata(ptr noundef %buf, ptr nocapture noundef writeonly %level, ptr nocapture noundef writeonly %func, ptr nocapture noundef writeonly %file, ptr nocapture noundef writeonly %line) local_unnamed_addr #1 {
 entry:
   %p_level_tmp = alloca ptr, align 8
   %cmp = icmp eq ptr %buf, null

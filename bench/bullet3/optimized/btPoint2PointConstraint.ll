@@ -163,7 +163,7 @@ entry:
 declare void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBody(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, ptr noundef nonnull align 8 dereferenceable(744)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN23btPoint2PointConstraint13buildJacobianEv(ptr nocapture noundef nonnull align 8 dereferenceable(384) initializes((56, 60)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN23btPoint2PointConstraint13buildJacobianEv(ptr nocapture noundef nonnull align 8 dereferenceable(384) %this) unnamed_addr #5 align 2 {
 entry:
   %normal = alloca %class.btVector3, align 4
   %m_appliedImpulse = getelementptr inbounds i8, ptr %this, i64 56
@@ -381,7 +381,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23btPoint2PointConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this, ptr nocapture noundef writeonly initializes((0, 8)) %info) unnamed_addr #6 align 2 {
+define dso_local void @_ZN23btPoint2PointConstraint8getInfo1EPN17btTypedConstraint17btConstraintInfo1E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this, ptr nocapture noundef writeonly %info) unnamed_addr #6 align 2 {
 entry:
   %m_useSolveConstraintObsolete.i = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load i8, ptr %m_useSolveConstraintObsolete.i, align 8
@@ -394,7 +394,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN23btPoint2PointConstraint18getInfo1NonVirtualEPN17btTypedConstraint17btConstraintInfo1E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this, ptr nocapture noundef writeonly initializes((0, 8)) %info) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN23btPoint2PointConstraint18getInfo1NonVirtualEPN17btTypedConstraint17btConstraintInfo1E(ptr nocapture noundef nonnull readonly align 8 dereferenceable(384) %this, ptr nocapture noundef writeonly %info) local_unnamed_addr #6 align 2 {
 entry:
   %m_useSolveConstraintObsolete = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load i8, ptr %m_useSolveConstraintObsolete, align 8

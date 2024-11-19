@@ -34,7 +34,7 @@ $_ZN4LIEF2PE11ExportEntry5valueEm = comdat any
 @_ZN4LIEF2PE11ExportEntryC1Ejbtj = unnamed_addr alias void (ptr, i32, i1, i16, i32), ptr @_ZN4LIEF2PE11ExportEntryC2Ejbtj
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF2PE11ExportEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN4LIEF2PE11ExportEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE11ExportEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = getelementptr inbounds i8, ptr %0, i64 104
@@ -263,21 +263,21 @@ define noundef i32 @_ZNK4LIEF2PE11ExportEntry12function_rvaEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE11ExportEntry7ordinalEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((60, 62)) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE11ExportEntry7ordinalEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   store i16 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE11ExportEntry7addressEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE11ExportEntry7addressEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE11ExportEntry9is_externEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((68, 69)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE11ExportEntry9is_externEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 68
   store i8 %3, ptr %4, align 4

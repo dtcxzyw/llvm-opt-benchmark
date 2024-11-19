@@ -228,7 +228,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core25ClientLoadReportingFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::StatusOr") align 8 initializes((0, 32)) %agg.result, ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %.coerce0, ptr nocapture readnone %.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core25ClientLoadReportingFilter6CreateERKNS_11ChannelArgsENS_13ChannelFilter4ArgsE(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %.coerce0, ptr nocapture readnone %.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::ClientLoadReportingFilter", align 8
   %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -2636,7 +2636,7 @@ declare void @_Z26grpc_channel_next_get_infoP20grpc_channel_elementPK17grpc_chan
 declare noundef ptr @_ZN9grpc_core5Arena9AllocZoneEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_25ClientLoadReportingFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_0ZNS6_10PrependMapISF_EEvT_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %x, ptr nocapture noundef writeonly initializes((0, 9), (16, 24)) %memory) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_25ClientLoadReportingFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_0ZNS6_10PrependMapISF_EEvT_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %x, ptr nocapture noundef writeonly %memory) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fn_ = getelementptr inbounds i8, ptr %this, i64 16
   %fn_.val = load i64, ptr %fn_, align 8
@@ -2679,7 +2679,7 @@ delete.notnull.i.i.i.i:                           ; preds = %if.then.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_25ClientLoadReportingFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_0ZNS6_10PrependMapISF_EEvT_NS_13DebugLocationEEUlvE_E8PollOnceEPv"(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll") align 8 initializes((0, 1), (8, 9), (16, 25)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %memory) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_25ClientLoadReportingFilter15MakeCallPromiseENS_8CallArgsESt8functionIFNS_12ArenaPromiseIS5_EES9_EEE3$_0ZNS6_10PrependMapISF_EEvT_NS_13DebugLocationEEUlvE_E8PollOnceEPv"(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %memory) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit:
   %arg_.i.i = getelementptr inbounds i8, ptr %memory, i64 8
   %0 = load i8, ptr %arg_.i.i, align 1, !noalias !31

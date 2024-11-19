@@ -871,7 +871,7 @@ _ZN7xgboost6common20GHistBuildingManagerILb0ELb1ELb0EhE18DispatchAndExecuteIZNS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost6common13HistogramCutsC2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 1), (4, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost6common13HistogramCutsC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float -1.000000e+00, ptr %2, align 4

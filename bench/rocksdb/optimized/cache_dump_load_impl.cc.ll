@@ -119,7 +119,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15CacheDumperImpl13SetDumpFilterESt6vectorIPNS_2DBESaIS3_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef readonly %db_list) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15CacheDumperImpl13SetDumpFilterESt6vectorIPNS_2DBESaIS3_EE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef readonly %db_list) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptc = alloca %"class.std::unordered_map", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -972,7 +972,7 @@ eh.resume:                                        ; preds = %ehcleanup37, %lpad.
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb15CacheDumperImpl20DumpOneBlockCallBackERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::function.34") align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %buf) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15CacheDumperImpl20DumpOneBlockCallBackERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::function.34") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(32) %buf) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.result, i64 24

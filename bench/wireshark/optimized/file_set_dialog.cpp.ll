@@ -85,7 +85,7 @@ define void @fileset_dlg_begin_add_file(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13FileSetDialog12beginAddFileEv(ptr noundef nonnull align 8 dereferenceable(92) initializes((88, 92)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13FileSetDialog12beginAddFileEv(ptr noundef nonnull align 8 dereferenceable(92) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
@@ -1436,7 +1436,7 @@ declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13FileSetDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(92) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13FileSetDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13FileSetDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV13FileSetDialog, i64 488), ptr %2, align 8

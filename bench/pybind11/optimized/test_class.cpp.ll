@@ -22170,7 +22170,7 @@ _ZN8pybind116detail12generic_typeD2Ev.exit:       ; preds = %0, %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZ21test_submodule_class_RN8pybind117module_EEN6MyBase4makeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ21test_submodule_class_RN8pybind117module_EEN6MyBase4makeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
   store ptr %2, ptr %0, align 8
   ret void
@@ -22611,7 +22611,7 @@ _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %_ZN8pybind116object
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZ21test_submodule_class_RN8pybind117module_EEN9MyDerived4makeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.46") align 8 initializes((0, 8)) %0) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ21test_submodule_class_RN8pybind117module_EEN9MyDerived4makeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.46") align 8 %0) #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(1) ptr @_Znwm(i64 noundef 1) #32
   store ptr %2, ptr %0, align 8
   ret void
@@ -77793,7 +77793,7 @@ _ZN8pybind116detail7cast_opIRZ21test_submodule_class_RNS_7module_EE8NestBaseEENS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8pybind116detail15argument_loaderIJRZ21test_submodule_class_RNS_7module_EE6NestediRZ21test_submodule_class_S3_E8NestBaseS5_EEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 52), (56, 80)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8pybind116detail15argument_loaderIJRZ21test_submodule_class_RNS_7module_EE6NestediRZ21test_submodule_class_S3_E8NestBaseS5_EEC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"struct.std::type_index", align 8
   %4 = alloca %"struct.std::type_index", align 8
@@ -83289,7 +83289,7 @@ _ZNSt5tupleIJN8pybind116detail11type_casterINS0_7module_EvEEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8pybind116class_IZ21test_submodule_class_RNS_7module_EE14OtherDuplicateJEEC2IJEEENS_6handleEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8pybind116class_IZ21test_submodule_class_RNS_7module_EE14OtherDuplicateJEEC2IJEEENS_6handleEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pybind11::detail::type_record", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 72
@@ -84359,7 +84359,7 @@ _ZN8pybind116class_IZ21test_submodule_class_RNS_7module_EE15DuplicateNestedJEED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8pybind116class_IZ21test_submodule_class_RNS_7module_EE20OtherDuplicateNestedJEEC2IJEEENS_6handleEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8pybind116class_IZ21test_submodule_class_RNS_7module_EE20OtherDuplicateNestedJEEC2IJEEENS_6handleEPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pybind11::detail::type_record", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 72

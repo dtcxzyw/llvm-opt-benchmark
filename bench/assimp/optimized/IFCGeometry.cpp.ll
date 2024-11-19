@@ -4626,7 +4626,7 @@ declare noundef ptr @_ZN6Assimp3IFC5Curve7ConvertERKNS0_10Schema_2x38IfcCurveERN
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp3IFC26DerivePlaneCoordinateSpaceERKNS0_8TempMeshERbR10aiVector3tIdE(ptr noalias nocapture writeonly sret(%class.aiMatrix3x3t) align 8 initializes((0, 72)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %curmesh, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %ok, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %norOut) local_unnamed_addr #7 {
+define hidden void @_ZN6Assimp3IFC26DerivePlaneCoordinateSpaceERKNS0_8TempMeshERbR10aiVector3tIdE(ptr noalias nocapture writeonly sret(%class.aiMatrix3x3t) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %curmesh, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %ok, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %norOut) local_unnamed_addr #7 {
 entry:
   store double 1.000000e+00, ptr %agg.result, align 8
   %a2.i = getelementptr inbounds i8, ptr %agg.result, i64 8

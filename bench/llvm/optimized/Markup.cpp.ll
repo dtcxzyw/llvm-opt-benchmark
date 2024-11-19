@@ -41,7 +41,7 @@ $_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE19moveElements
 @_ZN4llvm9symbolize12MarkupParserC1ENS_9StringSetINS_15MallocAllocatorEEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm9symbolize12MarkupParserC2ENS_9StringSetINS_15MallocAllocatorEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize12MarkupParserC2ENS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 24)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9symbolize12MarkupParserC2ENS_9StringSetINS_15MallocAllocatorEEE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -419,7 +419,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize12MarkupParser17parseMultiLineEndENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.7") align 8 initializes((16, 17)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(240) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9symbolize12MarkupParser17parseMultiLineEndENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.7") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(240) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -769,7 +769,7 @@ _ZN4llvm9symbolize10MarkupNodeC2EOS1_.exit:       ; preds = %2, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize12MarkupParser19parseMultiLineBeginENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.7") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9symbolize12MarkupParser19parseMultiLineBeginENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8

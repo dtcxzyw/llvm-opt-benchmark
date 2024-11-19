@@ -972,7 +972,7 @@ define void @slurmdb_pack_wckey_rec(ptr noundef readonly %0, i16 noundef zeroext
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_user_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_user_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1174,7 +1174,7 @@ declare ptr @list_create(ptr noundef) local_unnamed_addr #1
 declare void @slurmdb_destroy_assoc_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 336, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1639, ptr noundef nonnull @__func__.slurmdb_unpack_assoc_rec) #6
   store ptr %4, ptr %0, align 8
   tail call void @slurmdb_init_assoc_rec(ptr noundef %4, i1 noundef zeroext false) #6
@@ -1196,7 +1196,7 @@ declare void @list_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @slurmdb_destroy_coord_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_coord_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_coord_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 503, ptr noundef nonnull @__func__.slurmdb_unpack_coord_rec) #6
   %6 = icmp ugt i16 %1, 9983
@@ -1234,7 +1234,7 @@ declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) lo
 declare void @slurmdb_destroy_wckey_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -1397,7 +1397,7 @@ define void @slurmdb_pack_used_limits(ptr noundef readonly %0, i32 noundef %1, i
 declare void @pack64_array(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_used_limits(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_used_limits(ptr nocapture noundef writeonly %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 347, ptr noundef nonnull @__func__.slurmdb_unpack_used_limits) #6
   store ptr %6, ptr %0, align 8
@@ -1551,7 +1551,7 @@ define void @slurmdb_pack_account_rec(ptr noundef readonly %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_account_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_account_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -1804,7 +1804,7 @@ define void @slurmdb_pack_tres_rec(ptr noundef readonly %0, i16 zeroext %1, ptr 
 declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_accounting_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_accounting_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 104, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 569, ptr noundef nonnull @__func__.slurmdb_unpack_cluster_accounting_rec) #6
   store ptr %5, ptr %0, align 8
@@ -1991,7 +1991,7 @@ define void @slurmdb_pack_clus_res_rec(ptr noundef readonly %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_clus_res_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_clus_res_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 628, ptr noundef nonnull @__func__.slurmdb_unpack_clus_res_rec) #6
   store ptr %5, ptr %0, align 8
@@ -2613,7 +2613,7 @@ _pack_list_of_str.exit313:                        ; preds = %.thread.i312, %202,
 declare void @pack8(i8 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4
@@ -3334,7 +3334,7 @@ define void @slurmdb_pack_federation_rec(ptr noundef readonly %0, i16 noundef ze
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_federation_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_federation_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3468,7 +3468,7 @@ define void @slurmdb_pack_accounting_rec(ptr noundef %0, i16 noundef zeroext %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_accounting_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_accounting_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1221, ptr noundef nonnull @__func__.slurmdb_unpack_accounting_rec) #6
   store ptr %5, ptr %0, align 8
@@ -4187,7 +4187,7 @@ declare i64 @bit_size(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_usage(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_usage(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
@@ -4435,7 +4435,7 @@ define void @slurmdb_pack_assoc_rec_with_usage(ptr noundef %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_rec_with_usage(ptr nocapture noundef initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_rec_with_usage(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 336, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1639, ptr noundef nonnull @__func__.slurmdb_unpack_assoc_rec) #6
   store ptr %5, ptr %0, align 8
@@ -4638,7 +4638,7 @@ define void @slurmdb_pack_event_rec(ptr noundef readonly %0, i16 noundef zeroext
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_event_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_event_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1853, ptr noundef nonnull @__func__.slurmdb_unpack_event_rec) #6
   store ptr %5, ptr %0, align 8
@@ -4814,7 +4814,7 @@ define void @slurmdb_pack_instance_rec(ptr nocapture noundef readonly %0, i16 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_instance_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_instance_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1917, ptr noundef nonnull @__func__.slurmdb_unpack_instance_rec) #6
   store ptr %5, ptr %0, align 8
@@ -5230,7 +5230,7 @@ _pack_list_of_str.exit:                           ; preds = %.thread.i, %143, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_qos_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_qos_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -5692,7 +5692,7 @@ declare ptr @list_next(ptr noundef) local_unnamed_addr #1
 declare void @list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_qos_usage(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_qos_usage(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2203, ptr noundef nonnull @__func__.slurmdb_unpack_qos_usage) #6
@@ -5948,7 +5948,7 @@ define void @slurmdb_pack_qos_rec_with_usage(ptr noundef %0, i16 noundef zeroext
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_qos_usage_update(ptr nocapture noundef initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_qos_usage_update(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i16 %1, 10239
   br i1 %4, label %5, label %7
 
@@ -5966,7 +5966,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_qos_usage_update(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_qos_rec_with_usage(ptr nocapture noundef initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_qos_rec_with_usage(ptr nocapture noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @slurmdb_unpack_qos_rec(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2)
   %.not = icmp eq i32 %5, 0
@@ -6220,7 +6220,7 @@ define void @slurmdb_pack_reservation_rec(ptr noundef readonly %0, i16 noundef z
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -6357,7 +6357,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_rec(ptr nocapture nounde
 declare void @slurmdb_destroy_tres_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_tres_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_tres_rec(ptr nocapture noundef writeonly %0, i16 zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2960, ptr noundef nonnull @__func__.slurmdb_unpack_tres_rec) #6
   store ptr %5, ptr %0, align 8
@@ -6538,7 +6538,7 @@ define void @slurmdb_pack_res_rec(ptr noundef readonly %0, i16 noundef zeroext %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_res_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_res_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -6802,7 +6802,7 @@ define void @slurmdb_pack_txn_rec(ptr noundef readonly %0, i16 noundef zeroext %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_txn_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_txn_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 72, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2645, ptr noundef nonnull @__func__.slurmdb_unpack_txn_rec) #6
   store ptr %5, ptr %0, align 8
@@ -6919,7 +6919,7 @@ define void @slurmdb_pack_archive_rec(ptr noundef readonly %0, i16 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_archive_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_archive_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 2792, ptr noundef nonnull @__func__.slurmdb_unpack_archive_rec) #6
   store ptr %5, ptr %0, align 8
@@ -7067,7 +7067,7 @@ _pack_list_of_str.exit28:                         ; preds = %.thread.i27, %29, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_tres_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_tres_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -7625,7 +7625,7 @@ _pack_list_of_str.exit81:                         ; preds = %.thread.i80, %63, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -7760,7 +7760,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_user_cond(ptr nocapture noundef writ
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_assoc_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -8239,7 +8239,7 @@ _pack_list_of_str.exit24:                         ; preds = %.thread.i23, %17, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_account_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_account_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -8617,7 +8617,7 @@ _pack_list_of_str.exit88:                         ; preds = %.thread.i87, %71, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_cluster_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -9134,7 +9134,7 @@ _pack_list_of_str.exit19:                         ; preds = %.thread.i18, %21, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_federation_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_federation_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -9324,7 +9324,7 @@ define void @slurmdb_pack_add_assoc_cond(ptr noundef %0, i16 noundef zeroext %1,
 declare void @packstr_with_version(ptr noundef, i16 noundef zeroext, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_add_assoc_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_add_assoc_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 384, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3510, ptr noundef nonnull @__func__.slurmdb_unpack_add_assoc_cond) #6
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 10239
@@ -9539,7 +9539,7 @@ _pack_list_of_str.exit40:                         ; preds = %52, %50, %50, %.thr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_event_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_event_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -9831,7 +9831,7 @@ define void @slurmdb_pack_instance_cond(ptr nocapture noundef readonly %0, i16 n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_instance_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_instance_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 64, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3941, ptr noundef nonnull @__func__.slurmdb_unpack_instance_cond) #6
   store ptr %5, ptr %0, align 8
@@ -10328,7 +10328,7 @@ _pack_list_of_str.exit134:                        ; preds = %127, %125, %125, %.
 declare void @slurm_pack_selected_step(ptr noundef, i16 noundef zeroext, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_job_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -12437,7 +12437,7 @@ _pack_slurmdb_stats.exit:                         ; preds = %145, %148
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_job_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_job_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -13324,7 +13324,7 @@ define range(i32 -1, 1) i32 @slurmdb_unpack_job_rec(ptr nocapture noundef writeo
 declare void @slurmdb_destroy_step_rec(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_step_rec(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_step_rec(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i16, align 2
   store i32 0, ptr %4, align 4
@@ -13633,7 +13633,7 @@ _pack_list_of_str.exit28:                         ; preds = %.thread.i27, %27, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_qos_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_qos_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -13953,7 +13953,7 @@ _pack_list_of_str.exit43:                         ; preds = %.thread.i42, %29, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_reservation_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -14517,7 +14517,7 @@ _pack_list_of_str.exit61:                         ; preds = %.thread.i60, %59, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_res_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -15133,7 +15133,7 @@ _pack_list_of_str.exit60:                         ; preds = %.thread.i59, %61, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_txn_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -15646,7 +15646,7 @@ _pack_list_of_str.exit43:                         ; preds = %.thread.i42, %39, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_wckey_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
@@ -15958,7 +15958,7 @@ define void @slurmdb_pack_archive_cond(ptr noundef readonly %0, i16 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_archive_cond(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_archive_cond(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 56, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 5555, ptr noundef nonnull @__func__.slurmdb_unpack_archive_cond) #6
   store ptr %5, ptr %0, align 8
@@ -16062,7 +16062,7 @@ define void @slurmdb_pack_rpc_obj(ptr nocapture noundef readonly %0, i16 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_rpc_obj(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_rpc_obj(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 5605, ptr noundef nonnull @__func__.slurmdb_unpack_rpc_obj) #6
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 9983
@@ -16173,7 +16173,7 @@ define void @slurmdb_pack_rollup_stats(ptr nocapture noundef readonly %0, i16 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_rollup_stats(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_rollup_stats(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) #0 {
   %4 = alloca i32, align 4
   %5 = alloca i16, align 2
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 112, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 5660, ptr noundef nonnull @__func__.slurmdb_unpack_rollup_stats) #6
@@ -16298,7 +16298,7 @@ define void @slurmdb_pack_stats_msg(ptr nocapture noundef readonly %0, i16 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_stats_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_stats_msg(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 5732, ptr noundef nonnull @__func__.slurmdb_unpack_stats_msg) #6
   store ptr %4, ptr %0, align 8
   %5 = icmp ugt i16 %1, 9983
@@ -16458,7 +16458,7 @@ define void @slurmdb_pack_update_object(ptr nocapture noundef readonly %0, i16 n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurmdb_unpack_update_object(ptr nocapture noundef writeonly initializes((0, 8)) %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurmdb_unpack_update_object(ptr nocapture noundef writeonly %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 5861, ptr noundef nonnull @__func__.slurmdb_unpack_update_object) #6

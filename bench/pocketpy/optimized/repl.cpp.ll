@@ -51,7 +51,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy4REPLC2EPNS_2VME(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy4REPLC2EPNS_2VME(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pkpy::Str", align 8
   %4 = alloca %"struct.pkpy::Str", align 8
   %5 = alloca i64, align 8

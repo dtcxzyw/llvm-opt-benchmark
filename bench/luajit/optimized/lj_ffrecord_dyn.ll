@@ -350,7 +350,7 @@ if.end16:                                         ; preds = %if.end14, %recff_st
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @recff_assert(ptr nocapture noundef readonly %J, ptr nocapture noundef writeonly initializes((8, 16)) %rd) #3 {
+define internal void @recff_assert(ptr nocapture noundef readonly %J, ptr nocapture noundef writeonly %rd) #3 {
 entry:
   %maxslot = getelementptr inbounds i8, ptr %J, i64 172
   %0 = load i32, ptr %maxslot, align 4
@@ -2868,7 +2868,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_table_insert(ptr noundef %J, ptr nocapture noundef initializes((8, 16)) %rd) #0 {
+define internal void @recff_table_insert(ptr noundef %J, ptr nocapture noundef %rd) #0 {
 entry:
   %ix = alloca %struct.RecordIndex, align 8
   %base = getelementptr inbounds i8, ptr %J, i64 160
@@ -4866,7 +4866,7 @@ recff_sbufx_check.exit:                           ; preds = %land.lhs.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @recff_buffer_encode(ptr noundef initializes((184, 190)) %J, ptr nocapture readnone %rd) #0 {
+define internal void @recff_buffer_encode(ptr noundef %J, ptr nocapture readnone %rd) #0 {
 entry:
   %base = getelementptr inbounds i8, ptr %J, i64 160
   %0 = load ptr, ptr %base, align 8

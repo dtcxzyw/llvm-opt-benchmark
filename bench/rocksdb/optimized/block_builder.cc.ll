@@ -18,7 +18,7 @@ $_ZNSt6vectorIjSaIjEE17_M_default_appendEm = comdat any
 @_ZN7rocksdb12BlockBuilderC1EibbNS_22BlockBasedTableOptions18DataBlockIndexTypeEdmbb = unnamed_addr alias void (ptr, i32, i1, i1, i8, double, i64, i1, i1), ptr @_ZN7rocksdb12BlockBuilderC2EibbNS_22BlockBasedTableOptions18DataBlockIndexTypeEdmbb
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12BlockBuilderC2EibbNS_22BlockBasedTableOptions18DataBlockIndexTypeEdmbb(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 6), (8, 17)) %this, i32 noundef %block_restart_interval, i1 noundef zeroext %use_delta_encoding, i1 noundef zeroext %use_value_delta_encoding, i8 noundef signext %index_type, double noundef %data_block_hash_table_util_ratio, i64 noundef %ts_sz, i1 noundef zeroext %persist_user_defined_timestamps, i1 noundef zeroext %is_user_key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb12BlockBuilderC2EibbNS_22BlockBasedTableOptions18DataBlockIndexTypeEdmbb(ptr noundef nonnull align 8 dereferenceable(176) %this, i32 noundef %block_restart_interval, i1 noundef zeroext %use_delta_encoding, i1 noundef zeroext %use_value_delta_encoding, i8 noundef signext %index_type, double noundef %data_block_hash_table_util_ratio, i64 noundef %ts_sz, i1 noundef zeroext %persist_user_defined_timestamps, i1 noundef zeroext %is_user_key) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %use_delta_encoding to i8
   %frombool1 = zext i1 %use_value_delta_encoding to i8

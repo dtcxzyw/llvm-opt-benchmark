@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @generate_node_regex(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 8)) %1) #0 {
+define internal range(i32 -1366, 1) i32 @generate_node_regex(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca [50 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = alloca %struct.pmix_list_t, align 8
@@ -944,7 +944,7 @@ pmix_obj_run_destructors.exit262:                 ; preds = %371, %304, %301, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @generate_ppn(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal range(i32 -1366, 1) i32 @generate_ppn(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct.pmix_list_t, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
@@ -1698,7 +1698,7 @@ pmix_obj_run_destructors.exit191:                 ; preds = %.lr.ph.i200, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1) #0 {
+define internal noundef i32 @parse_nodes(ptr noundef readonly %0, ptr noundef %1) #0 {
   store ptr null, ptr %1, align 8
   %3 = icmp eq ptr %0, null
   br i1 %3, label %156, label %4
@@ -2120,7 +2120,7 @@ pmix_regex_extract_nodes.exit.thread:             ; preds = %40, %._crit_edge174
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef readonly %0, ptr noundef initializes((0, 8)) %1) #0 {
+define internal range(i32 -1366, 1) i32 @parse_procs(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %1, align 8

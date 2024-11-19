@@ -2024,7 +2024,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h32e2239cb3af4b83E.exit.i: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN8schemars17json_schema_impls10primitives54_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$f32$GT$9schema_id17hec4e374990cb34c3E.llvm.4012134325007315671"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #4 {
+define hidden void @"_ZN8schemars17json_schema_impls10primitives54_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$f32$GT$9schema_id17hec4e374990cb34c3E.llvm.4012134325007315671"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.26bb1f64b9c17c24fe4510c71f8079fc.24.llvm.4012134325007315671, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2034,7 +2034,7 @@ define hidden void @"_ZN8schemars17json_schema_impls10primitives54_$LT$impl$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN8schemars17json_schema_impls10primitives54_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$u32$GT$9schema_id17h50653d10c18ed56aE.llvm.4012134325007315671"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #4 {
+define hidden void @"_ZN8schemars17json_schema_impls10primitives54_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$u32$GT$9schema_id17h50653d10c18ed56aE.llvm.4012134325007315671"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.26bb1f64b9c17c24fe4510c71f8079fc.25.llvm.4012134325007315671, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

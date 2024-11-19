@@ -1204,7 +1204,7 @@ Vec_StrPush.exit30:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ioa_WriteAigerIntoMemory(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define ptr @Ioa_WriteAigerIntoMemory(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = tail call ptr @Ioa_WriteAigerIntoMemoryStr(ptr noundef %0)
   %4 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %4, null

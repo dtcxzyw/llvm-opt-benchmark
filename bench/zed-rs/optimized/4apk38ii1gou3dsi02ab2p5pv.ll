@@ -808,7 +808,7 @@ _ZN5alloc6string6String8push_str17hf8d74d98e42ef13fE.exit: ; preds = %3, %9
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h844692fd38ef5f58E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #4 {
+define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h844692fd38ef5f58E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17hcfd5a35408a0244aE(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.a2e902e78e4debc2a6f986888344800e.21.llvm.4731052299134177300)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
@@ -3180,7 +3180,7 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16snippet_provider15process_updates17h5c382055e24333a2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([360 x i8]) align 8 dereferenceable(360) initializes((0, 96), (304, 305)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #10 {
+define void @_ZN16snippet_provider15process_updates17h5c382055e24333a2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([360 x i8]) align 8 dereferenceable(360) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #10 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -3192,7 +3192,7 @@ define void @_ZN16snippet_provider15process_updates17h5c382055e24333a2E(ptr dead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16snippet_provider12initial_scan17h92a6efd8ea1f3cfcE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([576 x i8]) align 8 dereferenceable(576) initializes((32, 64), (112, 128), (168, 208), (212, 213)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noundef nonnull %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %4) unnamed_addr #10 {
+define hidden void @_ZN16snippet_provider12initial_scan17h92a6efd8ea1f3cfcE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([576 x i8]) align 8 dereferenceable(576) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noundef nonnull %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %4) unnamed_addr #10 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 112

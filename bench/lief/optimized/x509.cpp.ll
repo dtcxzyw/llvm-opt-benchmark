@@ -1583,7 +1583,7 @@ define noundef i32 @_ZNK4LIEF2PE4x5097versionEv(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE4x50913serial_numberEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.45") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE4x50913serial_numberEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.45") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 80
@@ -1664,7 +1664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare i32 @mbedtls_oid_get_numeric_string(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK4LIEF2PE4x50910valid_fromEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #9 align 2 {
+define void @_ZNK4LIEF2PE4x50910valid_fromEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 288
@@ -1695,7 +1695,7 @@ define void @_ZNK4LIEF2PE4x50910valid_fromEv(ptr dead_on_unwind noalias nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK4LIEF2PE4x5098valid_toEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #9 align 2 {
+define void @_ZNK4LIEF2PE4x5098valid_toEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 312
@@ -1988,7 +1988,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE4x5093rawEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.45") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE4x5093rawEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.45") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -3157,7 +3157,7 @@ _ZN4LIEF2PE16from_mbedtls_errEj.exit:             ; preds = %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE4x50913ext_key_usageB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.78") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE4x50913ext_key_usageB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.78") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca [256 x i8], align 16
@@ -3339,7 +3339,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE4x50920certificate_policiesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.78") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE4x50920certificate_policiesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.78") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca [256 x i8], align 16
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3820,7 +3820,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #11
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE4x5099signatureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.45") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE4x5099signatureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.45") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 576
@@ -3865,7 +3865,7 @@ define void @_ZNK4LIEF2PE4x5096acceptERNS_7VisitorE(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF2PE4x509D2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF2PE4x509D2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE4x509E, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

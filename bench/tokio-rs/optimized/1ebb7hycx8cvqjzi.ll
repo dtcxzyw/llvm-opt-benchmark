@@ -163,7 +163,7 @@ define noundef zeroext i1 @_ZN10tokio_util4sync18cancellation_token17Cancellatio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN10tokio_util4sync18cancellation_token17CancellationToken9cancelled17h78661be3c3c6b843E(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64, { { ptr, ptr }, { ptr, ptr }, { { { { i64 } } } }, {} }, i8, [7 x i8] } }) align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
+define void @_ZN10tokio_util4sync18cancellation_token17CancellationToken9cancelled17h78661be3c3c6b843E(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64, { { ptr, ptr }, { ptr, ptr }, { { { { i64 } } } }, {} }, i8, [7 x i8] } }) align 8 dereferenceable(72) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #2 {
   %3 = alloca { ptr, i64, { { ptr, ptr }, { ptr, ptr }, { { { { i64 } } } }, {} }, i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4

@@ -1079,7 +1079,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16DefNewGeneration18ref_processor_initEv(ptr noundef nonnull align 8 dereferenceable(744) initializes((448, 464)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16DefNewGeneration18ref_processor_initEv(ptr noundef nonnull align 8 dereferenceable(744) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %3, align 8
@@ -1651,7 +1651,7 @@ declare noundef i32 @_ZN8AgeTable26compute_tenuring_thresholdEm(ptr noundef nonn
 declare void @_ZN8AgeTable15print_age_tableEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN16DefNewGeneration7collectEb(ptr noundef nonnull align 8 dereferenceable(744) initializes((152, 160), (472, 473), (488, 516), (520, 528)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN16DefNewGeneration7collectEb(ptr noundef nonnull align 8 dereferenceable(744) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.ResetForwardedMarkWord, align 8
   %4 = alloca %class.TimeInstant, align 8
   %5 = alloca %class.TimeInstant, align 8
@@ -2183,7 +2183,7 @@ _ZN18GCTraceTimeWrapperILN8LogLevel4typeE1ELN6LogTag4typeE49ELS3_114ELS3_0ELS3_0
 declare void @_ZN8GCTracer15report_gc_startEN7GCCause5CauseERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr noundef nonnull align 8 dereferenceable(80), i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16DefNewGeneration34init_assuming_no_promotion_failureEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(744) initializes((472, 473), (488, 516), (520, 528)) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN16DefNewGeneration34init_assuming_no_promotion_failureEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(744) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 472
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 488
@@ -2292,7 +2292,7 @@ define hidden void @_ZN16DefNewGeneration23restore_preserved_marksEv(ptr noundef
 declare void @_ZN17PreservedMarksSet7restoreEP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16DefNewGeneration24handle_promotion_failureEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(744) initializes((472, 473), (520, 528)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16DefNewGeneration24handle_promotion_failureEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_120ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %60, label %4

@@ -7135,7 +7135,7 @@ _ZN13GrowableArrayIP4NodeED2Ev.exit126:           ; preds = %.loopexit.i208, %.l
 declare void @_ZN7Compile14record_failureEPKc(ptr noundef nonnull align 8 dereferenceable(2316), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9UnionFindC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9UnionFindC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4

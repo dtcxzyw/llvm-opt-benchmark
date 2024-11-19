@@ -10167,7 +10167,7 @@ _ZN2cv8ximgproc11DTFilterCPU16FilterIC_horPassINS_3VecIfLi4EEEEC2ERNS_3MatES7_S7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8ximgproc11DTFilterCPU19setSingleFilterCallEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(812) initializes((28, 29)) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv8ximgproc11DTFilterCPU19setSingleFilterCallEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(812) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 %3, ptr %4, align 4

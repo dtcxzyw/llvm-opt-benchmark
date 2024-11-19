@@ -2633,7 +2633,7 @@ define hidden ptr @ascend_get_text(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ascend_set_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #15 {
+define hidden void @ascend_set_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -2689,14 +2689,14 @@ define hidden void @ascend_set_column(i32 noundef %0, ptr nocapture noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ascend_set_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #15 {
+define hidden void @ascend_set_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ascend_set_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #15 {
+define hidden void @ascend_set_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -2710,7 +2710,7 @@ define hidden i32 @ascend_get_debug(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ascend_set_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #15 {
+define hidden void @ascend_set_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void

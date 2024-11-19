@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 
 ; Function Attrs: nounwind uwtable
-define void @Rwr_ManPreprocess(ptr noundef initializes((40, 48)) %0) local_unnamed_addr #0 {
+define void @Rwr_ManPreprocess(ptr noundef %0) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(444) ptr @calloc(i64 1, i64 444)
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %calloc, ptr %2, align 8

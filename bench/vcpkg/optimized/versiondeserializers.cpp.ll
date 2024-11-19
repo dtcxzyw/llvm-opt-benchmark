@@ -325,7 +325,7 @@ $_ZTIN5vcpkg4Json13IDeserializerINS_7VersionEEE = comdat any
 @switch.table._ZN5vcpkg25serialize_schemed_versionERNS_4Json6ObjectENS_13VersionSchemeERKNS_7VersionE.2 = private unnamed_addr constant [4 x i64] [i64 7, i64 14, i64 12, i64 14], align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg30visit_optional_schemed_versionERKNS_15LocalizedStringERNS_4Json6ReaderERKNS3_6ObjectE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional") align 8 initializes((0, 1), (8, 9)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg30visit_optional_schemed_versionERKNS_15LocalizedStringERNS_4Json6ReaderERKNS3_6ObjectE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca i32, align 4
   %7 = alloca %"struct.vcpkg::LocalizedString", align 8
@@ -1723,7 +1723,7 @@ define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg23
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg23msgAnExactVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.43") align 8 initializes((0, 1), (8, 9)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg23msgAnExactVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.43") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
   %7 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %8 = alloca ptr, align 8
@@ -1975,7 +1975,7 @@ define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg24
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg24msgARelaxedVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.43") align 8 initializes((0, 1), (8, 9)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg24msgARelaxedVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.43") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
   %7 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %8 = alloca ptr, align 8
@@ -2227,7 +2227,7 @@ define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg25
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg25msgASemanticVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.43") align 8 initializes((0, 1), (8, 9)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg25msgASemanticVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.43") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
   %7 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %8 = alloca ptr, align 8
@@ -2479,7 +2479,7 @@ define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg21
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg21msgADateVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.43") align 8 initializes((0, 1), (8, 9)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg21msgADateVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.43") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
   %7 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %8 = alloca ptr, align 8
@@ -2765,7 +2765,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg4Json13IDeserializerISt4pairINSt7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_140VersionOverrideVersionStringDeserializerIL_ZN5vcpkg23msgAnExactVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.46") align 8 initializes((0, 1), (8, 9)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_140VersionOverrideVersionStringDeserializerIL_ZN5vcpkg23msgAnExactVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.46") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.66", align 8
   %7 = alloca %"class.std::tuple.71", align 8
   %8 = alloca ptr, align 8
@@ -3078,7 +3078,7 @@ define internal void @_ZNK12_GLOBAL__N_140VersionOverrideVersionStringDeserializ
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_140VersionOverrideVersionStringDeserializerIL_ZN5vcpkg24msgARelaxedVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.46") align 8 initializes((0, 1), (8, 9)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_140VersionOverrideVersionStringDeserializerIL_ZN5vcpkg24msgARelaxedVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.46") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.66", align 8
   %7 = alloca %"class.std::tuple.71", align 8
   %8 = alloca ptr, align 8
@@ -3370,7 +3370,7 @@ define internal void @_ZNK12_GLOBAL__N_140VersionOverrideVersionStringDeserializ
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_140VersionOverrideVersionStringDeserializerIL_ZN5vcpkg25msgASemanticVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.46") align 8 initializes((0, 1), (8, 9)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_140VersionOverrideVersionStringDeserializerIL_ZN5vcpkg25msgASemanticVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.46") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.66", align 8
   %7 = alloca %"class.std::tuple.71", align 8
   %8 = alloca ptr, align 8
@@ -3662,7 +3662,7 @@ define internal void @_ZNK12_GLOBAL__N_140VersionOverrideVersionStringDeserializ
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_140VersionOverrideVersionStringDeserializerIL_ZN5vcpkg21msgADateVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.46") align 8 initializes((0, 1), (8, 9)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_140VersionOverrideVersionStringDeserializerIL_ZN5vcpkg21msgADateVersionStringEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.46") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.66", align 8
   %7 = alloca %"class.std::tuple.71", align 8
   %8 = alloca ptr, align 8
@@ -4004,7 +4004,7 @@ define linkonce_odr dso_local void @_ZNK5vcpkg4Json13IDeserializerINS_7VersionEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_130BaselineVersionTagDeserializer12visit_objectERN5vcpkg4Json6ReaderERKNS2_6ObjectE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.49") align 8 initializes((0, 1), (8, 9)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_130BaselineVersionTagDeserializer12visit_objectERN5vcpkg4Json6ReaderERKNS2_6ObjectE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.49") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5vcpkg7details15OptionalStorageINS_7VersionELb1EE7emplaceIJEEERS2_DpOT_.exit:
   %4 = alloca %"struct.vcpkg::LocalizedString", align 8
   %5 = alloca %"struct.vcpkg::LocalizedString", align 8
@@ -8353,7 +8353,7 @@ define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg20
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg20msgAVersionOfAnyTypeEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.43") align 8 initializes((0, 1), (8, 9)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK12_GLOBAL__N_125VersionStringDeserializerIL_ZN5vcpkg20msgAVersionOfAnyTypeEEE12visit_stringB5cxx11ERNS1_4Json6ReaderENS1_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Optional.43") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr %3, i64 %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
   %7 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %8 = alloca ptr, align 8

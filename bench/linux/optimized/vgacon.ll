@@ -367,7 +367,7 @@ define internal ptr @vgacon_startup() #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vgacon_init(ptr noundef initializes((432, 440), (532, 536)) %0, i32 noundef %1) #1 align 16 {
+define internal void @vgacon_init(ptr noundef %0, i32 noundef %1) #1 align 16 {
   %3 = load i1, ptr @vga_can_do_color, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 680
   %5 = load i16, ptr %4, align 8

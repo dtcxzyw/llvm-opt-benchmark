@@ -45,7 +45,7 @@ define double @dist_2(ptr nocapture noundef readonly %0, ptr nocapture noundef r
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @subpt(ptr nocapture noundef writeonly initializes((0, 16)) %0, double %1, double %2, double %3, double %4) local_unnamed_addr #3 {
+define void @subpt(ptr nocapture noundef writeonly %0, double %1, double %2, double %3, double %4) local_unnamed_addr #3 {
   %6 = fsub double %1, %3
   store double %6, ptr %0, align 8
   %7 = fsub double %2, %4
@@ -55,7 +55,7 @@ define void @subpt(ptr nocapture noundef writeonly initializes((0, 16)) %0, doub
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @addpt(ptr nocapture noundef writeonly initializes((0, 16)) %0, double %1, double %2, double %3, double %4) local_unnamed_addr #3 {
+define void @addpt(ptr nocapture noundef writeonly %0, double %1, double %2, double %3, double %4) local_unnamed_addr #3 {
   %6 = fadd double %1, %3
   store double %6, ptr %0, align 8
   %7 = fadd double %2, %4

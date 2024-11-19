@@ -160,7 +160,7 @@ return:                                           ; preds = %for.body24.i, %for.
 declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @cploop_opt(ptr nocapture readnone %L, ptr nocapture readnone %dummy, ptr nocapture noundef initializes((8, 20)) %ud) #0 {
+define internal noalias noundef ptr @cploop_opt(ptr nocapture readnone %L, ptr nocapture readnone %dummy, ptr nocapture noundef %ud) #0 {
 entry:
   %phi.i = alloca [64 x i16], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %phi.i)

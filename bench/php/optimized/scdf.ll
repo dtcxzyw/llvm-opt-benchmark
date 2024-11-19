@@ -130,7 +130,7 @@ scdf_edge.exit:                                   ; preds = %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @scdf_init(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 16), (56, 68)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden void @scdf_init(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   store ptr %2, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %3, ptr %5, align 8

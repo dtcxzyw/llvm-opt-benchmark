@@ -6879,7 +6879,7 @@ define internal noundef signext i16 @callback_init_Cell_Sel_Param_2_FREQUENCY_DI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef signext i16 @callback_UTRAN_TDD_map_NrOfFrequencies(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i32 %4, i32 %5, ptr nocapture readnone %6) #3 {
+define internal noundef signext i16 @callback_UTRAN_TDD_map_NrOfFrequencies(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3, i32 %4, i32 %5, ptr nocapture readnone %6) #3 {
   %8 = load i8, ptr %2, align 1
   %9 = icmp ult i8 %8, 32
   br i1 %9, label %10, label %14

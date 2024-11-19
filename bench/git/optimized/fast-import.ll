@@ -7198,7 +7198,7 @@ if.end4:                                          ; preds = %if.then.i9, %stream
 declare i64 @strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_data(ptr noundef initializes((8, 16)) %sb, i64 noundef %limit, ptr nocapture noundef writeonly %len_res) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_data(ptr noundef %sb, i64 noundef %limit, ptr nocapture noundef writeonly %len_res) unnamed_addr #0 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 0, ptr %len2.i, align 8
@@ -9695,7 +9695,7 @@ copy_array.exit:                                  ; preds = %new_tree_content.ex
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @parse_mapped_oid_hex(ptr noundef %hex, ptr noundef nonnull initializes((0, 32)) %oid, ptr noundef nonnull %end) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @parse_mapped_oid_hex(ptr noundef %hex, ptr noundef nonnull %oid, ptr noundef nonnull %end) unnamed_addr #0 {
 entry:
   %byval-temp.i = alloca %struct.object_id, align 8
   %byval-temp6 = alloca %struct.object_id, align 8

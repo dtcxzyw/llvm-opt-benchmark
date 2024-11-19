@@ -134,7 +134,7 @@ define internal noundef i32 @ehci_pci_resume(ptr noundef %0, i32 %1) #2 align 16
 declare dso_local i32 @__pci_register_driver(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ehci_pci_setup(ptr noundef initializes((792, 800)) %0) #2 align 16 {
+define internal i32 @ehci_pci_setup(ptr noundef %0) #2 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1

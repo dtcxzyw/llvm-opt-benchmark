@@ -65,7 +65,7 @@ $_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernel
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o6Line3D11toCartesianEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.Eigen::Matrix") align 16 initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o6Line3D11toCartesianEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.Eigen::Matrix") align 16 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.3 = alloca [4 x double], align 16
   %3 = alloca %"class.Eigen::Matrix.29", align 8
   %4 = alloca %"class.Eigen::LDLT", align 8
@@ -530,7 +530,7 @@ _ZN5Eigen5BlockINS_6MatrixIdLi6ELi6ELi0ELi6ELi6EEELi3ELi3ELb0EEaSINS0_IKNS1_IdLi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3g2o8internal22transformCartesianLineERKN5Eigen9TransformIdLi3ELi1ELi0EEERKNS1_6MatrixIdLi6ELi1ELi0ELi6ELi1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix") align 16 initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o8internal22transformCartesianLineERKN5Eigen9TransformIdLi3ELi1ELi0EEERKNS1_6MatrixIdLi6ELi1ELi0ELi6ELi1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix") align 16 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(128) %1, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i = alloca [4 x double], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.0.i.i)
   %4 = load <2 x double>, ptr %2, align 16, !noalias !18
@@ -651,7 +651,7 @@ _ZN3g2o8internal22normalizeCartesianLineERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3g2o8internal22normalizeCartesianLineERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix") align 16 initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o8internal22normalizeCartesianLineERKN5Eigen6MatrixIdLi6ELi1ELi0ELi6ELi1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix") align 16 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = load <2 x double>, ptr %1, align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load double, ptr %4, align 16

@@ -10990,7 +10990,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes21ScopeRegisterAnalysisC2EPNS_8FunctionERNS_17RegisterAllocatorE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 28)) %this, ptr noundef %F, ptr noundef nonnull align 8 dereferenceable(1952) %RA) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes21ScopeRegisterAnalysisC2EPNS_8FunctionERNS_17RegisterAllocatorE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %F, ptr noundef nonnull align 8 dereferenceable(1952) %RA) unnamed_addr #0 align 2 {
 entry:
   %scopeCreationInsts = alloca %"class.llvh::SmallVector.98", align 8
   store ptr %RA, ptr %this, align 8

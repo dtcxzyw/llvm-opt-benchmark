@@ -137,7 +137,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @node_get_allowed_targets(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @node_get_allowed_targets(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   tail call void @__rcu_read_lock() #11
   %3 = getelementptr inbounds i8, ptr %0, i64 13992
   %4 = load volatile ptr, ptr %3, align 8

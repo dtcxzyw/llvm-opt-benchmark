@@ -67,7 +67,7 @@ define dso_local { ptr, i64 } @_ZN5clang11OMPChildren11getChildrenEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef returned writeonly initializes((0, 9)) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEE(ptr noundef returned writeonly %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = trunc i64 %2 to i32
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -88,7 +88,7 @@ _ZN5clang11OMPChildren10setClausesEN4llvm8ArrayRefIPNS_9OMPClauseEEE.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef ptr @_ZN5clang11OMPChildren11CreateEmptyEPvjbj(ptr noundef returned writeonly initializes((0, 9)) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN5clang11OMPChildren11CreateEmptyEPvjbj(ptr noundef returned writeonly %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = zext i1 %2 to i8
   store i32 %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -102,7 +102,7 @@ define dso_local noundef ptr @_ZN5clang11OMPChildren11CreateEmptyEPvjbj(ptr noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj(ptr noundef returned writeonly initializes((0, 9)) %0, ptr nocapture readonly %1, i64 %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef ptr @_ZN5clang11OMPChildren6CreateEPvN4llvm8ArrayRefIPNS_9OMPClauseEEEPNS_4StmtEj(ptr noundef returned writeonly %0, ptr nocapture readonly %1, i64 %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = trunc i64 %2 to i32
   %7 = icmp ne ptr %3, null
   %8 = zext i1 %7 to i8

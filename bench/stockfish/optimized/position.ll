@@ -559,7 +559,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN9Stockfish3UCI6squareB5cxx11ENS_6SquareE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(865) ptr @_ZN9Stockfish8Position3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPNS_9StateInfoE(ptr noundef nonnull returned align 8 dereferenceable(865) initializes((0, 872)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr noundef initializes((0, 11264)) %3) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(865) ptr @_ZN9Stockfish8Position3setERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbPNS_9StateInfoE(ptr noundef nonnull returned align 8 dereferenceable(865) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -3034,7 +3034,7 @@ default.unreachable:                              ; preds = %43, %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %1, ptr noundef nonnull align 64 dereferenceable(11264) initializes((0, 40), (56, 64)) %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN9Stockfish8Position7do_moveENS_4MoveERNS_9StateInfoEb(ptr noundef nonnull align 8 dereferenceable(865) %0, i16 %1, ptr noundef nonnull align 64 dereferenceable(11264) %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -4166,7 +4166,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish8Position11do_castlingILb0EEEvN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9Stockfish8Position12do_null_moveERNS_9StateInfoERNS_18TranspositionTableE(ptr nocapture noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull align 64 dereferenceable(11264) initializes((0, 192)) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN9Stockfish8Position12do_null_moveERNS_9StateInfoERNS_18TranspositionTableE(ptr nocapture noundef nonnull align 8 dereferenceable(865) %0, ptr noundef nonnull align 64 dereferenceable(11264) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 848
   %5 = load ptr, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(192) %1, ptr noundef nonnull align 64 dereferenceable(192) %5, i64 192, i1 false)

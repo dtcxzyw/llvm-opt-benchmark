@@ -364,7 +364,7 @@ define internal void @finish_output_tga(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @calc_buffer_dimensions_tga(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((80, 84)) %1) #1 {
+define internal void @calc_buffer_dimensions_tga(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 148

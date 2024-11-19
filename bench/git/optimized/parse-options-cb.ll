@@ -705,7 +705,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @recreate_opt(ptr noundef initializes((8, 16)) %sb, ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @recreate_opt(ptr noundef %sb, ptr nocapture noundef readonly %opt, ptr noundef %arg, i32 noundef %unset) unnamed_addr #0 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %sb, i64 8
   store i64 0, ptr %len2.i, align 8

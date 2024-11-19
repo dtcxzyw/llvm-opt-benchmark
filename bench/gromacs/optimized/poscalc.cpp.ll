@@ -800,7 +800,7 @@ _ZN3gmx12_GLOBAL__N_120requiredTopologyInfoE11e_poscalc_ti.exit: ; preds = %7, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx29PositionCalculationCollection4ImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 25), (32, 80)) %0) unnamed_addr #12 align 2 {
+define void @_ZN3gmx29PositionCalculationCollection4ImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 0, i64 25, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)

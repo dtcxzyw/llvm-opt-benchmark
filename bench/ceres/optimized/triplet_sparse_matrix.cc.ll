@@ -105,7 +105,7 @@ $_ZNSt19normal_distributionIdEclISt23mersenne_twister_engineImLm32ELm624ELm397EL
 @_ZN5ceres8internal19TripletSparseMatrixC1ERKS1_ = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN5ceres8internal19TripletSparseMatrixC2ERKS1_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal19TripletSparseMatrixE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
@@ -198,7 +198,7 @@ _ZN5ceres8internal19TripletSparseMatrixD2Ev.exit: ; preds = %_ZNSt10unique_ptrIA
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2Eiii(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2Eiii(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %6 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %7 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
@@ -525,7 +525,7 @@ _ZNSt10unique_ptrIA_dSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2EiiRKSt6vectorIiSaIiEES6_RKS2_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2EiiRKSt6vectorIiSaIiEES6_RKS2_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %8 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %9 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
@@ -930,7 +930,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEEPdET0_T_SA_S9_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal19TripletSparseMatrixE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1379,7 +1379,7 @@ _ZNSt10unique_ptrIA_iSt14default_deleteIS0_EED2Ev.exit33: ; preds = %_ZNSt10uniq
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5ceres8internal19TripletSparseMatrix7SetZeroEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((20, 24)) %0) unnamed_addr #10 align 2 {
+define hidden void @_ZN5ceres8internal19TripletSparseMatrix7SetZeroEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %.not6.i.i.i = icmp eq i32 %3, 0

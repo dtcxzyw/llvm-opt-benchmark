@@ -475,7 +475,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN5ceres8internal30IterativeSchurComplementSolverD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal30IterativeSchurComplementSolverD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5ceres8internal30IterativeSchurComplementSolverC2ENS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(256) initializes((8, 48), (56, 60), (64, 72)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal30IterativeSchurComplementSolverC2ENS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -515,7 +515,7 @@ define hidden void @_ZN5ceres8internal30IterativeSchurComplementSolverC2ENS0_12L
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal30IterativeSchurComplementSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal30IterativeSchurComplementSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #25
@@ -575,7 +575,7 @@ _ZN5ceres8internal17TypedLinearSolverINS0_17BlockSparseMatrixEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal30IterativeSchurComplementSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN5ceres8internal30IterativeSchurComplementSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN5ceres8internal30IterativeSchurComplementSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void

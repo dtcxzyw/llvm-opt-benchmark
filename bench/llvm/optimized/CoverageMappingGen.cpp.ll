@@ -1033,7 +1033,7 @@ define dso_local void @_ZN5clang18CoverageSourceInfo16updateNextTokLocENS_14Sour
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGenC2ERNS0_13CodeGenModuleERNS_18CoverageSourceInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #8 align 2 {
+define dso_local void @_ZN5clang7CodeGen24CoverageMappingModuleGenC2ERNS0_13CodeGenModuleERNS_18CoverageSourceInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, ptr noundef nonnull align 8 dereferenceable(60) %2) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -18234,7 +18234,7 @@ _ZN5clang7CodeGen4MCDC5State8DecisionD2Ev.exit:   ; preds = %.lr.ph, %.lr.ph, %5
 declare noundef zeroext i1 @_ZNK5clang4Expr26EvaluateAsBooleanConditionERbRKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(23096), i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder28adjustForOutOfOrderTraversalEN5clang14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2376) initializes((2216, 2220)) %0, i32 %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder28adjustForOutOfOrderTraversalEN5clang14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2376) %0, i32 %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2216
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1976

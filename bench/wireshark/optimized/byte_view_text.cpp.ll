@@ -1237,7 +1237,7 @@ _ZN17QArrayDataPointerIcED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 declare void @_ZN19QAbstractScrollAreaD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12ByteViewTextD2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8), (16, 24), (40, 48)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12ByteViewTextD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12ByteViewText, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV12ByteViewText, i64 496), ptr %2, align 8
@@ -1382,7 +1382,7 @@ declare void @_ZN7QAction10setCheckedEb(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN7QAction7toggledEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define void @_ZN12ByteViewText18toggleHoverAllowedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) initializes((232, 233)) %0, i1 noundef zeroext %1) #10 align 2 {
+define void @_ZN12ByteViewText18toggleHoverAllowedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) %0, i1 noundef zeroext %1) #10 align 2 {
   %3 = xor i1 %1, true
   %4 = getelementptr inbounds i8, ptr %0, i64 232
   %5 = zext i1 %3 to i8
@@ -1517,7 +1517,7 @@ define noundef i64 @_ZNK12ByteViewText15minimumSizeHintEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ByteViewText12markProtocolEii(ptr noundef nonnull align 8 dereferenceable(328) initializes((168, 176)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN12ByteViewText12markProtocolEii(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 172
@@ -1530,7 +1530,7 @@ define void @_ZN12ByteViewText12markProtocolEii(ptr noundef nonnull align 8 dere
 declare void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ByteViewText9markFieldEiib(ptr noundef nonnull align 8 dereferenceable(328) initializes((164, 168), (176, 184)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define void @_ZN12ByteViewText9markFieldEiib(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 180
@@ -1564,7 +1564,7 @@ define void @_ZN12ByteViewText12scrollToByteEi(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ByteViewText12markAppendixEii(ptr noundef nonnull align 8 dereferenceable(328) initializes((184, 192)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN12ByteViewText12markAppendixEii(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 188
@@ -1575,7 +1575,7 @@ define void @_ZN12ByteViewText12markAppendixEii(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ByteViewText11unmarkFieldEv(ptr noundef nonnull align 8 dereferenceable(328) initializes((164, 192)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN12ByteViewText11unmarkFieldEv(ptr noundef nonnull align 8 dereferenceable(328) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -1823,7 +1823,7 @@ define void @_ZN12ByteViewText16updateScrollbarsEv(ptr noundef nonnull align 8 d
 declare void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ByteViewText22updateByteViewSettingsEv(ptr noundef nonnull align 8 dereferenceable(328) initializes((196, 200)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN12ByteViewText22updateByteViewSettingsEv(ptr noundef nonnull align 8 dereferenceable(328) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @recent, i64 56), align 8
   %3 = icmp eq i32 %2, 1
   %4 = select i1 %3, i32 8, i32 16
@@ -4684,7 +4684,7 @@ _ZN12ByteViewText17byteOffsetAtPixelE6QPoint.exit: ; preds = %.critedge2, %_ZNK5
 declare void @_ZN12ByteViewText11byteHoveredEi(ptr noundef nonnull align 8 dereferenceable(328), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ByteViewText10leaveEventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(328) initializes((160, 164)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN12ByteViewText10leaveEventEP6QEvent(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 -1, ptr %3, align 8
   tail call void @_ZN12ByteViewText11byteHoveredEi(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef -1)

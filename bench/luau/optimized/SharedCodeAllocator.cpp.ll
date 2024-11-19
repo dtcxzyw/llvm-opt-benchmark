@@ -71,7 +71,7 @@ $_ZNKSt10_HashtableISt5arrayIhLm16EESt4pairIKS1_St10unique_ptrIN4Luau7CodeGen12N
 @_ZN4Luau7CodeGen19SharedCodeAllocatorD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4Luau7CodeGen19SharedCodeAllocatorD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau7CodeGen12NativeModuleC2EPNS0_19SharedCodeAllocatorERKSt8optionalISt5arrayIhLm16EEEPKhSt6vectorISt10unique_ptrIA_jNS0_26NativeProtoExecDataDeleterEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 33), (40, 72)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(17) %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen12NativeModuleC2EPNS0_19SharedCodeAllocatorERKSt8optionalISt5arrayIhLm16EEEPKhSt6vectorISt10unique_ptrIA_jNS0_26NativeProtoExecDataDeleterEESaISG_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(17) %2, ptr noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i64 0, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
@@ -458,7 +458,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4Luau7Code
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau7CodeGen15NativeModuleRefC2EPKNS0_12NativeModuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4Luau7CodeGen15NativeModuleRefC2EPKNS0_12NativeModuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   store ptr %1, ptr %0, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
@@ -472,7 +472,7 @@ define dso_local void @_ZN4Luau7CodeGen15NativeModuleRefC2EPKNS0_12NativeModuleE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau7CodeGen15NativeModuleRefC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4Luau7CodeGen15NativeModuleRefC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %.not = icmp eq ptr %3, null
@@ -487,7 +487,7 @@ define dso_local void @_ZN4Luau7CodeGen15NativeModuleRefC2ERKS1_(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau7CodeGen15NativeModuleRefC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen15NativeModuleRefC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8
   store ptr %3, ptr %0, align 8
@@ -609,7 +609,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4Luau7Code
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau7CodeGen19SharedCodeAllocatorC2EPNS0_13CodeAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #11 align 2 {
+define dso_local void @_ZN4Luau7CodeGen19SharedCodeAllocatorC2EPNS0_13CodeAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) unnamed_addr #11 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 88

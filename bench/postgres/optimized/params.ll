@@ -36,7 +36,7 @@ define dso_local noundef ptr @makeParamList(i32 noundef %0) local_unnamed_addr #
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @paramlist_parser_setup(ptr nocapture noundef writeonly initializes((200, 208), (216, 224)) %0, ptr noundef %1) #2 {
+define internal void @paramlist_parser_setup(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr @paramlist_param_ref, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 216

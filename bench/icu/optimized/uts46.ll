@@ -318,7 +318,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #1
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_755UTS46C2EjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this, i32 noundef %opt, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_755UTS46C2EjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %opt, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_755UTS46E, i64 16), ptr %this, align 8
   %call = invoke noundef ptr @_ZN6icu_7511Normalizer211getInstanceEPKcS2_19UNormalization2ModeR10UErrorCode(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)

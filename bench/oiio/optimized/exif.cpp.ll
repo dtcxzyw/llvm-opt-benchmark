@@ -1050,7 +1050,7 @@ eh.resume:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK18OpenImageIO_v2_6_03pvt6TagMap7mapnameEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #7 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_03pvt6TagMap7mapnameEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_mapname = getelementptr inbounds i8, ptr %0, i64 48
@@ -1524,7 +1524,7 @@ _ZN18OpenImageIO_v2_6_014tiff_data_sizeE12TIFFDataType.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18OpenImageIO_v2_6_025tiff_datatype_to_typedescE12TIFFDataTypem(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::TypeDesc") align 4 initializes((0, 8)) %agg.result, i32 noundef %tifftype, i64 noundef %tiffcount) local_unnamed_addr #11 {
+define void @_ZN18OpenImageIO_v2_6_025tiff_datatype_to_typedescE12TIFFDataTypem(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::TypeDesc") align 4 %agg.result, i32 noundef %tifftype, i64 noundef %tiffcount) local_unnamed_addr #11 {
 entry:
   %cmp = icmp eq i64 %tiffcount, 1
   %spec.store.select = select i1 %cmp, i64 0, i64 %tiffcount

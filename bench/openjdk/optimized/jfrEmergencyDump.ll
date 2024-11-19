@@ -402,7 +402,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18RepositoryIteratorC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN18RepositoryIteratorC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = tail call noundef ptr @_ZN2os7opendirEPKc(ptr noundef %1) #17
   %4 = icmp eq ptr %3, null

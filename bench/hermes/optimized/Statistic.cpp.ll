@@ -1069,7 +1069,7 @@ if.end:                                           ; preds = %_ZNSt10unique_ptrIN
 declare void @_ZN4llvh20CreateInfoOutputFileEv(ptr sret(%"class.std::unique_ptr.22") align 8) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh13GetStatisticsEv(ptr noalias sret(%"class.std::vector.30") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #0 {
+define hidden void @_ZN4llvh13GetStatisticsEv(ptr noalias sret(%"class.std::vector.30") align 8 %agg.result) local_unnamed_addr #0 {
 entry:
   %ref.tmp8 = alloca ptr, align 8
   %ref.tmp10 = alloca i32, align 4

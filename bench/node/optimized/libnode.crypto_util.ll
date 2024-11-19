@@ -1382,7 +1382,7 @@ _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm128EED2Ev.exit: ; preds = %
 declare i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4node6crypto10ByteSourceC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4node6crypto10ByteSourceC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #9 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8
@@ -1658,7 +1658,7 @@ _ZNO4node6crypto10ByteSource7Builder7releaseESt8optionalImE.exit: ; preds = %do.
 declare i64 @BIO_ctrl(ptr noundef, i32 noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto10ByteSource17FromEncodedStringEPNS_11EnvironmentEN2v85LocalINS4_6StringEEENS_8encodingE(ptr noalias nocapture writeonly sret(%"class.node::crypto::ByteSource") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef readonly %env, ptr %key.coerce, i32 noundef %enc) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node6crypto10ByteSource17FromEncodedStringEPNS_11EnvironmentEN2v85LocalINS4_6StringEEENS_8encodingE(ptr noalias nocapture writeonly sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr nocapture noundef readonly %env, ptr %key.coerce, i32 noundef %enc) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
@@ -2160,7 +2160,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare noundef zeroext i1 @_ZN4node6Buffer11HasInstanceEN2v85LocalINS1_5ValueEEE(ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node6crypto10ByteSource7ForeignEPKvm(ptr noalias nocapture writeonly sret(%"class.node::crypto::ByteSource") align 8 initializes((0, 24)) %agg.result, ptr noundef %data, i64 noundef %size) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN4node6crypto10ByteSource7ForeignEPKvm(ptr noalias nocapture writeonly sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef %data, i64 noundef %size) local_unnamed_addr #10 align 2 {
 entry:
   store ptr %data, ptr %agg.result, align 8
   %allocated_data_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2177,7 +2177,7 @@ declare noundef ptr @_ZNK4node6crypto13KeyObjectData15GetSymmetricKeyEv(ptr noun
 declare noundef i64 @_ZNK4node6crypto13KeyObjectData19GetSymmetricKeySizeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr noalias nocapture writeonly sret(%"class.node::crypto::ByteSource") align 8 initializes((0, 24)) %agg.result, ptr noundef %data, i64 noundef %size) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN4node6crypto10ByteSource9AllocatedEPvm(ptr noalias nocapture writeonly sret(%"class.node::crypto::ByteSource") align 8 %agg.result, ptr noundef %data, i64 noundef %size) local_unnamed_addr #10 align 2 {
 entry:
   store ptr %data, ptr %agg.result, align 8
   %allocated_data_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2540,7 +2540,7 @@ declare ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef n
 declare void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto14LoadEngineByIdEPKcPNS0_16CryptoErrorStoreE(ptr noalias nocapture writeonly sret(%"struct.node::crypto::EnginePointer") align 8 initializes((0, 9)) %agg.result, ptr noundef %id, ptr noundef %errors) local_unnamed_addr #4 {
+define dso_local void @_ZN4node6crypto14LoadEngineByIdEPKcPNS0_16CryptoErrorStoreE(ptr noalias nocapture writeonly sret(%"struct.node::crypto::EnginePointer") align 8 %agg.result, ptr noundef %id, ptr noundef %errors) local_unnamed_addr #4 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %id.addr = alloca ptr, align 8

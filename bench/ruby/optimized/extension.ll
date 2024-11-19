@@ -1173,7 +1173,7 @@ declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @string_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull initializes((24, 28)) %3) unnamed_addr #0 {
+define internal fastcc void @string_options(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.build_options_data, align 8
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -1279,7 +1279,7 @@ declare void @pm_options_free(ptr noundef) local_unnamed_addr #2
 declare i32 @rb_scan_args(i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @extract_options(ptr noundef nonnull initializes((24, 28)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @extract_options(ptr noundef nonnull %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.build_options_data, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 24

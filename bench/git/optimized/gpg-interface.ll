@@ -179,7 +179,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @check_signature(ptr noundef initializes((48, 49), (88, 92)) %sigc, ptr noundef %signature, i64 noundef %slen) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @check_signature(ptr noundef %sigc, ptr noundef %signature, i64 noundef %slen) local_unnamed_addr #2 {
 entry:
   %ident_len.i = alloca i64, align 8
   %ident.i = alloca %struct.ident_split, align 8

@@ -804,7 +804,7 @@ define internal noundef i32 @H5P__ocpy_merge_comm_dt_list_enc(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 8)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__ocpy_merge_comm_dt_list_dec(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
   store ptr null, ptr %1, align 8
   %3 = load ptr, ptr %0, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #7

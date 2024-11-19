@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @blake2s_IV = internal unnamed_addr constant [8 x i32] [i32 1779033703, i32 -1150833019, i32 1013904242, i32 -1521486534, i32 1359893119, i32 -1694144372, i32 528734635, i32 1541459225], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_blake2s_param_init(ptr nocapture noundef writeonly initializes((0, 32)) %P) local_unnamed_addr #0 {
+define void @ossl_blake2s_param_init(ptr nocapture noundef writeonly %P) local_unnamed_addr #0 {
 entry:
   store i8 32, ptr %P, align 1
   %key_length = getelementptr inbounds i8, ptr %P, i64 1
@@ -24,14 +24,14 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_blake2s_param_set_digest_length(ptr nocapture noundef writeonly initializes((0, 1)) %P, i8 noundef zeroext %outlen) local_unnamed_addr #0 {
+define void @ossl_blake2s_param_set_digest_length(ptr nocapture noundef writeonly %P, i8 noundef zeroext %outlen) local_unnamed_addr #0 {
 entry:
   store i8 %outlen, ptr %P, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_blake2s_param_set_key_length(ptr nocapture noundef writeonly initializes((1, 2)) %P, i8 noundef zeroext %keylen) local_unnamed_addr #0 {
+define void @ossl_blake2s_param_set_key_length(ptr nocapture noundef writeonly %P, i8 noundef zeroext %keylen) local_unnamed_addr #0 {
 entry:
   %key_length = getelementptr inbounds i8, ptr %P, i64 1
   store i8 %keylen, ptr %key_length, align 1
@@ -64,7 +64,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @ossl_blake2s_init(ptr nocapture noundef initializes((0, 128)) %c, ptr nocapture noundef readonly %P) local_unnamed_addr #4 {
+define noundef i32 @ossl_blake2s_init(ptr nocapture noundef %c, ptr nocapture noundef readonly %P) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr i8, ptr %c, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
@@ -93,7 +93,7 @@ blake2s_init_param.exit:                          ; preds = %for.body.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_blake2s_init_key(ptr nocapture noundef initializes((0, 128)) %c, ptr nocapture noundef readonly %P, ptr nocapture noundef readonly %key) local_unnamed_addr #5 {
+define noundef i32 @ossl_blake2s_init_key(ptr nocapture noundef %c, ptr nocapture noundef readonly %P, ptr nocapture noundef readonly %key) local_unnamed_addr #5 {
 entry:
   %block = alloca [64 x i8], align 16
   %0 = getelementptr i8, ptr %c, i64 32
@@ -1565,7 +1565,7 @@ do.end3593:                                       ; preds = %for.end3591
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_blake2s_final(ptr noundef %md, ptr noundef initializes((40, 44)) %c) local_unnamed_addr #5 {
+define noundef i32 @ossl_blake2s_final(ptr noundef %md, ptr noundef %c) local_unnamed_addr #5 {
 entry:
   %outbuffer = alloca [32 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %outbuffer, i8 0, i64 32, i1 false)

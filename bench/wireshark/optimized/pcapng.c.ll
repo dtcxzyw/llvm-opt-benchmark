@@ -1191,7 +1191,7 @@ declare ptr @g_array_sized_new(i32 noundef, i32 noundef, i32 noundef, i32 nounde
 declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pcapng_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef initializes((0, 8)) %5) #0 {
+define internal range(i32 0, 2) i32 @pcapng_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) #0 {
   %7 = alloca %struct.section_info_t, align 8
   %8 = alloca %struct.wtapng_block_s, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1354,7 +1354,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pcapng_read_block(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull initializes((8, 16)) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_block(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca %struct.pcapng_block_header_s, align 4
   %10 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2080,7 +2080,7 @@ define internal fastcc range(i32 0, 2) i32 @pcapng_read_if_descr_block(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef nonnull initializes((8, 16)) %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pcapng_read_packet_block(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = alloca %struct.pcapng_enhanced_packet_block_s, align 4
   %9 = alloca %struct.pcapng_packet_block_s, align 4
   %10 = alloca i32, align 4
@@ -4436,7 +4436,7 @@ define internal range(i32 -8, 1) i32 @pcapng_dump_can_write_encap(i32 noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pcapng_dump_open(ptr noundef initializes((56, 80)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @pcapng_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca %struct.pcapng_option_header, align 2
   %5 = alloca %struct.write_options_t, align 8
   %6 = alloca %struct.compute_options_size_t, align 8

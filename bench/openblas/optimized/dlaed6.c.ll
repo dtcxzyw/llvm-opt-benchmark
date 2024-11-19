@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [7 x i8] c"SafMin\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) local_unnamed_addr #0 {
+define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca [3 x double], align 16
   %10 = alloca [3 x double], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #6

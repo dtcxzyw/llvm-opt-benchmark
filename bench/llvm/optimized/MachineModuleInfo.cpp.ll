@@ -86,7 +86,7 @@ define dso_local void @_ZN4llvm21MachineModuleInfoImplD0Ev(ptr noundef nonnull a
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm17MachineModuleInfo10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2512) initializes((2456, 2464), (2488, 2492)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm17MachineModuleInfo10initializeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2512) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2456
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2488
@@ -118,7 +118,7 @@ define dso_local void @_ZN4llvm17MachineModuleInfo8finalizeEv(ptr noundef nonnul
 declare void @_ZN4llvm9MCContext5resetEv(ptr noundef nonnull align 8 dereferenceable(2432)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17MachineModuleInfoC2EOS0_(ptr noundef nonnull align 8 dereferenceable(2512) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(2512) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17MachineModuleInfoC2EOS0_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef nonnull align 8 dereferenceable(2512) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
@@ -190,7 +190,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare void @_ZN4llvm9MCContextC1ERKNS_6TripleEPKNS_9MCAsmInfoEPKNS_14MCRegisterInfoEPKNS_15MCSubtargetInfoEPKNS_9SourceMgrEPKNS_15MCTargetOptionsEbNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(2432), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef byval(%"class.llvm::StringRef") align 8) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17MachineModuleInfoC2EPKNS_17LLVMTargetMachineE(ptr noundef nonnull align 8 dereferenceable(2512) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17MachineModuleInfoC2EPKNS_17LLVMTargetMachineE(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -225,7 +225,7 @@ define dso_local void @_ZN4llvm17MachineModuleInfoC2EPKNS_17LLVMTargetMachineE(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17MachineModuleInfoC2EPKNS_17LLVMTargetMachineEPNS_9MCContextE(ptr noundef nonnull align 8 dereferenceable(2512) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm17MachineModuleInfoC2EPKNS_17LLVMTargetMachineEPNS_9MCContextE(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::StringRef", align 8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -700,7 +700,7 @@ define dso_local noalias noundef nonnull ptr @_ZN4llvm29createFreeMachineFunctio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28MachineModuleInfoWrapperPassC2EPKNS_17LLVMTargetMachineE(ptr noundef nonnull align 8 dereferenceable(2544) initializes((0, 28)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm28MachineModuleInfoWrapperPassC2EPKNS_17LLVMTargetMachineE(ptr noundef nonnull align 8 dereferenceable(2544) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   %3 = alloca %class.anon.387, align 8
   %4 = alloca %"class.std::reference_wrapper", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -770,7 +770,7 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28MachineModuleInfoWrapperPassC2EPKNS_17LLVMTargetMachineEPNS_9MCContextE(ptr noundef nonnull align 8 dereferenceable(2544) initializes((0, 28)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm28MachineModuleInfoWrapperPassC2EPKNS_17LLVMTargetMachineEPNS_9MCContextE(ptr noundef nonnull align 8 dereferenceable(2544) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %class.anon.387, align 8
   %5 = alloca %"class.std::reference_wrapper", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -832,7 +832,7 @@ define internal noundef nonnull ptr @_ZL46initializeMachineModuleInfoWrapperPass
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS_6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(2544) initializes((2480, 2496), (2520, 2524)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm28MachineModuleInfoWrapperPass16doInitializationERNS_6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(2544) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #1 align 2 {
 _ZNSt8functionIFvRKN4llvm12SMDiagnosticEbRKNS0_9SourceMgrERSt6vectorIPKNS0_6MDNodeESaISA_EEEEC2ERKSF_.exit.i.i:
   %2 = alloca %"class.std::function", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2488

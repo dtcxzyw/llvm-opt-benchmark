@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [53 x i8] c"    reg: base=%p, bound=%p, ref_count=%d, flags=0x%x\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_rcache_base_vma_tree_init(ptr noundef initializes((16, 24)) %0) local_unnamed_addr #0 {
+define i32 @mca_rcache_base_vma_tree_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_interval_tree_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

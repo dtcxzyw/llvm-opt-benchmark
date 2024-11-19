@@ -1506,7 +1506,7 @@ define dso_local zeroext i1 @variable_is_guc_list_quote(ptr noundef %0) local_un
 declare i32 @pg_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef signext %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @SplitGUCList(ptr noundef %0, i8 noundef signext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
   %5 = shl i64 %4, 2
   %6 = and i64 %5, -8

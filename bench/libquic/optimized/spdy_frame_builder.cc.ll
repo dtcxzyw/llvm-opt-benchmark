@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net16SpdyFrameBuilderD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net16SpdyFrameBuilderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net16SpdyFrameBuilderC2EmNS_16SpdyMajorVersionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, i64 noundef %size, i32 noundef %version) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net16SpdyFrameBuilderC2EmNS_16SpdyMajorVersionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, i64 noundef %size, i32 noundef %version) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %size) #13
   store ptr %call, ptr %this, align 8

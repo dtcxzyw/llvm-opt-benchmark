@@ -33,7 +33,7 @@ $_ZTVN4llvh13format_objectIJhEEE = comdat any
 @_ZN4llvh3MD5C1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4llvh3MD5C2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef nonnull ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr nocapture noundef nonnull align 4 dereferenceable(152) initializes((88, 152)) %this, ptr readonly %Data.coerce0, i64 %Data.coerce1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr nocapture noundef nonnull align 4 dereferenceable(152) %this, ptr readonly %Data.coerce0, i64 %Data.coerce1) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %b4 = getelementptr inbounds i8, ptr %this, i64 4
@@ -803,7 +803,7 @@ do.end:                                           ; preds = %do.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4llvh3MD5C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(152) initializes((0, 24)) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN4llvh3MD5C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(152) %this) unnamed_addr #1 align 2 {
 entry:
   store i32 1732584193, ptr %this, align 4
   %b = getelementptr inbounds i8, ptr %this, i64 4

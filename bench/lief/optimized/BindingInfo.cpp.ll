@@ -209,7 +209,7 @@ define noundef i32 @_ZNK4LIEF5MachO11BindingInfo15library_ordinalEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO11BindingInfo15library_ordinalEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 28)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO11BindingInfo15library_ordinalEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %1, ptr %3, align 8
   ret void
@@ -223,7 +223,7 @@ define noundef i64 @_ZNK4LIEF5MachO11BindingInfo6addendEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO11BindingInfo6addendEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO11BindingInfo6addendEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
   ret void
@@ -238,7 +238,7 @@ define noundef zeroext i1 @_ZNK4LIEF5MachO11BindingInfo14is_weak_importEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO11BindingInfo15set_weak_importEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((40, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO11BindingInfo15set_weak_importEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8
@@ -253,7 +253,7 @@ define noundef i64 @_ZNK4LIEF5MachO11BindingInfo7addressEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO11BindingInfo7addressEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 64)) %0, i64 noundef %1) unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO11BindingInfo7addressEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i64 noundef %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %1, ptr %3, align 8
   ret void

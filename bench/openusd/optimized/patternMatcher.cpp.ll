@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN32pxrInternal_v0_24__pxrReserved__16TfPatternMatcherD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__16TfPatternMatcherD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16TfPatternMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 2)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16TfPatternMatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1
@@ -39,7 +39,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16TfPatternMatcherC2Ev(ptr nou
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16TfPatternMatcherC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 2)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16TfPatternMatcherC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
   %5 = zext i1 %2 to i8
   %6 = zext i1 %3 to i8
   store i8 %5, ptr %0, align 8

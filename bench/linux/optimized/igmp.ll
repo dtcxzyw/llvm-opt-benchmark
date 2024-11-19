@@ -2304,7 +2304,7 @@ define dso_local void @ip_mc_init_dev(ptr noundef %0) local_unnamed_addr #0 alig
 declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @igmp_gq_timer_expire(ptr noundef initializes((-7, -6)) %0) #0 align 16 {
+define internal void @igmp_gq_timer_expire(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -104
   %3 = getelementptr i8, ptr %0, i64 -7
   store i8 0, ptr %3, align 1
@@ -2718,7 +2718,7 @@ define internal void @igmp_ifc_timer_expire(ptr noundef %0) #0 align 16 {
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ip_mc_up(ptr noundef initializes((80, 97)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ip_mc_up(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i32 @rtnl_is_locked() #14
   %3 = icmp ne i32 %2, 0
   %4 = load i1, ptr @ip_mc_up.__already_done, align 1
@@ -5163,7 +5163,7 @@ declare dso_local void @refcount_warn_saturate(ptr noundef, i32 noundef) local_u
 declare dso_local void @add_timer(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @igmp_start_timer(ptr noundef initializes((116, 117)) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @igmp_start_timer(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #0 align 16 {
   %3 = tail call i32 @__get_random_u32_below(i32 noundef %1) #14
   %4 = getelementptr inbounds i8, ptr %0, i64 116
   store i8 1, ptr %4, align 4

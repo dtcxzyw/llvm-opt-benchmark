@@ -782,7 +782,7 @@ declare void @_ZNK9FaceGroup5UVBoxEv(ptr dead_on_unwind writable sret(%"class.vc
 declare void @_ZN9FaceGroup23ParameterizationChangedEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z24RotateChartForResamplingSt10shared_ptrI9FaceGroupERKSt3setIP8MeshFaceSt4lessIS4_ESaIS4_EERKSt3mapIibS5_IiESaISt4pairIKibEEEbPd(ptr nocapture noundef readonly %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i1 noundef zeroext %3, ptr nocapture noundef initializes((0, 8)) %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z24RotateChartForResamplingSt10shared_ptrI9FaceGroupERKSt3setIP8MeshFaceSt4lessIS4_ESaIS4_EERKSt3mapIibS5_IiESaISt4pairIKibEEEbPd(ptr nocapture noundef readonly %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, i1 noundef zeroext %3, ptr nocapture noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unordered_map.111", align 8
   %7 = alloca %"class.std::unordered_map.125", align 8
   %8 = load ptr, ptr %0, align 8

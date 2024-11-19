@@ -280,7 +280,7 @@ if.end:                                           ; preds = %if.end.i12, %_ZN6b2
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN9b2ContactC2EP9b2FixtureiS1_i(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((0, 12), (16, 120), (180, 188), (192, 208)) %this, ptr noundef %fA, i32 noundef %indexA, ptr noundef %fB, i32 noundef %indexB) unnamed_addr #3 align 2 {
+define void @_ZN9b2ContactC2EP9b2FixtureiS1_i(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %fA, i32 noundef %indexA, ptr noundef %fB, i32 noundef %indexB) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV9b2Contact, i64 16), ptr %this, align 8
   %m_flags = getelementptr inbounds i8, ptr %this, i64 8

@@ -974,13 +974,13 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18BlockFrequencyInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm18BlockFrequencyInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #2 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18BlockFrequencyInfoC2ERKNS_8FunctionERKNS_21BranchProbabilityInfoERKNS_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 8 dereferenceable(144) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18BlockFrequencyInfoC2ERKNS_8FunctionERKNS_21BranchProbabilityInfoERKNS_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 8 dereferenceable(144) %3) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   tail call void @_ZN4llvm18BlockFrequencyInfo9calculateERKNS_8FunctionERKNS_21BranchProbabilityInfoERKNS_8LoopInfoE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 8 dereferenceable(144) %3)
   ret void
@@ -1115,7 +1115,7 @@ _ZNK4llvm18BlockFrequencyInfo5printERNS_11raw_ostreamE.exit: ; preds = %42, %53,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm18BlockFrequencyInfoC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm18BlockFrequencyInfoC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -3450,7 +3450,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit125:              ; preds = %373, %375
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14printBlockFreqERKNS_18BlockFrequencyInfoENS_14BlockFrequencyE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2) local_unnamed_addr #2 {
+define dso_local void @_ZN4llvm14printBlockFreqERKNS_18BlockFrequencyInfoENS_14BlockFrequencyE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 %2) local_unnamed_addr #2 {
 _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNS0_14printBlockFreqERKNS0_18BlockFrequencyInfoENS0_14BlockFrequencyEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %3, align 8
@@ -3463,7 +3463,7 @@ _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14printBlockFreqERKNS_18BlockFrequencyInfoERKNS_10BasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm14printBlockFreqERKNS_18BlockFrequencyInfoERKNS_10BasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", align 4
   %5 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %5, null
@@ -3542,7 +3542,7 @@ define internal noundef nonnull ptr @_ZL47initializeBlockFrequencyInfoWrapperPas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm29BlockFrequencyInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm29BlockFrequencyInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.446, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3584,7 +3584,7 @@ _ZN4llvm43initializeBlockFrequencyInfoWrapperPassPassERNS_12PassRegistryE.exit: 
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm29BlockFrequencyInfoWrapperPassD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm29BlockFrequencyInfoWrapperPassD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm29BlockFrequencyInfoWrapperPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm18BlockFrequencyInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #23

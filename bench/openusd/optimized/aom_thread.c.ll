@@ -65,13 +65,13 @@ define hidden noundef nonnull ptr @aom_get_worker_interface() local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @init(ptr nocapture noundef writeonly initializes((0, 56)) %0) #3 {
+define internal void @init(ptr nocapture noundef writeonly %0) #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @reset(ptr noundef initializes((48, 52)) %0) #4 {
+define internal range(i32 0, 2) i32 @reset(ptr noundef %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8

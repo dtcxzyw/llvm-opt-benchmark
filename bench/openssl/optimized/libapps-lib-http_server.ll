@@ -572,7 +572,7 @@ declare void @BIO_free_all(ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @http_server_get_asn1_req(ptr noundef %it, ptr nocapture noundef writeonly initializes((0, 8)) %preq, ptr noundef %ppath, ptr nocapture noundef %pcbio, ptr noundef %acbio, ptr noundef writeonly %found_keep_alive, ptr noundef %prog, i32 noundef %accept_get, i32 noundef %timeout) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @http_server_get_asn1_req(ptr noundef %it, ptr nocapture noundef writeonly %preq, ptr noundef %ppath, ptr nocapture noundef %pcbio, ptr noundef %acbio, ptr noundef writeonly %found_keep_alive, ptr noundef %prog, i32 noundef %accept_get, i32 noundef %timeout) local_unnamed_addr #0 {
 entry:
   %buf.i169 = alloca [200 x i8], align 16
   %buf.i159 = alloca [200 x i8], align 16

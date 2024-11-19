@@ -2164,7 +2164,7 @@ do.end22:                                         ; preds = %if.then17, %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @bufferevent_set_max_single_read(ptr nocapture noundef initializes((456, 464)) %bev, i64 noundef %size) local_unnamed_addr #2 {
+define dso_local i32 @bufferevent_set_max_single_read(ptr nocapture noundef %bev, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %lock = getelementptr inbounds i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -2200,7 +2200,7 @@ do.end22:                                         ; preds = %if.then17, %do.end3
 declare i32 @evbuffer_set_max_read(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @bufferevent_set_max_single_write(ptr nocapture noundef initializes((464, 472)) %bev, i64 noundef %size) local_unnamed_addr #2 {
+define dso_local noundef i32 @bufferevent_set_max_single_write(ptr nocapture noundef %bev, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %lock = getelementptr inbounds i8, ptr %bev, i64 448
   %0 = load ptr, ptr %lock, align 8
@@ -2812,7 +2812,7 @@ if.end3:                                          ; preds = %if.then2, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @bufferevent_rate_limit_group_reset_totals(ptr nocapture noundef writeonly initializes((96, 112)) %grp) local_unnamed_addr #5 {
+define dso_local void @bufferevent_rate_limit_group_reset_totals(ptr nocapture noundef writeonly %grp) local_unnamed_addr #5 {
 entry:
   %total_read = getelementptr inbounds i8, ptr %grp, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %total_read, i8 0, i64 16, i1 false)
@@ -2820,7 +2820,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @bufferevent_ratelim_init_(ptr nocapture noundef initializes((456, 480)) %bev) local_unnamed_addr #2 {
+define dso_local range(i32 -1, 1) i32 @bufferevent_ratelim_init_(ptr nocapture noundef %bev) local_unnamed_addr #2 {
 entry:
   %rate_limiting = getelementptr inbounds i8, ptr %bev, i64 472
   store ptr null, ptr %rate_limiting, align 8

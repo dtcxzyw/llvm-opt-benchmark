@@ -1947,7 +1947,7 @@ define internal void @sip_custom_header_fields_header_name_set_cb(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_custom_header_fields_header_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_custom_header_fields_header_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -1983,7 +1983,7 @@ define internal void @sip_custom_header_fields_header_desc_set_cb(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_custom_header_fields_header_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_custom_header_fields_header_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2019,7 +2019,7 @@ define internal void @sip_authorization_users_username_set_cb(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_authorization_users_username_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_authorization_users_username_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -2055,7 +2055,7 @@ define internal void @sip_authorization_users_realm_set_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_authorization_users_realm_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_authorization_users_realm_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2092,7 +2092,7 @@ define internal void @sip_authorization_users_password_set_cb(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sip_authorization_users_password_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @sip_authorization_users_password_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2312,7 +2312,7 @@ declare void @prefs_register_enum_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #15
   store ptr %5, ptr %0, align 8
@@ -2325,7 +2325,7 @@ define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @header_fields_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @header_fields_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -2559,7 +2559,7 @@ deregister_header_fields.exit:                    ; preds = %15, %17
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @authorization_users_copy_cb(ptr noundef returned writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @authorization_users_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #15
   store ptr %5, ptr %0, align 8
@@ -2577,7 +2577,7 @@ define internal noundef ptr @authorization_users_copy_cb(ptr noundef returned wr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @authorization_users_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @authorization_users_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7

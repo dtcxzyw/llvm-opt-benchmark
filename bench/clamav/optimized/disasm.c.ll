@@ -411,7 +411,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.383 = private unnamed_addr constant [5 x i8] c"acab\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((35, 64)) %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [2 x i8], align 2
   %6 = alloca %struct.DISASMED, align 8
   %7 = alloca [128 x i8], align 16

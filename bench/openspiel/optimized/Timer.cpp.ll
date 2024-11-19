@@ -99,7 +99,7 @@ define void @_ZN5Timer7SetNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Timer5StartEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((56, 72)) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN5Timer5StartEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #9
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %2, ptr %3, align 8

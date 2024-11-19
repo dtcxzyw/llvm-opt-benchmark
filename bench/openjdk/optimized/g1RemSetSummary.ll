@@ -396,7 +396,7 @@ define hidden noundef double @_ZNK15G1RemSetSummary15rs_thread_vtimeEj(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1RemSetSummaryC2Eb(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1RemSetSummaryC2Eb(ptr noundef nonnull align 8 dereferenceable(16) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.CollectData, align 8
   %4 = load i32, ptr @G1ConcRefinementThreads, align 4
   %5 = zext i32 %4 to i64

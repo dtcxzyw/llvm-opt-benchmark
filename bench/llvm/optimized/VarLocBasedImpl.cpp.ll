@@ -9543,7 +9543,7 @@ _ZN12_GLOBAL__N_114VarLocBasedLDV9VarLocMapD2Ev.exit: ; preds = %_ZN4llvm12Dense
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114VarLocBasedLDVD2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8), (368, 376)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114VarLocBasedLDVD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114VarLocBasedLDVE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -9567,7 +9567,7 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %1, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114VarLocBasedLDVD0Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8), (368, 376)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114VarLocBasedLDVD0Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_114VarLocBasedLDVE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
@@ -16454,7 +16454,7 @@ _ZN4llvm12DenseMapInfoINS_13DebugVariableEvE7isEqualERKS1_S4_.exit21.thread: ; p
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLocC2ERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLocC2ERKN4llvm12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.(anonymous namespace)::VarLocBasedLDV::VarLoc::MachineLoc", align 8
   %4 = tail call noundef ptr @_ZNK4llvm12MachineInstr16getDebugVariableEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #19
   %5 = tail call noundef ptr @_ZNK4llvm12MachineInstr18getDebugExpressionEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #19
@@ -17499,7 +17499,7 @@ _ZSt23lexicographical_compareIPKN12_GLOBAL__N_114VarLocBasedLDV6VarLoc10MachineL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLocC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 60)) %0, ptr noundef nonnull align 8 dereferenceable(384) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114VarLocBasedLDV6VarLocC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(384) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(60) %1, i64 60, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -17833,7 +17833,7 @@ _ZN4llvm13SmallDenseMapIjSt6vectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLocESaIS4_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjSt6vectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLocESaIS5_EELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 1 dereferenceable(1) initializes((4, 8)) %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjSt6vectorIN12_GLOBAL__N_114VarLocBasedLDV6VarLocESaIS5_EELj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEEEjS7_S9_SC_E18moveFromOldBucketsEPSC_SF_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 align 2 {
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 1
   store i32 %5, ptr %0, align 8
@@ -21583,7 +21583,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_18LocIndexEEaSEOS3_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_13DebugVariableENS_11SmallVectorIN12_GLOBAL__N_18LocIndexELj2EEELj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEES2_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_(ptr noundef nonnull align 1 dereferenceable(1) initializes((4, 8)) %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_13DebugVariableENS_11SmallVectorIN12_GLOBAL__N_18LocIndexELj2EEELj8ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEEES2_S6_S8_SB_E18moveFromOldBucketsEPSB_SE_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %0, align 8
   %6 = and i32 %5, 1

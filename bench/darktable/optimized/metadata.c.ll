@@ -1342,7 +1342,7 @@ declare void @gtk_menu_shell_append(ptr noundef, ptr noundef) local_unnamed_addr
 declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(352) ptr @calloc(i64 noundef 1, i64 noundef 352) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6
@@ -2202,7 +2202,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #1 {
+define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = alloca [8 x ptr], align 16
   %4 = alloca [8 x i32], align 16
   %5 = alloca %struct._GtkTextIter, align 8

@@ -2061,7 +2061,7 @@ _ZN7glslang13TInputScanner4peekEv.exit.thread:    ; preds = %26, %_ZN7glslang13T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang13TInputScanner11scanVersionERiR8EProfileRb(ptr noundef nonnull align 8 dereferenceable(90) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang13TInputScanner11scanVersionERiR8EProfileRb(ptr noundef nonnull align 8 dereferenceable(90) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [13 x i8], align 1
   store i8 0, ptr %3, align 1
   store i32 0, ptr %1, align 4
@@ -3876,7 +3876,7 @@ define noundef i32 @_Z5yylexP7YYSTYPERN7glslang13TParseContextE(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang12TScanContext8tokenizeEPNS_10TPpContextERNS_12TParserTokenE(ptr noundef nonnull align 8 dereferenceable(76) initializes((48, 56)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN7glslang12TScanContext8tokenizeEPNS_10TPpContextERNS_12TParserTokenE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.glslang::TPpToken", align 8
   %5 = alloca [2 x i8], align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -9706,7 +9706,7 @@ define noundef i32 @_ZN7glslang12TScanContext16precisionKeywordEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang12TScanContext6matNxMEv(ptr noundef nonnull align 8 dereferenceable(76) initializes((16, 17)) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN7glslang12TScanContext6matNxMEv(ptr noundef nonnull align 8 dereferenceable(76) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9747,7 +9747,7 @@ define noundef i32 @_ZN7glslang12TScanContext6matNxMEv(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN7glslang12TScanContext4dMatEv(ptr noundef nonnull align 8 dereferenceable(76) initializes((16, 17)) %0) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN7glslang12TScanContext4dMatEv(ptr noundef nonnull align 8 dereferenceable(76) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8

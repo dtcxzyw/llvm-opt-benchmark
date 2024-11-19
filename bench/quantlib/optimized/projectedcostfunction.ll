@@ -68,7 +68,7 @@ $_ZTVN8QuantLib12CostFunctionE = comdat any
 @_ZN8QuantLib21ProjectedCostFunctionC1ERKNS_12CostFunctionERKNS_10ProjectionE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8QuantLib21ProjectedCostFunctionC2ERKNS_12CostFunctionERKNS_10ProjectionE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21ProjectedCostFunctionC2ERKNS_12CostFunctionERKNS_5ArrayERKSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %costFunction, ptr noundef nonnull align 8 dereferenceable(16) %parameterValues, ptr noundef nonnull align 8 dereferenceable(40) %fixParameters) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21ProjectedCostFunctionC2ERKNS_12CostFunctionERKNS_5ArrayERKSt6vectorIbSaIbEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %costFunction, ptr noundef nonnull align 8 dereferenceable(16) %parameterValues, ptr noundef nonnull align 8 dereferenceable(40) %fixParameters) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector", align 8
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib12CostFunctionE, i64 16), ptr %this, align 8, !tbaa !3
@@ -292,7 +292,7 @@ invoke.cont:                                      ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21ProjectedCostFunctionC2ERKNS_12CostFunctionERKNS_10ProjectionE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %costFunction, ptr noundef nonnull align 8 dereferenceable(88) %projection) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21ProjectedCostFunctionC2ERKNS_12CostFunctionERKNS_10ProjectionE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(8) %costFunction, ptr noundef nonnull align 8 dereferenceable(88) %projection) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib12CostFunctionE, i64 16), ptr %this, align 8, !tbaa !3
   %0 = getelementptr inbounds i8, ptr %this, i64 8

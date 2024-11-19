@@ -23,7 +23,7 @@ $_ZN6asmjit9_abi_1_1013RAConstraints4initENS0_4ArchE = comdat any
 @_ZN6asmjit9_abi_1_1011_archTraitsE = external local_unnamed_addr global [17 x %"struct.asmjit::_abi_1_10::ArchTraits"], align 16
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_108CallConv4initENS0_10CallConvIdERKNS0_11EnvironmentE(ptr noundef nonnull align 4 dereferenceable(116) initializes((0, 116)) %0, i8 noundef zeroext %1, ptr noundef nonnull align 1 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_108CallConv4initENS0_10CallConvIdERKNS0_11EnvironmentE(ptr noundef nonnull align 4 dereferenceable(116) %0, i8 noundef zeroext %1, ptr noundef nonnull align 1 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %0, i8 0, i64 52, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 -1, i64 64, i1 false)

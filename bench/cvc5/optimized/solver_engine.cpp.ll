@@ -744,7 +744,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal12SolverEngineC2EPKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this, ptr noundef %optr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc58internal12SolverEngineC2EPKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef %optr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp30 = alloca %"class.std::allocator", align 1
@@ -1797,7 +1797,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4cvc58internal12SolverEngine16setLogicInternalEv(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((207, 208)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN4cvc58internal12SolverEngine16setLogicInternalEv(ptr nocapture noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #7 align 2 {
 entry:
   %d_env = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %d_env, align 8
@@ -7891,7 +7891,7 @@ declare noundef ptr @_ZN4cvc58internal12TheoryEngine13getBuiltModelEv(ptr nounde
 declare noundef zeroext i1 @_ZNK4cvc58internal6theory11TheoryModel16isUsingModelCoreEv(ptr noundef nonnull align 8 dereferenceable(904)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc58internal12SolverEngine21getAssertionsInternalEv(ptr noalias sret(%"class.std::vector.490") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4cvc58internal12SolverEngine21getAssertionsInternalEv(ptr noalias sret(%"class.std::vector.490") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_smtSolver = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %d_smtSolver, align 8
@@ -10026,7 +10026,7 @@ declare noundef nonnull align 8 dereferenceable(112) ptr @_ZNK4cvc58internal3smt
 declare void @_ZN4cvc58internal3smt18TimeoutCoreManager14getTimeoutCoreERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EERKSt3mapImS5_St4lessImESaISt4pairIKmS5_EEES9_(ptr sret(%"struct.std::pair") align 8, ptr noundef nonnull align 8 dereferenceable(456), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal12SolverEngine26convertPreprocessedToInputERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EEb(ptr noalias sret(%"class.std::vector.490") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(24) %ppa, i1 noundef zeroext %isInternal) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc58internal12SolverEngine26convertPreprocessedToInputERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EEb(ptr noalias sret(%"class.std::vector.490") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(24) %ppa, i1 noundef zeroext %isInternal) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cdp = alloca %"class.cvc5::internal::CDProof", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -17424,7 +17424,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_S3_ESaIS6_ENSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc58internal12SolverEngine9getValuesERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EE(ptr noalias sret(%"class.std::vector.490") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exprs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4cvc58internal12SolverEngine9getValuesERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EE(ptr noalias sret(%"class.std::vector.490") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exprs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -19530,7 +19530,7 @@ lpad11:                                           ; preds = %call8.i.noexc, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal12SolverEngine24getSubstitutedAssertionsEv(ptr noalias sret(%"class.std::vector.490") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc58internal12SolverEngine24getSubstitutedAssertionsEv(ptr noalias sret(%"class.std::vector.490") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal12SolverEngine10finishInitEv(ptr noundef nonnull align 8 dereferenceable(224) %this), !noalias !88
   %d_ctxManager.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -20119,7 +20119,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 declare void @_ZN4cvc58internal3smt9PfManager10printProofERSoSt10shared_ptrINS0_9ProofNodeEENS0_7options15ProofFormatModeE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal12SolverEngine13getAssertionsEv(ptr noalias sret(%"class.std::vector.490") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN4cvc58internal12SolverEngine13getAssertionsEv(ptr noalias sret(%"class.std::vector.490") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #3 align 2 {
 cond.end:
   tail call void @_ZN4cvc58internal12SolverEngine10finishInitEv(ptr noundef nonnull align 8 dereferenceable(224) %this)
   %d_ctxManager.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -20639,7 +20639,7 @@ if.end:                                           ; preds = %if.then13.i4, %if.e
 declare void @_ZNK4cvc58internal3Env14getSepDataTypeEv(ptr sret(%"class.cvc5::internal::TypeNode") align 8, ptr noundef nonnull align 8 dereferenceable(576)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal12SolverEngine14getSepHeapExprEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc58internal12SolverEngine14getSepHeapExprEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.std::pair.1148", align 8
   call void @_ZN4cvc58internal12SolverEngine20getSepHeapAndNilExprEv(ptr nonnull sret(%"struct.std::pair.1148") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(224) %this)
@@ -20736,7 +20736,7 @@ lpad:                                             ; preds = %if.then13.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal12SolverEngine13getSepNilExprEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc58internal12SolverEngine13getSepNilExprEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.std::pair.1148", align 8
   call void @_ZN4cvc58internal12SolverEngine20getSepHeapAndNilExprEv(ptr nonnull sret(%"struct.std::pair.1148") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(224) %this)
@@ -25211,7 +25211,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare void @_ZN4cvc58internal7options3setERNS0_7OptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(392), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4cvc58internal12SolverEngine22setIsInternalSubsolverEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((209, 210)) %this) local_unnamed_addr #16 align 2 {
+define void @_ZN4cvc58internal12SolverEngine22setIsInternalSubsolverEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this) local_unnamed_addr #16 align 2 {
 entry:
   %d_isInternalSubsolver = getelementptr inbounds i8, ptr %this, i64 209
   store i8 1, ptr %d_isInternalSubsolver, align 1

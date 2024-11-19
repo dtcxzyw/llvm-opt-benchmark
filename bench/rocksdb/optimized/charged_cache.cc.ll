@@ -189,7 +189,7 @@ $_ZTVN7rocksdb33ConcurrentCacheReservationManager22CacheReservationHandleE = com
 @_ZN7rocksdb12ChargedCacheC1ESt10shared_ptrINS_5CacheEES3_ = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN7rocksdb12ChargedCacheC2ESt10shared_ptrINS_5CacheEES3_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12ChargedCacheC2ESt10shared_ptrINS_5CacheEES3_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 72)) %this, ptr nocapture noundef readonly %cache, ptr noundef %block_cache) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb12ChargedCacheC2ESt10shared_ptrINS_5CacheEES3_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %cache, ptr noundef %block_cache) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.6", align 8
   %0 = load ptr, ptr %cache, align 8

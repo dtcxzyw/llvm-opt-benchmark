@@ -133,7 +133,7 @@ $_ZNSt10_HashtableIPvS0_SaIS0_ENSt8__detail9_IdentityESt8equal_toIS0_ESt4hashIS0
 @_ZN8facebook5velox6memory15MallocAllocatorC1Em = unnamed_addr alias void (ptr, i64), ptr @_ZN8facebook5velox6memory15MallocAllocatorC2Em
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6memory15MallocAllocatorC2Em(ptr noundef nonnull align 8 dereferenceable(1016) initializes((0, 48)) %this, i64 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory15MallocAllocatorC2Em(ptr noundef nonnull align 8 dereferenceable(1016) %this, i64 noundef %capacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

@@ -52,7 +52,7 @@ $_ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_
 @_ZN3net16HpackStaticTableD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net16HpackStaticTableD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net16HpackStaticTableC2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 80)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net16HpackStaticTableC2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
   tail call void @_ZNSt11_Deque_baseIN3net10HpackEntryESaIS1_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %this, i64 noundef 0)

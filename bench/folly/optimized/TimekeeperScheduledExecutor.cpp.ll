@@ -1431,7 +1431,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly27TimekeeperScheduledExecutor6createENS_8Executor9KeepAliveIS1_EENS_8FunctionIFSt10shared_ptrINS_10TimekeeperEEvEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Executor::KeepAlive") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef %parent, ptr noundef %getTimekeeper) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly27TimekeeperScheduledExecutor6createENS_8Executor9KeepAliveIS1_EENS_8FunctionIFSt10shared_ptrINS_10TimekeeperEEvEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Executor::KeepAlive") align 8 %agg.result, ptr nocapture noundef %parent, ptr noundef %getTimekeeper) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Function.1", align 16
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
@@ -2994,7 +2994,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5folly7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS3_EEE_NS1_25tryExecutorCallableResultIS3_S13_vEEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS17_6ReturnEE4typeESV_S17_NS1_18InlineContinuationEENUlSZ_S12_E_C2EOS1C_"(ptr noundef nonnull align 16 dereferenceable(96) initializes((80, 81), (88, 96)) %this, ptr noundef nonnull align 16 dereferenceable(96) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN5folly7futures6detail10FutureBaseINS_4UnitEE18thenImplementationIZNOS_6FutureIS3_E9thenValueIZNS_27TimekeeperScheduledExecutor10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINSE_3_V212steady_clockENSE_8durationIlSt5ratioILl1ELl1000000000EEEEEEE3$_0EENS6_INS1_19valueCallableResultIS3_T_E10value_typeEEEOSR_EUlONS_8Executor9KeepAliveISW_EEONS_3TryIS3_EEE_NS1_25tryExecutorCallableResultIS3_S13_vEEEENSt9enable_ifIXntsrNT0_13ReturnsFutureE5valueENS17_6ReturnEE4typeESV_S17_NS1_18InlineContinuationEENUlSZ_S12_E_C2EOS1C_"(ptr noundef nonnull align 16 dereferenceable(96) %this, ptr noundef nonnull align 16 dereferenceable(96) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %promise_.i = getelementptr inbounds i8, ptr %this, i64 80
   store i8 0, ptr %promise_.i, align 16, !tbaa !50, !alias.scope !139

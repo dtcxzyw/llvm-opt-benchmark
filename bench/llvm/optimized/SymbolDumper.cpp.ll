@@ -8895,7 +8895,7 @@ define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImplD0Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl18visitUnknownSymbolERN4llvm8codeview8CVRecordINS2_10SymbolKindEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl18visitUnknownSymbolERN4llvm8codeview8CVRecordINS2_10SymbolKindEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -9276,7 +9276,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %.critedge.i, %123
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl14visitSymbolEndERN4llvm8codeview8CVRecordINS2_10SymbolKindEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl14visitSymbolEndERN4llvm8codeview8CVRecordINS2_10SymbolKindEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 34
   %5 = load i8, ptr %4, align 2
   %6 = trunc i8 %5 to i1
@@ -9341,7 +9341,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %41, %39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_11ScopeEndSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((35, 36)) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 4 %3) unnamed_addr #8 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_11ScopeEndSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 4 %3) unnamed_addr #8 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 35
   store i8 0, ptr %4, align 1
@@ -9534,7 +9534,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %.critedge.i, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_10SectionSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_10SectionSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = alloca %"class.llvm::ArrayRef.82", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9588,7 +9588,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_12CoffGroupSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_12CoffGroupSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = alloca %"class.llvm::ArrayRef.82", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9635,7 +9635,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_9ExportSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_9ExportSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = alloca %"class.llvm::ArrayRef.82", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9668,7 +9668,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_7ProcSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_7ProcSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::ArrayRef.82", align 8
@@ -9879,7 +9879,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %.critedge.i, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_11PublicSym32E(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_11PublicSym32E(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = alloca %"class.llvm::ArrayRef.82", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -9919,7 +9919,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_10ProcRefSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_10ProcRefSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -10347,7 +10347,7 @@ _ZN4llvm9ListScopeD2Ev.exit:                      ; preds = %_ZN4llvm8codeview24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_8LocalSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_8LocalSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = alloca %"class.llvm::ArrayRef.82", align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -11310,7 +11310,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZN4llvm9ListScopeD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_35DefRangeFramePointerRelFullScopeSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_35DefRangeFramePointerRelFullScopeSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -11484,7 +11484,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZN4llvm9ListScopeD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_8BlockSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_8BlockSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -11560,7 +11560,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %4, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_8LabelSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_8LabelSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::ArrayRef.82", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -11635,7 +11635,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %18, %47
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_10ObjNameSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_10ObjNameSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -12393,7 +12393,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %.critedge.i18, %99
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_15CallSiteInfoSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_15CallSiteInfoSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -12449,7 +12449,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %17, %31
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_13FileStaticSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_13FileStaticSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = alloca %"class.llvm::ArrayRef.82", align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 2
@@ -12488,7 +12488,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_21HeapAllocationSiteSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_21HeapAllocationSiteSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(20) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -12857,7 +12857,7 @@ _ZN4llvm9ListScopeD2Ev.exit:                      ; preds = %28, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_6UDTSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_6UDTSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %.sroa.01.0.copyload = load i32, ptr %4, align 2
@@ -12880,7 +12880,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_12BuildInfoSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_12BuildInfoSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %.sroa.0.0.copyload = load i32, ptr %4, align 2
@@ -12894,7 +12894,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_13BPRelativeSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_13BPRelativeSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -12998,7 +12998,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %.critedge.i, %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_11ConstantSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(44) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_11ConstantSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(44) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %.sroa.01.0.copyload = load i32, ptr %4, align 2
@@ -13027,7 +13027,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_7DataSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_7DataSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -13084,7 +13084,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %17, %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_18ThreadLocalDataSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_18ThreadLocalDataSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -13141,7 +13141,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %17, %29
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_17UsingNamespaceSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118CVSymbolDumperImpl16visitKnownRecordERN4llvm8codeview8CVRecordINS2_10SymbolKindEEERNS2_17UsingNamespaceSymE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8

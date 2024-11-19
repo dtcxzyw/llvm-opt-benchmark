@@ -89,7 +89,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15TermEnumerationC2EPNS2_25QuantifiersBoundInferenceE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this, ptr noundef %qbi) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15TermEnumerationC2EPNS2_25QuantifiersBoundInferenceE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %qbi) unnamed_addr #3 align 2 {
 entry:
   store ptr %qbi, ptr %this, align 8
   %d_enum_terms = getelementptr inbounds i8, ptr %this, i64 8

@@ -26394,7 +26394,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer21ExpandIntRes_ConstantEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer21ExpandIntRes_ConstantEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"class.llvm::TypeSize", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
@@ -27572,7 +27572,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm12Selection
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer25ExpandIntRes_GET_ROUNDINGEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer25ExpandIntRes_GET_ROUNDINGEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
@@ -29480,7 +29480,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %61, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer24ExpandIntRes_READCOUNTEREPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer24ExpandIntRes_READCOUNTEREPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -30460,7 +30460,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %44, %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer21ExpandIntRes_TRUNCATEEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer21ExpandIntRes_TRUNCATEEPNS_6SDNodeERNS_7SDValueES4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -31473,7 +31473,7 @@ _ZN4llvm11SmallVectorINS_7SDValueELj4EED2Ev.exit: ; preds = %_ZN4llvm5SDLocD2Ev.
 declare hidden void @_ZN4llvm16DAGTypeLegalizer12SplitIntegerENS_7SDValueERS1_S2_(ptr noundef nonnull align 8 dereferenceable(2512), ptr, i32, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_LogicalEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_LogicalEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -33584,7 +33584,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm9KnownBitsD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_ADDSUBCEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_ADDSUBCEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -33722,7 +33722,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %60, %63
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_ADDSUBEEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer20ExpandIntRes_ADDSUBEEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -33837,7 +33837,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer27ExpandIntRes_UADDSUBO_CARRYEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer27ExpandIntRes_UADDSUBO_CARRYEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -33958,7 +33958,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer27ExpandIntRes_SADDSUBO_CARRYEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer27ExpandIntRes_SADDSUBO_CARRYEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -38244,7 +38244,7 @@ _ZN4llvm5SDLocD2Ev.exit:                          ; preds = %_ZN4llvm5SDLocC2EPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer24ExpandIntRes_FunnelShiftEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer24ExpandIntRes_FunnelShiftEPNS_6SDNodeERNS_7SDValueES4_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDValue", align 8
   %6 = alloca %"class.llvm::SDValue", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
@@ -38830,7 +38830,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE18uninitialized_copyIPNS_5SDU
 declare noundef i32 @_ZN4llvm5RTLIB7getSYNCEjNS_3MVTE(i32 noundef, i16) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm16DAGTypeLegalizer21ExpandShiftByConstantEPNS_6SDNodeERKNS_5APIntERNS_7SDValueES7_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm16DAGTypeLegalizer21ExpandShiftByConstantEPNS_6SDNodeERKNS_5APIntERNS_7SDValueES7_(ptr noundef nonnull align 8 dereferenceable(2512) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
   %8 = alloca %"class.llvm::SDValue", align 8

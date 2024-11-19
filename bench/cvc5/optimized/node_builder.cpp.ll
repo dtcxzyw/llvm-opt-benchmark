@@ -620,7 +620,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal11NodeBuilder11getOperatorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal11NodeBuilder11getOperatorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_nv = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_nv, align 8
@@ -657,7 +657,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal11NodeBuilder8getChildEi(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal11NodeBuilder8getChildEi(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %d_nv = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_nv, align 8
@@ -706,7 +706,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2EPKNS0_4expr9NodeValueE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal11NodeBuilderixEi(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal11NodeBuilderixEi(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(116) %this, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8)
   %d_nv.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -1061,7 +1061,7 @@ if.end15:                                         ; preds = %if.then13.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeBuildercvNS0_12NodeTemplateILb1EEEEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal11NodeBuildercvNS0_12NodeTemplateILb1EEEEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
   %call.i = tail call noundef ptr @_ZN4cvc58internal11NodeBuilder11constructNVEv(ptr noundef nonnull align 8 dereferenceable(116) %this), !noalias !19
@@ -1789,7 +1789,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeBuilder17constructTypeNodeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal11NodeBuilder17constructTypeNodeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN4cvc58internal11NodeBuilder11constructNVEv(ptr noundef nonnull align 8 dereferenceable(116) %this)
   store ptr %call, ptr %agg.result, align 8
@@ -2161,7 +2161,7 @@ return:                                           ; preds = %cond.end236, %_ZN4c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal11NodeBuilder13constructNodeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN4cvc58internal11NodeBuilder11constructNVEv(ptr noundef nonnull align 8 dereferenceable(116) %this)
   store ptr %call, ptr %agg.result, align 8
@@ -2245,7 +2245,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #16
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal11NodeBuildercvNS0_8TypeNodeEEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal11NodeBuildercvNS0_8TypeNodeEEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(116) %this) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %call.i = tail call noundef ptr @_ZN4cvc58internal11NodeBuilder11constructNVEv(ptr noundef nonnull align 8 dereferenceable(116) %this), !noalias !37
@@ -2280,7 +2280,7 @@ _ZN4cvc58internal11NodeBuilder17constructTypeNodeEv.exit: ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal11NodeBuilder7setUsedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) initializes((96, 104)) %this) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN4cvc58internal11NodeBuilder7setUsedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) %this) local_unnamed_addr #10 align 2 {
 entry:
   %d_nv = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %d_nv, align 8

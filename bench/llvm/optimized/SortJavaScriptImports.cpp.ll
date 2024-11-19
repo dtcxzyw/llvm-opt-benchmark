@@ -403,7 +403,7 @@ declare noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef no
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format21sortJavaScriptImportsERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang6format21sortJavaScriptImportsERKNS0_11FormatStyleEN4llvm9StringRefENS4_8ArrayRefINS_7tooling5RangeEEES5_(ptr dead_on_unwind noalias writable sret(%"class.clang::tooling::Replacements") align 8 %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6) local_unnamed_addr #0 {
   %8 = alloca %"class.std::unique_ptr", align 8
   %9 = alloca %"class.llvm::ArrayRef", align 8
   %10 = alloca %"struct.std::pair", align 8

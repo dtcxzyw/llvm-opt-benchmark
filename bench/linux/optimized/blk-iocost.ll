@@ -6656,7 +6656,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #0 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ioc_start_period(ptr noundef initializes((248, 256), (336, 352)) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
+define internal fastcc void @ioc_start_period(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -8592,7 +8592,7 @@ define internal fastcc i64 @adjust_inuse_and_calc_cost(ptr noundef nonnull %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @iocg_commit_bio(ptr noundef nonnull %0, ptr nocapture noundef writeonly initializes((88, 96)) %1, i64 noundef range(i64 1, 0) %2, i64 noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc void @iocg_commit_bio(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i64 noundef range(i64 1, 0) %2, i64 noundef %3) unnamed_addr #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 88
   store i64 %3, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64

@@ -452,7 +452,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16IndexedReferenceC2ERNS_11InstructionERKNS_8LoopInfoERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 1), (8, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(1392) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16IndexedReferenceC2ERNS_11InstructionERKNS_8LoopInfoERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(1392) %3) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8

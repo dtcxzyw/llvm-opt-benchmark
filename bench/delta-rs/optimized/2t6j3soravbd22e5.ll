@@ -4100,7 +4100,7 @@ define { ptr, i64 } @"_ZN89_$LT$deltalake_test..utils..LocalStorageIntegration$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN108_$LT$deltalake_test..utils..LocalStorageIntegration$u20$as$u20$deltalake_test..utils..StorageIntegration$GT$13create_bucket17hf5ef8acc4c95f5daE"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #4 {
+define void @"_ZN108_$LT$deltalake_test..utils..LocalStorageIntegration$u20$as$u20$deltalake_test..utils..StorageIntegration$GT$13create_bucket17hf5ef8acc4c95f5daE"(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %0, align 8
@@ -5185,7 +5185,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit:    ; preds = %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14deltalake_test5utils18IntegrationContext10load_table17hf266e30d1438b4eeE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, ptr, [88 x i8], i8, [7 x i8] }) align 8 dereferenceable(128) initializes((0, 32), (120, 121)) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #6 {
+define void @_ZN14deltalake_test5utils18IntegrationContext10load_table17hf266e30d1438b4eeE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, ptr, [88 x i8], i8, [7 x i8] }) align 8 dereferenceable(128) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)

@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN123_$LT$diesel..query_builder..insert_statement..private..Insert$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17he17724bc249997bdE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #0 {
+define hidden void @"_ZN123_$LT$diesel..query_builder..insert_statement..private..Insert$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17he17724bc249997bdE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %4 = load i64, ptr %2, align 8, !range !7, !alias.scope !4, !noalias !8, !noundef !10
   switch i64 %4, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h97b0e6d67659a98eE.exit" [
@@ -53,7 +53,7 @@ define internal void @"_ZN4core3ptr976drop_in_place$LT$diesel..query_builder..in
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6diesel6sqlite10connection4stmt12StatementUse4bind17h3b8319790f873cadE(ptr noalias nocapture noundef writeonly sret({ i64, [12 x i64] }) align 8 dereferenceable(104) initializes((0, 40)) %0, i64 noundef %1, ptr noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %3, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) %6) unnamed_addr #0 {
+define hidden void @_ZN6diesel6sqlite10connection4stmt12StatementUse4bind17h3b8319790f873cadE(ptr noalias nocapture noundef writeonly sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %0, i64 noundef %1, ptr noundef %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %3, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %4, ptr noundef nonnull align 1 %5, ptr noalias noundef readonly align 8 dereferenceable(24) %6) unnamed_addr #0 {
   %8 = alloca { i64, [9 x i64] }, align 8
   %.sroa.7 = alloca [4 x i64], align 8
   %.sroa.6 = alloca { { ptr, ptr }, { ptr, ptr }, i8, [7 x i8] }, align 8

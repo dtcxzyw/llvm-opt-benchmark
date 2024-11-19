@@ -10091,7 +10091,7 @@ _ZNSt8functionIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonD
 declare void @_ZN8WasmEdge6Loader6Loader13parseWasmUnitERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind writable sret(%"class.cxx20::expected.525") align 8, ptr noundef nonnull align 8 dereferenceable(360), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEENS_7ValTypeEESaISM_EENS_7ErrCodeEEEEC2ESt8functionIFSQ_RSt10unique_ptrINS_3AST6ModuleESt14default_deleteISV_EEEESS_IFSQ_RST_INSU_9Component9ComponentESW_IS13_EEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEENS_7ValTypeEESaISM_EENS_7ErrCodeEEEEC2ESt8functionIFSQ_RSt10unique_ptrINS_3AST6ModuleESt14default_deleteISV_EEEESS_IFSQ_RST_INSU_9Component9ComponentESW_IS13_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -10556,7 +10556,7 @@ _ZNSt8functionIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonD
 declare void @_ZN8WasmEdge6Loader6Loader13parseWasmUnitEN5cxx204spanIKhLm18446744073709551615EEE(ptr dead_on_unwind writable sret(%"class.cxx20::expected.525") align 8, ptr noundef nonnull align 8 dereferenceable(360), ptr, i64) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNS_3AST9Component9ComponentESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENSC_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.507") align 8 initializes((0, 1), (8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 %3, ptr nocapture readnone %4, ptr nocapture noundef readnone byval(%"struct.cxx20::span.503") align 8 %5, ptr nocapture noundef readnone byval(%"struct.cxx20::span.505") align 8 %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge2VM2VM17unsafeRunWasmFileERKNS_3AST9Component9ComponentESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENSC_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.507") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 %3, ptr nocapture readnone %4, ptr nocapture noundef readnone byval(%"struct.cxx20::span.503") align 8 %5, ptr nocapture noundef readnone byval(%"struct.cxx20::span.505") align 8 %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cxx20::expected", align 4
   %9 = getelementptr inbounds i8, ptr %1, i64 392
   %10 = load i8, ptr %9, align 8
@@ -13525,7 +13525,7 @@ _ZN5cxx208expectedISt7variantIJSt10unique_ptrIN8WasmEdge3AST9Component9Component
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIvEC2ESt8functionIFvRSt10unique_ptrINS_3AST6ModuleESt14default_deleteIS7_EEEES4_IFvRS5_INS6_9Component9ComponentES8_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8WasmEdge2VM12_GLOBAL__N_19VisitUnitIvEC2ESt8functionIFvRSt10unique_ptrINS_3AST6ModuleESt14default_deleteIS7_EEEES4_IFvRS5_INS6_9Component9ComponentES8_ISF_EEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -13937,7 +13937,7 @@ _ZNSt10unique_ptrIN8WasmEdge3AST6ModuleESt14default_deleteIS2_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge2VM2VM14unsafeValidateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1920) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge2VM2VM14unsafeValidateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(1920) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca i32, align 4
@@ -145431,7 +145431,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5cxx208expectedI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteISS_EEEZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS19_IKSJ_Lm18446744073709551615EEEE3$_1E9_M_invokeERKSt9_Any_dataSW_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.507") align 8 initializes((0, 1), (8, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteISS_EEEZNS4_2VM2VM17unsafeRunWasmFileERKNSt10filesystem7__cxx114pathESt17basic_string_viewIcSt11char_traitsIcEENS0_4spanIKSI_Lm18446744073709551615EEENS19_IKSJ_Lm18446744073709551615EEEE3$_1E9_M_invokeERKSt9_Any_dataSW_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.507") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected", align 4
   %.val = load ptr, ptr %1, align 8
   %.val2 = load ptr, ptr %.val, align 8, !noalias !1297
@@ -145619,7 +145619,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN5cxx208expectedI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteISS_EEEZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS10_IKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1E9_M_invokeERKSt9_Any_dataSW_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.507") align 8 initializes((0, 1), (8, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS4_10RefVariantENS4_10StrVariantEEEENS4_7ValTypeEESaISK_EENS4_7ErrCodeEEERSt10unique_ptrINS4_3AST9Component9ComponentESt14default_deleteISS_EEEZNS4_2VM2VM17unsafeRunWasmFileENS0_4spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS10_IKSI_Lm18446744073709551615EEENS10_IKSJ_Lm18446744073709551615EEEE3$_1E9_M_invokeERKSt9_Any_dataSW_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected.507") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected", align 4
   %.val = load ptr, ptr %1, align 8
   %.val2 = load ptr, ptr %.val, align 8, !noalias !1325

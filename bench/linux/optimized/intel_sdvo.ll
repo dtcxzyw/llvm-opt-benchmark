@@ -291,7 +291,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.219 = private unnamed_addr constant [29 x i8] c"initialising LVDS type 0x%x\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_sdvo_port_enabled(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_sdvo_port_enabled(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 7368
   %5 = getelementptr inbounds i8, ptr %0, i64 7512
   %6 = load ptr, ptr %5, align 8
@@ -2204,7 +2204,7 @@ define internal void @intel_sdvo_disable_audio(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @intel_sdvo_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 align 16 {
+define internal zeroext i1 @intel_sdvo_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca i16, align 2
   %4 = load ptr, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #13

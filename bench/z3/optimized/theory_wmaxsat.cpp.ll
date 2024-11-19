@@ -938,7 +938,7 @@ declare void @_ZN11mpz_managerILb0EED1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZN3smt6theoryD2Ev(ptr noundef nonnull align 8 dereferenceable(53)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt14theory_wmaxsatD2Ev(ptr noundef nonnull align 8 dereferenceable(952) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt14theory_wmaxsatD2Ev(ptr noundef nonnull align 8 dereferenceable(952) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt14theory_wmaxsatE, i64 16), ptr %this, align 8
   %m_old_values = getelementptr inbounds i8, ptr %this, i64 720
@@ -1503,7 +1503,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt14theory_wmaxsatD0Ev(ptr noundef nonnull align 8 dereferenceable(952) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt14theory_wmaxsatD0Ev(ptr noundef nonnull align 8 dereferenceable(952) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN3smt14theory_wmaxsatD2Ev(ptr noundef nonnull align 8 dereferenceable(952) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -1720,7 +1720,7 @@ if.end28:                                         ; preds = %_ZNK15ref_vector_co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3smt14theory_wmaxsat14init_search_ehEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(952) initializes((888, 889)) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN3smt14theory_wmaxsat14init_search_ehEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(952) %this) unnamed_addr #8 align 2 {
 entry:
   %m_propagate = getelementptr inbounds i8, ptr %this, i64 888
   store i8 1, ptr %m_propagate, align 8

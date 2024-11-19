@@ -830,7 +830,7 @@ define ptr @Java_sun_font_FreetypeFontScaler_getFontMetricsNative(ptr noundef %0
 declare i32 @isNullScalerContext(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @setupFTContext(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8), (32, 40)) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @setupFTContext(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.FT_Matrix_, align 8
   store ptr %0, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 32

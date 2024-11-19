@@ -178,7 +178,7 @@ target triple = "x86_64-pc-linux-gnu"
 @job_list = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @bb_alloc_cache(ptr nocapture noundef writeonly initializes((168, 192)) %0) local_unnamed_addr #0 {
+define void @bb_alloc_cache(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 800, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 142, ptr noundef nonnull @__func__.bb_alloc_cache) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %2, ptr %3, align 8
@@ -972,7 +972,7 @@ declare i32 @get_log_level() local_unnamed_addr #1
 declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @bb_set_job_bb_state(ptr noundef %0, ptr nocapture noundef initializes((112, 116)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @bb_set_job_bb_state(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = trunc i32 %2 to i16
   %5 = tail call ptr @bb_state_string(i16 noundef zeroext %4) #17
   %6 = getelementptr inbounds i8, ptr %1, i64 112
@@ -1017,7 +1017,7 @@ define void @bb_set_job_bb_state(ptr noundef %0, ptr nocapture noundef initializ
 declare ptr @bb_state_string(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @bb_set_tres_pos(ptr nocapture noundef initializes((396, 400)) %0) local_unnamed_addr #0 {
+define void @bb_set_tres_pos(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.slurmdb_tres_rec_t, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %2, i64 40
@@ -1862,7 +1862,7 @@ declare void @s_p_hashtbl_destroy(ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_bb_flags2str(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @bb_open_state_file(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef i32 @bb_open_state_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.stat, align 8
   %4 = load ptr, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 1336), align 8
   %5 = tail call ptr @xstrdup(ptr noundef %4) #17
@@ -2913,7 +2913,7 @@ define range(i32 -1, 2) i32 @bb_preempt_queue_sort(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define void @bb_set_use_time(ptr nocapture noundef initializes((256, 264)) %0) local_unnamed_addr #0 {
+define void @bb_set_use_time(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = tail call i64 @time(ptr noundef null) #17
   %3 = add nsw i64 %2, 3600
   %4 = getelementptr inbounds i8, ptr %0, i64 256
@@ -3119,7 +3119,7 @@ declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @bb_alloc_name_rec(ptr nocapture noundef initializes((264, 272)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @bb_alloc_name_rec(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @time(ptr noundef null) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 264
   store i64 %4, ptr %5, align 8
@@ -3154,7 +3154,7 @@ define ptr @bb_alloc_name_rec(ptr nocapture noundef initializes((264, 272)) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bb_alloc_job_rec(ptr nocapture noundef initializes((264, 272)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @bb_alloc_job_rec(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call i64 @time(ptr noundef null) #17
   %5 = getelementptr inbounds i8, ptr %0, i64 264
   store i64 %4, ptr %5, align 8
@@ -3234,7 +3234,7 @@ define ptr @bb_alloc_job_rec(ptr nocapture noundef initializes((264, 272)) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @bb_alloc_job(ptr nocapture noundef initializes((264, 272)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define ptr @bb_alloc_job(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @bb_alloc_job_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret ptr %4
 }

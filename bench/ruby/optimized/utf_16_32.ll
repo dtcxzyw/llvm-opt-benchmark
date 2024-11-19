@@ -52,7 +52,7 @@ define void @Init_utf_16_32() local_unnamed_addr #0 {
 declare void @rb_register_transcoder(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 1, 5) i64 @fun_so_from_utf_16be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i64 %4) #2 {
+define internal range(i64 1, 5) i64 @fun_so_from_utf_16be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %1, align 1
   %.not = icmp eq i8 %6, 0
   br i1 %.not, label %7, label %12
@@ -163,7 +163,7 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_16be(ptr nocapture readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 2, 5) i64 @fun_so_to_utf_16be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i64 %4) #2 {
+define internal range(i64 2, 5) i64 @fun_so_to_utf_16be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %1, align 1
   %7 = zext i8 %6 to i32
   %.not = icmp sgt i8 %6, -1
@@ -265,7 +265,7 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16be(ptr nocapture readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 1, 5) i64 @fun_so_from_utf_16le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i64 %4) #2 {
+define internal range(i64 1, 5) i64 @fun_so_from_utf_16le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
@@ -372,7 +372,7 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_16le(ptr nocapture readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 2)) %3, i64 %4) #2 {
+define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %1, align 1
   %7 = zext i8 %6 to i32
   %.not = icmp sgt i8 %6, -1
@@ -478,7 +478,7 @@ define internal range(i64 2, 5) i64 @fun_so_to_utf_16le(ptr nocapture readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 1, 5) i64 @fun_so_from_utf_32be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i64 %4) #2 {
+define internal range(i64 1, 5) i64 @fun_so_from_utf_32be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 1
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
@@ -580,7 +580,7 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_32be(ptr nocapture readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_to_utf_32be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, i64 %4) #2 {
+define internal noundef i64 @fun_so_to_utf_32be(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   store i8 0, ptr %3, align 1
   %6 = load i8, ptr %1, align 1
   %7 = zext i8 %6 to i32
@@ -676,7 +676,7 @@ define internal noundef i64 @fun_so_to_utf_32be(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 1, 5) i64 @fun_so_from_utf_32le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i64 %4) #2 {
+define internal range(i64 1, 5) i64 @fun_so_from_utf_32le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 2
   %7 = load i8, ptr %6, align 1
   %.not = icmp eq i8 %7, 0
@@ -773,7 +773,7 @@ define internal range(i64 1, 5) i64 @fun_so_from_utf_32le(ptr nocapture readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @fun_so_to_utf_32le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, i64 %4) #2 {
+define internal noundef i64 @fun_so_to_utf_32le(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = getelementptr inbounds i8, ptr %3, i64 3
   store i8 0, ptr %6, align 1
   %7 = load i8, ptr %1, align 1
@@ -869,7 +869,7 @@ define internal noundef i64 @fun_so_to_utf_32le(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @state_init(ptr nocapture noundef writeonly initializes((0, 1)) %0) #3 {
+define internal noundef i32 @state_init(ptr nocapture noundef writeonly %0) #3 {
   store i8 0, ptr %0, align 1
   ret i32 0
 }
@@ -961,7 +961,7 @@ define internal range(i64 0, 5) i64 @fun_so_from_utf_16(ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 2, 7) i64 @fun_so_to_utf_16(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i64 %4) #2 {
+define internal range(i64 2, 7) i64 @fun_so_to_utf_16(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %13
@@ -1301,7 +1301,7 @@ fun_so_from_utf_32be.exit:                        ; preds = %105, %90, %.thread.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 3)) %3, i64 %4) #2 {
+define internal range(i64 4, 9) i64 @fun_so_to_utf_32(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 %2, ptr nocapture noundef writeonly %3, i64 %4) #2 {
   %6 = load i8, ptr %0, align 1
   %7 = icmp eq i8 %6, 0
   br i1 %7, label %8, label %76

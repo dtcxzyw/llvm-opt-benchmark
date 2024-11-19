@@ -1761,7 +1761,7 @@ declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @DoRemap(ptr nocapture noundef nonnull initializes((232, 248)) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @DoRemap(ptr nocapture noundef nonnull %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   %4 = getelementptr inbounds i8, ptr %0, i64 328
   %5 = load ptr, ptr %4, align 8

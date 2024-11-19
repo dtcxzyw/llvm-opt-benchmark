@@ -65,7 +65,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN13MethodMatcherD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN13MethodMatcherD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13MethodMatcherC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13MethodMatcherC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -107,7 +107,7 @@ define hidden void @_ZN13MethodMatcherD2Ev(ptr nocapture noundef nonnull readonl
 declare void @_ZN6Symbol18decrement_refcountEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13MethodMatcher4initEP6SymbolNS_4ModeES1_S2_S1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13MethodMatcher4initEP6SymbolNS_4ModeES1_S2_S1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 28

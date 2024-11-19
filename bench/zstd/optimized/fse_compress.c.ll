@@ -996,7 +996,7 @@ return:                                           ; preds = %for.body, %if.then1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @FSE_buildCTable_rle(ptr nocapture noundef writeonly initializes((0, 8)) %ct, i8 noundef zeroext %symbolValue) local_unnamed_addr #4 {
+define noundef i64 @FSE_buildCTable_rle(ptr nocapture noundef writeonly %ct, i8 noundef zeroext %symbolValue) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %ct, i64 4
   %add.ptr1 = getelementptr inbounds i8, ptr %ct, i64 8

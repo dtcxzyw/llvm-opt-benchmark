@@ -133,7 +133,7 @@ $_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__7UsdPrimESt4pairIKS1_NS0_1
 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheC1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheC2ENS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(64) initializes((32, 40)) %0, double %1) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheC2ENS_11UsdTimeCodeE(ptr noundef nonnull align 8 dereferenceable(64) %0, double %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -154,7 +154,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheC2ENS_11Usd
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((32, 40)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdGeomXformCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48

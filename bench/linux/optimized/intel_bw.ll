@@ -2311,7 +2311,7 @@ declare dso_local void @intel_atomic_global_obj_init(ptr noundef, ptr noundef, p
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @icl_get_qgv_points(ptr noundef %0, ptr nocapture noundef initializes((99, 101)) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @icl_get_qgv_points(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

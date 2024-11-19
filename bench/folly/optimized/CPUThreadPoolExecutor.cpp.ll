@@ -1192,14 +1192,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly21CPUThreadPoolExecutorD1Ev(ptr noundef nonnull align 64 dereferenceable(2572) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define void @_ZN5folly21CPUThreadPoolExecutorD1Ev(ptr noundef nonnull align 64 dereferenceable(2572) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5folly21CPUThreadPoolExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(2572) %this, ptr noundef nonnull @_ZTTN5folly21CPUThreadPoolExecutorE) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly21CPUThreadPoolExecutorD0Ev(ptr noundef nonnull align 64 dereferenceable(2572) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define void @_ZN5folly21CPUThreadPoolExecutorD0Ev(ptr noundef nonnull align 64 dereferenceable(2572) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5folly21CPUThreadPoolExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(2572) %this, ptr noundef nonnull @_ZTTN5folly21CPUThreadPoolExecutorE) #25
   tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %this, i64 noundef 64) #38
@@ -21243,7 +21243,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21CPUThreadPoolExecutorC1EmSt10unique_ptrINS_13BlockingQueueINS0_7CPUTaskEEESt14default_deleteIS4_EESt10shared_ptrINS_13ThreadFactoryEENS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) initializes((0, 8)) %this, i64 noundef %numThreads, ptr nocapture noundef %taskQueue, ptr nocapture noundef %threadFactory, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21CPUThreadPoolExecutorC1EmSt10unique_ptrINS_13BlockingQueueINS0_7CPUTaskEEESt14default_deleteIS4_EESt10shared_ptrINS_13ThreadFactoryEENS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) %this, i64 noundef %numThreads, ptr nocapture noundef %taskQueue, ptr nocapture noundef %threadFactory, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2 = alloca %"class.std::unique_ptr", align 8
   %agg.tmp3 = alloca %"class.std::shared_ptr.276", align 16
@@ -21379,7 +21379,7 @@ _ZNSt10unique_ptrIN5folly13BlockingQueueINS0_21CPUThreadPoolExecutor7CPUTaskEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21CPUThreadPoolExecutorC1ESt4pairImmESt10unique_ptrINS_13BlockingQueueINS0_7CPUTaskEEESt14default_deleteIS6_EESt10shared_ptrINS_13ThreadFactoryEENS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) initializes((0, 8)) %this, i64 %numThreads.coerce0, i64 %numThreads.coerce1, ptr nocapture noundef %taskQueue, ptr nocapture noundef %threadFactory, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21CPUThreadPoolExecutorC1ESt4pairImmESt10unique_ptrINS_13BlockingQueueINS0_7CPUTaskEEESt14default_deleteIS6_EESt10shared_ptrINS_13ThreadFactoryEENS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) %this, i64 %numThreads.coerce0, i64 %numThreads.coerce1, ptr nocapture noundef %taskQueue, ptr nocapture noundef %threadFactory, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.276", align 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly8ExecutorE, i64 16), ptr %this, align 64, !tbaa !22
@@ -22045,7 +22045,7 @@ eh.resume:                                        ; preds = %ehcleanup16, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21CPUThreadPoolExecutorC1EmSt10shared_ptrINS_13ThreadFactoryEENS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) initializes((0, 8)) %this, i64 noundef %numThreads, ptr nocapture noundef %threadFactory, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21CPUThreadPoolExecutorC1EmSt10shared_ptrINS_13ThreadFactoryEENS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) %this, i64 noundef %numThreads, ptr nocapture noundef %threadFactory, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2 = alloca %"class.std::shared_ptr.276", align 16
   %agg.tmp3 = alloca %"struct.folly::CPUThreadPoolExecutor::Options", align 8
@@ -22153,7 +22153,7 @@ _ZN5folly21CPUThreadPoolExecutor7OptionsD2Ev.exit14: ; preds = %_ZNKSt14default_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21CPUThreadPoolExecutorC1ESt4pairImmESt10shared_ptrINS_13ThreadFactoryEENS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) initializes((0, 8)) %this, i64 %numThreads.coerce0, i64 %numThreads.coerce1, ptr nocapture noundef %threadFactory, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21CPUThreadPoolExecutorC1ESt4pairImmESt10shared_ptrINS_13ThreadFactoryEENS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) %this, i64 %numThreads.coerce0, i64 %numThreads.coerce1, ptr nocapture noundef %threadFactory, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.276", align 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly8ExecutorE, i64 16), ptr %this, align 64, !tbaa !22
@@ -23450,7 +23450,7 @@ declare noundef zeroext i1 @_ZN5folly13setThreadNameENS_5RangeIPKcEE(ptr, ptr) l
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21CPUThreadPoolExecutorC1EmNS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) initializes((0, 8)) %this, i64 noundef %numThreads, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21CPUThreadPoolExecutorC1EmNS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) %this, i64 noundef %numThreads, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.276", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.346", align 8
@@ -23758,7 +23758,7 @@ _ZNSt10unique_ptrIN5folly13BlockingQueueINS0_21CPUThreadPoolExecutor7CPUTaskEEES
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21CPUThreadPoolExecutorC1EmaSt10shared_ptrINS_13ThreadFactoryEENS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) initializes((0, 8)) %this, i64 noundef %numThreads, i8 noundef signext %numPriorities, ptr nocapture noundef %threadFactory, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21CPUThreadPoolExecutorC1EmaSt10shared_ptrINS_13ThreadFactoryEENS0_7OptionsE(ptr noundef nonnull align 64 dereferenceable(2572) %this, i64 noundef %numThreads, i8 noundef signext %numPriorities, ptr nocapture noundef %threadFactory, ptr nocapture noundef %opt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %agg.tmp2 = alloca %"class.std::shared_ptr.276", align 16
@@ -26659,7 +26659,7 @@ _ZNKSt14default_deleteIN5folly13BlockingQueueINS0_21CPUThreadPoolExecutor7CPUTas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly21CPUThreadPoolExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(2572) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21CPUThreadPoolExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(2572) %this, ptr noundef %vtt) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.google::LogMessageFatal", align 8
   %0 = load ptr, ptr %vtt, align 8

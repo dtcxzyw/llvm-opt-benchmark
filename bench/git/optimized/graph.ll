@@ -283,7 +283,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @graph_update(ptr noundef initializes((0, 8), (16, 20)) %graph, ptr noundef %commit) local_unnamed_addr #2 {
+define dso_local void @graph_update(ptr noundef %graph, ptr noundef %commit) local_unnamed_addr #2 {
 entry:
   store ptr %commit, ptr %graph, align 8
   %num_parents = getelementptr inbounds i8, ptr %graph, i64 16

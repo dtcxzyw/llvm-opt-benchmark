@@ -108,7 +108,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9PcgRandomC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i64 noundef %state, i64 noundef %seq) unnamed_addr #3 align 2 {
+define dso_local void @_ZN9PcgRandomC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %state, i64 noundef %seq) unnamed_addr #3 align 2 {
 entry:
   %shl.i = shl i64 %seq, 1
   %or.i = or disjoint i64 %shl.i, 1
@@ -122,7 +122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9PcgRandom4seedEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i64 noundef %state, i64 noundef %seq) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN9PcgRandom4seedEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %state, i64 noundef %seq) local_unnamed_addr #3 align 2 {
 entry:
   %shl = shl i64 %seq, 1
   %or = or disjoint i64 %shl, 1
@@ -528,7 +528,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK9PcgRandom8getStateEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly initializes((0, 16)) %state) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK9PcgRandom8getStateEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef writeonly %state) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !9
   store i64 %0, ptr %state, align 8, !tbaa !18
@@ -540,7 +540,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN9PcgRandom8setStateEPKm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %state) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN9PcgRandom8setStateEPKm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %state) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %state, align 8, !tbaa !18
   store i64 %0, ptr %this, align 8, !tbaa !9
@@ -1320,7 +1320,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5NoiseC2EPK11NoiseParamsijjj(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef readonly %np_, i32 noundef %seed, i32 noundef %sx, i32 noundef %sy, i32 noundef %sz) unnamed_addr #7 align 2 {
+define dso_local void @_ZN5NoiseC2EPK11NoiseParamsijjj(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef readonly %np_, i32 noundef %seed, i32 noundef %sx, i32 noundef %sy, i32 noundef %sz) unnamed_addr #7 align 2 {
 entry:
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %this, align 8, !tbaa !35
   %Z.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1352,7 +1352,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Noise12allocBuffersEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((56, 64)) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5Noise12allocBuffersEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sx = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load i32, ptr %sx, align 4, !tbaa !47
@@ -1917,7 +1917,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Noise7setSizeEjjj(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((44, 64)) %this, i32 noundef %sx, i32 noundef %sy, i32 noundef %sz) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN5Noise7setSizeEjjj(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %sx, i32 noundef %sy, i32 noundef %sz) local_unnamed_addr #7 align 2 {
 entry:
   %sx2 = getelementptr inbounds i8, ptr %this, i64 44
   store i32 %sx, ptr %sx2, align 4, !tbaa !47
@@ -1930,7 +1930,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Noise15setSpreadFactorEN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((8, 20)) %this, <2 x float> %spread.coerce0, float %spread.coerce1) local_unnamed_addr #19 align 2 {
+define dso_local void @_ZN5Noise15setSpreadFactorEN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, <2 x float> %spread.coerce0, float %spread.coerce1) local_unnamed_addr #19 align 2 {
 entry:
   %spread2 = getelementptr inbounds i8, ptr %this, i64 8
   store <2 x float> %spread.coerce0, ptr %spread2, align 8, !tbaa.struct !59
@@ -1944,7 +1944,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5Noise10setOctavesEi(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((24, 26)) %this, i32 noundef %octaves) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN5Noise10setOctavesEi(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, i32 noundef %octaves) local_unnamed_addr #7 align 2 {
 entry:
   %conv = trunc i32 %octaves to i16
   %octaves2 = getelementptr inbounds i8, ptr %this, i64 24

@@ -299,7 +299,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Ipopt24LimMemQuasiNewtonUpdaterC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(416) initializes((0, 12), (16, 49), (56, 64), (113, 114), (128, 136), (144, 152), (168, 216), (224, 248), (256, 304), (312, 360), (368, 392), (400, 416)) %0, i1 noundef zeroext %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt24LimMemQuasiNewtonUpdaterC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(416) %0, i1 noundef zeroext %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -8984,7 +8984,7 @@ _ZNK5Ipopt6Vector4Nrm2Ev.exit17:                  ; preds = %._crit_edge.i14, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt24LimMemQuasiNewtonUpdater23StoreInternalDataBackupEv(ptr nocapture noundef nonnull align 8 dereferenceable(416) initializes((304, 308), (360, 368), (392, 393)) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN5Ipopt24LimMemQuasiNewtonUpdater23StoreInternalDataBackupEv(ptr nocapture noundef nonnull align 8 dereferenceable(416) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 164
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 304
@@ -9718,7 +9718,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit34:       ; preds = %145, %141, %149, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt24LimMemQuasiNewtonUpdater25RestoreInternalDataBackupEv(ptr nocapture noundef nonnull align 8 dereferenceable(416) initializes((164, 168), (216, 224), (248, 249)) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN5Ipopt24LimMemQuasiNewtonUpdater25RestoreInternalDataBackupEv(ptr nocapture noundef nonnull align 8 dereferenceable(416) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 304
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 164
@@ -11106,7 +11106,7 @@ define linkonce_odr void @_ZN5Ipopt14INTERNAL_ABORTD2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Ipopt24LimMemQuasiNewtonUpdater16SplitEigenvaluesERNS_14DenseGenMatrixERKNS_11DenseVectorERNS_8SmartPtrIS1_EES8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(104) initializes((88, 89)) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5Ipopt24LimMemQuasiNewtonUpdater16SplitEigenvaluesERNS_14DenseGenMatrixERKNS_11DenseVectorERNS_8SmartPtrIS1_EES8_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 12

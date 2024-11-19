@@ -3532,7 +3532,7 @@ Vec_IntPush.exit29:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkFinMiterCollect(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define void @Abc_NtkFinMiterCollect(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 4
@@ -6124,7 +6124,7 @@ declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef
 declare void @sat_solver_delete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkFinLocalSetup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define void @Abc_NtkFinLocalSetup(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 4
@@ -7234,7 +7234,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NtkFinComputeObjects(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NtkFinComputeObjects(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #33
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4

@@ -16033,7 +16033,7 @@ declare void @_ZN6Parker4parkEbl(ptr noundef nonnull align 8 dereferenceable(144
 declare noundef ptr @_ZN10JavaThread20current_park_blockerEv(ptr noundef nonnull align 8 dereferenceable(1800)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22post_thread_park_eventP15EventThreadParkP7oopDescll(ptr noundef nonnull initializes((24, 56)) %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #1 {
+define internal fastcc void @_ZL22post_thread_park_eventP15EventThreadParkP7oopDescll(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, i64 noundef range(i64 1, 0) %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.critedge, label %5
 

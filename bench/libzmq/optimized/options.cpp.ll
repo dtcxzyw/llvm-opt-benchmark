@@ -161,7 +161,7 @@ return:                                           ; preds = %_ZL13do_setsockoptI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq9options_tC2Ev(ptr noundef nonnull align 8 dereferenceable(1336) initializes((0, 17), (276, 309), (312, 340), (344, 361), (364, 373)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq9options_tC2Ev(ptr noundef nonnull align 8 dereferenceable(1336) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 1000, ptr %this, align 8
   %rcvhwm = getelementptr inbounds i8, ptr %this, i64 4

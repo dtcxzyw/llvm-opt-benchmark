@@ -17934,7 +17934,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1532) initializes((1224, 1236), (1240, 1248), (1264, 1272)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1532) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [75 x i32], align 4
   %4 = alloca %"class.std::allocator.10", align 1
   %5 = alloca [75 x i32], align 4
@@ -45334,7 +45334,7 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkEEvT_S4_.exit: ; preds = %_ZSt8_DestroyIN5Y
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm34block_subpattern_ice40_dsp_in_dffeEi(ptr noundef nonnull align 8 dereferenceable(1532) initializes((1224, 1232)) %0, i32 noundef range(i32 -2147483645, -2147483648) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm34block_subpattern_ice40_dsp_in_dffeEi(ptr noundef nonnull align 8 dereferenceable(1532) %0, i32 noundef range(i32 -2147483645, -2147483648) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -47432,7 +47432,7 @@ _ZNK5Yosys7hashlib4dictISt5tupleIJNS_5RTLIL6SigBitEEESt6vectorIS2_IJPNS3_4CellEi
 declare void @_ZN5Yosys5RTLIL7SigSpec7replaceERKS1_S3_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm35block_subpattern_ice40_dsp_out_dffeEi(ptr noundef nonnull align 8 dereferenceable(1532) initializes((1224, 1232)) %0, i32 noundef range(i32 -2147483645, -2147483648) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm35block_subpattern_ice40_dsp_out_dffeEi(ptr noundef nonnull align 8 dereferenceable(1532) %0, i32 noundef range(i32 -2147483645, -2147483648) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4

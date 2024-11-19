@@ -2370,7 +2370,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4bags11SolverState11getElementsENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(408) %this, ptr nocapture noundef readonly %B) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4bags11SolverState11getElementsENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::set") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(408) %this, ptr nocapture noundef readonly %B) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.429", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.432", align 1
@@ -4395,7 +4395,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4bags11SolverState21getPartElementSkolemsENS0_12NodeTemplateILb1EEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4bags11SolverState21getPartElementSkolemsENS0_12NodeTemplateILb1EEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef nonnull %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_partElementSkolems = getelementptr inbounds i8, ptr %this, i64 296
   %call = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4cvc57context9CDHashMapINS_8internal12NodeTemplateILb1EEESt10shared_ptrINS0_9CDHashSetIS4_St4hashIS4_EEEES8_EixERKS4_(ptr noundef nonnull align 8 dereferenceable(112) %d_partElementSkolems, ptr noundef nonnull align 8 dereferenceable(8) %n)

@@ -583,7 +583,7 @@ declare void @_ZN3g2o14CacheContainer15setUpdateNeededEb(ptr noundef nonnull ali
 declare void @_ZN3g2o14CacheContainer6updateEv(ptr noundef nonnull align 8 dereferenceable(65)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8), (64, 72)) %0) unnamed_addr #6 align 2 {
+define void @_ZN3g2o16OptimizableGraph6VertexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds inrange(-16, 256) (i8, ptr @_ZTVN3g2o16OptimizableGraph6VertexE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o16OptimizableGraph6VertexE, i64 288), ptr %2, align 8
@@ -724,7 +724,7 @@ declare void @_ZN3g2o10HyperGraph4EdgeC2Ei(ptr noundef nonnull align 8 dereferen
 declare void @_ZN3g2o10HyperGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (40, 48)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o16OptimizableGraph4EdgeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 208) (i8, ptr @_ZTVN3g2o16OptimizableGraph4EdgeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN3g2o16OptimizableGraph4EdgeE, i64 240), ptr %2, align 8
@@ -1308,7 +1308,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 declare void @_ZN3g2o10HyperGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o16OptimizableGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o16OptimizableGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN3g2o16OptimizableGraphE, i64 16), ptr %0, align 8
   invoke void @_ZN3g2o10HyperGraph5clearEv(ptr noundef nonnull align 8 dereferenceable(112) %0)
           to label %2 unwind label %32
@@ -4901,7 +4901,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit46:           ; preds = %.thread
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3g2o16OptimizableGraph10dimensionsEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.110") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o16OptimizableGraph10dimensionsEv(ptr dead_on_unwind noalias writable sret(%"class.std::set.110") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

@@ -164,7 +164,7 @@ $_ZTIN3irr2io15CFloatAttributeE = comdat any
 @.str = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr2io11CAttributesC2EPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 33), (40, 48)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io11CAttributesC2EPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -208,7 +208,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr2io11CAttributesC1EPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 33), (40, 68)) %this, ptr noundef %driver) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io11CAttributesC1EPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 48
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -242,7 +242,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributesD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributesD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -295,7 +295,7 @@ _ZN3irr4core5arrayIPNS_2io10IAttributeEED2Ev.exit: ; preds = %if.then.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributesD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (48, 56)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributesD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io11CAttributesE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -411,7 +411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CAttributesD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (48, 56)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io11CAttributesD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN3irr2io11CAttributesD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21

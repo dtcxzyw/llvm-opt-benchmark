@@ -539,7 +539,7 @@ entry:
 declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16IcuTestErrorCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16IcuTestErrorCodeD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV16IcuTestErrorCode, i64 16), ptr %this, align 8
@@ -1227,7 +1227,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14TestDataModuleC2EPKcR7TestLogR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(8) %log, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) unnamed_addr #14 align 2 {
+define void @_ZN14TestDataModuleC2EPKcR7TestLogR10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(8) %log, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %0) unnamed_addr #14 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV14TestDataModule, i64 16), ptr %this, align 8
   %testName = getelementptr inbounds i8, ptr %this, i64 8
@@ -1240,7 +1240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14TestDataModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN14TestDataModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV14TestDataModule, i64 16), ptr %this, align 8
   %fInfo = getelementptr inbounds i8, ptr %this, i64 16
@@ -1275,7 +1275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16RBTestDataModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16RBTestDataModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16RBTestDataModule, i64 16), ptr %this, align 8
   %fTestData = getelementptr inbounds i8, ptr %this, i64 40
@@ -1337,7 +1337,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16RBTestDataModuleC2EPKcR7TestLogR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 57), (64, 76)) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(8) %log, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16RBTestDataModuleC2EPKcR7TestLogR10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(8) %log, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1573,7 +1573,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef non
 declare void @_ZN9RBDataMapC1EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK16RBTestDataModule7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #16 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK16RBTestDataModule7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #16 align 2 {
 entry:
   %fInfo = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fInfo, align 8

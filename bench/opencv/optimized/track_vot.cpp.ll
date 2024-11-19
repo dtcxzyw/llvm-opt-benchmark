@@ -2027,7 +2027,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8datasets9TRACK_vot6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.29") align 8 initializes((0, 16)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8datasets9TRACK_vot6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.29") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_8datasets13TRACK_votImplEED2Ev.exit:
   %1 = alloca %"struct.cv::Ptr.33", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #20
@@ -2053,7 +2053,7 @@ _ZN2cv3PtrINS_8datasets13TRACK_votImplEED2Ev.exit:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8datasets13TRACK_votImpl5getGTEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.24") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8datasets13TRACK_votImpl5getGTEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.24") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::Ptr", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = getelementptr inbounds i8, ptr %1, i64 128

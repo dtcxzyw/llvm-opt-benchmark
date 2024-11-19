@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._lv_matrix_t = type { [3 x [3 x float]] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_matrix_identity(ptr nocapture noundef writeonly initializes((0, 36)) %0) local_unnamed_addr #0 {
+define void @lv_matrix_identity(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store float 1.000000e+00, ptr %0, align 4, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %2, align 4, !tbaa !3

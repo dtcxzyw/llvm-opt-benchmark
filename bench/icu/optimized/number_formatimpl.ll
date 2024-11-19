@@ -650,14 +650,14 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl19NumberFormatterImplC2ERKNS1_10MacroPropsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(472) %macros, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl19NumberFormatterImplC2ERKNS1_10MacroPropsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(472) %macros, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_756number4impl19NumberFormatterImplC2ERKNS1_10MacroPropsEbR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(472) %macros, i1 noundef zeroext true, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl19NumberFormatterImplC2ERKNS1_10MacroPropsEbR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(472) %macros, i1 noundef zeroext %safe, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl19NumberFormatterImplC2ERKNS1_10MacroPropsEbR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(472) %macros, i1 noundef zeroext %safe, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont23:
   store ptr null, ptr %this, align 8
   %fMicros = getelementptr inbounds i8, ptr %this, i64 8

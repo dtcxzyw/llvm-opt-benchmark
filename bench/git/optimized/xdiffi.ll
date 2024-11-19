@@ -1454,7 +1454,7 @@ if.end113:                                        ; preds = %while.end109
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @measure_split(ptr nocapture noundef readonly %xdf, i64 noundef %split, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %m) unnamed_addr #5 {
+define internal fastcc void @measure_split(ptr nocapture noundef readonly %xdf, i64 noundef %split, ptr nocapture noundef nonnull writeonly %m) unnamed_addr #5 {
 entry:
   %nrec = getelementptr inbounds i8, ptr %xdf, i64 56
   %0 = load i64, ptr %nrec, align 8

@@ -1982,7 +1982,7 @@ declare noundef ptr @_Z26tsi_create_fake_handshakeri(i32 noundef) local_unnamed_
 declare void @_ZN30grpc_server_security_connectorC2ESt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrI23grpc_server_credentialsEE(ptr noundef nonnull align 8 dereferenceable(40), i64, ptr, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_135grpc_fake_server_security_connectorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_135grpc_fake_server_security_connectorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV30grpc_server_security_connector, i64 16), ptr %this, align 8
   %server_creds_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -2008,7 +2008,7 @@ _ZN30grpc_server_security_connectorD2Ev.exit:     ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_135grpc_fake_server_security_connectorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_135grpc_fake_server_security_connectorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV30grpc_server_security_connector, i64 16), ptr %this, align 8
   %server_creds_.i.i = getelementptr inbounds i8, ptr %this, i64 32

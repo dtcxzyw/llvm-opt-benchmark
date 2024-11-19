@@ -329,7 +329,7 @@ define internal fastcc void @io_fail_links(ptr noundef %0) unnamed_addr #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @__io_disarm_linked_timeout(ptr nocapture noundef %0, ptr noundef initializes((40, 48)) %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef ptr @__io_disarm_linked_timeout(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -1536,7 +1536,7 @@ declare dso_local zeroext i1 @io_fill_cqe_req_aux(ptr noundef, i1 noundef zeroex
 declare dso_local void @hrtimer_start_range_ns(ptr noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @io_req_task_link_timeout(ptr noundef initializes((80, 88)) %0, ptr noundef %1) #2 align 16 {
+define internal void @io_req_task_link_timeout(ptr noundef %0, ptr noundef %1) #2 align 16 {
   %3 = alloca %struct.io_cancel_data, align 8
   %4 = load i8, ptr %1, align 1, !range !22, !noundef !23
   %5 = icmp eq i8 %4, 0

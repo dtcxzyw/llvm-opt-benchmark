@@ -677,7 +677,7 @@ _nocheck__trace_bitbang_i2c_recv.exit:            ; preds = %entry, %land.lhs.tr
 declare void @i2c_nack(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @bitbang_i2c_init(ptr nocapture noundef writeonly initializes((0, 8), (12, 24)) %s, ptr noundef %bus) local_unnamed_addr #3 {
+define dso_local void @bitbang_i2c_init(ptr nocapture noundef writeonly %s, ptr noundef %bus) local_unnamed_addr #3 {
 entry:
   store ptr %bus, ptr %s, align 8
   %last_data = getelementptr inbounds i8, ptr %s, i64 12

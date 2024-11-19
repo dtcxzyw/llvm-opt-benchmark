@@ -107,7 +107,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilterC2ERKNS_11ChannelArgsEPN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture noundef %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilterC2ERKNS_11ChannelArgsEPN4absl12lts_202308026StatusE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %args, ptr nocapture noundef %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %server_uri = alloca %"class.std::optional", align 8

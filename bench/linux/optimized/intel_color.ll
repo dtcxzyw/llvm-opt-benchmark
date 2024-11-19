@@ -793,7 +793,7 @@ define dso_local i32 @intel_color_init(ptr noundef %0) local_unnamed_addr #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @intel_color_init_hooks(ptr nocapture noundef initializes((1600, 1608)) %0) local_unnamed_addr #4 align 16 {
+define dso_local void @intel_color_init_hooks(ptr nocapture noundef %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2624
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 28
@@ -2932,7 +2932,7 @@ define internal void @chv_read_csc(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @chv_get_config(ptr nocapture noundef initializes((4324, 4328)) %0) #0 align 16 {
+define internal void @chv_get_config(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 1648
@@ -11483,7 +11483,7 @@ define internal void @icl_read_csc(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @skl_get_config(ptr nocapture noundef initializes((4320, 4328)) %0) #0 align 16 {
+define internal void @skl_get_config(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 1648
@@ -11534,7 +11534,7 @@ define internal void @skl_get_config(ptr nocapture noundef initializes((4320, 43
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.0.val, ptr nocapture readonly %.360.val.80.val, ptr nocapture noundef writeonly initializes((0, 30)) %0, i1 noundef zeroext %1) unnamed_addr #10 align 16 {
+define internal fastcc void @ilk_csc_convert_ctm(ptr nocapture readonly %.0.val.0.val, ptr nocapture readonly %.360.val.80.val, ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) unnamed_addr #10 align 16 {
   %3 = alloca [9 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %3, i8 0, i64 72, i1 false), !annotation !168
@@ -14041,7 +14041,7 @@ define internal fastcc ptr @bdw_read_lut_10(ptr %.0.val, i32 %.1648.val, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ilk_read_pipe_csc(ptr nocapture readonly %.0.val, i32 %.1648.val, ptr nocapture noundef writeonly initializes((0, 24)) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ilk_read_pipe_csc(ptr nocapture readonly %.0.val, i32 %.1648.val, ptr nocapture noundef writeonly %0) unnamed_addr #0 align 16 {
   %2 = shl i32 %.1648.val, 8
   %3 = add i32 %2, 299056
   %4 = getelementptr inbounds i8, ptr %.0.val, i64 7368
@@ -16300,7 +16300,7 @@ define internal void @skl_read_csc(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ilk_assign_csc(ptr nocapture noundef initializes((752, 782)) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @ilk_assign_csc(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 2632
@@ -18344,7 +18344,7 @@ define internal void @ilk_read_csc(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @hsw_get_config(ptr nocapture noundef initializes((4320, 4328)) %0) #0 align 16 {
+define internal void @hsw_get_config(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 1648
@@ -19569,7 +19569,7 @@ define internal void @ilk_color_commit_arm(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ilk_get_config(ptr nocapture noundef initializes((4324, 4328)) %0) #0 align 16 {
+define internal void @ilk_get_config(ptr nocapture noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 1648

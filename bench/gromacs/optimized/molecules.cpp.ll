@@ -9620,7 +9620,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJiiEESt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5nblib8Molecule16particleTypesMapB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::unordered_map") align 8 initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(1024) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5nblib8Molecule16particleTypesMapB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::unordered_map") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1024) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__detail::_AllocNode", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)

@@ -1187,7 +1187,7 @@ define void @_Z8xvgr_boxP8_IO_FILEiffffiiiiiiPK16gmx_output_env_t(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z15read_xvg_legendRKNSt10filesystem7__cxx114pathEPPPdPiPPcPS9_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((0, 4)) %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_Z15read_xvg_legendRKNSt10filesystem7__cxx114pathEPPPdPiPPcPS9_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr noundef writeonly %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca [2 x i32], align 4
   %8 = alloca i32, align 4
@@ -1904,7 +1904,7 @@ _ZN3gmx13MultiDimArrayISt6vectorIdSaIdEENS_7extentsIJLln1ELln1EEEENS_12layout_ri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z11readXvgDataRKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable sret(%"class.gmx::MultiDimArray") align 8 initializes((0, 24), (32, 64)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z11readXvgDataRKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable sret(%"class.gmx::MultiDimArray") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::MultiDimArray", align 8
   call fastcc void @_ZN12_GLOBAL__N_119readXvgDataInternalERKNSt10filesystem7__cxx114pathE(ptr dead_on_unwind noalias writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(40) %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 48
@@ -2719,7 +2719,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17readXvgTimeSeriesRKNSt10filesystem7__cxx114pathESt8optionalIfES5_(ptr dead_on_unwind noalias writable sret(%"class.gmx::MultiDimArray") align 8 initializes((0, 24), (32, 64)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 %2, i64 %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z17readXvgTimeSeriesRKNSt10filesystem7__cxx114pathESt8optionalIfES5_(ptr dead_on_unwind noalias writable sret(%"class.gmx::MultiDimArray") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 %2, i64 %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.gmx::MultiDimArray", align 8
   %.sroa.037.0.extract.trunc = trunc i64 %2 to i32
   %6 = bitcast i32 %.sroa.037.0.extract.trunc to float
@@ -3168,7 +3168,7 @@ _Z8xvgropenRKNSt10filesystem7__cxx114pathEPKcRKNSt7__cxx1112basic_stringIcSt11ch
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z13read_xvg_timeRKNSt10filesystem7__cxx114pathEbbfbfiPiS4_PfPS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, float noundef %3, i1 noundef zeroext %4, float noundef %5, i32 noundef %6, ptr nocapture noundef initializes((0, 4)) %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly initializes((0, 4)) %9, ptr nocapture noundef initializes((0, 8)) %10) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_Z13read_xvg_timeRKNSt10filesystem7__cxx114pathEbbfbfiPiS4_PfPS5_(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, float noundef %3, i1 noundef zeroext %4, float noundef %5, i32 noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef %10) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %12 = alloca %"class.std::allocator", align 1
   %13 = alloca %"class.std::allocator", align 1
   %14 = alloca %"class.std::allocator", align 1

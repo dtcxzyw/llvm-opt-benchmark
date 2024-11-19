@@ -61,7 +61,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_1_2 = internal constant [1 x i8] c"Y", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @dutch_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -911,7 +911,7 @@ declare i32 @out_grouping_b_U(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare i32 @slice_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_e_ending(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_e_ending(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8

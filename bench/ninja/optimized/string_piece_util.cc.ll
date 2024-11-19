@@ -25,7 +25,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @.str.2 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z16SplitStringPiece11StringPiecec(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, i8 noundef signext %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z16SplitStringPiece11StringPiecec(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr %1, i64 %2, i8 noundef signext %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %.not6.i.i = icmp eq i64 %2, 0

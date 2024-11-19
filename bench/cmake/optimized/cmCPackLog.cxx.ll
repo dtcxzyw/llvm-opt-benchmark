@@ -65,7 +65,7 @@ declare void @_ZN5cmsys18SystemToolsManagerC1Ev(ptr noundef nonnull align 1 dere
 declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmCPackLogC2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmCPackLogC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1
@@ -134,7 +134,7 @@ _ZNSt10unique_ptrISoSt14default_deleteISoEED2Ev.exit: ; preds = %1, %_ZNKSt14def
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmCPackLog18SetLogOutputStreamEPSo(ptr nocapture noundef nonnull align 8 dereferenceable(232) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN10cmCPackLog18SetLogOutputStreamEPSo(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %3, align 8
@@ -155,7 +155,7 @@ _ZNSt10unique_ptrISoSt14default_deleteISoEE5resetEPSo.exit: ; preds = %2, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN10cmCPackLog16SetLogOutputFileEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(232) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN10cmCPackLog16SetLogOutputFileEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::unique_ptr.2", align 8
   store ptr %1, ptr %3, align 8

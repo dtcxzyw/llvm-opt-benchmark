@@ -2454,7 +2454,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit16: ; preds = %95, %99
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__21UsdSkelInbetweenShape11IsInbetweenERKNS_12UsdAttributeE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape15_MakeInbetweensERKSt6vectorINS_11UsdPropertyESaIS2_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.84") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdSkelBlendShape15_MakeInbetweensERKSt6vectorINS_11UsdPropertyESaIS2_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.84") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelInbetweenShape", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

@@ -21680,7 +21680,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIPN3u
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L12findLeftSuccERKNS_13RoseBuildImplE(ptr noalias nonnull align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(780) %build) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L12findLeftSuccERKNS_13RoseBuildImplE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(780) %build) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %ref.tmp20 = alloca %"struct.ue2::left_id", align 8
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8

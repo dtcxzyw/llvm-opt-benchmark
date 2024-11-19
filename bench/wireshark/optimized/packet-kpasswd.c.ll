@@ -329,7 +329,7 @@ declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 nounde
 declare i32 @get_krb_pdu_len(ptr noundef, ptr noundef, i32 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_kpasswd_tcp_pdu(ptr noundef %0, ptr noundef initializes((272, 276)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_kpasswd_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 272
   store i32 1, ptr %5, align 8
   %6 = tail call fastcc i32 @dissect_kpasswd_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1)

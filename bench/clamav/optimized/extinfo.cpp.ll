@@ -807,7 +807,7 @@ declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #4
 declare i32 @wcsncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z14ExtractSymlinkP11CommandDataR11ComprDataIOR7ArchivePKwRb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(266) %1, ptr noundef nonnull align 8 dereferenceable(57108) %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %4) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z14ExtractSymlinkP11CommandDataR11ComprDataIOR7ArchivePKwRb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(266) %1, ptr noundef nonnull align 8 dereferenceable(57108) %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) local_unnamed_addr #0 {
   %6 = alloca [2048 x i8], align 16
   %7 = alloca [2048 x i32], align 16
   %8 = alloca [2048 x i8], align 16

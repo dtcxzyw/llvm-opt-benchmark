@@ -1084,7 +1084,7 @@ declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed
 declare i32 @test_int_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @helper_init(ptr noundef nonnull initializes((0, 80)) %h, i64 noundef %num_pkts) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @helper_init(ptr noundef nonnull %h, i64 noundef %num_pkts) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %h, i8 0, i64 80, i1 false)
   store i64 123000000000, ptr @fake_time.0, align 8
@@ -1145,7 +1145,7 @@ if.end29:                                         ; preds = %if.then18, %if.else
 declare void @ossl_ackm_set_loss_detection_deadline_callback(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @on_loss_detection_deadline_callback(i64 %deadline.coerce, ptr nocapture noundef writeonly initializes((0, 8)) %arg) #3 {
+define internal void @on_loss_detection_deadline_callback(i64 %deadline.coerce, ptr nocapture noundef writeonly %arg) #3 {
 entry:
   store i64 %deadline.coerce, ptr %arg, align 8
   ret void

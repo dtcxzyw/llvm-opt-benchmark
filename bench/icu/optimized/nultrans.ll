@@ -126,7 +126,7 @@ lpad:                                             ; preds = %new.notnull
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_7518NullTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull align 4 dereferenceable(16) initializes((8, 12)) %offsets, i8 signext %1) unnamed_addr #5 align 2 {
+define void @_ZNK6icu_7518NullTransliterator19handleTransliterateERNS_11ReplaceableER14UTransPositiona(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull align 4 dereferenceable(16) %offsets, i8 signext %1) unnamed_addr #5 align 2 {
 entry:
   %limit = getelementptr inbounds i8, ptr %offsets, i64 12
   %2 = load i32, ptr %limit, align 4

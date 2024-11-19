@@ -31,7 +31,7 @@ $_ZN15b2FrictionJointD0Ev = comdat any
 @_ZN15b2FrictionJointC1EPK18b2FrictionJointDef = unnamed_addr alias void (ptr, ptr), ptr @_ZN15b2FrictionJointC2EPK18b2FrictionJointDef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18b2FrictionJointDef10InitializeEP6b2BodyS1_RK6b2Vec2(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((16, 32), (36, 52)) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor) local_unnamed_addr #0 align 2 {
+define void @_ZN18b2FrictionJointDef10InitializeEP6b2BodyS1_RK6b2Vec2(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor) local_unnamed_addr #0 align 2 {
 entry:
   %bodyA = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %bA, ptr %bodyA, align 8
@@ -118,7 +118,7 @@ declare void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferen
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN15b2FrictionJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(240) initializes((164, 240)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
+define void @_ZN15b2FrictionJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
   %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
@@ -592,7 +592,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15b2FrictionJoint11SetMaxForceEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) initializes((156, 160)) %this, float noundef %force) local_unnamed_addr #10 align 2 {
+define void @_ZN15b2FrictionJoint11SetMaxForceEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) %this, float noundef %force) local_unnamed_addr #10 align 2 {
 entry:
   %m_maxForce = getelementptr inbounds i8, ptr %this, i64 156
   store float %force, ptr %m_maxForce, align 4
@@ -608,7 +608,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15b2FrictionJoint12SetMaxTorqueEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) initializes((160, 164)) %this, float noundef %torque) local_unnamed_addr #10 align 2 {
+define void @_ZN15b2FrictionJoint12SetMaxTorqueEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) %this, float noundef %torque) local_unnamed_addr #10 align 2 {
 entry:
   %m_maxTorque = getelementptr inbounds i8, ptr %this, i64 160
   store float %torque, ptr %m_maxTorque, align 8

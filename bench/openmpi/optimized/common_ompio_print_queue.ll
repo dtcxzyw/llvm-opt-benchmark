@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [28 x i8] c" MAX-EXCH AVG-EXCH MIN-EXCH\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef range(i32 -2, 1) i32 @mca_common_ompio_initialize_print_queue(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
+define noundef range(i32 -2, 1) i32 @mca_common_ompio_initialize_print_queue(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(65584) ptr @malloc(i64 noundef 65584) #11
   %3 = getelementptr inbounds i8, ptr %2, i64 65568
   store i32 0, ptr %3, align 8

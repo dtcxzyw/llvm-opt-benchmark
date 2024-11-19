@@ -247,7 +247,7 @@ define hidden { i32, i32 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h2d4cc5daa602c
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hdb2e790a001a8129E.llvm.1812094323767051342"(ptr noalias nocapture noundef writeonly sret({ i32, [2 x i32] }) align 4 dereferenceable(12) initializes((0, 4)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #4 {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hdb2e790a001a8129E.llvm.1812094323767051342"(ptr noalias nocapture noundef writeonly sret({ i32, [2 x i32] }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0
@@ -479,7 +479,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder7def_var17h3141845fa7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder7use_var17hb5e00ee5c298cb1aE(ptr noalias nocapture noundef writeonly sret({ i32, [1 x i32], { { { i64, ptr, {} }, i64 } } }) align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, ptr noalias noundef align 8 dereferenceable(296) %1, ptr noalias noundef align 8 dereferenceable(872) %2, i32 noundef %3, i16 noundef %4, i32 noundef %5) unnamed_addr #2 {
+define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder7use_var17hb5e00ee5c298cb1aE(ptr noalias nocapture noundef writeonly sret({ i32, [1 x i32], { { { i64, ptr, {} }, i64 } } }) align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(296) %1, ptr noalias noundef align 8 dereferenceable(872) %2, i32 noundef %3, i16 noundef %4, i32 noundef %5) unnamed_addr #2 {
   %.sroa.0 = alloca { { i64, ptr, {} }, i64 }, align 8
   tail call void @_ZN18cranelift_frontend3ssa10SSABuilder16use_var_nonlocal17h551065cfee288acdE.llvm.1812094323767051342(ptr noalias noundef nonnull align 8 dereferenceable(296) %1, ptr noalias noundef nonnull align 8 dereferenceable(872) %2, i32 noundef %3, i16 noundef %4, i32 noundef %5)
   %7 = tail call noundef i32 @_ZN18cranelift_frontend3ssa10SSABuilder17run_state_machine17h50f3e39ce35b7e0cE.llvm.1812094323767051342(ptr noalias noundef nonnull align 8 dereferenceable(296) %1, ptr noalias noundef nonnull align 8 dereferenceable(872) %2, i32 noundef %3, i16 noundef %4)
@@ -612,7 +612,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder16use_var_nonlocal17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i32, i32 } @_ZN18cranelift_frontend3ssa10SSABuilder8find_var17h31d557c40bd198e5E.llvm.1812094323767051342(ptr noalias noundef align 8 dereferenceable(296) initializes((184, 200)) %0, ptr noalias noundef align 8 dereferenceable(872) %1, i32 noundef %2, i16 noundef %3, i32 noundef %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden { i32, i32 } @_ZN18cranelift_frontend3ssa10SSABuilder8find_var17h31d557c40bd198e5E.llvm.1812094323767051342(ptr noalias noundef align 8 dereferenceable(296) %0, ptr noalias noundef align 8 dereferenceable(872) %1, i32 noundef %2, i16 noundef %3, i32 noundef %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = getelementptr inbounds i8, ptr %0, i64 168
   %7 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !alias.scope !59
@@ -949,7 +949,7 @@ define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder24remove_block_predec
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder10seal_block17h0a6990bffd9f08ceE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef align 8 dereferenceable(296) %1, i32 noundef %2, ptr noalias noundef align 8 dereferenceable(872) %3) unnamed_addr #2 {
+define hidden void @_ZN18cranelift_frontend3ssa10SSABuilder10seal_block17h0a6990bffd9f08ceE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(296) %1, i32 noundef %2, ptr noalias noundef align 8 dereferenceable(872) %3) unnamed_addr #2 {
   tail call void @_ZN18cranelift_frontend3ssa10SSABuilder14seal_one_block17he6cb093b889baf19E.llvm.1812094323767051342(ptr noalias noundef nonnull align 8 dereferenceable(296) %1, i32 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(872) %3)
   %5 = getelementptr inbounds i8, ptr %1, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)

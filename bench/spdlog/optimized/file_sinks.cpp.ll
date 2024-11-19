@@ -251,7 +251,7 @@ $_ZTIN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE = comdat any
 @_ZN6spdlog5sinks18rotating_file_sinkINS_7details10null_mutexEEC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmbRKNS_19file_event_handlersE = weak_odr dso_local unnamed_addr alias void (ptr, ptr, i64, i64, i1, ptr), ptr @_ZN6spdlog5sinks18rotating_file_sinkINS_7details10null_mutexEEC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmmbRKNS_19file_event_handlersE
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6spdlog7details11file_helperC2ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(128) %event_handlers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6spdlog7details11file_helperC2ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(128) %event_handlers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 5, ptr %this, align 8
   %open_interval_ = getelementptr inbounds i8, ptr %this, i64 4

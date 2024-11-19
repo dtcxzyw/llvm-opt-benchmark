@@ -1918,7 +1918,7 @@ declare void @_ZN5clang5arcmt16TransformActions16startTransactionEv(ptr noundef 
 declare noundef zeroext i1 @_ZN5clang5arcmt5trans16MigrationContext24rewritePropertyAttributeEN4llvm9StringRefES4_NS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(128), ptr, i64, ptr, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang14IdentifierInfoEN12_GLOBAL__N_118PropertiesRewriter14PropActionKindENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN5clang14IdentifierInfoEN12_GLOBAL__N_118PropertiesRewriter14PropActionKindENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

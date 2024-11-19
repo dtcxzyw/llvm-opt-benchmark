@@ -1240,7 +1240,7 @@ declare dso_local void @put_unused_fd(i32 noundef) local_unnamed_addr #2
 declare dso_local void @fd_install(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @drm_syncobj_open(ptr nocapture noundef writeonly initializes((112, 140)) %0) local_unnamed_addr #5 align 16 {
+define dso_local void @drm_syncobj_open(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 116

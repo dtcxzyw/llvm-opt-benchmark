@@ -3807,7 +3807,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute8internal15GetNumericCastsEv(ptr noalias sret(%"class.std::vector.18") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal15GetNumericCastsEv(ptr noalias sret(%"class.std::vector.18") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i783.i18898 = alloca %"class.std::shared_ptr.49", align 8
   %agg.tmp.i.i18899 = alloca %"class.std::shared_ptr.49", align 8

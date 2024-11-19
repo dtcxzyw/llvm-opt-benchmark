@@ -59,7 +59,7 @@ $_ZTIN8QuantLib25PiecewiseConstantVarianceE = comdat any
 @_ZN8QuantLib29PiecewiseConstantAbcdVarianceC1EddddmRKSt6vectorIdSaIdEE = unnamed_addr alias void (ptr, double, double, double, double, i64, ptr), ptr @_ZN8QuantLib29PiecewiseConstantAbcdVarianceC2EddddmRKSt6vectorIdSaIdEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29PiecewiseConstantAbcdVarianceC2EddddmRKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this, double noundef %a, double noundef %b, double noundef %c, double noundef %d, i64 noundef %resetIndex, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib29PiecewiseConstantAbcdVarianceC2EddddmRKSt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, double noundef %a, double noundef %b, double noundef %c, double noundef %d, i64 noundef %resetIndex, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp19 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -925,7 +925,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit7:                   ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8QuantLib29PiecewiseConstantAbcdVariance7getABCDERdS1_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %a, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %b, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %c, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %d) local_unnamed_addr #7 align 2 {
+define void @_ZNK8QuantLib29PiecewiseConstantAbcdVariance7getABCDERdS1_S1_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %a, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %b, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %c, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %d) local_unnamed_addr #7 align 2 {
 entry:
   %a_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load double, ptr %a_, align 8, !tbaa !16

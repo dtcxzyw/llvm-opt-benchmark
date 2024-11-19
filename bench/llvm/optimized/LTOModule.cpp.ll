@@ -160,7 +160,7 @@ $_ZN4llvm9StringMapINS_9LTOModule17NameAndAttributesENS_15MallocAllocatorEE21try
 @_ZN4llvm9LTOModuleD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm9LTOModuleD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9LTOModuleC2ESt10unique_ptrINS_6ModuleESt14default_deleteIS2_EENS_15MemoryBufferRefEPNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 8)) %0, ptr nocapture noundef %1, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9LTOModuleC2ESt10unique_ptrINS_6ModuleESt14default_deleteIS2_EENS_15MemoryBufferRefEPNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(336) %0, ptr nocapture noundef %1, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
@@ -1017,7 +1017,7 @@ declare void @_ZN4llvm24getBitcodeProducerStringB5cxx11ENS_15MemoryBufferRefE(pt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9LTOModule14createFromFileERNS_11LLVMContextENS_9StringRefERKNS_13TargetOptionsE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(360) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9LTOModule14createFromFileERNS_11LLVMContextENS_9StringRefERKNS_13TargetOptionsE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(360) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::ErrorOr", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -1100,7 +1100,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
 declare void @_ZN4llvm11LLVMContext9emitErrorERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9LTOModule13makeLTOModuleENS_15MemoryBufferRefERKNS_13TargetOptionsERNS_11LLVMContextEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 initializes((0, 4)) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, ptr noundef nonnull align 8 dereferenceable(360) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9LTOModule13makeLTOModuleENS_15MemoryBufferRefERKNS_13TargetOptionsERNS_11LLVMContextEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, ptr noundef nonnull align 8 dereferenceable(360) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Triple", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Error", align 8
@@ -1660,13 +1660,13 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_6ModuleESt14default_deleteIS2_EEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9LTOModule18createFromOpenFileERNS_11LLVMContextEiNS_9StringRefEmRKNS_13TargetOptionsE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, ptr %3, i64 %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(360) %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9LTOModule18createFromOpenFileERNS_11LLVMContextEiNS_9StringRefEmRKNS_13TargetOptionsE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, ptr %3, i64 %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(360) %6) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm9LTOModule23createFromOpenFileSliceERNS_11LLVMContextEiNS_9StringRefEmlRKNS_13TargetOptionsE(ptr dead_on_unwind writable sret(%"class.llvm::ErrorOr.68") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, ptr %3, i64 %4, i64 noundef %5, i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(360) %6)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9LTOModule23createFromOpenFileSliceERNS_11LLVMContextEiNS_9StringRefEmlRKNS_13TargetOptionsE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, ptr %3, i64 %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(360) %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9LTOModule23createFromOpenFileSliceERNS_11LLVMContextEiNS_9StringRefEmlRKNS_13TargetOptionsE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2, ptr %3, i64 %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 dereferenceable(360) %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::ErrorOr", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -1749,7 +1749,7 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
 declare void @_ZN4llvm12MemoryBuffer16getOpenFileSliceEiRKNS_5TwineEmlbSt8optionalINS_5AlignEE(ptr dead_on_unwind writable sret(%"class.llvm::ErrorOr") align 8, i32 noundef, ptr noundef nonnull align 8 dereferenceable(34), i64 noundef, i64 noundef, i1 noundef zeroext, i16) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9LTOModule16createFromBufferERNS_11LLVMContextEPKvmRKNS_13TargetOptionsENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(360) %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9LTOModule16createFromBufferERNS_11LLVMContextEPKvmRKNS_13TargetOptionsENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(360) %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::MemoryBufferRef", align 8
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
@@ -1766,7 +1766,7 @@ define dso_local void @_ZN4llvm9LTOModule16createFromBufferERNS_11LLVMContextEPK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9LTOModule20createInLocalContextESt10unique_ptrINS_11LLVMContextESt14default_deleteIS2_EEPKvmRKNS_13TargetOptionsENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 initializes((0, 4)) %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(360) %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9LTOModule20createInLocalContextESt10unique_ptrINS_11LLVMContextESt14default_deleteIS2_EEPKvmRKNS_13TargetOptionsENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.68") align 8 %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(360) %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::MemoryBufferRef", align 8
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
@@ -3592,7 +3592,7 @@ define dso_local noundef range(i64 -576460752303423488, 576460752303423488) i64 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4llvm9LTOModule19getDependentLibraryEPNS_3lto9InputFileEmPm(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZN4llvm9LTOModule19getDependentLibraryEPNS_3lto9InputFileEmPm(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds %"class.llvm::StringRef", ptr %5, i64 %1

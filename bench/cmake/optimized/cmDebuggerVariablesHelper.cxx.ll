@@ -1688,7 +1688,7 @@ _ZNSt12__shared_ptrIN10cmDebugger19cmDebuggerVariablesELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRK7cmRangeIN9__gnu_cxx17__normal_iteratorIPK2BTISB_ESt6vectorISI_SaISI_EEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRK7cmRangeIN9__gnu_cxx17__normal_iteratorIPK2BTISB_ESt6vectorISI_SaISI_EEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr.6", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::function", align 8
@@ -2880,7 +2880,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKSt6vectorISB_SaISB_EE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKSt6vectorISB_SaISB_EE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr.6", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::function", align 8
@@ -3700,7 +3700,7 @@ _ZN10cmDebugger19cmDebuggerVariables8SetValueERKNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP9cmFileSet(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP9cmFileSet(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr.6", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::function", align 8
@@ -4176,7 +4176,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKSt6vectorIP9cmFileSetSaISG_EE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKSt6vectorIP9cmFileSetSaISG_EE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
   %7 = alloca %"class.std::shared_ptr", align 8
   %8 = zext i1 %3 to i8
@@ -4340,7 +4340,7 @@ _ZNSt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEED2Ev.exit: ; preds = %31, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKSt6vectorIP8cmTargetSaISG_EE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKSt6vectorIP8cmTargetSaISG_EE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr.6", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::function", align 8
@@ -8309,7 +8309,7 @@ declare { ptr, ptr } @_ZNK8cmTarget21GetLinkOptionsEntriesB5cxx11Ev(ptr noundef 
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK8cmTarget27GetSystemIncludeDirectoriesB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP10cmMakefile(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP10cmMakefile(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr.6", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::function", align 8
@@ -8812,7 +8812,7 @@ _ZN10cmDebugger19cmDebuggerVariables8SetValueERKNSt7__cxx1112basic_stringIcSt11c
 declare noundef ptr @_ZNK8cmTarget11GetMakefileEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP17cmGlobalGenerator(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP17cmGlobalGenerator(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr.6", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::function", align 8
@@ -9222,7 +9222,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper6CreateERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS1_INS_20cmDebuggerStackFrameEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper6CreateERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS1_INS_20cmDebuggerStackFrameEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct._Guard, align 8
   %7 = alloca %struct._Guard, align 8
   %8 = alloca %"class.std::shared_ptr.6", align 8
@@ -12202,7 +12202,7 @@ declare void @_ZNK10cmMakefile8GetTestsERKNSt7__cxx1112basic_stringIcSt11char_tr
 declare void @_ZNK10cmMakefile23GetDefaultConfigurationB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(3520)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKSt6vectorIP6cmTestSaISG_EE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKSt6vectorIP6cmTestSaISG_EE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
   %7 = alloca %"class.std::shared_ptr", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -12422,7 +12422,7 @@ _ZN10cmDebugger19cmDebuggerVariables8SetValueERKNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP6cmTest(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbP6cmTest(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::shared_ptr.6", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::function", align 8
@@ -13933,7 +13933,7 @@ _ZNSt12__shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerELN9__gnu_cxx12_Loc
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper6CreateERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKN10cmPolicies9PolicyMapEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper6CreateERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKN10cmPolicies9PolicyMapEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple.620", align 8
   %4 = alloca %"class.std::tuple.623", align 1
   %5 = alloca i32, align 4
@@ -14897,7 +14897,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairINSt7__cxx1112basic_stringIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS0_ISt4pairISH_SH_ESaISL_EEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS0_ISt4pairISH_SH_ESaISL_EEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !100)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
@@ -16207,7 +16207,7 @@ _ZNSt12_Vector_baseIN10cmDebugger23cmDebuggerVariableEntryESaIS1_EE13_M_dealloca
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKSt3setISH_St4lessISH_ESaISH_EEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKSt3setISH_St4lessISH_ESaISH_EEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16415,7 +16415,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS0_ISH_SaISH_EEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS0_ISH_SaISH_EEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16668,7 +16668,7 @@ _ZSt10_ConstructI2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEJRKS7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS0_I2BTISH_ESaISL_EEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper11CreateIfAnyERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS0_I2BTISH_ESaISL_EEE3$_0E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -18882,7 +18882,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper6CreateERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS7_INS1_20cmDebuggerStackFrameEEE3$_2E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper6CreateERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS7_INS1_20cmDebuggerStackFrameEEE3$_2E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.cmValue, align 8
   %4 = alloca %class.cmStateSnapshot, align 8
   %.val = load ptr, ptr %1, align 8
@@ -19287,7 +19287,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfin
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper6CreateERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS7_INS1_20cmDebuggerStackFrameEEE3$_3E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper6CreateERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS7_INS1_20cmDebuggerStackFrameEEE3$_3E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.614") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.cmValue, align 8
   %4 = alloca %class.cmStateSnapshot, align 8
   %.val = load ptr, ptr %1, align 8
@@ -19686,7 +19686,7 @@ _ZNSt10shared_ptrIN10cmDebugger26cmDebuggerVariablesManagerEED2Ev.exit: ; preds 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper6CreateERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS7_INS1_20cmDebuggerStackFrameEEE3$_4E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias writable sret(%"class.std::vector.614") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN10cmDebugger23cmDebuggerVariableEntryESaIS2_EEvEZNS1_25cmDebuggerVariablesHelper6CreateERKSt10shared_ptrINS1_26cmDebuggerVariablesManagerEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKS7_INS1_20cmDebuggerStackFrameEEE3$_4E9_M_invokeERKSt9_Any_data"(ptr dead_on_unwind noalias writable sret(%"class.std::vector.614") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.30", align 8
   %4 = alloca %class.cmValue, align 8
   %5 = alloca %class.cmValue, align 8

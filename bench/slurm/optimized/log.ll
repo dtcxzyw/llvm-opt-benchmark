@@ -2517,7 +2517,7 @@ define internal fastcc noundef nonnull ptr @_jobid2fmt(ptr noundef readonly %0, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @log_build_step_id_str(ptr noundef readonly %0, ptr noundef returned writeonly initializes((0, 1)) %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #3 {
+define noundef ptr @log_build_step_id_str(ptr noundef readonly %0, ptr noundef returned writeonly %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #3 {
   %5 = zext i16 %3 to i32
   %6 = and i32 %5, 8
   %7 = trunc nuw nsw i32 %6 to i8

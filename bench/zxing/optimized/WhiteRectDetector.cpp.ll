@@ -563,7 +563,7 @@ _ZNK5ZXing15BitMatrixCursorINS_6PointTIdEEE7isBlackEv.exit.thread: ; preds = %39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN5ZXingL11CenterEdgesERKNS_11ResultPointES2_S2_S2_iRS0_S3_S3_S3_(double %.0.val, double %.8.val, double %.0.val1, double %.8.val3, double %.0.val5, double %.8.val7, double %.0.val9, double %.8.val11, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %4) unnamed_addr #2 {
+define internal fastcc void @_ZN5ZXingL11CenterEdgesERKNS_11ResultPointES2_S2_S2_iRS0_S3_S3_S3_(double %.0.val, double %.8.val, double %.0.val1, double %.8.val3, double %.0.val5, double %.8.val7, double %.0.val9, double %.8.val11, i32 noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %4) unnamed_addr #2 {
   %6 = fptrunc double %.0.val to float
   %7 = fptrunc double %.8.val3 to float
   %8 = fptrunc double %.8.val7 to float

@@ -35,7 +35,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN19ZMarkStackAllocatorC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19ZMarkStackAllocatorC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ZMarkStackSpaceC2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 40)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ZMarkStackSpaceC2Ev(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.GCLogPreciousHandle, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   tail call void @_ZN13PlatformMutexC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #10
@@ -417,7 +417,7 @@ _ZN15ZMarkStackSpace12shrink_spaceEv.exit:        ; preds = %1, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ZMarkStackAllocatorC2Ev(ptr noundef nonnull align 64 dereferenceable(257) initializes((64, 104)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ZMarkStackAllocatorC2Ev(ptr noundef nonnull align 64 dereferenceable(257) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN15ZMarkStackSpaceC2Ev(ptr noundef nonnull align 8 dereferenceable(65) %2)
   %3 = getelementptr inbounds i8, ptr %0, i64 192

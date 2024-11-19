@@ -2142,7 +2142,7 @@ _ZN4core3fmt9Formatter9write_fmt17h7b1b66abcbe56eabE.exit15: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_RNvXs3_CslOtZNRIhnDi_7pidlockNtB5_12PidlockErrorINtNtCs1LoaDTb72WA_4core7convert4FromNtB5_12PidFileErrorE4from(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #5 {
+define void @_RNvXs3_CslOtZNRIhnDi_7pidlockNtB5_12PidlockErrorINtNtCs1LoaDTb72WA_4core7convert4FromNtB5_12PidFileErrorE4from(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #5 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   ret void
 }

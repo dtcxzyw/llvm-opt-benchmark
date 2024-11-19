@@ -327,7 +327,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZN4llvm2gi7PatFragC1ERKNS_6RecordE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm2gi7PatFragC2ERKNS_6RecordE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi11PatternType3getENS_8ArrayRefINS_5SMLocEEEPKNS_6RecordENS_5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((24, 25)) %0, ptr %1, i64 %2, ptr noundef nonnull %3, ptr noundef byval(%"class.llvm::Twine") align 8 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi11PatternType3getENS_8ArrayRefINS_5SMLocEEEPKNS_6RecordENS_5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr %1, i64 %2, ptr noundef nonnull %3, ptr noundef byval(%"class.llvm::Twine") align 8 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -934,7 +934,7 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
 declare noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm2gi11PatternType9getTypeOfENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::gi::PatternType") align 8 initializes((0, 1), (8, 24)) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm2gi11PatternType9getTypeOfENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::gi::PatternType") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
   store i8 2, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -4245,7 +4245,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm2gi7PatFragC2ERKNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm2gi7PatFragC2ERKNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8

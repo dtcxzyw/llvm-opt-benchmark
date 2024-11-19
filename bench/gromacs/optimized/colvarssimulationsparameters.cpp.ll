@@ -76,7 +76,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @__PRETTY_FUNCTION__._ZNK3gmx28ColvarsSimulationsParameters6loggerEv = private unnamed_addr constant [66 x i8] c"const MDLogger *gmx::ColvarsSimulationsParameters::logger() const\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx28ColvarsSimulationsParameters22setLocalAtomSetManagerEPNS_19LocalAtomSetManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx28ColvarsSimulationsParameters22setLocalAtomSetManagerEPNS_19LocalAtomSetManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -553,7 +553,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt15__exception_ptr13exception_ptr10_M_releaseEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx28ColvarsSimulationsParameters11setTopologyERK10gmx_mtop_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((24, 96)) %0, ptr noundef nonnull align 1 %1) local_unnamed_addr #1 align 2 {
+define void @_ZN3gmx28ColvarsSimulationsParameters11setTopologyERK10gmx_mtop_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef nonnull align 1 %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %struct.t_atoms, align 8
   call void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind nonnull writable sret(%struct.t_atoms) align 8 %3, ptr noundef nonnull align 1 %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -564,7 +564,7 @@ define void @_ZN3gmx28ColvarsSimulationsParameters11setTopologyERK10gmx_mtop_t(p
 declare void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind writable sret(%struct.t_atoms) align 8, ptr noundef nonnull align 1) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK3gmx28ColvarsSimulationsParameters8topologyEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.t_atoms) align 8 initializes((0, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #13 align 2 {
+define void @_ZNK3gmx28ColvarsSimulationsParameters8topologyEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.t_atoms) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   ret void
@@ -662,7 +662,7 @@ define noundef i32 @_ZN3gmx28ColvarsSimulationsParameters29periodicBoundaryCondi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx28ColvarsSimulationsParameters21setSimulationTimeStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((16, 24)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx28ColvarsSimulationsParameters21setSimulationTimeStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store double %1, ptr %3, align 8
   ret void
@@ -676,7 +676,7 @@ define noundef double @_ZNK3gmx28ColvarsSimulationsParameters18simulationTimeSte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx28ColvarsSimulationsParameters7setCommERK9t_commrec(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((96, 104)) %0, ptr noundef nonnull align 8 dereferenceable(108) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx28ColvarsSimulationsParameters7setCommERK9t_commrec(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(108) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8
   ret void
@@ -754,7 +754,7 @@ define noundef nonnull ptr @_ZNK3gmx28ColvarsSimulationsParameters4commEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx28ColvarsSimulationsParameters9setLoggerERKNS_8MDLoggerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((104, 112)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx28ColvarsSimulationsParameters9setLoggerERKNS_8MDLoggerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
   ret void

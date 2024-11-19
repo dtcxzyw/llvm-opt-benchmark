@@ -78,7 +78,7 @@ $_ZTV29btDeformableContactConstraint = comdat any
 @_ZN37btDeformableFaceNodeContactConstraintC1ERKN10btSoftBody25DeformableFaceNodeContactERK19btContactSolverInfo = dso_local unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN37btDeformableFaceNodeContactConstraintC2ERKN10btSoftBody25DeformableFaceNodeContactERK19btContactSolverInfo
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN32btDeformableNodeAnchorConstraintC2ERKN10btSoftBody25DeformableNodeRigidAnchorERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 9), (16, 48)) %this, ptr noundef nonnull align 8 dereferenceable(872) %a, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 {
+define dso_local void @_ZN32btDeformableNodeAnchorConstraintC2ERKN10btSoftBody25DeformableNodeRigidAnchorERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(872) %a, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 {
 entry:
   %m_normal = getelementptr inbounds i8, ptr %a, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
@@ -95,7 +95,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN32btDeformableNodeAnchorConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 9), (16, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) unnamed_addr #0 align 2 {
+define dso_local void @_ZN32btDeformableNodeAnchorConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %other) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -719,7 +719,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 9), (16, 81), (88, 96)) %this, ptr noundef nonnull align 8 dereferenceable(848) %c, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN34btDeformableRigidContactConstraintC2ERKN10btSoftBody22DeformableRigidContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(848) %c, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %m_normal = getelementptr inbounds i8, ptr %c, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
@@ -748,7 +748,7 @@ invoke.cont6:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 9), (16, 81), (88, 96)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN34btDeformableRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2028,7 +2028,7 @@ if.end7:                                          ; preds = %if.then2, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN38btDeformableNodeRigidContactConstraintC2ERKN10btSoftBody26DeformableNodeRigidContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 9), (16, 81), (88, 104)) %this, ptr noundef nonnull align 8 dereferenceable(856) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN38btDeformableNodeRigidContactConstraintC2ERKN10btSoftBody26DeformableNodeRigidContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(856) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_normal.i = getelementptr inbounds i8, ptr %contact, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
@@ -2060,7 +2060,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN38btDeformableNodeRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 9), (16, 81), (88, 104)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN38btDeformableNodeRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2270,7 +2270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN38btDeformableFaceRigidContactConstraintC2ERKN10btSoftBody26DeformableFaceRigidContactERK19btContactSolverInfob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(105) initializes((0, 9), (16, 81), (88, 105)) %this, ptr noundef nonnull align 8 dereferenceable(904) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, i1 noundef zeroext %useStrainLimiting) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN38btDeformableFaceRigidContactConstraintC2ERKN10btSoftBody26DeformableFaceRigidContactERK19btContactSolverInfob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(105) %this, ptr noundef nonnull align 8 dereferenceable(904) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, i1 noundef zeroext %useStrainLimiting) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %useStrainLimiting to i8
   %m_normal.i = getelementptr inbounds i8, ptr %contact, i64 8
@@ -2305,7 +2305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN38btDeformableFaceRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(105) initializes((0, 9), (16, 81), (88, 105)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN38btDeformableFaceRigidContactConstraintC2ERKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(105) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(105) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8
   %m_static.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2853,7 +2853,7 @@ if.end41:                                         ; preds = %if.then33, %if.end3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN37btDeformableFaceNodeContactConstraintC2ERKN10btSoftBody25DeformableFaceNodeContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 9), (16, 96)) %this, ptr noundef nonnull align 8 dereferenceable(88) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN37btDeformableFaceNodeContactConstraintC2ERKN10btSoftBody25DeformableFaceNodeContactERK19btContactSolverInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(88) %contact, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %m_normal = getelementptr inbounds i8, ptr %contact, i64 48
   store ptr getelementptr inbounds (i8, ptr @_ZTV29btDeformableContactConstraint, i64 16), ptr %this, align 8

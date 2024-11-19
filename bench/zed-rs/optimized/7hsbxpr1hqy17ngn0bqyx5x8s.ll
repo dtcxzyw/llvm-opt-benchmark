@@ -27321,7 +27321,7 @@ define hidden void @_ZN4gpui7element7Element8into_any17hb291392abaed478eE.llvm.3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4gpui8elements3svg14Transformation6rotate17h4472fe0f16e1e3beE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([20 x i8]) align 4 dereferenceable(20) initializes((0, 20)) %0, float noundef %1) unnamed_addr #1 {
+define hidden void @_ZN4gpui8elements3svg14Transformation6rotate17h4472fe0f16e1e3beE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([20 x i8]) align 4 dereferenceable(20) %0, float noundef %1) unnamed_addr #1 {
   %3 = tail call noundef float @"_ZN97_$LT$gpui..geometry..Radians$u20$as$u20$core..convert..From$LT$gpui..geometry..Percentage$GT$$GT$4from17h5b72d27a6e5bb090E"(float noundef %1)
   %4 = tail call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
   %5 = tail call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
@@ -27791,7 +27791,7 @@ define hidden void @"_ZN4gpui8executor18BackgroundExecutor14spawn_internal28_$u7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4gpui8executor18BackgroundExecutor6scoped17hb6c6d4ddbcf65b7cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) initializes((136, 216), (217, 218)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %2) unnamed_addr #6 {
+define hidden void @_ZN4gpui8executor18BackgroundExecutor6scoped17hb6c6d4ddbcf65b7cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 208
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 136

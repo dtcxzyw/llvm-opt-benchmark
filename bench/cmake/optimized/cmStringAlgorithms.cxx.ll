@@ -245,7 +245,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z10cmTokenizeB5cxx11St17basic_string_viewIcSt11char_traitsIcEES2_(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, i64 %1, ptr %2, i64 %3, ptr readonly %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z10cmTokenizeB5cxx11St17basic_string_viewIcSt11char_traitsIcEES2_(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, i64 %1, ptr %2, i64 %3, ptr readonly %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::basic_string_view", align 8
   %7 = alloca %"class.std::basic_string_view", align 8
   %.fr53 = freeze i64 %3
@@ -464,7 +464,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN10cmAlphaNumC2Ei(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, i32 noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmAlphaNumC2Ei(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str, i32 noundef %1) #21
@@ -485,7 +485,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32EiEEvRSt17basic_string_viewIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN10cmAlphaNumC2Ej(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, i32 noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmAlphaNumC2Ej(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.1, i32 noundef %1) #21
@@ -506,7 +506,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32EjEEvRSt17basic_string_viewIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN10cmAlphaNumC2El(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmAlphaNumC2El(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.2, i64 noundef %1) #21
@@ -527,7 +527,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32ElEEvRSt17basic_string_viewIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN10cmAlphaNumC2Em(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmAlphaNumC2Em(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.3, i64 noundef %1) #21
@@ -548,7 +548,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32EmEEvRSt17basic_string_viewIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN10cmAlphaNumC2Ex(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmAlphaNumC2Ex(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.4, i64 noundef %1) #21
@@ -569,7 +569,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32ExEEvRSt17basic_string_viewIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN10cmAlphaNumC2Ey(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmAlphaNumC2Ey(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.5, i64 noundef %1) #21
@@ -590,7 +590,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32EyEEvRSt17basic_string_viewIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN10cmAlphaNumC2Ef(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, float noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmAlphaNumC2Ef(ptr noundef nonnull align 8 dereferenceable(56) %0, float noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = fpext float %1 to double
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -612,7 +612,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32EdEEvRSt17basic_string_viewIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN10cmAlphaNumC2Ed(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, double noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmAlphaNumC2Ed(ptr noundef nonnull align 8 dereferenceable(56) %0, double noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull align 1 dereferenceable(32) %3, i64 noundef 32, ptr noundef nonnull @.str.6, double noundef %1) #21
@@ -811,7 +811,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr
 declare ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @_Z11cmStrToLongPKcPl(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_Z11cmStrToLongPKcPl(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #24
   store i32 0, ptr %4, align 4
@@ -841,7 +841,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_Z11cmStrToLongRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPl(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_Z11cmStrToLongRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPl(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -957,7 +957,7 @@ _Z12cmStrToULongPKcPm.exit:                       ; preds = %11, %13, %18
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @_Z15cmStrToLongLongPKcPx(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @_Z15cmStrToLongLongPKcPx(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #24
   store i32 0, ptr %4, align 4
@@ -984,7 +984,7 @@ define dso_local noundef zeroext i1 @_Z15cmStrToLongLongPKcPx(ptr noundef %0, pt
 declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_Z15cmStrToLongLongRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPx(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #3 {
+define dso_local noundef zeroext i1 @_Z15cmStrToLongLongRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPx(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
   %4 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #21
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)

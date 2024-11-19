@@ -714,7 +714,7 @@ define dso_local void @tick_broadcast_control(i32 noundef %0) #2 align 16 {
 declare dso_local void @tick_setup_periodic(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @tick_set_periodic_handler(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
+define dso_local void @tick_set_periodic_handler(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 align 16 {
   %3 = icmp eq i32 %1, 0
   %4 = select i1 %3, ptr @tick_handle_periodic, ptr @tick_handle_periodic_broadcast
   store ptr %4, ptr %0, align 64
@@ -1350,7 +1350,7 @@ declare dso_local i32 @tick_program_event(i64 noundef, i32 noundef) local_unname
 declare dso_local i32 @irq_set_affinity(i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24, 32)) %0) #2 align 16 {
+define internal void @tick_handle_oneshot_broadcast(ptr noundef %0) #2 align 16 {
   tail call void @_raw_spin_lock(ptr noundef nonnull @tick_broadcast_lock) #11
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 9223372036854775807, ptr %2, align 8

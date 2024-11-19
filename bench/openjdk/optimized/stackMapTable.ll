@@ -61,7 +61,7 @@ $_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi = c
 @_ZN14StackMapReaderC1EP13ClassVerifierP14StackMapStreamPciP10JavaThread = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, i32, ptr), ptr @_ZN14StackMapReaderC2EP13ClassVerifierP14StackMapStreamPciP10JavaThread
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13StackMapTableC2EP14StackMapReaderP13StackMapFramettPciP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 align 2 {
+define hidden void @_ZN13StackMapTableC2EP14StackMapReaderP13StackMapFramettPciP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3, i16 noundef zeroext %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr noundef %7) unnamed_addr #0 align 2 {
   %9 = alloca %class.ErrorContext, align 8
   store i32 %6, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 52
@@ -1409,7 +1409,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 declare void @_ZNK13StackMapFrame8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14StackMapReaderC2EP13ClassVerifierP14StackMapStreamPciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(56) initializes((8, 52)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN14StackMapReaderC2EP13ClassVerifierP14StackMapStreamPciP10JavaThread(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %class.methodHandle, align 8
   %8 = alloca %class.constantPoolHandle, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8

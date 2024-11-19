@@ -289,7 +289,7 @@ define dso_local void @sg_init_table(ptr nocapture noundef %0, i32 noundef %1) #
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sg_init_one(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2) #3 align 16 {
+define dso_local void @sg_init_one(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) #3 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %4, i8 0, i64 24, i1 false)
   store i64 2, ptr %0, align 8
@@ -486,7 +486,7 @@ define dso_local void @sg_free_table(ptr nocapture noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @__sg_alloc_table(ptr nocapture noundef initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__sg_alloc_table(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %8 = icmp eq i32 %1, 0
   br i1 %8, label %.thread5, label %9
@@ -585,7 +585,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__sg_alloc_table(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @sg_alloc_table(ptr nocapture noundef initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @sg_alloc_table(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %.thread, label %5, !prof !20
@@ -1451,7 +1451,7 @@ define dso_local void @sgl_free(ptr noundef %0) #3 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @__sg_page_iter_start(ptr nocapture noundef writeonly initializes((0, 20)) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #8 align 16 {
+define dso_local void @__sg_page_iter_start(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #8 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1618,7 +1618,7 @@ define dso_local noundef zeroext i1 @__sg_page_iter_dma_next(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sg_miter_start(ptr nocapture noundef writeonly initializes((0, 72)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #3 align 16 {
+define dso_local void @sg_miter_start(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #3 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)

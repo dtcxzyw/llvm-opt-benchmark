@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net9QuicAlarmD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net9QuicAlarmD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net9QuicAlarmC2ENS_18QuicArenaScopedPtrINS0_8DelegateEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9QuicAlarmC2ENS_18QuicArenaScopedPtrINS0_8DelegateEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net9QuicAlarmE, i64 16), ptr %this, align 8
   %delegate_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -26,7 +26,7 @@ invoke.cont:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net9QuicAlarmD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9QuicAlarmD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net9QuicAlarmE, i64 16), ptr %this, align 8
   %delegate_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -71,7 +71,7 @@ entry:
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9QuicAlarm3SetENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %this, i64 %new_deadline.coerce) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN3net9QuicAlarm3SetENS_8QuicTimeE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %new_deadline.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %deadline_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %new_deadline.coerce, ptr %deadline_, align 8

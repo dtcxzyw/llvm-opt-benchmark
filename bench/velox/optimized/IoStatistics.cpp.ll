@@ -454,7 +454,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox2io9serializeERKNS1_17OperationCountersE(ptr noalias nonnull sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %counters) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox2io9serializeERKNS1_17OperationCountersE(ptr noalias nonnull sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %counters) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   %ref.tmp5 = alloca %"struct.folly::dynamic", align 8

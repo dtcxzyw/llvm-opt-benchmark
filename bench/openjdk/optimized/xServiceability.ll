@@ -148,7 +148,7 @@ define hidden noundef i64 @_ZN25XServiceabilityMemoryPool13used_in_bytesEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25XServiceabilityMemoryPool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(201) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN25XServiceabilityMemoryPool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr noundef nonnull align 8 dereferenceable(201) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
   %4 = tail call noundef i64 @_ZNK5XHeap8capacityEv(ptr noundef nonnull align 64 dereferenceable(4088) %3) #8
   %5 = load ptr, ptr @_ZN5XHeap5_heapE, align 8
@@ -183,7 +183,7 @@ declare void @_ZN15GCMemoryManagerC2EPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15XServiceabilityC2Emm(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 16)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15XServiceabilityC2Emm(ptr noundef nonnull align 8 dereferenceable(616) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -204,7 +204,7 @@ define hidden void @_ZN15XServiceabilityC2Emm(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15XServiceability10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(616) initializes((608, 616)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15XServiceability10initializeEv(ptr nocapture noundef nonnull align 8 dereferenceable(616) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 104, i8 noundef zeroext 5, i32 noundef 0) #8
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

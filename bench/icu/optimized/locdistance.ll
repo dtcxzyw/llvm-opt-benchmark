@@ -217,7 +217,7 @@ return:                                           ; preds = %entry, %_ZN6icu_751
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514LocaleDistanceC2ERKNS_18LocaleDistanceDataERKNS_13LikelySubtagsE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 36), (40, 84)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %data, ptr noundef nonnull align 8 dereferenceable(352) %likely) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514LocaleDistanceC2ERKNS_18LocaleDistanceDataERKNS_13LikelySubtagsE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %data, ptr noundef nonnull align 8 dereferenceable(352) %likely) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %en = alloca %"struct.icu_75::LSR", align 8
   %enGB = alloca %"struct.icu_75::LSR", align 8
@@ -1217,7 +1217,7 @@ declare noundef i32 @_ZNK6icu_7513LikelySubtags13compareLikelyERKNS_3LSRES3_i(pt
 declare noundef i32 @_ZN6icu_759BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7514LocaleDistance25getFallbackRegionDistanceERNS_9BytesTrieEm(ptr noundef nonnull align 8 dereferenceable(28) initializes((16, 28)) %iter, i64 noundef %startState) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN6icu_7514LocaleDistance25getFallbackRegionDistanceERNS_9BytesTrieEm(ptr noundef nonnull align 8 dereferenceable(28) %iter, i64 noundef %startState) local_unnamed_addr #0 align 2 {
 entry:
   %shr.i = lshr i64 %startState, 59
   %conv.i = trunc nuw nsw i64 %shr.i to i32

@@ -668,7 +668,7 @@ if.end:                                           ; preds = %_ZN3irr3gui11IGUIEl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui12CGUIComboBoxC1EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(408) initializes((408, 428)) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui12CGUIComboBoxC1EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1) unnamed_addr #0 align 2 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -908,7 +908,7 @@ _ZN3irr3gui11IGUIElement11setTabOrderEi.exit:     ; preds = %if.then11.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui12CGUIComboBox16setTextAlignmentENS0_14EGUI_ALIGNMENTES2_(ptr nocapture noundef nonnull align 8 dereferenceable(408) initializes((380, 388)) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui12CGUIComboBox16setTextAlignmentENS0_14EGUI_ALIGNMENTES2_(ptr nocapture noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #0 align 2 {
 entry:
   %HAlign = getelementptr inbounds i8, ptr %this, i64 380
   store i32 %horizontal, ptr %HAlign, align 4, !tbaa !76
@@ -924,7 +924,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui12CGUIComboBox19setMaxSelectionRowsEj(ptr noundef nonnull align 8 dereferenceable(408) initializes((388, 392)) %this, i32 noundef %max) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui12CGUIComboBox19setMaxSelectionRowsEj(ptr noundef nonnull align 8 dereferenceable(408) %this, i32 noundef %max) unnamed_addr #0 align 2 {
 entry:
   %MaxSelectionRows = getelementptr inbounds i8, ptr %this, i64 388
   store i32 %max, ptr %MaxSelectionRows, align 4, !tbaa !78
@@ -1714,7 +1714,7 @@ if.end:                                           ; preds = %if.then, %_ZN3irr3g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui12CGUIComboBox5clearEv(ptr noundef nonnull align 8 dereferenceable(408) initializes((360, 368)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui12CGUIComboBox5clearEv(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #0 align 2 {
 entry:
   %Items = getelementptr inbounds i8, ptr %this, i64 344
   %0 = load ptr, ptr %Items, align 8, !tbaa !84

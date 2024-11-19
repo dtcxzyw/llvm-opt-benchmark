@@ -188,7 +188,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPoolC2Em(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %this, i64 noundef %reserve_threads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPoolC2Em(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %reserve_threads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental22WorkStealingThreadPoolE, i64 16), ptr %this, align 8
   %pool_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1287,7 +1287,7 @@ _ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThread
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplC2Em(ptr noundef nonnull align 8 dereferenceable(632) initializes((0, 24)) %this, i64 noundef %reserve_threads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImplC2Em(ptr noundef nonnull align 8 dereferenceable(632) %this, i64 noundef %reserve_threads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %reserve_threads_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -2205,7 +2205,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9LifeguardC2EPS2_(ptr noundef nonnull align 8 dereferenceable(361) initializes((0, 8)) %this, ptr noundef %pool) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool26WorkStealingThreadPoolImpl9LifeguardC2EPS2_(ptr noundef nonnull align 8 dereferenceable(361) %this, ptr noundef %pool) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::BackOff::Options", align 8
   store ptr %pool, ptr %this, align 8
@@ -2687,7 +2687,7 @@ declare { i64, i64 } @gpr_now(i32 noundef) local_unnamed_addr #0
 declare void @_ZN9grpc_core7BackOff5ResetEv(ptr noundef nonnull align 8 dereferenceable(336)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool11ThreadStateC2ESt10shared_ptrINS1_26WorkStealingThreadPoolImplEE(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 24)) %this, ptr nocapture noundef %pool) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental22WorkStealingThreadPool11ThreadStateC2ESt10shared_ptrINS1_26WorkStealingThreadPoolImplEE(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef %pool) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::BackOff::Options", align 8
   %0 = load ptr, ptr %pool, align 8

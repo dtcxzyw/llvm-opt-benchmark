@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EVP_MD_CTX_init(ptr nocapture noundef writeonly initializes((0, 32)) %ctx) local_unnamed_addr #1 {
+define hidden void @EVP_MD_CTX_init(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ctx, i8 0, i64 32, i1 false)
   ret void
@@ -339,7 +339,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_MD_CTX_copy(ptr nocapture noundef initializes((0, 32)) %out, ptr noundef %in) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @EVP_MD_CTX_copy(ptr nocapture noundef %out, ptr noundef %in) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 0, i64 32, i1 false)
   %call = tail call i32 @EVP_MD_CTX_copy_ex(ptr noundef %out, ptr noundef %in)
@@ -402,7 +402,7 @@ return:                                           ; preds = %if.end18, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @EVP_DigestInit(ptr noundef initializes((0, 32)) %ctx, ptr noundef %type) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @EVP_DigestInit(ptr noundef %ctx, ptr noundef %type) local_unnamed_addr #5 {
 entry:
   %0 = getelementptr inbounds i8, ptr %ctx, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)

@@ -422,7 +422,7 @@ pmix_obj_run_destructors.exit64:                  ; preds = %.lr.ph.i61, %._crit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @scon(ptr nocapture noundef writeonly initializes((120, 136)) %0) #2 {
+define internal void @scon(ptr nocapture noundef writeonly %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -444,7 +444,7 @@ define internal void @sdes(ptr nocapture noundef readonly %0) #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ccon(ptr noundef initializes((144, 156)) %0) #1 {
+define internal void @ccon(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152

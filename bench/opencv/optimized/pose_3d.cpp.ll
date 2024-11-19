@@ -113,7 +113,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv12ppf_match_3d6Pose3D10updatePoseERNS_4MatxIdLi4ELi4EEE(ptr noundef nonnull align 8 dereferenceable(232) initializes((40, 168)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv12ppf_match_3d6Pose3D10updatePoseERNS_4MatxIdLi4ELi4EEE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.cv::Matx", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -892,7 +892,7 @@ _ZN2cvL5traceIdLi3ELi3EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv12ppf_match_3d6Pose3D5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv12ppf_match_3d6Pose3D5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #23
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8

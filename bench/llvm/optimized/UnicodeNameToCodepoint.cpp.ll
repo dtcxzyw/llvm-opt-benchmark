@@ -1438,7 +1438,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i64 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb(ptr %0, i64 %1, ptr readonly %2, i64 %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %5, ptr nocapture noundef nonnull align 1 dereferenceable(1) %6, i1 noundef zeroext %7) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN4llvm3sys7unicodeL10startsWithENS_9StringRefES2_bRmRcb(ptr %0, i64 %1, ptr readonly %2, i64 %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull align 1 dereferenceable(1) %6, i1 noundef zeroext %7) unnamed_addr #5 {
   store i64 0, ptr %5, align 8
   br i1 %4, label %9, label %13
 

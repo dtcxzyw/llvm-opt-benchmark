@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7515RBBIDataWrapperD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7515RBBIDataWrapperD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515RBBIDataWrapperC2EPKNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 40), (48, 56), (64, 82)) %this, ptr noundef %data, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RBBIDataWrapperC2EPKNS_14RBBIDataHeaderER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %data, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fRuleString, align 8
@@ -51,7 +51,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7515RBBIDataWrapper5init0Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(137) initializes((0, 40), (48, 56), (64, 72)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RBBIDataWrapper5init0Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(137) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fTrie = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %fTrie, align 8
@@ -185,7 +185,7 @@ return:                                           ; preds = %if.end17, %entry, %
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515RBBIDataWrapperC2EPKNS_14RBBIDataHeaderENS0_10EDontAdoptER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 40), (48, 56), (64, 82)) %this, ptr noundef %data, i32 %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RBBIDataWrapperC2EPKNS_14RBBIDataHeaderENS0_10EDontAdoptER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %data, i32 %0, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fRuleString, align 8
@@ -215,7 +215,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515RBBIDataWrapperC2EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 40), (48, 56), (64, 82)) %this, ptr noundef %udm, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RBBIDataWrapperC2EP11UDataMemoryR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef %udm, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fRuleString = getelementptr inbounds i8, ptr %this, i64 72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %fRuleString, align 8

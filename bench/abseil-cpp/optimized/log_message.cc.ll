@@ -721,7 +721,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal10LogMessage14LogMessageDataC2EPKciNS_11LogSeverityENS_4TimeE(ptr noundef nonnull align 8 dereferenceable(30576) initializes((0, 32), (48, 60), (64, 80), (88, 104)) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity, i64 %timestamp.coerce0, i32 %timestamp.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl12log_internal10LogMessage14LogMessageDataC2EPKciNS_11LogSeverityENS_4TimeE(ptr noundef nonnull align 8 dereferenceable(30576) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity, i64 %timestamp.coerce0, i32 %timestamp.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timestamp_.i = getelementptr inbounds i8, ptr %this, i64 48
   %hi_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 52
@@ -1018,7 +1018,7 @@ declare noundef zeroext i1 @_ZN4absl12log_internal24ThreadIsLoggingToLogSinkEv()
 declare noundef zeroext i1 @_ZN4absl12log_internal10ProtoField10DecodeFromEPNS_4SpanIKcEE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal10LogMessageC2EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl12log_internal10LogMessageC2EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call ptr @__errno_location() #27
   %0 = load i32, ptr %call.i, align 4
@@ -1174,21 +1174,21 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal10LogMessageC2EPKciNS1_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4absl12log_internal10LogMessageC2EPKciNS1_7InfoTagE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN4absl12log_internal10LogMessageC2EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line, i32 noundef 0) #29
   ret void
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal10LogMessageC2EPKciNS1_10WarningTagE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4absl12log_internal10LogMessageC2EPKciNS1_10WarningTagE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN4absl12log_internal10LogMessageC2EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line, i32 noundef 1) #29
   ret void
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal10LogMessageC2EPKciNS1_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4absl12log_internal10LogMessageC2EPKciNS1_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN4absl12log_internal10LogMessageC2EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line, i32 noundef 2) #29
   ret void
@@ -2391,14 +2391,14 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal15LogMessageFatalC2EPKci(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4absl12log_internal15LogMessageFatalC2EPKci(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN4absl12log_internal10LogMessageC2EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line, i32 noundef 3) #29
   ret void
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal15LogMessageFatalC2EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line, i64 %failure_msg.coerce0, ptr %failure_msg.coerce1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl12log_internal15LogMessageFatalC2EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line, i64 %failure_msg.coerce0, ptr %failure_msg.coerce1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %encoded_remaining_copy.i.i16 = alloca %"class.absl::Span", align 8
   %encoded_remaining_copy.i.i3 = alloca %"class.absl::Span", align 8
@@ -2539,7 +2539,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal22LogMessageQuietlyFatalC2EPKci(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4absl12log_internal22LogMessageQuietlyFatalC2EPKci(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN4absl12log_internal10LogMessageC2EPKciNS_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line, i32 noundef 3) #29
   %data_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2550,7 +2550,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal22LogMessageQuietlyFatalC2EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %this, ptr noundef %file, i32 noundef %line, i64 %failure_msg.coerce0, ptr %failure_msg.coerce1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl12log_internal22LogMessageQuietlyFatalC2EPKciSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, i32 noundef %line, i64 %failure_msg.coerce0, ptr %failure_msg.coerce1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %encoded_remaining_copy.i.i16 = alloca %"class.absl::Span", align 8
   %encoded_remaining_copy.i.i3 = alloca %"class.absl::Span", align 8

@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_plog_syslog_module = external global %struct.pmix_plog_module_t, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal noundef i32 @component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #0 {
   store i32 10, ptr %1, align 4
   store ptr @pmix_plog_syslog_module, ptr %0, align 8
   ret i32 0

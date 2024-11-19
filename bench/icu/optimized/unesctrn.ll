@@ -998,7 +998,7 @@ lpad:                                             ; preds = %while.end.i
 declare void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522UnescapeTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522UnescapeTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i64 16), ptr %this, align 8
   %spec = getelementptr inbounds i8, ptr %this, i64 88

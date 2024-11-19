@@ -64,7 +64,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 20)) %3) local_unnamed_addr #3 {
+define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false), !tbaa.struct !6
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load float, ptr %5, align 4, !tbaa !13
@@ -155,7 +155,7 @@ declare void @dt_print_pipe_ext(ptr noundef, ptr noundef, ptr noundef, i32 nound
 declare void @dt_iop_clip_and_zoom(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((32, 36)) %3) local_unnamed_addr #3 {
+define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds i8, ptr %6, i64 620
@@ -191,7 +191,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #5 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
   %4 = tail call noalias dereferenceable_or_null(4) ptr @calloc(i64 noundef 1, i64 noundef 4) #14
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !59
@@ -214,7 +214,7 @@ define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture nound
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init(ptr nocapture noundef writeonly initializes((492, 496), (676, 700), (704, 712)) %0) local_unnamed_addr #5 {
+define void @init(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = tail call noalias dereferenceable_or_null(4) ptr @calloc(i64 noundef 1, i64 noundef 4) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 680
   store ptr %2, ptr %3, align 8, !tbaa !60

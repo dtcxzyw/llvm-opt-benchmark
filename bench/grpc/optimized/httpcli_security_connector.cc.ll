@@ -581,7 +581,7 @@ eh.resume:                                        ; preds = %eh.resume.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_125HttpRequestSSLCredentials34duplicate_without_call_credentialsEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #10 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_125HttpRequestSSLCredentials34duplicate_without_call_credentialsEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1200,7 +1200,7 @@ entry:
 declare void @_ZNK31grpc_channel_security_connector4typeEv(ptr sret(%"class.grpc_core::UniqueTypeName") align 8, ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connector13CheckCallHostESt17basic_string_viewIcSt11char_traitsIcEEP17grpc_auth_context(ptr noalias nocapture writeonly sret(%"class.grpc_core::ArenaPromise") align 16 initializes((0, 8), (16, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 %.coerce0, ptr nocapture readnone %.coerce1, ptr nocapture readnone %0) unnamed_addr #16 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_143grpc_httpcli_ssl_channel_security_connector13CheckCallHostESt17basic_string_viewIcSt11char_traitsIcEEP17grpc_auth_context(ptr noalias nocapture writeonly sret(%"class.grpc_core::ArenaPromise") align 16 %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 %.coerce0, ptr nocapture readnone %.coerce1, ptr nocapture readnone %0) unnamed_addr #16 align 2 {
 entry:
   %arg.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %arg.i, align 16

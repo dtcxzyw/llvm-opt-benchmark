@@ -657,7 +657,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23BachelierCapFloorEngineC2ENS_6HandleINS_18YieldTermStructureEEEdRKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(504) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %discountCurve, double noundef %v, ptr noundef nonnull align 8 dereferenceable(16) %dc) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23BachelierCapFloorEngineC2ENS_6HandleINS_18YieldTermStructureEEEdRKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(504) %this, ptr nocapture noundef %discountCurve, double noundef %v, ptr noundef nonnull align 8 dereferenceable(16) %dc) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.56", align 8
   %ref.tmp2 = alloca %"class.QuantLib::NullCalendar", align 8
@@ -1537,7 +1537,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_18YieldTermStructureEE4LinkEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23BachelierCapFloorEngineC2ENS_6HandleINS_18YieldTermStructureEEERKNS1_INS_5QuoteEEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(504) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %discountCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %dc) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23BachelierCapFloorEngineC2ENS_6HandleINS_18YieldTermStructureEEERKNS1_INS_5QuoteEEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(504) %this, ptr nocapture noundef %discountCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %v, ptr noundef nonnull align 8 dereferenceable(16) %dc) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.56", align 8
   %ref.tmp2 = alloca %"class.QuantLib::NullCalendar", align 8
@@ -2351,7 +2351,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_5QuoteEE4LinkEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23BachelierCapFloorEngineC2ENS_6HandleINS_18YieldTermStructureEEENS1_INS_28OptionletVolatilityStructureEEE(ptr noundef nonnull align 8 dereferenceable(504) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %discountCurve, ptr nocapture noundef %volatility) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23BachelierCapFloorEngineC2ENS_6HandleINS_18YieldTermStructureEEENS1_INS_28OptionletVolatilityStructureEEE(ptr noundef nonnull align 8 dereferenceable(504) %this, ptr nocapture noundef %discountCurve, ptr nocapture noundef %volatility) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca i32, align 4

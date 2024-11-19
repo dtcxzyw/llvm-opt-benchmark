@@ -729,7 +729,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13HaltonSamplerC2EiNS_6Point2IiEENS_17RandomizeStrategyEiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 32), (40, 52)) %this, i32 noundef %samplesPerPixel, i64 %fullRes.coerce, i32 noundef %randomize, i32 noundef %seed, ptr %alloc.coerce) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt13HaltonSamplerC2EiNS_6Point2IiEENS_17RandomizeStrategyEiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i32 noundef %samplesPerPixel, i64 %fullRes.coerce, i32 noundef %randomize, i32 noundef %seed, ptr %alloc.coerce) unnamed_addr #0 align 2 {
 entry:
   %x.i21 = alloca i64, align 8
   %y.i22 = alloca i64, align 8
@@ -830,7 +830,7 @@ declare noundef ptr @_ZN4pbrt33ComputeRadicalInversePermutationsEjN4pstd3pmr21po
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13HaltonSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt13HaltonSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(52) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
@@ -1187,7 +1187,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt12SobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt12SobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
@@ -1223,7 +1223,7 @@ _ZN4pbrt12StringPrintfIJRKNS_6Point2IiEERKiS6_S6_S6_RKNS_17RandomizeStrategyEEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt18PaddedSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt18PaddedSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
@@ -1490,7 +1490,7 @@ eh.resume:                                        ; preds = %lpad33, %ehcleanup3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13ZSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt13ZSobolSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
@@ -1765,7 +1765,7 @@ eh.resume:                                        ; preds = %lpad34, %ehcleanup3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt14PMJ02BNSamplerC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (24, 32)) %this, i32 noundef %samplesPerPixel, i32 noundef %seed, ptr %alloc.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt14PMJ02BNSamplerC2EiiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %samplesPerPixel, i32 noundef %seed, ptr %alloc.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i20 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2281,7 +2281,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad.i9, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt14PMJ02BNSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt14PMJ02BNSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
@@ -2336,7 +2336,7 @@ _ZN4pbrt12StringPrintfIJRKiS2_RKNS_3RNGEEEENSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt18IndependentSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt18IndependentSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
@@ -2754,7 +2754,7 @@ _ZN4pbrt12StringPrintfIJRKNS_6Point2IiEERKiS6_S6_S6_RKbS6_RKNS_3RNGEEEENSt7__cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17StratifiedSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt17StratifiedSampler5CloneEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %vtable.i.i.i.i = load ptr, ptr %alloc.coerce, align 8
   %vfn.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i, i64 16
@@ -3432,7 +3432,7 @@ entry:
 declare void @_ZN4pbrt8LogFatalENS_8LogLevelEPKciS2_(i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4pbrt10MLTSampler14StartIterationEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((80, 81)) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4pbrt10MLTSampler14StartIterationEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
   %currentIteration = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load i64, ptr %currentIteration, align 8
@@ -3655,7 +3655,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4pbrt10MLTSampler11StartStreamEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((96, 104)) %this, i32 noundef %index) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4pbrt10MLTSampler11StartStreamEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, i32 noundef %index) local_unnamed_addr #9 align 2 {
 entry:
   %streamIndex = getelementptr inbounds i8, ptr %this, i64 96
   store i32 %index, ptr %streamIndex, align 8
@@ -3731,7 +3731,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15DebugMLTSampler6CreateEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noalias sret(%"class.pbrt::DebugMLTSampler") align 8 initializes((0, 4), (8, 36), (40, 81), (88, 96), (104, 128)) %agg.result, ptr %state.coerce0, i64 %state.coerce1, i32 noundef %nSampleStreams) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt15DebugMLTSampler6CreateEN4pstd4spanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEi(ptr noalias sret(%"class.pbrt::DebugMLTSampler") align 8 %agg.result, ptr %state.coerce0, i64 %state.coerce1, i32 noundef %nSampleStreams) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 1, ptr %agg.result, align 8
   %rng.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3913,7 +3913,7 @@ _ZN4pbrt10MLTSamplerD2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt7Sampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6Point2IiEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, i64 %fullRes.coerce, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt7Sampler6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6Point2IiEEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Sampler") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, i64 %fullRes.coerce, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %agg.result, align 8
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str.42) #24

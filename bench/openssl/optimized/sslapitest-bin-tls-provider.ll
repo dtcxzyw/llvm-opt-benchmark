@@ -494,7 +494,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @tls_prov_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly initializes((0, 4)) %no_cache) #2 {
+define internal noundef ptr @tls_prov_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #2 {
 entry:
   store i32 0, ptr %no_cache, align 4
   %switch.tableidx = add i32 %operation_id, -10
@@ -5158,7 +5158,7 @@ der2key_check_selection.exit:                     ; preds = %for.cond.i, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @xor_der2key_decode(ptr noundef initializes((16, 20)) %vctx, ptr noundef %cin, i32 noundef %selection, ptr nocapture noundef readonly %data_cb, ptr noundef %data_cbarg, ptr nocapture readnone %pw_cb, ptr nocapture readnone %pw_cbarg) #0 {
+define internal i32 @xor_der2key_decode(ptr noundef %vctx, ptr noundef %cin, i32 noundef %selection, ptr nocapture noundef readonly %data_cb, ptr noundef %data_cbarg, ptr nocapture readnone %pw_cb, ptr nocapture readnone %pw_cbarg) #0 {
 entry:
   %mem.i = alloca ptr, align 8
   %derp = alloca ptr, align 8

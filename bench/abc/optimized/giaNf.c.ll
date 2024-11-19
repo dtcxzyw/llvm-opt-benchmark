@@ -8251,7 +8251,7 @@ Vec_IntPush.exit84:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @Nf_MatchRefArea(ptr noundef initializes((172, 176)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
+define i64 @Nf_MatchRefArea(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 168
   %7 = getelementptr inbounds i8, ptr %0, i64 172
   store i32 0, ptr %7, align 4
@@ -8524,7 +8524,7 @@ Nf_MatchRefArea.exit:                             ; preds = %.lr.ph.i, %.critedg
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nf_ManElaBestMatch(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 16)) %3, i32 noundef %4) local_unnamed_addr #1 {
+define void @Nf_ManElaBestMatch(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr i8, ptr %0, i64 64
   %.val20 = load ptr, ptr %6, align 8
   %7 = getelementptr i8, ptr %0, i64 80
@@ -10054,7 +10054,7 @@ Vec_IntPush.exit120:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Nf_ManUpdateStats(ptr nocapture noundef initializes((196, 200)) %0) local_unnamed_addr #8 {
+define void @Nf_ManUpdateStats(ptr nocapture noundef %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 232
@@ -12097,7 +12097,7 @@ Vec_IntPush.exit367:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Nf_ManSetDefaultPars(ptr nocapture noundef writeonly initializes((0, 264)) %0) local_unnamed_addr #14 {
+define void @Nf_ManSetDefaultPars(ptr nocapture noundef writeonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 224, i1 false)
   store i32 6, ptr %0, align 8

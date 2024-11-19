@@ -809,7 +809,7 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118ObjCDeallocCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 8), (296, 304)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118ObjCDeallocCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118ObjCDeallocCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -834,7 +834,7 @@ define internal void @_ZN12_GLOBAL__N_118ObjCDeallocCheckerD2Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118ObjCDeallocCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 8), (296, 304)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118ObjCDeallocCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(400) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118ObjCDeallocCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -10025,7 +10025,7 @@ define internal void @_ZN5clang4ento5check11EndFunction17_checkEndFunctionIN12_G
 declare void @_ZN5clang4ento14CheckerManager22_registerForEvalAssumeENS0_9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES7_NS0_4SValEbEEE(ptr noundef nonnull align 8 dereferenceable(1552), ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5clang4ento4eval6Assume11_evalAssumeIN12_GLOBAL__N_118ObjCDeallocCheckerEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvSA_NS0_4SValEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 initializes((0, 8)) %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr %3, i8 %4, i1 noundef zeroext %5) #0 align 2 {
+define internal void @_ZN5clang4ento4eval6Assume11_evalAssumeIN12_GLOBAL__N_118ObjCDeallocCheckerEEEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPvSA_NS0_4SValEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr %3, i8 %4, i1 noundef zeroext %5) #0 align 2 {
   %7 = alloca %"class.clang::ento::SVal", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

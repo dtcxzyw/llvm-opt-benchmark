@@ -576,7 +576,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @ures_close_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ulocdata_setNoSubstitute_75(ptr nocapture noundef writeonly initializes((0, 1)) %uld, i8 noundef signext %setting) local_unnamed_addr #7 {
+define void @ulocdata_setNoSubstitute_75(ptr nocapture noundef writeonly %uld, i8 noundef signext %setting) local_unnamed_addr #7 {
 entry:
   store i8 %setting, ptr %uld, align 8
   ret void

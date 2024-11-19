@@ -2990,7 +2990,7 @@ declare i32 @dt_iop_have_required_input_format(i32 noundef, ptr noundef, i32 nou
 declare i32 @dt_conf_is_equal(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init(ptr nocapture noundef writeonly initializes((492, 496), (676, 700), (704, 712)) %0) local_unnamed_addr #4 {
+define void @init(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 680
   store ptr %2, ptr %3, align 8, !tbaa !160

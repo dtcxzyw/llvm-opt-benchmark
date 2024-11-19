@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN8WasmEdge4LLVM4DataC1EOS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN8WasmEdge4LLVM4DataC2EOS1_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8WasmEdge4LLVM4DataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 80)) %0) unnamed_addr #0 align 2 {
+define void @_ZN8WasmEdge4LLVM4DataC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #8, !noalias !4
   %3 = tail call ptr @LLVMOrcCreateNewThreadSafeContext() #9, !noalias !4
@@ -126,7 +126,7 @@ _ZNSt10unique_ptrIN8WasmEdge4LLVM4Data11DataContextESt14default_deleteIS3_EED2Ev
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8WasmEdge4LLVM4DataC2EOS1_(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 80)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #1 align 2 {
+define void @_ZN8WasmEdge4LLVM4DataC2EOS1_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #1 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8

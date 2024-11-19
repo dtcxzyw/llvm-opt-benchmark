@@ -138,7 +138,7 @@ $_ZTIN3irr5scene14IBoneSceneNodeE = comdat any
 @_ZN3irr5video16IdentityMaterialE = external global %"class.irr::video::SMaterial", align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene14CBoneSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEijRKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8), (40, 41), (48, 148)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id, i32 noundef %boneIndex, ptr noundef nonnull align 8 dereferenceable(40) %boneName) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene14CBoneSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEijRKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef readonly %vtt, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id, i32 noundef %boneIndex, ptr noundef nonnull align 8 dereferenceable(40) %boneName) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -245,7 +245,7 @@ _ZN3irr5scene14IBoneSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEi.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene14CBoneSceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEijRKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8), (40, 41), (48, 148), (272, 292)) %this, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id, i32 noundef %boneIndex, ptr noundef nonnull align 8 dereferenceable(40) %boneName) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene14CBoneSceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEijRKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id, i32 noundef %boneIndex, ptr noundef nonnull align 8 dereferenceable(40) %boneName) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 272
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 280
@@ -342,7 +342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN3irr5scene14CBoneSceneNode16setAnimationModeENS0_21E_BONE_ANIMATION_MODEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((264, 268)) %this, i32 noundef %mode) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene14CBoneSceneNode16setAnimationModeENS0_21E_BONE_ANIMATION_MODEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %this, i32 noundef %mode) unnamed_addr #2 align 2 {
 entry:
   %AnimationMode = getelementptr inbounds i8, ptr %this, i64 264
   store i32 %mode, ptr %AnimationMode, align 8, !tbaa !51

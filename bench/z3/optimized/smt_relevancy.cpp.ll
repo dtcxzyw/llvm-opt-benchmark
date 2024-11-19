@@ -270,7 +270,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3smt20relevancy_propagatorC2ERNS_7contextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx) unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt20relevancy_propagatorC2ERNS_7contextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(11616) %ctx) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt20relevancy_propagatorE, i64 16), ptr %this, align 8
   %m_context = getelementptr inbounds i8, ptr %this, i64 8

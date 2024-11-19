@@ -89,13 +89,13 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv10MediaFrameC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 {
+define void @_ZN2cv10MediaFrameC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv10MediaFrameC2EOSt10unique_ptrINS0_8IAdapterESt14default_deleteIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv10MediaFrameC2EOSt10unique_ptrINS0_8IAdapterESt14default_deleteIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -216,7 +216,7 @@ define void @_ZNK2cv10MediaFrame9serializeERNS_4gapi4s11n8IOStreamE(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv10MediaFrame4ViewC2EOSt5arrayIPvLm4EEOS2_ImLm4EEOSt8functionIFvvEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 96)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv10MediaFrame4ViewC2EOSt5arrayIPvLm4EEOS2_ImLm4EEOSt8functionIFvvEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
@@ -299,7 +299,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK2cv10MediaFrame8IAdapter10blobParamsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::util::any") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv10MediaFrame8IAdapter10blobParamsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::util::any") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   ret void
 }

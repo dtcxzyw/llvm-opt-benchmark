@@ -1314,7 +1314,7 @@ _ZN6ignore4walk13DirEntryInner6is_dir17h96414bccce47cdb8E.llvm.10116246441495270
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6ignore4walk8DirEntry9new_stdin17hb66da9603a70e074E(ptr noalias nocapture noundef writeonly sret({ { i64, [6 x i64] }, { i64, [6 x i64] } }) align 8 dereferenceable(112) initializes((0, 8), (56, 64)) %0) unnamed_addr #4 {
+define void @_ZN6ignore4walk8DirEntry9new_stdin17hb66da9603a70e074E(ptr noalias nocapture noundef writeonly sret({ { i64, [6 x i64] }, { i64, [6 x i64] } }) align 8 dereferenceable(112) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 9, ptr %2, align 8
@@ -1322,7 +1322,7 @@ define void @_ZN6ignore4walk8DirEntry9new_stdin17hb66da9603a70e074E(ptr noalias 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6ignore4walk8DirEntry11new_walkdir17h44f19d9787ea2323E(ptr noalias nocapture noundef writeonly sret({ { i64, [6 x i64] }, { i64, [6 x i64] } }) align 8 dereferenceable(112) initializes((0, 112)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #5 {
+define void @_ZN6ignore4walk8DirEntry11new_walkdir17h44f19d9787ea2323E(ptr noalias nocapture noundef writeonly sret({ { i64, [6 x i64] }, { i64, [6 x i64] } }) align 8 dereferenceable(112) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %2) unnamed_addr #5 {
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
@@ -1940,7 +1940,7 @@ define void @_ZN6ignore4walk11WalkBuilder14build_parallel17h4444ace1f4e6c4beE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder9max_depth17hf28f267ef0466825E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((0, 16)) %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder9max_depth17hf28f267ef0466825E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -1948,7 +1948,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder12follow_links17h912caee8e8858398E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((208, 209)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder12follow_links17h912caee8e8858398E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8
@@ -1956,7 +1956,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder12max_filesize17hfcf60da54d13082eE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((16, 32)) %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder12max_filesize17hfcf60da54d13082eE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1965,7 +1965,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder7threads17ha58040b1cf760a9eE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((176, 184)) %0, i64 noundef %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder7threads17ha58040b1cf760a9eE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   store i64 %1, ptr %3, align 8
   ret ptr %0
@@ -1986,7 +1986,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder16standard_filters17h2cf7fd486f795a3eE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((152, 158)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder16standard_filters17h2cf7fd486f795a3eE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = zext i1 %1 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %3, i8 %4, i64 6, i1 false)
@@ -1994,7 +1994,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder6hidden17hbb3683669d8eea10E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((152, 153)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder6hidden17hbb3683669d8eea10E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8, !alias.scope !360
@@ -2002,7 +2002,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder7parents17he2610e5fc893df33E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((154, 155)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder7parents17he2610e5fc893df33E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 154
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 2, !alias.scope !363
@@ -2010,7 +2010,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder6ignore17hf15dd5d58138567aE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((153, 154)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder6ignore17hf15dd5d58138567aE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 153
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1, !alias.scope !366
@@ -2018,7 +2018,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder10git_global17hafcc47a1c1c979cdE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((155, 156)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder10git_global17hafcc47a1c1c979cdE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 155
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1, !alias.scope !369
@@ -2026,7 +2026,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder10git_ignore17h8498b832467f52dbE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((156, 157)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder10git_ignore17h8498b832467f52dbE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 156
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 4, !alias.scope !372
@@ -2034,7 +2034,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder11git_exclude17h51ec37e489f6cf21E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((157, 158)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder11git_exclude17h51ec37e489f6cf21E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 157
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1, !alias.scope !375
@@ -2042,7 +2042,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder11require_git17h4dc93e022ebbb738E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((159, 160)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder11require_git17h4dc93e022ebbb738E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 159
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1, !alias.scope !378
@@ -2050,7 +2050,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder23ignore_case_insensitive17h80a3ffcfb0ef30bdE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((158, 159)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder23ignore_case_insensitive17h80a3ffcfb0ef30bdE(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 158
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 2, !alias.scope !381
@@ -2058,7 +2058,7 @@ define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder16same_file_system17h2dc0baf9e383e785E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) initializes((209, 210)) %0, i1 noundef zeroext %1) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN6ignore4walk11WalkBuilder16same_file_system17h2dc0baf9e383e785E(ptr noalias noundef returned writeonly align 8 dereferenceable(216) %0, i1 noundef zeroext %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 209
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -2321,7 +2321,7 @@ _ZN4core3ops8function6FnOnce9call_once17h51cf0f09a2384080E.exit: ; preds = %65
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6ignore4walk4Walk10skip_entry17hf301a906dffc33f2E(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) initializes((0, 9)) %0, ptr noalias noundef readonly align 8 dereferenceable(336) %1, ptr noalias noundef readonly align 8 dereferenceable(112) %2) unnamed_addr #2 {
+define void @_ZN6ignore4walk4Walk10skip_entry17hf301a906dffc33f2E(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %0, ptr noalias noundef readonly align 8 dereferenceable(336) %1, ptr noalias noundef readonly align 8 dereferenceable(112) %2) unnamed_addr #2 {
   %4 = alloca { { ptr, i64 } }, align 8
   %5 = alloca [2 x { ptr, ptr }], align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -2517,7 +2517,7 @@ _ZN6ignore4walk13skip_filesize17ha9525f003f71a600E.exit: ; preds = %.thread40, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN91_$LT$ignore..walk..WalkEventIter$u20$as$u20$core..convert..From$LT$walkdir..WalkDir$GT$$GT$4from17hbac12875afc685c8E"(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { ptr, [1 x i64] }, i64, i64, i64, i8, i8, i8, i8, [4 x i8] }, i64, i64 }, { i64, [7 x i64] }, i64 }) align 8 dereferenceable(248) initializes((0, 8), (16, 184), (240, 248)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #5 {
+define void @"_ZN91_$LT$ignore..walk..WalkEventIter$u20$as$u20$core..convert..From$LT$walkdir..WalkDir$GT$$GT$4from17hbac12875afc685c8E"(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { { ptr, [1 x i64] }, i64, i64, i64, i8, i8, i8, i8, [4 x i8] }, i64, i64 }, { i64, [7 x i64] }, i64 }) align 8 dereferenceable(248) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   store i64 0, ptr %4, align 8

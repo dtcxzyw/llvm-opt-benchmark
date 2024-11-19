@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.qemu_pixman_linebuf_create = private unnamed_addr constant [70 x i8] c"pixman_image_t *qemu_pixman_linebuf_create(pixman_format_code_t, int)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_pixelformat_from_pixman(ptr noalias nocapture writeonly sret(%struct.PixelFormat) align 4 initializes((0, 3), (28, 32)) %agg.result, i32 noundef %format) local_unnamed_addr #0 {
+define dso_local void @qemu_pixelformat_from_pixman(ptr noalias nocapture writeonly sret(%struct.PixelFormat) align 4 %agg.result, i32 noundef %format) local_unnamed_addr #0 {
 entry:
   %shr = lshr i32 %format, 24
   %shr1 = lshr i32 %format, 22

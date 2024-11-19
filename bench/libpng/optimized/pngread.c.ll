@@ -1922,7 +1922,7 @@ png_create_read_struct.exit.thread:               ; preds = %6
 declare i32 @png_safe_execute(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @png_image_read_header(ptr nocapture noundef initializes((12, 24), (28, 32)) %0) #0 {
+define internal noundef i32 @png_image_read_header(ptr nocapture noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8

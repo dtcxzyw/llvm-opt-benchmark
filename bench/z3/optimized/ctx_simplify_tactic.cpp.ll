@@ -285,7 +285,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24ctx_propagate_assertionsC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 8), (16, 44), (48, 72)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24ctx_propagate_assertionsC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV24ctx_propagate_assertions, i64 16), ptr %this, align 8
   %m2 = getelementptr inbounds i8, ptr %this, i64 16
@@ -1352,7 +1352,7 @@ entry:
 declare noundef ptr @_Z5cleanP6tactic(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19ctx_simplify_tacticC2ER11ast_managerPNS_10simplifierERK10params_ref(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %simp, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19ctx_simplify_tacticC2ER11ast_managerPNS_10simplifierERK10params_ref(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %simp, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ref_count.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_ref_count.i, align 8
@@ -1508,7 +1508,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ctx_simplify_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19ctx_simplify_tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19ctx_simplify_tactic, i64 16), ptr %this, align 8
   %m_imp = getelementptr inbounds i8, ptr %this, i64 16
@@ -1550,7 +1550,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ctx_simplify_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19ctx_simplify_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19ctx_simplify_tactic, i64 16), ptr %this, align 8
   %m_imp.i = getelementptr inbounds i8, ptr %this, i64 16

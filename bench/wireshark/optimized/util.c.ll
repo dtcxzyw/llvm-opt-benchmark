@@ -97,7 +97,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #3
 declare i64 @g_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @compute_timestamp_diff(ptr nocapture noundef initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define hidden void @compute_timestamp_diff(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = icmp eq i32 %2, %4
   br i1 %7, label %8, label %10
 

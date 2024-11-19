@@ -222,7 +222,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_9ArrowTypeESt14default_deleteIS2_ELb1EEESa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb9ArrowType14AssignChildrenENS_6vectorINS_10unique_ptrIS0_St14default_deleteIS0_ELb1EEELb1EEE(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((40, 48)) %this, ptr nocapture noundef %children) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb9ArrowType14AssignChildrenENS_6vectorINS_10unique_ptrIS0_St14default_deleteIS0_ELb1EEELb1EEE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %children) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children2 = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %children2, align 8, !tbaa !23
@@ -1418,7 +1418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb19ArrowArrayScanStateC2ERNS_19ArrowScanLocalStateE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(256) %state) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb19ArrowArrayScanStateC2ERNS_19ArrowScanLocalStateE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(256) %state) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %state, ptr %this, align 8, !tbaa !19
   %children = getelementptr inbounds i8, ptr %this, i64 8

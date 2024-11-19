@@ -508,7 +508,7 @@ _ZN4llvm9StringRefC2EPKc.exit29:                  ; preds = %50
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN5clang8Rewriter13getEditBufferENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(64), i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4html28instantiateRelexRewriteCacheEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang4html28instantiateRelexRewriteCacheEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0) local_unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15, !noalias !9

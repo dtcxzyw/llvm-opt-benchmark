@@ -1256,7 +1256,7 @@ find_sasl_command.exit:                           ; preds = %.preheader, %23, %f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_AllJoyn_message(ptr noundef %0, ptr noundef initializes((336, 340)) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_AllJoyn_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i8, align 1
   %7 = alloca ptr, align 8

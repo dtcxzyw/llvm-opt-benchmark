@@ -99,7 +99,7 @@ define void @_ZN5faiss11IndexRefineD0Ev(ptr noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss11IndexRefine5trainElPKf(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((25, 26)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define void @_ZN5faiss11IndexRefine5trainElPKf(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
@@ -722,7 +722,7 @@ declare void @_ZNK5faiss5Index12range_searchElPKffPNS_17RangeSearchResultEPKNS_1
 declare void @_ZNK5faiss5Index6assignElPKfPll(ptr noundef nonnull align 8 dereferenceable(36), i64 noundef, ptr noundef, ptr noundef, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss11IndexRefine5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 24)) %0) unnamed_addr #1 align 2 {
+define void @_ZN5faiss11IndexRefine5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -1557,7 +1557,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit117: ; preds = %_ZNKSt14de
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss11IndexRefineC2EPNS_5IndexES2_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (16, 26), (28, 36), (40, 58), (60, 64)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss11IndexRefineC2EPNS_5IndexES2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1793,7 +1793,7 @@ declare void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss11IndexRefineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12), (16, 26), (28, 36), (40, 58), (60, 64)) %0) unnamed_addr #6 align 2 {
+define void @_ZN5faiss11IndexRefineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3290,7 +3290,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss11IndexRefineD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5faiss11IndexRefineD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexRefineE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load i8, ptr %2, align 8
@@ -3427,7 +3427,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 declare void @_ZN5faiss9IndexFlatC1ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72), i64 noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss15IndexRefineFlatC2EPNS_5IndexEPKf(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 12), (16, 26), (28, 36), (40, 58), (60, 64)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss15IndexRefineFlatC2EPNS_5IndexEPKf(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 28
@@ -3504,7 +3504,7 @@ define void @_ZN5faiss15IndexRefineFlatC2EPNS_5IndexEPKf(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss15IndexRefineFlatC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12), (16, 26), (28, 36), (40, 58), (60, 64)) %0) unnamed_addr #6 align 2 {
+define void @_ZN5faiss15IndexRefineFlatC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

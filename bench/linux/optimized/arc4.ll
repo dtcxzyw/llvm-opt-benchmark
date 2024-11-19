@@ -13,7 +13,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_arc4_crypt: 
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_arc4_crypt304, ptr @__UNIQUE_ID___addressable_arc4_setkey303, ptr @__UNIQUE_ID_file305, ptr @__UNIQUE_ID_license306], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef i32 @arc4_setkey(ptr nocapture noundef initializes((1024, 1032)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef i32 @arc4_setkey(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1024
   store i32 1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 1028

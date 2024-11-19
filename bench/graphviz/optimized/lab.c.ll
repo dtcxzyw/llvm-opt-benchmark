@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @color_rgb_init(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rgb_struct) align 8 initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
+define void @color_rgb_init(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rgb_struct) align 8 %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   store double %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store double %2, ptr %5, align 8
@@ -31,7 +31,7 @@ define void @color_rgb_init(ptr dead_on_unwind noalias nocapture writable writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @color_xyz_init(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.xyz_struct) align 8 initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
+define void @color_xyz_init(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.xyz_struct) align 8 %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #0 {
   store double %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store double %2, ptr %5, align 8
@@ -56,7 +56,7 @@ define i24 @color_lab_init(double noundef %0, double noundef %1, double noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @RGB2XYZ(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.xyz_struct) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.rgb_struct) align 8 %1) local_unnamed_addr #2 {
+define void @RGB2XYZ(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.xyz_struct) align 8 %0, ptr nocapture noundef readonly byval(%struct.rgb_struct) align 8 %1) local_unnamed_addr #2 {
   %3 = load double, ptr %1, align 8
   %4 = fdiv double %3, 2.550000e+02
   %5 = fcmp ogt double %4, 4.045000e-02
@@ -313,7 +313,7 @@ define void @LAB2RGB_real_01(ptr nocapture noundef %0) local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write) uwtable
-define void @LAB2RGB(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rgb_struct) align 8 initializes((0, 24)) %0, i24 %1) local_unnamed_addr #6 {
+define void @LAB2RGB(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rgb_struct) align 8 %0, i24 %1) local_unnamed_addr #6 {
   %.sroa.0.0.extract.trunc = zext i24 %1 to i32
   %.sroa.5.0.extract.shift = lshr i24 %1, 8
   %.sroa.5.0.extract.trunc = zext nneg i24 %.sroa.5.0.extract.shift to i32
@@ -469,7 +469,7 @@ XYZ2RGB.exit:                                     ; preds = %73, %76
 declare double @pow(double noundef, double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @XYZ2RGB(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rgb_struct) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.xyz_struct) align 8 %1) local_unnamed_addr #2 {
+define void @XYZ2RGB(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.rgb_struct) align 8 %0, ptr nocapture noundef readonly byval(%struct.xyz_struct) align 8 %1) local_unnamed_addr #2 {
   %3 = load double, ptr %1, align 8
   %4 = fdiv double %3, 1.000000e+02
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -553,7 +553,7 @@ define void @XYZ2RGB(ptr dead_on_unwind noalias nocapture writable writeonly sre
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #8 {
+define noalias noundef ptr @lab_gamut(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
   %3 = load i32, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4

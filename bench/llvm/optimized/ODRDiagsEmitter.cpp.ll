@@ -7398,7 +7398,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %75, %81, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ODRDiagsEmitter13FindTypeDiffsERN4llvm11SmallVectorISt4pairIPKNS_4DeclEjELj4EEES9_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::ODRDiagsEmitter::DiffResult") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15ODRDiagsEmitter13FindTypeDiffsERN4llvm11SmallVectorISt4pairIPKNS_4DeclEjELj4EEES9_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::ODRDiagsEmitter::DiffResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
   store i32 15, ptr %4, align 8
@@ -13163,7 +13163,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %79, %85, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr initializes((368, 376)) %.8.val.0.val, i32 %1, i64 %2, i32 noundef range(i32 0, 5) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_4clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E27ODRDefinitionDataDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val.0.val, i32 %1, i64 %2, i32 noundef range(i32 0, 5) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
@@ -13657,7 +13657,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %63, %69, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 26)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 3, 18) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_10clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 3, 18) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -13750,7 +13750,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %48, %54, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 26)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 3, 18) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_11clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef range(i32 3, 18) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -15031,7 +15031,7 @@ define linkonce_odr hidden i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 26)) %0, ptr nocapture nonnull readonly %.0.val, ptr %.8.val, i32 noundef range(i32 21, 28) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_14clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture nonnull readonly %.0.val, ptr %.8.val, i32 noundef range(i32 21, 28) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 24
   %.sroa.0.0.copyload.i = load i32, ptr %4, align 8
@@ -15110,7 +15110,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %38, %44, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 26)) %0, ptr nocapture nonnull readonly %.0.val, ptr %.8.val, i32 noundef range(i32 21, 28) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK4$_15clEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRCXXRecordDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture nonnull readonly %.0.val, ptr %.8.val, i32 noundef range(i32 21, 28) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 24
   %.sroa.0.0.copyload.i = load i32, ptr %4, align 8
@@ -17579,7 +17579,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %79, %85, %_ZN5clang
 declare i64 @_ZNK5clang12FunctionDecl24getReturnTypeSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr initializes((368, 376)) %.8.val.0.val, i32 %1, i64 %2, i32 noundef range(i32 0, 6) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_12FunctionDeclES3_ENK3$_1clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_E21ODRFunctionDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val.0.val, i32 %1, i64 %2, i32 noundef range(i32 0, 6) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !219)
@@ -19352,7 +19352,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %83, %89, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr initializes((368, 376)) %.8.val.0.val, ptr noundef %1, i32 noundef range(i32 5, 8) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_8EnumDeclES3_ENK3$_1clINS_16EnumConstantDeclEEEDaPKT_ZNKS0_16diagnoseMismatchES3_S3_E17ODREnumDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val.0.val, ptr noundef %1, i32 noundef range(i32 5, 8) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::CharSourceRange", align 8
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -20855,7 +20855,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %79, %85, %_ZN5clang
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr initializes((368, 376)) %.8.val.0.val, i32 %1, i64 %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_17ObjCInterfaceDeclES3_PKNS1_14DefinitionDataEENK3$_2clENS_14SourceLocationENS_11SourceRangeEZNKS0_16diagnoseMismatchES3_S3_S6_E22ODRInterfaceDifference"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val.0.val, i32 %1, i64 %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CharSourceRange", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !276)

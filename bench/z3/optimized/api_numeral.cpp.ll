@@ -1456,7 +1456,7 @@ _Z9is_app_ofPK4exprii.exit:                       ; preds = %entry, %land.rhs.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @Z3_get_numeral_rational(ptr noundef initializes((1560, 1564)) %c, ptr noundef %a, ptr noundef nonnull align 8 dereferenceable(32) %r) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @Z3_get_numeral_rational(ptr noundef %c, ptr noundef %a, ptr noundef nonnull align 8 dereferenceable(32) %r) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %is_int.i = alloca i8, align 1
   %bv_size = alloca i32, align 4

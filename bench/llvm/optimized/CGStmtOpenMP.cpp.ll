@@ -2903,7 +2903,7 @@ declare noundef ptr @_ZNK5clang12CapturedStmt15getCapturedDeclEv(ptr noundef non
 declare void @_ZN5clang7CodeGen15CodeGenFunctionC1ERNS0_13CodeGenModuleEb(ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef nonnull align 8 dereferenceable(3600), i1 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL28emitOutlinedFunctionPrologueRN5clang7CodeGen15CodeGenFunctionERNS0_15FunctionArgListERN4llvm9MapVectorIPKNS_4DeclESt4pairIPKNS_7VarDeclENS0_7AddressEENS5_8DenseMapIS9_jNS5_12DenseMapInfoIS9_vEENS5_6detail12DenseMapPairIS9_jEEEENS5_11SmallVectorISA_IS9_SF_ELj0EEEEERNSG_IS9_SA_IPKNS_4ExprEPNS5_5ValueEESI_NSK_IS9_SX_EEEERSW_RKN12_GLOBAL__N_115FunctionOptionsE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(20) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL28emitOutlinedFunctionPrologueRN5clang7CodeGen15CodeGenFunctionERNS0_15FunctionArgListERN4llvm9MapVectorIPKNS_4DeclESt4pairIPKNS_7VarDeclENS0_7AddressEENS5_8DenseMapIS9_jNS5_12DenseMapInfoIS9_vEENS5_6detail12DenseMapPairIS9_jEEEENS5_11SmallVectorISA_IS9_SF_ELj0EEEEERNSG_IS9_SA_IPKNS_4ExprEPNS5_5ValueEESI_NSK_IS9_SX_EEEERSW_RKN12_GLOBAL__N_115FunctionOptionsE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(20) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %5) unnamed_addr #0 {
 _ZSt4nextIPKPN5clang17ImplicitParamDeclEET_S5_NSt15iterator_traitsIS5_E15difference_typeE.exit:
   %6 = alloca %"class.clang::CodeGen::Address", align 8
   %7 = alloca %"class.clang::CodeGen::LValue", align 8
@@ -4178,7 +4178,7 @@ _ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope12ForceCleanupEv.exit: ; pred
 declare void @_ZN5clang7CodeGen15CodeGenFunctionD1Ev(ptr noundef nonnull align 8 dereferenceable(6488)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction22EmitOMPAggregateAssignENS0_7AddressES2_NS_8QualTypeEN4llvm12function_refIFvS2_S2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 initializes((8, 16)) %2, i64 %3, ptr nocapture readonly %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction22EmitOMPAggregateAssignENS0_7AddressES2_NS_8QualTypeEN4llvm12function_refIFvS2_S2_EEE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3, ptr nocapture readonly %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.clang::CodeGen::Address", align 8
   %9 = alloca %"class.clang::CodeGen::Address", align 8
@@ -14247,7 +14247,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction19OMPBuilderCBHelpers22getAddrOfThreadPrivateERS1_PKNS_7VarDeclENS0_7AddressENS_14SourceLocationE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3, i32 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction19OMPBuilderCBHelpers22getAddrOfThreadPrivateERS1_PKNS_7VarDeclENS0_7AddressENS_14SourceLocationE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %3, i32 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca [2 x %"class.llvm::StringRef"], align 8
@@ -21156,7 +21156,7 @@ _ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_15OMPLinearClause
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitOMPSimdInitERKNS_16OMPLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) initializes((168, 169), (172, 176)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitOMPSimdInitERKNS_16OMPLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1) local_unnamed_addr #0 align 2 {
   %.sroa.4.i40.i = alloca [23 x i8], align 1
   %.sroa.4.i.i = alloca [23 x i8], align 1
   %3 = alloca %"class.clang::CodeGen::RValue", align 8
@@ -25936,7 +25936,7 @@ _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScope12ForceCleanupESt16initializ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112OMPLoopScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 41), (48, 50), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112OMPLoopScopeC2ERN5clang7CodeGen15CodeGenFunctionERKNS1_21OMPLoopBasedDirectiveE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.anon.2075, align 1
   %5 = alloca %"class.llvm::function_ref.2077", align 8
   %6 = alloca %class.anon.2073, align 8
@@ -40793,7 +40793,7 @@ _ZNK5clang4Type6castAsINS_11ComplexTypeEEEPKT_v.exit29: ; preds = %_ZNK5clang4Ty
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction29EmitOMPAtomicSimpleUpdateExprENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEbN4llvm14AtomicOrderingENS_14SourceLocationENS5_12function_refIFS3_S3_EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.1572") align 8 initializes((0, 1), (8, 24), (56, 57)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::LValue") align 8 %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::RValue") align 8 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i32 %7, ptr noundef byval(%"class.llvm::function_ref.1571") align 8 %8) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction29EmitOMPAtomicSimpleUpdateExprENS0_6LValueENS0_6RValueENS_18BinaryOperatorKindEbN4llvm14AtomicOrderingENS_14SourceLocationENS5_12function_refIFS3_S3_EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.1572") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::LValue") align 8 %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::RValue") align 8 %3, i32 noundef %4, i1 noundef zeroext %5, i32 noundef %6, i32 %7, ptr noundef byval(%"class.llvm::function_ref.1571") align 8 %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"class.llvm::TypeSize", align 8
   %11 = alloca %"class.llvm::TypeSize", align 8
   %12 = alloca %"class.llvm::Twine", align 8
@@ -44798,7 +44798,7 @@ _ZN4llvm15OpenMPIRBuilder19LocationDescriptionD2Ev.exit: ; preds = %56, %_ZN4llv
 declare void @_ZN4llvm15OpenMPIRBuilder12createCancelERKNS0_19LocationDescriptionEPNS_5ValueENS_3omp9DirectiveE(ptr dead_on_unwind writable sret(%"class.llvm::IRBuilderBase::InsertPoint") align 8, ptr noundef nonnull align 8 dereferenceable(3104), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction23getOMPCancelDestinationEN4llvm3omp9DirectiveE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::CodeGenFunction::JumpDest") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction23getOMPCancelDestinationEN4llvm3omp9DirectiveE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::CodeGenFunction::JumpDest") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   switch i32 %2, label %6 [
     i32 87, label %4
     i32 85, label %4
@@ -53516,7 +53516,7 @@ declare void @_ZN5clang7CodeGen15CGOpenMPRuntime20NontemporalDeclsRAIIC1ERNS0_13
 declare void @_ZN5clang7CodeGen15CGOpenMPRuntime20NontemporalDeclsRAIID1Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZL18emitCommonSimdLoopRNS0_15CodeGenFunctionERKNS_16OMPLoopDirectiveERKS1_S9_E3$_1EEvlS4_RNS0_15PrePostActionTyE"(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(6488) initializes((172, 176)) %1, ptr nocapture nonnull readnone align 8 %2) #0 align 2 {
+define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZL18emitCommonSimdLoopRNS0_15CodeGenFunctionERKNS_16OMPLoopDirectiveERKS1_S9_E3$_1EEvlS4_RNS0_15PrePostActionTyE"(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture nonnull readnone align 8 %2) #0 align 2 {
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef null, i64 noundef 0, i64 noundef 8) #19
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 3224
   %5 = load i32, ptr %4, align 8
@@ -55758,7 +55758,7 @@ _ZN5clang7CodeGen15CodeGenFunction18OpaqueValueMappingD2Ev.exit.i: ; preds = %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @"_ZN4llvm12function_refIFN5clang7CodeGen6RValueES3_EE11callback_fnIZL24emitOMPAtomicCaptureExprRNS2_15CodeGenFunctionENS_14AtomicOrderingEbPKNS1_4ExprESC_SC_SC_bNS1_14SourceLocationEE3$_1EES3_lS3_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::RValue") align 8 initializes((0, 56)) %0, i64 noundef %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::RValue") align 8 %2) #12 align 2 {
+define internal void @"_ZN4llvm12function_refIFN5clang7CodeGen6RValueES3_EE11callback_fnIZL24emitOMPAtomicCaptureExprRNS2_15CodeGenFunctionENS_14AtomicOrderingEbPKNS1_4ExprESC_SC_SC_bNS1_14SourceLocationEE3$_1EES3_lS3_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::RValue") align 8 %0, i64 noundef %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::RValue") align 8 %2) #12 align 2 {
   %4 = inttoptr i64 %1 to ptr
   %5 = load ptr, ptr %4, align 8, !noalias !1575
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef nonnull align 8 dereferenceable(49) %2, i64 49, i1 false)
@@ -57559,7 +57559,7 @@ define internal void @"_ZN4llvm12function_refIFvNS_13IRBuilderBase11InsertPointE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4llvm12function_refIFNS_13IRBuilderBase11InsertPointES2_S2_RNS_5ValueES4_RPS3_EE11callback_fnIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNSA_20OMPParallelDirectiveEE3$_2EES2_lS2_S2_S4_S4_S6_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IRBuilderBase::InsertPoint") align 8 initializes((0, 24)) %0, i64 %1, ptr nocapture noundef readonly byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %2, ptr nocapture noundef readonly byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %6) #14 align 2 {
+define internal void @"_ZN4llvm12function_refIFNS_13IRBuilderBase11InsertPointES2_S2_RNS_5ValueES4_RPS3_EE11callback_fnIZN5clang7CodeGen15CodeGenFunction24EmitOMPParallelDirectiveERKNSA_20OMPParallelDirectiveEE3$_2EES2_lS2_S2_S4_S4_S6_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %0, i64 %1, ptr nocapture noundef readonly byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %2, ptr nocapture noundef readonly byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6) #14 align 2 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store ptr %5, ptr %6, align 8, !noalias !1588
   ret void
@@ -59777,7 +59777,7 @@ _ZN5clang7CodeGen15CodeGenFunction15OMPPrivateScope10restoreMapEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZL17emitOMPSimdRegionRNS0_15CodeGenFunctionERKNS_16OMPLoopDirectiveERNS0_15PrePostActionTyEE3$_1EEvlS4_S9_"(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(6488) initializes((168, 169), (172, 176)) %1, ptr nocapture nonnull readnone align 8 %2) #0 align 2 {
+define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZL17emitOMPSimdRegionRNS0_15CodeGenFunctionERKNS_16OMPLoopDirectiveERNS0_15PrePostActionTyEE3$_1EEvlS4_S9_"(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture nonnull readnone align 8 %2) #0 align 2 {
   %4 = inttoptr i64 %0 to ptr
   %.val = load ptr, ptr %4, align 8
   tail call void @_ZN5clang7CodeGen15CodeGenFunction15EmitOMPSimdInitERKNS_16OMPLoopDirectiveE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull readonly align 8 dereferenceable(36) %.val)
@@ -59878,7 +59878,7 @@ define internal noalias noundef ptr @"_ZN4llvm12function_refIFPNS_5ValueERN5clan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS3_15OMPPrivateScopeERKNS3_16OMPLoopArgumentsERKN4llvm12function_refIFvRS3_S6_NS3_8JumpDestEEEERKNSD_IFvSE_NS_14SourceLocationEjbEEEE3$_0EEvlSE_RNS0_15PrePostActionTyE"(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(6488) initializes((168, 169)) %1, ptr nocapture nonnull readnone align 8 %2) #0 align 2 {
+define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZNS0_15CodeGenFunction16EmitOMPOuterLoopEbbRKNS_16OMPLoopDirectiveERNS3_15OMPPrivateScopeERKNS3_16OMPLoopArgumentsERKN4llvm12function_refIFvRS3_S6_NS3_8JumpDestEEEERKNSD_IFvSE_NS_14SourceLocationEjbEEEE3$_0EEvlSE_RNS0_15PrePostActionTyE"(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture nonnull readnone align 8 %2) #0 align 2 {
   %4 = inttoptr i64 %0 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4
@@ -60390,7 +60390,7 @@ define internal void @"_ZN5clang7CodeGen15RegionCodeGenTy10CallbackFnIZL32emitIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL36emitDistributeParallelForInnerBoundsRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.1435") align 8 initializes((0, 272)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) #0 {
+define internal void @_ZL36emitDistributeParallelForInnerBoundsRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.1435") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) #0 {
   %4 = alloca %"class.clang::CodeGen::LValue", align 8
   %5 = alloca %"class.clang::CodeGen::LValue", align 8
   %6 = alloca %"class.clang::CodeGen::LValue", align 8
@@ -63977,7 +63977,7 @@ _ZN5clang7CodeGen15CodeGenFunction21OpenMPCancelExitStack8emitExitERS1_N4llvm3om
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 4), (8, 56), (64, 80), (84, 136)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL17createSectionLValRN5clang7CodeGen15CodeGenFunctionENS_8QualTypeERKN4llvm5TwineEPNS4_5ValueE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %7 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %.sroa.6 = alloca [23 x i8], align 1
@@ -64766,7 +64766,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvN4llvm13IRBuilde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4llvm12function_refIFNS_13IRBuilderBase11InsertPointES2_S2_RNS_5ValueES4_RPS3_EE11callback_fnIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNSA_20OMPSectionsDirectiveEE3$_3EES2_lS2_S2_S4_S4_S6_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IRBuilderBase::InsertPoint") align 8 initializes((0, 24)) %0, i64 %1, ptr nocapture noundef readonly byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %2, ptr nocapture noundef readonly byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %6) #14 align 2 {
+define internal void @"_ZN4llvm12function_refIFNS_13IRBuilderBase11InsertPointES2_S2_RNS_5ValueES4_RPS3_EE11callback_fnIZN5clang7CodeGen15CodeGenFunction24EmitOMPSectionsDirectiveERKNSA_20OMPSectionsDirectiveEE3$_3EES2_lS2_S2_S4_S4_S6_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %0, i64 %1, ptr nocapture noundef readonly byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %2, ptr nocapture noundef readonly byval(%"class.llvm::IRBuilderBase::InsertPoint") align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6) #14 align 2 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   store ptr %5, ptr %6, align 8, !noalias !1772
   ret void

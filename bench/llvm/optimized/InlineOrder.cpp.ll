@@ -326,7 +326,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21getDefaultInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(66) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3, ptr nocapture noundef nonnull readnone align 1 %4) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm21getDefaultInlineOrderERNS_15AnalysisManagerINS_8FunctionEJEEERKNS_12InlineParamsERNS0_INS_6ModuleEJEEERS7_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 4 dereferenceable(66) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3, ptr nocapture noundef nonnull readnone align 1 %4) local_unnamed_addr #0 {
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL17UseInlinePriority, i64 128), align 8
   %7 = icmp ult i32 %6, 4
   br i1 %7, label %switch.lookup, label %22
@@ -1218,7 +1218,7 @@ declare void @_ZN4llvm2cl3optIiLb0ENS0_6parserIiEEE15setInitialValueERKi(ptr nou
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.val = load ptr, ptr %2, align 8
@@ -1261,7 +1261,7 @@ _ZN4llvm11SmallVectorIPNS_8CallBaseELj16EED2Ev.exit: ; preds = %_ZNSt8functionIF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.val.i = load ptr, ptr %2, align 8
@@ -3187,7 +3187,7 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 declare noundef i32 @_ZNK4llvm8Function19getInstructionCountEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112SizePriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -3864,7 +3864,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbPKN4llvm8CallBaseES6_EEEC2ERK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.val = load ptr, ptr %2, align 8
@@ -3907,7 +3907,7 @@ _ZN4llvm11SmallVectorIPNS_8CallBaseELj16EED2Ev.exit: ; preds = %_ZNSt8functionIF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.val.i = load ptr, ptr %2, align 8
@@ -6097,7 +6097,7 @@ define internal noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4llvm12funct
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -6247,7 +6247,7 @@ _ZN4llvm8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_112CostPriorityENS_12DenseMapInfo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_19CostBenefitPriorityEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_19CostBenefitPriorityEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_119PriorityInlineOrderINS_19CostBenefitPriorityEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 224
@@ -6359,7 +6359,7 @@ _ZN4llvm11SmallVectorIPNS_8CallBaseELj16EED2Ev.exit: ; preds = %_ZNSt8functionIF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_19CostBenefitPriorityEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_19CostBenefitPriorityEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_19CostBenefitPriorityEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #21
   ret void
@@ -8582,7 +8582,7 @@ declare void @_ZNK4llvm5APIntmlERKS0_(ptr dead_on_unwind writable sret(%"class.l
 declare noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119CostBenefitPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8FunctionEJEEERKNS1_12InlineParamsE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (40, 41)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(66) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119CostBenefitPriorityC2EPKN4llvm8CallBaseERNS1_15AnalysisManagerINS1_8FunctionEJEEERKNS1_12InlineParamsE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 4 dereferenceable(66) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::InlineCost", align 8
   %6 = alloca %"class.std::optional.136", align 8
   store i32 2147483647, ptr %0, align 8
@@ -8852,7 +8852,7 @@ _ZNSt22_Optional_payload_baseIN4llvm15CostBenefitPairEE8_M_resetEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -9067,7 +9067,7 @@ _ZN4llvm8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_119CostBenefitPriorityENS_12Dense
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEED2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.val = load ptr, ptr %2, align 8
@@ -9110,7 +9110,7 @@ _ZN4llvm11SmallVectorIPNS_8CallBaseELj16EED2Ev.exit: ; preds = %_ZNSt8functionIF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEED0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %.val.i = load ptr, ptr %2, align 8
@@ -11112,7 +11112,7 @@ _ZNSt14_Function_base13_Base_managerIZN12_GLOBAL__N_119PriorityInlineOrderINS1_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_8CallBaseEN12_GLOBAL__N_110MLPriorityENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

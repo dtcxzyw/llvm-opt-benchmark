@@ -705,7 +705,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers20NewTextCodeGeneratorEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.127") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers20NewTextCodeGeneratorEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.127") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN11flatbuffers12_GLOBAL__N_117TextCodeGeneratorESt14default_deleteIS2_EED2Ev.exit:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %call, i8 0, i64 40, i1 false)
@@ -12183,7 +12183,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11flatbuffers12_GLOBAL__N_117TextCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN11flatbuffers12_GLOBAL__N_117TextCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i64 16), ptr %this, align 8
   %status_detail.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -12192,7 +12192,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11flatbuffers12_GLOBAL__N_117TextCodeGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN11flatbuffers12_GLOBAL__N_117TextCodeGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i64 16), ptr %this, align 8
   %status_detail.i.i = getelementptr inbounds i8, ptr %this, i64 8

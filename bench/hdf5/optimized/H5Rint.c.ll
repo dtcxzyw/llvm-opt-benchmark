@@ -116,7 +116,7 @@ define noundef i32 @H5R_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5R__create_object(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef initializes((16, 24), (32, 40), (44, 46)) %2) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5R__create_object(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %5, align 8
@@ -151,7 +151,7 @@ define range(i32 -1, 1) i32 @H5R__create_object(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5R__set_obj_token(ptr nocapture noundef writeonly initializes((45, 46)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
+define noundef i32 @H5R__set_obj_token(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %0, ptr align 1 %1, i64 %2, i1 false)
   %4 = trunc i64 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 45
@@ -430,7 +430,7 @@ H5R__encode_obj_token.exit:                       ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5R__create_region(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef initializes((16, 32)) %3) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5R__create_region(ptr nocapture noundef readonly %0, i64 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr null, ptr %6, align 8
@@ -1008,7 +1008,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @H5S_extent_equal(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5R__copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16), (40, 46)) %1) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @H5R__copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8

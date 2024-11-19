@@ -2611,7 +2611,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tracemalloc_get_traces_domain(ptr nocapture readnone %domains, ptr noundef %key, ptr noundef %value, ptr noundef initializes((32, 36)) %user_data) #0 {
+define internal i32 @tracemalloc_get_traces_domain(ptr nocapture readnone %domains, ptr noundef %key, ptr noundef %value, ptr noundef %user_data) #0 {
 entry:
   %0 = ptrtoint ptr %key to i64
   %conv = trunc i64 %0 to i32

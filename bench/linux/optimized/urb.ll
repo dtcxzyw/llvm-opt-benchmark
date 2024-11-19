@@ -286,7 +286,7 @@ define dso_local void @usb_unanchor_urb(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__usb_unanchor_urb(ptr noundef initializes((56, 64)) %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc void @__usb_unanchor_urb(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40

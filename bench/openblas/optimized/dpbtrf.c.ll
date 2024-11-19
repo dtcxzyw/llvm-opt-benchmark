@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.10 = private unnamed_addr constant [13 x i8] c"No transpose\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef initializes((0, 4)) %5) local_unnamed_addr #0 {
+define void @dpbtrf_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

@@ -3300,7 +3300,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptFunctionDefinitionERN
 declare void @_ZN7glslang16HlslParseContext24handleFunctionDeclaratorERKNS_10TSourceLocERNS_9TFunctionEb(ptr noundef nonnull align 8 dereferenceable(2489), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(340), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang11HlslGrammar20acceptArraySpecifierERPNS_11TArraySizesE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang11HlslGrammar20acceptArraySpecifierERPNS_11TArraySizesE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.glslang::TSourceLoc", align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"struct.glslang::TArraySize", align 8
@@ -3591,7 +3591,7 @@ define linkonce_odr void @_ZN7glslang5TTypeD2Ev(ptr noundef nonnull align 8 dere
 declare void @_ZN7glslang15HlslTokenStream11recedeTokenEv(ptr noundef nonnull align 8 dereferenceable(324)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptControlDeclarationERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptControlDeclarationERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.glslang::TList.229", align 8
   %5 = alloca %"class.glslang::TType", align 8
@@ -3741,7 +3741,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar24acceptFullySpecifiedTypeERN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang11HlslGrammar16acceptExpressionERPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang11HlslGrammar16acceptExpressionERPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.glslang::TSourceLoc", align 8
   %4 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
@@ -5673,7 +5673,7 @@ declare void @_ZN7glslang16HlslParseContext18setLayoutQualifierERKNS_10TSourceLo
 declare void @_ZN7glslang16HlslParseContext18setLayoutQualifierERKNS_10TSourceLocERNS_10TQualifierERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(2489), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang11HlslGrammar29acceptTemplateVecMatBasicTypeERNS_10TBasicTypeERNS_19TPrecisionQualifierE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang11HlslGrammar29acceptTemplateVecMatBasicTypeERNS_10TBasicTypeERNS_19TPrecisionQualifierE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %2, align 4
   %4 = tail call noundef i32 @_ZNK7glslang15HlslTokenStream4peekEv(ptr noundef nonnull align 8 dereferenceable(324) %0) #16
   switch i32 %4, label %39 [
@@ -6462,7 +6462,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar10acceptTypeERNS_5TTypeE(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang11HlslGrammar27acceptStreamOutTemplateTypeERNS_5TTypeERNS_15TLayoutGeometryE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang11HlslGrammar27acceptStreamOutTemplateTypeERNS_5TTypeERNS_15TLayoutGeometryE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   store i32 0, ptr %2, align 4
   %5 = tail call noundef i32 @_ZNK7glslang15HlslTokenStream4peekEv(ptr noundef nonnull align 8 dereferenceable(360) %0) #16
@@ -8842,7 +8842,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 declare noundef ptr @_ZN7glslang16HlslParseContext14lookupUserTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489), ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang11HlslGrammar27acceptStructDeclarationListERPNS_7TVectorINS_8TTypeLocEEERP11TIntermNodeRNS1_INS_19TFunctionDeclaratorEEE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang11HlslGrammar27acceptStructDeclarationListERPNS_7TVectorINS_8TTypeLocEEERP11TIntermNodeRNS1_INS_19TFunctionDeclaratorEEE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.glslang::HlslToken", align 8
   %6 = alloca %"class.glslang::TList.229", align 8
   %7 = alloca %"class.glslang::TType", align 8
@@ -9336,7 +9336,7 @@ declare void @_ZN7glslang15HlslTokenStream14popTokenStreamEv(ptr noundef nonnull
 declare void @_ZN7glslang16HlslParseContext21shareStructBufferTypeERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang11HlslGrammar30acceptMemberFunctionDefinitionERP11TIntermNodeRKNS_5TTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_19TFunctionDeclaratorE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(72) initializes((24, 32)) %4) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang11HlslGrammar30acceptMemberFunctionDefinitionERP11TIntermNodeRKNS_5TTypeERNSt7__cxx1112basic_stringIcSt11char_traitsIcENS_14pool_allocatorIcEEEERNS_19TFunctionDeclaratorE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(72) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 328
@@ -9610,7 +9610,7 @@ _ZNK7glslang11TArraySizes10hasUnsizedEv.exit:     ; preds = %_ZNK7glslang17TSmal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang11HlslGrammar33acceptDefaultParameterDeclarationERKNS_5TTypeERPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang11HlslGrammar33acceptDefaultParameterDeclarationERKNS_5TTypeERPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %2, align 8
   %5 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 344) #16
@@ -10074,7 +10074,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar23acceptCompoundStatementERP1
 declare void @_ZN7glslang16HlslParseContext18handleFunctionBodyERKNS_10TSourceLocERNS_9TFunctionEP11TIntermNodeRS7_(ptr noundef nonnull align 8 dereferenceable(2489), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(340), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang11HlslGrammar21acceptParenExpressionERPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang11HlslGrammar21acceptParenExpressionERPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %4 = tail call noundef zeroext i1 @_ZN7glslang15HlslTokenStream16acceptTokenClassENS_15EHlslTokenClassE(ptr noundef nonnull align 8 dereferenceable(324) %0, i32 noundef 355) #16
@@ -11243,7 +11243,7 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar21acceptSimpleStatementERP11T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang11HlslGrammar15acceptStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang11HlslGrammar15acceptStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.glslang::TSourceLoc", align 8
   %5 = alloca %"class.glslang::TList.229", align 8
@@ -11412,7 +11412,7 @@ _ZN7glslang11HlslGrammar21acceptSimpleStatementERP11TIntermNode.exit: ; preds = 
 declare void @_ZN7glslang16HlslParseContext23wrapupSwitchSubsequenceEPNS_16TIntermAggregateEP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(2489), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang11HlslGrammar21acceptScopedStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang11HlslGrammar21acceptScopedStatementERP11TIntermNode(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 232

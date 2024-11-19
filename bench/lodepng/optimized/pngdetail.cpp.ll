@@ -1300,7 +1300,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z8RGBtoHSLhhhPhS_S_(i8 noundef zeroext %r, i8 noundef zeroext %g, i8 noundef zeroext %b, ptr nocapture noundef writeonly initializes((0, 1)) %h, ptr nocapture noundef writeonly initializes((0, 1)) %s, ptr nocapture noundef writeonly initializes((0, 1)) %l) local_unnamed_addr #5 {
+define void @_Z8RGBtoHSLhhhPhS_S_(i8 noundef zeroext %r, i8 noundef zeroext %g, i8 noundef zeroext %b, ptr nocapture noundef writeonly %h, ptr nocapture noundef writeonly %s, ptr nocapture noundef writeonly %l) local_unnamed_addr #5 {
 entry:
   %conv = zext i8 %r to i32
   %conv2 = zext i8 %g to i32
@@ -1372,7 +1372,7 @@ if.end:                                           ; preds = %cond.end47, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z8RGBtoHCThhhPhS_S_(i8 noundef zeroext %r, i8 noundef zeroext %g, i8 noundef zeroext %b, ptr nocapture noundef writeonly initializes((0, 1)) %h, ptr nocapture noundef writeonly initializes((0, 1)) %c, ptr nocapture noundef writeonly initializes((0, 1)) %t) local_unnamed_addr #5 {
+define void @_Z8RGBtoHCThhhPhS_S_(i8 noundef zeroext %r, i8 noundef zeroext %g, i8 noundef zeroext %b, ptr nocapture noundef writeonly %h, ptr nocapture noundef writeonly %c, ptr nocapture noundef writeonly %t) local_unnamed_addr #5 {
 entry:
   %conv = zext i8 %r to i32
   %conv2 = zext i8 %g to i32

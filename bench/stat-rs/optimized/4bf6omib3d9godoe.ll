@@ -168,7 +168,7 @@ define internal void @"_ZN4core3ptr72drop_in_place$LT$std..panicking..begin_pani
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5alloc5slice4hack8into_vec17h6579b42a278d7714E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull align 8 %1, i64 noundef %2) unnamed_addr #5 {
+define hidden void @_ZN5alloc5slice4hack8into_vec17h6579b42a278d7714E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 %1, i64 noundef %2) unnamed_addr #5 {
   store i64 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -187,7 +187,7 @@ define hidden { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$17from_raw_pa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6statrs12distribution9bernoulli9Bernoulli3new17h6971f28ef0b4db53E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 24)) %0, double noundef %1) unnamed_addr #7 {
+define void @_ZN6statrs12distribution9bernoulli9Bernoulli3new17h6971f28ef0b4db53E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1) unnamed_addr #7 {
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store double %1, ptr %3, align 8, !noalias !19
@@ -533,7 +533,7 @@ define noundef double @"_ZN110_$LT$statrs..distribution..bernoulli..Bernoulli$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution3chi3Chi3new17h71e735c60156cb0cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1) unnamed_addr #5 {
+define void @_ZN6statrs12distribution3chi3Chi3new17h71e735c60156cb0cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1) unnamed_addr #5 {
   %or.cond = fcmp ule double %1, 0.000000e+00
   br i1 %or.cond, label %5, label %3
 
@@ -1927,7 +1927,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h6cc94bca519528ffE.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution11exponential3Exp3new17hd4e24baf5ed34872E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1) unnamed_addr #5 {
+define void @_ZN6statrs12distribution11exponential3Exp3new17hd4e24baf5ed34872E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1) unnamed_addr #5 {
   %or.cond = fcmp ule double %1, 0.000000e+00
   br i1 %or.cond, label %5, label %3
 

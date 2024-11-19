@@ -128,7 +128,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @slg_new(ptr nocapture noundef writeonly initializes((40, 44), (56, 60), (64, 72)) %bi) #2 {
+define internal noundef i32 @slg_new(ptr nocapture noundef writeonly %bi) #2 {
 entry:
   %init = getelementptr inbounds i8, ptr %bi, i64 40
   store i32 1, ptr %init, align 8

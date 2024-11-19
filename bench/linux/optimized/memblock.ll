@@ -1738,7 +1738,7 @@ define dso_local noundef range(i32 -12, 1) i32 @memblock_set_node(i64 noundef %0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -12, 1) i32 @memblock_isolate_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef initializes((0, 4)) %4) unnamed_addr #4 section ".meminit.text" align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @memblock_isolate_range(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) unnamed_addr #4 section ".meminit.text" align 16 {
   %6 = xor i64 %1, -1
   %7 = tail call i64 @llvm.umin.i64(i64 %2, i64 %6)
   %8 = tail call i64 @llvm.uadd.sat.i64(i64 %2, i64 %1)

@@ -150,7 +150,7 @@ $_ZN4llvm8DenseMapIPKNS_11MCSymbolELFES3_NS_12DenseMapInfoIS3_vEENS_6detail12Den
 @_ZN4llvm15ELFObjectWriterC1ESt10unique_ptrINS_23MCELFObjectTargetWriterESt14default_deleteIS2_EERNS_17raw_pwrite_streamES7_b = unnamed_addr alias void (ptr, ptr, ptr, ptr, i1), ptr @_ZN4llvm15ELFObjectWriterC2ESt10unique_ptrINS_23MCELFObjectTargetWriterESt14default_deleteIS2_EERNS_17raw_pwrite_streamES7_b
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15ELFObjectWriterC2ESt10unique_ptrINS_23MCELFObjectTargetWriterESt14default_deleteIS2_EERNS_17raw_pwrite_streamEb(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15ELFObjectWriterC2ESt10unique_ptrINS_23MCELFObjectTargetWriterESt14default_deleteIS2_EERNS_17raw_pwrite_streamEb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %3 to i8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm14MCObjectWriterE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -187,7 +187,7 @@ define dso_local void @_ZN4llvm15ELFObjectWriterC2ESt10unique_ptrINS_23MCELFObje
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15ELFObjectWriterC2ESt10unique_ptrINS_23MCELFObjectTargetWriterESt14default_deleteIS2_EERNS_17raw_pwrite_streamES7_b(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15ELFObjectWriterC2ESt10unique_ptrINS_23MCELFObjectTargetWriterESt14default_deleteIS2_EERNS_17raw_pwrite_streamES7_b(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %4 to i8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm14MCObjectWriterE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -226,7 +226,7 @@ define dso_local void @_ZN4llvm15ELFObjectWriterC2ESt10unique_ptrINS_23MCELFObje
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15ELFObjectWriter5resetEv(ptr noundef nonnull align 8 dereferenceable(208) initializes((104, 108), (185, 186)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15ELFObjectWriter5resetEv(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 185

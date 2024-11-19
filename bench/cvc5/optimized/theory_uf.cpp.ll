@@ -1264,7 +1264,7 @@ terminate.lpad:                                   ; preds = %entry
 declare void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2uf8TheoryUFD2Ev(ptr noundef nonnull align 8 dereferenceable(1736) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2uf8TheoryUFD2Ev(ptr noundef nonnull align 8 dereferenceable(1736) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf8TheoryUFE, i64 16), ptr %this, align 8
   %d_isHoType = getelementptr inbounds i8, ptr %this, i64 1672
@@ -1444,7 +1444,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory2uf20CardinalityExtensionESt14default_de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2uf8TheoryUFD0Ev(ptr noundef nonnull align 8 dereferenceable(1736) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory2uf8TheoryUFD0Ev(ptr noundef nonnull align 8 dereferenceable(1736) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory2uf8TheoryUFD2Ev(ptr noundef nonnull align 8 dereferenceable(1736) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
@@ -1466,7 +1466,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2uf8TheoryUF19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(1736) %this, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %esi) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2uf8TheoryUF19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(1736) %this, ptr noundef nonnull align 8 dereferenceable(45) %esi) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %d_notify = getelementptr inbounds i8, ptr %this, i64 1648

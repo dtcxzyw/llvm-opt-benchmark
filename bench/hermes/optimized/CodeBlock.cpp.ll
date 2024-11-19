@@ -102,7 +102,7 @@ entry:
 declare noundef i32 @_ZNK6hermes3hbc14BCProviderBase21findCatchTargetOffsetEjj(ptr noundef nonnull align 8 dereferenceable(280), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK6hermes2vm9CodeBlock18getArrayBufferIterEjj(ptr noalias nocapture writeonly sret(%"class.hermes::vm::SerializedLiteralParser") align 8 initializes((0, 20), (24, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i32 noundef %numLiterals) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK6hermes2vm9CodeBlock18getArrayBufferIterEjj(ptr noalias nocapture writeonly sret(%"class.hermes::vm::SerializedLiteralParser") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i32 noundef %numLiterals) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
@@ -129,7 +129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK6hermes2vm9CodeBlock22getObjectBufferKeyIterEjj(ptr noalias nocapture writeonly sret(%"class.hermes::vm::SerializedLiteralParser") align 8 initializes((0, 20), (24, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i32 noundef %numLiterals) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK6hermes2vm9CodeBlock22getObjectBufferKeyIterEjj(ptr noalias nocapture writeonly sret(%"class.hermes::vm::SerializedLiteralParser") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i32 noundef %numLiterals) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80
@@ -152,7 +152,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK6hermes2vm9CodeBlock24getObjectBufferValueIterEjj(ptr noalias nocapture writeonly sret(%"class.hermes::vm::SerializedLiteralParser") align 8 initializes((0, 20), (24, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i32 noundef %numLiterals) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK6hermes2vm9CodeBlock24getObjectBufferValueIterEjj(ptr noalias nocapture writeonly sret(%"class.hermes::vm::SerializedLiteralParser") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i32 noundef %idx, i32 noundef %numLiterals) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %bcProvider_.i = getelementptr inbounds i8, ptr %0, i64 80

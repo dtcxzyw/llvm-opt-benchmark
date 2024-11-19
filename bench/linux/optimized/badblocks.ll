@@ -1766,7 +1766,7 @@ define dso_local i64 @badblocks_store(ptr noundef %0, ptr nocapture noundef read
 declare dso_local noundef i32 @sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @badblocks_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 20), (24, 32)) %0, i32 noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @badblocks_init(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 align 16 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8

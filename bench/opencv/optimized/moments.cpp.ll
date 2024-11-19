@@ -55,13 +55,13 @@ $__clang_call_terminate = comdat any
 @_ZN2cv7MomentsC1Edddddddddd = unnamed_addr alias void (ptr, double, double, double, double, double, double, double, double, double, double), ptr @_ZN2cv7MomentsC2Edddddddddd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7MomentsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 192)) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv7MomentsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 0, i64 192, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7MomentsC2Edddddddddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 192)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10) unnamed_addr #0 align 2 {
+define void @_ZN2cv7MomentsC2Edddddddddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store double %2, ptr %12, align 8
@@ -1751,7 +1751,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9HuMomentsERKNS_7MomentsEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, ptr nocapture noundef writeonly initializes((0, 56)) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9HuMomentsERKNS_7MomentsEPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv9HuMomentsERKNS_7MomentsEPdE25__cv_trace_location_fn711)
   %4 = getelementptr inbounds i8, ptr %0, i64 160

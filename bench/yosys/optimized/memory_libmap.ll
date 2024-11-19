@@ -4618,7 +4618,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module18has_processes_warnEv(ptr no
 declare void @_ZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleE(ptr dead_on_unwind writable sret(%"class.std::vector.158") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110MemMappingC2ERNS_9MapWorkerERN5Yosys3MemERKNS3_10MemLibrary7LibraryERKNS_11PassOptionsE(ptr noundef nonnull align 8 dereferenceable(968) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(720) %1, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110MemMappingC2ERNS_9MapWorkerERN5Yosys3MemERKNS3_10MemLibrary7LibraryERKNS_11PassOptionsE(ptr noundef nonnull align 8 dereferenceable(968) %0, ptr noundef nonnull align 8 dereferenceable(720) %1, ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::vector.693", align 8
   %8 = alloca %"class.Yosys::hashlib::dict.753", align 8
@@ -95933,7 +95933,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL7SigSpeceqERKS1_(ptr noundef nonnull
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL5Const14is_fully_undefEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19MemConfigC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19MemConfigC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -96824,7 +96824,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN12_GLOBAL__N_19MemConfigESt6vecto
 declare void @_ZNK5Yosys5RTLIL7SigSpec4packEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(160) ptr @_ZN12_GLOBAL__N_19MemConfigaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(160) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(160) ptr @_ZN12_GLOBAL__N_19MemConfigaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -100820,7 +100820,7 @@ declare void @_ZN5Yosys3Mem16emulate_priorityEiiPNS_10FfInitValsE(ptr noundef no
 declare void @_ZN5Yosys3Mem20emulate_transparencyEiiPNS_10FfInitValsE(ptr noundef nonnull align 8 dereferenceable(176), i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111gen_swizzleERKN5Yosys3MemERKNS_9MemConfigEii(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((16, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111gen_swizzleERKN5Yosys3MemERKNS_9MemConfigEii(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, i8 0, i64 48, i1 false)
   %7 = getelementptr inbounds i8, ptr %1, i64 96

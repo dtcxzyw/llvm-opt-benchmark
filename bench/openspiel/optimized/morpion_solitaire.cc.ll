@@ -501,7 +501,7 @@ declare void @_ZN10open_spiel14GameRegistererC1ERKNS_8GameTypeESt8functionIFSt10
 declare void @_ZN10open_spiel28RegisterSingleTensorObserverC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel17morpion_solitaire4LineC2ENS0_5PointES2_(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, i64 %1, i64 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel17morpion_solitaire4LineC2ENS0_5PointES2_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 %1, i64 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   invoke void @_ZN10open_spiel17morpion_solitaire4Line4InitENS0_5PointES2_(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 %1, i64 %2)
           to label %4 unwind label %5
@@ -531,7 +531,7 @@ _ZNSt6vectorIN10open_spiel17morpion_solitaire5PointESaIS2_EED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel17morpion_solitaire4Line4InitENS0_5PointES2_(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, i64 %1, i64 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel17morpion_solitaire4Line4InitENS0_5PointES2_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 %1, i64 %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.019.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.0.0.extract.trunc = trunc i64 %2 to i32
   %4 = icmp slt i32 %.sroa.019.0.extract.trunc, %.sroa.0.0.extract.trunc
@@ -696,7 +696,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN10open_spiel17morpion_solitaire5Point
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel17morpion_solitaire4LineC2El(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel17morpion_solitaire4LineC2El(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1099,7 +1099,7 @@ define i64 @_ZN10open_spiel17morpion_solitaire4Line12GetDirectionEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel17morpion_solitaire4Line12GetEndpointsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel17morpion_solitaire4Line12GetEndpointsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1119,7 +1119,7 @@ define void @_ZN10open_spiel17morpion_solitaire4Line12GetEndpointsEv(ptr dead_on
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel17morpion_solitaire4Line12GetAllPointsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -1834,7 +1834,7 @@ _ZN10open_spiel17morpion_solitaire4LineD2Ev.exit24: ; preds = %_ZNSt6vectorISt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel17morpion_solitaire12MorpionState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.27") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(880) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel17morpion_solitaire12MorpionState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.27") align 8 %0, ptr noundef nonnull align 8 dereferenceable(880) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -3654,7 +3654,7 @@ define noundef zeroext i1 @_ZNK10open_spiel17morpion_solitaire12MorpionState10Is
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel17morpion_solitaire12MorpionState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.36") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel17morpion_solitaire12MorpionState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.36") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0
@@ -3672,7 +3672,7 @@ define void @_ZNK10open_spiel17morpion_solitaire12MorpionState7RewardsEv(ptr dea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel17morpion_solitaire12MorpionState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.36") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel17morpion_solitaire12MorpionState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.36") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(880) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 792
   %4 = load double, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

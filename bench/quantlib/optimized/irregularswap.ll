@@ -1944,7 +1944,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13IrregularSwapC1ENS_4Swap4TypeERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS7_EESB_(ptr noundef nonnull align 8 dereferenceable(280) initializes((280, 288), (296, 300), (304, 312)) %this, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(24) %fixLeg, ptr noundef nonnull align 8 dereferenceable(24) %floatLeg) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13IrregularSwapC1ENS_4Swap4TypeERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS7_EESB_(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(24) %fixLeg, ptr noundef nonnull align 8 dereferenceable(24) %floatLeg) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

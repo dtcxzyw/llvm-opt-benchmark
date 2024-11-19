@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [48 x i8] c"*** ERROR : illegal condition for ISOP (U < L).\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_zddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define ptr @Cudd_zddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 488
   %6 = load i32, ptr %5, align 8
   store i32 0, ptr %5, align 8
@@ -457,7 +457,7 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddIsop(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Cudd_bddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -790,7 +790,7 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_MakeBddFromZddCover(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Cudd_MakeBddFromZddCover(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 

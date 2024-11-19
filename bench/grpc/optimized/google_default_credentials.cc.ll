@@ -3349,7 +3349,7 @@ declare void @abort() local_unnamed_addr #15
 declare void @_ZN9grpc_core6GetEnvB5cxx11EPKc(ptr sret(%"class.std::optional.28") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL30create_default_creds_from_pathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core13RefCountedPtrI21grpc_call_credentialsEE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %creds_path, ptr nocapture noundef nonnull %creds) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL30create_default_creds_from_pathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN9grpc_core13RefCountedPtrI21grpc_call_credentialsEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %creds_path, ptr nocapture noundef nonnull %creds) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i182 = alloca %class.anon.74, align 1
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon.74, align 1

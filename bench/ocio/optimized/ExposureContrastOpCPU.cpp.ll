@@ -440,7 +440,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseC2ERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseC2ERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp17 = alloca %"class.std::shared_ptr.8", align 8
   %ref.tmp27 = alloca %"class.std::shared_ptr.8", align 8
@@ -1256,14 +1256,14 @@ if.end44:                                         ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -1642,7 +1642,7 @@ eh.resume:                                        ; preds = %lpad18, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #12 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116ECLinearRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %ec, align 8
   %m_pivot.i = getelementptr inbounds i8, ptr %0, i64 224
@@ -1741,7 +1741,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplELN9__gnu_c
 declare void @_ZNK19OpenColorIO_v2_4dev25DynamicPropertyDoubleImpl18createEditableCopyEv(ptr sret(%"class.std::shared_ptr.8") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2051,14 +2051,14 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -2241,7 +2241,7 @@ if.end:                                           ; preds = %for.body36, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #12 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119ECLinearRevRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #12 align 2 {
 entry:
   %0 = load ptr, ptr %ec, align 8
   %m_pivot.i = getelementptr inbounds i8, ptr %0, i64 224
@@ -2317,14 +2317,14 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -2505,7 +2505,7 @@ if.end:                                           ; preds = %for.body34, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #19 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115ECVideoRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #19 align 2 {
 entry:
   %0 = load ptr, ptr %ec, align 8
   %m_pivot.i = getelementptr inbounds i8, ptr %0, i64 224
@@ -2582,14 +2582,14 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -2773,7 +2773,7 @@ if.end:                                           ; preds = %for.body37, %for.bo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #19 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_118ECVideoRevRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #19 align 2 {
 entry:
   %0 = load ptr, ptr %ec, align 8
   %m_pivot.i = getelementptr inbounds i8, ptr %0, i64 224
@@ -2850,14 +2850,14 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -2935,7 +2935,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #19 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_121ECLogarithmicRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #19 align 2 {
 entry:
   %0 = load ptr, ptr %ec, align 8
   %m_pivot.i = getelementptr inbounds i8, ptr %0, i64 224
@@ -3038,14 +3038,14 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_114ECRendererBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -3122,7 +3122,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #19 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124ECLogarithmicRevRenderer10updateDataERSt10shared_ptrIKNS_22ExposureContrastOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ec) unnamed_addr #19 align 2 {
 entry:
   %0 = load ptr, ptr %ec, align 8
   %m_pivot.i = getelementptr inbounds i8, ptr %0, i64 224

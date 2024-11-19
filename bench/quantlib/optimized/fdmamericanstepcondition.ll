@@ -199,7 +199,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib24FdmAmericanStepConditionC2EN5boost10shared_ptrINS_9FdmMesherEEENS2_INS_23FdmInnerValueCalculatorEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef %mesher, ptr nocapture noundef %calculator) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib24FdmAmericanStepConditionC2EN5boost10shared_ptrINS_9FdmMesherEEENS2_INS_23FdmInnerValueCalculatorEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef %mesher, ptr nocapture noundef %calculator) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib24FdmAmericanStepConditionE, i64 16), ptr %this, align 8, !tbaa !14
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 8

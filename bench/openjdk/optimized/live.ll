@@ -37,7 +37,7 @@ define hidden void @_ZN9PhaseLiveC2ERK8PhaseCFGRK13GrowableArrayIjEP5Arenab(ptr 
 declare void @_ZN5PhaseC2ENS_11PhaseNumberE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9PhaseLive7computeEj(ptr nocapture noundef nonnull align 8 dereferenceable(89) initializes((16, 24), (72, 76)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9PhaseLive7computeEj(ptr nocapture noundef nonnull align 8 dereferenceable(89) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.IndexSetIterator, align 8
   %4 = alloca %class.Block_List, align 8
   %5 = alloca %class.VectorSet, align 8

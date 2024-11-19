@@ -33,7 +33,7 @@ define internal i32 @iommu_dev_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @iommu_device_sysfs_add(ptr noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ...) #1 align 16 {
+define dso_local i32 @iommu_device_sysfs_add(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ...) #1 align 16 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16

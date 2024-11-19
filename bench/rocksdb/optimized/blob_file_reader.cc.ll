@@ -1560,7 +1560,7 @@ declare void @_ZNK7rocksdb22RandomAccessFileReader4ReadERKNS_9IOOptionsEmmPNS_5S
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb14BlobFileReaderC2EOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS2_EEmNS_15CompressionTypeEPNS_11SystemClockEPNS_10StatisticsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 17), (24, 40)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %file_reader, i64 noundef %file_size, i8 noundef zeroext %compression_type, ptr noundef %clock, ptr noundef %statistics) unnamed_addr #9 align 2 {
+define void @_ZN7rocksdb14BlobFileReaderC2EOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS2_EEmNS_15CompressionTypeEPNS_11SystemClockEPNS_10StatisticsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %file_reader, i64 noundef %file_size, i8 noundef zeroext %compression_type, ptr noundef %clock, ptr noundef %statistics) unnamed_addr #9 align 2 {
 entry:
   %0 = load i64, ptr %file_reader, align 8
   store i64 %0, ptr %this, align 8

@@ -1548,7 +1548,7 @@ Saig_BmcObjFrame.exit:                            ; preds = %3, %Aig_ManObj.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Saig_BmcInterval(ptr noundef initializes((112, 116)) %0) local_unnamed_addr #1 {
+define void @Saig_BmcInterval(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 32
@@ -2297,7 +2297,7 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Saig_BmcDeriveFailed(ptr nocapture noundef initializes((124, 132)) %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @Saig_BmcDeriveFailed(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 128

@@ -261,7 +261,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = linkonce_odr local_unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", comdat, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene18COBJMeshFileLoaderC2EPNS0_13ISceneManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 41)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %smgr) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene18COBJMeshFileLoaderC2EPNS0_13ISceneManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %vtt, ptr noundef %smgr) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -290,7 +290,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene18COBJMeshFileLoaderC1EPNS0_13ISceneManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 41), (48, 68)) %this, ptr noundef %smgr) unnamed_addr #1 align 2 {
+define void @_ZN3irr5scene18COBJMeshFileLoaderC1EPNS0_13ISceneManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %smgr) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 48
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -309,7 +309,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene18COBJMeshFileLoaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene18COBJMeshFileLoaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -333,7 +333,7 @@ _ZN3irr4core5arrayIPNS_5scene18COBJMeshFileLoader7SObjMtlEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene18COBJMeshFileLoaderD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (48, 56)) %this) unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene18COBJMeshFileLoaderD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene18COBJMeshFileLoaderE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -375,7 +375,7 @@ _ZN3irr5scene18COBJMeshFileLoaderD1Ev.exit:       ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene18COBJMeshFileLoaderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (48, 56)) %this) unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene18COBJMeshFileLoaderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene18COBJMeshFileLoaderE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 48

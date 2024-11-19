@@ -317,7 +317,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z7new_varP4sortR11ast_manager(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(976) %m) local_unnamed_addr #3 {
+define hidden void @_Z7new_varP4sortR11ast_manager(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 %agg.result, ptr noundef %s, ptr noundef nonnull align 8 dereferenceable(976) %m) local_unnamed_addr #3 {
 entry:
   %ref.tmp.i.i = alloca %class.symbol, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)

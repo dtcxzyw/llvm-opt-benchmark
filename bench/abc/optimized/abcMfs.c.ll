@@ -2122,7 +2122,7 @@ declare i32 @Sfm_NtkPerform(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @Sfm_NtkFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkUnrollAndDrop(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #0 {
+define ptr @Abc_NtkUnrollAndDrop(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   store i32 -1, ptr %4, align 4
   %6 = load i32, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 4

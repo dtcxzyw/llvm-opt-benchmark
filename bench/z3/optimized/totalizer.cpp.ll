@@ -1296,7 +1296,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3opt9totalizerC2ERK10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %literals) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3opt9totalizerC2ERK10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %literals) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i196 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i197 = alloca %"class.std::allocator", align 1

@@ -1129,7 +1129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq12udp_engine_t4initEPNS_9address_tEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17880) initializes((100, 104), (120, 128), (17876, 17878)) %this, ptr noundef %address_, i1 noundef zeroext %send_, i1 noundef zeroext %recv_) local_unnamed_addr #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12udp_engine_t4initEPNS_9address_tEbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17880) %this, ptr noundef %address_, i1 noundef zeroext %send_, i1 noundef zeroext %recv_) local_unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %send_ to i8
   %frombool1 = zext i1 %recv_ to i8
@@ -1906,7 +1906,7 @@ declare void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferencea
 declare noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq12udp_engine_t19resolve_raw_addressEPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17880) initializes((1464, 1480)) %this, ptr noundef %name_, i64 noundef %length_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12udp_engine_t19resolve_raw_addressEPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17880) %this, ptr noundef %name_, i64 noundef %length_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %addr_str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1

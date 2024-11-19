@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EVP_AEAD_CTX_zero(ptr nocapture noundef writeonly initializes((0, 16)) %ctx) local_unnamed_addr #1 {
+define hidden void @EVP_AEAD_CTX_zero(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ctx, i8 0, i64 16, i1 false)
   ret void
@@ -51,7 +51,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_AEAD_CTX_init(ptr noundef initializes((0, 8)) %ctx, ptr noundef %aead, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, ptr nocapture noundef readnone %impl) local_unnamed_addr #3 {
+define hidden i32 @EVP_AEAD_CTX_init(ptr noundef %ctx, ptr noundef %aead, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, ptr nocapture noundef readnone %impl) local_unnamed_addr #3 {
 entry:
   %init = getelementptr inbounds i8, ptr %aead, i64 8
   %0 = load ptr, ptr %init, align 8
@@ -105,7 +105,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_AEAD_CTX_init_with_direction(ptr noundef initializes((0, 8)) %ctx, ptr noundef %aead, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) local_unnamed_addr #3 {
+define hidden i32 @EVP_AEAD_CTX_init_with_direction(ptr noundef %ctx, ptr noundef %aead, ptr noundef %key, i64 noundef %key_len, i64 noundef %tag_len, i32 noundef %dir) local_unnamed_addr #3 {
 entry:
   %0 = load i8, ptr %aead, align 8
   %conv = zext i8 %0 to i64

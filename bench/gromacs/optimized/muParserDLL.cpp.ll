@@ -13093,14 +13093,14 @@ define range(i32 0, 2) i32 @mupError(ptr nocapture noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @mupErrorReset(ptr nocapture noundef writeonly initializes((128, 129)) %0) local_unnamed_addr #14 {
+define void @mupErrorReset(ptr nocapture noundef writeonly %0) local_unnamed_addr #14 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @mupSetErrorHandler(ptr nocapture noundef writeonly initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #14 {
+define void @mupSetErrorHandler(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   ret void

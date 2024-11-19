@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @PPMD7_kExpEscape = external local_unnamed_addr constant [16 x i8], align 16
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ppmd7z_RangeDec_Init(ptr nocapture noundef initializes((24, 32)) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ppmd7z_RangeDec_Init(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -47,7 +47,7 @@ define range(i32 0, 2) i32 @Ppmd7z_RangeDec_Init(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Ppmd7z_RangeDec_CreateVTable(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #1 {
+define void @Ppmd7z_RangeDec_CreateVTable(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   store ptr @Range_GetThreshold, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @Range_Decode, ptr %2, align 8

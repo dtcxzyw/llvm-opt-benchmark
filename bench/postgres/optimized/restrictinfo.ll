@@ -507,7 +507,7 @@ rinfo_is_constant_true.exit.thread:               ; preds = %15, %19, %rinfo_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @extract_actual_join_clauses(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local void @extract_actual_join_clauses(ptr noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4

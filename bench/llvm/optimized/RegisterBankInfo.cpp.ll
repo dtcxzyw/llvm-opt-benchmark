@@ -171,7 +171,7 @@ $_ZN4llvm15SmallVectorImplIPKNS_16RegisterBankInfo18InstructionMappingEE6appendI
 @_ZN4llvm16RegisterBankInfo14OperandsMapperC1ERNS_12MachineInstrERKNS0_18InstructionMappingERNS_19MachineRegisterInfoE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN4llvm16RegisterBankInfo14OperandsMapperC2ERNS_12MachineInstrERKNS0_18InstructionMappingERNS_19MachineRegisterInfoE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm16RegisterBankInfoC2EPPKNS_12RegisterBankEjPKjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 20), (24, 36), (40, 60), (64, 84), (88, 108), (112, 132), (136, 156)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16RegisterBankInfoC2EPPKNS_12RegisterBankEjPKjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm16RegisterBankInfoE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8

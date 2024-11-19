@@ -179,7 +179,7 @@ if.end17:                                         ; preds = %if.then11, %do.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq13zmtp_engine_t22process_routing_id_msgEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(1976) initializes((1432, 1448)) %this, ptr noundef %msg_) #0 align 2 {
+define noundef i32 @_ZN3zmq13zmtp_engine_t22process_routing_id_msgEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(1976) %this, ptr noundef %msg_) #0 align 2 {
 entry:
   %subscription = alloca %"class.zmq::msg_t", align 8
   %recv_routing_id = getelementptr inbounds i8, ptr %this, i64 394
@@ -1541,7 +1541,7 @@ declare void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferencea
 declare noundef i32 @_ZN3zmq20stream_engine_base_t19push_msg_to_sessionEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689), ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq13zmtp_engine_t20produce_ping_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1976) initializes((1416, 1432)) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq13zmtp_engine_t20produce_ping_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1976) %this, ptr noundef %msg_) unnamed_addr #0 align 2 {
 entry:
   %_mechanism = getelementptr inbounds i8, ptr %this, i64 1408
   %0 = load ptr, ptr %_mechanism, align 8

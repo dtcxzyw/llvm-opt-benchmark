@@ -616,7 +616,7 @@ declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare void @curl_free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr nocapture noundef initializes((48, 53)) %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = alloca [256 x i8], align 16
   %5 = alloca [1024 x i8], align 16
@@ -977,7 +977,7 @@ define dso_local range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_auth_digest_cleanup(ptr nocapture noundef initializes((48, 53)) %0) local_unnamed_addr #2 {
+define dso_local void @Curl_auth_digest_cleanup(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr @Curl_cfree, align 8
   %3 = load ptr, ptr %0, align 8
   tail call void %2(ptr noundef %3) #10

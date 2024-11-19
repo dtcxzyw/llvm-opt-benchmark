@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN6asmjit9_abi_1_106TargetD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6asmjit9_abi_1_106TargetD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6asmjit9_abi_1_106TargetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN6asmjit9_abi_1_106TargetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_106TargetE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)

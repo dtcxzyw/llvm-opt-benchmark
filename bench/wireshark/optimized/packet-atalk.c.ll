@@ -746,7 +746,7 @@ declare ptr @expert_register_protocol(i32 noundef) local_unnamed_addr #0
 declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_ddp(ptr noundef %0, ptr noundef initializes((280, 284)) %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
+define internal i32 @dissect_ddp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 408

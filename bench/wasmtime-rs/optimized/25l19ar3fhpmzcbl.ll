@@ -1351,7 +1351,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder16terminates_block17h1dd82e1dc082675aE(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((104, 105)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder16terminates_block17h1dd82e1dc082675aE(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   store i8 1, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1359,7 +1359,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8branches17ha7227809a9fd53d0E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((104, 106)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8branches17ha7227809a9fd53d0E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 105
   store i8 1, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 104
@@ -1369,7 +1369,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder4call17haf5d0799157f6d3cE(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((106, 107)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder4call17haf5d0799157f6d3cE(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 106
   store i8 1, ptr %3, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1377,7 +1377,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder7returns17h3c32ad3bf6375420E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((104, 105), (107, 108)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder7returns17h3c32ad3bf6375420E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 107
   store i8 1, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 104
@@ -1387,7 +1387,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8can_load17h12bddac82e206e73E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((108, 109)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8can_load17h12bddac82e206e73E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 108
   store i8 1, ptr %3, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1395,7 +1395,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder9can_store17h70c162cc43e9f92cE(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((109, 110)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder9can_store17h70c162cc43e9f92cE(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 109
   store i8 1, ptr %3, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1403,7 +1403,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8can_trap17h8d77f2b02efd0538E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((110, 111)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder8can_trap17h8d77f2b02efd0538E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 110
   store i8 1, ptr %3, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1411,7 +1411,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder18other_side_effects17h752264637e5b2441E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((111, 112)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder18other_side_effects17h752264637e5b2441E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 111
   store i8 1, ptr %3, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
@@ -1419,7 +1419,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder23side_effects_idempotent17hc1fdada7dc18a111E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 initializes((0, 120)) %0, ptr nocapture align 8 initializes((112, 113)) %1) unnamed_addr #2 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder23side_effects_idempotent17hc1fdada7dc18a111E(ptr nocapture writeonly sret({ { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, ptr, i8, i8, i8, i8, i8, i8, i8, i8, i8, [7 x i8] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 112
   store i8 1, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)

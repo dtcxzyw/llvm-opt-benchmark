@@ -185,7 +185,7 @@ _ZL16init_param_tokenP7YYSTYPEP18gmx_ana_selparam_tb.exit: ; preds = %37, %24, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_sel_lexer_t(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 48
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #15
   %7 = trunc i64 %6 to i32
@@ -243,7 +243,7 @@ define void @_Z24_gmx_sel_lexer_add_tokenPN3gmx17SelectionLocationEPKciP15gmx_se
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 269, 278) i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 269, 278) i32 @_ZL17init_method_tokenP7YYSTYPEPN3gmx17SelectionLocationEPKNS1_21SelectionParserSymbolEbP15gmx_sel_lexer_t(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.gmx::InternalError", align 8
   %7 = alloca %"class.gmx::ExceptionInitializer", align 8
   %8 = alloca %"class.gmx::ExceptionInfo", align 8

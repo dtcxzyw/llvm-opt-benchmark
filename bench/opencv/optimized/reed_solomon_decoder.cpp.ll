@@ -88,7 +88,7 @@ define linkonce_odr hidden void @_ZN5zxing12ErrorHandlerD2Ev(ptr noundef nonnull
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing18ReedSolomonDecoderC2ENS_3RefINS_9GenericGFEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN5zxing18ReedSolomonDecoderC2ENS_3RefINS_9GenericGFEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %.not.i.i = icmp eq ptr %3, null

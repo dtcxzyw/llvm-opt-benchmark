@@ -149,7 +149,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14LuaPerlinNoiseC2EPK11NoiseParams(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef readonly %params) unnamed_addr #3 align 2 {
+define dso_local void @_ZN14LuaPerlinNoiseC2EPK11NoiseParams(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(40) %this, ptr nocapture noundef readonly %params) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %this, ptr noundef nonnull align 4 dereferenceable(40) %params, i64 40, i1 false), !tbaa.struct !4
   ret void

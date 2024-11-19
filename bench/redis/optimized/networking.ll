@@ -7139,7 +7139,7 @@ entry:
 declare i32 @raxFind(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_writeToClient(ptr nocapture noundef %c, ptr nocapture noundef writeonly initializes((0, 8)) %nwritten) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_writeToClient(ptr nocapture noundef %c, ptr nocapture noundef writeonly %nwritten) local_unnamed_addr #0 {
 entry:
   store i64 0, ptr %nwritten, align 8
   %flags.i = getelementptr inbounds i8, ptr %c, i64 8

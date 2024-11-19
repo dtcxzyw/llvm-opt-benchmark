@@ -8162,7 +8162,7 @@ define void @_ZNK6casadi8Function5sx_inEv(ptr dead_on_unwind noalias writable sr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi8FunctionclERKSt6vectorINS_6MatrixINS_6SXElemEEESaIS4_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.4") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi8FunctionclERKSt6vectorINS_6MatrixINS_6SXElemEEESaIS4_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.4") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNK6casadi8Function4callERKSt6vectorINS_6MatrixINS_6SXElemEEESaIS4_EERS6_bb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %6 unwind label %4
@@ -17180,7 +17180,7 @@ define void @_ZNK6casadi8Function5mx_inEv(ptr dead_on_unwind noalias writable sr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi8FunctionclERKSt6vectorINS_2MXESaIS2_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.12") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi8FunctionclERKSt6vectorINS_2MXESaIS2_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.12") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNK6casadi8Function4callERKSt6vectorINS_2MXESaIS2_EERS4_bb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %6 unwind label %4
@@ -37416,7 +37416,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi8FunctionclERKSt6vectorINS_6MatrixIdEESaIS3_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.89") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi8FunctionclERKSt6vectorINS_6MatrixIdEESaIS3_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.89") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNK6casadi8Function4callERKSt6vectorINS_6MatrixIdEESaIS3_EERS5_bb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %0, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %6 unwind label %4
@@ -37475,7 +37475,7 @@ _ZNSt12_Vector_baseIN6casadi6MatrixIdEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Destr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi8FunctionclERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MatrixIdEESt4lessIS7_ESaISt4pairIKS7_S9_EEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::map.289") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi8FunctionclERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MatrixIdEESt4lessIS7_ESaISt4pairIKS7_S9_EEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::map.289") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -37760,7 +37760,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi8FunctionclERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MatrixINS_6SXElemEEESt4lessIS7_ESaISt4pairIKS7_SA_EEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::map.19") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi8FunctionclERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MatrixINS_6SXElemEEESt4lessIS7_ESaISt4pairIKS7_SA_EEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::map.19") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -38045,7 +38045,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi8FunctionclERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_2MXESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::map.24") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi8FunctionclERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_2MXESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::map.24") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -51548,7 +51548,7 @@ _ZNSt6vectorIPdSaIS0_EE2atEm.exit:                ; preds = %94
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi14FunctionBuffer5_evalEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) initializes((128, 132)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN6casadi14FunctionBuffer5_evalEv(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480
@@ -51611,7 +51611,7 @@ define noundef i32 @_ZN6casadi14FunctionBuffer3retEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi21_function_buffer_evalEPv(ptr nocapture noundef initializes((128, 132)) %0) local_unnamed_addr #3 {
+define void @_ZN6casadi21_function_buffer_evalEPv(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 480

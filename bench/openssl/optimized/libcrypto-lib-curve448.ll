@@ -860,7 +860,7 @@ if.end:                                           ; preds = %if.then, %gf_weak_r
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef initializes((56, 57)) %enc, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
+define void @ossl_curve448_point_mul_by_ratio_and_encode_like_eddsa(ptr noundef %enc, ptr nocapture noundef readonly %p) local_unnamed_addr #0 {
 entry:
   %t1.i = alloca [1 x %struct.gf_s], align 16
   %t2.i = alloca [1 x %struct.gf_s], align 16

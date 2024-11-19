@@ -69,14 +69,14 @@ define hidden { ptr, ptr } @"_ZN102_$LT$$RF$mut$u20$alloc..vec..Vec$LT$T$C$A$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h12b7840916ef27c4E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 1 dereferenceable(64) initializes((0, 64)) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17h12b7840916ef27c4E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 1 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbe2063b51796500dE.llvm.6618738485395013937.exit":
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hcd0dde98ae07d0cfE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 1 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN110_$LT$generic_array..GenericArray$LT$T$C$N$GT$$u20$as$u20$generic_array..sequence..GenericSequence$LT$T$GT$$GT$8generate17hcd0dde98ae07d0cfE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 1 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h85a80516a6566d6fE.llvm.6618738485395013937.exit":
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
@@ -2803,7 +2803,7 @@ define hidden void @"_ZN82_$LT$core..hash..BuildHasherDefault$LT$H$GT$$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN8schemars17json_schema_impls10primitives72_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$alloc..string..String$GT$9schema_id17had551193a2e6a438E.llvm.6618738485395013937"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #1 {
+define hidden void @"_ZN8schemars17json_schema_impls10primitives72_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$alloc..string..String$GT$9schema_id17had551193a2e6a438E.llvm.6618738485395013937"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.6b7f51e80bd7a8ff34219010b2b41f13.46.llvm.6618738485395013937, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

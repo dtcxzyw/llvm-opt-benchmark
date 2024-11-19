@@ -9,13 +9,13 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9JfrBufferC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN9JfrBufferC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9JfrBufferC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN9JfrBufferC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9JfrBuffer10initializeEmm(ptr noundef nonnull align 8 dereferenceable(48) initializes((32, 42)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9JfrBuffer10initializeEmm(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = trunc i64 %1 to i16
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store i16 %4, ptr %5, align 8
@@ -229,7 +229,7 @@ define hidden noundef zeroext i1 @_ZN9JfrBuffer11try_acquireEPKv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9JfrBuffer12set_identityEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9JfrBuffer12set_identityEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !6
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

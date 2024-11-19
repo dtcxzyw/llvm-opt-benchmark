@@ -1270,7 +1270,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN17substitution_tree14reset_compilerEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((48, 52), (56, 60)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN17substitution_tree14reset_compilerEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_todo = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_todo, align 8
@@ -1635,7 +1635,7 @@ if.end25:                                         ; preds = %for.body.i, %_ZN15r
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17substitution_tree6insertEP3app(ptr noundef nonnull align 8 dereferenceable(136) initializes((48, 52), (56, 60)) %this, ptr noundef %new_expr) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN17substitution_tree6insertEP3app(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef %new_expr) local_unnamed_addr #4 align 2 {
 entry:
   %ridx.addr.i124 = alloca i32, align 4
   %ridx.addr.i = alloca i32, align 4
@@ -2678,7 +2678,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN17substitution_tree27find_fully_compatible_childEPNS_4nodeERS1_S2_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef readonly %r, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %prev, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %child) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN17substitution_tree27find_fully_compatible_childEPNS_4nodeERS1_S2_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef readonly %r, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %prev, ptr nocapture noundef nonnull align 8 dereferenceable(8) %child) local_unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %prev, align 8
   %0 = getelementptr inbounds i8, ptr %r, i64 24
@@ -4915,7 +4915,7 @@ if.end35:                                         ; preds = %for.end, %_ZNK6vect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17substitution_treeC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 20), (24, 36), (40, 48), (56, 96), (104, 112), (128, 136)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17substitution_treeC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_roots = getelementptr inbounds i8, ptr %this, i64 8

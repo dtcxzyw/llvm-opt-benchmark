@@ -1146,7 +1146,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyPreCmdline_SetConfig(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 32)) %agg.result, ptr noundef %cmdline, ptr noundef %config) local_unnamed_addr #0 {
+define hidden void @_PyPreCmdline_SetConfig(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %cmdline, ptr noundef %config) local_unnamed_addr #0 {
 entry:
   %status = alloca %struct.PyStatus, align 8
   %xoptions = getelementptr inbounds i8, ptr %config, i64 144
@@ -1543,7 +1543,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_PyPreConfig_InitCompatConfig(ptr nocapture noundef writeonly initializes((0, 40)) %config) local_unnamed_addr #5 {
+define dso_local void @_PyPreConfig_InitCompatConfig(ptr nocapture noundef writeonly %config) local_unnamed_addr #5 {
 entry:
   store i32 1, ptr %config, align 4
   %parse_argv = getelementptr inbounds i8, ptr %config, i64 4
@@ -1568,7 +1568,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @PyPreConfig_InitPythonConfig(ptr nocapture noundef writeonly initializes((0, 40)) %config) local_unnamed_addr #5 {
+define dso_local void @PyPreConfig_InitPythonConfig(ptr nocapture noundef writeonly %config) local_unnamed_addr #5 {
 entry:
   %parse_argv.i = getelementptr inbounds i8, ptr %config, i64 4
   %isolated.i = getelementptr inbounds i8, ptr %config, i64 8
@@ -1593,7 +1593,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @PyPreConfig_InitIsolatedConfig(ptr nocapture noundef writeonly initializes((0, 40)) %config) local_unnamed_addr #5 {
+define dso_local void @PyPreConfig_InitIsolatedConfig(ptr nocapture noundef writeonly %config) local_unnamed_addr #5 {
 entry:
   %parse_argv.i = getelementptr inbounds i8, ptr %config, i64 4
   store i32 0, ptr %parse_argv.i, align 4
@@ -1618,7 +1618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_PyPreConfig_InitFromPreConfig(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef writeonly initializes((0, 40)) %config, ptr nocapture noundef readonly %config2) local_unnamed_addr #6 {
+define hidden void @_PyPreConfig_InitFromPreConfig(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr nocapture noundef writeonly %config, ptr nocapture noundef readonly %config2) local_unnamed_addr #6 {
 entry:
   %parse_argv.i.i = getelementptr inbounds i8, ptr %config, i64 4
   %isolated.i.i = getelementptr inbounds i8, ptr %config, i64 8
@@ -1673,7 +1673,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_PyPreConfig_InitFromConfig(ptr nocapture noundef writeonly initializes((0, 40)) %preconfig, ptr nocapture noundef readonly %config) local_unnamed_addr #6 {
+define hidden void @_PyPreConfig_InitFromConfig(ptr nocapture noundef writeonly %preconfig, ptr nocapture noundef readonly %config) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %config, align 8
   switch i32 %0, label %sw.default [
@@ -2870,7 +2870,7 @@ declare ptr @_Py_SetLocaleFromEnv(i32 noundef) local_unnamed_addr #1
 declare i32 @_Py_CoerceLegacyLocale(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyPreConfig_Write(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr nocapture noundef readonly %src_config) local_unnamed_addr #0 {
+define hidden void @_PyPreConfig_Write(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr nocapture noundef readonly %src_config) local_unnamed_addr #0 {
 if.end:
   %0 = load i32, ptr %src_config, align 4, !noalias !23
   %parse_argv.i.i = getelementptr inbounds i8, ptr %src_config, i64 4

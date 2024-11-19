@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %data, ptr noundef %type2ref, ptr nocapture noundef initializes((0, 4)) %ntlm) local_unnamed_addr #1 {
+define hidden range(i32 0, 62) i32 @Curl_auth_decode_ntlm_type2_message(ptr noundef %data, ptr noundef %type2ref, ptr nocapture noundef %ntlm) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @Curl_bufref_ptr(ptr noundef %type2ref) #7
   %call1 = tail call i64 @Curl_bufref_len(ptr noundef %type2ref) #7
@@ -164,7 +164,7 @@ declare i32 @Curl_read32_le(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %userp, ptr nocapture noundef readnone %passwdp, ptr nocapture noundef readnone %service, ptr nocapture noundef readnone %hostname, ptr nocapture noundef initializes((12, 16)) %ntlm, ptr noundef %out) local_unnamed_addr #1 {
+define hidden range(i32 0, 28) i32 @Curl_auth_create_ntlm_type1_message(ptr nocapture noundef readnone %data, ptr nocapture noundef readnone %userp, ptr nocapture noundef readnone %passwdp, ptr nocapture noundef readnone %service, ptr nocapture noundef readnone %hostname, ptr nocapture noundef %ntlm, ptr noundef %out) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %target_info.i = getelementptr inbounds i8, ptr %ntlm, i64 16
@@ -187,7 +187,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_auth_cleanup_ntlm(ptr nocapture noundef initializes((12, 16)) %ntlm) local_unnamed_addr #1 {
+define hidden void @Curl_auth_cleanup_ntlm(ptr nocapture noundef %ntlm) local_unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %target_info = getelementptr inbounds i8, ptr %ntlm, i64 16

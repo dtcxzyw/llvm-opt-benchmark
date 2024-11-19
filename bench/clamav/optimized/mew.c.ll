@@ -2162,7 +2162,7 @@ define range(i32 -1, 2) i32 @lzma_upack_esi_00(ptr nocapture noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @lzma_upack_esi_50(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @lzma_upack_esi_50(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   br label %9
 
 9:                                                ; preds = %15, %8

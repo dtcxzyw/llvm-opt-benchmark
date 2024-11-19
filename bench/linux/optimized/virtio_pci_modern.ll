@@ -222,7 +222,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @virtio_pci_modern_probe(ptr noundef initializes((808, 816)) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @virtio_pci_modern_probe(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 808
   %3 = getelementptr inbounds i8, ptr %0, i64 800
   %4 = load ptr, ptr %3, align 8

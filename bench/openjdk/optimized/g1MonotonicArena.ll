@@ -26,7 +26,7 @@ $_ZN16G1MonotonicArena10deallocateEPv = comdat any
 @_ZN16G1MonotonicArenaD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16G1MonotonicArenaD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN16G1MonotonicArena7SegmentC2EjjPS0_8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1MonotonicArena7SegmentC2EjjPS0_8MEMFLAGS(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i8 noundef zeroext %4) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %6, align 4
@@ -119,7 +119,7 @@ define hidden void @_ZN16G1MonotonicArena15SegmentFreeList8print_onEP12outputStr
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16G1MonotonicArena15SegmentFreeList7get_allERmS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN16G1MonotonicArena15SegmentFreeList7get_allERmS1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 align 2 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 424
@@ -227,7 +227,7 @@ _ZN13LockFreeStackIN16G1MonotonicArena7SegmentEXadL_ZNS0_15SegmentFreeList8next_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN16G1MonotonicArenaC2EPKNS_12AllocOptionsEPNS_15SegmentFreeListE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1MonotonicArenaC2EPKNS_12AllocOptionsEPNS_15SegmentFreeListE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 10, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16G1MonotonicArena, i64 16), ptr %0, align 8
@@ -251,7 +251,7 @@ define hidden void @_ZN16G1MonotonicArenaC2EPKNS_12AllocOptionsEPNS_15SegmentFre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1MonotonicArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN16G1MonotonicArenaD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV16G1MonotonicArena, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load volatile ptr, ptr %2, align 8

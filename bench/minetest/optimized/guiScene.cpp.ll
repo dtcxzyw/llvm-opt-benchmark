@@ -600,7 +600,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUISceneC1EPN3irr3gui15IGUIEnvironmentEPNS0_5scene13ISceneManagerEPNS1_11IGUIElementENS0_4core4rectIiEEi(ptr noundef nonnull align 8 dereferenceable(436) initializes((440, 460)) %this, ptr noundef %env, ptr noundef %smgr, ptr noundef %parent, i64 %rect.coerce0, i64 %rect.coerce1, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8GUISceneC1EPN3irr3gui15IGUIEnvironmentEPNS0_5scene13ISceneManagerEPNS1_11IGUIElementENS0_4core4rectIiEEi(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef %env, ptr noundef %smgr, ptr noundef %parent, i64 %rect.coerce0, i64 %rect.coerce1, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rect = alloca %"class.irr::core::rect", align 8
   %ref.tmp = alloca %"class.irr::core::vector3d", align 8
@@ -707,7 +707,7 @@ ehcleanup37:                                      ; preds = %lpad19, %lpad2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8GUISceneD2Ev(ptr noundef nonnull align 8 dereferenceable(436) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8GUISceneD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %this, ptr noundef %vtt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
@@ -864,7 +864,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8GUISceneD1Ev(ptr noundef nonnull align 8 dereferenceable(436) initializes((0, 8), (440, 448)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8GUISceneD1Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV8GUIScene, i64 24), ptr %this, align 8, !tbaa !4
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 440
@@ -978,7 +978,7 @@ _ZN8GUISceneD1Ev.exit:                            ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8GUISceneD0Ev(ptr noundef nonnull align 8 dereferenceable(436) initializes((0, 8), (440, 448)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8GUISceneD0Ev(ptr noundef nonnull align 8 dereferenceable(436) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV8GUIScene, i64 24), ptr %this, align 8, !tbaa !4
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 440
@@ -1673,7 +1673,7 @@ if.end62:                                         ; preds = %_ZN8GUIScene17setCa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUIScene12updateCameraEPN3irr5scene10ISceneNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(436) initializes((336, 344)) %this, ptr noundef %target) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN8GUIScene12updateCameraEPN3irr5scene10ISceneNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(436) %this, ptr noundef %target) local_unnamed_addr #7 align 2 {
 entry:
   %m_target = getelementptr inbounds i8, ptr %this, i64 336
   store ptr %target, ptr %m_target, align 8, !tbaa !92
@@ -1709,7 +1709,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUIScene10cameraLoopEv(ptr noundef nonnull align 8 dereferenceable(436) initializes((368, 380)) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN8GUIScene10cameraLoopEv(ptr noundef nonnull align 8 dereferenceable(436) %this) local_unnamed_addr #7 align 2 {
 entry:
   %m_cam.i = getelementptr inbounds i8, ptr %this, i64 328
   %0 = load ptr, ptr %m_cam.i, align 8, !tbaa !44
@@ -2784,7 +2784,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(436) initializes((368, 380)) %this, <2 x float> %rot.coerce0, float %rot.coerce1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN8GUIScene17setCameraRotationEN3irr4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(436) %this, <2 x float> %rot.coerce0, float %rot.coerce1) local_unnamed_addr #7 align 2 {
 entry:
   %rot.sroa.0.0.vec.extract = extractelement <2 x float> %rot.coerce0, i64 0
   %cmp.i = fcmp nsz olt float %rot.sroa.0.0.vec.extract, 9.000000e+01

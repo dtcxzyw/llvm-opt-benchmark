@@ -499,7 +499,7 @@ declare i32 @sat_solver_nvars(ptr noundef) local_unnamed_addr #2
 declare void @Gia_ManFillValue(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Sbl_ManClean(ptr nocapture noundef initializes((384, 392)) %0) local_unnamed_addr #0 {
+define void @Sbl_ManClean(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #18
@@ -6957,7 +6957,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @Sbl_ManTestSat(ptr noundef initializes((384, 392)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @Sbl_ManTestSat(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -8834,7 +8834,7 @@ declare i32 @Gia_ManEvalEdgeDelay(ptr noundef) local_unnamed_addr #2
 declare i32 @Gia_ManEvalEdgeCount(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Sbl_ManPrintRuntime(ptr nocapture noundef initializes((400, 408)) %0) local_unnamed_addr #0 {
+define void @Sbl_ManPrintRuntime(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
   %2 = getelementptr inbounds i8, ptr %0, i64 392
   %3 = load i64, ptr %2, align 8

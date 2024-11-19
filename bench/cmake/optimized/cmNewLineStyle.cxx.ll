@@ -30,7 +30,7 @@ $__clang_call_terminate = comdat any
 @_ZN14cmNewLineStyleC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN14cmNewLineStyleC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14cmNewLineStyleC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN14cmNewLineStyleC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   ret void
 }
@@ -43,7 +43,7 @@ define dso_local noundef zeroext i1 @_ZNK14cmNewLineStyle7IsValidEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN14cmNewLineStyle17ReadFromArgumentsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERS6_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN14cmNewLineStyle17ReadFromArgumentsERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERS6_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #2 align 2 {
   store i32 0, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -252,7 +252,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14cmNewLineStyle8SetStyleENS_5StyleE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN14cmNewLineStyle8SetStyleENS_5StyleE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }

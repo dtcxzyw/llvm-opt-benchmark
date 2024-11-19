@@ -1148,7 +1148,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL8OpenFilePiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly initializes((0, 4)) %out_fd, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL8OpenFilePiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly %out_fd, ptr noundef nonnull align 8 dereferenceable(32) %filename) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %st = alloca %struct.stat, align 8
   store i32 -1, ptr %out_fd, align 4

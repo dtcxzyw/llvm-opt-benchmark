@@ -2436,7 +2436,7 @@ define i32 @Wln_RetPropDelay_rec(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @Wln_RetPropDelay(ptr nocapture noundef initializes((124, 128)) %0) local_unnamed_addr #3 {
+define range(i32 0, -2147483648) i32 @Wln_RetPropDelay(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 0, ptr %3, align 4
@@ -2764,7 +2764,7 @@ Wln_ObjCheckTravId.exit:                          ; preds = %8, %2, %Vec_IntPush
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wln_RetFindSources(ptr nocapture noundef initializes((108, 112)) %0) local_unnamed_addr #3 {
+define void @Wln_RetFindSources(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 108
   store i32 0, ptr %2, align 4
   %3 = load ptr, ptr %0, align 8

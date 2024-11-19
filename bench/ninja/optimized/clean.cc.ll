@@ -40,7 +40,7 @@ $_ZNSt8_Rb_treeIP4NodeS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb
 @_ZN7CleanerC1EP5StateRK11BuildConfigP13DiskInterface = dso_local unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN7CleanerC2EP5StateRK11BuildConfigP13DiskInterface
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7CleanerC2EP5StateRK11BuildConfigP13DiskInterface(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 32), (40, 44), (48, 56)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7CleanerC2EP5StateRK11BuildConfigP13DiskInterface(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(25) %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -502,7 +502,7 @@ define dso_local void @_ZN7Cleaner11PrintFooterEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7Cleaner8CleanAllEb(ptr noundef nonnull align 8 dereferenceable(148) initializes((128, 132), (144, 148)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN7Cleaner8CleanAllEb(ptr noundef nonnull align 8 dereferenceable(148) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.8", align 1
@@ -790,7 +790,7 @@ _ZN7Cleaner11PrintFooterEv.exit:                  ; preds = %._crit_edge30, %109
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN7Cleaner5ResetEv(ptr noundef nonnull align 8 dereferenceable(148) initializes((128, 132), (144, 148)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7Cleaner5ResetEv(ptr noundef nonnull align 8 dereferenceable(148) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
@@ -905,7 +905,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7Cleaner9CleanDeadERKSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE(ptr noundef nonnull align 8 dereferenceable(148) initializes((128, 132), (144, 148)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN7Cleaner9CleanDeadERKSt13unordered_mapI11StringPiecePN8BuildLog8LogEntryESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S4_EEE(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.8", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 144
@@ -1225,7 +1225,7 @@ _ZNSt3setIP4NodeSt4lessIS1_ESaIS1_EE6insertERKS1_.exit: ; preds = %38, %_ZNSt8_R
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7Cleaner11CleanTargetEP4Node(ptr noundef nonnull align 8 dereferenceable(148) initializes((128, 132), (144, 148)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN7Cleaner11CleanTargetEP4Node(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %4, align 8
@@ -1372,7 +1372,7 @@ _ZN7Cleaner11PrintFooterEv.exit:                  ; preds = %_ZN7Cleaner11LoadDy
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7Cleaner11CleanTargetEPKc(ptr noundef nonnull align 8 dereferenceable(148) initializes((128, 132), (144, 148)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN7Cleaner11CleanTargetEPKc(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 128
@@ -1443,7 +1443,7 @@ _ZN7Cleaner5ResetEv.exit:                         ; preds = %_ZNSt3setINSt7__cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7Cleaner12CleanTargetsEiPPc(ptr noundef nonnull align 8 dereferenceable(148) initializes((128, 132), (144, 148)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN7Cleaner12CleanTargetsEiPPc(ptr noundef nonnull align 8 dereferenceable(148) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.8", align 1
@@ -1837,7 +1837,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7Cleaner9CleanRuleEPK4Rule(ptr noundef nonnull align 8 dereferenceable(148) initializes((128, 132), (144, 148)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN7Cleaner9CleanRuleEPK4Rule(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %4, align 8
@@ -1984,7 +1984,7 @@ _ZN7Cleaner11PrintFooterEv.exit:                  ; preds = %_ZN7Cleaner11LoadDy
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7Cleaner9CleanRuleEPKc(ptr noundef nonnull align 8 dereferenceable(148) initializes((128, 132), (144, 148)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN7Cleaner9CleanRuleEPKc(ptr noundef nonnull align 8 dereferenceable(148) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.8", align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 144
@@ -2112,7 +2112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare noundef ptr @_ZN10BindingEnv10LookupRuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN7Cleaner10CleanRulesEiPPc(ptr noundef nonnull align 8 dereferenceable(148) initializes((128, 132), (144, 148)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN7Cleaner10CleanRulesEiPPc(ptr noundef nonnull align 8 dereferenceable(148) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.8", align 1

@@ -2838,7 +2838,7 @@ declare ptr @vmalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getdyn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3) unnamed_addr #0 {
+define internal fastcc ptr @getdyn(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %union.EX_STYPE, align 8
   %6 = alloca [17 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %1, i64 32
@@ -4698,7 +4698,7 @@ define internal ptr @exprintf(ptr noundef %0, ptr nocapture noundef readonly %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xConvert(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr %3, ptr noundef nonnull initializes((0, 72)) %4) unnamed_addr #0 {
+define internal fastcc void @xConvert(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2, ptr %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %7, i64 72, i1 false)
@@ -4729,7 +4729,7 @@ define internal fastcc void @xConvert(ptr noundef %0, ptr nocapture noundef nonn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xPrint(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr %2, ptr noundef nonnull initializes((0, 72)) %3) unnamed_addr #0 {
+define internal fastcc void @xPrint(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
@@ -5170,7 +5170,7 @@ declare noundef i32 @fputs(ptr nocapture noundef readonly, ptr nocapture noundef
 declare noundef i32 @putc(i32 noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @prformat(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef %1) #0 {
+define internal noundef i32 @prformat(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8

@@ -1708,7 +1708,7 @@ declare double @frexp(double noundef, ptr nocapture noundef) local_unnamed_addr 
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @PyLong_AsLongAndOverflow(ptr noundef %vv, ptr nocapture noundef writeonly initializes((0, 4)) %overflow) local_unnamed_addr #0 {
+define dso_local i64 @PyLong_AsLongAndOverflow(ptr noundef %vv, ptr nocapture noundef writeonly %overflow) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %overflow, align 4
   %cmp = icmp eq ptr %vv, null
@@ -3445,7 +3445,7 @@ return:                                           ; preds = %while.end.i, %if.th
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @PyLong_AsLongLongAndOverflow(ptr noundef %vv, ptr nocapture noundef writeonly initializes((0, 4)) %overflow) local_unnamed_addr #0 {
+define dso_local i64 @PyLong_AsLongLongAndOverflow(ptr noundef %vv, ptr nocapture noundef writeonly %overflow) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %overflow, align 4
   %cmp = icmp eq ptr %vv, null
@@ -11891,7 +11891,7 @@ declare ptr @PyStructSequence_New(ptr noundef) local_unnamed_addr #1
 declare void @PyStructSequence_SetItem(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyLong_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyLong_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @_PyStructSequence_InitBuiltinWithFlags(ptr noundef %interp, ptr noundef nonnull @Int_InfoType, ptr noundef nonnull @int_info_desc, i64 noundef 0) #16
   %cmp = icmp slt i32 %call.i, 0
@@ -12122,7 +12122,7 @@ return:                                           ; preds = %while.body41, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pylong_int_from_string(ptr noundef %start, ptr noundef %end, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %res) unnamed_addr #0 {
+define internal fastcc void @pylong_int_from_string(ptr noundef %start, ptr noundef %end, ptr nocapture noundef nonnull writeonly %res) unnamed_addr #0 {
 entry:
   %call = tail call ptr @PyImport_ImportModule(ptr noundef nonnull @.str.27) #16
   %cmp = icmp eq ptr %call, null

@@ -92,7 +92,7 @@ return:                                           ; preds = %if.end31, %for.cond
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @a2i_ASN1_ENUMERATED(ptr noundef %bp, ptr nocapture noundef writeonly initializes((4, 8)) %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @a2i_ASN1_ENUMERATED(ptr noundef %bp, ptr nocapture noundef writeonly %bs, ptr noundef %buf, i32 noundef %size) local_unnamed_addr #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %bs, i64 4
   store i32 10, ptr %type, align 4

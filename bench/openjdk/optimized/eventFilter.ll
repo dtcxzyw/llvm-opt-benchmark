@@ -77,7 +77,7 @@ declare ptr @jvmtiAllocate(i32 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesFilter(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesFilter(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -702,7 +702,7 @@ declare ptr @jvmtiErrorText(i32 noundef) local_unnamed_addr #1
 declare void @debugInit_exit(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesUnloadFilter(ptr nocapture noundef readnone %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @eventFilterRestricted_passesUnloadFilter(ptr nocapture noundef readnone %0, ptr noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 48
   store i8 0, ptr %3, align 1
   %6 = load i32, ptr %5, align 8

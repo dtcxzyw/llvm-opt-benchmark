@@ -3035,7 +3035,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann11IndexParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann11IndexParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 24
@@ -4835,7 +4835,7 @@ _ZNKSt9type_infoneERKS_.exit.thread4:             ; preds = %1, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann17KDTreeIndexParamsC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann17KDTreeIndexParamsC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4982,7 +4982,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann17LinearIndexParamsC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann17LinearIndexParamsC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
@@ -5033,7 +5033,7 @@ _ZN7cvflann3anyaSINS_17flann_algorithm_tEEERS0_RKT_.exit: ; preds = %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann20CompositeIndexParamsC2EiiiN7cvflann20flann_centers_init_tEf(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann20CompositeIndexParamsC2EiiiN7cvflann20flann_centers_init_tEf(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, float noundef %5) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -5235,7 +5235,7 @@ _ZN7cvflann3anyaSIfEERS0_RKT_.exit:               ; preds = %52
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann20AutotunedIndexParamsC2Effff(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann20AutotunedIndexParamsC2Effff(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca float, align 4
   %7 = alloca float, align 4
   %8 = alloca float, align 4
@@ -5407,7 +5407,7 @@ _ZN7cvflann3anyaSIfEERS0_RKT_.exit25:             ; preds = %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann17KMeansIndexParamsC2EiiN7cvflann20flann_centers_init_tEf(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann17KMeansIndexParamsC2EiiN7cvflann20flann_centers_init_tEf(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -5579,7 +5579,7 @@ _ZN7cvflann3anyaSIfEERS0_RKT_.exit:               ; preds = %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann33HierarchicalClusteringIndexParamsC2EiN7cvflann20flann_centers_init_tEii(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann33HierarchicalClusteringIndexParamsC2EiN7cvflann20flann_centers_init_tEii(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -5751,7 +5751,7 @@ _ZN7cvflann3anyaSIiEERS0_RKT_.exit24:             ; preds = %44
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann14LshIndexParamsC2Eiii(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann14LshIndexParamsC2Eiii(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -5893,7 +5893,7 @@ _ZN7cvflann3anyaSIiEERS0_RKT_.exit20:             ; preds = %36
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann16SavedIndexParamsC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann16SavedIndexParamsC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5990,7 +5990,7 @@ _ZN7cvflann3anyaSINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann12SearchParamsC2Eifbb(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, float noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann12SearchParamsC2Eifbb(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, float noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca float, align 4
   %8 = alloca i8, align 1
@@ -6134,7 +6134,7 @@ _ZN7cvflann3anyaSIbEERS0_RKT_.exit19:             ; preds = %39
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann12SearchParamsC2Eifb(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, float noundef %2, i1 noundef zeroext %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann12SearchParamsC2Eifb(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, float noundef %2, i1 noundef zeroext %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca float, align 4
   %7 = alloca i8, align 1
@@ -6277,7 +6277,7 @@ _ZN7cvflann3anyaSIbEERS0_RKT_.exit19:             ; preds = %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv5flann5IndexC2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN2cv5flann5IndexC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv5flann5IndexE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #31
@@ -6296,7 +6296,7 @@ define void @_ZN2cv5flann5IndexC2Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5flann5IndexC2ERKNS_11_InputArrayERKNS0_11IndexParamsEN7cvflann16flann_distance_tE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann5IndexC2ERKNS_11_InputArrayERKNS0_11IndexParamsEN7cvflann16flann_distance_tE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv5flann5IndexE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %5) #31
@@ -6865,7 +6865,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv5flann5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5flann5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv5flann5IndexE, i64 16), ptr %0, align 8
   invoke void @_ZN2cv5flann5Index7releaseEv(ptr noundef nonnull align 8 dereferenceable(128) %0)
           to label %2 unwind label %4

@@ -44,7 +44,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_84ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN20ClassLoaderMetaspaceD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20ClassLoaderMetaspaceD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ClassLoaderMetaspaceC2EP5MutexN9Metaspace13MetaspaceTypeE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ClassLoaderMetaspaceC2EP5MutexN9Metaspace13MetaspaceTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8

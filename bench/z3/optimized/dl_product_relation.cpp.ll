@@ -554,7 +554,7 @@ declare noundef ptr @_ZN7datalog16relation_manager19get_relation_pluginERK6symbo
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog23product_relation_pluginC2ERNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 12), (16, 36)) %this, ptr noundef nonnull align 8 dereferenceable(200) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog23product_relation_pluginC2ERNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(200) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %class.symbol, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
@@ -623,7 +623,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog23product_relation_plugin10initializeEi(ptr noundef nonnull align 8 dereferenceable(104) initializes((8, 12)) %this, i32 noundef %fid) unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog23product_relation_plugin10initializeEi(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %fid) unnamed_addr #3 align 2 {
 entry:
   %m_kind.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %fid, ptr %m_kind.i, align 8
@@ -4484,7 +4484,7 @@ for.end59:                                        ; preds = %invoke.cont17.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog16product_relationC2ERNS_23product_relation_pluginERKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 29), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(104) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog16product_relationC2ERNS_23product_relation_pluginERKNS_18relation_signatureE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(104) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4721,7 +4721,7 @@ _ZN7datalog17tr_infrastructureINS_15relation_traitsEE13base_ancestorD2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog16product_relationC2ERNS_23product_relation_pluginERKNS_18relation_signatureEjPPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 29), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(104) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s, i32 noundef %num_relations, ptr nocapture noundef readonly %relations) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog16product_relationC2ERNS_23product_relation_pluginERKNS_18relation_signatureEjPPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(104) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s, i32 noundef %num_relations, ptr nocapture noundef readonly %relations) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4847,7 +4847,7 @@ invoke.cont7:                                     ; preds = %for.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog16product_relationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog16product_relationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog16product_relationE, i64 16), ptr %this, align 8
   %m_relations = getelementptr inbounds i8, ptr %this, i64 32
@@ -4959,7 +4959,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog16product_relationD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN7datalog16product_relationD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN7datalog16product_relationD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28

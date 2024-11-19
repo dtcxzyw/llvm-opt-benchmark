@@ -520,7 +520,7 @@ _ZN20ClassLoaderDataGraph12roots_cld_doEP10CLDClosureS1_.exit: ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15LockedClassesDoC2EPFvP5KlassE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15LockedClassesDoC2EPFvP5KlassE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15LockedClassesDo, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -543,7 +543,7 @@ define hidden void @_ZN15LockedClassesDoC2EPFvP5KlassE(ptr nocapture noundef non
 declare void @_ZN5Mutex4lockEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15LockedClassesDoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15LockedClassesDoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15LockedClassesDo, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -564,7 +564,7 @@ define hidden void @_ZN15LockedClassesDoC2Ev(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15LockedClassesDoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15LockedClassesDoD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV15LockedClassesDo, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8

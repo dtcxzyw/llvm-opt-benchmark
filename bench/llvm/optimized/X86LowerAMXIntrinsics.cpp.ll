@@ -13493,7 +13493,7 @@ declare noundef ptr @_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoop
 declare void @_ZN4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE15addTopLevelLoopEPS2_(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(128) initializes((48, 66)) %5, ptr noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull ptr @_ZN12_GLOBAL__N_121X86LowerAMXIntrinsics10createLoopEPN4llvm10BasicBlockES3_PNS1_5ValueES5_NS1_9StringRefERNS1_13IRBuilderBaseEPNS1_4LoopE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(128) %5, ptr noundef %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::InsertPosition", align 8
   %10 = alloca %"class.llvm::Twine", align 8

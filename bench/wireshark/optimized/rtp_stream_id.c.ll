@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_id_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 26), (32, 58), (60, 64)) %1) local_unnamed_addr #0 {
+define hidden void @rtpstream_id_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -67,7 +67,7 @@ copy_address.exit10:                              ; preds = %copy_address.exit, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_id_copy_pinfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 26), (32, 58)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @rtpstream_id_copy_pinfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %4, label %30
 
@@ -178,7 +178,7 @@ copy_address.exit16:                              ; preds = %copy_address.exit16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @rtpstream_id_copy_pinfo_shallow(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 26), (32, 58)) %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden void @rtpstream_id_copy_pinfo_shallow(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq i32 %2, 0
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -229,7 +229,7 @@ define hidden void @rtpstream_id_copy_pinfo_shallow(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @rtpstream_id_free(ptr nocapture noundef initializes((8, 16), (24, 32), (40, 48), (56, 64)) %0) local_unnamed_addr #0 {
+define hidden void @rtpstream_id_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %free_address.exit, label %3

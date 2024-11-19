@@ -106,7 +106,7 @@ $_ZNSt10_HashtableIhSt4pairIKhmESaIS2_ENSt8__detail10_Select1stESt8equal_toIhESt
 @_ZN3net17QuicPacketCreator20QuicRandomBoolSourceD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net17QuicPacketCreator20QuicRandomBoolSourceD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net17QuicPacketCreatorC2EmPNS_10QuicFramerEPNS_10QuicRandomEPNS_19QuicBufferAllocatorEPNS0_17DelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 60), (96, 104), (112, 116), (120, 160)) %this, i64 noundef %connection_id, ptr noundef %framer, ptr noundef %random_generator, ptr noundef %buffer_allocator, ptr noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net17QuicPacketCreatorC2EmPNS_10QuicFramerEPNS_10QuicRandomEPNS_19QuicBufferAllocatorEPNS0_17DelegateInterfaceE(ptr noundef nonnull align 8 dereferenceable(312) %this, i64 noundef %connection_id, ptr noundef %framer, ptr noundef %random_generator, ptr noundef %buffer_allocator, ptr noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %delegate, ptr %this, align 8
   %debug_delegate_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -337,7 +337,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net17QuicPacketCreator12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr nocapture noundef nonnull align 8 dereferenceable(312) initializes((104, 112)) %this, i8 noundef signext %level, ptr noundef %encrypter) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net17QuicPacketCreator12SetEncrypterENS_15EncryptionLevelEPNS_13QuicEncrypterE(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, i8 noundef signext %level, ptr noundef %encrypter) local_unnamed_addr #0 align 2 {
 entry:
   %framer_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %framer_, align 8
@@ -388,7 +388,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net17QuicPacketCreator18StopSendingVersionEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) initializes((56, 57)) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net17QuicPacketCreator18StopSendingVersionEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %send_version_in_packet_ = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %send_version_in_packet_, align 8
@@ -410,7 +410,7 @@ if.end6:                                          ; preds = %if.end, %entry
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net17QuicPacketCreator23SetDiversificationNonceERKSt5arrayIcLm32EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) initializes((59, 92)) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(32) %nonce) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN3net17QuicPacketCreator23SetDiversificationNonceERKSt5arrayIcLm32EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(32) %nonce) local_unnamed_addr #7 align 2 {
 entry:
   %have_diversification_nonce_ = getelementptr inbounds i8, ptr %this, i64 59
   store i8 1, ptr %have_diversification_nonce_, align 1
@@ -2890,7 +2890,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net17QuicPacketCreator11ClearPacketEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((160, 170), (200, 201), (202, 204), (219, 223), (224, 232)) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net17QuicPacketCreator11ClearPacketEv(ptr noundef nonnull align 8 dereferenceable(312) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %packet_ = getelementptr inbounds i8, ptr %this, i64 160
   %has_ack = getelementptr inbounds i8, ptr %this, i64 219
@@ -3486,7 +3486,7 @@ ehcleanup193:                                     ; preds = %ehcleanup191, %lpad
 declare void @_ZN3net16QuicPacketHeaderC1Ev(ptr noundef nonnull align 8 dereferenceable(60)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net17QuicPacketCreator16FillPacketHeaderEPNS_16QuicPacketHeaderE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef writeonly initializes((0, 16), (40, 58)) %header) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net17QuicPacketCreator16FillPacketHeaderEPNS_16QuicPacketHeaderE(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef writeonly %header) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %connection_id_ = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load i64, ptr %connection_id_, align 8
@@ -4104,7 +4104,7 @@ return:                                           ; preds = %if.then4, %cleanup.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net17QuicPacketCreator20QuicRandomBoolSourceC2EPNS_10QuicRandomE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %random) unnamed_addr #13 align 2 {
+define dso_local void @_ZN3net17QuicPacketCreator20QuicRandomBoolSourceC2EPNS_10QuicRandomE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %random) unnamed_addr #13 align 2 {
 entry:
   store ptr %random, ptr %this, align 8
   %bit_bucket_ = getelementptr inbounds i8, ptr %this, i64 8

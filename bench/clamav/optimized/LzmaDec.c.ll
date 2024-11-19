@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._CLzmaProps = type { i32, i32, i32, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LzmaDec_InitDicAndState(ptr nocapture noundef writeonly initializes((92, 100), (108, 112)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @LzmaDec_InitDicAndState(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 92
@@ -40,7 +40,7 @@ define void @LzmaDec_InitDicAndState(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LzmaDec_Init(ptr nocapture noundef writeonly initializes((48, 56), (64, 72), (92, 104), (108, 112)) %0) local_unnamed_addr #0 {
+define void @LzmaDec_Init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96

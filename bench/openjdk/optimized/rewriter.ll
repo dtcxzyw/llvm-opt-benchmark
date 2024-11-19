@@ -2482,7 +2482,7 @@ _ZN13GrowableArrayIiED2Ev.exit11:                 ; preds = %_ZN13GrowableArrayI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8RewriterC2EP13InstanceKlassRK18constantPoolHandleP5ArrayIP6MethodEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN8RewriterC2EP13InstanceKlassRK18constantPoolHandleP5ArrayIP6MethodEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca %class.methodHandle, align 8

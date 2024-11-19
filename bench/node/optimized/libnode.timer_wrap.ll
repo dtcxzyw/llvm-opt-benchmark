@@ -129,7 +129,7 @@ return:                                           ; preds = %entry, %if.end
 declare i32 @uv_timer_stop(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9TimerWrap5CloseEv(ptr noundef nonnull align 8 dereferenceable(200) initializes((48, 56)) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9TimerWrap5CloseEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 {
 entry:
   %timer_ = getelementptr inbounds i8, ptr %this, i64 48
   store ptr null, ptr %timer_, align 8

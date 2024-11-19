@@ -241,7 +241,7 @@ free_topology.exit:                               ; preds = %42, %10, %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @obj_data_const(ptr nocapture noundef writeonly initializes((16, 17), (20, 32)) %0) #1 {
+define internal void @obj_data_const(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
@@ -254,7 +254,7 @@ define internal void @obj_data_const(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sum_const(ptr noundef initializes((48, 53), (56, 64)) %0) #0 {
+define internal void @sum_const(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 52
@@ -386,7 +386,7 @@ opal_obj_run_destructors.exit11:                  ; preds = %.lr.ph.i8, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @topo_data_const(ptr noundef initializes((16, 32)) %0) #0 {
+define internal void @topo_data_const(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
   %3 = load i32, ptr @opal_class_init_epoch, align 4

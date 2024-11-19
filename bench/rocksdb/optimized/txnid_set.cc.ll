@@ -38,7 +38,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4toku9txnid_set6createEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 1), (4, 24)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN4toku9txnid_set6createEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) local_unnamed_addr #1 align 2 {
 entry:
   store i8 1, ptr %this, align 8
   %capacity.i.i = getelementptr inbounds i8, ptr %this, i64 4
@@ -47,7 +47,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku9txnid_set7destroyEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((4, 16)) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN4toku9txnid_set7destroyEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool.i.i = trunc i8 %0 to i1

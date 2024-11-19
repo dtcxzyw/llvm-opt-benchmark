@@ -514,7 +514,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento23FindUninitializedFieldsC2EN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_16TypedValueRegionERKNS0_23UninitObjCheckerOptionsE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 19)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(41) %3) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang4ento23FindUninitializedFieldsC2EN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEEPKNS0_16TypedValueRegionERKNS0_23UninitObjCheckerOptionsE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(41) %3) unnamed_addr #2 align 2 {
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %.not.i.i = icmp eq ptr %5, null
@@ -9393,7 +9393,7 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126UninitializedObjectCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_126UninitializedObjectCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126UninitializedObjectCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
@@ -9408,7 +9408,7 @@ define internal void @_ZN12_GLOBAL__N_126UninitializedObjectCheckerD2Ev(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126UninitializedObjectCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_126UninitializedObjectCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126UninitializedObjectCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20

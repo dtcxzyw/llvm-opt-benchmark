@@ -36,14 +36,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [6 x i8] c"local\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal noundef i32 @component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #0 {
   store i32 10, ptr %1, align 4
   store ptr @pmix_hash_module, ptr %0, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @scon(ptr noundef initializes((144, 148), (192, 204), (208, 272)) %0) #1 {
+define internal void @scon(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 -1, ptr %2, align 8
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -319,7 +319,7 @@ pmix_obj_run_destructors.exit53:                  ; preds = %.lr.ph.i50, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @htcon(ptr noundef initializes((144, 160), (760, 772), (776, 840)) %0) #1 {
+define internal void @htcon(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -1038,7 +1038,7 @@ pmix_obj_run_destructors.exit160:                 ; preds = %.lr.ph.i157, %230
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @apcon(ptr noundef initializes((144, 148), (192, 204), (208, 272)) %0) #1 {
+define internal void @apcon(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %2, align 8
   %3 = load i32, ptr @pmix_class_init_epoch, align 4
@@ -1316,7 +1316,7 @@ pmix_obj_run_destructors.exit53:                  ; preds = %.lr.ph.i50, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ndinfocon(ptr noundef initializes((144, 148), (152, 168), (208, 220), (224, 288)) %0) #1 {
+define internal void @ndinfocon(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152

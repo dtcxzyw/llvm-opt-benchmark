@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN8NMTUsageC1E15NMTUsageOptions = hidden unnamed_addr alias void (ptr, i24), ptr @_ZN8NMTUsageC2E15NMTUsageOptions
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8NMTUsageC2E15NMTUsageOptions(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(699) initializes((0, 699)) %0, i24 %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN8NMTUsageC2E15NMTUsageOptions(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(699) %0, i24 %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 696
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(696) %0, i8 0, i64 696, i1 false)
   store i24 %1, ptr %3, align 8
@@ -92,7 +92,7 @@ declare void @_ZN14ThreadCriticalC1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare void @_ZN14ThreadCriticalD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8NMTUsage15update_vm_usageEv(ptr nocapture noundef nonnull align 8 dereferenceable(699) initializes((680, 696)) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN8NMTUsage15update_vm_usageEv(ptr nocapture noundef nonnull align 8 dereferenceable(699) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 680
   %3 = getelementptr inbounds i8, ptr %0, i64 688
   %4 = getelementptr inbounds i8, ptr %0, i64 232

@@ -495,7 +495,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler3cpp18ExtensionGeneratorC2EPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8)) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc_analyzer) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler3cpp18ExtensionGeneratorC2EPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(206) %options, ptr noundef %scc_analyzer) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i155 = alloca %"class.std::allocator", align 1
   %ref.tmp2.i.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8

@@ -613,7 +613,7 @@ define dso_local void @i915_sched_node_init(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @i915_sched_node_reinit(ptr nocapture noundef writeonly initializes((48, 60)) %0) local_unnamed_addr #4 align 16 {
+define dso_local void @i915_sched_node_reinit(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 -2147483648, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56

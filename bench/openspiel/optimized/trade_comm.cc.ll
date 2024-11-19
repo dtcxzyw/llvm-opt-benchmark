@@ -868,7 +868,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10trade_comm14TradeCommState10IsTermi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10trade_comm14TradeCommState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.21") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10trade_comm14TradeCommState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.21") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -4979,7 +4979,7 @@ define noundef i32 @_ZNK10open_spiel10trade_comm13TradeCommGame18NumDistinctActi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10trade_comm13TradeCommGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.11") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10trade_comm13TradeCommGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.11") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load i32, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

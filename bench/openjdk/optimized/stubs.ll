@@ -59,7 +59,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN9StubQueueD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN9StubQueueD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StubQueueC2EP13StubInterfaceiP5MutexPKc(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((40, 48)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN9StubQueueC2EP13StubInterfaceiP5MutexPKc(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %3, ptr %6, align 8
   %7 = add i32 %2, 15
@@ -138,7 +138,7 @@ define hidden void @_ZN9StubQueueD2Ev(ptr nocapture nonnull readnone align 8 %0)
 declare void @_Z20report_unimplementedPKci(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StubQueue22deallocate_unused_tailEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((20, 24)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9StubQueue22deallocate_unused_tailEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %3) #6

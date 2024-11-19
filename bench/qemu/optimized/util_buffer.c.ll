@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [35 x i8] c"buffer_move %s: %zd bytes from %s\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @buffer_init(ptr nocapture noundef writeonly initializes((0, 8)) %buffer, ptr noundef %name, ...) local_unnamed_addr #0 {
+define dso_local void @buffer_init(ptr nocapture noundef writeonly %buffer, ptr noundef %name, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %ap)
@@ -194,7 +194,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @buffer_reset(ptr nocapture noundef initializes((16, 24)) %buffer) local_unnamed_addr #0 {
+define dso_local void @buffer_reset(ptr nocapture noundef %buffer) local_unnamed_addr #0 {
 entry:
   %offset = getelementptr inbounds i8, ptr %buffer, i64 16
   store i64 0, ptr %offset, align 8
@@ -229,7 +229,7 @@ buffer_shrink.exit:                               ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @buffer_free(ptr nocapture noundef initializes((16, 24)) %buffer) local_unnamed_addr #0 {
+define dso_local void @buffer_free(ptr nocapture noundef %buffer) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %0 = load ptr, ptr %buffer, align 8

@@ -3038,7 +3038,7 @@ define hidden ptr @uat_load_get_text(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @uat_load_set_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #13 {
+define hidden void @uat_load_set_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -3094,14 +3094,14 @@ define hidden void @uat_load_set_column(i32 noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @uat_load_set_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #13 {
+define hidden void @uat_load_set_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @uat_load_set_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #13 {
+define hidden void @uat_load_set_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -3115,7 +3115,7 @@ define hidden i32 @uat_load_get_debug(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @uat_load_set_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #13 {
+define hidden void @uat_load_set_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -3460,7 +3460,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @uat_load_str(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @uat_load_str(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.uat_load_scanner_state_t, align 8
   store ptr %0, ptr %4, align 8
   %5 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.20, ptr noundef %1) #26

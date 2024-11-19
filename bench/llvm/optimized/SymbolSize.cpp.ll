@@ -65,7 +65,7 @@ define dso_local noundef range(i32 -1, 2) i32 @_ZN4llvm6object14compareAddressEP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object18computeSymbolSizesERKNS0_10ObjectFileE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm6object18computeSymbolSizesERKNS0_10ObjectFileE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::iterator_range", align 8
   %4 = alloca %"class.llvm::object::elf_symbol_iterator", align 8
   %5 = alloca %"class.llvm::iterator_range.0", align 8

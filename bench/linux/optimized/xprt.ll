@@ -3953,7 +3953,7 @@ declare dso_local void @rpc_sysfs_xprt_destroy(ptr noundef) local_unnamed_addr #
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xprt_reserve(ptr noundef initializes((4, 8)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @xprt_reserve(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -4010,7 +4010,7 @@ define dso_local void @xprt_reserve(ptr noundef initializes((4, 8)) %0) local_un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @xprt_retry_reserve(ptr noundef initializes((4, 8)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @xprt_retry_reserve(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -4664,7 +4664,7 @@ declare dso_local i32 @__SCT__tp_func_xprt_reserve_cong(ptr noundef, ptr noundef
 declare dso_local ptr @rpc_wake_up_first_on_wq(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef zeroext i1 @__xprt_lock_write_func(ptr noundef %0, ptr nocapture noundef writeonly initializes((1232, 1240)) %1) #13 align 16 {
+define internal noundef zeroext i1 @__xprt_lock_write_func(ptr noundef %0, ptr nocapture noundef writeonly %1) #13 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 1232
   store ptr %0, ptr %3, align 8
   ret i1 true

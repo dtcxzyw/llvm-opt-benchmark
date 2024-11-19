@@ -385,7 +385,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 declare void @_ZN9GUIButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(7452), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14GUIButtonImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEP20ISimpleTextureSourceb(ptr noundef nonnull align 8 dereferenceable(7472) initializes((7472, 7492)) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, ptr noundef %tsrc, i1 noundef zeroext %noclip) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14GUIButtonImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEP20ISimpleTextureSourceb(ptr noundef nonnull align 8 dereferenceable(7472) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, ptr noundef %tsrc, i1 noundef zeroext %noclip) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rectangle = alloca %"class.irr::core::rect", align 8
   store i64 %rectangle.coerce0, ptr %rectangle, align 8

@@ -251,7 +251,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed15VC5Decompressor7Wavelet13allBan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.rawspeed::VC5Decompressor::BandData") align 8 initializes((0, 1), (8, 32)) %0, ptr nocapture noundef readonly byval(%"class.rawspeed::Array2DRef.5") align 8 %1, ptr nocapture noundef readonly byval(%"class.rawspeed::Array2DRef.5") align 8 %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet15reconstructPassENS_10Array2DRefIKsEES4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.rawspeed::VC5Decompressor::BandData") align 8 %0, ptr nocapture noundef readonly byval(%"class.rawspeed::Array2DRef.5") align 8 %1, ptr nocapture noundef readonly byval(%"class.rawspeed::Array2DRef.5") align 8 %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8, !tbaa !17, !nonnull !18, !noundef !18
   %5 = ptrtoint ptr %4 to i64
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1649,7 +1649,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.rawspeed::VC5Decompressor::BandData") align 8 initializes((0, 1), (8, 32)) %0, ptr nocapture noundef readonly byval(%"class.rawspeed::Array2DRef.5") align 8 %1, ptr nocapture noundef readonly byval(%"class.rawspeed::Array2DRef.5") align 8 %2, i32 noundef %3, i1 noundef zeroext %4, i1 zeroext %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet18combineLowHighPassENS_10Array2DRefIKsEES4_ibb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.rawspeed::VC5Decompressor::BandData") align 8 %0, ptr nocapture noundef readonly byval(%"class.rawspeed::Array2DRef.5") align 8 %1, ptr nocapture noundef readonly byval(%"class.rawspeed::Array2DRef.5") align 8 %2, i32 noundef %3, i1 noundef zeroext %4, i1 zeroext %5) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = load ptr, ptr %2, align 8, !tbaa !17, !nonnull !18, !noundef !18
   %8 = getelementptr inbounds i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !19
@@ -2805,7 +2805,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet19ReconstructableBand19
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed15VC5DecompressorC2ENS_10ByteStreamERKNS_8RawImageE(ptr noundef nonnull align 8 dereferenceable(1000) initializes((0, 40), (48, 72), (200, 201), (208, 210), (212, 213), (216, 217), (220, 221), (222, 230), (248, 276), (296, 324), (344, 372), (392, 420), (440, 468), (488, 516), (536, 564), (584, 612), (632, 660), (680, 708), (728, 756), (776, 804), (824, 852), (872, 900), (920, 948), (968, 996)) %0, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed15VC5DecompressorC2ENS_10ByteStreamERKNS_8RawImageE(ptr noundef nonnull align 8 dereferenceable(1000) %0, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %2, align 8, !tbaa !145
   store ptr %4, ptr %0, align 8, !tbaa !145
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3335,7 +3335,7 @@ define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExc
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed15VC5Decompressor8parseVC5Ev(ptr noundef nonnull align 8 dereferenceable(1000) initializes((28, 32)) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed15VC5Decompressor8parseVC5Ev(ptr noundef nonnull align 8 dereferenceable(1000) %0) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.rawspeed::ByteStream", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 28
@@ -5337,7 +5337,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet11LowPassBandC2ERS1_NS_10ByteStreamEt(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (80, 81), (88, 100), (104, 106)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %2, i16 noundef zeroext %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet11LowPassBandC2ERS1_NS_10ByteStreamEt(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %2, i16 noundef zeroext %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %2, align 8, !tbaa !272, !nonnull !18, !noundef !18
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !271
@@ -5424,7 +5424,7 @@ define hidden void @_ZN8rawspeed15VC5Decompressor7Wavelet11LowPassBandC2ERS1_NS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK8rawspeed15VC5Decompressor7Wavelet11LowPassBand6decodeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.rawspeed::VC5Decompressor::BandData") align 8 initializes((0, 1), (8, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK8rawspeed15VC5Decompressor7Wavelet11LowPassBand6decodeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.rawspeed::VC5Decompressor::BandData") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !123

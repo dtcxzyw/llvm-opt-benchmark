@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_request_null = external global %struct.ompi_predefined_request_t, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_part_persist_psend_request_construct(ptr nocapture noundef writeonly initializes((100, 101), (112, 136)) %0) #0 {
+define internal void @mca_part_persist_psend_request_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr @mca_part_persist_start, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 120

@@ -531,7 +531,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 declare void @_ZN9GUIButtonD2Ev(ptr noundef nonnull align 8 dereferenceable(7452), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18GUIButtonItemImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEP20ISimpleTextureSourceRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6Clientb(ptr noundef nonnull align 8 dereferenceable(7472) initializes((7472, 7492)) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, ptr noundef %tsrc, ptr noundef nonnull align 8 dereferenceable(32) %item, ptr noundef %client, i1 noundef zeroext %noclip) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18GUIButtonItemImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEP20ISimpleTextureSourceRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP6Clientb(ptr noundef nonnull align 8 dereferenceable(7472) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, ptr noundef %tsrc, ptr noundef nonnull align 8 dereferenceable(32) %item, ptr noundef %client, i1 noundef zeroext %noclip) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.irr::core::rect", align 8
   %ref.tmp = alloca %"class.irr::core::rect", align 4

@@ -1123,7 +1123,7 @@ define internal void @__cxx_global_var_init.7() #4 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3nix12LocalFSStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %2) unnamed_addr #7 align 2 {
+define void @_ZN3nix12LocalFSStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %2) unnamed_addr #7 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

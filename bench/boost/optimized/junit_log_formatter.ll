@@ -323,7 +323,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test19results_collector_t8instanceEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output13file_basenameENS0_13basic_cstringIKcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::unit_test::basic_cstring") align 8 initializes((0, 16)) %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
+define hidden void @_ZN5boost9unit_test6output13file_basenameENS0_13basic_cstringIKcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::unit_test::basic_cstring") align 8 %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
 _ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit:
   %2 = load ptr, ptr %1, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1043,7 +1043,7 @@ define linkonce_odr hidden void @_ZN5boost9unit_test17test_tree_visitorD2Ev(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter14log_build_infoERSob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((200, 201)) %0, ptr nocapture nonnull readnone align 8 %1, i1 noundef zeroext %2) unnamed_addr #7 align 2 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter14log_build_infoERSob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1, i1 noundef zeroext %2) unnamed_addr #7 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store i8 %4, ptr %5, align 8, !tbaa !64
@@ -1561,7 +1561,7 @@ _ZNSt3mapImN5boost9unit_test6output10junit_impl16junit_log_helperESt4lessImESaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output19junit_log_formatter19log_exception_startERSoRKNS0_19log_checkpoint_dataERKNS_19execution_exceptionE(ptr noundef nonnull align 8 dereferenceable(208) initializes((201, 202)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9unit_test6output19junit_log_formatter19log_exception_startERSoRKNS0_19log_checkpoint_dataERKNS_19execution_exceptionE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"struct.boost::unit_test::output::junit_impl::junit_log_helper::assertion_entry", align 8
   %7 = alloca %"class.boost::unit_test::basic_cstring", align 8

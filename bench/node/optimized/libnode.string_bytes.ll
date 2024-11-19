@@ -2592,7 +2592,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 declare noundef i64 @_ZN2v87Isolate37AdjustAmountOfExternalAllocatedMemoryEl(ptr noundef nonnull align 1 dereferenceable(1), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcED2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcEE, i64 16), ptr %this, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -2610,7 +2610,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcED0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String29ExternalOneByteStringResourceEcEE, i64 16), ptr %this, align 8
   %data_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2680,7 +2680,7 @@ declare ptr @_ZN2v86String18NewExternalOneByteEPNS_7IsolateEPNS0_29ExternalOneBy
 declare ptr @_ZN2v86String14NewFromTwoByteEPNS_7IsolateEPKtNS_13NewStringTypeEi(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtED2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtEE, i64 16), ptr %this, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -2698,7 +2698,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtED0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_112ExternStringIN2v86String22ExternalStringResourceEtEE, i64 16), ptr %this, align 8
   %data_.i = getelementptr inbounds i8, ptr %this, i64 24

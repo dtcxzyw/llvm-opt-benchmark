@@ -71,7 +71,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 @.str.20 = private unnamed_addr constant [55 x i8] c"Need to have correct number of atoms for the parameter\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z25convertInteractionsOfTypeiN3gmx8ArrayRefIK18InteractionsOfTypeEENS0_IK19MoleculeInformationEEPS5_15CombinationRuledfP10gmx_mtop_t(i32 noundef %0, ptr nocapture readonly %1, ptr nocapture readnone %2, ptr nocapture readonly %3, ptr nocapture readnone %4, ptr noundef readonly %5, i32 noundef %6, double noundef %7, float noundef %8, ptr nocapture noundef initializes((8, 12), (64, 72)) %9) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z25convertInteractionsOfTypeiN3gmx8ArrayRefIK18InteractionsOfTypeEENS0_IK19MoleculeInformationEEPS5_15CombinationRuledfP10gmx_mtop_t(i32 noundef %0, ptr nocapture readonly %1, ptr nocapture readnone %2, ptr nocapture readonly %3, ptr nocapture readnone %4, ptr noundef readonly %5, i32 noundef %6, double noundef %7, float noundef %8, ptr nocapture noundef %9) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %12 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %13 = alloca %"class.std::filesystem::__cxx11::path", align 8

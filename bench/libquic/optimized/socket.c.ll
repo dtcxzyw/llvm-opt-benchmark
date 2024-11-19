@@ -209,7 +209,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb2, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @sock_new(ptr nocapture noundef writeonly initializes((24, 28), (32, 36), (40, 44), (48, 56)) %bio) #3 {
+define internal noundef i32 @sock_new(ptr nocapture noundef writeonly %bio) #3 {
 entry:
   %init = getelementptr inbounds i8, ptr %bio, i64 24
   store i32 0, ptr %init, align 8

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn19get_rotation_matrixEffffPf(float noundef nofpclass(nan inf) %0, float noundef nofpclass(nan inf) %1, float noundef nofpclass(nan inf) %2, float noundef nofpclass(nan inf) %3, ptr nocapture noundef writeonly initializes((0, 24)) %4) local_unnamed_addr #0 {
+define hidden void @_ZN4ncnn19get_rotation_matrixEffffPf(float noundef nofpclass(nan inf) %0, float noundef nofpclass(nan inf) %1, float noundef nofpclass(nan inf) %2, float noundef nofpclass(nan inf) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = fmul fast float %0, 0x3F91DF46A0000000
   %7 = tail call fast float @llvm.cos.f32(float %6)
   %8 = fmul fast float %7, %1
@@ -212,7 +212,7 @@ define hidden void @_ZN4ncnn20get_affine_transformEPKfS1_iPf(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4ncnn23invert_affine_transformEPKfPf(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) local_unnamed_addr #3 {
+define hidden void @_ZN4ncnn23invert_affine_transformEPKfPf(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = load float, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load float, ptr %4, align 4

@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.ginCombineData = private unnamed_addr constant [15 x i8] c"ginCombineData\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ginInitBA(ptr noundef initializes((8, 28)) %0) local_unnamed_addr #0 {
+define dso_local void @ginInitBA(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
   %3 = tail call ptr @rbt_create(i64 noundef 64, ptr noundef nonnull @cmpEntryAccumulator, ptr noundef nonnull @ginCombineData, ptr noundef nonnull @ginAllocEntryAccumulator, ptr noundef null, ptr noundef %0) #9

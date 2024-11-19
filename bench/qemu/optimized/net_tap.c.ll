@@ -1867,7 +1867,7 @@ tap_write_poll.exit:                              ; preds = %tap_read_poll.exit,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tap_poll(ptr noundef initializes((71164, 71165)) %nc, i1 noundef zeroext %enable) #2 {
+define internal void @tap_poll(ptr noundef %nc, i1 noundef zeroext %enable) #2 {
 entry:
   %frombool.i = zext i1 %enable to i8
   %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 71164
@@ -2350,7 +2350,7 @@ while.end:                                        ; preds = %if.else, %while.bod
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tap_writable(ptr noundef initializes((71165, 71166)) %opaque) #2 {
+define internal void @tap_writable(ptr noundef %opaque) #2 {
 entry:
   %write_poll.i = getelementptr inbounds i8, ptr %opaque, i64 71165
   store i8 0, ptr %write_poll.i, align 1
@@ -2380,7 +2380,7 @@ declare zeroext i1 @eth_pad_short_frame(ptr noundef, ptr noundef, ptr noundef, i
 declare i64 @qemu_send_packet_async(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tap_send_completed(ptr noundef initializes((71164, 71165)) %nc, i64 %len) #2 {
+define internal void @tap_send_completed(ptr noundef %nc, i64 %len) #2 {
 entry:
   %read_poll.i = getelementptr inbounds i8, ptr %nc, i64 71164
   store i8 1, ptr %read_poll.i, align 4

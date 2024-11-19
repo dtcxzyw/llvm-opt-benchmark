@@ -812,7 +812,7 @@ declare void @dt_conf_set_int(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @dt_bauhaus_slider_set(ptr noundef, float noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @dimension(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #14 {
+define noundef i32 @dimension(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #14 {
   store i32 2147483647, ptr %2, align 4, !tbaa !19
   store i32 2147483647, ptr %3, align 4, !tbaa !19
   ret i32 1
@@ -864,7 +864,7 @@ define void @cleanup(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   store ptr %2, ptr %3, align 8, !tbaa !48

@@ -35,7 +35,7 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @_ZN5ZXing10DataMatrix6WriterC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5ZXing10DataMatrix6WriterC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5ZXing10DataMatrix6WriterC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(25) initializes((0, 25)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5ZXing10DataMatrix6WriterC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(25) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 1, ptr %2, align 4

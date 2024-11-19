@@ -189,7 +189,7 @@ $_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache = comdat any
 @_ZN5folly2io4zstd7OptionsC1Ei = unnamed_addr alias void (ptr, i32), ptr @_ZN5folly2io4zstd7OptionsC2Ei
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly2io4zstd7OptionsC2Ei(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 20)) %this, i32 noundef %level) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly2io4zstd7OptionsC2Ei(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %level) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call ptr @ZSTD_createCCtxParams()
   store ptr %call, ptr %this, align 8, !tbaa !7
@@ -505,7 +505,7 @@ declare i64 @ZSTD_CCtxParams_setParameter(ptr noundef, i32 noundef, i32 noundef)
 declare i64 @ZSTD_freeCCtxParams(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly2io4zstd8getCodecENS1_7OptionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.4") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull %options) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly2io4zstd8getCodecENS1_7OptionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.4") align 8 %agg.result, ptr nocapture noundef nonnull %options) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.12", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #21
@@ -3337,7 +3337,7 @@ declare void @_ZN5folly11compression8contexts12getZSTD_DCtxEv(ptr dead_on_unwind
 declare i64 @ZSTD_DCtx_setMaxWindowSize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly2io4zstd14getStreamCodecENS1_7OptionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.115") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull %options) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly2io4zstd14getStreamCodecENS1_7OptionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.115") align 8 %agg.result, ptr nocapture noundef nonnull %options) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.12", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #21

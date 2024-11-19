@@ -176,7 +176,7 @@ _ZN2cv3PtrINS_3dpm15DPMDetectorImplEED2Ev.exit:   ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv3dpm11DPMDetector15ObjectDetectionC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #1 align 2 {
+define void @_ZN2cv3dpm11DPMDetector15ObjectDetectionC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   store i32 -1, ptr %2, align 4
@@ -184,7 +184,7 @@ define void @_ZN2cv3dpm11DPMDetector15ObjectDetectionC2Ev(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv3dpm11DPMDetector15ObjectDetectionC2ERKNS_5Rect_IiEEfi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, float noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
+define void @_ZN2cv3dpm11DPMDetector15ObjectDetectionC2ERKNS_5Rect_IiEEfi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1, float noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store float %2, ptr %5, align 4
@@ -197,7 +197,7 @@ define void @_ZN2cv3dpm11DPMDetector15ObjectDetectionC2ERKNS_5Rect_IiEEfi(ptr no
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3dpm15DPMDetectorImplC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3dpm15DPMDetectorImplC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"struct.cv::Ptr.12", align 8

@@ -3548,7 +3548,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers9Skolemize18getSkolemConstantsERKNS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector.386") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers9Skolemize18getSkolemConstantsERKNS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector.386") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %q) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp3 = alloca %"class.cvc5::internal::NodeTemplate", align 8

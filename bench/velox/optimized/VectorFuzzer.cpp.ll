@@ -2618,7 +2618,7 @@ lpad:                                             ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox12VectorFuzzer4fuzzERKSt10shared_ptrIKNS0_4TypeEEi(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(5112) %this, ptr noundef nonnull align 8 dereferenceable(16) %type, i32 noundef %size) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox12VectorFuzzer4fuzzERKSt10shared_ptrIKNS0_4TypeEEi(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(5112) %this, ptr noundef nonnull align 8 dereferenceable(16) %type, i32 noundef %size) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
   %ref.tmp12 = alloca %"class.std::shared_ptr", align 8
@@ -3809,7 +3809,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox12VectorFuzzer4fuzzERKSt10shared_ptrIKNS0_4TypeEE(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(5112) %this, ptr noundef nonnull align 8 dereferenceable(16) %type) local_unnamed_addr #4 align 2 {
+define void @_ZN8facebook5velox12VectorFuzzer4fuzzERKSt10shared_ptrIKNS0_4TypeEE(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(5112) %this, ptr noundef nonnull align 8 dereferenceable(16) %type) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8
   %conv = trunc i64 %0 to i32
@@ -31855,14 +31855,14 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIK
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN8facebook5velox10BaseVector18loadedVectorSharedERKSt10shared_ptrIS1_E(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_113DummyReleaserEED2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) initializes((0, 8)) %this) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_113DummyReleaserEED2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) %this) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox10BufferViewINS0_12_GLOBAL__N_113DummyReleaserEEE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_113DummyReleaserEED0Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_113DummyReleaserEED0Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
@@ -70767,7 +70767,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox12_GLOBAL__N_116VectorLoaderWrapD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox12_GLOBAL__N_116VectorLoaderWrapD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_116VectorLoaderWrapE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -70848,7 +70848,7 @@ _ZNSt10shared_ptrIN8facebook5velox10BaseVectorEED2Ev.exit: ; preds = %entry, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox12_GLOBAL__N_116VectorLoaderWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox12_GLOBAL__N_116VectorLoaderWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox12_GLOBAL__N_116VectorLoaderWrapE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16

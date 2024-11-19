@@ -2147,7 +2147,7 @@ declare dso_local zeroext i1 @drm_scdc_set_high_tmds_clock_ratio(ptr noundef, i1
 declare dso_local zeroext i1 @drm_scdc_set_scrambling(ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_infoframe_init(ptr nocapture noundef initializes((4016, 4048)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_infoframe_init(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 7184
   %4 = load i32, ptr %3, align 4
@@ -7345,7 +7345,7 @@ define internal zeroext i1 @intel_hdmi_hdcp_check_link(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_hdmi_hdcp2_capable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #1 align 16 {
+define internal i32 @intel_hdmi_hdcp2_capable(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = alloca i8, align 1
   %4 = alloca [2 x %struct.i2c_msg], align 16
   %5 = alloca i8, align 1

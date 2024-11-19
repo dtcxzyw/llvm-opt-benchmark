@@ -460,7 +460,7 @@ _ZN4llvm11SmallVectorIN5clang5TokenELj1EED2Ev.exit: ; preds = %12, %7, %1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12Preprocessor9BacktrackEv(ptr noundef nonnull align 8 dereferenceable(3288) initializes((2928, 2936)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang12Preprocessor9BacktrackEv(ptr noundef nonnull align 8 dereferenceable(3288) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::SmallVector.133", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2944
   %4 = load ptr, ptr %3, align 8

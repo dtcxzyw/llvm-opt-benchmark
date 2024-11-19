@@ -1796,7 +1796,7 @@ Vec_StrCompareVec.exit:                           ; preds = %7, %15, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Iso_ManFilterPos(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Iso_ManFilterPos(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
 Abc_Clock.exit:
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
@@ -2677,7 +2677,7 @@ Abc_Clock.exit4:                                  ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Saig_ManIsoReduce(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Saig_ManIsoReduce(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

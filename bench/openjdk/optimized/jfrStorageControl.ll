@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN17JfrStorageControlC1Emm = hidden unnamed_addr alias void (ptr, i64, i64), ptr @_ZN17JfrStorageControlC2Emm
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN17JfrStorageControlC2Emm(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 16)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN17JfrStorageControlC2Emm(ptr noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %4, align 8
@@ -35,7 +35,7 @@ define hidden noundef zeroext i1 @_ZNK17JfrStorageControl7to_diskEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17JfrStorageControl11set_to_diskEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((48, 49)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17JfrStorageControl11set_to_diskEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 %3, ptr %4, align 8

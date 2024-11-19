@@ -509,7 +509,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen2hq13HQStreamCodecC2EmNS_18TransportDirectionERNS_10QPACKCodecERN5folly10IOBufQueueES7_NS5_8FunctionIFmvEEERNS_12HTTPSettingsE(ptr noundef nonnull align 16 dereferenceable(536) initializes((0, 17), (24, 32), (48, 50), (56, 64), (72, 73), (80, 81), (88, 104), (144, 176)) %this, i64 noundef %streamId, i8 noundef zeroext %direction, ptr noundef nonnull align 8 dereferenceable(1024) %headerCodec, ptr noundef nonnull align 8 dereferenceable(72) %encoderWriteBuf, ptr noundef nonnull align 8 dereferenceable(72) %decoderWriteBuf, ptr noundef %qpackEncoderMaxData, ptr noundef nonnull align 8 dereferenceable(24) %ingressSettings) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq13HQStreamCodecC2EmNS_18TransportDirectionERNS_10QPACKCodecERN5folly10IOBufQueueES7_NS5_8FunctionIFmvEEERNS_12HTTPSettingsE(ptr noundef nonnull align 16 dereferenceable(536) %this, i64 noundef %streamId, i8 noundef zeroext %direction, ptr noundef nonnull align 8 dereferenceable(1024) %headerCodec, ptr noundef nonnull align 8 dereferenceable(72) %encoderWriteBuf, ptr noundef nonnull align 8 dereferenceable(72) %decoderWriteBuf, ptr noundef %qpackEncoderMaxData, ptr noundef nonnull align 8 dereferenceable(24) %ingressSettings) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp8 = alloca %"class.google::LogMessage", align 8
   %streamId_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -752,7 +752,7 @@ _ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev.exit: ; p
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen2hq13HQStreamCodecD2Ev(ptr noundef nonnull align 16 dereferenceable(536) initializes((0, 8), (160, 168)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq13HQStreamCodecD2Ev(ptr noundef nonnull align 16 dereferenceable(536) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen2hq13HQStreamCodecE, i64 16), ptr %this, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 160
@@ -843,7 +843,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen2hq13HQStreamCodec17checkFrameAllowedENS0_9FrameTypeE(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 initializes((0, 1), (8, 9)) %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(536) %this, i64 noundef %type) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq13HQStreamCodec17checkFrameAllowedENS0_9FrameTypeE(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(536) %this, i64 noundef %type) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %isConnect_ = getelementptr inbounds i8, ptr %this, i64 452
   %0 = load i8, ptr %isConnect_, align 4
@@ -3548,7 +3548,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK8proxygen2hq13HQStreamCodec18getCompressionInfoEv(ptr noalias nocapture writeonly sret(%"struct.proxygen::CompressionInfo") align 4 initializes((0, 56)) %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(536) %this) unnamed_addr #12 align 2 {
+define void @_ZNK8proxygen2hq13HQStreamCodec18getCompressionInfoEv(ptr noalias nocapture writeonly sret(%"struct.proxygen::CompressionInfo") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(536) %this) unnamed_addr #12 align 2 {
 entry:
   %headerCodec_ = getelementptr inbounds i8, ptr %this, i64 352
   %0 = load ptr, ptr %headerCodec_, align 16

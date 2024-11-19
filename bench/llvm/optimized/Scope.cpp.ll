@@ -50,7 +50,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.40 = private unnamed_addr constant [21 x i8] c"NRVO is not allowed\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang5Scope8setFlagsEPS0_j(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 14), (16, 22), (24, 80)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang5Scope8setFlagsEPS0_j(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8
@@ -305,7 +305,7 @@ _ZN5clang5Scope25incrementMSManglingNumberEv.exit: ; preds = %115, %104, %112, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5Scope4InitEPS0_j(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 14), (16, 22), (24, 80)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang5Scope4InitEPS0_j(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   tail call void @_ZN5clang5Scope8setFlagsEPS0_j(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1, i32 noundef %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88

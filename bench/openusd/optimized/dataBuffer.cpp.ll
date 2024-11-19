@@ -17,7 +17,7 @@ $_ZNSt5dequeISt10unique_ptrIA_hSt14default_deleteIS1_EESaIS4_EE17_M_reallocate_m
 @.str = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15TraceDataBuffer9Allocator13AllocateBlockEmm(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 16)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15TraceDataBuffer9Allocator13AllocateBlockEmm(ptr noundef nonnull align 8 dereferenceable(104) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = icmp ugt i64 %1, 16
   %6 = select i1 %5, i64 %1, i64 0

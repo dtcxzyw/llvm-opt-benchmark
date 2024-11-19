@@ -58,7 +58,7 @@ $_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll = comdat any
 @_ZN5ceres8internal10CudaVectorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal10CudaVectorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal10CudaVectorC2EPNS0_11ContextImplEi(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4), (8, 40)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal10CudaVectorC2EPNS0_11ContextImplEi(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -245,7 +245,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5ceres8internal10CudaVectorC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 4), (8, 48)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN5ceres8internal10CudaVectorC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 align 2 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

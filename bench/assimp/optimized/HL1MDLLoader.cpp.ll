@@ -341,7 +341,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3MDL8HalfLife12HL1MDLLoaderC2EP7aiScenePNS_8IOSystemEPKhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_17HL1ImportSettingsE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 84), (88, 112)) %this, ptr noundef %scene, ptr noundef %io, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(32) %file_path, ptr noundef nonnull align 1 dereferenceable(10) %import_settings) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3MDL8HalfLife12HL1MDLLoaderC2EP7aiScenePNS_8IOSystemEPKhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS1_17HL1ImportSettingsE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %scene, ptr noundef %io, ptr noundef %buffer, ptr noundef nonnull align 8 dereferenceable(32) %file_path, ptr noundef nonnull align 1 dereferenceable(10) %import_settings) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %scene, ptr %this, align 8
   %io_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -407,7 +407,7 @@ declare void @_ZN6Assimp3MDL8HalfLife19UniqueNameGeneratorC1Ev(ptr noundef nonnu
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3MDL8HalfLife12HL1MDLLoader9load_fileEv(ptr noundef nonnull align 8 dereferenceable(256) initializes((40, 48)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3MDL8HalfLife12HL1MDLLoader9load_fileEv(ptr noundef nonnull align 8 dereferenceable(256) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %skinMaterialId.i = alloca %struct.aiString, align 4
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15533,7 +15533,7 @@ unreachable:                                      ; preds = %invoke.cont36, %inv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3MDL8HalfLife12HL1MDLLoader12read_textureEPKNS1_11Texture_HL1EPhS6_P9aiTextureR9aiColor3D(ptr nocapture noundef nonnull readnone align 8 dereferenceable(256) %this, ptr nocapture noundef readonly %ptexture, ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %pal, ptr nocapture noundef writeonly initializes((0, 17), (24, 36)) %pResult, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %last_palette_color) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp3MDL8HalfLife12HL1MDLLoader12read_textureEPKNS1_11Texture_HL1EPhS6_P9aiTextureR9aiColor3D(ptr nocapture noundef nonnull readnone align 8 dereferenceable(256) %this, ptr nocapture noundef readonly %ptexture, ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %pal, ptr nocapture noundef writeonly %pResult, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %last_palette_color) local_unnamed_addr #1 align 2 {
 entry:
   %mFilename = getelementptr inbounds i8, ptr %pResult, i64 32
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %ptexture) #27
@@ -17011,7 +17011,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3MDL8HalfLife12HL1MDLLoader25get_num_blend_controllersEiRi(i32 noundef %num_blend_animations, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %num_blend_controllers) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN6Assimp3MDL8HalfLife12HL1MDLLoader25get_num_blend_controllersEiRi(i32 noundef %num_blend_animations, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %num_blend_controllers) local_unnamed_addr #1 align 2 {
 entry:
   %num_blend_animations.addr = alloca i32, align 4
   store i32 %num_blend_animations, ptr %num_blend_animations.addr, align 4

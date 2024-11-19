@@ -2411,7 +2411,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions23getSortedAggregateNamesB5cxx11Ev(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions23getSortedAggregateNamesB5cxx11Ev(ptr noalias sret(%"class.std::vector") align 8 %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::LockedPtr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -2552,7 +2552,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont1, %.noe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9functions20getSortedWindowNamesB5cxx11Ev(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9functions20getSortedWindowNamesB5cxx11Ev(ptr noalias sret(%"class.std::vector") align 8 %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.folly::LockedPtr", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8facebook5velox4exec15windowFunctionsB5cxx11Ev()

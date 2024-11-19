@@ -32,7 +32,7 @@ $_ZTSN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticTypeE = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseC1ENS_6TfEnumEPKcRKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anyb = unnamed_addr alias void (ptr, ptr, i32, ptr, ptr, ptr, ptr, i1), ptr @_ZN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseC2ENS_6TfEnumEPKcRKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anyb
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseC2ENS_6TfEnumEPKcRKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anyb(ptr noundef nonnull align 8 dereferenceable(145) initializes((0, 40)) %0, ptr %1, i32 %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16TfDiagnosticBaseC2ENS_6TfEnumEPKcRKNS_13TfCallContextERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt3anyb(ptr noundef nonnull align 8 dereferenceable(145) %0, ptr %1, i32 %2, ptr noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = zext i1 %7 to i8

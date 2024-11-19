@@ -2028,7 +2028,7 @@ declare void @Gia_ManStaticFanoutStart(ptr noundef) local_unnamed_addr #6
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Kf_ManSaveResults(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readnone %2, ptr nocapture noundef initializes((4, 8)) %3) unnamed_addr #5 {
+define internal fastcc void @Kf_ManSaveResults(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef readnone %2, ptr nocapture noundef %3) unnamed_addr #5 {
   tail call fastcc void @Kf_ManStoreStart(ptr noundef %3, i32 noundef %1)
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph62, label %._crit_edge63
@@ -4088,7 +4088,7 @@ Abc_Clock.exit:                                   ; preds = %556, %571
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Kf_ManStoreStart(ptr nocapture noundef initializes((4, 8)) %0, i32 noundef %1) unnamed_addr #8 {
+define internal fastcc void @Kf_ManStoreStart(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
   %4 = load i32, ptr %0, align 8
@@ -5205,7 +5205,7 @@ Vec_IntPush.exit64:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Kf_ManSetDefaultPars(ptr nocapture noundef writeonly initializes((0, 264)) %0) local_unnamed_addr #12 {
+define void @Kf_ManSetDefaultPars(ptr nocapture noundef writeonly %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 248, i1 false)
   store i32 6, ptr %0, align 8

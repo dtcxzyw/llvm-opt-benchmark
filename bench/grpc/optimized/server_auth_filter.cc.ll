@@ -1169,7 +1169,7 @@ ehcleanup51:                                      ; preds = %lpad, %_ZN9grpc_cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9grpc_core16ServerAuthFilter18RunApplicationCodeclEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll") align 8 initializes((0, 1)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16ServerAuthFilter18RunApplicationCodeclEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %done = getelementptr inbounds i8, ptr %0, i64 56
@@ -1467,7 +1467,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 declare void @_Z36grpc_server_security_context_destroyPv(ptr noundef) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core16ServerAuthFilterC2ENS_13RefCountedPtrI23grpc_server_credentialsEENS1_I17grpc_auth_contextEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr nocapture noundef readonly %server_credentials, ptr nocapture noundef readonly %auth_context) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16ServerAuthFilterC2ENS_13RefCountedPtrI23grpc_server_credentialsEENS1_I17grpc_auth_contextEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %server_credentials, ptr nocapture noundef readonly %auth_context) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %event_engine_.i.i = getelementptr inbounds i8, ptr %this, i64 8

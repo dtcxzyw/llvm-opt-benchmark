@@ -143,7 +143,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib7Romania7BVBImplEEE = comdat any
 @_ZN8QuantLib7RomaniaC1ENS0_6MarketE = unnamed_addr alias void (ptr, i32), ptr @_ZN8QuantLib7RomaniaC2ENS0_6MarketE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib7RomaniaC2ENS0_6MarketE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, i32 noundef %market) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib7RomaniaC2ENS0_6MarketE(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %market) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.0", align 8
   %ref.tmp6 = alloca %"class.boost::shared_ptr.1", align 8

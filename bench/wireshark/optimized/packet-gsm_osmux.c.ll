@@ -814,7 +814,7 @@ declare ptr @proto_tree_add_bitmask(ptr noundef, ptr noundef, i32 noundef, i32 n
 declare ptr @proto_tree_add_item_ret_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @finish_process_pkt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((24, 32)) %3) unnamed_addr #0 {
+define internal fastcc void @finish_process_pkt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.osmux_stream_key, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 17
   %7 = load i8, ptr %6, align 1
@@ -994,7 +994,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @wmem_map_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @stream_hash_clean_stats(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 48)) %1, ptr nocapture readnone %2) #5 {
+define internal void @stream_hash_clean_stats(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #5 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, i8 0, i64 40, i1 false)
   ret void

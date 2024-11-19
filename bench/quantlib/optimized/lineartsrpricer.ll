@@ -2518,7 +2518,7 @@ _ZN8QuantLib6HandleINS_27SwaptionVolatilityStructureEED2Ev.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15LinearTsrPricerC1ERKNS_6HandleINS_27SwaptionVolatilityStructureEEENS1_INS_5QuoteEEENS1_INS_18YieldTermStructureEEERKNS0_8SettingsEN5boost10shared_ptrINS_10IntegratorEEE(ptr noundef nonnull align 8 dereferenceable(360) initializes((360, 368), (376, 380), (384, 392)) %this, ptr noundef nonnull align 8 dereferenceable(16) %swaptionVol, ptr nocapture noundef %meanReversion, ptr nocapture noundef %couponDiscountCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %settings, ptr nocapture noundef %integrator) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15LinearTsrPricerC1ERKNS_6HandleINS_27SwaptionVolatilityStructureEEENS1_INS_5QuoteEEENS1_INS_18YieldTermStructureEEERKNS0_8SettingsEN5boost10shared_ptrINS_10IntegratorEEE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef nonnull align 8 dereferenceable(16) %swaptionVol, ptr nocapture noundef %meanReversion, ptr nocapture noundef %couponDiscountCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %settings, ptr nocapture noundef %integrator) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i33 = alloca %"class.boost::shared_ptr.64", align 8
   %ref.tmp.i = alloca %"class.boost::shared_ptr.64", align 8
@@ -3748,7 +3748,7 @@ _ZNK5boost10shared_ptrIN8QuantLib12SmileSectionEEptEv.exit: ; preds = %entry, %c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15LinearTsrPricer10initializeERKNS_18FloatingRateCouponE(ptr noundef nonnull align 8 dereferenceable(360) initializes((112, 120)) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15LinearTsrPricer10initializeERKNS_18FloatingRateCouponE(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8

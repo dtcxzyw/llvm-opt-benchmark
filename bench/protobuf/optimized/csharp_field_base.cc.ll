@@ -3554,7 +3554,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
 declare void @_ZN6google8protobuf8compiler6csharp19SourceGeneratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler6csharp18FieldGeneratorBaseE, i64 16), ptr %this, align 8
   %variables_ = getelementptr inbounds i8, ptr %this, i64 32

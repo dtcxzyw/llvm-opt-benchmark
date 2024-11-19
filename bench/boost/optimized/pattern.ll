@@ -1657,7 +1657,7 @@ declare void @_ZN5boost4urls20make_pct_string_viewENS_4core17basic_string_viewIc
 declare void @_ZN5boost4urls8url_base4op_tD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost4urls6detail13parse_patternENS_4core17basic_string_viewIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::system::result.50") align 8 initializes((0, 24), (136, 140)) %0, ptr %1, i64 %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls6detail13parse_patternENS_4core17basic_string_viewIcEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::system::result.50") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.boost::system::result.50", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)

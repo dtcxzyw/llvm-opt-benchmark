@@ -75,7 +75,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN75_$LT$usize$u
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef align 8 dereferenceable(1000) %1) unnamed_addr #2 {
+define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.8018463459433534105"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(1000) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 992
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp ugt i64 %4, 984
@@ -246,7 +246,7 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit: ; preds = %4
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$3new17heecbac58b6443cc6E.llvm.8018463459433534105"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1000 x i8]) align 8 dereferenceable(1000) initializes((0, 1), (992, 1000)) %0) unnamed_addr #4 {
+define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$3new17heecbac58b6443cc6E.llvm.8018463459433534105"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1000 x i8]) align 8 dereferenceable(1000) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 992
   store i64 0, ptr %2, align 8
   store i8 0, ptr %0, align 8
@@ -254,7 +254,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$3new17heecbac58b6443cc6E.llv
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(1000) %1) unnamed_addr #2 {
+define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h2f30d8a9bb127a1cE.llvm.8018463459433534105"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(1000) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 992
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp ugt i64 %4, 984

@@ -893,7 +893,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucol_getRules_75(ptr noundef %coll, ptr nocapture noundef writeonly initializes((0, 4)) %length) local_unnamed_addr #0 {
+define ptr @ucol_getRules_75(ptr noundef %coll, ptr nocapture noundef writeonly %length) local_unnamed_addr #0 {
 entry:
   %0 = icmp ne ptr %coll, null
   tail call void @llvm.assume(i1 %0)

@@ -60,7 +60,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef i32 @vfprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @walker_targets_stdin(ptr nocapture noundef initializes((0, 8)) %target, ptr nocapture noundef initializes((0, 8)) %write_ref) local_unnamed_addr #2 {
+define dso_local i32 @walker_targets_stdin(ptr nocapture noundef %target, ptr nocapture noundef %write_ref) local_unnamed_addr #2 {
 entry:
   %buf = alloca %struct.strbuf, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %buf, ptr noundef nonnull align 8 dereferenceable(24) @__const.walker_fetch.err, i64 24, i1 false)

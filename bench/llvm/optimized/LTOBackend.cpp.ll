@@ -1155,7 +1155,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1368) initializes((1056, 1057)) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3lto6Config12addSaveTempsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbRKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS9_vEEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i44 = alloca { i64, i64 }, align 8
   %6 = alloca %"class.std::function.52", align 8
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
@@ -3562,7 +3562,7 @@ declare void @_ZN4llvm20embedBitcodeInModuleERNS_6ModuleENS_15MemoryBufferRefEbb
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3lto27finalizeOptimizationRemarksESt10unique_ptrINS_14ToolOutputFileESt14default_deleteIS2_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm3lto27finalizeOptimizationRemarksESt10unique_ptrINS_14ToolOutputFileESt14default_deleteIS2_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %4
@@ -3607,7 +3607,7 @@ define linkonce_odr hidden void @_ZN4llvm11raw_ostream5flushEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3lto7backendERKNS0_6ConfigESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS7_EEEEjRKNS_5TwineEEEjRNS_6ModuleERNS_18ModuleSummaryIndexE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef nonnull align 8 dereferenceable(488) %5) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm3lto7backendERKNS0_6ConfigESt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS7_EEEEjRKNS_5TwineEEEjRNS_6ModuleERNS_18ModuleSummaryIndexE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(857) %4, ptr noundef nonnull align 8 dereferenceable(488) %5) local_unnamed_addr #0 {
   %7 = alloca %"class.llvm::StdThreadPool", align 8
   %8 = alloca i32, align 4
   %9 = alloca ptr, align 8
@@ -3781,7 +3781,7 @@ _ZN4llvm8ExpectedIPKNS_6TargetEED2Ev.exit:        ; preds = %_ZN4llvm12ErrorSucc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19initAndLookupTargetRKN4llvm3lto6ConfigERNS_6ModuleE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef nonnull align 8 dereferenceable(857) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL19initAndLookupTargetRKN4llvm3lto6ConfigERNS_6ModuleE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(1368) %1, ptr noundef nonnull align 8 dereferenceable(857) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5445,7 +5445,7 @@ _ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_.exit: ; preds = %3, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm3lto11thinBackendERKNS0_6ConfigEjSt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS7_EEEEjRKNS_5TwineEEERNS_6ModuleERKNS_18ModuleSummaryIndexERKNS_16FunctionImporter11ImportMapTyERKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSS_EEEEPNS_9MapVectorINS_9StringRefENS_13BitcodeModuleENSQ_IS12_jNST_IS12_vEENSW_IS12_jEEEENS_11SmallVectorISt4pairIS12_S13_ELj0EEEEERKSt6vectorIhSaIhEEENK3$_1clESI_PNS_13TargetMachineES6_INS_14ToolOutputFileES8_IS1L_EE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN4llvm3lto11thinBackendERKNS0_6ConfigEjSt8functionIFNS_8ExpectedISt10unique_ptrINS_16CachedFileStreamESt14default_deleteIS7_EEEEjRKNS_5TwineEEERNS_6ModuleERKNS_18ModuleSummaryIndexERKNS_16FunctionImporter11ImportMapTyERKNS_8DenseMapImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSS_EEEEPNS_9MapVectorINS_9StringRefENS_13BitcodeModuleENSQ_IS12_jNST_IS12_vEENSW_IS12_jEEEENS_11SmallVectorISt4pairIS12_S13_ELj0EEEEERKSt6vectorIhSaIhEEENK3$_1clESI_PNS_13TargetMachineES6_INS_14ToolOutputFileES8_IS1L_EE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(857) %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::function.187", align 8
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8

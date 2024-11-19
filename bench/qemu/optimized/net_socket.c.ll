@@ -1009,7 +1009,7 @@ declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unna
 declare void @qemu_set_fd_handler(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @net_socket_writable(ptr noundef initializes((70081, 70082)) %opaque) #0 {
+define internal void @net_socket_writable(ptr noundef %opaque) #0 {
 entry:
   %write_poll.i = getelementptr inbounds i8, ptr %opaque, i64 70081
   store i8 0, ptr %write_poll.i, align 1
@@ -1066,7 +1066,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @socket_set_nodelay(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @net_socket_connect(ptr noundef initializes((70072, 70081)) %opaque) #0 {
+define internal void @net_socket_connect(ptr noundef %opaque) #0 {
 entry:
   %send_fn = getelementptr inbounds i8, ptr %opaque, i64 70072
   store ptr @net_socket_send, ptr %send_fn, align 8

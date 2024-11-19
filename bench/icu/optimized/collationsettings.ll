@@ -18,7 +18,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7517CollationSettingsD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7517CollationSettingsD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517CollationSettingsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(852) initializes((0, 44), (48, 60), (64, 84)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(852) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517CollationSettingsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(852) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(852) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %errorCode = alloca i32, align 4
   %softRefCount.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -234,7 +234,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7517CollationSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(852) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517CollationSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(852) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CollationSettingsE, i64 16), ptr %this, align 8
   %reorderCodesCapacity = getelementptr inbounds i8, ptr %this, i64 76
@@ -387,7 +387,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7517CollationSettings15resetReorderingEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(852) initializes((32, 44), (56, 60), (72, 76)) %this) local_unnamed_addr #8 align 2 {
+define void @_ZN6icu_7517CollationSettings15resetReorderingEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(852) %this) local_unnamed_addr #8 align 2 {
 entry:
   %reorderTable = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %reorderTable, align 8

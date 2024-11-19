@@ -63,7 +63,7 @@ $_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_9MCSectionESt6vectorINS_16MachObjectWr
 @.str.16 = private unnamed_addr constant [46 x i8] c") into 24 bits of scattered relocation entry.\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm25createX86MachObjectWriterEbjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm25createX86MachObjectWriterEbjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_119X86MachObjectWriterESt14default_deleteIS1_EED2Ev.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #14, !noalias !4
   tail call void @_ZN4llvm24MCMachObjectTargetWriterC2Ebjj(ptr noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) #15, !noalias !4

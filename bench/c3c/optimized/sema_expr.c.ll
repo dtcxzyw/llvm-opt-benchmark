@@ -1030,7 +1030,7 @@ define dso_local noundef zeroext i1 @sema_analyse_ct_expr(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 105) i32 @sema_splitpathref(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 105) i32 @sema_splitpathref(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
@@ -10046,7 +10046,7 @@ define dso_local noundef zeroext i1 @sema_expr_check_discard(ptr nocapture nound
 declare zeroext i1 @sema_expr_analyse_initializer_list(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_expr_analyse_expr_block(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8), (32, 40)) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_expr_analyse_expr_block(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.DynamicScope_, align 8
   %5 = load ptr, ptr @type_void, align 8
   store ptr %5, ptr %2, align 8
@@ -12144,7 +12144,7 @@ declare ptr @path_create_from_string(ptr noundef, i32 noundef, i64) local_unname
 declare ptr @symtab_find(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sema_insert_method_call(ptr noundef %0, ptr nocapture noundef initializes((0, 8), (16, 18), (24, 34), (40, 56)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @sema_insert_method_call(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr @decl_arena, align 8
   %7 = ptrtoint ptr %2 to i64
   %8 = ptrtoint ptr %6 to i64
@@ -27203,7 +27203,7 @@ declare void @int_add(ptr dead_on_unwind writable sret(%struct.Int) align 8, ptr
 declare { double, i32 } @float_add(double, i32, double, i32) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expr_binary_unify_failability(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr %.0.val, ptr readonly %.0.val1) unnamed_addr #0 {
+define internal fastcc void @expr_binary_unify_failability(ptr nocapture noundef writeonly %0, ptr %.0.val, ptr readonly %.0.val1) unnamed_addr #0 {
   %.not = icmp eq ptr %.0.val1, null
   br i1 %.not, label %.critedge, label %2
 
@@ -30446,7 +30446,7 @@ declare ptr @type_base_module(ptr noundef) local_unnamed_addr #1
 declare ptr @decl_find_enum_constant(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sema_expr_rewrite_typeid_kind(ptr nocapture noundef initializes((0, 8), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @sema_expr_rewrite_typeid_kind(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @kw_std__core__types, align 8
   %4 = tail call ptr @global_context_find_module(ptr noundef %3) #12
   %.not = icmp eq ptr %4, null

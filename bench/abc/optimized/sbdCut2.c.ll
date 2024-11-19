@@ -416,7 +416,7 @@ Vec_IntDrop.exit.i:                               ; preds = %.lr.ph.i69.i, %56
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Sbd_ManCutReload(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef initializes((4, 8)) %4, ptr nocapture noundef initializes((4, 8)) %5) local_unnamed_addr #0 {
+define void @Sbd_ManCutReload(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %7, align 4
   %8 = getelementptr inbounds i8, ptr %5, i64 4

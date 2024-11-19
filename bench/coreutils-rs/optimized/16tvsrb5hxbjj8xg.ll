@@ -225,7 +225,7 @@ define hidden noundef ptr @_ZN3std2io5Write9write_fmt17hefbd6275f8b00a75E(ptr no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h837a77a7daf3a707E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i8, [7 x i8], ptr }) align 8 dereferenceable(40) initializes((0, 25), (32, 40)) %0, i64 noundef %1, ptr noundef nonnull align 8 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h837a77a7daf3a707E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i8, [7 x i8], ptr }) align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h4f56f1cd31108130E"(i64 noundef %1, i1 noundef zeroext false)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -435,7 +435,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %24
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hf53527277d338eb9E.llvm.10078391086421553218"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hf53527277d338eb9E.llvm.10078391086421553218"(ptr noundef nonnull writeonly align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %.not.i.i = icmp eq ptr %1, null

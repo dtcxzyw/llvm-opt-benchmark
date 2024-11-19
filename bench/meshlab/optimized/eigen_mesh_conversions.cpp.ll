@@ -15434,7 +15434,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_4face10vector_ocfI6CFaceOEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab12vertexMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab12vertexMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri24RequireVertexCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   %2 = getelementptr inbounds i8, ptr %1, i64 264
@@ -15654,7 +15654,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab23transformedVertexMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab23transformedVertexMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i.i:
   %2 = alloca %"class.vcg::Point3", align 8
   tail call void @_ZN3vcg3tri24RequireVertexCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
@@ -19159,7 +19159,7 @@ _ZNSt7__cxx114listIN5Eigen6MatrixIjLin1ELi1ELi0ELin1ELi1EEESaIS3_EE14_M_create_n
 declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab18vertexNormalMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab18vertexNormalMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri24RequireVertexCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   %2 = getelementptr inbounds i8, ptr %1, i64 264
@@ -19662,7 +19662,7 @@ _ZN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEC2IiiEERKT_RKT0_.exit._crit_edge: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab27transformedFaceNormalMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab27transformedFaceNormalMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri22RequireFaceCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   %2 = getelementptr inbounds i8, ptr %1, i64 584
@@ -19722,7 +19722,7 @@ _ZN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEC2IiiEERKT_RKT0_.exit._crit_edge: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab17vertexColorMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.120") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab17vertexColorMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.120") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi4ELi0ELin1ELi4EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri24RequireVertexCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   %2 = getelementptr inbounds i8, ptr %1, i64 264
@@ -19831,7 +19831,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIfLin1ELin1ELi4ELi0EE6resizeEll
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab15faceColorMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.120") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab15faceColorMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.120") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi4ELi0ELin1ELi4EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri22RequireFaceCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   tail call void @_ZN3vcg3tri19RequirePerFaceColorI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
@@ -19957,7 +19957,7 @@ define linkonce_odr void @_ZN3vcg3tri19RequirePerFaceColorI6CMeshOEEvRKT_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab16vertexColorArrayERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.434") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab16vertexColorArrayERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.434") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3vcg3tri24RequireVertexCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 264
   %4 = load i32, ptr %3, align 8
@@ -20017,7 +20017,7 @@ _ZN5Eigen6MatrixIjLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit._crit_edge: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab14faceColorArrayERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.434") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab14faceColorArrayERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.434") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3vcg3tri22RequireFaceCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   tail call void @_ZN3vcg3tri19RequirePerFaceColorI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 584
@@ -20087,7 +20087,7 @@ _ZN5Eigen6MatrixIjLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit._crit_edge: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab18vertexQualityArrayERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.111") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab18vertexQualityArrayERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.111") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3vcg3tri24RequireVertexCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 264
   %4 = load i32, ptr %3, align 8
@@ -20176,7 +20176,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIfLin1ELin1ELi1ELi0EE6resizeEll
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab16faceQualityArrayERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.111") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab16faceQualityArrayERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.111") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3vcg3tri22RequireFaceCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   tail call void @_ZN3vcg3tri21RequirePerFaceQualityI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 584
@@ -20283,7 +20283,7 @@ define linkonce_odr void @_ZN3vcg3tri21RequirePerFaceQualityI6CMeshOEEvRKT_(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab20vertexTexCoordMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.129") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab20vertexTexCoordMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.129") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi2ELi0ELin1ELi2EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri24RequireVertexCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   tail call void @_ZN3vcg3tri24RequirePerVertexTexCoordI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
@@ -20460,7 +20460,7 @@ define linkonce_odr void @_ZN5Eigen12DenseStorageIfLin1ELin1ELi2ELi0EE6resizeEll
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab19wedgeTexCoordMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.129") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab19wedgeTexCoordMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.129") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi2ELi0ELin1ELi2EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri22RequireFaceCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   tail call void @_ZN3vcg3tri27RequirePerFaceWedgeTexCoordI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
@@ -20601,7 +20601,7 @@ define linkonce_odr void @_ZN3vcg3tri27RequirePerFaceWedgeTexCoordI6CMeshOEEvRKT
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab20vertexSelectionArrayERK6CMeshO(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix.621") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab20vertexSelectionArrayERK6CMeshO(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix.621") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3vcg3tri24RequireVertexCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 264
   %4 = load i32, ptr %3, align 8
@@ -20654,7 +20654,7 @@ define void @_ZN7meshlab20vertexSelectionArrayERK6CMeshO(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab18faceSelectionArrayERK6CMeshO(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix.621") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab18faceSelectionArrayERK6CMeshO(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix.621") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3vcg3tri24RequireVertexCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 584
   %4 = load i32, ptr %3, align 8
@@ -20707,7 +20707,7 @@ define void @_ZN7meshlab18faceSelectionArrayERK6CMeshO(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab24vertexCurvaturePD1MatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab24vertexCurvaturePD1MatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri24RequireVertexCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   tail call void @_ZN3vcg3tri28RequirePerVertexCurvatureDirI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
@@ -20832,7 +20832,7 @@ define linkonce_odr void @_ZN3vcg3tri28RequirePerVertexCurvatureDirI6CMeshOEEvRK
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab24vertexCurvaturePD2MatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab24vertexCurvaturePD2MatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri24RequireVertexCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   tail call void @_ZN3vcg3tri28RequirePerVertexCurvatureDirI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
@@ -20905,7 +20905,7 @@ _ZN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEC2IiiEERKT_RKT0_.exit._crit_edge: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab22faceCurvaturePD1MatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab22faceCurvaturePD1MatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri22RequireFaceCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   tail call void @_ZN3vcg3tri26RequirePerFaceCurvatureDirI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
@@ -21028,7 +21028,7 @@ define linkonce_odr void @_ZN3vcg3tri26RequirePerFaceCurvatureDirI6CMeshOEEvRKT_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab22faceCurvaturePD2MatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab22faceCurvaturePD2MatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIfLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri22RequireFaceCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   tail call void @_ZN3vcg3tri26RequirePerFaceCurvatureDirI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
@@ -21098,7 +21098,7 @@ _ZN5Eigen6MatrixIfLin1ELi3ELi0ELin1ELi3EEC2IiiEERKT_RKT0_.exit._crit_edge: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7meshlab23faceFaceAdjacencyMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.155") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7meshlab23faceFaceAdjacencyMatrixERK6CMeshO(ptr dead_on_unwind noalias writable sret(%"class.Eigen::Matrix.155") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi3ELi0ELin1ELi3EEEE6resizeEll.exit.i.i:
   tail call void @_ZN3vcg3tri22RequireFaceCompactnessI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)
   tail call void @_ZN3vcg3tri18RequireFFAdjacencyI6CMeshOEEvRKT_(ptr noundef nonnull align 8 dereferenceable(1196) %1)

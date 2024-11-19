@@ -1137,7 +1137,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Sdm_ManPrecomputePerms(ptr noundef initializes((0, 8), (32, 40)) %0) local_unnamed_addr #2 {
+define void @Sdm_ManPrecomputePerms(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = tail call i32 @Extra_Factorial(i32 noundef 6) #24
@@ -1972,7 +1972,7 @@ define ptr @Sdm_ManReadDsdStr(ptr nocapture noundef readonly %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Sdm_ManReadCnfCosts(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef %2) local_unnamed_addr #9 {
+define void @Sdm_ManReadCnfCosts(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %4, align 4
   store i32 0, ptr %1, align 4

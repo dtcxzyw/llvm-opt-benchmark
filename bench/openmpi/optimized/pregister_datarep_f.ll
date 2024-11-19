@@ -48,7 +48,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MPI_Register_datarep_f08 = weak alias void (ptr, ptr, ptr, ptr, ptr, ptr, i32), ptr @ompi_register_datarep_f
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @intercept_extra_state_constructor(ptr nocapture noundef writeonly initializes((40, 72)) %0) #0 {
+define internal void @intercept_extra_state_constructor(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void

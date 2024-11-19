@@ -284,7 +284,7 @@ _ZN17LogStreamImplBase10LineBuffer14try_ensure_capEm.exit.thread9: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN17LogStreamImplBase10LineBuffer5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN17LogStreamImplBase10LineBuffer5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64

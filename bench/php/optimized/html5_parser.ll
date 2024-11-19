@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lxb_dom_document_type_name.lxb_empty = internal constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_libxml2_bridge_parse_context_init(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #0 {
+define hidden void @lexbor_libxml2_bridge_parse_context_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -22,7 +22,7 @@ define hidden void @lexbor_libxml2_bridge_parse_context_init(ptr nocapture nound
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -547,7 +547,7 @@ lexbor_array_obj_get.exit39.thread:               ; preds = %lexbor_array_obj_ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @lexbor_libxml2_bridge_copy_observations(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 3)) %1) local_unnamed_addr #4 {
+define hidden void @lexbor_libxml2_bridge_copy_observations(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 83
   %4 = load i8, ptr %3, align 1
   %5 = and i8 %4, 1

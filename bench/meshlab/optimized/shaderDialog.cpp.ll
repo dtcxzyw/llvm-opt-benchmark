@@ -6522,7 +6522,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P6QLabelESt10_Select1stIS5_ESt4lessIS0_ESaIS5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12ShaderDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12ShaderDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12ShaderDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV12ShaderDialog, i64 448), ptr %2, align 8
@@ -8410,7 +8410,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_P7QSliderESt10_Select1stIS5_ESt4lessIS0_ESaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ShaderDialog12setColorModeEi(ptr nocapture noundef nonnull align 8 dereferenceable(408) initializes((56, 57)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN12ShaderDialog12setColorModeEi(ptr nocapture noundef nonnull align 8 dereferenceable(408) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = icmp eq i32 %1, 2
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = zext i1 %3 to i8

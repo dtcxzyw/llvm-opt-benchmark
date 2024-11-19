@@ -98,14 +98,14 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [34 x i8] c"pmix:query local release callback\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @qlcon(ptr nocapture noundef writeonly initializes((904, 960)) %0) #0 {
+define internal void @qlcon(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 904
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @qldes(ptr nocapture noundef initializes((904, 944)) %0) #1 {
+define internal void @qldes(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -1786,7 +1786,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %10, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @qinfocb(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((476, 480)) %3, ptr noundef readonly %4, ptr noundef %5) #1 {
+define internal void @qinfocb(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #1 {
   %7 = getelementptr inbounds i8, ptr %3, i64 476
   store i32 %0, ptr %7, align 4
   %.not = icmp eq ptr %1, null
@@ -1977,7 +1977,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %48, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_query_local_resolve_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((944, 960)) %3, ptr noundef readonly %4, ptr noundef %5) #1 {
+define void @pmix_query_local_resolve_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #1 {
   %7 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 392), align 8
   %or.cond = icmp ult i32 %7, 64
   br i1 %or.cond, label %8, label %18

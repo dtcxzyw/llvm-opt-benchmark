@@ -2046,7 +2046,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MDLImporter23ParseSkinLump_3DGS_MDL7EPKhPS2_RSt6vectorIP10aiMaterialSaIS6_EE(ptr noundef nonnull align 8 dereferenceable(158) %this, ptr noundef %szCurrent, ptr nocapture noundef writeonly initializes((0, 8)) %szCurrentOut, ptr nocapture noundef nonnull align 8 dereferenceable(24) %pcMats) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11MDLImporter23ParseSkinLump_3DGS_MDL7EPKhPS2_RSt6vectorIP10aiMaterialSaIS6_EE(ptr noundef nonnull align 8 dereferenceable(158) %this, ptr noundef %szCurrent, ptr nocapture noundef writeonly %szCurrentOut, ptr nocapture noundef nonnull align 8 dereferenceable(24) %pcMats) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %szFile = alloca %struct.aiString, align 4
   store ptr %szCurrent, ptr %szCurrentOut, align 8

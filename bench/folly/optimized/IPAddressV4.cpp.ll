@@ -6162,14 +6162,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly11IPAddressV4C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this) unnamed_addr #25 align 2 {
+define void @_ZN5folly11IPAddressV4C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this) unnamed_addr #25 align 2 {
 entry:
   store i32 0, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly11IPAddressV4C2ERKSt5arrayIhLm4EE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %src) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11IPAddressV4C2ERKSt5arrayIhLm4EE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(4) %src) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.0.0.copyload = load i32, ptr %src, align 1, !tbaa !7
   store i32 %agg.tmp.sroa.0.0.copyload, ptr %this, align 4, !tbaa !7
@@ -6177,7 +6177,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11IPAddressV4C2ENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr %addr.coerce0, ptr %addr.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11IPAddressV4C2ENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr %addr.coerce0, ptr %addr.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %addr = alloca %"class.folly::Range", align 8
@@ -6388,7 +6388,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly11IPAddressV4C2E7in_addr(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 %src.coerce) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11IPAddressV4C2E7in_addr(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 %src.coerce) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %src.coerce, ptr %this, align 4, !tbaa !63
   ret void

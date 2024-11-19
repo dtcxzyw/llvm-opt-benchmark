@@ -54,7 +54,7 @@ $_ZTVN3url15RawCanonOutputTIcLi1024EEE = comdat any
 @_ZN3url14kHexCharLookupE = external local_unnamed_addr constant [16 x i8], align 16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url21CanonicalizeMailtoURLEPKciRKNS_6ParsedEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef initializes((0, 4), (8, 40), (56, 64)) %new_parsed) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url21CanonicalizeMailtoURLEPKciRKNS_6ParsedEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef %new_parsed) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"struct.url::URLComponentSource", align 8
   store ptr %spec, ptr %ref.tmp, align 8
@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_123DoCanonicalizeMailtoURLIchEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_12CanonOutputTIcEEPS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %source, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef initializes((0, 4), (8, 40), (56, 64)) %new_parsed) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN3url12_GLOBAL__N_123DoCanonicalizeMailtoURLIchEEbRKNS_18URLComponentSourceIT_EERKNS_6ParsedEPNS_12CanonOutputTIcEEPS7_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %source, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef %new_parsed) unnamed_addr #0 {
 entry:
   %ch.i = alloca i32, align 4
   %i = alloca i32, align 4
@@ -274,7 +274,7 @@ if.end31:                                         ; preds = %if.else29, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url21CanonicalizeMailtoURLEPKtiRKNS_6ParsedEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef initializes((0, 4), (8, 40), (56, 64)) %new_parsed) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url21CanonicalizeMailtoURLEPKtiRKNS_6ParsedEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, i32 noundef %spec_len, ptr noundef nonnull align 8 dereferenceable(72) %parsed, ptr noundef %output, ptr noundef %new_parsed) local_unnamed_addr #0 {
 entry:
   %char_value.i.i = alloca i32, align 4
   %i.i = alloca i32, align 4

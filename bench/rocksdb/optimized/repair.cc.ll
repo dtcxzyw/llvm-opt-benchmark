@@ -22414,7 +22414,7 @@ declare void @_ZN7rocksdb10WriteBatchD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN7rocksdb3log6ReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(240)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN7rocksdb12_GLOBAL__N_18Repairer17ConvertLogToTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEN11LogReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb12_GLOBAL__N_18Repairer17ConvertLogToTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEN11LogReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN7rocksdb12_GLOBAL__N_18Repairer17ConvertLogToTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmE11LogReporter, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -22513,7 +22513,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN7rocksdb12_GLOBAL__N_18Repairer17ConvertLogToTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEN11LogReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb12_GLOBAL__N_18Repairer17ConvertLogToTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmEN11LogReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN7rocksdb12_GLOBAL__N_18Repairer17ConvertLogToTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmE11LogReporter, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 24

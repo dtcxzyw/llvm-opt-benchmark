@@ -164,7 +164,7 @@ define dso_local void @rpc_pipefs_notifier_unregister(ptr noundef %0) #0 align 1
 declare dso_local i32 @blocking_notifier_chain_unregister(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @rpc_pipe_generic_upcall(ptr nocapture readnone %0, ptr nocapture noundef initializes((40, 44)) %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local i64 @rpc_pipe_generic_upcall(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2480,7 +2480,7 @@ declare dso_local void @inode_init_once(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @rpc_init_fs_context(ptr nocapture noundef writeonly initializes((0, 8), (72, 80)) %0) #12 align 16 {
+define internal noundef i32 @rpc_init_fs_context(ptr nocapture noundef writeonly %0) #12 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr @init_user_ns, ptr %2, align 8
   store ptr @rpc_fs_context_ops, ptr %0, align 8
@@ -2598,7 +2598,7 @@ declare dso_local void @__put_net(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @get_tree_keyed(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rpc_fill_super(ptr noundef initializes((20, 21), (24, 32), (48, 56), (96, 104), (880, 884), (1016, 1024)) %0, ptr nocapture readnone %1) #0 align 16 {
+define internal i32 @rpc_fill_super(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = alloca %struct.qstr, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 872
   %5 = load ptr, ptr %4, align 8

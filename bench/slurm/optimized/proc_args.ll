@@ -970,7 +970,7 @@ define ptr @mbytes_to_str(i64 noundef %0) local_unnamed_addr #2 {
 declare ptr @xstrdup_printf(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define range(i32 -1, -2147483648) i32 @str_to_nodes(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #6 {
+define range(i32 -1, -2147483648) i32 @str_to_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = call i64 @strtol(ptr noundef %0, ptr noundef nonnull %3, i32 noundef 10) #20
   %5 = load ptr, ptr %3, align 8

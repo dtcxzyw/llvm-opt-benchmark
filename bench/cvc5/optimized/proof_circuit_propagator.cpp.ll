@@ -94,7 +94,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagatorC2EPNS0_16ProofNodeManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %pnm) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagatorC2EPNS0_16ProofNodeManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %pnm) unnamed_addr #3 align 2 {
 entry:
   store ptr %pnm, ptr %this, align 8
   ret void
@@ -2631,7 +2631,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i5, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4cvc58internal6theory8booleans12_GLOBAL__N_117collectButHoldoutENS0_12NodeTemplateILb0EEENS0_4expr9NodeValue8iteratorIS5_EE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly %parent, ptr readnone %holdout.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4cvc58internal6theory8booleans12_GLOBAL__N_117collectButHoldoutENS0_12NodeTemplateILb0EEENS0_4expr9NodeValue8iteratorIS5_EE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %parent, ptr readnone %holdout.coerce) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate.5", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -13959,7 +13959,7 @@ declare noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv() local_unnamed_
 declare void @_ZN4cvc58internal11NodeManager7mkConstIbEENS0_12NodeTemplateILb1EEERKT_(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(3360), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4cvc58internal6theory8booleans30ProofCircuitPropagatorBackwardC2EPNS0_16ProofNodeManagerENS0_12NodeTemplateILb0EEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, ptr noundef %pnm, ptr nocapture noundef readonly %parent, i1 noundef zeroext %parentAssignment) unnamed_addr #8 align 2 {
+define hidden void @_ZN4cvc58internal6theory8booleans30ProofCircuitPropagatorBackwardC2EPNS0_16ProofNodeManagerENS0_12NodeTemplateILb0EEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef %pnm, ptr nocapture noundef readonly %parent, i1 noundef zeroext %parentAssignment) unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %parentAssignment to i8
   store ptr %pnm, ptr %this, align 8
@@ -18308,7 +18308,7 @@ return:                                           ; preds = %if.then13.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory8booleans29ProofCircuitPropagatorForwardC2EPNS0_16ProofNodeManagerENS0_12NodeTemplateILb1EEEbS7_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 17), (24, 32)) %this, ptr noundef %pnm, ptr nocapture noundef readonly %child, i1 noundef zeroext %childAssignment, ptr nocapture noundef readonly %parent) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory8booleans29ProofCircuitPropagatorForwardC2EPNS0_16ProofNodeManagerENS0_12NodeTemplateILb1EEEbS7_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %pnm, ptr nocapture noundef readonly %child, i1 noundef zeroext %childAssignment, ptr nocapture noundef readonly %parent) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %childAssignment to i8
   store ptr %pnm, ptr %this, align 8

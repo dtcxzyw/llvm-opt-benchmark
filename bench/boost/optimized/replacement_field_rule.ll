@@ -167,7 +167,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK5boost4urls6detail24replacement_field_rule_t5parseERPKcS4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::system::result") align 8 initializes((0, 16), (24, 28)) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5boost4urls6detail24replacement_field_rule_t5parseERPKcS4_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::system::result") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::system::result.19", align 8
   %6 = load ptr, ptr %2, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #11

@@ -46,7 +46,7 @@ define zeroext i1 @_ZN4core3cmp9PartialEq2ne17hd018df34799021d6E(ptr align 2 %0,
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h4aef7622a46a1dc9E"(ptr nocapture writeonly sret({ i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }) align 8 initializes((0, 104)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h4aef7622a46a1dc9E"(ptr nocapture writeonly sret({ i64, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i32, [1 x i32] }, align 8
   %.sroa.2 = alloca { { { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } } }, { i64, i64, i64, i64 }, i64, i16, [3 x i16] }, { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, i32, [1 x i32] }, align 8
   %.sroa.0.0.copyload = load i64, ptr %2, align 8
@@ -160,7 +160,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$12split_at_mut17h32cf
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checked17hb8834445ab47b30aE"(ptr nocapture writeonly sret({ ptr, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 2 %1, i64 %2, i64 %3) unnamed_addr #2 {
+define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checked17hb8834445ab47b30aE"(ptr nocapture writeonly sret({ ptr, [3 x i64] }) align 8 %0, ptr align 2 %1, i64 %2, i64 %3) unnamed_addr #2 {
   %.not = icmp ugt i64 %3, %2
   br i1 %.not, label %8, label %5
 
@@ -249,7 +249,7 @@ define zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9bcdba0673c330d3E"(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 2 %1, i64 %2) unnamed_addr #1 {
+define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9bcdba0673c330d3E"(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 %0, ptr nocapture readonly align 2 %1, i64 %2) unnamed_addr #1 {
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hbc1a3bab3fa889faE"(i64 %2, i1 zeroext false)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -294,7 +294,7 @@ define hidden noundef i64 @"_ZN14cranelift_isle10trie_again5build28_$u7b$$u7b$cl
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN14cranelift_isle10trie_again10Constraint12bindings_for28_$u7b$$u7b$closure$u7d$$u7d$17h6c132adcecefe883E"(ptr nocapture writeonly sret({ i8, [47 x i8] }) align 16 initializes((0, 4), (8, 16)) %0, ptr nocapture readonly align 8 %1, i8 %2) unnamed_addr #5 {
+define hidden void @"_ZN14cranelift_isle10trie_again10Constraint12bindings_for28_$u7b$$u7b$closure$u7d$$u7d$17h6c132adcecefe883E"(ptr nocapture writeonly sret({ i8, [47 x i8] }) align 16 %0, ptr nocapture readonly align 8 %1, i8 %2) unnamed_addr #5 {
   %4 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %5 = load i16, ptr %4, align 2, !noundef !3
   %6 = getelementptr inbounds i8, ptr %1, i64 8

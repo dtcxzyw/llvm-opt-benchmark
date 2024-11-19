@@ -329,7 +329,7 @@ entry:
 declare noundef zeroext i1 @_ZNK3nla4core4doneEv(ptr noundef nonnull align 8 dereferenceable(4720)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3nla6common3valEj(ptr noalias sret(%class.rational) align 8 initializes((0, 4), (8, 20), (24, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %t) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK3nla6common3valEj(ptr noalias sret(%class.rational) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %t) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %lra.i = getelementptr inbounds i8, ptr %0, i64 192
@@ -395,7 +395,7 @@ _ZN8rationalC2ERKS_.exit:                         ; preds = %if.then.i.i8.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3nla6common7var_valERKNS_5monicE(ptr noalias sret(%class.rational) align 8 initializes((0, 4), (8, 20), (24, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %m) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK3nla6common7var_valERKNS_5monicE(ptr noalias sret(%class.rational) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %m) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %lra.i = getelementptr inbounds i8, ptr %0, i64 192

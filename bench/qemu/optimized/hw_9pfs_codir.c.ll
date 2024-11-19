@@ -111,7 +111,7 @@ return:                                           ; preds = %entry, %do.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @do_readdir_many(ptr nocapture noundef readonly %pdu, ptr noundef %fidp, ptr nocapture noundef writeonly initializes((0, 8)) %entries, i64 noundef %offset, i32 noundef %maxsize, i1 noundef zeroext %dostat) #0 {
+define internal i32 @do_readdir_many(ptr nocapture noundef readonly %pdu, ptr noundef %fidp, ptr nocapture noundef writeonly %entries, i64 noundef %offset, i32 noundef %maxsize, i1 noundef zeroext %dostat) #0 {
 entry:
   %name = alloca %struct.V9fsString, align 8
   %path = alloca %struct.V9fsPath, align 8

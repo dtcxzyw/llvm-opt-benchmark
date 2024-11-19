@@ -235,7 +235,7 @@ define dso_local noundef i32 @XmlSizeOfUnknownEncoding() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly initializes((0, 456)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define dso_local noundef ptr @XmlInitUnknownEncoding(ptr noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(456) @latin1_encoding, i64 456, i1 false)
   br label %8
 
@@ -5361,7 +5361,7 @@ define internal fastcc range(i32 -2, 14) i32 @normal_scanComment(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @normal_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
   store i32 11, ptr %2, align 4
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -11113,7 +11113,7 @@ unicode_byte_type.exit.thread54:                  ; preds = %22, %26, %unicode_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @little2_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
   store i32 11, ptr %2, align 4
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
@@ -16651,7 +16651,7 @@ unicode_byte_type.exit.thread54:                  ; preds = %22, %25, %unicode_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #9 {
+define internal fastcc range(i32 0, 2) i32 @big2_checkPiTarget(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #9 {
   store i32 11, ptr %2, align 4
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64

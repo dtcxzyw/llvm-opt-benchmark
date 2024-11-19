@@ -41,7 +41,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.filter_object_type_name = private unnamed_addr constant [12 x ptr] [ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @filter_init(ptr noundef initializes((8, 28)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @filter_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
 sub_0:
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

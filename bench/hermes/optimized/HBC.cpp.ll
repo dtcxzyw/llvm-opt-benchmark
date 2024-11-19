@@ -6134,7 +6134,7 @@ _ZN6hermes3hbc15AllocationTableIPNS_8FunctionEED2Ev.exit: ; preds = %_ZN6hermes3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc16generateBytecodeEPNS_6ModuleERN4llvh11raw_ostreamERKNS_25BytecodeGenerationOptionsERKSt5arrayIhLm20EENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS0_14BCProviderBaseESt14default_deleteISI_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %M, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 4 dereferenceable(17) %options, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 %segment.coerce, ptr noundef %sourceMapGen, ptr nocapture noundef %baseBCProvider) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes3hbc16generateBytecodeEPNS_6ModuleERN4llvh11raw_ostreamERKNS_25BytecodeGenerationOptionsERKSt5arrayIhLm20EENS_8OptValueIjEEPNS_18SourceMapGeneratorESt10unique_ptrINS0_14BCProviderBaseESt14default_deleteISI_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %M, ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 4 dereferenceable(17) %options, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 %segment.coerce, ptr noundef %sourceMapGen, ptr nocapture noundef %baseBCProvider) local_unnamed_addr #0 {
 entry:
   %agg.tmp1.i = alloca %"class.std::unique_ptr.2", align 8
   %BM = alloca %"class.std::unique_ptr", align 8

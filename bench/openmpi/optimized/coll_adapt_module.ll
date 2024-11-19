@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @adapt_module_construct(ptr nocapture noundef writeonly initializes((624, 633)) %0) #0 {
+define internal void @adapt_module_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 624
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 632
@@ -307,7 +307,7 @@ declare void @opal_output(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare ptr @ompi_comm_print_cid(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @adapt_module_enable(ptr nocapture noundef writeonly initializes((592, 608)) %0, ptr noundef %1) #1 {
+define internal range(i32 -1, 1) i32 @adapt_module_enable(ptr nocapture noundef writeonly %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 328
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 176

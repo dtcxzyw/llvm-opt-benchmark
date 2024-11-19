@@ -77,7 +77,7 @@ $_ZN9CrowdTool4typeEv = comdat any
 @_ZN9CrowdToolC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN9CrowdToolC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14CrowdToolStateC2Ev(ptr noundef nonnull align 8 dereferenceable(101001) initializes((0, 32), (44, 48)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14CrowdToolStateC2Ev(ptr noundef nonnull align 8 dereferenceable(101001) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV14CrowdToolState, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 44
@@ -149,7 +149,7 @@ declare noundef zeroext i1 @_ZN28dtObstacleAvoidanceDebugData4initEi(ptr noundef
 declare void @_ZN15SampleToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14CrowdToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(101001) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14CrowdToolStateD2Ev(ptr noundef nonnull align 8 dereferenceable(101001) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV14CrowdToolState, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
@@ -183,7 +183,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14CrowdToolStateD0Ev(ptr noundef nonnull align 8 dereferenceable(101001) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14CrowdToolStateD0Ev(ptr noundef nonnull align 8 dereferenceable(101001) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV14CrowdToolState, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
@@ -2007,7 +2007,7 @@ define dso_local void @_ZN14CrowdToolState11removeAgentEi(ptr nocapture noundef 
 declare void @_ZN7dtCrowd11removeAgentEi(ptr noundef nonnull align 8 dereferenceable(5072), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14CrowdToolState12hilightAgentEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(101001) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN14CrowdToolState12hilightAgentEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(101001) %0, i32 noundef %1) local_unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
@@ -2448,7 +2448,7 @@ declare void @_ZN28dtObstacleAvoidanceDebugData16normalizeSamplesEv(ptr noundef 
 declare noundef i32 @_Z15getPerfTimeUsecl(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN9CrowdToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %0) unnamed_addr #12 align 2 {
+define dso_local void @_ZN9CrowdToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0) unnamed_addr #12 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9CrowdTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)

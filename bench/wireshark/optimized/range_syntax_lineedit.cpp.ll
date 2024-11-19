@@ -252,7 +252,7 @@ _ZN7QStringD2Ev.exit16:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19RangeSyntaxLineEdit11setMaxRangeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((188, 192)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN19RangeSyntaxLineEdit11setMaxRangeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 188
   store i32 %1, ptr %3, align 4
   ret void

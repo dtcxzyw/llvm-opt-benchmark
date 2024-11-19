@@ -2029,7 +2029,7 @@ terminate.lpad:                                   ; preds = %if.then2.i6, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12macro_finderC2ER11ast_managerR13macro_manager(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(568) %mm) unnamed_addr #3 align 2 {
+define hidden void @_ZN12macro_finderC2ER11ast_managerR13macro_manager(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(568) %mm) unnamed_addr #3 align 2 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_macro_manager = getelementptr inbounds i8, ptr %this, i64 8

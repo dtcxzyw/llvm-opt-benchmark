@@ -65,7 +65,7 @@ define internal range(i32 0, 57) i32 @rpm_bidder_bid(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @rpm_bidder_init(ptr nocapture noundef initializes((48, 60)) %0) #0 {
+define internal range(i32 -30, 1) i32 @rpm_bidder_init(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 8, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -100,7 +100,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @archive_set_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal i64 @rpm_filter_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i64, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8

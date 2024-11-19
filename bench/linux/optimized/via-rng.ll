@@ -233,7 +233,7 @@ define internal range(i32 0, 2) i32 @via_rng_data_present(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @via_rng_data_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #5 align 16 {
+define internal noundef i32 @via_rng_data_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32

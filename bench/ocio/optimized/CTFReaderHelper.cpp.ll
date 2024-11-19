@@ -3398,7 +3398,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev21XmlReaderContainerEltELN9__gnu_cxx12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderArrayEltD2Ev(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 8), (96, 104)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderArrayEltD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_array = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %m_array, align 8
@@ -3482,7 +3482,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderArrayEltD0Ev(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 8), (96, 104)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderArrayEltD0Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_array.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %m_array.i, align 8
@@ -5366,7 +5366,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11CTFArrayMgtC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this) unnamed_addr #12 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11CTFArrayMgtC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this) unnamed_addr #12 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev11CTFArrayMgtE, i64 16), ptr %this, align 8
   %m_completed = getelementptr inbounds i8, ptr %this, i64 8
@@ -5537,7 +5537,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderIndexMapEltD2Ev(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 8), (96, 104)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderIndexMapEltD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_indexMap = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %m_indexMap, align 8
@@ -5621,7 +5621,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderIndexMapEltD0Ev(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 8), (96, 104)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderIndexMapEltD0Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_indexMap.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %m_indexMap.i, align 8
@@ -6965,7 +6965,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 declare void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderMetadataEltD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderMetadataEltD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20CTFReaderMetadataEltE, i64 16), ptr %this, align 8
   %m_metadata = getelementptr inbounds i8, ptr %this, i64 96
@@ -7053,7 +7053,7 @@ _ZN19OpenColorIO_v2_4dev19XmlReaderComplexEltD2Ev.exit: ; preds = %entry, %_ZN9_
 declare void @_ZN19OpenColorIO_v2_4dev18FormatMetadataImplD1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderMetadataEltD0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderMetadataEltD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20CTFReaderMetadataEltE, i64 16), ptr %this, align 8
   %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -7416,7 +7416,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16CTFReaderInfoEltD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16CTFReaderInfoEltD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20CTFReaderMetadataEltE, i64 16), ptr %this, align 8
   %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -7501,7 +7501,7 @@ _ZN19OpenColorIO_v2_4dev20CTFReaderMetadataEltD2Ev.exit: ; preds = %entry, %_ZN9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16CTFReaderInfoEltD0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16CTFReaderInfoEltD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20CTFReaderMetadataEltE, i64 16), ptr %this, align 8
   %m_metadata.i.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -7912,7 +7912,7 @@ ehcleanup10:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev14CTFReaderOpEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -9695,7 +9695,7 @@ terminate.lpad:                                   ; preds = %land.rhs, %lor.rhs,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14CTFReaderOpElt9GetReaderENS0_4TypeERKNS_10CTFVersionEb(ptr noalias sret(%"class.std::shared_ptr.38") align 8 initializes((0, 16)) %agg.result, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(12) %version, i1 noundef zeroext %isCLF) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14CTFReaderOpElt9GetReaderENS0_4TypeERKNS_10CTFVersionEb(ptr noalias sret(%"class.std::shared_ptr.38") align 8 %agg.result, i32 noundef %type, ptr noundef nonnull align 4 dereferenceable(12) %version, i1 noundef zeroext %isCLF) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__a.i282 = alloca %"class.std::allocator.214", align 1
   %__a.i280 = alloca %"class.std::allocator.214", align 1
@@ -14791,7 +14791,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16CTFReaderACESEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16CTFReaderACESEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16CTFReaderACESEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -15028,7 +15028,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev19FixedFunctionOpDataELN9__gnu_cxx12_L
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16CTFReaderACESEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16CTFReaderACESEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev16CTFReaderACESEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -15226,7 +15226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev16CTFReaderACESElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev16CTFReaderACESElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fixedFunction = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_fixedFunction, align 8
@@ -15401,7 +15401,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev22CTFReaderACESParamsEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev22CTFReaderACESParamsEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -15483,7 +15483,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev22CTFReaderACESParamsEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev22CTFReaderACESParamsEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -16330,7 +16330,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev15CTFReaderCDLEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev15CTFReaderCDLEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15CTFReaderCDLEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -16487,7 +16487,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev15CTFReaderCDLEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev15CTFReaderCDLEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev15CTFReaderCDLEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -16598,7 +16598,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev15CTFReaderCDLElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev15CTFReaderCDLElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_cdl = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_cdl, align 8
@@ -17224,7 +17224,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev25CTFReaderFixedFunctionEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev25CTFReaderFixedFunctionEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev25CTFReaderFixedFunctionEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -17381,7 +17381,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev25CTFReaderFixedFunctionEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev25CTFReaderFixedFunctionEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev25CTFReaderFixedFunctionEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -17971,7 +17971,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev25CTFReaderFixedFunctionElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev25CTFReaderFixedFunctionElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fixedFunction = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_fixedFunction, align 8
@@ -18048,7 +18048,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderFunctionEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderFunctionEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20CTFReaderFunctionEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -18205,7 +18205,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderFunctionEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderFunctionEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderFunctionEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -18401,7 +18401,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderFunctionElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderFunctionElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fixedFunction = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_fixedFunction, align 8
@@ -18576,7 +18576,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24CTFReaderDynamicParamEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24CTFReaderDynamicParamEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -18658,7 +18658,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24CTFReaderDynamicParamEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24CTFReaderDynamicParamEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -20505,7 +20505,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderExposureContrastEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderExposureContrastEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev28CTFReaderExposureContrastEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -20662,7 +20662,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderExposureContrastEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderExposureContrastEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev28CTFReaderExposureContrastEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -20884,7 +20884,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev28CTFReaderExposureContrastElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev28CTFReaderExposureContrastElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ec = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_ec, align 8
@@ -21059,7 +21059,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderECParamsEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderECParamsEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -21141,7 +21141,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderECParamsEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderECParamsEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -22187,7 +22187,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderGammaEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderGammaEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CTFReaderGammaEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -22344,7 +22344,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderGammaEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderGammaEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderGammaEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -22755,7 +22755,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderGammaElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderGammaElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gamma = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_gamma, align 8
@@ -22788,7 +22788,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev6OpDataEEC2INS0_11GammaOpDataEvEERKS_IT_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderGammaElt20createGammaParamsEltERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.173") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %pParent, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderGammaElt20createGammaParamsEltERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.173") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %pParent, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %xmlLineNumber.addr = alloca i32, align 4
   store i32 %xmlLineNumber, ptr %xmlLineNumber.addr, align 4
@@ -22864,7 +22864,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev25CTFReaderGammaElt_CLF_3_020createGammaParamsEltERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.173") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %pParent, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev25CTFReaderGammaElt_CLF_3_020createGammaParamsEltERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.173") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %pParent, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %xmlLineNumber.addr = alloca i32, align 4
   store i32 %xmlLineNumber, ptr %xmlLineNumber.addr, align 4
@@ -23036,7 +23036,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev23CTFReaderGammaParamsEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev23CTFReaderGammaParamsEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -23118,7 +23118,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev23CTFReaderGammaParamsEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev23CTFReaderGammaParamsEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -23780,7 +23780,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27CTFReaderGammaParamsElt_1_5D2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27CTFReaderGammaParamsElt_1_5D2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -23862,7 +23862,7 @@ _ZN19OpenColorIO_v2_4dev23CTFReaderGammaParamsEltD2Ev.exit: ; preds = %entry, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev27CTFReaderGammaParamsElt_1_5D0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev27CTFReaderGammaParamsElt_1_5D0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -24354,7 +24354,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev26CTFReaderGradingPrimaryElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev26CTFReaderGradingPrimaryElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gradingPrimaryOpData = getelementptr inbounds i8, ptr %this, i64 376
   %0 = load ptr, ptr %m_gradingPrimaryOpData, align 8
@@ -24529,7 +24529,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev31CTFReaderGradingPrimaryParamEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev31CTFReaderGradingPrimaryParamEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -24611,7 +24611,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev31CTFReaderGradingPrimaryParamEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev31CTFReaderGradingPrimaryParamEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -27638,7 +27638,7 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_4dev15GradingRGBCurveELN9__gnu_cxx12_Lock
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev27CTFReaderGradingRGBCurveElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev27CTFReaderGradingRGBCurveElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gradingRGBCurve = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_gradingRGBCurve, align 8
@@ -27815,7 +27815,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24CTFReaderGradingCurveEltD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24CTFReaderGradingCurveEltD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24CTFReaderGradingCurveEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -28052,7 +28052,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev19GradingBSplineCurveELN9__gnu_cxx12_L
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev24CTFReaderGradingCurveEltD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev24CTFReaderGradingCurveEltD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev24CTFReaderGradingCurveEltD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -28559,7 +28559,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurvePointsEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurvePointsEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev30CTFReaderGradingCurvePointsEltE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 96
@@ -28652,7 +28652,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %_ZNSt6vectorIfS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurvePointsEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurvePointsEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev30CTFReaderGradingCurvePointsEltE, i64 16), ptr %this, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -29470,7 +29470,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurveSlopesEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurveSlopesEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev30CTFReaderGradingCurveSlopesEltE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 96
@@ -29563,7 +29563,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %_ZNSt6vectorIfS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurveSlopesEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev30CTFReaderGradingCurveSlopesEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev30CTFReaderGradingCurveSlopesEltE, i64 16), ptr %this, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -30245,7 +30245,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev23CTFReaderGradingToneElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev23CTFReaderGradingToneElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_gradingTone = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_gradingTone, align 8
@@ -30420,7 +30420,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderGradingToneParamEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderGradingToneParamEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -30502,7 +30502,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderGradingToneParamEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev28CTFReaderGradingToneParamEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -31484,7 +31484,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (104, 112)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 104
@@ -31723,7 +31723,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev11Lut1DOpDataELN9__gnu_cxx12_Lock_poli
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD1Ev(ptr noundef initializes((-104, -96), (0, 8)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #30
@@ -31731,7 +31731,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (104, 112)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -31739,7 +31739,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD0Ev(ptr noundef initializes((-104, -96), (0, 8)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #30
@@ -32126,7 +32126,7 @@ declare noundef double @_ZN19OpenColorIO_v2_4dev19GetBitDepthMaxValueENS_8BitDep
 declare void @_ZN19OpenColorIO_v2_4dev11Lut1DOpData5scaleEf(ptr noundef nonnull align 8 dereferenceable(364), float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderInvLut1DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderInvLut1DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_invLut = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_invLut, align 8
@@ -32466,7 +32466,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (104, 112)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 104
@@ -32705,7 +32705,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev11Lut3DOpDataELN9__gnu_cxx12_Lock_poli
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD1Ev(ptr noundef initializes((-104, -96), (0, 8)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #30
@@ -32713,7 +32713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (104, 112)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -32721,7 +32721,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD0Ev(ptr noundef initializes((-104, -96), (0, 8)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev20CTFReaderInvLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #30
@@ -32887,7 +32887,7 @@ entry:
 declare void @_ZN19OpenColorIO_v2_4dev11Lut3DOpData5scaleEf(ptr noundef nonnull align 8 dereferenceable(232), float noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderInvLut3DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev20CTFReaderInvLut3DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_invLut = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_invLut, align 8
@@ -33291,7 +33291,7 @@ ehcleanup:                                        ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev15CTFReaderLogEltD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev15CTFReaderLogEltD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev15CTFReaderLogEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -33548,7 +33548,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev9LogOpDataELN9__gnu_cxx12_Lock_policyE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev15CTFReaderLogEltD0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev15CTFReaderLogEltD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev15CTFReaderLogEltD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -33939,7 +33939,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev15CTFReaderLogElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev15CTFReaderLogElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_log = getelementptr inbounds i8, ptr %this, i64 200
   %0 = load ptr, ptr %m_log, align 8
@@ -34061,7 +34061,7 @@ if.end7:                                          ; preds = %if.then, %_ZN19Open
 declare noundef double @_ZNK19OpenColorIO_v2_4dev9LogOpData7getBaseEv(ptr noundef nonnull align 8 dereferenceable(252)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev15CTFReaderLogElt18createLogParamsEltERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.192") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %pParent, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev15CTFReaderLogElt18createLogParamsEltERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_21XmlReaderContainerEltEEjS8_(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.192") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef %pParent, i32 noundef %xmlLineNumber, ptr noundef nonnull align 8 dereferenceable(32) %xmlFile) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %xmlLineNumber.addr = alloca i32, align 4
   store i32 %xmlLineNumber, ptr %xmlLineNumber.addr, align 4
@@ -34482,7 +34482,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderLogParamsEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderLogParamsEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -34564,7 +34564,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderLogParamsEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderLogParamsEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -36173,7 +36173,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @_ZN19OpenColorIO_v2_4dev12IndexMappingC1Em(ptr noundef nonnull align 8 dereferenceable(88), i64 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8), (104, 112), (120, 128)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CTFReaderLut1DEltE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 104
@@ -36339,7 +36339,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 declare void @_ZN19OpenColorIO_v2_4dev12IndexMappingD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD1Ev(ptr noundef initializes((-104, -96), (0, 8), (16, 24)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #30
@@ -36347,7 +36347,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD1Ev(ptr noundef initializes((-120, -112), (-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #30
@@ -36355,7 +36355,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD0Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8), (104, 112), (120, 128)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -36363,7 +36363,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD0Ev(ptr noundef initializes((-104, -96), (0, 8), (16, 24)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #30
@@ -36372,7 +36372,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD0Ev(ptr noundef initializes((-120, -112), (-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut1DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut1DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #30
@@ -36646,7 +36646,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderLut1DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderLut1DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_lut = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %m_lut, align 8
@@ -37809,7 +37809,7 @@ ehcleanup:                                        ; preds = %lpad, %_ZNSt15__all
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8), (104, 112), (120, 128)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CTFReaderLut3DEltE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 104
@@ -37972,7 +37972,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD1Ev(ptr noundef initializes((-104, -96), (0, 8), (16, 24)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #30
@@ -37980,7 +37980,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD1Ev(ptr noundef initializes((-120, -112), (-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #30
@@ -37988,7 +37988,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD0Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8), (104, 112), (120, 128)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -37996,7 +37996,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD0Ev(ptr noundef initializes((-104, -96), (0, 8), (16, 24)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #30
@@ -38005,7 +38005,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD0Ev(ptr noundef initializes((-120, -112), (-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn120_N19OpenColorIO_v2_4dev17CTFReaderLut3DEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderLut3DEltD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #30
@@ -38165,7 +38165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderLut3DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderLut3DElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_lut = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %m_lut, align 8
@@ -38866,7 +38866,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (104, 112)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev18CTFReaderMatrixEltE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 104
@@ -39025,7 +39025,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixEltD1Ev(ptr noundef initializes((-104, -96), (0, 8)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixEltD1Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #30
@@ -39033,7 +39033,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixEltD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (104, 112)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixEltD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -39041,7 +39041,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixEltD0Ev(ptr noundef initializes((-104, -96), (0, 8)) %this) unnamed_addr #17 align 2 {
+define hidden void @_ZThn104_N19OpenColorIO_v2_4dev18CTFReaderMatrixEltD0Ev(ptr noundef %this) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   tail call void @_ZN19OpenColorIO_v2_4dev18CTFReaderMatrixEltD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #30
@@ -39081,7 +39081,7 @@ entry:
 declare void @_ZN19OpenColorIO_v2_4dev12MatrixOpData5scaleEdd(ptr noundef nonnull align 8 dereferenceable(260), double noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev18CTFReaderMatrixElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev18CTFReaderMatrixElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_matrix = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %m_matrix, align 8
@@ -40237,7 +40237,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderRangeEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderRangeEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17CTFReaderRangeEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -40394,7 +40394,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderRangeEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev17CTFReaderRangeEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderRangeEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -40428,7 +40428,7 @@ entry:
 declare void @_ZN19OpenColorIO_v2_4dev11RangeOpData9normalizeEv(ptr noundef nonnull align 8 dereferenceable(228)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderRangeElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev17CTFReaderRangeElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_range = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_range, align 8
@@ -40506,14 +40506,14 @@ _ZN19OpenColorIO_v2_4dev17CTFReaderRangeEltC2Ev.exit: ; preds = %call5.i.i.i3.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderRangeElt_1_7D2Ev(ptr noundef nonnull align 8 dereferenceable(121) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderRangeElt_1_7D2Ev(ptr noundef nonnull align 8 dereferenceable(121) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderRangeEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #30
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderRangeElt_1_7D0Ev(ptr noundef nonnull align 8 dereferenceable(121) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderRangeElt_1_7D0Ev(ptr noundef nonnull align 8 dereferenceable(121) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev17CTFReaderRangeEltD2Ev(ptr noundef nonnull align 8 dereferenceable(121) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -40855,7 +40855,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev22CTFReaderRangeValueEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev22CTFReaderRangeValueEltD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -40937,7 +40937,7 @@ _ZN19OpenColorIO_v2_4dev17XmlReaderPlainEltD2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev22CTFReaderRangeValueEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev22CTFReaderRangeValueEltD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev17XmlReaderPlainEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -41724,7 +41724,7 @@ lpad.body:                                        ; preds = %_ZNSt15__allocated_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderReferenceEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderReferenceEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev21CTFReaderReferenceEltE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -41881,7 +41881,7 @@ _ZN19OpenColorIO_v2_4dev14CTFReaderOpEltD2Ev.exit: ; preds = %_ZNSt10shared_ptrI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderReferenceEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev21CTFReaderReferenceEltD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev21CTFReaderReferenceEltD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -42330,7 +42330,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev21CTFReaderReferenceElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev21CTFReaderReferenceElt5getOpEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.27") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_reference = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %m_reference, align 8

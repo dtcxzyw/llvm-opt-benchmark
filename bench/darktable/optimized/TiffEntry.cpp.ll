@@ -101,7 +101,7 @@ define hidden void @_ZNK8rawspeed17TiffEntryWithData6anchorEv(ptr nocapture nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 36)) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDERNS_10ByteStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed9TiffEntryE, i64 16), ptr %0, align 8, !tbaa !6
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8, !tbaa !9
@@ -392,7 +392,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDENS_7TiffTagENS_12TiffDataTypeEjNS_10ByteStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 52)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %5) unnamed_addr #1 align 2 {
+define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDENS_7TiffTagENS_12TiffDataTypeEjNS_10ByteStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %5) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8rawspeed9TiffEntryE, i64 16), ptr %0, align 8, !tbaa !6
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8, !tbaa !9
@@ -431,14 +431,14 @@ define hidden void @_ZN8rawspeed9TiffEntryC2EPNS_7TiffIFDENS_7TiffTagENS_12TiffD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN8rawspeed9TiffEntry7setDataENS_10ByteStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((16, 36)) %0, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN8rawspeed9TiffEntry7setDataENS_10ByteStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(20) %1, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed17TiffEntryWithDataC2EPNS_7TiffIFDENS_7TiffTagENS_12TiffDataTypeEjNS_6BufferE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 52), (56, 80)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.rawspeed::Buffer") align 8 %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed17TiffEntryWithDataC2EPNS_7TiffIFDENS_7TiffTagENS_12TiffDataTypeEjNS_6BufferE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.rawspeed::Buffer") align 8 %5) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8, !tbaa !9
   %8 = getelementptr inbounds i8, ptr %0, i64 16

@@ -595,7 +595,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3gmx23ExpandedEnsembl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx23ExpandedEnsembleElement23registerLoggingCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -742,7 +742,7 @@ define void @_ZThn16_N3gmx23ExpandedEnsembleElementD0Ev(ptr noundef %0) unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZThn16_N3gmx23ExpandedEnsembleElement23registerLoggingCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 initializes((32, 33)) %0, ptr noundef %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N3gmx23ExpandedEnsembleElement23registerLoggingCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.17") align 8 %0, ptr noundef %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8, !noalias !5
@@ -3190,7 +3190,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvldEZN3gmx23Expan
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx23ExpandedEnsembleElementC2EbliPKNS_10EnergyDataEPKNS_26FreeEnergyPerturbationDataEP8_IO_FILEPK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 33), (40, 52), (56, 72)) %0, i1 noundef zeroext %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx23ExpandedEnsembleElementC2EbliPKNS_10EnergyDataEPKNS_26FreeEnergyPerturbationDataEP8_IO_FILEPK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(144) %0, i1 noundef zeroext %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::allocator", align 1
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16

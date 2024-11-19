@@ -222,7 +222,7 @@ define void @_ZN3gmx21IOptionSectionStorageD0Ev(ptr nocapture nonnull readnone a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8internal11OptionsImplC2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 24)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx8internal11OptionsImplC2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1947,7 +1947,7 @@ _ZN3gmx16GromacsExceptionD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx7OptionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx7OptionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx7OptionsE, i64 16), ptr %0, align 8
   %2 = tail call noalias noundef nonnull dereferenceable(232) ptr @_Znwm(i64 noundef 232) #26
   invoke void @_ZN3gmx8internal11OptionsImplC1Ev(ptr noundef nonnull align 8 dereferenceable(232) %2)
@@ -1969,7 +1969,7 @@ define void @_ZN3gmx7OptionsC2Ev(ptr nocapture noundef nonnull writeonly align 8
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx7OptionsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx7OptionsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx7OptionsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

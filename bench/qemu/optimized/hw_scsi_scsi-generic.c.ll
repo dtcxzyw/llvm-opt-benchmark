@@ -852,7 +852,7 @@ if.end9:                                          ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @scsi_generic_load_request(ptr noundef %f, ptr nocapture noundef initializes((416, 420)) %req) #0 {
+define internal void @scsi_generic_load_request(ptr noundef %f, ptr nocapture noundef %req) #0 {
 entry:
   %buflen = getelementptr inbounds i8, ptr %req, i64 416
   %call.i.i = tail call i32 @qemu_get_be32(ptr noundef %f) #14
@@ -925,7 +925,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare ptr @scsi_req_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -5, 1) i32 @execute_command(ptr noundef %blk, ptr noundef initializes((424, 432), (436, 448)) %r, i32 noundef range(i32 -3, 0) %direction, ptr noundef %complete) unnamed_addr #0 {
+define internal fastcc range(i32 -5, 1) i32 @execute_command(ptr noundef %blk, ptr noundef %r, i32 noundef range(i32 -3, 0) %direction, ptr noundef %complete) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %dev = getelementptr inbounds i8, ptr %r, i64 8

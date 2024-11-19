@@ -48,7 +48,7 @@ declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 declare i32 @pg_database_encoding_max_length() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @reset_tsvector_parser(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @reset_tsvector_parser(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

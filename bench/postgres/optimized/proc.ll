@@ -1204,7 +1204,7 @@ define dso_local i32 @GetStartupBufferPinWaitBufId() local_unnamed_addr #6 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @HaveNFreeProcs(i32 noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @HaveNFreeProcs(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @ProcStructLock, align 8
   %4 = tail call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %3, i8 1, ptr elementtype(i8) %3) #13, !srcloc !9
   %.not = icmp eq i8 %4, 0

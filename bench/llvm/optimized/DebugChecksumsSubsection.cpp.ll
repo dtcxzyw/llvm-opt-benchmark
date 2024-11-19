@@ -1051,7 +1051,7 @@ _ZN4llvm18BinaryStreamReaderD2Ev.exit12:          ; preds = %_ZN4llvm18BinaryStr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview24DebugChecksumsSubsectionC2ERNS0_26DebugStringTableSubsectionE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 12), (16, 44), (48, 52), (56, 72)) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview24DebugChecksumsSubsectionC2ERNS0_26DebugStringTableSubsectionE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 244, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm8codeview24DebugChecksumsSubsectionE, i64 16), ptr %0, align 8

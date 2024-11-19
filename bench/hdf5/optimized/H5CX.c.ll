@@ -647,7 +647,7 @@ define void @H5CX_push_special() local_unnamed_addr #6 {
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr nocapture noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5CX_retrieve_state(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = tail call noalias ptr @H5FL_reg_calloc(ptr noundef nonnull @H5_H5CX_state_t_reg_free_list) #13
   store ptr %3, ptr %0, align 8
@@ -1466,7 +1466,7 @@ define range(i32 -1, 1) i32 @H5CX_get_vol_wrap_ctx(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5CX_get_vol_connector_prop(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #9 {
+define noundef i32 @H5CX_get_vol_connector_prop(ptr nocapture noundef writeonly %0) local_unnamed_addr #9 {
   %2 = load ptr, ptr @H5CX_head_g, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 448
   %4 = load i8, ptr %3, align 8

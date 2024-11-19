@@ -3748,7 +3748,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13AttachRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -4627,7 +4627,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_26BreakpointLocationsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -5199,7 +5199,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13CancelRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -5885,7 +5885,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_18CompletionsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -5975,7 +5975,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_24ConfigurationDoneRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -6547,7 +6547,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_15ContinueRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -7137,7 +7137,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_25DataBreakpointInfoRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -7915,7 +7915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_18DisassembleRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -8505,7 +8505,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_17DisconnectRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -9277,7 +9277,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_15EvaluateRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -9615,7 +9615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_20ExceptionInfoRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -10099,7 +10099,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_11GotoRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -10689,7 +10689,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_18GotoTargetsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -12503,7 +12503,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_17InitializeRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -12987,7 +12987,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13LaunchRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -13077,7 +13077,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_20LoadedSourcesRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -13561,7 +13561,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_14ModulesRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -14151,7 +14151,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_11NextRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -14489,7 +14489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_12PauseRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -15079,7 +15079,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_17ReadMemoryRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -15417,7 +15417,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_19RestartFrameRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -15843,7 +15843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_14RestartRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -16327,7 +16327,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_22ReverseContinueRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -17287,7 +17287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_20RunInTerminalRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -17625,7 +17625,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13ScopesRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -18485,7 +18485,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_21SetBreakpointsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -18911,7 +18911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_25SetDataBreakpointsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -19677,7 +19677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_30SetExceptionBreakpointsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -20361,7 +20361,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_20SetExpressionRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -20787,7 +20787,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_29SetFunctionBreakpointsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -21213,7 +21213,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_32SetInstructionBreakpointsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -21897,7 +21897,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_18SetVariableRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -22469,7 +22469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13SourceRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -23241,7 +23241,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_17StackTraceRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -23727,7 +23727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_21StartDebuggingRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -24317,7 +24317,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_15StepBackRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -25001,7 +25001,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13StepInRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -25339,7 +25339,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_20StepInTargetsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -25929,7 +25929,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_14StepOutRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -26267,7 +26267,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_16TerminateRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -26605,7 +26605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_23TerminateThreadsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -26695,7 +26695,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_14ThreadsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -27473,7 +27473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_16VariablesRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -28157,7 +28157,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TID2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_18WriteMemoryRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -28183,7 +28183,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13AttachRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13AttachRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -30221,7 +30221,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_13AttachRequestEE4typeEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_26BreakpointLocationsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_26BreakpointLocationsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -31109,7 +31109,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_26BreakpointLocationsReq
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13CancelRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13CancelRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -31362,7 +31362,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_13CancelRequestEE4typeEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_18CompletionsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_18CompletionsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -31619,7 +31619,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_18CompletionsRequestEE4t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_24ConfigurationDoneRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_24ConfigurationDoneRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -31843,7 +31843,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_24ConfigurationDoneReque
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_15ContinueRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_15ContinueRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -32084,7 +32084,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_15ContinueRequestEE4type
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_25DataBreakpointInfoRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_25DataBreakpointInfoRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -32341,7 +32341,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_25DataBreakpointInfoRequ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_18DisassembleRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_18DisassembleRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -32615,7 +32615,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_18DisassembleRequestEE4t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_17DisconnectRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_17DisconnectRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -32870,7 +32870,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_17DisconnectRequestEE4ty
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_15EvaluateRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_15EvaluateRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -33155,7 +33155,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_15EvaluateRequestEE4type
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_20ExceptionInfoRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_20ExceptionInfoRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -33387,7 +33387,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_20ExceptionInfoRequestEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_11GotoRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_11GotoRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -33618,7 +33618,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_11GotoRequestEE4typeEvEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_18GotoTargetsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_18GotoTargetsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -33892,7 +33892,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_18GotoTargetsRequestEE4t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_17InitializeRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_17InitializeRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -34338,7 +34338,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_17InitializeRequestEE4ty
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13LaunchRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13LaunchRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -34704,7 +34704,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_13LaunchRequestEE4typeEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_20LoadedSourcesRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_20LoadedSourcesRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -34928,7 +34928,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_20LoadedSourcesRequestEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_14ModulesRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_14ModulesRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -35174,7 +35174,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_14ModulesRequestEE4typeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_11NextRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_11NextRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -35433,7 +35433,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_11NextRequestEE4typeEvEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_12PauseRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_12PauseRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -35665,7 +35665,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_12PauseRequestEE4typeEvE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_17ReadMemoryRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_17ReadMemoryRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -35917,7 +35917,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_17ReadMemoryRequestEE4ty
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_19RestartFrameRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_19RestartFrameRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -36149,7 +36149,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_19RestartFrameRequestEE4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_14RestartRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_14RestartRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -36849,7 +36849,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_14RestartRequestEE4typeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_22ReverseContinueRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_22ReverseContinueRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -37090,7 +37090,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_22ReverseContinueRequest
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_20RunInTerminalRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_20RunInTerminalRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -37623,7 +37623,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_20RunInTerminalRequestEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13ScopesRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13ScopesRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -37855,7 +37855,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_13ScopesRequestEE4typeEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_21SetBreakpointsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_21SetBreakpointsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -38576,7 +38576,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_21SetBreakpointsRequestE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_25SetDataBreakpointsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_25SetDataBreakpointsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -39045,7 +39045,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_25SetDataBreakpointsRequ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_30SetExceptionBreakpointsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_30SetExceptionBreakpointsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -40110,7 +40110,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_30SetExceptionBreakpoint
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_20SetExpressionRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_20SetExpressionRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -40388,7 +40388,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_20SetExpressionRequestEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_29SetFunctionBreakpointsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_29SetFunctionBreakpointsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -40836,7 +40836,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_29SetFunctionBreakpoints
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_32SetInstructionBreakpointsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_32SetInstructionBreakpointsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -41293,7 +41293,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_32SetInstructionBreakpoi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_18SetVariableRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_18SetVariableRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -41564,7 +41564,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_18SetVariableRequestEE4t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13SourceRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13SourceRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -41833,7 +41833,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_13SourceRequestEE4typeEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_17StackTraceRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_17StackTraceRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -42160,7 +42160,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_17StackTraceRequestEE4ty
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_21StartDebuggingRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_21StartDebuggingRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -42475,7 +42475,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_21StartDebuggingRequestE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_15StepBackRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_15StepBackRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -42734,7 +42734,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_15StepBackRequestEE4type
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_13StepInRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_13StepInRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -43006,7 +43006,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_13StepInRequestEE4typeEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_20StepInTargetsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_20StepInTargetsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -43238,7 +43238,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_20StepInTargetsRequestEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_14StepOutRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_14StepOutRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -43497,7 +43497,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_14StepOutRequestEE4typeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_16TerminateRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_16TerminateRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -43734,7 +43734,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_16TerminateRequestEE4typ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_23TerminateThreadsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_23TerminateThreadsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -44027,7 +44027,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_23TerminateThreadsReques
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_14ThreadsRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_14ThreadsRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -44251,7 +44251,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_14ThreadsRequestEE4typeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_16VariablesRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_16VariablesRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -44537,7 +44537,7 @@ _ZNSt14_Function_base13_Base_managerIZZN3dap6TypeOfINS1_16VariablesRequestEE4typ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN3dap6TypeOfINS_18WriteMemoryRequestEE4typeEvEN2TID0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap13BasicTypeInfoINS_18WriteMemoryRequestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19

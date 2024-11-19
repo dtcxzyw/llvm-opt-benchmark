@@ -218,7 +218,7 @@ start_iMCU_row.exit:                              ; preds = %33, %41, %44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @start_output_pass(ptr nocapture noundef writeonly initializes((184, 188)) %0) #1 {
+define internal void @start_output_pass(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 0, ptr %2, align 8
   ret void

@@ -300,7 +300,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6htif_tC2Ev(ptr noundef nonnull align 8 dereferenceable(696) initializes((0, 12), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6htif_tC2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.0", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTV6htif_t, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -512,7 +512,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(696) initializes((0, 12), (16, 24)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(696) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6htif_tC2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 16, ptr %4, align 8
@@ -1832,7 +1832,7 @@ define void @_ZN6htif_t16register_devicesEv(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV6htif_t, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 576
   %3 = load ptr, ptr %2, align 8
@@ -2105,7 +2105,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6htif_tC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(696) initializes((0, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6htif_tC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6htif_tC2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8

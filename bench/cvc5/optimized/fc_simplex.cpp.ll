@@ -731,7 +731,7 @@ declare ptr @_ZN4cvc58internal18StatisticsRegistry13registerTimerERKNSt7__cxx111
 declare ptr @_ZN4cvc58internal18StatisticsRegistry11registerIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 1, 4) i32 @_ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure9findModelEb(ptr noundef nonnull align 8 dereferenceable(648) initializes((16, 20)) %this, i1 noundef zeroext %exactResult) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 1, 4) i32 @_ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure9findModelEb(ptr noundef nonnull align 8 dereferenceable(648) %this, i1 noundef zeroext %exactResult) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_pivots = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %d_pivots, align 8
@@ -1429,7 +1429,7 @@ if.end:                                           ; preds = %for.body.i7, %if.el
 declare void @_ZN4cvc58internal6theory5arith6linear24SimplexDecisionProcedure16shrinkInfeasFuncERNS0_9TimerStatEjRKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 dereferenceable(304), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure15focusDownToJustEj(ptr noundef nonnull align 8 dereferenceable(648) initializes((376, 380)) %this, i32 noundef %v) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN4cvc58internal6theory5arith6linear26FCSimplexDecisionProcedure15focusDownToJustEj(ptr noundef nonnull align 8 dereferenceable(648) %this, i32 noundef %v) local_unnamed_addr #3 align 2 {
 entry:
   %d_errorSet = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %d_errorSet, align 8

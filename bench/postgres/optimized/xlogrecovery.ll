@@ -5363,7 +5363,7 @@ define dso_local i64 @GetCurrentChunkReplayStartTime() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @GetXLogReceiptTime(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #11 {
+define dso_local void @GetXLogReceiptTime(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
   %3 = load i64, ptr @XLogReceiptTime, align 8
   store i64 %3, ptr %0, align 8
   %4 = load i32, ptr @XLogReceiptSource, align 4

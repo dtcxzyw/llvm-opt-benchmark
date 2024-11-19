@@ -6606,7 +6606,7 @@ define internal void @"_ZN4core3ptr98drop_in_place$LT$tracing_core..field..Debug
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7b202bcf9ca8e8c7E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7b202bcf9ca8e8c7E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = load i64, ptr %1, align 8, !range !94, !noundef !11
   %trunc = trunc nuw i64 %4 to i1
@@ -6652,7 +6652,7 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7b2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2635936f8a834bcE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hc2635936f8a834bcE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = load i64, ptr %1, align 8, !range !94, !noundef !11
   %trunc = trunc nuw i64 %4 to i1
@@ -8376,7 +8376,7 @@ _ZN13wasmtime_wasi8preview111Descriptors6unused17ha33be48864b1e59cE.exit.thread:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13wasmtime_wasi8preview119WasiPreview1Adapter3new17h8652f14a9e7d41ffE.llvm.16492216747175619345(ptr noalias nocapture noundef writeonly sret({ { i64, [5 x i64] } }) align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 {
+define hidden void @_ZN13wasmtime_wasi8preview119WasiPreview1Adapter3new17h8652f14a9e7d41ffE.llvm.16492216747175619345(ptr noalias nocapture noundef writeonly sret({ { i64, [5 x i64] } }) align 8 dereferenceable(48) %0) unnamed_addr #6 {
   store i64 -9223372036854775808, ptr %0, align 8
   ret void
 }
@@ -9194,7 +9194,7 @@ common.resume:                                    ; preds = %33, %.body.i29, %.b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13wasmtime_wasi8preview111systimespec17hbdbec19aef2915abE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, i1 noundef zeroext %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define hidden void @_ZN13wasmtime_wasi8preview111systimespec17hbdbec19aef2915abE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, i1 noundef zeroext %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
   br i1 %1, label %5, label %.critedge
 
 5:                                                ; preds = %4
@@ -9234,7 +9234,7 @@ define hidden void @_ZN13wasmtime_wasi8preview111systimespec17hbdbec19aef2915abE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13wasmtime_wasi8preview1133_$LT$impl$u20$core..convert..TryFrom$LT$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Datetime$GT$$u20$for$u20$u64$GT$8try_from17h41b0c51b5ca077f3E"(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #6 {
+define void @"_ZN13wasmtime_wasi8preview1133_$LT$impl$u20$core..convert..TryFrom$LT$wasmtime_wasi..bindings..async_io..wasi..clocks..wall_clock..Datetime$GT$$u20$for$u20$u64$GT$8try_from17h41b0c51b5ca077f3E"(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #6 {
   %4 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 1000000000)
   %5 = extractvalue { i64, i1 } %4, 1
   br i1 %5, label %select.unfold, label %6

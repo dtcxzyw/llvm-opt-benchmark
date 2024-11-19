@@ -56,7 +56,7 @@ $_ZN5boost21const_multi_array_refIdLm3EPdE20init_multi_array_refIPlEEvT_ = comda
 @_ZN8QuantLib24NumericalDifferentiationC1ESt8functionIFddEEmdmNS0_6SchemeE = unnamed_addr alias void (ptr, ptr, i64, double, i64, i32), ptr @_ZN8QuantLib24NumericalDifferentiationC2ESt8functionIFddEEmdmNS0_6SchemeE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24NumericalDifferentiationC2ESt8functionIFddEEmNS_5ArrayE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %this, ptr nocapture noundef %f, i64 noundef %orderOfDerivative, ptr nocapture noundef %x_offsets) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24NumericalDifferentiationC2ESt8functionIFddEEmNS_5ArrayE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef %f, i64 noundef %orderOfDerivative, ptr nocapture noundef %x_offsets) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)

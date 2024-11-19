@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [2 x i8] c"/\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_fopen(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local i32 @Curl_fopen(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.dynbuf, align 8
   %6 = alloca [41 x i8], align 16
   %7 = alloca %struct.stat, align 8

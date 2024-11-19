@@ -112,7 +112,7 @@ define hidden noundef ptr @_ZN2os5Posix15ucontext_get_pcEPK10ucontext_t(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2os5Posix15ucontext_set_pcEP10ucontext_tPh(ptr nocapture noundef writeonly initializes((168, 176)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2os5Posix15ucontext_set_pcEP10ucontext_tPh(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 168
   store i64 %3, ptr %4, align 8
@@ -188,7 +188,7 @@ define hidden noundef ptr @_ZN2os24fetch_frame_from_contextEPKvPPlS3_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os24fetch_frame_from_contextEPKv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2os24fetch_frame_from_contextEPKv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN2os24fetch_frame_from_contextEPKvPPlS3_.exit, label %3
 
@@ -407,7 +407,7 @@ _ZN2os33fetch_compiled_frame_from_contextEPKv.exit: ; preds = %107, %106, %100, 
 declare noundef zeroext i1 @_ZN2os19is_readable_pointerEPKv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os33fetch_compiled_frame_from_contextEPKv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2os33fetch_compiled_frame_from_contextEPKv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 120
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -510,7 +510,7 @@ _ZN5frameC2EPlS0_Ph.exit:                         ; preds = %45, %51, %52
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2os22get_sender_for_C_frameEP5frame(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -610,7 +610,7 @@ _ZN5frameC2EPlS0_Ph.exit:                         ; preds = %42, %48, %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os13current_frameEv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0) #5 align 2 {
+define hidden void @_ZN2os13current_frameEv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 %0) #5 align 2 {
   %2 = alloca %class.frame, align 8
   %3 = tail call ptr asm sideeffect "mov %rbp, $0", "=r,~{dirflag},~{fpsr},~{flags}"() #12, !srcloc !9
   %4 = load ptr, ptr %3, align 8

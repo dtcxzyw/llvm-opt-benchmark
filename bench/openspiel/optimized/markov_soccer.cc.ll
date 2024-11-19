@@ -1763,7 +1763,7 @@ define noundef signext i8 @_ZNK10open_spiel13markov_soccer17MarkovSoccerState5fi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel13markov_soccer17MarkovSoccerState5ResetEi(ptr noundef nonnull align 8 dereferenceable(144) initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel13markov_soccer17MarkovSoccerState5ResetEi(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %1, ptr %4, align 4
@@ -2956,7 +2956,7 @@ define noundef zeroext i1 @_ZNK10open_spiel13markov_soccer17MarkovSoccerState10I
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel13markov_soccer17MarkovSoccerState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.33") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel13markov_soccer17MarkovSoccerState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.33") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -4373,7 +4373,7 @@ define noundef i32 @_ZNK10open_spiel13markov_soccer16MarkovSoccerGame17MaxChance
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel13markov_soccer16MarkovSoccerGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.51") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(332) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel13markov_soccer16MarkovSoccerGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.51") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(332) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 284

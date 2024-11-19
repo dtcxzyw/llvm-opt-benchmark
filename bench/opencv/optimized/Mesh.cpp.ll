@@ -50,7 +50,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN8TriangleC2ERKN2cv7Point3_IfEES4_S4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3) unnamed_addr #3 align 2 {
+define hidden void @_ZN8TriangleC2ERKN2cv7Point3_IfEES4_S4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %3) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8Triangle, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
@@ -79,7 +79,7 @@ define hidden void @_ZN8TriangleD0Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3RayC2ERKN2cv7Point3_IfEES4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN3RayC2ERKN2cv7Point3_IfEES4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV3Ray, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
@@ -100,7 +100,7 @@ define hidden void @_ZN3RayD0Ev(ptr noundef nonnull align 8 dereferenceable(32) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4MeshC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4MeshC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV4Mesh, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
@@ -110,7 +110,7 @@ define hidden void @_ZN4MeshC2Ev(ptr nocapture noundef nonnull writeonly align 8
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4MeshD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4MeshD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV4Mesh, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -162,7 +162,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EED2Ev.exit:   ; preds = %_ZNSt6vectorIS_IiSa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4MeshD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4MeshD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV4Mesh, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8

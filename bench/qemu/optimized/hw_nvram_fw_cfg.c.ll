@@ -1789,7 +1789,7 @@ entry:
 declare void @device_class_set_props(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @fw_cfg_select(ptr noundef initializes((856, 858), (860, 864)) %s, i16 noundef zeroext %key) unnamed_addr #1 {
+define internal fastcc void @fw_cfg_select(ptr noundef %s, i16 noundef zeroext %key) unnamed_addr #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %cur_offset = getelementptr inbounds i8, ptr %s, i64 860
@@ -1898,7 +1898,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_uint32_as_uint16(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 4)) %pv, i64 %size, ptr nocapture readnone %field) #1 {
+define internal noundef i32 @get_uint32_as_uint16(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #1 {
 entry:
   %call = tail call i32 @qemu_get_be16(ptr noundef %f) #20
   store i32 %call, ptr %pv, align 4
@@ -2979,7 +2979,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @fw_cfg_ctl_mem_write(ptr noundef initializes((856, 858), (860, 864)) %opaque, i64 %addr, i64 noundef %value, i32 %size) #1 {
+define internal void @fw_cfg_ctl_mem_write(ptr noundef %opaque, i64 %addr, i64 noundef %value, i32 %size) #1 {
 entry:
   %conv = trunc i64 %value to i16
   tail call fastcc void @fw_cfg_select(ptr noundef %opaque, i16 noundef zeroext %conv)

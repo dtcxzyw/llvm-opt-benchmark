@@ -775,7 +775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17InterestRateIndexC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PeriodEjNS_8CurrencyENS_8CalendarENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(240) initializes((16, 20), (24, 32)) %this, ptr noundef %familyName, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %tenor, i32 noundef %fixingDays, ptr nocapture noundef %currency, ptr nocapture noundef %fixingCalendar, ptr nocapture noundef %dayCounter) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17InterestRateIndexC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PeriodEjNS_8CurrencyENS_8CalendarENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef %familyName, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %tenor, i32 noundef %fixingDays, ptr nocapture noundef %currency, ptr nocapture noundef %fixingCalendar, ptr nocapture noundef %dayCounter) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %out = alloca %"class.std::__cxx11::basic_ostringstream", align 8

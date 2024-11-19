@@ -414,7 +414,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15seq_decl_pluginC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 20), (24, 41)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15seq_decl_pluginC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %m_manager.i, align 8
@@ -3152,7 +3152,7 @@ _ZN9decl_infoD2Ev.exit:                           ; preds = %entry, %_ZN6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15seq_decl_plugin11set_managerEP11ast_manageri(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 20), (64, 72), (88, 96)) %this, ptr noundef %m, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15seq_decl_plugin11set_managerEP11ast_manageri(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %m, i32 noundef %id) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %class.symbol, align 8
   %param = alloca %class.parameter, align 8
@@ -8275,7 +8275,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK8seq_util19is_char_const_rangeEPK4exprPS0_RjS4_Rb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, ptr noundef readnone %x, ptr nocapture noundef readonly %e, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %l, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %u, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %negated) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK8seq_util19is_char_const_rangeEPK4exprPS0_RjS4_Rb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, ptr noundef readnone %x, ptr nocapture noundef readonly %e, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %l, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %u, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %negated) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %e, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4

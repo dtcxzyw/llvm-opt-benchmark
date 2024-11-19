@@ -3799,7 +3799,7 @@ define internal void @gen11_dsi_sync_state(ptr nocapture noundef readonly %0, pt
 declare dso_local void @intel_backlight_update(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @gen11_dsi_compute_config(ptr noundef %0, ptr noundef initializes((4744, 4752)) %1, ptr noundef %2) #0 align 16 {
+define internal i32 @gen11_dsi_compute_config(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 544
   %6 = load ptr, ptr %5, align 8

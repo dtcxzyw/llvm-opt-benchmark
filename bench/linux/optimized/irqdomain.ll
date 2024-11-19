@@ -1091,7 +1091,7 @@ define dso_local i32 @irq_create_mapping_affinity(ptr noundef %0, i64 noundef %1
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local void @of_phandle_args_to_fwspec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 12)) %3) #7 align 16 {
+define dso_local void @of_phandle_args_to_fwspec(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #7 align 16 {
   %5 = icmp eq ptr %0, null
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = select i1 %5, ptr null, ptr %6
@@ -2430,7 +2430,7 @@ define dso_local i32 @irq_domain_alloc_descs(i32 noundef %0, i32 noundef %1, i64
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @irq_domain_reset_irq_data(ptr nocapture noundef writeonly initializes((8, 16), (24, 32), (48, 56)) %0) #9 align 16 {
+define dso_local void @irq_domain_reset_irq_data(ptr nocapture noundef writeonly %0) #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24

@@ -299,7 +299,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer24lemma_global_generalizer8subsumerC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 12), (16, 33), (40, 48)) %this, ptr noundef nonnull align 8 dereferenceable(976) %a_m, i1 noundef zeroext %ground_pob) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer24lemma_global_generalizer8subsumerC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(976) %a_m, i1 noundef zeroext %ground_pob) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %factory = alloca %class.scoped_ptr, align 8
   %watch.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -835,7 +835,7 @@ if.end:                                           ; preds = %_ZN15ref_vector_cor
 declare void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer24lemma_global_generalizerC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(225) initializes((0, 57), (64, 84), (88, 105), (112, 120)) %this, ptr noundef nonnull align 8 dereferenceable(712) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer24lemma_global_generalizerC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(225) %this, ptr noundef nonnull align 8 dereferenceable(712) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m_ctx.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ctx, ptr %m_ctx.i, align 8
@@ -5257,7 +5257,7 @@ return:                                           ; preds = %_ZN12_GLOBAL__N_111
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6spacer24lemma_global_generalizer8subsumer5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((104, 108)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer24lemma_global_generalizer8subsumer5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(152) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_used_tags = getelementptr inbounds i8, ptr %this, i64 104
   store i32 0, ptr %m_used_tags, align 8

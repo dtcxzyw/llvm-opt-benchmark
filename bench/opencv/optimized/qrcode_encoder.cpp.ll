@@ -255,7 +255,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN2cv17QRCodeDecoderImplESaIvELN9__gnu_cxx12_Loc
 @_ZN2cv13QRCodeDecoderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN2cv13QRCodeDecoderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv13QRCodeEncoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv13QRCodeEncoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv13QRCodeEncoderE, i64 16), ptr %0, align 8
   ret void
 }
@@ -275,7 +275,7 @@ define void @_ZN2cv13QRCodeEncoderD0Ev(ptr nocapture nonnull readnone align 8 %0
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv13QRCodeEncoder6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv13QRCodeEncoder6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -7088,7 +7088,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv13QRCodeEncoder6createERKNS0_6ParamsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv13QRCodeEncoder6createERKNS0_6ParamsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_17QRCodeEncoderImplEED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(400) ptr @_Znwm(i64 noundef 400) #28, !noalias !81
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -7151,7 +7151,7 @@ define hidden void @_ZN2cv13QRCodeDecoderD0Ev(ptr nocapture nonnull readnone ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv13QRCodeDecoder6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.29") align 8 initializes((0, 16)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv13QRCodeDecoder6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.29") align 8 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_17QRCodeDecoderImplEED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !86
   %2 = getelementptr inbounds i8, ptr %1, i64 8

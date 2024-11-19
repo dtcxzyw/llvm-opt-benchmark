@@ -7463,7 +7463,7 @@ _ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit:   ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow9MakeArrayERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias sret(%"class.std::shared_ptr.19") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %data) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow9MakeArrayERKSt10shared_ptrINS_9ArrayDataEE(ptr noalias sret(%"class.std::shared_ptr.19") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %data) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %wrapper_visitor = alloca %"class.arrow::(anonymous namespace)::ArrayDataWrapper", align 8
   %agg.tmp.ensured = alloca %"class.arrow::Status", align 8
@@ -18356,7 +18356,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6BufferEESaIS3_EED2Ev.exit: ; preds = 
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_9UnionTypeE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_122ArrayDataEndianSwapper5VisitERKNS_9UnionTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %0 = load ptr, ptr %this, align 8

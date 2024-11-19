@@ -62,7 +62,7 @@ $_ZTIN8QuantLib17BoundaryConditionINS_19TridiagonalOperatorEEE = comdat any
 @_ZN8QuantLib11DirichletBCC1EdNS_17BoundaryConditionINS_19TridiagonalOperatorEE4SideE = unnamed_addr alias void (ptr, double, i32), ptr @_ZN8QuantLib11DirichletBCC2EdNS_17BoundaryConditionINS_19TridiagonalOperatorEE4SideE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib9NeumannBCC2EdNS_17BoundaryConditionINS_19TridiagonalOperatorEE4SideE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, double noundef %value, i32 noundef %side) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib9NeumannBCC2EdNS_17BoundaryConditionINS_19TridiagonalOperatorEE4SideE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, double noundef %value, i32 noundef %side) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib9NeumannBCE, i64 16), ptr %this, align 8, !tbaa !3
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -825,7 +825,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib11DirichletBCC2EdNS_17BoundaryConditionINS_19TridiagonalOperatorEE4SideE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, double noundef %value, i32 noundef %side) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib11DirichletBCC2EdNS_17BoundaryConditionINS_19TridiagonalOperatorEE4SideE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, double noundef %value, i32 noundef %side) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib11DirichletBCE, i64 16), ptr %this, align 8, !tbaa !3
   %value_ = getelementptr inbounds nuw i8, ptr %this, i64 8

@@ -2729,7 +2729,7 @@ define hidden noundef i16 @"_ZN51_$LT$u16$u20$as$u20$num_traits..bounds..Bounded
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9c838cc96b95a841E.llvm.6960974148744716740"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h9c838cc96b95a841E.llvm.6960974148744716740"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0685f8b8d660cb99E"(i64 noundef %2, i1 noundef zeroext false)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -3926,7 +3926,7 @@ define hidden void @_ZN5image5error13DecodingError3new17h4ba6deff14b6896eE(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5image5error13DecodingError3new17h656466f6800e15c3E(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] }, { ptr, ptr } }) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #14 personality ptr @rust_eh_personality {
+define hidden void @_ZN5image5error13DecodingError3new17h656466f6800e15c3E(ptr noalias nocapture noundef writeonly sret({ { i8, [31 x i8] }, { ptr, ptr } }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #14 personality ptr @rust_eh_personality {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %2, ptr %5, align 8
@@ -29368,7 +29368,7 @@ define i32 @_ZN5image6codecs3hdr7decoder5rgbe817h37f6010ebe838591E(i8 noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN5image6codecs3hdr7decoder11HdrMetadata3new17h5d9748b9dfe5eba8E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, { i32, float }, { i32, [3 x i32] }, { i32, float }, i32, i32, { { i8, i8 }, { i8, i8 } }, [4 x i8] }) align 8 dereferenceable(72) initializes((0, 28), (32, 36), (48, 52), (56, 68)) %0) unnamed_addr #15 {
+define void @_ZN5image6codecs3hdr7decoder11HdrMetadata3new17h5d9748b9dfe5eba8E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, { i32, float }, { i32, [3 x i32] }, { i32, float }, i32, i32, { { i8, i8 }, { i8, i8 } }, [4 x i8] }) align 8 dereferenceable(72) %0) unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 60
@@ -31402,7 +31402,7 @@ define void @_ZN5image6codecs4jpeg9transform4fdct17hd08e5c2d9820eff3E(ptr noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN5image6codecs3png17unsupported_color17hc771cb7fb931d175E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) initializes((0, 2), (32, 35)) %0, i8 noundef %1, i8 %2) unnamed_addr #15 {
+define void @_ZN5image6codecs3png17unsupported_color17hc771cb7fb931d175E(ptr noalias nocapture noundef writeonly sret({ i8, [63 x i8] }) align 8 dereferenceable(64) %0, i8 noundef %1, i8 %2) unnamed_addr #15 {
   store i8 0, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %.sroa.42.0..sroa_idx, align 1

@@ -1286,7 +1286,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define internal void @_ZN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolverE, i64 16), ptr %this, align 8
   %url_prefix_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1295,7 +1295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolverD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define internal void @_ZN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolverD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf4util12_GLOBAL__N_126DescriptorPoolTypeResolverE, i64 16), ptr %this, align 8
   %url_prefix_.i = getelementptr inbounds i8, ptr %this, i64 8

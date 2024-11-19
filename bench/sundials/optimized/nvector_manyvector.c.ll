@@ -279,7 +279,7 @@ define void @N_VDestroy_ManyVector(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VSpace_ManyVector(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2) #0 {
+define void @N_VSpace_ManyVector(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store i64 0, ptr %1, align 8
@@ -1536,7 +1536,7 @@ define noundef i32 @N_VDotProdMultiLocal_ManyVector(i32 noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @N_VBufSize_ManyVector(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1) #0 {
+define noundef i32 @N_VBufSize_ManyVector(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = alloca i64, align 8
   store i64 0, ptr %1, align 8
   %4 = load ptr, ptr %0, align 8

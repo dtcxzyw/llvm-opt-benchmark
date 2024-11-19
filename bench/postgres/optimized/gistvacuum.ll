@@ -35,7 +35,7 @@ define dso_local noundef ptr @gistbulkdelete(ptr nocapture noundef readonly %0, 
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gistvacuumscan(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 5), (8, 16), (28, 36)) %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @gistvacuumscan(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca [2048 x i16], align 16
   %7 = alloca [2048 x i32], align 16

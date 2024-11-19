@@ -5836,7 +5836,7 @@ define void @wtap_opttypes_initialize() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
+define internal void @shb_create(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc_n(i64 noundef 1, i64 noundef 8) #16
   store i64 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5856,7 +5856,7 @@ define internal void @shb_copy_mand(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @idb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
+define internal void @idb_create(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(40) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 40) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
@@ -5985,7 +5985,7 @@ wtap_block_make_copy.exit:                        ; preds = %22, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @dsb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
+define internal void @dsb_create(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
@@ -6027,7 +6027,7 @@ define internal void @dsb_copy_mand(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nrb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
+define internal void @nrb_create(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
@@ -6047,7 +6047,7 @@ define internal void @nrb_free_mand(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @isb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
+define internal void @isb_create(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(12) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 12) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
@@ -6065,7 +6065,7 @@ define internal void @isb_copy_mand(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mev_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #0 {
+define internal void @mev_create(ptr nocapture noundef writeonly %0) #0 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 16) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8
@@ -6107,21 +6107,21 @@ define internal void @mev_copy_mand(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pkt_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #11 {
+define internal void @pkt_create(ptr nocapture noundef writeonly %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @sjeb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #11 {
+define internal void @sjeb_create(ptr nocapture noundef writeonly %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cb_create(ptr nocapture noundef writeonly initializes((8, 16)) %0) #11 {
+define internal void @cb_create(ptr nocapture noundef writeonly %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void

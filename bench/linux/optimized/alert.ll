@@ -204,7 +204,7 @@ define dso_local zeroext i8 @tls_get_record_type(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tls_alert_recv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 1)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) #0 align 16 {
+define dso_local void @tls_alert_recv(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8

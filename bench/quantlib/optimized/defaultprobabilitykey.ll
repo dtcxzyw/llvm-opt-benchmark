@@ -430,7 +430,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib14DefaultProbKeyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %this) unnamed_addr #2 align 2 {
+define void @_ZN8QuantLib14DefaultProbKeyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this) unnamed_addr #2 align 2 {
 entry:
   %seniority_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
@@ -439,7 +439,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14DefaultProbKeyC2ESt6vectorIN5boost10shared_ptrINS_11DefaultTypeEEESaIS5_EENS_8CurrencyENS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 44)) %this, ptr nocapture noundef %eventTypes, ptr nocapture noundef %cur, i32 noundef %sen) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14DefaultProbKeyC2ESt6vectorIN5boost10shared_ptrINS_11DefaultTypeEEESaIS5_EENS_8CurrencyENS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef %eventTypes, ptr nocapture noundef %cur, i32 noundef %sen) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer = alloca %"class.std::set", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1051,7 +1051,7 @@ _ZNSt12_Vector_baseIN5boost10shared_ptrIN8QuantLib11DefaultTypeEEESaIS4_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26NorthAmericaCorpDefaultKeyC2ERKNS_8CurrencyENS_9SeniorityENS_6PeriodEdNS_13Restructuring4TypeE(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 44)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %currency, i32 noundef %sen, i64 %graceFailureToPay.coerce, double noundef %amountFailure, i32 noundef %resType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26NorthAmericaCorpDefaultKeyC2ERKNS_8CurrencyENS_9SeniorityENS_6PeriodEdNS_13Restructuring4TypeE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %currency, i32 noundef %sen, i64 %graceFailureToPay.coerce, double noundef %amountFailure, i32 noundef %resType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %resType.addr = alloca i32, align 4
   %agg.tmp = alloca %"class.std::vector", align 8

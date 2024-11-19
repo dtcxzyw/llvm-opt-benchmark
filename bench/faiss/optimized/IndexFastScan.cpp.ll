@@ -677,7 +677,7 @@ declare void @_ZNK5faiss5Index12range_searchElPKffPNS_17RangeSearchResultEPKNS_1
 declare void @_ZNK5faiss5Index6assignElPKfPll(ptr noundef nonnull align 8 dereferenceable(36), i64 noundef, ptr noundef, ptr noundef, i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN5faiss13IndexFastScan5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((16, 24), (120, 128)) %0) unnamed_addr #3 align 2 {
+define void @_ZN5faiss13IndexFastScan5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0
@@ -1594,7 +1594,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss13IndexFastScanC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 12), (16, 26), (28, 52), (56, 64), (80, 136)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss13IndexFastScanC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

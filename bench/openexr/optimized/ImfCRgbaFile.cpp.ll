@@ -73,7 +73,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ImfFloatToHalf(float noundef %f, ptr nocapture noundef writeonly initializes((0, 2)) %h) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @ImfFloatToHalf(float noundef %f, ptr nocapture noundef writeonly %h) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = bitcast float %f to i32
   %1 = tail call float @llvm.fabs.f32(float %f)
@@ -460,7 +460,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_26Header13displayWindowEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @ImfHeaderDisplayWindow(ptr noundef nonnull %hdr, ptr nocapture noundef writeonly initializes((0, 4)) %xMin, ptr nocapture noundef writeonly initializes((0, 4)) %yMin, ptr nocapture noundef writeonly initializes((0, 4)) %xMax, ptr nocapture noundef writeonly initializes((0, 4)) %yMax) local_unnamed_addr #7 {
+define void @ImfHeaderDisplayWindow(ptr noundef nonnull %hdr, ptr nocapture noundef writeonly %xMin, ptr nocapture noundef writeonly %yMin, ptr nocapture noundef writeonly %xMax, ptr nocapture noundef writeonly %yMax) local_unnamed_addr #7 {
 entry:
   %call1 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header13displayWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
   %0 = load i32, ptr %call1, align 4
@@ -496,7 +496,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(16) ptr @_ZN7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @ImfHeaderDataWindow(ptr noundef nonnull %hdr, ptr nocapture noundef writeonly initializes((0, 4)) %xMin, ptr nocapture noundef writeonly initializes((0, 4)) %yMin, ptr nocapture noundef writeonly initializes((0, 4)) %xMax, ptr nocapture noundef writeonly initializes((0, 4)) %yMax) local_unnamed_addr #7 {
+define void @ImfHeaderDataWindow(ptr noundef nonnull %hdr, ptr nocapture noundef writeonly %xMin, ptr nocapture noundef writeonly %yMin, ptr nocapture noundef writeonly %xMax, ptr nocapture noundef writeonly %yMax) local_unnamed_addr #7 {
 entry:
   %call1 = tail call noundef nonnull align 4 dereferenceable(16) ptr @_ZNK7Imf_3_26Header10dataWindowEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
   %0 = load i32, ptr %call1, align 4
@@ -548,7 +548,7 @@ entry:
 declare noundef nonnull align 4 dereferenceable(8) ptr @_ZN7Imf_3_26Header18screenWindowCenterEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @ImfHeaderScreenWindowCenter(ptr noundef nonnull %hdr, ptr nocapture noundef writeonly initializes((0, 4)) %x, ptr nocapture noundef writeonly initializes((0, 4)) %y) local_unnamed_addr #7 {
+define void @ImfHeaderScreenWindowCenter(ptr noundef nonnull %hdr, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y) local_unnamed_addr #7 {
 entry:
   %call1 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK7Imf_3_26Header18screenWindowCenterEv(ptr noundef nonnull align 8 dereferenceable(49) %hdr)
   %0 = load float, ptr %call1, align 4

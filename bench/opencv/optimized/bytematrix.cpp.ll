@@ -51,7 +51,7 @@ $_ZTIN5zxing27IllegalArgumentErrorHandlerE = comdat any
 @_ZN5zxing10ByteMatrixD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5zxing10ByteMatrixD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing10ByteMatrixC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing10ByteMatrixC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing10ByteMatrixE, i64 16), ptr %0, align 8
@@ -99,7 +99,7 @@ _ZN5zxing10ByteMatrix4initEii.exit:               ; preds = %.lr.ph.i, %.noexc, 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing10ByteMatrixC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 12)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing10ByteMatrixC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing10ByteMatrixE, i64 16), ptr %0, align 8
@@ -147,7 +147,7 @@ _ZN5zxing10ByteMatrix4initEii.exit:               ; preds = %.lr.ph.i, %.noexc, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing10ByteMatrixC2EiiNS_8ArrayRefIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 12)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing10ByteMatrixC2EiiNS_8ArrayRefIcEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing10ByteMatrixE, i64 16), ptr %0, align 8
@@ -211,7 +211,7 @@ define hidden void @_ZN5zxing10ByteMatrixC2EiiNS_8ArrayRefIcEE(ptr nocapture nou
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing10ByteMatrixD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN5zxing10ByteMatrixD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing10ByteMatrixE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -240,7 +240,7 @@ define hidden void @_ZN5zxing10ByteMatrixD2Ev(ptr nocapture noundef nonnull alig
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing10ByteMatrixD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN5zxing10ByteMatrixD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing10ByteMatrixE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8

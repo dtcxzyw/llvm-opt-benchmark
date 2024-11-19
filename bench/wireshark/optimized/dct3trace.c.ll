@@ -97,7 +97,7 @@ declare ptr @file_gets(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr
 declare i32 @file_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dct3trace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal range(i32 0, 2) i32 @dct3trace_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #7
   store i64 %8, ptr %5, align 8

@@ -1323,7 +1323,7 @@ cvLs_AccessLMem.exit.thread:                      ; preds = %18, %13, %52, %55, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @cvLsInitializeCounters(ptr nocapture noundef writeonly initializes((136, 208)) %0) local_unnamed_addr #4 {
+define noundef i32 @cvLsInitializeCounters(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   ret i32 0

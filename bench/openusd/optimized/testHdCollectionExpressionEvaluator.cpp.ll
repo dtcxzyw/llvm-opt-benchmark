@@ -30184,7 +30184,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -30250,7 +30250,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZN12_GLOBAL__N_127_MakeCustomPredicateLibraryERKS4_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

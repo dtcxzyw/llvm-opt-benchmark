@@ -748,7 +748,7 @@ _ZN11ObjectValue11read_objectEP19DebugInfoReadStream.exit: ; preds = %_ZN26Growa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ObjectValue11read_objectEP19DebugInfoReadStream(ptr noundef nonnull align 8 dereferenceable(59) initializes((16, 24), (58, 59)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11ObjectValue11read_objectEP19DebugInfoReadStream(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -979,7 +979,7 @@ _ZN26GrowableArrayWithAllocatorIP10ScopeValue13GrowableArrayIS1_EE4pushERKS1_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ObjectMergeValue11read_objectEP19DebugInfoReadStream(ptr noundef nonnull align 8 dereferenceable(112) initializes((64, 80)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ObjectMergeValue11read_objectEP19DebugInfoReadStream(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN10ScopeValue9read_fromEP19DebugInfoReadStream(ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %3, ptr %4, align 8
@@ -1496,7 +1496,7 @@ _ZN19DebugInfoReadStream17get_cached_objectEv.exit: ; preds = %154, %164, %_ZN26
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13LocationValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13LocationValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.Location, align 4
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV13LocationValue, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1587,7 +1587,7 @@ define hidden void @_ZNK11MarkerValue8print_onEP12outputStream(ptr nocapture nou
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ObjectValue9set_valueEP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(59) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ObjectValue9set_valueEP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(59) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %4
 
@@ -2014,7 +2014,7 @@ define hidden void @_ZNK11ObjectValue15print_fields_onEP12outputStream(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16ObjectMergeValue6selectER5frameR11RegisterMap(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((104, 112)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(4983) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16ObjectMergeValue6selectER5frameR11RegisterMap(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(4983) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr @_ZN10StackValue18create_stack_valueI11RegisterMapEEPS_PK5framePKT_P10ScopeValue(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %5) #11
@@ -2440,7 +2440,7 @@ _ZN21CompressedWriteStream9write_intEj.exit75:    ; preds = %_ZN9UNSIGNED513fits
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ConstantIntValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16ConstantIntValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV16ConstantIntValue, i64 16), ptr %0, align 8
   %3 = tail call noundef i32 @_ZN20CompressedReadStream15read_signed_intEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2569,7 +2569,7 @@ define hidden void @_ZNK16ConstantIntValue8print_onEP12outputStream(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ConstantLongValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN17ConstantLongValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV17ConstantLongValue, i64 16), ptr %0, align 8
   %3 = tail call noundef i64 @_ZN20CompressedReadStream9read_longEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2618,7 +2618,7 @@ define hidden void @_ZNK17ConstantLongValue8print_onEP12outputStream(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ConstantDoubleValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ConstantDoubleValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV19ConstantDoubleValue, i64 16), ptr %0, align 8
   %3 = tail call noundef double @_ZN20CompressedReadStream11read_doubleEv(ptr noundef nonnull align 8 dereferenceable(12) %1) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2796,7 +2796,7 @@ _ZN21ThreadInVMfromUnknownD2Ev.exit:              ; preds = %_ZN10JNIHandles7res
 declare void @_ZNK7oopDesc14print_value_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ConstantOopReadValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ConstantOopReadValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTV20ConstantOopReadValue, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -2926,7 +2926,7 @@ _ZNK6HandleclEv.exit.thread:                      ; preds = %2, %_ZNK6HandleclEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12MonitorValueC2EP10ScopeValue8Locationb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(13) initializes((0, 13)) %0, ptr noundef %1, i32 %2, i1 noundef zeroext %3) unnamed_addr #6 align 2 {
+define hidden void @_ZN12MonitorValueC2EP10ScopeValue8Locationb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(13) %0, ptr noundef %1, i32 %2, i1 noundef zeroext %3) unnamed_addr #6 align 2 {
   %5 = zext i1 %3 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %0, align 8
@@ -2937,7 +2937,7 @@ define hidden void @_ZN12MonitorValueC2EP10ScopeValue8Locationb(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12MonitorValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(13) initializes((0, 13)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12MonitorValueC2EP19DebugInfoReadStream(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(13) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.Location, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8

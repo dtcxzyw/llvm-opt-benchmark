@@ -699,7 +699,7 @@ return:                                           ; preds = %if.then7, %qcow2_ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qcow2_cache_depends_on_flush(ptr nocapture noundef writeonly initializes((24, 25)) %c) local_unnamed_addr #4 {
+define dso_local void @qcow2_cache_depends_on_flush(ptr nocapture noundef writeonly %c) local_unnamed_addr #4 {
 entry:
   %depends_on_flush = getelementptr inbounds i8, ptr %c, i64 24
   store i8 1, ptr %depends_on_flush, align 8

@@ -167,7 +167,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [24 x i8] c"Cannot open input file.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Psr_ManReadSignalList(ptr noundef %0, ptr nocapture noundef initializes((4, 8)) %1, i8 noundef signext %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Psr_ManReadSignalList(ptr noundef %0, ptr nocapture noundef %1, i8 noundef signext %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %5, align 4
   %6 = tail call fastcc i32 @Psr_ManReadSignal(ptr noundef %0)
@@ -6251,7 +6251,7 @@ Psr_ManUtilSkipComments.exit.thread:              ; preds = %16, %11, %9, %.preh
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Psr_ManReadRange(ptr noundef initializes((60, 64)) %0) unnamed_addr #0 {
+define internal fastcc i32 @Psr_ManReadRange(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %3, align 4

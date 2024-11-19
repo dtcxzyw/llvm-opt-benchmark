@@ -346,7 +346,7 @@ define range(i32 -2147483648, 2147483647) i32 @yr_parser_lookup_loop_variable(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @_yr_parser_write_string(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readnone %4, ptr noundef initializes((0, 8)) %5, ptr nocapture noundef readnone %6) local_unnamed_addr #0 {
+define i32 @_yr_parser_write_string(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef readnone %4, ptr noundef %5, ptr nocapture noundef readnone %6) local_unnamed_addr #0 {
   store ptr null, ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 240
   %9 = load ptr, ptr %8, align 8

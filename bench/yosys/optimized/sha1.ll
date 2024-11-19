@@ -76,7 +76,7 @@ _ZN4SHA15resetEv.exit:                            ; preds = %1
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4SHA15resetEv(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 20), (56, 64)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN4SHA15resetEv(ptr noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
   store i32 1732584193, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 -271733879, ptr %2, align 4

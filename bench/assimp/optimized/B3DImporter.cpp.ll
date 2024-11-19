@@ -199,7 +199,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZN6Assimp11B3DImporterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp11B3DImporterD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11B3DImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11B3DImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11B3DImporterE, i64 16), ptr %this, align 8
   %_animations = getelementptr inbounds i8, ptr %this, i64 288
@@ -466,7 +466,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI10aiNodeAnimSt14default_deleteIS1_EESaIS4_EED
 declare void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11B3DImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11B3DImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11B3DImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -3474,7 +3474,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6Assimp11B3DImporter9ExitChunkEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) initializes((72, 80)) %this) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN6Assimp11B3DImporter9ExitChunkEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this) local_unnamed_addr #10 align 2 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %_M_finish.i.i, align 8

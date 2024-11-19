@@ -99,7 +99,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN29cmCommandArgumentParserHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 24)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN29cmCommandArgumentParserHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #3 align 2 {
   store i64 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -254,7 +254,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN29cmCommandArgumentParserHelper11SetLineFileElPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((144, 160)) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN29cmCommandArgumentParserHelper11SetLineFileElPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 144
@@ -1453,7 +1453,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef readonly) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN29cmCommandArgumentParserHelper18AllocateParserTypeEPNS_10ParserTypeEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN29cmCommandArgumentParserHelper18AllocateParserTypeEPNS_10ParserTypeEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %1, align 8
   %5 = icmp eq i32 %3, 0
   br i1 %5, label %6, label %.thread
@@ -1843,7 +1843,7 @@ _ZN29cmCommandArgumentParserHelper8SetErrorERKNSt7__cxx1112basic_stringIcSt11cha
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN29cmCommandArgumentParserHelper11SetMakefileEPK10cmMakefile(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN29cmCommandArgumentParserHelper11SetMakefileEPK10cmMakefile(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   ret void
@@ -1872,7 +1872,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN29cmCommandArgumentParserHelper19UpdateInputPositionEi(ptr nocapture noundef nonnull align 8 dereferenceable(168) initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN29cmCommandArgumentParserHelper19UpdateInputPositionEi(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
   %3 = sext i32 %1 to i64
   %4 = load i64, ptr %0, align 8
   %5 = add i64 %4, %3

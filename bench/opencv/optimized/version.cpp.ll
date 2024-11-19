@@ -91,7 +91,7 @@ $_ZTIN5zxing18FormatErrorHandlerE = comdat any
 @_ZN5zxing6qrcode7VersionD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5zxing6qrcode7VersionD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5zxing6qrcode3ECBC2Eii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN5zxing6qrcode3ECBC2Eii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4
@@ -112,7 +112,7 @@ define hidden noundef i32 @_ZN5zxing6qrcode3ECB16getDataCodewordsEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode8ECBlocksC2EiPNS0_3ECBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode8ECBlocksC2EiPNS0_3ECBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -131,7 +131,7 @@ define hidden void @_ZN5zxing6qrcode8ECBlocksC2EiPNS0_3ECBE(ptr nocapture nounde
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode8ECBlocksC2EiPNS0_3ECBES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode8ECBlocksC2EiPNS0_3ECBES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15982,7 +15982,7 @@ define hidden noundef ptr @_ZN5zxing6qrcode7Version19getVersionForNumberEiRNS_12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode7VersionC2EiPSt6vectorIiSaIiEEPNS0_8ECBlocksES7_S7_S7_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 52)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode7VersionC2EiPSt6vectorIiSaIiEEPNS0_8ECBlocksES7_S7_S7_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %8, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %0, align 8
@@ -16046,7 +16046,7 @@ define hidden void @_ZN5zxing6qrcode7VersionC2EiPSt6vectorIiSaIiEEPNS0_8ECBlocks
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing6qrcode7VersionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode7VersionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing6qrcode7VersionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -16157,7 +16157,7 @@ _ZNSt6vectorIPN5zxing6qrcode8ECBlocksESaIS3_EED2Ev.exit: ; preds = %._crit_edge,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing6qrcode7VersionD0Ev(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN5zxing6qrcode7VersionD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN5zxing6qrcode7VersionD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #17
   ret void

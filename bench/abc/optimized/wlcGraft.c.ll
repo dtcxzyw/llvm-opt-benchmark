@@ -1866,7 +1866,7 @@ define internal fastcc void @Wlc_ObjSimAnd(ptr nocapture noundef readonly %0, i3
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Sbc_Mult(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) local_unnamed_addr #5 {
+define void @Sbc_Mult(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
   %4 = and i64 %0, 4294967295
   %5 = and i64 %1, 4294967295
   %6 = mul nuw i64 %5, %4

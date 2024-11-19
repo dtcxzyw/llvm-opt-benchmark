@@ -364,7 +364,7 @@ $_ZTVN4llvm7support6detail23provider_format_adapterIRjEE = comdat any
 @_ZN4llvm3pdb19SymbolGroupIteratorC1ERNS0_9InputFileE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm3pdb19SymbolGroupIteratorC2ERNS0_9InputFileE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb9InputFileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb9InputFileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
@@ -458,7 +458,7 @@ _ZNSt10unique_ptrIN4llvm3pdb13NativeSessionESt14default_deleteIS2_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb20getModuleDebugStreamERNS0_7PDBFileERNS_9StringRefEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm3pdb20getModuleDebugStreamERNS0_7PDBFileERNS_9StringRefEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -777,7 +777,7 @@ declare void @_ZN4llvm3pdb20ModuleDebugStreamRef6reloadEv(ptr dead_on_unwind wri
 declare void @_ZN4llvm3pdb20ModuleDebugStreamRefD1Ev(ptr noundef nonnull align 8 dereferenceable(400)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb20getModuleDebugStreamERNS0_7PDBFileEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm3pdb20getModuleDebugStreamERNS0_7PDBFileEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Expected.30", align 8
@@ -1041,7 +1041,7 @@ _ZN4llvm8ExpectedIRNS_3pdb9DbiStreamEED2Ev.exit:  ; preds = %134, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11SymbolGroupC2EPNS0_9InputFileEj(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 56), (64, 65), (76, 96)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb11SymbolGroupC2EPNS0_9InputFileEj(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::object::content_iterator", align 8
   %5 = alloca %"class.llvm::VarStreamArray.135", align 8
   store ptr %1, ptr %0, align 8
@@ -2248,7 +2248,7 @@ define dso_local { ptr, i64 } @_ZNK4llvm3pdb11SymbolGroup4nameEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11SymbolGroup12updateDebugSERKNS_14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS4_EEEE(ptr nocapture noundef nonnull align 8 dereferenceable(168) initializes((24, 32), (40, 72), (76, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb11SymbolGroup12updateDebugSERKNS_14VarStreamArrayINS_8codeview21DebugSubsectionRecordENS_23VarStreamArrayExtractorIS4_EEEE(ptr nocapture noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -2412,7 +2412,7 @@ define dso_local void @_ZNK4llvm3pdb11SymbolGroup22getNameFromStringTableEj(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb11SymbolGroup20getNameFromChecksumsEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.151") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb11SymbolGroup20getNameFromChecksumsEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.151") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::VarStreamArrayIterator", align 8
   %5 = alloca %"class.llvm::Expected.151", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -3289,7 +3289,7 @@ _ZL14formatInternalIJRA31_KcRjEEvRN4llvm3pdb11LinePrinterEbDpOT_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb9InputFile4openENS_9StringRefEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.159") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb9InputFile4openENS_9StringRefEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.159") align 8 %0, ptr %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -4707,7 +4707,7 @@ define dso_local noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm3pdb9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb9InputFile13symbol_groupsEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::iterator_range.271") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb9InputFile13symbol_groupsEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::iterator_range.271") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::pdb::SymbolGroupIterator", align 8
   %4 = alloca %"class.llvm::pdb::SymbolGroupIterator", align 8
   %5 = alloca %"class.llvm::pdb::SymbolGroupIterator", align 8
@@ -4753,7 +4753,7 @@ define dso_local void @_ZN4llvm3pdb9InputFile17symbol_groups_endEv(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb19SymbolGroupIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 4), (24, 25)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb19SymbolGroupIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #1 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %2, align 8
@@ -4763,7 +4763,7 @@ define dso_local void @_ZN4llvm3pdb19SymbolGroupIteratorC2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb19SymbolGroupIteratorC2ERNS0_9InputFileE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 4), (24, 25)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb19SymbolGroupIteratorC2ERNS0_9InputFileE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #1 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %3, align 8

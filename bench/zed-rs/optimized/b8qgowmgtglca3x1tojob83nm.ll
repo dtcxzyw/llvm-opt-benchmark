@@ -17873,7 +17873,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf29d994627a6f16fE.llvm.1339133684658595
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17hb4cba4e819fc827dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 17)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
+define hidden void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$4lock17hb4cba4e819fc827dE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   %3 = cmpxchg ptr %1, i32 0, i32 1 acquire monotonic, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %3, 1
   br i1 %.sroa.18.0.in.i, label %5, label %4
@@ -19914,7 +19914,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17hfb452a59
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h4d096b5029cfb825E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly initializes((0, 256)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable17h4d096b5029cfb825E(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = alloca [16 x i8], align 8
   %5 = alloca [16 x i8], align 8

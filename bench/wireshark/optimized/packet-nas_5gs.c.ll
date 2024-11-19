@@ -8881,7 +8881,7 @@ declare i32 @tvb_reported_length_remaining(ptr noundef, i32 noundef) local_unnam
 declare ptr @try_val_to_str_idx_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_mm_registration_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_mm_registration_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 408
@@ -10309,7 +10309,7 @@ define internal void @nas_5gs_mm_service_acc(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_mm_control_plane_service_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_mm_control_plane_service_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -11477,7 +11477,7 @@ define internal void @nas_5gs_mm_notification_resp(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_mm_ul_nas_transp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_mm_ul_nas_transp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 408
@@ -11623,7 +11623,7 @@ nas5gs_get_private_data.exit:                     ; preds = %5, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_mm_dl_nas_transp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_mm_dl_nas_transp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 408
@@ -12042,7 +12042,7 @@ declare zeroext i16 @elem_lv(ptr noundef, ptr noundef, ptr noundef, i32 noundef,
 declare zeroext i16 @elem_v(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_est_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_est_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -12215,7 +12215,7 @@ define internal void @nas_5gs_sm_pdu_ses_est_req(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_est_acc(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_est_acc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = load i32, ptr @hf_nas_5gs_sm_sel_sc_mode, align 4
@@ -12442,7 +12442,7 @@ define internal void @nas_5gs_sm_pdu_ses_est_acc(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_est_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_est_rej(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -12535,7 +12535,7 @@ define internal void @nas_5gs_sm_pdu_ses_est_rej(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_auth_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_auth_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -12580,7 +12580,7 @@ define internal void @nas_5gs_sm_pdu_ses_auth_cmd(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_auth_comp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_auth_comp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -12625,7 +12625,7 @@ define internal void @nas_5gs_sm_pdu_ses_auth_comp(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_auth_res(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_auth_res(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
@@ -12656,7 +12656,7 @@ define internal void @nas_5gs_sm_pdu_ses_auth_res(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_mod_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_mod_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
@@ -12783,7 +12783,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_req(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_mod_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_mod_rej(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -12852,7 +12852,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_rej(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_mod_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_mod_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
@@ -12987,7 +12987,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_cmd(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_mod_comp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_mod_comp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
@@ -13034,7 +13034,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_comp(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_mod_com_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_mod_com_rej(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -13079,7 +13079,7 @@ define internal void @nas_5gs_sm_pdu_ses_mod_com_rej(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_rel_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_rel_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
@@ -13110,7 +13110,7 @@ define internal void @nas_5gs_sm_pdu_ses_rel_req(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_rel_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_rel_rej(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -13155,7 +13155,7 @@ define internal void @nas_5gs_sm_pdu_ses_rel_rej(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_rel_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_rel_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -13240,7 +13240,7 @@ define internal void @nas_5gs_sm_pdu_ses_rel_cmd(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_sm_pdu_ses_rel_comp(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_sm_pdu_ses_rel_comp(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
@@ -13418,7 +13418,7 @@ define internal void @nas_5gs_sm_remote_ue_resp(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_updp_manage_ue_policy_cmd(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_updp_manage_ue_policy_cmd(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -13455,14 +13455,14 @@ define internal void @nas_5gs_updp_manage_ue_policy_cmd(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @nas_5gs_updp_manage_ue_policy_cmd_cmpl(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((384, 388)) %2, i32 %3, i32 %4) #6 {
+define internal void @nas_5gs_updp_manage_ue_policy_cmd_cmpl(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, i32 %3, i32 %4) #6 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_updp_manage_ue_policy_cmd_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_updp_manage_ue_policy_cmd_rej(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -13483,7 +13483,7 @@ define internal void @nas_5gs_updp_manage_ue_policy_cmd_rej(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_updp_ue_state_indication(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_updp_ue_state_indication(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -13542,7 +13542,7 @@ define internal void @nas_5gs_updp_ue_state_indication(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_updp_ue_policy_prov_req(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_updp_ue_policy_prov_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -13563,7 +13563,7 @@ define internal void @nas_5gs_updp_ue_policy_prov_req(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_updp_ue_policy_prov_rej(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) #0 {
+define internal void @nas_5gs_updp_ue_policy_prov_rej(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp sgt i32 %4, 0
@@ -13672,7 +13672,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare i32 @call_dissector_with_data(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_n1_sm_info_from_ue(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal void @nas_5gs_n1_sm_info_from_ue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 0, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
@@ -13783,7 +13783,7 @@ define internal void @nas_5gs_n1_sm_info_from_ue(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_n1_sm_info_to_ue(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal void @nas_5gs_n1_sm_info_to_ue(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %7 = icmp slt i32 %4, 1
@@ -13854,7 +13854,7 @@ define internal void @nas_5gs_n1_sm_info_to_ue(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nas_5gs_unknown_n1_sm_info(ptr noundef %0, ptr noundef %1, ptr noundef initializes((384, 388)) %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal void @nas_5gs_unknown_n1_sm_info(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 384
   store i32 1, ptr %6, align 8
   %.not = icmp eq i32 %4, 0

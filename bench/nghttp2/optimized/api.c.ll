@@ -294,7 +294,7 @@ entry:
 declare i32 @llhttp__internal_execute(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @llhttp_settings_init(ptr nocapture noundef writeonly initializes((0, 184)) %settings) local_unnamed_addr #3 {
+define void @llhttp_settings_init(ptr nocapture noundef writeonly %settings) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %settings, i8 0, i64 184, i1 false)
   ret void
@@ -424,7 +424,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @llhttp_set_error_reason(ptr nocapture noundef writeonly initializes((32, 40)) %parser, ptr noundef %reason) local_unnamed_addr #3 {
+define void @llhttp_set_error_reason(ptr nocapture noundef writeonly %parser, ptr noundef %reason) local_unnamed_addr #3 {
 entry:
   %reason1 = getelementptr inbounds i8, ptr %parser, i64 32
   store ptr %reason, ptr %reason1, align 8

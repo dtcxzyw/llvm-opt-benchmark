@@ -104,13 +104,13 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7xgboost11EllpackPageC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost11EllpackPageC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost11EllpackPageC2EPKNS_7ContextEPNS_7DMatrixERKNS_10BatchParamE(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost11EllpackPageC2EPKNS_7ContextEPNS_7DMatrixERKNS_10BatchParamE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   store ptr null, ptr %0, align 8
   %6 = load i8, ptr @_ZGVZN4dmlc15LogMessageFatal5Entry11ThreadLocalEvE6result, align 8

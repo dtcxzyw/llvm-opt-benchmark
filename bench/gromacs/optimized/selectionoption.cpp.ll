@@ -1664,7 +1664,7 @@ define linkonce_odr noundef i32 @_ZNK3gmx26SelectionFileOptionStorage10valueCoun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK3gmx26SelectionFileOptionStorage13defaultValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 {
+define void @_ZNK3gmx26SelectionFileOptionStorage13defaultValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -1682,7 +1682,7 @@ define void @_ZNK3gmx26SelectionFileOptionStorage15normalizeValuesERKSt6vectorIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx26SelectionFileOptionStorage8clearSetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) initializes((128, 129)) %0) unnamed_addr #3 align 2 {
+define void @_ZN3gmx26SelectionFileOptionStorage8clearSetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(129) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 0, ptr %2, align 8
   ret void
@@ -5301,7 +5301,7 @@ define linkonce_odr void @_ZN3gmx23SelectionFileOptionInfoD0Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx19SelectionFileOptionC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19SelectionFileOptionC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12

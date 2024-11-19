@@ -542,7 +542,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ures_initStackObject_75(ptr nocapture noundef writeonly initializes((0, 136)) %resB) local_unnamed_addr #7 {
+define void @ures_initStackObject_75(ptr nocapture noundef writeonly %resB) local_unnamed_addr #7 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %resB, i8 0, i64 136, i1 false)
   ret void
@@ -552,7 +552,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7520StackUResourceBundleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7520StackUResourceBundleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %this, i8 0, i64 136, i1 false)
   ret void
@@ -2408,7 +2408,7 @@ return:                                           ; preds = %cleanup, %entry, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10createPathPKciS0_iS0_RN6icu_7510CharStringEP10UErrorCode(ptr noundef readonly %origResPath, i32 noundef %origResPathLen, ptr noundef %resPath, i32 noundef %resPathLen, ptr noundef %inKey, ptr noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %path, ptr noundef nonnull %status) unnamed_addr #1 {
+define internal fastcc void @_ZL10createPathPKciS0_iS0_RN6icu_7510CharStringEP10UErrorCode(ptr noundef readonly %origResPath, i32 noundef %origResPathLen, ptr noundef %resPath, i32 noundef %resPathLen, ptr noundef %inKey, ptr noundef nonnull align 8 dereferenceable(60) %path, ptr noundef nonnull %status) unnamed_addr #1 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp77 = alloca %"class.icu_75::StringPiece", align 8
@@ -2949,7 +2949,7 @@ return:                                           ; preds = %if.else28, %if.else
 declare i32 @res_getTableItemByKey_75(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcPjP10UErrorCode(ptr nocapture noundef nonnull readonly %resBundle, ptr noundef nonnull %resTag, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %res, ptr nocapture noundef nonnull writeonly %status) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL15getFallbackDataPK15UResourceBundlePPKcPjP10UErrorCode(ptr nocapture noundef nonnull readonly %resBundle, ptr noundef nonnull %resTag, ptr nocapture noundef nonnull writeonly %res, ptr nocapture noundef nonnull writeonly %status) unnamed_addr #1 {
 entry:
   %indexR = alloca i32, align 4
   %fData = getelementptr inbounds i8, ptr %resBundle, i64 8
@@ -5145,7 +5145,7 @@ declare i32 @u_strlen_75(ptr noundef) local_unnamed_addr #6
 declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef nonnull %localeID, ptr noundef %res, ptr noundef nonnull %bund1, ptr noundef nonnull initializes((0, 1)) %parent, i32 noundef range(i32 1023, 1025) %parentCapacity) unnamed_addr #1 {
+define internal fastcc void @_ZL32getParentForFunctionalEquivalentPKcP15UResourceBundleS2_Pci(ptr noundef nonnull %localeID, ptr noundef %res, ptr noundef nonnull %bund1, ptr noundef nonnull %parent, i32 noundef range(i32 1023, 1025) %parentCapacity) unnamed_addr #1 {
 entry:
   %length16.i = alloca i32, align 4
   %subStatus = alloca i32, align 4
@@ -6883,7 +6883,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString8
 declare void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef nonnull %name, ptr nocapture noundef readonly %defaultLocale, i32 noundef range(i32 0, 2) %openType, ptr nocapture noundef nonnull writeonly %isRoot, ptr nocapture noundef nonnull initializes((0, 1)) %foundParent, ptr nocapture noundef nonnull writeonly %isDefault, ptr noundef nonnull %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %path, ptr noundef nonnull %name, ptr nocapture noundef readonly %defaultLocale, i32 noundef range(i32 0, 2) %openType, ptr nocapture noundef nonnull writeonly %isRoot, ptr nocapture noundef nonnull %foundParent, ptr nocapture noundef nonnull writeonly %isDefault, ptr noundef nonnull %status) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 while.body.lr.ph:
   %err.i.i = alloca i32, align 4
   %err.i = alloca i32, align 4

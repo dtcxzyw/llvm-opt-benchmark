@@ -1425,7 +1425,7 @@ define dso_local i32 @snd_ctl_request_layer(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @__request_module(i1 noundef zeroext, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_ctl_register_layer(ptr noundef initializes((0, 8)) %0) #0 align 16 {
+define dso_local void @snd_ctl_register_layer(ptr noundef %0) #0 align 16 {
   tail call void @down_write(ptr noundef nonnull @snd_ctl_layer_rwsem) #17
   %2 = load ptr, ptr @snd_ctl_layer, align 8
   store ptr %2, ptr %0, align 8
@@ -1653,7 +1653,7 @@ declare dso_local i32 @snd_device_new(ptr noundef, i32 noundef, ptr noundef, ptr
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @snd_ctl_boolean_mono_info(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((64, 68), (72, 76), (80, 96)) %1) #8 align 16 {
+define dso_local noundef i32 @snd_ctl_boolean_mono_info(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 72
@@ -1666,7 +1666,7 @@ define dso_local noundef i32 @snd_ctl_boolean_mono_info(ptr nocapture readnone %
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @snd_ctl_boolean_stereo_info(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((64, 68), (72, 76), (80, 96)) %1) #8 align 16 {
+define dso_local noundef i32 @snd_ctl_boolean_stereo_info(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 72
@@ -1679,7 +1679,7 @@ define dso_local noundef i32 @snd_ctl_boolean_stereo_info(ptr nocapture readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @snd_ctl_enum_info(ptr noundef initializes((64, 68), (72, 76), (80, 84)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
+define dso_local noundef i32 @snd_ctl_enum_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 3, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -3645,7 +3645,7 @@ define internal fastcc i32 @snd_ctl_tlv_ioctl(ptr noundef readonly %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -14, 1) i32 @snd_ctl_elem_list(ptr noundef nonnull %0, ptr nocapture noundef initializes((8, 16)) %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -14, 1) i32 @snd_ctl_elem_list(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.snd_ctl_elem_id, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, i8 0, i64 64, i1 false), !annotation !40
@@ -4546,7 +4546,7 @@ define internal fastcc i32 @snd_ctl_elem_init_enum_names(ptr nocapture noundef n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_ctl_elem_user_enum_info(ptr nocapture noundef readonly %0, ptr noundef initializes((4, 60), (64, 84), (88, 272)) %1) #0 align 16 {
+define internal noundef i32 @snd_ctl_elem_user_enum_info(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 80
@@ -4622,7 +4622,7 @@ define internal noundef i32 @snd_ctl_elem_user_enum_info(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_ctl_elem_user_info(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 60), (64, 272)) %1) #0 align 16 {
+define internal noundef i32 @snd_ctl_elem_user_info(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %1, align 4

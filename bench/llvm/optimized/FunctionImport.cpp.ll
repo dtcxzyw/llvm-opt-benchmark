@@ -1624,7 +1624,7 @@ _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN20ModuleImportsManager6createEN4llvm12function_refIFbmPKNS0_18GlobalValueSummaryEEEERKNS0_18ModuleSummaryIndexEPNS0_8DenseMapINS0_9StringRefENS0_8DenseSetINS0_9ValueInfoENS0_12DenseMapInfoISD_vEEEENSE_ISB_vEENS0_6detail12DenseMapPairISB_SG_EEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN20ModuleImportsManager6createEN4llvm12function_refIFbmPKNS0_18GlobalValueSummaryEEEERKNS0_18ModuleSummaryIndexEPNS0_8DenseMapINS0_9StringRefENS0_8DenseSetINS0_9ValueInfoENS0_12DenseMapInfoISD_vEEEENSE_ISB_vEENS0_6detail12DenseMapPairISB_SG_EEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::function_ref", align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.std::unique_ptr.138", align 8

@@ -2891,7 +2891,7 @@ select.unfold:                                    ; preds = %4, %2, %8
 declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @extract_variadic_args(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
+define dso_local i32 @extract_variadic_args(ptr nocapture noundef readonly %0, i32 noundef %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4

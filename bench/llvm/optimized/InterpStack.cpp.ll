@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5clang6interp11InterpStackD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang6interp11InterpStackD2Ev
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_ZN5clang6interp11InterpStackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp11InterpStackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN5clang6interp11InterpStack5clearEv.exit, label %3
@@ -36,7 +36,7 @@ _ZN5clang6interp11InterpStack5clearEv.exit:       ; preds = %1, %5, %.thread6.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_ZN5clang6interp11InterpStack5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp11InterpStack5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %3

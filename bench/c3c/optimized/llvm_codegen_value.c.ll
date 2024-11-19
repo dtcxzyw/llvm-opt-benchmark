@@ -506,7 +506,7 @@ declare ptr @type_get_indexed_type(ptr noundef) local_unnamed_addr #1
 declare i32 @type_abi_alignment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_value_set(ptr nocapture noundef initializes((4, 24)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @llvm_value_set(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @type_lowering(ptr noundef %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
@@ -577,7 +577,7 @@ declare ptr @LLVMIntTypeInContext(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @LLVMGetElementType(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_value_set_address(ptr nocapture noundef initializes((4, 24)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @llvm_value_set_address(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -593,7 +593,7 @@ define dso_local void @llvm_value_set_address(ptr nocapture noundef initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_value_set_address_abi_aligned(ptr nocapture noundef initializes((4, 24)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @llvm_value_set_address_abi_aligned(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @type_lowering(ptr noundef %2)
   %5 = tail call i32 @type_abi_alignment(ptr noundef %2) #3
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -842,7 +842,7 @@ declare void @llvm_emit_block(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @llvm_load_abi_alignment(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_value_set_decl_address(ptr noundef %0, ptr nocapture noundef initializes((4, 32)) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @llvm_value_set_decl_address(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @llvm_get_ref(ptr noundef %0, ptr noundef %2) #3
   %5 = getelementptr inbounds i8, ptr %2, i64 72
   %6 = load ptr, ptr %5, align 8

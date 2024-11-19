@@ -239,14 +239,14 @@ $_ZTIN17duckdb_moodycamel15ConcurrentQueueIN6duckdb18BufferEvictionNodeENS_28Con
 @_ZN6duckdb21BufferPoolReservationD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb21BufferPoolReservationD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb12BufferHandleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb12BufferHandleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb12BufferHandleC2ESt10shared_ptrINS_11BlockHandleEEPNS_10FileBufferE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef %handle_p, ptr noundef %node_p) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb12BufferHandleC2ESt10shared_ptrINS_11BlockHandleEEPNS_10FileBufferE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef %handle_p, ptr noundef %node_p) unnamed_addr #1 align 2 {
 entry:
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_M_refcount.i.i, align 8, !tbaa !3
@@ -261,7 +261,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb12BufferHandleC2EOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb12BufferHandleC2EOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %node = getelementptr inbounds i8, ptr %this, i64 16
@@ -557,7 +557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11BlockHandleC2ERNS_12BlockManagerEl(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 48), (52, 81)) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, i64 noundef %block_id_p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11BlockHandleC2ERNS_12BlockManagerEl(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, i64 noundef %block_id_p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %block_manager, ptr %this, align 8, !tbaa !8
   %lock = getelementptr inbounds i8, ptr %this, i64 8
@@ -612,7 +612,7 @@ _ZNSt10unique_ptrIN6duckdb10FileBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11BlockHandleC2ERNS_12BlockManagerElNS_10unique_ptrINS_10FileBufferESt14default_deleteIS4_ELb1EEEbmONS_21BufferPoolReservationE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 48), (52, 81)) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, i64 noundef %block_id_p, ptr nocapture noundef %buffer_p, i1 noundef zeroext %can_destroy_p, i64 noundef %block_size, ptr nocapture noundef nonnull align 8 dereferenceable(16) %reservation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11BlockHandleC2ERNS_12BlockManagerElNS_10unique_ptrINS_10FileBufferESt14default_deleteIS4_ELb1EEEbmONS_21BufferPoolReservationE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, i64 noundef %block_id_p, ptr nocapture noundef %buffer_p, i1 noundef zeroext %can_destroy_p, i64 noundef %block_size, ptr nocapture noundef nonnull align 8 dereferenceable(16) %reservation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %can_destroy_p to i8
   store ptr %block_manager, ptr %this, align 8, !tbaa !8
@@ -686,7 +686,7 @@ _ZNSt10unique_ptrIN6duckdb10FileBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb21BufferPoolReservationaSEOS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 8)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb21BufferPoolReservationaSEOS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %src, align 8, !tbaa !62
   store i64 %0, ptr %this, align 8, !tbaa !62
@@ -695,7 +695,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb11BlockHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((112, 120)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11BlockHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block_id.addr.i = alloca i64, align 8
   %unswizzled = getelementptr inbounds i8, ptr %this, i64 112
@@ -1959,7 +1959,7 @@ return:                                           ; preds = %if.end10, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12BlockManagerC2ERNS_13BufferManagerE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 56)) %this, ptr noundef nonnull align 8 dereferenceable(8) %buffer_manager) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12BlockManagerC2ERNS_13BufferManagerE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %buffer_manager) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12BlockManagerE, i64 16), ptr %this, align 8, !tbaa !49
   %buffer_manager2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -3166,7 +3166,7 @@ _ZNSt12__shared_ptrIN6duckdb11BlockHandleELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb10BufferPoolC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((0, 64)) %this, i64 noundef %maximum_memory) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb10BufferPoolC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %this, i64 noundef %maximum_memory) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb10BufferPoolE, i64 16), ptr %this, align 8, !tbaa !49
   %limit_lock = getelementptr inbounds i8, ptr %this, i64 8
@@ -3194,7 +3194,7 @@ _ZN6duckdb9make_uniqINS_13EvictionQueueEJEEENS_11__unique_ifIT_Lb1EE15__unique_s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb10BufferPoolD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb10BufferPoolD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb10BufferPoolE, i64 16), ptr %this, align 8, !tbaa !49
   %queue = getelementptr inbounds i8, ptr %this, i64 64
@@ -4198,7 +4198,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb21BufferPoolReservationC2ERNS_10BufferPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(76) %pool) unnamed_addr #0 align 2 {
+define void @_ZN6duckdb21BufferPoolReservationC2ERNS_10BufferPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(76) %pool) unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %this, align 8, !tbaa !62
   %pool2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -4207,7 +4207,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb21BufferPoolReservationC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) unnamed_addr #1 align 2 {
+define void @_ZN6duckdb21BufferPoolReservationC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) unnamed_addr #1 align 2 {
 entry:
   store i64 0, ptr %this, align 8, !tbaa !62
   %pool = getelementptr inbounds i8, ptr %this, i64 8

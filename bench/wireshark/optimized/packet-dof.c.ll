@@ -2296,7 +2296,7 @@ define internal void @secmode_list_domain_set_cb(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @secmode_list_domain_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @secmode_list_domain_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -2332,7 +2332,7 @@ define internal void @secmode_list_identity_set_cb(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @secmode_list_identity_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @secmode_list_identity_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2369,7 +2369,7 @@ define internal void @secmode_list_kek_set_cb(ptr nocapture noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @secmode_list_kek_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @secmode_list_kek_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2405,7 +2405,7 @@ define internal void @seckey_list_key_set_cb(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @seckey_list_key_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @seckey_list_key_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -2440,7 +2440,7 @@ define internal void @identsecret_list_domain_set_cb(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @identsecret_list_domain_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @identsecret_list_domain_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -2476,7 +2476,7 @@ define internal void @identsecret_list_identity_set_cb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @identsecret_list_identity_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @identsecret_list_identity_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2518,7 +2518,7 @@ define internal void @identsecret_list_secret_set_cb(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @identsecret_list_secret_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @identsecret_list_secret_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2800,7 +2800,7 @@ switch.early.test97:                              ; preds = %84
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @secmode_list_copy_cb(ptr noundef returned writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @secmode_list_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #20
   store ptr %5, ptr %0, align 8
@@ -2818,7 +2818,7 @@ define internal noundef ptr @secmode_list_copy_cb(ptr noundef returned writeonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @secmode_list_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @secmode_list_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct.parseCtx, align 8
   %4 = alloca %struct.parseCtx, align 8
   store ptr null, ptr %1, align 8
@@ -3139,7 +3139,7 @@ define internal void @secmode_list_post_update_cb() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @seckey_list_copy_cb(ptr noundef returned writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @seckey_list_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #20
   store ptr %5, ptr %0, align 8
@@ -3147,7 +3147,7 @@ define internal noundef ptr @seckey_list_copy_cb(ptr noundef returned writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @seckey_list_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @seckey_list_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   store ptr null, ptr %1, align 8
   %3 = load ptr, ptr %0, align 8
   %.not1926.i = icmp eq ptr %3, null
@@ -3226,7 +3226,7 @@ define internal void @seckey_list_post_update_cb() #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @identsecret_list_copy_cb(ptr noundef returned writeonly initializes((0, 24)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @identsecret_list_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #20
   store ptr %5, ptr %0, align 8
@@ -3244,7 +3244,7 @@ define internal noundef ptr @identsecret_list_copy_cb(ptr noundef returned write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @identsecret_list_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @identsecret_list_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct.parseCtx, align 8
   %4 = alloca %struct.parseCtx, align 8
   store ptr null, ptr %1, align 8
@@ -3680,7 +3680,7 @@ count_hex_bytes.exit:                             ; preds = %14, %.outer.i, %5, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dof_oid_new_standard_string(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc void @dof_oid_new_standard_string(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.parseCtx, align 8
   %5 = alloca %struct.parseCtx, align 8
   %.not = icmp eq ptr %0, null
@@ -7407,7 +7407,7 @@ ObjectID_DataToString.exit109:                    ; preds = %178, %.thread.i108,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ObjectID_ToString(ptr noundef nonnull %0, ptr noundef initializes((0, 2)) %1) unnamed_addr #0 {
+define internal fastcc i32 @ObjectID_ToString(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   store i8 91, ptr %1, align 1
   %4 = getelementptr i8, ptr %1, i64 1
@@ -10369,7 +10369,7 @@ declare i32 @call_data_dissector(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @find_dissector_table(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_c2(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %2, ptr noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc void @read_c2(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #20
   %.not = icmp sgt i8 %5, -1
   br i1 %.not, label %14, label %6

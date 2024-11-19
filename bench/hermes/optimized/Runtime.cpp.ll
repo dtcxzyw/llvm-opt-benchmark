@@ -1764,7 +1764,7 @@ return:                                           ; preds = %_ZN6hermes2vm16Arra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7RuntimeC2ESt10shared_ptrINS0_15StorageProviderEERKNS0_13RuntimeConfigE(ptr noundef nonnull align 8 dereferenceable(9832) initializes((0, 744)) %this, ptr nocapture noundef %provider, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7RuntimeC2ESt10shared_ptrINS0_15StorageProviderEERKNS0_13RuntimeConfigE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nocapture noundef %provider, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator", align 1
@@ -4037,7 +4037,7 @@ _ZNSt4pairISt10unique_ptrIN6hermes3hbc20BCProviderFromBufferESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7Runtime14initJSBuiltinsEN4llvh15MutableArrayRefIPNS0_8CallableEEENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nocapture writeonly initializes((416, 424)) %builtins.coerce0, i64 %builtins.coerce1, ptr %jsBuiltinsObj.coerce) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7Runtime14initJSBuiltinsEN4llvh15MutableArrayRefIPNS0_8CallableEEENS0_6HandleINS0_8JSObjectEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nocapture writeonly %builtins.coerce0, i64 %builtins.coerce1, ptr %jsBuiltinsObj.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm8JSObject24getNamedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr %jsBuiltinsObj.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %this, i32 463, ptr %jsBuiltinsObj.coerce, i32 0, ptr noundef null) #26
   %0 = extractvalue { i32, i64 } %call.i, 1
@@ -4054,7 +4054,7 @@ declare void @_ZN6hermes2vm16SamplingProfiler6createERNS0_7RuntimeE(ptr sret(%"c
 declare void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(9832) initializes((0, 8), (16, 24)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(9832) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes2vm7RuntimeE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -4705,7 +4705,7 @@ declare void @_ZN6hermes2vm16TimeLimitMonitor14unwatchRuntimeERNS0_7RuntimeE(ptr
 declare void @_ZN6hermes2vm6GCBase11GCCallbacksD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn16_N6hermes2vm7RuntimeD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZThn16_N6hermes2vm7RuntimeD1Ev(ptr noundef %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN6hermes2vm7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(9832) %0) #26
@@ -4713,7 +4713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7RuntimeD0Ev(ptr noundef nonnull align 8 dereferenceable(9832) initializes((0, 8), (16, 24)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7RuntimeD0Ev(ptr noundef nonnull align 8 dereferenceable(9832) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes2vm7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(9832) %this) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -4721,7 +4721,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn16_N6hermes2vm7RuntimeD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZThn16_N6hermes2vm7RuntimeD0Ev(ptr noundef %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN6hermes2vm7RuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(9832) %0) #26
@@ -4730,7 +4730,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7Runtime9markRootsERNS0_28RootAndSlotAcceptorWithNamesEb(ptr noundef nonnull align 8 dereferenceable(9832) initializes((9104, 9112)) %this, ptr noundef nonnull align 8 dereferenceable(16) %acceptor, i1 noundef zeroext %markLongLived) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7Runtime9markRootsERNS0_28RootAndSlotAcceptorWithNamesEb(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(16) %acceptor, i1 noundef zeroext %markLongLived) unnamed_addr #0 align 2 {
 entry:
   %__args.addr.i = alloca ptr, align 8
   %call.i = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #26
@@ -5693,7 +5693,7 @@ declare void @_ZN6hermes2vm16SamplingProfiler9markRootsERNS0_12RootAcceptorE(ptr
 declare void @_ZN6hermes2vm20CodeCoverageProfiler9markRootsERNS0_12RootAcceptorE(ptr noundef nonnull align 8 dereferenceable(97), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn16_N6hermes2vm7Runtime9markRootsERNS0_28RootAndSlotAcceptorWithNamesEb(ptr noundef initializes((9088, 9096)) %this, ptr noundef nonnull align 8 dereferenceable(16) %acceptor, i1 noundef zeroext %markLongLived) unnamed_addr #8 align 2 {
+define hidden void @_ZThn16_N6hermes2vm7Runtime9markRootsERNS0_28RootAndSlotAcceptorWithNamesEb(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(16) %acceptor, i1 noundef zeroext %markLongLived) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN6hermes2vm7Runtime9markRootsERNS0_28RootAndSlotAcceptorWithNamesEb(ptr noundef nonnull align 8 dereferenceable(9832) %0, ptr noundef nonnull align 8 dereferenceable(16) %acceptor, i1 noundef zeroext %markLongLived)
@@ -6305,7 +6305,7 @@ _ZN6hermes2vm7Runtime20raiseEvalUnsupportedEN4llvh9StringRefE.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i32, i64 } @_ZN6hermes2vm7Runtime11runBytecodeEOSt10shared_ptrINS_3hbc20BCProviderFromBufferEENS0_18RuntimeModuleFlagsEN4llvh9StringRefENS0_6HandleINS0_11EnvironmentEEENSA_INS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) initializes((704, 712)) %this, ptr noundef nonnull align 8 dereferenceable(16) %bytecode, i8 %flags.coerce, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, ptr %environment.coerce, i64 %thisArg.coerce) local_unnamed_addr #0 align 2 {
+define hidden { i32, i64 } @_ZN6hermes2vm7Runtime11runBytecodeEOSt10shared_ptrINS_3hbc20BCProviderFromBufferEENS0_18RuntimeModuleFlagsEN4llvh9StringRefENS0_6HandleINS0_11EnvironmentEEENSA_INS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(16) %bytecode, i8 %flags.coerce, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, ptr %environment.coerce, i64 %thisArg.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i69 = alloca %"class.hermes::vm::TwineChar16", align 8
   %gcScope.i = alloca %"class.hermes::vm::GCScope", align 8
@@ -7205,7 +7205,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNK4llvh5Twine3strB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(18)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7Runtime14printExceptionERN4llvh11raw_ostreamENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) initializes((704, 712)) %this, ptr noundef nonnull align 8 dereferenceable(36) %os, ptr %valueHandle.coerce) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7Runtime14printExceptionERN4llvh11raw_ostreamENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr noundef nonnull align 8 dereferenceable(36) %os, ptr %valueHandle.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %tmp = alloca %"class.hermes::vm::SmallXString", align 8
   %OutBufEnd.i5.i = getelementptr inbounds i8, ptr %os, i64 16
@@ -7514,7 +7514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm7Runtime12getEpiloguesEv(ptr noalias nocapture sret(%"class.std::vector.353") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm7Runtime12getEpiloguesEv(ptr noalias nocapture sret(%"class.std::vector.353") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(9832) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %runtimeModuleList_ = getelementptr inbounds i8, ptr %this, i64 9416
@@ -11120,7 +11120,7 @@ declare ptr @_ZN6hermes2vm14OrderedHashMap6createERNS0_7RuntimeE(ptr noundef non
 declare noundef i32 @_ZN6hermes2vm14OrderedHashMap6insertENS0_6HandleIS1_EERNS0_7RuntimeENS2_INS0_11HermesValueEEES7_(ptr, ptr noundef nonnull align 8 dereferenceable(9832), ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes2vm7Runtime16clearKeptObjectsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9832) initializes((712, 720)) %this) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN6hermes2vm7Runtime16clearKeptObjectsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9832) %this) local_unnamed_addr #13 align 2 {
 entry:
   %keptObjects_ = getelementptr inbounds i8, ptr %this, i64 712
   store i64 -1688849860263936, ptr %keptObjects_, align 8

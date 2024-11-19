@@ -931,7 +931,7 @@ _ZN4cvc58internal6theory11TheoryStateD2Ev.exit:   ; preds = %_ZN4cvc57context3CD
 declare void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers17TheoryQuantifiersD2Ev(ptr noundef nonnull align 8 dereferenceable(1776) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers17TheoryQuantifiersD2Ev(ptr noundef nonnull align 8 dereferenceable(1776) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers17TheoryQuantifiersE, i64 16), ptr %this, align 8
   %d_qmacros = getelementptr inbounds i8, ptr %this, i64 1768
@@ -1002,7 +1002,7 @@ _ZN4cvc58internal6theory11quantifiers16QuantifiersStateD2Ev.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers17TheoryQuantifiersD0Ev(ptr noundef nonnull align 8 dereferenceable(1776) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers17TheoryQuantifiersD0Ev(ptr noundef nonnull align 8 dereferenceable(1776) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers17TheoryQuantifiersD2Ev(ptr noundef nonnull align 8 dereferenceable(1776) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
@@ -1036,7 +1036,7 @@ entry:
 declare void @_ZN4cvc58internal6theory9Valuation18setUnevaluatedKindENS0_4kind6Kind_tE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers17TheoryQuantifiers19needsEqualityEngineERNS1_11EeSetupInfoE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(45) initializes((44, 45)) %esi) unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers17TheoryQuantifiers19needsEqualityEngineERNS1_11EeSetupInfoE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(45) %esi) unnamed_addr #9 align 2 {
 entry:
   %d_useMaster = getelementptr inbounds i8, ptr %esi, i64 44
   store i8 1, ptr %d_useMaster, align 4

@@ -63,7 +63,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN7rocksdb6StatusC1ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE = unnamed_addr alias void (ptr, i8, i8, ptr, ptr, i8), ptr @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6Status9CopyStateEPKc(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %s) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6Status9CopyStateEPKc(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef readonly %s) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s) #12
   %add = add i64 %call, 1
@@ -83,7 +83,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #2
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 6), (8, 16)) %this, i8 noundef zeroext %_code, i8 noundef zeroext %_subcode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %msg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %msg2, i8 noundef zeroext %sev) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 noundef zeroext %_code, i8 noundef zeroext %_subcode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %msg, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %msg2, i8 noundef zeroext %sev) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 %_code, ptr %this, align 8
   %subcode_ = getelementptr inbounds i8, ptr %this, i64 1

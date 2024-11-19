@@ -465,7 +465,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTP1xCodecC2ENS_18TransportDirectionEbb(ptr noundef nonnull align 8 dereferenceable(428) initializes((0, 8)) %this, i8 noundef zeroext %direction, i1 noundef zeroext %force1_1, i1 noundef zeroext %strictValidation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTP1xCodecC2ENS_18TransportDirectionEbb(ptr noundef nonnull align 8 dereferenceable(428) %this, i8 noundef zeroext %direction, i1 noundef zeroext %force1_1, i1 noundef zeroext %strictValidation) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen11HTTP1xCodecE, i64 16), ptr %this, align 8
@@ -621,7 +621,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen11HTTP1xCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(428) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTP1xCodecD2Ev(ptr noundef nonnull align 8 dereferenceable(428) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen11HTTP1xCodecE, i64 16), ptr %this, align 8
   %second.i = getelementptr inbounds i8, ptr %this, i64 392
@@ -2245,7 +2245,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen11HTTP1xCodec14onMessageBeginEv(ptr nocapture noundef nonnull align 8 dereferenceable(428) initializes((368, 376), (380, 381)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8proxygen11HTTP1xCodec14onMessageBeginEv(ptr nocapture noundef nonnull align 8 dereferenceable(428) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %headersComplete_ = getelementptr inbounds i8, ptr %this, i64 424
   %bf.load = load i32, ptr %headersComplete_, align 8

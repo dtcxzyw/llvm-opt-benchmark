@@ -2980,7 +2980,7 @@ define internal i32 @pmix3_bfrop_unpack_modex(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal range(i32 -29, 1) i32 @pmix3_bfrop_copy_modex(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 zeroext %2) #3 {
+define internal range(i32 -29, 1) i32 @pmix3_bfrop_copy_modex(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 zeroext %2) #3 {
   %4 = tail call noalias dereferenceable_or_null(280) ptr @malloc(i64 noundef 280) #13
   store ptr %4, ptr %0, align 8
   %5 = icmp eq ptr %4, null
@@ -3234,7 +3234,7 @@ define internal i32 @pmix3_bfrop_unpack_array(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @pmix3_bfrop_copy_array(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i16 zeroext %2) #3 {
+define internal noundef i32 @pmix3_bfrop_copy_array(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i16 zeroext %2) #3 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   store ptr %4, ptr %0, align 8
   %5 = load i64, ptr %1, align 8

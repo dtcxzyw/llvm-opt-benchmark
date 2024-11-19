@@ -65566,7 +65566,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %20, %18, %168, %165
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE20RebuildPackExpansionENS_19TemplateArgumentLocES2_St8optionalIjE"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 4), (8, 16)) %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN5clang13TreeTransformIZZNS_4Sema29InstantiateFunctionDefinitionENS_14SourceLocationEPNS_12FunctionDeclEbbbENK3$_0clEvE30SpecialMemberTypeInfoRebuilderE20RebuildPackExpansionENS_19TemplateArgumentLocES2_St8optionalIjE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::TemplateName", align 8
   %6 = alloca %"class.clang::TemplateArgument", align 8
   %7 = load i32, ptr %1, align 8

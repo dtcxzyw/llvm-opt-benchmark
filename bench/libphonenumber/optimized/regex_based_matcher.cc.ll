@@ -35,7 +35,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers17RegexBasedMatcherC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers17RegexBasedMatcherC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers17RegexBasedMatcherE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #8
@@ -93,7 +93,7 @@ declare void @_ZN4i18n12phonenumbers11RegExpCacheC1ERKNS0_21AbstractRegExpFactor
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4i18n12phonenumbers17RegexBasedMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4i18n12phonenumbers17RegexBasedMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers17RegexBasedMatcherE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -123,7 +123,7 @@ _ZN5boost10scoped_ptrIKN4i18n12phonenumbers21AbstractRegExpFactoryEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4i18n12phonenumbers17RegexBasedMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4i18n12phonenumbers17RegexBasedMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers17RegexBasedMatcherE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8

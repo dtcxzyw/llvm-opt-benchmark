@@ -161,7 +161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3re26Regexp10ParseStateC2ENS0_10ParseFlagsEN4absl7debian211string_viewEPNS_12RegexpStatusE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 4), (8, 48)) %this, i32 noundef %flags, ptr %whole_regexp.coerce0, i64 %whole_regexp.coerce1, ptr noundef %status) unnamed_addr #1 align 2 {
+define void @_ZN3re26Regexp10ParseStateC2ENS0_10ParseFlagsEN4absl7debian211string_viewEPNS_12RegexpStatusE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, i32 noundef %flags, ptr %whole_regexp.coerce0, i64 %whole_regexp.coerce1, ptr noundef %status) unnamed_addr #1 align 2 {
 entry:
   store i32 %flags, ptr %this, align 8
   %whole_regexp_ = getelementptr inbounds i8, ptr %this, i64 8

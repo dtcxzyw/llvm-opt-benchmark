@@ -147,7 +147,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core17CoreConfiguration7BuilderC2Ev(ptr noundef nonnull align 16 dereferenceable(880) initializes((0, 24), (32, 176)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core17CoreConfiguration7BuilderC2Ev(ptr noundef nonnull align 16 dereferenceable(880) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %channel_init_ = getelementptr inbounds i8, ptr %this, i64 32

@@ -3684,7 +3684,7 @@ define range(i32 -1, 1) i32 @H5Pget_fill_value(i64 noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5P_is_fill_value_defined(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5P_is_fill_value_defined(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8
   switch i64 %4, label %13 [
@@ -5784,7 +5784,7 @@ H5VM_limit_enc_size.exit79:                       ; preds = %148, %154, %160, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_dec(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 88)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_fill_value_dec(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) @H5D_def_fill_g, i64 88, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
@@ -6941,7 +6941,7 @@ H5VM_limit_enc_size.exit170:                      ; preds = %488, %494, %500, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 32)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5P__dcrt_ext_file_list_dec(ptr nocapture noundef %0, ptr nocapture noundef %1) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) @H5D_def_efl_g, i64 32, i1 false)
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1

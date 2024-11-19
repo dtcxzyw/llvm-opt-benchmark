@@ -1593,7 +1593,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ari_enabled_show(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal zeroext i16 @pci_dev_config_attr_is_visible(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((16, 24)) %1, i32 %2) #8 align 16 {
+define internal zeroext i16 @pci_dev_config_attr_is_visible(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 %2) #8 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 256, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 728

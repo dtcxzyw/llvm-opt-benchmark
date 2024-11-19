@@ -123,7 +123,7 @@ define internal void @keyring_free_preparse(ptr nocapture readnone %0) #3 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @keyring_instantiate(ptr noundef initializes((192, 208)) %0, ptr nocapture readnone %1) #0 align 16 {
+define internal noundef i32 @keyring_instantiate(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 168
@@ -489,7 +489,7 @@ define dso_local noundef zeroext i1 @key_put_tag(ptr noundef %0) local_unnamed_a
 declare dso_local void @kvfree_call_rcu(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @key_remove_domain(ptr noundef initializes((20, 21)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @key_remove_domain(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   store i8 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -573,7 +573,7 @@ define dso_local zeroext i1 @key_default_cmp(ptr nocapture noundef readonly %0, 
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @keyring_search_rcu(ptr noundef %0, ptr noundef initializes((88, 96), (100, 101), (104, 112)) %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @keyring_search_rcu(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   store ptr @keyring_search_iterator, ptr %3, align 8
   %4 = ptrtoint ptr %0 to i64

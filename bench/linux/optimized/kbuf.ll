@@ -690,7 +690,7 @@ define dso_local noundef range(i32 -22, 1) i32 @io_remove_buffers_prep(ptr nocap
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @io_remove_buffers(ptr nocapture noundef initializes((80, 88)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @io_remove_buffers(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = and i32 %1, 2
@@ -1162,7 +1162,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @io_init_bl_list(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @io_buffer_add_list(ptr noundef %0, ptr noundef nonnull initializes((16, 18)) %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @io_buffer_add_list(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = trunc i32 %2 to i16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   store i16 %4, ptr %5, align 8

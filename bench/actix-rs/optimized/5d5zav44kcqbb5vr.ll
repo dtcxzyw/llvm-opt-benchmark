@@ -158,7 +158,7 @@ define noundef i16 @_ZN12actix_router8resource11ResourceDef2id17h04e370c3925ac5d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12actix_router8resource11ResourceDef6set_id17hf9004cc8f9c87063E(ptr nocapture writeonly align 8 initializes((144, 146)) %0, i16 %1) unnamed_addr #3 {
+define void @_ZN12actix_router8resource11ResourceDef6set_id17hf9004cc8f9c87063E(ptr nocapture writeonly align 8 %0, i16 %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   store i16 %1, ptr %3, align 8
   ret void
@@ -215,7 +215,7 @@ define { ptr, i64 } @_ZN12actix_router8resource11ResourceDef7pattern17h8d402e701
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12actix_router8resource11ResourceDef12pattern_iter17h1c455962707a4f57E(ptr nocapture writeonly sret({ ptr, i64, i8, [7 x i8] }) align 8 initializes((0, 17)) %0, ptr align 8 %1) unnamed_addr #3 {
+define void @_ZN12actix_router8resource11ResourceDef12pattern_iter17h1c455962707a4f57E(ptr nocapture writeonly sret({ ptr, i64, i8, [7 x i8] }) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
@@ -283,7 +283,7 @@ define { ptr, i64 } @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_iter..PatternIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd77d006f7cd5620aE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN121_$LT$actix_router..resource..ResourceDef..pattern_iter..PatternIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd77d006f7cd5620aE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8, !nonnull !3, !align !4, !noundef !3
   %4 = load i64, ptr %3, align 8, !range !9, !noundef !3
   %5 = icmp eq i64 %4, 0

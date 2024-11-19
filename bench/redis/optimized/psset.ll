@@ -157,7 +157,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @psset_update_begin(ptr noundef %psset, ptr noundef initializes((35, 36)) %ps) local_unnamed_addr #0 {
+define hidden void @psset_update_begin(ptr noundef %psset, ptr noundef %ps) local_unnamed_addr #0 {
 entry:
   %h_updating.i = getelementptr inbounds i8, ptr %ps, i64 35
   store i8 1, ptr %h_updating.i, align 1
@@ -270,7 +270,7 @@ if.end11:                                         ; preds = %if.then2, %sz_psz2i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @psset_alloc_container_remove(ptr noundef %psset, ptr noundef initializes((18, 19)) %ps) unnamed_addr #0 {
+define internal fastcc void @psset_alloc_container_remove(ptr noundef %psset, ptr noundef %ps) unnamed_addr #0 {
 entry:
   %h_in_psset_alloc_container.i = getelementptr inbounds i8, ptr %ps, i64 18
   store i8 0, ptr %h_in_psset_alloc_container.i, align 2
@@ -506,7 +506,7 @@ if.end4:                                          ; preds = %hpdata_purge_list_r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @psset_update_end(ptr noundef %psset, ptr noundef initializes((35, 36)) %ps) local_unnamed_addr #0 {
+define hidden void @psset_update_end(ptr noundef %psset, ptr noundef %ps) local_unnamed_addr #0 {
 entry:
   %h_updating.i = getelementptr inbounds i8, ptr %ps, i64 35
   store i8 0, ptr %h_updating.i, align 1
@@ -720,7 +720,7 @@ if.end11:                                         ; preds = %if.then2, %sz_psz2i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @psset_alloc_container_insert(ptr noundef %psset, ptr noundef initializes((18, 19)) %ps) unnamed_addr #0 {
+define internal fastcc void @psset_alloc_container_insert(ptr noundef %psset, ptr noundef %ps) unnamed_addr #0 {
 entry:
   %h_in_psset_alloc_container.i = getelementptr inbounds i8, ptr %ps, i64 18
   store i8 1, ptr %h_in_psset_alloc_container.i, align 2
@@ -1055,7 +1055,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @psset_insert(ptr noundef %psset, ptr noundef initializes((36, 37)) %ps) local_unnamed_addr #0 {
+define hidden void @psset_insert(ptr noundef %psset, ptr noundef %ps) local_unnamed_addr #0 {
 entry:
   %h_in_psset.i = getelementptr inbounds i8, ptr %ps, i64 36
   store i8 1, ptr %h_in_psset.i, align 4
@@ -1120,7 +1120,7 @@ if.end3:                                          ; preds = %hpdata_hugify_list_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @psset_remove(ptr noundef %psset, ptr noundef initializes((36, 37)) %ps) local_unnamed_addr #0 {
+define hidden void @psset_remove(ptr noundef %psset, ptr noundef %ps) local_unnamed_addr #0 {
 entry:
   %h_in_psset.i = getelementptr inbounds i8, ptr %ps, i64 36
   store i8 0, ptr %h_in_psset.i, align 4

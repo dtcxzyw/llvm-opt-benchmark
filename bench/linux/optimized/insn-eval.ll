@@ -1026,7 +1026,7 @@ declare dso_local void @insn_init(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare dso_local i32 @insn_get_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 7) i32 @insn_decode_mmio(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 0, 7) i32 @insn_decode_mmio(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   store i32 0, ptr %1, align 4
   %3 = tail call i32 @insn_get_opcode(ptr noundef %0) #7
   %4 = icmp eq i32 %3, 0

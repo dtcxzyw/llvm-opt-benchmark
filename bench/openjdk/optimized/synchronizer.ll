@@ -1908,7 +1908,7 @@ _ZN18ObjectSynchronizer7inflateEP6ThreadP7oopDescNS_12InflateCauseE.exit: ; pred
 declare noundef zeroext i1 @_ZN13ObjectMonitor11check_ownerEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12ObjectLockerC2E6HandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %0, ptr %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN12ObjectLockerC2E6HandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %0, align 8
   store ptr %1, ptr %4, align 8
@@ -4092,7 +4092,7 @@ declare void @_ZN13ObjectMonitorC1EP7oopDesc(ptr noundef nonnull align 8 derefer
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26post_monitor_inflate_eventP23EventJavaMonitorInflateP7oopDescN18ObjectSynchronizer12InflateCauseE(ptr noundef nonnull initializes((24, 48)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL26post_monitor_inflate_eventP23EventJavaMonitorInflateP7oopDescN18ObjectSynchronizer12InflateCauseE(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = load i8, ptr @UseCompressedClassPointers, align 1
   %5 = trunc i8 %4 to i1
   %6 = getelementptr inbounds i8, ptr %1, i64 8

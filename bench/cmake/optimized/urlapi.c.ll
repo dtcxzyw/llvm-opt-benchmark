@@ -2840,7 +2840,7 @@ parseurl.exit:                                    ; preds = %3, %13, %17, %50, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @concat_url(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc i32 @concat_url(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca %struct.dynbuf, align 8
   store ptr null, ptr %2, align 8
   %5 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) @.str.21) #11
@@ -3264,7 +3264,7 @@ declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dedotdotify(ptr noundef readonly %0, i64 noundef range(i64 2, 0) %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dedotdotify(ptr noundef readonly %0, i64 noundef range(i64 2, 0) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 %1
   store ptr null, ptr %2, align 8
   %5 = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46, i64 noundef %1) #11

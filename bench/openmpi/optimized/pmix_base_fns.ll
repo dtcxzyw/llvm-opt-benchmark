@@ -1433,7 +1433,7 @@ declare i32 @opal_cond_init(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Job_control_nb(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @cleanup_cbfunc(i32 noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef initializes((116, 120)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @cleanup_cbfunc(i32 noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   fence release
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7

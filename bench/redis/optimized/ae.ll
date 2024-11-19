@@ -231,7 +231,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @aeStop(ptr nocapture noundef writeonly initializes((40, 44)) %eventLoop) local_unnamed_addr #6 {
+define dso_local void @aeStop(ptr nocapture noundef writeonly %eventLoop) local_unnamed_addr #6 {
 entry:
   %stop = getelementptr inbounds i8, ptr %eventLoop, i64 40
   store i32 1, ptr %stop, align 8
@@ -1043,7 +1043,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @poll(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @aeMain(ptr noundef initializes((40, 44)) %eventLoop) local_unnamed_addr #0 {
+define dso_local void @aeMain(ptr noundef %eventLoop) local_unnamed_addr #0 {
 entry:
   %stop = getelementptr inbounds i8, ptr %eventLoop, i64 40
   store i32 0, ptr %stop, align 8
@@ -1066,7 +1066,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @aeSetBeforeSleepProc(ptr nocapture noundef writeonly initializes((56, 64)) %eventLoop, ptr noundef %beforesleep) local_unnamed_addr #6 {
+define dso_local void @aeSetBeforeSleepProc(ptr nocapture noundef writeonly %eventLoop, ptr noundef %beforesleep) local_unnamed_addr #6 {
 entry:
   %beforesleep1 = getelementptr inbounds i8, ptr %eventLoop, i64 56
   store ptr %beforesleep, ptr %beforesleep1, align 8
@@ -1074,7 +1074,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @aeSetAfterSleepProc(ptr nocapture noundef writeonly initializes((64, 72)) %eventLoop, ptr noundef %aftersleep) local_unnamed_addr #6 {
+define dso_local void @aeSetAfterSleepProc(ptr nocapture noundef writeonly %eventLoop, ptr noundef %aftersleep) local_unnamed_addr #6 {
 entry:
   %aftersleep1 = getelementptr inbounds i8, ptr %eventLoop, i64 64
   store ptr %aftersleep, ptr %aftersleep1, align 8

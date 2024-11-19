@@ -222,7 +222,7 @@ $_ZN3fmt3v106detail5valueINS0_20basic_format_contextINS0_8appenderEcEEE17format_
 @.str.48 = private unnamed_addr constant [24 x i8] c"vector::_M_range_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg19get_all_format_argsENS_10StringViewERNS_15LocalizedStringE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg19get_all_format_argsENS_10StringViewERNS_15LocalizedStringE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.fmt::v10::format_arg_store.89", align 16
   %6 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %7 = alloca %"class.fmt::v10::format_arg_store.89", align 16
@@ -981,7 +981,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg25get_format_arg_mismatchesENS_10StringViewES0_RNS_15LocalizedStringE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::FormatArgMismatches") align 8 initializes((0, 48)) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(32) %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg25get_format_arg_mismatchesENS_10StringViewES0_RNS_15LocalizedStringE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::FormatArgMismatches") align 8 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(32) %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"class.std::vector", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)

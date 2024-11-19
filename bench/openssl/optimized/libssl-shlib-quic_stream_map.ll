@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [38 x i8] c"../openssl/ssl/quic/quic_stream_map.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_quic_stream_map_init(ptr noundef initializes((0, 8)) %qsm, ptr noundef %get_stream_limit_cb, ptr noundef %get_stream_limit_cb_arg, ptr noundef %max_streams_bidi_rxfc, ptr noundef %max_streams_uni_rxfc, i32 noundef %is_server) local_unnamed_addr #0 {
+define noundef i32 @ossl_quic_stream_map_init(ptr noundef %qsm, ptr noundef %get_stream_limit_cb, ptr noundef %get_stream_limit_cb_arg, ptr noundef %max_streams_bidi_rxfc, ptr noundef %max_streams_uni_rxfc, i32 noundef %is_server) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr @OPENSSL_LH_new(ptr noundef nonnull @hash_stream, ptr noundef nonnull @cmp_stream) #12
   store ptr %call.i, ptr %qsm, align 8
@@ -250,7 +250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_stream_map_set_rr_stepping(ptr nocapture noundef writeonly initializes((56, 72)) %qsm, i64 noundef %stepping) local_unnamed_addr #3 {
+define void @ossl_quic_stream_map_set_rr_stepping(ptr nocapture noundef writeonly %qsm, i64 noundef %stepping) local_unnamed_addr #3 {
 entry:
   %rr_stepping = getelementptr inbounds i8, ptr %qsm, i64 56
   store i64 %stepping, ptr %rr_stepping, align 8
@@ -1037,7 +1037,7 @@ list_next.exit:                                   ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_quic_stream_map_push_accept_queue(ptr noundef %qsm, ptr noundef initializes((16, 24)) %s) local_unnamed_addr #6 {
+define void @ossl_quic_stream_map_push_accept_queue(ptr noundef %qsm, ptr noundef %s) local_unnamed_addr #6 {
 entry:
   %accept_list = getelementptr inbounds i8, ptr %qsm, i64 24
   %accept_node = getelementptr inbounds i8, ptr %s, i64 16
@@ -1106,7 +1106,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_stream_map_begin_shutdown_flush(ptr noundef initializes((80, 88)) %qsm) local_unnamed_addr #0 {
+define void @ossl_quic_stream_map_begin_shutdown_flush(ptr noundef %qsm) local_unnamed_addr #0 {
 entry:
   %num_shutdown_flush = getelementptr inbounds i8, ptr %qsm, i64 80
   store i64 0, ptr %num_shutdown_flush, align 8
@@ -1161,7 +1161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ossl_quic_stream_iter_init(ptr nocapture noundef writeonly initializes((0, 24)) %it, ptr noundef %qsm, i32 noundef %advance_rr) local_unnamed_addr #8 {
+define void @ossl_quic_stream_iter_init(ptr nocapture noundef writeonly %it, ptr noundef %qsm, i32 noundef %advance_rr) local_unnamed_addr #8 {
 entry:
   store ptr %qsm, ptr %it, align 8
   %rr_cur = getelementptr inbounds i8, ptr %qsm, i64 88

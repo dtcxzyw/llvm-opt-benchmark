@@ -51,7 +51,7 @@ $_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_
 @_ZN32pxrInternal_v0_24__pxrReserved__11NdrPropertyD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__11NdrPropertyD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__11NdrPropertyC2ERKNS_7TfTokenES3_RKNS_7VtValueEbmbRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 24), (32, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %4, i64 noundef %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(56) %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__11NdrPropertyC2ERKNS_7TfTokenES3_RKNS_7VtValueEbmbRKSt13unordered_mapIS1_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_11HashFunctorESt8equal_toIS1_ESaISt4pairIS2_SD_EEE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext %4, i64 noundef %5, i1 noundef zeroext %6, ptr noundef nonnull align 8 dereferenceable(56) %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.std::__detail::_AllocNode", align 8
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__11NdrPropertyE, i64 16), ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -221,7 +221,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__11NdrPropertyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__11NdrPropertyD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__11NdrPropertyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -415,7 +415,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__11NdrProperty12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__11NdrProperty16GetTypeAsSdfTypeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__11NdrProperty16GetTypeAsSdfTypeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__17SdfValueTypeNamesE seq_cst, align 8
   %4 = inttoptr i64 %3 to ptr
   %.not.i.i = icmp eq i64 %3, 0

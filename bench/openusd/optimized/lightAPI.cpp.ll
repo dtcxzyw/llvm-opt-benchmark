@@ -5045,7 +5045,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit7: ; preds = %30, %35
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__14UsdLuxLightAPI11GetShaderIdERKSt6vectorINS_7TfTokenESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__14UsdLuxLightAPI11GetShaderIdERKSt6vectorINS_7TfTokenESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   store ptr null, ptr %0, align 8

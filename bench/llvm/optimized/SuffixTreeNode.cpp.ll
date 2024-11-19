@@ -33,7 +33,7 @@ define dso_local void @_ZN4llvm14SuffixTreeNode17incrementStartIdxEj(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14SuffixTreeNode12setConcatLenEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14SuffixTreeNode12setConcatLenEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void
@@ -62,7 +62,7 @@ define dso_local noundef i32 @_ZNK4llvm22SuffixTreeInternalNode9getEndIdxEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm22SuffixTreeInternalNode7setLinkEPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm22SuffixTreeInternalNode7setLinkEPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret void
@@ -91,7 +91,7 @@ define dso_local noundef i32 @_ZNK4llvm18SuffixTreeLeafNode12getSuffixIdxEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18SuffixTreeLeafNode12setSuffixIdxEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((28, 32)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm18SuffixTreeLeafNode12setSuffixIdxEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %1, ptr %3, align 4
   ret void
@@ -112,14 +112,14 @@ define dso_local noundef i32 @_ZNK4llvm14SuffixTreeNode15getRightLeafIdxEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14SuffixTreeNode14setLeftLeafIdxEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14SuffixTreeNode14setLeftLeafIdxEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14SuffixTreeNode15setRightLeafIdxEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((24, 28)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14SuffixTreeNode15setRightLeafIdxEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %3, align 8
   ret void

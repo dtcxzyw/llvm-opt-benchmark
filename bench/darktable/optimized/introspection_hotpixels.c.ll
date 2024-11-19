@@ -1780,7 +1780,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: nounwind uwtable
-define void @reload_defaults(ptr nocapture noundef initializes((492, 496)) %0) local_unnamed_addr #1 {
+define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 664
   %3 = load ptr, ptr %2, align 8, !tbaa !71
   %4 = getelementptr inbounds i8, ptr %3, i64 1532
@@ -1869,7 +1869,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #5 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
   %4 = tail call noalias dereferenceable_or_null(28) ptr @malloc(i64 noundef 28) #19
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !18
@@ -1892,7 +1892,7 @@ define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture nound
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define void @gui_update(ptr nocapture noundef initializes((492, 496)) %0) local_unnamed_addr #1 {
+define void @gui_update(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 16, !tbaa !6
   %4 = getelementptr inbounds i8, ptr %0, i64 680
@@ -1948,7 +1948,7 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 declare i64 @gtk_stack_get_type() local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 48) #18
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

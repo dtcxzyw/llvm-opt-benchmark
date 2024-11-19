@@ -19,7 +19,7 @@ define noundef { ptr, ptr } @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$a
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hb87fe743a9fe284dE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr %1, i64 %2, ptr nocapture readnone align 8 %3) unnamed_addr #2 {
+define void @"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17hb87fe743a9fe284dE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr %1, i64 %2, ptr nocapture readnone align 8 %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -106,7 +106,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hdbaf498d81c8b760E"(p
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h54f8311c798c621eE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h54f8311c798c621eE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -126,7 +126,7 @@ define { ptr, ptr } @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$cor
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h5f37d38590d24e1aE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h5f37d38590d24e1aE"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   %3 = load i64, ptr %1, align 8
   %.not = icmp eq i64 %3, 9
   br i1 %.not, label %5, label %4

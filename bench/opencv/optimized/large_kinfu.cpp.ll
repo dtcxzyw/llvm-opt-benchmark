@@ -824,7 +824,7 @@ _ZNSt10shared_ptrIN2cv11large_kinfu6ParamsEED2Ev.exit: ; preds = %1, %20, %33, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11large_kinfu6Params14hashTSDFParamsEb(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11large_kinfu6Params14hashTSDFParamsEb(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::Ptr", align 8
   %4 = alloca %"struct.cv::Ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

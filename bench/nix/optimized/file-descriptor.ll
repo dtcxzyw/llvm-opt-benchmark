@@ -2126,19 +2126,19 @@ _ZN3nix8SysErrorC2IJA32_cEEEDpRKT_.exit:          ; preds = %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3nix11AutoCloseFDC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #11 align 2 {
+define void @_ZN3nix11AutoCloseFDC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) unnamed_addr #11 align 2 {
   store i32 -1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3nix11AutoCloseFDC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #11 align 2 {
+define void @_ZN3nix11AutoCloseFDC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #11 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3nix11AutoCloseFDC2EOS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #12 align 2 {
+define void @_ZN3nix11AutoCloseFDC2EOS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1) unnamed_addr #12 align 2 {
   %3 = load i32, ptr %1, align 4
   store i32 %3, ptr %0, align 4
   store i32 -1, ptr %1, align 4

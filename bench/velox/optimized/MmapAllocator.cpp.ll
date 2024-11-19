@@ -181,7 +181,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN8facebook5velox6memory13MmapAllocator9SizeClassD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8facebook5velox6memory13MmapAllocator9SizeClassD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6memory13MmapAllocatorC2ERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(1080) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory13MmapAllocatorC2ERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -655,7 +655,7 @@ _ZNSt23enable_shared_from_thisIN8facebook5velox6memory15MemoryAllocatorEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox6memory13MmapAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(1080) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory13MmapAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox6memory13MmapAllocatorE, i64 16), ptr %this, align 8
   %numAllocated_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -4417,7 +4417,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6memory13MmapAllocator9SizeClassC2Emm(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((0, 28), (32, 72), (80, 92), (96, 120)) %this, i64 noundef %capacity, i64 noundef %unitSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory13MmapAllocator9SizeClassC2Emm(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this, i64 noundef %capacity, i64 noundef %unitSize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 %capacity, ptr %this, align 8
   %unitSize_ = getelementptr inbounds i8, ptr %this, i64 8

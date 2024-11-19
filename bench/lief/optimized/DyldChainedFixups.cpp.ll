@@ -604,7 +604,7 @@ define linkonce_odr hidden void @_ZN3fmt2v912format_errorD2Ev(ptr noundef nonnul
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF5MachO17DyldChainedFixupsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF5MachO17DyldChainedFixupsD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO17DyldChainedFixupsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
@@ -829,7 +829,7 @@ define void @_ZN4LIEF5MachO17DyldChainedFixupsC2ERKNS0_7details21linkedit_data_c
 declare void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef, i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF5MachO17DyldChainedFixups11update_withERKNS0_7details26dyld_chained_fixups_headerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((80, 108)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN4LIEF5MachO17DyldChainedFixups11update_withERKNS0_7details26dyld_chained_fixups_headerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(28) %1) local_unnamed_addr #5 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %3, ptr %4, align 8
@@ -875,14 +875,14 @@ define noundef i32 @_ZNK4LIEF5MachO17DyldChainedFixups9data_sizeEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO17DyldChainedFixups11data_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF5MachO17DyldChainedFixups11data_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO17DyldChainedFixups9data_sizeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((60, 64)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF5MachO17DyldChainedFixups9data_sizeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 %1, ptr %3, align 4
   ret void
@@ -1618,7 +1618,7 @@ define noundef zeroext i1 @_ZN4LIEF5MachO17DyldChainedFixups7classofEPKNS0_11Loa
 declare noundef i64 @_ZNK4LIEF5MachO11LoadCommand7commandEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentC2EjRKNS0_7details30dyld_chained_starts_in_segmentERNS0_14SegmentCommandE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 10), (16, 88)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(22) %2, ptr noundef nonnull align 8 dereferenceable(216) %3) unnamed_addr #5 align 2 {
+define void @_ZN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentC2EjRKNS0_7details30dyld_chained_starts_in_segmentERNS0_14SegmentCommandE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(22) %2, ptr noundef nonnull align 8 dereferenceable(216) %3) unnamed_addr #5 align 2 {
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   %6 = load i32, ptr %2, align 1
@@ -1648,7 +1648,7 @@ define void @_ZN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentC2EjRKN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentC2EjRNS0_14SegmentCommandE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 10), (16, 28), (32, 88)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(216) %2) unnamed_addr #7 align 2 {
+define void @_ZN4LIEF5MachO17DyldChainedFixups25chained_starts_in_segmentC2EjRNS0_14SegmentCommandE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(216) %2) unnamed_addr #7 align 2 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4

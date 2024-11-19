@@ -14895,7 +14895,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm8Function14renumberBlocksEv(ptr noundef nonnull align 8 dereferenceable(136) initializes((88, 92)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm8Function14renumberBlocksEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -14933,7 +14933,7 @@ define dso_local void @_ZNK4llvm8Function20validateBlockNumbersEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8Function21convertToNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) initializes((128, 129)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8Function21convertToNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -14960,7 +14960,7 @@ define dso_local void @_ZN4llvm8Function21convertToNewDbgValuesEv(ptr noundef no
 declare void @_ZN4llvm10BasicBlock21convertToNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8Function23convertFromNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) initializes((128, 129)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8Function23convertFromNewDbgValuesEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -15085,7 +15085,7 @@ declare void @_ZN4llvm5ValueC2EPNS_4TypeEj(ptr noundef nonnull align 8 dereferen
 declare void @_ZN4llvm5Value7setNameERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8Argument9setParentEPNS_8FunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm8Argument9setParentEPNS_8FunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -25183,7 +25183,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Intrinsic12isOverloadedEj(i32 noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8Function21updateAfterNameChangeEv(ptr noundef nonnull align 8 dereferenceable(136) initializes((132, 136)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8Function21updateAfterNameChangeEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 132
   store i32 -1, ptr %2, align 4
   %3 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #27
@@ -30916,7 +30916,7 @@ define dso_local void @_ZN4llvm8Function13setEntryCountENS0_12ProfileCountEPKNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm8Function14getImportGUIDsEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseSet") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm8Function14getImportGUIDsEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseSet") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -31125,7 +31125,7 @@ define dso_local void @_ZN4llvm8Function13setEntryCountEmNS0_16ProfileCountTypeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm8Function13getEntryCountEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.205") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm8Function13getEntryCountEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.205") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 536870912
@@ -31317,7 +31317,7 @@ define dso_local void @_ZN4llvm8Function16setSectionPrefixENS_9StringRefE(ptr no
 declare noundef ptr @_ZN4llvm9MDBuilder27createFunctionSectionPrefixENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm8Function16getSectionPrefixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.217") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm8Function16getSectionPrefixEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.217") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 536870912

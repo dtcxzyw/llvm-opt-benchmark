@@ -1199,7 +1199,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkMultiLimit(ptr noundef %0, ptr noundef initializes((4, 8)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Abc_NtkMultiLimit(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %4, align 4
   %5 = tail call i32 @Abc_NtkMultiLimit_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 1)

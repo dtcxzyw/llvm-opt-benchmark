@@ -360,7 +360,7 @@ define dso_local void @_ZN17ExpressionFuncallC2ERK18FunctionInvocation(ptr nound
 declare void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17ExpressionFuncallD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN17ExpressionFuncallD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -383,7 +383,7 @@ define dso_local void @_ZN17ExpressionFuncallD2Ev(ptr noundef nonnull align 8 de
 declare void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17ExpressionFuncallD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN17ExpressionFuncallD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ExpressionFuncall, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -480,7 +480,7 @@ define dso_local noundef zeroext i1 @_ZNK17ExpressionFuncall11visit_factsERSt6ve
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK17ExpressionFuncall21get_dereferenced_ptrsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.67") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK17ExpressionFuncall21get_dereferenced_ptrsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.67") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.67", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 24

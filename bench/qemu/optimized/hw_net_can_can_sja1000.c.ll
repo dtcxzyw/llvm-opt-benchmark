@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @vmstate_can_sja = dso_local local_unnamed_addr constant %struct.VMStateDescription { ptr @.str.3, i8 0, i8 0, i32 1, i32 1, i32 0, ptr null, ptr @can_sja_post_load, ptr null, ptr null, ptr null, ptr null, ptr @.compoundliteral.22, ptr null }, align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @can_sja_hardware_reset(ptr nocapture noundef initializes((0, 3), (4, 7), (96, 103)) %s) local_unnamed_addr #0 {
+define dso_local void @can_sja_hardware_reset(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
   store i8 1, ptr %s, align 8
   %status_pel = getelementptr inbounds i8, ptr %s, i64 1
@@ -584,7 +584,7 @@ if.end339:                                        ; preds = %if.else188, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @can_sja_single_filter(ptr nocapture noundef writeonly initializes((0, 8)) %filter, ptr nocapture noundef readonly %acr, ptr nocapture noundef readonly %amr, i32 noundef range(i32 0, 2) %extended) unnamed_addr #1 {
+define internal fastcc void @can_sja_single_filter(ptr nocapture noundef writeonly %filter, ptr nocapture noundef readonly %acr, ptr nocapture noundef readonly %amr, i32 noundef range(i32 0, 2) %extended) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %extended, 0
   %0 = load i8, ptr %acr, align 1
@@ -706,7 +706,7 @@ if.end87:                                         ; preds = %if.end65, %if.then8
 declare i32 @can_bus_client_set_filters(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @can_sja_dual_filter(ptr nocapture noundef writeonly initializes((0, 8)) %filter, ptr nocapture noundef readonly %acr, ptr nocapture noundef readonly %amr, i32 noundef range(i32 0, 2) %extended) unnamed_addr #1 {
+define internal fastcc void @can_sja_dual_filter(ptr nocapture noundef writeonly %filter, ptr nocapture noundef readonly %acr, ptr nocapture noundef readonly %amr, i32 noundef range(i32 0, 2) %extended) unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq i32 %extended, 0
   %0 = load i8, ptr %acr, align 1
@@ -782,7 +782,7 @@ if.end52:                                         ; preds = %if.end, %if.then48,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @buff2frame_pel(ptr nocapture noundef readonly %buff, ptr nocapture noundef nonnull writeonly initializes((0, 6)) %frame) unnamed_addr #3 {
+define internal fastcc void @buff2frame_pel(ptr nocapture noundef readonly %buff, ptr nocapture noundef nonnull writeonly %frame) unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds i8, ptr %frame, i64 5
   store i8 0, ptr %flags, align 1
@@ -904,7 +904,7 @@ if.end94:                                         ; preds = %if.end94.sink.split
 declare i64 @can_bus_client_send(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @buff2frame_bas(ptr nocapture noundef readonly %buff, ptr nocapture noundef nonnull writeonly initializes((0, 6)) %frame) unnamed_addr #3 {
+define internal fastcc void @buff2frame_bas(ptr nocapture noundef readonly %buff, ptr nocapture noundef nonnull writeonly %frame) unnamed_addr #3 {
 entry:
   %flags = getelementptr inbounds i8, ptr %frame, i64 5
   store i8 0, ptr %flags, align 1
@@ -1829,7 +1829,7 @@ return:                                           ; preds = %for.end, %for.end11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -22, 1) i32 @can_sja_connect_to_bus(ptr noundef initializes((152, 160)) %s, ptr noundef %bus) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @can_sja_connect_to_bus(ptr noundef %s, ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   %bus_client = getelementptr inbounds i8, ptr %s, i64 152
   store ptr @can_sja_bus_client_info, ptr %bus_client, align 8
@@ -1859,7 +1859,7 @@ entry:
 declare i32 @can_bus_remove_client(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @can_sja_init(ptr nocapture noundef initializes((0, 3), (4, 7), (96, 103), (144, 152)) %s, ptr noundef %irq) local_unnamed_addr #0 {
+define dso_local noundef i32 @can_sja_init(ptr nocapture noundef %s, ptr noundef %irq) local_unnamed_addr #0 {
 entry:
   %irq1 = getelementptr inbounds i8, ptr %s, i64 144
   store ptr %irq, ptr %irq1, align 8

@@ -466,7 +466,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf8compiler6python12PyiGeneratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 9), (16, 32), (40, 41), (48, 80)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler6python12PyiGeneratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler6python12PyiGeneratorE, i64 16), ptr %this, align 8
   %opensource_runtime_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -491,7 +491,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN6google8protobuf8compiler13CodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf8compiler6python12PyiGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler6python12PyiGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler6python12PyiGeneratorE, i64 16), ptr %this, align 8
   %import_map_ = getelementptr inbounds i8, ptr %this, i64 48

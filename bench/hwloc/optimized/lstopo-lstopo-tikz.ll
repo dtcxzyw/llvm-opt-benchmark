@@ -347,7 +347,7 @@ lstopo_obj_cpukind_style.exit:                    ; preds = %9, %20, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @tikz_textsize(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #8 {
+define internal void @tikz_textsize(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #8 {
   %6 = mul i32 %3, 13
   %7 = udiv i32 %6, 9
   %8 = mul i32 %2, 10

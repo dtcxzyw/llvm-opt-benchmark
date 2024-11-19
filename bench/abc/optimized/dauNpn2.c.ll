@@ -1921,7 +1921,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Dtt_ManCollect(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef returned initializes((4, 8)) %2) local_unnamed_addr #4 {
+define noundef ptr @Dtt_ManCollect(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef returned %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4

@@ -1491,7 +1491,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv4Mat_IfE6crea
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv25VariationalRefinementImpl18ParallelOp_ParBodyC2ERS0_St6vectorIMS0_FvPvS4_S4_ESaIS6_EERS3_IS4_SaIS4_EESB_SB_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(5160) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv25VariationalRefinementImpl18ParallelOp_ParBodyC2ERS0_St6vectorIMS0_FvPvS4_S4_ESaIS6_EERS3_IS4_SaIS4_EESB_SB_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(5160) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv25VariationalRefinementImpl18ParallelOp_ParBodyE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
@@ -3479,7 +3479,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %14, %17
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv25VariationalRefinementImpl23ComputeDataTerm_ParBodyC2ERS0_iiRNS0_14RedBlackBufferES4_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 28), (32, 49)) %0, ptr noundef nonnull align 8 dereferenceable(5160) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %5, i1 noundef zeroext %6) unnamed_addr #6 align 2 {
+define hidden void @_ZN2cv25VariationalRefinementImpl23ComputeDataTerm_ParBodyC2ERS0_iiRNS0_14RedBlackBufferES4_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(5160) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %5, i1 noundef zeroext %6) unnamed_addr #6 align 2 {
   %8 = zext i1 %6 to i8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv25VariationalRefinementImpl23ComputeDataTerm_ParBodyE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3989,7 +3989,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge242, %38
 declare float @llvm.fmuladd.f32(float, float, float) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv25VariationalRefinementImpl36ComputeSmoothnessTermHorPass_ParBodyC2ERS0_iiRNS0_14RedBlackBufferES4_S4_S4_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) initializes((0, 28), (32, 65)) %0, ptr noundef nonnull align 8 dereferenceable(5160) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %7, i1 noundef zeroext %8) unnamed_addr #6 align 2 {
+define hidden void @_ZN2cv25VariationalRefinementImpl36ComputeSmoothnessTermHorPass_ParBodyC2ERS0_iiRNS0_14RedBlackBufferES4_S4_S4_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) %0, ptr noundef nonnull align 8 dereferenceable(5160) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %5, ptr noundef nonnull align 8 dereferenceable(208) %6, ptr noundef nonnull align 8 dereferenceable(208) %7, i1 noundef zeroext %8) unnamed_addr #6 align 2 {
   %10 = zext i1 %8 to i8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv25VariationalRefinementImpl36ComputeSmoothnessTermHorPass_ParBodyE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4637,7 +4637,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge289, %50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv25VariationalRefinementImpl37ComputeSmoothnessTermVertPass_ParBodyC2ERS0_iiRNS0_14RedBlackBufferES4_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 28), (32, 49)) %0, ptr noundef nonnull align 8 dereferenceable(5160) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %5, i1 noundef zeroext %6) unnamed_addr #6 align 2 {
+define hidden void @_ZN2cv25VariationalRefinementImpl37ComputeSmoothnessTermVertPass_ParBodyC2ERS0_iiRNS0_14RedBlackBufferES4_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(5160) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %5, i1 noundef zeroext %6) unnamed_addr #6 align 2 {
   %8 = zext i1 %6 to i8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv25VariationalRefinementImpl37ComputeSmoothnessTermVertPass_ParBodyE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5021,7 +5021,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge102, %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv25VariationalRefinementImpl19RedBlackSOR_ParBodyC2ERS0_iiRNS0_14RedBlackBufferES4_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 28), (32, 49)) %0, ptr noundef nonnull align 8 dereferenceable(5160) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %5, i1 noundef zeroext %6) unnamed_addr #6 align 2 {
+define hidden void @_ZN2cv25VariationalRefinementImpl19RedBlackSOR_ParBodyC2ERS0_iiRNS0_14RedBlackBufferES4_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(5160) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(208) %4, ptr noundef nonnull align 8 dereferenceable(208) %5, i1 noundef zeroext %6) unnamed_addr #6 align 2 {
   %8 = zext i1 %6 to i8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv25VariationalRefinementImpl19RedBlackSOR_ParBodyE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8

@@ -907,7 +907,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN5folly13MemoryMappingC1ENS_4FileEllNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, i64 noundef, i64 noundef, ptr noundef byval(%"struct.folly::MemoryMapping::Options") align 8) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14RecordIOReader8IteratorC2ENS_5RangeIPKhEEjl(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 20), (24, 48)) %this, ptr %range.coerce0, ptr %range.coerce1, i32 noundef %fileId, i64 noundef %pos) unnamed_addr #0 align 2 {
+define void @_ZN5folly14RecordIOReader8IteratorC2ENS_5RangeIPKhEEjl(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, ptr %range.coerce0, ptr %range.coerce1, i32 noundef %fileId, i64 noundef %pos) unnamed_addr #0 align 2 {
 entry:
   %range.sroa.2.0.range_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %range.coerce1, ptr %range.sroa.2.0.range_.sroa_idx, align 8, !tbaa !33
@@ -1314,7 +1314,7 @@ return:                                           ; preds = %if.end16, %land.lhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 initializes((0, 4), (8, 24)) %agg.result, ptr %range.coerce0, ptr %range.coerce1) local_unnamed_addr #0 {
+define void @_ZN5folly16recordio_helpers18validateRecordDataENS_5RangeIPKhEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %agg.result, ptr %range.coerce0, ptr %range.coerce1) local_unnamed_addr #0 {
 entry:
   %seed.addr.i.i = alloca i64, align 8
   %hash1.i.i = alloca i64, align 8
@@ -1382,7 +1382,7 @@ return:                                           ; preds = %if.end17, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 initializes((0, 4), (8, 24)) %agg.result, ptr %range.coerce0, ptr %range.coerce1, i32 noundef %fileId) local_unnamed_addr #0 {
+define void @_ZN5folly16recordio_helpers14validateRecordENS_5RangeIPKhEEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::recordio_helpers::RecordInfo") align 8 %agg.result, ptr %range.coerce0, ptr %range.coerce1, i32 noundef %fileId) local_unnamed_addr #0 {
 entry:
   %seed.addr.i.i.i = alloca i64, align 8
   %hash1.i.i.i3 = alloca i64, align 8

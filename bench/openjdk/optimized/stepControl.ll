@@ -760,7 +760,7 @@ declare void @jvmtiDeallocate(ptr noundef) local_unnamed_addr #1
 declare void @createLocalRefSpace(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @getFrameLocation(ptr noundef %0, ptr noundef nonnull initializes((0, 8)) %1, ptr noundef nonnull initializes((0, 8)) %2, ptr noundef nonnull initializes((0, 8)) %3) unnamed_addr #0 {
+define internal fastcc i32 @getFrameLocation(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   store ptr null, ptr %2, align 8
   store i64 -1, ptr %3, align 8
@@ -876,7 +876,7 @@ define hidden void @stepControl_resetRequest(ptr noundef %0) local_unnamed_addr 
 declare ptr @getEnv() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @initState(ptr noundef %0, ptr noundef %1, ptr noundef initializes((9, 11), (12, 20)) %2) unnamed_addr #0 {
+define internal fastcc i32 @initState(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8

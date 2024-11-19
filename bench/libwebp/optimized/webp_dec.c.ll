@@ -1467,7 +1467,7 @@ define hidden range(i32 0, 2) i32 @WebPCheckCropDimensions(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0, ptr nocapture noundef initializes((116, 120)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load i32, ptr %1, align 8
@@ -1634,7 +1634,7 @@ define hidden range(i32 0, 2) i32 @WebPIoInitFromOptions(ptr noundef readonly %0
 declare i32 @WebPRescalerGetScaledDimensions(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4) unnamed_addr #5 {
+define internal fastcc range(i32 0, 8) i32 @ParseOptionalChunks(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #5 {
   %6 = load ptr, ptr %0, align 8
   %7 = load i64, ptr %1, align 8
   store ptr null, ptr %3, align 8

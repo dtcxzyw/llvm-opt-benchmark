@@ -13585,7 +13585,7 @@ declare { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SD
 declare { ptr, i32 } @_ZN4llvm12SelectionDAG7getNodeEjRKNS_5SDLocENS_3EVTENS_7SDValueE(ptr noundef nonnull align 8 dereferenceable(904), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12), i16, ptr, ptr noundef byval(%"class.llvm::SDValue") align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15getDefaultVLOpsN4llvm3MVTES0_RKNS_5SDLocERNS_12SelectionDAGERKNS_14RISCVSubtargetE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 12), (16, 28)) %0, i16 %1, i16 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(904) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(409192) %5) unnamed_addr #0 {
+define internal fastcc void @_ZL15getDefaultVLOpsN4llvm3MVTES0_RKNS_5SDLocERNS_12SelectionDAGERKNS_14RISCVSubtargetE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i16 %1, i16 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(904) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(409192) %5) unnamed_addr #0 {
   %7 = add i16 %1, -17
   %spec.select.i = icmp ult i16 %7, 120
   br i1 %spec.select.i, label %_ZNK4llvm3MVT20getVectorNumElementsEv.exit, label %17
@@ -61237,7 +61237,7 @@ define linkonce_odr hidden i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %0, i32 nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL15getDefaultVLOpsmN4llvm3MVTERKNS_5SDLocERNS_12SelectionDAGERKNS_14RISCVSubtargetE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 12), (16, 28)) %0, i64 noundef range(i64 0, 4294967296) %1, i16 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(904) %4, i8 %.475.val) unnamed_addr #0 {
+define internal fastcc void @_ZL15getDefaultVLOpsmN4llvm3MVTERKNS_5SDLocERNS_12SelectionDAGERKNS_14RISCVSubtargetE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i64 noundef range(i64 0, 4294967296) %1, i16 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef nonnull align 8 dereferenceable(904) %4, i8 %.475.val) unnamed_addr #0 {
   %6 = trunc i8 %.475.val to i1
   %7 = select i1 %6, i16 8, i16 7
   %8 = tail call { ptr, i32 } @_ZN4llvm12SelectionDAG11getConstantEmRKNS_5SDLocENS_3EVTEbb(ptr noundef nonnull align 8 dereferenceable(904) %4, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %3, i16 %7, ptr null, i1 noundef zeroext false, i1 noundef zeroext false) #31
@@ -122408,7 +122408,7 @@ _ZNK4llvm3EVT16isScalableVectorEv.exit:           ; preds = %30, %19, %13, %11, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119NodeExtensionHelperC2EPN4llvm6SDNodeEjRNS1_12SelectionDAGERKNS1_14RISCVSubtargetE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 4), (8, 20)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull align 8 dereferenceable(904) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119NodeExtensionHelperC2EPN4llvm6SDNodeEjRNS1_12SelectionDAGERKNS1_14RISCVSubtargetE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull align 8 dereferenceable(904) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::EVT", align 8
   %6 = alloca %"struct.llvm::EVT", align 8
   %7 = alloca %"class.llvm::TypeSize", align 8
@@ -123263,7 +123263,7 @@ define internal void @_ZN12_GLOBAL__N_113canFoldToVW_WEPN4llvm6SDNodeERKNS_19Nod
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN12_GLOBAL__N_114canFoldToVW_SUEPN4llvm6SDNodeERKNS_19NodeExtensionHelperES5_RNS0_12SelectionDAGERKNS0_14RISCVSubtargetE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.860") align 8 initializes((64, 65)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture nonnull readnone align 8 %5) #21 {
+define internal void @_ZN12_GLOBAL__N_114canFoldToVW_SUEPN4llvm6SDNodeERKNS_19NodeExtensionHelperES5_RNS0_12SelectionDAGERKNS0_14RISCVSubtargetE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.860") align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture nonnull readnone align 8 %5) #21 {
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %8 = load i8, ptr %7, align 1
   %9 = trunc i8 %8 to i1
@@ -123630,7 +123630,7 @@ _ZNSt14_Function_base13_Base_managerIPFSt8optionalIN12_GLOBAL__N_113CombineResul
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119NodeExtensionHelper12getMaskAndVLEPKN4llvm6SDNodeERNS1_12SelectionDAGERKNS1_14RISCVSubtargetE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 12), (16, 28)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(904) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(409192) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119NodeExtensionHelper12getMaskAndVLEPKN4llvm6SDNodeERNS1_12SelectionDAGERKNS1_14RISCVSubtargetE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(904) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(409192) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i32, ptr %6, align 8
@@ -126523,7 +126523,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_10LoadSDNodeELb1EE28reserveForParamAndGetA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL28performCONCAT_VECTORSCombinePN4llvm6SDNodeERNS_12SelectionDAGERKNS_14RISCVSubtargetERKNS_19RISCVTargetLoweringEENK3$_0clEPNS_10LoadSDNodeESC_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((32, 33)) %0, ptr nonnull %.0.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL28performCONCAT_VECTORSCombinePN4llvm6SDNodeERNS_12SelectionDAGERKNS_14RISCVSubtargetERKNS_19RISCVTargetLoweringEENK3$_0clEPNS_10LoadSDNodeESC_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nonnull %.0.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.llvm::BaseIndexOffset", align 8
   %6 = alloca %"class.llvm::BaseIndexOffset", align 8

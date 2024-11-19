@@ -50,7 +50,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib43BivariateCumulativeNormalDistributionWe04DPC1Ed = unnamed_addr alias void (ptr, double), ptr @_ZN8QuantLib43BivariateCumulativeNormalDistributionWe04DPC2Ed
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib41BivariateCumulativeNormalDistributionDr78C2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, double noundef %rho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib41BivariateCumulativeNormalDistributionDr78C2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, double noundef %rho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -922,7 +922,7 @@ declare double @exp(double noundef) local_unnamed_addr #6
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib43BivariateCumulativeNormalDistributionWe04DPC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 64)) %this, double noundef %rho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib43BivariateCumulativeNormalDistributionWe04DPC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, double noundef %rho) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -98,7 +98,7 @@ return:                                           ; preds = %while.body33, %whil
 declare i64 @sk_num(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @pkcs7_parse_header(ptr noundef nonnull initializes((0, 8)) %der_bytes, ptr noundef nonnull %out, ptr noundef %cbs) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @pkcs7_parse_header(ptr noundef nonnull %der_bytes, ptr noundef nonnull %out, ptr noundef %cbs) unnamed_addr #0 {
 entry:
   %der_len = alloca i64, align 8
   %in = alloca %struct.cbs_st, align 8

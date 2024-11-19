@@ -12774,7 +12774,7 @@ cleanup:                                          ; preds = %if.else, %invoke.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear9DioSolver11purifyIndexEm(ptr noalias sret(%"class.cvc5::internal::theory::arith::linear::SumPair") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1032) %this, i64 noundef %i) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear9DioSolver11purifyIndexEm(ptr noalias sret(%"class.cvc5::internal::theory::arith::linear::SumPair") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1032) %this, i64 noundef %i) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %negOne = alloca %"class.cvc5::internal::theory::arith::linear::Constant", align 8
   %ref.tmp = alloca %"class.cvc5::internal::Rational", align 8

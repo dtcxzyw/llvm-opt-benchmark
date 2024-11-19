@@ -268,7 +268,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN9grpc_core8channelz8BaseNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core8channelz14SubchannelNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz14SubchannelNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core8channelz14SubchannelNodeE, i64 16), ptr %this, align 8
   %trace_ = getelementptr inbounds i8, ptr %this, i64 152

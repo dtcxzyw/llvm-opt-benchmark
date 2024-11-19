@@ -154,7 +154,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4node4quic13SessionTicketC2EONS0_5StoreES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(40) %ticket, ptr nocapture noundef nonnull align 8 dereferenceable(40) %transport_params) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic13SessionTicketC2EONS0_5StoreES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull align 8 dereferenceable(40) %ticket, ptr nocapture noundef nonnull align 8 dereferenceable(40) %transport_params) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4quic13SessionTicketE, i64 16), ptr %this, align 8
   %ticket_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -193,7 +193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic13SessionTicket11FromV8ValueEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr noalias nocapture writeonly sret(%"class.v8::Maybe") align 8 initializes((0, 1), (8, 96)) %agg.result, ptr noundef %env, ptr nonnull %value.coerce) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node4quic13SessionTicket11FromV8ValueEPNS_11EnvironmentEN2v85LocalINS4_5ValueEEE(ptr noalias nocapture writeonly sret(%"class.v8::Maybe") align 8 %agg.result, ptr noundef %env, ptr nonnull %value.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %content = alloca %"class.node::quic::Store", align 8
   %des = alloca %"class.v8::ValueDeserializer", align 8
@@ -1220,7 +1220,7 @@ return:                                           ; preds = %land.lhs.true.i, %e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node4quic13SessionTicket7AppDataC2EP6ssl_st(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %this, ptr noundef %ssl) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4node4quic13SessionTicket7AppDataC2EP6ssl_st(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %ssl) unnamed_addr #6 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %ssl_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1266,7 +1266,7 @@ declare i32 @SSL_SESSION_set1_ticket_appdata(ptr noundef, ptr noundef, i64 nound
 declare ptr @SSL_get_session(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node4quic13SessionTicket7AppData3GetEv(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 initializes((16, 17)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4node4quic13SessionTicket7AppData3GetEv(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 {
 entry:
   %buf = alloca %struct.uv_buf_t, align 8
   %ssl_ = getelementptr inbounds i8, ptr %this, i64 8

@@ -14496,7 +14496,7 @@ if.end31:                                         ; preds = %if.then30, %sw.epil
 declare void @_ZN3irr14CIrrDeviceStub17createGUIAndSceneEv(ptr noundef nonnull align 8 dereferenceable(233)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDLC1ERKNS_27SIrrlichtCreationParametersE(ptr noundef nonnull align 8 dereferenceable(452) initializes((456, 476)) %this, ptr noundef nonnull align 8 dereferenceable(112) %param) unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDLC1ERKNS_27SIrrlichtCreationParametersE(ptr noundef nonnull align 8 dereferenceable(452) %this, ptr noundef nonnull align 8 dereferenceable(112) %param) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i93 = alloca %"class.irr::core::string", align 8
   %ref.tmp.i72 = alloca %"class.irr::core::string", align 8
@@ -14829,7 +14829,7 @@ return:                                           ; preds = %_ZN3irr4core6string
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDLD2Ev(ptr noundef nonnull align 8 dereferenceable(452) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDLD2Ev(ptr noundef nonnull align 8 dereferenceable(452) %this, ptr noundef %vtt) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !23
@@ -14932,7 +14932,7 @@ declare void @SDL_Quit() local_unnamed_addr #3
 declare void @_ZN3irr14CIrrDeviceStubD2Ev(ptr noundef nonnull align 8 dereferenceable(233), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDLD1Ev(ptr noundef nonnull align 8 dereferenceable(452) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDLD1Ev(ptr noundef nonnull align 8 dereferenceable(452) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN3irr13CIrrDeviceSDLD2Ev(ptr noundef nonnull align 8 dereferenceable(452) %this, ptr noundef nonnull @_ZTTN3irr13CIrrDeviceSDLE) #21
   ret void
@@ -14950,7 +14950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr13CIrrDeviceSDLD0Ev(ptr noundef nonnull align 8 dereferenceable(452) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr13CIrrDeviceSDLD0Ev(ptr noundef nonnull align 8 dereferenceable(452) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN3irr13CIrrDeviceSDLD2Ev(ptr noundef nonnull align 8 dereferenceable(452) %this, ptr noundef nonnull @_ZTTN3irr13CIrrDeviceSDLE) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -17257,7 +17257,7 @@ declare i32 @SDL_JoystickNumHats(ptr noundef) local_unnamed_addr #3
 declare zeroext i8 @SDL_JoystickGetHat(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr13CIrrDeviceSDL17activateJoysticksERNS_4core5arrayINS_13SJoystickInfoEEE(ptr noundef nonnull align 8 dereferenceable(452) %this, ptr noundef nonnull align 8 dereferenceable(25) initializes((16, 24)) %joystickInfo) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZN3irr13CIrrDeviceSDL17activateJoysticksERNS_4core5arrayINS_13SJoystickInfoEEE(ptr noundef nonnull align 8 dereferenceable(452) %this, ptr noundef nonnull align 8 dereferenceable(25) %joystickInfo) unnamed_addr #1 align 2 {
 entry:
   %empty.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %info = alloca %"struct.irr::SJoystickInfo", align 8
@@ -18132,7 +18132,7 @@ declare void @SDL_FreeSurface(ptr noundef) local_unnamed_addr #3
 declare void @SDL_SetWindowIcon(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr13CIrrDeviceSDL11closeDeviceEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(452) initializes((232, 233)) %this) unnamed_addr #11 align 2 {
+define void @_ZN3irr13CIrrDeviceSDL11closeDeviceEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(452) %this) unnamed_addr #11 align 2 {
 entry:
   %Close = getelementptr inbounds i8, ptr %this, i64 232
   store i8 1, ptr %Close, align 8, !tbaa !58

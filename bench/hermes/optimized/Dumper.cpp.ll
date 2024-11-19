@@ -398,7 +398,7 @@ return:                                           ; preds = %_ZNK4llvh9StringRef
 declare noundef i64 @_ZNK4llvh9StringRef5countES0_(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes16InstructionNamer5clearEv(ptr noundef nonnull align 8 dereferenceable(52) initializes((48, 52)) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes16InstructionNamer5clearEv(ptr noundef nonnull align 8 dereferenceable(52) %this) local_unnamed_addr #0 align 2 {
 entry:
   %Counter = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %Counter, align 8
@@ -3738,7 +3738,7 @@ _ZN6hermes9IRPrinter10printScopeEPNS_9ScopeDescE.exit44: ; preds = %if.then.i.i3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes9IRPrinter11visitModuleERKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(208) initializes((200, 204)) %this, ptr noundef nonnull align 8 dereferenceable(1033) %M) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes9IRPrinter11visitModuleERKNS_6ModuleE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(1033) %M) local_unnamed_addr #0 align 2 {
 entry:
   %ScopeNamer = getelementptr inbounds i8, ptr %this, i64 152
   %Counter.i = getelementptr inbounds i8, ptr %this, i64 200
@@ -4431,7 +4431,7 @@ return:                                           ; preds = %entry, %entry, %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes9IRPrinter13visitFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(208) initializes((144, 148)) %this, ptr noundef nonnull align 8 dereferenceable(304) %F) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes9IRPrinter13visitFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(304) %F) local_unnamed_addr #0 align 2 {
 entry:
   %codeGenOpts = alloca %"struct.hermes::CodeGenerationSettings", align 8
   %os = getelementptr inbounds i8, ptr %this, i64 24

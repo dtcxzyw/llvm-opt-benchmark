@@ -27,7 +27,7 @@ $_ZNSt6vectorIjSaIjEE17_M_default_appendEm = comdat any
 @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmapC1ERKNS_11_InputArrayEi = hidden unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmapC2ERKNS_11_InputArrayEi
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmapC2ERKNS_11_InputArrayEi(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 12), (16, 64)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmapC2ERKNS_11_InputArrayEi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.0", align 1

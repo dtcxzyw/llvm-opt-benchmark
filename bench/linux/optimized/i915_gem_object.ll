@@ -184,7 +184,7 @@ define dso_local void @i915_gem_object_free(ptr noundef %0) local_unnamed_addr #
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_gem_object_init(ptr noundef initializes((472, 476)) %0, ptr noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_gem_object_init(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 472
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 480
@@ -1376,7 +1376,7 @@ define dso_local zeroext i1 @i915_gem_object_needs_ccs_pages(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @i915_gem_init__objects(ptr noundef initializes((8456, 8464)) %0) local_unnamed_addr #10 align 16 {
+define dso_local void @i915_gem_init__objects(ptr noundef %0) local_unnamed_addr #10 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8456
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8464

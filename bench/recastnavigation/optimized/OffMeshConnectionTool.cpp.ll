@@ -20,7 +20,7 @@ $_ZN21OffMeshConnectionTool4typeEv = comdat any
 @_ZN21OffMeshConnectionToolD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN21OffMeshConnectionToolD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN21OffMeshConnectionToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) initializes((0, 16), (28, 31)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN21OffMeshConnectionToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21OffMeshConnectionTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -34,7 +34,7 @@ define dso_local void @_ZN21OffMeshConnectionToolC2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21OffMeshConnectionToolD2Ev(ptr noundef nonnull align 8 dereferenceable(31) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21OffMeshConnectionToolD2Ev(ptr noundef nonnull align 8 dereferenceable(31) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21OffMeshConnectionTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -59,7 +59,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21OffMeshConnectionToolD0Ev(ptr noundef nonnull align 8 dereferenceable(31) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21OffMeshConnectionToolD0Ev(ptr noundef nonnull align 8 dereferenceable(31) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21OffMeshConnectionTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -104,7 +104,7 @@ define dso_local void @_ZN21OffMeshConnectionTool4initEP6Sample(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN21OffMeshConnectionTool5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) initializes((28, 29)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN21OffMeshConnectionTool5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 0, ptr %2, align 4
   ret void

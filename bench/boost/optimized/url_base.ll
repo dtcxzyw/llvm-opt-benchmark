@@ -405,7 +405,7 @@ define void @_ZNK5boost4urls8url_base16check_invariantsEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4urls8url_base4op_tC2ERS1_PNS_4core17basic_string_viewIcEES7_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #8 align 2 {
+define void @_ZN5boost4urls8url_base4op_tC2ERS1_PNS_4core17basic_string_viewIcEES7_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !11
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8, !tbaa !12

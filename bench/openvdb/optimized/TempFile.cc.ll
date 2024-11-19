@@ -453,7 +453,7 @@ declare void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align
 declare void @_ZNSt9basic_iosIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(264)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_02io8TempFileD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_02io8TempFileD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %vtt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
@@ -643,7 +643,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_02io8TempFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define void @_ZN7openvdb5v11_02io8TempFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN7openvdb5v11_02io8TempFileD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull @_ZTTN7openvdb5v11_02io8TempFileE) #27
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -665,7 +665,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7openvdb5v11_02io8TempFileD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define void @_ZN7openvdb5v11_02io8TempFileD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN7openvdb5v11_02io8TempFileD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull @_ZTTN7openvdb5v11_02io8TempFileE) #27
   %0 = getelementptr inbounds i8, ptr %this, i64 16

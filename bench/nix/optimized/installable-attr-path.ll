@@ -960,7 +960,7 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix19InstallableAttrPathC2ENS_3refINS_9EvalStateEEERNS_17SourceExprCommandEPNS_5ValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_19ExtendedOutputsSpecE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 32)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(440) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix19InstallableAttrPathC2ENS_3refINS_9EvalStateEEERNS_17SourceExprCommandEPNS_5ValueERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_19ExtendedOutputsSpecE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(440) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = load ptr, ptr %1, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8

@@ -87,7 +87,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer13spacer_matrixC2Ejj(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, i32 noundef %m, i32 noundef %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer13spacer_matrixC2Ejj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %m, i32 noundef %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK6vectorIS_I8rationalLb1EjELb1EjE4sizeEv.exit.i:
   %ref.tmp = alloca %class.rational, align 8
   store i32 %m, ptr %this, align 8
@@ -3575,7 +3575,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK6spacer13spacer_matrix19compute_linear_depsERS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %eq) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK6spacer13spacer_matrix19compute_linear_depsERS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %eq) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %coeff1 = alloca %class.rational, align 8
   %coeff2 = alloca %class.rational, align 8

@@ -395,7 +395,7 @@ define internal void @"_ZN4core3ptr30drop_in_place$LT$$RF$usize$GT$17h90d9f11ee3
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h14cf062947675a4eE.llvm.15859092204462515359(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h14cf062947675a4eE.llvm.15859092204462515359(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, { ptr, ptr, {} }, i64, i64, i64 }) align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #6 personality ptr @rust_eh_personality {
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
   %7 = ptrtoint ptr %2 to i64
@@ -907,7 +907,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h2fb212d865648534E.llvm.1585909
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN78_$LT$nom..error..Error$LT$I$GT$$u20$as$u20$nom..error..ParseError$LT$I$GT$$GT$15from_error_kind17h4df212dbd0c2e9a2E.llvm.15859092204462515359"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i8, [7 x i8] }) align 8 dereferenceable(24) initializes((0, 17)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i8 noundef %3) unnamed_addr #11 {
+define hidden void @"_ZN78_$LT$nom..error..Error$LT$I$GT$$u20$as$u20$nom..error..ParseError$LT$I$GT$$GT$15from_error_kind17h4df212dbd0c2e9a2E.llvm.15859092204462515359"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i8, [7 x i8] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i8 noundef %3) unnamed_addr #11 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8

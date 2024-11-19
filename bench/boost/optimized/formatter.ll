@@ -1878,7 +1878,7 @@ define hidden noundef range(i32 0, 4) i32 @_ZN5boost6locale8impl_icu17time_flags
 declare noundef i64 @_ZNK5boost6locale8ios_info10time_flagsEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost6locale8impl_icu15strftime_to_icuERKN6icu_7013UnicodeStringERKNS1_16formatters_cacheE(ptr dead_on_unwind noalias writable sret(%"class.icu_70::UnicodeString") align 8 initializes((0, 10)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(2032) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost6locale8impl_icu15strftime_to_icuERKN6icu_7013UnicodeStringERKNS1_16formatters_cacheE(ptr dead_on_unwind noalias writable sret(%"class.icu_70::UnicodeString") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1, ptr noundef nonnull align 8 dereferenceable(2032) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i16, align 2
   %5 = alloca %"class.icu_70::UnicodeString", align 8
   %6 = alloca %"class.icu_70::UnicodeString", align 8

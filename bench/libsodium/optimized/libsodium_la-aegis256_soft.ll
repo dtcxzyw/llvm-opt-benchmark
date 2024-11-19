@@ -1012,7 +1012,7 @@ if.end67:                                         ; preds = %if.then66, %if.end6
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define internal fastcc void @aegis256_init(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %nonce, ptr nocapture noundef nonnull initializes((0, 96)) %state) unnamed_addr #0 {
+define internal fastcc void @aegis256_init(ptr nocapture noundef readonly %key, ptr nocapture noundef readonly %nonce, ptr nocapture noundef nonnull %state) unnamed_addr #0 {
 entry:
   %in.val.i = load i64, ptr %key, align 1
   %add.ptr3.i = getelementptr i8, ptr %key, i64 8

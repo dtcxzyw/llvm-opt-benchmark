@@ -772,7 +772,7 @@ define void @set_openapi_schema(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @data_parser_p_increment_reference(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
+define noundef i32 @data_parser_p_increment_reference(ptr nocapture noundef readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   store ptr inttoptr (i64 -429090928187015104 to ptr), ptr %2, align 8
   ret i32 0
 }
@@ -1138,7 +1138,7 @@ _add_param_eflags.exit:                           ; preds = %31, %6, %3, %._crit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @data_parser_p_release_references(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #3 {
+define void @data_parser_p_release_references(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   store ptr null, ptr %1, align 8
   ret void
 }

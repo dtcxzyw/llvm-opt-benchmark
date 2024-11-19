@@ -45,7 +45,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN118_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$core..default..Default$GT$7default17h8b2c7485dbab3f89E.llvm.13000908715551461830"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN118_$LT$digest..core_api..ct_variable..CtVariableCoreWrapper$LT$T$C$OutSize$C$O$GT$$u20$as$u20$core..default..Default$GT$7default17h8b2c7485dbab3f89E.llvm.13000908715551461830"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hd28329cba8ae59d6E.llvm.13000908715551461830.exit":
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) @anon.1809ed8e0c3d2b29d8a73ac8740e9b42.65.llvm.13000908715551461830, i64 32, i1 false)
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
@@ -6070,7 +6070,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..VariableOutputCore$GT$3new17hc2896a0a8fb0c5a8E.llvm.13000908715551461830"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @"_ZN86_$LT$sha2..core_api..Sha256VarCore$u20$as$u20$digest..core_api..VariableOutputCore$GT$3new17hc2896a0a8fb0c5a8E.llvm.13000908715551461830"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 8
   switch i64 %1, label %8 [
     i64 28, label %4

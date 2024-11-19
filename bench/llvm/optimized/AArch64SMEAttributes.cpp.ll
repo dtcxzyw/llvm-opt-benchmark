@@ -55,7 +55,7 @@ define dso_local void @_ZN4llvm8SMEAttrs3setEjb(ptr nocapture noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8SMEAttrsC2ERKNS_8CallBaseE(ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8SMEAttrsC2ERKNS_8CallBaseE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::AttributeList", align 8
   %4 = alloca %"class.llvm::SMEAttrs", align 4
   %5 = alloca %"class.llvm::AttributeList", align 8
@@ -111,7 +111,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %_ZN4llvm16dyn_ca
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm8SMEAttrsC2ENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm8SMEAttrsC2ENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr nocapture readonly %1, i64 %2) unnamed_addr #3 align 2 {
   store i32 0, ptr %0, align 4
   switch i64 %2, label %_ZN4llvmeqENS_9StringRefES0_.exit43.thread75 [
     i64 17, label %_ZN4llvmeqENS_9StringRefES0_.exit
@@ -175,7 +175,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit43.thread75:     ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8SMEAttrsC2ERKNS_13AttributeListE(ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8SMEAttrsC2ERKNS_13AttributeListE(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 {
   store i32 0, ptr %0, align 4
   %3 = tail call noundef zeroext i1 @_ZNK4llvm13AttributeList9hasFnAttrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nonnull @.str.7, i64 25) #7
   br i1 %3, label %4, label %7

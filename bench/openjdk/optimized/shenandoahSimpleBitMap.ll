@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN22ShenandoahSimpleBitMapD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN22ShenandoahSimpleBitMapD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahSimpleBitMapC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ShenandoahSimpleBitMapC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = add i64 %1, 63

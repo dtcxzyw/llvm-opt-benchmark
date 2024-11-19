@@ -109,7 +109,7 @@ define hidden noundef ptr @pj_hgridshift(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z39pj_projection_specific_setup_hgridshiftP8PJconsts(ptr noundef initializes((88, 96), (104, 168), (380, 388)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_Z39pj_projection_specific_setup_hgridshiftP8PJconsts(ptr noundef %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1

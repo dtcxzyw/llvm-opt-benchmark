@@ -111,7 +111,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Rect_") align 8 initializes((0, 32)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @_ZN2cv6detail8tracking3tld15tld_InitDatasetEiPKci(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Rect_") align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = add nsw i32 %1, -1
   switch i32 %3, label %36 [
     i32 0, label %.thread

@@ -138,7 +138,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7clint_tC2EPK7simif_tmb(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 25), (48, 56), (64, 68), (72, 80)) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7clint_tC2EPK7simif_tmb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i64 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.timeval, align 8
   %6 = zext i1 %3 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTV7clint_t, i64 16), ptr %0, align 8

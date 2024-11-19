@@ -38,7 +38,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail12CameraParamsC2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 32)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail12CameraParamsC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::MatExpr", align 8
   %3 = alloca %"class.cv::MatExpr", align 8
   store double 1.000000e+00, ptr %0, align 8
@@ -158,7 +158,7 @@ define void @_ZN2cv6detail12CameraParamsC2ERKS1_(ptr noundef nonnull align 8 der
 declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(224) ptr @_ZN2cv6detail12CameraParamsaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(224) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(224) ptr @_ZN2cv6detail12CameraParamsaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(224) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.cv::Mat", align 8
   %5 = load double, ptr %1, align 8

@@ -43,7 +43,7 @@ $_ZTISt23enable_shared_from_thisIN32pxrInternal_v0_24__pxrReserved__13HdBufferAr
 @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayC2ERKNS_7TfTokenES1_j(ptr nocapture noundef nonnull align 8 dereferenceable(140) initializes((0, 25), (32, 140)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayC2ERKNS_7TfTokenES1_j(ptr nocapture noundef nonnull align 8 dereferenceable(140) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayE, i64 16), ptr %0, align 8
@@ -113,7 +113,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit4: ; preds = %_ZN32pxr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(140) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -256,7 +256,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArrayD0Ev(ptr nocapt
 declare void @llvm.trap() #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArray16IncrementVersionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((120, 128)) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArray16IncrementVersionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) %0) local_unnamed_addr #5 align 2 {
   %2 = atomicrmw add ptr @_ZN32pxrInternal_v0_24__pxrReserved__L14_uniqueVersionE, i64 1 seq_cst, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i64 %2, ptr %3, align 8
@@ -552,7 +552,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog11GetInstanceEv.exit: ; preds = %
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__9HdPerfLog16IncrementCounterERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__13HdBufferArray8GetRangeEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::weak_ptr.0") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__13HdBufferArray8GetRangeEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::weak_ptr.0") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(140) %1, i64 noundef %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load atomic i64, ptr %5 seq_cst, align 8

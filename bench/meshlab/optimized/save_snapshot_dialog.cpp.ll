@@ -2759,7 +2759,7 @@ declare void @_ZN15QAbstractButton10setCheckedEb(ptr noundef nonnull align 8 der
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18SaveSnapshotDialog9getValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.SnapshotSetting) align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((72, 88)) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18SaveSnapshotDialog9getValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.SnapshotSetting) align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48
@@ -2908,7 +2908,7 @@ declare noundef i32 @_ZNK9QComboBox12currentIndexEv(ptr noundef nonnull align 8 
 declare noundef zeroext i1 @_ZNK15QAbstractButton9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18SaveSnapshotDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18SaveSnapshotDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18SaveSnapshotDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV18SaveSnapshotDialog, i64 488), ptr %2, align 8

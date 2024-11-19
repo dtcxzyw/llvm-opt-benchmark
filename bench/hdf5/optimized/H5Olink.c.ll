@@ -699,7 +699,7 @@ thread-pre-split.thread:                          ; preds = %354, %367, %364, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64 %2, ptr noundef initializes((0, 1)) %3, ptr nocapture noundef readonly %4) #0 {
+define internal noundef i32 @H5O__link_encode(ptr noundef %0, i1 zeroext %1, i64 %2, ptr noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 24
   %8 = load ptr, ptr %7, align 8

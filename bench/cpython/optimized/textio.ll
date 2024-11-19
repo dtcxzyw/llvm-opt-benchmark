@@ -2627,7 +2627,7 @@ return:                                           ; preds = %PyUnicode_READ.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @textiowrapper_dealloc(ptr noundef initializes((96, 97)) %self) #0 {
+define internal void @textiowrapper_dealloc(ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -3021,7 +3021,7 @@ return:                                           ; preds = %if.then118, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @textiowrapper_clear(ptr nocapture noundef initializes((16, 20)) %self) #0 {
+define internal noundef i32 @textiowrapper_clear(ptr nocapture noundef %self) #0 {
 entry:
   %ok = getelementptr inbounds i8, ptr %self, i64 16
   store i32 0, ptr %ok, align 8
@@ -6485,7 +6485,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare i32 @_PyIO_trap_eintr() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @textiowrapper_set_decoded_chars(ptr nocapture noundef initializes((128, 136)) %self, ptr noundef %chars) unnamed_addr #0 {
+define internal fastcc void @textiowrapper_set_decoded_chars(ptr nocapture noundef %self, ptr noundef %chars) unnamed_addr #0 {
 entry:
   %decoded_chars = getelementptr inbounds i8, ptr %self, i64 120
   %0 = load ptr, ptr %decoded_chars, align 8
@@ -10783,7 +10783,7 @@ declare ptr @PyErr_GetRaisedException() local_unnamed_addr #1
 declare void @_PyErr_ChainExceptions1(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_reset(ptr nocapture noundef initializes((112, 113)) %self, i32 noundef range(i32 0, -2147483648) %start_of_stream) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_reset(ptr nocapture noundef %self, i32 noundef range(i32 0, -2147483648) %start_of_stream) unnamed_addr #0 {
 entry:
   %args.i = alloca [2 x ptr], align 16
   %self.addr.i = alloca ptr, align 8
@@ -10956,7 +10956,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare i64 @PyUnicode_GetLength(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_setstate(ptr nocapture noundef initializes((112, 113)) %self, i64 %cookie.0.val, i32 %cookie.8.val) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_textiowrapper_encoder_setstate(ptr nocapture noundef %self, i64 %cookie.0.val, i32 %cookie.8.val) unnamed_addr #0 {
 entry:
   %args.i.i = alloca [2 x ptr], align 16
   %self.addr.i.i = alloca ptr, align 8

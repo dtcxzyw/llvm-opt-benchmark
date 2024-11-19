@@ -477,7 +477,7 @@ declare dso_local ptr @intel_atomic_get_cdclk_state(ptr noundef) local_unnamed_a
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_plane_copy_uapi_to_hw_state(ptr nocapture noundef initializes((108, 140), (176, 184), (192, 216)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_plane_copy_uapi_to_hw_state(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -583,7 +583,7 @@ define dso_local void @intel_plane_copy_uapi_to_hw_state(ptr nocapture noundef i
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_plane_copy_hw_state(ptr nocapture noundef initializes((176, 184), (192, 216)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_plane_copy_hw_state(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -613,7 +613,7 @@ define dso_local void @intel_plane_copy_hw_state(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @intel_plane_set_invisible(ptr nocapture noundef %0, ptr nocapture noundef initializes((140, 141)) %1) local_unnamed_addr #7 align 16 {
+define dso_local void @intel_plane_set_invisible(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #7 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1324
   %5 = load i32, ptr %4, align 4
@@ -692,7 +692,7 @@ define dso_local void @intel_plane_set_invisible(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_plane_atomic_check_with_state(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((140, 141)) %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_plane_atomic_check_with_state(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = load ptr, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 176
   %7 = getelementptr inbounds i8, ptr %3, i64 184
@@ -2986,7 +2986,7 @@ define dso_local noundef range(i32 -22, 1) i32 @intel_plane_check_src_coordinate
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @intel_plane_helper_add(ptr nocapture noundef writeonly initializes((1232, 1240)) %0) local_unnamed_addr #8 align 16 {
+define dso_local void @intel_plane_helper_add(ptr nocapture noundef writeonly %0) local_unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1232
   store ptr @intel_plane_helper_funcs, ptr %2, align 8
   ret void

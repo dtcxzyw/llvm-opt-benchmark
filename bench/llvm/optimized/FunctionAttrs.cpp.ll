@@ -12743,7 +12743,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN12_GLOBAL__N_117ArgumentGraphNodeELb1EE9push
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119ArgumentUsesTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119ArgumentUsesTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_119ArgumentUsesTrackerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #19
@@ -13452,7 +13452,7 @@ declare noundef zeroext i1 @_ZN4llvm42isGuaranteedToTransferExecutionToSuccessor
 declare void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119ArgumentUsesTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119ArgumentUsesTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_119ArgumentUsesTrackerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(48) %2) #19
@@ -13472,7 +13472,7 @@ _ZN12_GLOBAL__N_119ArgumentUsesTrackerD2Ev.exit:  ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_119ArgumentUsesTracker11tooManyUsesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((8, 9)) %0) unnamed_addr #11 align 2 {
+define internal void @_ZN12_GLOBAL__N_119ArgumentUsesTracker11tooManyUsesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8
   ret void
@@ -14575,7 +14575,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_117ArgumentGraphNodeEjNS_12De
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_117ArgumentGraphNodeEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_117ArgumentGraphNodeEjNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEES4_jS6_S9_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -20073,7 +20073,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_116AttributeInferer19InferenceDe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(101) ptr @_ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(101) initializes((96, 101)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(101) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(101) ptr @_ZN12_GLOBAL__N_116AttributeInferer19InferenceDescriptoraSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(101) %0, ptr nocapture noundef nonnull align 8 dereferenceable(101) %1) unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i8 = alloca { i64, i64 }, align 8
   %3 = alloca %"class.std::function.575", align 8
   %.sroa.0.i.i.i5 = alloca { i64, i64 }, align 8

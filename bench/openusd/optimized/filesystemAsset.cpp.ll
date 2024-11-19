@@ -111,7 +111,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__17ArFilesystemAssetD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__17ArFilesystemAssetD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset4OpenERKNS_14ArResolvedPathE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset4OpenERKNS_14ArResolvedPathE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #15
   %4 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__12ArchOpenFileEPKcS1_(ptr noundef %3, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %4, null
@@ -210,7 +210,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7ArAssetD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17ArFilesystemAssetD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17ArFilesystemAssetD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17ArFilesystemAssetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -715,7 +715,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperclEPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset9GetBufferEvEN8_DeleterclEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZNK32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset9GetBufferEvEN8_DeleterclEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -955,7 +955,7 @@ _ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__17ArFilesyste
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset9GetBufferEvE8_DeleterSaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt19_Sp_counted_deleterIPKcZNK32pxrInternal_v0_24__pxrReserved__17ArFilesystemAsset9GetBufferEvE8_DeleterSaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24

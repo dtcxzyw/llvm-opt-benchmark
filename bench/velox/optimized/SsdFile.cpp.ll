@@ -617,7 +617,7 @@ $_ZTVN5folly22FutureAlreadyContinuedE = comdat any
 declare void @_ZN6google14FlagRegistererC1IbEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define void @_ZN8facebook5velox5cache6SsdPinC2ERNS1_7SsdFileENS1_6SsdRunE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(381) %file, i64 %run.coerce) unnamed_addr #1 align 2 {
+define void @_ZN8facebook5velox5cache6SsdPinC2ERNS1_7SsdFileENS1_6SsdRunE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(381) %file, i64 %run.coerce) unnamed_addr #1 align 2 {
 entry:
   store ptr %file, ptr %this, align 8
   %run_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -10915,7 +10915,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIiSt14default_deleteIiEEvEZN8facebook5velox5cache7SsdFile10checkpointEbE3$_1E9_M_invokeERKSt9_Any_data"(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.141") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIiSt14default_deleteIiEEvEZN8facebook5velox5cache7SsdFile10checkpointEbE3$_1E9_M_invokeERKSt9_Any_data"(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.141") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %__functor) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.val = load i32, ptr %__functor, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)

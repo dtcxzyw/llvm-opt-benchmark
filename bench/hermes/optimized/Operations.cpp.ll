@@ -6470,7 +6470,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm11getIteratorERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEEN4llvh8OptionalINS3_INS0_8CallableEEEEE(ptr noalias nocapture writeonly sret(%"class.hermes::vm::CallResult.228") align 8 initializes((16, 17)) %agg.result, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %obj.coerce, i64 %methodOpt.coerce0, i8 %methodOpt.coerce1) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes2vm11getIteratorERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEEN4llvh8OptionalINS3_INS0_8CallableEEEEE(ptr noalias nocapture writeonly sret(%"class.hermes::vm::CallResult.228") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %obj.coerce, i64 %methodOpt.coerce0, i8 %methodOpt.coerce1) local_unnamed_addr #0 {
 entry:
   %ref.tmp25 = alloca %"class.hermes::vm::TwineChar16", align 8
   %ref.tmp54 = alloca %"class.hermes::vm::TwineChar16", align 8

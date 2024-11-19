@@ -1823,7 +1823,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z17limitToSignaturesRKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEERKSt6vectorIjSaIjEE(ptr noalias sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %exprMap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %signatures) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z17limitToSignaturesRKSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEERKSt6vectorIjSaIjEE(ptr noalias sret(%"class.std::map") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %exprMap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %signatures) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i32 0, ptr %0, align 8

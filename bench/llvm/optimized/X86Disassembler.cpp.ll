@@ -99,7 +99,7 @@ declare noundef nonnull align 8 dereferenceable(248) ptr @_ZN4llvm18getTheX86_64
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122X86GenericDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122X86GenericDisassemblerD2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_122X86GenericDisassemblerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -117,7 +117,7 @@ _ZNSt10unique_ptrIKN4llvm11MCInstrInfoESt14default_deleteIS2_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122X86GenericDisassemblerD0Ev(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122X86GenericDisassemblerD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN12_GLOBAL__N_122X86GenericDisassemblerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -136,7 +136,7 @@ _ZN12_GLOBAL__N_122X86GenericDisassemblerD2Ev.exit: ; preds = %1, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i32 0, 4) i32 @_ZNK12_GLOBAL__N_122X86GenericDisassembler14getInstructionERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(52) initializes((32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr %3, i64 %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %6) unnamed_addr #0 align 2 {
+define internal noundef range(i32 0, 4) i32 @_ZNK12_GLOBAL__N_122X86GenericDisassembler14getInstructionERN4llvm6MCInstERmNS1_8ArrayRefIhEEmRNS1_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr %3, i64 %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %6) unnamed_addr #0 align 2 {
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
@@ -3745,7 +3745,7 @@ _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16readDisplacementPN4llvm15X86Disassembler19InternalInstructionE(ptr nocapture noundef nonnull initializes((77, 78)) %0) unnamed_addr #7 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL16readDisplacementPN4llvm15X86Disassembler19InternalInstructionE(ptr nocapture noundef nonnull %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3824,7 +3824,7 @@ _ZL7consumeIaEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7readSIBPN4llvm15X86Disassembler19InternalInstructionE(ptr nocapture noundef nonnull initializes((168, 172)) %0) unnamed_addr #7 {
+define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7readSIBPN4llvm15X86Disassembler19InternalInstructionE(ptr nocapture noundef nonnull %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %3 = load i8, ptr %2, align 2
   %switch = icmp eq i8 %3, 8
@@ -4478,7 +4478,7 @@ _ZL12fixupRMValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandType
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i16 @_ZL13fixupRegValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #10 {
+define internal fastcc noundef zeroext i16 @_ZL13fixupRegValuePN4llvm15X86Disassembler19InternalInstructionENS0_11OperandTypeEhPh(ptr nocapture noundef nonnull readonly %0, i32 noundef range(i32 0, 256) %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #10 {
   store i8 1, ptr %3, align 1
   %trunc = trunc nuw i32 %1 to i8
   switch i8 %trunc, label %5 [

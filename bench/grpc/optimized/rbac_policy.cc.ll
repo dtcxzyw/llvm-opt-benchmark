@@ -876,7 +876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac10Permission17MakeAndPermissionESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 initializes((0, 4)) %agg.result, ptr nocapture noundef %permissions) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac10Permission17MakeAndPermissionESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr nocapture noundef %permissions) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EEaSEOS8_.exit:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -998,7 +998,7 @@ _ZN9grpc_core13HeaderMatcherD2Ev.exit:            ; preds = %_ZN9grpc_core13Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac10Permission16MakeOrPermissionESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 initializes((0, 4)) %agg.result, ptr nocapture noundef %permissions) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac10Permission16MakeOrPermissionESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr nocapture noundef %permissions) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_EESaIS6_EEaSEOS8_.exit:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1044,7 +1044,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac10PermissionESt14default_deleteIS3_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core4Rbac10Permission17MakeNotPermissionES1_(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 initializes((0, 4)) %agg.result, ptr noundef %permission) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac10Permission17MakeNotPermissionES1_(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr noundef %permission) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.35", align 8
   store i32 0, ptr %agg.result, align 8
@@ -1202,7 +1202,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac10Permission17MakeAnyPermissionEv(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 initializes((0, 4)) %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac10Permission17MakeAnyPermissionEv(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1236,7 +1236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac10Permission20MakeHeaderPermissionENS_13HeaderMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 initializes((0, 4)) %agg.result, ptr noundef %header_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac10Permission20MakeHeaderPermissionENS_13HeaderMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr noundef %header_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1274,7 +1274,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(114) ptr @_ZN9grpc_core13HeaderMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(114), ptr noundef nonnull align 8 dereferenceable(114)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac10Permission18MakePathPermissionENS_13StringMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 initializes((0, 4)) %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac10Permission18MakePathPermissionENS_13StringMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1312,7 +1312,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(49) ptr @_ZN9grpc_core13StringMatcheraSEOS0_(ptr noundef nonnull align 8 dereferenceable(49), ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac10Permission20MakeDestIpPermissionENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 initializes((0, 4)) %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac10Permission20MakeDestIpPermissionENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1351,7 +1351,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac10Permission22MakeDestPortPermissionEi(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 initializes((0, 4)) %agg.result, i32 noundef %port) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac10Permission22MakeDestPortPermissionEi(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, i32 noundef %port) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1387,7 +1387,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac10Permission22MakeMetadataPermissionEb(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 initializes((0, 4)) %agg.result, i1 noundef zeroext %invert) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac10Permission22MakeMetadataPermissionEb(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, i1 noundef zeroext %invert) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %invert to i8
   store i32 0, ptr %agg.result, align 8
@@ -1424,7 +1424,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac10Permission27MakeReqServerNamePermissionENS_13StringMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 initializes((0, 4)) %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac10Permission27MakeReqServerNamePermissionENS_13StringMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Permission") align 8 %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1459,7 +1459,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac10PermissionC2EOS1_(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(257) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac10PermissionC2EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %this, ptr noundef nonnull align 8 dereferenceable(257) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -1552,7 +1552,7 @@ sw.epilog:                                        ; preds = %invoke.cont.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(257) ptr @_ZN9grpc_core4Rbac10PermissionaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(257) initializes((0, 4), (256, 257)) %this, ptr noundef nonnull align 8 dereferenceable(257) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(257) ptr @_ZN9grpc_core4Rbac10PermissionaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(257) %this, ptr noundef nonnull align 8 dereferenceable(257) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -2216,7 +2216,7 @@ declare void @_ZNK9grpc_core13HeaderMatcher8ToStringB5cxx11Ev(ptr sret(%"class.s
 declare void @_ZNK9grpc_core13StringMatcher8ToStringB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac9Principal16MakeAndPrincipalESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 initializes((0, 4)) %agg.result, ptr nocapture noundef %principals) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9Principal16MakeAndPrincipalESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr nocapture noundef %principals) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EEaSEOS8_.exit:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2342,7 +2342,7 @@ _ZN9grpc_core13HeaderMatcherD2Ev.exit:            ; preds = %_ZNSt8optionalIN9gr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac9Principal15MakeOrPrincipalESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 initializes((0, 4)) %agg.result, ptr nocapture noundef %principals) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9Principal15MakeOrPrincipalESt6vectorISt10unique_ptrIS1_St14default_deleteIS1_EESaIS6_EE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr nocapture noundef %principals) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EESaIS6_EEaSEOS8_.exit:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2382,7 +2382,7 @@ _ZNSt6vectorISt10unique_ptrIN9grpc_core4Rbac9PrincipalESt14default_deleteIS3_EES
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core4Rbac9Principal16MakeNotPrincipalES1_(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 initializes((0, 4)) %agg.result, ptr noundef %principal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9Principal16MakeNotPrincipalES1_(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %principal) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.47", align 8
   store i32 0, ptr %agg.result, align 8
@@ -2534,7 +2534,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac9Principal16MakeAnyPrincipalEv(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 initializes((0, 4)) %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9Principal16MakeAnyPrincipalEv(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2562,7 +2562,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac9Principal26MakeAuthenticatedPrincipalESt8optionalINS_13StringMatcherEE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 initializes((0, 4)) %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9Principal26MakeAuthenticatedPrincipalESt8optionalINS_13StringMatcherEE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2632,7 +2632,7 @@ _ZNSt8optionalIN9grpc_core13StringMatcherEEaSEOS2_.exit: ; preds = %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac9Principal21MakeSourceIpPrincipalENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 initializes((0, 4)) %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9Principal21MakeSourceIpPrincipalENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2665,7 +2665,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac9Principal27MakeDirectRemoteIpPrincipalENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 initializes((0, 4)) %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9Principal27MakeDirectRemoteIpPrincipalENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2698,7 +2698,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac9Principal21MakeRemoteIpPrincipalENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 initializes((0, 4)) %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9Principal21MakeRemoteIpPrincipalENS0_9CidrRangeE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %ip) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2731,7 +2731,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac9Principal19MakeHeaderPrincipalENS_13HeaderMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 initializes((0, 4)) %agg.result, ptr noundef %header_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9Principal19MakeHeaderPrincipalENS_13HeaderMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %header_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2760,7 +2760,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac9Principal17MakePathPrincipalENS_13StringMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 initializes((0, 4)) %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9Principal17MakePathPrincipalENS_13StringMatcherE(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, ptr noundef %string_matcher) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %header_matcher.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2803,7 +2803,7 @@ _ZNSt8optionalIN9grpc_core13StringMatcherEEaSIS1_EENSt9enable_ifIX7__and_vISt6__
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac9Principal21MakeMetadataPrincipalEb(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 initializes((0, 4)) %agg.result, i1 noundef zeroext %invert) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9Principal21MakeMetadataPrincipalEb(ptr noalias sret(%"struct.grpc_core::Rbac::Principal") align 8 %agg.result, i1 noundef zeroext %invert) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %invert to i8
   store i32 0, ptr %agg.result, align 8
@@ -2834,7 +2834,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core4Rbac9PrincipalC2EOS1_(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(257) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core4Rbac9PrincipalC2EOS1_(ptr noundef nonnull align 8 dereferenceable(257) %this, ptr noundef nonnull align 8 dereferenceable(257) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -2951,7 +2951,7 @@ sw.epilog:                                        ; preds = %invoke.cont.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(257) ptr @_ZN9grpc_core4Rbac9PrincipalaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(257) initializes((0, 4), (256, 257)) %this, ptr noundef nonnull align 8 dereferenceable(257) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(257) ptr @_ZN9grpc_core4Rbac9PrincipalaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(257) %this, ptr noundef nonnull align 8 dereferenceable(257) %other) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -3721,7 +3721,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(528) ptr @_ZN9grpc_core4Rbac6PolicyaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(528) initializes((0, 4), (256, 257)) %this, ptr noundef nonnull align 8 dereferenceable(528) %other) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(528) ptr @_ZN9grpc_core4Rbac6PolicyaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(528) %this, ptr noundef nonnull align 8 dereferenceable(528) %other) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(257) ptr @_ZN9grpc_core4Rbac10PermissionaSEOS1_(ptr noundef nonnull align 8 dereferenceable(257) %this, ptr noundef nonnull align 8 dereferenceable(257) %other) #17
   %principals = getelementptr inbounds i8, ptr %other, i64 264

@@ -1291,7 +1291,7 @@ declare void @WaitForParallelWorkersToFinish(ptr noundef) local_unnamed_addr #1
 declare void @InstrAccumParallelQuery(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parallel_vacuum_process_one_index(ptr nocapture noundef initializes((120, 132)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @parallel_vacuum_process_one_index(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.IndexVacuumInfo, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 5
   %6 = load i8, ptr %5, align 1

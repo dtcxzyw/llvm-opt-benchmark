@@ -3439,7 +3439,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN48_$LT$$LP$T$C$U$RP$$u20$as$u20$stdx..TupleExt$GT$4head17ha1fd83a58d3a47d0E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32 }, i32 }) align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #2 {
+define hidden void @"_ZN48_$LT$$LP$T$C$U$RP$$u20$as$u20$stdx..TupleExt$GT$4head17ha1fd83a58d3a47d0E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32 }, i32 }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(16) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   ret void
 }
@@ -6979,7 +6979,7 @@ define hidden void @_ZN5rayon4iter13from_par_iter16collect_extended17hbcdf39cad1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h04abd8fa61f394e7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h04abd8fa61f394e7E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !11, !nonnull !11
   %6 = tail call noundef align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 1 %1)
@@ -6995,7 +6995,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h04abd8fa61f394e7E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h3bec5a6c0996da67E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h3bec5a6c0996da67E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !11, !nonnull !11
   %6 = tail call noundef align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 1 %1)
@@ -7011,7 +7011,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h3bec5a6c0996da67E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h429faae61d430ec5E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h429faae61d430ec5E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !11, !nonnull !11
   %6 = tail call noundef align 8 dereferenceable(8) ptr %5(ptr noundef nonnull align 1 %1)
@@ -7026,7 +7026,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h429faae61d430ec5E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h58c69ca90d3054a0E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h58c69ca90d3054a0E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !11, !nonnull !11
   %6 = tail call noundef align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 1 %1)
@@ -7042,7 +7042,7 @@ define hidden void @_ZN5salsa8plumbing15get_query_table17h58c69ca90d3054a0E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5salsa8plumbing15get_query_table17h90551638aa3c753dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define hidden void @_ZN5salsa8plumbing15get_query_table17h90551638aa3c753dE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, ptr }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 112
   %5 = load ptr, ptr %4, align 8, !invariant.load !11, !nonnull !11
   %6 = tail call noundef align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 1 %1)
@@ -8423,55 +8423,55 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h01b8c225bf6d91a7E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h01b8c225bf6d91a7E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h24ddae122a8a5007E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h24ddae122a8a5007E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4971e969772376e2E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4971e969772376e2E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5cdbae9b8f0b9e63E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5cdbae9b8f0b9e63E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h640c6519101f4467E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h640c6519101f4467E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h86479548c0c905e9E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h86479548c0c905e9E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha6102d13784073cbE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha6102d13784073cbE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb04b895463b5614dE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb04b895463b5614dE"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb7d1ca41643043a5E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN64_$LT$hir_def..ItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb7d1ca41643043a5E"(ptr noalias nocapture noundef writeonly sret({ { i32, i32, i32 }, { { i32, i32 }, i32 } }) align 4 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %0, ptr noundef nonnull align 4 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -11086,7 +11086,7 @@ define hidden noundef zeroext i1 @"_ZN66_$LT$span..SpanData$LT$Ctx$GT$$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h20e885ec795ae5d9E.llvm.13980997071044408516"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #31 {
+define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h20e885ec795ae5d9E.llvm.13980997071044408516"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #31 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
@@ -11096,7 +11096,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h8f196d73ec22a035E.llvm.13980997071044408516"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #31 {
+define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h8f196d73ec22a035E.llvm.13980997071044408516"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #31 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
@@ -11106,7 +11106,7 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hf0b9b6392eb2117aE.llvm.13980997071044408516"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #31 {
+define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hf0b9b6392eb2117aE.llvm.13980997071044408516"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %0) unnamed_addr #31 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
@@ -13750,25 +13750,25 @@ define hidden void @"_ZN69_$LT$chalk_ir..ProgramClause$LT$I$GT$$u20$as$u20$core.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN69_$LT$hir_def..AssocItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h69331ae049a272f8E"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #2 {
+define hidden void @"_ZN69_$LT$hir_def..AssocItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h69331ae049a272f8E"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN69_$LT$hir_def..AssocItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h801277c2d940db05E"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #2 {
+define hidden void @"_ZN69_$LT$hir_def..AssocItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h801277c2d940db05E"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN69_$LT$hir_def..AssocItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha80f0c2fc63fada9E"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #2 {
+define hidden void @"_ZN69_$LT$hir_def..AssocItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha80f0c2fc63fada9E"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN69_$LT$hir_def..AssocItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hea487de2b3f26c06E"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) initializes((0, 28)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #2 {
+define hidden void @"_ZN69_$LT$hir_def..AssocItemLoc$LT$N$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hea487de2b3f26c06E"(ptr noalias nocapture noundef writeonly sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 dereferenceable(28) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(28) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   ret void
 }
@@ -17474,7 +17474,7 @@ define hidden noundef zeroext i1 @"_ZN83_$LT$hir_ty..interner..InternedWrapper$L
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN8bitflags4iter18IterNames$LT$B$GT$3new17h8a5d2b67537cb85fE"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(32) initializes((0, 26)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8bitflags4iter18IterNames$LT$B$GT$3new17h8a5d2b67537cb85fE"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load i8, ptr %1, align 1, !noundef !11
   store ptr @anon.e8178081a04f5a40d05a21ea80afa5d9.206.llvm.13980997071044408516, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

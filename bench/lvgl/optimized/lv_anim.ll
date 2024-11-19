@@ -1306,34 +1306,34 @@ define i32 @lv_anim_path_custom_bezier3(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_var(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_var(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   store ptr %1, ptr %0, align 8, !tbaa !34
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_exec_cb(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_exec_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !33
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_duration(ptr nocapture noundef writeonly initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_duration(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %1, ptr %3, align 4, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_time(ptr nocapture noundef writeonly initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_time(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 %1, ptr %3, align 4, !tbaa !30
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_delay(ptr nocapture noundef writeonly initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_delay(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = sub nsw i32 0, %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 %3, ptr %4, align 8, !tbaa !25
@@ -1341,7 +1341,7 @@ define void @lv_anim_set_delay(ptr nocapture noundef writeonly initializes((88, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_values(ptr nocapture noundef writeonly initializes((72, 84)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
+define void @lv_anim_set_values(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %1, ptr %4, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 76
@@ -1352,77 +1352,77 @@ define void @lv_anim_set_values(ptr nocapture noundef writeonly initializes((72,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_custom_exec_cb(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_custom_exec_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8, !tbaa !35
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_path_cb(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_path_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8, !tbaa !31
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_start_cb(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_start_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8, !tbaa !29
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_get_value_cb(ptr nocapture noundef writeonly initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_get_value_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8, !tbaa !26
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_completed_cb(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_completed_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8, !tbaa !38
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_deleted_cb(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_deleted_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8, !tbaa !39
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_playback_duration(ptr nocapture noundef writeonly initializes((96, 100)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_playback_duration(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %1, ptr %3, align 8, !tbaa !37
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_playback_time(ptr nocapture noundef writeonly initializes((96, 100)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_playback_time(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %1, ptr %3, align 8, !tbaa !37
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_playback_delay(ptr nocapture noundef writeonly initializes((92, 96)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_playback_delay(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %1, ptr %3, align 4, !tbaa !41
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_repeat_count(ptr nocapture noundef writeonly initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_repeat_count(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8, !tbaa !36
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_repeat_delay(ptr nocapture noundef writeonly initializes((100, 104)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_repeat_delay(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %1, ptr %3, align 4, !tbaa !40
   ret void
@@ -1440,14 +1440,14 @@ define void @lv_anim_set_early_apply(ptr nocapture noundef %0, i1 noundef zeroex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_user_data(ptr nocapture noundef writeonly initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_anim_set_user_data(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8, !tbaa !55
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_anim_set_bezier3_param(ptr nocapture noundef writeonly initializes((108, 116)) %0, i16 noundef signext %1, i16 noundef signext %2, i16 noundef signext %3, i16 noundef signext %4) local_unnamed_addr #6 {
+define void @lv_anim_set_bezier3_param(ptr nocapture noundef writeonly %0, i16 noundef signext %1, i16 noundef signext %2, i16 noundef signext %3, i16 noundef signext %4) local_unnamed_addr #6 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i16 %1, ptr %6, align 2, !tbaa !49
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112

@@ -614,7 +614,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef %1, i8 noundef signext range(i8 44, 62) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i8 noundef signext range(i8 44, 62) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

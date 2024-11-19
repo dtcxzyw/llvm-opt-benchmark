@@ -276,7 +276,7 @@ define internal range(i32 -30, 1) i32 @file_open(ptr noundef %0, ptr noundef %1)
 declare i32 @archive_read_set_read_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @file_read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define internal noundef i64 @file_read(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8

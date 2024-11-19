@@ -932,7 +932,7 @@ declare void @_ZN9QTreeView22resizeColumnToContentsEi(ptr noundef nonnull align 
 declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN21DissectorTablesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 {
+define void @_ZN21DissectorTablesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21DissectorTablesDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV21DissectorTablesDialog, i64 488), ptr %2, align 8

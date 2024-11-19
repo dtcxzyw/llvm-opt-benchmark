@@ -2301,7 +2301,7 @@ for.end:                                          ; preds = %for.inc, %_ZNK8uint
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK11mk_ismt2_pp(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22demodulator_simplifierC2ER11ast_managerRK10params_refR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(736) initializes((0, 60)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture nonnull readnone align 8 %p, ptr noundef nonnull align 8 dereferenceable(160) %st) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22demodulator_simplifierC2ER11ast_managerRK10params_refR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(736) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture nonnull readnone align 8 %p, ptr noundef nonnull align 8 dereferenceable(160) %st) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i.i = alloca %"class.std::function", align 8

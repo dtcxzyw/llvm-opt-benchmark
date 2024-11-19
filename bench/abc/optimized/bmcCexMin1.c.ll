@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [45 x i8] c"Intermediate AIG is written into file \22%s\22.\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Saig_ManCexMinGetCos(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define void @Saig_ManCexMinGetCos(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = icmp eq ptr %2, null

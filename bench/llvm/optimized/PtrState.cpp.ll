@@ -136,7 +136,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %49, %47, %42, %40, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7objcarc6RRInfo5clearEv(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 2), (8, 16)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7objcarc6RRInfo5clearEv(ptr noundef nonnull align 8 dereferenceable(113) %0) local_unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1
@@ -494,19 +494,19 @@ _ZN4llvm19SmallPtrSetIteratorIPNS_11InstructionEEppEv.exit: ; preds = %.lr.ph.i4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm7objcarc8PtrState24SetKnownPositiveRefCountEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 1)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7objcarc8PtrState24SetKnownPositiveRefCountEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   store i8 1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm7objcarc8PtrState26ClearKnownPositiveRefCountEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 1)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7objcarc8PtrState26ClearKnownPositiveRefCountEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0) local_unnamed_addr #1 align 2 {
   store i8 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm7objcarc8PtrState6SetSeqENS0_8SequenceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((2, 3)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm7objcarc8PtrState6SetSeqENS0_8SequenceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %3, ptr %4, align 2
@@ -514,7 +514,7 @@ define dso_local void @_ZN4llvm7objcarc8PtrState6SetSeqENS0_8SequenceE(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7objcarc8PtrState21ResetSequenceProgressENS0_8SequenceE(ptr noundef nonnull align 8 dereferenceable(128) initializes((1, 3), (8, 10), (16, 24)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7objcarc8PtrState21ResetSequenceProgressENS0_8SequenceE(ptr noundef nonnull align 8 dereferenceable(128) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i8 %3, ptr %4, align 2
@@ -876,7 +876,7 @@ _ZN4llvm7objcarc8PtrState21ClearSequenceProgressEv.exit: ; preds = %135, %139
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm7objcarc16BottomUpPtrState12InitBottomUpERNS0_14ARCMDKindCacheEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) initializes((1, 2), (8, 10), (16, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm7objcarc16BottomUpPtrState12InitBottomUpERNS0_14ARCMDKindCacheEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1115,7 +1115,7 @@ _ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit: ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm7objcarc16BottomUpPtrState15MatchWithRetainEv(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 1)) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm7objcarc16BottomUpPtrState15MatchWithRetainEv(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #0 align 2 {
   store i8 1, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %3 = load i8, ptr %2, align 2
@@ -1662,7 +1662,7 @@ _ZN4llvm7objcarc8PtrState10InsertCallEPNS_11InstructionE.exit: ; preds = %.lr.ph
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm7objcarc15TopDownPtrState16MatchWithReleaseERNS0_14ARCMDKindCacheEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 1)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm7objcarc15TopDownPtrState16MatchWithReleaseERNS0_14ARCMDKindCacheEPNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 2

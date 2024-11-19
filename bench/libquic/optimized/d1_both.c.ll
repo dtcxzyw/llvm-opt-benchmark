@@ -1335,7 +1335,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @dtls1_get_message_header(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly initializes((0, 28)) %msg_hdr) local_unnamed_addr #9 {
+define hidden void @dtls1_get_message_header(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly %msg_hdr) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %msg_hdr, i8 0, i64 28, i1 false)
   %incdec.ptr = getelementptr inbounds i8, ptr %data, i64 1

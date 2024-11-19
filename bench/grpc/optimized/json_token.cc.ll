@@ -215,7 +215,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z35grpc_auth_json_key_create_from_jsonRKN9grpc_core12experimental4JsonE(ptr noalias sret(%struct.grpc_auth_json_key) align 8 initializes((0, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %json) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_Z35grpc_auth_json_key_create_from_jsonRKN9grpc_core12experimental4JsonE(ptr noalias sret(%struct.grpc_auth_json_key) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %json) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %error = alloca %"class.absl::lts_20230802::Status", align 8

@@ -435,7 +435,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN15cmCTestGlobalVCD2Ev(ptr noundef nonnull align 8 dereferenceable(784)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmCTestBZRD2Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmCTestBZRD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV10cmCTestBZR, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 784
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -444,7 +444,7 @@ define dso_local void @_ZN10cmCTestBZRD2Ev(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmCTestBZRD0Ev(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN10cmCTestBZRD0Ev(ptr noundef nonnull align 8 dereferenceable(816) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV10cmCTestBZR, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 784
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19

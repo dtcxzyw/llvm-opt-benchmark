@@ -785,7 +785,7 @@ declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef)
 declare ptr @p_get_proto_data(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ts2_standard_find_fragments(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts2_standard_find_fragments(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 18) #4
   %7 = zext i16 %6 to i32
   store i32 0, ptr %4, align 4

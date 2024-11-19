@@ -213,7 +213,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6NFALUTC2Eidii(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0, i32 noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
+define hidden void @_ZN6NFALUTC2Eidii(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, double noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
   %6 = tail call i32 @llvm.smin.i32(i32 %1, i32 60)
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %6, ptr %7, align 8
@@ -1455,7 +1455,7 @@ _ZN2cv3PtrINS_8ximgproc15EdgeDrawingImplEED2Ev.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv8ximgproc11EdgeDrawing6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 1), (4, 30), (32, 36), (40, 64)) %0) unnamed_addr #14 align 2 {
+define void @_ZN2cv8ximgproc11EdgeDrawing6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #14 align 2 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -1485,7 +1485,7 @@ define void @_ZN2cv8ximgproc11EdgeDrawing6ParamsC2Ev(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv8ximgproc11EdgeDrawing9setParamsERKNS1_6ParamsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((8, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #15 align 2 {
+define void @_ZN2cv8ximgproc11EdgeDrawing9setParamsERKNS1_6ParamsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   ret void
@@ -1495,7 +1495,7 @@ define void @_ZN2cv8ximgproc11EdgeDrawing9setParamsERKNS1_6ParamsE(ptr nocapture
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8ximgproc11EdgeDrawing6Params4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 1), (4, 30), (32, 36), (40, 64)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv8ximgproc11EdgeDrawing6Params4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.cv::FileNode", align 8
   %4 = alloca %"class.cv::FileNode", align 8
   %5 = alloca %"class.cv::FileNode", align 8
@@ -2235,7 +2235,7 @@ define hidden void @_ZNK2cv8ximgproc15EdgeDrawingImpl14getDefaultNameB5cxx11Ev(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(976) initializes((8, 9), (12, 38), (40, 44), (48, 72)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(976) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv8ximgproc11EdgeDrawing6Params4readERKNS_8FileNodeE(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   ret void
@@ -2462,7 +2462,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv6Point_IiEESaIS3_EESaIS5_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8ximgproc15EdgeDrawingImplD2Ev(ptr noundef nonnull align 8 dereferenceable(976) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc15EdgeDrawingImplD2Ev(ptr noundef nonnull align 8 dereferenceable(976) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv8ximgproc15EdgeDrawingImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 816
   %3 = load ptr, ptr %2, align 8
@@ -2614,7 +2614,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8ximgproc15EdgeDrawingImplD0Ev(ptr noundef nonnull align 8 dereferenceable(976) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN2cv8ximgproc15EdgeDrawingImplD0Ev(ptr noundef nonnull align 8 dereferenceable(976) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN2cv8ximgproc15EdgeDrawingImplD2Ev(ptr noundef nonnull align 8 dereferenceable(976) %0) #38
   tail call void @_ZdlPv(ptr noundef nonnull %0) #39
   ret void
@@ -6280,7 +6280,7 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EEC2ERKS6_.exit: ; preds = %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv8ximgproc15EdgeDrawingImpl24getSegmentIndicesOfLinesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.12") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(976) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv8ximgproc15EdgeDrawingImpl24getSegmentIndicesOfLinesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.12") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(976) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 112
   %4 = getelementptr inbounds i8, ptr %1, i64 120
   %5 = load ptr, ptr %4, align 8
@@ -8017,7 +8017,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl18JoinCollinearLinesEv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl20ValidateLineSegmentsEv(ptr nocapture noundef nonnull align 8 dereferenceable(976) initializes((808, 816)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl20ValidateLineSegmentsEv(ptr nocapture noundef nonnull align 8 dereferenceable(976) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 808
   store double 0x3FD921FB54442D18, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 816
@@ -8597,7 +8597,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl7LineFitEPdS2_iRdS3_i(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_(double noundef %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %6) local_unnamed_addr #14 align 2 {
+define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl19ComputeClosestPointEddddiRdS2_(double noundef %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6) local_unnamed_addr #14 align 2 {
   %8 = icmp eq i32 %4, 0
   %9 = fcmp oeq double %3, 0.000000e+00
   br i1 %8, label %10, label %19
@@ -9567,7 +9567,7 @@ define hidden noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl33ComputeMinDistan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl20UpdateLineParametersEP13EDLineSegment(ptr nocapture noundef initializes((0, 20)) %0) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl20UpdateLineParametersEP13EDLineSegment(ptr nocapture noundef %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -11518,7 +11518,7 @@ _ZNSt6vectorIN2cv3VecIdLi6EEESaIS2_EED2Ev.exit221: ; preds = %139, %530, %532, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly initializes((0, 8)) %6) local_unnamed_addr #26 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv8ximgproc15EdgeDrawingImpl9CircleFitEPdS2_iS2_S2_S2_S2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #26 align 2 {
   store double 1.000000e+20, ptr %6, align 8
   %8 = icmp slt i32 %2, 3
   br i1 %8, label %72, label %.preheader.preheader
@@ -12755,7 +12755,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl9addCircleEP6CircleRiddddPdS
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl34ComputeEllipseCenterAndAxisLengthsEP15EllipseEquationPdS4_S4_S4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #20 align 2 {
+define hidden noundef double @_ZN2cv8ximgproc15EdgeDrawingImpl34ComputeEllipseCenterAndAxisLengthsEP15EllipseEquationPdS4_S4_S4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #20 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load double, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -19261,7 +19261,7 @@ define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24GenerateCandidateCirclesEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl15ValidateCirclesEb(ptr nocapture noundef nonnull align 8 dereferenceable(976) initializes((808, 816)) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl15ValidateCirclesEb(ptr nocapture noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.EllipseEquation, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 808
   store double 0x3FC921FB54442D18, ptr %4, align 8
@@ -20792,7 +20792,7 @@ cdce.end104:                                      ; preds = %cdce.call103, %55
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef writeonly initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) local_unnamed_addr #20 align 2 {
+define hidden void @_ZN2cv8ximgproc15EdgeDrawingImpl24ComputeStartAndEndAnglesEdddPdS2_iS2_S2_(double noundef %0, double noundef %1, double noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #20 align 2 {
   %9 = load double, ptr %3, align 8
   %10 = load double, ptr %4, align 8
   %11 = add nsw i32 %5, -1

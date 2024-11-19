@@ -290,7 +290,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @raw_refresh_limits(ptr nocapture noundef initializes((16548, 16549)) %bs, ptr nocapture readnone %errp) #1 {
+define internal void @raw_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #1 {
 entry:
   %file = getelementptr inbounds i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
@@ -712,7 +712,7 @@ return:                                           ; preds = %land.lhs.true.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @raw_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %pnum, ptr nocapture noundef writeonly initializes((0, 8)) %map, ptr nocapture noundef writeonly initializes((0, 8)) %file) #1 {
+define internal noundef i32 @raw_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #1 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8

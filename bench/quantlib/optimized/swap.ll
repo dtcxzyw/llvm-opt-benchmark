@@ -1800,7 +1800,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost3anyESt4les
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib4SwapC1ERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EES9_(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, ptr noundef nonnull align 8 dereferenceable(24) %firstLeg, ptr noundef nonnull align 8 dereferenceable(24) %secondLeg) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib4SwapC1ERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS5_EES9_(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(24) %firstLeg, ptr noundef nonnull align 8 dereferenceable(24) %secondLeg) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp44 = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp68 = alloca %"class.boost::shared_ptr", align 8
@@ -3571,7 +3571,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib4SwapC1ERKSt6vectorIS1_IN5boost10shared_ptrINS_8CashFlowEEESaIS5_EESaIS7_EERKS1_IbSaIbEE(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %legs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %payer) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib4SwapC1ERKSt6vectorIS1_IN5boost10shared_ptrINS_8CashFlowEEESaIS5_EESaIS7_EERKS1_IbSaIbEE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %legs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %payer) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp47 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4728,7 +4728,7 @@ ehcleanup29:                                      ; preds = %ehcleanup28, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib4SwapC1Em(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, i64 noundef %legs) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib4SwapC1Em(ptr noundef nonnull align 8 dereferenceable(256) %this, i64 noundef %legs) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 256
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !33
@@ -5037,7 +5037,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib4Swap12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(256) initializes((16, 40)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib4Swap12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %NPV_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -7739,7 +7739,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib4Swap7results5resetEv(ptr noundef nonnull align 8 dereferenceable(184) initializes((8, 32)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib4Swap7results5resetEv(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.QuantLib::Date", align 8
   %errorEstimate.i = getelementptr inbounds nuw i8, ptr %this, i64 16

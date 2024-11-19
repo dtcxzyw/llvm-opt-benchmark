@@ -194,7 +194,7 @@ declare void @_Z21ZStatUnitOpsPerSecond15LogTargetHandleRK12ZStatSamplerRK19ZSta
 declare void @_ZN18ZStatCriticalPhaseC1EPKcb(ptr noundef nonnull align 8 dereferenceable(121), ptr noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZSafePageRecycleC2EP14ZPageAllocator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN16ZSafePageRecycleC2EP14ZPageAllocator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i8 noundef zeroext 5, i32 noundef 0) #13
@@ -416,7 +416,7 @@ _ZN5ZPageD2Ev.exit:                               ; preds = %_ZN15ZPhysicalMemor
 declare noundef ptr @_ZNK5ZPage13clone_limitedEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZPageAllocatorC2Emmmm(ptr noundef nonnull align 8 dereferenceable(609) initializes((0, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZPageAllocatorC2Emmmm(ptr noundef nonnull align 8 dereferenceable(609) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #1 align 2 {
   %6 = alloca %class.GCLogPreciousHandle, align 8
   %7 = alloca %class.GCLogPreciousHandle, align 8
   %8 = alloca %class.GCLogPreciousHandle, align 8
@@ -921,7 +921,7 @@ define hidden noundef range(i64 0, -9223372036854775808) i64 @_ZNK14ZPageAllocat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK14ZPageAllocator5statsEP11ZGeneration(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ZPageAllocatorStats) align 8 initializes((0, 96)) %0, ptr noundef nonnull align 8 dereferenceable(609) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK14ZPageAllocator5statsEP11ZGeneration(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ZPageAllocatorStats) align 8 %0, ptr noundef nonnull align 8 dereferenceable(609) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
 _ZN7ZLockerI5ZLockED2Ev.exit:
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %1) #13
   %4 = getelementptr inbounds i8, ptr %1, i64 392
@@ -2589,7 +2589,7 @@ define hidden void @_ZN14ZPageAllocator15satisfy_stalledEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZPageAllocator12recycle_pageEP5ZPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef initializes((152, 160)) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ZPageAllocator12recycle_pageEP5ZPage(ptr noundef nonnull align 8 dereferenceable(609) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef double @_ZN2os11elapsedTimeEv() #13
   %4 = tail call double @llvm.ceil.f64(double %3)
   %5 = fptoui double %4 to i64

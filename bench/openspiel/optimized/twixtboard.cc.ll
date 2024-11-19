@@ -331,7 +331,7 @@ _ZNSt13unordered_mapI4LinkSt3setIS0_St4lessIS0_ESaIS0_EEN10open_spiel5twixt16Lin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel5twixt5BoardC2Eib(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 5), (16, 20), (24, 53), (56, 104)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel5twixt5BoardC2Eib(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %4, align 4

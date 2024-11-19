@@ -177,7 +177,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8QuantLib4PoolC2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((8, 12), (16, 24)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib4PoolC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %0, align 8, !tbaa !3
@@ -2239,7 +2239,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib4Pool11defaultKeysEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.69") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(168) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib4Pool11defaultKeysEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.69") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(168) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 160

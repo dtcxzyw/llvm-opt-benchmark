@@ -1745,7 +1745,7 @@ return:                                           ; preds = %entry, %cleanup315
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4Ogre12OgreImporter15AssignMaterialsEP7aiSceneRSt6vectorIP10aiMaterialSaIS6_EE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %this, ptr nocapture noundef initializes((32, 36)) %pScene, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %materials) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp4Ogre12OgreImporter15AssignMaterialsEP7aiSceneRSt6vectorIP10aiMaterialSaIS6_EE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %this, ptr nocapture noundef %pScene, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %materials) local_unnamed_addr #3 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds i8, ptr %materials, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8

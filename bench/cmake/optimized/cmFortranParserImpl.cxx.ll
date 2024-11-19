@@ -1177,7 +1177,7 @@ define dso_local noundef zeroext i1 @_Z30cmFortranParser_GetInInterfaceP17cmFort
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z31cmFortranParser_SetOldStartcondP17cmFortranParser_si(ptr nocapture noundef writeonly initializes((276, 280)) %0, i32 noundef %1) local_unnamed_addr #11 {
+define dso_local void @_Z31cmFortranParser_SetOldStartcondP17cmFortranParser_si(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 276
   store i32 %1, ptr %3, align 4
   ret void

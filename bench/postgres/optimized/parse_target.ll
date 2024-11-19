@@ -1346,7 +1346,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @exprLocation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @updateTargetListEntry(ptr noundef %0, ptr nocapture noundef initializes((16, 18), (24, 32)) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local void @updateTargetListEntry(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @transformAssignedExpr(ptr noundef %0, ptr noundef %8, i32 noundef 17, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5)
@@ -1428,7 +1428,7 @@ declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 declare ptr @coerce_to_domain(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define dso_local ptr @checkInsertTargets(ptr noundef %0, ptr noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %9, label %.preheader

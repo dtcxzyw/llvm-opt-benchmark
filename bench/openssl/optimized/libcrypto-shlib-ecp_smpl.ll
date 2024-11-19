@@ -23,7 +23,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_GFp_simple_group_init(ptr nocapture noundef initializes((64, 72), (96, 112)) %group) #1 {
+define range(i32 0, 2) i32 @ossl_ec_GFp_simple_group_init(ptr nocapture noundef %group) #1 {
 entry:
   %call = tail call ptr @BN_new() #4
   %field = getelementptr inbounds i8, ptr %group, i64 64
@@ -490,7 +490,7 @@ err:                                              ; preds = %if.end72, %if.end68
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ec_GFp_simple_point_init(ptr nocapture noundef initializes((16, 44)) %point) #1 {
+define range(i32 0, 2) i32 @ossl_ec_GFp_simple_point_init(ptr nocapture noundef %point) #1 {
 entry:
   %call = tail call ptr @BN_new() #4
   %X = getelementptr inbounds i8, ptr %point, i64 16
@@ -543,7 +543,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_ec_GFp_simple_point_clear_finish(ptr nocapture noundef initializes((40, 44)) %point) #1 {
+define void @ossl_ec_GFp_simple_point_clear_finish(ptr nocapture noundef %point) #1 {
 entry:
   %X = getelementptr inbounds i8, ptr %point, i64 16
   %0 = load ptr, ptr %X, align 8
@@ -605,7 +605,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ossl_ec_GFp_simple_point_set_to_infinity(ptr nocapture readnone %group, ptr nocapture noundef initializes((40, 44)) %point) #1 {
+define noundef i32 @ossl_ec_GFp_simple_point_set_to_infinity(ptr nocapture readnone %group, ptr nocapture noundef %point) #1 {
 entry:
   %Z_is_one = getelementptr inbounds i8, ptr %point, i64 40
   store i32 0, ptr %Z_is_one, align 8

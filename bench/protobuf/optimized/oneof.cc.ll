@@ -211,7 +211,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler10objectivec14OneofGeneratorC2EPKNS0_15OneofDescriptorERKNS2_17GenerationOptionsE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %descriptor, ptr nocapture nonnull readnone align 8 %generation_options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler10objectivec14OneofGeneratorC2EPKNS0_15OneofDescriptorERKNS2_17GenerationOptionsE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %descriptor, ptr nocapture nonnull readnone align 8 %generation_options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator.7", align 1
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

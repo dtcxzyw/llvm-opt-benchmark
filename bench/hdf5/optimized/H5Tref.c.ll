@@ -412,7 +412,7 @@ define range(i32 -1, 1) i32 @H5T__ref_reclaim(ptr noundef %0, ptr nocapture noun
 declare i32 @H5R__destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5T__ref_mem_isnull(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #4 {
+define internal noundef i32 @H5T__ref_mem_isnull(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
   %4 = alloca [64 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %1, ptr noundef nonnull dereferenceable(64) %4, i64 64)
@@ -423,7 +423,7 @@ define internal noundef i32 @H5T__ref_mem_isnull(ptr nocapture readnone %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5T__ref_mem_setnull(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 64)) %1, ptr nocapture readnone %2) #5 {
+define internal noundef i32 @H5T__ref_mem_setnull(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %1, i8 0, i64 64, i1 false)
   ret i32 0
 }
@@ -1214,7 +1214,7 @@ define internal i64 @H5T__ref_disk_getsize(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5T__ref_disk_read(ptr noundef %0, ptr noundef %1, i64 %2, ptr nocapture readnone %3, ptr noundef initializes((0, 2)) %4, i64 noundef %5) #0 {
+define internal range(i32 -1, 1) i32 @H5T__ref_disk_read(ptr noundef %0, ptr noundef %1, i64 %2, ptr nocapture readnone %3, ptr noundef %4, i64 noundef %5) #0 {
   %7 = load i16, ptr %1, align 1
   store i16 %7, ptr %4, align 1
   %8 = getelementptr inbounds i8, ptr %4, i64 2

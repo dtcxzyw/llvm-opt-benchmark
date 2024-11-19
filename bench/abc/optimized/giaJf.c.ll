@@ -885,7 +885,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define noalias noundef ptr @Jf_ManCreateCnf(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define noalias noundef ptr @Jf_ManCreateCnf(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
   %4 = tail call noalias dereferenceable_or_null(72) ptr @calloc(i64 noundef 1, i64 noundef 72) #31
   store ptr %0, ptr %4, align 8
   %5 = getelementptr i8, ptr %0, i64 24
@@ -10502,7 +10502,7 @@ declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #1
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Jf_ManSetDefaultPars(ptr nocapture noundef writeonly initializes((0, 264)) %0) local_unnamed_addr #15 {
+define void @Jf_ManSetDefaultPars(ptr nocapture noundef writeonly %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %2, i8 0, i64 256, i1 false)
   store i32 6, ptr %0, align 8

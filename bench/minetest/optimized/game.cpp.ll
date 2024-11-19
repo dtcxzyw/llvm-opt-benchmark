@@ -1506,7 +1506,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4GameC2Ev(ptr noundef nonnull align 8 dereferenceable(686) initializes((0, 49), (52, 240)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4GameC2Ev(ptr noundef nonnull align 8 dereferenceable(686) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i524 = alloca i64, align 8
   %__dnew.i.i506 = alloca i64, align 8
@@ -5381,7 +5381,7 @@ declare void @_ZN8Settings25deregisterChangedCallbackERKNSt7__cxx1112basic_strin
 declare void @_ZN15RenderingEngine8finalizeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Game7startupEPbP12InputHandlerP15RenderingEngineRK13GameStartDataRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_P11ChatBackend(ptr noundef nonnull align 8 dereferenceable(686) initializes((568, 576)) %this, ptr noundef %kill, ptr noundef %input, ptr noundef %rendering_engine, ptr noundef nonnull align 8 dereferenceable(528) %start_data, ptr noundef nonnull align 8 dereferenceable(32) %error_message, ptr noundef %reconnect, ptr noundef %chat_backend) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Game7startupEPbP12InputHandlerP15RenderingEngineRK13GameStartDataRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES0_P11ChatBackend(ptr noundef nonnull align 8 dereferenceable(686) %this, ptr noundef %kill, ptr noundef %input, ptr noundef %rendering_engine, ptr noundef nonnull align 8 dereferenceable(528) %start_data, ptr noundef nonnull align 8 dereferenceable(32) %error_message, ptr noundef %reconnect, ptr noundef %chat_backend) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i65 = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5634,7 +5634,7 @@ declare void @_ZN6GameUI9initFlagsEv(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN12Translations5clearEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4Game4initERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_tRK11SubgameSpec(ptr nocapture noundef nonnull align 8 dereferenceable(686) initializes((56, 64)) %this, ptr noundef nonnull align 8 dereferenceable(32) %map_dir, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %address, i16 noundef zeroext %port, ptr noundef nonnull align 8 dereferenceable(280) %gamespec) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Game4initERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_tRK11SubgameSpec(ptr nocapture noundef nonnull align 8 dereferenceable(686) %this, ptr noundef nonnull align 8 dereferenceable(32) %map_dir, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %address, i16 noundef zeroext %port, ptr noundef nonnull align 8 dereferenceable(280) %gamespec) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string.32", align 8
   %call = tail call noundef ptr @_Z19createTextureSourcev()
@@ -18486,7 +18486,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZN4Game15connectToServerERK13GameStartDataPbS3_(ptr noundef nonnull align 8 dereferenceable(686) %this, ptr noundef nonnull align 8 dereferenceable(528) %start_data, ptr nocapture noundef writeonly initializes((0, 1)) %connect_ok, ptr nocapture noundef initializes((0, 1)) %connection_aborted) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN4Game15connectToServerERK13GameStartDataPbS3_(ptr noundef nonnull align 8 dereferenceable(686) %this, ptr noundef nonnull align 8 dereferenceable(528) %start_data, ptr nocapture noundef writeonly %connect_ok, ptr nocapture noundef %connection_aborted) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i517 = alloca %"class.std::__cxx11::basic_string.32", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string.32", align 8
@@ -22854,7 +22854,7 @@ eh.resume:                                        ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Game20processItemSelectionEPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(686) %this, ptr nocapture noundef initializes((0, 2)) %new_playeritem) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4Game20processItemSelectionEPt(ptr nocapture noundef nonnull readonly align 8 dereferenceable(686) %this, ptr nocapture noundef %new_playeritem) local_unnamed_addr #4 align 2 {
 entry:
   %client = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %client, align 8, !tbaa !117
@@ -30461,7 +30461,7 @@ return:                                           ; preds = %if.end46, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Game33handleClientEvent_PlayerForceMoveEP11ClientEventP17CameraOrientation(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %event, ptr nocapture noundef writeonly initializes((0, 8)) %cam) #15 align 2 {
+define dso_local void @_ZN4Game33handleClientEvent_PlayerForceMoveEP11ClientEventP17CameraOrientation(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %event, ptr nocapture noundef writeonly %cam) #15 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %event, i64 8
   %yaw = getelementptr inbounds i8, ptr %event, i64 12

@@ -320,7 +320,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 declare void @slurm_packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %10, label %5
@@ -502,7 +502,7 @@ declare i32 @slurm_hostset_within(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @slurm_hostset_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

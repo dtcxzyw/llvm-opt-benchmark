@@ -744,7 +744,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 declare i32 @blosc_decompress_ctx(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression15bloscDecompressEPKcmb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %buffer, i64 noundef %expectedBytes, i1 noundef zeroext %resize) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression15bloscDecompressEPKcmb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %buffer, i64 noundef %expectedBytes, i1 noundef zeroext %resize) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes.i = alloca i64, align 8
   %_1.i = alloca i64, align 8
@@ -2014,7 +2014,7 @@ _ZNSt12__shared_ptrISt15basic_streambufIcSt11char_traitsIcEELN9__gnu_cxx12_Lock_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN7openvdb5v11_011compression10PageHandleC2ERKSt10shared_ptrINS1_4PageEEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %page, i32 noundef %index, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression10PageHandleC2ERKSt10shared_ptrINS1_4PageEEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %page, i32 noundef %index, i32 noundef %size) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %page, align 8
   store ptr %0, ptr %this, align 8
@@ -2057,7 +2057,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression10PageHandle4readEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression10PageHandle4readEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mSize = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %mSize, align 4
@@ -2098,7 +2098,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7openvdb5v11_011compression16PagedInputStreamC2ERSi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 33)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #12 align 2 {
+define void @_ZN7openvdb5v11_011compression16PagedInputStreamC2ERSi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #12 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %mUncompressedBytes = getelementptr inbounds i8, ptr %this, i64 4
@@ -2328,7 +2328,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression17PagedOutputStreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 28), (32, 41)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression17PagedOutputStreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1048576) ptr @_Znam(i64 noundef 1048576) #21
   store ptr %call, ptr %this, align 8
@@ -2359,7 +2359,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit3: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_011compression17PagedOutputStreamC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 28), (32, 41)) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_011compression17PagedOutputStreamC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(1048576) ptr @_Znam(i64 noundef 1048576) #21
   store ptr %call, ptr %this, align 8

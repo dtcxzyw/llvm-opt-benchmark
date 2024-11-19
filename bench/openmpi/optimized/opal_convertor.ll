@@ -756,7 +756,7 @@ opal_convertor_create_stack_at_begining.exit:     ; preds = %74, %79
 declare i32 @opal_convertor_generic_simple_position(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i64 @opal_convertor_compute_remote_size(ptr nocapture noundef initializes((32, 40)) %0) local_unnamed_addr #2 {
+define i64 @opal_convertor_compute_remote_size(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -814,7 +814,7 @@ define i64 @opal_convertor_compute_remote_size(ptr nocapture noundef initializes
 declare i64 @opal_datatype_compute_remote_size(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_convertor_prepare_for_recv(ptr nocapture noundef initializes((24, 64), (72, 80), (120, 128)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define noundef i32 @opal_convertor_prepare_for_recv(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1081,7 +1081,7 @@ declare i32 @opal_unpack_homogeneous_contig(ptr noundef, ptr noundef, ptr nounde
 declare i32 @opal_generic_simple_unpack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @opal_convertor_prepare_for_send(ptr nocapture noundef initializes((24, 64), (72, 80), (120, 128)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
+define noundef i32 @opal_convertor_prepare_for_send(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1369,7 +1369,7 @@ declare i32 @opal_pack_homogeneous_contig_with_gaps(ptr noundef, ptr noundef, pt
 declare i32 @opal_generic_simple_pack(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef i32 @opal_convertor_clone(ptr nocapture noundef readonly %0, ptr noundef initializes((16, 64), (72, 80), (88, 104)) %1, i32 noundef %2) local_unnamed_addr #7 {
+define noundef i32 @opal_convertor_clone(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16

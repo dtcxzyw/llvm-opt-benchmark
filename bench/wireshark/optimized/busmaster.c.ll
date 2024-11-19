@@ -82,7 +82,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @busmaster_parse(ptr noundef %0, ptr noundef nonnull initializes((0, 8)) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @busmaster_parse(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   store ptr %0, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 72

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.netpatterns_payload_t = type { i32, i32, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef initializes((0, 4)) %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ompi_netpatterns_setup_recursive_knomial_allgather_tree_node(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %spec.select = tail call i32 @llvm.smin.i32(i32 %2, i32 %0)
   store i32 %spec.select, ptr %4, align 8
   %6 = icmp sgt i32 %0, 1

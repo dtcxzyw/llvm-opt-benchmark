@@ -2555,7 +2555,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN7rocksdb16WritePreparedTxn16RollbackInternalEvE25RollbackWriteBatchBuilder, i64 16), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
@@ -4698,7 +4698,7 @@ declare void @_ZN7rocksdb18WritePreparedTxnDB12AddCommittedEmmh(ptr noundef nonn
 declare void @_ZN7rocksdb10WriteBatchC2Emmmm(ptr noundef nonnull align 8 dereferenceable(96), i64 noundef, i64 noundef, i64 noundef, i64 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN7rocksdb16WritePreparedTxn16RollbackInternalEvE25RollbackWriteBatchBuilder, i64 16), ptr %this, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
@@ -4741,28 +4741,28 @@ _ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilderD
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder5PutCFEjRKNS_5SliceES4_(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
+define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder5PutCFEjRKNS_5SliceES4_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 {
 entry:
   tail call fastcc void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder8RollbackEjRKNS_5SliceE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder8DeleteCFEjRKNS_5SliceE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key) unnamed_addr #2 align 2 {
+define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder8DeleteCFEjRKNS_5SliceE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key) unnamed_addr #2 align 2 {
 entry:
   tail call fastcc void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder8RollbackEjRKNS_5SliceE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder14SingleDeleteCFEjRKNS_5SliceE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key) unnamed_addr #2 align 2 {
+define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder14SingleDeleteCFEjRKNS_5SliceE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key) unnamed_addr #2 align 2 {
 entry:
   tail call fastcc void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder8RollbackEjRKNS_5SliceE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder7MergeCFEjRKNS_5SliceES4_(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder7MergeCFEjRKNS_5SliceES4_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rollback_merge_operands_ = getelementptr inbounds i8, ptr %this, i64 136
   %1 = load i8, ptr %rollback_merge_operands_, align 8
@@ -4784,7 +4784,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder16MarkBeginPrepareEb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, i1 zeroext %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder16MarkBeginPrepareEb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i1 zeroext %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !42
@@ -4793,7 +4793,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder14MarkEndPrepareERKNS_5SliceE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder14MarkEndPrepareERKNS_5SliceE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !45
@@ -4802,7 +4802,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder8MarkNoopEb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, i1 zeroext %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder8MarkNoopEb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i1 zeroext %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !48
@@ -4811,7 +4811,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder12MarkRollbackERKNS_5SliceE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder12MarkRollbackERKNS_5SliceE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 4, ptr %agg.result, align 8, !alias.scope !51
   %subcode_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -4824,7 +4824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder10MarkCommitERKNS_5SliceE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder10MarkCommitERKNS_5SliceE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i.i, align 8, !alias.scope !54
@@ -4839,7 +4839,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder8RollbackEjRKNS_5SliceE(ptr noalias align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilder8RollbackEjRKNS_5SliceE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(304) %this, i32 noundef %cf, ptr noundef nonnull align 8 dereferenceable(16) %key) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca ptr, align 8
   %__args.addr2.i.i = alloca ptr, align 8

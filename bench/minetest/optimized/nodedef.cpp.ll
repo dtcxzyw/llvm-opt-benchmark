@@ -675,7 +675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7NodeBox5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 1), (32, 112)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7NodeBox5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8, !tbaa !15
   %fixed = getelementptr inbounds i8, ptr %this, i64 8
@@ -6619,7 +6619,7 @@ declare noundef zeroext i16 @_ZNK8Settings6getU16ERKNSt7__cxx1112basic_stringIcS
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK8Settings3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15ContentFeaturesC2Ev(ptr noundef nonnull align 8 dereferenceable(3706) initializes((0, 3), (8, 47), (48, 61), (64, 103), (104, 117), (120, 123), (128, 167), (168, 181), (184, 223), (224, 237), (240, 243), (248, 287), (288, 301), (304, 343), (344, 357), (360, 363), (368, 407), (408, 421), (424, 463), (464, 477), (480, 483), (488, 527), (528, 541), (544, 583), (584, 597), (600, 603), (608, 647), (648, 661), (664, 703), (704, 717), (720, 723), (728, 767), (768, 781), (784, 823), (824, 837), (840, 843), (848, 887), (888, 901), (904, 943), (944, 957), (960, 963), (968, 1007), (1008, 1021), (1024, 1063), (1064, 1077), (1080, 1083), (1088, 1127), (1128, 1141), (1144, 1183), (1184, 1197), (1200, 1203), (1208, 1247), (1248, 1261), (1264, 1303), (1304, 1317), (1320, 1323), (1328, 1367), (1368, 1381), (1384, 1423), (1424, 1437)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15ContentFeaturesC2Ev(ptr noundef nonnull align 8 dereferenceable(3706) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.end.i.i.i.i:
   store i8 0, ptr %this, align 8, !tbaa !217
   %rotation.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -7932,7 +7932,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit337: ; preds = %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15ContentFeatures5resetEv(ptr noundef nonnull align 8 dereferenceable(3706) initializes((1440, 1447), (1456, 1464)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15ContentFeatures5resetEv(ptr noundef nonnull align 8 dereferenceable(3706) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp21 = alloca %struct.TileDef, align 8
@@ -10530,7 +10530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176: ; preds = %if
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN15ContentFeatures18setAlphaFromLegacyEh(ptr nocapture noundef nonnull align 8 dereferenceable(3706) initializes((2928, 2929)) %this, i8 noundef zeroext %legacy_alpha) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN15ContentFeatures18setAlphaFromLegacyEh(ptr nocapture noundef nonnull align 8 dereferenceable(3706) %this, i8 noundef zeroext %legacy_alpha) local_unnamed_addr #12 align 2 {
 entry:
   %drawtype = getelementptr inbounds i8, ptr %this, i64 1538
   %0 = load i8, ptr %drawtype, align 2, !tbaa !265
@@ -16039,7 +16039,7 @@ _ZN7TileDefD2Ev.exit984.5:                        ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull initializes((24, 28)) %layer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %tile, ptr noundef nonnull align 8 dereferenceable(60) %tiledef, i32 %color.coerce, i8 noundef zeroext range(i8 0, 10) %material_type, i32 noundef %shader_id, i1 noundef zeroext %backface_culling, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tsettings) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL15fillTileAttribsP14ITextureSourceP9TileLayerRK8TileSpecRK7TileDefN3irr5video6SColorEhjbRK15TextureSettings(ptr noundef %tsrc, ptr noundef nonnull %layer, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %tile, ptr noundef nonnull align 8 dereferenceable(60) %tiledef, i32 %color.coerce, i8 noundef zeroext range(i8 0, 10) %material_type, i32 noundef %shader_id, i1 noundef zeroext %backface_culling, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tsettings) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %frame_count = alloca i32, align 4
   %frame_length_ms = alloca i32, align 4
@@ -16589,7 +16589,7 @@ declare noundef ptr @_Z9cloneMeshPN3irr5scene5IMeshE(ptr noundef) local_unnamed_
 declare void @_Z21rotateMeshBy6dFacedirPN3irr5scene5IMeshEi(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14NodeDefManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(65848) initializes((0, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14NodeDefManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(65848) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %m_name_id_mapping = getelementptr inbounds i8, ptr %this, i64 24
@@ -17645,7 +17645,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14NodeDefManager21resetNodeResolveStateEv(ptr nocapture noundef nonnull align 8 dereferenceable(65848) initializes((250, 251)) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14NodeDefManager21resetNodeResolveStateEv(ptr nocapture noundef nonnull align 8 dereferenceable(65848) %this) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_node_registration_complete = getelementptr inbounds i8, ptr %this, i64 250
   store i8 0, ptr %m_node_registration_complete, align 2, !tbaa !393
@@ -24953,7 +24953,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK14NodeDefManager15pendNodeResolveEP12NodeResolver(ptr noundef nonnull align 8 dereferenceable(65848) %this, ptr noundef initializes((56, 64)) %nr) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK14NodeDefManager15pendNodeResolveEP12NodeResolver(ptr noundef nonnull align 8 dereferenceable(65848) %this, ptr noundef %nr) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ndef = getelementptr inbounds i8, ptr %nr, i64 56
   store ptr %this, ptr %m_ndef, align 8, !tbaa !483
@@ -25095,7 +25095,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIP12Nod
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12NodeResolver19nodeResolveInternalEv(ptr noundef nonnull align 8 dereferenceable(73) initializes((64, 72)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12NodeResolver19nodeResolveInternalEv(ptr noundef nonnull align 8 dereferenceable(73) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_nodenames_idx = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %m_nodenames_idx, align 8, !tbaa !489
@@ -25663,7 +25663,7 @@ cleanup114:                                       ; preds = %if.end107, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 73)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12NodeResolver, i64 16), ptr %this, align 8, !tbaa !37
   %m_nodenames = getelementptr inbounds i8, ptr %this, i64 8
@@ -25871,7 +25871,7 @@ _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12NodeResolver, i64 16), ptr %this, align 8, !tbaa !37
   %m_resolve_done = getelementptr inbounds i8, ptr %this, i64 72

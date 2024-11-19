@@ -111,7 +111,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib19MTBrownianGeneratorEEE = comd
 @_ZN8QuantLib26MTBrownianGeneratorFactoryC1Em = unnamed_addr alias void (ptr, i64), ptr @_ZN8QuantLib26MTBrownianGeneratorFactoryC2Em
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19MTBrownianGeneratorC2Emmm(ptr noundef nonnull align 8 dereferenceable(5112) initializes((0, 32)) %this, i64 noundef %factors, i64 noundef %steps, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19MTBrownianGeneratorC2Emmm(ptr noundef nonnull align 8 dereferenceable(5112) %this, i64 noundef %factors, i64 noundef %steps, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::MersenneTwisterUniformRng", align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib19MTBrownianGeneratorE, i64 16), ptr %this, align 8, !tbaa !3
@@ -520,7 +520,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EE
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN8QuantLib19MTBrownianGenerator8nextPathEv(ptr noundef nonnull align 8 dereferenceable(5112) initializes((5064, 5072)) %this) unnamed_addr #0 align 2 {
+define noundef double @_ZN8QuantLib19MTBrownianGenerator8nextPathEv(ptr noundef nonnull align 8 dereferenceable(5112) %this) unnamed_addr #0 align 2 {
 entry:
   %generator_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %sequence_.i = getelementptr inbounds nuw i8, ptr %this, i64 5040
@@ -604,7 +604,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib26MTBrownianGeneratorFactoryC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i64 noundef %seed) unnamed_addr #5 align 2 {
+define void @_ZN8QuantLib26MTBrownianGeneratorFactoryC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %seed) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib26MTBrownianGeneratorFactoryE, i64 16), ptr %this, align 8, !tbaa !3
   %seed_ = getelementptr inbounds nuw i8, ptr %this, i64 8

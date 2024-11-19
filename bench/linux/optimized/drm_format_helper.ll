@@ -61,13 +61,13 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_fb_build
 @llvm.compiler.used = appending global [20 x ptr] [ptr @__UNIQUE_ID___addressable_drm_fb_blit333, ptr @__UNIQUE_ID___addressable_drm_fb_build_fourcc_list341, ptr @__UNIQUE_ID___addressable_drm_fb_clip_offset320, ptr @__UNIQUE_ID___addressable_drm_fb_memcpy321, ptr @__UNIQUE_ID___addressable_drm_fb_swab322, ptr @__UNIQUE_ID___addressable_drm_fb_xrgb8888_to_argb1555326, ptr @__UNIQUE_ID___addressable_drm_fb_xrgb8888_to_argb2101010331, ptr @__UNIQUE_ID___addressable_drm_fb_xrgb8888_to_argb8888329, ptr @__UNIQUE_ID___addressable_drm_fb_xrgb8888_to_gray8332, ptr @__UNIQUE_ID___addressable_drm_fb_xrgb8888_to_mono340, ptr @__UNIQUE_ID___addressable_drm_fb_xrgb8888_to_rgb332323, ptr @__UNIQUE_ID___addressable_drm_fb_xrgb8888_to_rgb565324, ptr @__UNIQUE_ID___addressable_drm_fb_xrgb8888_to_rgb888328, ptr @__UNIQUE_ID___addressable_drm_fb_xrgb8888_to_rgba5551327, ptr @__UNIQUE_ID___addressable_drm_fb_xrgb8888_to_xrgb1555325, ptr @__UNIQUE_ID___addressable_drm_fb_xrgb8888_to_xrgb2101010330, ptr @__UNIQUE_ID___addressable_drm_format_conv_state_copy317, ptr @__UNIQUE_ID___addressable_drm_format_conv_state_init316, ptr @__UNIQUE_ID___addressable_drm_format_conv_state_release319, ptr @__UNIQUE_ID___addressable_drm_format_conv_state_reserve318], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @drm_format_conv_state_init(ptr nocapture noundef writeonly initializes((0, 17)) %0) #0 align 16 {
+define dso_local void @drm_format_conv_state_init(ptr nocapture noundef writeonly %0) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(17) %0, i8 0, i64 17, i1 false)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @drm_format_conv_state_copy(ptr nocapture noundef writeonly initializes((0, 17)) %0, ptr nocapture readnone %1) #0 align 16 {
+define dso_local void @drm_format_conv_state_copy(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(17) %0, i8 0, i64 17, i1 false)
   ret void
 }

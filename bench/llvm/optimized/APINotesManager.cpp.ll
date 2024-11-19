@@ -165,7 +165,7 @@ $_ZN4llvm15SmallVectorImplIcE10resizeImplILb0EEEvm = comdat any
 @_ZN5clang9api_notes15APINotesManagerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang9api_notes15APINotesManagerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9api_notes15APINotesManagerC2ERNS_13SourceManagerERKNS_11LangOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 9), (12, 28), (32, 68)) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes15APINotesManagerC2ERNS_13SourceManagerERKNS_11LangOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(841) %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 152

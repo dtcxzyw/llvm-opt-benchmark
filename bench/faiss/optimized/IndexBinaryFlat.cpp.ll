@@ -315,7 +315,7 @@ define void @_ZNK5faiss15IndexBinaryFlat12range_searchElPKhiPNS_17RangeSearchRes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss15IndexBinaryFlat5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss15IndexBinaryFlat5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40

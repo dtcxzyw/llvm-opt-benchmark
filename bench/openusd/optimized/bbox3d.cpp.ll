@@ -44,7 +44,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__8GfBBox3d12_SetMatricesERKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(306) initializes((48, 305)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__8GfBBox3d12_SetMatricesERKNS_10GfMatrix4dE(ptr noundef nonnull align 8 dereferenceable(306) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca double, align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -216,7 +216,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d7IsEmptyEv.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__8GfBBox3d7CombineERKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(306) %1, ptr noundef nonnull align 8 dereferenceable(306) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__8GfBBox3d7CombineERKS0_S2_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfBBox3d") align 8 %0, ptr noundef nonnull align 8 dereferenceable(306) %1, ptr noundef nonnull align 8 dereferenceable(306) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", align 8
@@ -793,7 +793,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9GfRange3d9UnionWithERKS0_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__8GfBBox3d15ComputeCentroidEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(306) %1) local_unnamed_addr #5 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__8GfBBox3d15ComputeCentroidEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(306) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.06.0.copyload = load double, ptr %3, align 8
   %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32

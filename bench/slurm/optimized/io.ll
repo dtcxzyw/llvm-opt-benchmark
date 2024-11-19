@@ -3507,7 +3507,7 @@ define dso_local void @free_io_buf(ptr noundef %0) local_unnamed_addr #0 {
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @io_find_filename_pattern(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
+define dso_local void @io_find_filename_pattern(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   store i32 4, ptr %1, align 4
   store i32 4, ptr %2, align 4
   store i8 0, ptr %3, align 1

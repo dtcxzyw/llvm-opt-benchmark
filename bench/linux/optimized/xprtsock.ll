@@ -1422,7 +1422,7 @@ declare dso_local void @init_timer_key(ptr noundef, ptr noundef, i32 noundef, pt
 declare dso_local void @delayed_work_timer_fn(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xs_format_peer_addresses(ptr noundef initializes((1408, 1416), (1432, 1440)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @xs_format_peer_addresses(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca [128 x i8], align 16
   %5 = getelementptr i8, ptr %0, i64 1408
   store ptr %1, ptr %5, align 8
@@ -2707,7 +2707,7 @@ declare dso_local i32 @__SCT__tp_func_xs_stream_read_data(ptr noundef, ptr nound
 declare dso_local zeroext i1 @xprt_write_space(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @xs_format_common_peer_ports(ptr nocapture noundef initializes((1400, 1408), (1424, 1432)) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @xs_format_common_peer_ports(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = alloca [128 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %2) #12
@@ -3313,7 +3313,7 @@ define internal void @xs_udp_setup_socket(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xs_udp_set_buffer_size(ptr nocapture noundef initializes((1912, 1928)) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define internal void @xs_udp_set_buffer_size(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1920
   %5 = icmp eq i64 %1, 0
   %6 = add i64 %1, 1024
@@ -5928,7 +5928,7 @@ declare dso_local i32 @bit_wait(ptr noundef, i32 noundef) #1
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @xs_tls_handshake_done(ptr noundef initializes((1900, 1904)) %0, i32 noundef %1, i32 %2) #0 align 16 {
+define internal void @xs_tls_handshake_done(ptr noundef %0, i32 noundef %1, i32 %2) #0 align 16 {
   %4 = icmp eq i32 %1, 0
   %5 = select i1 %4, i32 0, i32 -13
   %6 = getelementptr inbounds i8, ptr %0, i64 1900

@@ -52,7 +52,7 @@ define hidden noundef zeroext i1 @_ZN13CPUTimeGroups13is_gc_counterENS_11CPUTime
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN15CPUTimeCountersC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 56)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN15CPUTimeCountersC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store volatile i64 0, ptr %2, align 8
@@ -181,7 +181,7 @@ define hidden void @_ZN15CPUTimeCounters14update_counterEN13CPUTimeGroups11CPUTi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25ThreadTotalCPUTimeClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25ThreadTotalCPUTimeClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV25ThreadTotalCPUTimeClosure, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8

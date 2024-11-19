@@ -53,7 +53,7 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__10TfWeakBaseE = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__17TraceReporterBaseD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__17TraceReporterBaseD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TraceReporterBaseC2ESt10unique_ptrINS_27TraceReporterDataSourceBaseESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 12), (16, 40)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TraceReporterBaseC2ESt10unique_ptrINS_27TraceReporterDataSourceBaseESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -432,7 +432,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TraceReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TraceReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__17TraceReporterBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @_ZN3tbb6detail2d113segment_tableISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS1_23cache_aligned_allocatorIS6_EENS1_17concurrent_vectorIS6_S8_EELm3EE5clearEv(ptr noundef nonnull align 8 dereferenceable(65) %2)

@@ -83,7 +83,7 @@ $_ZTWN8proxygen12WorkerThread14currentWorker_E = comdat any
 @_ZN8proxygen12WorkerThreadD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8proxygen12WorkerThreadD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen12WorkerThreadC2EPN5folly16EventBaseManagerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 9), (16, 72)) %this, ptr noundef %eventBaseManager, ptr noundef nonnull align 8 dereferenceable(32) %evbName) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen12WorkerThreadC2EPN5folly16EventBaseManagerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %eventBaseManager, ptr noundef nonnull align 8 dereferenceable(32) %evbName) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5folly9EventBase7Options17setBackendFactoryESt8functionIFSt10unique_ptrINS_20EventBaseBackendBaseESt14default_deleteIS4_EEvEE.exit:
   %ref.tmp = alloca %"struct.folly::EventBase::Options", align 8
   %ref.tmp11 = alloca %"class.google::LogMessage", align 8
@@ -344,7 +344,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef 
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen12WorkerThreadD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen12WorkerThreadD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen12WorkerThreadE, i64 16), ptr %this, align 8

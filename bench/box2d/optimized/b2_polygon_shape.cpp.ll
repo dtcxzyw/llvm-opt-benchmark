@@ -25,7 +25,7 @@ $_ZTI7b2Shape = comdat any
 @_ZN14b2PolygonShapeC1Ev = unnamed_addr alias void (ptr), ptr @_ZN14b2PolygonShapeC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14b2PolygonShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(156) initializes((0, 24), (152, 156)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14b2PolygonShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(156) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV14b2PolygonShape, i64 16), ptr %this, align 8
   %m_type = getelementptr inbounds i8, ptr %this, i64 8
@@ -61,7 +61,7 @@ entry:
 declare noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14b2PolygonShape8SetAsBoxEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(156) initializes((16, 56), (88, 120), (152, 156)) %this, float noundef %hx, float noundef %hy) local_unnamed_addr #0 align 2 {
+define void @_ZN14b2PolygonShape8SetAsBoxEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(156) %this, float noundef %hx, float noundef %hy) local_unnamed_addr #0 align 2 {
 entry:
   %m_count = getelementptr inbounds i8, ptr %this, i64 152
   store i32 4, ptr %m_count, align 8
@@ -107,7 +107,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @_ZN14b2PolygonShape8SetAsBoxEffRK6b2Vec2f(ptr nocapture noundef nonnull align 8 dereferenceable(156) initializes((16, 56), (88, 120), (152, 156)) %this, float noundef %hx, float noundef %hy, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %angle) local_unnamed_addr #3 align 2 {
+define void @_ZN14b2PolygonShape8SetAsBoxEffRK6b2Vec2f(ptr nocapture noundef nonnull align 8 dereferenceable(156) %this, float noundef %hx, float noundef %hy, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %center, float noundef %angle) local_unnamed_addr #3 align 2 {
 entry:
   %m_count = getelementptr inbounds i8, ptr %this, i64 152
   store i32 4, ptr %m_count, align 8
@@ -372,7 +372,7 @@ return:                                           ; preds = %entry, %_ZN14b2Poly
 declare void @_Z13b2ComputeHullPK6b2Vec2i(ptr sret(%struct.b2Hull) align 4, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN14b2PolygonShape3SetERK6b2Hull(ptr nocapture noundef nonnull align 8 dereferenceable(156) initializes((152, 156)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(68) %hull) local_unnamed_addr #7 align 2 {
+define void @_ZN14b2PolygonShape3SetERK6b2Hull(ptr nocapture noundef nonnull align 8 dereferenceable(156) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(68) %hull) local_unnamed_addr #7 align 2 {
 entry:
   %count = getelementptr inbounds i8, ptr %hull, i64 64
   %0 = load i32, ptr %count, align 4

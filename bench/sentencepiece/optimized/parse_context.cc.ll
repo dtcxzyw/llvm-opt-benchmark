@@ -785,7 +785,7 @@ define void @_ZN6google8protobuf8internal8byteswapILi8EEEvPv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) initializes((28, 40)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream8InitFromEPNS0_2io19ZeroCopyInputStreamE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 32

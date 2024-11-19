@@ -18,7 +18,7 @@ $_ZNSt6vectorIsSaIsEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPsS1_EEmRKs
 @_ZN5ZXing6Pdf4179ModulusGFC1Eii = unnamed_addr alias void (ptr, i32, i32), ptr @_ZN5ZXing6Pdf4179ModulusGFC2Eii
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ZXing6Pdf4179ModulusGFC2Eii(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 4), (8, 56)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ZXing6Pdf4179ModulusGFC2Eii(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.0", align 8
   %5 = alloca %"class.std::vector.0", align 8
   %6 = alloca i16, align 2

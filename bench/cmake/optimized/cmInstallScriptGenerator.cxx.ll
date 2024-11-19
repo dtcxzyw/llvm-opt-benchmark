@@ -407,7 +407,7 @@ declare noundef i64 @_ZN21cmGeneratorExpression4FindERKNSt7__cxx1112basic_string
 declare void @_ZN18cmInstallGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24cmInstallScriptGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(249) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN24cmInstallScriptGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV24cmInstallScriptGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
@@ -416,7 +416,7 @@ define dso_local void @_ZN24cmInstallScriptGeneratorD2Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24cmInstallScriptGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(249) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN24cmInstallScriptGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV24cmInstallScriptGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #10
@@ -429,7 +429,7 @@ define dso_local void @_ZN24cmInstallScriptGeneratorD0Ev(ptr noundef nonnull ali
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN24cmInstallScriptGenerator7ComputeEP16cmLocalGenerator(ptr nocapture noundef nonnull align 8 dereferenceable(249) initializes((240, 248)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN24cmInstallScriptGenerator7ComputeEP16cmLocalGenerator(ptr nocapture noundef nonnull align 8 dereferenceable(249) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   store ptr %1, ptr %4, align 8

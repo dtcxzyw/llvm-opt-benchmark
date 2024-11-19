@@ -277,7 +277,7 @@ declare dso_local i64 @i915_request_wait(ptr noundef, i32 noundef, i64 noundef) 
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @intel_gsc_uc_heci_cmd_emit_mtl_header(ptr nocapture noundef writeonly initializes((0, 5), (6, 16), (24, 28)) %0, i8 noundef zeroext %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #5 align 16 {
+define dso_local void @intel_gsc_uc_heci_cmd_emit_mtl_header(ptr nocapture noundef writeonly %0, i8 noundef zeroext %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #5 align 16 {
   %5 = and i64 %3, 1152921504606846975
   %6 = icmp ne i64 %5, 0
   %7 = icmp eq i8 %1, 17

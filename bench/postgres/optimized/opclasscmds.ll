@@ -1118,7 +1118,7 @@ define internal fastcc void @addFamilyMember(ptr nocapture noundef nonnull %0, p
 declare i32 @LookupFuncWithArgs(i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @processTypesSpec(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) unnamed_addr #0 {
+define internal fastcc void @processTypesSpec(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
 list_length.exit:
   %3 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %3, align 8

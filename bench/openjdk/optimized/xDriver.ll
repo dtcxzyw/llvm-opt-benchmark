@@ -265,7 +265,7 @@ declare void @_Z16XStatUnitThreads15LogTargetHandleRK12XStatSamplerRK19XStatSamp
 declare void @_ZN12XStatSamplerC1EPKcS1_PFv15LogTargetHandleRKS_RK19XStatSamplerHistoryE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN14XDriverRequestC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XDriverRequestC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0) unnamed_addr #1 align 2 {
   %2 = load i32, ptr @ConcGCThreads, align 4
   store i32 11, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -274,7 +274,7 @@ define hidden void @_ZN14XDriverRequestC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN14XDriverRequestC2EN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XDriverRequestC2EN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = load i32, ptr @ConcGCThreads, align 4
   store i32 %1, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -283,7 +283,7 @@ define hidden void @_ZN14XDriverRequestC2EN7GCCause5CauseE(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14XDriverRequestC2EN7GCCause5CauseEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN14XDriverRequestC2EN7GCCause5CauseEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   store i32 %1, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4

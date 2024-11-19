@@ -1394,7 +1394,7 @@ declare dso_local i32 @timer_delete(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @sysrq_do_reset(ptr nocapture noundef writeonly initializes((-116, -115)) %0) #2 align 16 {
+define internal void @sysrq_do_reset(ptr nocapture noundef writeonly %0) #2 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -116
   store i8 1, ptr %2, align 4
   tail call void @orderly_reboot() #18

@@ -1411,7 +1411,7 @@ declare i32 @tls1_set_sigalgs(ptr noundef, ptr noundef, i64 noundef, i32 noundef
 declare i32 @tls1_set_sigalgs_list(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ssl3_set_req_cert_type(ptr nocapture noundef initializes((56, 64)) %c, ptr noundef %p, i64 noundef %len) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @ssl3_set_req_cert_type(ptr nocapture noundef %c, ptr noundef %p, i64 noundef %len) unnamed_addr #4 {
 entry:
   %ctype = getelementptr inbounds i8, ptr %c, i64 48
   %0 = load ptr, ptr %ctype, align 8
@@ -2095,7 +2095,7 @@ return:                                           ; preds = %sw.bb, %sw.bb1, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @SSL_CTX_set_tlsext_ticket_key_evp_cb(ptr nocapture noundef writeonly initializes((592, 600)) %ctx, ptr noundef %fp) local_unnamed_addr #11 {
+define noundef i32 @SSL_CTX_set_tlsext_ticket_key_evp_cb(ptr nocapture noundef writeonly %ctx, ptr noundef %fp) local_unnamed_addr #11 {
 entry:
   %ticket_key_evp_cb = getelementptr inbounds i8, ptr %ctx, i64 592
   store ptr %fp, ptr %ticket_key_evp_cb, align 8

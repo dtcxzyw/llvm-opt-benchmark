@@ -685,7 +685,7 @@ _ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK8QuantLib20PathMultiAssetOption12setupExpiredEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((16, 24)) %this) unnamed_addr #12 align 2 {
+define void @_ZNK8QuantLib20PathMultiAssetOption12setupExpiredEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this) unnamed_addr #12 align 2 {
 entry:
   %NPV_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double 0.000000e+00, ptr %NPV_, align 8, !tbaa !40

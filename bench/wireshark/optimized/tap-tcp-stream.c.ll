@@ -306,7 +306,7 @@ declare i32 @cf_retap_packets(ptr noundef) local_unnamed_addr #1
 declare void @remove_tap_listener(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @graph_segment_list_free(ptr nocapture noundef initializes((16, 24), (48, 56)) %0) local_unnamed_addr #0 {
+define hidden void @graph_segment_list_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not.i.i = icmp eq i32 %3, 0

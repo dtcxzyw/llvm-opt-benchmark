@@ -152,7 +152,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_folio_wait_s
 @llvm.compiler.used = appending global [34 x ptr] [ptr @__UNIQUE_ID___addressable___folio_cancel_dirty975, ptr @__UNIQUE_ID___addressable___folio_start_writeback979, ptr @__UNIQUE_ID___addressable_balance_dirty_pages_ratelimited958, ptr @__UNIQUE_ID___addressable_balance_dirty_pages_ratelimited_flags957, ptr @__UNIQUE_ID___addressable_bdi_set_max_ratio880, ptr @__UNIQUE_ID___addressable_dirty_writeback_interval869, ptr @__UNIQUE_ID___addressable_filemap_dirty_folio971, ptr @__UNIQUE_ID___addressable_folio_clear_dirty_for_io976, ptr @__UNIQUE_ID___addressable_folio_mark_dirty973, ptr @__UNIQUE_ID___addressable_folio_redirty_for_writepage972, ptr @__UNIQUE_ID___addressable_folio_wait_stable982, ptr @__UNIQUE_ID___addressable_folio_wait_writeback980, ptr @__UNIQUE_ID___addressable_folio_wait_writeback_killable981, ptr @__UNIQUE_ID___addressable_laptop_mode870, ptr @__UNIQUE_ID___addressable_noop_dirty_folio968, ptr @__UNIQUE_ID___addressable_set_page_dirty_lock974, ptr @__UNIQUE_ID___addressable_tag_pages_for_writeback962, ptr @__UNIQUE_ID___addressable_wb_writeout_inc879, ptr @__UNIQUE_ID___addressable_write_cache_pages964, ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched201, ptr @balance_dirty_pages_ratelimited_flags.__UNIQUE_ID___addressable___SCK__preempt_schedule956, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched2, ptr @trace_balance_dirty_pages.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace746, ptr @trace_balance_dirty_pages.__UNIQUE_ID___addressable___SCK__tp_func_balance_dirty_pages745, ptr @trace_bdi_dirty_ratelimit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace732, ptr @trace_bdi_dirty_ratelimit.__UNIQUE_ID___addressable___SCK__tp_func_bdi_dirty_ratelimit731, ptr @trace_folio_wait_writeback.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace494, ptr @trace_folio_wait_writeback.__UNIQUE_ID___addressable___SCK__tp_func_folio_wait_writeback493, ptr @trace_global_dirty_state.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace718, ptr @trace_global_dirty_state.__UNIQUE_ID___addressable___SCK__tp_func_global_dirty_state717, ptr @trace_wbc_writepage.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace690, ptr @trace_wbc_writepage.__UNIQUE_ID___addressable___SCK__tp_func_wbc_writepage689, ptr @trace_writeback_dirty_folio.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace480, ptr @trace_writeback_dirty_folio.__UNIQUE_ID___addressable___SCK__tp_func_writeback_dirty_folio479], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @global_dirty_limits(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @global_dirty_limits(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.dirty_throttle_control, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
@@ -187,7 +187,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @domain_dirty_limits(ptr nocapture noundef initializes((32, 48)) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @domain_dirty_limits(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i64, ptr %2, align 8
   %4 = load i64, ptr @vm_dirty_bytes, align 8
@@ -413,7 +413,7 @@ define dso_local void @wb_writeout_inc(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @wb_domain_init(ptr noundef initializes((0, 120)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @wb_domain_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
   tail call void @init_timer_key(ptr noundef %3, ptr noundef nonnull @writeout_period, i32 noundef 524288, ptr noundef null, ptr noundef null) #10
@@ -3935,7 +3935,7 @@ declare dso_local i32 @__SCT__tp_func_bdi_dirty_ratelimit(ptr noundef, ptr nound
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @wb_dirty_limits(ptr nocapture noundef initializes((48, 72)) %0) unnamed_addr #8 align 16 {
+define internal fastcc void @wb_dirty_limits(ptr nocapture noundef %0) unnamed_addr #8 align 16 {
   %2 = alloca i64, align 8
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %0, align 8

@@ -69,7 +69,7 @@ $_ZZNSt8__detail9__variant17_Move_assign_baseILb0EJmldNSt7__cxx1112basic_stringI
 @.str.16 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -128, 311) i32 @_Z19textFileFormatYylexPN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueEPv(ptr noundef %0, ptr noundef initializes((152, 160)) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -128, 311) i32 @_Z19textFileFormatYylexPN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueEPv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.anon.96, align 8
   %4 = alloca %class.anon.96, align 8
   %5 = alloca %class.anon.96, align 8
@@ -4415,7 +4415,7 @@ define noundef ptr @_Z24textFileFormatYyget_textPv(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z25textFileFormatYyset_extraPN32pxrInternal_v0_24__pxrReserved__21Sdf_TextParserContextEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #14 {
+define void @_Z25textFileFormatYyset_extraPN32pxrInternal_v0_24__pxrReserved__21Sdf_TextParserContextEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -4471,14 +4471,14 @@ define void @_Z26textFileFormatYyset_columniPv(i32 noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z22textFileFormatYyset_inP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #14 {
+define void @_Z22textFileFormatYyset_inP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z23textFileFormatYyset_outP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #14 {
+define void @_Z23textFileFormatYyset_outP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -4492,7 +4492,7 @@ define noundef i32 @_Z25textFileFormatYyget_debugPv(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z25textFileFormatYyset_debugiPv(i32 noundef %0, ptr nocapture noundef writeonly initializes((132, 136)) %1) local_unnamed_addr #14 {
+define void @_Z25textFileFormatYyset_debugiPv(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 132
   store i32 %0, ptr %3, align 4
   ret void
@@ -4506,7 +4506,7 @@ define noundef ptr @_Z24textFileFormatYyget_lvalPv(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z24textFileFormatYyset_lvalPN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((152, 160)) %1) local_unnamed_addr #14 {
+define void @_Z24textFileFormatYyset_lvalPN32pxrInternal_v0_24__pxrReserved__17Sdf_ParserHelpers5ValueEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store ptr %0, ptr %3, align 8
   ret void

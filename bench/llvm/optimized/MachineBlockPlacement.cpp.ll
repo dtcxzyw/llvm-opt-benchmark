@@ -661,7 +661,7 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121MachineBlockPlacementD2Ev(ptr noundef nonnull align 8 dereferenceable(744) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121MachineBlockPlacementD2Ev(ptr noundef nonnull align 8 dereferenceable(744) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_121MachineBlockPlacementE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %.val = load ptr, ptr %2, align 8
@@ -788,7 +788,7 @@ _ZN4llvm11SmallVectorIPNS_17MachineBasicBlockELj16EED2Ev.exit4: ; preds = %_ZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121MachineBlockPlacementD0Ev(ptr noundef nonnull align 8 dereferenceable(744) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121MachineBlockPlacementD0Ev(ptr noundef nonnull align 8 dereferenceable(744) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_121MachineBlockPlacementD2Ev(ptr noundef nonnull align 8 dereferenceable(744) %0) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 744) #25
   ret void
@@ -6765,7 +6765,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEZN12_GLOBAL__N_121M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEZN12_GLOBAL__N_121MachineBlockPlacement24precomputeTriangleChainsEvE13TriangleChainNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEZN12_GLOBAL__N_121MachineBlockPlacement24precomputeTriangleChainsEvE13TriangleChainNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -6934,7 +6934,7 @@ _ZN4llvm8DenseMapIPKNS_17MachineBasicBlockEZN12_GLOBAL__N_121MachineBlockPlaceme
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_121MachineBlockPlacement21BlockAndTailDupResultENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEN12_GLOBAL__N_121MachineBlockPlacement21BlockAndTailDupResultENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -16668,7 +16668,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110B
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110BlockChainENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN12_GLOBAL__N_110BlockChainENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -24033,7 +24033,7 @@ _ZSt4moveIPSt4pairIN4llvm17BranchProbabilityEPNS1_17MachineBasicBlockEES6_ET0_T_
 declare i64 @_ZNK4llvm11MBFIWrapper12getEntryFreqEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement23maybeTailDuplicateBlockEPN4llvm17MachineBasicBlockES3_RNS_10BlockChainEPNS1_14SmallSetVectorIPKS2_Lj16EEERNS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEERPKS8_Rb(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readnone align 8 dereferenceable(60) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %7) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_121MachineBlockPlacement23maybeTailDuplicateBlockEPN4llvm17MachineBasicBlockES3_RNS_10BlockChainEPNS1_14SmallSetVectorIPKS2_Lj16EEERNS1_14ilist_iteratorINS1_12ilist_detail12node_optionsIS2_Lb0ELb0EvLb0EvEELb0ELb0EEERPKS8_Rb(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readnone align 8 dereferenceable(60) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %7) unnamed_addr #0 align 2 {
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %"class.llvm::BlockFrequency", align 8

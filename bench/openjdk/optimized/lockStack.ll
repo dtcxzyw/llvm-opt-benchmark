@@ -48,7 +48,7 @@ $_ZN9LogPrefixILN6LogTag4typeE90ELS1_106ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @_ZN9LockStackC1EP10JavaThread = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN9LockStackC2EP10JavaThread
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN9LockStackC2EP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 4), (8, 80)) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9LockStackC2EP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture readnone %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr @_ZN9LockStack22lock_stack_base_offsetE, align 4
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

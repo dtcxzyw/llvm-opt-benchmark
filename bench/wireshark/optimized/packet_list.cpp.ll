@@ -2092,7 +2092,7 @@ declare void @_ZN10PacketList10editColumnEi(ptr noundef nonnull align 8 derefere
 declare void @_ZN16PacketListHeader14columnsChangedEv(ptr noundef nonnull align 8 dereferenceable(44)) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList14columnsChangedEv(ptr noundef nonnull align 8 dereferenceable(464) initializes((370, 371)) %0) #0 align 2 {
+define void @_ZN10PacketList14columnsChangedEv(ptr noundef nonnull align 8 dereferenceable(464) %0) #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 370
   store i8 1, ptr %2, align 2
   tail call void @column_register_fields()
@@ -2348,7 +2348,7 @@ declare void @_ZN5QMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unn
 declare void @_ZN9QTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10PacketListD2Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10PacketListD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV10PacketList, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV10PacketList, i64 816), ptr %2, align 8
@@ -4083,7 +4083,7 @@ declare noundef i32 @_ZN10ColorUtils10alphaBlendERK6QColorS2_d(ptr noundef nonnu
 declare void @_ZN7QWidget13setStyleSheetERK7QString(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList14joinSummaryRowE5QListI7QStringEiNS_15SummaryCopyTypeE(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10PacketList14joinSummaryRowE5QListI7QStringEiNS_15SummaryCopyTypeE(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
@@ -4746,7 +4746,7 @@ declare void @_ZN8QPainter6setPenERK6QColor(ptr noundef nonnull align 8 derefere
 declare void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14), i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList12setProtoTreeEP9ProtoTree(ptr noundef nonnull align 8 dereferenceable(464) initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10PacketList12setProtoTreeEP9ProtoTree(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.QMetaObject::Connection", align 8
   %4 = alloca %"class.QMetaObject::Connection", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -4789,7 +4789,7 @@ _ZN5QListI11QModelIndexED2Ev.exit:                ; preds = %1, %_ZN17QArrayData
 declare void @_ZNK19QItemSelectionModel12selectedRowsEi(ptr dead_on_unwind writable sret(%class.QList.5) align 8, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList12selectedRowsEb(ptr dead_on_unwind noalias writable sret(%class.QList.9) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(464) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10PacketList12selectedRowsEb(ptr dead_on_unwind noalias writable sret(%class.QList.9) align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -8471,7 +8471,7 @@ declare noundef ptr @_ZN15MainApplication10mainWindowEv(ptr noundef nonnull alig
 declare noundef zeroext i1 @_ZN10MainWindow14addPacketMenusEP5QMenuP10_GPtrArray(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList25getFilterFromRowAndColumnE11QModelIndex(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %1, ptr nocapture noundef readonly byval(%class.QModelIndex) align 8 %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10PacketList25getFilterFromRowAndColumnE11QModelIndex(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %1, ptr nocapture noundef readonly byval(%class.QModelIndex) align 8 %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.epan_dissect, align 8
   %5 = alloca %struct.wtap_rec, align 8
   %6 = alloca %struct.Buffer, align 8
@@ -10179,7 +10179,7 @@ _ZN8QPainter8drawLineEiiii.exit:                  ; preds = %83
 declare void @_ZN9QTreeView10timerEventEP11QTimerEvent(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(464) initializes((236, 237)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN10PacketList10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 236
   store i8 1, ptr %3, align 4
   tail call void @_ZN9QTreeView10paintEventEP11QPaintEvent(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
@@ -12443,7 +12443,7 @@ declare noundef ptr @_ZN15QGuiApplication9clipboardEv() local_unnamed_addr #1
 declare void @_ZN10QClipboard7setTextERK7QStringNS_4ModeE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(464) initializes((236, 238)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN10PacketList11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 236
   store i8 1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 237
@@ -12455,7 +12455,7 @@ define void @_ZN10PacketList11resizeEventEP12QResizeEvent(ptr noundef nonnull al
 declare void @_ZN17QAbstractItemView11resizeEventEP12QResizeEvent(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList19setColumnVisibilityEv(ptr noundef nonnull align 8 dereferenceable(464) initializes((371, 372)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN10PacketList19setColumnVisibilityEv(ptr noundef nonnull align 8 dereferenceable(464) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 371
   store i8 1, ptr %2, align 1
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @prefs, i64 8), align 8
@@ -12891,7 +12891,7 @@ declare void @_ZN7QObject9killTimerEi(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN17QAbstractItemView16setTextElideModeEN2Qt13TextElideModeE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList16freezePacketListEb(ptr noundef nonnull align 8 dereferenceable(464) initializes((264, 265)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10PacketList16freezePacketListEb(ptr noundef nonnull align 8 dereferenceable(464) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 264
   store i8 %3, ptr %4, align 8
@@ -12911,7 +12911,7 @@ define void @_ZN10PacketList14recolorPacketsEv(ptr noundef nonnull align 8 deref
 declare void @_ZN15PacketListModel14resetColorizedEv(ptr noundef nonnull align 8 dereferenceable(164)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList21setVerticalAutoScrollEb(ptr noundef nonnull align 8 dereferenceable(464) initializes((369, 370)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10PacketList21setVerticalAutoScrollEb(ptr noundef nonnull align 8 dereferenceable(464) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 369
   store i8 %3, ptr %4, align 1
@@ -13544,7 +13544,7 @@ _ZN10QByteArrayD2Ev.exit12:                       ; preds = %46, %_ZN17QArrayDat
 declare void @_ZN15PacketListModel15setFrameCommentERK11QModelIndexRK10QByteArrayj(ptr noundef nonnull align 8 dereferenceable(164), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList17allPacketCommentsEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10PacketList17allPacketCommentsEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca ptr, align 8
@@ -14147,7 +14147,7 @@ _ZN10PacketList17drawCurrentPacketEv.exit:        ; preds = %8, %10, %19
 declare void @_ZN15PacketListModel22deleteAllFrameCommentsEv(ptr noundef nonnull align 8 dereferenceable(164)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(464) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10PacketList14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -16229,7 +16229,7 @@ _ZN7QStringD2Ev.exit11:                           ; preds = %40, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PacketList25vScrollBarActionTriggeredEi(ptr noundef nonnull align 8 dereferenceable(464) initializes((369, 370)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10PacketList25vScrollBarActionTriggeredEi(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

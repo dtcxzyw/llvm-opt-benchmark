@@ -73,7 +73,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @rlc_lte_stat_reset(ptr nocapture noundef initializes((8, 28)) %0) #4 {
+define internal void @rlc_lte_stat_reset(ptr nocapture noundef %0) #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %.not = icmp eq ptr %2, null

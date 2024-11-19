@@ -59,7 +59,7 @@ define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h09328878de678893E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN106_$LT$core..iter..adapters..flatten..Flatten$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h09328878de678893E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   tail call void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17had936d2694ea2c33E"(ptr sret([24 x i8]) align 8 %0, ptr align 8 %1)
   ret void
 }
@@ -71,7 +71,7 @@ define void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h72002ed8dc412ea3E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h72002ed8dc412ea3E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   tail call void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3dcef427115eb935E"(ptr sret([24 x i8]) align 8 %0, ptr align 8 %1)
   ret void
 }
@@ -465,7 +465,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h2919e876aa11ce42E.exit14: ; 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3dcef427115eb935E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3dcef427115eb935E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -617,7 +617,7 @@ define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$G
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17had936d2694ea2c33E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17had936d2694ea2c33E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8

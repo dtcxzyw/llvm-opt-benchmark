@@ -676,7 +676,7 @@ declare void @_ZN4llvm17RegisterClassInfoC1Ev(ptr noundef nonnull align 8 derefe
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_110ShrinkWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_110ShrinkWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(648) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_110ShrinkWrapE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(68) %2) #18
@@ -716,7 +716,7 @@ _ZN4llvm14SmallSetVectorIjLj16EED2Ev.exit:        ; preds = %_ZN4llvm9BitVectorD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_110ShrinkWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_110ShrinkWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(648) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_110ShrinkWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(648) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 648) #21
   ret void
@@ -766,7 +766,7 @@ declare void @_ZN4llvm4Pass18preparePassManagerERNS_7PMStackE(ptr noundef nonnul
 declare noundef i32 @_ZNK4llvm12FunctionPass27getPotentialPassManagerTypeEv(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_110ShrinkWrap16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_110ShrinkWrap16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage13addRequiredIDERc(ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE) #18

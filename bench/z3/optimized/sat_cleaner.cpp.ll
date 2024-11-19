@@ -48,7 +48,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3sat7cleanerC2ERNS_6solverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(4408) %_s) unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat7cleanerC2ERNS_6solverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(4408) %_s) unnamed_addr #3 align 2 {
 entry:
   store ptr %_s, ptr %this, align 8
   %m_last_num_units = getelementptr inbounds i8, ptr %this, i64 8
@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3sat7cleaner16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat7cleaner16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_elim_clauses = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %m_elim_clauses, align 8

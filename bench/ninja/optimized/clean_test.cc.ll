@@ -755,7 +755,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanAll_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanAll_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -767,7 +767,7 @@ define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanAll_TestD2Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanAll_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanAll_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -780,7 +780,7 @@ define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanAll_TestD0Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_19CleanTest5SetUpEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((488, 492)) %0) unnamed_addr #9 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CleanTest5SetUpEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 488
   store i32 0, ptr %2, align 8
   ret void
@@ -2838,7 +2838,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19CleanTestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_19CleanTestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -3593,7 +3593,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129CleanTest_CleanAllDryRun_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_129CleanTest_CleanAllDryRun_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -3605,7 +3605,7 @@ define internal void @_ZN12_GLOBAL__N_129CleanTest_CleanAllDryRun_TestD2Ev(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129CleanTest_CleanAllDryRun_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_129CleanTest_CleanAllDryRun_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -6224,7 +6224,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanTarget_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanTarget_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -6236,7 +6236,7 @@ define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanTarget_TestD2Ev(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanTarget_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanTarget_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -8288,7 +8288,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_132CleanTest_CleanTargetDryRun_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_132CleanTest_CleanTargetDryRun_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -8300,7 +8300,7 @@ define internal void @_ZN12_GLOBAL__N_132CleanTest_CleanTargetDryRun_TestD2Ev(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_132CleanTest_CleanTargetDryRun_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_132CleanTest_CleanTargetDryRun_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -10352,7 +10352,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124CleanTest_CleanRule_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_124CleanTest_CleanRule_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -10364,7 +10364,7 @@ define internal void @_ZN12_GLOBAL__N_124CleanTest_CleanRule_TestD2Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124CleanTest_CleanRule_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_124CleanTest_CleanRule_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -12416,7 +12416,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130CleanTest_CleanRuleDryRun_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_130CleanTest_CleanRuleDryRun_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -12428,7 +12428,7 @@ define internal void @_ZN12_GLOBAL__N_130CleanTest_CleanRuleDryRun_TestD2Ev(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130CleanTest_CleanRuleDryRun_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_130CleanTest_CleanRuleDryRun_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -14480,7 +14480,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanRuleGenerator_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanRuleGenerator_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -14492,7 +14492,7 @@ define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanRuleGenerator_TestD2Ev(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanRuleGenerator_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanRuleGenerator_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -15641,7 +15641,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanDepFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanDepFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -15653,7 +15653,7 @@ define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanDepFile_TestD2Ev(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanDepFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanDepFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -16376,7 +16376,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140CleanTest_CleanDepFileOnCleanTarget_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_140CleanTest_CleanDepFileOnCleanTarget_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -16388,7 +16388,7 @@ define internal void @_ZN12_GLOBAL__N_140CleanTest_CleanDepFileOnCleanTarget_Tes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_140CleanTest_CleanDepFileOnCleanTarget_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_140CleanTest_CleanDepFileOnCleanTarget_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -17111,7 +17111,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138CleanTest_CleanDepFileOnCleanRule_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_138CleanTest_CleanDepFileOnCleanRule_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -17123,7 +17123,7 @@ define internal void @_ZN12_GLOBAL__N_138CleanTest_CleanDepFileOnCleanRule_TestD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138CleanTest_CleanDepFileOnCleanRule_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_138CleanTest_CleanDepFileOnCleanRule_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -17846,7 +17846,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanDyndep_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanDyndep_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -17858,7 +17858,7 @@ define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanDyndep_TestD2Ev(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanDyndep_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_126CleanTest_CleanDyndep_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -19188,7 +19188,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanDyndepMissing_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanDyndepMissing_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -19200,7 +19200,7 @@ define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanDyndepMissing_TestD2Ev(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanDyndepMissing_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133CleanTest_CleanDyndepMissing_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -20453,7 +20453,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanRspFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanRspFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -20465,7 +20465,7 @@ define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanRspFile_TestD2Ev(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanRspFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanRspFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -21188,7 +21188,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanRsp_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanRsp_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -21200,7 +21200,7 @@ define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanRsp_TestD2Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanRsp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_123CleanTest_CleanRsp_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -23821,7 +23821,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanFailure_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanFailure_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -23833,7 +23833,7 @@ define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanFailure_TestD2Ev(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanFailure_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_127CleanTest_CleanFailure_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -24754,7 +24754,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125CleanTest_CleanPhony_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_125CleanTest_CleanPhony_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -24766,7 +24766,7 @@ define internal void @_ZN12_GLOBAL__N_125CleanTest_CleanPhony_TestD2Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125CleanTest_CleanPhony_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_125CleanTest_CleanPhony_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -26183,7 +26183,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147CleanTest_CleanDepFileAndRspFileWithSpaces_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_147CleanTest_CleanDepFileAndRspFileWithSpaces_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -26195,7 +26195,7 @@ define internal void @_ZN12_GLOBAL__N_147CleanTest_CleanDepFileAndRspFileWithSpa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147CleanTest_CleanDepFileAndRspFileWithSpaces_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_147CleanTest_CleanDepFileAndRspFileWithSpaces_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -27716,7 +27716,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(528) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -27728,7 +27728,7 @@ define internal void @_ZN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestD2Ev(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(528) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(528) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -27741,7 +27741,7 @@ define internal void @_ZN12_GLOBAL__N_128CleanDeadTest_CleanDead_TestD0Ev(ptr no
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113CleanDeadTest5SetUpEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(528) initializes((488, 492)) %0) unnamed_addr #14 align 2 {
+define internal void @_ZN12_GLOBAL__N_113CleanDeadTest5SetUpEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(528) %0) unnamed_addr #14 align 2 {
   %2 = tail call i32 @unlink(ptr noundef nonnull @_ZN12_GLOBAL__N_113kTestFilenameE) #21
   %3 = getelementptr inbounds i8, ptr %0, i64 488
   store i32 0, ptr %3, align 8
@@ -31764,7 +31764,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(528) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(528) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21
@@ -31776,7 +31776,7 @@ define internal void @_ZN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(528) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_143CleanDeadTest_CleanDeadPreservesInputs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(528) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19CleanTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   tail call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %2) #21

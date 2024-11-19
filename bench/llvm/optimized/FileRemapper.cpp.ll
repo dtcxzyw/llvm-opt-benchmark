@@ -139,7 +139,7 @@ $_ZN5clang19StreamingDiagnostic20DiagStorageAllocator8AllocateEv = comdat any
 @_ZN5clang5arcmt12FileRemapperD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang5arcmt12FileRemapperD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5arcmt12FileRemapperC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 28), (32, 52)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang5arcmt12FileRemapperC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::FileSystemOptions", align 8
   %3 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1075,7 +1075,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN4llvm12MemoryBuffer7getFileERKNS_5TwineEbbbSt8optionalINS_5AlignEE(ptr dead_on_unwind writable sret(%"class.llvm::ErrorOr") align 8, ptr noundef nonnull align 8 dereferenceable(34), i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext, i16) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang5arcmt12FileRemapper6reportERKN4llvm5TwineERNS_17DiagnosticsEngineE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(1304) initializes((368, 376)) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang5arcmt12FileRemapper6reportERKN4llvm5TwineERNS_17DiagnosticsEngineE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32

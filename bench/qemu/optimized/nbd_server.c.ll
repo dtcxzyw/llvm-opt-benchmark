@@ -1141,7 +1141,7 @@ declare void @blk_set_disable_request_queuing(ptr noundef, i1 noundef zeroext) l
 declare void @blk_add_aio_context_notifier(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_attached(ptr noundef %ctx, ptr nocapture noundef initializes((24, 32)) %opaque) #1 {
+define internal void @blk_aio_attached(ptr noundef %ctx, ptr nocapture noundef %opaque) #1 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %name = getelementptr inbounds i8, ptr %opaque, i64 56
@@ -7914,7 +7914,7 @@ _nocheck__trace_nbd_negotiate_new_style_size_flags.exit: ; preds = %entry, %land
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @nbd_opt_read_name(ptr nocapture noundef %client, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %name, ptr noundef writeonly %length, ptr noundef %errp) unnamed_addr #1 {
+define internal fastcc i32 @nbd_opt_read_name(ptr nocapture noundef %client, ptr nocapture noundef nonnull writeonly %name, ptr noundef writeonly %length, ptr noundef %errp) unnamed_addr #1 {
 entry:
   %len = alloca i32, align 4
   store ptr null, ptr %name, align 8

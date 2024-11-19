@@ -718,7 +718,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113InlineSpillerD2Ev(ptr noundef nonnull align 8 dereferenceable(752) initializes((0, 8), (424, 432)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113InlineSpillerD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_113InlineSpillerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 424
   tail call void @_ZN12_GLOBAL__N_116HoistSpillHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %2) #16
@@ -774,14 +774,14 @@ _ZN4llvm11SmallVectorINS_8RegisterELj8EED2Ev.exit: ; preds = %_ZN4llvm11SmallPtr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113InlineSpillerD0Ev(ptr noundef nonnull align 8 dereferenceable(752) initializes((0, 8), (424, 432)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113InlineSpillerD0Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_113InlineSpillerD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 752) #19
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113InlineSpiller5spillERN4llvm13LiveRangeEditE(ptr noundef nonnull align 8 dereferenceable(752) initializes((80, 104)) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_113InlineSpiller5spillERN4llvm13LiveRangeEditE(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::optional.363", align 8
   %4 = alloca %"class.std::optional.363", align 8
   %5 = alloca %"class.std::optional.363", align 8
@@ -5737,7 +5737,7 @@ declare hidden void @_ZN4llvm19InsertPointAnalysisC1ERKNS_13LiveIntervalsEj(ptr 
 declare void @_ZN4llvm13LiveRangeEdit8Delegate6anchorEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116HoistSpillHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116HoistSpillHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_116HoistSpillHelperE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -5906,7 +5906,7 @@ _ZN4llvm19InsertPointAnalysisD2Ev.exit:           ; preds = %_ZN4llvm8DenseMapIi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116HoistSpillHelperD0Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116HoistSpillHelperD0Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_116HoistSpillHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 320) #19
   ret void

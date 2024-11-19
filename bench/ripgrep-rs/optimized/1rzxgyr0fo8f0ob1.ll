@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.063a6eda66e372215699932fa5a1275a.30 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.063a6eda66e372215699932fa5a1275a.19, [16 x i8] c"\22\00\00\00\00\00\00\00\1B\02\00\00\09\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h82502c073100b4c3E.llvm.17974589727838856793"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, i8 noundef %1, i64 noundef %2) unnamed_addr #0 {
+define hidden void @"_ZN63_$LT$u8$u20$as$u20$alloc..vec..spec_from_elem..SpecFromElem$GT$9from_elem17h82502c073100b4c3E.llvm.17974589727838856793"(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %0, i8 noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i8 %1, 0
   br i1 %4, label %5, label %8
 
@@ -99,7 +99,7 @@ define noundef zeroext i1 @_ZN13grep_searcher11line_buffer15BinaryDetection7is_q
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN77_$LT$grep_searcher..line_buffer..Config$u20$as$u20$core..default..Default$GT$7default17h91fcd1434033ca11E"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(32) initializes((0, 8), (16, 25), (26, 27)) %0) unnamed_addr #4 {
+define void @"_ZN77_$LT$grep_searcher..line_buffer..Config$u20$as$u20$core..default..Default$GT$7default17h91fcd1434033ca11E"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(32) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 65536, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 26
@@ -111,7 +111,7 @@ define void @"_ZN77_$LT$grep_searcher..line_buffer..Config$u20$as$u20$core..defa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder3new17hd392f9d663029bf5E(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] } }) align 8 dereferenceable(32) initializes((0, 8), (16, 25), (26, 27)) %0) unnamed_addr #4 {
+define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder3new17hd392f9d663029bf5E(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] } }) align 8 dereferenceable(32) %0) unnamed_addr #4 {
   store i64 0, ptr %0, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 65536, ptr %.sroa.41.0..sroa_idx, align 8
@@ -123,7 +123,7 @@ define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder3new17hd39
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder5build17hedde0cfe37f466e8E(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] }, { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, i64, i64, i64 }) align 8 dereferenceable(104) initializes((0, 40), (48, 104)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 {
+define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder5build17hedde0cfe37f466e8E(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, i64, { i8, [1 x i8] }, i8, [5 x i8] }, { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, i64, i64, i64 }) align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #2 {
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
@@ -150,21 +150,21 @@ define hidden void @_ZN13grep_searcher11line_buffer17LineBufferBuilder5build17he
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder8capacity17hc66f3f1180d28d37E(ptr noalias noundef returned writeonly align 8 dereferenceable(32) initializes((16, 24)) %0, i64 noundef %1) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder8capacity17hc66f3f1180d28d37E(ptr noalias noundef returned writeonly align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder15line_terminator17h7a039f5f53169ab2E(ptr noalias noundef returned writeonly align 8 dereferenceable(32) initializes((26, 27)) %0, i8 noundef %1) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder15line_terminator17h7a039f5f53169ab2E(ptr noalias noundef returned writeonly align 8 dereferenceable(32) %0, i8 noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 26
   store i8 %1, ptr %3, align 2
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder12buffer_alloc17hf6e5b81829f6618fE(ptr noalias noundef returned writeonly align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder12buffer_alloc17hf6e5b81829f6618fE(ptr noalias noundef returned writeonly align 8 dereferenceable(32) %0, i64 noundef %1, i64 %2) unnamed_addr #4 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -172,7 +172,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searche
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder16binary_detection17h937825dbfcb82d06E(ptr noalias noundef returned writeonly align 8 dereferenceable(32) initializes((24, 26)) %0, i8 noundef %1, i8 %2) unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searcher11line_buffer17LineBufferBuilder16binary_detection17h937825dbfcb82d06E(ptr noalias noundef returned writeonly align 8 dereferenceable(32) %0, i8 noundef %1, i8 %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 25
@@ -181,7 +181,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN13grep_searche
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13grep_searcher11line_buffer10LineBuffer20set_binary_detection17h10ee8bd070153260E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(104) initializes((24, 26)) %0, i8 noundef %1, i8 %2) unnamed_addr #4 {
+define hidden void @_ZN13grep_searcher11line_buffer10LineBuffer20set_binary_detection17h10ee8bd070153260E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(104) %0, i8 noundef %1, i8 %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 25
@@ -190,7 +190,7 @@ define hidden void @_ZN13grep_searcher11line_buffer10LineBuffer20set_binary_dete
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN13grep_searcher11line_buffer10LineBuffer5clear17hdcd75cda4a4db88fE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(104) initializes((32, 40), (72, 104)) %0) unnamed_addr #4 {
+define void @_ZN13grep_searcher11line_buffer10LineBuffer5clear17hdcd75cda4a4db88fE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(104) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %3, align 8
@@ -316,7 +316,7 @@ _ZN13grep_searcher11line_buffer10LineBuffer6buffer17h8f688a4f9537719fE.exit: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN13grep_searcher11line_buffer10LineBuffer4roll17h6a404be292265d0eE(ptr noalias nocapture noundef align 8 dereferenceable(104) initializes((80, 88)) %0) unnamed_addr #2 {
+define void @_ZN13grep_searcher11line_buffer10LineBuffer4roll17h6a404be292265d0eE(ptr noalias nocapture noundef align 8 dereferenceable(104) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i64, ptr %2, align 8, !noundef !18
   %4 = getelementptr inbounds i8, ptr %0, i64 88

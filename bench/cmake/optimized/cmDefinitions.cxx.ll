@@ -970,7 +970,7 @@ _ZNSt13unordered_mapIN2cm6StringEN13cmDefinitions3DefESt4hashIS1_ESt8equal_toIS1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13cmDefinitions11ClosureKeysB5cxx11EN12cmLinkedTreeIS_E8iteratorES2_(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture readnone %3, i64 %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13cmDefinitions11ClosureKeysB5cxx11EN12cmLinkedTreeIS_E8iteratorES2_(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr nocapture readonly %1, i64 %2, ptr nocapture readnone %3, i64 %4) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unordered_set", align 8
   %7 = alloca %"class.std::basic_string_view", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

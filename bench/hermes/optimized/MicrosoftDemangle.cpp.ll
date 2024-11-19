@@ -1208,7 +1208,7 @@ return:                                           ; preds = %_ZN10StringView12co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19DemanglerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_19DemanglerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 16), ptr %this, align 8
   %Arena = getelementptr inbounds i8, ptr %this, i64 16
@@ -1241,7 +1241,7 @@ _ZN4llvh11ms_demangle14ArenaAllocatorD2Ev.exit:   ; preds = %delete.end8.i, %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19DemanglerD0Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_19DemanglerD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i64 16), ptr %this, align 8
   %Arena.i = getelementptr inbounds i8, ptr %this, i64 16

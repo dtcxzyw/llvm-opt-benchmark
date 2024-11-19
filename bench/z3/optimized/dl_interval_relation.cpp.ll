@@ -553,7 +553,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog24interval_relation_pluginC2ERNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 12), (16, 36)) %this, ptr noundef nonnull align 8 dereferenceable(200) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog24interval_relation_pluginC2ERNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(200) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %class.symbol, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
@@ -1546,7 +1546,7 @@ ehcleanup:                                        ; preds = %lpad7, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog24interval_relation_plugin4meetERK12old_intervalS3_Rb(ptr noalias sret(%class.old_interval) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(112) %src1, ptr noundef nonnull align 8 dereferenceable(112) %src2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %isempty) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog24interval_relation_plugin4meetERK12old_intervalS3_Rb(ptr noalias sret(%class.old_interval) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(112) %src1, ptr noundef nonnull align 8 dereferenceable(112) %src2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %isempty) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %low = alloca %class.ext_numeral, align 8
   %high = alloca %class.ext_numeral, align 8
@@ -6496,7 +6496,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog24interval_relation_plugin5is_ltEP3appRjR8rationalS3_(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef readonly %cond, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %x, ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %y) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog24interval_relation_plugin5is_ltEP3appRjR8rationalS3_(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef readonly %cond, ptr noundef nonnull align 4 dereferenceable(4) %x, ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 4 dereferenceable(4) %y) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   tail call void @_ZN11mpz_managerILb1EE5resetER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %k)
@@ -7007,7 +7007,7 @@ lpad:                                             ; preds = %if.else.i.i7.i.i24,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog24interval_relation_plugin5is_leEP3appRjR8rationalS3_Rb(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef readonly %cond, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %x, ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %y, ptr nocapture noundef nonnull align 1 dereferenceable(1) %is_int) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog24interval_relation_plugin5is_leEP3appRjR8rationalS3_Rb(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef readonly %cond, ptr noundef nonnull align 4 dereferenceable(4) %x, ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 4 dereferenceable(4) %y, ptr nocapture noundef nonnull align 1 dereferenceable(1) %is_int) local_unnamed_addr #3 align 2 {
 entry:
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_manager.i, align 8
@@ -7322,7 +7322,7 @@ return:                                           ; preds = %land.rhs.i.i162, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog24interval_relation_plugin5is_eqEP3appRjR8rationalS3_(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef readonly %cond, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %x, ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %y) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog24interval_relation_plugin5is_eqEP3appRjR8rationalS3_(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef readonly %cond, ptr noundef nonnull align 4 dereferenceable(4) %x, ptr noundef nonnull align 8 dereferenceable(32) %k, ptr noundef nonnull align 4 dereferenceable(4) %y) local_unnamed_addr #3 align 2 {
 entry:
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_manager.i, align 8

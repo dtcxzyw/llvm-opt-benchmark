@@ -131,7 +131,7 @@ define zeroext i1 @H5C_cache_image_pending(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5C_cache_image_status(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #1 {
+define noundef i32 @H5C_cache_image_status(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 112
@@ -158,7 +158,7 @@ define noundef i32 @H5C_cache_image_status(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__generate_cache_image(ptr noundef %0, ptr nocapture noundef initializes((527712, 527720)) %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @H5C__generate_cache_image(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 527648
   %5 = load i64, ptr %4, align 8
@@ -3062,7 +3062,7 @@ declare i32 @H5F_block_read(ptr noundef, i32 noundef, i64 noundef, i64 noundef, 
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @H5C__prep_for_file_close__compute_fd_heights_real(ptr nocapture noundef initializes((200, 204)) %0, i32 noundef %1) unnamed_addr #9 {
+define internal fastcc void @H5C__prep_for_file_close__compute_fd_heights_real(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80

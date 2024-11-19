@@ -335,7 +335,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TsTypeRegistry11GetInstanceEv.exit: ; pre
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__14TsTypeRegistry20InitializeDataHolderEPNS_24Ts_PolymorphicDataHolderERKNS_7VtValueE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11_InitializeERKdNS_10TsKnotTypeERKNS_7VtValueES6_dd(ptr noundef nonnull align 8 dereferenceable(72) initializes((8, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, double noundef %5, double noundef %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrame11_InitializeERKdNS_10TsKnotTypeERKNS_7VtValueES6_dd(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, double noundef %5, double noundef %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %9 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
   %10 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtValue", align 8
@@ -1070,7 +1070,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrame26ResetTangentSymm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 70)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

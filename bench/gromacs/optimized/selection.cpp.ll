@@ -963,7 +963,7 @@ _ZNSt12__shared_ptrIN3gmx20SelectionTreeElementELN9__gnu_cxx12_Lock_policyE2EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3gmx8internal13SelectionData19initCoveredFractionE13e_coverfrac_t(ptr nocapture noundef nonnull align 8 dereferenceable(294) initializes((280, 292), (293, 294)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3gmx8internal13SelectionData19initCoveredFractionE13e_coverfrac_t(ptr nocapture noundef nonnull align 8 dereferenceable(294) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store i32 %1, ptr %3, align 8
   %4 = icmp eq i32 %1, 0
@@ -1966,7 +1966,7 @@ _ZN3gmx8internal13SelectionData23refreshMassesAndChargesEPK10gmx_mtop_t.exit: ; 
 declare void @_Z23gmx_ana_indexmap_updateP18gmx_ana_indexmap_tP15gmx_ana_index_tb(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK3gmx9SelectioncvNS_29AnalysisNeighborhoodPositionsEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::AnalysisNeighborhoodPositions") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #12 align 2 {
+define void @_ZNK3gmx9SelectioncvNS_29AnalysisNeighborhoodPositionsEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::AnalysisNeighborhoodPositions") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -2561,7 +2561,7 @@ declare void @_Z18gmx_ana_index_dumpPN3gmx10TextWriterEP15gmx_ana_index_ti(ptr n
 declare void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK3gmx17SelectionPositioncvNS_29AnalysisNeighborhoodPositionsEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::AnalysisNeighborhoodPositions") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #12 align 2 {
+define void @_ZNK3gmx17SelectionPositioncvNS_29AnalysisNeighborhoodPositionsEEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::AnalysisNeighborhoodPositions") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #12 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   %5 = load ptr, ptr %4, align 8

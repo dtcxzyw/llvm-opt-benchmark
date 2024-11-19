@@ -1344,7 +1344,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare dso_local zeroext i1 @vma_is_secretmem(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @follow_page_mask(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef initializes((8, 12)) %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @follow_page_mask(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8

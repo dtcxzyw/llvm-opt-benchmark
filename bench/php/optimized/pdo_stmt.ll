@@ -188,7 +188,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.116 = private unnamed_addr constant [37 x i8] c"You may not create a PDORow manually\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @pdo_stmt_describe_columns(ptr noundef initializes((24, 32)) %0) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @pdo_stmt_describe_columns(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64
@@ -3493,7 +3493,7 @@ dispatch_param_event.exit:                        ; preds = %34, %79, %121, %90,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fetch_value(ptr noundef %0, ptr noundef initializes((8, 12)) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @fetch_value(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = icmp slt i32 %2, 0
   br i1 %6, label %7, label %9
@@ -4438,7 +4438,7 @@ declare ptr @zend_zval_value_name(ptr noundef) local_unnamed_addr #3
 declare ptr @zend_fetch_class(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @do_fetch_class_prepare(ptr noundef initializes((160, 168)) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @do_fetch_class_prepare(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
@@ -7435,7 +7435,7 @@ define internal ptr @dbstmt_method_get(ptr noundef %0, ptr noundef %1, ptr nound
 declare i32 @zend_objects_not_comparable(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @row_prop_read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef initializes((8, 12)) %4) #0 {
+define internal ptr @row_prop_read(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
@@ -8313,7 +8313,7 @@ define internal ptr @pdo_stmt_iter_get_data(ptr noundef readonly %0) #10 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @pdo_stmt_iter_get_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) #11 {
+define internal void @pdo_stmt_iter_get_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, -1

@@ -1245,7 +1245,7 @@ _ZN3refI5modelED2Ev.exit:                         ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16bvsls_opt_engine8optimizeERK7obj_refI4expr11ast_managerE3refI5modelEb(ptr noalias sret(%"class.bvsls_opt_engine::optimization_result") align 8 initializes((0, 4), (8, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(2224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %objective, ptr noundef %initial_model, i1 noundef zeroext %_maximize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16bvsls_opt_engine8optimizeERK7obj_refI4expr11ast_managerE3refI5modelEb(ptr noalias sret(%"class.bvsls_opt_engine::optimization_result") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %objective, ptr noundef %initial_model, i1 noundef zeroext %_maximize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.i184 = alloca %class.mpz, align 8
   %temp.i = alloca %class.mpz, align 8
@@ -5649,7 +5649,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 declare noundef i32 @_ZN10sls_engine13check_restartEj(ptr noundef nonnull align 8 dereferenceable(1512), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16bvsls_opt_engine14find_best_moveER10ptr_vectorI9func_declER3mpzRjS5_S6_RN10sls_engine9move_typeERKS4_P4expr(ptr noalias sret(%class.mpz) align 8 initializes((0, 4), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(2224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %to_evaluate, ptr noundef nonnull align 8 dereferenceable(16) %score, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %best_const, ptr noundef nonnull align 8 dereferenceable(16) %best_value, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %new_bit, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %move, ptr noundef nonnull align 8 dereferenceable(16) %max_score, ptr nocapture readnone %objective) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16bvsls_opt_engine14find_best_moveER10ptr_vectorI9func_declER3mpzRjS5_S6_RN10sls_engine9move_typeERKS4_P4expr(ptr noalias sret(%class.mpz) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(2224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %to_evaluate, ptr noundef nonnull align 8 dereferenceable(16) %score, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %best_const, ptr noundef nonnull align 8 dereferenceable(16) %best_value, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %new_bit, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %move, ptr noundef nonnull align 8 dereferenceable(16) %max_score, ptr nocapture readnone %objective) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %old_value = alloca %class.mpz, align 8
   %temp = alloca %class.mpz, align 8

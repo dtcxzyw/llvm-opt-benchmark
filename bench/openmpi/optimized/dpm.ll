@@ -190,7 +190,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #1
 declare i32 @opal_srand(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_dpm_connect_accept(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define i32 @ompi_dpm_connect_accept(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8

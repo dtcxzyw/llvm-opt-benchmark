@@ -241,7 +241,7 @@ define dso_local ptr @intel_power_well_name(ptr nocapture noundef readonly %0) l
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_power_well_disable(ptr noundef %0, ptr noundef initializes((28, 29)) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_power_well_disable(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 

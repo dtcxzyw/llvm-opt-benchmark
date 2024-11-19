@@ -94,7 +94,7 @@ $_ZNSt3__17getlineB8ne190000IcNS_11char_traitsIcEENS_9allocatorIcEEEERNS_13basic
 @_ZN7mitsuba16DefaultFormatterC1Ev = unnamed_addr alias void (ptr), ptr @_ZN7mitsuba16DefaultFormatterC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7mitsuba16DefaultFormatterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define void @_ZN7mitsuba16DefaultFormatterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba16DefaultFormatterE, i64 16), ptr %0, align 8

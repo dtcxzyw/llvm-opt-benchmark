@@ -34,7 +34,7 @@ $_ZZN6asmjit9_abi_1_107VirtMem15AnonymousMemory4openEbE15internalCounter = comda
 @_ZZN6asmjit9_abi_1_107VirtMemL18hasHardenedRuntimeEvE18globalHardenedFlag.0 = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem5allocEPPvmNS1_11MemoryFlagsE(ptr nocapture noundef writeonly initializes((0, 8)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem5allocEPPvmNS1_11MemoryFlagsE(ptr nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8, !tbaa !3
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %17, label %5
@@ -107,7 +107,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN6asmjit9_abi_1_107VirtMem7prote
 declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS1_11DualMappingEmNS1_11MemoryFlagsE(ptr nocapture noundef writeonly initializes((0, 16)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_107VirtMem16allocDualMappingEPNS1_11DualMappingEmNS1_11MemoryFlagsE(ptr nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.asmjit::_abi_1_10::VirtMem::AnonymousMemory", align 8
   %5 = alloca %"class.asmjit::_abi_1_10::VirtMem::AnonymousMemory", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8

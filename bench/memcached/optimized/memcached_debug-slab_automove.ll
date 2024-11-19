@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slab_automove_run(ptr noundef %arg, ptr nocapture noundef writeonly initializes((0, 4)) %src, ptr nocapture noundef writeonly initializes((0, 4)) %dst) local_unnamed_addr #0 {
+define dso_local void @slab_automove_run(ptr noundef %arg, ptr nocapture noundef writeonly %src, ptr nocapture noundef writeonly %dst) local_unnamed_addr #0 {
 entry:
   store i32 -1, ptr %src, align 4
   store i32 -1, ptr %dst, align 4

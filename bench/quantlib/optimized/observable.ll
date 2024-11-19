@@ -71,7 +71,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18ObservableSettings13enableUpdatesEv(ptr noundef nonnull align 8 dereferenceable(50) initializes((48, 50)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18ObservableSettings13enableUpdatesEv(ptr noundef nonnull align 8 dereferenceable(50) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %errMsg = alloca %"class.std::__cxx11::basic_string", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8

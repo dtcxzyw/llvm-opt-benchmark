@@ -2164,7 +2164,7 @@ declare void @_ZN16PlaceholderTable15find_and_removeEP6SymbolP15ClassLoaderDataN
 declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16SystemDictionary21post_class_load_eventEP14EventClassLoadPK13InstanceKlassPK15ClassLoaderData(ptr noundef initializes((24, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16SystemDictionary21post_class_load_eventEP14EventClassLoadPK13InstanceKlassPK15ClassLoaderData(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 152
@@ -8522,7 +8522,7 @@ declare void @_ZN21LoaderConstraintTable22print_table_statisticsEP12outputStream
 declare void @_ZN26ProtectionDomainCacheTable22print_table_statisticsEP12outputStream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20SystemDictionaryDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 17), (24, 91)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN20SystemDictionaryDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8

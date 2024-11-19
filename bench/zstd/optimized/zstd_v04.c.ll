@@ -182,7 +182,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTDv04_decompressDCtx(ptr noundef initializes((10256, 10296), (10340, 10344)) %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
+define i64 @ZSTDv04_decompressDCtx(ptr noundef %dctx, ptr noundef %dst, i64 noundef %maxDstSize, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %src, i64 %srcSize
   %add.ptr1.i = getelementptr inbounds i8, ptr %dst, i64 %maxDstSize
@@ -352,7 +352,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @ZSTDv04_resetDCtx(ptr nocapture noundef writeonly initializes((10256, 10296), (10340, 10344)) %dctx) local_unnamed_addr #3 {
+define noundef i64 @ZSTDv04_resetDCtx(ptr nocapture noundef writeonly %dctx) local_unnamed_addr #3 {
 entry:
   %expected.i = getelementptr inbounds i8, ptr %dctx, i64 10288
   store i64 5, ptr %expected.i, align 8
@@ -613,7 +613,7 @@ ZBUFF_freeDCtx.exit:                              ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @ZBUFFv04_decompressInit(ptr nocapture noundef initializes((56, 64), (80, 104), (112, 124)) %dctx) local_unnamed_addr #7 {
+define noundef i64 @ZBUFFv04_decompressInit(ptr nocapture noundef %dctx) local_unnamed_addr #7 {
 entry:
   %stage.i = getelementptr inbounds i8, ptr %dctx, i64 120
   store i32 1, ptr %stage.i, align 8
@@ -634,7 +634,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i64 @ZBUFFv04_decompressWithDictionary(ptr nocapture noundef writeonly initializes((104, 120)) %dctx, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #3 {
+define noundef i64 @ZBUFFv04_decompressWithDictionary(ptr nocapture noundef writeonly %dctx, ptr noundef %src, i64 noundef %srcSize) local_unnamed_addr #3 {
 entry:
   %dict.i = getelementptr inbounds i8, ptr %dctx, i64 104
   store ptr %src, ptr %dict.i, align 8
@@ -6363,7 +6363,7 @@ return:                                           ; preds = %for.end61, %if.end,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef nonnull writeonly initializes((0, 8), (16, 32)) %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #13 {
+define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef nonnull writeonly %bitD, ptr noundef %srcBuffer, i64 noundef %srcSize) unnamed_addr #13 {
 entry:
   %cmp = icmp eq i64 %srcSize, 0
   br i1 %cmp, label %if.then, label %if.end

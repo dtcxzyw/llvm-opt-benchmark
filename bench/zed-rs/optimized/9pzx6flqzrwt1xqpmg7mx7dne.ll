@@ -6843,7 +6843,7 @@ define hidden void @"_ZN4http7request7Builder3uri28_$u7b$$u7b$closure$u7d$$u7d$1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4http7request7Builder4body17h100859170d515c57E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([256 x i8]) align 8 dereferenceable(256) initializes((0, 10)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(224) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #2 {
+define hidden void @_ZN4http7request7Builder4body17h100859170d515c57E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([256 x i8]) align 8 dereferenceable(256) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(224) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #2 {
   %4 = alloca [32 x i8], align 8
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
@@ -6883,7 +6883,7 @@ define hidden void @_ZN4http7request7Builder4body17h100859170d515c57E(ptr dead_o
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4http7request7Builder6header17had9f8a122b7627e6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) initializes((0, 224)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(224) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #2 {
+define hidden void @_ZN4http7request7Builder6header17had9f8a122b7627e6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(224) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #2 {
   %7 = alloca [224 x i8], align 8
   %8 = alloca [224 x i8], align 8
   %9 = alloca [32 x i8], align 8
@@ -7662,7 +7662,7 @@ define hidden void @"_ZN4http7request7Builder6method28_$u7b$$u7b$closure$u7d$$u7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4http7request7Builder8and_then17h1bf9a26c15834ea6E.llvm.9748955412465966193(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) initializes((0, 224)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(224) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #2 {
+define hidden void @_ZN4http7request7Builder8and_then17h1bf9a26c15834ea6E.llvm.9748955412465966193(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([224 x i8]) align 8 dereferenceable(224) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(224) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #2 {
   %4 = alloca [224 x i8], align 8
   %5 = alloca [224 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5)

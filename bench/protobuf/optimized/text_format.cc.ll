@@ -2399,7 +2399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf10TextFormat6ParserC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 36), (40, 48)) %this) unnamed_addr #14 align 2 {
+define void @_ZN6google8protobuf10TextFormat6ParserC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this) unnamed_addr #14 align 2 {
 entry:
   %recursion_limit_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
@@ -3547,7 +3547,7 @@ entry:
 declare void @llvm.trap() #16
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf10TextFormat17FieldValuePrinterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN6google8protobuf10TextFormat17FieldValuePrinterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf10TextFormat17FieldValuePrinterE, i64 16), ptr %this, align 8
   %delegate_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -3621,7 +3621,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define internal void @_ZN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %this, align 8
   %output_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4444,7 +4444,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf10TextFormat21FastFieldValuePrinterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
+define void @_ZN6google8protobuf10TextFormat21FastFieldValuePrinterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #14 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf10TextFormat21FastFieldValuePrinterE, i64 16), ptr %this, align 8
   ret void
@@ -4563,7 +4563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf10TextFormat7PrinterC2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 10), (12, 19), (24, 112)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf10TextFormat7PrinterC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %report_sensitive_fields_ = getelementptr inbounds i8, ptr %this, i64 12
   %truncate_string_field_longer_than_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -19307,7 +19307,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_st
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define internal void @_ZN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i64 16), ptr %this, align 8
   %output_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -19523,7 +19523,7 @@ entry:
 declare noundef i64 @_ZN10utf8_range21SpanStructurallyValidESt17basic_string_viewIcSt11char_traitsIcEE(i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperE, i64 16), ptr %this, align 8
   %delegate_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -19544,7 +19544,7 @@ _ZNSt10unique_ptrIKN6google8protobuf10TextFormat17FieldValuePrinterESt14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperE, i64 16), ptr %this, align 8
   %delegate_.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -231,7 +231,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib35GeneralizedOrnsteinUhlenbeckProcessC2ESt8functionIFddEES3_dd(ptr noundef nonnull align 8 dereferenceable(224) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %speed, ptr nocapture noundef %vol, double noundef %x0, double noundef %level) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib35GeneralizedOrnsteinUhlenbeckProcessC2ESt8functionIFddEES3_dd(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef %speed, ptr nocapture noundef %vol, double noundef %x0, double noundef %level) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

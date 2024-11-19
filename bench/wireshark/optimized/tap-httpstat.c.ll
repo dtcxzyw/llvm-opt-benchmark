@@ -268,13 +268,13 @@ declare void @exit(i32 noundef) local_unnamed_addr #4
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @http_reset_hash_responses(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture readnone %2) #5 {
+define internal void @http_reset_hash_responses(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #5 {
   store i32 0, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @http_reset_hash_requests(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1, ptr nocapture readnone %2) #5 {
+define internal void @http_reset_hash_requests(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #5 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %4, align 8
   ret void

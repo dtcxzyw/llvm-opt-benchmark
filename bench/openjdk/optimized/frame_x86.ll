@@ -609,7 +609,7 @@ declare noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef) local_unnamed_addr 
 declare noundef zeroext i1 @_ZNK6Method26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5frame8patch_pcEP6ThreadPh(ptr noundef nonnull align 8 dereferenceable(56) initializes((8, 16)) %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5frame8patch_pcEP6ThreadPh(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -8
   store ptr %2, ptr %5, align 8
@@ -775,7 +775,7 @@ define hidden void @_ZN5frame29interpreter_frame_set_last_spEPl(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5frame22sender_for_entry_frameEP11RegisterMap(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK5frame22sender_for_entry_frameEP11RegisterMap(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 -48
@@ -960,7 +960,7 @@ define hidden noundef zeroext i1 @_ZNK5frame26upcall_stub_frame_is_firstEv(ptr n
 declare noundef ptr @_ZNK10UpcallStub13jfa_for_frameERK5frame(ptr noundef nonnull align 8 dereferenceable(68), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5frame28sender_for_upcall_stub_frameEP11RegisterMap(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK5frame28sender_for_upcall_stub_frameEP11RegisterMap(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef ptr @_ZNK10UpcallStub13jfa_for_frameERK5frame(ptr noundef nonnull align 8 dereferenceable(68) %5, ptr noundef nonnull align 8 dereferenceable(56) %1) #8

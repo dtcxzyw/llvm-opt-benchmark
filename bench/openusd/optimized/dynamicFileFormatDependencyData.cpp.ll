@@ -64,7 +64,7 @@ $_ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__7TfTokenES1_St9_IdentityIS1_E
 @_ZN32pxrInternal_v0_24__pxrReserved__34PcpDynamicFileFormatDependencyDataC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__34PcpDynamicFileFormatDependencyDataC2ERKS0_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__34PcpDynamicFileFormatDependencyDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__34PcpDynamicFileFormatDependencyDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, null

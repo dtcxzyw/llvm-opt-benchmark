@@ -2541,7 +2541,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel12breakthrough17BreakthroughState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.21") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel12breakthrough17BreakthroughState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.21") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::vector.14", align 8
@@ -3426,7 +3426,7 @@ define noundef zeroext i1 @_ZNK10open_spiel12breakthrough17BreakthroughState10Is
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel12breakthrough17BreakthroughState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.26") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel12breakthrough17BreakthroughState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.26") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 0

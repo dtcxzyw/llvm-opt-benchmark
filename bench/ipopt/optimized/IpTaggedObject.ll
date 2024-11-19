@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5IpoptL10unique_tagE = internal thread_local unnamed_addr global i32 1, align 4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) initializes((48, 52)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN5IpoptL10unique_tagE)
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 48

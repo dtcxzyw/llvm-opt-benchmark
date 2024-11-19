@@ -5327,7 +5327,7 @@ define range(i32 -1, 2) i32 @Aig_NodeCompareRefsIncrease(ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Saig_ParBmcSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 152)) %0) local_unnamed_addr #13 {
+define void @Saig_ParBmcSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, i8 0, i64 152, i1 false)
   store i32 10000, ptr %2, align 8

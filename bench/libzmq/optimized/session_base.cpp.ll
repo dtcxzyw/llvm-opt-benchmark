@@ -393,7 +393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq14session_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1624) initializes((0, 8), (1448, 1456), (1464, 1472)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq14session_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1624) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14session_base_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
@@ -2091,7 +2091,7 @@ if.end52:                                         ; preds = %invoke.cont49, %lan
 declare void @_ZN3zmq6pipe_t17set_endpoint_pairENS_19endpoint_uri_pair_tE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14session_base_t12engine_errorEbNS_8i_engine14error_reason_tE(ptr noundef nonnull align 8 dereferenceable(1624) initializes((1552, 1560)) %this, i1 noundef zeroext %handshaked_, i32 noundef %reason_) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq14session_base_t12engine_errorEbNS_8i_engine14error_reason_tE(ptr noundef nonnull align 8 dereferenceable(1624) %this, i1 noundef zeroext %handshaked_, i32 noundef %reason_) local_unnamed_addr #0 align 2 {
 entry:
   %_engine = getelementptr inbounds i8, ptr %this, i64 1552
   store ptr null, ptr %_engine, align 8
@@ -2495,7 +2495,7 @@ if.end38:                                         ; preds = %if.then36, %if.end3
 declare void @_ZN3zmq11io_object_t9add_timerEii(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14session_base_t11timer_eventEi(ptr nocapture noundef nonnull align 8 dereferenceable(1624) initializes((1576, 1577)) %this, i32 noundef %id_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq14session_base_t11timer_eventEi(ptr nocapture noundef nonnull align 8 dereferenceable(1624) %this, i32 noundef %id_) unnamed_addr #0 align 2 {
 entry:
   %cmp.not = icmp eq i32 %id_, 32
   br i1 %cmp.not, label %do.end, label %if.then
@@ -2532,7 +2532,7 @@ do.end9:                                          ; preds = %do.end, %if.then5
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn1448_N3zmq14session_base_t11timer_eventEi(ptr nocapture noundef initializes((128, 129)) %this, i32 noundef %id_) unnamed_addr #12 align 2 {
+define void @_ZThn1448_N3zmq14session_base_t11timer_eventEi(ptr nocapture noundef %this, i32 noundef %id_) unnamed_addr #12 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -1448
   tail call void @_ZN3zmq14session_base_t11timer_eventEi(ptr noundef nonnull align 8 dereferenceable(1624) %0, i32 noundef %id_)
@@ -2614,7 +2614,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq19hello_msg_session_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1632) initializes((0, 8), (1448, 1456), (1464, 1472)) %this) unnamed_addr #6 align 2 {
+define void @_ZN3zmq19hello_msg_session_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1632) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN3zmq14session_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1624) %this) #24
   ret void
@@ -2724,7 +2724,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 declare noundef i32 @_ZN3zmq5msg_t11init_bufferEPKvm(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq19hello_msg_session_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1632) initializes((1624, 1625)) %this) unnamed_addr #18 align 2 {
+define void @_ZN3zmq19hello_msg_session_t5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1632) %this) unnamed_addr #18 align 2 {
 entry:
   %_new_pipe = getelementptr inbounds i8, ptr %this, i64 1624
   store i8 1, ptr %_new_pipe, align 8

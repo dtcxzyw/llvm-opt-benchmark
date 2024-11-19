@@ -21,7 +21,7 @@ $_ZNK16btCollisionShape28calculateSerializeBufferSizeEv = comdat any
 @_ZN14btConcaveShapeD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN14btConcaveShapeD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14btConcaveShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 12), (16, 36)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN14btConcaveShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this) unnamed_addr #0 align 2 {
 entry:
   %m_shapeType.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 35, ptr %m_shapeType.i, align 8

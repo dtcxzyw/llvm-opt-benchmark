@@ -227,7 +227,7 @@ define internal range(i32 -1, 1) i32 @CVSpbcgInit(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @CVSpbcgSetup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
+define internal i32 @CVSpbcgSetup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 1696
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 1272

@@ -6844,7 +6844,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit244:                 ; preds = %496, %495, %87, %89
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11xfeatures2d10FREAK_Impl11selectPairsERKSt6vectorINS_3MatESaIS3_EERS2_IS2_INS_8KeyPointESaIS8_EESaISA_EEdb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1920) initializes((28, 29)) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, double noundef %4, i1 noundef zeroext %5) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11xfeatures2d10FREAK_Impl11selectPairsERKSt6vectorINS_3MatESaIS3_EERS2_IS2_INS_8KeyPointESaIS8_EESaISA_EEdb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1920) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, double noundef %4, i1 noundef zeroext %5) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::Range", align 8
   %8 = alloca %"class.cv::Range", align 4
   %9 = alloca %"class.cv::Range", align 8
@@ -7699,7 +7699,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_tra
 declare noundef double @_ZN2cv11compareHistERKNS_11_InputArrayES2_i(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11xfeatures2d10FREAK_ImplC2EbbfiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(1920) initializes((0, 10), (16, 29), (32, 44), (48, 72)) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, float noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11xfeatures2d10FREAK_ImplC2EbbfiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(1920) %0, ptr noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, float noundef %4, i32 noundef %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %6) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %8 = zext i1 %2 to i8
   %9 = zext i1 %3 to i8
   %10 = getelementptr inbounds i8, ptr %1, i64 8

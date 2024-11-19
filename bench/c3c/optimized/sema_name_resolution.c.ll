@@ -1229,7 +1229,7 @@ declare ptr @type_get_inferred_array(ptr noundef) local_unnamed_addr #5
 declare ptr @type_get_inferred_vector(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @unit_resolve_parameterized_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 16), (48, 49)) %1) local_unnamed_addr #2 {
+define dso_local ptr @unit_resolve_parameterized_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2616,7 +2616,7 @@ matches_subpath.exit79.thread:                    ; preds = %77, %81, %69, %matc
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @sema_add_local(ptr nocapture noundef %0, ptr noundef initializes((56, 64)) %1) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @sema_add_local(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -3622,7 +3622,7 @@ declare ptr @decl_to_name(ptr noundef) local_unnamed_addr #5
 declare zeroext i1 @decl_needs_prefix(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @sema_resolve_path_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull initializes((0, 8), (48, 49)) %1) unnamed_addr #2 {
+define internal fastcc ptr @sema_resolve_path_symbol(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   store ptr null, ptr %1, align 8

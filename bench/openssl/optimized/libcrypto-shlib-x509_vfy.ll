@@ -127,7 +127,7 @@ return:                                           ; preds = %if.end13, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_verify_rpk(ptr noundef nonnull initializes((176, 180)) %ctx) unnamed_addr #0 {
+define internal fastcc i32 @x509_verify_rpk(ptr noundef nonnull %ctx) unnamed_addr #0 {
 entry:
   %i2dbuf.i.i = alloca ptr, align 8
   %mdbuf.i.i = alloca [64 x i8], align 16
@@ -1002,7 +1002,7 @@ return:                                           ; preds = %for.body, %for.end,
 declare ptr @X509_get0_notBefore(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @verify_cb_cert(ptr noundef initializes((184, 192)) %ctx, ptr noundef %x, i32 noundef %depth, i32 noundef %err) unnamed_addr #0 {
+define internal fastcc i32 @verify_cb_cert(ptr noundef %ctx, ptr noundef %x, i32 noundef %depth, i32 noundef %err) unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %depth, 0
   %error_depth = getelementptr inbounds i8, ptr %ctx, i64 172
@@ -1752,7 +1752,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set_error(ptr nocapture noundef writeonly initializes((176, 180)) %ctx, i32 noundef %err) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set_error(ptr nocapture noundef writeonly %ctx, i32 noundef %err) local_unnamed_addr #4 {
 entry:
   %error = getelementptr inbounds i8, ptr %ctx, i64 176
   store i32 %err, ptr %error, align 8
@@ -1768,7 +1768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set_error_depth(ptr nocapture noundef writeonly initializes((172, 176)) %ctx, i32 noundef %depth) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set_error_depth(ptr nocapture noundef writeonly %ctx, i32 noundef %depth) local_unnamed_addr #4 {
 entry:
   %error_depth = getelementptr inbounds i8, ptr %ctx, i64 172
   store i32 %depth, ptr %error_depth, align 4
@@ -1784,7 +1784,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set_current_cert(ptr nocapture noundef writeonly initializes((184, 192)) %ctx, ptr noundef %x) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set_current_cert(ptr nocapture noundef writeonly %ctx, ptr noundef %x) local_unnamed_addr #4 {
 entry:
   %current_cert = getelementptr inbounds i8, ptr %ctx, i64 184
   store ptr %x, ptr %current_cert, align 8
@@ -1843,7 +1843,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set_cert(ptr nocapture noundef writeonly initializes((8, 16)) %ctx, ptr noundef %x) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set_cert(ptr nocapture noundef writeonly %ctx, ptr noundef %x) local_unnamed_addr #4 {
 entry:
   %cert = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %x, ptr %cert, align 8
@@ -1851,7 +1851,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set0_rpk(ptr nocapture noundef writeonly initializes((256, 264)) %ctx, ptr noundef %rpk) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set0_rpk(ptr nocapture noundef writeonly %ctx, ptr noundef %rpk) local_unnamed_addr #4 {
 entry:
   %rpk1 = getelementptr inbounds i8, ptr %ctx, i64 256
   store ptr %rpk, ptr %rpk1, align 8
@@ -1859,7 +1859,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set0_crls(ptr nocapture noundef writeonly initializes((24, 32)) %ctx, ptr noundef %sk) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set0_crls(ptr nocapture noundef writeonly %ctx, ptr noundef %sk) local_unnamed_addr #4 {
 entry:
   %crls = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %sk, ptr %crls, align 8
@@ -3489,7 +3489,7 @@ declare i32 @X509_PURPOSE_get_trust(ptr noundef) local_unnamed_addr #1
 declare i32 @CRYPTO_new_ex_data(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set0_trusted_stack(ptr nocapture noundef writeonly initializes((40, 48), (64, 72), (120, 128)) %ctx, ptr noundef %sk) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set0_trusted_stack(ptr nocapture noundef writeonly %ctx, ptr noundef %sk) local_unnamed_addr #4 {
 entry:
   %other_ctx = getelementptr inbounds i8, ptr %ctx, i64 40
   store ptr %sk, ptr %other_ctx, align 8
@@ -3501,7 +3501,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @get_issuer_sk(ptr nocapture noundef writeonly initializes((0, 8)) %issuer, ptr noundef %ctx, ptr noundef %x) #0 {
+define internal range(i32 -1, 2) i32 @get_issuer_sk(ptr nocapture noundef writeonly %issuer, ptr noundef %ctx, ptr noundef %x) #0 {
 entry:
   %other_ctx = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %other_ctx, align 8
@@ -3609,7 +3609,7 @@ entry:
 declare void @X509_VERIFY_PARAM_set_time(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set_current_reasons(ptr nocapture noundef writeonly initializes((212, 216)) %ctx, i32 noundef %current_reasons) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set_current_reasons(ptr nocapture noundef writeonly %ctx, i32 noundef %current_reasons) local_unnamed_addr #4 {
 entry:
   %current_reasons1 = getelementptr inbounds i8, ptr %ctx, i64 212
   store i32 %current_reasons, ptr %current_reasons1, align 4
@@ -3641,7 +3641,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set0_untrusted(ptr nocapture noundef writeonly initializes((16, 24)) %ctx, ptr noundef %sk) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set0_untrusted(ptr nocapture noundef writeonly %ctx, ptr noundef %sk) local_unnamed_addr #4 {
 entry:
   %untrusted = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %sk, ptr %untrusted, align 8
@@ -3659,7 +3659,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set_verify_cb(ptr nocapture noundef writeonly initializes((56, 64)) %ctx, ptr noundef %verify_cb) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set_verify_cb(ptr nocapture noundef writeonly %ctx, ptr noundef %verify_cb) local_unnamed_addr #4 {
 entry:
   %verify_cb1 = getelementptr inbounds i8, ptr %ctx, i64 56
   store ptr %verify_cb, ptr %verify_cb1, align 8
@@ -3675,7 +3675,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set_verify(ptr nocapture noundef writeonly initializes((48, 56)) %ctx, ptr noundef %verify) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set_verify(ptr nocapture noundef writeonly %ctx, ptr noundef %verify) local_unnamed_addr #4 {
 entry:
   %verify1 = getelementptr inbounds i8, ptr %ctx, i64 48
   store ptr %verify, ptr %verify1, align 8
@@ -3723,7 +3723,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set_get_crl(ptr nocapture noundef writeonly initializes((88, 96)) %ctx, ptr noundef %get_crl) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set_get_crl(ptr nocapture noundef writeonly %ctx, ptr noundef %get_crl) local_unnamed_addr #4 {
 entry:
   %get_crl1 = getelementptr inbounds i8, ptr %ctx, i64 88
   store ptr %get_crl, ptr %get_crl1, align 8
@@ -3823,7 +3823,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @X509_STORE_CTX_set0_dane(ptr nocapture noundef writeonly initializes((240, 248)) %ctx, ptr noundef %dane) local_unnamed_addr #4 {
+define void @X509_STORE_CTX_set0_dane(ptr nocapture noundef writeonly %ctx, ptr noundef %dane) local_unnamed_addr #4 {
 entry:
   %dane1 = getelementptr inbounds i8, ptr %ctx, i64 240
   store ptr %dane, ptr %dane1, align 8

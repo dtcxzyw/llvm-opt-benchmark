@@ -110,7 +110,7 @@ $_ZN12QHashPrivate4DataINS_4NodeIN15ExpertInfoModel14ExpertSeverityEiEEE6rehashE
 @_ZN15ExpertInfoModelD1Ev = unnamed_addr alias void (ptr), ptr @_ZN15ExpertInfoModelD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16ExpertPacketItemC2ERK13expert_info_sP16epan_column_infoPS_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16ExpertPacketItemC2ERK13expert_info_sP16epan_column_infoPS_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16ExpertPacketItem, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %1, align 8
@@ -331,7 +331,7 @@ _ZN17QArrayDataPointerIcED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16ExpertPacketItemD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16ExpertPacketItemD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV16ExpertPacketItem, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
@@ -1221,7 +1221,7 @@ define noundef nonnull ptr @_ZN15ExpertInfoModel14createRootItemEv(ptr nocapture
 declare void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15ExpertInfoModelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15ExpertInfoModelD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15ExpertInfoModel, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8

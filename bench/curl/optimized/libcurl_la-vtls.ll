@@ -243,7 +243,7 @@ return:                                           ; preds = %land.lhs.true93, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @Curl_ssl_easy_config_complete(ptr noundef initializes((1296, 1408), (1448, 1488), (1496, 1600), (1648, 1688)) %data) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_ssl_easy_config_complete(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %str = getelementptr inbounds i8, ptr %data, i64 1816
   %arrayidx = getelementptr inbounds i8, ptr %data, i64 2024
@@ -397,7 +397,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %data, ptr nocapture noundef initializes((560, 561), (564, 569)) %conn) local_unnamed_addr #2 {
+define hidden range(i32 0, 28) i32 @Curl_ssl_conn_config_init(ptr nocapture noundef readonly %data, ptr nocapture noundef %conn) local_unnamed_addr #2 {
 entry:
   %ssl = getelementptr inbounds i8, ptr %data, i64 1296
   %ssl_config = getelementptr inbounds i8, ptr %conn, i64 448
@@ -417,7 +417,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @clone_ssl_primary_config(ptr nocapture noundef readonly %source, ptr nocapture noundef initializes((112, 113), (116, 121)) %dest) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @clone_ssl_primary_config(ptr nocapture noundef readonly %source, ptr nocapture noundef %dest) unnamed_addr #2 {
 entry:
   %version = getelementptr inbounds i8, ptr %source, i64 120
   %0 = load i8, ptr %version, align 8
@@ -1084,7 +1084,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare i32 @Curl_share_unlock(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @Curl_ssl_getsessionid(ptr nocapture noundef readonly %cf, ptr nocapture noundef %data, ptr nocapture noundef writeonly initializes((0, 8)) %ssl_sessionid, ptr noundef writeonly %idsize) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @Curl_ssl_getsessionid(ptr nocapture noundef readonly %cf, ptr nocapture noundef %data, ptr nocapture noundef writeonly %ssl_sessionid, ptr noundef writeonly %idsize) local_unnamed_addr #2 {
 do.end:
   %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -3225,7 +3225,7 @@ do.body6:                                         ; preds = %entry, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ssl_cf_send(ptr noundef %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef initializes((0, 4)) %err) #2 {
+define internal i64 @ssl_cf_send(ptr noundef %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) #2 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -3244,7 +3244,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @ssl_cf_recv(ptr noundef %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef initializes((0, 4)) %err) #2 {
+define internal i64 @ssl_cf_recv(ptr noundef %cf, ptr noundef %data, ptr noundef %buf, i64 noundef %len, ptr noundef %err) #2 {
 entry:
   %ctx = getelementptr inbounds i8, ptr %cf, i64 16
   %0 = load ptr, ptr %ctx, align 8
@@ -3747,7 +3747,7 @@ for.end:                                          ; preds = %for.inc, %entry, %c
 declare zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr nocapture noundef writeonly initializes((0, 40)) %buf, ptr noundef readonly %spec) local_unnamed_addr #10 {
+define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_buf(ptr nocapture noundef writeonly %buf, ptr noundef readonly %spec) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %buf, i8 0, i64 40, i1 false)
   %tobool.not = icmp eq ptr %spec, null
@@ -3803,7 +3803,7 @@ return:                                           ; preds = %for.body, %if.end, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr nocapture noundef writeonly initializes((0, 40)) %buf, ptr noundef readonly %spec) local_unnamed_addr #10 {
+define hidden range(i32 0, 3) i32 @Curl_alpn_to_proto_str(ptr nocapture noundef writeonly %buf, ptr noundef readonly %spec) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %buf, i8 0, i64 40, i1 false)
   %tobool.not = icmp eq ptr %spec, null

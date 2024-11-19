@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched29], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_engine_init_ctx_wa(ptr noundef initializes((640, 656)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_engine_init_ctx_wa(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -2808,7 +2808,7 @@ define dso_local zeroext i1 @intel_gt_verify_workarounds(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_engine_init_whitelist(ptr noundef initializes((720, 736)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_engine_init_whitelist(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4
@@ -3580,7 +3580,7 @@ define dso_local void @intel_engine_apply_whitelist(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((680, 696)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_engine_init_workarounds(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.i915_wa, align 4
   %3 = alloca %struct.i915_wa, align 4
   %4 = alloca %struct.i915_wa, align 4

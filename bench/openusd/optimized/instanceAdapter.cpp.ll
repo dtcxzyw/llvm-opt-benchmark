@@ -29863,7 +29863,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit21: ; preds = %_ZN32pxrInt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter21GetInstanceCategoriesERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.155") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(256) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingInstanceAdapter21GetInstanceCategoriesERKNS_7UsdPrimE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.155") align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8

@@ -846,7 +846,7 @@ ProcArrayGroupClearXid.exit:                      ; preds = %.lr.ph.i, %170, %Pr
 declare zeroext i1 @LWLockConditionalAcquire(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ProcArrayClearTransaction(ptr nocapture noundef initializes((52, 60), (72, 76), (89, 90)) %0) local_unnamed_addr #0 {
+define dso_local void @ProcArrayClearTransaction(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @MainLWLockArray, align 8
   %3 = getelementptr i8, ptr %2, i64 512
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef %3, i32 noundef 0) #15
@@ -2252,7 +2252,7 @@ GlobalVisHorizonKindForRel.exit:                  ; preds = %39, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ComputeXidHorizons(ptr nocapture noundef nonnull initializes((0, 24), (28, 40)) %0) unnamed_addr #0 {
+define internal fastcc void @ComputeXidHorizons(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = load ptr, ptr @procArray, align 8
   %3 = tail call zeroext i1 @RecoveryInProgress() #15
   %4 = load ptr, ptr @ProcGlobal, align 8
@@ -2756,7 +2756,7 @@ define dso_local i32 @GetOldestTransactionIdConsideredRunning() local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @GetReplicationHorizons(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local void @GetReplicationHorizons(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ComputeXidHorizonsResult, align 8
   call fastcc void @ComputeXidHorizons(ptr noundef %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -3957,7 +3957,7 @@ define dso_local ptr @ProcNumberGetProc(i32 noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ProcNumberGetTransactionIds(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) local_unnamed_addr #0 {
+define dso_local void @ProcNumberGetTransactionIds(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
@@ -5262,7 +5262,7 @@ define dso_local i32 @CountUserBackends(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @CountOtherDBBackends(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca [10 x i32], align 16
   %5 = load ptr, ptr @procArray, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 36

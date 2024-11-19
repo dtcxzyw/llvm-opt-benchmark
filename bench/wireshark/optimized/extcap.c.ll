@@ -2562,7 +2562,7 @@ define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr nocapture
 declare ptr @extcap_parse_interfaces(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @extcap_process_config_cb(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 16)) %1, ptr noundef %2) #6 {
+define internal void @extcap_process_config_cb(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #6 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %2, ptr %4, align 8
   ret void

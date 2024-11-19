@@ -486,7 +486,7 @@ declare dso_local void @rtnl_unlock() local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ethnl_tunnel_info_start(ptr noundef initializes((80, 104)) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ethnl_tunnel_info_start(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80

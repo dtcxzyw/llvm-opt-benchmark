@@ -133,7 +133,7 @@ declare i64 @PageGetHeapFreeSpace(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @ConditionalLockBufferForCleanup(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_page_prune(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef initializes((0, 8)) %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define dso_local void @heap_page_prune(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca [291 x i16], align 16
   %8 = alloca i32, align 4
   %9 = alloca %struct.PruneState, align 8
@@ -1173,7 +1173,7 @@ declare void @MarkBufferDirtyHint(i32 noundef, i1 noundef zeroext) local_unnamed
 declare void @PageRepairFragmentation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_get_root_tuples(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 582)) %1) local_unnamed_addr #0 {
+define dso_local void @heap_get_root_tuples(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(582) %1, i8 0, i64 582, i1 false)
   %3 = getelementptr i8, ptr %0, i64 12
   %.val = load i16, ptr %3, align 4

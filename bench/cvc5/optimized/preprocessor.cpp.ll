@@ -532,7 +532,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal3smt12PreprocessorD2Ev(ptr noundef nonnull align 8 dereferenceable(712) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt12PreprocessorD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt12PreprocessorE, i64 16), ptr %this, align 8
   %d_processor = getelementptr inbounds i8, ptr %this, i64 608
@@ -587,7 +587,7 @@ _ZNSt10unique_ptrIN4cvc58internal3smt24PreprocessProofGeneratorESt14default_dele
 declare void @_ZN4cvc58internal3smt17ProcessAssertionsD1Ev(ptr noundef nonnull align 8 dereferenceable(100)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal3smt12PreprocessorD0Ev(ptr noundef nonnull align 8 dereferenceable(712) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt12PreprocessorD0Ev(ptr noundef nonnull align 8 dereferenceable(712) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt12PreprocessorE, i64 16), ptr %this, align 8
   %d_processor.i = getelementptr inbounds i8, ptr %this, i64 608

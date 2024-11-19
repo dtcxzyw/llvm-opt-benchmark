@@ -33,7 +33,7 @@ $_ZNK4LIEF6ObjectneERKS0_ = comdat any
 @_ZN4LIEF3ELF23SymbolVersionDefinitionC1ERKS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN4LIEF3ELF23SymbolVersionDefinitionC2ERKS1_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF3ELF23SymbolVersionDefinitionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF3ELF23SymbolVersionDefinitionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3ELF23SymbolVersionDefinitionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8

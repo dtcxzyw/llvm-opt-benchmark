@@ -54,7 +54,7 @@ $_ZSt11make_uniqueI12cmCryptoHashJNS0_4AlgoEEENSt8__detail9_MakeUniqIT_E15__sing
 @_ZN12cmCryptoHashD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN12cmCryptoHashD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12cmCryptoHashC2ENS_4AlgoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN12cmCryptoHashC2ENS_4AlgoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr inbounds [10 x i32], ptr @_ZL20cmCryptoHashAlgoToId, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4

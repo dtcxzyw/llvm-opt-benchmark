@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.mbedtls_pk_sign_ext = private unnamed_addr constant [7 x i32] [i32 100664067, i32 100664069, i32 100664072, i32 100664073, i32 100664074, i32 100664075, i32 100664068], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_pk_init(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_pk_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -439,7 +439,7 @@ mbedtls_pk_sign_restartable.exit:                 ; preds = %9, %13, %19, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_pk_sign_ext(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef initializes((0, 8)) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #1 {
+define hidden i32 @mbedtls_pk_sign_ext(i32 noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #1 {
   store i64 0, ptr %7, align 8
   %11 = load ptr, ptr %1, align 8
   %12 = icmp eq ptr %11, null

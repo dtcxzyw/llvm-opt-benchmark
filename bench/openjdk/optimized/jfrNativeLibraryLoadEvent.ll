@@ -90,7 +90,7 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @_ZN24NativeLibraryUnloadEventD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN24NativeLibraryUnloadEventD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN25JfrNativeLibraryEventBaseC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN25JfrNativeLibraryEventBaseC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -144,14 +144,14 @@ define hidden noundef ptr @_ZNK25JfrNativeLibraryEventBase9error_msgEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN25JfrNativeLibraryEventBase13set_error_msgEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN25JfrNativeLibraryEventBase13set_error_msgEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22NativeLibraryLoadEventC2EPKcPPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) initializes((0, 34)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN22NativeLibraryLoadEventC2EPKcPPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -192,7 +192,7 @@ define hidden noundef zeroext i1 @_ZNK22NativeLibraryLoadEvent7successEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24NativeLibraryUnloadEventC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN24NativeLibraryUnloadEventC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %3, i8 0, i64 17, i1 false)
@@ -226,7 +226,7 @@ define hidden noundef zeroext i1 @_ZNK24NativeLibraryUnloadEvent7successEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24NativeLibraryUnloadEvent10set_resultEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((24, 25)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24NativeLibraryUnloadEvent10set_resultEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 %3, ptr %4, align 8

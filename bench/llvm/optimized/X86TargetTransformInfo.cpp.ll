@@ -25256,7 +25256,7 @@ _ZNK4llvm27TargetTransformInfoImplBase21areTypesABICompatibleEPKNS_8FunctionES3_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm10X86TTIImpl21enableMemCmpExpansionEbb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::TargetTransformInfo::MemCmpExpansionOptions") align 8 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm10X86TTIImpl21enableMemCmpExpansionEbb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::TargetTransformInfo::MemCmpExpansionOptions") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   store i32 0, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24

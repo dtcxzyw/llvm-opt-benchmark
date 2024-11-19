@@ -158,7 +158,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory7strings11EagerSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings11EagerSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings11EagerSolverE, i64 16), ptr %this, align 8
   %d_rent = getelementptr inbounds i8, ptr %this, i64 48
@@ -285,7 +285,7 @@ _ZN4cvc58internal6theory7strings11ArithEntailD2Ev.exit: ; preds = %_ZN4cvc58inte
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory7strings11EagerSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings11EagerSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings11EagerSolverE, i64 16), ptr %this, align 8
   %d_rent.i = getelementptr inbounds i8, ptr %this, i64 48

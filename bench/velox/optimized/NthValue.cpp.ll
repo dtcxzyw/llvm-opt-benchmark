@@ -4804,7 +4804,7 @@ _ZNSt12__shared_ptrIN8facebook5velox10BaseVectorELN9__gnu_cxx12_Lock_policyE2EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunctionE, i64 16), ptr %this, align 8
   %invalidRows_ = getelementptr inbounds i8, ptr %this, i64 184
@@ -5027,7 +5027,7 @@ _ZN8facebook5velox4exec14WindowFunctionD2Ev.exit: ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -5035,7 +5035,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction14resetPartitionEPKNS0_4exec15WindowPartitionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((96, 104), (144, 148)) %this, ptr noundef %partition) unnamed_addr #13 align 2 {
+define internal void @_ZN8facebook5velox9functions6window12_GLOBAL__N_116NthValueFunction14resetPartitionEPKNS0_4exec15WindowPartitionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this, ptr noundef %partition) unnamed_addr #13 align 2 {
 entry:
   %partition_ = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %partition, ptr %partition_, align 8

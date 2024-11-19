@@ -174,7 +174,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.audio_buffer_bytes = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 2, i32 2, i32 4, i32 4, i32 4], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @audio_driver_register(ptr noundef initializes((72, 80)) %drv) local_unnamed_addr #0 {
+define dso_local void @audio_driver_register(ptr noundef %drv) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @audio_drivers, align 8
   %next = getelementptr inbounds i8, ptr %drv, i64 72
@@ -4517,7 +4517,7 @@ while.end:                                        ; preds = %if.end, %while.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @audio_generic_get_buffer_out(ptr nocapture noundef %hw, ptr nocapture noundef writeonly initializes((0, 8)) %size) #6 {
+define dso_local ptr @audio_generic_get_buffer_out(ptr nocapture noundef %hw, ptr nocapture noundef writeonly %size) #6 {
 entry:
   %buf_emul = getelementptr inbounds i8, ptr %hw, i64 88
   %0 = load ptr, ptr %buf_emul, align 8
@@ -6676,7 +6676,7 @@ entry:
 declare ptr @qemu_get_vm_name() local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @audio_rate_start(ptr nocapture noundef writeonly initializes((0, 16)) %rate) local_unnamed_addr #6 {
+define dso_local void @audio_rate_start(ptr nocapture noundef writeonly %rate) local_unnamed_addr #6 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %rate, i8 0, i64 16, i1 false)
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #25
@@ -7568,7 +7568,7 @@ if.end:                                           ; preds = %trace_audio_timer_d
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @audio_driver_init(ptr nocapture noundef initializes((16, 24)) %s, ptr noundef %drv, ptr noundef %dev, ptr noundef %errp) unnamed_addr #6 {
+define internal fastcc range(i32 -1, 1) i32 @audio_driver_init(ptr nocapture noundef %s, ptr noundef %drv, ptr noundef %dev, ptr noundef %errp) unnamed_addr #6 {
 entry:
   %local_err = alloca ptr, align 8
   store ptr null, ptr %local_err, align 8
@@ -7825,7 +7825,7 @@ return:                                           ; preds = %if.then16, %if.else
 declare ptr @qemu_add_vm_change_state_handler(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @audio_vm_change_state_handler(ptr nocapture noundef initializes((72, 76)) %opaque, i1 noundef zeroext %running, i32 %state) #6 {
+define internal void @audio_vm_change_state_handler(ptr nocapture noundef %opaque, i1 noundef zeroext %running, i32 %state) #6 {
 entry:
   %conv = zext i1 %running to i32
   %vm_running = getelementptr inbounds i8, ptr %opaque, i64 72

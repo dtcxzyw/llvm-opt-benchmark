@@ -222,7 +222,7 @@ define dso_local i64 @SnapBuildGetTwoPhaseAt(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SnapBuildSetTwoPhaseAt(ptr nocapture noundef writeonly initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local void @SnapBuildSetTwoPhaseAt(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
   ret void

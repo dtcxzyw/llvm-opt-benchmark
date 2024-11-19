@@ -307,7 +307,7 @@ define noundef ptr @php_url_parse_ex(ptr noundef %0, i64 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @php_url_parse_ex2(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
+define noundef ptr @php_url_parse_ex2(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = alloca [6 x i8], align 1
   %6 = alloca ptr, align 8

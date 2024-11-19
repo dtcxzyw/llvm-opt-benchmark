@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @WHIRLPOOL.m = internal global [64 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @WHIRLPOOL_Init(ptr nocapture noundef writeonly initializes((0, 168)) %c) local_unnamed_addr #0 {
+define noundef i32 @WHIRLPOOL_Init(ptr nocapture noundef writeonly %c) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %c, i8 0, i64 168, i1 false)
   ret i32 1

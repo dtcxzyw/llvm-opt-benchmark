@@ -1672,7 +1672,7 @@ lpad6:                                            ; preds = %if.end.i.i13, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 28), (32, 36)) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2221,7 +2221,7 @@ _ZN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorD2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 28), (32, 36), (40, 56)) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig, ptr noundef %tocheck, ptr noundef %checker) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog11check_tableC2ERNS_18check_table_pluginERKNS_15table_signatureEPNS_10table_baseES7_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(52) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %sig, ptr noundef %tocheck, ptr noundef %checker) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_12table_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2290,7 +2290,7 @@ lpad:                                             ; preds = %_ZN7datalog10table_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog11check_tableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog11check_tableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %this, align 8
   %m_tocheck = getelementptr inbounds i8, ptr %this, i64 48
@@ -2353,7 +2353,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog11check_tableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog11check_tableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11check_tableE, i64 16), ptr %this, align 8
   %m_tocheck.i = getelementptr inbounds i8, ptr %this, i64 48

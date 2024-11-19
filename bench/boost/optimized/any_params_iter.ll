@@ -71,7 +71,7 @@ define void @_ZN5boost4urls6detail15any_params_iterD0Ev(ptr nocapture noundef no
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail10query_iterC2ENS_4core17basic_string_viewIcEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((0, 41), (48, 64), (80, 81)) %0, ptr %1, i64 %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls6detail10query_iterC2ENS_4core17basic_string_viewIcEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) %0, ptr %1, i64 %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = icmp eq i64 %2, 0
   %6 = xor i1 %3, true
   %7 = and i1 %5, %6
@@ -119,7 +119,7 @@ _ZN5boost4urls6detail10query_iter6rewindEv.exit:  ; preds = %4, %_ZNK5boost4core
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost4urls6detail10query_iter6rewindEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((80, 81)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost4urls6detail10query_iter6rewindEv(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8, !tbaa !9, !range !19, !noundef !20
   %4 = trunc nuw i8 %3 to i1
@@ -516,7 +516,7 @@ _ZN5boost4urls6detail10query_iter9incrementEv.exit: ; preds = %82, %92
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail10param_iterC2ERKNS0_10param_viewE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) initializes((0, 43)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %1) unnamed_addr #7 align 2 {
+define void @_ZN5boost4urls6detail10param_iterC2ERKNS0_10param_viewE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %1) unnamed_addr #7 align 2 {
   %.sroa.01.0.copyload = load ptr, ptr %1, align 8, !tbaa !3
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !7
@@ -545,7 +545,7 @@ define void @_ZN5boost4urls6detail10param_iterC2ERKNS0_10param_viewE(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4urls6detail10param_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) initializes((42, 43)) %0) unnamed_addr #8 align 2 {
+define void @_ZN5boost4urls6detail10param_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 0, ptr %2, align 2, !tbaa !35
   ret void
@@ -1108,7 +1108,7 @@ define void @_ZN5boost4urls6detail16params_iter_base9copy_implERPcPKcRKNS0_10par
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls6detail18param_encoded_iterC2ERKNS0_14param_pct_viewE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) initializes((0, 43)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1) unnamed_addr #7 align 2 {
+define void @_ZN5boost4urls6detail18param_encoded_iterC2ERKNS0_14param_pct_viewE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1) unnamed_addr #7 align 2 {
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !3
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !7
@@ -1137,7 +1137,7 @@ define void @_ZN5boost4urls6detail18param_encoded_iterC2ERKNS0_14param_pct_viewE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4urls6detail18param_encoded_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) initializes((42, 43)) %0) unnamed_addr #8 align 2 {
+define void @_ZN5boost4urls6detail18param_encoded_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 42
   store i8 0, ptr %2, align 2, !tbaa !44
   ret void
@@ -1691,7 +1691,7 @@ _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5boost4urls6detail16param_value_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) initializes((57, 58)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN5boost4urls6detail16param_value_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 0, ptr %2, align 1, !tbaa !47
   ret void
@@ -1835,7 +1835,7 @@ define hidden void @_ZN5boost4urls6detail16param_value_iter4copyERPcPKc(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5boost4urls6detail24param_encoded_value_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) initializes((57, 58)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN5boost4urls6detail24param_encoded_value_iter6rewindEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 0, ptr %2, align 1, !tbaa !51
   ret void

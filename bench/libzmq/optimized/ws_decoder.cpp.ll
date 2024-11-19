@@ -48,7 +48,7 @@ $_ZTVN3zmq14decoder_base_tINS_12ws_decoder_tENS_31shared_message_memory_allocato
 @_ZN3zmq12ws_decoder_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq12ws_decoder_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq12ws_decoder_tC2Emlbb(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 40)) %this, i64 noundef %bufsize_, i64 noundef %maxmsgsize_, i1 noundef zeroext %zero_copy_, i1 noundef zeroext %must_mask_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq12ws_decoder_tC2Emlbb(ptr noundef nonnull align 8 dereferenceable(208) %this, i64 noundef %bufsize_, i64 noundef %maxmsgsize_, i1 noundef zeroext %zero_copy_, i1 noundef zeroext %must_mask_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12ws_decoder_tENS_31shared_message_memory_allocatorEEE, i64 16), ptr %this, align 8
   %_next.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -351,7 +351,7 @@ return:                                           ; preds = %if.end23, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t10mask_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) initializes((204, 208)) %this, ptr noundef %read_from_) #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t10mask_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
 entry:
   %_mask = getelementptr inbounds i8, ptr %this, i64 204
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
@@ -565,7 +565,7 @@ return:                                           ; preds = %if.end67, %do.end65
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t16short_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) initializes((192, 200)) %this, ptr noundef %read_from_) #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t16short_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
 entry:
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i8, ptr %_tmpbuf, align 8
@@ -624,7 +624,7 @@ return:                                           ; preds = %if.then, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t15long_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) initializes((192, 200)) %this, ptr noundef %read_from_) #0 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN3zmq12ws_decoder_t15long_size_readyEPKh(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %read_from_) #0 align 2 {
 entry:
   %_tmpbuf = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i8, ptr %_tmpbuf, align 8

@@ -914,7 +914,7 @@ define internal void @header_fields_header_name_set_cb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @header_fields_header_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @header_fields_header_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -950,7 +950,7 @@ define internal void @header_fields_header_desc_set_cb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @header_fields_header_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @header_fields_header_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1366,7 +1366,7 @@ declare void @prefs_register_range_preference(ptr noundef, ptr noundef, ptr noun
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #14
   store ptr %5, ptr %0, align 8
@@ -1379,7 +1379,7 @@ define internal noundef ptr @header_fields_copy_cb(ptr noundef returned writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @header_fields_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @header_fields_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -2437,7 +2437,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_http_conversation_data(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc ptr @get_http_conversation_data(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call nonnull ptr @find_or_create_conversation(ptr noundef %0) #14
   store ptr %3, ptr %1, align 8
   %4 = load i32, ptr @proto_http, align 4
@@ -6359,7 +6359,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare noalias ptr @wmem_strndup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_address_wmem(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 24)) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @copy_address_wmem(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = load i32, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4

@@ -3024,7 +3024,7 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_ble6router9BleRouter18create_self_handle17hce34c559482769d0E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [824 x i8], i8, [7 x i8] }) align 8 dereferenceable(848) initializes((0, 16), (840, 841)) %0, ptr noalias noundef readonly align 8 dereferenceable(328) %1, ptr noalias noundef readonly align 8 dereferenceable(240) %2) unnamed_addr #4 {
+define void @_ZN19ockam_transport_ble6router9BleRouter18create_self_handle17hce34c559482769d0E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [824 x i8], i8, [7 x i8] }) align 8 dereferenceable(848) %0, ptr noalias noundef readonly align 8 dereferenceable(328) %1, ptr noalias noundef readonly align 8 dereferenceable(240) %2) unnamed_addr #4 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -3034,7 +3034,7 @@ define void @_ZN19ockam_transport_ble6router9BleRouter18create_self_handle17hce3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_ble6router9BleRouter8register17h5a3b13aa13f3f72aE(ptr noalias nocapture noundef writeonly sret({ [84 x i64], ptr, [5 x i8], i8, [1922 x i8] }) align 8 dereferenceable(2608) initializes((672, 680), (685, 686)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1) unnamed_addr #4 {
+define void @_ZN19ockam_transport_ble6router9BleRouter8register17h5a3b13aa13f3f72aE(ptr noalias nocapture noundef writeonly sret({ [84 x i64], ptr, [5 x i8], i8, [1922 x i8] }) align 8 dereferenceable(2608) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 672
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 685

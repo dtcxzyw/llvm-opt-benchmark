@@ -7742,7 +7742,7 @@ declare void @_ZN13MethodHandles24clean_dependency_contextEP7oopDesc(ptr noundef
 declare void @_ZN13InstanceKlass24clean_dependency_contextEv(ptr noundef nonnull align 8 dereferenceable(464)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7nmethod20post_compiled_methodEP11CompileTask(ptr noundef nonnull align 8 dereferenceable(214) %0, ptr nocapture noundef initializes((37, 38), (40, 52)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7nmethod20post_compiled_methodEP11CompileTask(ptr noundef nonnull align 8 dereferenceable(214) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 37
   store i8 1, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 40

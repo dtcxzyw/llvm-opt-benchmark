@@ -117,7 +117,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_Z11rebase_tent6TripleS_15TripleDistances(ptr noalias nocapture writeonly sret(%struct.hb_vector_t) align 8 initializes((0, 16)) %agg.result, <2 x float> %tent.coerce0, float %tent.coerce1, <2 x float> %axisLimit.coerce0, float %axisLimit.coerce1, <2 x float> %axis_triple_distances.coerce) local_unnamed_addr #3 {
+define hidden void @_Z11rebase_tent6TripleS_15TripleDistances(ptr noalias nocapture writeonly sret(%struct.hb_vector_t) align 8 %agg.result, <2 x float> %tent.coerce0, float %tent.coerce1, <2 x float> %axisLimit.coerce0, float %axisLimit.coerce1, <2 x float> %axis_triple_distances.coerce) local_unnamed_addr #3 {
 entry:
   %retval.i.i = alloca %struct.hb_pair_t, align 8
   %axisLimit = alloca %struct.Triple, align 8

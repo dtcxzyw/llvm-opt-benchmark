@@ -82,7 +82,7 @@ entry:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12crc_internal9CrcMemcpy13GetTestEngineEii(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl12crc_internal9CrcMemcpy13GetTestEngineEii(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN4absl12crc_internal23FallbackCrcMemcpyEngineESt14default_deleteIS2_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #6, !noalias !7
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12crc_internal23FallbackCrcMemcpyEngineE, i64 16), ptr %call.i, align 8, !noalias !7

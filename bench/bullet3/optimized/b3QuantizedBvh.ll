@@ -37,7 +37,7 @@ $_ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeE7reserveEi = comdat any
 @_ZN14b3QuantizedBvhC1ERS_b = dso_local unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN14b3QuantizedBvhC2ERS_b
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14b3QuantizedBvhC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(252) initializes((0, 8), (16, 48), (64, 68), (72, 73), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (208, 212), (220, 228), (232, 241), (248, 252)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14b3QuantizedBvhC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(252) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   store ptr getelementptr inbounds (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %this, align 16
   %m_bulletVersion = getelementptr inbounds i8, ptr %this, i64 64
@@ -110,7 +110,7 @@ invoke.cont7:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14b3QuantizedBvh13buildInternalEv(ptr noundef nonnull align 16 dereferenceable(252) initializes((72, 73)) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh13buildInternalEv(ptr noundef nonnull align 16 dereferenceable(252) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_useQuantization = getelementptr inbounds i8, ptr %this, i64 72
   store i8 1, ptr %m_useQuantization, align 8
@@ -561,7 +561,7 @@ return:                                           ; preds = %if.else.i92, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14b3QuantizedBvh21setQuantizationValuesERK9b3Vector3S2_f(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(252) initializes((16, 64), (72, 73)) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %bvhAabbMin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %bvhAabbMax, float noundef %quantizationMargin) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN14b3QuantizedBvh21setQuantizationValuesERK9b3Vector3S2_f(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(252) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %bvhAabbMin, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %bvhAabbMax, float noundef %quantizationMargin) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load float, ptr %bvhAabbMin, align 16
   %sub.i = fsub float %0, %quantizationMargin
@@ -615,7 +615,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14b3QuantizedBvhD2Ev(ptr nocapture noundef nonnull align 16 dereferenceable(252) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14b3QuantizedBvhD2Ev(ptr nocapture noundef nonnull align 16 dereferenceable(252) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %this, align 16
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -772,7 +772,7 @@ _ZN20b3AlignedObjectArrayI18b3OptimizedBvhNodeED2Ev.exit42: ; preds = %_ZN20b3Al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14b3QuantizedBvhD0Ev(ptr noundef nonnull align 16 dereferenceable(252) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14b3QuantizedBvhD0Ev(ptr noundef nonnull align 16 dereferenceable(252) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN14b3QuantizedBvhD2Ev(ptr noundef nonnull align 16 dereferenceable(252) %this) #20
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %this)
@@ -3286,7 +3286,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK14b3QuantizedBvh9serializeEPvjb(ptr nocapture noundef nonnull align 16 dereferenceable(252) initializes((248, 252)) %this, ptr noundef initializes((0, 8), (16, 48), (64, 73), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (208, 212), (220, 228), (232, 241), (248, 252)) %o_alignedDataBuffer, i32 %0, i1 noundef zeroext %i_swapEndian) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK14b3QuantizedBvh9serializeEPvjb(ptr nocapture noundef nonnull align 16 dereferenceable(252) %this, ptr noundef %o_alignedDataBuffer, i32 %0, i1 noundef zeroext %i_swapEndian) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 220
   %1 = load i32, ptr %m_size.i, align 4
@@ -4450,7 +4450,7 @@ return:                                           ; preds = %for.body124, %for.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14b3QuantizedBvhC2ERS_b(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(252) initializes((0, 8), (16, 68), (84, 92), (96, 105), (116, 124), (128, 137), (148, 156), (160, 169), (180, 188), (192, 201), (220, 228), (232, 241)) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %self, i1 zeroext %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14b3QuantizedBvhC2ERS_b(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(252) %this, ptr nocapture noundef nonnull readonly align 16 dereferenceable(252) %self, i1 zeroext %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont10:
   store ptr getelementptr inbounds (i8, ptr @_ZTV14b3QuantizedBvh, i64 16), ptr %this, align 16
   %m_bvhAabbMin = getelementptr inbounds i8, ptr %this, i64 16

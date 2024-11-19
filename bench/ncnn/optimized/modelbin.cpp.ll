@@ -39,7 +39,7 @@ $__clang_call_terminate = comdat any
 @_ZN4ncnn20ModelBinFromMatArrayC1ERKS0_ = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN4ncnn20ModelBinFromMatArrayC2ERKS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn8ModelBinC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN4ncnn8ModelBinC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4ncnn8ModelBinE, i64 16), ptr %0, align 8
   ret void
 }
@@ -59,7 +59,7 @@ define hidden void @_ZN4ncnn8ModelBinD0Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK4ncnn8ModelBin4loadEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ncnn::Mat") align 8 initializes((0, 28), (32, 60), (64, 72)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i32 %3) unnamed_addr #0 align 2 {
+define hidden void @_ZNK4ncnn8ModelBin4loadEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ncnn::Mat") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i32 %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 0, ptr %6, align 8
@@ -587,7 +587,7 @@ define hidden void @_ZNK4ncnn8ModelBin4loadEiiiii(ptr dead_on_unwind noalias wri
 declare void @_ZNK4ncnn3Mat7reshapeEiiiiPNS_9AllocatorE(ptr dead_on_unwind writable sret(%"class.ncnn::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn22ModelBinFromDataReaderC2ERKNS_10DataReaderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn22ModelBinFromDataReaderC2ERKNS_10DataReaderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4ncnn22ModelBinFromDataReaderE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -600,7 +600,7 @@ define hidden void @_ZN4ncnn22ModelBinFromDataReaderC2ERKNS_10DataReaderE(ptr no
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn22ModelBinFromDataReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN4ncnn22ModelBinFromDataReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4ncnn22ModelBinFromDataReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -616,7 +616,7 @@ define hidden void @_ZN4ncnn22ModelBinFromDataReaderD2Ev(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn22ModelBinFromDataReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN4ncnn22ModelBinFromDataReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4ncnn22ModelBinFromDataReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -633,7 +633,7 @@ _ZN4ncnn22ModelBinFromDataReaderD2Ev.exit:        ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn22ModelBinFromDataReaderC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN4ncnn22ModelBinFromDataReaderC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4ncnn22ModelBinFromDataReaderE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -2345,7 +2345,7 @@ declare void @_ZN4ncnn3Mat6createEimPNS_9AllocatorE(ptr noundef nonnull align 8 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn20ModelBinFromMatArrayC2EPKNS_3MatE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn20ModelBinFromMatArrayC2EPKNS_3MatE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4ncnn20ModelBinFromMatArrayE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2355,7 +2355,7 @@ define hidden void @_ZN4ncnn20ModelBinFromMatArrayC2EPKNS_3MatE(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn20ModelBinFromMatArrayD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN4ncnn20ModelBinFromMatArrayD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4ncnn20ModelBinFromMatArrayE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -2371,7 +2371,7 @@ define hidden void @_ZN4ncnn20ModelBinFromMatArrayD2Ev(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn20ModelBinFromMatArrayD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN4ncnn20ModelBinFromMatArrayD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4ncnn20ModelBinFromMatArrayE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -2388,7 +2388,7 @@ _ZN4ncnn20ModelBinFromMatArrayD2Ev.exit:          ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn20ModelBinFromMatArrayC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN4ncnn20ModelBinFromMatArrayC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4ncnn20ModelBinFromMatArrayE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -2401,7 +2401,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4ncnn20ModelBi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK4ncnn20ModelBinFromMatArray4loadEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ncnn::Mat") align 8 initializes((0, 28), (32, 60), (64, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 %2, i32 %3) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4ncnn20ModelBinFromMatArray4loadEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.ncnn::Mat") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 %2, i32 %3) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8

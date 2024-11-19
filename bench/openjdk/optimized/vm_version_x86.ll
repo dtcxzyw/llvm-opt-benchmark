@@ -7984,7 +7984,7 @@ define hidden noundef ptr @_ZN10VM_Version16cpu_brand_stringEv() local_unnamed_a
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN10VM_Version25cpu_extended_brand_stringEPcm(ptr nocapture noundef writeonly initializes((0, 48)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN10VM_Version25cpu_extended_brand_stringEPcm(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = load ptr, ptr @_ZL24getCPUIDBrandString_stub, align 8
   tail call void %3(ptr noundef nonnull @_ZN10VM_Version11_cpuid_infoE) #14
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN10VM_Version11_cpuid_infoE, i64 152), align 8

@@ -764,7 +764,7 @@ return:                                           ; preds = %return.sink.split, 
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf10ReflectionC2EPKNS0_10DescriptorERKNS0_8internal16ReflectionSchemaEPKNS0_14DescriptorPoolEPNS0_14MessageFactoryE(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 112)) %this, ptr noundef %descriptor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %schema, ptr noundef %pool, ptr noundef %factory) unnamed_addr #4 align 2 {
+define void @_ZN6google8protobuf10ReflectionC2EPKNS0_10DescriptorERKNS0_8internal16ReflectionSchemaEPKNS0_14DescriptorPoolEPNS0_14MessageFactoryE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %descriptor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %schema, ptr noundef %pool, ptr noundef %factory) unnamed_addr #4 align 2 {
 entry:
   store ptr %descriptor, ptr %this, align 8
   %schema_ = getelementptr inbounds i8, ptr %this, i64 8

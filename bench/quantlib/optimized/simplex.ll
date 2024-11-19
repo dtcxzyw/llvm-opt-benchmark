@@ -1139,7 +1139,7 @@ unreachable:                                      ; preds = %invoke.cont24
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8QuantLib7Simplex8minimizeERNS_7ProblemERKNS_11EndCriteriaE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((32, 56)) %P, ptr noundef nonnull align 8 dereferenceable(40) %endCriteria) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8QuantLib7Simplex8minimizeERNS_7ProblemERKNS_11EndCriteriaE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %P, ptr noundef nonnull align 8 dereferenceable(40) %endCriteria) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %center.i = alloca %"class.QuantLib::Array", align 8
   %temp.i = alloca %"class.QuantLib::Array", align 8

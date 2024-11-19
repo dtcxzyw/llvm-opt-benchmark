@@ -208,7 +208,7 @@ $_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group = comdat any
 @_ZN3re216CharClassBuilderC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3re216CharClassBuilderC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3re26RegexpC2ENS_8RegexpOpENS0_10ParseFlagsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, i32 noundef %op, i32 noundef %parse_flags) unnamed_addr #0 align 2 {
+define void @_ZN3re26RegexpC2ENS_8RegexpOpENS0_10ParseFlagsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %op, i32 noundef %parse_flags) unnamed_addr #0 align 2 {
 entry:
   %conv = trunc i32 %op to i8
   store i8 %conv, ptr %this, align 8
@@ -2675,7 +2675,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3re212RegexpStatus4CopyERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %status) local_unnamed_addr #12 align 2 {
+define void @_ZN3re212RegexpStatus4CopyERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %status) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i32, ptr %status, align 8
   store i32 %0, ptr %this, align 8
@@ -3093,7 +3093,7 @@ declare noundef i32 @_ZN3re210runetocharEPcPKi(ptr noundef, ptr noundef) local_u
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re26Regexp14RequiredPrefixEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPbPPS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull %prefix, ptr nocapture noundef writeonly initializes((0, 1)) %foldcase, ptr nocapture noundef writeonly initializes((0, 8)) %suffix) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3re26Regexp14RequiredPrefixEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPbPPS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef nonnull %prefix, ptr nocapture noundef writeonly %foldcase, ptr nocapture noundef writeonly %suffix) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %prefix) #26
   store i8 0, ptr %foldcase, align 1
@@ -3235,7 +3235,7 @@ return:                                           ; preds = %while.body, %while.
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3re26Regexp22RequiredPrefixForAccelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %prefix, ptr nocapture noundef writeonly initializes((0, 1)) %foldcase) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN3re26Regexp22RequiredPrefixForAccelEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %prefix, ptr nocapture noundef writeonly %foldcase) local_unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %prefix) #26
   store i8 0, ptr %foldcase, align 1
@@ -3333,7 +3333,7 @@ return:                                           ; preds = %while.cond, %cond.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3re216CharClassBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((24, 28), (32, 40)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re216CharClassBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %0, align 8

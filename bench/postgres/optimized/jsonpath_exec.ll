@@ -748,7 +748,7 @@ countVariablesFromJsonb.exit:                     ; preds = %40, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @getJsonPathVariableFromJsonb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #0 {
+define internal ptr @getJsonPathVariableFromJsonb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca %struct.JsonbValue, align 8
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8

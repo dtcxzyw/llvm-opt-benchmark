@@ -60166,7 +60166,7 @@ define void @_Z38ScaleTextureCoordinatesToParameterAreaR4MeshSt10shared_ptrI13Te
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z5UVBoxRK4Mesh(ptr dead_on_unwind noalias nocapture writable sret(%"class.vcg::Box2") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(808) %1) local_unnamed_addr #27 {
+define void @_Z5UVBoxRK4Mesh(ptr dead_on_unwind noalias nocapture writable sret(%"class.vcg::Box2") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(808) %1) local_unnamed_addr #27 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store double 1.000000e+00, ptr %0, align 8
   store double -1.000000e+00, ptr %3, align 8
@@ -60260,7 +60260,7 @@ _ZN3vcg4Box2IdE3AddERKNS_6Point2IdEE.exit:        ; preds = %20, %34, %36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z11UVBoxVertexRK4Mesh(ptr dead_on_unwind noalias nocapture writable sret(%"class.vcg::Box2") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(808) %1) local_unnamed_addr #27 {
+define void @_Z11UVBoxVertexRK4Mesh(ptr dead_on_unwind noalias nocapture writable sret(%"class.vcg::Box2") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(808) %1) local_unnamed_addr #27 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store double 1.000000e+00, ptr %0, align 8
   store double -1.000000e+00, ptr %3, align 8

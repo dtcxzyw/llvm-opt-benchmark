@@ -761,7 +761,7 @@ WPACKET_init_len.exit:                            ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_init_null(ptr nocapture noundef initializes((0, 48)) %pkt, i64 noundef %lenbytes) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_init_null(ptr nocapture noundef %pkt, i64 noundef %lenbytes) local_unnamed_addr #0 {
 entry:
   %0 = add i64 %lenbytes, -8
   %or.cond.i = icmp ult i64 %0, -7
@@ -788,7 +788,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @WPACKET_init_null_der(ptr nocapture noundef initializes((0, 48)) %pkt) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @WPACKET_init_null_der(ptr nocapture noundef %pkt) local_unnamed_addr #0 {
 entry:
   %maxsize = getelementptr inbounds i8, ptr %pkt, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pkt, i8 0, i64 16, i1 false)

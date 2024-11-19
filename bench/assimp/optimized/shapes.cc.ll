@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3p2t8TriangleC2ERNS_5PointES2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((0, 6), (8, 57)) %this, ptr noundef nonnull align 8 dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %b, ptr noundef nonnull align 8 dereferenceable(40) %c) unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t8TriangleC2ERNS_5PointES2_S2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(40) %a, ptr noundef nonnull align 8 dereferenceable(40) %b, ptr noundef nonnull align 8 dereferenceable(40) %c) unnamed_addr #3 align 2 {
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %a, ptr %points_, align 8
@@ -327,7 +327,7 @@ if.end13:                                         ; preds = %if.then7, %if.else1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3p2t8Triangle14ClearNeighborsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((32, 56)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t8Triangle14ClearNeighborsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
 entry:
   %neighbors_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %neighbors_, i8 0, i64 24, i1 false)
@@ -335,7 +335,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((3, 6)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3p2t8Triangle17ClearDelunayEdgesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) %this) local_unnamed_addr #3 align 2 {
 entry:
   %delaunay_edge = getelementptr inbounds i8, ptr %this, i64 3
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 5
@@ -434,7 +434,7 @@ return:                                           ; preds = %if.else10, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3p2t8Triangle8LegalizeERNS_5PointE(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %point) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3p2t8Triangle8LegalizeERNS_5PointE(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr noundef nonnull align 8 dereferenceable(40) %point) local_unnamed_addr #4 align 2 {
 entry:
   %points_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %points_, align 8

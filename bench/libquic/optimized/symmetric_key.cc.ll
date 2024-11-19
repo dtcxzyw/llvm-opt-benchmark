@@ -26,7 +26,7 @@ $__clang_call_terminate = comdat any
 @_ZN6crypto12SymmetricKeyC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6crypto12SymmetricKeyC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6crypto12SymmetricKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6crypto12SymmetricKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6crypto12SymmetricKeyE, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -71,7 +71,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #3
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6crypto12SymmetricKeyD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6crypto12SymmetricKeyD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6crypto12SymmetricKeyE, i64 16), ptr %this, align 8
   %key_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -313,7 +313,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6crypto12SymmetricKey6ImportENS0_9AlgorithmERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, i32 noundef %algorithm, ptr noundef nonnull align 8 dereferenceable(32) %raw_key) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6crypto12SymmetricKey6ImportENS0_9AlgorithmERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i32 noundef %algorithm, ptr noundef nonnull align 8 dereferenceable(32) %raw_key) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i32 %algorithm, 0
   br i1 %cmp, label %if.then, label %if.end5
@@ -369,7 +369,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6crypto12SymmetricKeyC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN6crypto12SymmetricKeyC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6crypto12SymmetricKeyE, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds i8, ptr %this, i64 8

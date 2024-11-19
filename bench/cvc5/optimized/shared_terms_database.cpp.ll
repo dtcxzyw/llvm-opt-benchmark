@@ -1065,7 +1065,7 @@ terminate.lpad:                                   ; preds = %entry
 declare void @_ZN4cvc57context16ContextNotifyObjD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal19SharedTermsDatabase17setEqualityEngineEPNS0_6theory2eq14EqualityEngineE(ptr nocapture noundef nonnull align 8 dereferenceable(592) initializes((552, 560)) %this, ptr noundef %ee) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal19SharedTermsDatabase17setEqualityEngineEPNS0_6theory2eq14EqualityEngineE(ptr nocapture noundef nonnull align 8 dereferenceable(592) %this, ptr noundef %ee) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_equalityEngine = getelementptr inbounds i8, ptr %this, i64 552
   store ptr %ee, ptr %d_equalityEngine, align 8
@@ -1127,7 +1127,7 @@ declare noundef ptr @_ZN4cvc58internal6theory2eq14EqualityEngine22getProofEquali
 declare void @_ZN4cvc58internal6theory2eq14EqualityEngine22setProofEqualityEngineEPNS2_13ProofEqEngineE(ptr noundef nonnull align 8 dereferenceable(1784), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal19SharedTermsDatabase19needsEqualityEngineERNS0_6theory11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %esi) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal19SharedTermsDatabase19needsEqualityEngineERNS0_6theory11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(592) %this, ptr noundef nonnull align 8 dereferenceable(45) %esi) local_unnamed_addr #3 align 2 {
 entry:
   %d_EENotify = getelementptr inbounds i8, ptr %this, i64 456
   store ptr %d_EENotify, ptr %esi, align 8

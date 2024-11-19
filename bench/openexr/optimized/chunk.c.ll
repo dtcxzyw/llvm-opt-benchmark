@@ -454,7 +454,7 @@ return:                                           ; preds = %if.end268, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @extract_chunk_table(ptr noundef nonnull %ctxt, ptr noundef %part, ptr nocapture noundef nonnull writeonly %chunktable, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %chunkminoffset) unnamed_addr #0 {
+define internal fastcc i32 @extract_chunk_table(ptr noundef nonnull %ctxt, ptr noundef %part, ptr nocapture noundef nonnull writeonly %chunktable, ptr nocapture noundef nonnull writeonly %chunkminoffset) unnamed_addr #0 {
 entry:
   %chunkoff = alloca i64, align 8
   %nread = alloca i64, align 8

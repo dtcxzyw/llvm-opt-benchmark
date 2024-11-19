@@ -672,7 +672,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13IsdaCdsEngineC2ENS_6HandleINS_31DefaultProbabilityTermStructureEEEdNS1_INS_18YieldTermStructureEEERKN5boost8optionalIbEENS0_12NumericalFixENS0_11AccrualBiasENS0_22ForwardsInCouponPeriodE(ptr noundef nonnull align 8 dereferenceable(456) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %probability, double noundef %recoveryRate, ptr nocapture noundef %discountCurve, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %includeSettlementDateFlows, i32 noundef %numericalFix, i32 noundef %accrualBias, i32 noundef %forwardsInCouponPeriod) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13IsdaCdsEngineC2ENS_6HandleINS_31DefaultProbabilityTermStructureEEEdNS1_INS_18YieldTermStructureEEERKN5boost8optionalIbEENS0_12NumericalFixENS0_11AccrualBiasENS0_22ForwardsInCouponPeriodE(ptr noundef nonnull align 8 dereferenceable(456) %this, ptr nocapture noundef %probability, double noundef %recoveryRate, ptr nocapture noundef %discountCurve, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %includeSettlementDateFlows, i32 noundef %numericalFix, i32 noundef %accrualBias, i32 noundef %forwardsInCouponPeriod) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp7 = alloca %"class.boost::shared_ptr", align 8

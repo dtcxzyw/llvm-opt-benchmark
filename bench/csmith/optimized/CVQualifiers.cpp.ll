@@ -119,7 +119,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12CVQualifiersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 10), (16, 28), (32, 44), (48, 68), (72, 84), (88, 96)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12CVQualifiersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
@@ -145,7 +145,7 @@ define dso_local void @_ZN12CVQualifiersC2Ev(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12CVQualifiersC2Ebb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 10), (16, 28), (32, 44), (48, 68), (72, 84), (88, 96)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12CVQualifiersC2Ebb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i1 %1 to i8
   %5 = zext i1 %2 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
@@ -173,7 +173,7 @@ define dso_local void @_ZN12CVQualifiersC2Ebb(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12CVQualifiersC2ERKSt6vectorIbSaIbEES4_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12CVQualifiersC2ERKSt6vectorIbSaIbEES4_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %4, align 8
@@ -359,7 +359,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12CVQualifiersC2ERKS_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12CVQualifiersC2ERKS_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -390,7 +390,7 @@ define dso_local void @_ZN12CVQualifiersC2ERKS_(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12CVQualifiersD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12CVQualifiersD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -448,7 +448,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit5:                   ; preds = %_ZNSt6vectorIbSaIbE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12CVQualifiersD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12CVQualifiersD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -1195,7 +1195,7 @@ _ZN12CVQualifiersD2Ev.exit:                       ; preds = %55, %_ZNSt6vectorIb
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK12CVQualifiers19indirect_qualifiersEi(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK12CVQualifiers19indirect_qualifiersEi(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq i32 %2, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 8
   %.pre = load i8, ptr %.phi.trans.insert, align 8
@@ -4585,7 +4585,7 @@ _ZNSt6vectorIbSaIbEE9push_backEb.exit6:           ; preds = %35, %38, %42
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK12CVQualifiers21random_add_qualifiersEb(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK12CVQualifiers21random_add_qualifiersEb(ptr dead_on_unwind noalias writable sret(%class.CVQualifiers) align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12CVQualifiers, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

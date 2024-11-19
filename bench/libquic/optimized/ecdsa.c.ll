@@ -35,7 +35,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ECDSA_sign_ex(i32 %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr nocapture noundef writeonly initializes((0, 4)) %sig_len, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ECDSA_sign_ex(i32 %type, ptr noundef %digest, i64 noundef %digest_len, ptr noundef %sig, ptr nocapture noundef writeonly %sig_len, ptr noundef %kinv, ptr noundef %r, ptr noundef %eckey) local_unnamed_addr #0 {
 entry:
   %cbb = alloca %struct.cbb_st, align 8
   %len = alloca i64, align 8

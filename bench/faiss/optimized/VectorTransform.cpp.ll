@@ -5998,7 +5998,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss15LinearTransformC2Eiib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((0, 19), (24, 73)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #15 align 2 {
+define void @_ZN5faiss15LinearTransformC2Eiib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #15 align 2 {
   %5 = zext i1 %3 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8
@@ -6658,7 +6658,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIf
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #19
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss9PCAMatrixC2Eiifb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((0, 19), (24, 73), (76, 85), (88, 100), (104, 176)) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i1 noundef zeroext %4) unnamed_addr #15 align 2 {
+define void @_ZN5faiss9PCAMatrixC2Eiifb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %0, i32 noundef %1, i32 noundef %2, float noundef %3, i1 noundef zeroext %4) unnamed_addr #15 align 2 {
   %6 = zext i1 %4 to i8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %7, align 8
@@ -7900,7 +7900,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #21
 declare float @llvm.fmuladd.f32(float, float, float) #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss9ITQMatrixC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 19), (24, 73), (76, 84), (88, 112)) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define void @_ZN5faiss9ITQMatrixC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, i32 noundef %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -7928,7 +7928,7 @@ declare i32 @dgemm_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @dgesvd_(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss12ITQTransformC2Eiib(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 17), (24, 49)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss12ITQTransformC2Eiib(ptr noundef nonnull align 8 dereferenceable(256) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = zext i1 %3 to i8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8038,7 +8038,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %40, %42
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss9OPQMatrixC2Eiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 19), (24, 73), (76, 92), (96, 105), (112, 120)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #15 align 2 {
+define void @_ZN5faiss9OPQMatrixC2Eiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #15 align 2 {
   %5 = icmp eq i32 %3, -1
   %6 = select i1 %5, i32 %1, i32 %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8128,7 +8128,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit6:                   ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss22NormalizationTransformC2Eif(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 17), (20, 24)) %0, i32 noundef %1, float noundef %2) unnamed_addr #15 align 2 {
+define void @_ZN5faiss22NormalizationTransformC2Eif(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1, float noundef %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -8142,7 +8142,7 @@ define void @_ZN5faiss22NormalizationTransformC2Eif(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss22NormalizationTransformC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 17), (20, 24)) %0) unnamed_addr #15 align 2 {
+define void @_ZN5faiss22NormalizationTransformC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -8156,7 +8156,7 @@ define void @_ZN5faiss22NormalizationTransformC2Ev(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss18CenteringTransformC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 17), (24, 48)) %0, i32 noundef %1) unnamed_addr #15 align 2 {
+define void @_ZN5faiss18CenteringTransformC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -8170,7 +8170,7 @@ define void @_ZN5faiss18CenteringTransformC2Ei(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss24RemapDimensionsTransformC2EiiPKi(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 17), (24, 48)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss24RemapDimensionsTransformC2EiiPKi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8
@@ -8385,7 +8385,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit35: ; preds = %_ZNSt6vectorIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss24RemapDimensionsTransformC2Eiib(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 17), (24, 48)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss24RemapDimensionsTransformC2Eiib(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8

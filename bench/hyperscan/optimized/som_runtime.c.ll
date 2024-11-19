@@ -2766,7 +2766,7 @@ return:                                           ; preds = %if.end.i4715, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @runRevNfa(ptr nocapture noundef readonly %scratch, i64 %ri.8.val, i64 noundef %to_offset, ptr noundef nonnull initializes((0, 8)) %from_offset) unnamed_addr #0 {
+define internal fastcc void @runRevNfa(ptr nocapture noundef readonly %scratch, i64 %ri.8.val, i64 noundef %to_offset, ptr noundef nonnull %from_offset) unnamed_addr #0 {
 entry:
   %rose = getelementptr inbounds i8, ptr %scratch, i64 248
   %0 = load ptr, ptr %rose, align 8

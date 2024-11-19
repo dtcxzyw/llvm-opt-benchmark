@@ -329,7 +329,7 @@ declare dso_local i64 @schedule_timeout(i64 noundef) local_unnamed_addr #1
 declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @tty_termios_copy_hw(ptr nocapture noundef initializes((36, 44)) %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define dso_local void @tty_termios_copy_hw(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 3200

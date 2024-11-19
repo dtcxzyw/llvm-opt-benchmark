@@ -3651,7 +3651,7 @@ invoke.cont39:                                    ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_140CordRepBtreeNavigatorTest_InitFirst_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_140CordRepBtreeNavigatorTest_InitFirst_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3692,7 +3692,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_140CordRepBtreeNavigatorTest_InitFirst_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_140CordRepBtreeNavigatorTest_InitFirst_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -4207,7 +4207,7 @@ eh.resume:                                        ; preds = %lpad95, %_ZN7testin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_140CordRepBtreeNavigatorTest_InitFirst_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_140CordRepBtreeNavigatorTest_InitFirst_TestD1Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -4248,7 +4248,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_140CordRepBtreeNavigatorTest_InitFirst_TestD
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_140CordRepBtreeNavigatorTest_InitFirst_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_140CordRepBtreeNavigatorTest_InitFirst_TestD0Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -4606,7 +4606,7 @@ for.end:                                          ; preds = %_ZN4absl13cord_inte
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -4654,7 +4654,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD1Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -6075,7 +6075,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_InitLast_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_InitLast_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -6116,7 +6116,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_InitLast_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_InitLast_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -6637,7 +6637,7 @@ eh.resume:                                        ; preds = %lpad95, %_ZN7testin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_InitLast_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_InitLast_TestD1Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -6678,7 +6678,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_InitLast_TestD2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_InitLast_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_InitLast_TestD0Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -6778,7 +6778,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_NextPrev_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_NextPrev_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -6819,7 +6819,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_NextPrev_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_NextPrev_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -8373,7 +8373,7 @@ eh.resume:                                        ; preds = %lpad283, %_ZN7testi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_NextPrev_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_NextPrev_TestD1Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -8414,7 +8414,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_NextPrev_TestD2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_NextPrev_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_NextPrev_TestD0Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -8862,7 +8862,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_PrevNext_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_PrevNext_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -8903,7 +8903,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_PrevNext_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_PrevNext_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -10465,7 +10465,7 @@ eh.resume:                                        ; preds = %lpad283, %_ZN7testi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_PrevNext_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_PrevNext_TestD1Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -10506,7 +10506,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_PrevNext_TestD2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_PrevNext_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_139CordRepBtreeNavigatorTest_PrevNext_TestD0Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -10790,7 +10790,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Skip_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Skip_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -10831,7 +10831,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Skip_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Skip_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -11928,7 +11928,7 @@ eh.resume:                                        ; preds = %lpad285, %_ZN7testi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Skip_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Skip_TestD1Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -11969,7 +11969,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Skip_TestD2Ev.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Skip_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Skip_TestD0Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -12843,7 +12843,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Seek_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Seek_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -12884,7 +12884,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Seek_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Seek_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -13812,7 +13812,7 @@ eh.resume:                                        ; preds = %lpad176, %_ZN7testi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Seek_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Seek_TestD1Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -13853,7 +13853,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Seek_TestD2Ev.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Seek_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Seek_TestD0Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -16200,7 +16200,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Read_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Read_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -16241,7 +16241,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Read_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -17105,7 +17105,7 @@ for.end202:                                       ; preds = %for.inc200, %_ZN7te
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Read_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Read_TestD1Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -17146,7 +17146,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Read_TestD2Ev.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Read_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_135CordRepBtreeNavigatorTest_Read_TestD0Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -18514,7 +18514,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_153CordRepBtreeNavigatorTest_ReadBeyondLengthOfTree_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_153CordRepBtreeNavigatorTest_ReadBeyondLengthOfTree_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -18555,7 +18555,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestD2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl13cord_internal12_GLOBAL__N_153CordRepBtreeNavigatorTest_ReadBeyondLengthOfTree_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl13cord_internal12_GLOBAL__N_153CordRepBtreeNavigatorTest_ReadBeyondLengthOfTree_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -18749,7 +18749,7 @@ ehcleanup14:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_153CordRepBtreeNavigatorTest_ReadBeyondLengthOfTree_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_153CordRepBtreeNavigatorTest_ReadBeyondLengthOfTree_TestD1Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -18790,7 +18790,7 @@ _ZN4absl13cord_internal12_GLOBAL__N_153CordRepBtreeNavigatorTest_ReadBeyondLengt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_153CordRepBtreeNavigatorTest_ReadBeyondLengthOfTree_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N4absl13cord_internal12_GLOBAL__N_153CordRepBtreeNavigatorTest_ReadBeyondLengthOfTree_TestD0Ev(ptr noundef %this) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestE, i64 16), ptr %0, align 8
@@ -20298,7 +20298,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @abort() local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestEEE, i64 16), ptr %this, align 8
   %instantiations_ = getelementptr inbounds i8, ptr %this, i64 104
@@ -20438,7 +20438,7 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN4abs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN4absl13cord_internal12_GLOBAL__N_125CordRepBtreeNavigatorTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32

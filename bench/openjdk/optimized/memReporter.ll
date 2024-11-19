@@ -85,7 +85,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN15MemReporterBaseC1EP12outputStreamm = hidden unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN15MemReporterBaseC2EP12outputStreamm
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15MemReporterBaseC2EP12outputStreamm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 25)) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15MemReporterBaseC2EP12outputStreamm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %2) unnamed_addr #0 align 2 {
   store i64 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8

@@ -1164,7 +1164,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @wmem_packet_scope() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @dissect_per_boolean(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((24, 32)) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
+define noundef i32 @dissect_per_boolean(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca [10 x i8], align 1
   %8 = lshr i32 %1, 3
   %9 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %8) #10
@@ -3989,7 +3989,7 @@ proto_item_set_hidden.exit61:                     ; preds = %37, %34, %31, %prot
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_per_normally_small_nonnegative_whole_number(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((24, 32)) %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_per_normally_small_nonnegative_whole_number(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = load i32, ptr @hf_per_small_number_bit, align 4

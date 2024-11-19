@@ -37,7 +37,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6BlocksC2EiPP8Variable(ptr noundef nonnull align 8 dereferenceable(60) initializes((8, 12), (16, 24)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6BlocksC2EiPP8Variable(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -374,7 +374,7 @@ _ZNSt7__cxx114listIP8VariableSaIS2_EED2Ev.exit:   ; preds = %.lr.ph.i.i.i, %30
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Blocks8dfsVisitEP8VariableRNSt7__cxx114listIS1_SaIS1_EEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(60) %0, ptr noundef initializes((40, 41)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Blocks8dfsVisitEP8VariableRNSt7__cxx114listIS1_SaIS1_EEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(60) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   store i8 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 72
@@ -417,7 +417,7 @@ define void @_ZN6Blocks8dfsVisitEP8VariableRNSt7__cxx114listIS1_SaIS1_EEE(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Blocks9mergeLeftEP5Block(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull initializes((56, 64)) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN6Blocks9mergeLeftEP5Block(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 {
   %3 = load i64, ptr @blockTimeCtr, align 8
   %4 = add nsw i64 %3, 1
   store i64 %4, ptr @blockTimeCtr, align 8
@@ -525,7 +525,7 @@ declare void @_ZN5Block5mergeEPS_P10Constraintd(ptr noundef nonnull align 8 dere
 declare void @_ZN5Block7mergeInEPS_(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Blocks11removeBlockEP5Block(ptr nocapture noundef nonnull readnone align 8 dereferenceable(60) %0, ptr nocapture noundef writeonly initializes((48, 49)) %1) local_unnamed_addr #7 align 2 {
+define void @_ZN6Blocks11removeBlockEP5Block(ptr nocapture noundef nonnull readnone align 8 dereferenceable(60) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   store i8 1, ptr %3, align 8
   ret void

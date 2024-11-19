@@ -9670,7 +9670,7 @@ declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6Env
 declare void @_ZN4cvc58internal16LazyCDProofChain11addLazyStepENS0_12NodeTemplateILb1EEEPNS0_14ProofGeneratorERKSt6vectorIS3_SaIS3_EEPKc(ptr noundef nonnull align 8 dereferenceable(424), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop15SatProofManager17storeUnitConflictENS0_7Minisat3LitE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1128) initializes((840, 848)) %this, i32 %inConflict.coerce) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal4prop15SatProofManager17storeUnitConflictENS0_7Minisat3LitE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1128) %this, i32 %inConflict.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call i64 @_ZN4cvc58internal4prop16MinisatSatSolver12toSatLiteralENS0_7Minisat3LitE(i32 %inConflict.coerce)
   %d_conflictLit = getelementptr inbounds i8, ptr %this, i64 840

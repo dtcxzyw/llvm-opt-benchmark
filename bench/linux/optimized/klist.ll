@@ -354,7 +354,7 @@ define dso_local range(i32 0, 2) i32 @klist_node_attached(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @klist_iter_init_node(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr noundef %2) #1 align 16 {
+define dso_local void @klist_iter_init_node(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #1 align 16 {
   store ptr %0, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %4, align 8
@@ -406,7 +406,7 @@ define dso_local void @klist_iter_init_node(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @klist_iter_init(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #5 align 16 {
+define dso_local void @klist_iter_init(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 align 16 {
   store ptr %0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %3, align 8

@@ -6764,7 +6764,7 @@ _ZN5clang19RecursiveASTVisitorIN12_GLOBAL__N_112ASTTransformEE40TraverseTemplate
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5arcmt21getAllTransformationsENS_15LangOptionsBase6GCModeEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.1370") align 8 initializes((8, 16)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define dso_local void @_ZN5clang5arcmt21getAllTransformationsENS_15LangOptionsBase6GCModeEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.1370") align 8 %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %4, align 8
   %5 = icmp eq i32 %1, 1

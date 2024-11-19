@@ -3495,7 +3495,7 @@ define hidden void @"_ZN81_$LT$std..collections..hash..map..DefaultHasher$u20$as
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c5e696b8b6e8aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 {
+define internal fastcc void @"_ZN99_$LT$regex_automata..meta..regex..FindMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8b9c5e696b8b6e8aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr readonly %.0.val, ptr readonly %.8.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 {
   %3 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %4 = icmp ne ptr %.0.val, null

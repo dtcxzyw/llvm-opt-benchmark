@@ -28,7 +28,7 @@ $_ZN4llvh22PrettyStackTraceFormatD0Ev = comdat any
 @_ZN4llvh22PrettyStackTraceFormatC1EPKcz = hidden unnamed_addr alias void (ptr, ptr, ...), ptr @_ZN4llvh22PrettyStackTraceFormatC2EPKcz
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh21PrettyStackTraceEntryE, i64 16), ptr %this, align 8
   ret void
@@ -110,7 +110,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit16:               ; preds = %if.then.i.i14, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh22PrettyStackTraceFormatC2EPKcz(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, ptr nocapture noundef readonly %Format, ...) unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh22PrettyStackTraceFormatC2EPKcz(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %Format, ...) unnamed_addr #4 align 2 {
 entry:
   %AP = alloca [1 x %struct.__va_list_tag], align 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i64 16), ptr %this, align 8

@@ -4392,7 +4392,7 @@ for.end32:                                        ; preds = %for.inc30, %invoke.
 declare noundef ptr @_ZN18OpenImageIO_v2_6_09ImageSpec14find_attributeENS_17basic_string_viewIcSt11char_traitsIcEEENS_8TypeDescEb(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_013OpenEXROutput14spec_to_headerERNS_9ImageSpecEiRN7Imf_2_56HeaderE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(160) initializes((65, 72)) %spec, i32 noundef %subimage, ptr noundef nonnull align 8 dereferenceable(49) %header) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_013OpenEXROutput14spec_to_headerERNS_9ImageSpecEiRN7Imf_2_56HeaderE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(160) %spec, i32 noundef %subimage, ptr noundef nonnull align 8 dereferenceable(49) %header) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i281 = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp1.i282 = alloca %"class.fmt::v8::format_arg_store.330", align 16
@@ -5845,7 +5845,7 @@ declare i64 @time(ptr noundef) local_unnamed_addr #1
 declare void @_ZN18OpenImageIO_v2_6_07Sysutil14get_local_timeEPKlP2tm(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_013OpenEXROutput10figure_mipERKNS_9ImageSpecERiS4_S4_(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %nmiplevels, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %levelmode, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %roundingmode) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_013OpenEXROutput10figure_mipERKNS_9ImageSpecERiS4_S4_(ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr nocapture noundef nonnull align 4 dereferenceable(4) %nmiplevels, ptr nocapture noundef nonnull align 4 dereferenceable(4) %levelmode, ptr nocapture noundef nonnull align 4 dereferenceable(4) %roundingmode) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

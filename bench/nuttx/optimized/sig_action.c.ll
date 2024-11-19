@@ -346,7 +346,7 @@ declare ptr @nxsig_default(ptr noundef, i32 noundef, i1 noundef zeroext) local_u
 declare ptr @sq_remafter(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @nxsig_release_action(ptr noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
+define void @nxsig_release_action(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #4, !srcloc !6

@@ -1343,7 +1343,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Gia_ManDeriveReprs(ptr nocapture noundef initializes((192, 200)) %0) local_unnamed_addr #10 {
+define void @Gia_ManDeriveReprs(ptr nocapture noundef %0) local_unnamed_addr #10 {
   %2 = getelementptr i8, ptr %0, i64 24
   %.val25 = load i32, ptr %2, align 8
   %3 = sext i32 %.val25 to i64
@@ -3660,7 +3660,7 @@ define void @Gia_ManEquivUpdatePointers(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManEquivDeriveReprs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((192, 200)) %2) local_unnamed_addr #0 {
+define void @Gia_ManEquivDeriveReprs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %2, i64 24
   %.val58 = load i32, ptr %4, align 8
   %5 = sext i32 %.val58 to i64
@@ -11350,7 +11350,7 @@ Gia_ObjIsHead.exit.thread:                        ; preds = %Gia_ObjIsHead.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManTransferEquivs(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((192, 200)) %1) local_unnamed_addr #0 {
+define void @Gia_ManTransferEquivs(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 24
   %.val45 = load i32, ptr %3, align 8
   %4 = sext i32 %.val45 to i64

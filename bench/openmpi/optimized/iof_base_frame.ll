@@ -287,7 +287,7 @@ declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @prte_iof_base_proc_construct(ptr nocapture noundef writeonly initializes((408, 432)) %0) #4 {
+define internal void @prte_iof_base_proc_construct(ptr nocapture noundef writeonly %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 408
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
@@ -647,7 +647,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @prte_iof_base_read_event_construct(ptr nocapture noundef writeonly initializes((120, 156), (158, 161), (168, 176)) %0) #0 {
+define internal void @prte_iof_base_read_event_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -847,7 +847,7 @@ pmix_obj_run_destructors.exit51:                  ; preds = %.lr.ph.i48, %72
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @prte_iof_base_write_event_construct(ptr noundef initializes((144, 146), (176, 180), (224, 236), (240, 304)) %0) #0 {
+define internal void @prte_iof_base_write_event_construct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 145
@@ -964,7 +964,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pdcon(ptr nocapture noundef writeonly initializes((384, 400)) %0) #4 {
+define internal void @pdcon(ptr nocapture noundef writeonly %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void

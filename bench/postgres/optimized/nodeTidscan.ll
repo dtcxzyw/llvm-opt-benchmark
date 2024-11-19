@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [35 x i8] c"could not identify CTID expression\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanTidScan(ptr noundef initializes((236, 244)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanTidScan(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

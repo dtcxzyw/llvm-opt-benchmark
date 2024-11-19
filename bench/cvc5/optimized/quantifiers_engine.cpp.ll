@@ -1125,7 +1125,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory17QuantifiersEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(356) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory17QuantifiersEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory17QuantifiersEngineE, i64 16), ptr %this, align 8
   %d_quants_red = getelementptr inbounds i8, ptr %this, i64 240
@@ -1218,7 +1218,7 @@ _ZNSt6vectorIPN4cvc58internal6theory15QuantifiersUtilESaIS4_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory17QuantifiersEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(356) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory17QuantifiersEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(356) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory17QuantifiersEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -1226,7 +1226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory17QuantifiersEngine10finishInitEPNS0_12TheoryEngineE(ptr noundef nonnull align 8 dereferenceable(356) initializes((32, 40)) %this, ptr noundef nonnull %te) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory17QuantifiersEngine10finishInitEPNS0_12TheoryEngineE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef nonnull %te) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_model = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %d_model, align 8
@@ -1399,7 +1399,7 @@ entry:
 declare noundef ptr @_ZNK4cvc58internal6theory11quantifiers12TermRegistry20getTermDatabaseSygusEv(ptr noundef nonnull align 8 dereferenceable(208)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory17QuantifiersEngine8presolveEv(ptr nocapture noundef nonnull align 8 dereferenceable(356) initializes((352, 356)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory17QuantifiersEngine8presolveEv(ptr nocapture noundef nonnull align 8 dereferenceable(356) %this) local_unnamed_addr #3 align 2 {
 cond.end:
   %d_numInstRoundsLemma = getelementptr inbounds i8, ptr %this, i64 352
   store i32 0, ptr %d_numInstRoundsLemma, align 8

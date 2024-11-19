@@ -3509,7 +3509,7 @@ _ZN4llvm8ExpectedIN5clang12FileEntryRefEED2Ev.exit: ; preds = %25, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ModuleMapC2ERNS_13SourceManagerERNS_17DiagnosticsEngineERKNS_11LangOptionsEPKNS_10TargetInfoERNS_12HeaderSearchE(ptr noundef nonnull align 8 dereferenceable(1344) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2, ptr noundef nonnull align 8 dereferenceable(841) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(2192) %5) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang9ModuleMapC2ERNS_13SourceManagerERNS_17DiagnosticsEngineERKNS_11LangOptionsEPKNS_10TargetInfoERNS_12HeaderSearchE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2, ptr noundef nonnull align 8 dereferenceable(841) %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(2192) %5) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -4564,7 +4564,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang9ModuleMap9setTargetERKNS_10TargetInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1344) initializes((24, 32)) %0, ptr noundef nonnull align 8 dereferenceable(489) %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN5clang9ModuleMap9setTargetERKNS_10TargetInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1344) %0, ptr noundef nonnull align 8 dereferenceable(489) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -10149,7 +10149,7 @@ define dso_local noundef nonnull ptr @_ZN5clang9ModuleMap33createModuleForImplem
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN5clang9ModuleMap16createHeaderUnitENS_14SourceLocationEN4llvm9StringRefENS_6Module6HeaderE(ptr noundef nonnull align 8 dereferenceable(1344) initializes((920, 928)) %0, i32 %1, ptr %2, i64 %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZN5clang9ModuleMap16createHeaderUnitENS_14SourceLocationEN4llvm9StringRefENS_6Module6HeaderE(ptr noundef nonnull align 8 dereferenceable(1344) %0, i32 %1, ptr %2, i64 %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"struct.clang::Module::Header", align 8
   %7 = tail call noalias noundef nonnull dereferenceable(2392) ptr @_Znwm(i64 noundef 2392) #23
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1088
@@ -12234,7 +12234,7 @@ declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"cl
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9ModuleMap23setUmbrellaDirAsWrittenEPNS_6ModuleENS_17DirectoryEntryRefERKN4llvm5TwineES7_(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef initializes((88, 96)) %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef nonnull align 8 dereferenceable(34) %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang9ModuleMap23setUmbrellaDirAsWrittenEPNS_6ModuleENS_17DirectoryEntryRefERKN4llvm5TwineES7_(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %1, ptr %2, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr noundef nonnull align 8 dereferenceable(34) %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca ptr, align 8
@@ -14045,7 +14045,7 @@ _ZNSt6vectorIN5clang6Module18UnresolvedConflictESaIS2_EED2Ev.exit: ; preds = %_Z
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i32 @_ZN5clang15ModuleMapParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(240) initializes((160, 164), (168, 172), (176, 184)) %0) local_unnamed_addr #1 align 2 {
+define dso_local i32 @_ZN5clang15ModuleMapParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.clang::Token", align 8
   %4 = alloca %"class.clang::LangOptions", align 8
@@ -15362,7 +15362,7 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIPN5clang6ModuleEEEKNS_14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang15ModuleMapParser22diagnosePrivateModulesENS_14SourceLocationES1_ENK3$_0clEN4llvm9StringRefES4_PKNS_6ModuleENS_11SourceRangeE"(ptr initializes((368, 376)) %.0.val.24.val, i32 %.0.val.184.val.32.val, ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, i64 %5) unnamed_addr #1 align 2 {
+define internal fastcc void @"_ZZN5clang15ModuleMapParser22diagnosePrivateModulesENS_14SourceLocationES1_ENK3$_0clEN4llvm9StringRefES4_PKNS_6ModuleENS_11SourceRangeE"(ptr %.0.val.24.val, i32 %.0.val.184.val.32.val, ptr %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, i64 %5) unnamed_addr #1 align 2 {
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.0", align 1
@@ -16641,7 +16641,7 @@ _ZN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ModuleMapParser21parseExternModuleDeclEv(ptr noundef nonnull align 8 dereferenceable(240) initializes((160, 164), (168, 172), (176, 184)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang15ModuleMapParser21parseExternModuleDeclEv(ptr noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::Error", align 8
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %class.anon.617, align 1
@@ -16955,7 +16955,7 @@ _ZN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ModuleMapParser23parseInferredModuleDeclEbb(ptr noundef nonnull align 8 dereferenceable(240) initializes((160, 164), (168, 172), (176, 184)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang15ModuleMapParser23parseInferredModuleDeclEbb(ptr noundef nonnull align 8 dereferenceable(240) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"struct.clang::ModuleMap::Attributes", align 4
   %6 = alloca ptr, align 8
@@ -18702,7 +18702,7 @@ _ZNK5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit: ; preds = %8, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ModuleMapParser17parseConfigMacrosEv(ptr noundef nonnull align 8 dereferenceable(240) initializes((160, 164), (168, 172), (176, 184)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang15ModuleMapParser17parseConfigMacrosEv(ptr noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.std::allocator.0", align 1
   %3 = alloca %"class.std::allocator.0", align 1
   %4 = alloca %"struct.clang::ModuleMap::Attributes", align 4
@@ -18957,7 +18957,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ModuleMapParser13parseConflictEv(ptr noundef nonnull align 8 dereferenceable(240) initializes((160, 164), (168, 172), (176, 184)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang15ModuleMapParser13parseConflictEv(ptr noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.std::allocator.0", align 1
   %3 = alloca %"class.llvm::raw_string_ostream", align 8
   %4 = alloca %"class.clang::CharSourceRange", align 8
@@ -19342,7 +19342,7 @@ _ZN5clang6Module18UnresolvedConflictD2Ev.exit:    ; preds = %_ZN4llvm23SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ModuleMapParser15parseExportDeclEv(ptr noundef nonnull align 8 dereferenceable(240) initializes((160, 164), (168, 172), (176, 184)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang15ModuleMapParser15parseExportDeclEv(ptr noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %3 = alloca %"class.llvm::SmallVector.139", align 8
   %4 = alloca %"struct.std::pair.144", align 8
@@ -19525,7 +19525,7 @@ _ZN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ModuleMapParser17parseExportAsDeclEv(ptr noundef nonnull align 8 dereferenceable(240) initializes((160, 164), (168, 172), (176, 184)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang15ModuleMapParser17parseExportAsDeclEv(ptr noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
@@ -19921,7 +19921,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit37:          ; preds = %_ZN5clang17Diagnost
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ModuleMapParser12parseUseDeclEv(ptr noundef nonnull align 8 dereferenceable(240) initializes((160, 164), (168, 172), (176, 184)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang15ModuleMapParser12parseUseDeclEv(ptr noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::SmallVector.139", align 8
   %3 = tail call i32 @_ZN5clang15ModuleMapParser12consumeTokenEv(ptr noundef nonnull align 8 dereferenceable(240) %0)
   %4 = getelementptr inbounds i8, ptr %2, i64 16
@@ -20009,7 +20009,7 @@ _ZN4llvm11SmallVectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ModuleMapParser17parseRequiresDeclEv(ptr noundef nonnull align 8 dereferenceable(240) initializes((160, 164), (168, 172), (176, 184)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang15ModuleMapParser17parseRequiresDeclEv(ptr noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca [3 x %"class.llvm::StringRef"], align 8
   %3 = alloca [2 x %"class.llvm::StringRef"], align 8
   %4 = alloca [2 x %"class.llvm::StringRef"], align 8
@@ -22779,7 +22779,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit64:          ; preds = %443, %_ZN4llvm23Sma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ModuleMapParser13parseLinkDeclEv(ptr noundef nonnull align 8 dereferenceable(240) initializes((160, 164), (168, 172), (176, 184)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang15ModuleMapParser13parseLinkDeclEv(ptr noundef nonnull align 8 dereferenceable(240) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %3 = alloca %"class.clang::CharSourceRange", align 8
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8

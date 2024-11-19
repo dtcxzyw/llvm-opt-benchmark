@@ -1920,7 +1920,7 @@ define internal noundef i32 @proc_schedstat_init() #3 section ".init.text" align
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none)
-define dso_local void @get_avenrun(ptr nocapture noundef writeonly initializes((0, 24)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 16 {
+define dso_local void @get_avenrun(ptr nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 16 {
   %4 = load i64, ptr @avenrun, align 16
   %5 = add i64 %4, %1
   %6 = zext i32 %2 to i64
@@ -2886,7 +2886,7 @@ define dso_local noundef zeroext i1 @completion_done(ptr noundef %0) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @__init_swait_queue_head(ptr noundef initializes((0, 4)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 align 16 {
+define dso_local void @__init_swait_queue_head(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 align 16 {
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile ptr %4, ptr %4, align 8
@@ -3028,7 +3028,7 @@ declare dso_local i32 @wake_up_state(ptr noundef, i32 noundef) local_unnamed_add
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__prepare_to_swait(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @__prepare_to_swait(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #47, !srcloc !80
   %4 = inttoptr i64 %3 to ptr
   store ptr %4, ptr %1, align 8
@@ -3053,7 +3053,7 @@ define dso_local void @__prepare_to_swait(ptr noundef %0, ptr noundef initialize
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @prepare_to_swait_exclusive(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) #0 align 16 {
+define dso_local void @prepare_to_swait_exclusive(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %0) #42
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #47, !srcloc !80
   %6 = inttoptr i64 %5 to ptr
@@ -3903,7 +3903,7 @@ define dso_local noundef nonnull ptr @__var_waitqueue(ptr noundef %0) #8 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(argmem: write)
-define dso_local void @init_wait_var_entry(ptr noundef initializes((0, 12), (16, 28), (32, 48)) %0, ptr noundef %1, i32 noundef %2) #15 align 16 {
+define dso_local void @init_wait_var_entry(ptr noundef %0, ptr noundef %1, i32 noundef %2) #15 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #47, !srcloc !80
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4227,7 +4227,7 @@ define dso_local void @wait_bit_init() local_unnamed_addr #16 section ".init.tex
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @__init_waitqueue_head(ptr noundef initializes((0, 4)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 align 16 {
+define dso_local void @__init_waitqueue_head(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 align 16 {
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile ptr %4, ptr %4, align 8
@@ -4624,7 +4624,7 @@ define dso_local void @__wake_up_pollfree(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @init_wait_entry(ptr noundef initializes((0, 4), (8, 24)) %0, i32 noundef %1) #17 align 16 {
+define dso_local void @init_wait_entry(ptr noundef %0, i32 noundef %1) #17 align 16 {
   store i32 %1, ptr %0, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #47, !srcloc !80
   %4 = inttoptr i64 %3 to ptr
@@ -5478,7 +5478,7 @@ define internal void @put_prev_task_stop(ptr noundef %0, ptr nocapture readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @set_next_task_stop(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((208, 216)) %1, i1 zeroext %2) #9 align 16 {
+define internal void @set_next_task_stop(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i1 zeroext %2) #9 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2432
   %5 = load i64, ptr %4, align 64
   %6 = getelementptr inbounds i8, ptr %1, i64 208
@@ -5696,7 +5696,7 @@ define dso_local void @init_defrootdomain() local_unnamed_addr #3 section ".init
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @init_rootdomain(ptr noundef initializes((24, 40), (48, 56), (112, 156), (160, 164), (176, 184)) %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @init_rootdomain(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %3, align 8

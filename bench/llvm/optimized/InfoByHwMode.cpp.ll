@@ -123,7 +123,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17ValueTypeByHwModeC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(52) initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17ValueTypeByHwModeC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -319,7 +319,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 declare noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17ValueTypeByHwModeC2EPNS_6RecordENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(52) initializes((8, 12), (16, 24)) %0, ptr noundef %1, i16 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17ValueTypeByHwModeC2EPNS_6RecordENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i16 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1127,7 +1127,7 @@ define dso_local void @_ZN4llvm20getValueTypeByHwModeEPNS_6RecordERKNS_14CodeGen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11RegSizeInfoC2EPNS_6RecordE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11RegSizeInfoC2EPNS_6RecordE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.6, i64 7) #15
   %4 = trunc i64 %3 to i32
   store i32 %4, ptr %0, align 4
@@ -1315,7 +1315,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %57, %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19RegSizeInfoByHwModeC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19RegSizeInfoByHwModeC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::RegSizeInfo", align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -2111,7 +2111,7 @@ define dso_local noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvmlsERNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11SubRegRangeC2EPNS_6RecordE(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) initializes((0, 4)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11SubRegRangeC2EPNS_6RecordE(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(4) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef i64 @_ZNK4llvm6Record13getValueAsIntENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.12, i64 4) #15
   %4 = trunc i64 %3 to i16
   store i16 %4, ptr %0, align 2
@@ -2123,7 +2123,7 @@ define dso_local void @_ZN4llvm11SubRegRangeC2EPNS_6RecordE(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19SubRegRangeByHwModeC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19SubRegRangeByHwModeC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::SubRegRange", align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -2221,7 +2221,7 @@ _ZNSt3mapIjN4llvm11SubRegRangeESt4lessIjESaISt4pairIKjS1_EEE6insertEOS6_.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20EncodingInfoByHwModeC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20EncodingInfoByHwModeC2EPNS_6RecordERKNS_14CodeGenHwModesE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

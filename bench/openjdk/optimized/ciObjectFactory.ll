@@ -275,7 +275,7 @@ $_ZTV11ciTypeArray = comdat any
 @_ZN15ciObjectFactoryC1EP5Arenai = hidden unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN15ciObjectFactoryC2EP5Arenai
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ciObjectFactoryC2EP5Arenai(ptr noundef nonnull align 8 dereferenceable(652) initializes((0, 156), (160, 652)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ciObjectFactoryC2EP5Arenai(ptr noundef nonnull align 8 dereferenceable(652) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %2, i32 noundef 8, ptr noundef %1) #10
@@ -449,7 +449,7 @@ declare void @_ZN5ArenaC1E8MEMFLAGSNS_3TagEm(ptr noundef nonnull align 8 derefer
 declare void @_ZN5ciEnvC1EP5Arena(ptr noundef nonnull align 8 dereferenceable(1265), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ciObjectFactory19init_shared_objectsEv(ptr noundef nonnull align 8 dereferenceable(652) initializes((152, 156)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ciObjectFactory19init_shared_objectsEv(ptr noundef nonnull align 8 dereferenceable(652) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 1, ptr %2, align 8
   br label %3

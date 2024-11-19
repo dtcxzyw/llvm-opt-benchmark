@@ -137,7 +137,7 @@ $_ZTV32ShenandoahReferenceProcessorTask = comdat any
 @_ZN28ShenandoahReferenceProcessorC1Ej = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN28ShenandoahReferenceProcessorC2Ej
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN28ShenandoahRefProcThreadLocalC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 8), (16, 136)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahRefProcThreadLocalC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %2, i8 0, i64 120, i1 false)
@@ -148,7 +148,7 @@ define hidden void @_ZN28ShenandoahRefProcThreadLocalC2Ev(ptr nocapture noundef 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN28ShenandoahRefProcThreadLocal5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 136)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahRefProcThreadLocal5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   ret void
 }
@@ -176,7 +176,7 @@ define hidden noundef ptr @_ZNK28ShenandoahRefProcThreadLocal20discovered_list_h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN28ShenandoahRefProcThreadLocal24set_discovered_list_headI9narrowOopEEvP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 4)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN28ShenandoahRefProcThreadLocal24set_discovered_list_headI9narrowOopEEvP7oopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %1, null
   %4 = load ptr, ptr @_ZN14CompressedOops11_narrow_oopE, align 8
   %5 = ptrtoint ptr %1 to i64
@@ -192,13 +192,13 @@ define hidden void @_ZN28ShenandoahRefProcThreadLocal24set_discovered_list_headI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN28ShenandoahRefProcThreadLocal24set_discovered_list_headIP7oopDescEEvS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahRefProcThreadLocal24set_discovered_list_headIP7oopDescEEvS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahReferenceProcessorC2Ej(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 32)) %0, i32 noundef %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN28ShenandoahReferenceProcessorC2Ej(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28ShenandoahReferenceProcessor, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -271,7 +271,7 @@ define hidden void @_ZN28ShenandoahReferenceProcessor16set_mark_closureEjP30Shen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahReferenceProcessor25set_soft_reference_policyEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((8, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN28ShenandoahReferenceProcessor25set_soft_reference_policyEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = load atomic i8, ptr @_ZGVZN28ShenandoahReferenceProcessor25set_soft_reference_policyEbE19lru_max_heap_policy acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %8, !prof !9

@@ -153,7 +153,7 @@ $_ZN25ControlIntrinsicValidatorC2EPKcb = comdat any
 @_ZN16DirectivesParserD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16DirectivesParserD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16DirectivesParser8push_tmpEP18CompilerDirectives(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16DirectivesParser8push_tmpEP18CompilerDirectives(ptr nocapture noundef nonnull align 8 dereferenceable(132) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -516,7 +516,7 @@ declare void @_ZN4JSONC2EPKcbP12outputStream(ptr noundef nonnull align 8 derefer
 declare void @_ZN4JSON5parseEv(ptr noundef nonnull align 8 dereferenceable(54)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16DirectivesParserD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(132) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN16DirectivesParserD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(132) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16DirectivesParser, i64 16), ptr %0, align 8
   ret void
 }

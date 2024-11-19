@@ -278,7 +278,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal12SygusGrammarC2ERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EES8_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sygusVars, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ntSyms) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal12SygusGrammarC2ERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EES8_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sygusVars, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ntSyms) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %sygusVars, i64 8

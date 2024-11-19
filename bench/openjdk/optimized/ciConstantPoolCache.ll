@@ -43,7 +43,7 @@ $_ZN26GrowableArrayWithAllocatorIPv13GrowableArrayIS0_EE9expand_toEi = comdat an
 @_ZN19ciConstantPoolCacheC1EP5Arenai = hidden unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN19ciConstantPoolCacheC2EP5Arenai
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19ciConstantPoolCacheC2EP5Arenai(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN19ciConstantPoolCacheC2EP5Arenai(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef 24, ptr noundef %1) #10
   %5 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %2, i32 noundef 8, ptr noundef %1) #10
   store i32 0, ptr %4, align 4

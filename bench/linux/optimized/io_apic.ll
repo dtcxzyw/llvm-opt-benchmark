@@ -900,7 +900,7 @@ define dso_local noundef i32 @restore_ioapic_entries() local_unnamed_addr #3 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 1) i32 @acpi_get_override_irq(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @acpi_get_override_irq(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 align 16 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
   %4 = tail call fastcc i32 @__acpi_get_override_irq(i32 noundef %0, ptr noundef %1, ptr noundef %2), !range !19

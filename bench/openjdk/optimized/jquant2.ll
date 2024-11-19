@@ -413,7 +413,7 @@ define internal void @prescan_quantize(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @finish_pass1(ptr noundef initializes((160, 168)) %0) #0 {
+define internal void @finish_pass1(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 624
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32

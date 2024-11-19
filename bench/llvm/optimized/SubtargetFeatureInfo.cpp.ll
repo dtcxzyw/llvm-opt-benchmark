@@ -95,7 +95,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_d
 @.str.51 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20SubtargetFeatureInfo6getAllERKNS_12RecordKeeperE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20SubtargetFeatureInfo6getAllERKNS_12RecordKeeperE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::vector.0", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

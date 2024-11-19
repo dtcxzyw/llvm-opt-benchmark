@@ -663,7 +663,7 @@ define dso_local void @drm_vblank_disable_and_save(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_vblank_init(ptr noundef initializes((328, 336)) %0, i32 noundef %1) #0 align 16 {
+define dso_local i32 @drm_vblank_init(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 332
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 328

@@ -4359,7 +4359,7 @@ textbuffer_putc.exit83:                           ; preds = %111, %116
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parseId(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef initializes((72, 76)) %1) unnamed_addr #0 {
+define internal fastcc i32 @parseId(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 72

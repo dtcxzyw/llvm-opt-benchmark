@@ -4800,7 +4800,7 @@ declare void @_ZNK5Yosys5RTLIL6Design16selected_modulesEv(ptr dead_on_unwind wri
 declare void @_ZNK5Yosys5RTLIL6Module14selected_cellsEv(ptr dead_on_unwind writable sret(%"class.std::vector.148") align 8, ptr noundef nonnull align 8 dereferenceable(560)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113test_pmgen_pmC2EPN5Yosys5RTLIL6ModuleERKSt6vectorIPNS2_4CellESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(1236) initializes((0, 56), (64, 88)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113test_pmgen_pmC2EPN5Yosys5RTLIL6ModuleERKSt6vectorIPNS2_4CellESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(1236) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 48, i1 false)
@@ -6857,7 +6857,7 @@ _ZN5Yosys6SigMapD2Ev.exit:                        ; preds = %_ZNSt6vectorIN5Yosy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113test_pmgen_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1236) initializes((1040, 1048)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113test_pmgen_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1236) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [75 x i32], align 4
   %4 = alloca %"class.std::allocator.10", align 1
   %5 = alloca [75 x i32], align 4
@@ -31607,7 +31607,7 @@ _ZNSt12_Vector_baseIN5Yosys7hashlib4dictISt5tupleIJPNS0_5RTLIL4CellENS4_6SigBitE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113test_pmgen_pm10run_reduceESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(1236) initializes((124, 128)) %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113test_pmgen_pm10run_reduceESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(1236) %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair.220", align 8
   %4 = alloca %"struct.std::pair.339", align 8
   %5 = alloca %"struct.std::pair.342", align 8
@@ -38443,7 +38443,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit65:               ; preds = %_ZSt8_DestroyIPN5Yo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113test_pmgen_pm10run_eqpmuxESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(1236) initializes((124, 128)) %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113test_pmgen_pm10run_eqpmuxESt8functionIFvvEE(ptr noundef nonnull align 8 dereferenceable(1236) %0, ptr noundef nonnull %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -55946,7 +55946,7 @@ _ZN5Yosys6SigMapD2Ev.exit:                        ; preds = %_ZNSt6vectorIN5Yosy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1532) initializes((1224, 1236), (1240, 1248), (1264, 1272)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1532) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [75 x i32], align 4
   %4 = alloca %"class.std::allocator.10", align 1
   %5 = alloca [75 x i32], align 4
@@ -77408,7 +77408,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit65:               ; preds = %_ZSt8_DestroyIPN5Yo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm34block_subpattern_ice40_dsp_in_dffeEi(ptr noundef nonnull align 8 dereferenceable(1532) initializes((1224, 1232)) %0, i32 noundef range(i32 -2147483645, -2147483648) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm34block_subpattern_ice40_dsp_in_dffeEi(ptr noundef nonnull align 8 dereferenceable(1532) %0, i32 noundef range(i32 -2147483645, -2147483648) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %5 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
@@ -79358,7 +79358,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
 declare void @_ZN5Yosys5RTLIL7SigSpec7replaceERKS1_S3_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm35block_subpattern_ice40_dsp_out_dffeEi(ptr noundef nonnull align 8 dereferenceable(1532) initializes((1224, 1232)) %0, i32 noundef range(i32 -2147483645, -2147483648) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112ice40_dsp_pm35block_subpattern_ice40_dsp_out_dffeEi(ptr noundef nonnull align 8 dereferenceable(1532) %0, i32 noundef range(i32 -2147483645, -2147483648) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %4 = alloca %"struct.Yosys::RTLIL::SigSpec", align 8
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -87453,7 +87453,7 @@ _ZN5Yosys6SigMapD2Ev.exit:                        ; preds = %_ZNSt6vectorIN5Yosy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1136) initializes((120, 121), (792, 808), (816, 836), (856, 864), (880, 888), (944, 960), (976, 984), (1000, 1008), (1016, 1020)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113xilinx_srl_pm5setupERKSt6vectorIPN5Yosys5RTLIL4CellESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1136) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [75 x i32], align 4
   %4 = alloca %"class.std::allocator.10", align 1
   %5 = alloca [75 x i32], align 4

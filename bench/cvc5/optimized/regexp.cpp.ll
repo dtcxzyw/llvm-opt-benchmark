@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4cvc58internal10RegExpLoopC1Ejj = hidden unnamed_addr alias void (ptr, i32, i32), ptr @_ZN4cvc58internal10RegExpLoopC2Ejj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal12RegExpRepeatC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %repeatAmount) unnamed_addr #0 align 2 {
+define hidden void @_ZN4cvc58internal12RegExpRepeatC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %repeatAmount) unnamed_addr #0 align 2 {
 entry:
   store i32 %repeatAmount, ptr %this, align 4
   ret void
@@ -27,7 +27,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal10RegExpLoopC2Ejj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %l, i32 noundef %h) unnamed_addr #0 align 2 {
+define hidden void @_ZN4cvc58internal10RegExpLoopC2Ejj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, i32 noundef %l, i32 noundef %h) unnamed_addr #0 align 2 {
 entry:
   store i32 %l, ptr %this, align 4
   %d_loopMaxOcc = getelementptr inbounds i8, ptr %this, i64 4

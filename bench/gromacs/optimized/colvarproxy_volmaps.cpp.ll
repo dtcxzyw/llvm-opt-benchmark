@@ -234,7 +234,7 @@ define noundef i32 @_ZN19colvarproxy_volmaps14compute_volmapEiiN9__gnu_cxx17__no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19colvarproxy_volmapsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 120)) %0) unnamed_addr #3 align 2 {
+define void @_ZN19colvarproxy_volmapsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19colvarproxy_volmaps, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)
@@ -242,7 +242,7 @@ define void @_ZN19colvarproxy_volmapsC2Ev(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19colvarproxy_volmapsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19colvarproxy_volmapsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19colvarproxy_volmaps, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8

@@ -84,7 +84,7 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h307ed6a16eb1b448E"(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((16, 20)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h307ed6a16eb1b448E"(ptr nocapture writeonly sret([64 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [56 x i8], align 8
   call void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5f6bf80511f1120E"(ptr nonnull sret([56 x i8]) align 8 %3, ptr align 8 %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -152,7 +152,7 @@ define { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfac6da6b166eeb9eE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((8, 16)) %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfac6da6b166eeb9eE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = tail call { ptr, ptr } @"_ZN102_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd0cdd4971678d731E"(ptr align 8 %1)
   %4 = extractvalue { ptr, ptr } %3, 0
   %5 = icmp eq ptr %4, null
@@ -183,7 +183,7 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf7a454e399d8256cE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hf7a454e399d8256cE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -204,7 +204,7 @@ define void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator8find_map17h593225b45c6aa902E(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @_ZN4core4iter6traits8iterator8Iterator8find_map17h593225b45c6aa902E(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca [32 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   call void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hb6aa2347cf20c681E(ptr nonnull sret([32 x i8]) align 8 %4, ptr align 8 %1, ptr align 8 %2, ptr nonnull align 8 %5)

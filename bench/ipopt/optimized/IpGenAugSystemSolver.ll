@@ -127,7 +127,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt18GenAugSystemSolverC2ERNS_21GenKKTSolverInterfaceE(ptr nocapture noundef nonnull align 8 dereferenceable(177) initializes((0, 12), (16, 49), (56, 68), (80, 84), (88, 100), (104, 176)) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt18GenAugSystemSolverC2ERNS_21GenKKTSolverInterfaceE(ptr nocapture noundef nonnull align 8 dereferenceable(177) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -179,7 +179,7 @@ define void @_ZN5Ipopt18GenAugSystemSolverC2ERNS_21GenKKTSolverInterfaceE(ptr no
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt18GenAugSystemSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(177) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN5Ipopt18GenAugSystemSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(177) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt18GenAugSystemSolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
@@ -1377,7 +1377,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5Ipopt18GenAugSystemSolver10UpdateTagsEPKNS_9SymMatrixEdPKNS_6VectorEdS6_dRKNS_6MatrixES6_dS9_S6_d(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(177) initializes((64, 68), (72, 84), (88, 100), (104, 144)) %0, ptr noundef readonly %1, double noundef %2, ptr noundef readonly %3, double noundef %4, ptr noundef readonly %5, double noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(69) %7, ptr noundef readonly %8, double noundef %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(69) %10, ptr noundef readonly %11, double noundef %12) local_unnamed_addr #10 align 2 {
+define void @_ZN5Ipopt18GenAugSystemSolver10UpdateTagsEPKNS_9SymMatrixEdPKNS_6VectorEdS6_dRKNS_6MatrixES6_dS9_S6_d(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(177) %0, ptr noundef readonly %1, double noundef %2, ptr noundef readonly %3, double noundef %4, ptr noundef readonly %5, double noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(69) %7, ptr noundef readonly %8, double noundef %9, ptr nocapture noundef nonnull readonly align 8 dereferenceable(69) %10, ptr noundef readonly %11, double noundef %12) local_unnamed_addr #10 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %17, label %14
 

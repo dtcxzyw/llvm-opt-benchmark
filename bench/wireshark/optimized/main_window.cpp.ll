@@ -208,7 +208,7 @@ _ZN17QArrayDataPointerI21register_stat_group_eED2Ev.exit: ; preds = %1, %_ZN17QA
 declare void @_ZN11QMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10MainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV10MainWindow, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV10MainWindow, i64 472), ptr %2, align 8
@@ -732,7 +732,7 @@ declare void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on
 declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MainWindow20getPacketMenuActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(272) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10MainWindow20getPacketMenuActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QList) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(272) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call i32 @funnel_statistics_packet_menus_modified()
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4

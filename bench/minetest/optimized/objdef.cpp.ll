@@ -49,7 +49,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13ObjDefManagerC2EP8IGameDef10ObjDefType(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 8), (16, 44)) %this, ptr noundef %gamedef, i32 noundef %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ObjDefManagerC2EP8IGameDef10ObjDefType(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr noundef %gamedef, i32 noundef %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13ObjDefManager, i64 16), ptr %this, align 8, !tbaa !4
   %m_objects = getelementptr inbounds i8, ptr %this, i64 16
@@ -90,7 +90,7 @@ _ZNSt6vectorIP6ObjDefSaIS1_EED2Ev.exit:           ; preds = %if.then.i.i.i, %lpa
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13ObjDefManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ObjDefManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13ObjDefManager, i64 16), ptr %this, align 8, !tbaa !4
   %m_objects = getelementptr inbounds i8, ptr %this, i64 16
@@ -143,7 +143,7 @@ for.inc:                                          ; preds = %delete.notnull, %fo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13ObjDefManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13ObjDefManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13ObjDefManager, i64 16), ptr %this, align 8, !tbaa !4
   %m_objects.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -871,7 +871,7 @@ cleanup:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK6ObjDef7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef initializes((8, 20)) %def) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK6ObjDef7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %def) local_unnamed_addr #3 align 2 {
 entry:
   %index = getelementptr inbounds i8, ptr %this, i64 8
   %index2 = getelementptr inbounds i8, ptr %def, i64 8
@@ -888,7 +888,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK13ObjDefManager7cloneToEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef initializes((8, 16)) %mgr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK13ObjDefManager7cloneToEPS_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %this, ptr nocapture noundef %mgr) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ndef = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_ndef, align 8, !tbaa !16

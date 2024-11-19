@@ -1870,7 +1870,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit:   ; preds = %.noexc, %_ZN4dmlc15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost3ltr12RankingCache14MakeRankOnCUDAEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::common::Span.18") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #3 align 2 {
+define void @_ZN7xgboost3ltr12RankingCache14MakeRankOnCUDAEPKNS_7ContextENS_6common4SpanIKfLm18446744073709551615EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.xgboost::common::Span.18") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %1, ptr nocapture noundef readnone %2, ptr nocapture noundef readnone %3) local_unnamed_addr #3 align 2 {
   tail call void @_ZN7xgboost6common16AssertGPUSupportEv()
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void

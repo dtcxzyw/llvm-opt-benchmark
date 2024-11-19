@@ -56,7 +56,7 @@ $_ZN4llvm7hashing6detail23hash_combine_range_implImEENSt9enable_ifIXsr16is_hasha
 @_ZN4llvm5APIntC1EjNS_9StringRefEh = unnamed_addr alias void (ptr, i32, ptr, i64, i8), ptr @_ZN4llvm5APIntC2EjNS_9StringRefEh
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5APInt12initSlowCaseEmb(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5APInt12initSlowCaseEmb(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0, i64 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
@@ -134,7 +134,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit:           ; preds = %32, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
@@ -152,7 +152,7 @@ define dso_local void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr nocapture noundef 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5APInt13initFromArrayENS_8ArrayRefImEE(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5APInt13initFromArrayENS_8ArrayRefImEE(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0, ptr nocapture readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, 65
@@ -203,7 +203,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit:           ; preds = %7, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5APIntC2EjNS_8ArrayRefImEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5APIntC2EjNS_8ArrayRefImEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, i32 noundef %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
   %6 = icmp ult i32 %1, 65
@@ -254,7 +254,7 @@ _ZN4llvm5APInt13initFromArrayENS_8ArrayRefImEE.exit: ; preds = %7, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5APIntC2EjjPKm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5APIntC2EjjPKm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
   %6 = icmp ult i32 %1, 65
@@ -304,7 +304,7 @@ _ZN4llvm5APInt13initFromArrayENS_8ArrayRefImEE.exit: ; preds = %7, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5APIntC2EjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1, ptr %2, i64 %3, i8 noundef zeroext %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5APIntC2EjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %1, ptr %2, i64 %3, i8 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8
   tail call void @_ZN4llvm5APInt10fromStringEjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 poison, ptr %2, i64 %3, i8 noundef zeroext %4)
@@ -312,7 +312,7 @@ define dso_local void @_ZN4llvm5APIntC2EjNS_9StringRefEh(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5APInt10fromStringEjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %0, i32 %1, ptr readonly %2, i64 %3, i8 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5APInt10fromStringEjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 %1, ptr readonly %2, i64 %3, i8 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = load i8, ptr %2, align 1
   %7 = icmp eq i8 %6, 45
   %8 = icmp eq i8 %6, 43
@@ -1409,7 +1409,7 @@ define dso_local noundef range(i64 0, 2) i64 @_ZN4llvm5APInt14tcSubtractPartEPmm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APIntmlERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APIntmlERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, 65
@@ -2365,7 +2365,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit:           ; preds = %19, %23
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt14concatSlowCaseERKS0_(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt14concatSlowCaseERKS0_(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2437,7 +2437,7 @@ _ZNK4llvm5APInt4zextEj.exit:                      ; preds = %_ZN4llvm5APIntC2Ejm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt4zextEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp ult i32 %2, 65
   br i1 %4, label %_ZN4llvm5APIntC2Ejmbb.exit, label %14
 
@@ -3824,7 +3824,7 @@ _ZN4llvm5APIntC2ERKS0_.exit5:                     ; preds = %_ZN4llvm5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt9getHiBitsEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt9getHiBitsEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sub i32 %5, %2
@@ -3934,7 +3934,7 @@ _ZNK4llvm5APInt4lshrEj.exit:                      ; preds = %11, %12, %16, %.loo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt9getLoBitsEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 initializes((8, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt9getLoBitsEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
@@ -4050,7 +4050,7 @@ _ZN4llvm5APIntaNERKS0_.exit:                      ; preds = %.lr.ph.i.i, %49
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5APInt8getSplatEjRKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5APInt8getSplatEjRKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %4 = icmp ult i32 %1, 65
   br i1 %4, label %_ZN4llvm5APIntC2Ejmbb.exit.i, label %15
@@ -4560,7 +4560,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm5APInt18isSubsetOfSlowCaseERKS0_(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt8byteSwapEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt8byteSwapEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %16 [
@@ -4747,7 +4747,7 @@ _ZN4llvm5APInt11lshrInPlaceEj.exit:               ; preds = %54, %.loopexit.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt11reverseBitsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %.fr70 = freeze i32 %4
@@ -6674,7 +6674,7 @@ _ZN4llvm5APIntD2Ev.exit46:                        ; preds = %126, %124, %38, %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt5truncEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp ult i32 %2, 65
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
@@ -6878,7 +6878,7 @@ _ZN4llvm5APInt11getMaxValueEj.exit:               ; preds = %35, %.loopexit.i._c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt9truncSSatEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt9truncSSatEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = tail call noundef i32 @_ZNK4llvm5APInt14getNumSignBitsEv(ptr noundef nonnull align 8 dereferenceable(12) %1)
@@ -7022,7 +7022,7 @@ _ZN4llvm5APInt17getSignedMinValueEj.exit:         ; preds = %70, %59, %31, %26, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt4sextEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp ult i32 %2, 65
   br i1 %4, label %_ZN4llvm5APIntC2Ejmbb.exit, label %21
 
@@ -7134,7 +7134,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit:           ; preds = %21
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt11zextOrTruncEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt11zextOrTruncEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, %2
@@ -7217,7 +7217,7 @@ _ZNK4llvm5APInt4zextEj.exit:                      ; preds = %42, %40, %17, %_ZN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt11sextOrTruncEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt11sextOrTruncEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, %2
@@ -10257,7 +10257,7 @@ _ZNK4llvm5APInteqERKS0_.exit:                     ; preds = %.preheader, %_ZNK4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt21multiplicativeInverseEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt21multiplicativeInverseEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14990,7 +14990,7 @@ _ZNK4llvm5APInt16isMinSignedValueEv.exit.thread:  ; preds = %14, %8, %_ZNK4llvm5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt7smul_ovERKS0_Rb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt7smul_ovERKS0_Rb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -15820,7 +15820,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvm5APInt13ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt7sshl_ovEjRb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt7sshl_ovEjRb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp uge i32 %2, %6
@@ -16106,7 +16106,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvm5APInt13ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt7ushl_ovEjRb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt7ushl_ovEjRb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = icmp uge i32 %2, %6
@@ -16445,7 +16445,7 @@ _ZN4llvm5APIntD2Ev.exit9:                         ; preds = %.thread34, %.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt8sadd_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt8sadd_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::APInt", align 8
   call void @_ZNK4llvm5APInt7sadd_ovERKS0_Rb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -16596,7 +16596,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt17get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt8uadd_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt8uadd_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::APInt", align 8
   call void @_ZNK4llvm5APInt7uadd_ovERKS0_Rb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -16682,7 +16682,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %.thread, %44, %46, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt8ssub_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt8ssub_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::APInt", align 8
   call void @_ZNK4llvm5APInt7ssub_ovERKS0_Rb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -16833,7 +16833,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt17get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt8usub_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt8usub_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::APInt", align 8
   call void @_ZNK4llvm5APInt7usub_ovERKS0_Rb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -16906,7 +16906,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APIntC2Ejm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt8smul_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt8smul_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::APInt", align 8
   call void @_ZNK4llvm5APInt7smul_ovERKS0_Rb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -17073,7 +17073,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt17get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt8umul_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt8umul_satERKS0_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::APInt", align 8
   call void @_ZNK4llvm5APInt7umul_ovERKS0_Rb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -17230,7 +17230,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvm5APInt13ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt8sshl_satEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt8sshl_satEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::APInt", align 8
   call void @_ZNK4llvm5APInt7sshl_ovEjRb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -17452,7 +17452,7 @@ _ZNK4llvm5APInt15getLimitedValueEm.exit:          ; preds = %_ZNK4llvm5APInt13ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm5APInt8ushl_satEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm5APInt8ushl_satEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.llvm::APInt", align 8
   call void @_ZNK4llvm5APInt7ushl_ovEjRb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -18254,7 +18254,7 @@ _ZN4llvm11SmallStringILj40EED2Ev.exit:            ; preds = %3, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm5APInt5tcSetEPmmj(ptr nocapture noundef writeonly initializes((0, 8)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZN4llvm5APInt5tcSetEPmmj(ptr nocapture noundef writeonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #14 align 2 {
   store i64 %1, ptr %0, align 8
   %4 = icmp ugt i32 %2, 1
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
@@ -22449,7 +22449,7 @@ _ZN4llvm5APIntD2Ev.exit6:                         ; preds = %_ZN4llvmeoENS_5APIn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8APIntOps12ScaleBitMaskERKNS_5APIntEjb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm8APIntOps12ScaleBitMaskERKNS_5APIntEjb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::APInt") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8

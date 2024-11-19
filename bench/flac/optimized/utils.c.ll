@@ -271,7 +271,7 @@ declare i32 @flac_vsnprintf(ptr noundef, i64 noundef, ptr noundef, ptr noundef) 
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @flac__utils_parse_skip_until_specification(ptr noundef %s, ptr nocapture noundef writeonly initializes((0, 16)) %spec) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @flac__utils_parse_skip_until_specification(ptr noundef %s, ptr nocapture noundef writeonly %spec) local_unnamed_addr #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   store i32 0, ptr %spec, align 8
@@ -456,7 +456,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @flac__utils_parse_cue_specification(ptr noundef %s, ptr nocapture noundef writeonly initializes((0, 8)) %spec) local_unnamed_addr #10 {
+define dso_local range(i32 0, 2) i32 @flac__utils_parse_cue_specification(ptr noundef %s, ptr nocapture noundef writeonly %spec) local_unnamed_addr #10 {
 entry:
   %has_end_point = getelementptr inbounds i8, ptr %spec, i64 4
   store i32 0, ptr %has_end_point, align 4
@@ -739,7 +739,7 @@ return:                                           ; preds = %while.body29.i, %wh
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @flac__utils_canonicalize_cue_specification(ptr nocapture noundef readonly %cue_spec, ptr nocapture noundef readonly %cuesheet, i64 noundef %total_samples, ptr nocapture noundef writeonly initializes((0, 8)) %skip_spec, ptr nocapture noundef writeonly initializes((0, 8)) %until_spec) local_unnamed_addr #11 {
+define dso_local void @flac__utils_canonicalize_cue_specification(ptr nocapture noundef readonly %cue_spec, ptr nocapture noundef readonly %cuesheet, i64 noundef %total_samples, ptr nocapture noundef writeonly %skip_spec, ptr nocapture noundef writeonly %until_spec) local_unnamed_addr #11 {
 entry:
   store i32 0, ptr %skip_spec, align 8
   %value_is_samples = getelementptr inbounds i8, ptr %skip_spec, i64 4

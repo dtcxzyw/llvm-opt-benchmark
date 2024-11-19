@@ -13610,7 +13610,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116RetryPolicyParseERKNS_15XdsResourceType13DecodeContextEPK33envoy_config_route_v3_RetryPolicyPNS_16ValidationErrorsE(ptr noalias nocapture nonnull align 8 initializes((0, 4), (8, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, ptr nocapture noundef nonnull readonly %retry_policy_proto, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_116RetryPolicyParseERKNS_15XdsResourceType13DecodeContextEPK33envoy_config_route_v3_RetryPolicyPNS_16ValidationErrorsE(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, ptr nocapture noundef nonnull readonly %retry_policy_proto, ptr noundef %errors) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i27 = alloca %"struct.absl::lts_20230802::strings_internal::Splitter<absl::lts_20230802::ByChar, absl::lts_20230802::AllowEmpty, std::basic_string_view<char>>::ConvertToContainer", align 1
@@ -14164,7 +14164,7 @@ _ZNSt12__shared_ptrIN9grpc_core22XdsRouteConfigResourceELN9__gnu_cxx12_Lock_poli
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core26XdsRouteConfigResourceType6DecodeERKNS_15XdsResourceType13DecodeContextESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.grpc_core::XdsResourceType::DecodeResult") align 8 initializes((32, 33)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(40) %context, i64 %serialized_resource.coerce0, ptr %serialized_resource.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core26XdsRouteConfigResourceType6DecodeERKNS_15XdsResourceType13DecodeContextESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.grpc_core::XdsResourceType::DecodeResult") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(40) %context, i64 %serialized_resource.coerce0, ptr %serialized_resource.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %buf.i = alloca [10240 x i8], align 16

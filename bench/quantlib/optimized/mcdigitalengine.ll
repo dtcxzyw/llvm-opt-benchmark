@@ -200,7 +200,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib17DigitalPathPricerC2EN5boost10shared_ptrINS_19CashOrNothingPayoffEEENS2_INS_16AmericanExerciseEEENS_6HandleINS_18YieldTermStructureEEENS2_INS_19StochasticProcess1DEEENS_23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5136) initializes((0, 5136)) %this, ptr nocapture noundef %payoff, ptr nocapture noundef %exercise, ptr nocapture noundef %discountTS, ptr nocapture noundef %diffProcess, ptr nocapture noundef %sequenceGen) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib17DigitalPathPricerC2EN5boost10shared_ptrINS_19CashOrNothingPayoffEEENS2_INS_16AmericanExerciseEEENS_6HandleINS_18YieldTermStructureEEENS2_INS_19StochasticProcess1DEEENS_23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5136) %this, ptr nocapture noundef %payoff, ptr nocapture noundef %exercise, ptr nocapture noundef %discountTS, ptr nocapture noundef %diffProcess, ptr nocapture noundef %sequenceGen) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib17DigitalPathPricerE, i64 16), ptr %this, align 8, !tbaa !14
   %payoff_ = getelementptr inbounds nuw i8, ptr %this, i64 8

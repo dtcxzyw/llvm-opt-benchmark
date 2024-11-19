@@ -172,7 +172,7 @@ declare i32 @pmix_show_help(ptr noundef, ptr noundef, i32 noundef, ...) local_un
 declare i32 @prte_util_filter_dash_host_nodes(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @prte_rmaps_base_get_target_nodes(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef readonly %2, ptr noundef %3, i16 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define noundef i32 @prte_rmaps_base_get_target_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, i16 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca %struct.pmix_list_t, align 8
   %9 = alloca ptr, align 8
   store ptr null, ptr %9, align 8
@@ -2757,7 +2757,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %70
 declare noalias ptr @hwloc_bitmap_dup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @prte_rmaps_base_get_cpuset(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((24, 32)) %2) local_unnamed_addr #0 {
+define void @prte_rmaps_base_get_cpuset(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

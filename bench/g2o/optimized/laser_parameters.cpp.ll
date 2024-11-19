@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3g2o15LaserParametersC1Eidddd = unnamed_addr alias void (ptr, i32, double, double, double, double), ptr @_ZN3g2o15LaserParametersC2Eidddd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o15LaserParametersC2Eiiddddid(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(96) initializes((0, 8), (16, 36), (40, 76), (80, 96)) %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, double noundef %8) unnamed_addr #0 align 2 {
+define void @_ZN3g2o15LaserParametersC2Eiiddddid(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(96) %0, i32 noundef %1, i32 noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, double noundef %8) unnamed_addr #0 align 2 {
   store double 0.000000e+00, ptr %0, align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -35,7 +35,7 @@ define void @_ZN3g2o15LaserParametersC2Eiiddddid(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o15LaserParametersC2Eidddd(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(96) initializes((0, 8), (16, 36), (40, 76), (80, 96)) %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) unnamed_addr #0 align 2 {
+define void @_ZN3g2o15LaserParametersC2Eidddd(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(96) %0, i32 noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5) unnamed_addr #0 align 2 {
   store double 0.000000e+00, ptr %0, align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40

@@ -6063,7 +6063,7 @@ check_sql_expr.exit:                              ; preds = %.critedge, %110
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_into_target(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef writeonly %1) unnamed_addr #0 {
+define internal fastcc void @read_into_target(ptr nocapture noundef writeonly %0, ptr noundef writeonly %1) unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.sink.split, label %3

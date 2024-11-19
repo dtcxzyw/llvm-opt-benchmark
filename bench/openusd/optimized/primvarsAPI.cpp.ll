@@ -2473,7 +2473,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit11: ; preds = %114
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_MakePrimvarsERKSt6vectorINS_11UsdPropertyESaIS1_EEPFbRKNS_14UsdGeomPrimvarEE(ptr dead_on_unwind noalias writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L13_MakePrimvarsERKSt6vectorINS_11UsdPropertyESaIS1_EEPFbRKNS_14UsdGeomPrimvarEE(ptr dead_on_unwind noalias writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdGeomPrimvar", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdAttribute", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -3654,7 +3654,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit11: ; preds = %114
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdGeomPrimvarsAPI23FindInheritablePrimvarsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.83") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdGeomPrimvarsAPI23FindInheritablePrimvarsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.83") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
@@ -4001,7 +4001,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__14UsdGeomPrimvarESaIS1_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdGeomPrimvarsAPI36FindIncrementallyInheritablePrimvarsERKSt6vectorINS_14UsdGeomPrimvarESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.83") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdGeomPrimvarsAPI36FindIncrementallyInheritablePrimvarsERKSt6vectorINS_14UsdGeomPrimvarESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.83") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
@@ -6246,7 +6246,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__14TraceScopeAutoD2Ev.exit24: ; preds = %181
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdGeomPrimvarsAPI27FindPrimvarsWithInheritanceEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.83") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__18UsdGeomPrimvarsAPI27FindPrimvarsWithInheritanceEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.83") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8

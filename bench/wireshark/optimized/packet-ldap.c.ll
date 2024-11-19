@@ -1349,7 +1349,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ssl_port = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nounwind uwtable
-define i32 @dissect_mscldap_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define i32 @dissect_mscldap_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = call i32 @get_dns_name(ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7) #12
@@ -1412,7 +1412,7 @@ define internal void @attribute_types_attribute_type_set_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @attribute_types_attribute_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @attribute_types_attribute_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -1448,7 +1448,7 @@ define internal void @attribute_types_attribute_desc_set_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @attribute_types_attribute_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @attribute_types_attribute_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1598,7 +1598,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @attribute_types_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @attribute_types_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #12
   store ptr %5, ptr %0, align 8
@@ -1611,7 +1611,7 @@ define internal noundef ptr @attribute_types_copy_cb(ptr noundef returned writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @attribute_types_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @attribute_types_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7

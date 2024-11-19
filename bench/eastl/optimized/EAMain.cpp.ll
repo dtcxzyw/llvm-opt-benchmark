@@ -503,7 +503,7 @@ entry:
 declare noundef i32 @_ZN2EA6EAMain8Internal14EAMainShutdownEi(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN2EA6EAMain11CommandLineC2EiPPc(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, i32 noundef %argc, ptr nocapture noundef readonly %argv) unnamed_addr #6 align 2 {
+define dso_local void @_ZN2EA6EAMain11CommandLineC2EiPPc(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %argc, ptr nocapture noundef readonly %argv) unnamed_addr #6 align 2 {
 entry:
   store i32 %argc, ptr %this, align 8
   %mArgv = getelementptr inbounds i8, ptr %this, i64 8
@@ -547,7 +547,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, ptr nocapture noundef readonly %args) unnamed_addr #8 align 2 {
+define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %args) unnamed_addr #8 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %mArgv = getelementptr inbounds i8, ptr %this, i64 8
@@ -708,7 +708,7 @@ while.end50:                                      ; preds = %while.end49, %if.en
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKcj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, ptr nocapture noundef readonly %args, i32 noundef %flags) unnamed_addr #8 align 2 {
+define dso_local void @_ZN2EA6EAMain11CommandLineC2EPKcj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %args, i32 noundef %flags) unnamed_addr #8 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %mArgv = getelementptr inbounds i8, ptr %this, i64 8

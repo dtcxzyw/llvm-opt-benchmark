@@ -94,7 +94,7 @@ define dso_local i64 @ruby_scan_hex(ptr noundef nonnull %0, i64 noundef %1, ptr 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #0 {
+define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = sext i32 %2 to i64
   store i32 0, ptr %4, align 4
   %.not = icmp eq i64 %1, 0
@@ -4087,7 +4087,7 @@ Balloc.exit64:                                    ; preds = %83, %113
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden noundef ptr @ruby_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
+define hidden noundef ptr @ruby_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = bitcast double %0 to i64
@@ -6269,7 +6269,7 @@ cmp.exit.thread84:                                ; preds = %58, %cmp.exit, %.cr
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr noundef %5) local_unnamed_addr #11 {
+define hidden noundef ptr @ruby_hdtoa(double noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr noundef %5) local_unnamed_addr #11 {
   %7 = bitcast double %0 to i64
   %.not = icmp slt i64 %7, 0
   %8 = tail call double @llvm.fabs.f64(double %0)

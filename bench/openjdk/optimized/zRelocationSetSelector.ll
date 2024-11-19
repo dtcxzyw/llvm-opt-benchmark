@@ -104,13 +104,13 @@ $_ZGVZ19compressed_integersvE13comp_integers = comdat any
 @_ZN22ZRelocationSetSelectorC1Ed = hidden unnamed_addr alias void (ptr, double), ptr @_ZN22ZRelocationSetSelectorC2Ed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN32ZRelocationSetSelectorGroupStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN32ZRelocationSetSelectorGroupStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN27ZRelocationSetSelectorGroupC2EPKc9ZPageTypemmd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(856) initializes((0, 9), (16, 856)) %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4, double noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN27ZRelocationSetSelectorGroupC2EPKc9ZPageTypemmd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(856) %0, ptr noundef %1, i8 noundef zeroext %2, i64 noundef %3, i64 noundef %4, double noundef %5) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %2, ptr %7, align 8
@@ -718,7 +718,7 @@ _ZN24EventZRelocationSetGroup6commitEmmmmmm.exit: ; preds = %_ZN8JfrEventI24Even
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN22ZRelocationSetSelectorC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2584) initializes((0, 9), (16, 865), (872, 1721), (1728, 2584)) %0, double noundef %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN22ZRelocationSetSelectorC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2584) %0, double noundef %1) unnamed_addr #5 align 2 {
   store ptr @.str.7, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
@@ -907,7 +907,7 @@ _ZN19EventZRelocationSet6commitEmmm.exit:         ; preds = %_ZNK22ZRelocationSe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZNK22ZRelocationSetSelector5statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ZRelocationSetSelectorStats) align 8 initializes((0, 2304)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2584) %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZNK22ZRelocationSetSelector5statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ZRelocationSetSelectorStats) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2584) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %4 = getelementptr inbounds i8, ptr %1, i64 944
   %5 = getelementptr inbounds i8, ptr %0, i64 768

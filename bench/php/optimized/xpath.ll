@@ -274,7 +274,7 @@ define hidden noundef i32 @dom_xpath_document_read(ptr noundef %0, ptr noundef %
 declare zeroext i1 @php_dom_create_object(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @dom_xpath_register_node_ns_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #3 {
+define hidden noundef i32 @dom_xpath_register_node_ns_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 0
@@ -285,7 +285,7 @@ define hidden noundef i32 @dom_xpath_register_node_ns_read(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dom_xpath_register_node_ns_write(ptr nocapture noundef writeonly initializes((-8, -4)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @dom_xpath_register_node_ns_write(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @zend_is_true(ptr noundef %1) #11
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   store i32 %3, ptr %4, align 8

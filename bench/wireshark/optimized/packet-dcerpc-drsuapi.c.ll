@@ -14681,7 +14681,7 @@ define internal i32 @drsuapi_dissect_element_ReadNgcKeyReplyV1_pNgcKey_(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsBind_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsBind_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1697, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsBind_bind_guid, align 4
@@ -14694,7 +14694,7 @@ define internal i32 @drsuapi_dissect_DsBind_request(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsBind_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsBind_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1697, ptr %8, align 8
@@ -14722,7 +14722,7 @@ define internal i32 @drsuapi_dissect_DsBind_response(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsUnbind_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsUnbind_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1698, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsUnbind_bind_handle, align 4
@@ -14732,7 +14732,7 @@ define internal i32 @drsuapi_dissect_DsUnbind_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsUnbind_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsUnbind_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1698, ptr %8, align 8
@@ -14757,7 +14757,7 @@ define internal i32 @drsuapi_dissect_DsUnbind_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaSync_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaSync_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1699, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsReplicaSync_bind_handle, align 4
@@ -14773,7 +14773,7 @@ define internal i32 @drsuapi_dissect_DsReplicaSync_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaSync_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaSync_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1699, ptr %8, align 8
@@ -14795,7 +14795,7 @@ define internal i32 @drsuapi_dissect_DsReplicaSync_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsGetNCChanges_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsGetNCChanges_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1700, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNCChanges_bind_handle, align 4
@@ -14811,7 +14811,7 @@ define internal i32 @drsuapi_dissect_DsGetNCChanges_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsGetNCChanges_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsGetNCChanges_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1700, ptr %8, align 8
@@ -14839,7 +14839,7 @@ define internal i32 @drsuapi_dissect_DsGetNCChanges_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 80
@@ -14921,7 +14921,7 @@ drsuapi_dissect_element_DsReplicaUpdateRefs_req.exit: ; preds = %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1701, ptr %8, align 8
@@ -14943,7 +14943,7 @@ define internal i32 @drsuapi_dissect_DsReplicaUpdateRefs_response(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaAdd_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 80
@@ -15032,7 +15032,7 @@ drsuapi_dissect_element_DsReplicaAdd_req.exit:    ; preds = %39, %41, %44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaAdd_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1702, ptr %8, align 8
@@ -15054,7 +15054,7 @@ define internal i32 @drsuapi_dissect_DsReplicaAdd_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaDel_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 80
@@ -15136,7 +15136,7 @@ drsuapi_dissect_element_DsReplicaDel_req.exit:    ; preds = %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaDel_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1703, ptr %8, align 8
@@ -15158,7 +15158,7 @@ define internal i32 @drsuapi_dissect_DsReplicaDel_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaMod_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaMod_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds i8, ptr %4, i64 80
@@ -15240,7 +15240,7 @@ drsuapi_dissect_element_DsReplicaMod_req.exit:    ; preds = %39, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaMod_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaMod_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1704, ptr %8, align 8
@@ -15262,14 +15262,14 @@ define internal i32 @drsuapi_dissect_DsReplicaMod_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1705, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1705, ptr %8, align 8
@@ -15291,7 +15291,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_VERIFY_NAMES_response(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsGetMemberships_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsGetMemberships_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1706, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships_bind_handle, align 4
@@ -15307,7 +15307,7 @@ define internal i32 @drsuapi_dissect_DsGetMemberships_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsGetMemberships_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsGetMemberships_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1706, ptr %8, align 8
@@ -15335,14 +15335,14 @@ define internal i32 @drsuapi_dissect_DsGetMemberships_response(ptr noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1707, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1707, ptr %8, align 8
@@ -15364,7 +15364,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_INTER_DOMAIN_MOVE_response(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1708, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetNT4ChangeLog_bind_handle, align 4
@@ -15380,7 +15380,7 @@ define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_request(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1708, ptr %8, align 8
@@ -15408,7 +15408,7 @@ define internal i32 @drsuapi_dissect_DsGetNT4ChangeLog_response(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsCrackNames_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsCrackNames_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1709, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsCrackNames_bind_handle, align 4
@@ -15424,7 +15424,7 @@ define internal i32 @drsuapi_dissect_DsCrackNames_request(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsCrackNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsCrackNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1709, ptr %8, align 8
@@ -15452,7 +15452,7 @@ define internal i32 @drsuapi_dissect_DsCrackNames_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsWriteAccountSpn_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsWriteAccountSpn_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1710, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsWriteAccountSpn_bind_handle, align 4
@@ -15468,7 +15468,7 @@ define internal i32 @drsuapi_dissect_DsWriteAccountSpn_request(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsWriteAccountSpn_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsWriteAccountSpn_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1710, ptr %8, align 8
@@ -15496,7 +15496,7 @@ define internal i32 @drsuapi_dissect_DsWriteAccountSpn_response(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsRemoveDSServer_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsRemoveDSServer_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1711, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsRemoveDSServer_bind_handle, align 4
@@ -15512,7 +15512,7 @@ define internal i32 @drsuapi_dissect_DsRemoveDSServer_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsRemoveDSServer_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsRemoveDSServer_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1711, ptr %8, align 8
@@ -15540,14 +15540,14 @@ define internal i32 @drsuapi_dissect_DsRemoveDSServer_response(ptr noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1712, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1712, ptr %8, align 8
@@ -15569,7 +15569,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_REMOVE_DS_DOMAIN_response(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1713, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetDomainControllerInfo_bind_handle, align 4
@@ -15585,7 +15585,7 @@ define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_request(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1713, ptr %8, align 8
@@ -15613,7 +15613,7 @@ define internal i32 @drsuapi_dissect_DsGetDomainControllerInfo_response(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsAddEntry_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsAddEntry_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1714, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsAddEntry_bind_handle, align 4
@@ -15629,7 +15629,7 @@ define internal i32 @drsuapi_dissect_DsAddEntry_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsAddEntry_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsAddEntry_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1714, ptr %8, align 8
@@ -15657,7 +15657,7 @@ define internal i32 @drsuapi_dissect_DsAddEntry_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsExecuteKCC_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsExecuteKCC_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1715, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsExecuteKCC_bind_handle, align 4
@@ -15673,7 +15673,7 @@ define internal i32 @drsuapi_dissect_DsExecuteKCC_request(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsExecuteKCC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsExecuteKCC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1715, ptr %8, align 8
@@ -15695,7 +15695,7 @@ define internal i32 @drsuapi_dissect_DsExecuteKCC_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaGetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1716, ptr %8, align 8
@@ -15715,7 +15715,7 @@ define internal i32 @drsuapi_dissect_DsReplicaGetInfo_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsReplicaGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsReplicaGetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1716, ptr %8, align 8
@@ -15743,14 +15743,14 @@ define internal i32 @drsuapi_dissect_DsReplicaGetInfo_response(ptr noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1717, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1717, ptr %8, align 8
@@ -15772,7 +15772,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_ADD_SID_HISTORY_response(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsGetMemberships2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsGetMemberships2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1718, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_DsGetMemberships2_bind_handle, align 4
@@ -15788,7 +15788,7 @@ define internal i32 @drsuapi_dissect_DsGetMemberships2_request(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DsGetMemberships2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DsGetMemberships2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1718, ptr %8, align 8
@@ -15816,14 +15816,14 @@ define internal i32 @drsuapi_dissect_DsGetMemberships2_response(ptr noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1719, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1719, ptr %8, align 8
@@ -15845,14 +15845,14 @@ define internal i32 @drsuapi_dissect_DRSUAPI_REPLICA_VERIFY_OBJECTS_response(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1720, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1720, ptr %8, align 8
@@ -15874,7 +15874,7 @@ define internal i32 @drsuapi_dissect_DRSUAPI_GET_OBJECT_EXISTENCE_response(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_QuerySitesByCost_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_QuerySitesByCost_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1721, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_QuerySitesByCost_bind_handle, align 4
@@ -15890,7 +15890,7 @@ define internal i32 @drsuapi_dissect_QuerySitesByCost_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_QuerySitesByCost_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_QuerySitesByCost_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1721, ptr %8, align 8
@@ -15918,14 +15918,14 @@ define internal i32 @drsuapi_dissect_QuerySitesByCost_response(ptr noundef %0, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_InitDemotion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @drsuapi_dissect_InitDemotion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1722, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_InitDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_InitDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1722, ptr %8, align 8
@@ -15947,14 +15947,14 @@ define internal i32 @drsuapi_dissect_InitDemotion_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_ReplicaDemotion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @drsuapi_dissect_ReplicaDemotion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1723, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_ReplicaDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_ReplicaDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1723, ptr %8, align 8
@@ -15976,14 +15976,14 @@ define internal i32 @drsuapi_dissect_ReplicaDemotion_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_FinishDemotion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @drsuapi_dissect_FinishDemotion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1724, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_FinishDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_FinishDemotion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1724, ptr %8, align 8
@@ -16005,14 +16005,14 @@ define internal i32 @drsuapi_dissect_FinishDemotion_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_AddCloneDC_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @drsuapi_dissect_AddCloneDC_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1725, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_AddCloneDC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_AddCloneDC_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1725, ptr %8, align 8
@@ -16034,14 +16034,14 @@ define internal i32 @drsuapi_dissect_AddCloneDC_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @drsuapi_dissect_WriteNgcKey_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @drsuapi_dissect_WriteNgcKey_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1726, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_WriteNgcKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_WriteNgcKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1726, ptr %8, align 8
@@ -16063,7 +16063,7 @@ define internal i32 @drsuapi_dissect_WriteNgcKey_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_ReadNgcKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_ReadNgcKey_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1727, ptr %7, align 8
   %8 = load i32, ptr @hf_drsuapi_drsuapi_ReadNgcKey_hDrs, align 4
@@ -16079,7 +16079,7 @@ define internal i32 @drsuapi_dissect_ReadNgcKey_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @drsuapi_dissect_ReadNgcKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @drsuapi_dissect_ReadNgcKey_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1727, ptr %8, align 8

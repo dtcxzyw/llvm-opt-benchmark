@@ -286,7 +286,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @create_delta(ptr nocapture noundef readonly %index, ptr noundef %trg_buf, i64 noundef %trg_size, ptr nocapture noundef writeonly initializes((0, 8)) %delta_size, i64 noundef %max_size) local_unnamed_addr #0 {
+define dso_local noalias ptr @create_delta(ptr nocapture noundef readonly %index, ptr noundef %trg_buf, i64 noundef %trg_size, ptr nocapture noundef writeonly %delta_size, i64 noundef %max_size) local_unnamed_addr #0 {
 entry:
   %trg_buf251 = ptrtoint ptr %trg_buf to i64
   store i64 0, ptr %delta_size, align 8

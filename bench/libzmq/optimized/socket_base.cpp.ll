@@ -1149,7 +1149,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq13socket_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1825) initializes((0, 8), (1448, 1456), (1464, 1480)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq13socket_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1825) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq13socket_base_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
@@ -6499,7 +6499,7 @@ _ZN3zmq22scoped_optional_lock_tD2Ev.exit:         ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq13socket_base_t13extract_flagsEPKNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(1825) initializes((1692, 1693)) %this, ptr noundef nonnull %msg_) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq13socket_base_t13extract_flagsEPKNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(1825) %this, ptr noundef nonnull %msg_) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %0 = and i8 %call, 64
@@ -6610,7 +6610,7 @@ declare void @_ZN3zmq14mailbox_safe_t15clear_signalersEv(ptr noundef nonnull ali
 declare void @_ZN3zmq8object_t9send_reapEPNS_13socket_base_tE(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq13socket_base_t13start_reapingEPNS_7epoll_tE(ptr noundef nonnull align 8 dereferenceable(1825) initializes((1664, 1672)) %this, ptr noundef %poller_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq13socket_base_t13start_reapingEPNS_7epoll_tE(ptr noundef nonnull align 8 dereferenceable(1825) %this, ptr noundef %poller_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sync_lock = alloca %"struct.zmq::scoped_optional_lock_t", align 8
   %_poller = getelementptr inbounds i8, ptr %this, i64 1664
@@ -7084,7 +7084,7 @@ declare void @_ZN3zmq6pipe_t8set_hwmsEii(ptr noundef nonnull align 8 dereference
 declare void @_ZN3zmq6pipe_t17send_hwms_to_peerEii(ptr noundef nonnull align 8 dereferenceable(328), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq13socket_base_t15process_destroyEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1825) initializes((1629, 1630)) %this) unnamed_addr #20 align 2 {
+define void @_ZN3zmq13socket_base_t15process_destroyEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1825) %this) unnamed_addr #20 align 2 {
 entry:
   %_destroyed = getelementptr inbounds i8, ptr %this, i64 1629
   store i8 1, ptr %_destroyed, align 1
@@ -8064,7 +8064,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq21routing_socket_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1912) initializes((0, 8), (1448, 1456), (1464, 1480)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq21routing_socket_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1912) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq21routing_socket_base_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448

@@ -5281,7 +5281,7 @@ define hidden void @"_ZN4core3ptr99drop_in_place$LT$$RF$alloc..vec..Vec$LT$ockam
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hab33b4afb946848fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 1), (8, 16)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hab33b4afb946848fE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   %5 = load i8, ptr %1, align 8, !range !8, !noundef !5
@@ -5330,7 +5330,7 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hab3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN53_$LT$T$u20$as$u20$core..convert..TryInto$LT$U$GT$$GT$8try_into17h5485e711410ad250E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 1), (8, 32)) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN53_$LT$T$u20$as$u20$core..convert..TryInto$LT$U$GT$$GT$8try_into17h5485e711410ad250E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !739)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !742)
@@ -5536,14 +5536,14 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsConfig7default17h282e0a8e2007d011E(ptr noalias nocapture noundef writeonly sret({ [7624 x i8], i8, [7 x i8] }) align 8 dereferenceable(7632) initializes((7624, 7625)) %0) unnamed_addr #5 {
+define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsConfig7default17h282e0a8e2007d011E(ptr noalias nocapture noundef writeonly sret({ [7624 x i8], i8, [7 x i8] }) align 8 dereferenceable(7632) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7624
   store i8 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsConfig3new17h9950924d28b9b7a1E(ptr noalias nocapture noundef writeonly sret({ { { i64, [3 x i64] }, { i64, [3 x i64] }, { [2 x i32], i32, [7 x i32] }, { [2 x i32], i32, [3 x i32] }, { [14 x i32], i32, [1 x i32] }, { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } }, { ptr, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, i8, [5 x i8] }, { ptr, [2 x i64] }, i8, [7 x i8] }) align 8 dereferenceable(432) initializes((0, 408), (424, 425)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(400) %1) unnamed_addr #6 {
+define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsConfig3new17h9950924d28b9b7a1E(ptr noalias nocapture noundef writeonly sret({ { { i64, [3 x i64] }, { i64, [3 x i64] }, { [2 x i32], i32, [7 x i32] }, { [2 x i32], i32, [3 x i32] }, { [14 x i32], i32, [1 x i32] }, { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } }, { ptr, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, i8, [5 x i8] }, { ptr, [2 x i64] }, i8, [7 x i8] }) align 8 dereferenceable(432) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(400) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 424
   store i8 0, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, ptr noundef nonnull align 8 dereferenceable(400) %1, i64 400, i1 false)
@@ -5553,7 +5553,7 @@ define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsConfig3new17h9950924d28
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsConfig12multi_region17h0032e50de23a4861E(ptr noalias nocapture noundef align 8 dereferenceable(432) initializes((424, 425)) %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsConfig12multi_region17h0032e50de23a4861E(ptr noalias nocapture noundef align 8 dereferenceable(432) %0, i1 noundef zeroext %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 424
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8
@@ -5562,7 +5562,7 @@ define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsConfig12multi_region17h
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsConfig27with_initial_keys_discovery17h46e021143ff20871E(ptr noalias nocapture noundef writeonly sret({ { { i64, [3 x i64] }, { i64, [3 x i64] }, { [2 x i32], i32, [7 x i32] }, { [2 x i32], i32, [3 x i32] }, { [14 x i32], i32, [1 x i32] }, { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } }, { ptr, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, i8, [5 x i8] }, { ptr, [2 x i64] }, i8, [7 x i8] }) align 8 dereferenceable(432) initializes((0, 425)) %0, ptr noalias nocapture noundef align 8 dereferenceable(432) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsConfig27with_initial_keys_discovery17h46e021143ff20871E(ptr noalias nocapture noundef writeonly sret({ { { i64, [3 x i64] }, { i64, [3 x i64] }, { [2 x i32], i32, [7 x i32] }, { [2 x i32], i32, [3 x i32] }, { [14 x i32], i32, [1 x i32] }, { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } }, { ptr, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, i8, [5 x i8] }, { ptr, [2 x i64] }, i8, [7 x i8] }) align 8 dereferenceable(432) %0, ptr noalias nocapture noundef align 8 dereferenceable(432) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 424
   %6 = load i8, ptr %5, align 8, !range !8, !noundef !5
@@ -5627,7 +5627,7 @@ define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsConfig27with_initial_ke
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient3new17h07bb5e8805651c41E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [3 x i64] }, { i64, [3 x i64] }, { [2 x i32], i32, [7 x i32] }, { [2 x i32], i32, [3 x i32] }, { [14 x i32], i32, [1 x i32] }, { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } }, { ptr, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, i8, [5 x i8] }, { ptr, [2 x i64] }, i8, [7 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(440) initializes((0, 433)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(432) %1) unnamed_addr #6 {
+define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient3new17h07bb5e8805651c41E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [3 x i64] }, { i64, [3 x i64] }, { [2 x i32], i32, [7 x i32] }, { [2 x i32], i32, [3 x i32] }, { [14 x i32], i32, [1 x i32] }, { { { { ptr, i64, i64, i64, {} }, {} }, { i64, i64 } } }, { ptr, ptr }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, [2 x i64] }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, { ptr, ptr }, i8, i8, i8, [5 x i8] }, { ptr, [2 x i64] }, i8, [7 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(440) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(432) %1) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef nonnull align 8 dereferenceable(432) %1, i64 432, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 432
   store i8 0, ptr %3, align 8
@@ -5779,7 +5779,7 @@ _ZN5alloc6string6String9from_utf817h9d46060a92d3d8f4E.exit: ; preds = %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10create_key17h5f9c547ce79044bfE(ptr noalias nocapture noundef writeonly sret({ ptr, [6256 x i8], i8, [7 x i8] }) align 8 dereferenceable(6272) initializes((0, 8), (6264, 6265)) %0, ptr noalias noundef readonly align 8 dereferenceable(440) %1) unnamed_addr #5 {
+define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10create_key17h5f9c547ce79044bfE(ptr noalias nocapture noundef writeonly sret({ ptr, [6256 x i8], i8, [7 x i8] }) align 8 dereferenceable(6272) %0, ptr noalias noundef readonly align 8 dereferenceable(440) %1) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 6264
   store i8 0, ptr %3, align 8
@@ -5787,7 +5787,7 @@ define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10create_key17h5f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key17h06586a5b26654588E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [5384 x i8], i8, [7 x i8] }) align 8 dereferenceable(5408) initializes((0, 16), (5400, 5401)) %0, ptr noalias noundef readonly align 8 dereferenceable(440) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 {
+define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key17h06586a5b26654588E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [5384 x i8], i8, [7 x i8] }) align 8 dereferenceable(5408) %0, ptr noalias noundef readonly align 8 dereferenceable(440) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -5797,7 +5797,7 @@ define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10delete_key17h06
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key17hc385f1e50a2e4f57E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [5448 x i8], i8, [7 x i8] }) align 8 dereferenceable(5472) initializes((0, 16), (5464, 5465)) %0, ptr noalias noundef readonly align 8 dereferenceable(440) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 {
+define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key17hc385f1e50a2e4f57E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [5448 x i8], i8, [7 x i8] }) align 8 dereferenceable(5472) %0, ptr noalias noundef readonly align 8 dereferenceable(440) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -5807,7 +5807,7 @@ define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient10public_key17hc3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign17h1e3c9a9e97dead67E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, { ptr, i64 }, [5832 x i8], i8, [7 x i8] }) align 8 dereferenceable(5872) initializes((0, 32), (5864, 5865)) %0, ptr noalias noundef readonly align 8 dereferenceable(440) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #5 {
+define void @_ZN15ockam_vault_aws14aws_kms_client12AwsKmsClient4sign17h1e3c9a9e97dead67E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, { ptr, i64 }, [5832 x i8], i8, [7 x i8] }) align 8 dereferenceable(5872) %0, ptr noalias noundef readonly align 8 dereferenceable(440) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8

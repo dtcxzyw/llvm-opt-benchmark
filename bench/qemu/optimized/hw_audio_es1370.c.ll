@@ -1031,7 +1031,7 @@ declare void @AUD_set_active_in(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @AUD_set_active_out(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @es1370_dac1_calc_freq(ptr nocapture noundef readonly %s, i32 noundef %ctl, ptr nocapture noundef writeonly initializes((0, 4)) %old_freq, ptr nocapture noundef writeonly initializes((0, 4)) %new_freq) #3 {
+define internal void @es1370_dac1_calc_freq(ptr nocapture noundef readonly %s, i32 noundef %ctl, ptr nocapture noundef writeonly %old_freq, ptr nocapture noundef writeonly %new_freq) #3 {
 entry:
   %ctl1 = getelementptr inbounds i8, ptr %s, i64 3000
   %0 = load i32, ptr %ctl1, align 8
@@ -1051,7 +1051,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @es1370_dac2_and_adc_calc_freq(ptr nocapture noundef readonly %s, i32 noundef %ctl, ptr nocapture noundef writeonly initializes((0, 4)) %old_freq, ptr nocapture noundef writeonly initializes((0, 4)) %new_freq) #3 {
+define internal void @es1370_dac2_and_adc_calc_freq(ptr nocapture noundef readonly %s, i32 noundef %ctl, ptr nocapture noundef writeonly %old_freq, ptr nocapture noundef writeonly %new_freq) #3 {
 entry:
   %and = lshr i32 %ctl, 16
   %shr = and i32 %and, 8191

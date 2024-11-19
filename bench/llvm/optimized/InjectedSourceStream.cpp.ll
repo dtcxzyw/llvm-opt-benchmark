@@ -87,7 +87,7 @@ $_ZTVN4llvm3pdb8RawErrorE = comdat any
 @_ZN4llvm3pdb20InjectedSourceStreamC1ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm3pdb20InjectedSourceStreamC2ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb20InjectedSourceStreamC2ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb20InjectedSourceStreamC2ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
 _ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit:
   %2 = load i64, ptr %1, align 8
   store i64 %2, ptr %0, align 8

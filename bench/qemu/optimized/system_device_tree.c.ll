@@ -68,7 +68,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.findnode_nofail = private unnamed_addr constant [16 x i8] c"findnode_nofail\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @create_device_tree(ptr nocapture noundef initializes((0, 4)) %sizep) local_unnamed_addr #0 {
+define dso_local noundef ptr @create_device_tree(ptr nocapture noundef %sizep) local_unnamed_addr #0 {
 entry:
   store i32 1048576, ptr %sizep, align 4
   %call = tail call noalias dereferenceable_or_null(1048576) ptr @g_malloc0(i64 noundef 1048576) #11
@@ -142,7 +142,7 @@ declare ptr @fdt_strerror(i32 noundef) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @load_device_tree(ptr noundef %filename_path, ptr nocapture noundef writeonly initializes((0, 4)) %sizep) local_unnamed_addr #0 {
+define dso_local noundef ptr @load_device_tree(ptr noundef %filename_path, ptr nocapture noundef writeonly %sizep) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %sizep, align 4
   %call = tail call i64 @get_image_size(ptr noundef %filename_path) #12

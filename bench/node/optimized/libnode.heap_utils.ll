@@ -3850,7 +3850,7 @@ declare void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS
 declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (56, 64), (120, 128)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -3877,7 +3877,7 @@ _ZNSt10unique_ptrIKN2v812HeapSnapshotEN4node15FunctionDeleterIS2_XadL_ZNS3_4heap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (56, 64), (120, 128)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -4260,7 +4260,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn56_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD1Ev(ptr noundef initializes((-56, -48), (0, 8), (64, 72)) %this) unnamed_addr #16 align 2 {
+define internal void @_ZThn56_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD1Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8
@@ -4287,7 +4287,7 @@ _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn56_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev(ptr noundef initializes((-56, -48), (0, 8), (64, 72)) %this) unnamed_addr #16 align 2 {
+define internal void @_ZThn56_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8
@@ -4403,7 +4403,7 @@ entry:
 declare ptr @_ZN4node10StreamBase9GetObjectEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn120_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD1Ev(ptr noundef initializes((-120, -112), (-64, -56), (0, 8)) %this) unnamed_addr #16 align 2 {
+define internal void @_ZThn120_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD1Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8
@@ -4430,7 +4430,7 @@ _ZN4node4heap12_GLOBAL__N_118HeapSnapshotStreamD2Ev.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn120_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev(ptr noundef initializes((-120, -112), (-64, -56), (0, 8)) %this) unnamed_addr #16 align 2 {
+define internal void @_ZThn120_N4node4heap12_GLOBAL__N_118HeapSnapshotStreamD0Ev(ptr noundef %this) unnamed_addr #16 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i64 16), ptr %0, align 8

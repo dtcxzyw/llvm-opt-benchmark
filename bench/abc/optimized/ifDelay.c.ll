@@ -2298,7 +2298,7 @@ define i32 @If_CutLutBalancePinDelays(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @If_CutLutBalanceEval(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((20, 24)) %1) local_unnamed_addr #2 {
+define i32 @If_CutLutBalanceEval(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 28
   %4 = load i64, ptr %3, align 4
   %5 = and i64 %4, 4261412864

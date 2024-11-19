@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_table_constructor(ptr nocapture readnone %0, ptr nocapture noundef initializes((64, 72), (80, 96)) %1) #0 {
+define internal void @lv_table_constructor(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store i32 1, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 68
@@ -1610,7 +1610,7 @@ define zeroext i1 @lv_table_has_cell_ctrl(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_table_get_selected_cell(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #6 {
+define void @lv_table_get_selected_cell(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %5 = load i32, ptr %4, align 4, !tbaa !33
   store i32 %5, ptr %1, align 4, !tbaa !15
@@ -2395,7 +2395,7 @@ declare zeroext i1 @lv_obj_refresh_self_size(ptr noundef) local_unnamed_addr #2
 declare i32 @lv_font_get_line_height(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_cell_area(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc void @get_cell_area(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   store i32 0, ptr %3, align 4, !tbaa !41
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph

@@ -1502,7 +1502,7 @@ define dso_local void @_ZN22ChooseRandomTypeFilterD0Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZNK22ChooseRandomTypeFilter6filterEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %0, i32 noundef %1) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK22ChooseRandomTypeFilter6filterEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   %3 = sext i32 %1 to i64
   %4 = load ptr, ptr @_ZL8AllTypes, align 8
   %5 = getelementptr inbounds ptr, ptr %4, i64 %3
@@ -1617,7 +1617,7 @@ define dso_local noundef ptr @_ZN22ChooseRandomTypeFilter8get_typeEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4TypeC2E11eSimpleType(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 4), (8, 20), (24, 81), (88, 136)) %0, i32 noundef %1) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4TypeC2E11eSimpleType(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, i32 noundef %1) unnamed_addr #9 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -1631,7 +1631,7 @@ define dso_local void @_ZN4TypeC2E11eSimpleType(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4TypeC2ERSt6vectorIPKS_SaIS2_EEbbRS0_I12CVQualifiersSaIS6_EERS0_IiSaIiEEbb(ptr noundef nonnull align 8 dereferenceable(136) initializes((8, 20), (24, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4TypeC2ERSt6vectorIPKS_SaIS2_EEbbRS0_I12CVQualifiersSaIS6_EERS0_IiSaIiEEbb(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1945,7 +1945,7 @@ _ZNSt12_Vector_baseI12CVQualifiersSaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4TypeC2EPKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 4), (8, 20), (24, 72), (76, 81), (88, 136)) %0, ptr noundef %1) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4TypeC2EPKS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #9 align 2 {
   store i32 1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

@@ -829,7 +829,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 declare void @_ZN9cmDependsD2Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16cmDependsFortranD2Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16cmDependsFortranD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16cmDependsFortran, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
@@ -869,7 +869,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16cmDependsFortranD0Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16cmDependsFortranD0Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN16cmDependsFortranD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void

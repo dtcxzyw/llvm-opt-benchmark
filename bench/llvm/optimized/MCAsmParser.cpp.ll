@@ -170,7 +170,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11MCAsmParserC2Ev(ptr noundef nonnull align 8 dereferenceable(34) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11MCAsmParserC2Ev(ptr noundef nonnull align 8 dereferenceable(34) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 280) (i8, ptr @_ZTVN4llvm11MCAsmParserE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -184,7 +184,7 @@ define dso_local void @_ZN4llvm11MCAsmParserC2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11MCAsmParserD2Ev(ptr noundef nonnull align 8 dereferenceable(34) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11MCAsmParserD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 280) (i8, ptr @_ZTVN4llvm11MCAsmParserE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -238,7 +238,7 @@ define dso_local void @_ZN4llvm11MCAsmParserD0Ev(ptr nocapture nonnull readnone 
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11MCAsmParser15setTargetParserERNS_17MCTargetAsmParserE(ptr noundef nonnull align 8 dereferenceable(34) initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(304) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11MCAsmParser15setTargetParserERNS_17MCTargetAsmParserE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(304) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = load ptr, ptr %1, align 8
@@ -260,7 +260,7 @@ define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm11MCAsmParser13parseTokenLocERNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm11MCAsmParser13parseTokenLocERNS_5SMLocE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8

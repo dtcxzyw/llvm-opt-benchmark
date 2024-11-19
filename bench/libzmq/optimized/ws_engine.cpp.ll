@@ -149,7 +149,7 @@ declare noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN3zmq20stream_engine_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1689)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq11ws_engine_tD2Ev(ptr noundef nonnull align 8 dereferenceable(25696) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq11ws_engine_tD2Ev(ptr noundef nonnull align 8 dereferenceable(25696) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq11ws_engine_tE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -581,7 +581,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @_ZN3zmq20stream_engine_base_t21pull_msg_from_sessionEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689), ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t22process_routing_id_msgEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(25696) initializes((1432, 1448)) %this, ptr noundef %msg_) #0 align 2 {
+define noundef i32 @_ZN3zmq11ws_engine_t22process_routing_id_msgEPNS_5msg_tE(ptr nocapture noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef %msg_) #0 align 2 {
 entry:
   %recv_routing_id = getelementptr inbounds i8, ptr %this, i64 394
   %0 = load i8, ptr %recv_routing_id, align 2
@@ -2195,7 +2195,7 @@ do.end:                                           ; preds = %entry, %if.then
 declare noundef i32 @_ZN3zmq5msg_t4moveERS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t26produce_no_msg_after_closeEPNS_5msg_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25696) initializes((1416, 1432)) %this, ptr nocapture readnone %msg_) #17 align 2 {
+define noundef i32 @_ZN3zmq11ws_engine_t26produce_no_msg_after_closeEPNS_5msg_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25696) %this, ptr nocapture readnone %msg_) #17 align 2 {
 entry:
   %_next_msg = getelementptr inbounds i8, ptr %this, i64 1416
   store i64 ptrtoint (ptr @_ZN3zmq11ws_engine_t28close_connection_after_closeEPNS_5msg_tE to i64), ptr %_next_msg, align 8
@@ -2219,7 +2219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t20produce_ping_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) initializes((1416, 1432)) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq11ws_engine_t20produce_ping_messageEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(25696) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp.not = icmp eq i32 %call, 0
@@ -2265,7 +2265,7 @@ if.end10:                                         ; preds = %if.then7, %land.lhs
 declare noundef i32 @_ZN3zmq20stream_engine_base_t15pull_and_encodeEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(1689), ptr noundef) #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN3zmq11ws_engine_t20produce_pong_messageEPNS_5msg_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25696) initializes((1416, 1432)) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3zmq11ws_engine_t20produce_pong_messageEPNS_5msg_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25696) %this, ptr noundef nonnull %msg_) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp.not = icmp eq i32 %call, 0

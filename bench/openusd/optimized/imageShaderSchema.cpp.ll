@@ -3443,7 +3443,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseELN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema7Builder10SetEnabledERKSt10shared_ptrINS_24HdTypedSampledDataSourceIbEEE(ptr noundef nonnull returned align 8 dereferenceable(80) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema7Builder10SetEnabledERKSt10shared_ptrINS_24HdTypedSampledDataSourceIbEEE(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3559,7 +3559,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema7Builder11SetPriorityERKSt10shared_ptrINS_24HdTypedSampledDataSourceIiEEE(ptr noundef nonnull returned align 8 dereferenceable(80) initializes((16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema7Builder11SetPriorityERKSt10shared_ptrINS_24HdTypedSampledDataSourceIiEEE(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -3676,7 +3676,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema7Builder11SetFilePathERKSt10shared_ptrINS_24HdTypedSampledDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE(ptr noundef nonnull returned align 8 dereferenceable(80) initializes((32, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema7Builder11SetFilePathERKSt10shared_ptrINS_24HdTypedSampledDataSourceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -3793,7 +3793,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema7Builder12SetConstantsERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr noundef nonnull returned align 8 dereferenceable(80) initializes((48, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema7Builder12SetConstantsERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -3910,7 +3910,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEEaS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema7Builder18SetMaterialNetworkERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr noundef nonnull returned align 8 dereferenceable(80) initializes((64, 72)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZN32pxrInternal_v0_24__pxrReserved__19HdImageShaderSchema7Builder18SetMaterialNetworkERKSt10shared_ptrINS_21HdContainerDataSourceEE(ptr noundef nonnull returned align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8

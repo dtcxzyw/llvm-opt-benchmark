@@ -1305,7 +1305,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef zeroext i1 @_ZNK4llvm15MachineFunction16useDebugInstrRefEv(ptr noundef nonnull align 8 dereferenceable(1041)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10MIRPrinter7convertERNS_4yaml15MachineFunctionERKNS_19MachineRegisterInfoEPKNS_18TargetRegisterInfoE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(624) initializes((23, 24)) %1, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10MIRPrinter7convertERNS_4yaml15MachineFunctionERKNS_19MachineRegisterInfoEPKNS_18TargetRegisterInfoE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(624) %1, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca %"class.llvm::Printable", align 8
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -1857,7 +1857,7 @@ declare void @_ZN4llvm24MachineModuleSlotTrackerC1ERKNS_17MachineModuleInfoEPKNS
 declare void @_ZN4llvm17ModuleSlotTracker19incorporateFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10MIRPrinter7convertERNS_17ModuleSlotTrackerERNS_4yaml16MachineFrameInfoERKNS_16MachineFrameInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 4), (8, 26), (128, 141), (144, 148)) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10MIRPrinter7convertERNS_17ModuleSlotTrackerERNS_4yaml16MachineFrameInfoERKNS_16MachineFrameInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(696) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca %"class.llvm::Printable", align 8
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -3984,7 +3984,7 @@ _ZNSt6vectorIN4llvm4yaml24MachineConstantPoolValueESaIS2_EE9push_backERKS2_.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10MIRPrinter7convertERNS_17ModuleSlotTrackerERNS_4yaml16MachineJumpTableERKNS_20MachineJumpTableInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 4)) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10MIRPrinter7convertERNS_17ModuleSlotTrackerERNS_4yaml16MachineJumpTableERKNS_20MachineJumpTableInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"struct.llvm::yaml::MachineJumpTable::Entry", align 8
@@ -23706,7 +23706,7 @@ _ZNSt12_Vector_baseIN4llvm4yaml23FixedMachineStackObjectESaIS2_EE13_M_deallocate
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiN12_GLOBAL__N_117FrameIndexOperandENS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

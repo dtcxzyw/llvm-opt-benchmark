@@ -55,7 +55,7 @@ $_ZGVZ8dtVequalPKfS0_E3thr = comdat any
 @_ZN19dtCollectPolysQueryD1Ev = unnamed_addr alias void (ptr), ptr @_ZN19dtCollectPolysQueryD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN13dtQueryFilterC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(260) initializes((256, 260)) %0) unnamed_addr #0 align 2 {
+define void @_ZN13dtQueryFilterC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(260) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i16 -1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 258
@@ -121,7 +121,7 @@ define void @_ZN11dtPolyQueryD0Ev(ptr nocapture nonnull readnone align 8 %0) unn
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14dtNavMeshQueryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 104)) %0) unnamed_addr #6 align 2 {
+define void @_ZN14dtNavMeshQueryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   ret void
 }
@@ -3368,7 +3368,7 @@ define noundef range(i32 1073741824, 1073741841) i32 @_ZNK14dtNavMeshQuery13getP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 536870912, -2147483639) i32 @_ZN14dtNavMeshQuery18initSlicedFindPathEjjPKfS1_PK13dtQueryFilterj(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 80)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
+define noundef range(i32 536870912, -2147483639) i32 @_ZN14dtNavMeshQuery18initSlicedFindPathEjjPKfS1_PK13dtQueryFilterj(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 align 2 {
   %8 = tail call noundef ptr @_Z21dtAssertFailGetCustomv()
   %9 = icmp ne ptr %8, null
   %10 = load ptr, ptr %0, align 8
@@ -4934,7 +4934,7 @@ _ZNK10dtNodePool10getNodeIdxEPK6dtNode.exit:      ; preds = %37, %46
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterPfS5_PjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr noundef writeonly %6, ptr noundef %7, ptr noundef writeonly %8, i32 noundef %9) local_unnamed_addr #1 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZNK14dtNavMeshQuery7raycastEjPKfS1_PK13dtQueryFilterPfS5_PjPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, ptr noundef writeonly %6, ptr noundef %7, ptr noundef writeonly %8, i32 noundef %9) local_unnamed_addr #1 align 2 {
   %11 = alloca %struct.dtRaycastHit, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 24
   store ptr %7, ptr %12, align 8

@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4llvh8InitLLVMD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4llvh8InitLLVMD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh8InitLLVMC2ERiRPPKc(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %Argc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %Argv) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh8InitLLVMC2ERiRPPKc(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %Argc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %Argv) unnamed_addr #0 align 2 {
 entry:
   %Slabs.i = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32

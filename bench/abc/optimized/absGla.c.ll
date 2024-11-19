@@ -8458,7 +8458,7 @@ define void @Gia_Ga2SendCancel(ptr nocapture noundef readnone %0, i32 noundef %1
 declare i32 @Gia_ManToBridgeBadAbs(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Gia_ManPerformGla(ptr noundef %0, ptr noundef initializes((120, 124)) %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @Gia_ManPerformGla(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8

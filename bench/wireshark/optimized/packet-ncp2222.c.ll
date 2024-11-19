@@ -17959,7 +17959,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @process_multivalues(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull initializes((8, 16)) %3) unnamed_addr #0 {
+define internal fastcc void @process_multivalues(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.nstime_t, align 8
   %7 = alloca i32, align 4

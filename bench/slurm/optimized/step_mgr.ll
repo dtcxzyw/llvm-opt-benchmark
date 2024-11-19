@@ -1166,7 +1166,7 @@ declare ptr @find_node_record(ptr noundef) local_unnamed_addr #1
 declare void @fatal(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @step_create(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -2908,7 +2908,7 @@ declare i32 @gres_step_state_validate(ptr noundef, ptr noundef, ptr noundef, ptr
 declare ptr @select_g_select_jobinfo_alloc() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_pick_step_nodes(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull initializes((0, 4)) %5) unnamed_addr #0 {
+define internal fastcc ptr @_pick_step_nodes(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8

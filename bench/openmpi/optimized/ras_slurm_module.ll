@@ -940,7 +940,7 @@ pmix_obj_run_destructors.exit19:                  ; preds = %.lr.ph.i16, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @jtrk_cons(ptr noundef initializes((144, 152), (576, 588), (592, 656)) %0) #0 {
+define internal void @jtrk_cons(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   %3 = load i32, ptr @pmix_class_init_epoch, align 4

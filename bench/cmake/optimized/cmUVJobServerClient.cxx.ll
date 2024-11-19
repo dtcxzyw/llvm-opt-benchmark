@@ -143,7 +143,7 @@ declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dere
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19cmUVJobServerClient4ImplC2ER9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(848) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19cmUVJobServerClient4ImplC2ER9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(848) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmUVJobServerClient4ImplE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -205,7 +205,7 @@ declare noundef i32 @_ZN2cm11uv_idle_ptr4initER9uv_loop_sPv(ptr noundef nonnull 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN19cmUVJobServerClient4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19cmUVJobServerClient4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19cmUVJobServerClient4ImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -562,7 +562,7 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN19cmUVJobServerClientC2ESt10unique_ptrINS_4ImplESt14default_deleteIS1_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef %1) unnamed_addr #7 align 2 {
+define dso_local void @_ZN19cmUVJobServerClientC2ESt10unique_ptrINS_4ImplESt14default_deleteIS1_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef %1) unnamed_addr #7 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -588,7 +588,7 @@ _ZNSt10unique_ptrIN19cmUVJobServerClient4ImplESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN19cmUVJobServerClientC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #7 align 2 {
+define dso_local void @_ZN19cmUVJobServerClientC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #7 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -1613,7 +1613,7 @@ _ZNSt12__shared_ptrISt8functionIFviEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19ImplPosixD2Ev(ptr noundef nonnull align 8 dereferenceable(178) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_19ImplPosixD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_19ImplPosixE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
@@ -1804,7 +1804,7 @@ _ZN19cmUVJobServerClient4ImplD2Ev.exit:           ; preds = %_ZNSt8functionIFviE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_19ImplPosixD0Ev(ptr noundef nonnull align 8 dereferenceable(178) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_19ImplPosixD0Ev(ptr noundef nonnull align 8 dereferenceable(178) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN12_GLOBAL__N_19ImplPosixD2Ev(ptr noundef nonnull align 8 dereferenceable(178) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #27
   ret void
@@ -2549,7 +2549,7 @@ declare noundef i32 @_ZN2cm8uv_writeEP11uv_stream_sPK8uv_buf_tjSt8weak_ptrISt8fu
 declare i32 @uv_read_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_19ImplPosix12OnAllocateCBEP11uv_handle_smP8uv_buf_t(ptr nocapture noundef readonly %0, i64 %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_19ImplPosix12OnAllocateCBEP11uv_handle_smP8uv_buf_t(ptr nocapture noundef readonly %0, i64 %1, ptr nocapture noundef writeonly %2) #3 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 176
   %6 = tail call { ptr, i64 } @uv_buf_init(ptr noundef nonnull %5, i32 noundef 1)

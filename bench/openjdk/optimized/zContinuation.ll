@@ -172,7 +172,7 @@ _ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN13ZContinuation21ZColorStackOopClosureC2EP17stackChunkOopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13ZContinuation21ZColorStackOopClosureC2EP17stackChunkOopDesc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN13ZContinuation21ZColorStackOopClosureE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr @_ZN26jdk_internal_vm_StackChunk12_size_offsetE, align 4

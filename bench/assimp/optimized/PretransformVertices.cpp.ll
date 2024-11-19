@@ -193,7 +193,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp20PretransformVertices15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(93) initializes((24, 27), (28, 93)) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
+define void @_ZN6Assimp20PretransformVertices15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(93) %this, ptr noundef nonnull %pImp) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %class.aiMatrix4x4t, align 4
   %ref.tmp8 = alloca %class.aiMatrix4x4t, align 4
@@ -2517,7 +2517,7 @@ declare void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereference
 declare void @_ZN6Assimp13SceneCombiner4CopyEPP6aiMeshPKS1_(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6Assimp20PretransformVertices21MakeIdentityTransformEP6aiNode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(93) %this, ptr nocapture noundef initializes((1028, 1092)) %nd) local_unnamed_addr #9 align 2 {
+define void @_ZNK6Assimp20PretransformVertices21MakeIdentityTransformEP6aiNode(ptr nocapture noundef nonnull readnone align 8 dereferenceable(93) %this, ptr nocapture noundef %nd) local_unnamed_addr #9 align 2 {
 entry:
   %mTransformation = getelementptr inbounds i8, ptr %nd, i64 1028
   store float 1.000000e+00, ptr %mTransformation, align 4

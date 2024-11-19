@@ -952,7 +952,7 @@ declare void @_ZN14expr_free_varsclEP4expr(ptr noundef nonnull align 8 dereferen
 declare void @_ZN14expr_free_vars5resetEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN11var_counter11get_max_varERb(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %has_var) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN11var_counter11get_max_varERb(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull align 1 dereferenceable(1) %has_var) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1

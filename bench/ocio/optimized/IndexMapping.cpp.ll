@@ -37,7 +37,7 @@ $_ZNSt6vectorISt4pairIffESaIS1_EE6resizeEm = comdat any
 @_ZN19OpenColorIO_v2_4dev12IndexMappingD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_4dev12IndexMappingD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMappingC2Em(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, i64 noundef %dimension) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMappingC2Em(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %dimension) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i64 16), ptr %this, align 8
   %m_dimension = getelementptr inbounds i8, ptr %this, i64 8
@@ -76,7 +76,7 @@ eh.resume:                                        ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMapping6resizeEm(ptr noundef nonnull align 8 dereferenceable(88) initializes((8, 16)) %this, i64 noundef %dimension) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMapping6resizeEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %dimension) local_unnamed_addr #0 align 2 {
 entry:
   %m_dimension = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %dimension, ptr %m_dimension, align 8
@@ -88,7 +88,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMappingD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMappingD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i64 16), ptr %this, align 8
   br label %arraydestroy.body
@@ -114,7 +114,7 @@ arraydestroy.done2:                               ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMappingD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12IndexMappingD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i64 16), ptr %this, align 8
   br label %arraydestroy.body.i
@@ -390,7 +390,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev12IndexMapping7getPairEmRfS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i64 noundef %index, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %first, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %second) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev12IndexMapping7getPairEmRfS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, i64 noundef %index, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %first, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %second) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZNK19OpenColorIO_v2_4dev12IndexMapping13validateIndexEm(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %index)
   %m_indices = getelementptr inbounds i8, ptr %this, i64 16

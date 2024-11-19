@@ -11202,7 +11202,7 @@ define internal fastcc void @Abc_TtSwapVars(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @Dau_DsdDecomposeInt(ptr noundef initializes((0, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 0, 3) i32 @Dau_DsdDecomposeInt(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [16 x i32], align 16
   store i32 %2, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4

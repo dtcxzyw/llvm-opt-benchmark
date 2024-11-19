@@ -360,7 +360,7 @@ declare void @abort() local_unnamed_addr #5
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_input_init_config(ptr noundef initializes((528, 536)) %vinput, ptr nocapture noundef readonly %config) local_unnamed_addr #0 {
+define dso_local void @virtio_input_init_config(ptr noundef %vinput, ptr nocapture noundef readonly %config) local_unnamed_addr #0 {
 entry:
   %cfg_list = getelementptr inbounds i8, ptr %vinput, i64 528
   store ptr null, ptr %cfg_list, align 8

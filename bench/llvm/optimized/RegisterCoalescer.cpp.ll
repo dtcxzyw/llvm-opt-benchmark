@@ -669,7 +669,7 @@ define internal noundef nonnull ptr @_ZL35initializeRegisterCoalescerPassOnceRN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm13CoalescerPair12setRegistersEPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 24), (25, 27), (32, 40)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm13CoalescerPair12setRegistersEPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1435,7 +1435,7 @@ declare void @_ZN4llvm17RegisterClassInfoC1Ev(ptr noundef nonnull align 8 derefe
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117RegisterCoalescerD2Ev(ptr noundef nonnull align 8 dereferenceable(960) initializes((0, 8), (56, 64)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117RegisterCoalescerD2Ev(ptr noundef nonnull align 8 dereferenceable(960) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 184) (i8, ptr @_ZTVN12_GLOBAL__N_117RegisterCoalescerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN12_GLOBAL__N_117RegisterCoalescerE, i64 216), ptr %2, align 8
@@ -1622,7 +1622,7 @@ _ZN4llvm8DenseMapINS_8RegisterENS_11SmallVectorIjLj2EEENS_12DenseMapInfoIS1_vEEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117RegisterCoalescerD0Ev(ptr noundef nonnull align 8 dereferenceable(960) initializes((0, 8), (56, 64)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117RegisterCoalescerD0Ev(ptr noundef nonnull align 8 dereferenceable(960) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_117RegisterCoalescerD2Ev(ptr noundef nonnull align 8 dereferenceable(960) %0) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 960) #23
   ret void
@@ -4191,14 +4191,14 @@ _ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit: ; preds = %.lr.p
 declare void @_ZN4llvm13LiveRangeEdit8Delegate6anchorEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn56_N12_GLOBAL__N_117RegisterCoalescerD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %0) unnamed_addr #10 align 2 {
+define internal void @_ZThn56_N12_GLOBAL__N_117RegisterCoalescerD1Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -56
   tail call void @_ZN12_GLOBAL__N_117RegisterCoalescerD2Ev(ptr noundef nonnull align 8 dereferenceable(960) %2) #20
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn56_N12_GLOBAL__N_117RegisterCoalescerD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %0) unnamed_addr #10 align 2 {
+define internal void @_ZThn56_N12_GLOBAL__N_117RegisterCoalescerD0Ev(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -56
   tail call void @_ZN12_GLOBAL__N_117RegisterCoalescerD2Ev(ptr noundef nonnull align 8 dereferenceable(960) %2) #20
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(960) %2, i64 noundef 960) #23
@@ -4723,7 +4723,7 @@ _ZN4llvm13LiveIntervals31createAndComputeVirtRegIntervalENS_8RegisterE.exit: ; p
 declare void @_ZN4llvm12LiveInterval14clearSubRangesEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjN12_GLOBAL__N_117RegisterCoalescer9PHIValPosENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjN12_GLOBAL__N_117RegisterCoalescer9PHIValPosENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -8645,7 +8645,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterENS_6detail13DenseSetEmptyENS_12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RegisterCoalescer8joinCopyEPN4llvm12MachineInstrERbRNS1_15SmallPtrSetImplIS3_EE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RegisterCoalescer8joinCopyEPN4llvm12MachineInstrERbRNS1_15SmallPtrSetImplIS3_EE(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.462", align 8
   %6 = alloca %"class.std::function.596", align 8
   %7 = alloca %"class.llvm::SmallVector.557", align 8
@@ -12895,7 +12895,7 @@ declare noundef ptr @_ZN4llvm9LiveRange20MergeValueNumberIntoEPNS_6VNInfoES2_(pt
 declare void @_ZN4llvm9LiveRange11removeValNoEPNS_6VNInfoE(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RegisterCoalescer23reMaterializeTrivialDefERKN4llvm13CoalescerPairEPNS1_12MachineInstrERb(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_117RegisterCoalescer23reMaterializeTrivialDefERKN4llvm13CoalescerPairEPNS1_12MachineInstrERb(ptr noundef nonnull align 8 dereferenceable(960) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Register", align 4
   %6 = alloca %"class.llvm::SmallVector.228", align 8
   %7 = alloca %"class.llvm::LiveRangeEdit", align 8
@@ -19385,7 +19385,7 @@ declare void @_ZN4llvm13LiveIntervals19computeRegUnitRangeERNS_9LiveRangeEj(ptr 
 declare noundef i32 @_ZNK4llvm12MachineInstr25findRegisterUseOperandIdxENS_8RegisterEPKNS_18TargetRegisterInfoEb(ptr noundef nonnull align 8 dereferenceable(70), i32, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18JoinValsC2ERN4llvm9LiveRangeENS1_8RegisterEjNS1_11LaneBitmaskERNS1_15SmallVectorImplIPNS1_6VNInfoEEERKNS1_13CoalescerPairEPNS1_13LiveIntervalsEPKNS1_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 26), (32, 72)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i32 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18JoinValsC2ERN4llvm9LiveRangeENS1_8RegisterEjNS1_11LaneBitmaskERNS1_15SmallVectorImplIPNS1_6VNInfoEEERKNS1_13CoalescerPairEPNS1_13LiveIntervalsEPKNS1_18TargetRegisterInfoEbb(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i32 %2, i32 noundef %3, i64 %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef %7, ptr noundef %8, i1 noundef zeroext %9, i1 noundef zeroext %10) unnamed_addr #0 align 2 {
   %12 = zext i1 %9 to i8
   %13 = zext i1 %10 to i8
   store ptr %1, ptr %0, align 8

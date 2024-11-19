@@ -1000,7 +1000,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4sets13SetEnumeratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4sets13SetEnumeratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory4sets13SetEnumeratorE, i64 16), ptr %this, align 8
   %d_currentSet = getelementptr inbounds i8, ptr %this, i64 72
@@ -1131,7 +1131,7 @@ _ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_4sets13SetEnumeratorEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4sets13SetEnumeratorD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory4sets13SetEnumeratorD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory4sets13SetEnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22

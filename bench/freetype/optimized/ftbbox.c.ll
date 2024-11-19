@@ -132,7 +132,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @BBox_Move_To(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 16)) %1) #3 {
+define internal noundef i32 @BBox_Move_To(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #3 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -185,7 +185,7 @@ define internal noundef i32 @BBox_Move_To(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @BBox_Line_To(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #3 {
+define internal noundef i32 @BBox_Line_To(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false)
   ret i32 0
 }

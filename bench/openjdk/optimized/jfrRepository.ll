@@ -52,7 +52,7 @@ define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN13JfrRepositor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13JfrRepositoryC2ER10JfrPostBox(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(21) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN13JfrRepositoryC2ER10JfrPostBox(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(21) %1) unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

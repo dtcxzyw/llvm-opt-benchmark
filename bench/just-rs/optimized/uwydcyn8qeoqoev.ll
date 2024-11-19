@@ -2129,7 +2129,7 @@ define internal fastcc void @"_ZN4core4char7methods22_$LT$impl$u20$char$GT$14esc
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17h3e9feb8a4eca19aeE.llvm.13711779418236020091"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #6 {
+define hidden void @"_ZN4core4iter5range101_$LT$impl$u20$core..iter..traits..iterator..Iterator$u20$for$u20$core..ops..range..Range$LT$A$GT$$GT$9size_hint17h3e9feb8a4eca19aeE.llvm.13711779418236020091"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %1, align 8, !noalias !4, !noundef !4
   %5 = load i64, ptr %3, align 8, !noalias !4, !noundef !4
@@ -6708,7 +6708,7 @@ _ZN7similar10algorithms5utils17common_suffix_len17h0b45f9cfd8f02b67E.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4just13compile_error12CompileError7context17ha697715239a2816bE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] }) align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #10 {
+define hidden void @_ZN4just13compile_error12CompileError7context17ha697715239a2816bE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 }, i64, i64, i64, i64, i8, [7 x i8] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %3, i64 72, i1 false)
   ret void
@@ -13139,7 +13139,7 @@ define internal fastcc void @_ZN4just6parser6Parser7advance17he68c849e8dc21d48E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4just6parser6Parser6expect17hb45a6509d5178bd7E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 73)) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, i8 noundef range(i8 5, 31) %2) unnamed_addr #1 {
+define internal fastcc void @_ZN4just6parser6Parser6expect17hb45a6509d5178bd7E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, i8 noundef range(i8 5, 31) %2) unnamed_addr #1 {
   %.sroa.532 = alloca [7 x i8], align 1
   %4 = alloca { i64, [10 x i64] }, align 8
   %.sroa.6 = alloca [10 x i64], align 8
@@ -13871,7 +13871,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit48:  ; preds = %"_ZN4core3str21_$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4just6parser6Parser7presume17h52b180b3c4dc62f9E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 73)) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %1, i8 noundef range(i8 21, 26) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN4just6parser6Parser7presume17h52b180b3c4dc62f9E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %1, i8 noundef range(i8 21, 26) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %5 = alloca { i64, [11 x i64] }, align 8
   %.sroa.317 = alloca [7 x i8], align 1
@@ -14828,7 +14828,7 @@ _ZN4just6parser6Parser7next_is17ha4f3f77e569ff8ddE.exit.thread.i: ; preds = %29
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4just6parser6Parser8accepted17h29ada4df7d268c9fE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 1), (72, 73)) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, i8 noundef range(i8 0, 30) %2) unnamed_addr #1 {
+define internal fastcc void @_ZN4just6parser6Parser8accepted17h29ada4df7d268c9fE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, i8 noundef range(i8 0, 30) %2) unnamed_addr #1 {
   %.sroa.529 = alloca [7 x i8], align 1
   %4 = alloca { [72 x i8], i8, [7 x i8] }, align 8
   %.sroa.01.sroa.0 = alloca [64 x i8], align 8
@@ -24638,7 +24638,7 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit94: ; preds = %"_ZN4core3str
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4just6parser6Parser20parse_string_literal17hd97902c1ee235d3dE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 48), (72, 73)) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #1 {
+define internal fastcc void @_ZN4just6parser6Parser20parse_string_literal17hd97902c1ee235d3dE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #1 {
   %3 = alloca { { { { i64, ptr, {} }, i64 } }, { ptr, i64 }, { i8, i8 }, [6 x i8] }, align 8
   %4 = alloca { i64, [15 x i64] }, align 8
   %.sroa.6 = alloca [15 x i64], align 8
@@ -26028,7 +26028,7 @@ _ZN4just6parser6Parser7next_is17ha4f3f77e569ff8ddE.exit287.thread386: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN4just6parser6Parser15parse_parameter17he28a9501959ae720E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((0, 88)) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, i8 noundef range(i8 0, 3) %2) unnamed_addr #1 {
+define internal fastcc void @_ZN4just6parser6Parser15parse_parameter17he28a9501959ae720E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(208) %0, ptr noalias noundef nonnull align 8 dereferenceable(104) %1, i8 noundef range(i8 0, 3) %2) unnamed_addr #1 {
   %4 = alloca { [72 x i8], i8, [7 x i8] }, align 8
   %5 = alloca { [72 x i8], i8, [7 x i8] }, align 8
   %.sroa.275.sroa.0 = alloca [63 x i8], align 1

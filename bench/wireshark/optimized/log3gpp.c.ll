@@ -664,7 +664,7 @@ hex_from_char.exit63:                             ; preds = %hex_from_char.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @log3gpp_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @log3gpp_seek_read(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

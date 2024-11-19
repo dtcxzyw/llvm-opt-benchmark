@@ -358,7 +358,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost3log11v2_mt_posix5sinks3aux12default_sinkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(69) initializes((0, 9), (16, 68)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost3log11v2_mt_posix5sinks3aux12default_sinkC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(69) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8, !tbaa !3
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks3aux12default_sinkE, i64 16), ptr %0, align 8, !tbaa !8

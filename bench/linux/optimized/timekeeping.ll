@@ -1572,7 +1572,7 @@ tk_set_wall_to_mono.exit:                         ; preds = %.thread, %103
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tk_set_wall_to_mono(ptr nocapture noundef initializes((160, 168)) %0, i64 %1, i64 %2) unnamed_addr #0 align 16 {
+define internal fastcc void @tk_set_wall_to_mono(ptr nocapture noundef %0, i64 %1, i64 %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.timespec64, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !67
@@ -1626,7 +1626,7 @@ define internal fastcc void @tk_set_wall_to_mono(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @timekeeping_update(ptr noundef initializes((40, 48), (96, 104), (120, 128), (184, 192)) %0, i32 noundef range(i32 0, 8) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @timekeeping_update(ptr noundef %0, i32 noundef range(i32 0, 8) %1) unnamed_addr #0 align 16 {
   %3 = and i32 %1, 1
   %4 = icmp eq i32 %3, 0
   br i1 %4, label %7, label %5
@@ -3499,7 +3499,7 @@ tk_set_wall_to_mono.exit:                         ; preds = %73, %94
 declare dso_local void @clock_was_set_delayed() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @getboottime64(ptr nocapture noundef writeonly initializes((0, 16)) %0) #0 align 16 {
+define dso_local void @getboottime64(ptr nocapture noundef writeonly %0) #0 align 16 {
   %2 = load i64, ptr getelementptr inbounds (i8, ptr @tk_core, i64 152), align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @tk_core, i64 160), align 32
   %4 = sub i64 %2, %3

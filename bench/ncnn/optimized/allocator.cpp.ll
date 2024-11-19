@@ -45,7 +45,7 @@ define hidden void @_ZN4ncnn9AllocatorD0Ev(ptr nocapture nonnull readnone align 
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn13PoolAllocatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn13PoolAllocatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4ncnn13PoolAllocatorE, i64 16), ptr %0, align 8
   %2 = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #15
   %3 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef null) #16
@@ -81,7 +81,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn13PoolAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn13PoolAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4ncnn13PoolAllocatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -281,14 +281,14 @@ _ZNSt7__cxx114listISt4pairImPvESaIS3_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %._
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn13PoolAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN4ncnn13PoolAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN4ncnn13PoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn13PoolAllocatorC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN4ncnn13PoolAllocatorC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4ncnn13PoolAllocatorE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -583,7 +583,7 @@ define hidden void @_ZN4ncnn13PoolAllocator8fastFreeEPv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn21UnlockedPoolAllocatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn21UnlockedPoolAllocatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4ncnn21UnlockedPoolAllocatorE, i64 16), ptr %0, align 8
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -607,7 +607,7 @@ define hidden void @_ZN4ncnn21UnlockedPoolAllocatorC2Ev(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn21UnlockedPoolAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn21UnlockedPoolAllocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4ncnn21UnlockedPoolAllocatorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -793,14 +793,14 @@ _ZNSt7__cxx114listISt4pairImPvESaIS3_EE5clearEv.exit: ; preds = %.lr.ph.i.i, %._
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn21UnlockedPoolAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN4ncnn21UnlockedPoolAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN4ncnn21UnlockedPoolAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #16
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #17
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn21UnlockedPoolAllocatorC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN4ncnn21UnlockedPoolAllocatorC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4ncnn21UnlockedPoolAllocatorE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8

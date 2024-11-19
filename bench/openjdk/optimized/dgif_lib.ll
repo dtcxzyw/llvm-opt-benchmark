@@ -2739,7 +2739,7 @@ define hidden void @DGifDecreaseImageCounter(ptr nocapture noundef %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DGifSlurp(ptr noundef initializes((80, 84), (88, 96)) %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DGifSlurp(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca ptr, align 8

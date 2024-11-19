@@ -1131,7 +1131,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare i32 @hwloc_bitmap_only(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @hwloc_set_linuxfs_hooks(ptr nocapture noundef writeonly initializes((0, 88), (104, 120), (136, 192)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define hidden void @hwloc_set_linuxfs_hooks(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @hwloc_linux_set_thisthread_cpubind, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

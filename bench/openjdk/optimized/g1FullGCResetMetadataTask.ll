@@ -330,7 +330,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN25G1FullGCResetMetadataTask22G1ResetMetadataClosureC1EP15G1FullCollector = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN25G1FullGCResetMetadataTask22G1ResetMetadataClosureC2EP15G1FullCollector
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN25G1FullGCResetMetadataTask22G1ResetMetadataClosureC2EP15G1FullCollector(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 9), (16, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN25G1FullGCResetMetadataTask22G1ResetMetadataClosureC2EP15G1FullCollector(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTVN25G1FullGCResetMetadataTask22G1ResetMetadataClosureE, i64 16), ptr %0, align 8

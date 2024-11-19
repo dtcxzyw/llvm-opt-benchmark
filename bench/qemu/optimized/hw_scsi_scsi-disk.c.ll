@@ -834,7 +834,7 @@ declare void @blk_iostatus_enable(ptr noundef) local_unnamed_addr #1
 declare void @add_boot_device_lchs(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @scsi_cd_change_media_cb(ptr noundef initializes((612, 613), (696, 697)) %opaque, i1 noundef zeroext %load, ptr nocapture readnone %errp) #0 {
+define internal void @scsi_cd_change_media_cb(ptr noundef %opaque, i1 noundef zeroext %load, ptr nocapture readnone %errp) #0 {
 entry:
   %frombool = zext i1 %load to i8
   %media_changed = getelementptr inbounds i8, ptr %opaque, i64 612
@@ -853,7 +853,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @scsi_cd_eject_request_cb(ptr nocapture noundef writeonly initializes((614, 615)) %opaque, i1 noundef zeroext %force) #4 {
+define internal void @scsi_cd_eject_request_cb(ptr nocapture noundef writeonly %opaque, i1 noundef zeroext %force) #4 {
 entry:
   %eject_request = getelementptr inbounds i8, ptr %opaque, i64 614
   store i8 1, ptr %eject_request, align 2
@@ -1681,7 +1681,7 @@ if.end15:                                         ; preds = %if.then4, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @scsi_disk_load_request(ptr noundef %f, ptr noundef initializes((408, 424)) %req) #0 {
+define internal void @scsi_disk_load_request(ptr noundef %f, ptr noundef %req) #0 {
 entry:
   %sector = getelementptr inbounds i8, ptr %req, i64 408
   %call.i = tail call i64 @qemu_get_be64(ptr noundef %f) #18
@@ -6674,7 +6674,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @scsi_block_update_sense(ptr nocapture noundef initializes((364, 368)) %req) #14 {
+define internal void @scsi_block_update_sense(ptr nocapture noundef %req) #14 {
 entry:
   %sb_len_wr = getelementptr inbounds i8, ptr %req, i64 579
   %0 = load i8, ptr %sb_len_wr, align 1
@@ -6704,7 +6704,7 @@ declare void @scsi_generic_read_device_inquiry(ptr noundef) local_unnamed_addr #
 declare i32 @scsi_SG_IO_FROM_DEV(ptr noundef, ptr noundef, i8 noundef zeroext, ptr noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @scsi_block_dma_command(ptr noundef initializes((600, 601)) %req, ptr nocapture noundef readonly %buf) #0 {
+define internal i32 @scsi_block_dma_command(ptr noundef %req, ptr nocapture noundef readonly %buf) #0 {
 entry:
   %dev = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load ptr, ptr %dev, align 8

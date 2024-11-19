@@ -271,7 +271,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ObjConnect(ptr noundef %0, ptr noundef initializes((8, 24)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Aig_ObjConnect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16

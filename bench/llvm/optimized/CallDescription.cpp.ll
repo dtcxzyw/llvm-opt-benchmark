@@ -58,7 +58,7 @@ $_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEbESaIS4_EE17_M_realloc_inser
 @_ZN5clang4ento18CallDescriptionSetC1EOSt16initializer_listINS0_15CallDescriptionEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang4ento18CallDescriptionSetC2EOSt16initializer_listINS0_15CallDescriptionEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento15CallDescriptionC2ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) initializes((8, 9), (16, 60)) %0, i32 noundef %1, ptr readonly %2, i64 %3, i64 %4, i64 %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento15CallDescriptionC2ENS1_4ModeEN4llvm8ArrayRefINS3_9StringRefEEESt8optionalIjES8_(ptr noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1, ptr readonly %2, i64 %3, i64 %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::allocator.181", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -774,7 +774,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare noundef zeroext i1 @_ZN5clang4ento14CheckerContext19isHardenedVariantOfEPKNS_12FunctionDeclEN4llvm9StringRefE(ptr noundef, ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento18CallDescriptionSetC2EOSt16initializer_listINS0_15CallDescriptionEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento18CallDescriptionSetC2EOSt16initializer_listINS0_15CallDescriptionEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::pair", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   tail call void @_ZNSt6vectorISt4pairIN5clang4ento15CallDescriptionEbESaIS4_EE19_M_range_initializeIPKS4_EEvT_SA_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef null, ptr noundef null)

@@ -685,7 +685,7 @@ declare ptr @prefs_register_protocol(i32 noundef, ptr noundef) local_unnamed_add
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rsakeys_uat_fld_ip_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal noundef zeroext i1 @rsakeys_uat_fld_ip_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %7
 
@@ -721,7 +721,7 @@ define internal void @rsakeylist_uats_ipaddr_set_cb(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rsakeylist_uats_ipaddr_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @rsakeylist_uats_ipaddr_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -746,7 +746,7 @@ define internal void @rsakeylist_uats_ipaddr_tostr_cb(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rsakeys_uat_fld_port_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal noundef zeroext i1 @rsakeys_uat_fld_port_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca i16, align 2
   %8 = call zeroext i1 @ws_strtou16(ptr noundef %1, ptr noundef null, ptr noundef nonnull %7) #13
   br i1 %8, label %11, label %9
@@ -773,7 +773,7 @@ define internal void @rsakeylist_uats_port_set_cb(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rsakeylist_uats_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @rsakeylist_uats_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -799,7 +799,7 @@ define internal void @rsakeylist_uats_port_tostr_cb(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rsakeys_uat_fld_fileopen_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal noundef zeroext i1 @rsakeys_uat_fld_fileopen_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca %struct.stat, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %14, label %8
@@ -841,7 +841,7 @@ define internal void @rsakeylist_uats_keyfile_set_cb(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rsakeylist_uats_keyfile_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @rsakeylist_uats_keyfile_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -867,7 +867,7 @@ define internal void @rsakeylist_uats_keyfile_tostr_cb(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @rsakeys_uat_fld_password_chk_cb(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal noundef zeroext i1 @rsakeys_uat_fld_password_chk_cb(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %26, label %8
@@ -932,7 +932,7 @@ define internal void @rsakeylist_uats_password_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rsakeylist_uats_password_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @rsakeylist_uats_password_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -960,7 +960,7 @@ define internal void @rsakeylist_uats_password_tostr_cb(ptr nocapture noundef re
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @rsakeys_copy_cb(ptr noundef returned writeonly initializes((0, 32)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @rsakeys_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
@@ -1220,7 +1220,7 @@ addresses_equal.exit:                             ; preds = %27, %20, %18, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @rsakey_free(ptr noundef initializes((8, 16)) %0) #0 {
+define internal void @rsakey_free(ptr noundef %0) #0 {
   %2 = load i32, ptr %0, align 8
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %free_address_wmem.exit, label %3
@@ -1259,7 +1259,7 @@ define internal void @xteakeylist_uats_framenum_set_cb(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xteakeylist_uats_framenum_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @xteakeylist_uats_framenum_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.376, i32 noundef %6) #13
   store ptr %7, ptr %1, align 8
@@ -1338,7 +1338,7 @@ define internal void @xteakeylist_uats_key_set_cb(ptr nocapture noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @xteakeylist_uats_key_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @xteakeylist_uats_key_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1364,7 +1364,7 @@ define internal void @xteakeylist_uats_key_tostr_cb(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @xteakeys_copy_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @xteakeys_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

@@ -1335,7 +1335,7 @@ define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils12is_utf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils16shift_jis_to_jisEPKhPiS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #8 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN5zxing6common11StringUtils16shift_jis_to_jisEPKhPiS4_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 align 2 {
   %4 = load i8, ptr %0, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   %6 = load i8, ptr %5, align 1

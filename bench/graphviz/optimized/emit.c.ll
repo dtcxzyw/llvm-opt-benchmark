@@ -1673,7 +1673,7 @@ define void @update_bb_bz(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 
 declare { double, double } @Bezier(ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @xdotBB(ptr dead_on_unwind noalias nocapture writable sret(%struct.boxf) align 8 initializes((0, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @xdotBB(ptr dead_on_unwind noalias nocapture writable sret(%struct.boxf) align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.textfont_t, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -2236,7 +2236,7 @@ define internal void @freePara(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @emit_graph(ptr noundef initializes((608, 624), (640, 656)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @emit_graph(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.boxf, align 8
   %4 = alloca [2 x %struct.pointf_s], align 16
   %5 = alloca [2 x ptr], align 16

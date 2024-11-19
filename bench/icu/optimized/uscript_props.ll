@@ -84,7 +84,7 @@ return:                                           ; preds = %entry, %if.end25, %
 declare i32 @u_terminateUChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z33uscript_getSampleUnicodeString_7511UScriptCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, i32 noundef %script) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z33uscript_getSampleUnicodeString_7511UScriptCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, i32 noundef %script) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8

@@ -201,7 +201,7 @@ gz_zero.exit.thread:                              ; preds = %48, %76, %31, %85, 
 declare hidden void @gz_error(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull initializes((32, 48)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4
   %4 = zext i32 %3 to i64

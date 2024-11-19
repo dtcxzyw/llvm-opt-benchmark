@@ -277,7 +277,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5kinfu14HashTSDFVolumeC2EfNS_4MatxIfLi4ELi4EEEffifib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 100), (104, 109), (112, 128)) %0, float noundef %1, ptr nocapture noundef readonly byval(%"class.cv::Matx.0") align 8 %2, float noundef %3, float noundef %4, i32 noundef %5, float noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5kinfu14HashTSDFVolumeC2EfNS_4MatxIfLi4ELi4EEEffifib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, float noundef %1, ptr nocapture noundef readonly byval(%"class.cv::Matx.0") align 8 %2, float noundef %3, float noundef %4, i32 noundef %5, float noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = zext i1 %8 to i8
@@ -379,7 +379,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5kinfu17HashTSDFVolumeCPUC2EfRKNS_4MatxIfLi4ELi4EEEffifib(ptr noundef nonnull align 8 dereferenceable(404) initializes((0, 100), (104, 109), (112, 128)) %0, float noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %2, float noundef %3, float noundef %4, i32 noundef %5, float noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5kinfu17HashTSDFVolumeCPUC2EfRKNS_4MatxIfLi4ELi4EEEffifib(ptr noundef nonnull align 8 dereferenceable(404) %0, float noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %2, float noundef %3, float noundef %4, i32 noundef %5, float noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::allocator", align 1
   %.sroa.012 = alloca [16 x float], align 8
@@ -547,7 +547,7 @@ _ZNSt10_HashtableIN2cv3VecIiLi3EEESt4pairIKS2_NS0_5kinfu10VolumeUnitEESaIS7_ENSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5kinfu17HashTSDFVolumeCPUC2ERKNS0_12VolumeParamsEb(ptr noundef nonnull align 8 dereferenceable(404) initializes((0, 100), (104, 109), (112, 128)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(104) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv5kinfu17HashTSDFVolumeCPUC2ERKNS0_12VolumeParamsEb(ptr noundef nonnull align 8 dereferenceable(404) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(104) %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 84
   %5 = load float, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 20
@@ -566,7 +566,7 @@ define hidden void @_ZN2cv5kinfu17HashTSDFVolumeCPUC2ERKNS0_12VolumeParamsEb(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5kinfu17HashTSDFVolumeCPU5resetEv(ptr noundef nonnull align 8 dereferenceable(404) initializes((400, 404)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5kinfu17HashTSDFVolumeCPU5resetEv(ptr noundef nonnull align 8 dereferenceable(404) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::utils::trace::details::Region", align 8
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.cv::Mat", align 8
@@ -2090,7 +2090,7 @@ _ZNSt10_HashtableIN2cv3VecIiLi3EEES2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK2cv5kinfu17HashTSDFVolumeCPU21volumeToVolumeUnitIdxERKNS_7Point3_IfEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec.10") align 4 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(404) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) local_unnamed_addr #10 align 2 {
+define hidden void @_ZNK2cv5kinfu17HashTSDFVolumeCPU21volumeToVolumeUnitIdxERKNS_7Point3_IfEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec.10") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(404) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) local_unnamed_addr #10 align 2 {
   %4 = load float, ptr %2, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 104
   %6 = load float, ptr %5, align 8
@@ -2138,7 +2138,7 @@ define hidden { <2 x float>, float } @_ZNK2cv5kinfu17HashTSDFVolumeCPU18voxelCoo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK2cv5kinfu17HashTSDFVolumeCPU18volumeToVoxelCoordERKNS_7Point3_IfEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec.10") align 4 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(404) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) local_unnamed_addr #10 align 2 {
+define hidden void @_ZNK2cv5kinfu17HashTSDFVolumeCPU18volumeToVoxelCoordERKNS_7Point3_IfEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec.10") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(404) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) local_unnamed_addr #10 align 2 {
   %4 = load float, ptr %2, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 12
   %6 = load float, ptr %5, align 4

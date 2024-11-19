@@ -3764,7 +3764,7 @@ define dso_local noundef range(i32 0, 33) i32 @_ZNK4llvm21RISCVGenSubtargetInfo9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm21RISCVGenSubtargetInfo15getMacroFusionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.49") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm21RISCVGenSubtargetInfo15getMacroFusionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.49") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 240
   %4 = load i64, ptr %3, align 8
@@ -4913,7 +4913,7 @@ define dso_local void @_ZN4llvm14RISCVSubtarget6anchorEv(ptr nocapture nonnull r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(409192) ptr @_ZN4llvm14RISCVSubtarget31initializeSubtargetDependenciesERKNS_6TripleENS_9StringRefES4_S4_S4_(ptr noundef nonnull returned align 8 dereferenceable(409192) initializes((576, 584)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(409192) ptr @_ZN4llvm14RISCVSubtarget31initializeSubtargetDependenciesERKNS_6TripleENS_9StringRefES4_S4_S4_(ptr noundef nonnull returned align 8 dereferenceable(409192) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7) local_unnamed_addr #0 align 2 {
   %9 = tail call noundef zeroext i1 @_ZNK4llvm6Triple11isArch64BitEv(ptr noundef nonnull align 8 dereferenceable(56) %1) #20
   switch i64 %3, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread [
     i64 0, label %11

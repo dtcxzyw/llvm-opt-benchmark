@@ -406,7 +406,7 @@ define dso_local void @btrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @btgettuple(ptr noundef initializes((112, 113)) %0, i32 noundef %1) #0 {
+define dso_local noundef zeroext i1 @btgettuple(ptr noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 112
@@ -816,7 +816,7 @@ define dso_local noundef i64 @btestimateparallelscan() #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @btinitparallelscan(ptr noundef initializes((0, 13)) %0) #0 {
+define dso_local void @btinitparallelscan(ptr noundef %0) #0 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i8 0, ptr %2, align 4
@@ -914,7 +914,7 @@ declare void @ConditionVariableInit(ptr noundef) local_unnamed_addr #1
 declare i32 @s_lock(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @_bt_parallel_seize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local zeroext i1 @_bt_parallel_seize(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 144
@@ -1119,7 +1119,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare zeroext i16 @_bt_start_vacuum(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @btvacuumscan(ptr noundef %0, ptr noundef initializes((0, 4), (8, 16), (28, 36)) %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @btvacuumscan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i16 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca [408 x i16], align 16
   %7 = alloca [408 x ptr], align 16
   %8 = alloca %struct.BTVacState, align 8

@@ -7983,7 +7983,7 @@ declare i64 @pci_device_route_intx_to_irq(ptr noundef, i32 noundef) local_unname
 declare zeroext i1 @pci_intx_route_changed(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @vfio_intx_update(ptr noundef initializes((2788, 2792)) %vdev, ptr nocapture noundef readonly %route) unnamed_addr #0 {
+define internal fastcc void @vfio_intx_update(ptr noundef %vdev, ptr nocapture noundef readonly %route) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %vbasedev = getelementptr inbounds i8, ptr %vdev, i64 2608

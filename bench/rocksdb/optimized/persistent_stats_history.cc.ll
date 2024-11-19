@@ -427,7 +427,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb26OptimizeForPersistentStatsEPNS_19ColumnFamilyOptionsE(ptr nocapture noundef writeonly initializes((152, 160), (216, 232), (568, 577), (720, 728)) %cfo) local_unnamed_addr #6 {
+define void @_ZN7rocksdb26OptimizeForPersistentStatsEPNS_19ColumnFamilyOptionsE(ptr nocapture noundef writeonly %cfo) local_unnamed_addr #6 {
 entry:
   %write_buffer_size = getelementptr inbounds i8, ptr %cfo, i64 568
   store i64 2097152, ptr %write_buffer_size, align 8
@@ -1018,7 +1018,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8parseKeyB5cxx11ERKNS_5SliceEm(ptr noalias sret(%"struct.std::pair") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %start_time) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8parseKeyB5cxx11ERKNS_5SliceEm(ptr noalias sret(%"struct.std::pair") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %start_time) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %key_str = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

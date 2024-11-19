@@ -462,7 +462,7 @@ define weak_odr ptr @_ZN4llvm8RegistryIN5clang15PluginASTActionEE5beginEv() loca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang14FrontendActionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(77) %2) #23
@@ -480,7 +480,7 @@ define dso_local void @_ZN5clang14FrontendActionC2Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang14FrontendActionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
@@ -5945,7 +5945,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL27loadModuleMapForModuleBuildRN5clang16CompilerInstanceEbbRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL27loadModuleMapForModuleBuildRN5clang16CompilerInstanceEbbRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 4 dereferenceable(4) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %class.anon.2605, align 1
@@ -6971,7 +6971,7 @@ declare void @_ZN5clang16CompilerInstance12setASTReaderEN4llvm18IntrusiveRefCntP
 declare void @_ZN5clang10ASTContext17setExternalSourceEN4llvm18IntrusiveRefCntPtrINS_17ExternalASTSourceEEE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_124DeserializedDeclsCheckerC2ERN5clang10ASTContextERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEPNS1_26ASTDeserializationListenerEb(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 17), (24, 32), (40, 44), (48, 56)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_124DeserializedDeclsCheckerC2ERN5clang10ASTContextERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEPNS1_26ASTDeserializationListenerEb(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7049,7 +7049,7 @@ declare void @_ZN5clang20LayoutOverrideSourceC1EN4llvm9StringRefE(ptr noundef no
 declare void @_ZN5clang27MultiplexExternalSemaSourceC1EPNS_18ExternalSemaSourceES2_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14FrontendAction7ExecuteEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14FrontendAction7ExecuteEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %class.anon.2605, align 1
@@ -7855,7 +7855,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang21WrapperFrontendAction24hasCodeC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21WrapperFrontendActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21WrapperFrontendActionC2ESt10unique_ptrINS_14FrontendActionESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN5clang14FrontendActionE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(77) %3) #23
@@ -13296,7 +13296,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123DeserializedDeclsDumperD2Ev(ptr noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_123DeserializedDeclsDumperD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_133DelegatingDeserializationListenerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
@@ -13322,7 +13322,7 @@ _ZN12_GLOBAL__N_133DelegatingDeserializationListenerD2Ev.exit: ; preds = %1, %5,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123DeserializedDeclsDumperD0Ev(ptr noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_123DeserializedDeclsDumperD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_133DelegatingDeserializationListenerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
@@ -13589,7 +13589,7 @@ define linkonce_odr hidden void @_ZN5clang26ASTDeserializationListener16ModuleIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133DelegatingDeserializationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_133DelegatingDeserializationListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_133DelegatingDeserializationListenerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
@@ -13615,7 +13615,7 @@ define internal void @_ZN12_GLOBAL__N_133DelegatingDeserializationListenerD2Ev(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133DelegatingDeserializationListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_133DelegatingDeserializationListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_133DelegatingDeserializationListenerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
@@ -13669,7 +13669,7 @@ declare noundef ptr @_ZNK5clang4Decl15getDeclKindNameEv(ptr noundef nonnull alig
 declare void @_ZNK5clang9NamedDecl18printQualifiedNameERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124DeserializedDeclsCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124DeserializedDeclsCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_124DeserializedDeclsCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -13700,7 +13700,7 @@ _ZN12_GLOBAL__N_133DelegatingDeserializationListenerD2Ev.exit: ; preds = %1, %8,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124DeserializedDeclsCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124DeserializedDeclsCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_124DeserializedDeclsCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 48

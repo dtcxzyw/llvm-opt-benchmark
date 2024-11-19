@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [21 x i8] c"chdir to ../ failed!\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @echoclient_test(ptr nocapture noundef initializes((16, 20)) %args) local_unnamed_addr #0 {
+define dso_local void @echoclient_test(ptr nocapture noundef %args) local_unnamed_addr #0 {
 entry:
   %on.i.i = alloca i32, align 4
   %addr.i = alloca %struct.sockaddr_in, align 4

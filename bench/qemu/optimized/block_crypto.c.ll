@@ -683,7 +683,7 @@ cleanup:                                          ; preds = %qobject_unref_impl.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @block_crypto_refresh_limits(ptr nocapture noundef initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #0 {
+define internal void @block_crypto_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #0 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8

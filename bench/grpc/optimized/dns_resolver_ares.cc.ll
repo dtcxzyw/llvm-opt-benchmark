@@ -1484,7 +1484,7 @@ _ZN9grpc_core20InternallyRefCountedINS_8ResolverENS_11UnrefDeleteEE5UnrefEv.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
@@ -1508,7 +1508,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverD0Ev(ptr noundef nonnull align 8 dereferenceable(544) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverD0Ev(ptr noundef nonnull align 8 dereferenceable(544) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_trace_cares_resolver, i64 16) monotonic, align 8
@@ -2853,7 +2853,7 @@ _ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_128AresClientChannelDNSResol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperE, i64 16), ptr %this, align 8
   %service_config_json_ = getelementptr inbounds i8, ptr %this, i64 168
@@ -3099,7 +3099,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolver18AresRequestWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -5234,7 +5234,7 @@ declare void @_ZN9grpc_core3URI22PercentEncodeAuthorityB5cxx11ESt17basic_string_
 declare void @_ZN9grpc_core14GetDNSResolverEv(ptr sret(%"class.std::shared_ptr") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i64 16), ptr %this, align 8
   %capacity_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -5330,7 +5330,7 @@ _ZNSt10shared_ptrIN9grpc_core11DNSResolverEED2Ev.exit: ; preds = %_ZN4absl12lts_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolverD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolverD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolverE, i64 16), ptr %this, align 8
   %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -6430,7 +6430,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit2:       ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this, i64 %name.coerce0, ptr %name.coerce1, i64 %name_server.coerce0, ptr %name_server.coerce1, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef nonnull %resolver, i64 noundef %aba_token) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestC2ESt17basic_string_viewIcSt11char_traitsIcEES6_NS_8DurationEP16grpc_pollset_setPS1_l(ptr noundef nonnull align 8 dereferenceable(168) %this, i64 %name.coerce0, ptr %name.coerce1, i64 %name_server.coerce0, ptr %name_server.coerce1, i64 %timeout.coerce, ptr noundef %interested_parties, ptr noundef nonnull %resolver, i64 noundef %aba_token) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -6539,7 +6539,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestE, i64 16), ptr %this, align 8
   %addresses_ = getelementptr inbounds i8, ptr %this, i64 232
@@ -6615,7 +6615,7 @@ _ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_address
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestD0Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -6623,7 +6623,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequest17MakeRequestLockedEv(ptr noalias sret(%"class.std::unique_ptr.165") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver19AresHostnameRequest17MakeRequestLockedEv(ptr noalias sret(%"class.std::unique_ptr.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @grpc_dns_lookup_hostname_ares, align 8
   %name_server_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -7159,7 +7159,7 @@ _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestESt14de
 declare void @_Z32grpc_pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %handle.i = alloca %"struct.grpc_core::DNSResolver::LookupTaskHandle", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver11AresRequestE, i64 16), ptr %this, align 8
@@ -7765,7 +7765,7 @@ invoke.cont5:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestE, i64 16), ptr %this, align 8
   %balancer_addresses_ = getelementptr inbounds i8, ptr %this, i64 200
@@ -7839,7 +7839,7 @@ _ZNSt8functionIFvN4absl12lts_202308028StatusOrISt6vectorI21grpc_resolved_address
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestD0Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -7847,7 +7847,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequest17MakeRequestLockedEv(ptr noalias sret(%"class.std::unique_ptr.165") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresSRVRequest17MakeRequestLockedEv(ptr noalias sret(%"class.std::unique_ptr.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @grpc_dns_lookup_srv_ares, align 8
   %name_server_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -8250,7 +8250,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i56, %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i64 16), ptr %this, align 8
   %service_config_json_ = getelementptr inbounds i8, ptr %this, i64 168
@@ -8289,7 +8289,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestD0Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestE, i64 16), ptr %this, align 8
   %service_config_json_.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -8329,7 +8329,7 @@ _ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequestD2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequest17MakeRequestLockedEv(ptr noalias sret(%"class.std::unique_ptr.165") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_115AresDNSResolver14AresTXTRequest17MakeRequestLockedEv(ptr noalias sret(%"class.std::unique_ptr.165") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @grpc_dns_lookup_txt_ares, align 8
   %name_server_.i = getelementptr inbounds i8, ptr %this, i64 40

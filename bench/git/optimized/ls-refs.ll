@@ -355,7 +355,7 @@ declare ptr @get_git_namespace() local_unnamed_addr #2
 declare ptr @hidden_refs_to_excludes(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @send_ref(ptr noundef %refname, ptr noundef %oid, i32 noundef %flag, ptr noundef initializes((40, 48)) %cb_data) #0 {
+define internal noundef i32 @send_ref(ptr noundef %refname, ptr noundef %oid, i32 noundef %flag, ptr noundef %cb_data) #0 {
 entry:
   %flag.addr = alloca i32, align 4
   %unused = alloca %struct.object_id, align 4

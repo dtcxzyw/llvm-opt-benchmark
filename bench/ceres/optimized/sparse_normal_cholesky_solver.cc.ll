@@ -121,7 +121,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN5ceres8internal26SparseNormalCholeskySolverD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal26SparseNormalCholeskySolverD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal26SparseNormalCholeskySolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(256) initializes((8, 48), (56, 60), (64, 72)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal26SparseNormalCholeskySolverC2ERKNS0_12LinearSolver7OptionsE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %4, i8 0, i64 40, i1 false)
@@ -307,7 +307,7 @@ _ZNKSt14default_deleteIN5ceres8internal20InnerProductComputerEEclEPS2_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal26SparseNormalCholeskySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal26SparseNormalCholeskySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal26SparseNormalCholeskySolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
@@ -390,7 +390,7 @@ _ZN5ceres8internal17TypedLinearSolverINS0_17BlockSparseMatrixEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal26SparseNormalCholeskySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN5ceres8internal26SparseNormalCholeskySolverD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN5ceres8internal26SparseNormalCholeskySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void

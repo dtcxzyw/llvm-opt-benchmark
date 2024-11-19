@@ -245,7 +245,7 @@ define dso_local void @_ZN26cmExportBuildFileGeneratorC2Ev(ptr noundef nonnull a
 declare void @_ZN21cmExportFileGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(341)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN26cmExportBuildFileGenerator7ComputeEP16cmLocalGenerator(ptr nocapture noundef nonnull align 8 dereferenceable(440) initializes((400, 408)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN26cmExportBuildFileGenerator7ComputeEP16cmLocalGenerator(ptr nocapture noundef nonnull align 8 dereferenceable(440) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 400
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 368
@@ -2968,7 +2968,7 @@ declare noundef i32 @_ZNK17cmGeneratorTarget7GetTypeEv(ptr noundef nonnull align
 declare noundef zeroext i1 @_ZNK8cmTarget26HasKnownObjectFileLocationEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN26cmExportBuildFileGenerator12SetExportSetEP11cmExportSet(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(440) initializes((368, 376)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN26cmExportBuildFileGenerator12SetExportSetEP11cmExportSet(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(440) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   store ptr %1, ptr %3, align 8
   ret void

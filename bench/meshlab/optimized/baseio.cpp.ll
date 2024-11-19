@@ -4438,7 +4438,7 @@ define void @_ZN16BaseMeshIOPluginC2Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16BaseMeshIOPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((32, 41)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16BaseMeshIOPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -4524,14 +4524,14 @@ define linkonce_odr void @_ZNK13MeshLabPlugin6vendorEv(ptr dead_on_unwind noalia
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK16BaseMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
+define void @_ZNK16BaseMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.24, i32 noundef 6)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK16BaseMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define void @_ZTv0_n40_NK16BaseMeshIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.24, i32 noundef 6), !noalias !13
   store ptr %3, ptr %0, align 8, !alias.scope !13
@@ -96233,7 +96233,7 @@ define void @_ZThn16_N16BaseMeshIOPlugin34projectFileRequiresAdditionalFilesB5cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16BaseMeshIOPlugin11openProjectERK7QStringRK11QStringListR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS9_EEPFbiPKcE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.1209") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16BaseMeshIOPlugin11openProjectERK7QStringRK11QStringListR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS9_EEPFbiPKcE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.1209") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QString, align 8
   %10 = alloca %"class.std::vector.1209", align 8
@@ -97417,7 +97417,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN7QStringpLERKS_.
 declare void @_ZN7QString6numberEmi(ptr dead_on_unwind writable sret(%class.QString) align 8, i64 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N16BaseMeshIOPlugin11openProjectERK7QStringRK11QStringListR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS9_EEPFbiPKcE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.1209") align 8 initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #14 align 2 {
+define void @_ZThn16_N16BaseMeshIOPlugin11openProjectERK7QStringRK11QStringListR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS9_EEPFbiPKcE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.1209") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6) unnamed_addr #14 align 2 {
   %8 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN16BaseMeshIOPlugin11openProjectERK7QStringRK11QStringListR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS9_EEPFbiPKcE(ptr dead_on_unwind writable sret(%"class.std::vector.1209") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
   ret void

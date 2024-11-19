@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN15dtLocalBoundaryD1Ev = unnamed_addr alias void (ptr), ptr @_ZN15dtLocalBoundaryD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15dtLocalBoundaryC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(308) initializes((0, 12), (236, 240), (304, 308)) %0) unnamed_addr #0 align 2 {
+define void @_ZN15dtLocalBoundaryC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(308) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 236
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 304
@@ -31,7 +31,7 @@ define void @_ZN15dtLocalBoundaryD2Ev(ptr nocapture nonnull readnone align 4 %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15dtLocalBoundary5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(308) initializes((0, 12), (236, 240), (304, 308)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15dtLocalBoundary5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(308) %0) local_unnamed_addr #0 align 2 {
   store float 0x47EFFFFFE0000000, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0x47EFFFFFE0000000, ptr %2, align 4
@@ -164,7 +164,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull align 4 dereferenceable(308) initializes((0, 12)) %0, i32 noundef %1, ptr noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
+define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter(ptr noundef nonnull align 4 dereferenceable(308) %0, i32 noundef %1, ptr noundef %2, float noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
   %7 = alloca [108 x float], align 16
   %8 = alloca i32, align 4
   %9 = alloca float, align 4

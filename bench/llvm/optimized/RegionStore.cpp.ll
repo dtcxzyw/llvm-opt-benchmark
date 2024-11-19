@@ -585,7 +585,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento24CreateRegionStoreManagerERNS0_19ProgramStateManagerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.743") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #2 {
+define dso_local void @_ZN5clang4ento24CreateRegionStoreManagerERNS0_19ProgramStateManagerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.743") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_118RegionStoreManagerESt14default_deleteIS1_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #18, !noalias !11
   tail call void @_ZN5clang4ento12StoreManagerC2ERNS0_19ProgramStateManagerE(ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 8 dereferenceable(288) %1) #17, !noalias !11
@@ -1142,7 +1142,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @_ZN5clang4ento12StoreManagerC2ERNS0_19ProgramStateManagerE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(288)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118RegionStoreManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_118RegionStoreManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_118RegionStoreManagerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -1300,7 +1300,7 @@ _ZN4llvm12ImmutableMapIPKN5clang4ento9MemRegionENS0_IN12_GLOBAL__N_110BindingKey
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118RegionStoreManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_118RegionStoreManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN12_GLOBAL__N_118RegionStoreManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 248) #19
   ret void
@@ -1468,7 +1468,7 @@ _ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit:    ; preds = %_ZNK12_GLOBAL__N_11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118RegionStoreManager4BindEPKvN5clang4ento3LocENS4_4SValE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr %3, i8 %4, ptr nocapture noundef readonly byval(%"class.clang::ento::SVal") align 8 %5) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_118RegionStoreManager4BindEPKvN5clang4ento3LocENS4_4SValE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr %3, i8 %4, ptr nocapture noundef readonly byval(%"class.clang::ento::SVal") align 8 %5) unnamed_addr #2 align 2 {
   %7 = alloca %"class.llvm::ImmutableMap.1185", align 8
   %8 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8
   %9 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8
@@ -1580,7 +1580,7 @@ _ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit7:   ; preds = %_ZN12_GLOBAL__N_117
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118RegionStoreManager18BindDefaultInitialEPKvPKN5clang4ento9MemRegionENS4_4SValE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr noundef %3, ptr %4, i8 %5) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_118RegionStoreManager18BindDefaultInitialEPKvPKN5clang4ento9MemRegionENS4_4SValE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr noundef %3, ptr %4, i8 %5) unnamed_addr #2 align 2 {
   %7 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8
   %8 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8
   %9 = alloca %"class.llvm::ImmutableMap.1185", align 8
@@ -1686,7 +1686,7 @@ _ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit14:  ; preds = %_ZN4llvm12Immutable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118RegionStoreManager15BindDefaultZeroEPKvPKN5clang4ento9MemRegionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_118RegionStoreManager15BindDefaultZeroEPKvPKN5clang4ento9MemRegionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #2 align 2 {
   %5 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8
   %6 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8
   %7 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8
@@ -1866,7 +1866,7 @@ _ZN5clang4ento8StoreRefC2EPKvRNS0_12StoreManagerE.exit: ; preds = %96, %91, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118RegionStoreManager11killBindingEPKvN5clang4ento3LocE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr %3, i8 %4) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_118RegionStoreManager11killBindingEPKvN5clang4ento3LocE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr %3, i8 %4) unnamed_addr #2 align 2 {
   %6 = alloca %"class.llvm::ImmutableMap.1185", align 8
   %7 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8
   %8 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8
@@ -1979,7 +1979,7 @@ _ZN12_GLOBAL__N_117RegionBindingsRefD2Ev.exit11:  ; preds = %50, %_ZNK5clang4ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118RegionStoreManager15getInitialStoreEPKN5clang15LocationContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_118RegionStoreManager15getInitialStoreEPKN5clang15LocationContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 2 {
   %4 = alloca %"class.llvm::ImmutableMap.1185", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -12872,7 +12872,7 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS5_4SValENS3_ISB_SC_EEEEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSH_EEEEjSH_SJ_SM_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS5_4SValENS3_ISB_SC_EEEEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSH_EEEEjSH_SJ_SM_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -19240,7 +19240,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSB_EEEEjSB_SD_SG_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSB_EEEEjSB_SD_SG_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -21825,7 +21825,7 @@ _ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL_
 declare noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118RegionStoreManager22invalidateGlobalRegionEN5clang4ento9MemRegion4KindEPKNS1_4ExprEjPKNS1_15LocationContextENS_17RegionBindingsRefEPN4llvm11SmallVectorIPKS3_Lj8EEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 25)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %1, i32 noundef range(i32 2, 4) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull %6, ptr noundef %7) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118RegionStoreManager22invalidateGlobalRegionEN5clang4ento9MemRegion4KindEPKNS1_4ExprEjPKNS1_15LocationContextENS_17RegionBindingsRefEPN4llvm11SmallVectorIPKS3_Lj8EEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %1, i32 noundef range(i32 2, 4) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull %6, ptr noundef %7) unnamed_addr #2 align 2 {
 _ZN12_GLOBAL__N_110BindingKey4MakeEPKN5clang4ento9MemRegionENS0_4KindE.exit:
   %8 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8
   %9 = alloca %"class.(anonymous namespace)::RegionBindingsRef", align 8

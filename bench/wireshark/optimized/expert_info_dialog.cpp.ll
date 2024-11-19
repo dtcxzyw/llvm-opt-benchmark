@@ -2284,7 +2284,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16ExpertInfoDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 {
+define void @_ZN16ExpertInfoDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16ExpertInfoDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16ExpertInfoDialog, i64 528), ptr %2, align 8

@@ -4218,7 +4218,7 @@ _ZNSt8_Rb_treeIPK19grpc_channel_filterSt4pairIKS2_PN9grpc_core11ChannelInit18Fil
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11ChannelInit7Builder5BuildEv(ptr noalias sret(%"class.grpc_core::ChannelInit") align 8 initializes((0, 432)) %agg.result, ptr noundef nonnull align 16 dereferenceable(528) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11ChannelInit7Builder5BuildEv(ptr noalias sret(%"class.grpc_core::ChannelInit") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(528) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.grpc_core::ChannelInit::StackConfig", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %agg.result, i8 0, i64 432, i1 false)

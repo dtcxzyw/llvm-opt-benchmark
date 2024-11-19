@@ -2322,7 +2322,7 @@ _ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx18GpuTaskAssignmentsC2ERK13gmx_hw_info_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #11 align 2 {
+define void @_ZN3gmx18GpuTaskAssignmentsC2ERK13gmx_hw_info_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #11 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)

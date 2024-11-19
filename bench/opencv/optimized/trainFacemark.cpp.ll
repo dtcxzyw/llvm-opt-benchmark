@@ -1668,7 +1668,7 @@ declare noundef zeroext i1 @_ZN2cv4face18FacemarkKazemiImpl15convertToActualENS_
 declare void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4face18FacemarkKazemiImpl16gradientBoostingERSt6vectorINS0_15training_sampleESaIS3_EES2_INS_6Point_IfEESaIS8_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.20") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4face18FacemarkKazemiImpl16gradientBoostingERSt6vectorINS0_15training_sampleESaIS3_EES2_INS_6Point_IfEESaIS8_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.20") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.cv::face::regtree", align 8
   %6 = alloca %"class.std::vector", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

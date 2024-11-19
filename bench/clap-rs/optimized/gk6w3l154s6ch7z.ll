@@ -727,7 +727,7 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12clap_builder6parser6parser6Parser3new17hd0b870be88d5cc10E(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, ptr, i64, i64 }) align 8 dereferenceable(40) initializes((0, 8), (16, 40)) %0, ptr noalias noundef align 8 dereferenceable(712) %1) unnamed_addr #3 {
+define hidden void @_ZN12clap_builder6parser6parser6Parser3new17hd0b870be88d5cc10E(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, ptr, i64, i64 }) align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(712) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

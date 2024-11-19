@@ -905,7 +905,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define signext range(i8 0, 2) i8 @uprv_add32_overflow_75(i32 noundef %a, i32 noundef %b, ptr nocapture noundef writeonly initializes((0, 4)) %res) local_unnamed_addr #15 {
+define signext range(i8 0, 2) i8 @uprv_add32_overflow_75(i32 noundef %a, i32 noundef %b, ptr nocapture noundef writeonly %res) local_unnamed_addr #15 {
 entry:
   %sadd = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %a, i32 %b)
   %sadd.result = extractvalue { i32, i1 } %sadd, 0
@@ -916,7 +916,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define signext range(i8 0, 2) i8 @uprv_mul32_overflow_75(i32 noundef %a, i32 noundef %b, ptr nocapture noundef writeonly initializes((0, 4)) %res) local_unnamed_addr #15 {
+define signext range(i8 0, 2) i8 @uprv_mul32_overflow_75(i32 noundef %a, i32 noundef %b, ptr nocapture noundef writeonly %res) local_unnamed_addr #15 {
 entry:
   %conv = sext i32 %a to i64
   %conv1 = sext i32 %b to i64

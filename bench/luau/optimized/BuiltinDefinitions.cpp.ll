@@ -16238,7 +16238,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit82:   ; preds = %184, %_ZNSt4pairISt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL17parseFormatStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL17parseFormatStringENS_7NotNullINS_12BuiltinTypesEEEPKcm(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %1, ptr nocapture noundef readonly %2, i64 noundef %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not75 = icmp eq i64 %3, 0
   br i1 %.not75, label %._crit_edge, label %.lr.ph74

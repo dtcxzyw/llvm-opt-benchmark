@@ -117,7 +117,7 @@ do.end7:                                          ; preds = %entry, %if.then, %w
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @updateQueues(ptr noundef %t, ptr nocapture noundef %q1, ptr noundef nonnull initializes((8, 81), (88, 108), (112, 128)) %q2) unnamed_addr #0 {
+define internal fastcc void @updateQueues(ptr noundef %t, ptr nocapture noundef %q1, ptr noundef nonnull %q2) unnamed_addr #0 {
 entry:
   %end = getelementptr inbounds i8, ptr %q2, i64 12
   store i32 0, ptr %end, align 4
@@ -1189,7 +1189,7 @@ if.end8:                                          ; preds = %entry, %if.then7, %
 declare signext i8 @nfaQueueExec_raw(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @copyBack(ptr nocapture noundef readonly %t, ptr nocapture noundef initializes((80, 81)) %q, ptr nocapture noundef nonnull %q1) unnamed_addr #3 {
+define internal fastcc void @copyBack(ptr nocapture noundef readonly %t, ptr nocapture noundef %q, ptr nocapture noundef nonnull %q1) unnamed_addr #3 {
 entry:
   %report_current = getelementptr inbounds i8, ptr %q1, i64 80
   %0 = load i8, ptr %report_current, align 8

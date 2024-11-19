@@ -16,7 +16,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chacha20_poly1305_initkey(ptr noundef initializes((800, 816), (832, 840)) %bctx, ptr noundef %key, i64 noundef %keylen) #1 {
+define internal i32 @chacha20_poly1305_initkey(ptr noundef %bctx, ptr noundef %key, i64 noundef %keylen) #1 {
 entry:
   %len = getelementptr inbounds i8, ptr %bctx, i64 800
   %aad2 = getelementptr inbounds i8, ptr %bctx, i64 816
@@ -468,7 +468,7 @@ return:                                           ; preds = %if.then2, %err, %ch
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @chacha20_poly1305_initiv(ptr noundef initializes((800, 816), (832, 840)) %bctx) #1 {
+define internal i32 @chacha20_poly1305_initiv(ptr noundef %bctx) #1 {
 entry:
   %tempiv = alloca [16 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %tempiv, i8 0, i64 16, i1 false)

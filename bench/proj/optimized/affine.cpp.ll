@@ -452,7 +452,7 @@ define internal void @_ZL10reverse_4dR8PJ_COORDP8PJconsts(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL10forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) #2 {
+define internal void @_ZL10forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr nocapture noundef readonly %2) #2 {
   %.sroa.0.0.copyload = load double, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8
@@ -501,7 +501,7 @@ define internal void @_ZL10forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZL10reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr nocapture noundef readonly %2) #2 {
+define internal void @_ZL10reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_LPZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_XYZ) align 8 %1, ptr nocapture noundef readonly %2) #2 {
   %.sroa.0.0.copyload = load double, ptr %1, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8

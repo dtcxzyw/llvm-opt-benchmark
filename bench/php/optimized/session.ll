@@ -9622,7 +9622,7 @@ define internal void @zm_info_session(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zm_globals_ctor_ps(ptr noundef initializes((0, 24), (80, 108), (112, 124), (144, 152), (200, 204), (216, 220), (232, 236), (248, 252), (264, 268), (280, 284), (296, 300), (312, 316), (328, 332), (336, 346), (352, 360), (368, 372), (437, 438), (440, 448)) %0) #0 {
+define internal void @zm_globals_ctor_ps(ptr noundef %0) #0 {
   %2 = alloca i128, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr null, ptr %3, align 16

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [21 x i8] c"pthread_mutex_lock()\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @process_set_construct(ptr nocapture noundef writeonly initializes((144, 664)) %0) #0 {
+define internal void @process_set_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %2, ptr noundef nonnull align 4 dereferenceable(260) @prte_name_invalid, i64 260, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 404
@@ -28,7 +28,7 @@ define internal void @process_set_construct(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @process_set_destruct(ptr nocapture noundef writeonly initializes((144, 664)) %0) #0 {
+define internal void @process_set_destruct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(260) %2, ptr noundef nonnull align 4 dereferenceable(260) @prte_name_invalid, i64 260, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 404
@@ -37,7 +37,7 @@ define internal void @process_set_destruct(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @file_set_construct(ptr nocapture noundef writeonly initializes((152, 164), (168, 184)) %0) #1 {
+define internal void @file_set_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 160
@@ -52,7 +52,7 @@ define internal void @file_set_construct(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @file_set_destruct(ptr nocapture noundef initializes((160, 164), (176, 184)) %0) #2 {
+define internal void @file_set_destruct(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -85,7 +85,7 @@ define internal void @file_set_destruct(ptr nocapture noundef initializes((160, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @req_construct(ptr noundef initializes((184, 196), (200, 264)) %0) #3 {
+define internal void @req_construct(ptr noundef %0) #3 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

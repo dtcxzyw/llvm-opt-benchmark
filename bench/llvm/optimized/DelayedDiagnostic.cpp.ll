@@ -21,7 +21,7 @@ $_ZN5clang17DiagnosticStorageD2Ev = comdat any
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4sema17DelayedDiagnostic16makeAvailabilityENS_18AvailabilityResultEN4llvm8ArrayRefINS_14SourceLocationEEEPKNS_9NamedDeclES9_PKNS_17ObjCInterfaceDeclEPKNS_16ObjCPropertyDeclENS3_9StringRefEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::sema::DelayedDiagnostic") align 8 initializes((0, 2), (4, 77)) %0, i32 noundef %1, ptr nocapture readonly %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4sema17DelayedDiagnostic16makeAvailabilityENS_18AvailabilityResultEN4llvm8ArrayRefINS_14SourceLocationEEEPKNS_9NamedDeclES9_PKNS_17ObjCInterfaceDeclEPKNS_16ObjCPropertyDeclENS3_9StringRefEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::sema::DelayedDiagnostic") align 8 %0, i32 noundef %1, ptr nocapture readonly %2, i64 %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8, i1 noundef zeroext %9) local_unnamed_addr #0 align 2 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %0, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1

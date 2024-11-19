@@ -347,7 +347,7 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @_ZN4node9inspector8protocol4cbor13CBORTokenizerD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4node9inspector8protocol4cbor13CBORTokenizerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node9inspector8protocol12ErrorSupportC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol12ErrorSupportC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   ret void
@@ -666,7 +666,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol5Value11parseBinaryEPKhm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %data, i64 noundef %size) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol5Value11parseBinaryEPKhm(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %data, i64 noundef %size) local_unnamed_addr #1 align 2 {
 entry:
   %tokenizer = alloca %"class.node::inspector::protocol::cbor::CBORTokenizer", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.5", align 8
@@ -764,7 +764,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4node9inspector8protocol4cbor13CBORTokenizer13EnterEnvelopeEv(ptr noundef nonnull align 8 dereferenceable(64) initializes((24, 28)) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4node9inspector8protocol4cbor13CBORTokenizer13EnterEnvelopeEv(ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4node9inspector8protocol4cbor13CBORTokenizer13ReadNextTokenEb(ptr noundef nonnull align 8 dereferenceable(64) %this, i1 noundef zeroext true)
   ret void
@@ -1146,7 +1146,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol5Value5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol5Value5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30, !noalias !13
@@ -1188,7 +1188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol5Value17serializeToBinaryEv(ptr noalias sret(%"class.std::vector.13") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol5Value17serializeToBinaryEv(ptr noalias sret(%"class.std::vector.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %vtable = load ptr, ptr %this, align 8
@@ -1457,7 +1457,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol16FundamentalValue5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol16FundamentalValue5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
 entry:
   %m_type.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %m_type.i, align 8
@@ -1597,7 +1597,7 @@ if.end42:                                         ; preds = %if.else27, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol11StringValue5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol11StringValue5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4node9inspector8protocol11StringValueESt14default_deleteIS3_EED2Ev.exit:
   %m_stringValue = getelementptr inbounds i8, ptr %this, i64 16
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30, !noalias !28
@@ -1640,7 +1640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol11BinaryValue5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol11BinaryValue5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 {
 _ZNSt10unique_ptrIN4node9inspector8protocol11BinaryValueESt14default_deleteIS3_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30, !noalias !31
   %m_type.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -1737,7 +1737,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol15SerializedValueESt14default_deleteI
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol15DictionaryValueD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol15DictionaryValueD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol15DictionaryValueE, i64 16), ptr %this, align 8
   %m_order = getelementptr inbounds i8, ptr %this, i64 72
@@ -1818,7 +1818,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10uni
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol15DictionaryValueD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol15DictionaryValueD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN4node9inspector8protocol15DictionaryValueD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #27
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
@@ -2946,7 +2946,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node9inspector8protocol15DictionaryValueC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 12)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol15DictionaryValueC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 {
 entry:
   %m_type.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 6, ptr %m_type.i, align 8
@@ -2966,7 +2966,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol9ListValueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol9ListValueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol9ListValueE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 16
@@ -3013,7 +3013,7 @@ _ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol9ListValueD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol9ListValueD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol9ListValueE, i64 16), ptr %this, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3460,7 +3460,7 @@ _ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node9inspector8protocol9ListValueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol9ListValueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 {
 entry:
   %m_type.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 7, ptr %m_type.i, align 8
@@ -3647,7 +3647,7 @@ _ZN4node9inspector8protocol12_GLOBAL__N_127escapeStringForJSONInternalItEEvPKT_j
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol6Object9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.75") align 8 initializes((0, 8)) %agg.result, ptr noundef %value, ptr noundef %errors) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol6Object9fromValueEPNS1_5ValueEPNS1_12ErrorSupportE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.75") align 8 %agg.result, ptr noundef %value, ptr noundef %errors) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i = alloca %"class.std::allocator.0", align 1
@@ -3693,7 +3693,7 @@ return:                                           ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol6Object7toValueEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.5") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol6Object7toValueEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.5") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   %0 = load ptr, ptr %this, align 8
@@ -3720,7 +3720,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node9inspector8protocol6Object5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.75") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4node9inspector8protocol6Object5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.75") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp2 = alloca %"class.std::unique_ptr", align 8
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
@@ -3749,7 +3749,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS3_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4node9inspector8protocol6ObjectC2ESt10unique_ptrINS1_15DictionaryValueESt14default_deleteIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef %object) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4node9inspector8protocol6ObjectC2ESt10unique_ptrINS1_15DictionaryValueESt14default_deleteIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef %object) unnamed_addr #8 align 2 {
 entry:
   %0 = load i64, ptr %object, align 8
   store i64 %0, ptr %this, align 8
@@ -3837,7 +3837,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node9inspector8protocol14DispatcherBase7WeakPtrC2EPS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %dispatcher) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14DispatcherBase7WeakPtrC2EPS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %dispatcher) unnamed_addr #0 align 2 {
 entry:
   store ptr %dispatcher, ptr %this, align 8
   ret void
@@ -3862,7 +3862,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol14DispatcherBase8CallbackC2ESt10unique_ptrINS2_7WeakPtrESt14default_deleteIS5_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 20)) %this, ptr nocapture noundef %backendImpl, i32 noundef %callId, ptr noundef nonnull align 8 dereferenceable(32) %method, ptr noundef nonnull align 8 dereferenceable(32) %message) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14DispatcherBase8CallbackC2ESt10unique_ptrINS2_7WeakPtrESt14default_deleteIS5_EEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef %backendImpl, i32 noundef %callId, ptr noundef nonnull align 8 dereferenceable(32) %method, ptr noundef nonnull align 8 dereferenceable(32) %message) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol14DispatcherBase8CallbackE, i64 16), ptr %this, align 8
   %m_backendImpl = getelementptr inbounds i8, ptr %this, i64 8
@@ -3879,7 +3879,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol14DispatcherBase8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14DispatcherBase8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca ptr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol14DispatcherBase8CallbackE, i64 16), ptr %this, align 8
@@ -3915,7 +3915,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol14DispatcherBase7WeakPtrESt14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol14DispatcherBase8CallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14DispatcherBase8CallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp.i.i.i.i = alloca ptr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol14DispatcherBase8CallbackE, i64 16), ptr %this, align 8
@@ -4182,7 +4182,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node9inspector8protocol14DispatcherBaseC2EPNS1_15FrontendChannelE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %this, ptr noundef %frontendChannel) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14DispatcherBaseC2EPNS1_15FrontendChannelE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %frontendChannel) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol14DispatcherBaseE, i64 16), ptr %this, align 8
   %m_frontendChannel = getelementptr inbounds i8, ptr %this, i64 8
@@ -4202,7 +4202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol14DispatcherBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14DispatcherBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol14DispatcherBaseE, i64 16), ptr %this, align 8
   %m_frontendChannel.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4259,7 +4259,7 @@ _ZNSt13unordered_setIPN4node9inspector8protocol14DispatcherBase7WeakPtrESt4hashI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol14DispatcherBase13clearFrontendEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((8, 16)) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14DispatcherBase13clearFrontendEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #1 align 2 {
 entry:
   %m_frontendChannel = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %m_frontendChannel, align 8
@@ -4320,7 +4320,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.118") align 8 initializes((0, 8)) %agg.result, i32 noundef %callId, ptr nocapture noundef %params) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol16InternalResponse14createResponseEiSt10unique_ptrINS1_12SerializableESt14default_deleteIS4_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.118") align 8 %agg.result, i32 noundef %callId, ptr nocapture noundef %params) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
@@ -4474,7 +4474,7 @@ if.end:                                           ; preds = %_ZN4node9inspector8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol14DispatcherBase7weakPtrEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.102") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14DispatcherBase7weakPtrEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.102") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #1 align 2 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %ref.tmp = alloca ptr, align 8
@@ -4491,7 +4491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node9inspector8protocol14UberDispatcherC2EPNS1_15FrontendChannelE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 16)) %this, ptr noundef %frontendChannel) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14UberDispatcherC2EPNS1_15FrontendChannelE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %frontendChannel) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol14UberDispatcherE, i64 16), ptr %this, align 8
   %m_frontendChannel = getelementptr inbounds i8, ptr %this, i64 8
@@ -5126,7 +5126,7 @@ cleanup:                                          ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol14UberDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14UberDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol14UberDispatcherE, i64 16), ptr %this, align 8
   %m_dispatchers = getelementptr inbounds i8, ptr %this, i64 72
@@ -5213,7 +5213,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol14UberDispatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol14UberDispatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN4node9inspector8protocol14UberDispatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #27
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
@@ -5221,7 +5221,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol16InternalResponse18createNotificationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.118") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %notification, ptr nocapture noundef %params) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol16InternalResponse18createNotificationERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.118") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %notification, ptr nocapture noundef %params) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #30
   %0 = load i64, ptr %params, align 8
@@ -5693,7 +5693,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 12)) %this, i32 noundef %callId, ptr noundef nonnull align 8 dereferenceable(32) %notification, ptr nocapture noundef %params) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol16InternalResponseC2EiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_12SerializableESt14default_deleteISC_EE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %callId, ptr noundef nonnull align 8 dereferenceable(32) %notification, ptr nocapture noundef %params) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol16InternalResponseE, i64 16), ptr %this, align 8
   %m_callId = getelementptr inbounds i8, ptr %this, i64 8
@@ -5720,7 +5720,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol19parseJSONCharactersEPKtj(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %characters, i32 noundef %length) local_unnamed_addr #1 {
+define dso_local void @_ZN4node9inspector8protocol19parseJSONCharactersEPKtj(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %characters, i32 noundef %length) local_unnamed_addr #1 {
 entry:
   %tokenEnd.i = alloca ptr, align 8
   %value.i = alloca %"class.std::unique_ptr", align 8
@@ -5761,7 +5761,7 @@ _ZN4node9inspector8protocol12_GLOBAL__N_117parseJSONInternalItEESt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol19parseJSONCharactersEPKhj(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %characters, i32 noundef %length) local_unnamed_addr #1 {
+define dso_local void @_ZN4node9inspector8protocol19parseJSONCharactersEPKhj(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %characters, i32 noundef %length) local_unnamed_addr #1 {
 entry:
   %tokenEnd.i = alloca ptr, align 8
   %value.i = alloca %"class.std::unique_ptr", align 8
@@ -8370,7 +8370,7 @@ _ZNSt6vectorIhSaIhEE9push_backERKh.exit35:        ; preds = %if.then.i8, %_ZNSt6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol4cbor15EnvelopeEncoder11EncodeStartEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull %out) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol4cbor15EnvelopeEncoder11EncodeStartEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull %out) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 noundef signext -40) #27
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(ptr noundef nonnull align 8 dereferenceable(32) %out, i8 noundef signext 90) #27
@@ -8411,7 +8411,7 @@ _ZN4node9inspector8protocol4cbor14EncodeStopTmplINSt7__cxx1112basic_stringIcSt11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol4cbor14NewCBOREncoderEPSt6vectorIhSaIhEEPNS1_6StatusE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.175") align 8 initializes((0, 8)) %agg.result, ptr noundef %out, ptr noundef %status) local_unnamed_addr #1 {
+define dso_local void @_ZN4node9inspector8protocol4cbor14NewCBOREncoderEPSt6vectorIhSaIhEEPNS1_6StatusE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.175") align 8 %agg.result, ptr noundef %out, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderISt6vectorIhSaIhEEEE, i64 16), ptr %call, align 8
@@ -8431,7 +8431,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol4cbor14NewCBOREncoderEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_6StatusE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.175") align 8 initializes((0, 8)) %agg.result, ptr noundef %out, ptr noundef %status) local_unnamed_addr #1 {
+define dso_local void @_ZN4node9inspector8protocol4cbor14NewCBOREncoderEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_6StatusE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.175") align 8 %agg.result, ptr noundef %out, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %call, align 8
@@ -8451,7 +8451,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4node9inspector8protocol4cbor13CBORTokenizerC2ENS1_4spanIhEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16), (24, 28), (32, 40)) %this, ptr %bytes.coerce0, i64 %bytes.coerce1) unnamed_addr #7 align 2 {
+define dso_local void @_ZN4node9inspector8protocol4cbor13CBORTokenizerC2ENS1_4spanIhEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr %bytes.coerce0, i64 %bytes.coerce1) unnamed_addr #7 align 2 {
 entry:
   store ptr %bytes.coerce0, ptr %this, align 8
   %bytes.sroa.2.0.bytes_.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
@@ -8465,7 +8465,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4node9inspector8protocol4cbor13CBORTokenizer13ReadNextTokenEb(ptr noundef nonnull align 8 dereferenceable(64) initializes((24, 28)) %this, i1 noundef zeroext %enter_envelope) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4node9inspector8protocol4cbor13CBORTokenizer13ReadNextTokenEb(ptr noundef nonnull align 8 dereferenceable(64) %this, i1 noundef zeroext %enter_envelope) local_unnamed_addr #7 align 2 {
 entry:
   %pos = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %pos, align 8
@@ -9172,7 +9172,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node9inspector8protocol4cbor13CBORTokenizer8SetTokenENS2_12CBORTokenTagEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((16, 20), (40, 48)) %this, i32 noundef %token_tag, i64 noundef %token_byte_length) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol4cbor13CBORTokenizer8SetTokenENS2_12CBORTokenTagEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, i32 noundef %token_tag, i64 noundef %token_byte_length) local_unnamed_addr #0 align 2 {
 entry:
   %token_tag_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %token_tag, ptr %token_tag_, align 8
@@ -9182,7 +9182,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node9inspector8protocol4cbor13CBORTokenizer8SetErrorENS1_5ErrorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((16, 20), (24, 28)) %this, i32 noundef %error) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol4cbor13CBORTokenizer8SetErrorENS1_5ErrorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, i32 noundef %error) local_unnamed_addr #0 align 2 {
 entry:
   %token_tag_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %token_tag_, align 8
@@ -9623,7 +9623,7 @@ cleanup:                                          ; preds = %entry, %if.end32, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol4json14NewJSONEncoderEPKNS2_8PlatformEPSt6vectorIhSaIhEEPNS1_6StatusE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.175") align 8 initializes((0, 8)) %agg.result, ptr noundef %platform, ptr noundef %out, ptr noundef %status) local_unnamed_addr #1 {
+define dso_local void @_ZN4node9inspector8protocol4json14NewJSONEncoderEPKNS2_8PlatformEPSt6vectorIhSaIhEEPNS1_6StatusE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.175") align 8 %agg.result, ptr noundef %platform, ptr noundef %out, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #30
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEEE, i64 16), ptr %call, align 8
@@ -9669,7 +9669,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol4json14NewJSONEncoderEPKNS2_8PlatformEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_6StatusE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.175") align 8 initializes((0, 8)) %agg.result, ptr noundef %platform, ptr noundef %out, ptr noundef %status) local_unnamed_addr #1 {
+define dso_local void @_ZN4node9inspector8protocol4json14NewJSONEncoderEPKNS2_8PlatformEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_6StatusE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.175") align 8 %agg.result, ptr noundef %platform, ptr noundef %out, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #30
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %call, align 8
@@ -10865,7 +10865,7 @@ _ZNSt10unique_ptrIN4node9inspector8protocol15DictionaryValueESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_113ProtocolErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(85) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_113ProtocolErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(85) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_113ProtocolErrorE, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 48
@@ -10876,7 +10876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_113ProtocolErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(85) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_113ProtocolErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(85) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_113ProtocolErrorE, i64 16), ptr %this, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -10888,7 +10888,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4node9inspector8protocol12_GLOBAL__N_113ProtocolError9serializeEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(85) %this) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4node9inspector8protocol12_GLOBAL__N_113ProtocolError9serializeEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(85) %this) unnamed_addr #1 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.0", align 1
@@ -17026,7 +17026,7 @@ if.end6:                                          ; preds = %if.then.i15, %if.th
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderISt6vectorIhSaIhEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderISt6vectorIhSaIhEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderISt6vectorIhSaIhEEEE, i64 16), ptr %this, align 8
   %envelopes_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -17043,7 +17043,7 @@ _ZNSt6vectorIN4node9inspector8protocol4cbor15EnvelopeEncoderESaIS4_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderISt6vectorIhSaIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderISt6vectorIhSaIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderISt6vectorIhSaIhEEEE, i64 16), ptr %this, align 8
   %envelopes_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -17977,7 +17977,7 @@ return:                                           ; preds = %if.then.i.i, %if.en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8
   %envelopes_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -17994,7 +17994,7 @@ _ZNSt6vectorIN4node9inspector8protocol4cbor15EnvelopeEncoderESaIS4_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8
   %envelopes_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -18715,7 +18715,7 @@ _ZNSt5dequeIN4node9inspector8protocol4json12_GLOBAL__N_15StateESaIS5_EE12emplace
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEEE, i64 16), ptr %this, align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -18754,7 +18754,7 @@ _ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEEE, i64 16), ptr %this, align 8
   %state_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -22071,7 +22071,7 @@ if.end101:                                        ; preds = %for.body.i.i.i.i.i4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -22110,7 +22110,7 @@ _ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %this, align 8
   %state_.i = getelementptr inbounds i8, ptr %this, i64 32

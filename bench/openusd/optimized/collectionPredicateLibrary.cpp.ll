@@ -2354,7 +2354,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash12bucket_entryIS
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_3ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_3ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -2420,7 +2420,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_3ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_3ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -5742,7 +5742,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_4ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_4ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -5808,7 +5808,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_4ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_4ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -7862,7 +7862,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -7928,7 +7928,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -8074,7 +8074,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__33SdfPredicatePara
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_0E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISB_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_0E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISB_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %.val = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
@@ -8693,7 +8693,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_1ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_1ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -8759,7 +8759,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9882,7 +9882,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSource3GetER
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_2ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_2ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -9948,7 +9948,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -10094,7 +10094,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__33SdfPredicatePara
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_2E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISB_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE13_CustomBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_2E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISB_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %.val = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
@@ -10684,7 +10684,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8HdSchemaD2Ev.exit: ; preds = %1, %20, %33,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_5ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_5ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -10750,7 +10750,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_5ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE15_OverloadBinderIZNS_12_GLOBAL__N_131_MakeCollectionPredicateLibraryEvE3$_5ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_16HdSceneIndexPrimEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

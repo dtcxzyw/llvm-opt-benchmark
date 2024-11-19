@@ -63,7 +63,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib19TridiagonalOperatorC1ERKNS_5ArrayES3_S3_ = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib19TridiagonalOperatorC2ERKNS_5ArrayES3_S3_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19TridiagonalOperatorC2Em(ptr noundef nonnull align 8 dereferenceable(88) initializes((8, 88)) %this, i64 noundef %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19TridiagonalOperatorC2Em(ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp58 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -548,7 +548,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19TridiagonalOperatorC2ERKNS_5ArrayES3_S3_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %low, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mid, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %high) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19TridiagonalOperatorC2ERKNS_5ArrayES3_S3_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %low, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mid, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %high) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1585,7 +1585,7 @@ unreachable:                                      ; preds = %invoke.cont56, %inv
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib19TridiagonalOperator8solveForERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib19TridiagonalOperator8solveForERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %rhs, i64 8
   %0 = load i64, ptr %n_.i, align 8, !tbaa !29

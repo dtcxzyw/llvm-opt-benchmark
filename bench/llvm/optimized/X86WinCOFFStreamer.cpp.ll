@@ -198,7 +198,7 @@ define internal void @_ZN12_GLOBAL__N_118X86WinCOFFStreamer23emitWindowsUnwindTa
 declare void @_ZN4llvm10MCStreamer15emitRawTextImplENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(288), ptr, i64) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118X86WinCOFFStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118X86WinCOFFStreamerD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN12_GLOBAL__N_118X86WinCOFFStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @_ZN4llvm5WinEH13UnwindEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #7
@@ -207,7 +207,7 @@ define internal void @_ZN12_GLOBAL__N_118X86WinCOFFStreamerD2Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118X86WinCOFFStreamerD0Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118X86WinCOFFStreamerD0Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 1336) (i8, ptr @_ZTVN12_GLOBAL__N_118X86WinCOFFStreamerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 432
   tail call void @_ZN4llvm5WinEH13UnwindEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #7

@@ -32,13 +32,13 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5draco14RAnsBitEncoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #3 align 2 {
+define void @_ZN5draco14RAnsBitEncoderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5draco14RAnsBitEncoderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((48, 56)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5draco14RAnsBitEncoderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN5draco14RAnsBitEncoder5ClearEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
           to label %2 unwind label %8
 
@@ -73,7 +73,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco14RAnsBitEncoder5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((48, 56)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5draco14RAnsBitEncoder5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
@@ -186,7 +186,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco14RAnsBitEncoder13StartEncodingEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((48, 56)) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN5draco14RAnsBitEncoder13StartEncodingEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #5 align 2 {
   tail call void @_ZN5draco14RAnsBitEncoder5ClearEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   ret void
 }

@@ -87,7 +87,7 @@ define hidden void @_ZN10JfrPostBox7destroyEv() local_unnamed_addr #1 align 2 {
 declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN10JfrPostBoxC2Ev(ptr noundef nonnull align 8 dereferenceable(21) initializes((0, 16)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN10JfrPostBoxC2Ev(ptr noundef nonnull align 8 dereferenceable(21) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store volatile i32 0, ptr %2, align 8

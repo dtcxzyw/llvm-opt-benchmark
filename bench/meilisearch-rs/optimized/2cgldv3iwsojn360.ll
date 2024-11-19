@@ -293,7 +293,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h662bb8758434b9d2E.llvm.10894476612218408692"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h662bb8758434b9d2E.llvm.10894476612218408692"(ptr noundef nonnull writeonly align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)
   %3 = icmp eq ptr %1, null
@@ -2433,7 +2433,7 @@ common.resume:                                    ; preds = %67, %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @"_ZN186_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$core..convert..From$LT$$LP$meilisearch_types..document_formats..PayloadType$C$milli..documents..Error$RP$$GT$$GT$4from17hd64c692107b5d63eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
+define void @"_ZN186_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$core..convert..From$LT$$LP$meilisearch_types..document_formats..PayloadType$C$milli..documents..Error$RP$$GT$$GT$4from17hd64c692107b5d63eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #9 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
@@ -2468,7 +2468,7 @@ define void @"_ZN186_$LT$meilisearch_types..document_formats..DocumentFormatErro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN125_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h829094190d6f7cd1E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #10 {
+define void @"_ZN125_$LT$meilisearch_types..document_formats..DocumentFormatError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h829094190d6f7cd1E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noundef nonnull %1) unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i64 -9223372036854775799, ptr %0, align 8
@@ -2570,7 +2570,7 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN17meilisearch_types9index_uid117_$LT$impl$u20$core..convert..From$LT$meilisearch_types..index_uid..IndexUid$GT$$u20$for$u20$alloc..string..String$GT$4from17h984d6ce815181c5aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #12 {
+define void @"_ZN17meilisearch_types9index_uid117_$LT$impl$u20$core..convert..From$LT$meilisearch_types..index_uid..IndexUid$GT$$u20$for$u20$alloc..string..String$GT$4from17h984d6ce815181c5aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #12 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false), !alias.scope !402
   ret void
 }
@@ -2985,7 +2985,7 @@ define void @"_ZN100_$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN17meilisearch_types17index_uid_pattern132_$LT$impl$u20$core..convert..From$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$$u20$for$u20$alloc..string..String$GT$4from17ha8e618ba789a99feE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #12 {
+define void @"_ZN17meilisearch_types17index_uid_pattern132_$LT$impl$u20$core..convert..From$LT$meilisearch_types..index_uid_pattern..IndexUidPattern$GT$$u20$for$u20$alloc..string..String$GT$4from17ha8e618ba789a99feE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #12 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }

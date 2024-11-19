@@ -41,7 +41,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9SchedulerC2Ev(ptr noundef nonnull align 8 dereferenceable(43416) initializes((43216, 43288), (43296, 43344)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9SchedulerC2Ev(ptr noundef nonnull align 8 dereferenceable(43416) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 43216
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 43240
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 43264

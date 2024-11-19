@@ -890,7 +890,7 @@ ehcleanup95:                                      ; preds = %ehcleanup94, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq5own_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1444) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq5own_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1444) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq5own_tE, i64 16), ptr %this, align 8
   %_owned = getelementptr inbounds i8, ptr %this, i64 1392

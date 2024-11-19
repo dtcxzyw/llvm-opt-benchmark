@@ -156,7 +156,7 @@ deccall2.exit:                                    ; preds = %2, %.sink.split.i
 declare i32 @PGTYPESnumeric_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @deccopy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 52)) %1) local_unnamed_addr #3 {
+define void @deccopy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %1, ptr noundef nonnull align 4 dereferenceable(52) %0, i64 52, i1 false)
   ret void
 }
@@ -643,7 +643,7 @@ define void @rtoday(ptr noundef %0) local_unnamed_addr #0 {
 declare void @PGTYPESdate_today(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @rjulmdy(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 6)) %1) local_unnamed_addr #0 {
+define noundef i32 @rjulmdy(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [3 x i32], align 4
   call void @PGTYPESdate_julmdy(i64 noundef %0, ptr noundef nonnull %3) #16
   %4 = load i32, ptr %3, align 4

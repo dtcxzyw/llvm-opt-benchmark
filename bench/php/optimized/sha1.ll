@@ -178,7 +178,7 @@ declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_SHA1InitArgs(ptr nocapture noundef writeonly initializes((0, 28)) %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
+define void @PHP_SHA1InitArgs(ptr nocapture noundef writeonly %0, ptr nocapture noundef readnone %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %4, align 4

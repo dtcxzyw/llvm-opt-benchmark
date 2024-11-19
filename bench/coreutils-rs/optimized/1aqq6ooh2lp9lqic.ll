@@ -1020,7 +1020,7 @@ _ZN6uu_fmt9parasplit9FileLines17match_anti_prefix17hfcf15ebf77f1b72dE.exit.threa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6uu_fmt9parasplit15ParagraphStream3new17h92cca7b1e2372ba4E(ptr noalias nocapture noundef writeonly sret({ { { i64, [6 x i64] }, { ptr, ptr } }, ptr, i8, [7 x i8] }) align 8 dereferenceable(88) initializes((0, 8), (56, 81)) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #2 {
+define hidden void @_ZN6uu_fmt9parasplit15ParagraphStream3new17h92cca7b1e2372ba4E(ptr noalias nocapture noundef writeonly sret({ { { i64, [6 x i64] }, { ptr, ptr } }, ptr, i8, [7 x i8] }) align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1, ptr noalias noundef align 8 dereferenceable(56) %2) unnamed_addr #2 {
   store i64 -9223372036854775806, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %.sroa.2.0..sroa_idx, align 8

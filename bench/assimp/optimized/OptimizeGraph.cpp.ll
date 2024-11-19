@@ -1947,7 +1947,7 @@ declare void @_ZN6Assimp23FlipWindingOrderProcess11ProcessMeshEP6aiMesh(ptr noun
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp20OptimizeGraphProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(144) initializes((24, 32), (104, 116)) %this, ptr noundef %pScene) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp20OptimizeGraphProcess7ExecuteEP7aiScene(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pScene) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i32, align 4
   %ref.tmp25 = alloca %"class.std::__cxx11::basic_string", align 8

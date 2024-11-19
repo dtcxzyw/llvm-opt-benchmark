@@ -173,7 +173,7 @@ $_ZZN4llvm13hexDigitValueEcE3LUT = comdat any
 @_ZN4llvm7TGLexerC1ERNS_9SourceMgrENS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE = unnamed_addr alias void (ptr, ptr, ptr, i64), ptr @_ZN4llvm7TGLexerC2ERNS_9SourceMgrENS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7TGLexerC2ERNS_9SourceMgrENS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 44)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7TGLexerC2ERNS_9SourceMgrENS_8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
 _ZNSt6vectorISt10unique_ptrIS_IN4llvm7TGLexer23PreprocessorControlDescESaIS3_EESt14default_deleteIS5_EESaIS8_EE9push_backEOS8_.exit:
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.llvm::Twine", align 8
@@ -704,7 +704,7 @@ define dso_local noundef range(i32 -128, 128) i32 @_ZNK4llvm7TGLexer12peekNextCh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm7TGLexer8LexTokenEb(ptr noundef nonnull align 8 dereferenceable(192) initializes((32, 40)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm7TGLexer8LexTokenEb(ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SMLoc", align 8
   %4 = alloca %"class.llvm::SMLoc", align 8
   %5 = alloca %"class.llvm::SMLoc", align 8
@@ -1371,7 +1371,7 @@ _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %4, %_ZN4llvmneENS_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb(ptr noundef nonnull align 8 dereferenceable(192) initializes((32, 40)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm7TGLexer15lexPreprocessorENS_5tgtok7TokKindEb(ptr noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SMLoc", align 8
   %5 = alloca %"class.llvm::SMLoc", align 8
   %6 = alloca %"class.llvm::SMLoc", align 8
@@ -3134,7 +3134,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm7TGLexer10LexIncludeEv(ptr noundef nonnull align 8 dereferenceable(192) initializes((32, 40)) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm7TGLexer10LexIncludeEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.llvm::SMLoc", align 8
@@ -3358,7 +3358,7 @@ define dso_local void @_ZN4llvm7TGLexer32prepReportPreprocessorStackErrorEv(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm7TGLexer28prepEatPreprocessorDirectiveENS_5tgtok7TokKindE(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((32, 40)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm7TGLexer28prepEatPreprocessorDirectiveENS_5tgtok7TokKindE(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8

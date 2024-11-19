@@ -5945,7 +5945,7 @@ return:                                           ; preds = %do.body.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_6X86_64EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly %range, i64 noundef %base) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL16read_debug_rangeINS0_6X86_64EEESt6vectorISt4pairImmESaIS5_EEPNSt11conditionalIXsrT_5is_64ENS8_IXsrS9_5is_leENS_12LittleEndianImLi8EEENS_9BigEndianImLi8EEEE4typeENS8_IXsrS9_5is_leENSA_IjLi4EEENSC_IjLi4EEEE4typeEE4typeEm(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly %range, i64 noundef %base) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds i8, ptr %agg.result, i64 8

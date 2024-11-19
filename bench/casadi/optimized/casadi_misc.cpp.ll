@@ -658,7 +658,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi6to_intERKSt6vectorIxSaIxEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.3") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi6to_intERKSt6vectorIxSaIxEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -824,7 +824,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %55, %57
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi6to_intERKSt6vectorIS0_IxSaIxEESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.13") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi6to_intERKSt6vectorIS0_IxSaIxEESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.13") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.3", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3388,7 +3388,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi11boolvec_notERKSt6vectorIbSaIbEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.24") align 8 initializes((0, 12), (16, 28), (32, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi11boolvec_notERKSt6vectorIbSaIbEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.24") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -4071,7 +4071,7 @@ _ZNSt14_Bit_referenceaSEb.exit.i:                 ; preds = %109, %106
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16boolvec_to_indexERKSt6vectorIbSaIbEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.8") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16boolvec_to_indexERKSt6vectorIbSaIbEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.8") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 24

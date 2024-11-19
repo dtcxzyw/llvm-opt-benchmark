@@ -27957,7 +27957,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -27998,7 +27998,7 @@ _ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing7MatcherIRKPN12_GLOBAL__N_118ConstructionTesterEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -28073,7 +28073,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -28114,7 +28114,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKPN12_GLOBAL__N_118ConstructionTesterEEE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8

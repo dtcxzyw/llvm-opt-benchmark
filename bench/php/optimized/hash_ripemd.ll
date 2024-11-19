@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @PADDING = internal constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD128Init(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_RIPEMD128Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %4, align 4
@@ -267,7 +267,7 @@ declare i32 @php_hash_serialize(ptr noundef, ptr noundef, ptr noundef) #2
 declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD160Init(ptr nocapture noundef writeonly initializes((0, 28)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_RIPEMD160Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %4, align 4
@@ -503,7 +503,7 @@ RIPEMDEncode.exit:                                ; preds = %77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD256Init(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_RIPEMD256Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %4, align 4
@@ -745,7 +745,7 @@ RIPEMDEncode.exit:                                ; preds = %77
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @PHP_RIPEMD320Init(ptr nocapture noundef writeonly initializes((0, 48)) %0, ptr nocapture readnone %1) #0 {
+define void @PHP_RIPEMD320Init(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 0, ptr %4, align 4

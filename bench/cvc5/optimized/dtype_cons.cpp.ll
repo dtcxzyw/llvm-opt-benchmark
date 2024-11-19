@@ -1566,7 +1566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal16DTypeConstructor14getConstructorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal16DTypeConstructor14getConstructorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_constructor = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %d_constructor, align 8
@@ -2404,7 +2404,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal16DTypeConstructor9getTesterEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal16DTypeConstructor9getTesterEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_tester = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %d_tester, align 8
@@ -2532,7 +2532,7 @@ if.end8:                                          ; preds = %if.then, %if.then7,
 declare noundef i32 @_ZNK4cvc58internal13SkolemManager5getIdENS0_12NodeTemplateILb0EEE(ptr noundef nonnull align 8 dereferenceable(152), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal16DTypeConstructor10getSygusOpEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal16DTypeConstructor10getSygusOpEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_sygusOp = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %d_sygusOp, align 8

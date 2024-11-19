@@ -1247,7 +1247,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUITableC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(608) initializes((608, 628)) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, ptr noundef %tsrc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8GUITableC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiNS0_4core4rectIiEEP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(608) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, ptr noundef %tsrc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -1614,7 +1614,7 @@ _ZNSt6vectorIN8GUITable3RowESaIS1_EED2Ev.exit:    ; preds = %if.then.i.i.i113, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8GUITableD2Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8GUITableD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %this, ptr noundef %vtt) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
@@ -1837,7 +1837,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8GUITableD1Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define dso_local void @_ZN8GUITableD1Ev(ptr noundef nonnull align 8 dereferenceable(608) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN8GUITableD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %this, ptr noundef nonnull @_ZTT8GUITable) #31
   ret void
@@ -1855,7 +1855,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8GUITableD0Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define dso_local void @_ZN8GUITableD0Ev(ptr noundef nonnull align 8 dereferenceable(608) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN8GUITableD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %this, ptr noundef nonnull @_ZTT8GUITable) #31
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -6738,7 +6738,7 @@ cleanup:                                          ; preds = %if.then.i19.i.i, %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN8GUITable12alignContentEPNS_4CellEiii(ptr nocapture noundef initializes((4, 12)) %cell, i32 noundef %xmax, i32 noundef %content_width, i32 noundef %align) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN8GUITable12alignContentEPNS_4CellEiii(ptr nocapture noundef %cell, i32 noundef %xmax, i32 noundef %content_width, i32 noundef %align) local_unnamed_addr #15 align 2 {
 entry:
   switch i32 %align, label %if.else13 [
     i32 0, label %if.then
@@ -7758,7 +7758,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUITable11setSelectedEi(ptr noundef nonnull align 8 dereferenceable(608) initializes((376, 381)) %this, i32 noundef %index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8GUITable11setSelectedEi(ptr noundef nonnull align 8 dereferenceable(608) %this, i32 noundef %index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %maxpos.i = alloca i32, align 4
   %minpos.i = alloca i32, align 4
@@ -8329,7 +8329,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK8GUITable14getDynamicDataEv(ptr dead_on_unwind noalias writable sret(%"struct.GUITable::DynamicData") align 8 initializes((0, 12)) %agg.result, ptr noundef nonnull align 8 dereferenceable(608) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK8GUITable14getDynamicDataEv(ptr dead_on_unwind noalias writable sret(%"struct.GUITable::DynamicData") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(608) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %agg.result, align 8, !tbaa !298
   %scrollpos.i = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -9906,7 +9906,7 @@ cond.end:                                         ; preds = %cond.true, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8GUITable14sendTableEventEib(ptr noundef nonnull align 8 dereferenceable(608) initializes((376, 381)) %this, i32 noundef %column, i1 noundef zeroext %doubleclick) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN8GUITable14sendTableEventEib(ptr noundef nonnull align 8 dereferenceable(608) %this, i32 noundef %column, i1 noundef zeroext %doubleclick) local_unnamed_addr #3 align 2 {
 entry:
   %e = alloca %"struct.irr::SEvent", align 8
   %frombool = zext i1 %doubleclick to i8
@@ -10331,7 +10331,7 @@ return:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZNK8GUITable8getRowAtEiRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(608) %this, i32 noundef %y, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %really_hovering) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZNK8GUITable8getRowAtEiRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(608) %this, i32 noundef %y, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %really_hovering) local_unnamed_addr #3 align 2 {
 entry:
   store i8 0, ptr %really_hovering, align 1, !tbaa !107
   %m_visible_rows = getelementptr inbounds i8, ptr %this, i64 344

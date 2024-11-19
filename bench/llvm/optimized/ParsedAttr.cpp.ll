@@ -2761,7 +2761,7 @@ define dso_local noundef range(i64 72, 524353) i64 @_ZNK5clang10ParsedAttr14allo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16AttributeFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(1312) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang16AttributeFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(1312) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 16, i1 false)

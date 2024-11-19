@@ -21,7 +21,7 @@ define noundef zeroext i1 @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17haf65a263c66f1d0dE"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 initializes((0, 16)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17haf65a263c66f1d0dE"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret void
 }
@@ -82,7 +82,7 @@ define noundef i8 @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17hb191a3d2191dddffE"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 initializes((0, 1)) %0) unnamed_addr #4 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17hb191a3d2191dddffE"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 %0) unnamed_addr #4 {
   store i8 2, ptr %0, align 8
   ret void
 }
@@ -108,7 +108,7 @@ define align 8 ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h732ffa1201b3eda9E"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 initializes((0, 1)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h732ffa1201b3eda9E"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %3 = load i8, ptr %1, align 8, !range !5, !noundef !4
   %4 = icmp eq i8 %3, 2
   br i1 %4, label %5, label %6

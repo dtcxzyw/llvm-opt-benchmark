@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 281) i32 @expr_yylex(ptr noundef %0, ptr noundef initializes((144, 152)) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 281) i32 @expr_yylex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 72
@@ -2421,7 +2421,7 @@ define dso_local ptr @expr_yyget_text(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @expr_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #12 {
+define dso_local void @expr_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -2477,14 +2477,14 @@ define dso_local void @expr_yyset_column(i32 noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @expr_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #12 {
+define dso_local void @expr_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @expr_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #12 {
+define dso_local void @expr_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -2498,7 +2498,7 @@ define dso_local i32 @expr_yyget_debug(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @expr_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #12 {
+define dso_local void @expr_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -2512,7 +2512,7 @@ define dso_local ptr @expr_yyget_lval(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @expr_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly initializes((144, 152)) %1) local_unnamed_addr #12 {
+define dso_local void @expr_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   ret void
@@ -2785,7 +2785,7 @@ define dso_local void @expr_yyerror(ptr noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @expr_lex_one_word(ptr noundef initializes((8, 16)) %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @expr_lex_one_word(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %union.YYSTYPE, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -2828,7 +2828,7 @@ declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #1
 declare void @psql_scan_reselect_sql_lexer(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @expr_scanner_init(ptr nocapture noundef initializes((8, 16)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @expr_scanner_init(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   store ptr %1, ptr @expr_source, align 8
   store i32 %2, ptr @expr_lineno, align 4
   store i32 %3, ptr @expr_start_offset, align 4

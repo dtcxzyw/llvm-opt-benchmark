@@ -439,7 +439,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef zeroext i1 @_ZNK5boost6fibers5waker4wakeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost6fibers9schedulerC2ENS_13intrusive_ptrINS0_4algo9algorithmEEE(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 12), (16, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6fibers9schedulerC2ENS_13intrusive_ptrINS0_4algo9algorithmEEE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr nocapture noundef readonly %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost6fibers9schedulerE, i64 16), ptr %0, align 8, !tbaa !15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8, !tbaa !43
@@ -484,7 +484,7 @@ define void @_ZN5boost6fibers9schedulerC2ENS_13intrusive_ptrINS0_4algo9algorithm
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost6fibers9schedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 8), (136, 137)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6fibers9schedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost6fibers9schedulerE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 1, ptr %2, align 8, !tbaa !49
@@ -1416,7 +1416,7 @@ declare noundef zeroext i1 @_ZNK5boost6fibers7context15sleep_is_linkedEv(ptr nou
 declare void @_ZN5boost6fibers7context12sleep_unlinkEv(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost6fibers9scheduler20schedule_from_remoteEPNS0_7contextE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef initializes((16, 24)) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6fibers9scheduler20schedule_from_remoteEPNS0_7contextE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN5boost6fibers6detail13spinlock_ttas4lockEv(ptr noundef nonnull align 4 dereferenceable(4) %2) #21
@@ -1442,7 +1442,7 @@ _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost6fibers9scheduler9terminateERSt11unique_lockINS0_6detail13spinlock_ttasEEPNS0_7contextE(ptr dead_on_unwind noalias writable sret(%"class.boost::context::fiber") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(137) %1, ptr nocapture noundef nonnull align 8 dereferenceable(9) %2, ptr noundef nonnull initializes((176, 184)) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6fibers9scheduler9terminateERSt11unique_lockINS0_6detail13spinlock_ttasEEPNS0_7contextE(ptr dead_on_unwind noalias writable sret(%"class.boost::context::fiber") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(137) %1, ptr nocapture noundef nonnull align 8 dereferenceable(9) %2, ptr noundef nonnull %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %6 = getelementptr inbounds i8, ptr %3, i64 176
   %7 = getelementptr inbounds i8, ptr %1, i64 112
@@ -1613,7 +1613,7 @@ define noundef zeroext i1 @_ZN5boost6fibers9scheduler10wait_untilEPNS0_7contextE
 declare void @_ZN5boost6fibers7context6resumeEv(ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN5boost6fibers9scheduler10wait_untilEPNS0_7contextERKNSt6chrono10time_pointINS4_3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEERSt11unique_lockINS0_6detail13spinlock_ttasEEONS0_5wakerE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef initializes((144, 160), (216, 224)) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(9) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5boost6fibers9scheduler10wait_untilEPNS0_7contextERKNSt6chrono10time_pointINS4_3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEERSt11unique_lockINS0_6detail13spinlock_ttasEEONS0_5wakerE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(9) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !123
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 216
@@ -1799,7 +1799,7 @@ _ZN5boost13intrusive_ptrINS_6fibers4algo9algorithmEEaSEOS4_.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost6fibers9scheduler19attach_main_contextEPNS0_7contextE(ptr noundef nonnull align 8 dereferenceable(137) initializes((128, 136)) %0, ptr noundef %1) local_unnamed_addr #11 align 2 {
+define void @_ZN5boost6fibers9scheduler19attach_main_contextEPNS0_7contextE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %1, ptr %3, align 8, !tbaa !77
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1827,7 +1827,7 @@ define void @_ZN5boost6fibers9scheduler25attach_dispatcher_contextENS_13intrusiv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost6fibers9scheduler21attach_worker_contextEPNS0_7contextE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef initializes((184, 200)) %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6fibers9scheduler21attach_worker_contextEPNS0_7contextE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef %1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds i8, ptr %1, i64 184
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88

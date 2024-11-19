@@ -3050,7 +3050,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi12OutputStruct5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_3FmuEPSt6vectorIS6_SaIS6_EESF_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.casadi::OutputStruct") align 8 initializes((8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi12OutputStruct5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_3FmuEPSt6vectorIS6_SaIS6_EESF_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.casadi::OutputStruct") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4558,7 +4558,7 @@ define void @_ZN6casadi11FmuFunction13change_optionERKNSt7__cxx1112basic_stringI
 declare void @_ZN6casadi16FunctionInternal13change_optionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11GenericTypeE(ptr noundef nonnull align 8 dereferenceable(1304), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi11FmuFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1752) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi11FmuFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1752) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi11FmuFunctionE, i64 16), ptr %0, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %2 unwind label %43

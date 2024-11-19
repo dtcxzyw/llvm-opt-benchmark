@@ -955,7 +955,7 @@ define double @dlamc3_(ptr nocapture noundef readonly %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @dlamc4_(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define noundef i32 @dlamc4_(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
   %4 = load double, ptr %1, align 8, !tbaa !7
   %5 = load i32, ptr %2, align 4, !tbaa !3
   %6 = sitofp i32 %5 to double

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5Z_filter_info_t = type { i32, i32, [12 x i8], ptr, i64, [4 x i32], ptr }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5HF_get_cparam_test(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 32), (36, 42)) %1) local_unnamed_addr #0 {
+define noundef i32 @H5HF_get_cparam_test(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 248
   %5 = load i32, ptr %4, align 8
@@ -301,7 +301,7 @@ define i64 @H5HF_get_dblock_free_test(ptr nocapture noundef readonly %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF_get_id_off_test(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #5 {
+define noundef i32 @H5HF_get_id_off_test(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
   store i64 0, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 697
@@ -338,7 +338,7 @@ define noundef i32 @H5HF_get_id_off_test(ptr nocapture noundef readonly %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF_get_id_type_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #6 {
+define noundef i32 @H5HF_get_id_type_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = load i8, ptr %0, align 1
   %4 = and i8 %3, 48
   store i8 %4, ptr %1, align 1
@@ -346,7 +346,7 @@ define noundef i32 @H5HF_get_id_type_test(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF_get_tiny_info_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #7 {
+define noundef i32 @H5HF_get_tiny_info_test(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 688
   %6 = load i64, ptr %5, align 8
@@ -360,7 +360,7 @@ define noundef i32 @H5HF_get_tiny_info_test(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF_get_huge_info_test(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #7 {
+define noundef i32 @H5HF_get_huge_info_test(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %4
 

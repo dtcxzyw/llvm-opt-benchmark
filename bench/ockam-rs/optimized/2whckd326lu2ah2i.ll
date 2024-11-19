@@ -319,7 +319,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$9split_off17h9e8e2a7c9d51da6
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define hidden void @"_ZN7tinyvec5array18const_generic_impl74_$LT$impl$u20$tinyvec..array..Array$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7default17h8ac1b58502e5c81fE.llvm.15521009673977008026"(ptr noalias nocapture noundef writeonly sret([28 x i8]) align 1 dereferenceable(28) initializes((0, 28)) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN7tinyvec5array18const_generic_impl74_$LT$impl$u20$tinyvec..array..Array$u20$for$u20$$u5b$T$u3b$$u20$N$u5d$$GT$7default17h8ac1b58502e5c81fE.llvm.15521009673977008026"(ptr noalias nocapture noundef writeonly sret([28 x i8]) align 1 dereferenceable(28) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %2 = alloca { [28 x {}] }, align 1
   %3 = alloca { [28 x i8] }, align 1
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3), !noalias !58

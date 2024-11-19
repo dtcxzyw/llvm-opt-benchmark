@@ -2769,7 +2769,7 @@ raxFreeWithCallback.exit:                         ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @raxStart(ptr noundef initializes((0, 4), (8, 16), (32, 40)) %it, ptr noundef %rt) local_unnamed_addr #12 {
+define dso_local void @raxStart(ptr noundef %it, ptr noundef %rt) local_unnamed_addr #12 {
 entry:
   store i32 2, ptr %it, align 8
   %rt1 = getelementptr inbounds i8, ptr %it, i64 8
@@ -3945,7 +3945,7 @@ return:                                           ; preds = %if.end129, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @raxSeek(ptr noundef initializes((32, 40), (176, 184), (192, 200)) %it, ptr nocapture noundef readonly %op, ptr nocapture noundef readonly %ele, i64 noundef %len) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @raxSeek(ptr noundef %it, ptr nocapture noundef readonly %op, ptr nocapture noundef readonly %ele, i64 noundef %len) local_unnamed_addr #1 {
 entry:
   %splitpos = alloca i32, align 4
   %items = getelementptr inbounds i8, ptr %it, i64 192

@@ -1360,7 +1360,7 @@ _ZN8QuantLib8LossDist35binomialProbabilityOfAtLeastNEventsEiRSt6vectorIdSaIdEE.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16LossDistBinomialclEmdd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Distribution") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) initializes((32, 40)) %this, i64 noundef %n, double noundef %volume, double noundef %probability) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16LossDistBinomialclEmdd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Distribution") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %n, double noundef %volume, double noundef %probability) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca double, align 8
   %binomial = alloca %"class.QuantLib::BinomialDistribution", align 8
@@ -1783,7 +1783,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16LossDistBinomialclERKSt6vectorIdSaIdEES5_(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Distribution") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) initializes((32, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nominals, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %probabilities) unnamed_addr #3 align 2 {
+define void @_ZNK8QuantLib16LossDistBinomialclERKSt6vectorIdSaIdEES5_(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Distribution") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nominals, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %probabilities) unnamed_addr #3 align 2 {
 entry:
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %nominals, i64 8
   %0 = load ptr, ptr %_M_finish.i, align 8, !tbaa !10
@@ -1800,7 +1800,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib19LossDistHomogeneousclEdRKSt6vectorIdSaIdEE(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Distribution") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) initializes((24, 40)) %this, double noundef %volume, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib19LossDistHomogeneousclEdRKSt6vectorIdSaIdEE(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Distribution") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, double noundef %volume, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca double, align 8
   %ref.tmp39 = alloca double, align 8
@@ -2227,7 +2227,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit96:                  ; preds = %ehcleanup102, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib19LossDistHomogeneousclERKSt6vectorIdSaIdEES5_(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Distribution") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) initializes((24, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nominals, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %probabilities) unnamed_addr #3 align 2 {
+define void @_ZNK8QuantLib19LossDistHomogeneousclERKSt6vectorIdSaIdEES5_(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Distribution") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nominals, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %probabilities) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %nominals, align 8, !tbaa !3
   %1 = load double, ptr %0, align 8, !tbaa !8

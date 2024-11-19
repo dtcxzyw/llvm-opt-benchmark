@@ -315,7 +315,7 @@ tailrecurse:                                      ; preds = %9, %3
 declare noundef ptr @_ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(512), i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14GISelKnownBits12getKnownBitsERNS_12MachineInstrE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 initializes((0, 12), (16, 28)) %0, ptr noundef nonnull align 8 dereferenceable(760) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14GISelKnownBits12getKnownBitsERNS_12MachineInstrE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 %0, ptr noundef nonnull align 8 dereferenceable(760) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -325,7 +325,7 @@ define dso_local void @_ZN4llvm14GISelKnownBits12getKnownBitsERNS_12MachineInstr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 initializes((0, 12), (16, 28)) %0, ptr noundef nonnull align 8 dereferenceable(760) %1, i32 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 %0, ptr noundef nonnull align 8 dereferenceable(760) %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = icmp slt i32 %2, 0
   br i1 %5, label %6, label %_ZNK4llvm3LLT13isFixedVectorEv.exit.thread
@@ -481,7 +481,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit:           ; preds = %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterERKNS_5APIntEj(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 initializes((0, 12), (16, 28)) %0, ptr noundef nonnull align 8 dereferenceable(760) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterERKNS_5APIntEj(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 %0, ptr noundef nonnull align 8 dereferenceable(760) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %6, align 8
   store i64 0, ptr %0, align 8
@@ -801,7 +801,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm14GISelKnow
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14GISelKnownBits14getKnownZeroesENS_8RegisterE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(760) %1, i32 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14GISelKnownBits14getKnownZeroesENS_8RegisterE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(760) %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::KnownBits", align 8
   call void @_ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %4, ptr noundef nonnull align 8 dereferenceable(760) %1, i32 %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -842,7 +842,7 @@ _ZN4llvm9KnownBitsD2Ev.exit:                      ; preds = %12, %3, %_ZN4llvm5A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14GISelKnownBits12getKnownOnesENS_8RegisterE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(760) %1, i32 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14GISelKnownBits12getKnownOnesENS_8RegisterE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(760) %1, i32 %2) local_unnamed_addr #0 align 2 {
 _ZN4llvm5APIntD2Ev.exit.i:
   %3 = alloca %"struct.llvm::KnownBits", align 8
   call void @_ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::KnownBits") align 8 %3, ptr noundef nonnull align 8 dereferenceable(760) %1, i32 %2)
@@ -4163,7 +4163,7 @@ _ZN4llvm5APIntD2Ev.exit1:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 12), (16, 28)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"struct.llvm::KnownBits", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -5881,7 +5881,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt10get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm22GISelKnownBitsAnalysis16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm22GISelKnownBitsAnalysis16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   tail call void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) #16

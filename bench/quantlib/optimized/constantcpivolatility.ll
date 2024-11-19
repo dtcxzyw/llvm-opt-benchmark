@@ -790,7 +790,7 @@ _ZN8QuantLib6HandleINS_5QuoteEEC2ERKS2_.exit:     ; preds = %entry, %if.then.i.i
 declare void @_ZN8QuantLib20CPIVolatilitySurfaceC2EjRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterERKNS_6PeriodENS_9FrequencyEb(ptr noundef nonnull align 8 dereferenceable(93), ptr noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, i1 noundef zeroext) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21ConstantCPIVolatilityC1ERKNS_6HandleINS_5QuoteEEEjRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterERKNS_6PeriodENS_9FrequencyEb(ptr noundef nonnull align 8 dereferenceable(112) initializes((112, 120), (128, 132), (136, 144)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vol, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc, ptr noundef nonnull align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21ConstantCPIVolatilityC1ERKNS_6HandleINS_5QuoteEEEjRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterERKNS_6PeriodENS_9FrequencyEb(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vol, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc, ptr noundef nonnull align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 112
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib8ObserverE, i64 16), ptr %0, align 8, !tbaa !42
@@ -1249,7 +1249,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21ConstantCPIVolatilityC1EdjRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterERKNS_6PeriodENS_9FrequencyEb(ptr noundef nonnull align 8 dereferenceable(112) initializes((112, 120), (128, 132), (136, 144)) %this, double noundef %vol, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc, ptr noundef nonnull align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21ConstantCPIVolatilityC1EdjRKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterERKNS_6PeriodENS_9FrequencyEb(ptr noundef nonnull align 8 dereferenceable(112) %this, double noundef %vol, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %cal, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc, ptr noundef nonnull align 4 dereferenceable(8) %observationLag, i32 noundef %frequency, i1 noundef zeroext %indexIsInterpolated) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vol.addr = alloca double, align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.13", align 8

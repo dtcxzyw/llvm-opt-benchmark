@@ -70,7 +70,7 @@ $_ZN4llvm15findVTableAddrsERNS_8FunctionE = comdat any
 @_ZN4llvm21ValueProfileCollectorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm21ValueProfileCollectorD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21ValueProfileCollectorC2ERNS_8FunctionERNS_17TargetLibraryInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21ValueProfileCollectorC2ERNS_8FunctionERNS_17TargetLibraryInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) unnamed_addr #0 align 2 {
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -104,7 +104,7 @@ _ZNSt10unique_ptrIN4llvm21ValueProfileCollector25ValueProfileCollectorImplESt14d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm21ValueProfileCollector3getENS_18InstrProfValueKindE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm21ValueProfileCollector3getENS_18InstrProfValueKindE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8
   switch i32 %2, label %_ZN12_GLOBAL__N_111PluginChainIJ18MemIntrinsicPlugin27IndirectCallPromotionPlugin21VTableProfilingPluginEE3getEN4llvm18InstrProfValueKindERSt6vectorINS5_21ValueProfileCollector13CandidateInfoESaIS9_EE.exit [

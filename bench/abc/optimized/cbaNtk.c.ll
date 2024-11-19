@@ -8625,7 +8625,7 @@ Cba_ObjNtk.exit:                                  ; preds = %44, %Cba_ObjNtkId.e
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cba_ManGetClpStats(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #1 {
+define void @Cba_ManGetClpStats(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %0, i64 1564
   %.val39 = load i32, ptr %5, align 4
   %6 = sext i32 %.val39 to i64

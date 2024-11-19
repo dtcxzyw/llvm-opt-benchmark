@@ -27,7 +27,7 @@ $_ZN24b2PositionSolverManifold10InitializeEP27b2ContactPositionConstraintRK11b2T
 @_ZN15b2ContactSolverD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15b2ContactSolverD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15b2ContactSolverC2EP18b2ContactSolverDef(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 76)) %this, ptr nocapture noundef readonly %def) unnamed_addr #0 align 2 {
+define hidden void @_ZN15b2ContactSolverC2EP18b2ContactSolverDef(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef readonly %def) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %def, i64 24, i1 false)
   %allocator = getelementptr inbounds i8, ptr %def, i64 56

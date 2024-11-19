@@ -3153,7 +3153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl8skeleton8generateERKNS1_10MacroPropsER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(472) %macros, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl8skeleton8generateERKNS1_10MacroPropsER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(472) %macros, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1

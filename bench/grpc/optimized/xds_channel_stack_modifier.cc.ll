@@ -266,7 +266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23XdsChannelStackModifier18GetFromChannelArgsERK17grpc_channel_args(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.4") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %args) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core23XdsChannelStackModifier18GetFromChannelArgsERK17grpc_channel_args(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.4") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %args) local_unnamed_addr #3 align 2 {
 entry:
   %call.i = tail call noundef ptr @_Z22grpc_channel_args_findPK17grpc_channel_argsPKc(ptr noundef nonnull %args, ptr noundef nonnull @.str.3)
   %cmp.i = icmp eq ptr %call.i, null

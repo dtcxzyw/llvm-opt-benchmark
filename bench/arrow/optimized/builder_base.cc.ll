@@ -218,7 +218,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow12ArrayBuilder10TrimBufferElPNS_15ResizableBufferE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, i64 noundef %bytes_filled, ptr noundef %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow12ArrayBuilder10TrimBufferElPNS_15ResizableBufferE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, i64 noundef %bytes_filled, ptr noundef %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %tobool.not = icmp eq ptr %buffer, null
@@ -275,7 +275,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow12ArrayBuilder14AppendToBitmapEb(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, i1 noundef zeroext %is_valid) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow12ArrayBuilder14AppendToBitmapEb(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, i1 noundef zeroext %is_valid) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -357,7 +357,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow12ArrayBuilder14AppendToBitmapEPKhl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %valid_bytes, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow12ArrayBuilder14AppendToBitmapEPKhl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %valid_bytes, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytes.addr.i.i = alloca ptr, align 8
   %i.i.i = alloca i64, align 8
@@ -461,7 +461,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow12ArrayBuilder14AppendToBitmapElb(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %num_bits, i1 noundef zeroext %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow12ArrayBuilder14AppendToBitmapElb(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %num_bits, i1 noundef zeroext %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -2072,7 +2072,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow12ArrayBuilder5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((24, 32), (56, 72), (80, 120)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow12ArrayBuilder5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %null_count_ = getelementptr inbounds i8, ptr %this, i64 96
   %null_bitmap_builder_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -2161,7 +2161,7 @@ _ZN5arrow18TypedBufferBuilderIbvE5ResetEv.exit:   ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow12ArrayBuilder10SetNotNullEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow12ArrayBuilder10SetNotNullEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %length) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 112

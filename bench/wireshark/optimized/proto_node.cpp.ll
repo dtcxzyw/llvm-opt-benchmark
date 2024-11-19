@@ -49,7 +49,7 @@ $_ZN17QArrayDataPointerIP9ProtoNodeE12allocateGrowERKS2_xN10QArrayData14GrowthPo
 @_ZN9ProtoNode13ChildIteratorC1EP11_proto_node = unnamed_addr alias void (ptr, ptr), ptr @_ZN9ProtoNode13ChildIteratorC2EP11_proto_node
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9ProtoNodeC2EP11_proto_nodePS_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca ptr, align 8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -407,7 +407,7 @@ define noundef ptr @_ZN9ProtoNode10parentNodeEv(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9ProtoNode9labelTextEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9ProtoNode9labelTextEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca [240 x i8], align 16
@@ -885,7 +885,7 @@ _ZN9ProtoNode8isHiddenEP11_proto_node.exit:       ; preds = %.lr.ph.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9ProtoNode13ChildIteratorC2EP11_proto_node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #7 align 2 {
+define void @_ZN9ProtoNode13ChildIteratorC2EP11_proto_node(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #7 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

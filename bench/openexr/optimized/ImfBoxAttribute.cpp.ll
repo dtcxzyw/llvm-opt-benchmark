@@ -880,7 +880,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IiEEEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
 entry:
   %b.i12 = alloca [4 x i8], align 4
   %b.i8 = alloca [4 x i8], align 4
@@ -1024,7 +1024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
+define void @_ZN7Imf_3_214TypedAttributeIN9Imath_3_23BoxINS1_4Vec2IfEEEEE13readValueFromERNS_7IStreamEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 %size, i32 %version) unnamed_addr #3 align 2 {
 entry:
   %b.i12 = alloca [4 x i8], align 4
   %b.i8 = alloca [4 x i8], align 4

@@ -186,7 +186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox10serializer21CompactRowVectorSerde16createSerializerESt10shared_ptrIKNS0_7RowTypeEEiPNS0_11StreamArenaEPKNS0_11VectorSerde7OptionsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %streamArena, ptr nocapture readnone %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox10serializer21CompactRowVectorSerde16createSerializerESt10shared_ptrIKNS0_7RowTypeEEiPNS0_11StreamArenaEPKNS0_11VectorSerde7OptionsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %streamArena, ptr nocapture readnone %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN8facebook5velox10serializer12_GLOBAL__N_126CompactRowVectorSerializerESt14default_deleteIS4_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #22, !noalias !4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox10serializer12_GLOBAL__N_126CompactRowVectorSerializerE, i64 16), ptr %call.i, align 8, !noalias !4
@@ -1798,7 +1798,7 @@ declare i32 @llvm.bswap.i32(i32) #13
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox10serializer12_GLOBAL__N_126CompactRowVectorSerializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer12_GLOBAL__N_126CompactRowVectorSerializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox10serializer12_GLOBAL__N_126CompactRowVectorSerializerE, i64 16), ptr %this, align 8
   %buffers_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1868,7 +1868,7 @@ _ZNSt6vectorIN5boost13intrusive_ptrIN8facebook5velox6BufferEEESaIS5_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox10serializer12_GLOBAL__N_126CompactRowVectorSerializerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10serializer12_GLOBAL__N_126CompactRowVectorSerializerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox10serializer12_GLOBAL__N_126CompactRowVectorSerializerE, i64 16), ptr %this, align 8
   %buffers_.i = getelementptr inbounds i8, ptr %this, i64 16

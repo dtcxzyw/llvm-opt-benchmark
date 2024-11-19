@@ -344,7 +344,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #4
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cllog_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal range(i32 0, 2) i32 @cllog_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #10
   store i64 %8, ptr %5, align 8
@@ -537,7 +537,7 @@ parseUnsigned.exit:                               ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseLogFileHeaderLine_time(ptr nocapture noundef writeonly initializes((48, 58)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
+define internal noundef zeroext i1 @parseLogFileHeaderLine_time(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca %struct.tm, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %6 = getelementptr inbounds i8, ptr %5, i64 20
@@ -1260,7 +1260,7 @@ define internal noundef zeroext i1 @parseFieldLength(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @parseFieldData(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((28, 29)) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
+define internal noundef zeroext i1 @parseFieldData(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 28
   store i8 0, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %2, i64 29

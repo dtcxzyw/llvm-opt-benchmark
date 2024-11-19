@@ -588,7 +588,7 @@ declare dso_local i32 @filp_close(ptr noundef, ptr noundef) local_unnamed_addr #
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @bm_init_fs_context(ptr nocapture noundef writeonly initializes((0, 8)) %0) #6 align 16 {
+define internal noundef i32 @bm_init_fs_context(ptr nocapture noundef writeonly %0) #6 align 16 {
   store ptr @bm_context_ops, ptr %0, align 8
   ret i32 0
 }
@@ -1750,7 +1750,7 @@ define internal void @bm_evict_inode(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @bm_put_super(ptr nocapture noundef writeonly initializes((872, 880)) %0) #6 align 16 {
+define internal void @bm_put_super(ptr nocapture noundef writeonly %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   store ptr null, ptr %2, align 8
   ret void

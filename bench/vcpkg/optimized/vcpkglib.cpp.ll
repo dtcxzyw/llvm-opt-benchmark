@@ -1730,7 +1730,7 @@ _ZNSt8_Rb_treeIN5vcpkg11PackageSpecESt4pairIKS1_NS0_20InstalledPackageViewEESt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg19get_installed_filesERKNS_10FilesystemERKNS_14InstalledPathsERKNS_16StatusParagraphsE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.51") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg19get_installed_filesERKNS_10FilesystemERKNS_14InstalledPathsERKNS_16StatusParagraphsE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.51") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.vcpkg::Path", align 8
   %6 = alloca %"struct.vcpkg::Path", align 8
   %7 = alloca %"class.std::vector.21", align 8

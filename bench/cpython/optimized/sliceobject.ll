@@ -1591,7 +1591,7 @@ return:                                           ; preds = %entry, %PySlice_Adj
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_PySlice_GetLongIndices(ptr nocapture noundef readonly %self, ptr noundef %length, ptr nocapture noundef writeonly initializes((0, 8)) %start_ptr, ptr nocapture noundef writeonly initializes((0, 8)) %stop_ptr, ptr nocapture noundef writeonly initializes((0, 8)) %step_ptr) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 1) i32 @_PySlice_GetLongIndices(ptr nocapture noundef readonly %self, ptr noundef %length, ptr nocapture noundef writeonly %start_ptr, ptr nocapture noundef writeonly %stop_ptr, ptr nocapture noundef writeonly %step_ptr) local_unnamed_addr #1 {
 entry:
   %step1 = getelementptr inbounds i8, ptr %self, i64 32
   %0 = load ptr, ptr %step1, align 8

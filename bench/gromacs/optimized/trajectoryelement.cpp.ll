@@ -542,7 +542,7 @@ define linkonce_odr void @_ZN3gmx17TrajectoryElementD0Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx17TrajectoryElement23registerLoggingCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((0, 33)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx17TrajectoryElement23registerLoggingCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -557,7 +557,7 @@ define void @_ZN3gmx17TrajectoryElement23registerLoggingCallbackEv(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx17TrajectoryElement35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx17TrajectoryElement35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   switch i32 %2, label %9 [
     i32 0, label %.sink.split
     i32 1, label %4
@@ -602,7 +602,7 @@ define linkonce_odr void @_ZThn8_N3gmx17TrajectoryElementD0Ev(ptr noundef %0) un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZThn8_N3gmx17TrajectoryElement23registerLoggingCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((0, 33)) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N3gmx17TrajectoryElement23registerLoggingCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -8
   %4 = ptrtoint ptr %3 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -633,7 +633,7 @@ define linkonce_odr void @_ZThn16_N3gmx17TrajectoryElementD0Ev(ptr noundef %0) u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZThn16_N3gmx17TrajectoryElement35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N3gmx17TrajectoryElement35registerTrajectorySignallerCallbackENS_15TrajectoryEventE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 -16
   switch i32 %2, label %_ZN3gmx17TrajectoryElement35registerTrajectorySignallerCallbackENS_15TrajectoryEventE.exit [
     i32 0, label %.sink.split.i
@@ -664,7 +664,7 @@ _ZN3gmx17TrajectoryElement35registerTrajectorySignallerCallbackENS_15TrajectoryE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx17TrajectoryElementC2ESt6vectorIPNS_23ITrajectoryWriterClientESaIS3_EEP8_IO_FILEiPK8t_filenmRKNS_12MdrunOptionsEPK9t_commrecPNS_17IMDOutputProviderERKNS_18MDModulesNotifiersEPK10t_inputrecRK10gmx_mtop_tPK16gmx_output_env_tP13gmx_wallcycleNS_16StartingBehaviorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 1 %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 1 %8, ptr noundef %9, ptr noundef nonnull align 1 %10, ptr noundef %11, ptr noundef %12, i32 noundef %13, i1 noundef zeroext %14) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx17TrajectoryElementC2ESt6vectorIPNS_23ITrajectoryWriterClientESaIS3_EEP8_IO_FILEiPK8t_filenmRKNS_12MdrunOptionsEPK9t_commrecPNS_17IMDOutputProviderERKNS_18MDModulesNotifiersEPK10t_inputrecRK10gmx_mtop_tPK16gmx_output_env_tP13gmx_wallcycleNS_16StartingBehaviorEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 1 %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 1 %8, ptr noundef %9, ptr noundef nonnull align 1 %10, ptr noundef %11, ptr noundef %12, i32 noundef %13, i1 noundef zeroext %14) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %16 = getelementptr inbounds i8, ptr %0, i64 8
   %17 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx17TrajectoryElementE, i64 16), ptr %0, align 8

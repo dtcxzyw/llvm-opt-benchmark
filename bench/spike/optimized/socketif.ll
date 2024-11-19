@@ -2279,7 +2279,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10socketif_tC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10socketif_tC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::system::error_code", align 8
   %3 = alloca i32, align 4
   %4 = alloca %"class.boost::asio::ip::basic_endpoint", align 4

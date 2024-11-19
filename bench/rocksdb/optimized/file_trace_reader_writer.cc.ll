@@ -132,7 +132,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15FileTraceReaderC2EOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %reader) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15FileTraceReaderC2EOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %reader) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15FileTraceReaderE, i64 16), ptr %this, align 8
   %file_reader_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -181,7 +181,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb15FileTraceReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15FileTraceReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15FileTraceReaderE, i64 16), ptr %this, align 8
   %file_reader_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -247,7 +247,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb15FileTraceReader5CloseEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15FileTraceReader5CloseEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %file_reader_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %file_reader_, align 8
@@ -740,7 +740,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb15FileTraceWriterC2EOSt10unique_ptrINS_18WritableFileWriterESt14default_deleteIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %file_writer) unnamed_addr #9 align 2 {
+define void @_ZN7rocksdb15FileTraceWriterC2EOSt10unique_ptrINS_18WritableFileWriterESt14default_deleteIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %file_writer) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15FileTraceWriterE, i64 16), ptr %this, align 8
   %file_writer_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -751,7 +751,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb15FileTraceWriterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15FileTraceWriterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15FileTraceWriterE, i64 16), ptr %this, align 8
   %file_writer_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -803,7 +803,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb15FileTraceWriter5CloseEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15FileTraceWriter5CloseEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %file_writer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %file_writer_, align 8
@@ -824,7 +824,7 @@ _ZNSt10unique_ptrIN7rocksdb18WritableFileWriterESt14default_deleteIS1_EE5resetEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15FileTraceWriter5WriteERKNS_5SliceE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15FileTraceWriter5WriteERKNS_5SliceE(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
   %file_writer_ = getelementptr inbounds i8, ptr %this, i64 8

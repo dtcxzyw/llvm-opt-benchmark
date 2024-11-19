@@ -1908,7 +1908,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN17grpc_event_engine12experimental10PollPoller26PollerHandlesListAddHandleEPNS0_15PollEventHandleE(ptr nocapture noundef nonnull align 8 dereferenceable(73) %this, ptr noundef initializes((64, 80)) %handle) local_unnamed_addr #10 align 2 {
+define void @_ZN17grpc_event_engine12experimental10PollPoller26PollerHandlesListAddHandleEPNS0_15PollEventHandleE(ptr nocapture noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %handle) local_unnamed_addr #10 align 2 {
 entry:
   %poll_handles_list_head_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %poll_handles_list_head_, align 8
@@ -1980,7 +1980,7 @@ if.end23:                                         ; preds = %if.then16, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental10PollPollerC2EPNS0_9SchedulerE(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 51), (52, 73)) %this, ptr noundef %scheduler) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental10PollPollerC2EPNS0_9SchedulerE(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %scheduler) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -2227,7 +2227,7 @@ _ZNSt8weak_ptrIN17grpc_event_engine12experimental10PollPollerEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental10PollPollerC2EPNS0_9SchedulerEb(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 51), (52, 73)) %this, ptr noundef %scheduler, i1 noundef zeroext %use_phony_poll) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental10PollPollerC2EPNS0_9SchedulerEb(ptr noundef nonnull align 8 dereferenceable(73) %this, ptr noundef %scheduler, i1 noundef zeroext %use_phony_poll) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %frombool = zext i1 %use_phony_poll to i8
@@ -2386,7 +2386,7 @@ _ZNSt10unique_ptrIN17grpc_event_engine12experimental8WakeupFdESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17grpc_event_engine12experimental10PollPollerD2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 16)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental10PollPollerD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental10PollPollerE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8

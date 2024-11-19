@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9SpinYieldC1Ejjj = hidden unnamed_addr alias void (ptr, i32, i32, i32), ptr @_ZN9SpinYieldC2Ejjj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN9SpinYieldC2Ejjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN9SpinYieldC2Ejjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = load i32, ptr @_ZN2os16_processor_countE, align 4

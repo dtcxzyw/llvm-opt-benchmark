@@ -132,7 +132,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN2cv5utils7logging13LogTagManagerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN2cv5utils7logging13LogTagManagerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5utils7logging13LogTagManagerC2ENS1_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 96)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5utils7logging13LogTagManagerC2ENS1_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(336) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.31", align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1848,7 +1848,7 @@ _ZNSt6vectorIN2cv5utils7logging13LogTagManager14CrossReferenceESaIS4_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5utils7logging13LogTagManager14splitNamePartsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.39") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5utils7logging13LogTagManager14splitNamePartsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.39") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

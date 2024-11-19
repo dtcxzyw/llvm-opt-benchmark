@@ -620,7 +620,7 @@ declare void @_ZTv0_n24_N13colvarbias_tiD1Ev(ptr noundef) unnamed_addr #2
 declare void @_ZTv0_n24_N13colvarbias_tiD0Ev(ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15colvarbias_metaD1Ev(ptr noundef nonnull align 8 dereferenceable(880) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN15colvarbias_metaD1Ev(ptr noundef nonnull align 8 dereferenceable(880) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN15colvarbias_metaD2Ev(ptr noundef nonnull align 8 dereferenceable(880) %0, ptr noundef nonnull @_ZTT15colvarbias_meta) #23
   %2 = getelementptr inbounds i8, ptr %0, i64 1632
   tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT15colvarbias_meta, i64 64)) #23
@@ -634,7 +634,7 @@ define void @_ZN15colvarbias_metaD1Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15colvarbias_metaD0Ev(ptr noundef nonnull align 8 dereferenceable(880) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN15colvarbias_metaD0Ev(ptr noundef nonnull align 8 dereferenceable(880) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN15colvarbias_metaD2Ev(ptr noundef nonnull align 8 dereferenceable(880) %0, ptr noundef nonnull @_ZTT15colvarbias_meta) #23
   %2 = getelementptr inbounds i8, ptr %0, i64 1632
   tail call void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTT15colvarbias_meta, i64 64)) #23
@@ -2347,7 +2347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit21: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN15colvarbias_meta18init_ebmeta_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(880) initializes((176, 184)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN15colvarbias_meta18init_ebmeta_paramsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(880) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -13122,7 +13122,7 @@ define noundef i32 @_ZTv0_n144_N15colvarbias_meta18write_output_filesEv(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15colvarbias_metaC2EPKc(ptr noundef nonnull align 8 dereferenceable(880) initializes((0, 8), (24, 48)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15colvarbias_metaC2EPKc(ptr noundef nonnull align 8 dereferenceable(880) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -17053,7 +17053,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %46, %_ZSt6fill_nIPd
 declare double @exp(double noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15colvarbias_metaD2Ev(ptr noundef nonnull align 8 dereferenceable(880) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15colvarbias_metaD2Ev(ptr noundef nonnull align 8 dereferenceable(880) %0, ptr nocapture noundef readonly %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
@@ -27678,7 +27678,7 @@ declare noundef i32 @_ZNK18colvar_grid_scalar14write_multicolERKNSt7__cxx1112bas
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN10colvarbias11write_stateERSo(ptr noundef nonnull align 8 dereferenceable(312), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15colvarbias_meta4hillC2ExdRKSt6vectorI11colvarvalueSaIS2_EERKS1_IdSaIdEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 32)) %0, i64 noundef %1, double noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15colvarbias_meta4hillC2ExdRKSt6vectorI11colvarvalueSaIS2_EERKS1_IdSaIdEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, double noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator.57", align 1
   store i64 %1, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -27822,7 +27822,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %73, %71, %65
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15colvarbias_meta4hillC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15colvarbias_meta4hillC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -27919,7 +27919,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %43, %40, %38
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(112) ptr @_ZN15colvarbias_meta4hillaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(112) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(112) ptr @_ZN15colvarbias_meta4hillaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #4 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

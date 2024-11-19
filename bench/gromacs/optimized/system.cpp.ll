@@ -361,7 +361,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6gmxapi6System4ImplC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
+define void @_ZN6gmxapi6System4ImplC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -408,14 +408,14 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6gmxapi6System4ImplaS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6gmxapi6System6launchERKSt10shared_ptrINS_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.3") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #4 align 2 {
+define void @_ZN6gmxapi6System6launchERKSt10shared_ptrINS_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %1, align 8
   tail call void @_ZN6gmxapi6System4Impl6launchERKSt10shared_ptrINS_7ContextEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(16) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6gmxapi6System4Impl6launchERKSt10shared_ptrINS_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.3") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6gmxapi6System4Impl6launchERKSt10shared_ptrINS_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.3", align 8
   %5 = alloca %"class.gmxapi::Status", align 8
   %6 = alloca %"class.std::shared_ptr.58", align 8
@@ -584,7 +584,7 @@ _ZNSt10shared_ptrIN6gmxapi8MDModuleEED2Ev.exit:   ; preds = %33, %51, %64, %_ZNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6gmxapi6SystemC2ESt10unique_ptrINS0_4ImplESt14default_deleteIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN6gmxapi6SystemC2ESt10unique_ptrINS0_4ImplESt14default_deleteIS2_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -617,7 +617,7 @@ _ZNSt10unique_ptrIN6gmxapi6System4ImplESt14default_deleteIS2_EED2Ev.exit: ; pred
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6gmxapi6SystemC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define void @_ZN6gmxapi6SystemC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -821,7 +821,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN6gmxapi7getWorkERKNS_6System4ImplE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define void @_ZN6gmxapi7getWorkERKNS_6System4ImplE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

@@ -1002,7 +1002,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9VectorSet8test_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14PhaseIdealLoop25increment_unswitch_countsEP8LoopNodeS1_(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((64, 65)) %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN14PhaseIdealLoop25increment_unswitch_countsEP8LoopNodeS1_(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load i8, ptr %3, align 8
   %5 = add i8 %4, 1

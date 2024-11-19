@@ -2860,7 +2860,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib7BMASwapC1ENS_4Swap4TypeEdNS_8ScheduleEddRKN5boost10shared_ptrINS_9IborIndexEEERKNS_10DayCounterES3_RKNS5_INS_8BMAIndexEEESC_(ptr noundef nonnull align 8 dereferenceable(288) initializes((288, 296), (304, 308), (312, 320)) %this, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %liborSchedule, double noundef %liborFraction, double noundef %liborSpread, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %liborIndex, ptr noundef nonnull align 8 dereferenceable(16) %liborDayCount, ptr nocapture noundef %bmaSchedule, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bmaIndex, ptr noundef nonnull align 8 dereferenceable(16) %bmaDayCount) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib7BMASwapC1ENS_4Swap4TypeEdNS_8ScheduleEddRKN5boost10shared_ptrINS_9IborIndexEEERKNS_10DayCounterES3_RKNS5_INS_8BMAIndexEEESC_(ptr noundef nonnull align 8 dereferenceable(288) %this, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %liborSchedule, double noundef %liborFraction, double noundef %liborSpread, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %liborIndex, ptr noundef nonnull align 8 dereferenceable(16) %liborDayCount, ptr nocapture noundef %bmaSchedule, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %bmaIndex, ptr noundef nonnull align 8 dereferenceable(16) %bmaDayCount) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.47", align 8
   %ref.tmp5 = alloca %"class.QuantLib::IborLeg", align 8

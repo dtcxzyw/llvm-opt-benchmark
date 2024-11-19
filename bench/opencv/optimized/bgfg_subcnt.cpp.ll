@@ -453,7 +453,7 @@ define hidden noundef zeroext i1 @_ZNK2cv6bgsegm27BackgroundSubtractorCNTImpl13g
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorCNTImpl13setUseHistoryEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) initializes((20, 21)) %0, i1 noundef zeroext %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorCNTImpl13setUseHistoryEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) %0, i1 noundef zeroext %1) unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   store i8 %3, ptr %4, align 4
@@ -469,7 +469,7 @@ define hidden noundef zeroext i1 @_ZNK2cv6bgsegm27BackgroundSubtractorCNTImpl13g
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorCNTImpl13setIsParallelEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) initializes((21, 22)) %0, i1 noundef zeroext %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv6bgsegm27BackgroundSubtractorCNTImpl13setIsParallelEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) %0, i1 noundef zeroext %1) unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 21
   store i8 %3, ptr %4, align 1

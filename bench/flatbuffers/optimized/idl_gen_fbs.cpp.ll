@@ -178,7 +178,7 @@ $_ZTVN11flatbuffers13CodeGeneratorE = comdat any
 @.str.52 = private unnamed_addr constant [6 x i8] c"proto\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers19NewFBSCodeGeneratorEb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, i1 noundef zeroext %no_log) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers19NewFBSCodeGeneratorEb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i1 noundef zeroext %no_log) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN11flatbuffers12_GLOBAL__N_116FBSCodeGeneratorESt14default_deleteIS2_EED2Ev.exit:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   %frombool.i = zext i1 %no_log to i8
@@ -201,7 +201,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11flatbuffers12_GLOBAL__N_116FBSCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN11flatbuffers12_GLOBAL__N_116FBSCodeGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i64 16), ptr %this, align 8
   %status_detail.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11flatbuffers12_GLOBAL__N_116FBSCodeGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN11flatbuffers12_GLOBAL__N_116FBSCodeGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i64 16), ptr %this, align 8
   %status_detail.i.i = getelementptr inbounds i8, ptr %this, i64 8

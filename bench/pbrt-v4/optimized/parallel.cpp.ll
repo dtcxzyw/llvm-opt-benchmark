@@ -443,7 +443,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10ThreadPoolC2Ei(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 66), (72, 80)) %this, i32 noundef %nThreads) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10ThreadPoolC2Ei(ptr noundef nonnull align 8 dereferenceable(128) %this, i32 noundef %nThreads) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp = alloca %"class.std::thread", align 8
@@ -876,7 +876,7 @@ if.end16:                                         ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE(ptr noalias nocapture writeonly sret(%"class.std::unique_lock") align 8 initializes((0, 9)) %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %job) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE(ptr noalias nocapture writeonly sret(%"class.std::unique_lock") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %job) local_unnamed_addr #0 align 2 {
 entry:
   %mutex = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %mutex, ptr %agg.result, align 8
@@ -916,7 +916,7 @@ if.end:                                           ; preds = %if.then, %_ZNSt11un
 declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4pbrt10ThreadPool17RemoveFromJobListEPNS_11ParallelJobE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this, ptr nocapture noundef initializes((32, 33)) %job) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4pbrt10ThreadPool17RemoveFromJobListEPNS_11ParallelJobE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this, ptr nocapture noundef %job) local_unnamed_addr #5 align 2 {
 entry:
   %prev = getelementptr inbounds i8, ptr %job, i64 16
   %0 = load ptr, ptr %prev, align 8

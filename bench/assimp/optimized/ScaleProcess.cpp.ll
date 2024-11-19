@@ -37,7 +37,7 @@ entry:
 declare void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Assimp12ScaleProcess8setScaleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((24, 28)) %this, float noundef %scale) local_unnamed_addr #2 align 2 {
+define void @_ZN6Assimp12ScaleProcess8setScaleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, float noundef %scale) local_unnamed_addr #2 align 2 {
 entry:
   %mScale = getelementptr inbounds i8, ptr %this, i64 24
   store float %scale, ptr %mScale, align 8
@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp12ScaleProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((24, 28)) %this, ptr noundef nonnull %pImp) unnamed_addr #5 align 2 {
+define void @_ZN6Assimp12ScaleProcess15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull %pImp) unnamed_addr #5 align 2 {
 entry:
   %call = tail call noundef float @_ZNK6Assimp8Importer16GetPropertyFloatEPKcf(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str, float noundef 1.000000e+00)
   %mScale = getelementptr inbounds i8, ptr %this, i64 24

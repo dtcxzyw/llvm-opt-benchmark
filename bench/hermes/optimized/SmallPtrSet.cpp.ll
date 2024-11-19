@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4llvh19SmallPtrSetImplBaseC1EPPKvjOS0_ = hidden unnamed_addr alias void (ptr, ptr, i32, ptr), ptr @_ZN4llvh19SmallPtrSetImplBaseC2EPPKvjOS0_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh19SmallPtrSetImplBase16shrink_and_clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 20)) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh19SmallPtrSetImplBase16shrink_and_clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #0 align 2 {
 entry:
   %CurArray = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %CurArray, align 8
@@ -336,7 +336,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef %SmallStorage, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %that) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh19SmallPtrSetImplBaseC2EPPKvRKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %SmallStorage, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %that) unnamed_addr #0 align 2 {
 entry:
   store ptr %SmallStorage, ptr %this, align 8
   %CurArray.i = getelementptr inbounds i8, ptr %that, i64 8
@@ -394,7 +394,7 @@ _ZN4llvh19SmallPtrSetImplBase10CopyHelperERKS0_.exit: ; preds = %if.end, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh19SmallPtrSetImplBase10CopyHelperERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %RHS) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh19SmallPtrSetImplBase10CopyHelperERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %RHS) local_unnamed_addr #4 align 2 {
 entry:
   %CurArraySize = getelementptr inbounds i8, ptr %RHS, i64 16
   %0 = load i32, ptr %CurArraySize, align 8
@@ -431,7 +431,7 @@ _ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit:               ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh19SmallPtrSetImplBaseC2EPPKvjOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef %SmallStorage, i32 noundef %SmallSize, ptr nocapture noundef nonnull align 8 dereferenceable(28) %that) unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh19SmallPtrSetImplBaseC2EPPKvjOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef %SmallStorage, i32 noundef %SmallSize, ptr nocapture noundef nonnull align 8 dereferenceable(28) %that) unnamed_addr #4 align 2 {
 entry:
   store ptr %SmallStorage, ptr %this, align 8
   %CurArray.i.i = getelementptr inbounds i8, ptr %that, i64 8
@@ -481,7 +481,7 @@ _ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_.exit: ; preds = %if.then.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((8, 28)) %this, i32 noundef %SmallSize, ptr nocapture noundef nonnull align 8 dereferenceable(28) %RHS) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %SmallSize, ptr nocapture noundef nonnull align 8 dereferenceable(28) %RHS) local_unnamed_addr #4 align 2 {
 entry:
   %CurArray.i = getelementptr inbounds i8, ptr %RHS, i64 8
   %0 = load ptr, ptr %CurArray.i, align 8
@@ -532,7 +532,7 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh19SmallPtrSetImplBase8CopyFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((20, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %RHS) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh19SmallPtrSetImplBase8CopyFromERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %RHS) local_unnamed_addr #0 align 2 {
 entry:
   %CurArray.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %CurArray.i, align 8
@@ -632,7 +632,7 @@ _ZN4llvh19SmallPtrSetImplBase10CopyHelperERKS0_.exit: ; preds = %if.end25, %if.t
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @_ZN4llvh19SmallPtrSetImplBase8MoveFromEjOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 28)) %this, i32 noundef %SmallSize, ptr nocapture noundef nonnull align 8 dereferenceable(28) %RHS) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4llvh19SmallPtrSetImplBase8MoveFromEjOS0_(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, i32 noundef %SmallSize, ptr nocapture noundef nonnull align 8 dereferenceable(28) %RHS) local_unnamed_addr #5 align 2 {
 entry:
   %CurArray.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %CurArray.i, align 8

@@ -126,7 +126,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) initializes((0, 8), (15, 32), (36, 44), (48, 57), (68, 76), (80, 89), (100, 108), (112, 121), (132, 140), (144, 153), (160, 164), (168, 184), (188, 196), (200, 209), (220, 228), (232, 241), (252, 260), (264, 273), (284, 292), (296, 305), (316, 324), (328, 337), (348, 356), (360, 369), (380, 388), (392, 401), (412, 420), (424, 433), (444, 452), (456, 465), (476, 484), (488, 497), (508, 516), (520, 529), (536, 540)) %this, ptr nocapture noundef readonly %filename, ptr nocapture noundef readonly %headerString) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr nocapture noundef readonly %filename, ptr nocapture noundef readonly %headerString) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6bParse5bFileE, i64 16), ptr %this, align 8
   %mOwnsBuffer = getelementptr inbounds i8, ptr %this, i64 15
@@ -663,7 +663,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 dereferenceable(540) initializes((0, 8), (15, 32), (36, 44), (48, 57), (68, 76), (80, 89), (100, 108), (112, 121), (132, 140), (144, 153), (160, 164), (168, 184), (188, 196), (200, 209), (220, 228), (232, 241), (252, 260), (264, 273), (284, 292), (296, 305), (316, 324), (328, 337), (348, 356), (360, 369), (380, 388), (392, 401), (412, 420), (424, 433), (444, 452), (456, 465), (476, 484), (488, 497), (508, 516), (520, 529), (536, 540)) %this, ptr noundef %memoryBuffer, i32 noundef %len, ptr nocapture noundef readonly %headerString) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %memoryBuffer, i32 noundef %len, ptr nocapture noundef readonly %headerString) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   %header.i = alloca [13 x i8], align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6bParse5bFileE, i64 16), ptr %this, align 8
@@ -865,7 +865,7 @@ _ZN6bParse5bFile11parseHeaderEv.exit:             ; preds = %for.end, %if.end.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6bParse5bFileD2Ev(ptr noundef nonnull align 8 dereferenceable(540) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6bParse5bFileD2Ev(ptr noundef nonnull align 8 dereferenceable(540) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6bParse5bFileE, i64 16), ptr %this, align 8
   %mOwnsBuffer = getelementptr inbounds i8, ptr %this, i64 15
@@ -1435,7 +1435,7 @@ eh.resume:                                        ; preds = %lpad95, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6bParse5bFile12getNextBlockEPNS_9bChunkIndEPKci(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef initializes((0, 24)) %dataChunk, ptr nocapture noundef readonly %dataPtr, i32 noundef %flags) local_unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZN6bParse5bFile12getNextBlockEPNS_9bChunkIndEPKci(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef %dataChunk, ptr nocapture noundef readonly %dataPtr, i32 noundef %flags) local_unnamed_addr #2 align 2 {
 entry:
   %and = and i32 %flags, 4
   %tobool.not.not = icmp eq i32 %and, 0
@@ -2359,7 +2359,7 @@ entry:
 declare noundef i64 @fwrite(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6bParse5bFile7preSwapEv(ptr noundef nonnull align 8 dereferenceable(540) initializes((160, 164)) %this) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN6bParse5bFile7preSwapEv(ptr noundef nonnull align 8 dereferenceable(540) %this) local_unnamed_addr #2 align 2 {
 entry:
   %dataChunk = alloca %"class.bParse::bChunkInd", align 8
   %mFileBuffer = getelementptr inbounds i8, ptr %this, i64 16

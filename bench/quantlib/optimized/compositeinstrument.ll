@@ -1035,7 +1035,7 @@ cleanup9:                                         ; preds = %for.cond, %_ZNK5boo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib19CompositeInstrument19performCalculationsEv(ptr noundef nonnull align 8 dereferenceable(128) initializes((16, 24)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib19CompositeInstrument19performCalculationsEv(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %NPV_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double 0.000000e+00, ptr %NPV_, align 8, !tbaa !61

@@ -234,7 +234,7 @@ if.end16:                                         ; preds = %if.then15, %if.end1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @replication_child_perm(ptr nocapture noundef readonly %bs, ptr nocapture readnone %c, i32 noundef %role, ptr nocapture readnone %reopen_queue, i64 %perm, i64 %shared, ptr nocapture noundef writeonly initializes((0, 8)) %nperm, ptr nocapture noundef writeonly initializes((0, 8)) %nshared) #2 {
+define internal void @replication_child_perm(ptr nocapture noundef readonly %bs, ptr nocapture readnone %c, i32 noundef %role, ptr nocapture readnone %reopen_queue, i64 %perm, i64 %shared, ptr nocapture noundef writeonly %nperm, ptr nocapture noundef writeonly %nshared) #2 {
 entry:
   %and = lshr i32 %role, 4
   %and.lobit = and i32 %and, 1

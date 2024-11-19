@@ -160,7 +160,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25PardisoMKLSolverInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(140) initializes((0, 12), (16, 49), (64, 76), (84, 85), (96, 108), (128, 136)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25PardisoMKLSolverInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -215,7 +215,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt25PardisoMKLSolverInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(140) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25PardisoMKLSolverInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -3388,7 +3388,7 @@ define noundef ptr @_ZN5Ipopt25PardisoMKLSolverInterface17GetValuesArrayPtrEv(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt25PardisoMKLSolverInterface19InitializeStructureEiiPKiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(140) initializes((52, 60), (80, 81), (84, 85)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) unnamed_addr #3 align 2 {
+define noundef i32 @_ZN5Ipopt25PardisoMKLSolverInterface19InitializeStructureEiiPKiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 %1, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3420,7 +3420,7 @@ define noundef i32 @_ZN5Ipopt25PardisoMKLSolverInterface19InitializeStructureEii
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN5Ipopt25PardisoMKLSolverInterface21SymbolicFactorizationEPKiS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((80, 81)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZN5Ipopt25PardisoMKLSolverInterface21SymbolicFactorizationEPKiS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef readnone %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 0, ptr %4, align 8
   ret i32 0

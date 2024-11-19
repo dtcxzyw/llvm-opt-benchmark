@@ -325,7 +325,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal14SerialExecutorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal14SerialExecutorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow8internal14SerialExecutorE, i64 16), ptr %this, align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -368,7 +368,7 @@ invoke.cont:                                      ; preds = %entry
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow8internal14SerialExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal14SerialExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow8internal14SerialExecutorE, i64 16), ptr %this, align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2772,7 +2772,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit9:           ; preds = %lpad, %if.else.i.i5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal10ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(33) initializes((0, 16)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal10ThreadPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::weak_ptr.39", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow8internal10ThreadPoolE, i64 16), ptr %this, align 8
@@ -3167,7 +3167,7 @@ _ZNSt12__shared_ptrIN5arrow8internal10ThreadPool5StateELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow8internal10ThreadPoolD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal10ThreadPoolD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.arrow::Status", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow8internal10ThreadPoolE, i64 16), ptr %this, align 8
@@ -5985,7 +5985,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EEC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt5dequeIN5arrow8internal12_GLOBAL__N_14TaskESaIS3_EEC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
   %_M_map_size.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -8286,7 +8286,7 @@ declare void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14defaul
 declare void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5arrow8internal10ThreadPool21LaunchWorkersUnlockedEiE3$_0EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5arrow8internal10ThreadPool21LaunchWorkersUnlockedEiE3$_0EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5arrow8internal10ThreadPool21LaunchWorkersUnlockedEiE3$_0EEEEEE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
@@ -8368,7 +8368,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5arrow8internal10ThreadPool21LaunchWorkersUnlockedEiE3$_0EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5arrow8internal10ThreadPool21LaunchWorkersUnlockedEiE3$_0EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5arrow8internal10ThreadPool21LaunchWorkersUnlockedEiE3$_0EEEEEE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24

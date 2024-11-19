@@ -705,7 +705,7 @@ declare i64 @llvm.bswap.i64(i64) #4
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @ip6addrlbl_net_init(ptr noundef initializes((2184, 2196)) %0) #0 align 16 {
+define internal noundef i32 @ip6addrlbl_net_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2184
   %3 = getelementptr inbounds i8, ptr %0, i64 2192
   store i32 0, ptr %3, align 8

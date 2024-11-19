@@ -859,7 +859,7 @@ declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
 declare noundef ptr @_ZN2os14path_separatorEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN2os10split_pathEPKcPmm(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN2os10split_pathEPKcPmm(ptr noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   store i64 0, ptr %1, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %45, label %5

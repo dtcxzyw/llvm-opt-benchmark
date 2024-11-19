@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [40 x i8] c"' value invalid for file size argument!\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN2cl16MemorySizeParser5parseERN4llvh2cl6OptionENS1_9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_10MemorySizeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(145) %O, ptr nocapture readnone %ArgName.coerce0, i64 %ArgName.coerce1, ptr noundef nonnull align 8 dereferenceable(32) %Arg, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %Val) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN2cl16MemorySizeParser5parseERN4llvh2cl6OptionENS1_9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_10MemorySizeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(145) %O, ptr nocapture readnone %ArgName.coerce0, i64 %ArgName.coerce1, ptr noundef nonnull align 8 dereferenceable(32) %Arg, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %Val) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i26 = alloca %"class.std::allocator", align 1
   %ref.tmp1.i27 = alloca %"class.std::allocator", align 1

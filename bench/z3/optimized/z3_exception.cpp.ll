@@ -90,7 +90,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8z3_errorC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %error_code) unnamed_addr #5 align 2 {
+define hidden void @_ZN8z3_errorC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %error_code) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV8z3_error, i64 16), ptr %this, align 8
   %m_error_code = getelementptr inbounds i8, ptr %this, i64 8
@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17default_exceptionC2ENS_3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef %msg, ...) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17default_exceptionC2ENS_3fmtEPKcz(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %msg, ...) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %args = alloca [1 x %struct.__va_list_tag], align 16

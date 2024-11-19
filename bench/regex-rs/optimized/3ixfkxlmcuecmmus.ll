@@ -633,7 +633,7 @@ define internal void @"_ZN4core3ptr98drop_in_place$LT$$RF$core..option..Option$L
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h3e06c6da5840c6f1E.llvm.7552134009209189700(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h3e06c6da5840c6f1E.llvm.7552134009209189700(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #4 personality ptr @rust_eh_personality {
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
   %7 = ptrtoint ptr %2 to i64
@@ -4030,7 +4030,7 @@ _ZN14regex_automata4meta8wrappers13ReverseHybrid3new17h21395026bfdd64e2E.exit.i:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14regex_automata4meta8strategy4Core13search_nofail17he6cfd64a670e34f9E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(1896) %1, ptr noalias noundef align 8 dereferenceable(1400) initializes((1080, 1084)) %2, ptr noalias noundef readonly align 8 dereferenceable(48) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_ZN14regex_automata4meta8strategy4Core13search_nofail17he6cfd64a670e34f9E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(1896) %1, ptr noalias noundef align 8 dereferenceable(1400) %2, ptr noalias noundef readonly align 8 dereferenceable(48) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca ptr, align 8
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %7 = alloca ptr, align 8
@@ -4343,7 +4343,7 @@ _ZN14regex_automata4meta8wrappers12PikeVMEngine12search_slots17he4aeec4d603665b3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14regex_automata4meta8strategy4Core18search_half_nofail17he9858233f77b6918E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 dereferenceable(1896) %1, ptr noalias noundef align 8 dereferenceable(1400) initializes((1080, 1084)) %2, ptr noalias noundef readonly align 8 dereferenceable(48) %3) unnamed_addr #0 {
+define void @_ZN14regex_automata4meta8strategy4Core18search_half_nofail17he9858233f77b6918E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(1896) %1, ptr noalias noundef align 8 dereferenceable(1400) %2, ptr noalias noundef readonly align 8 dereferenceable(48) %3) unnamed_addr #0 {
   %5 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @_ZN14regex_automata4meta8strategy4Core13search_nofail17he6cfd64a670e34f9E(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(1896) %1, ptr noalias noundef nonnull align 8 dereferenceable(1400) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %3)
@@ -17473,7 +17473,7 @@ define internal fastcc void @_ZN14regex_automata4util6search5Input8set_span17haa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14regex_automata4util4utf812is_word_byte9mkwordset17h4a330031795cc219E(ptr noalias nocapture noundef writeonly sret([256 x i8]) align 1 dereferenceable(256) initializes((0, 256)) %0) unnamed_addr #15 {
+define void @_ZN14regex_automata4util4utf812is_word_byte9mkwordset17h4a330031795cc219E(ptr noalias nocapture noundef writeonly sret([256 x i8]) align 1 dereferenceable(256) %0) unnamed_addr #15 {
 .preheader9.preheader:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, i8 0, i64 256, i1 false)
   %1 = getelementptr inbounds i8, ptr %0, i64 95

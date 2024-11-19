@@ -5036,7 +5036,7 @@ define dso_local void @_ZN16VariableSelector18get_all_local_varsEPK5BlockRSt6vec
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16VariableSelector21find_all_visible_varsEPK5Block(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16VariableSelector21find_all_visible_varsEPK5Block(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN16VariableSelector10GlobalListE, i64 8), align 8
   %4 = load ptr, ptr @_ZN16VariableSelector10GlobalListE, align 8
   %5 = ptrtoint ptr %3 to i64

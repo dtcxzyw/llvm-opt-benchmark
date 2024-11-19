@@ -540,7 +540,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #12 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18FdmExtOUJumpSolverC2ENS_6HandleINS_21ExtOUWithJumpsProcessEEEN5boost10shared_ptrINS_18YieldTermStructureEEENS_13FdmSolverDescERKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 12), (16, 88)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %process, ptr nocapture noundef %rTS, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18FdmExtOUJumpSolverC2ENS_6HandleINS_21ExtOUWithJumpsProcessEEEN5boost10shared_ptrINS_18YieldTermStructureEEENS_13FdmSolverDescERKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %process, ptr nocapture noundef %rTS, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -1328,7 +1328,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_21ExtOUWithJumpsProcessEE4LinkEED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18FdmExtOUJumpSolverC1ENS_6HandleINS_21ExtOUWithJumpsProcessEEEN5boost10shared_ptrINS_18YieldTermStructureEEENS_13FdmSolverDescERKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(184) initializes((200, 204), (208, 216)) %this, ptr nocapture noundef %process, ptr nocapture noundef %rTS, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18FdmExtOUJumpSolverC1ENS_6HandleINS_21ExtOUWithJumpsProcessEEEN5boost10shared_ptrINS_18YieldTermStructureEEENS_13FdmSolverDescERKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef %process, ptr nocapture noundef %rTS, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 184

@@ -1086,7 +1086,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14ReclaimerQueueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14ReclaimerQueueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   store ptr null, ptr %this, align 8, !alias.scope !7
@@ -1343,7 +1343,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit9:       ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23GrpcMemoryAllocatorImplC2ESt10shared_ptrINS_16BasicMemoryQuotaEE(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 105), (112, 136)) %this, ptr nocapture noundef readonly %memory_quota) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23GrpcMemoryAllocatorImplC2ESt10shared_ptrINS_16BasicMemoryQuotaEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef readonly %memory_quota) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -2994,7 +2994,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr noalias nocapture writeonly sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1488) %this) local_unnamed_addr #4 align 2 {
+define void @_ZN9grpc_core16BasicMemoryQuota15GetPressureInfoEv(ptr noalias nocapture writeonly sret(%"struct.grpc_core::BasicMemoryQuota::PressureInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1488) %this) local_unnamed_addr #4 align 2 {
 entry:
   %sample.addr.i = alloca double, align 8
   %ref.tmp.i = alloca %class.anon.78, align 8
@@ -3210,7 +3210,7 @@ _ZNSt10shared_ptrIN17grpc_event_engine12experimental8internal19MemoryAllocatorIm
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core16BasicMemoryQuotaC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1488) initializes((0, 32)) %this, ptr noundef %name) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core16BasicMemoryQuotaC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef %name) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %free_bytes_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -5289,7 +5289,7 @@ invoke.cont11.sink.split.i:                       ; preds = %invoke.cont11.sink.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(145) initializes((64, 65), (144, 145)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(145) %loop) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN9grpc_core14promise_detail4LoopINS0_3SeqIZNS_16BasicMemoryQuota5StartEvE3$_1JZNS3_5StartEvE3$_0ZNS3_5StartEvE3$_2ZNS3_5StartEvE3$_3EEEEC2EOS9_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(145) %this, ptr nocapture noundef nonnull align 8 dereferenceable(145) %loop) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %state2.i.i.i = getelementptr inbounds i8, ptr %loop, i64 64
@@ -7067,7 +7067,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118MemoryQuotaTracker23GatherAndGarbageCollectEv(ptr noalias align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_118MemoryQuotaTracker23GatherAndGarbageCollectEv(ptr noalias align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_quotas = alloca %"class.std::vector", align 8
   %p = alloca %"class.std::shared_ptr", align 8

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [8 x i8] c"CONNECT\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @Curl_h1_req_parse_init(ptr noundef initializes((0, 80)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @Curl_h1_req_parse_init(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %1, ptr %3, align 8
@@ -48,7 +48,7 @@ declare void @Curl_http_req_free(ptr noundef) local_unnamed_addr #2
 declare void @Curl_dyn_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @Curl_h1_req_parse_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define dso_local i64 @Curl_h1_req_parse_read(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca [8192 x i8], align 16
   store i32 0, ptr %5, align 4
   %8 = getelementptr inbounds i8, ptr %0, i64 72

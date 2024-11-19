@@ -791,7 +791,7 @@ define dso_local noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13DebugVariableC2EPKNS_20DbgVariableIntrinsicE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13DebugVariableC2EPKNS_20DbgVariableIntrinsicE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 134217727
@@ -886,7 +886,7 @@ _ZNK4llvm12DIExpression15getFragmentInfoEv.exit:  ; preds = %_ZN4llvm12DIExpress
 declare noundef ptr @_ZNK4llvm8DebugLoc12getInlinedAtEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13DebugVariableC2EPKNS_17DbgVariableRecordE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13DebugVariableC2EPKNS_17DbgVariableRecordE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DebugLoc", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = tail call noundef ptr @_ZNK4llvm17DbgRecordParamRefINS_15DILocalVariableEE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #24
@@ -985,7 +985,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZNK4llvm9DbgRecord
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22DebugVariableAggregateC2EPKNS_20DbgVariableIntrinsicE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 8), (24, 25), (32, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm22DebugVariableAggregateC2EPKNS_20DbgVariableIntrinsicE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 134217727
@@ -2687,7 +2687,7 @@ _ZN4llvm10DILocation19decodeDiscriminatorEjRjS1_S1_.exit: ; preds = %_ZL29getUns
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm10DILocation19decodeDiscriminatorEjRjS1_S1_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm10DILocation19decodeDiscriminatorEjRjS1_S1_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #6 align 2 {
   %5 = and i32 %0, 1
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %6, label %_ZL29getUnsignedFromPrefixEncodingj.exit
@@ -10616,7 +10616,7 @@ _ZNK4llvm12DIExpression35getSingleLocationExpressionElementsEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12DIExpression35getSingleLocationExpressionElementsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.599") align 8 initializes((16, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12DIExpression35getSingleLocationExpressionElementsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.599") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK4llvm12DIExpression26isSingleLocationExpressionEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
   br i1 %3, label %4, label %22
 
@@ -12459,7 +12459,7 @@ _ZNK4llvm12DIExpression35getSingleLocationExpressionElementsEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm12DIExpression20extractLeadingOffsetERlRNS_15SmallVectorImplImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm12DIExpression20extractLeadingOffsetERlRNS_15SmallVectorImplImEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
   store i64 0, ptr %1, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -14822,7 +14822,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm12DIExpression10isConsta
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm12DIExpression9getExtOpsEjjb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array.700") align 8 initializes((0, 48)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm12DIExpression9getExtOpsEjjb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array.700") align 8 %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #6 align 2 {
   store i64 4097, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = zext i32 %1 to i64

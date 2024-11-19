@@ -14518,7 +14518,7 @@ declare void @_ZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS_12Ou
 declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(248)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114CLOutputLoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(59) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_114CLOutputLoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14cmProcessTools10LineParserE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -14526,7 +14526,7 @@ define internal void @_ZN12_GLOBAL__N_114CLOutputLoggerD2Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115CLIncludeParserD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_115CLIncludeParserD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14cmProcessTools10LineParserE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -14536,7 +14536,7 @@ define internal void @_ZN12_GLOBAL__N_115CLIncludeParserD2Ev(ptr noundef nonnull
 declare void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59), i8 noundef signext, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115CLIncludeParserD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_115CLIncludeParserD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14cmProcessTools10LineParserE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -14924,7 +14924,7 @@ declare noundef ptr @_ZNKSt10filesystem7__cxx114path5_List3endEv(ptr noundef non
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114CLOutputLoggerD0Ev(ptr noundef nonnull align 8 dereferenceable(59) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_114CLOutputLoggerD0Ev(ptr noundef nonnull align 8 dereferenceable(59) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14cmProcessTools10LineParserE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22

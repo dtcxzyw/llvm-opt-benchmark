@@ -95,7 +95,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2pb12JavaFeaturesC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2pb12JavaFeaturesC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %arena) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
@@ -109,7 +109,7 @@ invoke.cont:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2pb12JavaFeaturesC2EPN6google8protobuf5ArenaERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %arena, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2pb12JavaFeaturesC2EPN6google8protobuf5ArenaERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %arena, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64

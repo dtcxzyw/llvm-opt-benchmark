@@ -1634,7 +1634,7 @@ define internal fastcc i32 @send_pcc_cmd(i32 noundef %0, i16 noundef zeroext ran
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @cpc_read(i32 noundef %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) unnamed_addr #2 align 16 {
+define internal fastcc void @cpc_read(i32 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca i32, align 4
   %5 = sext i32 %0 to i64
   %6 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %5

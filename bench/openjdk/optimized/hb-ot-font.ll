@@ -1902,7 +1902,7 @@ _ZN9hb_font_t27get_h_extents_with_fallbackEP17hb_font_extents_t.exit: ; preds = 
 declare void @hb_font_funcs_set_glyph_v_origin_func(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL24hb_ot_get_glyph_v_originP9hb_font_tPvjPiS2_S1_(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef i32 @_ZL24hb_ot_get_glyph_v_originP9hb_font_tPvjPiS2_S1_(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.OT::glyf_accelerator_t::points_aggregator_t", align 8
   %8 = alloca %"struct.OT::glyf_impl::Glyph", align 8
   %9 = alloca float, align 4

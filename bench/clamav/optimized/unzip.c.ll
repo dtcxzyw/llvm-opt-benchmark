@@ -352,7 +352,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @cli_dbgmsg(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @parse_central_directory_file_header(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca [256 x i8], align 16
   store i32 27, ptr %4, align 4
   %10 = tail call i32 @cli_checktimelimit(ptr noundef %5) #12

@@ -51,7 +51,7 @@ $_ZNSt6vectorIN3gmx21AtomicStructureFactorESaIS1_EE17_M_realloc_insertIJRKS1_EEE
 @.str.3 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx26readAtomicStructureFactorsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx26readAtomicStructureFactorsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr", align 8
   %3 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %4 = alloca [1000 x i8], align 16

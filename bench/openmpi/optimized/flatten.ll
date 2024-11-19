@@ -103,7 +103,7 @@ define ptr @ADIOI_Flatten_datatype(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @PMPI_Type_create_keyval(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ADIOI_Flattened_type_copy(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #2 {
+define noundef i32 @ADIOI_Flattened_type_copy(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %7
 

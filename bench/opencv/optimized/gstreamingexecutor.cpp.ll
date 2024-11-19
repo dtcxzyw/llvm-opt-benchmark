@@ -17864,7 +17864,7 @@ _ZNSt10shared_ptrIN2cv5gimpl6stream1QEED2Ev.exit: ; preds = %0, %17, %30, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19DataQueueC2Em(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19DataQueueC2Em(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef range(i64 1, 0) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.565", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
@@ -18339,7 +18339,7 @@ _ZN3ade6HandleINS_4NodeEED2Ev.exit4:              ; preds = %_ZN3ade6HandleINS_4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ade10TypedGraphIJN12_GLOBAL__N_19DataQueueEEEC2ERNS_5GraphE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ade10TypedGraphIJN12_GLOBAL__N_19DataQueueEEEC2ERNS_5GraphE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.154", align 1
   %5 = alloca %"class.std::unordered_multiset", align 8
@@ -26947,7 +26947,7 @@ _ZNSt6vectorIPN2cv5gimpl6stream1QESaIS4_EED2Ev.exit56: ; preds = %253, %252, %28
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113reader_queuesERN3ade5GraphERKNS0_6HandleINS0_4NodeEEE(ptr dead_on_unwind noalias nocapture writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113reader_queuesERN3ade5GraphERKNS0_6HandleINS0_4NodeEEE(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.ade::details::MetadataId", align 8
   %5 = alloca %"class.ade::Handle.207", align 8
   %6 = alloca %"class.ade::TypedGraph.257", align 8
@@ -63252,7 +63252,7 @@ _ZNSt10_HashtableIN3ade7details10MetadataIdESt4pairIKS2_St10unique_ptrINS1_8Meta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_19DataQueueEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_19DataQueueEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_19DataQueueEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val = load ptr, ptr %2, align 8
@@ -63332,7 +63332,7 @@ _ZN12_GLOBAL__N_19DataQueueD2Ev.exit:             ; preds = %1, %19, %32, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_19DataQueueEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_19DataQueueEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_19DataQueueEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %2, align 8
@@ -63413,7 +63413,7 @@ _ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_19DataQueueEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_19DataQueueEE5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.423") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_19DataQueueEE5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.423") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_19DataQueueEEE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -63661,7 +63661,7 @@ define internal void @_ZN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_117
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_117DesyncSpecialCaseEE5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.423") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_117DesyncSpecialCaseEE5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.423") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN3ade7details8Metadata14MetadataHolderIN12_GLOBAL__N_117DesyncSpecialCaseEEE, i64 16), ptr %3, align 8
   store ptr %3, ptr %0, align 8
@@ -64656,7 +64656,7 @@ define internal noalias noundef ptr @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_112Co
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS6_6stream1QESt6vectorIPSA_SaISD_EESt8functionIFvvEEERS8_St17reference_wrapperINS9_9SyncQueueEERSF_RZNS6_18GStreamingExecutor9setSourceEOSC_INS5_7GRunArgESaISR_EEE3$_1EEEvRS1_PT_DpOT0_"(ptr noundef initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JRFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS6_6stream1QESt6vectorIPSA_SaISD_EESt8functionIFvvEEERS8_St17reference_wrapperINS9_9SyncQueueEERSF_RZNS6_18GStreamingExecutor9setSourceEOSC_INS5_7GRunArgESaISR_EEE3$_1EEEvRS1_PT_DpOT0_"(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unique_ptr.666", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store i64 0, ptr %0, align 8
@@ -64793,7 +64793,7 @@ _ZNSt10unique_ptrINSt6thread6_StateESt14default_deleteIS1_EED2Ev.exit11.i.i: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS5_6stream1QESt6vectorIPS9_SaISC_EESt8functionIFvvEEES7_St17reference_wrapperINS8_9SyncQueueEESE_ZNS5_18GStreamingExecutor9setSourceEOSB_INS4_7GRunArgESaISO_EEE3$_1EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS5_6stream1QESt6vectorIPS9_SaISC_EESt8functionIFvvEEES7_St17reference_wrapperINS8_9SyncQueueEESE_ZNS5_18GStreamingExecutor9setSourceEOSB_INS4_7GRunArgESaISO_EEE3$_1EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS5_6stream1QESt6vectorIPS9_SaISC_EESt8functionIFvvEEES7_St17reference_wrapperINS8_9SyncQueueEESE_ZNS5_18GStreamingExecutor9setSourceEOSB_INS4_7GRunArgESaISO_EEE3$_1EEEEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -64884,7 +64884,7 @@ _ZNSt10_Head_baseILm1ESt10shared_ptrIN2cv5gimpl14GIslandEmitterEELb0EED2Ev.exit.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS5_6stream1QESt6vectorIPS9_SaISC_EESt8functionIFvvEEES7_St17reference_wrapperINS8_9SyncQueueEESE_ZNS5_18GStreamingExecutor9setSourceEOSB_INS4_7GRunArgESaISO_EEE3$_1EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS5_6stream1QESt6vectorIPS9_SaISC_EESt8functionIFvvEEES7_St17reference_wrapperINS8_9SyncQueueEESE_ZNS5_18GStreamingExecutor9setSourceEOSB_INS4_7GRunArgESaISO_EEE3$_1EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvSt10shared_ptrIN2cv5gimpl14GIslandEmitterEERNS5_6stream1QESt6vectorIPS9_SaISC_EESt8functionIFvvEEES7_St17reference_wrapperINS8_9SyncQueueEESE_ZNS5_18GStreamingExecutor9setSourceEOSB_INS4_7GRunArgESaISO_EEE3$_1EEEEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8

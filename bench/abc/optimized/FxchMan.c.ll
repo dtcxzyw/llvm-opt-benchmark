@@ -488,7 +488,7 @@ Vec_IntFree.exit43:                               ; preds = %Vec_IntFree.exit41,
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @Fxch_ManMapLiteralsIntoCubes(ptr nocapture noundef initializes((192, 200)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Fxch_ManMapLiteralsIntoCubes(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 196
@@ -1015,7 +1015,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fxch_ManGenerateLitHashKeys(ptr nocapture noundef initializes((40, 48)) %0) local_unnamed_addr #2 {
+define void @Fxch_ManGenerateLitHashKeys(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = tail call i32 @Gia_ManRandom(i32 noundef 1) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load i32, ptr %3, align 8
@@ -1939,7 +1939,7 @@ define range(i32 0, -2147483648) i32 @Fxch_ManComputeLevelCube(ptr nocapture nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Fxch_ManComputeLevel(ptr nocapture noundef initializes((80, 88)) %0) local_unnamed_addr #7 {
+define void @Fxch_ManComputeLevel(ptr nocapture noundef %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 8
   %.val23 = load ptr, ptr %3, align 8

@@ -264,7 +264,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13tactic_reportC2EPKcRK4goal(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %id, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13tactic_reportC2EPKcRK4goal(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %id, ptr noundef nonnull align 8 dereferenceable(124) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef i32 @_Z19get_verbosity_levelv()
   %cmp = icmp ugt i32 %call, 9

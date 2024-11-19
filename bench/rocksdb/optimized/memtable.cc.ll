@@ -522,7 +522,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb24ImmutableMemTableOptionsC2ERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 12), (16, 26), (32, 81), (84, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(857) %ioptions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %mutable_cf_options) unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb24ImmutableMemTableOptionsC2ERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(857) %ioptions, ptr nocapture noundef nonnull readonly align 8 dereferenceable(560) %mutable_cf_options) unnamed_addr #3 align 2 {
 entry:
   %arena_block_size2 = getelementptr inbounds i8, ptr %mutable_cf_options, i64 16
   %0 = load i64, ptr %arena_block_size2, align 8
@@ -587,7 +587,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8MemTableC2ERKNS_21InternalKeyComparatorERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsEPNS_18WriteBufferManagerEmj(ptr noundef nonnull align 16 dereferenceable(3528) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cmp, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options, ptr noundef %write_buffer_manager, i64 noundef %latest_seq, i32 noundef %column_family_id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8MemTableC2ERKNS_21InternalKeyComparatorERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsEPNS_18WriteBufferManagerEmj(ptr noundef nonnull align 16 dereferenceable(3528) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cmp, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options, ptr noundef %write_buffer_manager, i64 noundef %latest_seq, i32 noundef %column_family_id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__lock.i = alloca %"struct.std::_Sp_locker", align 1
   %ref.tmp = alloca %"class.rocksdb::SkipListFactory", align 8
@@ -4085,7 +4085,7 @@ _ZN7rocksdb22GetLengthPrefixedSliceEPKc.exit:     ; preds = %if.then2.i.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN7rocksdb11MemTableRep8AllocateEmPPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %len, ptr nocapture noundef writeonly initializes((0, 8)) %buf) unnamed_addr #4 align 2 {
+define noundef ptr @_ZN7rocksdb11MemTableRep8AllocateEmPPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 noundef %len, ptr nocapture noundef writeonly %buf) unnamed_addr #4 align 2 {
 entry:
   %allocator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %allocator_, align 8
@@ -7176,7 +7176,7 @@ declare noundef i64 @_ZN7rocksdb32FragmentedRangeTombstoneIterator26MaxCoveringT
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8MemTable12GetFromTableERKNS_9LookupKeyEmbPNS_12ReadCallbackEPbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_19PinnableWideColumnsESD_PNS_6StatusEPNS_12MergeContextEPmS6_S6_(ptr noundef nonnull align 16 dereferenceable(3528) %this, ptr noundef nonnull align 8 dereferenceable(224) %key, i64 noundef %max_covering_tombstone_seq, i1 noundef zeroext %do_merge, ptr noundef %callback, ptr noundef %is_blob_index, ptr noundef %value, ptr noundef %columns, ptr noundef %timestamp, ptr noundef %s, ptr noundef %merge_context, ptr nocapture noundef writeonly initializes((0, 8)) %seq, ptr noundef %found_final_value, ptr noundef %merge_in_progress) local_unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb8MemTable12GetFromTableERKNS_9LookupKeyEmbPNS_12ReadCallbackEPbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_19PinnableWideColumnsESD_PNS_6StatusEPNS_12MergeContextEPmS6_S6_(ptr noundef nonnull align 16 dereferenceable(3528) %this, ptr noundef nonnull align 8 dereferenceable(224) %key, i64 noundef %max_covering_tombstone_seq, i1 noundef zeroext %do_merge, ptr noundef %callback, ptr noundef %is_blob_index, ptr noundef %value, ptr noundef %columns, ptr noundef %timestamp, ptr noundef %s, ptr noundef %merge_context, ptr nocapture noundef writeonly %seq, ptr noundef %found_final_value, ptr noundef %merge_in_progress) local_unnamed_addr #4 align 2 {
 entry:
   %saver = alloca %"struct.rocksdb::(anonymous namespace)::Saver", align 8
   %frombool = zext i1 %do_merge to i8

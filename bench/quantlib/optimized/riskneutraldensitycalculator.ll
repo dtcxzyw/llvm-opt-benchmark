@@ -44,7 +44,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib28RiskNeutralDensityCalculator12InvCDFHelperC1EPKS0_ddmd = unnamed_addr alias void (ptr, ptr, double, double, i64, double), ptr @_ZN8QuantLib28RiskNeutralDensityCalculator12InvCDFHelperC2EPKS0_ddmd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib28RiskNeutralDensityCalculator12InvCDFHelperC2EPKS0_ddmd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %calculator, double noundef %guess, double noundef %accuracy, i64 noundef %maxEvaluations, double noundef %stepSize) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib28RiskNeutralDensityCalculator12InvCDFHelperC2EPKS0_ddmd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %calculator, double noundef %guess, double noundef %accuracy, i64 noundef %maxEvaluations, double noundef %stepSize) unnamed_addr #0 align 2 {
 entry:
   store ptr %calculator, ptr %this, align 8, !tbaa !3
   %guess_ = getelementptr inbounds nuw i8, ptr %this, i64 8

@@ -1320,7 +1320,7 @@ define void @_ZNK5faiss20IndexBinaryMultiHash12range_searchElPKhiPNS_17RangeSear
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss20IndexBinaryMultiHash5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(84) initializes((16, 24)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss20IndexBinaryMultiHash5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::__detail::_AllocNode.61", align 8
   %3 = alloca %"class.std::unordered_map.38", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7885,7 +7885,7 @@ define void @_ZNK5faiss15IndexBinaryHash7displayEv(ptr nocapture noundef nonnull
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss20IndexBinaryHashStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) local_unnamed_addr #20 align 2 {
+define void @_ZN5faiss20IndexBinaryHashStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) local_unnamed_addr #20 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -8158,7 +8158,7 @@ define void @_ZN5faiss20IndexBinaryMultiHashC2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss20IndexBinaryMultiHashD2Ev(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss20IndexBinaryMultiHashD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20IndexBinaryMultiHashE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8

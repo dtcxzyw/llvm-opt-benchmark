@@ -28,7 +28,7 @@ $__clang_call_terminate = comdat any
 @.str.1 = private unnamed_addr constant [102 x i8] c"generated/home/dtcxzyw/WorkSpace/SDK/vcpkg/installed/x64-linux/include/boost/smart_ptr/shared_ptr.hpp\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15SteepestDescent19getUpdatedDirectionERKNS_7ProblemEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture nonnull readnone align 8 %0, double %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15SteepestDescent19getUpdatedDirectionERKNS_7ProblemEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture nonnull readnone align 8 %0, double %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lineSearch_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load ptr, ptr %lineSearch_, align 8, !tbaa !3

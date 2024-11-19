@@ -20260,7 +20260,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFivEEES3_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFivEEES3_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFivEEE, i64 16), ptr %_M_impl.i, align 8
@@ -20348,7 +20348,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFivEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFivEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFivEEE, i64 16), ptr %this, align 8
   %_M_result.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -20396,7 +20396,7 @@ _ZNSt13__future_base16_Task_state_baseIFivEED2Ev.exit: ; preds = %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFivEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_0SaIiEFivEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFivEEE, i64 16), ptr %this, align 8
   %_M_result.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -21715,7 +21715,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFivEEES3_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFivEEES3_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFivEEE, i64 16), ptr %_M_impl.i, align 8
@@ -21803,7 +21803,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFivEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFivEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFivEEE, i64 16), ptr %this, align 8
   %_M_result.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -21851,7 +21851,7 @@ _ZNSt13__future_base16_Task_state_baseIFivEED2Ev.exit: ; preds = %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFivEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt13__future_base11_Task_stateIZ4mainE3$_1SaIiEFivEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFivEEE, i64 16), ptr %this, align 8
   %_M_result.i.i = getelementptr inbounds i8, ptr %this, i64 32

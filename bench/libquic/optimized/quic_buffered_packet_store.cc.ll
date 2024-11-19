@@ -114,7 +114,7 @@ $_ZTIN3net9QuicAlarm8DelegateE = comdat any
 @_ZN3net23QuicBufferedPacketStoreD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net23QuicBufferedPacketStoreD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net23QuicBufferedPacketStore14BufferedPacketC2ESt10unique_ptrINS_18QuicReceivedPacketESt14default_deleteIS3_EENS_10IPEndPointES7_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr nocapture noundef %packet, ptr noundef nonnull %server_address, ptr noundef %client_address) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net23QuicBufferedPacketStore14BufferedPacketC2ESt10unique_ptrINS_18QuicReceivedPacketESt14default_deleteIS3_EENS_10IPEndPointES7_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef %packet, ptr noundef nonnull %server_address, ptr noundef %client_address) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %packet, align 8
   store i64 %0, ptr %this, align 8
@@ -168,7 +168,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net23QuicBufferedPacketStore14BufferedPacketC2EOS1_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net23QuicBufferedPacketStore14BufferedPacketC2EOS1_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %other, align 8
   store i64 %0, ptr %this, align 8
@@ -321,7 +321,7 @@ _ZNSt7__cxx1110_List_baseIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3net23QuicBufferedPacketStore18BufferedPacketListC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net23QuicBufferedPacketStore18BufferedPacketListC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8
@@ -465,7 +465,7 @@ _ZNSt7__cxx114listIN3net23QuicBufferedPacketStore14BufferedPacketESaIS3_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net23QuicBufferedPacketStoreC2EPNS0_16VisitorInterfaceEPKNS_9QuicClockEPNS_16QuicAlarmFactoryE(ptr noundef nonnull align 8 dereferenceable(200) initializes((32, 40)) %this, ptr noundef %visitor, ptr noundef %clock, ptr noundef %alarm_factory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net23QuicBufferedPacketStoreC2EPNS0_16VisitorInterfaceEPKNS_9QuicClockEPNS_16QuicAlarmFactoryE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %visitor, ptr noundef %clock, ptr noundef %alarm_factory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %0, align 8

@@ -744,7 +744,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 declare void @_ZN4cvc56parser11ParserStateD2Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc56parser9Smt2StateD2Ev(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser9Smt2StateD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser9Smt2StateE, i64 16), ptr %this, align 8
   %d_allocGrammars = getelementptr inbounds i8, ptr %this, i64 488
@@ -918,7 +918,7 @@ _ZN4cvc58internal9LogicInfoD2Ev.exit:             ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc56parser9Smt2StateD0Ev(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc56parser9Smt2StateD0Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc56parser9Smt2StateD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
@@ -12273,7 +12273,7 @@ declare void @_ZN4cvc56parser11ParserState9pushScopeEb(ptr noundef nonnull align
 declare void @_ZN4cvc56parser11ParserState12bindBoundVarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_4SortE(ptr sret(%"class.cvc5::Term") align 8, ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser9Smt2State5resetEv(ptr noundef nonnull align 8 dereferenceable(512) initializes((169, 170)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser9Smt2State5resetEv(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::LogicInfo", align 8
   %ref.tmp2 = alloca %"struct.std::pair", align 8

@@ -307,7 +307,7 @@ do.end3:                                          ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evbuffer_defer_callbacks(ptr noundef initializes((72, 80)) %buffer, ptr noundef %base) local_unnamed_addr #1 {
+define dso_local noundef i32 @evbuffer_defer_callbacks(ptr noundef %buffer, ptr noundef %base) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -489,7 +489,7 @@ return:                                           ; preds = %if.then3, %if.end7,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evbuffer_set_parent_(ptr nocapture noundef initializes((136, 144)) %buf, ptr noundef %bev) local_unnamed_addr #1 {
+define dso_local void @evbuffer_set_parent_(ptr nocapture noundef %buf, ptr noundef %bev) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buf, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -2529,7 +2529,7 @@ do.end76:                                         ; preds = %do.body69, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @PRESERVE_PINNED(ptr nocapture noundef %src, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %first, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %last) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @PRESERVE_PINNED(ptr nocapture noundef %src, ptr nocapture noundef nonnull writeonly %first, ptr nocapture noundef nonnull writeonly %last) unnamed_addr #1 {
 entry:
   %0 = getelementptr i8, ptr %src, i64 8
   %src.val = load ptr, ptr %0, align 8
@@ -4219,7 +4219,7 @@ if.end29:                                         ; preds = %if.then27, %do.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evbuffer_search_eol(ptr noalias sret(%struct.evbuffer_ptr) align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef readonly %buffer, ptr noundef readonly %start, ptr noundef writeonly %eol_len_out, i32 noundef %eol_style) local_unnamed_addr #1 {
+define dso_local void @evbuffer_search_eol(ptr noalias sret(%struct.evbuffer_ptr) align 8 %agg.result, ptr nocapture noundef readonly %buffer, ptr noundef readonly %start, ptr noundef writeonly %eol_len_out, i32 noundef %eol_style) local_unnamed_addr #1 {
 entry:
   %tmp = alloca %struct.evbuffer_ptr, align 8
   %tobool.not = icmp eq ptr %start, null
@@ -4685,7 +4685,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evbuffer_search(ptr noalias nocapture sret(%struct.evbuffer_ptr) align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef readonly %buffer, ptr nocapture noundef readonly %what, i64 noundef %len, ptr noundef %start) local_unnamed_addr #1 {
+define dso_local void @evbuffer_search(ptr noalias nocapture sret(%struct.evbuffer_ptr) align 8 %agg.result, ptr nocapture noundef readonly %buffer, ptr nocapture noundef readonly %what, i64 noundef %len, ptr noundef %start) local_unnamed_addr #1 {
 entry:
   tail call void @evbuffer_search_range(ptr sret(%struct.evbuffer_ptr) align 8 %agg.result, ptr noundef %buffer, ptr noundef %what, i64 noundef %len, ptr noundef %start, ptr noundef null)
   ret void
@@ -5597,7 +5597,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evbuffer_search_range(ptr noalias nocapture sret(%struct.evbuffer_ptr) align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef readonly %buffer, ptr nocapture noundef readonly %what, i64 noundef %len, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #1 {
+define dso_local void @evbuffer_search_range(ptr noalias nocapture sret(%struct.evbuffer_ptr) align 8 %agg.result, ptr nocapture noundef readonly %buffer, ptr nocapture noundef readonly %what, i64 noundef %len, ptr noundef readonly %start, ptr noundef readonly %end) local_unnamed_addr #1 {
 entry:
   %lock = getelementptr inbounds i8, ptr %buffer, i64 56
   %0 = load ptr, ptr %lock, align 8
@@ -6493,7 +6493,7 @@ return:                                           ; preds = %if.then28, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @evbuffer_file_segment_add_cleanup_cb(ptr nocapture noundef writeonly initializes((64, 80)) %seg, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #7 {
+define dso_local void @evbuffer_file_segment_add_cleanup_cb(ptr nocapture noundef writeonly %seg, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #7 {
 entry:
   %cleanup_cb = getelementptr inbounds i8, ptr %seg, i64 64
   store ptr %cb, ptr %cleanup_cb, align 8

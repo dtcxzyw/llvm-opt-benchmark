@@ -105,7 +105,7 @@ define dso_local void @_ZN4llvm19ThreadPoolInterfaceD0Ev(ptr nocapture nonnull r
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13StdThreadPoolC2ENS_18ThreadPoolStrategyE(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 216)) %0, i64 %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm13StdThreadPoolC2ENS_18ThreadPoolStrategyE(ptr noundef nonnull align 8 dereferenceable(360) %0, i64 %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::ThreadPoolStrategy", align 8
   store i64 %1, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm13StdThreadPoolE, i64 16), ptr %0, align 8
@@ -1410,7 +1410,7 @@ _ZNSt11shared_lockIN4llvm3sys12SmartRWMutexILb0EEEED2Ev.exit: ; preds = %.lr.ph,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13StdThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm13StdThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm13StdThreadPoolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #21
@@ -1668,7 +1668,7 @@ define dso_local void @_ZN4llvm13StdThreadPoolD0Ev(ptr noundef nonnull align 8 d
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20SingleThreadExecutorC2ENS_18ThreadPoolStrategyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %0, i64 %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm20SingleThreadExecutorC2ENS_18ThreadPoolStrategyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i64 %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.llvm::ThreadPoolStrategy", align 8
   store i64 %1, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm20SingleThreadExecutorE, i64 16), ptr %0, align 8
@@ -1885,7 +1885,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm20SingleThreadExecutor14isWorkerTh
 declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20SingleThreadExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm20SingleThreadExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm20SingleThreadExecutorE, i64 16), ptr %0, align 8
   tail call void @_ZN4llvm20SingleThreadExecutor4waitEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8

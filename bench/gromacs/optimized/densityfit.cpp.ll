@@ -136,7 +136,7 @@ define void @_ZN3gmx28DensitySimilarityMeasureImplD2Ev(ptr nocapture nonnull rea
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx24DensitySimilarityMeasureC2ENS_30DensitySimilarityMeasureMethodENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS3_EEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1, ptr nocapture noundef readonly byval(%"class.gmx::basic_mdspan") align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx24DensitySimilarityMeasureC2ENS_30DensitySimilarityMeasureMethodENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS3_EEEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr nocapture noundef readonly byval(%"class.gmx::basic_mdspan") align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.gmx::NotImplementedError", align 8
   %5 = alloca %"class.gmx::ExceptionInitializer", align 8
   %6 = alloca %"class.gmx::ExceptionInfo", align 8
@@ -713,7 +713,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductC2ENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS3_EEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 80), (88, 128)) %0, ptr nocapture noundef readonly byval(%"class.gmx::basic_mdspan") align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductC2ENS_12basic_mdspanIKfNS_7extentsIJLln1ELln1ELln1EEEENS_12layout_rightENS_14accessor_basicIS3_EEEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef readonly byval(%"class.gmx::basic_mdspan") align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_129DensitySimilarityInnerProductE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
@@ -2695,7 +2695,7 @@ _ZNSt10unique_ptrIN3gmx28DensitySimilarityMeasureImplESt14default_deleteIS1_EED2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx24DensitySimilarityMeasureC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #19 align 2 {
+define void @_ZN3gmx24DensitySimilarityMeasureC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #19 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8

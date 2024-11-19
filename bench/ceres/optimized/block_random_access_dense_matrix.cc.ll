@@ -29,7 +29,7 @@ $_ZNK5ceres8internal28BlockRandomAccessDenseMatrix8num_colsEv = comdat any
 @_ZN5ceres8internal28BlockRandomAccessDenseMatrixC1ESt6vectorINS0_5BlockESaIS3_EEPNS0_11ContextImplEi = hidden unnamed_addr alias void (ptr, ptr, ptr, i32), ptr @_ZN5ceres8internal28BlockRandomAccessDenseMatrixC2ESt6vectorINS0_5BlockESaIS3_EEPNS0_11ContextImplEi
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal28BlockRandomAccessDenseMatrixC2ESt6vectorINS0_5BlockESaIS3_EEPNS0_11ContextImplEi(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal28BlockRandomAccessDenseMatrixC2ESt6vectorINS0_5BlockESaIS3_EEPNS0_11ContextImplEi(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal28BlockRandomAccessDenseMatrixE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %1, align 8
@@ -190,7 +190,7 @@ define hidden void @_ZN5ceres8internal28BlockRandomAccessDenseMatrix7SetZeroEv(p
 declare void @_ZN5ceres8internal23BlockRandomAccessMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZN5ceres8internal28BlockRandomAccessDenseMatrix7GetCellEiiPiS2_S2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr nocapture noundef writeonly initializes((0, 4)) %6) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN5ceres8internal28BlockRandomAccessDenseMatrix7GetCellEiiPiS2_S2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) unnamed_addr #2 align 2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8

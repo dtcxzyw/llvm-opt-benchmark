@@ -1574,7 +1574,7 @@ declare i32 @zend_try_assign_typed_ref_stringl(ptr noundef, ptr noundef, i64 nou
 declare void @add_index_stringl(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @BuildCharSet(ptr nocapture noundef nonnull initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @BuildCharSet(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %3 = load i8, ptr %1, align 1
   %4 = icmp eq i8 %3, 94

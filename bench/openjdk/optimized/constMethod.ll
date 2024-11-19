@@ -262,7 +262,7 @@ define hidden noundef range(i32 -268435449, 268435463) i32 @_ZN11ConstMethod4siz
 declare noundef ptr @_ZN12MetaspaceObjnwEmP15ClassLoaderDatamNS_4TypeEP10JavaThread(i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN11ConstMethodC2EiP16InlineTableSizesNS_10MethodTypeEi(ptr noundef nonnull align 8 dereferenceable(52) initializes((28, 32)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
+define hidden void @_ZN11ConstMethodC2EiP16InlineTableSizesNS_10MethodTypeEi(ptr noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4) unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %6, align 4
   store volatile i64 -9223372036854775808, ptr %0, align 8
@@ -819,7 +819,7 @@ _ZNK11ConstMethod31localvariable_table_length_addrEv.exit: ; preds = %_ZNK11Cons
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ConstMethod22compute_from_signatureEP6Symbolb(ptr noundef nonnull align 8 dereferenceable(52) initializes((32, 33), (46, 50)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11ConstMethod22compute_from_signatureEP6Symbolb(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Fingerprinter, align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -850,7 +850,7 @@ define hidden void @_ZN11ConstMethod22compute_from_signatureEP6Symbolb(ptr nound
 declare noundef zeroext i8 @_ZN17SignatureIterator11return_typeEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ConstMethod18copy_stackmap_dataEP15ClassLoaderDataPhiP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((16, 24)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11ConstMethod18copy_stackmap_dataEP15ClassLoaderDataPhiP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call i32 @llvm.smax.i32(i32 %3, i32 1)
   %narrow.i.i.i = add nuw i32 %6, 14
   %7 = lshr i32 %narrow.i.i.i, 3

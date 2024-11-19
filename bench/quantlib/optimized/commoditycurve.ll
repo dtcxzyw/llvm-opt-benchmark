@@ -2367,7 +2367,7 @@ _ZN8QuantLib8CalendarD2Ev.exit:                   ; preds = %_ZN8QuantLib10DayCo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14CommodityCurveC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13CommodityTypeENS_8CurrencyENS_13UnitOfMeasureERKNS_8CalendarERKSt6vectorINS_4DateESaISE_EESD_IdSaIdEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(280) initializes((280, 288), (296, 300), (304, 312)) %this, ptr noundef %name, ptr nocapture noundef %commodityType, ptr nocapture noundef %currency, ptr nocapture noundef %unitOfMeasure, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dates, ptr nocapture noundef %prices, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14CommodityCurveC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13CommodityTypeENS_8CurrencyENS_13UnitOfMeasureERKNS_8CalendarERKSt6vectorINS_4DateESaISE_EESD_IdSaIdEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %name, ptr nocapture noundef %commodityType, ptr nocapture noundef %currency, ptr nocapture noundef %unitOfMeasure, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dates, ptr nocapture noundef %prices, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::ForwardFlatInterpolation", align 8
   %agg.tmp = alloca %"class.QuantLib::Calendar", align 8
@@ -3804,7 +3804,7 @@ lpad:                                             ; preds = %_ZN8QuantLib10DayCo
 declare void @_ZN8QuantLib13TermStructureC2EjNS_8CalendarENS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i32 noundef, ptr noundef, ptr noundef) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14CommodityCurveC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13CommodityTypeENS_8CurrencyENS_13UnitOfMeasureERKNS_8CalendarERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(280) initializes((280, 288), (296, 300), (304, 312)) %this, ptr noundef %name, ptr nocapture noundef %commodityType, ptr nocapture noundef %currency, ptr nocapture noundef %unitOfMeasure, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14CommodityCurveC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13CommodityTypeENS_8CurrencyENS_13UnitOfMeasureERKNS_8CalendarERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %name, ptr nocapture noundef %commodityType, ptr nocapture noundef %currency, ptr nocapture noundef %unitOfMeasure, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dayCounter) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Calendar", align 8
   %agg.tmp2 = alloca %"class.QuantLib::DayCounter", align 8
@@ -4667,7 +4667,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14CommodityCurve15setBasisOfCurveERKN5boost10shared_ptrIS0_EE(ptr noundef nonnull align 8 dereferenceable(280) initializes((256, 264)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %basisOfCurve) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14CommodityCurve15setBasisOfCurveERKN5boost10shared_ptrIS0_EE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %basisOfCurve) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %basisOfCurve_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %basisOfCurve, align 8, !tbaa !98

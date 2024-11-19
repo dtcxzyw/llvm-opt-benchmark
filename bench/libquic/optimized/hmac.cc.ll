@@ -19,7 +19,7 @@ $_ZN6crypto4HMAC4InitERKN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11
 @_ZN6crypto4HMACD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6crypto4HMACD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6crypto4HMACC2ENS0_13HashAlgorithmE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 5), (8, 32)) %this, i32 noundef %hash_alg) unnamed_addr #0 align 2 {
+define dso_local void @_ZN6crypto4HMACC2ENS0_13HashAlgorithmE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %hash_alg) unnamed_addr #0 align 2 {
 entry:
   store i32 %hash_alg, ptr %this, align 8
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 4
@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN6crypto4HMAC4InitEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((4, 5)) %this, ptr noundef %key, i64 noundef %key_length) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN6crypto4HMAC4InitEPKhm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %key, i64 noundef %key_length) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %initialized_ = getelementptr inbounds i8, ptr %this, i64 4
   store i8 1, ptr %initialized_, align 4

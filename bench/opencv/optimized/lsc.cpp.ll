@@ -1155,7 +1155,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8ximgproc17SuperpixelLSCImplD2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc17SuperpixelLSCImplD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv8ximgproc17SuperpixelLSCImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #24
@@ -1214,7 +1214,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8ximgproc17SuperpixelLSCImplD0Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv8ximgproc17SuperpixelLSCImplD0Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN2cv8ximgproc17SuperpixelLSCImplD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void

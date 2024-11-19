@@ -1105,7 +1105,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v912format_errorD2Ev(ptr noundef non
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev9IpcPacketC2EPKcm(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev9IpcPacketC2EPKcm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %12
@@ -4771,7 +4771,7 @@ _ZN3tev9IpcPacket7OStreamlsIfEERS1_RKNSt3__16vectorIT_NS4_9allocatorIS6_EEEE.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3tev9IpcPacket20interpretAsOpenImageEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketOpenImage") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3tev9IpcPacket20interpretAsOpenImageEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketOpenImage") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__1::allocator", align 1
   %4 = alloca %"class.std::__1::allocator", align 1
   %5 = alloca %"class.tev::IpcPacket::IStream", align 8
@@ -5236,7 +5236,7 @@ _ZNSt3__16vectorIcNS_9allocatorIcEEED2B8ne190000Ev.exit8: ; preds = %61, %63
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3tev9IpcPacket22interpretAsReloadImageEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketReloadImage") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3tev9IpcPacket22interpretAsReloadImageEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketReloadImage") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tev::IpcPacket::IStream", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 0, i64 24, i1 false)
   invoke void @_ZN3tev9IpcPacket7IStreamC2ERKNSt3__16vectorIcNS2_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -5340,7 +5340,7 @@ define dso_local void @_ZNK3tev9IpcPacket22interpretAsReloadImageEv(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3tev9IpcPacket21interpretAsCloseImageEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketCloseImage") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3tev9IpcPacket21interpretAsCloseImageEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketCloseImage") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tev::IpcPacket::IStream", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZN3tev9IpcPacket7IStreamC2ERKNSt3__16vectorIcNS2_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -5416,7 +5416,7 @@ define dso_local void @_ZNK3tev9IpcPacket21interpretAsCloseImageEv(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3tev9IpcPacket22interpretAsUpdateImageEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketUpdateImage") align 8 initializes((0, 24), (32, 104), (120, 144)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3tev9IpcPacket22interpretAsUpdateImageEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketUpdateImage") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tlog::Stream", align 8
   %4 = alloca %"class.tlog::Stream", align 8
   %5 = alloca %"class.tlog::Stream", align 8
@@ -6783,7 +6783,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3tev9IpcPacket22interpretAsCreateImageEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketCreateImage") align 8 initializes((0, 24), (40, 64)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3tev9IpcPacket22interpretAsCreateImageEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketCreateImage") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tev::IpcPacket::IStream", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -7067,7 +7067,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3tev9IpcPacket25interpretAsVectorGraphicsEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketVectorGraphics") align 8 initializes((0, 24), (32, 56)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3tev9IpcPacket25interpretAsVectorGraphicsEv(ptr dead_on_unwind noalias writable sret(%"struct.tev::IpcPacketVectorGraphics") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.tev::IpcPacket::IStream", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7456,7 +7456,7 @@ _ZNSt3__16vectorIN3tev9VgCommandENS_9allocatorIS2_EEED2B8ne190000Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev3IpcC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (12, 16), (24, 48)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev3IpcC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__1::basic_string", align 8
   %4 = alloca %"class.fmt::v9::basic_memory_buffer", align 8
   %5 = alloca %"class.std::__1::basic_string", align 8
@@ -9100,7 +9100,7 @@ _ZNSt3__110__list_impIN3tev3Ipc16SocketConnectionENS_9allocatorIS3_EEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3tev3IpcD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev3IpcD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__1::basic_string", align 8
   %3 = alloca %"class.tlog::Stream", align 8
   %4 = alloca %"class.std::__1::basic_string", align 8
@@ -9276,7 +9276,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #4
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3tev3IpcD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN3tev3IpcD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN3tev3IpcD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #28
   ret void
@@ -10519,7 +10519,7 @@ define dso_local noundef zeroext i1 @_ZNK3tev3Ipc16SocketConnection8isClosedEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev3Ipc16SocketConnectionC2EiRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev3Ipc16SocketConnectionC2EiRKNSt3__112basic_stringIcNS2_11char_traitsIcEENS2_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.fmt::v9::format_arg_store.417", align 16
   %5 = alloca %"class.std::__1::basic_string", align 8
   store i32 %1, ptr %0, align 8

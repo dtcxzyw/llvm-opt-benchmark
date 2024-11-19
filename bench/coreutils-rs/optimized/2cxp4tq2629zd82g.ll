@@ -146,7 +146,7 @@ define hidden noundef zeroext i1 @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h105ce44342dcd82eE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 {
+define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h105ce44342dcd82eE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %13, label %4
 
@@ -176,7 +176,7 @@ define hidden void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h105ce44342dcd
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN57_$LT$std..path..PathBuf$u20$as$u20$core..clone..Clone$GT$5clone17hbac65f655740124bE.llvm.6284023546160124489"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
+define hidden void @"_ZN57_$LT$std..path..PathBuf$u20$as$u20$core..clone..Clone$GT$5clone17hbac65f655740124bE.llvm.6284023546160124489"(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr, {} }, i64 } } } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !39)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8

@@ -9171,7 +9171,7 @@ _ZNK4llvm12X86Subtarget19isTargetWindowsMSVCEv.exit.thread: ; preds = %53
 declare void @_ZN4llvm18MachinePointerInfo8getStackERNS_15MachineFunctionElh(ptr dead_on_unwind writable sret(%"struct.llvm::MachinePointerInfo") align 8, ptr noundef nonnull align 8 dereferenceable(1041), i64 noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i32 } @_ZNK4llvm17X86TargetLowering23EmitTailCallLoadRetAddrERNS_12SelectionDAGERNS_7SDValueES3_bbiRKNS_5SDLocE(ptr noundef nonnull align 8 dereferenceable(408160) %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %2, ptr %3, i32 %4, i1 zeroext %5, i1 zeroext %6, i32 %7, ptr noundef nonnull align 8 dereferenceable(12) %8) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i32 } @_ZNK4llvm17X86TargetLowering23EmitTailCallLoadRetAddrERNS_12SelectionDAGERNS_7SDValueES3_bbiRKNS_5SDLocE(ptr noundef nonnull align 8 dereferenceable(408160) %0, ptr noundef nonnull align 8 dereferenceable(904) %1, ptr nocapture noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4, i1 zeroext %5, i1 zeroext %6, i32 %7, ptr noundef nonnull align 8 dereferenceable(12) %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %11 = alloca %"struct.llvm::AAMDNodes", align 8
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40

@@ -1276,7 +1276,7 @@ define hidden void @_ZN10NativeJump20patch_verified_entryEPhS0_S0_(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24NativeIllegalInstruction6insertEPh(ptr noundef initializes((0, 2)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24NativeIllegalInstruction6insertEPh(ptr noundef %0) local_unnamed_addr #0 align 2 {
   store i16 2831, ptr %0, align 2
   tail call void @_ZN14AbstractICache16invalidate_rangeEPhi(ptr noundef nonnull %0, i32 noundef 2) #7
   ret void
@@ -1313,7 +1313,7 @@ define hidden void @_ZN17NativeGeneralJump20insert_unconditionalEPhS0_(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17NativeGeneralJump15replace_mt_safeEPhS0_(ptr noundef initializes((0, 4)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17NativeGeneralJump15replace_mt_safeEPhS0_(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   store i32 -18088213, ptr %0, align 4
   tail call void @_ZN14AbstractICache15invalidate_wordEPh(ptr noundef nonnull %0) #7
   %3 = getelementptr inbounds i8, ptr %1, i64 4
@@ -1366,14 +1366,14 @@ define hidden noundef nonnull ptr @_ZNK17NativeGeneralJump16jump_destinationEv(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17NativePostCallNop10make_deoptEv(ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 4)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17NativePostCallNop10make_deoptEv(ptr noundef nonnull align 1 dereferenceable(1) %0) local_unnamed_addr #0 align 2 {
   store i32 -1459552497, ptr %0, align 4
   tail call void @_ZN14AbstractICache16invalidate_rangeEPhi(ptr noundef nonnull %0, i32 noundef 8) #7
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22NativeDeoptInstruction6insertEPhb(ptr noundef initializes((0, 3)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22NativeDeoptInstruction6insertEPhb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   store i8 15, ptr %0, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 -1, ptr %3, align 1

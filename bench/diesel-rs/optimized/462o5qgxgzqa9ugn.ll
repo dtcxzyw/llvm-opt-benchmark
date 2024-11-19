@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE = external thread_local global { { { { i64, [2 x i64] } } }, i8, [7 x i8] }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h53c67dcee61546dfE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h53c67dcee61546dfE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17haec52a1c7fb9115bE, align 8, !range !4, !noalias !5, !noundef !10
   %trunc.i.i = trunc nuw i64 %2 to i1
   br i1 %trunc.i.i, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit.thread, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h08c022e240b705e4E.exit
@@ -633,7 +633,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN13dsl_auto_type9auto_type16settings_builder58_$LT$impl$u20$dsl_auto_type..auto_type..DeriveSettings$GT$7builder17h109247fd8d226f1eE"(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] } }) align 8 dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #1 {
+define void @"_ZN13dsl_auto_type9auto_type16settings_builder58_$LT$impl$u20$dsl_auto_type..auto_type..DeriveSettings$GT$7builder17h109247fd8d226f1eE"(ptr noalias nocapture noundef writeonly sret({ { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] } }) align 8 dereferenceable(56) %0) unnamed_addr #1 {
   %2 = alloca { { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @"_ZN13dsl_auto_type9auto_type16settings_builder93_$LT$impl$u20$core..default..Default$u20$for$u20$dsl_auto_type..auto_type..DeriveSettings$GT$7default17h6cdec054482927f3E"(ptr noalias nocapture noundef nonnull sret({ { { { { i64, ptr }, i64 }, ptr }, { i32, [2 x i32] }, [1 x i32] }, i8, i8, i8, [5 x i8] }) align 8 dereferenceable(56) %2)

@@ -7897,7 +7897,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter11CompressPatC2EOS1_(ptr noundef nonnull align 8 dereferenceable(601) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(601) %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119CompressInstEmitter11CompressPatC2EOS1_(ptr noundef nonnull align 8 dereferenceable(601) %0, ptr noundef nonnull align 8 dereferenceable(601) %1) unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(236) %0, ptr noundef nonnull align 8 dereferenceable(236) %1, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24

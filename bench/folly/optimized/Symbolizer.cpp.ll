@@ -399,7 +399,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10symbolizer21SafeStackTracePrinterC2Ei(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 12)) %this, i32 noundef %fd) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10symbolizer21SafeStackTracePrinterC2Ei(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10symbolizer21SafeStackTracePrinterE, i64 16), ptr %this, align 8, !tbaa !7
   %fd_ = getelementptr inbounds i8, ptr %this, i64 8

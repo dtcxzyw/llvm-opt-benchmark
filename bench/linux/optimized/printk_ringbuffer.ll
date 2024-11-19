@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @prb_reserve_in_last(ptr nocapture noundef initializes((8, 16)) %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @prb_reserve_in_last(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
@@ -1703,7 +1703,7 @@ define dso_local i64 @prb_next_seq(ptr noundef %0) local_unnamed_addr #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @prb_init(ptr noundef initializes((0, 4), (8, 24)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #4 align 16 {
+define dso_local void @prb_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #4 align 16 {
   %7 = shl nuw i32 1, %4
   %8 = zext i32 %7 to i64
   %9 = zext nneg i32 %4 to i64

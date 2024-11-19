@@ -36,7 +36,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook5velox13RuntimeMetric9aggregateEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((24, 40)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN8facebook5velox13RuntimeMetric9aggregateEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %count = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %count, align 8

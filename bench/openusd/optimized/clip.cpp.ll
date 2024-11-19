@@ -19223,7 +19223,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__8Usd_ClipC2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 40)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__8Usd_ClipC2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
@@ -19368,7 +19368,7 @@ _ZNSt12__shared_ptrIKSt6vectorIN32pxrInternal_v0_24__pxrReserved__8Usd_Clip11Tim
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__8Usd_ClipC2ERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKNS_7SdfPathEmRKNS_12SdfAssetPathES8_dddRKSt10shared_ptrISt6vectorINS0_11TimeMappingESaISE_EEE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %5, double noundef %6, double noundef %7, double noundef %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__8Usd_ClipC2ERKNS_9TfWeakPtrINS_13PcpLayerStackEEERKNS_7SdfPathEmRKNS_12SdfAssetPathES8_dddRKSt10shared_ptrISt6vectorINS0_11TimeMappingESaISE_EEE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %5, double noundef %6, double noundef %7, double noundef %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %12 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %13 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -21067,7 +21067,7 @@ _ZNSt3setIdSt4lessIdESaIdEED2Ev.exit:             ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip22ListTimeSamplesForPathERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.std::set.134") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__8Usd_Clip22ListTimeSamplesForPathERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.std::set.134") align 8 %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

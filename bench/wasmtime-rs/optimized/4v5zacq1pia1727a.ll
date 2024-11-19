@@ -114,7 +114,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16sort_unstable_by17h
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checked17hdb64aae0e2c8bab1E"(ptr nocapture writeonly sret({ ptr, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1, i64 %2, i64 %3) unnamed_addr #2 {
+define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$20split_at_mut_checked17hdb64aae0e2c8bab1E"(ptr nocapture writeonly sret({ ptr, [3 x i64] }) align 8 %0, ptr align 8 %1, i64 %2, i64 %3) unnamed_addr #2 {
   %.not = icmp ugt i64 %3, %2
   br i1 %.not, label %8, label %5
 
@@ -173,7 +173,7 @@ define void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h96e6c142da
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h2bf3f850d62784f4E"(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 1 %1, i64 %2) unnamed_addr #0 {
+define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h2bf3f850d62784f4E"(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 %0, ptr nocapture readonly align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hdff3f4baf7a6049aE"(i64 %2, i1 zeroext false)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1

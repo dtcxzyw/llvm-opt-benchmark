@@ -1056,7 +1056,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN14colvarproxy_io29set_default_restart_frequencyEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((104, 108)) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define noundef i32 @_ZN14colvarproxy_io29set_default_restart_frequencyEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8
   ret i32 0
@@ -1639,7 +1639,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSoSt4lessIS5_ESaI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14colvarproxy_ioC2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14colvarproxy_ioC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV14colvarproxy_io, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
@@ -1849,7 +1849,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14colvarproxy_ioD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14colvarproxy_ioD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV14colvarproxy_io, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8

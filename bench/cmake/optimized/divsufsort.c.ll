@@ -269,7 +269,7 @@ construct_SA.exit:                                ; preds = %127, %20
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull initializes((0, 1024)) %2, ptr nocapture noundef nonnull initializes((0, 262144)) %3, i32 noundef range(i32 2, -2147483648) %4) unnamed_addr #2 {
+define internal fastcc range(i32 -2147483645, -2147483648) i32 @sort_typeBstar(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 2, -2147483648) %4) unnamed_addr #2 {
 .preheader338.preheader:
   %5 = alloca [64 x %struct.anon.1], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1024) %2, i8 0, i64 1024, i1 false)

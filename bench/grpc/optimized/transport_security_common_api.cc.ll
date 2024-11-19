@@ -484,7 +484,7 @@ return:                                           ; preds = %if.then.i.i16, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions(ptr nocapture noundef writeonly initializes((0, 16)) %versions, ptr nocapture noundef readonly %value) local_unnamed_addr #3 {
+define void @_Z46grpc_gcp_rpc_protocol_versions_assign_from_upbP29_grpc_gcp_RpcProtocolVersionsPK28grpc_gcp_RpcProtocolVersions(ptr nocapture noundef writeonly %versions, ptr nocapture noundef readonly %value) local_unnamed_addr #3 {
 entry:
   %add.ptr.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %0 = load i64, ptr %add.ptr.i.i, align 1

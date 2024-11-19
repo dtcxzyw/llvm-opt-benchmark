@@ -66,7 +66,7 @@ $_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char_traitsIcEEEENS_19ostreambuf_it
 @_ZN7mitsuba6StreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7mitsuba6StreamD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN7mitsuba6StreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define void @_ZN7mitsuba6StreamC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba6StreamE, i64 16), ptr %0, align 8
@@ -95,7 +95,7 @@ define void @_ZN7mitsuba6StreamD0Ev(ptr nocapture nonnull readnone align 8 %0) u
 declare void @llvm.trap() #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7mitsuba6Stream14set_byte_orderENS0_10EByteOrderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN7mitsuba6Stream14set_byte_orderENS0_10EByteOrderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void
@@ -760,7 +760,7 @@ _ZN7mitsuba6Stream5writeIcEEvRKT_.exit:           ; preds = %21, %_ZNSt3__110uni
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba6Stream9read_lineEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__1::basic_string") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba6Stream9read_lineEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 80)
@@ -881,7 +881,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 declare void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba6Stream10read_tokenEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba6Stream10read_tokenEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 8

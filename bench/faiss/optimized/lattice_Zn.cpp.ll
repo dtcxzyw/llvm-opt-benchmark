@@ -1169,7 +1169,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss7RepeatsC2EiPKf(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss7RepeatsC2EiPKf(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -2297,7 +2297,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %44, %.loopexit.spli
 declare noundef float @_ZN5faiss18fvec_inner_productEPKfS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss14ZnSphereSearchC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (16, 40)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss14ZnSphereSearchC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.11", align 8
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3748,7 +3748,7 @@ define internal void @_ZN5faiss14ZnSphereSearch12search_multiEiPKfPfS3_.omp_outl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss13ZnSphereCodecC2Eii(ptr noundef nonnull align 8 dereferenceable(104) initializes((24, 32), (40, 64)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss13ZnSphereCodecC2Eii(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.11", align 8
   %5 = alloca %"struct.faiss::Repeats", align 8
   %6 = alloca %"struct.faiss::ZnSphereCodec::CodeSegment", align 8
@@ -4663,7 +4663,7 @@ define void @_ZN5faiss16ZnSphereCodecRec10set_nv_cumEiiim(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss16ZnSphereCodecRecC2Eii(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 24), (32, 80), (88, 112)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss16ZnSphereCodecRecC2Eii(ptr noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5658,7 +5658,7 @@ _ZNSt6vectorImSaImEED2Ev.exit54:                  ; preds = %._crit_edge85, %72
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss16ZnSphereCodecAltC2Eii(ptr noundef nonnull align 8 dereferenceable(224) initializes((24, 32), (40, 64)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss16ZnSphereCodecAltC2Eii(ptr noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN5faiss13ZnSphereCodecC2Eii(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss16ZnSphereCodecAltE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104

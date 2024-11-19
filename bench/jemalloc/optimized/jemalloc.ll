@@ -637,7 +637,7 @@ arena_new_create_background_thread.exit:          ; preds = %arena_init_locked.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @arena_migrate(ptr noundef initializes((144, 152)) %tsd, ptr noundef %oldarena, ptr noundef %newarena) local_unnamed_addr #2 {
+define hidden void @arena_migrate(ptr noundef %tsd, ptr noundef %oldarena, ptr noundef %newarena) local_unnamed_addr #2 {
 entry:
   tail call void @arena_nthreads_dec(ptr noundef %oldarena, i1 noundef zeroext false) #18
   tail call void @arena_nthreads_inc(ptr noundef %newarena, i1 noundef zeroext false) #18

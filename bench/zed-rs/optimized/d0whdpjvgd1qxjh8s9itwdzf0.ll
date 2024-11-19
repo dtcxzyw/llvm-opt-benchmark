@@ -20383,7 +20383,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN8sum_tree6cur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h2117159e3d58aad3E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1504 x i8]) align 8 dereferenceable(1504) initializes((0, 4), (1416, 1498)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h2117159e3d58aad3E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1504 x i8]) align 8 dereferenceable(1504) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !noundef !5
@@ -20414,7 +20414,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h2117159e3d58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h2fffb389e9098b9aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([552 x i8]) align 8 dereferenceable(552) initializes((0, 8), (16, 20), (536, 546)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h2fffb389e9098b9aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([552 x i8]) align 8 dereferenceable(552) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8, !range !34, !noundef !5
@@ -20443,7 +20443,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h2fffb389e909
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h45fdf10b919c0e6cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([416 x i8]) align 8 dereferenceable(416) initializes((0, 4), (392, 410)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h45fdf10b919c0e6cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([416 x i8]) align 8 dereferenceable(416) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !range !800, !noundef !5
@@ -20472,7 +20472,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h45fdf10b919c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h55c77d88c1402b80E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([552 x i8]) align 8 dereferenceable(552) initializes((0, 8), (16, 28), (544, 546)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h55c77d88c1402b80E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([552 x i8]) align 8 dereferenceable(552) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !range !800, !noundef !5
@@ -20501,7 +20501,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h55c77d88c140
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h671ceda497cb20f7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([280 x i8]) align 8 dereferenceable(280) initializes((0, 4), (264, 274)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h671ceda497cb20f7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([280 x i8]) align 8 dereferenceable(280) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !noundef !5
@@ -20528,7 +20528,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h671ceda497cb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h8751ba01a5434197E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1096 x i8]) align 8 dereferenceable(1096) initializes((0, 52), (1080, 1090)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h8751ba01a5434197E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1096 x i8]) align 8 dereferenceable(1096) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !noundef !5
@@ -20559,7 +20559,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h8751ba01a543
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h91bab87158675263E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([416 x i8]) align 8 dereferenceable(416) initializes((0, 4), (392, 410)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h91bab87158675263E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([416 x i8]) align 8 dereferenceable(416) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8, !range !34, !noundef !5
@@ -20588,7 +20588,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h91bab8715867
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h9d0af6468452fbdeE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([416 x i8]) align 8 dereferenceable(416) initializes((0, 4), (392, 410)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17h9d0af6468452fbdeE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([416 x i8]) align 8 dereferenceable(416) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i8, ptr %5, align 8, !range !34, !noundef !5
@@ -20673,7 +20673,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17hae0a9c2a7793
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17hafb85110f1967b1aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([552 x i8]) align 8 dereferenceable(552) initializes((0, 8), (16, 28), (544, 546)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17hafb85110f1967b1aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([552 x i8]) align 8 dereferenceable(552) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !range !800, !noundef !5
@@ -20702,7 +20702,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17hafb85110f196
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17hf6a301a131498eb7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([416 x i8]) align 8 dereferenceable(416) initializes((0, 4), (392, 410)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17hf6a301a131498eb7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([416 x i8]) align 8 dereferenceable(416) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !range !800, !noundef !5
@@ -21438,7 +21438,7 @@ define hidden noundef align 8 dereferenceable_or_null(88) ptr @"_ZN8sum_tree6cur
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17h015e701a6a51df0bE"(ptr noalias noundef align 8 dereferenceable(416) initializes((392, 400), (408, 410)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17h015e701a6a51df0bE"(ptr noalias noundef align 8 dereferenceable(416) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca [0 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3739)
   %7 = getelementptr inbounds i8, ptr %0, i64 408
@@ -21478,7 +21478,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17h127bafdef7e822d8E"(ptr noalias noundef align 8 dereferenceable(416) initializes((392, 400), (408, 410)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17h127bafdef7e822d8E"(ptr noalias noundef align 8 dereferenceable(416) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca [0 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3750)
   %7 = getelementptr inbounds i8, ptr %0, i64 408
@@ -21518,7 +21518,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17h1613f6c9402e0c4bE"(ptr noalias noundef align 8 dereferenceable(416) initializes((392, 400), (408, 410)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17h1613f6c9402e0c4bE"(ptr noalias noundef align 8 dereferenceable(416) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca [0 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3761)
   %7 = getelementptr inbounds i8, ptr %0, i64 408
@@ -21558,7 +21558,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17h59991277e3f453d0E"(ptr noalias noundef align 8 dereferenceable(1096) initializes((0, 48), (1088, 1090)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17h59991277e3f453d0E"(ptr noalias noundef align 8 dereferenceable(1096) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca [0 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3772)
   %7 = getelementptr inbounds i8, ptr %0, i64 1088
@@ -21600,7 +21600,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17hb8d3b79abd31b1b3E"(ptr noalias noundef align 8 dereferenceable(416) initializes((392, 400), (408, 410)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17hb8d3b79abd31b1b3E"(ptr noalias noundef align 8 dereferenceable(416) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca [0 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3783)
   %7 = getelementptr inbounds i8, ptr %0, i64 408
@@ -21640,7 +21640,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17he4638c4019a23337E"(ptr noalias noundef align 8 dereferenceable(552) initializes((544, 546)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 {
+define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek17he4638c4019a23337E"(ptr noalias noundef align 8 dereferenceable(552) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i1 noundef zeroext %2, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #1 {
   %6 = alloca [0 x i8], align 1
   tail call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hdcd8762cde97570dE.llvm.1198603800146016543"(ptr noalias noundef nonnull align 8 dereferenceable(552) %0, ptr noalias nonnull readonly align 1 poison)
   %7 = call noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$13seek_internal17h059e48bbfa909339E"(ptr noalias noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) @anon.400f2d19503d9b779b36af8c03e392f1.82.llvm.1198603800146016543, i1 noundef zeroext %2, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) @anon.400f2d19503d9b779b36af8c03e392f1.79.llvm.1198603800146016543, ptr noalias noundef nonnull readonly align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4)
@@ -21648,7 +21648,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4seek
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h014aac18ccbee6aeE.llvm.1198603800146016543"(ptr noalias nocapture noundef align 8 dereferenceable(416) initializes((392, 400), (408, 410)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h014aac18ccbee6aeE.llvm.1198603800146016543"(ptr noalias nocapture noundef align 8 dereferenceable(416) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 400
@@ -21685,7 +21685,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hfb6df8e06f4597cbE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h05ac73221f9717acE.llvm.1198603800146016543"(ptr noalias nocapture noundef align 8 dereferenceable(1096) initializes((0, 48), (1088, 1090)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h05ac73221f9717acE.llvm.1198603800146016543"(ptr noalias nocapture noundef align 8 dereferenceable(1096) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 1088
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1080
@@ -21724,7 +21724,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h6207666131ac5cbbE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h28245d58b86e3df9E.llvm.1198603800146016543"(ptr noalias nocapture noundef align 8 dereferenceable(416) initializes((392, 400), (408, 410)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17h28245d58b86e3df9E.llvm.1198603800146016543"(ptr noalias nocapture noundef align 8 dereferenceable(416) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 400
@@ -21761,7 +21761,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h414de534e362478bE.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hd52c8d2a0b5bff32E.llvm.1198603800146016543"(ptr noalias nocapture noundef align 8 dereferenceable(416) initializes((392, 400), (408, 410)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hd52c8d2a0b5bff32E.llvm.1198603800146016543"(ptr noalias nocapture noundef align 8 dereferenceable(416) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 400
@@ -21798,7 +21798,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17haeb3765a75322f40E.exit: ; p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hdcd8762cde97570dE.llvm.1198603800146016543"(ptr noalias noundef align 8 dereferenceable(552) initializes((544, 546)) %0, ptr noalias nocapture nonnull readonly align 1 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hdcd8762cde97570dE.llvm.1198603800146016543"(ptr noalias noundef align 8 dereferenceable(552) %0, ptr noalias nocapture nonnull readonly align 1 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 544
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 536
@@ -21928,7 +21928,7 @@ _ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hb3e699fbb3269392E.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hfba2b2f9d3ef942bE.llvm.1198603800146016543"(ptr noalias nocapture noundef align 8 dereferenceable(416) initializes((392, 400), (408, 410)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$5reset17hfba2b2f9d3ef942bE.llvm.1198603800146016543"(ptr noalias nocapture noundef align 8 dereferenceable(416) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 400
@@ -24547,7 +24547,7 @@ define hidden noundef align 8 dereferenceable_or_null(88) ptr @"_ZN96_$LT$sum_tr
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN66_$LT$worktree..TraversalProgress$u20$as$u20$core..clone..Clone$GT$5clone17h2205beecdc59299aE.llvm.1198603800146016543"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #8 {
+define hidden void @"_ZN66_$LT$worktree..TraversalProgress$u20$as$u20$core..clone..Clone$GT$5clone17h2205beecdc59299aE.llvm.1198603800146016543"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([48 x i8]) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #8 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !439, !noundef !5
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5

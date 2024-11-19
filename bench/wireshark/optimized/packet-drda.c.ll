@@ -4031,7 +4031,7 @@ declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @wmem_tree_insert32(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @drda_set_server(ptr nocapture noundef writeonly initializes((16, 48)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @drda_set_server(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call ptr @wmem_file_scope() #6
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %1, align 8

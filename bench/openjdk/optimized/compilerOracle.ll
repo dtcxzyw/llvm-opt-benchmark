@@ -246,28 +246,28 @@ define hidden noundef ptr @_ZN24TypedMethodOptionMatcher5valueIPKcEET_v(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIlEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIlEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24TypedMethodOptionMatcher9set_valueImEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24TypedMethodOptionMatcher9set_valueImEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIdEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %0, double noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIdEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, double noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store double %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIbEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 49)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIbEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 %3, ptr %4, align 8
@@ -275,7 +275,7 @@ define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIbEEvT_(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIPKcEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN24TypedMethodOptionMatcher9set_valueIPKcEEvT_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = tail call noundef ptr @_ZN2os16strdup_check_oomEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 9) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %3, ptr %4, align 8

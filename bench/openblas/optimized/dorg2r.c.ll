@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c__1 = internal global i32 1, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @dorg2r_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) local_unnamed_addr #0 {
+define void @dorg2r_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca double, align 8

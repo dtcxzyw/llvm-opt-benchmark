@@ -128,7 +128,7 @@ define hidden noundef i32 @_ZN5zxing6qrcode15BitMatrixParser7copyBitEmmi(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode15BitMatrixParserC2ENS_3RefINS_9BitMatrixEEERNS_12ErrorHandlerE(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 12), (16, 41)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode15BitMatrixParserC2ENS_3RefINS_9BitMatrixEEERNS_12ErrorHandlerE(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.zxing::ReaderErrorHandler", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
@@ -1585,7 +1585,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5zxing12ErrorHandler7ErrCodeEv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode15BitMatrixParser9setMirrorEb(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((24, 32), (40, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN5zxing6qrcode15BitMatrixParser9setMirrorEb(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32

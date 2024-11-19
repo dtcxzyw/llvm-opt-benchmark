@@ -5009,7 +5009,7 @@ declare ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_I
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4Blob16BlobTransferData11DeserializeEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEESt10unique_ptrINS_6worker12TransferDataESt14default_deleteISA_EE(ptr noalias nocapture writeonly sret(%"class.node::BaseObjectPtrImpl.402") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %env, ptr readonly %context.coerce, ptr nocapture readnone %self) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4Blob16BlobTransferData11DeserializeEPNS_11EnvironmentEN2v85LocalINS4_7ContextEEESt10unique_ptrINS_6worker12TransferDataESt14default_deleteISA_EE(ptr noalias nocapture writeonly sret(%"class.node::BaseObjectPtrImpl.402") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef %env, ptr readonly %context.coerce, ptr nocapture readnone %self) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp8 = alloca %"class.node::BaseObjectPtrImpl.331", align 8
   %agg.tmp = alloca %"class.std::shared_ptr.333", align 8
@@ -5182,7 +5182,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node4Blob17CloneForMessagingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.404") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node4Blob17CloneForMessagingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.404") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrIN4node4Blob16BlobTransferDataESt14default_deleteIS2_EED2Ev.exit:
   %ref.tmp = alloca %"class.std::unique_ptr.412", align 8
   %data_queue_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -5389,7 +5389,7 @@ do.end27:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node15BlobBindingData15get_data_objectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"struct.node::BlobBindingData::StoredDataObject") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %uuid) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node15BlobBindingData15get_data_objectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"struct.node::BlobBindingData::StoredDataObject") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(32) %uuid) local_unnamed_addr #3 align 2 {
 entry:
   %data_objects_ = getelementptr inbounds i8, ptr %this, i64 40
   %call.i = tail call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N4node15BlobBindingData16StoredDataObjectEESaISB_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %data_objects_, ptr noundef nonnull align 8 dereferenceable(32) %uuid)
@@ -5574,7 +5574,7 @@ _ZN4node13MemoryTracker10TrackFieldINS_4BlobELb0EEEvPKcRKNS_17BaseObjectPtrImplI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node15BlobBindingData16StoredDataObjectC2ERKNS_17BaseObjectPtrImplINS_4BlobELb0EEEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %blob_, i64 noundef %length_, ptr noundef nonnull align 8 dereferenceable(32) %type_) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node15BlobBindingData16StoredDataObjectC2ERKNS_17BaseObjectPtrImplINS_4BlobELb0EEEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %blob_, i64 noundef %length_, ptr noundef nonnull align 8 dereferenceable(32) %type_) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node15BlobBindingData16StoredDataObjectE, i64 16), ptr %this, align 8
   %blob = getelementptr inbounds i8, ptr %this, i64 8

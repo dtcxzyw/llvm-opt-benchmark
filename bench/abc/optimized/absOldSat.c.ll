@@ -1027,7 +1027,7 @@ Vec_IntPush.exit47:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Saig_ManUnrollWithCex(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define ptr @Saig_ManUnrollWithCex(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4

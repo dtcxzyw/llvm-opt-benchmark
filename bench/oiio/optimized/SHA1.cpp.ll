@@ -39,7 +39,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_04SHA1C2EPKvm(ptr nocapture noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef %data, i64 noundef %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_04SHA1C2EPKvm(ptr nocapture noundef nonnull align 8 dereferenceable(9) %this, ptr noundef %data, i64 noundef %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #18
   %m_workspace.i = getelementptr inbounds i8, ptr %call, i64 128
@@ -245,7 +245,7 @@ if.end35:                                         ; preds = %if.then27, %if.end2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN18OpenImageIO_v2_6_04SHA17gethashERNS0_4HashE(ptr nocapture noundef nonnull align 8 dereferenceable(9) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(20) initializes((0, 20)) %h) local_unnamed_addr #9 align 2 {
+define void @_ZN18OpenImageIO_v2_6_04SHA17gethashERNS0_4HashE(ptr nocapture noundef nonnull align 8 dereferenceable(9) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(20) %h) local_unnamed_addr #9 align 2 {
 entry:
   %m_final = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i8, ptr %m_final, align 8
@@ -498,7 +498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_05CSHA15ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((0, 28)) %this) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_05CSHA15ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %this) local_unnamed_addr #11 align 2 {
 entry:
   store i32 1732584193, ptr %this, align 8
   %arrayidx3 = getelementptr inbounds i8, ptr %this, i64 4

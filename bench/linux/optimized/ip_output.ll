@@ -91,7 +91,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ip_generic_g
 @llvm.compiler.used = appending global [12 x ptr] [ptr @__UNIQUE_ID___addressable___ip_queue_xmit823, ptr @__UNIQUE_ID___addressable_ip_build_and_send_pkt814, ptr @__UNIQUE_ID___addressable_ip_do_fragment833, ptr @__UNIQUE_ID___addressable_ip_frag_init828, ptr @__UNIQUE_ID___addressable_ip_frag_next830, ptr @__UNIQUE_ID___addressable_ip_fraglist_init826, ptr @__UNIQUE_ID___addressable_ip_fraglist_prepare827, ptr @__UNIQUE_ID___addressable_ip_generic_getfrag834, ptr @__UNIQUE_ID___addressable_ip_local_out810, ptr @__UNIQUE_ID___addressable_ip_output817, ptr @__UNIQUE_ID___addressable_ip_queue_xmit825, ptr @__UNIQUE_ID___addressable_ip_send_check809], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ip_send_check(ptr noundef initializes((10, 12)) %0) #0 align 16 {
+define dso_local void @ip_send_check(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 10
   store i16 0, ptr %2, align 2
   %3 = load i8, ptr %0, align 4
@@ -491,7 +491,7 @@ declare dso_local void @__ip_select_ident(ptr noundef, ptr noundef, i32 noundef)
 declare dso_local void @ip_options_build(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip_mc_output(ptr noundef %0, ptr noundef %1, ptr noundef initializes((16, 24), (176, 178)) %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @ip_mc_output(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.nf_hook_state, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 88
   %6 = load i64, ptr %5, align 8
@@ -1056,7 +1056,7 @@ ip_fragment.exit6:                                ; preds = %ip_fragment.exit, %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip_output(ptr noundef %0, ptr noundef %1, ptr noundef initializes((176, 178)) %2) #0 align 16 {
+define dso_local i32 @ip_output(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.nf_hook_state, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 88
   %6 = load i64, ptr %5, align 8
@@ -1756,7 +1756,7 @@ define dso_local void @ip_fraglist_prepare(ptr nocapture noundef readonly %0, pt
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ip_copy_metadata(ptr nocapture noundef initializes((16, 24), (132, 134), (140, 152), (160, 168), (176, 178)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc void @ip_copy_metadata(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 128
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 7
@@ -1971,7 +1971,7 @@ define internal fastcc void @ip_copy_metadata(ptr nocapture noundef initializes(
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @ip_frag_init(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly initializes((0, 1), (4, 30)) %5) #6 align 16 {
+define dso_local void @ip_frag_init(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef writeonly %5) #6 align 16 {
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 192
   %9 = load ptr, ptr %8, align 8

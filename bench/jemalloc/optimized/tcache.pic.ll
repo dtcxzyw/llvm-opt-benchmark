@@ -293,7 +293,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @tcache_alloc_small_hard(ptr noundef %tsdn, ptr noundef %arena, ptr nocapture noundef readonly %tcache, ptr noundef %cache_bin, i32 noundef %binind, ptr nocapture noundef writeonly initializes((0, 1)) %tcache_success) local_unnamed_addr #0 {
+define hidden ptr @tcache_alloc_small_hard(ptr noundef %tsdn, ptr noundef %arena, ptr nocapture noundef readonly %tcache, ptr noundef %cache_bin, i32 noundef %binind, ptr nocapture noundef writeonly %tcache_success) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %tcache, align 8
   %1 = getelementptr i8, ptr %cache_bin, i64 22
@@ -1613,7 +1613,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tcache_arena_associate(ptr noundef %tsdn, ptr noundef initializes((40, 48)) %tcache_slow, ptr noundef %tcache, ptr noundef %arena) local_unnamed_addr #0 {
+define hidden void @tcache_arena_associate(ptr noundef %tsdn, ptr noundef %tcache_slow, ptr noundef %tcache, ptr noundef %arena) local_unnamed_addr #0 {
 entry:
   %arena1 = getelementptr inbounds i8, ptr %tcache_slow, i64 40
   store ptr %arena, ptr %arena1, align 8
@@ -2067,7 +2067,7 @@ return:                                           ; preds = %arena_get.exit, %ar
 declare void @cache_bin_info_compute_alloc(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @tcache_init(ptr noundef %tcache_slow, ptr noundef initializes((0, 8)) %tcache, ptr noundef nonnull %mem, ptr noundef %tcache_bin_info) unnamed_addr #0 {
+define internal fastcc void @tcache_init(ptr noundef %tcache_slow, ptr noundef %tcache, ptr noundef nonnull %mem, ptr noundef %tcache_bin_info) unnamed_addr #0 {
 entry:
   %cur_offset = alloca i64, align 8
   store ptr %tcache_slow, ptr %tcache, align 8
@@ -2161,7 +2161,7 @@ for.end39:                                        ; preds = %for.body29, %for.co
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @tsd_tcache_enabled_data_init(ptr noundef initializes((0, 1), (304, 308)) %tsd) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @tsd_tcache_enabled_data_init(ptr noundef %tsd) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr @opt_tcache, align 1
   %frombool.i = and i8 %0, 1

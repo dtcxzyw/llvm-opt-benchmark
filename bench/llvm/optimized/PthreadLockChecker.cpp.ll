@@ -664,7 +664,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118PthreadLockCheckerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((0, 35), (40, 88)) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118PthreadLockCheckerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 {
 .preheader1669.preheader:
   %1 = alloca [21 x %"struct.std::pair.135"], align 8
   %2 = alloca %"class.clang::ento::CallDescription", align 8
@@ -5484,7 +5484,7 @@ define internal void @_ZNK12_GLOBAL__N_118PthreadLockChecker14DestroyXNULockERKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_118PthreadLockCheckerEKFvRKNS0_9CallEventERNS0_14CheckerContextENS3_11CheckerKindEEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionESB_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_118PthreadLockCheckerEKFvRKNS0_9CallEventERNS0_14CheckerContextENS3_11CheckerKindEEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionESB_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds %"struct.std::pair.135", ptr %.0.val, i64 %.8.val
   %.idx.i = mul nsw i64 %.8.val, 80
@@ -5625,7 +5625,7 @@ define internal void @_ZNK12_GLOBAL__N_118PthreadLockChecker10TryC11LockERKN5cla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118PthreadLockCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118PthreadLockCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_118PthreadLockCheckerE, i64 16), ptr %0, align 8
   br label %2
 
@@ -5930,7 +5930,7 @@ _ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_118PthreadLockCheckerEKFvRKNS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118PthreadLockCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118PthreadLockCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_118PthreadLockCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) #21
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 280) #20
   ret void
@@ -9831,7 +9831,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_19LockStateEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

@@ -3021,7 +3021,7 @@ define hidden void @proto_register_bta2dp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_bta2dp(ptr noundef %0, ptr noundef initializes((284, 292)) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_bta2dp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct._bta2dp_codec_info_t, align 8
   %6 = load i32, ptr @proto_btavdtp, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 360
@@ -3497,7 +3497,7 @@ define hidden void @proto_register_btvdp() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_btvdp(ptr noundef %0, ptr noundef initializes((284, 292)) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
+define internal i32 @dissect_btvdp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct._btvdp_codec_info_t, align 8
   %6 = load i32, ptr @proto_btavdtp, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 360

@@ -154,7 +154,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN4LIEF5MachO11BindingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF5MachO18ChainedBindingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF5MachO18ChainedBindingInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO18ChainedBindingInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 76
   %3 = load i32, ptr %2, align 4
@@ -382,7 +382,7 @@ define noundef i64 @_ZNK4LIEF5MachO18ChainedBindingInfo7addressEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF5MachO18ChainedBindingInfo7addressEm(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((72, 76)) %0, i64 noundef %1) unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO18ChainedBindingInfo7addressEm(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 %1, %4

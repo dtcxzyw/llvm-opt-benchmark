@@ -189,7 +189,7 @@ declare i32 @htonl(i32 noundef) local_unnamed_addr #2
 declare i32 @nghttp2_bufs_addb(ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_hd_huff_decode_context_init(ptr nocapture noundef writeonly initializes((0, 2)) %0) local_unnamed_addr #4 {
+define dso_local void @nghttp2_hd_huff_decode_context_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   store i16 16384, ptr %0, align 2
   ret void
 }

@@ -1440,7 +1440,7 @@ _ZNSt10shared_ptrIN2cv4text20OCRBeamSearchDecoder18ClassifierCallbackEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4text26OCRBeamSearchClassifierCNNC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(624) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4text26OCRBeamSearchClassifierCNNC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::Mat", align 8

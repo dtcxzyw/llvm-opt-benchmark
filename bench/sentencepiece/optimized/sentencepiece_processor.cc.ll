@@ -527,7 +527,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #3 align 2 {
+define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN13sentencepiece17SentencePieceText16default_instanceEv()
@@ -540,7 +540,7 @@ define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2Ev(ptr nocapture no
 declare noundef nonnull align 8 dereferenceable(88) ptr @_ZN13sentencepiece17SentencePieceText16default_instanceEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2ERKNS_17SentencePieceTextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #4 align 2 {
+define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2ERKNS_17SentencePieceTextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -550,7 +550,7 @@ define void @_ZN13sentencepiece26ImmutableSentencePieceTextC2ERKNS_17SentencePie
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13sentencepiece26ImmutableSentencePieceTextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece26ImmutableSentencePieceTextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece26ImmutableSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -640,7 +640,7 @@ define void @_ZN13sentencepiece26ImmutableSentencePieceTextD0Ev(ptr noundef nonn
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePieceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePieceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
   %2 = tail call noundef nonnull align 8 dereferenceable(80) ptr @_ZN13sentencepiece31SentencePieceText_SentencePiece16default_instanceEv()
   store ptr %2, ptr %0, align 8
   ret void
@@ -649,7 +649,7 @@ define void @_ZN13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePie
 declare noundef nonnull align 8 dereferenceable(80) ptr @_ZN13sentencepiece31SentencePieceText_SentencePiece16default_instanceEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePieceC2ERKNS_31SentencePieceText_SentencePieceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 align 2 {
+define void @_ZN13sentencepiece49ImmutableSentencePieceText_ImmutableSentencePieceC2ERKNS_31SentencePieceText_SentencePieceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -1194,7 +1194,7 @@ define void @_ZNK13sentencepiece26ImmutableSentencePieceText17SerializeAsStringB
 declare void @_ZNK6google8protobuf11MessageLite17SerializeAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #4 align 2 {
+define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -1202,7 +1202,7 @@ define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextC2Ev(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece31ImmutableNBestSentencePieceTextD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece31ImmutableNBestSentencePieceTextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -1834,7 +1834,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13sentencepiece22SentencePieceProcessorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece22SentencePieceProcessorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %2, i8 0, i64 80, i1 false)
@@ -1842,7 +1842,7 @@ define void @_ZN13sentencepiece22SentencePieceProcessorC2Ev(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13sentencepiece22SentencePieceProcessorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece22SentencePieceProcessorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece22SentencePieceProcessorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8

@@ -972,7 +972,7 @@ unreachable:                                      ; preds = %invoke.cont18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib30MaddockInverseCumulativeNormalC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, double noundef %average, double noundef %sigma) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib30MaddockInverseCumulativeNormalC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, double noundef %average, double noundef %sigma) unnamed_addr #8 align 2 {
 entry:
   store double %average, ptr %this, align 8, !tbaa !34
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1071,7 +1071,7 @@ _ZN5boost4math8quantileIdNS0_8policies6policyINS2_14default_policyES4_S4_S4_S4_S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib23MaddockCumulativeNormalC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, double noundef %average, double noundef %sigma) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib23MaddockCumulativeNormalC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, double noundef %average, double noundef %sigma) unnamed_addr #8 align 2 {
 entry:
   store double %average, ptr %this, align 8, !tbaa !39
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 8

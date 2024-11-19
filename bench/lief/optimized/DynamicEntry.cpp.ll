@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.91" = type { ptr }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4LIEF3ELF22init_c_dynamic_entriesEP12Elf_Binary_tPNS0_6BinaryE(ptr nocapture noundef initializes((136, 144)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4LIEF3ELF22init_c_dynamic_entriesEP12Elf_Binary_tPNS0_6BinaryE(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.79", align 8
   %4 = alloca %"class.std::vector.79", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 176

@@ -3469,7 +3469,7 @@ define internal fastcc void @_ZN8fs_extra3dir6create17h1048ca51cc45df62E(ptr noa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN8fs_extra3dir6remove17h882fd2a4aab527e1E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 8)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN8fs_extra3dir6remove17h882fd2a4aab527e1E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = alloca { i64, [21 x i64] }, align 8
   %6 = alloca { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, align 8

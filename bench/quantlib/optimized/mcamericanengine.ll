@@ -222,7 +222,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18AmericanPathPricerC2EN5boost10shared_ptrINS_6PayoffEEEmNS_14LsmBasisSystem14PolynomialTypeE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 32)) %this, ptr nocapture noundef %payoff, i64 noundef %polynomialOrder, i32 noundef %polynomialType) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18AmericanPathPricerC2EN5boost10shared_ptrINS_6PayoffEEEmNS_14LsmBasisSystem14PolynomialTypeE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %payoff, i64 noundef %polynomialOrder, i32 noundef %polynomialType) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -449,7 +449,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf8compiler16GeneratorContext18GetCompilerVersionEPNS1_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr noundef initializes((32, 44)) %version) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf8compiler16GeneratorContext18GetCompilerVersionEPNS1_7VersionE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %version) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %major_.i.i = getelementptr inbounds i8, ptr %version, i64 32
   store i32 4, ptr %major_.i.i, align 8

@@ -98,7 +98,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox17SelectivityVector5emptyEi(ptr noalias sret(%"class.facebook::velox::SelectivityVector") align 8 initializes((0, 36), (37, 38)) %agg.result, i32 noundef %size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox17SelectivityVector5emptyEi(ptr noalias sret(%"class.facebook::velox::SelectivityVector") align 8 %agg.result, i32 noundef %size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)

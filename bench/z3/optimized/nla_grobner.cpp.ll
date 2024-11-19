@@ -618,7 +618,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3nla7grobnerC2EPNS_4coreE(ptr noundef nonnull align 8 dereferenceable(1448) initializes((0, 8)) %this, ptr noundef %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3nla7grobnerC2EPNS_4coreE(ptr noundef nonnull align 8 dereferenceable(1448) %this, ptr noundef %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %c, ptr %this, align 8
   %m_nex_creator.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1061,7 +1061,7 @@ if.end86:                                         ; preds = %land.lhs.true.i, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3nla7grobner15find_nl_clusterEv(ptr noundef nonnull align 8 dereferenceable(1448) initializes((1352, 1356)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3nla7grobner15find_nl_clusterEv(ptr noundef nonnull align 8 dereferenceable(1448) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %q = alloca %class.svector, align 8
   %m_rows.i = getelementptr inbounds i8, ptr %this, i64 1352
@@ -2044,7 +2044,7 @@ _ZN2dd8pdd_evalD2Ev.exit79:                       ; preds = %ehcleanup68, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nla7grobner14core_equationsEb(ptr noundef nonnull align 8 dereferenceable(1448) initializes((1352, 1356)) %this, i1 noundef zeroext %all_eqs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3nla7grobner14core_equationsEb(ptr noundef nonnull align 8 dereferenceable(1448) %this, i1 noundef zeroext %all_eqs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %all_eqs to i8
   %m_add_all_eqs = getelementptr inbounds i8, ptr %this, i64 1388
@@ -14221,7 +14221,7 @@ if.then.i.i9:                                     ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3nla7grobner28prepare_rows_and_active_varsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1448) initializes((1352, 1356)) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3nla7grobner28prepare_rows_and_active_varsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1448) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_rows = getelementptr inbounds i8, ptr %this, i64 1352
   store i32 0, ptr %m_rows, align 8

@@ -143,7 +143,7 @@ define internal noundef nonnull ptr @_ZL27initializeLocalizerPassOnceRN4llvm12Pa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9LocalizerC2ESt8functionIFbRKNS_15MachineFunctionEEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 28), (32, 88)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9LocalizerC2ESt8functionIFbRKNS_15MachineFunctionEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -178,7 +178,7 @@ _ZNSt8functionIFbRKN4llvm15MachineFunctionEEEC2ERKS5_.exit: ; preds = %2, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm9LocalizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 28), (32, 104)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm9LocalizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #1 align 2 {
 _ZNSt8functionIFbRKN4llvm15MachineFunctionEEED2Ev.exit:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %1, align 8
@@ -201,7 +201,7 @@ _ZNSt8functionIFbRKN4llvm15MachineFunctionEEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9Localizer4initERNS_15MachineFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((88, 96)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9Localizer4initERNS_15MachineFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -256,7 +256,7 @@ declare void @_ZN4llvm36getSelectionDAGFallbackAnalysisUsageERNS_13AnalysisUsage
 declare void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(161)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm9Localizer10isLocalUseERNS_14MachineOperandERKNS_12MachineInstrERPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm9Localizer10isLocalUseERNS_14MachineOperandERKNS_12MachineInstrERPNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(70) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24

@@ -24,7 +24,7 @@ $__clang_call_terminate = comdat any
 @_ZN5faiss15RandomGeneratorC1El = unnamed_addr alias void (ptr, i64), ptr @_ZN5faiss15RandomGeneratorC2El
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN5faiss15RandomGeneratorC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5000) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN5faiss15RandomGeneratorC2El(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5000) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = and i64 %1, 4294967295
   store i64 %3, ptr %0, align 8
   br label %4

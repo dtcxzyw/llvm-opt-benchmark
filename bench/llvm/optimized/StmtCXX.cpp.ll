@@ -141,7 +141,7 @@ _ZN5clang10CXXTryStmtC2ENS_4Stmt10EmptyShellEj.exit: ; preds = %23, %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10CXXTryStmtC2ENS_14SourceLocationEPNS_12CompoundStmtEN4llvm8ArrayRefIPNS_4StmtEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (8, 24)) %0, i32 %1, ptr noundef %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang10CXXTryStmtC2ENS_14SourceLocationEPNS_12CompoundStmtEN4llvm8ArrayRefIPNS_4StmtEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 %1, ptr noundef %2, ptr nocapture readonly %3, i64 %4) unnamed_addr #2 align 2 {
   store i8 -19, ptr %0, align 8
   %6 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
   %7 = trunc i8 %6 to i1
@@ -173,7 +173,7 @@ _ZSt4copyIPKPN5clang4StmtEPS2_ET0_T_S7_S6_.exit:  ; preds = %_ZN5clang4StmtC2ENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15CXXForRangeStmtC2EPNS_4StmtEPNS_8DeclStmtES4_S4_PNS_4ExprES6_S4_S2_NS_14SourceLocationES7_S7_S7_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((0, 1), (8, 12), (16, 92)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 %9, i32 %10, i32 %11, i32 %12) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang15CXXForRangeStmtC2EPNS_4StmtEPNS_8DeclStmtES4_S4_PNS_4ExprES6_S4_S2_NS_14SourceLocationES7_S7_S7_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, i32 %9, i32 %10, i32 %11, i32 %12) unnamed_addr #2 align 2 {
   store i8 -18, ptr %0, align 8
   %14 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
   %15 = trunc i8 %14 to i1
@@ -367,7 +367,7 @@ _ZSt18uninitialized_fillIPPN5clang4StmtES2_EvT_S4_RKT0_.exit: ; preds = %.lr.ph.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17CoroutineBodyStmtC2ERKNS0_8CtorArgsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (8, 12), (16, 112)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang17CoroutineBodyStmtC2ERKNS0_8CtorArgsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #2 align 2 {
   store i8 -24, ptr %0, align 8
   %3 = load i8, ptr @_ZN5clang4Stmt17StatisticsEnabledE, align 1
   %4 = trunc i8 %3 to i1

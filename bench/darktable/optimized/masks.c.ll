@@ -118,7 +118,7 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_timeout_show_all_feathers(ptr nocapture noundef writeonly initializes((148, 152)) %0) #1 {
+define hidden noundef i32 @_timeout_show_all_feathers(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 148
   store i32 0, ptr %2, align 4, !tbaa !6
   tail call void (...) @dt_control_queue_redraw_center() #12
@@ -802,7 +802,7 @@ declare void @g_object_unref(ptr noundef) local_unnamed_addr #4
 declare void @dt_gui_widget_reallocate_now(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(272) ptr @g_malloc0(i64 noundef 272) #14
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !24

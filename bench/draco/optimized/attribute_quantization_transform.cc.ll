@@ -135,7 +135,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5draco30AttributeQuantizationTransform28CopyToAttributeTransformDataEPNS_22AttributeTransformDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef initializes((0, 4)) %1) unnamed_addr #3 align 2 {
+define void @_ZNK5draco30AttributeQuantizationTransform28CopyToAttributeTransformDataEPNS_22AttributeTransformDataE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store i32 1, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8

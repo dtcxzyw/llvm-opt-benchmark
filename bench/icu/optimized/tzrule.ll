@@ -38,7 +38,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7521TimeArrayTimeZoneRuleD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7521TimeArrayTimeZoneRuleD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName = getelementptr inbounds i8, ptr %this, i64 8
@@ -67,7 +67,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512TimeZoneRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(80) %source) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512TimeZoneRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %source) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName = getelementptr inbounds i8, ptr %this, i64 8
@@ -94,7 +94,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7512TimeZoneRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7512TimeZoneRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName = getelementptr inbounds i8, ptr %this, i64 8
@@ -343,7 +343,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7519InitialTimeZoneRuleC2ERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7519InitialTimeZoneRuleC2ERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -366,7 +366,7 @@ _ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7519InitialTimeZoneRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(80) %source) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7519InitialTimeZoneRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(80) %source) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -394,7 +394,7 @@ _ZN6icu_7512TimeZoneRuleC2ERKS0_.exit:            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7519InitialTimeZoneRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7519InitialTimeZoneRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -612,7 +612,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518AnnualTimeZoneRuleC2ERKNS_13UnicodeStringEiiRKNS_12DateTimeRuleEii(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings, ptr noundef nonnull align 8 dereferenceable(36) %dateTimeRule, i32 noundef %startYear, i32 noundef %endYear) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518AnnualTimeZoneRuleC2ERKNS_13UnicodeStringEiiRKNS_12DateTimeRuleEii(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings, ptr noundef nonnull align 8 dereferenceable(36) %dateTimeRule, i32 noundef %startYear, i32 noundef %endYear) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -664,7 +664,7 @@ lpad:                                             ; preds = %new.notnull
 declare void @_ZN6icu_7512DateTimeRuleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518AnnualTimeZoneRuleC2ERKNS_13UnicodeStringEiiPNS_12DateTimeRuleEii(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings, ptr noundef %dateTimeRule, i32 noundef %startYear, i32 noundef %endYear) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518AnnualTimeZoneRuleC2ERKNS_13UnicodeStringEiiPNS_12DateTimeRuleEii(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings, ptr noundef %dateTimeRule, i32 noundef %startYear, i32 noundef %endYear) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -693,7 +693,7 @@ _ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518AnnualTimeZoneRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(96) %source) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518AnnualTimeZoneRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %source) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
   %fName.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -754,7 +754,7 @@ lpad:                                             ; preds = %new.notnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518AnnualTimeZoneRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7518AnnualTimeZoneRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518AnnualTimeZoneRuleE, i64 16), ptr %this, align 8
   %fDateTimeRule = getelementptr inbounds i8, ptr %this, i64 80
@@ -1374,7 +1374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521TimeArrayTimeZoneRuleC2ERKNS_13UnicodeStringEiiPKdiNS_12DateTimeRule12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings, ptr nocapture noundef readonly %startTimes, i32 noundef %numStartTimes, i32 noundef %timeRuleType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521TimeArrayTimeZoneRuleC2ERKNS_13UnicodeStringEiiPKdiNS_12DateTimeRule12TimeRuleTypeE(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(64) %name, i32 noundef %rawOffset, i32 noundef %dstSavings, ptr nocapture noundef readonly %startTimes, i32 noundef %numStartTimes, i32 noundef %timeRuleType) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
@@ -1488,7 +1488,7 @@ return:                                           ; preds = %do.body, %if.end33,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521TimeArrayTimeZoneRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(352) %source) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521TimeArrayTimeZoneRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef nonnull align 8 dereferenceable(352) %source) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512TimeZoneRuleE, i64 16), ptr %this, align 8
@@ -1544,7 +1544,7 @@ lpad:                                             ; preds = %_ZN6icu_7512TimeZon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7521TimeArrayTimeZoneRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521TimeArrayTimeZoneRuleD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521TimeArrayTimeZoneRuleE, i64 16), ptr %this, align 8
   %fStartTimes = getelementptr inbounds i8, ptr %this, i64 88

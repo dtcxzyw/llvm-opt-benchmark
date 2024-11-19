@@ -29,7 +29,7 @@ $_ZTIN9grpc_core10RefCountedINS_11ThreadQuotaENS_19PolymorphicRefCountENS_11Unre
 @_ZN9grpc_core11ThreadQuotaD1Ev = unnamed_addr alias void (ptr), ptr @_ZN9grpc_core11ThreadQuotaD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core11ThreadQuotaC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11ThreadQuotaC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
@@ -44,7 +44,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core11ThreadQuotaD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define void @_ZN9grpc_core11ThreadQuotaD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11ThreadQuotaE, i64 16), ptr %this, align 8
   %mu_ = getelementptr inbounds i8, ptr %this, i64 16

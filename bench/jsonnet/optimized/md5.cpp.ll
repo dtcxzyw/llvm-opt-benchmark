@@ -36,7 +36,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3MD5C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(108) initializes((0, 1), (68, 92)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3MD5C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(108) %0) unnamed_addr #3 align 2 {
   store i8 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 0, ptr %2, align 4
@@ -54,7 +54,7 @@ define dso_local void @_ZN3MD5C2Ev(ptr nocapture noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3MD54initEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(108) initializes((0, 1), (68, 92)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN3MD54initEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(108) %0) local_unnamed_addr #3 align 2 {
   store i8 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 0, ptr %2, align 4
@@ -72,7 +72,7 @@ define dso_local void @_ZN3MD54initEv(ptr nocapture noundef nonnull writeonly al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3MD5C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(108) initializes((0, 1), (68, 92)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3MD5C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
   store i8 0, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 0, ptr %3, align 4

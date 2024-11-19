@@ -2160,7 +2160,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -2186,7 +2186,7 @@ define internal void @"_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compar
 declare void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN12_GLOBAL__N_118compareLevenshteinESt6vectorIS3_ImSaImEESaIS5_EESt17basic_string_viewIcSt11char_traitsIcEESB_E3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8

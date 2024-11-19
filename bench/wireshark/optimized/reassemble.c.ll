@@ -835,7 +835,7 @@ free_fd_head.exit:                                ; preds = %20, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @reassembly_table_destroy(ptr nocapture noundef initializes((16, 40)) %0) local_unnamed_addr #2 {
+define void @reassembly_table_destroy(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %0, align 8
@@ -2538,7 +2538,7 @@ LINK_FRAG.exit:                                   ; preds = %._crit_edge.i.i, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @fragment_reassembled(ptr nocapture noundef readonly %0, ptr noundef initializes((16, 20)) %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #2 {
+define internal fastcc void @fragment_reassembled(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %5, align 8
   %6 = load ptr, ptr %1, align 8
@@ -5111,7 +5111,7 @@ declare ptr @tvb_new_chain(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @show_fragment_seq_tree(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef initializes((272, 276)) %3, ptr noundef %4, ptr nocapture noundef initializes((0, 8)) %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @show_fragment_seq_tree(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #2 {
   %7 = getelementptr inbounds i8, ptr %3, i64 272
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
@@ -5287,7 +5287,7 @@ show_fragment_errs_in_col.exit:                   ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @show_fragment_tree(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef initializes((272, 276)) %3, ptr noundef %4, ptr nocapture noundef initializes((0, 8)) %5) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @show_fragment_tree(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #2 {
   %7 = getelementptr inbounds i8, ptr %3, i64 272
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16

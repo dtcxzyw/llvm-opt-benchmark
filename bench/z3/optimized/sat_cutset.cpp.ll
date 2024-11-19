@@ -1185,7 +1185,7 @@ if.end:                                           ; preds = %entry.if.end_crit_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat7cut_set4initER6regionjj(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (16, 20)) %this, ptr noundef nonnull align 8 dereferenceable(40) %r, i32 noundef %max_sz, i32 noundef %v) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat7cut_set4initER6regionjj(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(40) %r, i32 noundef %max_sz, i32 noundef %v) local_unnamed_addr #3 align 2 {
 entry:
   store i32 %v, ptr %this, align 8
   %m_size = getelementptr inbounds i8, ptr %this, i64 16

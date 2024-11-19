@@ -1486,7 +1486,7 @@ Gia_ObjIsRo.exit.thread:                          ; preds = %tailrecurse, %3, %G
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bmc_PerformFindFlopOrder(ptr noundef %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
+define void @Bmc_PerformFindFlopOrder(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr i8, ptr %0, i64 32

@@ -484,7 +484,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #4 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12MakeCapFloorC2ENS_8CapFloor4TypeERKNS_6PeriodERKN5boost10shared_ptrINS_9IborIndexEEEdS5_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) initializes((0, 4), (8, 18)) %this, i32 noundef %capFloorType, ptr noundef nonnull align 4 dereferenceable(8) %tenor, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex, double noundef %strike, ptr noundef nonnull align 4 dereferenceable(8) %forwardStart) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12MakeCapFloorC2ENS_8CapFloor4TypeERKNS_6PeriodERKN5boost10shared_ptrINS_9IborIndexEEEdS5_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) %this, i32 noundef %capFloorType, ptr noundef nonnull align 4 dereferenceable(8) %tenor, ptr noundef nonnull align 8 dereferenceable(16) %iborIndex, double noundef %strike, ptr noundef nonnull align 4 dereferenceable(8) %forwardStart) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.boost::shared_ptr.16", align 8
   %ref.tmp = alloca %"class.QuantLib::Period", align 8
@@ -3105,7 +3105,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(264) ptr @_ZN8QuantLib15MakeVanillaSwap23withFloatingLegDayCountERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(264), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(304) ptr @_ZN8QuantLib12MakeCapFloor11asOptionletEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(304) initializes((17, 18)) %this, i1 noundef zeroext %b) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(304) ptr @_ZN8QuantLib12MakeCapFloor11asOptionletEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(304) %this, i1 noundef zeroext %b) local_unnamed_addr #13 align 2 {
 entry:
   %storedv = zext i1 %b to i8
   %asOptionlet_ = getelementptr inbounds nuw i8, ptr %this, i64 17
@@ -3114,7 +3114,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(304) ptr @_ZN8QuantLib12MakeCapFloor17withPricingEngineERKN5boost10shared_ptrINS_13PricingEngineEEE(ptr noundef nonnull returned align 8 dereferenceable(304) initializes((288, 296)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %engine) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(304) ptr @_ZN8QuantLib12MakeCapFloor17withPricingEngineERKN5boost10shared_ptrINS_13PricingEngineEEE(ptr noundef nonnull returned align 8 dereferenceable(304) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %engine) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %engine_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load ptr, ptr %engine, align 8, !tbaa !67

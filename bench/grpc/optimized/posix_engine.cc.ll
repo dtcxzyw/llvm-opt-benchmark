@@ -4059,7 +4059,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit4:       ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental24PosixEnginePollerManagerC2ESt10shared_ptrINS0_10ThreadPoolEE(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %this, ptr nocapture noundef %executor) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental24PosixEnginePollerManagerC2ESt10shared_ptrINS0_10ThreadPoolEE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr nocapture noundef %executor) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental24PosixEnginePollerManagerE, i64 16), ptr %this, align 8
   %poller_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4084,7 +4084,7 @@ entry:
 declare void @_ZN17grpc_event_engine12experimental17MakeDefaultPollerEPNS0_9SchedulerE(ptr sret(%"class.std::shared_ptr.54") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN17grpc_event_engine12experimental24PosixEnginePollerManagerC2ESt10shared_ptrINS0_16PosixEventPollerEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 28), (32, 49)) %this, ptr nocapture noundef %poller) unnamed_addr #11 align 2 {
+define void @_ZN17grpc_event_engine12experimental24PosixEnginePollerManagerC2ESt10shared_ptrINS0_16PosixEventPollerEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %this, ptr nocapture noundef %poller) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental24PosixEnginePollerManagerE, i64 16), ptr %this, align 8
   %poller_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4168,7 +4168,7 @@ if.end:                                           ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental24PosixEnginePollerManager15TriggerShutdownEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((48, 49)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental24PosixEnginePollerManager15TriggerShutdownEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %trigger_shutdown_called_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 1, ptr %trigger_shutdown_called_, align 8
@@ -4344,7 +4344,7 @@ _ZNSt12__shared_ptrIN17grpc_event_engine12experimental16PosixEventPollerELN9__gn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17grpc_event_engine12experimental24PosixEnginePollerManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental24PosixEnginePollerManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental24PosixEnginePollerManagerE, i64 16), ptr %this, align 8
   %poller_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4619,7 +4619,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental16PosixEventEngineC2ESt10shared_ptrINS0_16PosixEventPollerEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 24)) %this, ptr noundef %poller) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental16PosixEventEngineC2ESt10shared_ptrINS0_16PosixEventPollerEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %poller) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.79", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -5306,7 +5306,7 @@ _ZNSt12_Vector_baseIN17grpc_event_engine12experimental16PosixEventEngine15Connec
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental16PosixEventEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 24)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental16PosixEventEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.79", align 8
   %agg.tmp41 = alloca %"class.absl::lts_20230802::AnyInvocable.6", align 16
@@ -7064,7 +7064,7 @@ declare i64 @_ZN17grpc_event_engine12experimental11ToTimestampEN9grpc_core9Times
 declare void @_ZN17grpc_event_engine12experimental12TimerManager9TimerInitEPNS0_5TimerEN9grpc_core9TimestampEPNS0_11EventEngine7ClosureE(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i64, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN17grpc_event_engine12experimental16PosixEventEngine16PosixDNSResolverC2ESt10unique_ptrINS0_30RefCountedDNSResolverInterfaceEN9grpc_core16OrphanableDeleteEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef %dns_resolver) unnamed_addr #11 align 2 {
+define void @_ZN17grpc_event_engine12experimental16PosixEventEngine16PosixDNSResolverC2ESt10unique_ptrINS0_30RefCountedDNSResolverInterfaceEN9grpc_core16OrphanableDeleteEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef %dns_resolver) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN17grpc_event_engine12experimental16PosixEventEngine16PosixDNSResolverE, i64 16), ptr %this, align 8
   %dns_resolver_ = getelementptr inbounds i8, ptr %this, i64 8

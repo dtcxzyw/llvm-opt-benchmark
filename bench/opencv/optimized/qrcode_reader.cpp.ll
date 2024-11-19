@@ -129,7 +129,7 @@ define linkonce_odr hidden void @_ZN5zxing12ErrorHandlerD2Ev(ptr noundef nonnull
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode12QRCodeReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 12)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode12QRCodeReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5zxing6qrcode12QRCodeReaderE, i64 16), ptr %0, align 8
@@ -741,7 +741,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5zxing12ErrorHandler7ErrCodeEv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode12QRCodeReader10decodeMoreENS_3RefINS_12BinaryBitmapEEENS2_INS_9BitMatrixEEENS_11DecodeHintsERNS_12ErrorHandlerE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.3") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(148) initializes((48, 49)) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i8 %4, ptr noundef nonnull align 8 dereferenceable(48) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode12QRCodeReader10decodeMoreENS_3RefINS_12BinaryBitmapEEENS2_INS_9BitMatrixEEENS_11DecodeHintsERNS_12ErrorHandlerE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(148) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, i8 %4, ptr noundef nonnull align 8 dereferenceable(48) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.zxing::DecodeHints", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.zxing::Ref.9", align 8
@@ -4715,7 +4715,7 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5zxing6qrcode12QRCodeReader13setPatternFixEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(148) initializes((68, 72)) %0, float noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN5zxing6qrcode12QRCodeReader13setPatternFixEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(148) %0, float noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   store float %1, ptr %3, align 4
   ret void
@@ -4728,7 +4728,7 @@ declare noundef float @_ZN5zxing6qrcode17FinderPatternInfo19getAnglePossibleFixE
 declare noundef i32 @_ZN5zxing6qrcode8Detector25getPossibleAlignmentCountEi(ptr noundef nonnull align 8 dereferenceable(60), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(148) initializes((120, 124)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN5zxing6qrcode12QRCodeReader27setPossibleAPCountByVersionEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(148) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = icmp ult i32 %1, 2
   br i1 %3, label %4, label %6
 
@@ -5313,7 +5313,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode12QRCodeReader21getPossibleDimentionsEi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.17") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode12QRCodeReader21getPossibleDimentionsEi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.17") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIiSaIiEE5clearEv.exit:
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = icmp slt i32 %2, 0
@@ -5654,7 +5654,7 @@ declare void @_ZN5zxing9BitMatrix10setRowBoolEiPb(ptr noundef nonnull align 8 de
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6qrcode12QRCodeReader15initIntegralOldEPjNS_3RefINS_9BitMatrixEEE(ptr nocapture noundef initializes((0, 4)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN5zxing6qrcode12QRCodeReader15initIntegralOldEPjNS_3RefINS_9BitMatrixEEE(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call noundef i32 @_ZNK5zxing9BitMatrix8getWidthEv(ptr noundef nonnull align 8 dereferenceable(346) %3)
   %5 = load ptr, ptr %1, align 8
@@ -5940,7 +5940,7 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader11getDecodeIDEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing6qrcode12QRCodeReader11setDecodeIDEj(ptr nocapture noundef nonnull align 8 dereferenceable(148) initializes((104, 108), (112, 116)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN5zxing6qrcode12QRCodeReader11setDecodeIDEj(ptr nocapture noundef nonnull align 8 dereferenceable(148) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = tail call i64 @time(ptr noundef null) #16
   %4 = trunc i64 %3 to i32
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -5981,7 +5981,7 @@ _ZN5zxing6qrcode12QRCodeReader34getRecommendedImageSizeTypeInteralEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing6qrcode12QRCodeReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode12QRCodeReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5zxing6qrcode12QRCodeReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -6038,7 +6038,7 @@ _ZN5zxing6qrcode23QBAR_QRCODE_DETECT_INFOD2Ev.exit: ; preds = %_ZSt8_DestroyIPN5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing6qrcode12QRCodeReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6qrcode12QRCodeReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5zxing6qrcode12QRCodeReaderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -6102,7 +6102,7 @@ define hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN5zxing6qrcode1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef range(i32 0, 7) i32 @_ZN5zxing6qrcode12QRCodeReader17getPossibleAPTypeEv(ptr nocapture noundef nonnull align 8 dereferenceable(148) initializes((120, 124)) %0) unnamed_addr #9 align 2 {
+define hidden noundef range(i32 0, 7) i32 @_ZN5zxing6qrcode12QRCodeReader17getPossibleAPTypeEv(ptr nocapture noundef nonnull align 8 dereferenceable(148) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -21

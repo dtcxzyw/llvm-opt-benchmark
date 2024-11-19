@@ -79,7 +79,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slab_automove_extstore_run(ptr noundef %arg, ptr nocapture noundef writeonly initializes((0, 4)) %src, ptr nocapture noundef writeonly initializes((0, 4)) %dst) local_unnamed_addr #0 {
+define dso_local void @slab_automove_extstore_run(ptr noundef %arg, ptr nocapture noundef writeonly %src, ptr nocapture noundef writeonly %dst) local_unnamed_addr #0 {
 entry:
   %mem_limit_reached.i = alloca i8, align 1
   store i32 -1, ptr %src, align 4

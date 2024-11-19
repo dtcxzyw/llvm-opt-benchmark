@@ -931,7 +931,7 @@ declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @SSL_CONF_CTX_set_ssl(ptr nocapture noundef writeonly initializes((24, 40)) %cctx, ptr noundef %ssl) local_unnamed_addr #4 {
+define void @SSL_CONF_CTX_set_ssl(ptr nocapture noundef writeonly %cctx, ptr noundef %ssl) local_unnamed_addr #4 {
 entry:
   %ssl1 = getelementptr inbounds i8, ptr %cctx, i64 32
   store ptr %ssl, ptr %ssl1, align 8
@@ -986,7 +986,7 @@ if.end21:                                         ; preds = %cond.false, %cond.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_CONF_CTX_set_ssl_ctx(ptr nocapture noundef writeonly initializes((24, 48), (120, 152)) %cctx, ptr noundef %ctx) local_unnamed_addr #2 {
+define void @SSL_CONF_CTX_set_ssl_ctx(ptr nocapture noundef writeonly %cctx, ptr noundef %ctx) local_unnamed_addr #2 {
 entry:
   %ctx1 = getelementptr inbounds i8, ptr %cctx, i64 24
   store ptr %ctx, ptr %ctx1, align 8
@@ -1274,7 +1274,7 @@ if.end6:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cmd_Protocol(ptr noundef initializes((152, 168)) %cctx, ptr noundef %value) #0 {
+define internal i32 @cmd_Protocol(ptr noundef %cctx, ptr noundef %value) #0 {
 entry:
   %tbl = getelementptr inbounds i8, ptr %cctx, i64 152
   store ptr @cmd_Protocol.ssl_protocol_list, ptr %tbl, align 8

@@ -82,7 +82,7 @@ init_block.exit:                                  ; preds = %.preheader.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_tr_stored_block(ptr nocapture noundef initializes((5916, 5920)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define hidden void @_tr_stored_block(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 5924
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, 13
@@ -1367,7 +1367,7 @@ bi_windup.exit:                                   ; preds = %447, %.sink.split.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @build_tree(ptr noundef initializes((5284, 5292)) %0, ptr nocapture noundef %1) unnamed_addr #3 {
+define internal fastcc void @build_tree(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #3 {
   %3 = alloca [16 x i16], align 16
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16

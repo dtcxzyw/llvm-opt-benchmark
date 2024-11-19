@@ -9653,7 +9653,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit55: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal13preprocessing6passes14LearnedRewrite20returnRewriteLearnedENS0_12NodeTemplateILb1EEES5_NS2_16LearnedRewriteIdE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture readonly %n, ptr nocapture noundef readonly %nr, i32 noundef %id) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing6passes14LearnedRewrite20returnRewriteLearnedENS0_12NodeTemplateILb1EEES5_NS2_16LearnedRewriteIdE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture readonly %n, ptr nocapture noundef readonly %nr, i32 noundef %id) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %ref.tmp8.i.i = alloca i64, align 8
   %d_lrewCount = getelementptr inbounds i8, ptr %this, i64 64

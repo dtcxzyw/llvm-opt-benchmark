@@ -321,7 +321,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4node6crypto11ManagedX509C2EOSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cert) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto11ManagedX509C2EOSt10unique_ptrI7x509_stNS_15FunctionDeleterIS3_XadL_Z9X509_freeEEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %cert) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %this, align 8
   %cert_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -332,7 +332,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto11ManagedX509C2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %that) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node6crypto11ManagedX509C2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %that) unnamed_addr #4 align 2 {
 _ZNSt10unique_ptrI7x509_stN4node15FunctionDeleterIS0_XadL_Z9X509_freeEEEEE5resetEPS0_.exit.i:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto11ManagedX509E, i64 16), ptr %this, align 8
   %cert_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4910,7 +4910,7 @@ _ZN4node13MemoryTracker10TrackFieldINS_6crypto11ManagedX509EEEvPKcRKSt10shared_p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto15X509Certificate27X509CertificateTransferData11DeserializeEPNS_11EnvironmentEN2v85LocalINS5_7ContextEEESt10unique_ptrINS_6worker12TransferDataESt14default_deleteISB_EE(ptr noalias nocapture writeonly sret(%"class.node::BaseObjectPtrImpl.342") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %env, ptr readonly %context.coerce, ptr nocapture readnone %self) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node6crypto15X509Certificate27X509CertificateTransferData11DeserializeEPNS_11EnvironmentEN2v85LocalINS5_7ContextEEESt10unique_ptrINS_6worker12TransferDataESt14default_deleteISB_EE(ptr noalias nocapture writeonly sret(%"class.node::BaseObjectPtrImpl.342") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %env, ptr readonly %context.coerce, ptr nocapture readnone %self) unnamed_addr #4 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.292", align 8
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
@@ -5110,7 +5110,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node6crypto15X509Certificate17CloneForMessagingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.344") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4node6crypto15X509Certificate17CloneForMessagingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.344") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 {
 entry:
   %cert_ = getelementptr inbounds i8, ptr %this, i64 32
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18, !noalias !12

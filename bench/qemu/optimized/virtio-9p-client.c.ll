@@ -457,7 +457,7 @@ declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #6
 declare i64 @guest_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_req_send(ptr nocapture noundef initializes((40, 56), (64, 68)) %req) local_unnamed_addr #1 {
+define dso_local void @v9fs_req_send(ptr nocapture noundef %req) local_unnamed_addr #1 {
 entry:
   %v9p1 = getelementptr inbounds i8, ptr %req, i64 8
   %0 = load ptr, ptr %v9p1, align 8

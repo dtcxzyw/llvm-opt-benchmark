@@ -107,7 +107,7 @@ $_ZTISt15_Sp_counted_ptrIPN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_polic
 @_ZN4YAML11NodeBuilderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4YAML11NodeBuilderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML11NodeBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML11NodeBuilderE, i64 16), ptr %this, align 8
   %m_pMemory = getelementptr inbounds i8, ptr %this, i64 8
@@ -341,7 +341,7 @@ _ZNSt12__shared_ptrIN4YAML6detail13memory_holderELN9__gnu_cxx12_Lock_policyE2EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4YAML11NodeBuilderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML11NodeBuilderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4YAML11NodeBuilderE, i64 16), ptr %this, align 8
   %m_keys = getelementptr inbounds i8, ptr %this, i64 80
@@ -460,7 +460,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML11NodeBuilder4RootEv(ptr noalias sret(%"class.YAML::Node") align 8 initializes((0, 1)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML11NodeBuilder4RootEv(ptr noalias sret(%"class.YAML::Node") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_pRoot = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_pRoot, align 8

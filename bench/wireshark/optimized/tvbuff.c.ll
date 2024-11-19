@@ -10311,7 +10311,7 @@ define ptr @tvb_get_ds_tvb(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   store i64 0, ptr %3, align 8
   %6 = and i32 %4, 30
   %7 = add nsw i32 %6, -2

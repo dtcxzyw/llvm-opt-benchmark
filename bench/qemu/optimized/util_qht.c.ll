@@ -1296,7 +1296,7 @@ if.end:                                           ; preds = %qht_map_create.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qht_statistics_init(ptr nocapture noundef readonly %ht, ptr noundef initializes((8, 24)) %stats) local_unnamed_addr #0 {
+define dso_local void @qht_statistics_init(ptr nocapture noundef readonly %ht, ptr noundef %stats) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr %ht monotonic, align 8
   %1 = inttoptr i64 %0 to ptr

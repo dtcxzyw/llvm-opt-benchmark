@@ -190,7 +190,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel24ActionObservationHistoryC2EiRKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel24ActionObservationHistoryC2EiRKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1055,7 +1055,7 @@ _ZNSt12_Vector_baseISt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_string
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel24ActionObservationHistoryC2ERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #3 align 2 {
+define void @_ZN10open_spiel24ActionObservationHistoryC2ERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(60) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -1065,7 +1065,7 @@ define void @_ZN10open_spiel24ActionObservationHistoryC2ERKNS_5StateE(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel24ActionObservationHistoryC2EiSt6vectorISt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel24ActionObservationHistoryC2EiSt6vectorISt4pairIN4absl7debian28optionalIlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaISD_EE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3316,7 +3316,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %47, %55
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel24PublicObservationHistoryC2ERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel24PublicObservationHistoryC2ERKNS_5StateE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr", align 8
   %.sroa.040 = alloca %"class.absl::debian2::optional_internal::optional_data_dtor_base.25", align 8
   %4 = alloca %"class.std::map", align 8
@@ -3953,7 +3953,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel24PublicObservationHistoryC2ESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel24PublicObservationHistoryC2ESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8

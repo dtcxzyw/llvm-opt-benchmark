@@ -1478,7 +1478,7 @@ declare i64 @bdrv_opt_mem_align(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_try_blockalign(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @parallels_test_data_off(ptr nocapture noundef readonly %s, i64 noundef range(i64 0, -9223372036854775808) %file_nb_sectors, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %correct_offset) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @parallels_test_data_off(ptr nocapture noundef readonly %s, i64 noundef range(i64 0, -9223372036854775808) %file_nb_sectors, ptr nocapture noundef nonnull writeonly %correct_offset) unnamed_addr #4 {
 entry:
   %header = getelementptr inbounds i8, ptr %s, i64 48
   %0 = load ptr, ptr %header, align 8
@@ -1812,7 +1812,7 @@ declare i64 @qemu_iovec_memset(ptr noundef, i64 noundef, i32 noundef, i64 nounde
 declare void @qemu_iovec_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i64 -4294967294, -4294967296) i64 @allocate_clusters(ptr noundef %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr nocapture noundef writeonly initializes((0, 4)) %pnum) #0 {
+define internal range(i64 -4294967294, -4294967296) i64 @allocate_clusters(ptr noundef %bs, i64 noundef %sector_num, i32 noundef %nb_sectors, ptr nocapture noundef writeonly %pnum) #0 {
 entry:
   %qiov.i111 = alloca %struct.QEMUIOVector, align 8
   %qiov.i = alloca %struct.QEMUIOVector, align 8

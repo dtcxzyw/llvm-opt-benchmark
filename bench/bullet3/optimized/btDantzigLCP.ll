@@ -1327,7 +1327,7 @@ _Z13btVectorScalePfPKfi.exit:                     ; preds = %for.body.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5btLCPC2EiiiPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_PbPiS2_S2_PS0_(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 20), (24, 144)) %this, i32 noundef %_n, i32 noundef %_nskip, i32 noundef %_nub, ptr noundef %_Adata, ptr noundef %_x, ptr noundef %_b, ptr noundef %_w, ptr noundef %_lo, ptr noundef %_hi, ptr noundef %l, ptr noundef %_d, ptr noundef %_Dell, ptr noundef %_ell, ptr noundef %_tmp, ptr noundef %_state, ptr noundef %_findex, ptr noundef %p, ptr noundef %c, ptr noundef %Arows) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5btLCPC2EiiiPfS0_S0_S0_S0_S0_S0_S0_S0_S0_S0_PbPiS2_S2_PS0_(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, i32 noundef %_n, i32 noundef %_nskip, i32 noundef %_nub, ptr noundef %_Adata, ptr noundef %_x, ptr noundef %_b, ptr noundef %_w, ptr noundef %_lo, ptr noundef %_hi, ptr noundef %l, ptr noundef %_d, ptr noundef %_Dell, ptr noundef %_ell, ptr noundef %_tmp, ptr noundef %_state, ptr noundef %_findex, ptr noundef %p, ptr noundef %c, ptr noundef %Arows) unnamed_addr #2 align 2 {
 entry:
   store i32 %_n, ptr %this, align 8
   %m_nskip = getelementptr inbounds i8, ptr %this, i64 4

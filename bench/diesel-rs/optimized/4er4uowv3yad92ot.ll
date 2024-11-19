@@ -797,7 +797,7 @@ define hidden void @_ZN6diesel11deserialize7FromSql17from_nullable_sql17h6b5a633
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h1a250f3b80cdfc4cE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #0 {
+define hidden void @_ZN6diesel13query_builder13QueryFragment7is_noop17h1a250f3b80cdfc4cE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2) unnamed_addr #0 {
   %.sroa.210 = alloca [3 x i64], align 8
   %4 = alloca { { i64, [2 x i64] }, ptr }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8

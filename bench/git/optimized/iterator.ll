@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @base_ref_iterator_init(ptr nocapture noundef initializes((0, 8), (16, 36)) %iter, ptr noundef %vtable, i32 noundef %ordered) local_unnamed_addr #1 {
+define dso_local void @base_ref_iterator_init(ptr nocapture noundef %iter, ptr noundef %vtable, i32 noundef %ordered) local_unnamed_addr #1 {
 entry:
   store ptr %vtable, ptr %iter, align 8
   %tobool = icmp ne i32 %ordered, 0

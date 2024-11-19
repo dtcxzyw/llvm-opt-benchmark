@@ -366,7 +366,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_uint16_from_uint8(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 2)) %pv, i64 %size, ptr nocapture readnone %field) #2 {
+define internal noundef i32 @get_uint16_from_uint8(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #2 {
 entry:
   %call.i = tail call i32 @qemu_get_byte(ptr noundef %f) #13
   %conv = trunc i32 %call.i to i16

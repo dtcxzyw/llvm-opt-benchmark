@@ -692,7 +692,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test46VideoWriter_Writing_WriteFrame_WriteFrame_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) initializes((256, 257)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test46VideoWriter_Writing_WriteFrame_WriteFrame_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -2387,7 +2387,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test46VideoWriter_Writing_WriteFrame_WriteFrame_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #9 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test46VideoWriter_Writing_WriteFrame_WriteFrame_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test46VideoWriter_Writing_WriteFrame_WriteFrame_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -2395,7 +2395,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test46VideoWriter_Writing_WriteFrame_WriteFrame_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #9 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test46VideoWriter_Writing_WriteFrame_WriteFrame_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test46VideoWriter_Writing_WriteFrame_WriteFrame_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27

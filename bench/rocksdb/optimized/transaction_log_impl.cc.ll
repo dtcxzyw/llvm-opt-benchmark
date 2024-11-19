@@ -211,7 +211,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb26TransactionLogIteratorImplC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_18ImmutableDBOptionsERKNS_22TransactionLogIterator11ReadOptionsERKNS_10EnvOptionsEmSt10unique_ptrISt6vectorISJ_INS_7LogFileESt14default_deleteISL_EESaISO_EESM_ISQ_EEPKNS_10VersionSetEbRKSt10shared_ptrINS_8IOTracerEE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 25), (32, 65), (72, 90), (96, 102), (104, 136)) %this, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef %options, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %read_options, ptr noundef nonnull align 8 dereferenceable(56) %soptions, i64 noundef %seq, ptr nocapture noundef %files, ptr noundef %versions, i1 noundef zeroext %seq_per_batch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %io_tracer) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb26TransactionLogIteratorImplC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_18ImmutableDBOptionsERKNS_22TransactionLogIterator11ReadOptionsERKNS_10EnvOptionsEmSt10unique_ptrISt6vectorISJ_INS_7LogFileESt14default_deleteISL_EESaISO_EESM_ISQ_EEPKNS_10VersionSetEbRKSt10shared_ptrINS_8IOTracerEE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(32) %dir, ptr noundef %options, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %read_options, ptr noundef nonnull align 8 dereferenceable(56) %soptions, i64 noundef %seq, ptr nocapture noundef %files, ptr noundef %versions, i1 noundef zeroext %seq_per_batch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %io_tracer) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %seq_per_batch to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb26TransactionLogIteratorImplE, i64 16), ptr %this, align 8
@@ -347,7 +347,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb26TransactionLogIteratorImpl19SeekToStartSequenceEmb(ptr noundef nonnull align 8 dereferenceable(208) initializes((88, 90)) %this, i64 noundef %start_file_index, i1 noundef zeroext %strict) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb26TransactionLogIteratorImpl19SeekToStartSequenceEmb(ptr noundef nonnull align 8 dereferenceable(208) %this, i64 noundef %start_file_index, i1 noundef zeroext %strict) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7rocksdb5DeferC2EOSt8functionIFvvEE.exit:
   %ref.tmp.i22 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"class.std::unique_ptr.2", align 8
@@ -3236,7 +3236,7 @@ _ZNSt10shared_ptrIN7rocksdb10FileSystemEED2Ev.exit: ; preds = %_ZNSt10shared_ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb26TransactionLogIteratorImpl8GetBatchEv(ptr noalias nocapture writeonly sret(%"struct.rocksdb::BatchResult") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb26TransactionLogIteratorImpl8GetBatchEv(ptr noalias nocapture writeonly sret(%"struct.rocksdb::BatchResult") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN7rocksdb10WriteBatchESt14default_deleteIS1_EEaSEOS4_.exit:
   %current_batch_seq_ = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i64, ptr %current_batch_seq_, align 8
@@ -3956,7 +3956,7 @@ eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb26TransactionLogIteratorImpl8NextImplEb(ptr noundef nonnull align 8 dereferenceable(208) initializes((89, 90)) %this, i1 noundef zeroext %internal) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb26TransactionLogIteratorImpl8NextImplEb(ptr noundef nonnull align 8 dereferenceable(208) %this, i1 noundef zeroext %internal) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i12 = alloca %"class.std::unique_ptr.2", align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8

@@ -925,7 +925,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare double @exp(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16AbcdMathFunction11initialize_Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((80, 136)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib16AbcdMathFunction11initialize_Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load double, ptr %this, align 8, !tbaa !20
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -985,7 +985,7 @@ entry:
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16AbcdMathFunctionC2Edddd(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 80)) %this, double noundef %aa, double noundef %bb, double noundef %cc, double noundef %dd) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16AbcdMathFunctionC2Edddd(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, double noundef %aa, double noundef %bb, double noundef %cc, double noundef %dd) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store double %aa, ptr %this, align 8, !tbaa !20
   %b_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1111,7 +1111,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i13, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16AbcdMathFunctionC2ESt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((32, 80)) %this, ptr nocapture noundef %abcd) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16AbcdMathFunctionC2ESt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %abcd) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %abcd_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %abcd, align 8, !tbaa !32
@@ -1329,7 +1329,7 @@ _ZNK8QuantLib16AbcdMathFunction9primitiveEd.exit14: ; preds = %_ZNK8QuantLib16Ab
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16AbcdMathFunction28definiteIntegralCoefficientsEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, double noundef %t, double noundef %t2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16AbcdMathFunction28definiteIntegralCoefficientsEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, double noundef %t, double noundef %t2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = fsub double %t2, %t
   %c_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -1367,7 +1367,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib16AbcdMathFunction30definiteDerivativeCoefficientsEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, double noundef %t, double noundef %t2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib16AbcdMathFunction30definiteDerivativeCoefficientsEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, double noundef %t, double noundef %t2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sub = fsub double %t2, %t
   %c_ = getelementptr inbounds nuw i8, ptr %this, i64 16

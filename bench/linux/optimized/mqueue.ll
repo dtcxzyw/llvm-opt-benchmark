@@ -1085,7 +1085,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_mq_timedrece
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @mq_init_ns(ptr noundef initializes((824, 848)) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @mq_init_ns(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 824
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 828
@@ -3637,7 +3637,7 @@ define internal i32 @mqueue_get_tree(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @get_tree_nodev(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @mqueue_fill_super(ptr noundef initializes((20, 21), (24, 32), (48, 56), (96, 104)) %0, ptr nocapture readnone %1) #0 align 16 {
+define internal i32 @mqueue_fill_super(ptr noundef %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   %5 = or i64 %4, 6

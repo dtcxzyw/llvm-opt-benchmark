@@ -340,7 +340,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector21InspectorSocketServerC2ESt10unique_ptrINS0_20SocketServerDelegateESt14default_deleteIS3_EEP9uv_loop_sRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_17InspectPublishUidEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 16)) %this, ptr nocapture noundef %delegate, ptr noundef %loop, ptr noundef nonnull align 8 dereferenceable(32) %host, i32 noundef %port, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %inspect_publish_uid, ptr noundef %out) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector21InspectorSocketServerC2ESt10unique_ptrINS0_20SocketServerDelegateESt14default_deleteIS3_EEP9uv_loop_sRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKNS_17InspectPublishUidEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr nocapture noundef %delegate, ptr noundef %loop, ptr noundef nonnull align 8 dereferenceable(32) %host, i32 noundef %port, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %inspect_publish_uid, ptr noundef %out) unnamed_addr #0 align 2 {
 entry:
   store ptr %loop, ptr %this, align 8
   %delegate_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2994,7 +2994,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node9inspector13SocketSessionC2EPNS0_21InspectorSocketServerEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 4), (8, 20)) %this, ptr nocapture readnone %server, i32 noundef %id, i32 noundef %server_port) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4node9inspector13SocketSessionC2EPNS0_21InspectorSocketServerEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture readnone %server, i32 noundef %id, i32 noundef %server_port) unnamed_addr #8 align 2 {
 entry:
   store i32 %id, ptr %this, align 8
   %ws_socket_ = getelementptr inbounds i8, ptr %this, i64 8

@@ -539,7 +539,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui10StaticTextC1ERK14EnrichedStringbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiRKNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(448) initializes((448, 468)) %this, ptr noundef nonnull align 8 dereferenceable(80) %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rectangle, i1 noundef zeroext %background) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui10StaticTextC1ERK14EnrichedStringbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiRKNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef nonnull align 8 dereferenceable(80) %text, i1 noundef zeroext %border, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rectangle, i1 noundef zeroext %background) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp14 = alloca %"class.irr::core::rect", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 448
@@ -604,7 +604,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3irr3gui10StaticTextD2Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui10StaticTextD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %vtt) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
@@ -739,7 +739,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3irr3gui10StaticTextD1Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3irr3gui10StaticTextD1Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN3irr3gui10StaticTextD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef nonnull @_ZTTN3irr3gui10StaticTextE) #26
   ret void
@@ -757,7 +757,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3irr3gui10StaticTextD0Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN3irr3gui10StaticTextD0Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN3irr3gui10StaticTextD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef nonnull @_ZTTN3irr3gui10StaticTextE) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
@@ -3660,7 +3660,7 @@ return:                                           ; preds = %if.then4, %if.end, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui10StaticText16setOverrideColorENS_5video6SColorE(ptr noundef nonnull align 8 dereferenceable(448) initializes((404, 408)) %this, i32 %color.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3irr3gui10StaticText16setOverrideColorENS_5video6SColorE(ptr noundef nonnull align 8 dereferenceable(448) %this, i32 %color.coerce) unnamed_addr #3 align 2 {
 entry:
   %ColoredText = getelementptr inbounds i8, ptr %this, i64 344
   %m_default_color.i = getelementptr inbounds i8, ptr %this, i64 404
@@ -3671,7 +3671,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3irr3gui10StaticText18setBackgroundColorENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((318, 319), (400, 401), (408, 412)) %this, i32 %color.coerce) unnamed_addr #13 align 2 {
+define dso_local void @_ZN3irr3gui10StaticText18setBackgroundColorENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %this, i32 %color.coerce) unnamed_addr #13 align 2 {
 entry:
   %m_background.i = getelementptr inbounds i8, ptr %this, i64 408
   store i32 %color.coerce, ptr %m_background.i, align 8, !tbaa !78
@@ -3683,7 +3683,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3irr3gui10StaticText17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((318, 319)) %this, i1 noundef zeroext %draw) unnamed_addr #13 align 2 {
+define dso_local void @_ZN3irr3gui10StaticText17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %this, i1 noundef zeroext %draw) unnamed_addr #13 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %Background = getelementptr inbounds i8, ptr %this, i64 318
@@ -3733,7 +3733,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3irr3gui10StaticText13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((316, 317)) %this, i1 noundef zeroext %draw) unnamed_addr #13 align 2 {
+define dso_local void @_ZN3irr3gui10StaticText13setDrawBorderEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %this, i1 noundef zeroext %draw) unnamed_addr #13 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %Border = getelementptr inbounds i8, ptr %this, i64 316
@@ -3751,7 +3751,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3irr3gui10StaticText23setTextRestrainedInsideEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((319, 320)) %this, i1 noundef zeroext %restrainTextInside) unnamed_addr #13 align 2 {
+define dso_local void @_ZN3irr3gui10StaticText23setTextRestrainedInsideEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %this, i1 noundef zeroext %restrainTextInside) unnamed_addr #13 align 2 {
 entry:
   %frombool = zext i1 %restrainTextInside to i8
   %RestrainTextInside = getelementptr inbounds i8, ptr %this, i64 319
@@ -3769,7 +3769,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3irr3gui10StaticText16setTextAlignmentENS0_14EGUI_ALIGNMENTES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((308, 316)) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #13 align 2 {
+define dso_local void @_ZN3irr3gui10StaticText16setTextAlignmentENS0_14EGUI_ALIGNMENTES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %this, i32 noundef %horizontal, i32 noundef %vertical) unnamed_addr #13 align 2 {
 entry:
   %HAlign = getelementptr inbounds i8, ptr %this, i64 308
   store i32 %horizontal, ptr %HAlign, align 4, !tbaa !7
@@ -3809,7 +3809,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui10StaticText11setWordWrapEb(ptr noundef nonnull align 8 dereferenceable(448) initializes((317, 318)) %this, i1 noundef zeroext %enable) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3irr3gui10StaticText11setWordWrapEb(ptr noundef nonnull align 8 dereferenceable(448) %this, i1 noundef zeroext %enable) unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %enable to i8
   %WordWrap = getelementptr inbounds i8, ptr %this, i64 317

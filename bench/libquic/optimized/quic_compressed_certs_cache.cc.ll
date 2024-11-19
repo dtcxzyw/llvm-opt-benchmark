@@ -71,14 +71,14 @@ $_ZTVN4base12MRUCacheBaseImN3net24QuicCompressedCertsCache11CachedCertsESt4lessI
 @_ZN3net24QuicCompressedCertsCacheD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net24QuicCompressedCertsCacheD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %chain, ptr noundef %client_common_set_hashes, ptr noundef %client_cached_cert_hashes) unnamed_addr #1 align 2 {
+define dso_local void @_ZN3net24QuicCompressedCertsCache17UncompressedCertsC2ERK13scoped_refptrINS_11ProofSource5ChainEEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %chain, ptr noundef %client_common_set_hashes, ptr noundef %client_cached_cert_hashes) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %chain, align 8
   store ptr %0, ptr %this, align 8
@@ -127,7 +127,7 @@ _ZN13scoped_refptrIN3net11ProofSource5ChainEED2Ev.exit: ; preds = %entry, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net24QuicCompressedCertsCache11CachedCertsC2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net24QuicCompressedCertsCache11CachedCertsC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %client_common_set_hashes_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -143,7 +143,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net24QuicCompressedCertsCache11CachedCertsC2ERKNS0_17UncompressedCertsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %uncompressed_certs, ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net24QuicCompressedCertsCache11CachedCertsC2ERKNS0_17UncompressedCertsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %uncompressed_certs, ptr noundef nonnull align 8 dereferenceable(32) %compressed_cert) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %uncompressed_certs, align 8
   store ptr %0, ptr %this, align 8
@@ -233,7 +233,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net24QuicCompressedCertsCache11CachedCertsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(104) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net24QuicCompressedCertsCache11CachedCertsC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(104) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8

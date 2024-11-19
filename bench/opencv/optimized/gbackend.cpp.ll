@@ -313,7 +313,7 @@ define void @_ZN2cv4gapi8GBackend4Priv29addMetaSensitiveBackendPassesERN3ade27Ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK2cv4gapi8GBackend4Priv16auxiliaryKernelsEv(ptr dead_on_unwind noalias writable sret(%"class.cv::GKernelPackage") align 8 initializes((32, 40)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #7 align 2 {
+define void @_ZNK2cv4gapi8GBackend4Priv16auxiliaryKernelsEv(ptr dead_on_unwind noalias writable sret(%"class.cv::GKernelPackage") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -385,13 +385,13 @@ define noundef zeroext i1 @_ZNK2cv4gapi8GBackend4Priv13supportsConstENS_6GShapeE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv4gapi8GBackendC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #7 align 2 {
+define void @_ZN2cv4gapi8GBackendC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv4gapi8GBackendC2EOSt10shared_ptrINS1_4PrivEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #9 align 2 {
+define void @_ZN2cv4gapi8GBackendC2EOSt10shared_ptrINS1_4PrivEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #9 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [5 x i8] c" %f\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @PQinsert(ptr noundef initializes((32, 48)) %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
+define void @PQinsert(ptr noundef %0, ptr noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
   tail call void @ref(ptr noundef %1) #13

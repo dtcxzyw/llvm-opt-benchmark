@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon = type { [2 x i32] }
 
 ; Function Attrs: nounwind uwtable
-define void @DES_string_to_key(ptr noundef %str, ptr noundef initializes((0, 8)) %key) local_unnamed_addr #0 {
+define void @DES_string_to_key(ptr noundef %str, ptr noundef %key) local_unnamed_addr #0 {
 entry:
   %ks = alloca %struct.DES_ks, align 4
   store i64 0, ptr %key, align 1
@@ -72,7 +72,7 @@ declare i32 @DES_cbc_cksum(ptr noundef, ptr noundef, i64 noundef, ptr noundef, p
 declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @DES_string_to_2keys(ptr noundef %str, ptr noundef initializes((0, 8)) %key1, ptr noundef initializes((0, 8)) %key2) local_unnamed_addr #0 {
+define void @DES_string_to_2keys(ptr noundef %str, ptr noundef %key1, ptr noundef %key2) local_unnamed_addr #0 {
 entry:
   %ks = alloca %struct.DES_ks, align 4
   store i64 0, ptr %key1, align 1

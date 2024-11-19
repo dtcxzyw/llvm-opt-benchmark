@@ -3879,7 +3879,7 @@ define hidden void @_ZN18alacritty_terminal4term16RenderableCursor3new17h5c9d567
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN18alacritty_terminal4term17RenderableContent3new17h5016da4ce4e20dbaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([128 x i8]) align 8 dereferenceable(128) initializes((0, 28), (32, 44), (48, 124)) %0, ptr noalias noundef readonly align 8 dereferenceable(1736) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN18alacritty_terminal4term17RenderableContent3new17h5016da4ce4e20dbaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([128 x i8]) align 8 dereferenceable(128) %0, ptr noalias noundef readonly align 8 dereferenceable(1736) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [40 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 144
@@ -5757,7 +5757,7 @@ define hidden { i64, i32 } @"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$17regex_search_left17hfa501c323de8ab91E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((32, 33)) %0, ptr noalias noundef readonly align 8 dereferenceable(1736) %1, ptr noalias noundef align 16 dereferenceable(4352) %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) unnamed_addr #1 {
+define hidden void @"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$17regex_search_left17hfa501c323de8ab91E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(1736) %1, ptr noalias noundef align 16 dereferenceable(4352) %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
@@ -5921,7 +5921,7 @@ define hidden void @"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$18regex_search_right17hc6bb95e9405dfc8eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((32, 33)) %0, ptr noalias noundef readonly align 8 dereferenceable(1736) %1, ptr noalias noundef align 16 dereferenceable(4352) %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) unnamed_addr #1 {
+define hidden void @"_ZN18alacritty_terminal4term6search57_$LT$impl$u20$alacritty_terminal..term..Term$LT$T$GT$$GT$18regex_search_right17hc6bb95e9405dfc8eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(1736) %1, ptr noalias noundef align 16 dereferenceable(4352) %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6) unnamed_addr #1 {
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)

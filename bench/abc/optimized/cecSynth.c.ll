@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cec_SeqSynthesisSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 44)) %0) local_unnamed_addr #0 {
+define void @Cec_SeqSynthesisSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %0, align 4
   store i32 1000, ptr %2, align 4
@@ -1159,7 +1159,7 @@ tailrecurse:                                      ; preds = %tailrecurse, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManNormalizeEquivalences(ptr noundef initializes((192, 200)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @Gia_ManNormalizeEquivalences(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 24
   %.val19 = load i32, ptr %3, align 8
   %4 = sext i32 %.val19 to i64

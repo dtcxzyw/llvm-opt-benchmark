@@ -99,7 +99,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN19interaction_const_t18SoftCoreParametersC1ERK8t_lambda = unnamed_addr alias void (ptr, ptr), ptr @_ZN19interaction_const_t18SoftCoreParametersC2ERK8t_lambda
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19interaction_const_t18SoftCoreParametersC2ERK8t_lambda(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) initializes((0, 36)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1) unnamed_addr #0 align 2 {
+define void @_ZN19interaction_const_t18SoftCoreParametersC2ERK8t_lambda(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 220
   %4 = load float, ptr %3, align 4
   store float %4, ptr %0, align 4
@@ -166,7 +166,7 @@ define void @_ZN19interaction_const_t18SoftCoreParametersC2ERK8t_lambda(ptr noca
 declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22init_interaction_constP8_IO_FILERK10t_inputrecRK10gmx_mtop_tb(ptr dead_on_unwind noalias writable sret(%struct.interaction_const_t) align 8 initializes((0, 61), (64, 124), (128, 152)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %3, i1 noundef zeroext %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z22init_interaction_constP8_IO_FILERK10t_inputrecRK10gmx_mtop_tb(ptr dead_on_unwind noalias writable sret(%struct.interaction_const_t) align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %3, i1 noundef zeroext %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

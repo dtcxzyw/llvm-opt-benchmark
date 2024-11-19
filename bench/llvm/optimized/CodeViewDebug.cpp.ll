@@ -18576,7 +18576,7 @@ _ZNSt6vectorIN4llvm9ClassInfo10MemberInfoESaIS2_EED2Ev.exit.i: ; preds = %163, %
 declare noundef ptr @_ZNK4llvm13DIDerivedType11getConstantEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm13CodeViewDebug16collectClassInfoEPKNS_15DICompositeTypeE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::ClassInfo") align 8 initializes((0, 68)) %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm13CodeViewDebug16collectClassInfoEPKNS_15DICompositeTypeE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::ClassInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1312) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = getelementptr inbounds i8, ptr %0, i64 88

@@ -3400,7 +3400,7 @@ declare noundef zeroext i1 @_ZNK8Settings7getBoolERKNSt7__cxx1112basic_stringIcS
 declare void @_Z27createSoundManagerSingletonv(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN14ClientLauncher11init_engineEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN14ClientLauncher11init_engineEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #31
   %0 = getelementptr inbounds i8, ptr %call, i64 16

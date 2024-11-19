@@ -129,7 +129,7 @@ $_ZTVN5Ipopt14IpoptExceptionE = comdat any
 @_ZN5Ipopt9SumMatrixD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5Ipopt9SumMatrixD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt9SumMatrixC2EPKNS_14SumMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 12), (16, 48)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt9SumMatrixC2EPKNS_14SumMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -344,7 +344,7 @@ _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit:  ; preds = %1, %5, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt9SumMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8), (16, 24)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt9SumMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt9SumMatrixE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt9SumMatrixE, i64 128), ptr %2, align 8
@@ -506,7 +506,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEEaSEPS2_.exit:     ; preds = %4, %16, %24
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Ipopt9SumMatrix7GetTermEiRdRNS_8SmartPtrIKNS_6MatrixEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
+define void @_ZNK5Ipopt9SumMatrix7GetTermEiRdRNS_8SmartPtrIKNS_6MatrixEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8
@@ -1337,7 +1337,7 @@ _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEaSEPS2_.exit: ; preds = %._crit_edge, %74,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK5Ipopt14SumMatrixSpace12GetTermSpaceEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define void @_ZNK5Ipopt14SumMatrixSpace12GetTermSpaceEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = icmp sgt i32 %2, -1
   br i1 %4, label %5, label %_ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEEC2ERKS3_.exit
 

@@ -397,7 +397,7 @@ define void @_ZN5boost6locale4util14base_converterD0Ev(ptr noundef nonnull align
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost6locale4util20get_simple_encodingsB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6locale4util20get_simple_encodingsB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_M_allocateEm.exit.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %1 = tail call noalias noundef nonnull dereferenceable(960) ptr @_Znwm(i64 noundef 960) #21
@@ -571,7 +571,7 @@ _ZNSt10unique_ptrIN5boost6locale4util16simple_converterESt14default_deleteIS3_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost6locale4util21create_utf8_converterEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6locale4util21create_utf8_converterEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5boost6locale4util14utf8_converterESt14default_deleteIS3_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21, !noalias !26
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost6locale4util14utf8_converterE, i64 16), ptr %1, align 8, !tbaa !22, !noalias !26

@@ -1774,7 +1774,7 @@ _ZN11colvar_gridIdE20request_actual_valueEb.exit42: ; preds = %_ZNSt14_Bit_refer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN22colvarbias_reweightaMDD1Ev(ptr noundef nonnull align 8 dereferenceable(552) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN22colvarbias_reweightaMDD1Ev(ptr noundef nonnull align 8 dereferenceable(552) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN22colvarbias_reweightaMDD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull @_ZTT22colvarbias_reweightaMD) #18
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #18
@@ -1784,7 +1784,7 @@ define void @_ZN22colvarbias_reweightaMDD1Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN22colvarbias_reweightaMDD0Ev(ptr noundef nonnull align 8 dereferenceable(552) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN22colvarbias_reweightaMDD0Ev(ptr noundef nonnull align 8 dereferenceable(552) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN22colvarbias_reweightaMDD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull @_ZTT22colvarbias_reweightaMD) #18
   %2 = getelementptr inbounds i8, ptr %0, i64 872
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #18
@@ -3564,7 +3564,7 @@ declare void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(12
 declare void @_ZN11colvarparseD2Ev(ptr noundef nonnull align 8 dereferenceable(320)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN22colvarbias_reweightaMDD2Ev(ptr noundef nonnull align 8 dereferenceable(552) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22colvarbias_reweightaMDD2Ev(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 56

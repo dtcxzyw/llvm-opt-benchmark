@@ -869,7 +869,7 @@ declare void @_ZNK5Yosys5RTLIL6Design27selected_whole_modules_warnEb(ptr dead_on
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module18has_processes_warnEv(ptr noundef nonnull align 8 dereferenceable(560)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorkerC2EPN5Yosys5RTLIL6DesignEPNS2_6ModuleE(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 64), (72, 96)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorkerC2EPN5Yosys5RTLIL6DesignEPNS2_6ModuleE(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [75 x i32], align 4
   %5 = alloca %"class.std::allocator.10", align 1
   %6 = alloca [75 x i32], align 4
@@ -12601,7 +12601,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker8sig2bitsEN5Yosys5RTLIL7SigSpecEb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker8sig2bitsEN5Yosys5RTLIL7SigSpecEb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.(anonymous namespace)::OptMuxtreeWorker::bitinfo_t", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -18068,7 +18068,7 @@ declare void @_ZNSt12out_of_rangeC1EPKc(ptr noundef nonnull align 8 dereferencea
 declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 1), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker9bitinfo_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 1
   store i8 %4, ptr %0, align 8
@@ -18717,7 +18717,7 @@ _ZNSt6vectorIN5Yosys7hashlib4poolIiNS1_8hash_opsIiEEE7entry_tESaIS6_EE17_M_reall
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(123) initializes((0, 4), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(123) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116OptMuxtreeWorker10portinfo_tC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(123) %0, ptr noundef nonnull align 8 dereferenceable(123) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -18954,7 +18954,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_116OptMuxtreeWorker10portinfo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr nocapture noundef initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_116OptMuxtreeWorker9muxinfo_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

@@ -3068,7 +3068,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef initializes((8, 16)) %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang7SemaPPC17BuiltinPPCMMACallEPNS_8CallExprEjPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i32 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.clang::QualType", align 8

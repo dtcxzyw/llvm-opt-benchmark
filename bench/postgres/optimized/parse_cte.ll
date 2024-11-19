@@ -1299,7 +1299,7 @@ declare ptr @list_copy(ptr noundef) local_unnamed_addr #2
 declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @analyzeCTETargetList(ptr noundef %0, ptr nocapture noundef initializes((72, 104)) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define dso_local void @analyzeCTETargetList(ptr noundef %0, ptr nocapture noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call ptr @copyObjectImpl(ptr noundef %5) #9

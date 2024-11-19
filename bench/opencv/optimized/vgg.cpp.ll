@@ -677,7 +677,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EED2Ev.exit:     ; preds = %1, %6
 declare void @_ZN2cv9normalizeERKNS_11_InputArrayERKNS_17_InputOutputArrayEddiiS2_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), double noundef, double noundef, i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11xfeatures2d8VGG_ImplC2Eifbbfb(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8), (12, 16), (20, 27)) %0, ptr noundef %1, i32 noundef %2, float noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, float noundef %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11xfeatures2d8VGG_ImplC2Eifbbfb(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %1, i32 noundef %2, float noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, float noundef %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1
   %11 = zext i1 %4 to i8

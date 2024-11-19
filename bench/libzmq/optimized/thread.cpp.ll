@@ -32,7 +32,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8thread_t5startEPFvPvES1_PKc(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 16)) %this, ptr noundef %tfn_, ptr noundef %arg_, ptr noundef readonly %name_) local_unnamed_addr #1 align 2 {
+define void @_ZN3zmq8thread_t5startEPFvPvES1_PKc(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %tfn_, ptr noundef %arg_, ptr noundef readonly %name_) local_unnamed_addr #1 align 2 {
 entry:
   store ptr %tfn_, ptr %this, align 8
   %_arg = getelementptr inbounds i8, ptr %this, i64 8
@@ -184,7 +184,7 @@ declare i32 @pthread_equal(i64 noundef, i64 noundef) local_unnamed_addr #7
 declare i64 @pthread_self() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8thread_t23setSchedulingParametersEiiRKSt3setIiSt4lessIiESaIiEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((48, 56)) %this, i32 noundef %priority_, i32 noundef %scheduling_policy_, ptr noundef nonnull align 8 dereferenceable(48) %affinity_cpus_) local_unnamed_addr #1 align 2 {
+define void @_ZN3zmq8thread_t23setSchedulingParametersEiiRKSt3setIiSt4lessIiESaIiEE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %priority_, i32 noundef %scheduling_policy_, ptr noundef nonnull align 8 dereferenceable(48) %affinity_cpus_) local_unnamed_addr #1 align 2 {
 entry:
   %_thread_priority = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %priority_, ptr %_thread_priority, align 8

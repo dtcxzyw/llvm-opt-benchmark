@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @VP8EntropyCost = external local_unnamed_addr constant [256 x i16], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @VP8TBufferInit(ptr noundef initializes((0, 8), (16, 24)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @VP8TBufferInit(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %3, align 8
   store ptr null, ptr %0, align 8

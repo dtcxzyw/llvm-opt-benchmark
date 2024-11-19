@@ -2187,7 +2187,7 @@ return:                                           ; preds = %if.then74.cont.cont
 declare noundef i64 @mktime(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @parse_expiry_date(ptr noundef %date, ptr nocapture noundef writeonly initializes((0, 8)) %timestamp) local_unnamed_addr #1 {
+define dso_local i32 @parse_expiry_date(ptr noundef %date, ptr nocapture noundef writeonly %timestamp) local_unnamed_addr #1 {
 entry:
   %errors = alloca i32, align 4
   store i32 0, ptr %errors, align 4
@@ -4234,7 +4234,7 @@ return:                                           ; preds = %return.sink.split, 
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @date_yesterday(ptr noundef %tm, ptr nocapture noundef readonly %now, ptr nocapture noundef writeonly initializes((0, 4)) %num) #1 {
+define internal void @date_yesterday(ptr noundef %tm, ptr nocapture noundef readonly %now, ptr nocapture noundef writeonly %num) #1 {
 entry:
   %n.i = alloca i64, align 8
   store i32 0, ptr %num, align 4
@@ -4748,7 +4748,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @date_never(ptr noundef %tm, ptr nocapture readnone %now, ptr nocapture noundef writeonly initializes((0, 4)) %num) #1 {
+define internal void @date_never(ptr noundef %tm, ptr nocapture readnone %now, ptr nocapture noundef writeonly %num) #1 {
 entry:
   %n = alloca i64, align 8
   store i64 0, ptr %n, align 8
@@ -4758,7 +4758,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @date_now(ptr noundef %tm, ptr nocapture noundef readonly %now, ptr nocapture noundef writeonly initializes((0, 4)) %num) #1 {
+define internal void @date_now(ptr noundef %tm, ptr nocapture noundef readonly %now, ptr nocapture noundef writeonly %num) #1 {
 entry:
   %n.i = alloca i64, align 8
   store i32 0, ptr %num, align 4

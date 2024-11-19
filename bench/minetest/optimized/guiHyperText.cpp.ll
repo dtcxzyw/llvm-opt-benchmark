@@ -1624,7 +1624,7 @@ eh.resume:                                        ; preds = %ehcleanup35, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ParsedTextC2EPKw(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 36)) %this, ptr nocapture noundef readonly %text) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10ParsedTextC2EPKw(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr nocapture noundef readonly %text) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8680,7 +8680,7 @@ ehcleanup769:                                     ; preds = %if.then.i.i1592, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10ParsedText10endElementEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(424) initializes((400, 408)) %this) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN10ParsedText10endElementEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(424) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_element = getelementptr inbounds i8, ptr %this, i64 400
   store ptr null, ptr %m_element, align 8, !tbaa !96
@@ -8822,7 +8822,7 @@ if.end:                                           ; preds = %if.else, %_ZNSt16al
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN10ParsedText6newTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIS6_S5_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(424) initializes((400, 408)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(56) %attrs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN10ParsedText6newTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIS6_S5_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(424) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(56) %attrs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_element.i = getelementptr inbounds i8, ptr %this, i64 400
   store ptr null, ptr %m_element.i, align 8, !tbaa !96
@@ -8944,7 +8944,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN10ParsedText7openTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIS6_S5_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(424) initializes((400, 408)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(56) %attrs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN10ParsedText7openTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIS6_S5_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(424) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(56) %attrs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN10ParsedText6newTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS5_S5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIS6_S5_EEE(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(56) %attrs)
   %m_active_tags = getelementptr inbounds i8, ptr %this, i64 320
@@ -10106,7 +10106,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10TextDrawerC2EPKwP6ClientPN3irr3gui15IGUIEnvironmentEP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(488) initializes((8, 44)) %this, ptr nocapture noundef readonly %text, ptr noundef %client, ptr noundef %environment, ptr noundef %tsrc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10TextDrawerC2EPKwP6ClientPN3irr3gui15IGUIEnvironmentEP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr nocapture noundef readonly %text, ptr noundef %client, ptr noundef %environment, ptr noundef %tsrc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp70 = alloca %"class.std::__cxx11::basic_string", align 8
   %m_text = getelementptr inbounds i8, ptr %this, i64 8
@@ -11967,7 +11967,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIHyperTextC1EPKwPN3irr3gui15IGUIEnvironmentEPNS3_11IGUIElementEiRKNS2_4core4rectIiEEP6ClientP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(844) initializes((848, 868)) %this, ptr nocapture noundef readonly %text, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, ptr noundef %client, ptr noundef %tsrc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12GUIHyperTextC1EPKwPN3irr3gui15IGUIEnvironmentEPNS3_11IGUIElementEiRKNS2_4core4rectIiEEP6ClientP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(844) %this, ptr nocapture noundef readonly %text, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, ptr noundef %client, ptr noundef %tsrc) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 848
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !162
@@ -12084,7 +12084,7 @@ ehcleanup38:                                      ; preds = %ehcleanup37, %lpad2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12GUIHyperTextD2Ev(ptr noundef nonnull align 8 dereferenceable(844) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12GUIHyperTextD2Ev(ptr noundef nonnull align 8 dereferenceable(844) %this, ptr noundef %vtt) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !162
@@ -12160,7 +12160,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12GUIHyperTextD1Ev(ptr noundef nonnull align 8 dereferenceable(844) initializes((0, 8), (848, 856)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12GUIHyperTextD1Ev(ptr noundef nonnull align 8 dereferenceable(844) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIHyperText, i64 24), ptr %this, align 8, !tbaa !162
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 848
@@ -12280,7 +12280,7 @@ _ZN12GUIHyperTextD1Ev.exit:                       ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12GUIHyperTextD0Ev(ptr noundef nonnull align 8 dereferenceable(844) initializes((0, 8), (848, 856)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12GUIHyperTextD0Ev(ptr noundef nonnull align 8 dereferenceable(844) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12GUIHyperText, i64 24), ptr %this, align 8, !tbaa !162
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 848
@@ -12422,7 +12422,7 @@ _ZN10TextDrawer12getElementAtEN3irr4core8vector2dIiEE.exit: ; preds = %for.inc28
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIHyperText10checkHoverEii(ptr nocapture noundef nonnull align 8 dereferenceable(844) initializes((328, 336)) %this, i32 noundef %X, i32 noundef %Y) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN12GUIHyperText10checkHoverEii(ptr nocapture noundef nonnull align 8 dereferenceable(844) %this, i32 noundef %X, i32 noundef %Y) local_unnamed_addr #4 align 2 {
 entry:
   %m_drawer = getelementptr inbounds i8, ptr %this, i64 328
   store ptr null, ptr %m_drawer, align 8, !tbaa !273

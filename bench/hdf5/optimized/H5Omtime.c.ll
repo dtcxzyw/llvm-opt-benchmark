@@ -349,7 +349,7 @@ define internal noalias ptr @H5O__mtime_new_decode(ptr nocapture readnone %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5O__mtime_new_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef readonly %4) #2 {
+define internal noundef i32 @H5O__mtime_new_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4) #2 {
   %6 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 1, ptr %3, align 1
   %7 = getelementptr inbounds i8, ptr %3, i64 2

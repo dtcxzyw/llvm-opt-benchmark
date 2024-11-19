@@ -631,7 +631,7 @@ if.end:                                           ; preds = %_ZN3irr3gui11IGUIEl
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui11CGUIListBoxC1EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEEbbb(ptr noundef nonnull align 8 dereferenceable(437) initializes((440, 460)) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, i1 noundef zeroext %clip, i1 noundef zeroext %drawBack, i1 noundef zeroext %moveOverSelect) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui11CGUIListBoxC1EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEEbbb(ptr noundef nonnull align 8 dereferenceable(437) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1, i1 noundef zeroext %clip, i1 noundef zeroext %drawBack, i1 noundef zeroext %moveOverSelect) unnamed_addr #0 align 2 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -910,7 +910,7 @@ _ZN3irr3gui11IGUIElement11setTabOrderEi.exit:     ; preds = %if.then11.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui11CGUIListBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(437) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui11CGUIListBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(437) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -1063,7 +1063,7 @@ _ZN3irr4core5arrayINS_3gui11CGUIListBox8ListItemEED2Ev.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui11CGUIListBoxD1Ev(ptr noundef nonnull align 8 dereferenceable(437) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui11CGUIListBoxD1Ev(ptr noundef nonnull align 8 dereferenceable(437) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui11CGUIListBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(437) %this, ptr noundef nonnull @_ZTTN3irr3gui11CGUIListBoxE) #22
   ret void
@@ -1081,7 +1081,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui11CGUIListBoxD0Ev(ptr noundef nonnull align 8 dereferenceable(437) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui11CGUIListBoxD0Ev(ptr noundef nonnull align 8 dereferenceable(437) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui11CGUIListBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(437) %this, ptr noundef nonnull @_ZTTN3irr3gui11CGUIListBoxE) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -1293,7 +1293,7 @@ return:                                           ; preds = %_ZN3irr4core5arrayI
 declare noundef i32 @_ZN3irr2os5Timer7getTimeEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui11CGUIListBox21recalculateItemHeightEv(ptr nocapture noundef nonnull align 8 dereferenceable(437) initializes((356, 360)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui11CGUIListBox21recalculateItemHeightEv(ptr nocapture noundef nonnull align 8 dereferenceable(437) %this) local_unnamed_addr #0 align 2 {
 entry:
   %Environment = getelementptr inbounds i8, ptr %this, i64 296
   %0 = load ptr, ptr %Environment, align 8, !tbaa !51
@@ -1496,7 +1496,7 @@ return:                                           ; preds = %lor.lhs.false23, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui11CGUIListBox5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(437) initializes((328, 336)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui11CGUIListBox5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(437) %this) unnamed_addr #0 align 2 {
 entry:
   %Items = getelementptr inbounds i8, ptr %this, i64 312
   %0 = load ptr, ptr %Items, align 8, !tbaa !82
@@ -1563,7 +1563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui11CGUIListBox11setSelectedEi(ptr noundef nonnull align 8 dereferenceable(437) initializes((344, 348), (392, 396)) %this, i32 noundef %id) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui11CGUIListBox11setSelectedEi(ptr noundef nonnull align 8 dereferenceable(437) %this, i32 noundef %id) unnamed_addr #0 align 2 {
 entry:
   %Items = getelementptr inbounds i8, ptr %this, i64 312
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 320
@@ -4328,7 +4328,7 @@ if.end15:                                         ; preds = %if.then9, %if.end5,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui11CGUIListBox20setAutoScrollEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(437) initializes((435, 436)) %this, i1 noundef zeroext %scroll) unnamed_addr #9 align 2 {
+define void @_ZN3irr3gui11CGUIListBox20setAutoScrollEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(437) %this, i1 noundef zeroext %scroll) unnamed_addr #9 align 2 {
 entry:
   %frombool = zext i1 %scroll to i8
   %AutoScroll = getelementptr inbounds i8, ptr %this, i64 435
@@ -5157,7 +5157,7 @@ cleanup:                                          ; preds = %switch.lookup, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui11CGUIListBox13setItemHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(437) initializes((348, 356)) %this, i32 noundef %height) unnamed_addr #9 align 2 {
+define void @_ZN3irr3gui11CGUIListBox13setItemHeightEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(437) %this, i32 noundef %height) unnamed_addr #9 align 2 {
 entry:
   %ItemHeight = getelementptr inbounds i8, ptr %this, i64 348
   store i32 %height, ptr %ItemHeight, align 4, !tbaa !90
@@ -5167,7 +5167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui11CGUIListBox17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(437) initializes((433, 434)) %this, i1 noundef zeroext %draw) unnamed_addr #9 align 2 {
+define void @_ZN3irr3gui11CGUIListBox17setDrawBackgroundEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(437) %this, i1 noundef zeroext %draw) unnamed_addr #9 align 2 {
 entry:
   %frombool = zext i1 %draw to i8
   %DrawBack = getelementptr inbounds i8, ptr %this, i64 433

@@ -723,7 +723,7 @@ declare void @H5F_addr_encode(ptr noundef, ptr noundef, i64 noundef) local_unnam
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @H5G__ent_copy(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define void @H5G__ent_copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %7
@@ -742,7 +742,7 @@ define void @H5G__ent_copy(ptr nocapture noundef writeonly initializes((0, 40)) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @H5G__ent_reset(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #5 {
+define void @H5G__ent_reset(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 -1, ptr %2, align 8
@@ -750,7 +750,7 @@ define void @H5G__ent_reset(ptr nocapture noundef writeonly initializes((0, 40))
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__ent_to_link(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((0, 5), (8, 20), (24, 32)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__ent_to_link(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   store i32 -1, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i8 0, ptr %4, align 4

@@ -102,7 +102,7 @@ define dso_local void @tuplehash_destroy(ptr noundef %0) local_unnamed_addr #0 {
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @tuplehash_reset(ptr nocapture noundef initializes((8, 12)) %0) local_unnamed_addr #2 {
+define dso_local void @tuplehash_reset(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8
@@ -935,7 +935,7 @@ define dso_local void @tuplehash_start_iterate(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @tuplehash_start_iterate_at(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9)) %1, i32 noundef %2) local_unnamed_addr #7 {
+define dso_local void @tuplehash_start_iterate_at(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, %2
@@ -1167,7 +1167,7 @@ declare i32 @get_opcode(i32 noundef) local_unnamed_addr #1
 declare ptr @ExecBuildGroupingEqual(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local void @execTuplesHashPrepare(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = sext i32 %0 to i64
@@ -1308,7 +1308,7 @@ define dso_local void @ResetTupleHashTable(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @LookupTupleHashEntry(ptr nocapture noundef initializes((80, 104)) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define dso_local ptr @LookupTupleHashEntry(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -1455,7 +1455,7 @@ LookupTupleHashEntry_internal.exit:               ; preds = %70, %71, %80
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @TupleHashTableHash(ptr nocapture noundef initializes((80, 96)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @TupleHashTableHash(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1548,7 +1548,7 @@ TupleHashTableHash_internal.exit:                 ; preds = %50, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @LookupTupleHashEntryHash(ptr nocapture noundef initializes((80, 104)) %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @LookupTupleHashEntryHash(ptr nocapture noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
@@ -1606,7 +1606,7 @@ LookupTupleHashEntry_internal.exit:               ; preds = %21, %22, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @FindTupleHashEntry(ptr nocapture noundef initializes((80, 104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @FindTupleHashEntry(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr @CurrentMemoryContext, align 8

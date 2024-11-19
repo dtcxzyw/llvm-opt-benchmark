@@ -167,7 +167,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @casadi_register_linsol_tridiag(ptr nocapture noundef writeonly initializes((0, 28), (32, 40)) %0) #3 {
+define noundef i32 @casadi_register_linsol_tridiag(ptr nocapture noundef writeonly %0) #3 {
   store ptr @_ZN6casadi13LinsolTridiag7creatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8SparsityE, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str, ptr %2, align 8
@@ -222,7 +222,7 @@ define void @_ZN6casadi13LinsolTridiagC2ERKNSt7__cxx1112basic_stringIcSt11char_t
 declare void @_ZN6casadi14LinsolInternalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8SparsityE(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi13LinsolTridiagD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8), (168, 176)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi13LinsolTridiagD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi13LinsolTridiagE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi13LinsolTridiagE, i64 232), ptr %2, align 8
@@ -391,7 +391,7 @@ define noundef i32 @_ZNK6casadi13LinsolTridiag5sfactEPvPKd(ptr nocapture nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZNK6casadi13LinsolTridiag5nfactEPvPKd(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((58, 60)) %1, ptr nocapture readnone %2) unnamed_addr #9 align 2 {
+define noundef i32 @_ZNK6casadi13LinsolTridiag5nfactEPvPKd(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 58
   store i8 0, ptr %4, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 59

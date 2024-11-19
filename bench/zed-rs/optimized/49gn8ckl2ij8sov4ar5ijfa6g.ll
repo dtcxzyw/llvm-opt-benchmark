@@ -3371,7 +3371,7 @@ define hidden noalias noundef nonnull ptr @"_ZN8sum_tree16SumTree$LT$T$GT$3new17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17hfa1bd66b7ac2d305E.llvm.16932917054908776191"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1368 x i8]) align 8 dereferenceable(1368) initializes((0, 4), (1288, 1321), (1328, 1353), (1360, 1362)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17hfa1bd66b7ac2d305E.llvm.16932917054908776191"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1368 x i8]) align 8 dereferenceable(1368) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
   %.sroa.53.i.i.i = alloca [19 x i8], align 2
   %.sroa.5.i.i.i = alloca [19 x i8], align 2
   %.sroa.5.i.i.i.2.i.i.i.2.i.i.i.2.i.i.2.i.i.2.i.2.i.2..sroa_idx = getelementptr inbounds i8, ptr %.sroa.5.i.i.i, i64 2
@@ -3416,7 +3416,7 @@ define hidden void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$3new17hfa1bd66b7ac2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN8sum_tree6cursor29FilterCursor$LT$F$C$T$C$D$GT$3new17h3b924905c042480aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1440 x i8]) align 8 dereferenceable(1440) initializes((0, 76), (1360, 1393), (1400, 1425), (1432, 1434)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %3) unnamed_addr #11 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor29FilterCursor$LT$F$C$T$C$D$GT$3new17h3b924905c042480aE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1440 x i8]) align 8 dereferenceable(1440) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %3) unnamed_addr #11 personality ptr @rust_eh_personality {
   %.sroa.53.i.i.i.i = alloca [19 x i8], align 2
   %.sroa.5.i.i.i.i = alloca [19 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !389)
@@ -3464,7 +3464,7 @@ define hidden void @"_ZN8sum_tree6cursor29FilterCursor$LT$F$C$T$C$D$GT$3new17h3b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN8sum_tree6cursor29FilterCursor$LT$F$C$T$C$D$GT$3new17hf7882bb72ab5a6f4E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1440 x i8]) align 8 dereferenceable(1440) initializes((0, 76), (1360, 1393), (1400, 1425), (1432, 1434)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %3) unnamed_addr #11 personality ptr @rust_eh_personality {
+define hidden void @"_ZN8sum_tree6cursor29FilterCursor$LT$F$C$T$C$D$GT$3new17hf7882bb72ab5a6f4E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1440 x i8]) align 8 dereferenceable(1440) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %3) unnamed_addr #11 personality ptr @rust_eh_personality {
   %.sroa.53.i.i.i.i = alloca [19 x i8], align 2
   %.sroa.5.i.i.i.i = alloca [19 x i8], align 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !401)

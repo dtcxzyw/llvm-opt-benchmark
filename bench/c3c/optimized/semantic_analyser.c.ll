@@ -1364,7 +1364,7 @@ declare void @sema_trace_liveness() local_unnamed_addr #4
 declare double @bench_mark() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sema_context_init(ptr nocapture noundef writeonly initializes((0, 304)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @sema_context_init(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 96), align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %.critedge.i, label %4

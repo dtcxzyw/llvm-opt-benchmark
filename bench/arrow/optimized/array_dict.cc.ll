@@ -1639,7 +1639,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN5arrow4util8ArrowLogD1Ev(ptr noundef nonnull align 8 dereferenceable(17)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow15DictionaryArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow15DictionaryArrayC2ERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp13 = alloca %"class.arrow::util::ArrowLog", align 8
   %ref.tmp30 = alloca %"class.arrow::util::ArrowLog", align 8
@@ -2607,7 +2607,7 @@ _ZNSt12__shared_ptrIN5arrow5ArrayELN9__gnu_cxx12_Lock_policyE2EEaSEOS4_.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow15DictionaryArrayC2ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_5ArrayEES9_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %indices, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow15DictionaryArrayC2ERKSt10shared_ptrINS_8DataTypeEERKS1_INS_5ArrayEES9_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %indices, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dictionary) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.arrow::util::ArrowLog", align 8
   %ref.tmp35 = alloca %"class.arrow::util::ArrowLog", align 8
@@ -48047,7 +48047,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5arrowlsERSoRKNS_8DataTypeE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -48156,7 +48156,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -52047,7 +52047,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1096) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1096) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -52140,7 +52140,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(1096) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(1096) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEEE, i64 16), ptr %this, align 8
   %memo_table_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -55218,7 +55218,7 @@ ehcleanup54:                                      ; preds = %ehcleanup52, %_ZNSt
 declare void @_ZN5arrow8internal15BitmapAllButOneEPNS_10MemoryPoolEllb(ptr sret(%"class.arrow::Result.114") align 8, ptr noundef, i64 noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1096) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(1096) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -55311,7 +55311,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(1096) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(1096) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEEE, i64 16), ptr %this, align 8
   %memo_table_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -58387,7 +58387,7 @@ ehcleanup54:                                      ; preds = %ehcleanup52, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -58544,7 +58544,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -62164,7 +62164,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -62321,7 +62321,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -65846,7 +65846,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableItNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -66102,7 +66102,7 @@ return:                                           ; preds = %cleanup, %if.end16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -66259,7 +66259,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -69786,7 +69786,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIiNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -70042,7 +70042,7 @@ return:                                           ; preds = %cleanup, %if.end16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -70199,7 +70199,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -73814,7 +73814,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -73971,7 +73971,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -77492,7 +77492,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15ScalarMemoTableIlNS0_9HashTableEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(100) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -77748,7 +77748,7 @@ return:                                           ; preds = %cleanup, %if.end16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -77905,7 +77905,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -81516,7 +81516,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -81673,7 +81673,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -84550,7 +84550,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -84707,7 +84707,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -88884,7 +88884,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -89041,7 +89041,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -92908,7 +92908,7 @@ _ZN5arrow6StatusD2Ev.exit42:                      ; preds = %invoke.cont10, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -93067,7 +93067,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -98844,7 +98844,7 @@ cleanup89:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_13BinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -99100,7 +99100,7 @@ return:                                           ; preds = %cleanup, %if.end16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -99259,7 +99259,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -102211,7 +102211,7 @@ _ZN5arrow8internal17StringHeapBuilder6AppendILb0EEENSt11conditionalIXT_ENS_6Resu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -102370,7 +102370,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -105142,7 +105142,7 @@ cleanup87:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -105301,7 +105301,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -108101,7 +108101,7 @@ _ZN5arrow6StatusD2Ev.exit42:                      ; preds = %invoke.cont10, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -108260,7 +108260,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -114011,7 +114011,7 @@ cleanup88:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %null_count, ptr nocapture noundef nonnull initializes((0, 8)) %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow8internalL17ComputeNullBitmapINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEEEEENS_6StatusEPNS_10MemoryPoolERKT_lPlPSt10shared_ptrINS_6BufferEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(356) %memo_table, i64 noundef %start_offset, ptr nocapture noundef nonnull writeonly %null_count, ptr nocapture noundef nonnull %null_bitmap) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::Result.114", align 8
   %vtable = load ptr, ptr %memo_table, align 8
@@ -114267,7 +114267,7 @@ return:                                           ; preds = %cleanup, %if.end16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -114426,7 +114426,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -117194,7 +117194,7 @@ cleanup87:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -117353,7 +117353,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -120030,7 +120030,7 @@ cleanup62:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -120187,7 +120187,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -123060,7 +123060,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -123217,7 +123217,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -126096,7 +126096,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -126253,7 +126253,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -129126,7 +129126,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -129283,7 +129283,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -132156,7 +132156,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -132313,7 +132313,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -135192,7 +135192,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -135349,7 +135349,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -138222,7 +138222,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -138379,7 +138379,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -142002,7 +142002,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -142159,7 +142159,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -145038,7 +145038,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -145195,7 +145195,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -148807,7 +148807,7 @@ ehcleanup54:                                      ; preds = %ehcleanup50, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -148966,7 +148966,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -151641,7 +151641,7 @@ cleanup62:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEEE, i64 16), ptr %this, align 8
   %memo_table_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -151800,7 +151800,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZN5arrow8internal1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8), (32, 40)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24

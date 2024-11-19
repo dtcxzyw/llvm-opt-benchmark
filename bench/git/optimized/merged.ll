@@ -82,7 +82,7 @@ declare i32 @reftable_table_hash_id(ptr noundef) local_unnamed_addr #1
 declare ptr @reftable_calloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @merged_table_release(ptr nocapture noundef initializes((8, 16)) %mt) local_unnamed_addr #2 {
+define dso_local void @merged_table_release(ptr nocapture noundef %mt) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %mt, align 8
   tail call void @free(ptr noundef %0) #10
@@ -357,7 +357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @reftable_table_from_merged_table(ptr nocapture noundef writeonly initializes((0, 16)) %tab, ptr noundef %merged) local_unnamed_addr #6 {
+define dso_local void @reftable_table_from_merged_table(ptr nocapture noundef writeonly %tab, ptr noundef %merged) local_unnamed_addr #6 {
 entry:
   store ptr @merged_table_vtable, ptr %tab, align 8
   %table_arg = getelementptr inbounds i8, ptr %tab, i64 8

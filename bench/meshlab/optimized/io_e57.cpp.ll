@@ -12001,14 +12001,14 @@ _ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit:   ; preds = %44, %42, %_ZNSt12_V
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK11E57IOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
+define void @_ZNK11E57IOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.24, i32 noundef 5)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK11E57IOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 {
+define void @_ZTv0_n40_NK11E57IOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.24, i32 noundef 5), !noalias !179
   store ptr %3, ptr %0, align 8, !alias.scope !179

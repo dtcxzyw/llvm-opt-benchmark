@@ -1325,7 +1325,7 @@ declare void @_ZN4pkpy2VM10bind__eq__ENS_4TypeEPFPNS_8PyObjectEPS0_S3_S3_E(ptr n
 declare noundef ptr @_ZN4pkpy2VM13bind_propertyEPNS_8PyObjectEPKcPFS2_PS0_NS_8ArgsViewEES8_(ptr noundef nonnull align 8 dereferenceable(264913), ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy7PyDequeC2EPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull align 8 dereferenceable(85) initializes((0, 80)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy7PyDequeC2EPNS_2VMEPNS_8PyObjectES4_(ptr noundef nonnull align 8 dereferenceable(85) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"struct.pkpy::Str", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)

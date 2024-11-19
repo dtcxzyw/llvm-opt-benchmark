@@ -62,7 +62,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv4ap3p23init_inverse_parametersEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((32, 64)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv4ap3p23init_inverse_parametersEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #3 align 2 {
   %2 = load double, ptr %0, align 8
   %3 = fdiv double 1.000000e+00, %2
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -86,7 +86,7 @@ define hidden void @_ZN2cv4ap3p23init_inverse_parametersEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv4ap3pC2ENS_3MatE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv4ap3pC2ENS_3MatE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 7
   %5 = icmp eq i32 %4, 5
@@ -170,7 +170,7 @@ define hidden void @_ZN2cv4ap3pC2ENS_3MatE(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv4ap3pC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv4ap3pC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #5 align 2 {
   store double %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store double %2, ptr %6, align 8

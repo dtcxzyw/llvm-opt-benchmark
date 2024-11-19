@@ -58,7 +58,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz9animation11SamplingJob8ValidateEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation11SamplingJobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 4), (8, 40)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN3ozz9animation11SamplingJobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #1 align 2 {
   store float 0.000000e+00, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -1812,7 +1812,7 @@ _ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_120DecompressQuaternionERKNS0_8internal13QuaternionKeyES5_S5_S5_PNS_4math13SoaQuaternionE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %1, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %2, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %3, ptr nocapture noundef writeonly initializes((0, 64)) %4) unnamed_addr #5 {
+define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_120DecompressQuaternionERKNS0_8internal13QuaternionKeyES5_S5_S5_PNS_4math13SoaQuaternionE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %1, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %2, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %3, ptr nocapture noundef writeonly %4) unnamed_addr #5 {
   %6 = alloca [4 x [3 x i32]], align 16
   %7 = alloca [4 x <4 x float>], align 16
   %8 = load i16, ptr %0, align 2
@@ -2090,7 +2090,7 @@ define internal fastcc void @_ZN3ozz9animation12_GLOBAL__N_120DecompressQuaterni
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation11SamplingJob7ContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((0, 52), (56, 92), (96, 132), (136, 184)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN3ozz9animation11SamplingJob7ContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -2102,7 +2102,7 @@ define dso_local void @_ZN3ozz9animation11SamplingJob7ContextC2Ev(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation11SamplingJob7Context10InvalidateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((0, 12), (48, 52), (88, 92), (128, 132)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN3ozz9animation11SamplingJob7Context10InvalidateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %0) local_unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store float 0.000000e+00, ptr %2, align 8
@@ -2116,7 +2116,7 @@ define dso_local void @_ZN3ozz9animation11SamplingJob7Context10InvalidateEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3ozz9animation11SamplingJob7ContextC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 52), (56, 92), (96, 132), (136, 184)) %0, i32 noundef %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZN3ozz9animation11SamplingJob7ContextC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2195,7 +2195,7 @@ define dso_local void @_ZN3ozz9animation11SamplingJob7ContextC2Ei(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3ozz9animation11SamplingJob7Context6ResizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 52), (56, 92), (96, 132), (144, 184)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN3ozz9animation11SamplingJob7Context6ResizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store float 0.000000e+00, ptr %3, align 8

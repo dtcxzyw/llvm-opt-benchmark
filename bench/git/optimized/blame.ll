@@ -3483,7 +3483,7 @@ declare ptr @get_log_output_encoding() local_unnamed_addr #2
 declare ptr @repo_logmsg_reencode(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_ac_line(ptr noundef %inbuf, ptr nocapture noundef readonly %what, ptr noundef nonnull %name, ptr noundef nonnull %mail, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %git_time, ptr noundef nonnull %tz) unnamed_addr #0 {
+define internal fastcc void @get_ac_line(ptr noundef %inbuf, ptr nocapture noundef readonly %what, ptr noundef nonnull %name, ptr noundef nonnull %mail, ptr nocapture noundef nonnull writeonly %git_time, ptr noundef nonnull %tz) unnamed_addr #0 {
 entry:
   %ident = alloca %struct.ident_split, align 8
   %maillen = alloca i64, align 8

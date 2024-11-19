@@ -1098,7 +1098,7 @@ declare i32 @EVP_DecryptUpdate(ptr noundef, ptr noundef, ptr noundef, ptr nounde
 declare i32 @EVP_DecryptFinal_ex(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %header, ptr nocapture noundef initializes((0, 24)) %cipher) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %header, ptr nocapture noundef %cipher) local_unnamed_addr #0 {
 entry:
   %header.addr = alloca ptr, align 8
   %iv = getelementptr inbounds i8, ptr %cipher, i64 8
@@ -1378,14 +1378,14 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %bp, ptr nocapture noundef writeonly initializes((0, 8)) %name, ptr nocapture noundef initializes((0, 8)) %header, ptr nocapture noundef initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 8)) %len) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_read_bio(ptr noundef %bp, ptr nocapture noundef writeonly %name, ptr nocapture noundef %header, ptr nocapture noundef %data, ptr nocapture noundef writeonly %len) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @PEM_read_bio_ex(ptr noundef %bp, ptr noundef %name, ptr noundef %header, ptr noundef %data, ptr noundef %len, i32 noundef 2)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @PEM_read_bio_ex(ptr noundef %bp, ptr nocapture noundef writeonly initializes((0, 8)) %name_out, ptr nocapture noundef initializes((0, 8)) %header, ptr nocapture noundef initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 8)) %len_out, i32 noundef %flags) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @PEM_read_bio_ex(ptr noundef %bp, ptr nocapture noundef writeonly %name_out, ptr nocapture noundef %header, ptr nocapture noundef %data, ptr nocapture noundef writeonly %len_out, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %len = alloca i32, align 4
   %taillen = alloca i32, align 4

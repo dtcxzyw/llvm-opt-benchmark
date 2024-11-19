@@ -1253,7 +1253,7 @@ entry:
 declare i64 @_ZN8QuantLib4Date7maxDateEv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19HestonRNDCalculatorC2EN5boost10shared_ptrINS_13HestonProcessEEEdm(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %this, ptr nocapture noundef %hestonProcess, double noundef %integrationEps, i64 noundef %maxIntegrationIterations) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19HestonRNDCalculatorC2EN5boost10shared_ptrINS_13HestonProcessEEEdm(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef %hestonProcess, double noundef %integrationEps, i64 noundef %maxIntegrationIterations) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib19HestonRNDCalculatorE, i64 16), ptr %this, align 8, !tbaa !42
   %hestonProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 8

@@ -354,7 +354,7 @@ define dso_local ptr @__pick_first_entity(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @init_entity_runnable_average(ptr nocapture noundef initializes((192, 256)) %0) local_unnamed_addr #6 align 16 {
+define dso_local void @init_entity_runnable_average(ptr nocapture noundef %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   tail call void @llvm.memset.p0.i64(ptr noundef align 64 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 160
@@ -2907,7 +2907,7 @@ define dso_local void @trigger_load_balance(ptr noundef %0) local_unnamed_addr #
 declare dso_local void @raise_softirq(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @init_cfs_rq(ptr nocapture noundef writeonly initializes((56, 80), (192, 196)) %0) local_unnamed_addr #14 align 16 {
+define dso_local void @init_cfs_rq(ptr nocapture noundef writeonly %0) local_unnamed_addr #14 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef align 64 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -2982,7 +2982,7 @@ define dso_local void @free_fair_sched_group(ptr nocapture noundef readonly %0) 
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 2) i32 @alloc_fair_sched_group(ptr noundef initializes((208, 216)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @alloc_fair_sched_group(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 align 16 {
   %3 = load i32, ptr @nr_cpu_ids, align 4
   %4 = zext i32 %3 to i64
   %5 = shl nuw nsw i64 %4, 3
@@ -3114,7 +3114,7 @@ define dso_local noundef range(i32 0, 2) i32 @alloc_fair_sched_group(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @init_tg_cfs_entry(ptr noundef %0, ptr noundef initializes((312, 320), (344, 352)) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #16 align 16 {
+define dso_local void @init_tg_cfs_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #16 align 16 {
   %6 = sext i32 %3 to i64
   %7 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %6
   %8 = load i64, ptr %7, align 8
@@ -7525,7 +7525,7 @@ define internal void @task_tick_fair(ptr nocapture noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @task_fork_fair(ptr nocapture noundef initializes((248, 256)) %0) #1 align 16 {
+define internal void @task_fork_fair(ptr nocapture noundef %0) #1 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @runqueues) #29, !srcloc !120
   %3 = inttoptr i64 %2 to ptr
   tail call void @raw_spin_rq_lock_nested(ptr noundef %3, i32 noundef 0) #27
@@ -8171,7 +8171,7 @@ define internal fastcc void @__dequeue_entity(ptr noundef %0, ptr noundef %1) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__enqueue_entity(ptr noundef %0, ptr noundef initializes((48, 56)) %1) unnamed_addr #1 align 16 {
+define internal fastcc void @__enqueue_entity(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = load i64, ptr %1, align 64
   %4 = icmp eq i64 %3, 0
   %5 = lshr i64 %3, 10
@@ -8307,7 +8307,7 @@ declare dso_local ptr @rb_next(ptr noundef) local_unnamed_addr #10
 declare dso_local void @__rb_erase_color(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @min_vruntime_cb_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((32, 40)) %1) #8 align 16 {
+define internal void @min_vruntime_cb_rotate(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #8 align 16 {
   %3 = getelementptr i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 16
   %5 = getelementptr i8, ptr %1, i64 32
@@ -9320,7 +9320,7 @@ declare dso_local void @__update_stats_wait_start(ptr noundef, ptr noundef, ptr 
 declare dso_local i32 @__update_load_avg_se(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @attach_entity_load_avg(ptr noundef initializes((272, 280)) %0, ptr nocapture noundef initializes((192, 224)) %1) unnamed_addr #1 align 16 {
+define internal fastcc void @attach_entity_load_avg(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = getelementptr inbounds i8, ptr %0, i64 156
   %5 = load i32, ptr %4, align 4
@@ -13724,7 +13724,7 @@ declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) lo
 declare dso_local i32 @__SCT__tp_func_sched_util_est_cfs_tp(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @place_entity(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((120, 128)) %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc void @place_entity(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 32

@@ -659,7 +659,7 @@ $_ZTIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE = comdat any
 @.str.175 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader19loadCanonicalOptionERSt7variantIJNS_3AST9Component14StringEncodingENS4_6MemoryENS4_7ReallocENS4_10PostReturnEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader19loadCanonicalOptionERSt7variantIJNS_3AST9Component14StringEncodingENS4_6MemoryENS4_7ReallocENS4_10PostReturnEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.0", align 4
   %5 = alloca %"class.cxx20::expected.47", align 4
   %6 = alloca %"class.cxx20::expected.47", align 4

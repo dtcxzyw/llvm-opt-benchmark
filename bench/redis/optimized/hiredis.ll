@@ -1510,7 +1510,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @__redisSetError(ptr noundef initializes((8, 12)) %c, i32 noundef %type, ptr noundef readonly %str) local_unnamed_addr #0 {
+define void @__redisSetError(ptr noundef %c, i32 noundef %type, ptr noundef readonly %str) local_unnamed_addr #0 {
 entry:
   %err = getelementptr inbounds i8, ptr %c, i64 8
   store i32 %type, ptr %err, align 8
@@ -1660,7 +1660,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @redisReconnect(ptr noundef initializes((8, 12)) %c) local_unnamed_addr #0 {
+define i32 @redisReconnect(ptr noundef %c) local_unnamed_addr #0 {
 entry:
   %err = getelementptr inbounds i8, ptr %c, i64 8
   store i32 0, ptr %err, align 8

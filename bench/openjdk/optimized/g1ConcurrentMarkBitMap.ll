@@ -331,7 +331,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN10G1CMBitMapC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10G1CMBitMapC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN10G1CMBitMapC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 28), (32, 56)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10G1CMBitMapC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10MarkBitMap, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)

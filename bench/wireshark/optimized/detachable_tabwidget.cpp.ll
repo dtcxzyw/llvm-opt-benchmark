@@ -222,7 +222,7 @@ define void @_ZN19DetachableTabWidget14setTabBasenameE7QString(ptr noundef nonnu
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK19DetachableTabWidget11tabBasenameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19DetachableTabWidget11tabBasenameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -901,7 +901,7 @@ declare void @_ZN7QCursorD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) un
 declare void @_ZN7QTabBarD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14DragDropTabBar21mouseDoubleClickEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr nocapture noundef initializes((12, 13)) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14DragDropTabBar21mouseDoubleClickEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QPoint, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 12
   store i8 1, ptr %4, align 4
@@ -932,7 +932,7 @@ declare noundef i32 @_ZNK7QTabBar5tabAtERK6QPoint(ptr noundef nonnull align 8 de
 declare i64 @_ZN7QCursor3posEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14DragDropTabBar15mousePressEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(65) initializes((48, 56), (64, 65)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14DragDropTabBar15mousePressEventEP11QMouseEvent(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 1
@@ -1701,7 +1701,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14DragDropTabBar9dropEventEP10QDropEvent(ptr noundef nonnull align 8 dereferenceable(65) initializes((48, 56)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN14DragDropTabBar9dropEventEP10QDropEvent(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %.sroa.0.0.copyload.i = load double, ptr %3, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 24

@@ -553,7 +553,7 @@ define weak_odr noundef i64 @_ZNK4llvm6object25CommonArchiveMemberHeaderINS0_15B
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object19ArchiveMemberHeaderC2EPKNS0_7ArchiveEPKcmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm6object19ArchiveMemberHeaderC2EPKNS0_7ArchiveEPKcmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -815,7 +815,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %96, %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL28createMemberHeaderParseErrorPKN4llvm6object27AbstractArchiveMemberHeaderEPKcm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZL28createMemberHeaderParseErrorPKN4llvm6object27AbstractArchiveMemberHeaderEPKcm(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1023,7 +1023,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #1 {
+define internal fastcc void @_ZL14malformedErrorN4llvm5TwineE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull byval(%"class.llvm::Twine") align 8 %1) unnamed_addr #1 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1124,7 +1124,7 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object22BigArchiveMemberHeaderC2EPKNS0_7ArchiveEPKcmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm6object22BigArchiveMemberHeaderC2EPKNS0_7ArchiveEPKcmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef writeonly %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1220,7 +1220,7 @@ _ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader10getRawNameEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader10getRawNameEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1326,7 +1326,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %14, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_Z24getArchiveMemberDecFieldN4llvm5TwineENS_9StringRefEPKNS_6object7ArchiveEPKNS2_27AbstractArchiveMemberHeaderE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 initializes((0, 8)) %0, ptr noundef byval(%"class.llvm::Twine") align 8 %1, ptr %2, i64 %3, ptr nocapture readnone %4, ptr noundef %5) local_unnamed_addr #1 {
+define dso_local void @_Z24getArchiveMemberDecFieldN4llvm5TwineENS_9StringRefEPKNS_6object7ArchiveEPKNS2_27AbstractArchiveMemberHeaderE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 %0, ptr noundef byval(%"class.llvm::Twine") align 8 %1, ptr %2, i64 %3, ptr nocapture readnone %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1486,7 +1486,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvmplERKNS_5Tw
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_Z24getArchiveMemberOctFieldN4llvm5TwineENS_9StringRefEPKNS_6object7ArchiveEPKNS2_27AbstractArchiveMemberHeaderE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 initializes((0, 8)) %0, ptr noundef byval(%"class.llvm::Twine") align 8 %1, ptr %2, i64 %3, ptr nocapture readnone %4, ptr noundef %5) local_unnamed_addr #1 {
+define dso_local void @_Z24getArchiveMemberOctFieldN4llvm5TwineENS_9StringRefEPKNS_6object7ArchiveEPKNS2_27AbstractArchiveMemberHeaderE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 %0, ptr noundef byval(%"class.llvm::Twine") align 8 %1, ptr %2, i64 %3, ptr nocapture readnone %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1646,7 +1646,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvmplERKNS_5Tw
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader10getRawNameEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader10getRawNameEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1780,7 +1780,7 @@ _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %_ZN4llvm5ErrorD2Ev.
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader7getNameEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader7getNameEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 noundef %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2519,7 +2519,7 @@ define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader7getNameEm(ptr de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader7getSizeEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader7getSizeEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2548,7 +2548,7 @@ define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader7getSizeEv(ptr dead_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader7getSizeEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader7getSizeEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -2651,7 +2651,7 @@ _ZN4llvm8ExpectedImED2Ev.exit9:                   ; preds = %52, %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader14getRawNameSizeEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader14getRawNameSizeEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2680,7 +2680,7 @@ define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader14getRawNameSizeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader13getNextOffsetEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader13getNextOffsetEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2709,7 +2709,7 @@ define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader13getNextOffsetEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object27AbstractArchiveMemberHeader13getAccessModeEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.11") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object27AbstractArchiveMemberHeader13getAccessModeEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.11") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected.7", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -2751,7 +2751,7 @@ _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %19, %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object27AbstractArchiveMemberHeader15getLastModifiedEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.15") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object27AbstractArchiveMemberHeader15getLastModifiedEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.15") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
 _ZN4llvm8ExpectedImED2Ev.exit:
   %2 = alloca %"class.llvm::Expected.7", align 8
   %3 = alloca %"class.llvm::Twine", align 8
@@ -2782,7 +2782,7 @@ _ZN4llvm8ExpectedImED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object27AbstractArchiveMemberHeader6getUIDEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.19") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object27AbstractArchiveMemberHeader6getUIDEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.19") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected.7", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = load ptr, ptr %1, align 8
@@ -2835,7 +2835,7 @@ _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object27AbstractArchiveMemberHeader6getGIDEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.19") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object27AbstractArchiveMemberHeader6getGIDEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.19") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected.7", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = load ptr, ptr %1, align 8
@@ -2888,7 +2888,7 @@ _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader6isThinEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.23") align 8 initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader6isThinEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.23") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected", align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -2958,7 +2958,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %_ZN4llvmneENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader15getNextChildLocEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.27") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object19ArchiveMemberHeader15getNextChildLocEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.27") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected.23", align 8
   %4 = alloca %"class.llvm::Expected.7", align 8
   %5 = alloca %"class.llvm::MemoryBufferRef", align 8
@@ -3073,7 +3073,7 @@ _ZN4llvm8ExpectedIbED2Ev.exit:                    ; preds = %61, %_ZNKSt14defaul
 declare void @_ZNK4llvm6object6Binary18getMemoryBufferRefEv(ptr dead_on_unwind writable sret(%"class.llvm::MemoryBufferRef") align 8, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader15getNextChildLocEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.27") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object22BigArchiveMemberHeader15getNextChildLocEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.27") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Expected.7", align 8
@@ -3153,7 +3153,7 @@ _ZN4llvm8ExpectedImED2Ev.exit:                    ; preds = %34, %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object7Archive5ChildC2EPKS1_NS_9StringRefEt(ptr nocapture noundef nonnull align 8 dereferenceable(34) initializes((0, 34)) %0, ptr noundef %1, ptr %2, i64 %3, i16 noundef zeroext %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm6object7Archive5ChildC2EPKS1_NS_9StringRefEt(ptr nocapture noundef nonnull align 8 dereferenceable(34) %0, ptr noundef %1, ptr %2, i64 %3, i16 noundef zeroext %4) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8
@@ -3196,7 +3196,7 @@ _ZNSt10unique_ptrIN4llvm6object27AbstractArchiveMemberHeaderESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object7Archive25createArchiveMemberHeaderEPKcmPNS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object7Archive25createArchiveMemberHeaderEPKcmPNS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 114
   %7 = load i8, ptr %6, align 2
   %8 = and i8 %7, 7
@@ -3218,7 +3218,7 @@ _ZNSt10unique_ptrIN4llvm6object22BigArchiveMemberHeaderESt14default_deleteIS2_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object7Archive5ChildC2EPKS1_PKcPNS_5ErrorE(ptr nocapture noundef nonnull align 8 dereferenceable(34) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm6object7Archive5ChildC2EPKS1_PKcPNS_5ErrorE(ptr nocapture noundef nonnull align 8 dereferenceable(34) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.llvm::Expected.23", align 8
   %7 = alloca %"class.llvm::Expected.7", align 8
@@ -3778,7 +3778,7 @@ _ZN4llvm8ExpectedIbED2Ev.exit:                    ; preds = %107, %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object7Archive5Child7getNameEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object7Archive5Child7getNameEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected.7", align 8
   %4 = alloca %"class.llvm::Expected", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3873,7 +3873,7 @@ declare { ptr, i64 } @_ZN4llvm3sys4path11parent_pathENS_9StringRefENS1_5StyleE(p
 declare void @_ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object7Archive5Child9getBufferEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object7Archive5Child9getBufferEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected.23", align 8
   %4 = alloca %"class.llvm::Expected.7", align 8
   %5 = alloca %"class.llvm::Expected.33", align 8
@@ -4156,7 +4156,7 @@ declare void @_ZN4llvm12MemoryBuffer7getFileERKNS_5TwineEbbbSt8optionalINS_5Alig
 declare void @_ZN4llvm16errorCodeToErrorESt10error_code(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8, i32, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object7Archive5Child7getNextEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.48") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object7Archive5Child7getNextEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.48") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4531,7 +4531,7 @@ define dso_local noundef i64 @_ZNK4llvm6object7Archive5Child14getChildOffsetEv(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object7Archive5Child18getMemoryBufferRefEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.52") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object7Archive5Child18getMemoryBufferRefEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.52") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::Expected.7", align 8
   %5 = alloca %"class.llvm::Expected", align 8
@@ -4680,7 +4680,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit12:     ; preds = %_ZN4llvm5ErrorD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object7Archive5Child11getAsBinaryEPNS_11LLVMContextE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.56") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object7Archive5Child11getAsBinaryEPNS_11LLVMContextE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.56") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Expected.52", align 8
   %5 = alloca %"class.llvm::Expected.56", align 8
   call void @_ZNK4llvm6object7Archive5Child18getMemoryBufferRefEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.52") align 8 %4, ptr noundef nonnull align 8 dereferenceable(34) %1)
@@ -4733,7 +4733,7 @@ _ZN4llvm8ExpectedINS_15MemoryBufferRefEED2Ev.exit: ; preds = %22, %_ZNSt10unique
 declare void @_ZN4llvm6object12createBinaryENS_15MemoryBufferRefEPNS_11LLVMContextEb(ptr dead_on_unwind writable sret(%"class.llvm::Expected.56") align 8, ptr noundef byval(%"class.llvm::MemoryBufferRef") align 8, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object7Archive6createENS_15MemoryBufferRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.68") align 8 initializes((0, 8)) %0, ptr noundef byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm6object7Archive6createENS_15MemoryBufferRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.68") align 8 %0, ptr noundef byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #1 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %2 = alloca %"class.llvm::Error", align 8
   store ptr null, ptr %2, align 8
@@ -4802,7 +4802,7 @@ define dso_local noundef i64 @_ZNK4llvm6object7Archive18getArchiveMagicLenEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm6object7Archive15setFirstRegularERKNS1_5ChildE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((96, 114)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm6object7Archive15setFirstRegularERKNS1_5ChildE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false)
@@ -5649,7 +5649,7 @@ _ZN4llvm17fallible_iteratorINS_6object7Archive21ChildFallibleIteratorEED2Ev.exit
 declare void @_ZN4llvm6object6BinaryC2EjNS_15MemoryBufferRefE(ptr noundef nonnull align 8 dereferenceable(48), i32 noundef, ptr noundef byval(%"class.llvm::MemoryBufferRef") align 8) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object7Archive11child_beginERNS_5ErrorEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::fallible_iterator") align 8 initializes((0, 34), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object7Archive11child_beginERNS_5ErrorEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::fallible_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.std::unique_ptr", align 8
   %.sroa.9.i11 = alloca %"class.llvm::StringRef", align 8
@@ -5891,7 +5891,7 @@ _ZN4llvm6object7Archive5ChildD2Ev.exit:           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object7Archive9child_endEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::fallible_iterator") align 8 initializes((0, 34), (40, 48)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object7Archive9child_endEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::fallible_iterator") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(144) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %.sroa.9 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::object::Archive::Child", align 8
@@ -6460,7 +6460,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZN4llvm9StringRefC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object7Archive6Symbol9getMemberEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.48") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm6object7Archive6Symbol9getMemberEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.48") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
@@ -8556,7 +8556,7 @@ _ZN4llvm11SmallVectorI16GlobalSymtabInfoLj1EED2Ev.exit: ; preds = %274, %_ZN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr %.0.val, i64 %.8.val, i64 noundef range(i64 1, 0) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc void @_ZL25getGlobalSymtabLocAndSizeRKN4llvm15MemoryBufferRefEmRPKcRmS4_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val, i64 %.8.val, i64 noundef range(i64 1, 0) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

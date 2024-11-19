@@ -963,7 +963,7 @@ mca_btl_tcp_component_verify.exit:                ; preds = %27, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_btl_tcp_component_init(ptr nocapture noundef writeonly initializes((0, 4)) %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
+define noundef ptr @mca_btl_tcp_component_init(ptr nocapture noundef writeonly %0, i1 zeroext %1, i1 noundef zeroext %2) #0 {
   %4 = alloca %struct.pmix_value, align 8
   %5 = alloca %struct.sockaddr_storage, align 8
   %6 = alloca i32, align 4

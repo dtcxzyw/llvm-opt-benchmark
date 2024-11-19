@@ -487,7 +487,7 @@ declare i32 @g_source_remove(i32 noundef) local_unnamed_addr #1
 declare i32 @qemu_chr_fe_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @chr_write_unblocked(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef initializes((312, 316)) %opaque) #0 {
+define internal noundef i32 @chr_write_unblocked(ptr nocapture readnone %do_not_use, i32 %cond, ptr noundef %opaque) #0 {
 entry:
   %watch = getelementptr inbounds i8, ptr %opaque, i64 312
   store i32 0, ptr %watch, align 8

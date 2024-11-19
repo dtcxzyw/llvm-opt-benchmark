@@ -939,7 +939,7 @@ define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_117ToolchainVariableESaIS1_EEC2ESt16initializer_listIS1_ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .lr.ph.i.i.i.i.preheader.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #17

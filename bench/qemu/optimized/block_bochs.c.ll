@@ -266,7 +266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @bochs_refresh_limits(ptr nocapture noundef writeonly initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #2 {
+define internal void @bochs_refresh_limits(ptr nocapture noundef writeonly %bs, ptr nocapture readnone %errp) #2 {
 entry:
   %bl = getelementptr inbounds i8, ptr %bs, i64 16464
   store i32 512, ptr %bl, align 8

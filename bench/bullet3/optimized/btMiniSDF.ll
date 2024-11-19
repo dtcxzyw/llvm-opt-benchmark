@@ -44,7 +44,7 @@ $_ZNK20btAlignedObjectArrayIS_IjEE4copyEiiPS0_ = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN9btMiniSDF4loadEPKci(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 56), (60, 72), (80, 96)) %this, ptr nocapture noundef readonly %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN9btMiniSDF4loadEPKci(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %data, i32 noundef %size) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.btAlignedObjectArray.8, align 8
   %ref.tmp104 = alloca %class.btAlignedObjectArray.12, align 8
@@ -1476,7 +1476,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK9btMiniSDF9subdomainERK12btMultiIndex(ptr noalias nocapture writeonly sret(%struct.btAlignedBox3d) align 4 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %ijk) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK9btMiniSDF9subdomainERK12btMultiIndex(ptr noalias nocapture writeonly sret(%struct.btAlignedBox3d) align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %ijk) local_unnamed_addr #4 align 2 {
 entry:
   %m_cell_size = getelementptr inbounds i8, ptr %this, i64 44
   %0 = load float, ptr %m_cell_size, align 4
@@ -1553,7 +1553,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZNK9btMiniSDF9subdomainEj(ptr noalias nocapture writeonly sret(%struct.btAlignedBox3d) align 4 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, i32 noundef %l) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZNK9btMiniSDF9subdomainEj(ptr noalias nocapture writeonly sret(%struct.btAlignedBox3d) align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, i32 noundef %l) local_unnamed_addr #6 align 2 {
 entry:
   %m_resolution.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %m_resolution.i, align 8
@@ -1611,7 +1611,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK9btMiniSDF15shape_function_ERK9btVector3P16btShapeGradients(ptr noalias nocapture writeonly sret(%struct.btShapeMatrix) align 8 initializes((0, 256)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xi, ptr noundef %gradient) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZNK9btMiniSDF15shape_function_ERK9btVector3P16btShapeGradients(ptr noalias nocapture writeonly sret(%struct.btShapeMatrix) align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xi, ptr noundef %gradient) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load float, ptr %xi, align 4
   %arrayidx3 = getelementptr inbounds i8, ptr %xi, i64 4

@@ -167,7 +167,7 @@ define weak hidden noundef ptr @_Z40descriptor_table_op_5fdef_2eproto_getterv() 
 declare void @_ZN6google8protobuf8internal20AddDescriptorsRunnerC1EPKNS1_15DescriptorTableE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17opencv_tensorflow12OpDef_ArgDefC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 61), (64, 68)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow12OpDef_ArgDefC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -228,7 +228,7 @@ _ZN6google8protobuf11MessageLiteD2Ev.exit:        ; preds = %1, %11, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow12OpDef_ArgDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16), (64, 68)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow12OpDef_ArgDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow12OpDef_ArgDefE, i64 16), ptr %0, align 8
@@ -2104,7 +2104,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17opencv_tensorflow13OpDef_AttrDefC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 65), (68, 72)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow13OpDef_AttrDefC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -2125,7 +2125,7 @@ define hidden void @_ZN17opencv_tensorflow13OpDef_AttrDefC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow13OpDef_AttrDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16), (68, 72)) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow13OpDef_AttrDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDef_AttrDefE, i64 16), ptr %0, align 8
@@ -3896,7 +3896,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN17opencv_tenso
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17opencv_tensorflow5OpDefC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow5OpDefC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -3979,7 +3979,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN17opencv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow5OpDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow5OpDefC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow5OpDefE, i64 16), ptr %0, align 8
@@ -6649,7 +6649,7 @@ define hidden { ptr, ptr } @_ZNK17opencv_tensorflow5OpDef11GetMetadataEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17opencv_tensorflow13OpDeprecationC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow13OpDeprecationC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -6666,7 +6666,7 @@ define hidden void @_ZN17opencv_tensorflow13OpDeprecationC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow13OpDeprecationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16), (28, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow13OpDeprecationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow13OpDeprecationE, i64 16), ptr %0, align 8
@@ -7408,7 +7408,7 @@ define hidden { ptr, ptr } @_ZNK17opencv_tensorflow13OpDeprecation11GetMetadataE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17opencv_tensorflow6OpListC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow6OpListC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -7448,7 +7448,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN17opencv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17opencv_tensorflow6OpListC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17opencv_tensorflow6OpListC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN17opencv_tensorflow6OpListE, i64 16), ptr %0, align 8

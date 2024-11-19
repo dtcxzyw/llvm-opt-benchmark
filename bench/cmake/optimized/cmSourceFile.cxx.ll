@@ -196,7 +196,7 @@ _ZN12cmSourceFile15MarkAsGeneratedEv.exit:        ; preds = %_ZN12cmSourceFile15
 declare void @_ZN20cmSourceFileLocationC1EPK10cmMakefileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE24cmSourceFileLocationKind(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12cmSourceFile15MarkAsGeneratedEv(ptr noundef nonnull align 8 dereferenceable(370) initializes((369, 370)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN12cmSourceFile15MarkAsGeneratedEv(ptr noundef nonnull align 8 dereferenceable(370) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 369
   store i8 1, ptr %2, align 1
   %3 = load ptr, ptr %0, align 8

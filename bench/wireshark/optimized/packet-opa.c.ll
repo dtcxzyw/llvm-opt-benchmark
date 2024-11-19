@@ -1172,7 +1172,7 @@ define internal fastcc void @parse_RDETH(ptr noundef %0, ptr %.8.val, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef initializes((284, 288)) %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc void @parse_DETH(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -1596,7 +1596,7 @@ define internal fastcc void @parse_PSM(ptr noundef %0, ptr %.8.val, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_TIDRDMA(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, 256) %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
+define internal fastcc void @parse_TIDRDMA(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, i32 noundef range(i32 0, 256) %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   %7 = load i32, ptr %3, align 4
   %trunc = trunc nuw i32 %4 to i8
   switch i8 %trunc, label %179 [

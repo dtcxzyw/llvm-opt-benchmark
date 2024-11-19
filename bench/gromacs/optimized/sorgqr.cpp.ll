@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [13 x i8] c"No transpose\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @sorgqr_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef initializes((0, 4)) %6, ptr nocapture noundef readonly %7, ptr nocapture noundef initializes((0, 4)) %8) local_unnamed_addr #0 {
+define void @sorgqr_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly %7, ptr nocapture noundef %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4

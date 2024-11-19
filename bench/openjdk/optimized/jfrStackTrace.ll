@@ -91,7 +91,7 @@ $_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderI
 @_ZN15JfrVframeStreamC1EP10JavaThreadRK5framebb = hidden unnamed_addr alias void (ptr, ptr, ptr, i1, i1), ptr @_ZN15JfrVframeStreamC2EP10JavaThreadRK5framebb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13JfrStackFrameC2ERKmihPK13InstanceKlass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN13JfrStackFrameC2ERKmihPK13InstanceKlass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, i8 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 2 {
   store ptr %4, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i64, ptr %1, align 8
@@ -106,7 +106,7 @@ define hidden void @_ZN13JfrStackFrameC2ERKmihPK13InstanceKlass(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13JfrStackFrameC2ERKmihiPK13InstanceKlass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN13JfrStackFrameC2ERKmihiPK13InstanceKlass(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, i8 noundef zeroext %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   store ptr %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i64, ptr %1, align 8
@@ -121,7 +121,7 @@ define hidden void @_ZN13JfrStackFrameC2ERKmihiPK13InstanceKlass(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13JfrStackTraceC2EP13JfrStackFramej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN13JfrStackTraceC2EP13JfrStackFramej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -135,7 +135,7 @@ define hidden void @_ZN13JfrStackTraceC2EP13JfrStackFramej(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13JfrStackTraceC2EmRKS_PS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %2, ptr noundef %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN13JfrStackTraceC2EmRKS_PS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0, i64 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %2, ptr noundef %3) unnamed_addr #2 align 2 {
   store ptr %3, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
@@ -870,7 +870,7 @@ define hidden void @_ZNK13JfrStackFrame5writeER19JfrCheckpointWriter(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15JfrVframeStreamC2EP10JavaThreadRK5framebb(ptr noundef nonnull align 8 dereferenceable(5121) initializes((0, 5048), (5080, 5089), (5096, 5105), (5112, 5121)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #2 align 2 {
+define hidden void @_ZN15JfrVframeStreamC2EP10JavaThreadRK5framebb(ptr noundef nonnull align 8 dereferenceable(5121) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #2 align 2 {
   %6 = alloca %class.frame, align 8
   %7 = alloca %class.RegisterMap, align 8
   %8 = zext i1 %3 to i8
@@ -1322,7 +1322,7 @@ _ZN15JfrVframeStream14step_to_senderEv.exit:      ; preds = %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13JfrStackTrace12record_asyncEP10JavaThreadRK5frame(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((24, 32), (41, 42)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN13JfrStackTrace12record_asyncEP10JavaThreadRK5frame(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %class.HandleMark, align 8
   %5 = alloca %class.JfrVframeStream, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1599,7 +1599,7 @@ declare noundef i32 @_ZNK6Method20line_number_from_bciEi(ptr noundef nonnull ali
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13JfrStackTrace6recordEP10JavaThreadRK5frameil(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((41, 42)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN13JfrStackTrace6recordEP10JavaThreadRK5frameil(ptr nocapture noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #2 align 2 {
   %6 = alloca %class.HandleMark, align 8
   %7 = alloca %class.JfrVframeStream, align 8
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef %1) #15
@@ -1948,7 +1948,7 @@ define hidden noundef zeroext i1 @_ZN13JfrStackTrace6recordEP10JavaThreadil(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK13JfrStackFrame14resolve_linenoEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((16, 20)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK13JfrStackFrame14resolve_linenoEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0) local_unnamed_addr #2 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8

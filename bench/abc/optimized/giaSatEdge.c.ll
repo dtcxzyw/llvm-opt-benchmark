@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Seg_ManCountIntEdges(ptr noundef %0, ptr nocapture noundef initializes((4, 8)) %1, ptr nocapture noundef initializes((4, 8)) %2, i32 noundef %3) local_unnamed_addr #0 {
+define noalias noundef ptr @Seg_ManCountIntEdges(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #15
   %6 = getelementptr inbounds i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
@@ -997,7 +997,7 @@ declare i32 @sat_solver_nvars(ptr noundef) local_unnamed_addr #1
 declare void @Gia_ManFillValue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Seg_ManClean(ptr nocapture noundef initializes((112, 120)) %0) local_unnamed_addr #0 {
+define void @Seg_ManClean(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #16

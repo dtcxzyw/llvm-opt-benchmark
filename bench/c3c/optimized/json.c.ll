@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @hex_conv = internal unnamed_addr constant <{ [103 x i8], [153 x i8] }> <{ [103 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\02\03\04\05\06\07\08\09\0A\00\00\00\00\00\00\00\0B\0C\0D\0E\0F\10\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\0B\0C\0D\0E\0F\10", [153 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @json_error(ptr nocapture noundef initializes((16, 20)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @json_error(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -995,7 +995,7 @@ json_parse_string.exit:                           ; preds = %json_error.exit48.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @json_init_string(ptr nocapture noundef initializes((0, 4), (8, 16), (24, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local void @json_init_string(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32

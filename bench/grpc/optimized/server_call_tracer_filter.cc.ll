@@ -1895,7 +1895,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS2_EPNSC_4CallEPSC_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISM_EEvSC_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %x, ptr nocapture noundef writeonly initializes((0, 9), (16, 24)) %memory) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptClientInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS2_EPNSC_4CallEPSC_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_9AppendMapISM_EEvSC_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %x, ptr nocapture noundef writeonly %memory) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fn_ = getelementptr inbounds i8, ptr %this, i64 16
   %fn_.val = load i64, ptr %fn_, align 8
@@ -2043,7 +2043,7 @@ if.end:                                           ; preds = %_ZN9grpc_core8Destr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS2_EPNSC_4CallEPSC_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISM_EEvSC_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %x, ptr nocapture noundef writeonly initializes((0, 9), (16, 24)) %memory) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS2_EPNSC_4CallEPSC_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISM_EEvSC_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %x, ptr nocapture noundef writeonly %memory) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fn_ = getelementptr inbounds i8, ptr %this, i64 16
   %fn_.val = load i64, ptr %fn_, align 8
@@ -2156,7 +2156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS2_EPNSC_4CallEPSC_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISM_EEvSC_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %x, ptr nocapture noundef writeonly initializes((0, 9), (16, 24)) %memory) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail31InterceptServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS2_EPNSC_4CallEPSC_PNS_18CallSpineInterfaceEEUlS5_E_ZNS6_10PrependMapISM_EEvSC_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %x, ptr nocapture noundef writeonly %memory) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fn_ = getelementptr inbounds i8, ptr %this, i64 16
   %fn_.val = load i64, ptr %fn_, align 8
@@ -2534,7 +2534,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core12_GLOBAL__N_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3138,7 +3138,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ChannelFilterE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3316,7 +3316,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS2_EPNS8_14FilterCallDataISC_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISN_EEvSC_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %x, ptr nocapture noundef writeonly initializes((0, 9), (16, 24)) %memory) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE7MapImplIZNS_21promise_filter_detail30InterceptServerInitialMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvMNT_4CallEFvRS2_EPNS8_14FilterCallDataISC_EERKNS_8CallArgsEEUlS5_E_ZNS6_10PrependMapISN_EEvSC_NS_13DebugLocationEEUlvE_E11MakePromiseES5_Pv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef %x, ptr nocapture noundef writeonly %memory) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fn_ = getelementptr inbounds i8, ptr %this, i64 16
   %fn_.val = load i64, ptr %fn_, align 8

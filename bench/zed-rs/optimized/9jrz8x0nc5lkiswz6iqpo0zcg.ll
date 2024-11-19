@@ -12500,7 +12500,7 @@ define hidden noundef zeroext i1 @"_ZN16quick_action_bar9repl_menu50_$LT$impl$u2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN16quick_action_bar23toggle_markdown_preview50_$LT$impl$u20$quick_action_bar..QuickActionBar$GT$30render_toggle_markdown_preview28_$u7b$$u7b$closure$u7d$$u7d$17h312e82c6cb230628E.llvm.7185157049035587658"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, ptr noalias noundef align 8 dereferenceable(1576) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden void @"_ZN16quick_action_bar23toggle_markdown_preview50_$LT$impl$u20$quick_action_bar..QuickActionBar$GT$30render_toggle_markdown_preview28_$u7b$$u7b$closure$u7d$$u7d$17h312e82c6cb230628E.llvm.7185157049035587658"(ptr noalias nocapture noundef writeonly align 1 dereferenceable(1) %0, ptr noalias noundef align 8 dereferenceable(1576) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #4 personality ptr @rust_eh_personality {
   %4 = alloca [32 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZN16markdown_preview21markdown_preview_view19MarkdownPreviewView38resolve_active_item_as_markdown_editor17h4aff49a2afba8adfE(ptr noalias nocapture noundef nonnull sret([32 x i8]) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(1576) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)

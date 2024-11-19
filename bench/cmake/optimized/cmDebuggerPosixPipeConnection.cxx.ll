@@ -242,7 +242,7 @@ $_ZTINSt13__future_base13_State_baseV27_SetterIvvEE = comdat any
 @.str.6 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 40)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -408,7 +408,7 @@ _ZNSt8weak_ptrIN10cmDebugger30cmDebuggerPipeConnection_POSIXEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -490,7 +490,7 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXC1ENSt7__c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 64
@@ -740,7 +740,7 @@ _ZNSt10shared_ptrINSt13__future_base13_State_baseV2EED2Ev.exit: ; preds = %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 24)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i64 48), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i64 176), ptr %2, align 8
@@ -838,21 +838,21 @@ define dso_local void @_ZTv0_n24_N10cmDebugger30cmDebuggerPipeConnection_POSIXD1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef initializes((-8, 16)) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn8_N10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #27
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef initializes((-16, 8)) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #27
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 24)) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #27
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
@@ -873,7 +873,7 @@ define dso_local void @_ZTv0_n24_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev(ptr noundef initializes((-8, 16)) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn8_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(216) %2) #26
@@ -881,7 +881,7 @@ define dso_local void @_ZThn8_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev(
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev(ptr noundef initializes((-16, 8)) %0) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %2) #27
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(216) %2) #26
@@ -889,7 +889,7 @@ define dso_local void @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX14StartListeningERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) initializes((208, 212)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX14StartListeningERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::function", align 8
   %4 = tail call i32 @socket(i32 noundef 1, i32 noundef 1, i32 noundef 0) #27
   %5 = getelementptr inbounds i8, ptr %0, i64 208
@@ -1084,7 +1084,7 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX12close_li
 declare i32 @listen(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIX14StartListeningERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef initializes((192, 196)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
+define dso_local noundef zeroext i1 @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIX14StartListeningERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -16
   %4 = tail call noundef zeroext i1 @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX14StartListeningERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(216) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret i1 %4
@@ -1432,7 +1432,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX17WaitForConnectionEv(ptr noundef nonnull align 8 dereferenceable(216) initializes((212, 216)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX17WaitForConnectionEv(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 align 2 {
   %2 = alloca %struct.sockaddr_un, align 2
   %3 = alloca i32, align 4
   store i32 110, ptr %3, align 4
@@ -1475,7 +1475,7 @@ _ZN10cmDebugger30cmDebuggerPipeConnection_POSIX12close_listenEv.exit: ; preds = 
 declare i32 @accept(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: uwtable
-define dso_local void @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIX17WaitForConnectionEv(ptr noundef initializes((196, 200)) %0) unnamed_addr #10 align 2 {
+define dso_local void @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIX17WaitForConnectionEv(ptr noundef %0) unnamed_addr #10 align 2 {
   %2 = alloca %struct.sockaddr_un, align 2
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 110, ptr nonnull %2)
@@ -1600,7 +1600,7 @@ _ZN10cmDebugger30cmDebuggerPipeConnection_POSIX5writeEPKvm.exit: ; preds = %3, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 32)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -1653,7 +1653,7 @@ define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXC2ENSt7__cxx11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 32)) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -1667,7 +1667,7 @@ define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXC1ENSt7__cxx11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXD2Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 16)) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 64
@@ -1734,7 +1734,7 @@ _ZNSt23enable_shared_from_thisIN10cmDebugger26cmDebuggerPipeClient_POSIXEED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 16)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXD1Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i64 48), ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1869,7 +1869,7 @@ _ZN10cmDebugger26cmDebuggerPipeClient_POSIXD1Ev.exit: ; preds = %_ZN10cmDebugger
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N10cmDebugger26cmDebuggerPipeClient_POSIXD1Ev(ptr noundef initializes((-8, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZThn8_N10cmDebugger26cmDebuggerPipeClient_POSIXD1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i64 48), ptr %2, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i64 144), ptr %0, align 8
@@ -1934,7 +1934,7 @@ _ZN10cmDebugger26cmDebuggerPipeClient_POSIXD1Ev.exit: ; preds = %_ZN10cmDebugger
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXD0Ev(ptr noundef nonnull align 8 dereferenceable(68) initializes((0, 16)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i64 48), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i64 144), ptr %2, align 8
@@ -2070,7 +2070,7 @@ _ZN10cmDebugger26cmDebuggerPipeClient_POSIXD0Ev.exit: ; preds = %_ZN10cmDebugger
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N10cmDebugger26cmDebuggerPipeClient_POSIXD0Ev(ptr noundef initializes((-8, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZThn8_N10cmDebugger26cmDebuggerPipeClient_POSIXD0Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i64 48), ptr %2, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i64 144), ptr %0, align 8
@@ -2136,7 +2136,7 @@ _ZN10cmDebugger26cmDebuggerPipeClient_POSIXD0Ev.exit: ; preds = %_ZN10cmDebugger
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIX17WaitForConnectionEv(ptr noundef nonnull align 8 dereferenceable(68) initializes((64, 68)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIX17WaitForConnectionEv(ptr noundef nonnull align 8 dereferenceable(68) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1

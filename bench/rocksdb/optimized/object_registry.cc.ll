@@ -1009,7 +1009,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #4
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ObjectRegistryC2ERKSt10shared_ptrINS_13ObjectLibraryEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 48), (56, 60), (64, 72)) %this, ptr noundef nonnull align 8 dereferenceable(16) %library) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ObjectRegistryC2ERKSt10shared_ptrINS_13ObjectLibraryEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(16) %library) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %0, align 8
@@ -1542,7 +1542,7 @@ _ZNSt10shared_ptrIN7rocksdb14ObjectRegistryEEC2ISaIvEJRS_INS0_13ObjectLibraryEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ObjectRegistry11NewInstanceEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.48") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ObjectRegistry11NewInstanceEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.48") align 8 %agg.result) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.48", align 8
   call void @_ZN7rocksdb14ObjectRegistry7DefaultEv(ptr nonnull sret(%"class.std::shared_ptr.48") align 8 %ref.tmp)
@@ -1695,7 +1695,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ObjectRegistry11NewInstanceERKSt10shared_ptrIS0_E(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.48") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %parent) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ObjectRegistry11NewInstanceERKSt10shared_ptrIS0_E(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.48") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %parent) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   store ptr null, ptr %agg.result, align 8, !alias.scope !14

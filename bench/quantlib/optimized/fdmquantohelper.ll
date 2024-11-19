@@ -76,7 +76,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib15FdmQuantoHelperC2EN5boost10shared_ptrINS_18YieldTermStructureEEES4_NS2_INS_21BlackVolTermStructureEEEdd(ptr noundef nonnull align 8 dereferenceable(120) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %rTS, ptr nocapture noundef %fTS, ptr nocapture noundef %fxVolTS, double noundef %equityFxCorrelation, double noundef %exchRateATMlevel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15FdmQuantoHelperC2EN5boost10shared_ptrINS_18YieldTermStructureEEES4_NS2_INS_21BlackVolTermStructureEEEdd(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef %rTS, ptr nocapture noundef %fTS, ptr nocapture noundef %fxVolTS, double noundef %equityFxCorrelation, double noundef %exchRateATMlevel) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !3

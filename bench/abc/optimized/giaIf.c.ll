@@ -81,7 +81,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.14 = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Gia_ManSetIfParsDefault(ptr nocapture noundef writeonly initializes((0, 352)) %0) local_unnamed_addr #0 {
+define void @Gia_ManSetIfParsDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %2, i8 0, i64 336, i1 false)
   store i32 -1, ptr %0, align 8
@@ -368,7 +368,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManLutParams(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
+define void @Gia_ManLutParams(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 736
@@ -626,7 +626,7 @@ declare i32 @Tim_ManBoxNum(ptr noundef) local_unnamed_addr #6
 declare i32 @Gia_ManLutLevelWithBoxes(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManPrintGetMuxFanins(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) local_unnamed_addr #3 {
+define void @Gia_ManPrintGetMuxFanins(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = call ptr @Gia_ObjRecognizeMux(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %4) #25
@@ -1107,7 +1107,7 @@ Vec_IntGrow.exit10:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Gia_ManComputeOverlap2One(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #3 {
+define range(i32 -2147483647, -2147483648) i32 @Gia_ManComputeOverlap2One(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %0, i64 264
@@ -4618,7 +4618,7 @@ Vec_IntPush.exit52:                               ; preds = %.Vec_IntGrow.exit10
 declare i32 @Kit_TruthToGia(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManFromIfLogicCreateLutSpecial(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((4, 8)) %3, ptr noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #3 {
+define i32 @Gia_ManFromIfLogicCreateLutSpecial(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7) local_unnamed_addr #3 {
   %9 = alloca i64, align 8
   %10 = getelementptr i8, ptr %2, i64 4
   %.val52 = load i32, ptr %10, align 4

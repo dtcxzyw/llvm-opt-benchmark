@@ -3369,7 +3369,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ossl_recv(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #0 {
+define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = alloca [256 x i8], align 16
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -3596,7 +3596,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @passwd_callback(ptr noca
 declare i32 @SSL_CTX_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @ossl_strerror(i64 noundef %0, ptr noundef nonnull initializes((0, 1)) %1, i64 noundef range(i64 256, 1025) %2) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @ossl_strerror(i64 noundef %0, ptr noundef nonnull %1, i64 noundef range(i64 256, 1025) %2) unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   %4 = tail call ptr @OpenSSL_version(i32 noundef 6) #13
   %5 = tail call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @.str.90, ptr noundef nonnull @.str.91, ptr noundef %4) #13

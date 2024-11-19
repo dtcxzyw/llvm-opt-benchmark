@@ -160,7 +160,7 @@ $_ZNSt6vectorItSaItEE17_M_default_appendEm = comdat any
 @_ZN10OpenSubdiv6v3_6_03Vtr8internal5LevelD1Ev = unnamed_addr alias void (ptr), ptr @_ZN10OpenSubdiv6v3_6_03Vtr8internal5LevelD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal5LevelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) initializes((0, 480)) %0) unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Vtr8internal5LevelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %0, i8 0, i64 480, i1 false)
   ret void
 }
@@ -3853,7 +3853,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_ZNK10OpenSubdiv6v3_6_03
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level27gatherQuadLinearPatchPointsEiPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level27gatherQuadLinearPatchPointsEiPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #16 align 2 {
   %6 = icmp slt i32 %4, 0
   br i1 %6, label %7, label %19
 
@@ -3925,7 +3925,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level27gatherQuadLinear
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegularInteriorPatchPointsEiPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegularInteriorPatchPointsEiPiii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #10 align 2 {
   %6 = sext i32 %3 to i64
   %7 = getelementptr inbounds [7 x i32], ptr @_ZZNK10OpenSubdiv6v3_6_03Vtr8internal5Level36gatherQuadRegularInteriorPatchPointsEiPiiiE16rotationSequence, i64 0, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5295,7 +5295,7 @@ _ZNK10OpenSubdiv6v3_6_03Vtr10ConstArrayIiE9FindIndexEi.exit93: ; preds = %72, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level39gatherTriRegularCornerVertexPatchPointsEiPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2, i32 noundef %3) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level39gatherTriRegularCornerVertexPatchPointsEiPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #16 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = shl nsw i32 %1, 1
@@ -5386,7 +5386,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level39gatherTriRegular
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level37gatherTriRegularCornerEdgePatchPointsEiPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 32)) %2, i32 noundef %3) local_unnamed_addr #16 align 2 {
+define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Vtr8internal5Level37gatherTriRegularCornerEdgePatchPointsEiPii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(480) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #16 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = shl nsw i32 %1, 1
@@ -7735,7 +7735,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Vtr8internal5Level4ETagESaIS5_EE6resizeEm.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Vtr8internal12_GLOBAL__N_115DynamicRelationC2ERSt6vectorIiSaIiEES8_i(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24), (32, 36), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef range(i32 2, 7) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10OpenSubdiv6v3_6_03Vtr8internal12_GLOBAL__N_115DynamicRelationC2ERSt6vectorIiSaIiEES8_i(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef range(i32 2, 7) %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %3, ptr %5, align 4

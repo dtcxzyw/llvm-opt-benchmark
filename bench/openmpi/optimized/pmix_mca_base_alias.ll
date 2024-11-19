@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_hash_table_t_class = external global %struct.pmix_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @pmix_mca_base_alias_init(ptr noundef initializes((160, 172), (176, 240)) %0) #0 {
+define internal void @pmix_mca_base_alias_init(ptr noundef %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -160,7 +160,7 @@ pmix_obj_run_destructors.exit22:                  ; preds = %.lr.ph.i19, %._crit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_mca_base_alias_item_init(ptr nocapture noundef writeonly initializes((144, 152)) %0) #1 {
+define internal void @pmix_mca_base_alias_item_init(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   ret void

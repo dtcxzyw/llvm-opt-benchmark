@@ -417,7 +417,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @casadi_register_integrator_collocation(ptr nocapture noundef writeonly initializes((0, 28), (32, 48)) %0) #4 {
+define noundef i32 @casadi_register_integrator_collocation(ptr nocapture noundef writeonly %0) #4 {
   store ptr @_ZN6casadi11Collocation7creatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEdRKSt6vectorIdSaIdEE, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str.5, ptr %2, align 8
@@ -495,7 +495,7 @@ declare void @_ZN6casadi27ImplicitFixedStepIntegratorC2ERKNSt7__cxx1112basic_str
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi11CollocationD2Ev(ptr noundef nonnull align 8 dereferenceable(2016) initializes((0, 8), (1520, 1528)) %0) unnamed_addr #4 align 2 {
+define void @_ZN6casadi11CollocationD2Ev(ptr noundef nonnull align 8 dereferenceable(2016) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi11CollocationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi11CollocationE, i64 1016), ptr %2, align 8
@@ -547,7 +547,7 @@ _ZNSt6vectorIPKN6casadi7OptionsESaIS3_EED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi11Collocation4initERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull align 8 dereferenceable(2016) initializes((1976, 1984)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi11Collocation4initERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE(ptr noundef nonnull align 8 dereferenceable(2016) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1976
   store i64 3, ptr %4, align 8

@@ -583,7 +583,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__11PcpLifeboatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((8, 12), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__11PcpLifeboatC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -864,7 +864,7 @@ _ZSt4swapIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_13PcpLayerStackEEESt4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10PcpChangesC2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((8, 12), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10PcpChangesC2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21855,7 +21855,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpChanges22_LoadSublayerForChangeEPKNS_8PcpCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19_SublayerChangeTypeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpChanges22_LoadSublayerForChangeEPKNS_8PcpCacheERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19_SublayerChangeTypeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::ArResolverContextBinder", align 8
   %7 = alloca %"class.std::map.190", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr", align 8
@@ -22813,7 +22813,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpChanges22_LoadSublayerForChangeEPKNS_8PcpCacheERKNS_9TfWeakPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19_SublayerChangeTypeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpChanges22_LoadSublayerForChangeEPKNS_8PcpCacheERKNS_9TfWeakPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_19_SublayerChangeTypeE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i8, align 1
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::ArResolverContextBinder", align 8
   %9 = alloca %"class.std::map.190", align 8
@@ -23132,7 +23132,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit33: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges18_DidChangeSublayerEPKNS_8PcpCacheERKSt6vectorINS_9TfWeakPtrINS_13PcpLayerStackEEESaIS7_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS5_INS_8SdfLayerEEENS0_19_SublayerChangeTypeEPSH_Pb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef initializes((0, 1)) %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10PcpChanges18_DidChangeSublayerEPKNS_8PcpCacheERKSt6vectorINS_9TfWeakPtrINS_13PcpLayerStackEEESaIS7_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS5_INS_8SdfLayerEEENS0_19_SublayerChangeTypeEPSH_Pb(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::PcpCache *, std::pair<pxrInternal_v0_24__pxrReserved__::PcpCache *const, pxrInternal_v0_24__pxrReserved__::PcpCacheChanges>, std::_Select1st<std::pair<pxrInternal_v0_24__pxrReserved__::PcpCache *const, pxrInternal_v0_24__pxrReserved__::PcpCacheChanges>>, std::less<pxrInternal_v0_24__pxrReserved__::PcpCache *>>::_Auto_node", align 8
   %10 = alloca %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::PcpCache *, std::pair<pxrInternal_v0_24__pxrReserved__::PcpCache *const, pxrInternal_v0_24__pxrReserved__::PcpCacheChanges>, std::_Select1st<std::pair<pxrInternal_v0_24__pxrReserved__::PcpCache *const, pxrInternal_v0_24__pxrReserved__::PcpCacheChanges>>, std::less<pxrInternal_v0_24__pxrReserved__::PcpCache *>>::_Auto_node", align 8
   %11 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8

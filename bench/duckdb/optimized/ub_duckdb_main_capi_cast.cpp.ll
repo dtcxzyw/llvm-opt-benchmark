@@ -75,7 +75,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 @.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb17FetchDefaultValue9OperationI14duckdb_decimalEET_v(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.duckdb_decimal) align 8 initializes((0, 2), (8, 24)) %agg.result) local_unnamed_addr #0 align 2 {
+define void @_ZN6duckdb17FetchDefaultValue9OperationI14duckdb_decimalEET_v(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.duckdb_decimal) align 8 %agg.result) local_unnamed_addr #0 align 2 {
 entry:
   %scale = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 0, ptr %scale, align 1, !tbaa !3

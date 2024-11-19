@@ -5619,7 +5619,7 @@ declare float @llvm.minnum.f32(float, float) #2
 declare float @llvm.pow.f32(float, float) #2
 
 ; Function Attrs: nounwind uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #4 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = tail call ptr @dt_alloc_aligned(i64 noundef 88) #30
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6
@@ -8491,7 +8491,7 @@ define internal fastcc void @_periodic_RBF_interpolate(ptr nocapture noundef non
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @dt_UCS_22_build_gamut_LUT(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly initializes((0, 1440)) %1) unnamed_addr #16 {
+define internal fastcc void @dt_UCS_22_build_gamut_LUT(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #16 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1440) %1, i8 0, i64 1440, i1 false), !tbaa !6
   %3 = load float, ptr %0, align 4, !tbaa !6
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -9774,7 +9774,7 @@ declare ptr @g_type_check_instance_cast(ptr noundef, i64 noundef) local_unnamed_
 declare i64 @gtk_widget_get_type() local_unnamed_addr #17
 
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr noundef initializes((496, 500)) %0) local_unnamed_addr #4 {
+define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 16, !tbaa !157
   %4 = getelementptr inbounds i8, ptr %0, i64 496
@@ -10048,7 +10048,7 @@ declare void @gtk_widget_hide(ptr noundef) local_unnamed_addr #6
 declare void @gtk_widget_show(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #4 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca [4 x [4 x float]], align 64
   %3 = alloca %struct.dt_iop_module_section_t, align 8
   %4 = alloca %struct.dt_iop_module_section_t, align 8
@@ -12780,7 +12780,7 @@ declare float @tanf(float noundef) local_unnamed_addr #17
 declare float @llvm.round.f32(float) #2
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 12)) %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4) unnamed_addr #23 {
+define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull readonly %3, i32 noundef %4) unnamed_addr #23 {
   %6 = add nsw i32 %4, -1
   %7 = sitofp i32 %6 to float
   %8 = add nsw i32 %4, -2
@@ -12934,7 +12934,7 @@ define internal fastcc void @dt_ioppr_apply_trc(ptr nocapture noundef readonly %
 declare void @dt_bauhaus_slider_set_offset(ptr noundef, float noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_build_dt_UCS_HSB_gradients(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull initializes((0, 12)) %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #24 {
+define internal fastcc void @_build_dt_UCS_HSB_gradients(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #24 {
   %5 = alloca [4 x float], align 16
   %6 = load float, ptr %0, align 4, !tbaa !6
   %7 = getelementptr inbounds i8, ptr %0, i64 4

@@ -58,7 +58,7 @@ $_ZN26ZIndexDistributorClaimTree16claim_level_sizeEi = comdat any
 @_ZN24ZGenerationPagesIteratorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN24ZGenerationPagesIteratorD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ZPageTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ZPageTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = load i64, ptr @ZAddressOffsetMax, align 8
   %3 = lshr i64 %2, 21
   store i64 %3, ptr %0, align 8
@@ -200,7 +200,7 @@ _ZN11ZGranuleMapIP5ZPageE11release_putE7zoffsetmS1_.exit: ; preds = %13, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN32ZGenerationPagesParallelIteratorC2EPK10ZPageTable13ZGenerationIdP14ZPageAllocator(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN32ZGenerationPagesParallelIteratorC2EPK10ZPageTable13ZGenerationIdP14ZPageAllocator(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   %6 = load i64, ptr @ZAddressOffsetMax, align 8
@@ -300,7 +300,7 @@ declare void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr noundef nonnull a
 declare void @_ZNK14ZPageAllocator20disable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ZGenerationPagesIteratorC2EPK10ZPageTable13ZGenerationIdP14ZPageAllocator(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 49), (56, 64)) %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN24ZGenerationPagesIteratorC2EPK10ZPageTable13ZGenerationIdP14ZPageAllocator(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1, i8 noundef zeroext %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8

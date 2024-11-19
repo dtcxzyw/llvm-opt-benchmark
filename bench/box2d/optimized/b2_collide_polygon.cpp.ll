@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.b2ManifoldPoint = type { %struct.b2Vec2, float, float, %union.b2ContactID }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17b2CollidePolygonsP10b2ManifoldPK14b2PolygonShapeRK11b2TransformS3_S6_(ptr nocapture noundef writeonly initializes((60, 64)) %manifold, ptr nocapture noundef readonly %polyA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %polyB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #0 {
+define void @_Z17b2CollidePolygonsP10b2ManifoldPK14b2PolygonShapeRK11b2TransformS3_S6_(ptr nocapture noundef writeonly %manifold, ptr nocapture noundef readonly %polyA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfA, ptr nocapture noundef readonly %polyB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %xfB) local_unnamed_addr #0 {
 entry:
   %edgeA = alloca i32, align 4
   %edgeB = alloca i32, align 4

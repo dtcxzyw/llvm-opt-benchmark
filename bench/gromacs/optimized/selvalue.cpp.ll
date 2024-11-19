@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @"__PRETTY_FUNCTION__._ZZ21_gmx_selvalue_reserveP18gmx_ana_selvalue_tiENK3$_0clEv" = private unnamed_addr constant [93 x i8] c"auto _gmx_selvalue_reserve(gmx_ana_selvalue_t *, int)::(anonymous class)::operator()() const\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z19_gmx_selvalue_clearP18gmx_ana_selvalue_t(ptr nocapture noundef writeonly initializes((4, 20)) %0) local_unnamed_addr #0 {
+define void @_Z19_gmx_selvalue_clearP18gmx_ana_selvalue_t(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -252,7 +252,7 @@ declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 n
 declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z34_gmx_selvalue_getstore_and_releaseP18gmx_ana_selvalue_tPPvPi(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #8 {
+define void @_Z34_gmx_selvalue_getstore_and_releaseP18gmx_ana_selvalue_tPPvPi(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -265,7 +265,7 @@ define void @_Z34_gmx_selvalue_getstore_and_releaseP18gmx_ana_selvalue_tPPvPi(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z22_gmx_selvalue_setstoreP18gmx_ana_selvalue_tPv(ptr nocapture noundef writeonly initializes((8, 20)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @_Z22_gmx_selvalue_setstoreP18gmx_ana_selvalue_tPv(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %.not = icmp ne ptr %1, null
@@ -276,7 +276,7 @@ define void @_Z22_gmx_selvalue_setstoreP18gmx_ana_selvalue_tPv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z28_gmx_selvalue_setstore_allocP18gmx_ana_selvalue_tPvi(ptr nocapture noundef writeonly initializes((8, 20)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @_Z28_gmx_selvalue_setstore_allocP18gmx_ana_selvalue_tPvi(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

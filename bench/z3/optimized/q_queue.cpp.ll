@@ -152,7 +152,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN1q5queueC2ERNS_6ematchERN3euf6solverE(ptr noundef nonnull align 8 dereferenceable(912) initializes((0, 72)) %this, ptr noundef nonnull align 8 dereferenceable(2672) %em, ptr noundef nonnull align 8 dereferenceable(9136) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN1q5queueC2ERNS_6ematchERN3euf6solverE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr noundef nonnull align 8 dereferenceable(2672) %em, ptr noundef nonnull align 8 dereferenceable(9136) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %em, ptr %this, align 8
   %ctx3 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1038,7 +1038,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN1q5queue11instantiateERNS0_5entryE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef nonnull align 8 dereferenceable(13) initializes((12, 13)) %ent) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN1q5queue11instantiateERNS0_5entryE(ptr noundef nonnull align 8 dereferenceable(912) %this, ptr nocapture noundef nonnull align 8 dereferenceable(13) %ent) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_propagation = alloca i8, align 1
   %instance = alloca %class.obj_ref, align 8

@@ -705,7 +705,7 @@ declare void @_ZN12outputStream7move_toEiii(ptr noundef nonnull align 8 derefere
 declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10decode_envC2EP8CodeBlobP12outputStream(ptr noundef nonnull align 8 dereferenceable(583) initializes((0, 553), (560, 583)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10decode_envC2EP8CodeBlobP12outputStream(ptr noundef nonnull align 8 dereferenceable(583) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %2, null
   %4 = load ptr, ptr @tty, align 8
   %5 = select i1 %.not, ptr %4, ptr %2
@@ -738,7 +738,7 @@ define hidden void @_ZN10decode_envC2EP8CodeBlobP12outputStream(ptr noundef nonn
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10decode_env15process_optionsEP12outputStream(ptr noundef nonnull align 8 dereferenceable(583) initializes((568, 572), (580, 582)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10decode_env15process_optionsEP12outputStream(ptr noundef nonnull align 8 dereferenceable(583) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 581
   store i8 0, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 568
@@ -1002,7 +1002,7 @@ _ZN10decode_env15collect_optionsEPKc.exit:        ; preds = %.lr.ph.i, %2, %8, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10decode_envC2EP7nmethodP12outputStream(ptr noundef nonnull align 8 dereferenceable(583) initializes((0, 553), (560, 583)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10decode_envC2EP7nmethodP12outputStream(ptr noundef nonnull align 8 dereferenceable(583) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %2, null
   %4 = load ptr, ptr @tty, align 8
   %5 = select i1 %.not, ptr %4, ptr %2
@@ -1032,7 +1032,7 @@ define hidden void @_ZN10decode_envC2EP7nmethodP12outputStream(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10decode_envC2EPhS0_P12outputStream(ptr noundef nonnull align 8 dereferenceable(583) initializes((0, 553), (560, 583)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN10decode_envC2EPhS0_P12outputStream(ptr noundef nonnull align 8 dereferenceable(583) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %3, null
   %5 = load ptr, ptr @tty, align 8
   %6 = select i1 %.not, ptr %5, ptr %3

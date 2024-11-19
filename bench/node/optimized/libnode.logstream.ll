@@ -526,7 +526,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node4quic9LogStream3EndEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((129, 130)) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4node4quic9LogStream3EndEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %this) local_unnamed_addr #5 align 2 {
 entry:
   %ended_ = getelementptr inbounds i8, ptr %this, i64 129
   store i8 1, ptr %ended_, align 1
@@ -671,7 +671,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZN4node4quic9LogStream8ReadStopEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((130, 131)) %this) unnamed_addr #5 align 2 {
+define dso_local noundef i32 @_ZN4node4quic9LogStream8ReadStopEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %this) unnamed_addr #5 align 2 {
 entry:
   %reading_ = getelementptr inbounds i8, ptr %this, i64 130
   store i8 0, ptr %reading_, align 2
@@ -679,7 +679,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @_ZThn56_N4node4quic9LogStream8ReadStopEv(ptr nocapture noundef writeonly initializes((74, 75)) %this) unnamed_addr #5 align 2 {
+define dso_local noundef i32 @_ZThn56_N4node4quic9LogStream8ReadStopEv(ptr nocapture noundef writeonly %this) unnamed_addr #5 align 2 {
 entry:
   %reading_.i = getelementptr inbounds i8, ptr %this, i64 74
   store i8 0, ptr %reading_.i, align 2

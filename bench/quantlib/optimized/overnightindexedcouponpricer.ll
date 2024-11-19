@@ -581,7 +581,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib39CompoundingOvernightIndexedCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib39CompoundingOvernightIndexedCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2759,7 +2759,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib46ArithmeticAveragedOvernightIndexedCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib46ArithmeticAveragedOvernightIndexedCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

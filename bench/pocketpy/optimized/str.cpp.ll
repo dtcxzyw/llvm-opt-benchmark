@@ -483,7 +483,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4pkpy3StrC2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 5)) %0) unnamed_addr #6 align 2 {
+define void @_ZN4pkpy3StrC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 1, ptr %2, align 4
@@ -495,7 +495,7 @@ define void @_ZN4pkpy3StrC2Ev(ptr noundef nonnull align 8 dereferenceable(32) in
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy3StrC2Eib(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 5)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 {
+define void @_ZN4pkpy3StrC2Eib(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 {
   %4 = zext i1 %2 to i8
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -524,7 +524,7 @@ define void @_ZN4pkpy3StrC2Eib(ptr noundef nonnull align 8 dereferenceable(32) i
 declare noundef ptr @_ZN4pkpy12pool64_allocEm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy3StrC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 5)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN4pkpy3StrC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #25
   %4 = trunc i64 %3 to i32
   store i32 %4, ptr %0, align 8
@@ -598,7 +598,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy3StrC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 5)) %0, i64 %1, ptr nocapture readonly %2) unnamed_addr #4 align 2 {
+define void @_ZN4pkpy3StrC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %1, ptr nocapture readonly %2) unnamed_addr #4 align 2 {
   %4 = trunc i64 %1 to i32
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -663,7 +663,7 @@ define void @_ZN4pkpy3StrC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy3StrC2EPKc(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 5)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
+define void @_ZN4pkpy3StrC2EPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #28
   %4 = trunc i64 %3 to i32
   store i32 %4, ptr %0, align 8
@@ -732,7 +732,7 @@ define void @_ZN4pkpy3StrC2EPKc(ptr noundef nonnull align 8 dereferenceable(32) 
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy3StrC2EPKci(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 5)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #4 align 2 {
+define void @_ZN4pkpy3StrC2EPKci(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, i32 noundef %2) unnamed_addr #4 align 2 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 1, ptr %4, align 4
@@ -796,7 +796,7 @@ define void @_ZN4pkpy3StrC2EPKci(ptr noundef nonnull align 8 dereferenceable(32)
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy3StrC2ESt4pairIPciE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 5), (8, 16)) %0, ptr %1, i32 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy3StrC2ESt4pairIPciE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr %1, i32 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -996,7 +996,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy3StrC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 5)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
+define void @_ZN4pkpy3StrC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1039,7 +1039,7 @@ define void @_ZN4pkpy3StrC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN4pkpy3StrC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 5)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #9 align 2 {
+define void @_ZN4pkpy3StrC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #9 align 2 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -4057,7 +4057,7 @@ define noundef i32 @_ZNK4pkpy3Str22_byte_index_to_unicodeEi(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pkpy3Str5splitERKS0_(ptr dead_on_unwind noalias nocapture writable sret(%"struct.pkpy::pod_vector.3") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4pkpy3Str5splitERKS0_(ptr dead_on_unwind noalias nocapture writable sret(%"struct.pkpy::pod_vector.3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 4, ptr %4, align 4
@@ -4252,7 +4252,7 @@ _ZN4pkpy10pod_vectorISt17basic_string_viewIcSt11char_traitsIcEELi2EE9push_backIR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK4pkpy3Str5splitEc(ptr dead_on_unwind noalias nocapture writable sret(%"struct.pkpy::pod_vector.3") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i8 noundef signext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4pkpy3Str5splitEc(ptr dead_on_unwind noalias nocapture writable sret(%"struct.pkpy::pod_vector.3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i8 noundef signext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 4, ptr %4, align 4

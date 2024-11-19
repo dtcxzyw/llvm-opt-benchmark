@@ -14,7 +14,7 @@ define void @Sfm_CheckConsistency(ptr nocapture noundef readonly %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Sfm_CreateFanout(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #1 {
+define void @Sfm_CreateFanout(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr i8, ptr %0, i64 4
   %.val55 = load i32, ptr %3, align 4
   %4 = load i32, ptr %1, align 8

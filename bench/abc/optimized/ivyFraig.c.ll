@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [49 x i8] c"Error: A counter-example did not refine classes!\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Ivy_FraigParamsDefault(ptr nocapture noundef writeonly initializes((0, 64)) %0) local_unnamed_addr #0 {
+define void @Ivy_FraigParamsDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   store i32 32, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4563,7 +4563,7 @@ define void @Ivy_FraigAddClass(ptr nocapture noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FraigInsertClass(ptr nocapture noundef %0, ptr noundef %1, ptr noundef initializes((56, 72)) %2) local_unnamed_addr #11 {
+define void @Ivy_FraigInsertClass(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds i8, ptr %2, i64 64
   store ptr %1, ptr %4, align 8
   %5 = getelementptr i8, ptr %1, i64 56

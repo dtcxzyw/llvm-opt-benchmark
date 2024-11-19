@@ -1299,7 +1299,7 @@ define internal fastcc void @create_fullpage_directory(ptr noundef nonnull %0) u
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @split_path(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc void @split_path(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 47) #16
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %11, label %5
@@ -1422,7 +1422,7 @@ define internal fastcc noundef i32 @open_file_in_directory(ptr noundef %0, ptr n
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @XLogFromFileName(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, i32 noundef %3) unnamed_addr #10 {
+define internal fastcc void @XLogFromFileName(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, i32 noundef %3) unnamed_addr #10 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %0, ptr noundef nonnull @.str.107, ptr noundef nonnull %1, ptr noundef nonnull %5, ptr noundef nonnull %6) #15

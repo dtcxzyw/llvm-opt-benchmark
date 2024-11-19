@@ -599,7 +599,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN60_$LT$assets..Assets$u20$as$u20$gpui..assets..AssetSource$GT$4load17h6bb2fe25b730eac9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
+define void @"_ZN60_$LT$assets..Assets$u20$as$u20$gpui..assets..AssetSource$GT$4load17h6bb2fe25b730eac9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [88 x i8], align 8
   %6 = alloca [16 x i8], align 8
   store ptr %2, ptr %6, align 8

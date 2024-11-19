@@ -1155,7 +1155,7 @@ define hidden i32 @pbl_field_descriptor_default_value_bool(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @pbl_field_descriptor_default_value_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 {
+define hidden ptr @pbl_field_descriptor_default_value_string(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4

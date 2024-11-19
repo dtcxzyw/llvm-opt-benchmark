@@ -349,7 +349,7 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @parseArgumentTail(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #3 {
+define internal fastcc range(i32 -1, 1) i32 @parseArgumentTail(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #3 {
   %4 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 61) #16
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %8

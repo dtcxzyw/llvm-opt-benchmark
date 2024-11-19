@@ -807,7 +807,7 @@ sw.epilog:                                        ; preds = %hex_format.exit42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @reftable_log_record_release(ptr nocapture noundef initializes((8, 16), (20, 24), (56, 72)) %r) local_unnamed_addr #6 {
+define dso_local void @reftable_log_record_release(ptr nocapture noundef %r) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %r, align 8
   tail call void @reftable_free(ptr noundef %0) #22
@@ -1399,7 +1399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @reftable_new_record(ptr noalias nocapture writeonly sret(%struct.reftable_record) align 8 initializes((0, 96)) %agg.result, i8 noundef zeroext %typ) local_unnamed_addr #8 {
+define dso_local void @reftable_new_record(ptr noalias nocapture writeonly sret(%struct.reftable_record) align 8 %agg.result, i8 noundef zeroext %typ) local_unnamed_addr #8 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %agg.result, i8 0, i64 96, i1 false)
   store i8 %typ, ptr %agg.result, align 8
@@ -1474,7 +1474,7 @@ reftable_record_data.exit:                        ; preds = %sw.bb3.i, %sw.bb2.i
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define internal void @reftable_ref_record_key(ptr nocapture noundef readonly %r, ptr noundef initializes((8, 16)) %dest) #6 {
+define internal void @reftable_ref_record_key(ptr nocapture noundef readonly %r, ptr noundef %dest) #6 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 0, ptr %len2.i, align 8
@@ -2083,7 +2083,7 @@ return:                                           ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @reftable_log_record_key(ptr nocapture noundef readonly %r, ptr noundef initializes((8, 16)) %dest) #6 {
+define internal void @reftable_log_record_key(ptr nocapture noundef readonly %r, ptr noundef %dest) #6 {
 entry:
   %i64 = alloca [8 x i8], align 1
   %0 = load ptr, ptr %r, align 8
@@ -2143,7 +2143,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @reftable_log_record_copy_from(ptr nocapture noundef initializes((8, 16), (20, 24), (56, 72)) %rec, ptr nocapture noundef readonly %src_rec, i32 noundef %hash_size) #6 {
+define internal void @reftable_log_record_copy_from(ptr nocapture noundef %rec, ptr nocapture noundef readonly %src_rec, i32 noundef %hash_size) #6 {
 entry:
   %0 = load ptr, ptr %rec, align 8
   tail call void @reftable_free(ptr noundef %0) #22
@@ -2962,7 +2962,7 @@ return:                                           ; preds = %if.end51, %if.end44
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @reftable_log_record_release_void(ptr nocapture noundef initializes((8, 16), (20, 24), (56, 72)) %rec) #6 {
+define internal void @reftable_log_record_release_void(ptr nocapture noundef %rec) #6 {
 entry:
   %0 = load ptr, ptr %rec, align 8
   tail call void @reftable_free(ptr noundef %0) #22
@@ -3028,7 +3028,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #14
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @reftable_index_record_key(ptr noundef %r, ptr noundef initializes((8, 16)) %dest) #6 {
+define internal void @reftable_index_record_key(ptr noundef %r, ptr noundef %dest) #6 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 0, ptr %len2.i, align 8
@@ -3048,7 +3048,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @reftable_index_record_copy_from(ptr noundef initializes((16, 24)) %rec, ptr noundef %src_rec, i32 %hash_size) #6 {
+define internal void @reftable_index_record_copy_from(ptr noundef %rec, ptr noundef %src_rec, i32 %hash_size) #6 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %rec, i64 16
   store i64 0, ptr %len2.i, align 8
@@ -3128,7 +3128,7 @@ return:                                           ; preds = %while.end.i, %put_v
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 1, 0) i32 @reftable_index_record_decode(ptr noundef initializes((16, 24)) %rec, ptr noundef byval(%struct.strbuf) align 8 %key, i8 zeroext %val_type, ptr nocapture readonly %in.coerce0, i64 %in.coerce1, i32 %hash_size) #6 {
+define internal range(i32 1, 0) i32 @reftable_index_record_decode(ptr noundef %rec, ptr noundef byval(%struct.strbuf) align 8 %key, i8 zeroext %val_type, ptr nocapture readonly %in.coerce0, i64 %in.coerce1, i32 %hash_size) #6 {
 entry:
   %last_key = getelementptr inbounds i8, ptr %rec, i64 8
   %len2.i = getelementptr inbounds i8, ptr %rec, i64 16
@@ -3238,7 +3238,7 @@ declare void @strbuf_addbuf(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare i32 @strbuf_cmp(ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal void @reftable_obj_record_key(ptr nocapture noundef readonly %r, ptr noundef initializes((8, 16)) %dest) #6 {
+define internal void @reftable_obj_record_key(ptr nocapture noundef readonly %r, ptr noundef %dest) #6 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %dest, i64 8
   store i64 0, ptr %len2.i, align 8
@@ -3261,7 +3261,7 @@ strbuf_setlen.exit:                               ; preds = %entry, %if.then4.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @reftable_obj_record_copy_from(ptr nocapture noundef initializes((8, 16), (24, 32)) %rec, ptr nocapture noundef readonly %src_rec, i32 %hash_size) #6 {
+define internal void @reftable_obj_record_copy_from(ptr nocapture noundef %rec, ptr nocapture noundef readonly %src_rec, i32 %hash_size) #6 {
 entry:
   %0 = load ptr, ptr %rec, align 8
   tail call void @free(ptr noundef %0) #22
@@ -3548,7 +3548,7 @@ return:                                           ; preds = %put_var_int.exit73,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @reftable_obj_record_decode(ptr nocapture noundef initializes((0, 12)) %rec, ptr nocapture noundef readonly byval(%struct.strbuf) align 8 %key, i8 noundef zeroext %val_type, ptr nocapture readonly %in.coerce0, i64 %in.coerce1, i32 %hash_size) #6 {
+define internal i32 @reftable_obj_record_decode(ptr nocapture noundef %rec, ptr nocapture noundef readonly byval(%struct.strbuf) align 8 %key, i8 noundef zeroext %val_type, ptr nocapture readonly %in.coerce0, i64 %in.coerce1, i32 %hash_size) #6 {
 entry:
   %conv = zext i8 %val_type to i64
   %len = getelementptr inbounds i8, ptr %key, i64 8
@@ -3738,7 +3738,7 @@ return:                                           ; preds = %while.body.i, %whil
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @reftable_obj_record_release(ptr nocapture noundef initializes((8, 16), (24, 32)) %rec) #16 {
+define internal void @reftable_obj_record_release(ptr nocapture noundef %rec) #16 {
 entry:
   %0 = load ptr, ptr %rec, align 8
   tail call void @free(ptr noundef %0) #22

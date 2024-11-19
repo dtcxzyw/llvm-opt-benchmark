@@ -445,7 +445,7 @@ define void @_ZN2cv8tracking10TrackerKCFD2Ev(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tracking4impl14TrackerKCFImpl4initERKNS_11_InputArrayERKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(3680) initializes((72, 76), (80, 112), (3676, 3680)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8tracking4impl14TrackerKCFImpl4initERKNS_11_InputArrayERKNS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(3680) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::_InputArray", align 8
   %5 = alloca %"class.cv::_OutputArray", align 8
   %6 = alloca %"class.cv::_OutputArray", align 8
@@ -7680,7 +7680,7 @@ _ZNSt6vectorIPFvN2cv3MatENS0_5Rect_IiEERS1_ESaIS6_EE9push_backERKS6_.exit9: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv8tracking10TrackerKCF6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(44) initializes((0, 44)) %0) unnamed_addr #10 align 2 {
+define void @_ZN2cv8tracking10TrackerKCF6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(44) %0) unnamed_addr #10 align 2 {
   store float 5.000000e-01, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0x3FC99999A0000000, ptr %2, align 4
@@ -7751,7 +7751,7 @@ _ZN2cv3PtrINS_8tracking4impl14TrackerKCFImplEED2Ev.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6legacy8tracking10TrackerKCF6Params4readERKNS_8FileNodeE(ptr noundef nonnull align 4 dereferenceable(44) initializes((0, 44)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv6legacy8tracking10TrackerKCF6Params4readERKNS_8FileNodeE(ptr noundef nonnull align 4 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -8601,7 +8601,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6legacy8tracking10TrackerKCF6createERKNS2_6ParamsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.38") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 4 dereferenceable(44) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6legacy8tracking10TrackerKCF6createERKNS2_6ParamsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.38") align 8 %0, ptr noundef nonnull align 4 dereferenceable(44) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_6legacy8tracking4impl14TrackerKCFImplEED2Ev.exit:
   %2 = alloca %"class.std::allocator.46", align 1
   %3 = alloca %"class.std::shared_ptr.43", align 8
@@ -8621,7 +8621,7 @@ _ZN2cv3PtrINS_6legacy8tracking4impl14TrackerKCFImplEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6legacy8tracking10TrackerKCF6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.38") align 8 initializes((0, 16)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6legacy8tracking10TrackerKCF6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.38") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator.46", align 1
   %3 = alloca %"class.std::shared_ptr.43", align 8
   %4 = alloca %"struct.cv::legacy::tracking::TrackerKCF::Params", align 4

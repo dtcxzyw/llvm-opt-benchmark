@@ -343,7 +343,7 @@ sw.epilog:                                        ; preds = %if.then21, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @conn_new(ptr nocapture noundef writeonly initializes((24, 28), (32, 36), (40, 44), (48, 56)) %bio) #3 {
+define internal range(i32 0, 2) i32 @conn_new(ptr nocapture noundef writeonly %bio) #3 {
 entry:
   %init = getelementptr inbounds i8, ptr %bio, i64 24
   store i32 0, ptr %init, align 8

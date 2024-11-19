@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK16btCollisionShape17getBoundingSphereER9btVector3Rf(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %center, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %radius) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK16btCollisionShape17getBoundingSphereER9btVector3Rf(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %center, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %radius) unnamed_addr #1 align 2 {
 entry:
   %tr = alloca %class.btTransform, align 4
   %aabbMin = alloca %class.btVector3, align 4
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly initializes((0, 16)) %dataBuffer, ptr noundef %serializer) unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZNK16btCollisionShape9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly %dataBuffer, ptr noundef %serializer) unnamed_addr #2 align 2 {
 entry:
   %vtable = load ptr, ptr %serializer, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 80

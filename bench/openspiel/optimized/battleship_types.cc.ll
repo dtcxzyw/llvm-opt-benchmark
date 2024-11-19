@@ -743,7 +743,7 @@ _ZNK10open_spiel10battleship13ShipPlacement12OverlapsWithERKS1_.exit.thread: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10battleship16CellAndDirectionC2ENS1_9DirectionERKNS0_4CellE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10battleship16CellAndDirectionC2ENS1_9DirectionERKNS0_4CellE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -873,7 +873,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10battleship13ShipPlacementC2ENS0_16CellAndDirection9DirectionERKNS0_4ShipERKNS0_4CellE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10battleship13ShipPlacementC2ENS0_16CellAndDirection9DirectionERKNS0_4ShipERKNS0_4CellE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

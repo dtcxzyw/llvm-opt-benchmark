@@ -4137,7 +4137,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_8CallExprEED2Ev.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17hasTypePointingToN5clang12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 1), (4, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
+define internal fastcc void @_ZL17hasTypePointingToN5clang12ast_matchers8internal7MatcherINS_4DeclEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.478", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1156", align 8
   %.sroa.024 = alloca [12 x i8], align 8

@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c_true = internal global i32 1, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @dlaqtr_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr nocapture noundef %9, ptr nocapture noundef writeonly initializes((0, 4)) %10) local_unnamed_addr #0 {
+define void @dlaqtr_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr nocapture noundef %9, ptr nocapture noundef writeonly %10) local_unnamed_addr #0 {
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4
   %14 = alloca double, align 8

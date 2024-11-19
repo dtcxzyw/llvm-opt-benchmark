@@ -13951,7 +13951,7 @@ if.end10:                                         ; preds = %if.then9, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_ssl__SSLSocket_pending(ptr noundef initializes((64, 72)) %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal ptr @_ssl__SSLSocket_pending(ptr noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %call.i = tail call ptr @PyEval_SaveThread() #11
   %ssl.i = getelementptr inbounds i8, ptr %self, i64 24
@@ -15896,7 +15896,7 @@ if.end3:                                          ; preds = %if.then2, %exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef nonnull ptr @_ssl_MemoryBIO_write_eof(ptr nocapture noundef initializes((24, 28)) %self, ptr nocapture readnone %_unused_ignored) #0 {
+define internal noundef nonnull ptr @_ssl_MemoryBIO_write_eof(ptr nocapture noundef %self, ptr nocapture readnone %_unused_ignored) #0 {
 entry:
   %eof_written.i = getelementptr inbounds i8, ptr %self, i64 24
   store i32 1, ptr %eof_written.i, align 8

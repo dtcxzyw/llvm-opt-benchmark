@@ -2127,7 +2127,7 @@ declare ptr @tvbparse_char(i32 noundef, ptr noundef, ptr noundef, ptr noundef, p
 declare ptr @tvbparse_set_oneof(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @get_attrib_value(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef initializes((32, 40)) %2) #5 {
+define internal void @get_attrib_value(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef %2) #5 {
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 32

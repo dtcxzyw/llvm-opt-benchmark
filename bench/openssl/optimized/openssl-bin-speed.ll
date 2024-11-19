@@ -10469,7 +10469,7 @@ declare void @OSSL_PARAM_construct_octet_string(ptr sret(%struct.ossl_param_st) 
 declare void @OSSL_PARAM_construct_end(ptr sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @mac_setup(ptr noundef %name, ptr nocapture noundef nonnull initializes((0, 8)) %mac, ptr noundef nonnull %params, ptr nocapture noundef writeonly %loopargs, i32 noundef range(i32 0, 100000) %loopargs_len) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @mac_setup(ptr noundef %name, ptr nocapture noundef nonnull %mac, ptr noundef nonnull %params, ptr nocapture noundef writeonly %loopargs, i32 noundef range(i32 0, 100000) %loopargs_len) unnamed_addr #0 {
 entry:
   %call = tail call ptr @app_get0_libctx() #15
   %call1 = tail call ptr @app_get0_propq() #15

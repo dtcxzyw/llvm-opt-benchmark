@@ -1147,13 +1147,13 @@ _ZNK32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperclEPKc.exit: ; preds = %2, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19ArchMapFileReadOnlyEP8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.2") align 8 initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19ArchMapFileReadOnlyEP8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.2") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13Arch_UnmapperEEEET_P8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13Arch_UnmapperEEEET_P8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13Arch_UnmapperEEEET_P8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -1233,13 +1233,13 @@ _ZNSt10unique_ptrIKcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__20ArchMapFileReadWriteEP8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.10") align 8 initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__20ArchMapFileReadWriteEP8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.10") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIcNS_13Arch_UnmapperEEEET_P8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIcNS_13Arch_UnmapperEEEET_P8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIcNS_13Arch_UnmapperEEEET_P8_IO_FILEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.stat, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4)
@@ -1319,7 +1319,7 @@ _ZNSt10unique_ptrIcN32pxrInternal_v0_24__pxrReserved__13Arch_UnmapperEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__19ArchMapFileReadOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.2") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__19ArchMapFileReadOnlyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.2") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
@@ -1364,7 +1364,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L16Arch_MapFileImplISt10unique_ptrIKcNS_13A
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__20ArchMapFileReadWriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.10") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__20ArchMapFileReadWriteERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.10") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)

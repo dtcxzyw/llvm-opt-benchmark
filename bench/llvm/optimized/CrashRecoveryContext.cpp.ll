@@ -39,7 +39,7 @@ define dso_local void @_ZN4llvm27CrashRecoveryContextCleanupD0Ev(ptr nocapture n
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20CrashRecoveryContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm20CrashRecoveryContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %0, i8 0, i64 21, i1 false)
   tail call void @_ZN4llvm3sys27DisableSystemDialogsOnCrashEv() #19
   ret void
@@ -449,7 +449,7 @@ _ZN4llvm6threadD2Ev.exit:                         ; preds = %_ZN4llvm6threadC2IR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL26RunSafelyOnThread_DispatchPv(ptr nocapture noundef initializes((25, 26)) %0) #3 {
+define internal void @_ZL26RunSafelyOnThread_DispatchPv(ptr nocapture noundef %0) #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8

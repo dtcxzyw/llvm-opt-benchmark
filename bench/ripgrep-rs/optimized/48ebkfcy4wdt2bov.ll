@@ -289,7 +289,7 @@ __rust_try.llvm.5952769917390182195.exit:         ; preds = %1, %_ZN3std9panicki
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN3std9panicking3try7do_call17h22a8f65acf0ec8e6E.llvm.5952769917390182195(ptr nocapture noundef initializes((4, 24)) %0) unnamed_addr #0 {
+define hidden void @_ZN3std9panicking3try7do_call17h22a8f65acf0ec8e6E.llvm.5952769917390182195(ptr nocapture noundef %0) unnamed_addr #0 {
   %.sroa.0 = alloca { i64, [2 x i64] }, align 8
   %2 = load i32, ptr %0, align 8, !range !36, !noundef !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
@@ -556,7 +556,7 @@ define internal void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h9b58151af4f213efE.llvm.5952769917390182195"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #4 {
+define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h9b58151af4f213efE.llvm.5952769917390182195"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 {
   %3 = icmp ne ptr %1, null
   %spec.select = zext i1 %3 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -576,7 +576,7 @@ define internal noundef zeroext i1 @"_ZN60_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8grep_cli7process12CommandError2io17h5792d1ff9267ec17E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] } }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #5 {
+define void @_ZN8grep_cli7process12CommandError2io17h5792d1ff9267ec17E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] } }) align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #5 {
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -584,7 +584,7 @@ define void @_ZN8grep_cli7process12CommandError2io17h5792d1ff9267ec17E(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN8grep_cli7process12CommandError6stderr17hd0b4a4497c7444f4E.llvm.5952769917390182195(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 {
+define hidden void @_ZN8grep_cli7process12CommandError6stderr17hd0b4a4497c7444f4E.llvm.5952769917390182195(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -819,7 +819,7 @@ define noundef zeroext i1 @"_ZN70_$LT$grep_cli..process..CommandError$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN100_$LT$grep_cli..process..CommandError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h2d8791b2e5e869f8E"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] } }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #5 {
+define void @"_ZN100_$LT$grep_cli..process..CommandError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h2d8791b2e5e869f8E"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] } }) align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #5 {
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8
@@ -984,7 +984,7 @@ _ZN8grep_cli7process12StderrReader5async17h1b4c9ea4b8b6d943E.exit: ; preds = %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN8grep_cli7process20CommandReaderBuilder12async_stderr17h8522839c48884ac1E(ptr noalias noundef returned writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, i1 noundef zeroext %1) unnamed_addr #5 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN8grep_cli7process20CommandReaderBuilder12async_stderr17h8522839c48884ac1E(ptr noalias noundef returned writeonly align 1 dereferenceable(1) %0, i1 noundef zeroext %1) unnamed_addr #5 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 1
   ret ptr %0
@@ -1188,7 +1188,7 @@ _ZN8grep_cli7process12StderrReader11read_to_end17hae14b8eb9f625673E.exit: ; pred
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN66_$LT$grep_cli..process..CommandReader$u20$as$u20$std..io..Read$GT$4read17h2ba4e79dbf0f45b8E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3) unnamed_addr #1 {
+define void @"_ZN66_$LT$grep_cli..process..CommandReader$u20$as$u20$std..io..Read$GT$4read17h2ba4e79dbf0f45b8E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(64) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca { i64, [1 x i64] }, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 52
   %7 = load i32, ptr %6, align 4, !noundef !4

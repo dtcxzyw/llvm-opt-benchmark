@@ -872,7 +872,7 @@ define void @_ZN6colvar8coordnumD0Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar8coordnum10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1736) initializes((640, 648)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar8coordnum10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1736) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 368
@@ -987,7 +987,7 @@ define void @_ZN6colvar12selfcoordnumD0Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar12selfcoordnum10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1696) initializes((640, 648)) %0) unnamed_addr #2 align 2 {
+define void @_ZN6colvar12selfcoordnum10calc_valueEv(ptr noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 640
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 368
@@ -2014,7 +2014,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar8coordnumD2Ev(ptr noundef nonnull align 8 dereferenceable(1736) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 {
+define void @_ZN6colvar8coordnumD2Ev(ptr noundef nonnull align 8 dereferenceable(1736) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8coordnumE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar8coordnumE, i64 248), ptr %2, align 8
@@ -8101,7 +8101,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit49: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar12selfcoordnumD2Ev(ptr noundef nonnull align 8 dereferenceable(1696) initializes((0, 8), (320, 328)) %0) unnamed_addr #1 align 2 {
+define void @_ZN6colvar12selfcoordnumD2Ev(ptr noundef nonnull align 8 dereferenceable(1696) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12selfcoordnumE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar12selfcoordnumE, i64 248), ptr %2, align 8

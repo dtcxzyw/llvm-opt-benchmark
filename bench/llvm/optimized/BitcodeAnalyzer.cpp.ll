@@ -1045,7 +1045,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit24:                  ; preds = %72, %14, %_ZNKSt14d
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream13write_escapedENS_9StringRefEb(ptr noundef nonnull align 8 dereferenceable(48), ptr, i64, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15BitcodeAnalyzerC2ENS_9StringRefESt8optionalIS1_E(ptr noundef nonnull align 8 dereferenceable(784) initializes((0, 64)) %0, ptr %1, i64 %2, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15BitcodeAnalyzerC2ENS_9StringRefESt8optionalIS1_E(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr %1, i64 %2, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
@@ -1106,7 +1106,7 @@ _ZNSt8optionalIN4llvm15BitstreamCursorEE7emplaceIJRNS0_9StringRefEEEENSt9enable_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15BitcodeAnalyzer7analyzeESt8optionalINS_13BCDumpOptionsEES1_INS_9StringRefEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(784) %1, ptr nocapture noundef readonly byval(%"class.std::optional.20") align 8 %2, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15BitcodeAnalyzer7analyzeESt8optionalINS_13BCDumpOptionsEES1_INS_9StringRefEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(784) %1, ptr nocapture noundef readonly byval(%"class.std::optional.20") align 8 %2, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Expected.95", align 8
   %6 = alloca %"class.llvm::Expected.95", align 8
   %7 = alloca %"class.llvm::Expected.28", align 8
@@ -1601,7 +1601,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %157
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 4)) %0, ptr %.0.val, i8 %.16.val, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL13analyzeHeaderSt8optionalIN4llvm13BCDumpOptionsEERNS0_15BitstreamCursorE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, i8 %.16.val, ptr noundef nonnull align 8 dereferenceable(344) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::Expected.95", align 8
   %4 = alloca %"class.llvm::Expected.95", align 8
   %5 = alloca %"class.llvm::Expected.95", align 8

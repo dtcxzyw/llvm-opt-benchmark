@@ -790,7 +790,7 @@ _ZNK8Pipeline23functional_unit_latencyEjPKS_.exit: ; preds = %..loopexit29_crit_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Bundle15initialize_nopsEPP8MachNode(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6Bundle15initialize_nopsEPP8MachNode(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1808

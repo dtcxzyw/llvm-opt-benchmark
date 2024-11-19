@@ -287,7 +287,7 @@ $_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb25CacheWithSecondaryAdapterESaIvELN9__
 @_ZN7rocksdb25CacheWithSecondaryAdapterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb25CacheWithSecondaryAdapterD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25CacheWithSecondaryAdapterC2ESt10shared_ptrINS_5CacheEES1_INS_14SecondaryCacheEENS_21TieredAdmissionPolicyEb(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 93), (96, 112)) %this, ptr nocapture noundef %target, ptr nocapture noundef %secondary_cache, i32 noundef %adm_policy, i1 noundef zeroext %distribute_cache_res) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25CacheWithSecondaryAdapterC2ESt10shared_ptrINS_5CacheEES1_INS_14SecondaryCacheEENS_21TieredAdmissionPolicyEb(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef %target, ptr nocapture noundef %secondary_cache, i32 noundef %adm_policy, i1 noundef zeroext %distribute_cache_res) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit:
   %ref.tmp = alloca %"class.std::function", align 8
   %sec_capacity = alloca i64, align 8
@@ -1160,7 +1160,7 @@ _ZNSt12__shared_ptrIN7rocksdb14SecondaryCacheELN9__gnu_cxx12_Lock_policyE2EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb25CacheWithSecondaryAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25CacheWithSecondaryAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::function", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25CacheWithSecondaryAdapterE, i64 16), ptr %this, align 8
@@ -3547,7 +3547,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb25CacheWithSecondaryAdapter28GetSecondaryCachePinnedUsageERm(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb25CacheWithSecondaryAdapter28GetSecondaryCachePinnedUsageERm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %size) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %capacity = alloca i64, align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -4255,7 +4255,7 @@ return:                                           ; preds = %nrvo.skipdtor, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb25CacheWithSecondaryAdapter21UpdateAdmissionPolicyENS_21TieredAdmissionPolicyE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((88, 92)) %this, i32 noundef %adm_policy) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25CacheWithSecondaryAdapter21UpdateAdmissionPolicyENS_21TieredAdmissionPolicyE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %this, i32 noundef %adm_policy) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %adm_policy_ = getelementptr inbounds i8, ptr %this, i64 88
   store i32 %adm_policy, ptr %adm_policy_, align 8
@@ -5715,7 +5715,7 @@ _ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEED2Ev.exit: ; preds = %entry, %_ZN9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17UpdateTieredCacheERKSt10shared_ptrINS_5CacheEEldNS_21TieredAdmissionPolicyE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cache, i64 noundef %total_capacity, double noundef %compressed_secondary_ratio, i32 noundef %adm_policy) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb17UpdateTieredCacheERKSt10shared_ptrINS_5CacheEEldNS_21TieredAdmissionPolicyE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %cache, i64 noundef %total_capacity, double noundef %compressed_secondary_ratio, i32 noundef %adm_policy) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %0 = load ptr, ptr %cache, align 8

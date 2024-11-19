@@ -4252,7 +4252,7 @@ define void @Mio_LibraryTransferDelays(ptr noundef %0, ptr noundef %1) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nf_ManPrepareGate(i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef initializes((4, 8)) %4) local_unnamed_addr #0 {
+define void @Nf_ManPrepareGate(i32 noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @Extra_Factorial(i32 noundef %0) #30
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %7, align 4
@@ -5692,7 +5692,7 @@ Vec_WecGrow.exit12:                               ; preds = %Vec_WecGrow.exit12.
 declare ptr @Nf_StoDeriveMatches(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Mio_LibraryMatchesFetch(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define void @Mio_LibraryMatchesFetch(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   tail call void @Mio_LibraryMatchesStart(ptr noundef %0, i32 noundef %5, i32 noundef %6, i32 noundef %7)
   %9 = getelementptr inbounds i8, ptr %0, i64 144
   %10 = load ptr, ptr %9, align 8
@@ -5742,7 +5742,7 @@ define void @Mio_LibraryMatches2Start(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @Gia_ManDeriveMatches(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Mio_LibraryMatches2Fetch(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
+define void @Mio_LibraryMatches2Fetch(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 176
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null

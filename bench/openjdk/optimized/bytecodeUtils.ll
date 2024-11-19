@@ -92,7 +92,7 @@ $_ZN26GrowableArrayWithAllocatorIP21SimulatedOperandStack13GrowableArrayIS1_EE9e
 @_ZN23ExceptionMessageBuilderD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN23ExceptionMessageBuilderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21StackSlotAnalysisDataC2E9BasicType(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN21StackSlotAnalysisDataC2E9BasicType(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i8 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = zext i8 %1 to i32
   %4 = shl nuw nsw i32 %3, 17
   %5 = or disjoint i32 %4, 131071
@@ -101,7 +101,7 @@ define hidden void @_ZN21StackSlotAnalysisDataC2E9BasicType(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21StackSlotAnalysisDataC2Ei9BasicType(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN21StackSlotAnalysisDataC2Ei9BasicType(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = and i32 %1, 65535
   %5 = zext i8 %2 to i32
   %6 = shl nuw nsw i32 %5, 17
@@ -171,7 +171,7 @@ define hidden i32 @_ZN21StackSlotAnalysisData5mergeES_(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21SimulatedOperandStackC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN21SimulatedOperandStackC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #2 align 2 {
   %3 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 4) #12
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -561,7 +561,7 @@ define hidden noundef zeroext i1 @_ZN21SimulatedOperandStack22local_slot_was_wri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ExceptionMessageBuilderC2EP6Methodi(ptr nocapture noundef nonnull align 8 dereferenceable(22) initializes((0, 22)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN23ExceptionMessageBuilderC2EP6Methodi(ptr nocapture noundef nonnull align 8 dereferenceable(22) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

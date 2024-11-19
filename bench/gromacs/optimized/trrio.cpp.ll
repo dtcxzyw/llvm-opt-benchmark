@@ -131,7 +131,7 @@ define noundef ptr @_Z12gmx_trr_openRKNSt10filesystem7__cxx114pathEPKc(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP16gmx_trr_header_tPb(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef initializes((0, 1)) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP16gmx_trr_header_tPb(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca [256 x i8], align 16
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -842,7 +842,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z25gmx_trr_read_frame_headerP8t_fileioP16gmx_trr_header_tPb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 1)) %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z25gmx_trr_read_frame_headerP8t_fileioP16gmx_trr_header_tPb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc noundef zeroext i1 @_ZL19do_trr_frame_headerP8t_fileiobP16gmx_trr_header_tPb(ptr noundef %0, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2)
   ret i1 %4
 }

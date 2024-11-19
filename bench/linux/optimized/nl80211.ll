@@ -2202,7 +2202,7 @@ define internal fastcc ptr @__cfg80211_alloc_vendor_skb(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__cfg80211_send_event_skb(ptr noundef initializes((64, 88)) %0, i32 noundef %1) #0 align 16 {
+define dso_local void @__cfg80211_send_event_skb(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %0, i64 48
@@ -2849,7 +2849,7 @@ define dso_local ptr @__cfg80211_alloc_reply_skb(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @cfg80211_vendor_cmd_reply(ptr noundef initializes((64, 88)) %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @cfg80211_vendor_cmd_reply(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %0, i64 48
@@ -42657,7 +42657,7 @@ define internal void @get_key_callback(ptr nocapture noundef %0, ptr nocapture n
 declare dso_local i32 @__SCT__tp_func_rdev_get_key(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nl80211_parse_key(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 56)) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nl80211_parse_key(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca [3 x ptr], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %1, i8 0, i64 56, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 40
@@ -43586,7 +43586,7 @@ declare dso_local zeroext i1 @cfg80211_valid_key_idx(ptr noundef, i32 noundef, i
 declare dso_local i32 @__SCT__tp_func_rdev_del_key(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i8 noundef zeroext, i1 noundef zeroext, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nl80211_parse_beacon(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 168)) %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nl80211_parse_beacon(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = alloca [4 x ptr], align 16
   %6 = alloca [4 x ptr], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(168) %2, i8 0, i64 168, i1 false)
@@ -44314,7 +44314,7 @@ declare dso_local i32 @__SCT__tp_func_rdev_change_beacon(ptr noundef, ptr nounde
 declare dso_local i32 @cfg80211_validate_beacon_int(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -95, 1) i32 @nl80211_crypto_settings(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 112)) %2, i32 noundef range(i32 1, 6) %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -95, 1) i32 @nl80211_crypto_settings(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, i32 noundef range(i32 1, 6) %3) unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(112) %2, i8 0, i64 112, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
@@ -44624,7 +44624,7 @@ select.unfold:                                    ; preds = %93, %132, %122, %55
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 13, 91) %2, ptr nocapture noundef initializes((0, 360)) %3, ptr nocapture readonly %.960.val, i1 noundef zeroext %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 align 16 {
+define internal fastcc i32 @nl80211_parse_tx_bitrate_mask(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 13, 91) %2, ptr nocapture noundef %3, ptr nocapture readonly %.960.val, i1 noundef zeroext %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 align 16 {
   %7 = alloca [8 x i16], align 16
   %8 = alloca [8 x i16], align 16
   %9 = alloca [8 x ptr], align 16

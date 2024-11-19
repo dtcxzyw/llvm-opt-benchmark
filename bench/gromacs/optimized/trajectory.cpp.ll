@@ -262,7 +262,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110TrajectoryD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110TrajectoryD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15analysismodules12_GLOBAL__N_110TrajectoryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   tail call void @_ZN3gmx12AnalysisDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #11
@@ -291,7 +291,7 @@ _ZNSt6vectorIN3gmx9SelectionESaIS1_EED2Ev.exit:   ; preds = %1, %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110TrajectoryD0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110TrajectoryD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN3gmx15analysismodules12_GLOBAL__N_110TrajectoryD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #11
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void

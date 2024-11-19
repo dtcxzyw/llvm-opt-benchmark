@@ -265,7 +265,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @_ZN3gmx17HelpWriterContextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx17HelpWriterContextD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx9HelpLinksC2ENS_16HelpOutputFormatE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx9HelpLinksC2ENS_16HelpOutputFormatE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1286,7 +1286,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN3gmx17HelpWriterContext4Impl11ReplaceItemE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx17HelpWriterContextC2EPNS0_4ImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx17HelpWriterContextC2EPNS0_4ImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -2375,7 +2375,7 @@ _ZN3gmx12_GLOBAL__N_122removeExtraNewlinesRstERKNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_115WrapperToStringD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN3gmx12_GLOBAL__N_115WrapperToStringD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_115WrapperToStringE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -2383,7 +2383,7 @@ define internal void @_ZN3gmx12_GLOBAL__N_115WrapperToStringD2Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_115WrapperToStringD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN3gmx12_GLOBAL__N_115WrapperToStringD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_115WrapperToStringE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -2977,7 +2977,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_115WrapperToVectorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3gmx12_GLOBAL__N_115WrapperToVectorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_115WrapperToVectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -3011,7 +3011,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_115WrapperToVectorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3gmx12_GLOBAL__N_115WrapperToVectorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_115WrapperToVectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8

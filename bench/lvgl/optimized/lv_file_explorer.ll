@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [7 x i8] c"\EF\81\AE %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_file_explorer_constructor(ptr nocapture readnone %0, ptr noundef initializes((128, 176), (312, 316)) %1) #0 {
+define internal void @lv_file_explorer_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 312
   store i32 0, ptr %4, align 8, !tbaa !3
@@ -361,7 +361,7 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #2
 declare ptr @lv_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_file_explorer_set_sort(ptr nocapture noundef initializes((312, 316)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_file_explorer_set_sort(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 %1, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88

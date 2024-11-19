@@ -13766,7 +13766,7 @@ _ZNSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_string
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal fastcc noundef nonnull ptr @_ZN5faiss12_GLOBAL__N_114fix_ivf_fieldsEPNS_8IndexIVFE(ptr noundef nonnull returned initializes((64, 66), (81, 82)) %0) unnamed_addr #17 {
+define internal fastcc noundef nonnull ptr @_ZN5faiss12_GLOBAL__N_114fix_ivf_fieldsEPNS_8IndexIVFE(ptr noundef nonnull returned %0) unnamed_addr #17 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -39766,7 +39766,7 @@ define linkonce_odr void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5faiss12_GLOBAL__N_114aq_parse_nbitsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5faiss12_GLOBAL__N_114aq_parse_nbitsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.std::__cxx11::match_results", align 8

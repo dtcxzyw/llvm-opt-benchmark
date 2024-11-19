@@ -740,7 +740,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20shouldPrintAfterPassENS_9StringRe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17printBeforePassesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm17printBeforePassesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11PrintBeforeB5cxx11, i64 136), align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL11PrintBeforeB5cxx11, i64 128), align 8
   %4 = ptrtoint ptr %2 to i64
@@ -793,7 +793,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16printAfterPassesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm16printAfterPassesB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10PrintAfterB5cxx11, i64 136), align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZL10PrintAfterB5cxx11, i64 128), align 8
   %4 = ptrtoint ptr %2 to i64

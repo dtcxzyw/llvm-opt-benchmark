@@ -1070,7 +1070,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 declare void @_ZN23cmCommonTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN25cmMakefileTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25cmMakefileTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV25cmMakefileTargetGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1056
   %3 = load ptr, ptr %2, align 8
@@ -1337,7 +1337,7 @@ define dso_local void @_ZN25cmMakefileTargetGeneratorD0Ev(ptr nocapture nonnull 
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25cmMakefileTargetGenerator3NewEP17cmGeneratorTarget(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.640") align 8 initializes((0, 8)) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25cmMakefileTargetGenerator3NewEP17cmGeneratorTarget(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.640") align 8 %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = invoke noundef i32 @_ZNK17cmGeneratorTarget7GetTypeEv(ptr noundef nonnull align 8 dereferenceable(2728) %1)
           to label %4 unwind label %5

@@ -594,7 +594,7 @@ define dso_local i64 @i915_gem_shrink_all(ptr noundef %0) local_unnamed_addr #0 
 declare dso_local i64 @intel_runtime_pm_get(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_gem_driver_register__shrinker(ptr noundef initializes((8608, 8616)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_gem_driver_register__shrinker(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = tail call ptr (i32, ptr, ...) @shrinker_alloc(i32 noundef 0, ptr noundef nonnull @.str) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 8608
   store ptr %2, ptr %3, align 8
@@ -716,7 +716,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @i915_gem_shrinker_scan(ptr nocapture noundef readonly %0, ptr noundef initializes((16, 24)) %1) #0 align 16 {
+define internal i64 @i915_gem_shrinker_scan(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16

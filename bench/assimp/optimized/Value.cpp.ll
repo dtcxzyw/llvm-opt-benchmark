@@ -50,14 +50,14 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @_ZN10ODDLParser5ValueD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10ODDLParser5ValueD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser5Value8IteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ODDLParser5Value8IteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser5Value8IteratorC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %start) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ODDLParser5Value8IteratorC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %start) unnamed_addr #0 align 2 {
 entry:
   store ptr %start, ptr %this, align 8
   %m_current = getelementptr inbounds i8, ptr %this, i64 8
@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10ODDLParser5Value8IteratorC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) unnamed_addr #1 align 2 {
+define hidden void @_ZN10ODDLParser5Value8IteratorC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rhs) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %rhs, align 8
   store ptr %0, ptr %this, align 8
@@ -134,7 +134,7 @@ return:                                           ; preds = %entry, %_ZNK10ODDLP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10ODDLParser5Value8IteratorppEi(ptr noalias nocapture writeonly sret(%"class.ODDLParser::Value::Iterator") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN10ODDLParser5Value8IteratorppEi(ptr noalias nocapture writeonly sret(%"class.ODDLParser::Value::Iterator") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %0) local_unnamed_addr #5 align 2 {
 entry:
   %m_current = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %m_current, align 8
@@ -200,7 +200,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser5ValueC2ENS0_9ValueTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 4), (8, 32)) %this, i32 noundef %type) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ODDLParser5ValueC2ENS0_9ValueTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i32 noundef %type) unnamed_addr #0 align 2 {
 entry:
   store i32 %type, ptr %this, align 8
   %m_size = getelementptr inbounds i8, ptr %this, i64 8
@@ -1710,7 +1710,7 @@ eh.resume:                                        ; preds = %lpad6, %lpad.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ODDLParser5Value7setNextEPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %this, ptr noundef %next) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10ODDLParser5Value7setNextEPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %next) local_unnamed_addr #0 align 2 {
 entry:
   %m_next = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %next, ptr %m_next, align 8

@@ -651,7 +651,7 @@ define align 8 ptr @"_ZN4core6option15Option$LT$T$GT$7or_else17hfdb8a0a6ca650477
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h3732f8605dcdd4d0E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h3732f8605dcdd4d0E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca { { i64, [3 x i64] }, {} }, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
@@ -670,7 +670,7 @@ define void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h3732f8605dcdd4d0E"(p
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4core6option6Option4Some17hb3ec54781e42413dE(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @_ZN4core6option6Option4Some17hb3ec54781e42413dE(ptr nocapture writeonly sret({ i64, [2 x i64] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -760,35 +760,35 @@ define zeroext i1 @"_ZN66_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..fmt
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h10834fc6ec2e98e0E"(ptr nocapture writeonly sret({ i64, [10 x i64] }) align 8 initializes((0, 88)) %0, ptr nocapture align 8 %1) unnamed_addr #3 {
+define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h10834fc6ec2e98e0E"(ptr nocapture writeonly sret({ i64, [10 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   store i64 -9223372036854775807, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h192bb67d5a30df9dE"(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 8 initializes((0, 80)) %0, ptr nocapture align 8 %1) unnamed_addr #3 {
+define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h192bb67d5a30df9dE"(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   store i64 -9223372036854775800, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44b528c281a73276E"(ptr nocapture writeonly sret({ i64, [7 x i64] }) align 8 initializes((0, 64)) %0, ptr nocapture align 8 %1) unnamed_addr #3 {
+define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h44b528c281a73276E"(ptr nocapture writeonly sret({ i64, [7 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   store i64 -9223372036854775808, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46ea85631fbed4b4E"(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 8 initializes((0, 80)) %0, ptr nocapture align 8 %1) unnamed_addr #3 {
+define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46ea85631fbed4b4E"(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   store i64 -9223372036854775799, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h18f07db72baab17eE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h18f07db72baab17eE"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   %3 = load ptr, ptr %1, align 8, !noundef !3
   %4 = icmp ne ptr %3, null
   %spec.select = zext i1 %4 to i64
@@ -801,7 +801,7 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3904a2f0403c6e68E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3904a2f0403c6e68E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   %3 = load ptr, ptr %1, align 8, !noundef !3
   %4 = icmp ne ptr %3, null
   %spec.select = zext i1 %4 to i64
@@ -814,7 +814,7 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e174972904f1a16E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e174972904f1a16E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   %3 = load i64, ptr %1, align 8, !range !5, !noundef !3
   %4 = icmp ne i64 %3, -9223372036854775800
   %spec.select = zext i1 %4 to i64
@@ -827,7 +827,7 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8b16964f7e162447E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8b16964f7e162447E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   %3 = load i64, ptr %1, align 8, !range !7, !noundef !3
   %4 = icmp ne i64 %3, -9223372036854775808
   %spec.select = zext i1 %4 to i64
@@ -840,7 +840,7 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he82fad1c1a61c797E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17he82fad1c1a61c797E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   %3 = load i64, ptr %1, align 8, !range !6, !noundef !3
   %4 = icmp ne i64 %3, -9223372036854775807
   %spec.select = zext i1 %4 to i64
@@ -853,7 +853,7 @@ define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..t
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf481a7d61ac71f74E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @"_ZN90_$LT$core..option..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf481a7d61ac71f74E"(ptr nocapture writeonly sret({ i64, { i64, [1 x i64] } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   %3 = load i64, ptr %1, align 8, !range !8, !noundef !3
   %4 = icmp ne i64 %3, -9223372036854775799
   %spec.select = zext i1 %4 to i64

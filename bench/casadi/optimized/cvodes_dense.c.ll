@@ -164,7 +164,7 @@ define internal noundef i32 @cvDenseInit(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @cvDenseSetup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
+define internal range(i32 -1, 2) i32 @cvDenseSetup(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 1696
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 1272

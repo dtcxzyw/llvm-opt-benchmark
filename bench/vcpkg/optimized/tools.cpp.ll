@@ -3469,7 +3469,7 @@ _ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg14get_tool_cacheERKNS_10FilesystemESt10shared_ptrIKNS_15DownloadManagerEENS_4PathES7_S7_NS_20RequireExactVersionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg14get_tool_cacheERKNS_10FilesystemESt10shared_ptrIKNS_15DownloadManagerEENS_4PathES7_S7_NS_20RequireExactVersionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5vcpkg13ToolCacheImplESt14default_deleteIS1_EED2Ev.exit:
   %7 = alloca i32, align 4
   %8 = alloca %"class.std::unique_ptr.38", align 8

@@ -647,7 +647,7 @@ declare void @WebPInitYUV444ConvertersSSE2() local_unnamed_addr #3
 declare void @WebPInitYUV444ConvertersSSE41() local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 4)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -1156,7 +1156,7 @@ define internal void @UpsampleRgbaLinePair_C(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 4)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -1665,7 +1665,7 @@ define internal void @UpsampleBgraLinePair_C(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 3)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -2150,7 +2150,7 @@ define internal void @UpsampleRgbLinePair_C(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 3)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -2635,7 +2635,7 @@ define internal void @UpsampleBgrLinePair_C(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 4)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -3144,7 +3144,7 @@ define internal void @UpsampleArgbLinePair_C(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 2)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1
@@ -3629,7 +3629,7 @@ define internal void @UpsampleRgba4444LinePair_C(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly initializes((0, 2)) %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
+define internal void @UpsampleRgb565LinePair_C(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, i32 noundef %8) #1 {
   %10 = add nsw i32 %8, -1
   %11 = ashr i32 %10, 1
   %12 = load i8, ptr %2, align 1

@@ -152,7 +152,7 @@ define linkonce_odr void @_ZNK5Value7getShotEv(ptr dead_on_unwind noalias writab
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK10ColorValue8getColorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QColor) align 4 initializes((0, 14)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 align 2 {
+define void @_ZNK10ColorValue8getColorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QColor) align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %0, align 4
@@ -203,14 +203,14 @@ define noundef zeroext i1 @_ZNK10ColorValue7isColorEv(ptr nocapture nonnull read
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10ColorValue8typeNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
+define void @_ZNK10ColorValue8typeNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str, i32 noundef 5)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ColorValue3setERK5Value(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 22)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 {
+define void @_ZN10ColorValue3setERK5Value(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #1 align 2 {
   %3 = alloca %class.QColor, align 4
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 72
@@ -555,7 +555,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10ColorValueC2E6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 22)) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 {
+define void @_ZN10ColorValueC2E6QColor(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV10ColorValue, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %1, align 4

@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN23G1ConcurrentRefineStatsC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN23G1ConcurrentRefineStatsC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23G1ConcurrentRefineStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN23G1ConcurrentRefineStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   ret void
 }
@@ -99,7 +99,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN23G1Concurrent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23G1ConcurrentRefineStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN23G1ConcurrentRefineStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   ret void
 }

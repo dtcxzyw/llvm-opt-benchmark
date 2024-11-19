@@ -592,7 +592,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4ARAPC2ER4Mesh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 60)) %0, ptr noundef nonnull align 8 dereferenceable(808) %1) unnamed_addr #3 align 2 {
+define void @_ZN4ARAPC2ER4Mesh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(808) %1) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3032,7 +3032,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4ARAP16SetMaxIterationsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN4ARAP16SetMaxIterationsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void
@@ -5675,7 +5675,7 @@ declare double @sin(double noundef) local_unnamed_addr #21
 declare double @atan(double noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN4ARAP13ComputeEnergyERKN3vcg6Point2IdEES4_S4_S4_Pd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZN4ARAP13ComputeEnergyERKN3vcg6Point2IdEES4_S4_S4_Pd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.2.i.i.i.i.i.i.i.i.i = alloca [32 x i8], align 16
   %6 = alloca %"class.Eigen::Matrix.188", align 16
   %7 = alloca %"class.Eigen::Matrix.188", align 16
@@ -7726,7 +7726,7 @@ _Z13LocalIsometryIN3vcg6Point3IdEENS0_6Point2IdEEEvRKT_S7_RT0_S9_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4ARAP5SolveEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ARAPSolveInfo) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4ARAP5SolveEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ARAPSolveInfo) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1) local_unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Eigen::internal::assign_op.248", align 1
   %4 = alloca %"struct.Eigen::internal::assign_op.248", align 1
   %5 = alloca %"class.Eigen::PartialPivLU", align 8

@@ -447,7 +447,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5modelC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 20), (24, 44)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5modelC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.params_ref, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV10model_core, i64 16), ptr %this, align 8
@@ -600,7 +600,7 @@ _ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %entry, %if.then.i.i
 declare void @_ZN10model_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5modelD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5modelD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV5model, i64 16), ptr %this, align 8
   %m_usort2universe = getelementptr inbounds i8, ptr %this, i64 104
@@ -911,7 +911,7 @@ terminate.lpad:                                   ; preds = %_Z7deallocI13value_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5modelD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN5modelD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5modelD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -8620,7 +8620,7 @@ entry:
 declare noundef zeroext i1 @_ZN15model_evaluator10has_solverEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5modelclERK10ref_vectorI4expr11ast_managerE(ptr noalias sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5modelclERK10ref_vectorI4expr11ast_managerE(ptr noalias sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ts) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %class.obj_ref, align 8
   %m = getelementptr inbounds i8, ptr %this, i64 8

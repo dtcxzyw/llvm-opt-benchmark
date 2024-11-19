@@ -49,7 +49,7 @@ define void @SetShapesTexture(ptr nocapture noundef readonly byval(%struct.Textu
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @GetShapesTexture(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Texture) align 4 initializes((0, 20)) %0) local_unnamed_addr #2 {
+define void @GetShapesTexture(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Texture) align 4 %0) local_unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(20) @texShapes, i64 20, i1 false)
   ret void
 }

@@ -46316,7 +46316,7 @@ _ZN8pybind116detail15pyobject_casterINS_4dictEE4castERKNS_6handleENS_19return_va
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_4dictENS0_9void_typeERZ33test_submodule_copy_move_policiesRNS_7module_EE3$_8EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_4dictENS0_9void_typeERZ33test_submodule_copy_move_policiesRNS_7module_EE3$_8EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::str", align 8
   %3 = alloca %"class.pybind11::str", align 8
   %4 = alloca %"class.pybind11::str", align 8

@@ -245,7 +245,7 @@ _ZN12_GLOBAL__N_119SysTimeToTimeStructElP2tmb.exit: ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4base4Time12FromExplodedEbRKNS0_8ExplodedEPS0_(i1 noundef zeroext %is_local, ptr noundef nonnull align 4 dereferenceable(32) %exploded, ptr nocapture noundef writeonly initializes((0, 8)) %time) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4base4Time12FromExplodedEbRKNS0_8ExplodedEPS0_(i1 noundef zeroext %is_local, ptr noundef nonnull align 4 dereferenceable(32) %exploded, ptr nocapture noundef writeonly %time) local_unnamed_addr #0 align 2 {
 entry:
   %timestruct = alloca %struct.tm, align 8
   %timestruct0 = alloca %struct.tm, align 8

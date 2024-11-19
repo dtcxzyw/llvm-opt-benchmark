@@ -1999,7 +1999,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i32 @_ZN4llvm3pdb12hashStringV2ENS_9StringRefE(ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZNK4llvm3pdb14PDBStringTable8name_idsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::FixedStreamArray") align 8 initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm3pdb14PDBStringTable8name_idsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::FixedStreamArray") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(124) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8

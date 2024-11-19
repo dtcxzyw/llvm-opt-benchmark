@@ -196,7 +196,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18FdmSquareRootFwdOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEEdddmNS0_18TransformationTypeE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 44)) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, double noundef %kappa, double noundef %theta, double noundef %sigma, i64 noundef %direction, i32 noundef %transform) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18FdmSquareRootFwdOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEEdddmNS0_18TransformationTypeE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, double noundef %kappa, double noundef %theta, double noundef %sigma, i64 noundef %direction, i32 noundef %transform) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::TripleBandLinearOp", align 8
   %ref.tmp3 = alloca %"class.QuantLib::TripleBandLinearOp", align 8
@@ -5075,7 +5075,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib18FdmSquareRootFwdOp13getCoeffPlainERdS1_S1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %alpha, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %beta, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %gamma, i64 noundef %n) local_unnamed_addr #3 align 2 {
+define void @_ZNK8QuantLib18FdmSquareRootFwdOp13getCoeffPlainERdS1_S1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %alpha, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %beta, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %gamma, i64 noundef %n) local_unnamed_addr #3 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load double, ptr %sigma_, align 8, !tbaa !26
@@ -5208,7 +5208,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib18FdmSquareRootFwdOp13getCoeffPowerERdS1_S1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %alpha, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %beta, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %gamma, i64 noundef %n) local_unnamed_addr #3 align 2 {
+define void @_ZNK8QuantLib18FdmSquareRootFwdOp13getCoeffPowerERdS1_S1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %alpha, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %beta, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %gamma, i64 noundef %n) local_unnamed_addr #3 align 2 {
 entry:
   %kappa_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load double, ptr %kappa_, align 8, !tbaa !24
@@ -5298,7 +5298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib18FdmSquareRootFwdOp11getCoeffLogERdS1_S1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %alpha, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %beta, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %gamma, i64 noundef %n) local_unnamed_addr #3 align 2 {
+define void @_ZNK8QuantLib18FdmSquareRootFwdOp11getCoeffLogERdS1_S1_m(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %alpha, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %beta, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %gamma, i64 noundef %n) local_unnamed_addr #3 align 2 {
 entry:
   %kappa_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load double, ptr %kappa_, align 8, !tbaa !24
@@ -5455,7 +5455,7 @@ _ZNK5boost10shared_ptrIN8QuantLib21ModTripleBandLinearOpEEptEv.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib18FdmSquareRootFwdOp11apply_mixedERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib18FdmSquareRootFwdOp11apply_mixedERKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n_.i = getelementptr inbounds nuw i8, ptr %r, i64 8
   %0 = load i64, ptr %n_.i, align 8, !tbaa !60

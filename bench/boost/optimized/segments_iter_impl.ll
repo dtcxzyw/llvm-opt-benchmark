@@ -34,7 +34,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8path_refE(ptr noundef nonnull align 8 dereferenceable(104) initializes((8, 104)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8path_refE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.boost::urls::pct_string_view", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
@@ -231,7 +231,7 @@ define hidden void @_ZN5boost4urls6detail18segments_iter_impl6updateEv(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8path_refEi(ptr noundef nonnull align 8 dereferenceable(104) initializes((8, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost4urls6detail18segments_iter_implC2ERKNS1_8path_refEi(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -417,7 +417,7 @@ declare noundef ptr @_ZNK5boost4urls6detail8path_ref3endEv(ptr noundef nonnull a
 declare noundef ptr @_ZNK5boost4urls6detail8path_ref4dataEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost4urls6detail18segments_iter_impl9incrementEv(ptr noundef nonnull align 8 dereferenceable(104) initializes((48, 56)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls6detail18segments_iter_impl9incrementEv(ptr noundef nonnull align 8 dereferenceable(104) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i64, ptr %2, align 8, !tbaa !20
   %4 = add i64 %3, 1

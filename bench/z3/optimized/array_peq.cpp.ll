@@ -1415,7 +1415,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 declare noundef ptr @_ZN11ast_manager6mk_appEP9func_decljPKP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3peqC2EP4exprS1_RK6vectorI10ref_vectorIS0_11ast_managerELb1EjERS4_(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 48)) %this, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %diff_indices, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3peqC2EP4exprS1_RK6vectorI10ref_vectorIS0_11ast_managerELb1EjERS4_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %lhs, ptr noundef %rhs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %diff_indices, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1
@@ -1933,7 +1933,7 @@ terminate.lpad:                                   ; preds = %.noexc, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3peqC2EP3appR11ast_manager(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 96)) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3peqC2EP3appR11ast_manager(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1

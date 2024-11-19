@@ -798,7 +798,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11realclosure7managerC2ER8reslimitR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(728) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %a) unnamed_addr #5 align 2 {
+define hidden void @_ZN11realclosure7managerC2ER8reslimitR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(728) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %a) unnamed_addr #5 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 1504)
   tail call void @_ZN11realclosure7manager3impC2ER8reslimitR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1497) %call, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(728) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %a)

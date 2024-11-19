@@ -67,7 +67,7 @@ $_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup = comdat any
 @_ZZN4llvm23isAtLeastOrStrongerThanENS_14AtomicOrderingES0_E6lookup = linkonce_odr local_unnamed_addr constant [8 x [8 x i8]] [[8 x i8] c"\01\00\00\00\00\00\00\00", [8 x i8] c"\01\01\00\00\00\00\00\00", [8 x i8] c"\01\01\01\00\00\00\00\00", [8 x i8] c"\01\01\01\01\00\00\00\00", [8 x i8] c"\01\01\01\01\01\00\00\00", [8 x i8] c"\01\01\01\00\00\01\00\00", [8 x i8] c"\01\01\01\01\01\01\01\00", [8 x i8] c"\01\01\01\01\01\01\01\01"], comdat, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i64 %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %0, align 8
@@ -83,7 +83,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates6typeIsEjNS_3LLTE(ptr dead_on
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, ptr %2, i64 %3) local_unnamed_addr #2 {
+define dso_local void @_ZN4llvm18LegalityPredicates9typeInSetEjSt16initializer_listINS_3LLTEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, ptr %2, i64 %3) local_unnamed_addr #2 {
   %5 = alloca %"class.llvm::SmallVector", align 8
   %6 = alloca %class.anon.0, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -147,7 +147,7 @@ _ZN4llvm11SmallVectorINS_3LLTELj4EED2Ev.exit:     ; preds = %"_ZZN4llvm18Legalit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4) local_unnamed_addr #2 {
+define dso_local void @_ZN4llvm18LegalityPredicates13typePairInSetEjjSt16initializer_listISt4pairINS_3LLTES3_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2, ptr %3, i64 %4) local_unnamed_addr #2 {
   %6 = alloca %"class.llvm::SmallVector.2", align 8
   %7 = alloca %class.anon.7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -213,7 +213,7 @@ _ZN4llvm11SmallVectorISt4pairINS_3LLTES2_ELj4EED2Ev.exit: ; preds = %"_ZZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr %4, i64 %5) local_unnamed_addr #2 {
+define dso_local void @_ZN4llvm18LegalityPredicates23typePairAndMemDescInSetEjjjSt16initializer_listINS0_18TypePairAndMemDescEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr %4, i64 %5) local_unnamed_addr #2 {
   %7 = alloca %"class.llvm::SmallVector.9", align 8
   %8 = alloca %class.anon.14, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
@@ -280,7 +280,7 @@ _ZN4llvm11SmallVectorINS_18LegalityPredicates18TypePairAndMemDescELj4EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates8isScalarEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates8isScalarEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
@@ -291,7 +291,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates8isScalarEj(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
@@ -302,7 +302,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates8isVectorEj(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates9isPointerEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates9isPointerEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
@@ -313,7 +313,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates9isPointerEj(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates9isPointerEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates9isPointerEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -329,7 +329,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates9isPointerEjj(ptr dead_on_unw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates13elementTypeIsEjNS_3LLTE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates13elementTypeIsEjNS_3LLTE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i64 %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 0, ptr %0, align 8
@@ -342,7 +342,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates13elementTypeIsEjNS_3LLTE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -358,7 +358,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates18scalarNarrowerThanEjj(ptr d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -374,7 +374,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates15scalarWiderThanEjj(ptr dead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates11smallerThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates11smallerThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -390,7 +390,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates11smallerThanEjj(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates10largerThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates10largerThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -406,7 +406,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates10largerThanEjj(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -422,7 +422,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates23scalarOrEltNarrowerThanEjj(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -438,7 +438,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates20scalarOrEltWiderThanEjj(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2Ej(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2Ej(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
@@ -449,7 +449,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates22scalarOrEltSizeNotPow2Ej(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates17sizeNotMultipleOfEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates17sizeNotMultipleOfEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -465,7 +465,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates17sizeNotMultipleOfEjj(ptr de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
@@ -476,7 +476,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates11sizeNotPow2Ej(ptr dead_on_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates6sizeIsEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates6sizeIsEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -492,7 +492,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates6sizeIsEjj(ptr dead_on_unwind
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates8sameSizeEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates8sameSizeEjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -508,7 +508,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates8sameSizeEjj(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates21memSizeInBytesNotPow2Ej(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates21memSizeInBytesNotPow2Ej(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
@@ -519,7 +519,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates21memSizeInBytesNotPow2Ej(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates22memSizeNotByteSizePow2Ej(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates22memSizeNotByteSizePow2Ej(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
@@ -530,7 +530,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates22memSizeNotByteSizePow2Ej(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates18numElementsNotPow2Ej(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates18numElementsNotPow2Ej(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 16, i1 false)
@@ -541,7 +541,7 @@ define dso_local void @_ZN4llvm18LegalityPredicates18numElementsNotPow2Ej(ptr de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS_14AtomicOrderingE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm18LegalityPredicates35atomicOrderingAtLeastOrStrongerThanEjNS_14AtomicOrderingE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.sroa.2.0.insert.ext = zext i32 %2 to i64
   %.sroa.2.0.insert.shift = shl nuw i64 %.sroa.2.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64

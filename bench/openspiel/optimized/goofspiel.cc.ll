@@ -9889,7 +9889,7 @@ define noundef i32 @_ZNK10open_spiel9goofspiel13GoofspielGame17MaxChanceOutcomes
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9goofspiel13GoofspielGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(366) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9goofspiel13GoofspielGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(366) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 364
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
@@ -9936,7 +9936,7 @@ define void @_ZNK10open_spiel9goofspiel13GoofspielGame27InformationStateTensorSh
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9goofspiel13GoofspielGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(366) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9goofspiel13GoofspielGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(366) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 364
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1

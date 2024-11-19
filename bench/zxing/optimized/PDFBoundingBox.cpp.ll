@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5ZXing6Pdf41711BoundingBoxC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5ZXing6Pdf41711BoundingBoxC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5ZXing6Pdf41711BoundingBoxC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 9), (16, 33), (40, 57), (64, 81), (88, 120)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5ZXing6Pdf41711BoundingBoxC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -70,7 +70,7 @@ define noundef zeroext i1 @_ZN5ZXing6Pdf41711BoundingBox6CreateEiiRKNS_8Nullable
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5ZXing6Pdf41711BoundingBox21calculateMinMaxValuesEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((104, 120)) %0) local_unnamed_addr #1 align 2 {
+define void @_ZN5ZXing6Pdf41711BoundingBox21calculateMinMaxValuesEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1

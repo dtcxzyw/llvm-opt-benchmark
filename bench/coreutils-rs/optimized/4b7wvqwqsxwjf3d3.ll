@@ -241,7 +241,7 @@ define hidden { ptr, i64 } @"_ZN4core3str74_$LT$impl$u20$core..convert..AsRef$LT
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN6memchr4arch3all6twoway9FinderRev3new17h4f942156c3eb5a32E.llvm.1100051835029668662(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, i64, i64 } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define hidden void @_ZN6memchr4arch3all6twoway9FinderRev3new17h4f942156c3eb5a32E.llvm.1100051835029668662(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, i64, i64 } }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = tail call noundef i64 @_ZN6memchr4arch3all6twoway18ApproximateByteSet3new17h0ec37d4ecfe3e6d4E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %5 = tail call { i64, i64 } @_ZN6memchr4arch3all6twoway6Suffix7reverse17h7f1b22305379eea5E(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext false)
   %6 = extractvalue { i64, i64 } %5, 0

@@ -386,7 +386,7 @@ declare void @Extra_MmFixedStop(ptr noundef) local_unnamed_addr #4
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cut_OracleSetFanoutCounts(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @Cut_OracleSetFanoutCounts(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
@@ -469,7 +469,7 @@ Cut_CutTriv.exit:                                 ; preds = %.lr.ph.i, %2, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Cut_OracleComputeCuts(ptr nocapture noundef initializes((16, 20)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define noundef ptr @Cut_OracleComputeCuts(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)

@@ -106,7 +106,7 @@ define hidden void @debugDispatch_reset() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @debugDispatch_getHandler(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #4 {
+define hidden ptr @debugDispatch_getHandler(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
   store ptr @.str.5, ptr %2, align 8
   store ptr @.str.6, ptr %3, align 8
   %5 = icmp sgt i32 %0, 18

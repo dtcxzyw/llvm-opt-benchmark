@@ -2765,7 +2765,7 @@ _ZNSt10unique_ptrIN3gmx3Any7ContentIhEESt14default_deleteIS3_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx25ColvarsForceProviderState9readStateERKNS_18KeyValueTreeObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx25ColvarsForceProviderState9readStateERKNS_18KeyValueTreeObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.6", align 8
   %5 = alloca %"class.gmx::InconsistentInputError", align 8
   %6 = alloca %"class.gmx::ExceptionInitializer", align 8
@@ -4774,7 +4774,7 @@ define void @_ZN3gmx20ColvarsForceProvider19writeCheckpointDataENS_28MDModulesWr
 declare noundef i32 @_ZN12colvarmodule18write_state_bufferERSt6vectorIhSaIhEE(ptr noundef nonnull align 8 dereferenceable(616), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx20ColvarsForceProvider31processAtomsRedistributedSignalERKNS_33MDModulesAtomsRedistributedSignalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1856) initializes((1744, 1745)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %1) local_unnamed_addr #20 align 2 {
+define void @_ZN3gmx20ColvarsForceProvider31processAtomsRedistributedSignalERKNS_33MDModulesAtomsRedistributedSignalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1856) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %1) local_unnamed_addr #20 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1744
   store i8 1, ptr %3, align 8
   ret void

@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @_cond_resched.__UNIQUE_ID___addressable___SCK__cond_resched67, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched32], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__i915_active_init(ptr noundef initializes((40, 44), (48, 64), (96, 120), (152, 160)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 align 16 {
+define dso_local void @__i915_active_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   store i64 %3, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 104

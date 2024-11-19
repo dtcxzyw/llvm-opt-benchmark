@@ -585,7 +585,7 @@ define void @view_leave(ptr noundef %0, ptr nocapture noundef readnone %1, ptr n
 declare void @dt_control_signal_disconnect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_get_control(ptr nocapture noundef initializes((3420, 3424)) %0, float noundef %1, float noundef %2) local_unnamed_addr #6 {
+define hidden void @_get_control(ptr nocapture noundef %0, float noundef %1, float noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 3412
   %5 = load i32, ptr %4, align 4, !tbaa !60
   %6 = sext i32 %5 to i64
@@ -2840,7 +2840,7 @@ declare void @g_object_unref(ptr noundef) local_unnamed_addr #4
 declare void @g_free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(3440) ptr @malloc(i64 noundef 3440) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !49

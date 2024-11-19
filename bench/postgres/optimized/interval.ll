@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [11 x i8] c"0123456789\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr noundef initializes((0, 24)) %4, ptr noundef initializes((0, 4)) %5) local_unnamed_addr #0 {
+define i32 @DecodeInterval(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -2202,7 +2202,7 @@ interval2tm.exit:                                 ; preds = %1, %7
 declare ptr @pgtypes_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PGTYPESinterval_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #8 {
+define noundef i32 @PGTYPESinterval_copy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
   %3 = load i64, ptr %0, align 8
   store i64 %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

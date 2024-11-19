@@ -1174,7 +1174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @UI_set_method(ptr nocapture noundef writeonly initializes((0, 8)) %ui, ptr noundef returned %meth) local_unnamed_addr #5 {
+define noundef ptr @UI_set_method(ptr nocapture noundef writeonly %ui, ptr noundef returned %meth) local_unnamed_addr #5 {
 entry:
   store ptr %meth, ptr %ui, align 8
   ret ptr %meth

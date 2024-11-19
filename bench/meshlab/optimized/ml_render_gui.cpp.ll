@@ -491,7 +491,7 @@ define void @_ZN18MLRenderingToolbarC2EiP7QWidget(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18MLRenderingToolbarD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (16, 24)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18MLRenderingToolbarD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18MLRenderingToolbar, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV18MLRenderingToolbar, i64 464), ptr %2, align 8
@@ -1768,7 +1768,7 @@ declare noundef ptr @_ZN12QMapDataBase10createDataEv() local_unnamed_addr #0
 declare noundef ptr @_ZN12QMapDataBase10createNodeEiiP12QMapNodeBaseb(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18MLRenderingToolbar19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18MLRenderingToolbar19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.QtPrivate::QForeachContainer", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %4, align 8
@@ -1912,7 +1912,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18MLRenderingToolbar19
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18MLRenderingToolbar18getTopLevelActionsEv(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18MLRenderingToolbar18getTopLevelActionsEv(ptr dead_on_unwind noalias writable sret(%class.QList.4) align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.4, align 8
   %4 = alloca %class.QList.4, align 8
   %5 = alloca %class.QList.4, align 8
@@ -3879,7 +3879,7 @@ declare void @_ZN30MLRenderingFancyLightingActionC1EiP7QObject(ptr noundef nonnu
 declare void @_ZN25MLRenderingFaceCullActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23MLRenderingOnOffToolbar18setRenderingActionEP17MLRenderingAction(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((56, 64)) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 {
+define void @_ZN23MLRenderingOnOffToolbar18setRenderingActionEP17MLRenderingAction(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
   tail call void @_ZN7QAction10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext false)
@@ -3966,7 +3966,7 @@ define void @_ZN23MLRenderingOnOffToolbar27setAccordingToRenderingDataERK15MLRen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN31MLRenderingSolidParametersFrame19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((48, 52)) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN31MLRenderingSolidParametersFrame19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -3996,7 +3996,7 @@ _ZN23MLRenderingOnOffToolbar19setAssociatedMeshIdEi.exit: ; preds = %2, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23MLRenderingOnOffToolbar19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN23MLRenderingOnOffToolbar19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -4013,7 +4013,7 @@ define void @_ZN23MLRenderingOnOffToolbar19setAssociatedMeshIdEi(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN31MLRenderingSolidParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (16, 24)) %0) unnamed_addr #6 align 2 {
+define void @_ZN31MLRenderingSolidParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV31MLRenderingSolidParametersFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV31MLRenderingSolidParametersFrame, i64 504), ptr %2, align 8
@@ -5796,7 +5796,7 @@ define void @_ZN30MLRenderingWireParametersFrameC2EiP7QWidget(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN30MLRenderingWireParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 24)) %0) unnamed_addr #6 align 2 {
+define void @_ZN30MLRenderingWireParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV30MLRenderingWireParametersFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV30MLRenderingWireParametersFrame, i64 504), ptr %2, align 8
@@ -5951,7 +5951,7 @@ define void @_ZN22MLRenderingFloatSlider27setAccordingToRenderingDataERK15MLRend
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN30MLRenderingWireParametersFrame19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((48, 52)) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN30MLRenderingWireParametersFrame19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -5992,7 +5992,7 @@ _ZN22MLRenderingFloatSlider19setAssociatedMeshIdEi.exit: ; preds = %_ZN23MLRende
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22MLRenderingFloatSlider19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN22MLRenderingFloatSlider19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(60) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6009,7 +6009,7 @@ define void @_ZN22MLRenderingFloatSlider19setAssociatedMeshIdEi(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22MLRenderingFloatSlider23setRenderingFloatActionEP22MLRenderingFloatAction(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #16 align 2 {
+define void @_ZN22MLRenderingFloatSlider23setRenderingFloatActionEP22MLRenderingFloatAction(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, ptr noundef %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
@@ -7430,7 +7430,7 @@ define void @_ZN32MLRenderingPointsParametersFrameC2EiP7QWidget(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32MLRenderingPointsParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 24)) %0) unnamed_addr #6 align 2 {
+define void @_ZN32MLRenderingPointsParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV32MLRenderingPointsParametersFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV32MLRenderingPointsParametersFrame, i64 504), ptr %2, align 8
@@ -7686,7 +7686,7 @@ _ZN22MLRenderingFloatSlider27setAccordingToRenderingDataERK15MLRenderingData.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32MLRenderingPointsParametersFrame19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((48, 52)) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN32MLRenderingPointsParametersFrame19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -8368,7 +8368,7 @@ define void @_ZN30MLRenderingBBoxParametersFrameC2EiP7QWidget(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN30MLRenderingBBoxParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (16, 24)) %0) unnamed_addr #6 align 2 {
+define void @_ZN30MLRenderingBBoxParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV30MLRenderingBBoxParametersFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV30MLRenderingBBoxParametersFrame, i64 504), ptr %2, align 8
@@ -8628,7 +8628,7 @@ define void @_ZN30MLRenderingBBoxParametersFrame48setPrimitiveButtonStatesAccord
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN30MLRenderingBBoxParametersFrame19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((48, 52)) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN30MLRenderingBBoxParametersFrame19setAssociatedMeshIdEi(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -9372,7 +9372,7 @@ define void @_ZN42MLRenderingDefaultDecoratorParametersFrameC2EiP7QWidget(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN42MLRenderingDefaultDecoratorParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (16, 24)) %0) unnamed_addr #6 align 2 {
+define void @_ZN42MLRenderingDefaultDecoratorParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i64 504), ptr %2, align 8
@@ -10347,7 +10347,7 @@ define void @_ZN35MLRenderingSelectionParametersFrameC2EiP7QWidget(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN35MLRenderingSelectionParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %0) unnamed_addr #6 align 2 {
+define void @_ZN35MLRenderingSelectionParametersFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV35MLRenderingSelectionParametersFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV35MLRenderingSelectionParametersFrame, i64 504), ptr %2, align 8
@@ -11357,7 +11357,7 @@ _ZN8QMapNodeI7QStringP26MLRenderingParametersFrameE16doDestroySubTreeESt17integr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24MLRenderingParametersTab19setAssociatedMeshIdEi(ptr noundef nonnull align 8 dereferenceable(72) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN24MLRenderingParametersTab19setAssociatedMeshIdEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -12487,7 +12487,7 @@ _ZN4QMapI7QStringP26MLRenderingParametersFrameE3endEv.exit: ; preds = %14, %18
 declare noundef i32 @_ZNK17MLRenderingAction6meshIdEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN24MLRenderingParametersTabD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (16, 24)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN24MLRenderingParametersTabD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV24MLRenderingParametersTab, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV24MLRenderingParametersTab, i64 464), ptr %2, align 8
@@ -12665,7 +12665,7 @@ define void @_ZThn16_N24MLRenderingParametersTabD0Ev(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24MLRenderingParametersTab35setAssociatedMeshIdAndRenderingDataEiRK15MLRenderingData(ptr noundef nonnull align 8 dereferenceable(72) initializes((48, 52)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN24MLRenderingParametersTab35setAssociatedMeshIdAndRenderingDataEiRK15MLRenderingData(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -14742,7 +14742,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN23MLRenderingGlobalAc
 declare noundef ptr @_ZNK7QAction11actionGroupEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN31MLRenderingZeroOrOneActionGroup14setLastClickedEP23MLRenderingGlobalAction(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #16 align 2 {
+define void @_ZN31MLRenderingZeroOrOneActionGroup14setLastClickedEP23MLRenderingGlobalAction(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void

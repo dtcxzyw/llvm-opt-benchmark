@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @Saig_ManCreateMapping(ptr nocapture noundef initializes((304, 312)) %0, ptr nocapture noundef initializes((304, 312)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Saig_ManCreateMapping(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val.i, i64 4
@@ -275,7 +275,7 @@ Saig_ManStopMap2.exit:                            ; preds = %._crit_edge, %113
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Saig_ManFramesNonInitial(ptr nocapture noundef initializes((296, 304)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @Saig_ManFramesNonInitial(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val.i, i64 4
@@ -683,7 +683,7 @@ declare ptr @Aig_ObjCreateCo(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Saig_ManFramesInitialMapped(ptr nocapture noundef initializes((296, 304)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Saig_ManFramesInitialMapped(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val.i, i64 4
@@ -1384,7 +1384,7 @@ Saig_ManStopMap1.exit:                            ; preds = %364, %369
 declare void @Aig_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Saig_ManTimeframeSimplify(ptr nocapture noundef initializes((296, 304)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @Saig_ManTimeframeSimplify(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8

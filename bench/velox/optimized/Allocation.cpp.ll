@@ -417,7 +417,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define void @_ZN8facebook5velox6memory20ContiguousAllocation3setEPvmm(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((8, 32)) %this, ptr noundef %data, i64 noundef %size, i64 noundef %maxSize) local_unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox6memory20ContiguousAllocation3setEPvmm(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %data, i64 noundef %size, i64 noundef %maxSize) local_unnamed_addr #6 align 2 {
 entry:
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %data, ptr %data_, align 8
@@ -462,7 +462,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN8facebook5velox6memory20ContiguousAllocation5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) local_unnamed_addr #7 align 2 {
 _ZN8facebook5velox6memory20ContiguousAllocation3setEPvmm.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   ret void
@@ -479,7 +479,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8facebook5velox6memory20ContiguousAllocation13hugePageRangeEv(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 initializes((16, 17)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox6memory20ContiguousAllocation13hugePageRangeEv(ptr noalias nocapture writeonly sret(%"class.std::optional") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_, align 8

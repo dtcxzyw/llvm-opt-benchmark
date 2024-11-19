@@ -489,7 +489,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN5folly14TimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly23STTimerFDTimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (16, 24), (192, 208)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly23STTimerFDTimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly23STTimerFDTimeoutManagerE, i64 16), ptr %this, align 8, !tbaa !135
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16

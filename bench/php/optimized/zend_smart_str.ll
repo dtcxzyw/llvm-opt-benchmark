@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @executor_globals = external local_unnamed_addr global %struct._zend_executor_globals, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @smart_str_erealloc(ptr nocapture noundef initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @smart_str_erealloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   %4 = add i64 %1, 4120
@@ -77,7 +77,7 @@ define void @smart_str_erealloc(ptr nocapture noundef initializes((8, 16)) %0, i
 declare ptr @_erealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @smart_str_realloc(ptr nocapture noundef initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @smart_str_realloc(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %3, null
   %4 = add i64 %1, 4120

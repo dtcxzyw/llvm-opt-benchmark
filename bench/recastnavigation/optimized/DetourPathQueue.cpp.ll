@@ -11,7 +11,7 @@ $__clang_call_terminate = comdat any
 @_ZN11dtPathQueueD1Ev = unnamed_addr alias void (ptr), ptr @_ZN11dtPathQueueD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN11dtPathQueueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(600) initializes((576, 588), (592, 600)) %0) unnamed_addr #0 align 2 {
+define void @_ZN11dtPathQueueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(600) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 576
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 580

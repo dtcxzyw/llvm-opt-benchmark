@@ -11102,7 +11102,7 @@ end_with_newline_p.exit.thread:                   ; preds = %9, %24, %end_with_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_none(ptr nocapture noundef readonly %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location_of_none(ptr nocapture noundef readonly %0, ptr noundef returned writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 212
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -13595,7 +13595,7 @@ token_info_drop.exit:                             ; preds = %parser_yyerror.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @restore_defun(ptr nocapture noundef initializes((304, 312), (324, 328)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @restore_defun(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %.sroa.0.0.copyload = load i16, ptr %4, align 8
@@ -19236,7 +19236,7 @@ define internal fastcc noundef ptr @new_array_pattern_tail(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_array_pattern(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef returned initializes((32, 40)) %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_array_pattern(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef returned %3, ptr nocapture noundef nonnull readonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %1, ptr %6, align 8
   %.not = icmp eq ptr %2, null
@@ -22949,7 +22949,7 @@ define dso_local ptr @rb_ruby_parser_compile_string(ptr noundef %0, ptr noundef 
 declare i64 @rb_filesystem_str_new_cstr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_ruby_parser_compile_file_path(ptr noundef initializes((32, 48), (80, 104), (184, 192), (212, 232), (312, 320)) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden ptr @rb_ruby_parser_compile_file_path(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @lex_io_gets, ptr %6, align 8
@@ -23011,7 +23011,7 @@ define internal i64 @lex_io_gets(ptr nocapture readnone %0, i64 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden ptr @rb_ruby_parser_compile_generic(ptr noundef initializes((32, 48), (80, 104), (112, 120), (184, 192), (212, 232), (312, 320)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden ptr @rb_ruby_parser_compile_generic(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @lex_generic_gets, ptr %7, align 8
@@ -23541,7 +23541,7 @@ declare i64 @rb_ractor_stdout() local_unnamed_addr #1
 declare i64 @rb_ractor_stderr() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_from_strterm_heredoc(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef returned writeonly initializes((0, 16)) %2) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location_from_strterm_heredoc(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef returned writeonly %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -23573,7 +23573,7 @@ define dso_local noundef ptr @rb_parser_set_location_from_strterm_heredoc(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_delayed_token(ptr nocapture noundef readonly %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location_of_delayed_token(ptr nocapture noundef readonly %0, ptr noundef returned writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -23593,7 +23593,7 @@ define dso_local noundef ptr @rb_parser_set_location_of_delayed_token(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_heredoc_end(ptr nocapture noundef readonly %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location_of_heredoc_end(ptr nocapture noundef readonly %0, ptr noundef returned writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 212
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -23620,7 +23620,7 @@ define dso_local noundef ptr @rb_parser_set_location_of_heredoc_end(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_dummy_end(ptr nocapture noundef readnone %0, ptr noundef returned initializes((8, 16)) %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location_of_dummy_end(ptr nocapture noundef readnone %0, ptr noundef returned %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 4
@@ -23628,7 +23628,7 @@ define dso_local noundef ptr @rb_parser_set_location_of_dummy_end(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location(ptr nocapture noundef readonly %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @rb_parser_set_location(ptr nocapture noundef readonly %0, ptr noundef returned writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 212
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -25412,7 +25412,7 @@ reserved_word.exit:                               ; preds = %39, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @rb_ruby_parser_set_context(ptr noundef returned writeonly initializes((360, 368), (376, 384)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define hidden noundef ptr @rb_ruby_parser_set_context(ptr noundef returned writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #13 {
   %.not = icmp eq i32 %2, 0
   %4 = select i1 %.not, i64 4, i64 0
   %5 = getelementptr inbounds i8, ptr %0, i64 376
@@ -25477,7 +25477,7 @@ define hidden void @rb_ruby_parser_error_tolerant(ptr nocapture noundef %0) loca
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_ruby_parser_keep_tokens(ptr nocapture noundef initializes((408, 416)) %0) local_unnamed_addr #0 {
+define hidden void @rb_ruby_parser_keep_tokens(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 65536
@@ -35859,7 +35859,7 @@ declare i32 @rb_enc_precise_mbclen(ptr noundef, ptr noundef, ptr noundef) local_
 declare nonnull ptr @ruby_xrealloc2(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -32768, 32768) i32 @parser_yylex(ptr noundef initializes((104, 112)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -32768, 32768) i32 @parser_yylex(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.rb_code_location_struct, align 4
   %3 = alloca %struct.rb_code_location_struct, align 4
   %4 = alloca ptr, align 8
@@ -44998,7 +44998,7 @@ define internal fastcc range(i32 0, 2) i32 @whole_match_p(ptr %.80.val, ptr %.96
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @newtok(ptr nocapture noundef initializes((152, 156)) %0) unnamed_addr #0 {
+define internal fastcc void @newtok(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 176
@@ -48535,7 +48535,7 @@ declare i32 @rb_enc_str_coderange(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_enc_str_buf_cat(i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @regx_options(ptr noundef initializes((152, 156)) %0) unnamed_addr #0 {
+define internal fastcc i32 @regx_options(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca %struct.rb_code_location_struct, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 0, ptr %3, align 8

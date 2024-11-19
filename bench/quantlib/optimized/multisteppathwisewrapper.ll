@@ -73,7 +73,7 @@ $_ZTIN8QuantLib23MarketModelMultiProductE = comdat any
 @_ZN8QuantLib27MultiProductPathwiseWrapperC1ERKNS_31MarketModelPathwiseMultiProductE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib27MultiProductPathwiseWrapperC2ERKNS_31MarketModelPathwiseMultiProductE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27MultiProductPathwiseWrapperC2ERKNS_31MarketModelPathwiseMultiProductE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(8) %innerProduct) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27MultiProductPathwiseWrapperC2ERKNS_31MarketModelPathwiseMultiProductE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %innerProduct) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp = alloca %"class.std::vector.2", align 8

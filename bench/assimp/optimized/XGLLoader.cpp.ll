@@ -721,7 +721,7 @@ entry:
 declare void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11XGLImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XGLImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11XGLImporterE, i64 16), ptr %this, align 8
   %mXmlParser.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -798,7 +798,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 declare void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11XGLImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XGLImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11XGLImporterE, i64 16), ptr %this, align 8
   %mXmlParser.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -848,7 +848,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XGLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %pScene, ptr noundef %pIOHandler) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XGLImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %pScene, ptr noundef %pIOHandler) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.Assimp::Formatter::basic_formatter", align 8
   %ref.tmp.i = alloca ptr, align 8
@@ -4324,7 +4324,7 @@ cleanup:                                          ; preds = %if.end16, %_ZN6Assi
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XGLImporter8ReadCol3ERN4pugi8xml_nodeE(ptr noalias nocapture writeonly sret(%struct.aiColor3D) align 4 initializes((0, 12)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %node) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN6Assimp11XGLImporter8ReadCol3ERN4pugi8xml_nodeE(ptr noalias nocapture writeonly sret(%struct.aiColor3D) align 4 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %node) local_unnamed_addr #12 align 2 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %call = tail call { <2 x float>, float } @_ZN6Assimp11XGLImporter8ReadVec3ERN4pugi8xml_nodeE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %node)
@@ -6400,7 +6400,7 @@ cleanup:                                          ; preds = %if.end.i, %_ZN6Assi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11XGLImporter9ReadTrafoERN4pugi8xml_nodeE(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11XGLImporter9ReadTrafoERN4pugi8xml_nodeE(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i72 = alloca ptr, align 8
   %ref.tmp.i49 = alloca ptr, align 8

@@ -101,7 +101,7 @@ declare i32 @g_direct_hash(ptr noundef) #3
 declare i32 @g_direct_equal(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @autosar_dlt_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal range(i32 0, 2) i32 @autosar_dlt_read(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca %struct.autosar_dlt_params, align 8
   store ptr %0, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8

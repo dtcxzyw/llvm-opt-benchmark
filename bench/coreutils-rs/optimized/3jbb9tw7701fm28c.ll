@@ -1784,7 +1784,7 @@ _ZN5uu_df11is_included17h3ae1b0722b85bf16E.exit.thread: ; preds = %_ZN5uu_df13mo
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5uu_df19get_all_filesystems17h1207f6464118ad1bE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #0 {
+define void @_ZN5uu_df19get_all_filesystems17h1207f6464118ad1bE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #0 {
   %3 = alloca { { { ptr, ptr, i64, ptr, {}, { {} } }, {} }, ptr }, align 8
   %4 = alloca { { i64, ptr, {} }, i64 }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8

@@ -160,7 +160,7 @@ for.end144:                                       ; preds = %for.body101
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @sha256_init(ptr nocapture noundef writeonly initializes((64, 68), (72, 112)) %ctx) local_unnamed_addr #1 {
+define dso_local void @sha256_init(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #1 {
 entry:
   %datalen = getelementptr inbounds i8, ptr %ctx, i64 64
   store i32 0, ptr %datalen, align 8

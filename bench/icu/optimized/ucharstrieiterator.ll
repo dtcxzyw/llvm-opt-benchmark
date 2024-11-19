@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7510UCharsTrie8IteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7510UCharsTrie8IteratorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510UCharsTrie8IteratorC2ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 33), (40, 50), (104, 120)) %this, ptr nocapture noundef readonly %trieUChars, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510UCharsTrie8IteratorC2ENS_14ConstChar16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %trieUChars, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %trieUChars, align 8
   store ptr %0, ptr %this, align 8
@@ -81,7 +81,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7510UCharsTrie8IteratorC2ERKS0_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 33), (40, 50), (104, 120)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %trie, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510UCharsTrie8IteratorC2ERKS0_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %trie, i32 noundef %maxStringLength, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %uchars_2 = getelementptr inbounds i8, ptr %trie, i64 8
   %0 = load ptr, ptr %uchars_2, align 8
@@ -209,7 +209,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(120) ptr @_ZN6icu_7510UCharsTrie8Iterator5resetEv(ptr noundef nonnull returned align 8 dereferenceable(120) initializes((8, 16), (24, 28), (32, 33)) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(120) ptr @_ZN6icu_7510UCharsTrie8Iterator5resetEv(ptr noundef nonnull returned align 8 dereferenceable(120) %this) local_unnamed_addr #0 align 2 {
 entry:
   %initialPos_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %initialPos_, align 8

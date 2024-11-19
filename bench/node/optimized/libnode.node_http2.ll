@@ -1909,7 +1909,7 @@ arraydestroy.done1:                               ; preds = %_ZN4node5http212Htt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http210Http2ScopeC2EPNS0_11Http2StreamE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef readonly %stream) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http210Http2ScopeC2EPNS0_11Http2StreamE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %stream) unnamed_addr #4 align 2 {
 entry:
   %session_.i = getelementptr inbounds i8, ptr %stream, i64 184
   %0 = load ptr, ptr %session_.i, align 8
@@ -1967,7 +1967,7 @@ _ZN4node5http210Http2ScopeC2EPNS0_12Http2SessionE.exit: ; preds = %_ZN4node5http
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http210Http2ScopeC2EPNS0_12Http2SessionE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %session) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http210Http2ScopeC2EPNS0_12Http2SessionE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %session) unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %cmp.i = icmp eq ptr %session, null
@@ -2196,7 +2196,7 @@ if.end20:                                         ; preds = %do.end6, %_ZN4node1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http212Http2OptionsC2EPNS0_10Http2StateENS0_11SessionTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef readonly %http2_state, i32 noundef %type) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http212Http2OptionsC2EPNS0_10Http2StateENS0_11SessionTypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %http2_state, i32 noundef %type) unnamed_addr #4 align 2 {
 entry:
   %option = alloca ptr, align 8
   store ptr null, ptr %this, align 8
@@ -3450,7 +3450,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #10
 declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http27OriginsC2EPNS_11EnvironmentEN2v85LocalINS4_6StringEEEm(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %env, ptr nonnull %origin_string.coerce, i64 noundef %origin_count) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http27OriginsC2EPNS_11EnvironmentEN2v85LocalINS4_6StringEEEm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %env, ptr nonnull %origin_string.coerce, i64 noundef %origin_count) unnamed_addr #4 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.22", align 8
   store i64 %origin_count, ptr %this, align 8
@@ -3598,7 +3598,7 @@ declare noundef i32 @_ZNK2v86String12WriteOneByteEPNS_7IsolateEPhiii(ptr noundef
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http212Http2Session9CallbacksC2Eb(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, i1 noundef zeroext %kHasGetPaddingCallback) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http212Http2Session9CallbacksC2Eb(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, i1 noundef zeroext %kHasGetPaddingCallback) unnamed_addr #4 align 2 {
 entry:
   %callbacks_ = alloca ptr, align 8
   store ptr null, ptr %this, align 8
@@ -5608,7 +5608,7 @@ declare ptr @_ZN2v810Uint8Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr, i64 nou
 declare i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http212Http2SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 8), (56, 64), (80, 88)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http212Http2SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #4 align 2 {
 entry:
   %agg.tmp.i.i.i13 = alloca %"struct.std::_Deque_iterator.36", align 8
   %agg.tmp2.i.i.i14 = alloca %"struct.std::_Deque_iterator.36", align 8
@@ -6031,7 +6031,7 @@ declare void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N4node5http212Http2SessionD1Ev(ptr noundef initializes((-56, -48), (0, 8), (24, 32)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZThn56_N4node5http212Http2SessionD1Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node5http212Http2SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %0) #28
@@ -6039,7 +6039,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http212Http2SessionD0Ev(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 8), (56, 64), (80, 88)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http212Http2SessionD0Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4node5http212Http2SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
@@ -6050,7 +6050,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N4node5http212Http2SessionD0Ev(ptr noundef initializes((-56, -48), (0, 8), (24, 32)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZThn56_N4node5http212Http2SessionD0Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node5http212Http2SessionD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %0) #28
@@ -8264,7 +8264,7 @@ declare void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 de
 declare void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http212Http2Session7PopPingEv(ptr noalias writeonly sret(%"class.node::BaseObjectPtrImpl.408") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http212Http2Session7PopPingEv(ptr noalias writeonly sret(%"class.node::BaseObjectPtrImpl.408") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) local_unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 424
@@ -8577,7 +8577,7 @@ if.end16:                                         ; preds = %if.then13, %_ZN4nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http212Http2Session12RemoveStreamEi(ptr noalias nocapture writeonly sret(%"class.node::BaseObjectPtrImpl.411") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %id) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http212Http2Session12RemoveStreamEi(ptr noalias nocapture writeonly sret(%"class.node::BaseObjectPtrImpl.411") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(640) %this, i32 noundef %id) local_unnamed_addr #4 align 2 {
 entry:
   %id.addr = alloca i32, align 4
   %ref.tmp = alloca %"class.node::BaseObjectPtrImpl.411", align 8
@@ -11619,7 +11619,7 @@ _ZNK4node5http29Http2Ping8callbackEv.exit:        ; preds = %if.end37, %if.end.i
 declare ptr @_ZN4node6Buffer4CopyEPNS_11EnvironmentEPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http212Http2Session11PopSettingsEv(ptr noalias writeonly sret(%"class.node::BaseObjectPtrImpl.425") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http212Http2Session11PopSettingsEv(ptr noalias writeonly sret(%"class.node::BaseObjectPtrImpl.425") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) local_unnamed_addr #4 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 512
@@ -13639,7 +13639,7 @@ if.end24:                                         ; preds = %_ZNSt12_Vector_base
 declare noundef i32 @_ZN4node10StreamBase8ShutdownEN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http211Http2StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 8), (56, 64)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http211Http2StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2StreamE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
@@ -13760,7 +13760,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N4node5http211Http2StreamD1Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZThn56_N4node5http211Http2StreamD1Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node5http211Http2StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %0) #28
@@ -13768,7 +13768,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http211Http2StreamD0Ev(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 8), (56, 64)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http211Http2StreamD0Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4node5http211Http2StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
@@ -13776,7 +13776,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn56_N4node5http211Http2StreamD0Ev(ptr noundef initializes((-56, -48), (0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZThn56_N4node5http211Http2StreamD0Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   tail call void @_ZN4node5http211Http2StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(368) %0) #28
@@ -15697,7 +15697,7 @@ _ZN4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEED2Ev.exit4: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http211Http2Stream8ProviderC2EPS1_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 8), (24, 25)) %this, ptr noundef %stream, i32 noundef %options) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http211Http2Stream8ProviderC2EPS1_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr noundef %stream, i32 noundef %options) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
   %empty_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -15723,7 +15723,7 @@ do.end6:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node5http211Http2Stream8ProviderC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 16), (24, 25)) %this, i32 noundef %options) unnamed_addr #19 align 2 {
+define dso_local void @_ZN4node5http211Http2Stream8ProviderC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i32 noundef %options) unnamed_addr #19 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
   %empty_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -15736,7 +15736,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node5http211Http2Stream8ProviderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 16)) %this) unnamed_addr #19 align 2 {
+define dso_local void @_ZN4node5http211Http2Stream8ProviderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this) unnamed_addr #19 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
   %provider_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -15745,14 +15745,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http211Http2Stream8ProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(25) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http211Http2Stream8ProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node5http211Http2Stream8Provider6StreamC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this, i32 noundef %options) unnamed_addr #19 align 2 {
+define dso_local void @_ZN4node5http211Http2Stream8Provider6StreamC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i32 noundef %options) unnamed_addr #19 align 2 {
 entry:
   %empty_.i = getelementptr inbounds i8, ptr %this, i64 24
   %provider_2.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -16124,7 +16124,7 @@ _ZN4node17BaseObjectPtrImplINS_5http211Http2StreamELb0EED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5http211Http2Stream8Provider6StreamC2EPS1_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 8), (24, 25)) %this, ptr noundef %stream, i32 noundef %options) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node5http211Http2Stream8Provider6StreamC2EPS1_i(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr noundef %stream, i32 noundef %options) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5http211Http2Stream8ProviderE, i64 16), ptr %this, align 8
   %empty_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -34499,7 +34499,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_, align 8
@@ -34532,7 +34532,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream14EmitStatisticsEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -34717,7 +34717,7 @@ declare ptr @_ZN4node16MakeSyncCallbackEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEN
 declare ptr @_ZN2v87Context6GlobalEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session14EmitStatisticsEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session14EmitStatisticsEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_, align 8
@@ -34750,7 +34750,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session14EmitStatisticsEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session14EmitStatisticsEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -35277,7 +35277,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %if.then.i, %if.els
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val = load ptr, ptr %callback_, align 8
@@ -35308,7 +35308,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session5CloseEjbE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
   %callback_.val.i = load ptr, ptr %callback_.i, align 8
@@ -40102,7 +40102,7 @@ _ZNK4node14NgRcBufPointerINS_5http226Http2RcBufferPointerTraitsEE3lenEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
@@ -40133,7 +40133,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http212Http2Session18MaybeScheduleWriteEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8
@@ -41859,7 +41859,7 @@ cleanup:                                          ; preds = %sw.epilog, %sw.defa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
@@ -41890,7 +41890,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_5http211Http2Stream7DestroyEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8

@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanBitmapHeapScan(ptr noundef initializes((248, 256), (320, 321)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanBitmapHeapScan(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 208
@@ -331,7 +331,7 @@ declare ptr @ExecInitQual(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @get_tablespace_io_concurrency(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecBitmapHeapEstimate(ptr nocapture noundef initializes((312, 320)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecBitmapHeapEstimate(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -454,7 +454,7 @@ define dso_local void @ExecBitmapHeapReInitializeDSM(ptr nocapture noundef reado
 declare void @tbm_free_shared_area(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecBitmapHeapInitializeWorker(ptr nocapture noundef initializes((344, 352)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecBitmapHeapInitializeWorker(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

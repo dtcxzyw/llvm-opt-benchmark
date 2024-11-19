@@ -23,7 +23,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [4 x i8] c"raw\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_nwrite(ptr noundef %data, i32 noundef %sockindex, ptr noundef %buf, i64 noundef %blen, ptr nocapture noundef writeonly initializes((0, 8)) %pnwritten) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_nwrite(ptr noundef %data, i32 noundef %sockindex, ptr noundef %buf, i64 noundef %blen, ptr nocapture noundef writeonly %pnwritten) local_unnamed_addr #0 {
 entry:
   %result = alloca i32, align 4
   store i32 0, ptr %result, align 4
@@ -54,7 +54,7 @@ if.end12:                                         ; preds = %entry, %if.then8, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @Curl_write(ptr noundef %data, i32 noundef %sockfd, ptr noundef %mem, i64 noundef %len, ptr nocapture noundef writeonly initializes((0, 8)) %written) local_unnamed_addr #0 {
+define hidden noundef i32 @Curl_write(ptr noundef %data, i32 noundef %sockfd, ptr noundef %mem, i64 noundef %len, ptr nocapture noundef writeonly %written) local_unnamed_addr #0 {
 entry:
   %result.i = alloca i32, align 4
   %cmp.not = icmp eq i32 %sockfd, -1
@@ -282,7 +282,7 @@ return:                                           ; preds = %if.end.i11, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @do_init_stack(ptr noundef initializes((336, 344)) %data) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @do_init_stack(ptr noundef %data) unnamed_addr #0 {
 entry:
   %writer_stack = getelementptr inbounds i8, ptr %data, i64 336
   %0 = load ptr, ptr @Curl_ccalloc, align 8
@@ -1002,7 +1002,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_cwriter_create(ptr nocapture noundef writeonly initializes((0, 8)) %pwriter, ptr noundef %data, ptr noundef %cwt, i32 noundef %phase) local_unnamed_addr #0 {
+define hidden i32 @Curl_cwriter_create(ptr nocapture noundef writeonly %pwriter, ptr noundef %data, ptr noundef %cwt, i32 noundef %phase) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @Curl_ccalloc, align 8
   %cwriter_size = getelementptr inbounds i8, ptr %cwt, i64 40
@@ -1189,7 +1189,7 @@ while.end:                                        ; preds = %if.end, %Curl_cwrit
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_read(ptr noundef %data, i32 noundef %sockfd, ptr noundef %buf, i64 noundef %sizerequested, ptr nocapture noundef initializes((0, 8)) %n) local_unnamed_addr #0 {
+define hidden i32 @Curl_read(ptr noundef %data, i32 noundef %sockfd, ptr noundef %buf, i64 noundef %sizerequested, ptr nocapture noundef %n) local_unnamed_addr #0 {
 entry:
   %result = alloca i32, align 4
   store i32 56, ptr %result, align 4

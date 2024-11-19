@@ -97,7 +97,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.30 = private unnamed_addr constant [46 x i8] c"occupant %p in room num %d responded to knock\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @rscon(ptr noundef initializes((304, 316), (320, 384)) %0) #0 {
+define internal void @rscon(ptr noundef %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -3528,7 +3528,7 @@ pmix_obj_run_destructors.exit728:                 ; preds = %.lr.ph.i725, %1410
 declare void @event_active(ptr noundef, i32 noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @mycbfn(i32 noundef %0, i64 noundef %1, ptr noundef initializes((480, 484)) %2) #0 {
+define internal void @mycbfn(i32 noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   fence acquire
   %4 = icmp eq i32 %0, 0
   %5 = trunc i64 %1 to i32
@@ -4904,7 +4904,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @myopcb(i32 noundef %0, ptr noundef initializes((472, 476)) %1) #0 {
+define internal void @myopcb(i32 noundef %0, ptr noundef %1) #0 {
   fence acquire
   %3 = getelementptr inbounds i8, ptr %1, i64 472
   store i32 %0, ptr %3, align 8

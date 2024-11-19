@@ -653,7 +653,7 @@ update_ps_display_precheck.exit.thread:           ; preds = %5, %2, %flush_ps_di
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local ptr @get_ps_display(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #10 {
+define dso_local ptr @get_ps_display(ptr nocapture noundef writeonly %0) local_unnamed_addr #10 {
   %2 = load ptr, ptr @ps_buffer, align 8
   %.not = icmp eq ptr %2, null
   %3 = load i64, ptr @ps_buffer_cur_len, align 8

@@ -86,7 +86,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN18AbsRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22DefaultRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22DefaultRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV22DefaultRndNumGenerator, i64 16), ptr %0, align 8
   invoke void @_ZN15SequenceFactory17destroy_sequencesEv()
           to label %2 unwind label %4
@@ -123,7 +123,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22DefaultRndNumGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22DefaultRndNumGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV22DefaultRndNumGenerator, i64 16), ptr %0, align 8
   invoke void @_ZN15SequenceFactory17destroy_sequencesEv()
           to label %_ZN22DefaultRndNumGeneratorD2Ev.exit unwind label %2

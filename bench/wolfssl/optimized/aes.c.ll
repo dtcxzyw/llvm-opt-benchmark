@@ -3781,7 +3781,7 @@ return:                                           ; preds = %while.body, %xorbuf
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @GenerateM0(ptr noundef initializes((16, 32)) %gcm) local_unnamed_addr #4 {
+define void @GenerateM0(ptr noundef %gcm) local_unnamed_addr #4 {
 entry:
   %M0 = getelementptr inbounds i8, ptr %gcm, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %M0, i8 0, i64 16, i1 false)

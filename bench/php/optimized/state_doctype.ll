@@ -357,7 +357,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare ptr @lxb_html_token_attr_append(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_doctype_name(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_doctype_name(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %1, ptr %4, align 8
   %.not143 = icmp eq ptr %1, %2
@@ -1789,7 +1789,7 @@ define internal ptr @lxb_html_tokenizer_state_doctype_before_public_identifier(p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_doctype_public_identifier_double_quoted(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_doctype_public_identifier_double_quoted(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 56
@@ -2415,7 +2415,7 @@ lxb_html_tokenizer_temp_append_data.exit185:      ; preds = %356
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_doctype_public_identifier_single_quoted(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_doctype_public_identifier_single_quoted(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 56
@@ -3390,7 +3390,7 @@ define internal ptr @lxb_html_tokenizer_state_doctype_between_public_and_system_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_doctype_system_identifier_double_quoted(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_doctype_system_identifier_double_quoted(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 56
@@ -4016,7 +4016,7 @@ lxb_html_tokenizer_temp_append_data.exit185:      ; preds = %356
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_doctype_system_identifier_single_quoted(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #0 {
+define internal ptr @lxb_html_tokenizer_state_doctype_system_identifier_single_quoted(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 56

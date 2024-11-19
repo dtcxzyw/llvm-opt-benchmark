@@ -112,7 +112,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12solver_na2asC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 120)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12solver_na2asC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %m, ptr %m2.i.i, align 8
@@ -140,7 +140,7 @@ invoke.cont:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12solver_na2asD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (72, 80)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12solver_na2asD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12solver_na2as, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 72
@@ -236,7 +236,7 @@ _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN7svectorIjjED2Ev
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn72_N12solver_na2asD1Ev(ptr noundef initializes((-72, -64), (0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn72_N12solver_na2asD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   tail call void @_ZN12solver_na2asD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) #22

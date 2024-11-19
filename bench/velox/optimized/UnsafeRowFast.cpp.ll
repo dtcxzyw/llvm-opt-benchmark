@@ -159,7 +159,7 @@ return:                                           ; preds = %for.body, %_ZN8face
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox3row13UnsafeRowFastC2ERKSt10shared_ptrINS0_9RowVectorEE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 1), (8, 12), (16, 49), (56, 69), (72, 76), (80, 128)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vector) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox3row13UnsafeRowFastC2ERKSt10shared_ptrINS0_9RowVectorEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vector) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vector, align 8
   %typeKind_.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -1056,7 +1056,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorImSaImE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox3row13UnsafeRowFastC2ERKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 1), (8, 12), (16, 49), (56, 69), (72, 76), (80, 128)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vector) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox3row13UnsafeRowFastC2ERKSt10shared_ptrINS0_10BaseVectorEE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %vector) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vector, align 8
   %typeKind_.i = getelementptr inbounds i8, ptr %0, i64 24
@@ -2815,7 +2815,7 @@ return:                                           ; preds = %sw.bb16, %_ZN8faceb
 declare noundef i32 @_ZN8facebook5velox11DecimalUtil11toByteArrayEnPc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast14serializeArrayEiPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index, ptr noundef initializes((0, 8)) %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast14serializeArrayEiPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index, ptr noundef %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %0 = load i8, ptr %isIdentityMapping_.i, align 2
@@ -2866,7 +2866,7 @@ _ZNK8facebook5velox13DecodedVector5indexEi.exit:  ; preds = %entry, %if.then3.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index, ptr noundef initializes((8, 16)) %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast12serializeMapEiPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, i32 noundef %index, ptr noundef %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %isIdentityMapping_.i = getelementptr inbounds i8, ptr %this, i64 66
   %0 = load i8, ptr %isIdentityMapping_.i, align 2
@@ -3038,7 +3038,7 @@ return:                                           ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %elements, i32 noundef %offset, i32 noundef %size, i1 noundef zeroext %fixedWidth, ptr noundef initializes((0, 8)) %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8facebook5velox3row13UnsafeRowFast16serializeAsArrayERS2_iibPc(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %elements, i32 noundef %offset, i32 noundef %size, i1 noundef zeroext %fixedWidth, ptr noundef %buffer) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = sext i32 %size to i64
   store i64 %conv, ptr %buffer, align 8

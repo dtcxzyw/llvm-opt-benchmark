@@ -96,7 +96,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14context_paramsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14context_paramsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store i32 0, ptr %this, align 8
@@ -298,7 +298,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14context_params8set_uintERjPKcS2_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %opt, ptr noundef %param, ptr noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14context_params8set_uintERjPKcS2_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %opt, ptr noundef %param, ptr noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %endptr = alloca ptr, align 8
   %strm = alloca %"class.std::__cxx11::basic_stringstream", align 8
@@ -1038,7 +1038,7 @@ declare void @_ZN10params_ref8set_boolEPKcb(ptr noundef nonnull align 8 derefere
 declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14context_params17get_solver_paramsER10params_refRbS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr nocapture noundef nonnull align 1 dereferenceable(1) %proofs_enabled, ptr nocapture noundef nonnull align 1 dereferenceable(1) %models_enabled, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %unsat_core_enabled) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN14context_params17get_solver_paramsER10params_refRbS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr nocapture noundef nonnull align 1 dereferenceable(1) %proofs_enabled, ptr nocapture noundef nonnull align 1 dereferenceable(1) %models_enabled, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %unsat_core_enabled) local_unnamed_addr #3 align 2 {
 entry:
   %m_proof = getelementptr inbounds i8, ptr %this, i64 73
   %0 = load i8, ptr %m_proof, align 1

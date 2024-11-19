@@ -46,7 +46,7 @@ define hidden range(i32 -153, 1) i32 @psa_destroy_persistent_key(i32 noundef %0)
 declare i32 @psa_its_remove(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @psa_format_key_data_for_storage(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 36)) %3) local_unnamed_addr #2 {
+define hidden void @psa_format_key_data_for_storage(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #2 {
   store i64 25127461356393296, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = getelementptr inbounds i8, ptr %2, i64 4

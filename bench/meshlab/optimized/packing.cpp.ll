@@ -1905,7 +1905,7 @@ _ZNSt6vectorIS_IN3vcg6Point2IfEESaIS2_EESaIS4_EED2Ev.exit273: ; preds = %_ZSt8_D
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z16ExtractOutline2fR9FaceGroup(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.14") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_Z16ExtractOutline2fR9FaceGroup(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.14") align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.133", align 8
   call void @_Z16ExtractOutline2dR9FaceGroup(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.133") align 8 %3, ptr noundef nonnull align 8 dereferenceable(192) %1)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

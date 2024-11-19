@@ -21,7 +21,7 @@ $_ZN4llvm8codeview6detail11GuidAdapterD0Ev = comdat any
 @_ZN4llvm8codeview6detail11GuidAdapterC1ENS_8ArrayRefIhEE = unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN4llvm8codeview6detail11GuidAdapterC2ENS_8ArrayRefIhEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview6detail11GuidAdapterC2ENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview6detail11GuidAdapterC2ENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
@@ -33,7 +33,7 @@ define dso_local void @_ZN4llvm8codeview6detail11GuidAdapterC2ENS_9StringRefE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview6detail11GuidAdapterC2ENS_8ArrayRefIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview6detail11GuidAdapterC2ENS_8ArrayRefIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16

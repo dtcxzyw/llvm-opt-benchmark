@@ -104,7 +104,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal9ProofStepC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 4), (8, 56)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal9ProofStepC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 148, ptr %this, align 8
   %d_children = getelementptr inbounds i8, ptr %this, i64 8
@@ -113,7 +113,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal9ProofStepC2ENS_9ProofRuleERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EES9_(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 4), (8, 32)) %this, i32 noundef %r, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %children, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal9ProofStepC2ENS_9ProofRuleERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EES9_(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %r, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %children, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %r, ptr %this, align 8
   %d_children = getelementptr inbounds i8, ptr %this, i64 8
@@ -353,7 +353,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc5lsERSoNS_9ProofR
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal15ProofStepBufferC2EPNS0_12ProofCheckerEbb(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 1), (8, 41)) %this, ptr noundef %pc, i1 noundef zeroext %ensureUnique, i1 noundef zeroext %autoSym) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal15ProofStepBufferC2EPNS0_12ProofCheckerEbb(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %pc, i1 noundef zeroext %ensureUnique, i1 noundef zeroext %autoSym) unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %ensureUnique to i8
   %frombool1 = zext i1 %autoSym to i8

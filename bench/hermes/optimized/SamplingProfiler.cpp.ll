@@ -699,7 +699,7 @@ declare noundef i64 @_ZN6hermes8oscompat16global_thread_idEv() local_unnamed_add
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm16SamplingProfilerC2ERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 72)) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm16SamplingProfilerC2ERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca i64, align 8

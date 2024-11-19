@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.5 = private unnamed_addr constant [8 x i8] c"skipped\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_gcm_init(ptr nocapture noundef writeonly initializes((0, 424)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_gcm_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %0, i8 0, i64 424, i1 false)
   ret void
 }
@@ -1009,7 +1009,7 @@ define internal fastcc i32 @gcm_mask(ptr noundef %0, ptr noundef nonnull %1, i64
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #2 {
+define hidden range(i32 -20, 1) i32 @mbedtls_gcm_finish(ptr noundef %0, ptr nocapture readnone %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4, i64 noundef %5) local_unnamed_addr #2 {
   %7 = alloca [16 x i8], align 16
   store i64 0, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 352

@@ -3410,7 +3410,7 @@ declare i64 @nameout(ptr noundef) #2
 declare ptr @pg_detoast_datum_packed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 16, 20) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 16, 20) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8

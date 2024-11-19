@@ -126711,7 +126711,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @abort() local_unnamed_addr #21
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEEE, i64 16), ptr %this, align 8
   %instantiations_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -126808,7 +126808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN12_GLOBAL__N_111BadModeTestEEE, i64 16), ptr %this, align 8
   %instantiations_.i = getelementptr inbounds i8, ptr %this, i64 64

@@ -1440,7 +1440,7 @@ find_watcher.exit:                                ; preds = %35, %55, %watcher_r
 declare void @uv__free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_fs_event_init(ptr noundef %0, ptr noundef initializes((8, 20), (32, 48), (88, 92)) %1) local_unnamed_addr #2 {
+define dso_local noundef i32 @uv_fs_event_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16

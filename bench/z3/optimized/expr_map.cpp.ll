@@ -56,7 +56,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8expr_mapC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 9), (16, 36)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8expr_mapC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_store_proofs = getelementptr inbounds i8, ptr %this, i64 8
@@ -123,7 +123,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8expr_mapC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 9), (16, 36)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %store_proofs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8expr_mapC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %store_proofs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %store_proofs to i8
   store ptr %m, ptr %this, align 8

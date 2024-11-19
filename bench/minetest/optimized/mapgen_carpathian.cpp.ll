@@ -780,7 +780,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(474)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16MapgenCarpathianD2Ev(ptr noundef nonnull align 8 dereferenceable(596) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN16MapgenCarpathianD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %this) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16MapgenCarpathian, i64 16), ptr %this, align 8, !tbaa !12
   %noise_filler_depth = getelementptr inbounds i8, ptr %this, i64 208
@@ -941,7 +941,7 @@ delete.end37:                                     ; preds = %delete.notnull36, %
 declare void @_ZN5NoiseD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16MapgenCarpathianD0Ev(ptr noundef nonnull align 8 dereferenceable(596) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN16MapgenCarpathianD0Ev(ptr noundef nonnull align 8 dereferenceable(596) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN16MapgenCarpathianD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
@@ -949,7 +949,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN22MapgenCarpathianParamsC2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(784) initializes((0, 14), (16, 36), (40, 53), (56, 86), (88, 130), (132, 170), (172, 210), (212, 250), (252, 290), (292, 330), (332, 370), (372, 410), (412, 450), (452, 490), (492, 530), (532, 570), (572, 610), (612, 650), (652, 690), (692, 730), (732, 770), (772, 784)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22MapgenCarpathianParamsC2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(784) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont66:
   %mgtype.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %mgtype.i, align 8, !tbaa !70
@@ -6036,7 +6036,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16MapgenCarpathian9makeChunkEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(596) initializes((24, 25), (32, 40), (48, 60), (216, 240)) %this, ptr noundef %data) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16MapgenCarpathian9makeChunkEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(596) %this, ptr noundef %data) unnamed_addr #5 align 2 {
 entry:
   %generating = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %generating, align 8, !tbaa !98

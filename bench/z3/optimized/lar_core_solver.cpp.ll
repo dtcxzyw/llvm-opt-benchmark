@@ -122,7 +122,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp15lar_core_solverC2ERNS_11lp_settingsERKNS_12column_namerE(ptr noundef nonnull align 8 dereferenceable(632) initializes((0, 12), (16, 32), (40, 256)) %this, ptr noundef nonnull align 8 dereferenceable(299) %settings, ptr noundef nonnull align 8 dereferenceable(8) %column_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp15lar_core_solverC2ERNS_11lp_settingsERKNS_12column_namerE(ptr noundef nonnull align 8 dereferenceable(632) %this, ptr noundef nonnull align 8 dereferenceable(299) %settings, ptr noundef nonnull align 8 dereferenceable(8) %column_names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   store ptr null, ptr %this, align 8
   %m_infeasible_sum_sign = getelementptr inbounds i8, ptr %this, i64 8
@@ -1023,7 +1023,7 @@ for.end:                                          ; preds = %for.body, %while.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp15lar_core_solver41fill_not_improvable_zero_sum_from_inf_rowEv(ptr noundef nonnull align 8 dereferenceable(632) initializes((8, 12)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp15lar_core_solver41fill_not_improvable_zero_sum_from_inf_rowEv(ptr noundef nonnull align 8 dereferenceable(632) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.std::pair", align 8
   %m_r_basis = getelementptr inbounds i8, ptr %this, i64 336
@@ -1321,7 +1321,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp15lar_core_solver28fill_not_improvable_zero_sumEv(ptr noundef nonnull align 8 dereferenceable(632) initializes((8, 12)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp15lar_core_solver28fill_not_improvable_zero_sumEv(ptr noundef nonnull align 8 dereferenceable(632) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.std::pair", align 8
   %ref.tmp29 = alloca %"struct.std::pair", align 8

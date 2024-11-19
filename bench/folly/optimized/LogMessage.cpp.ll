@@ -30,7 +30,7 @@ $_ZNSt12out_of_rangeC2EOS_ = comdat any
 @_ZN5folly10LogMessageC1EPKNS_11LogCategoryENS_8LogLevelENSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_5RangeIPKcEEjSH_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = unnamed_addr alias void (ptr, ptr, i32, i64, ptr, ptr, i32, ptr, ptr), ptr @_ZN5folly10LogMessageC2EPKNS_11LogCategoryENS_8LogLevelENSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_5RangeIPKcEEjSH_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10LogMessageC2EPKNS_11LogCategoryENS_8LogLevelENS_5RangeIPKcEEjS8_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 12), (16, 52), (56, 80)) %this, ptr noundef %category, i32 noundef %level, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10LogMessageC2EPKNS_11LogCategoryENS_8LogLevelENS_5RangeIPKcEEjS8_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %category, i32 noundef %level, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %category, ptr %this, align 8, !tbaa !7
   %level_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -469,7 +469,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10LogMessageC2EPKNS_11LogCategoryENS_8LogLevelENSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_5RangeIPKcEEjSH_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 12), (16, 52), (56, 80)) %this, ptr noundef %category, i32 noundef %level, i64 %timestamp.coerce, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10LogMessageC2EPKNS_11LogCategoryENS_8LogLevelENSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_5RangeIPKcEEjSH_ONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %category, i32 noundef %level, i64 %timestamp.coerce, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %category, ptr %this, align 8, !tbaa !7
   %level_ = getelementptr inbounds i8, ptr %this, i64 8

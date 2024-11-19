@@ -1689,7 +1689,7 @@ return:                                           ; preds = %do.body4, %do.body2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @hz_encode_init(ptr nocapture noundef writeonly initializes((0, 1)) %state, ptr nocapture readnone %codec) #6 {
+define internal noundef i32 @hz_encode_init(ptr nocapture noundef writeonly %state, ptr nocapture readnone %codec) #6 {
 entry:
   store i8 0, ptr %state, align 1
   ret i32 0
@@ -1855,14 +1855,14 @@ return:                                           ; preds = %if.then, %do.body16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @hz_decode_init(ptr nocapture noundef writeonly initializes((0, 1)) %state, ptr nocapture readnone %codec) #6 {
+define internal noundef i32 @hz_decode_init(ptr nocapture noundef writeonly %state, ptr nocapture readnone %codec) #6 {
 entry:
   store i8 0, ptr %state, align 1
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i64 @hz_decode_reset(ptr nocapture noundef writeonly initializes((0, 1)) %state, ptr nocapture readnone %codec) #6 {
+define internal noundef i64 @hz_decode_reset(ptr nocapture noundef writeonly %state, ptr nocapture readnone %codec) #6 {
 entry:
   store i8 0, ptr %state, align 1
   ret i64 0

@@ -26,7 +26,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_vma_node
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_drm_vma_node_allow347, ptr @__UNIQUE_ID___addressable_drm_vma_node_allow_once348, ptr @__UNIQUE_ID___addressable_drm_vma_node_is_allowed350, ptr @__UNIQUE_ID___addressable_drm_vma_node_revoke349, ptr @__UNIQUE_ID___addressable_drm_vma_offset_add345, ptr @__UNIQUE_ID___addressable_drm_vma_offset_lookup_locked344, ptr @__UNIQUE_ID___addressable_drm_vma_offset_manager_destroy343, ptr @__UNIQUE_ID___addressable_drm_vma_offset_manager_init342, ptr @__UNIQUE_ID___addressable_drm_vma_offset_remove346], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_vma_offset_manager_init(ptr noundef initializes((0, 8)) %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
+define dso_local void @drm_vma_offset_manager_init(ptr noundef %0, i64 noundef %1, i64 noundef %2) #0 align 16 {
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4

@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Saig_ManCreateReducedAig(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noundef ptr @Saig_ManCreateReducedAig(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 104
   %.val = load i32, ptr %3, align 8
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
@@ -2187,7 +2187,7 @@ Vec_IntPush.exit39:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Saig_MvManFindOscilators(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Saig_MvManFindOscilators(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = call ptr @Saig_MvManFindConstBinaryFlops(ptr noundef %0, ptr noundef nonnull %3)
   store ptr %4, ptr %1, align 8

@@ -244,7 +244,7 @@ $_ZTSN4pbrt10QuaternionE = comdat any
 @_ZN4pbrt17AnimatedTransformC1ERKNS_9TransformEfS3_f = dso_local unnamed_addr alias void (ptr, ptr, float, ptr, float), ptr @_ZN4pbrt17AnimatedTransformC2ERKNS_9TransformEfS3_f
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4pbrt9TranslateENS_7Vector3IfEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Transform") align 4 initializes((0, 128)) %agg.result, <2 x float> %delta.coerce0, float %delta.coerce1) local_unnamed_addr #0 {
+define dso_local void @_ZN4pbrt9TranslateENS_7Vector3IfEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Transform") align 4 %agg.result, <2 x float> %delta.coerce0, float %delta.coerce1) local_unnamed_addr #0 {
 entry:
   %delta.sroa.0.0.vec.extract = extractelement <2 x float> %delta.coerce0, i64 0
   %delta.sroa.0.4.vec.extract = extractelement <2 x float> %delta.coerce0, i64 1
@@ -321,7 +321,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4pbrt5ScaleEfff(ptr noalias nocapture writeonly sret(%"class.pbrt::Transform") align 4 initializes((0, 128)) %agg.result, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #2 {
+define dso_local void @_ZN4pbrt5ScaleEfff(ptr noalias nocapture writeonly sret(%"class.pbrt::Transform") align 4 %agg.result, float noundef %x, float noundef %y, float noundef %z) local_unnamed_addr #2 {
 entry:
   %div = fdiv float 1.000000e+00, %x
   %div1 = fdiv float 1.000000e+00, %y
@@ -773,7 +773,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt12OrthographicEff(ptr noalias nocapture writeonly sret(%"class.pbrt::Transform") align 4 initializes((0, 128)) %agg.result, float noundef %zNear, float noundef %zFar) local_unnamed_addr #4 {
+define dso_local void @_ZN4pbrt12OrthographicEff(ptr noalias nocapture writeonly sret(%"class.pbrt::Transform") align 4 %agg.result, float noundef %zNear, float noundef %zFar) local_unnamed_addr #4 {
 entry:
   %ref.tmp.i = alloca %"class.pbrt::SquareMatrix.0", align 4
   %ref.tmp3.i = alloca %"class.pbrt::SquareMatrix.0", align 4
@@ -874,7 +874,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt9TransformmlERKS0_(ptr noalias nocapture writeonly sret(%"class.pbrt::Transform") align 4 initializes((0, 128)) %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(128) %t2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4pbrt9TransformmlERKS0_(ptr noalias nocapture writeonly sret(%"class.pbrt::Transform") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 4 dereferenceable(128) %t2) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"class.pbrt::SquareMatrix.0", align 4
   %ref.tmp3 = alloca %"class.pbrt::SquareMatrix.0", align 4
@@ -1001,7 +1001,7 @@ _ZN4pbrt9TransformC2ERKNS_12SquareMatrixILi4EEE.exit: ; preds = %for.inc15.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE(ptr noalias nocapture sret(%"class.pbrt::Bounds3") align 4 initializes((0, 24)) %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %b) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt9TransformclERKNS_7Bounds3IfEE(ptr noalias nocapture sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %b) local_unnamed_addr #4 align 2 {
 entry:
   %y.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   %z.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1545,7 +1545,7 @@ if.end145:                                        ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt9Transform9DecomposeEPNS_7Vector3IfEEPNS_12SquareMatrixILi4EEES6_(ptr noundef nonnull align 4 dereferenceable(128) %this, ptr nocapture noundef writeonly initializes((0, 12)) %T, ptr noundef %R, ptr nocapture noundef writeonly %S) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4pbrt9Transform9DecomposeEPNS_7Vector3IfEEPNS_12SquareMatrixILi4EEES6_(ptr noundef nonnull align 4 dereferenceable(128) %this, ptr nocapture noundef writeonly %T, ptr noundef %R, ptr nocapture noundef writeonly %S) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inv.i31 = alloca %"class.pstd::optional", align 4
   %inv.i = alloca %"class.pstd::optional", align 4
@@ -1721,7 +1721,7 @@ declare void @_ZNK4pbrt12SquareMatrixILi4EEplERKS1_(ptr sret(%"class.pbrt::Squar
 declare void @_ZNK4pbrt12SquareMatrixILi4EEdvEf(ptr sret(%"class.pbrt::SquareMatrix.0") align 4, ptr noundef nonnull align 4 dereferenceable(64), float noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt9TransformclERKNS_18SurfaceInteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::SurfaceInteraction") align 8 initializes((0, 60), (64, 248)) %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(248) %si) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt9TransformclERKNS_18SurfaceInteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::SurfaceInteraction") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(248) %si) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp = alloca %"class.pbrt::Point3fi", align 4
   %mediumInterface.i.i = getelementptr inbounds i8, ptr %agg.result, i64 64
@@ -2772,7 +2772,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt9Transform12ApplyInverseERKNS_8Point3fiE(ptr noalias nocapture writeonly sret(%"class.pbrt::Point3fi") align 4 initializes((0, 24)) %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %p) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt9Transform12ApplyInverseERKNS_8Point3fiE(ptr noalias nocapture writeonly sret(%"class.pbrt::Point3fi") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %p) local_unnamed_addr #4 align 2 {
 entry:
   %agg.tmp333 = alloca %"class.pbrt::Point3.3", align 8
   %ref.tmp334 = alloca %"class.pbrt::Point3fi", align 8
@@ -3710,7 +3710,7 @@ _ZN4pbrtdvENS_8IntervalEf.exit128:                ; preds = %entry, %_ZN4pbrt10D
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt9TransformclERKNS_11InteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::Interaction") align 8 initializes((0, 60), (64, 80)) %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(80) %in) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt9TransformclERKNS_11InteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::Interaction") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(80) %in) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp = alloca %"class.pbrt::Point3fi", align 4
   %mediumInterface.i = getelementptr inbounds i8, ptr %agg.result, i64 64
@@ -3801,7 +3801,7 @@ if.end34:                                         ; preds = %if.then26, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt9Transform12ApplyInverseERKNS_11InteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::Interaction") align 8 initializes((0, 60), (64, 80)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(80) %in) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt9Transform12ApplyInverseERKNS_11InteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::Interaction") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(80) %in) local_unnamed_addr #4 align 2 {
 entry:
   %t = alloca %"class.pbrt::Transform", align 4
   %ref.tmp = alloca %"class.pbrt::Point3fi", align 4
@@ -3897,7 +3897,7 @@ if.end34:                                         ; preds = %if.then26, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt9Transform12ApplyInverseERKNS_18SurfaceInteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::SurfaceInteraction") align 8 initializes((0, 60), (64, 248)) %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(248) %si) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt9Transform12ApplyInverseERKNS_18SurfaceInteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::SurfaceInteraction") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(248) %si) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp = alloca %"class.pbrt::Point3fi", align 4
   %t = alloca %"class.pbrt::Transform", align 4
@@ -4172,7 +4172,7 @@ _ZN4pbrt12StringPrintfIJRKNS_12SquareMatrixILi4EEES4_EEENSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17AnimatedTransformC2ERKNS_9TransformEfS3_f(ptr noundef nonnull align 4 dereferenceable(696) initializes((0, 265), (268, 292)) %this, ptr noundef nonnull align 4 dereferenceable(128) %startTransform, float noundef %startTime, ptr noundef nonnull align 4 dereferenceable(128) %endTransform, float noundef %endTime) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt17AnimatedTransformC2ERKNS_9TransformEfS3_f(ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull align 4 dereferenceable(128) %startTransform, float noundef %startTime, ptr noundef nonnull align 4 dereferenceable(128) %endTransform, float noundef %endTime) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %inv.i3357 = alloca %"class.pstd::optional", align 4
   %inv.i = alloca %"class.pstd::optional", align 4
@@ -6590,7 +6590,7 @@ if.end3995:                                       ; preds = %arrayctor.cont19, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17AnimatedTransformclERKNS_3RayEPf(ptr noalias nocapture writeonly sret(%"class.pbrt::Ray") align 8 initializes((0, 28), (32, 40)) %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %r, ptr noundef %tMax) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt17AnimatedTransformclERKNS_3RayEPf(ptr noalias nocapture writeonly sret(%"class.pbrt::Ray") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %r, ptr noundef %tMax) local_unnamed_addr #4 align 2 {
 entry:
   %o.i86 = alloca %"class.pbrt::Point3fi", align 4
   %ref.tmp.i87 = alloca %"class.pbrt::Point3fi", align 8
@@ -7176,7 +7176,7 @@ return:                                           ; preds = %_ZN4pbrt9TransformC
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17AnimatedTransform12ApplyInverseERKNS_3RayEPf(ptr noalias nocapture writeonly sret(%"class.pbrt::Ray") align 8 initializes((0, 28), (32, 40)) %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %r, ptr noundef %tMax) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt17AnimatedTransform12ApplyInverseERKNS_3RayEPf(ptr noalias nocapture writeonly sret(%"class.pbrt::Ray") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %r, ptr noundef %tMax) local_unnamed_addr #4 align 2 {
 entry:
   %o.i86 = alloca %"class.pbrt::Point3fi", align 4
   %ref.tmp.i87 = alloca %"class.pbrt::Point3fi", align 8
@@ -7885,7 +7885,7 @@ return:                                           ; preds = %if.end8, %if.then3,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17AnimatedTransformclERKNS_11InteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::Interaction") align 8 initializes((0, 60), (64, 80)) %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull align 8 dereferenceable(80) %it) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt17AnimatedTransformclERKNS_11InteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::Interaction") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull align 8 dereferenceable(80) %it) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i3 = alloca %"class.pbrt::Point3fi", align 4
   %ref.tmp.i = alloca %"class.pbrt::Point3fi", align 4
@@ -8082,7 +8082,7 @@ return:                                           ; preds = %_ZNK4pbrt9Transform
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17AnimatedTransform12ApplyInverseERKNS_11InteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::Interaction") align 8 initializes((0, 60), (64, 80)) %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull align 8 dereferenceable(80) %it) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt17AnimatedTransform12ApplyInverseERKNS_11InteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::Interaction") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull align 8 dereferenceable(80) %it) local_unnamed_addr #4 align 2 {
 entry:
   %t.i3 = alloca %"class.pbrt::Transform", align 4
   %ref.tmp.i4 = alloca %"class.pbrt::Point3fi", align 4
@@ -8293,7 +8293,7 @@ return:                                           ; preds = %_ZNK4pbrt9Transform
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17AnimatedTransformclERKNS_18SurfaceInteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::SurfaceInteraction") align 8 initializes((0, 60), (64, 248)) %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull align 8 dereferenceable(248) %it) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4pbrt17AnimatedTransformclERKNS_18SurfaceInteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::SurfaceInteraction") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull align 8 dereferenceable(248) %it) local_unnamed_addr #3 align 2 {
 entry:
   %t = alloca %"class.pbrt::Transform", align 4
   %actuallyAnimated = getelementptr inbounds i8, ptr %this, i64 264
@@ -8317,7 +8317,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17AnimatedTransform12ApplyInverseERKNS_18SurfaceInteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::SurfaceInteraction") align 8 initializes((0, 60), (64, 248)) %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull align 8 dereferenceable(248) %it) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4pbrt17AnimatedTransform12ApplyInverseERKNS_18SurfaceInteractionE(ptr noalias nocapture writeonly sret(%"class.pbrt::SurfaceInteraction") align 8 %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, ptr noundef nonnull align 8 dereferenceable(248) %it) local_unnamed_addr #3 align 2 {
 entry:
   %t = alloca %"class.pbrt::Transform", align 4
   %actuallyAnimated = getelementptr inbounds i8, ptr %this, i64 264
@@ -8941,7 +8941,7 @@ return:                                           ; preds = %for.body.i, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4pbrt17AnimatedTransform16BoundPointMotionENS_6Point3IfEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Bounds3") align 4 initializes((0, 24)) %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, <2 x float> %p.coerce0, float %p.coerce1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4pbrt17AnimatedTransform16BoundPointMotionENS_6Point3IfEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Bounds3") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(696) %this, <2 x float> %p.coerce0, float %p.coerce1) local_unnamed_addr #4 align 2 {
 entry:
   %t.i = alloca %"class.pbrt::Transform", align 4
   %zeros = alloca [8 x float], align 16

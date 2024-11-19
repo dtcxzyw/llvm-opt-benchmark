@@ -207,7 +207,7 @@ $_ZTINSt13__future_base13_State_baseV27_SetterIbNS0_19__exception_ptr_tagEEE = c
 @_ZN5faiss12WorkerThreadD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5faiss12WorkerThreadD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss12WorkerThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 48)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss12WorkerThreadC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr.18", align 8
   %3 = alloca %"class.std::thread", align 8
   %4 = alloca %"class.std::future", align 8

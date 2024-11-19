@@ -411,7 +411,7 @@ _ZNSt12_Vector_baseIN5Ipopt8SmartPtrIKNS0_6VectorEEESaIS4_EED2Ev.exit: ; preds =
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantitiesC2ERKNS_8SmartPtrINS_8IpoptNLPEEERKNS1_INS_9IpoptDataEEE(ptr noundef nonnull align 8 dereferenceable(2185) initializes((0, 12), (16, 40), (80, 92), (96, 116), (120, 140), (144, 164), (168, 188), (192, 212), (216, 236), (240, 260), (264, 300), (304, 324), (328, 348), (352, 372), (376, 396), (400, 420), (424, 444), (448, 468), (472, 492), (496, 516), (520, 540), (544, 564), (568, 588), (592, 612), (616, 636), (640, 660), (664, 684), (688, 708), (712, 732), (736, 756), (760, 780), (784, 804), (808, 828), (832, 852), (856, 876), (880, 900), (904, 924), (928, 948), (952, 972), (976, 996), (1000, 1020), (1024, 1044), (1048, 1068), (1072, 1092), (1096, 1116), (1120, 1140), (1144, 1164), (1168, 1188), (1192, 1212), (1216, 1236), (1240, 1260), (1264, 1284), (1288, 1308), (1312, 1332), (1336, 1356), (1360, 1380), (1384, 1404), (1408, 1428), (1432, 1452), (1456, 1476), (1480, 1500), (1504, 1524), (1528, 1548), (1552, 1572), (1576, 1596), (1600, 1620), (1624, 1644), (1648, 1668), (1672, 1692), (1696, 1716), (1720, 1740), (1744, 1764), (1768, 1788), (1792, 1812), (1816, 1836), (1840, 1860), (1864, 1884), (1888, 1908), (1912, 1932), (1936, 1956), (1960, 1980), (1984, 2004), (2008, 2028), (2032, 2052), (2056, 2076), (2080, 2185)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantitiesC2ERKNS_8SmartPtrINS_8IpoptNLPEEERKNS1_INS_9IpoptDataEEE(ptr noundef nonnull align 8 dereferenceable(2185) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt25IpoptCalculatedQuantitiesE, i64 16), ptr %0, align 8
@@ -1351,7 +1351,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrIKNS1_6MatrixEEEEESaIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantitiesD2Ev(ptr noundef nonnull align 8 dereferenceable(2185) initializes((0, 8), (2064, 2072)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantitiesD2Ev(ptr noundef nonnull align 8 dereferenceable(2185) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt25IpoptCalculatedQuantitiesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 2176
   %3 = load ptr, ptr %2, align 8
@@ -8121,7 +8121,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit85:    ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities11CalcSlack_LERKNS_6MatrixERKNS_6VectorES6_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(69) %2, ptr noundef nonnull align 8 dereferenceable(205) %3, ptr noundef nonnull align 8 dereferenceable(205) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities11CalcSlack_LERKNS_6MatrixERKNS_6VectorES6_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(69) %2, ptr noundef nonnull align 8 dereferenceable(205) %3, ptr noundef nonnull align 8 dereferenceable(205) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK5Ipopt6Vector7MakeNewEv.exit:
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 56
@@ -8312,7 +8312,7 @@ define linkonce_odr void @_ZN5Ipopt6Vector4CopyERKS0_(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities11CalcSlack_UERKNS_6MatrixERKNS_6VectorES6_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(69) %2, ptr noundef nonnull align 8 dereferenceable(205) %3, ptr noundef nonnull align 8 dereferenceable(205) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities11CalcSlack_UERKNS_6MatrixERKNS_6VectorES6_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(69) %2, ptr noundef nonnull align 8 dereferenceable(205) %3, ptr noundef nonnull align 8 dereferenceable(205) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK5Ipopt6Vector7MakeNewEv.exit:
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 56
@@ -11038,7 +11038,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit53:       ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_x_LEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) initializes((272, 276)) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_x_LEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.18", align 8
   %4 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.50", align 8
@@ -11542,7 +11542,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit52:       ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_x_UEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) initializes((276, 280)) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_x_UEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.18", align 8
   %4 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.50", align 8
@@ -12046,7 +12046,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit52:       ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_s_LEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) initializes((280, 284)) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_s_LEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.18", align 8
   %4 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.50", align 8
@@ -12552,7 +12552,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit52:       ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_s_UEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) initializes((284, 288)) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_s_UEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.18", align 8
   %4 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.50", align 8
@@ -13076,7 +13076,7 @@ define noundef i32 @_ZN5Ipopt25IpoptCalculatedQuantities19AdjustedTrialSlacksEv(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities24ResetAdjustedTrialSlacksEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2185) initializes((272, 288)) %0) local_unnamed_addr #7 align 2 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities24ResetAdjustedTrialSlacksEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2185) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -14114,7 +14114,7 @@ _ZN5Ipopt8SmartPtrINS_16NLPScalingObjectEED2Ev.exit3: ; preds = %30, %32, %38
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities11curr_grad_fEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities11curr_grad_fEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.51", align 8
   %4 = alloca %"class.std::vector.56", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.44", align 8
@@ -14896,7 +14896,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_6VectorEEEE25CleanupInvalidatedResult
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities12trial_grad_fEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities12trial_grad_fEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.51", align 8
   %4 = alloca %"class.std::vector.56", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.44", align 8
@@ -18288,7 +18288,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit62:      ; preds = %226, %221, %_ZN5Ipo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities23curr_grad_barrier_obj_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities23curr_grad_barrier_obj_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.51", align 8
   %4 = alloca %"class.std::vector.56", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.44", align 8
@@ -19225,7 +19225,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit101:     ; preds = %_ZN5Ipopt8SmartPtrI
 declare void @_ZNK5Ipopt6Matrix9AddMSinvZEdRKNS_6VectorES3_RS1_(ptr noundef nonnull align 8 dereferenceable(69), double noundef, ptr noundef nonnull align 8 dereferenceable(205), ptr noundef nonnull align 8 dereferenceable(205), ptr noundef nonnull align 8 dereferenceable(205)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities26grad_kappa_times_damping_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities26grad_kappa_times_damping_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.51", align 8
   %4 = alloca %"class.Ipopt::SmartPtr.50", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.50", align 8
@@ -19940,7 +19940,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit69:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities23curr_grad_barrier_obj_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities23curr_grad_barrier_obj_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.51", align 8
   %4 = alloca %"class.std::vector.56", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.44", align 8
@@ -20843,7 +20843,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit98:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities26grad_kappa_times_damping_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities26grad_kappa_times_damping_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.51", align 8
   %4 = alloca %"class.Ipopt::SmartPtr.50", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.50", align 8
@@ -21866,7 +21866,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit: ; preds = %60, %_ZN5Ipopt8Sm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities6curr_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities6curr_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -22192,7 +22192,7 @@ _ZN5Ipopt8SmartPtrINS_16NLPScalingObjectEED2Ev.exit8: ; preds = %_ZN5Ipopt8Smart
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities7trial_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities7trial_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -22518,7 +22518,7 @@ _ZN5Ipopt8SmartPtrINS_16NLPScalingObjectEED2Ev.exit8: ; preds = %_ZN5Ipopt8Smart
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities6curr_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities6curr_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -22844,7 +22844,7 @@ _ZN5Ipopt8SmartPtrINS_16NLPScalingObjectEED2Ev.exit8: ; preds = %_ZN5Ipopt8Smart
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities7trial_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities7trial_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -23056,7 +23056,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit20:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_d_minus_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_d_minus_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -23457,7 +23457,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit53:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_d_minus_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_d_minus_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -23858,7 +23858,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit53:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities10curr_jac_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.50") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities10curr_jac_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.50") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.50", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -24070,7 +24070,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit19:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities11trial_jac_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.50") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities11trial_jac_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.50") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.50", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -24282,7 +24282,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit19:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities10curr_jac_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.50") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities10curr_jac_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.50") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.50", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -24494,7 +24494,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit19:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities11trial_jac_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.50") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities11trial_jac_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.50") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.50", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -24706,7 +24706,7 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit19:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities20curr_jac_c_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities20curr_jac_c_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.50", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -25110,7 +25110,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit52:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities20curr_jac_d_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities20curr_jac_d_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.50", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -25514,7 +25514,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit52:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities26curr_jac_cT_times_curr_y_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities26curr_jac_cT_times_curr_y_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -25621,7 +25621,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit8: ; preds = %47, %52
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities21curr_jac_cT_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities21curr_jac_cT_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.50", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -25939,7 +25939,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit36:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities28trial_jac_cT_times_trial_y_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities28trial_jac_cT_times_trial_y_cEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -26046,7 +26046,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit8: ; preds = %47, %52
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities22trial_jac_cT_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities22trial_jac_cT_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.50", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -26364,7 +26364,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit36:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities26curr_jac_dT_times_curr_y_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities26curr_jac_dT_times_curr_y_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -26471,7 +26471,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit8: ; preds = %47, %52
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities21curr_jac_dT_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities21curr_jac_dT_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.50", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -26789,7 +26789,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit36:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities28trial_jac_dT_times_trial_y_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities28trial_jac_dT_times_trial_y_dEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
@@ -26896,7 +26896,7 @@ _ZN5Ipopt8SmartPtrIKNS_14IteratesVectorEED2Ev.exit8: ; preds = %47, %52
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities22trial_jac_dT_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities22trial_jac_dT_times_vecERKNS_6VectorE(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.50", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -30056,7 +30056,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit210:     ; preds = %792, %787, %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities27unscaled_orig_x_L_violationERKNS_6VectorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities27unscaled_orig_x_L_violationERKNS_6VectorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.50", align 8
   %6 = alloca %"class.Ipopt::SmartPtr.44", align 8
@@ -30457,7 +30457,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit54:      ; preds = %_ZN5Ipopt8SmartPtrI
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities27unscaled_orig_x_U_violationERKNS_6VectorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities27unscaled_orig_x_U_violationERKNS_6VectorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.50", align 8
   %6 = alloca %"class.Ipopt::SmartPtr.44", align 8
@@ -31959,7 +31959,7 @@ _ZNK5Ipopt6Vector4AmaxEv.exit29:                  ; preds = %._crit_edge.i26, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities18orig_x_L_violationERKNS_6VectorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities18orig_x_L_violationERKNS_6VectorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %6 = alloca %"class.Ipopt::SmartPtr.50", align 8
@@ -32606,7 +32606,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit78:      ; preds = %_ZN5Ipopt8SmartPtrI
 declare void @_ZN5Ipopt16NLPScalingObject25apply_vector_scaling_x_LUERKNS_6MatrixERKNS_8SmartPtrIKNS_6VectorEEERKNS_11VectorSpaceE(ptr dead_on_unwind writable sret(%"class.Ipopt::SmartPtr.44") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(69), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities18orig_x_U_violationERKNS_6VectorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities18orig_x_U_violationERKNS_6VectorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Ipopt::SmartPtr.18") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(2185) %1, ptr noundef nonnull align 8 dereferenceable(205) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %6 = alloca %"class.Ipopt::SmartPtr.50", align 8
@@ -35806,7 +35806,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit210:     ; preds = %792, %787, %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities18curr_exact_hessianEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.46") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities18curr_exact_hessianEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.46") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.51", align 8
   %4 = alloca %"class.std::vector.56", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.46", align 8
@@ -36768,7 +36768,7 @@ _ZNK5Ipopt13CachedResultsINS_8SmartPtrIKNS_9SymMatrixEEEE25CleanupInvalidatedRes
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities15curr_grad_lag_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities15curr_grad_lag_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.56", align 8
   %4 = alloca %"class.std::vector.56", align 8
   %5 = alloca %"class.std::vector.56", align 8
@@ -37784,7 +37784,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit143:     ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities16trial_grad_lag_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities16trial_grad_lag_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.56", align 8
   %4 = alloca %"class.std::vector.56", align 8
   %5 = alloca %"class.std::vector.56", align 8
@@ -38800,7 +38800,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit143:     ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities15curr_grad_lag_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities15curr_grad_lag_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.56", align 8
   %4 = alloca %"class.std::vector.56", align 8
   %5 = alloca %"class.std::vector.56", align 8
@@ -39482,7 +39482,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit90:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities16trial_grad_lag_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities16trial_grad_lag_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.56", align 8
   %4 = alloca %"class.std::vector.56", align 8
   %5 = alloca %"class.std::vector.56", align 8
@@ -40164,7 +40164,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit90:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities28curr_grad_lag_with_damping_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities28curr_grad_lag_with_damping_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.51", align 8
   %4 = alloca %"class.std::vector.56", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.44", align 8
@@ -41236,7 +41236,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit126:     ; preds = %452, %447, %_ZN5Ipo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities28curr_grad_lag_with_damping_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities28curr_grad_lag_with_damping_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.51", align 8
   %4 = alloca %"class.std::vector.56", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.44", align 8
@@ -42204,7 +42204,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit8:        ; preds = %27, %28, %33
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_compl_x_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_compl_x_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   invoke void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_slack_x_LEv(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr.44") align 8 %3, ptr noundef nonnull align 8 dereferenceable(2185) %1)
@@ -42526,7 +42526,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_compl_x_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) initializes((272, 276)) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_compl_x_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   invoke void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_x_LEv(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr.44") align 8 %3, ptr noundef nonnull align 8 dereferenceable(2185) %1)
@@ -42848,7 +42848,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_compl_x_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_compl_x_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   invoke void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_slack_x_UEv(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr.44") align 8 %3, ptr noundef nonnull align 8 dereferenceable(2185) %1)
@@ -43170,7 +43170,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_compl_x_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) initializes((276, 280)) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_compl_x_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   invoke void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_x_UEv(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr.44") align 8 %3, ptr noundef nonnull align 8 dereferenceable(2185) %1)
@@ -43492,7 +43492,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit28:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_compl_s_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_compl_s_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   invoke void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_slack_s_LEv(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr.44") align 8 %3, ptr noundef nonnull align 8 dereferenceable(2185) %1)
@@ -43814,7 +43814,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_compl_s_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) initializes((280, 284)) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_compl_s_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   invoke void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_s_LEv(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr.44") align 8 %3, ptr noundef nonnull align 8 dereferenceable(2185) %1)
@@ -44136,7 +44136,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_compl_s_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_compl_s_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   invoke void @_ZN5Ipopt25IpoptCalculatedQuantities14curr_slack_s_UEv(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr.44") align 8 %3, ptr noundef nonnull align 8 dereferenceable(2185) %1)
@@ -44458,7 +44458,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_compl_s_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) initializes((284, 288)) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_compl_s_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   store ptr null, ptr %0, align 8
   invoke void @_ZN5Ipopt25IpoptCalculatedQuantities15trial_slack_s_UEv(ptr dead_on_unwind nonnull writable sret(%"class.Ipopt::SmartPtr.44") align 8 %3, ptr noundef nonnull align 8 dereferenceable(2185) %1)
@@ -44780,7 +44780,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit29:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities22curr_relaxed_compl_x_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities22curr_relaxed_compl_x_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %4 = alloca %"class.std::vector.51", align 8
   %5 = alloca %"class.std::vector.56", align 8
@@ -45219,7 +45219,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit50:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities22curr_relaxed_compl_x_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities22curr_relaxed_compl_x_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %4 = alloca %"class.std::vector.51", align 8
   %5 = alloca %"class.std::vector.56", align 8
@@ -45658,7 +45658,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit50:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities22curr_relaxed_compl_s_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities22curr_relaxed_compl_s_LEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %4 = alloca %"class.std::vector.51", align 8
   %5 = alloca %"class.std::vector.56", align 8
@@ -46097,7 +46097,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit50:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities22curr_relaxed_compl_s_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities22curr_relaxed_compl_s_UEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %4 = alloca %"class.std::vector.51", align 8
   %5 = alloca %"class.std::vector.56", align 8
@@ -56574,7 +56574,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit280:     ; preds = %732, %727, %_ZN5Ipo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities29ComputeOptimalityErrorScalingERKNS_6VectorES3_S3_S3_S3_S3_dRdS4_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(205) %1, ptr noundef nonnull align 8 dereferenceable(205) %2, ptr noundef nonnull align 8 dereferenceable(205) %3, ptr noundef nonnull align 8 dereferenceable(205) %4, ptr noundef nonnull align 8 dereferenceable(205) %5, ptr noundef nonnull align 8 dereferenceable(205) %6, double noundef %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %9) local_unnamed_addr #5 align 2 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities29ComputeOptimalityErrorScalingERKNS_6VectorES3_S3_S3_S3_S3_dRdS4_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(205) %1, ptr noundef nonnull align 8 dereferenceable(205) %2, ptr noundef nonnull align 8 dereferenceable(205) %3, ptr noundef nonnull align 8 dereferenceable(205) %4, ptr noundef nonnull align 8 dereferenceable(205) %5, ptr noundef nonnull align 8 dereferenceable(205) %6, double noundef %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %9) local_unnamed_addr #5 align 2 {
   %11 = getelementptr inbounds i8, ptr %3, i64 104
   %12 = load i32, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 48
@@ -63837,7 +63837,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit38:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities12curr_sigma_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities12curr_sigma_xEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.50", align 8
   %4 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.50", align 8
@@ -64487,7 +64487,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit86:      ; preds = %_ZN5Ipopt8SmartPtrI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt25IpoptCalculatedQuantities12curr_sigma_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt25IpoptCalculatedQuantities12curr_sigma_sEv(ptr dead_on_unwind noalias writable sret(%"class.Ipopt::SmartPtr.44") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2185) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Ipopt::SmartPtr.50", align 8
   %4 = alloca %"class.Ipopt::SmartPtr.44", align 8
   %5 = alloca %"class.Ipopt::SmartPtr.50", align 8

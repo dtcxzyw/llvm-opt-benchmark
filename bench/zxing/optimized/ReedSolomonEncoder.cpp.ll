@@ -27,7 +27,7 @@ $_ZNSt6vectorIiSaIiEEaSERKS1_ = comdat any
 @_ZN5ZXing18ReedSolomonEncoderC1ERKNS_9GenericGFE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5ZXing18ReedSolomonEncoderC2ERKNS_9GenericGFE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ZXing18ReedSolomonEncoderC2ERKNS_9GenericGFE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ZXing18ReedSolomonEncoderC2ERKNS_9GenericGFE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.ZXing::GenericGFPoly", align 8
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

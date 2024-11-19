@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [46 x i8] c"%-40s\09 %6.2f%% \09         %.6fs \09 %.6fs \09 %ld\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9988, 1) i32 @SUNProfiler_Create(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 -9988, 1) i32 @SUNProfiler_Create(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #18
   store ptr %4, ptr %2, align 8
   %5 = icmp eq ptr %4, null

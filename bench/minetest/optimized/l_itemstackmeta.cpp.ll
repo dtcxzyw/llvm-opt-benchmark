@@ -362,7 +362,7 @@ _ZNSt3mapIfN3irr5video6SColorESt4lessIfESaISt4pairIKfS2_EEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN16ItemStackMetaRefC2EP12LuaItemStack(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %istack) unnamed_addr #8 align 2 {
+define dso_local void @_ZN16ItemStackMetaRefC2EP12LuaItemStack(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %istack) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16ItemStackMetaRef, i64 16), ptr %this, align 8, !tbaa !10
   %istack2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -375,7 +375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16ItemStackMetaRefD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN16ItemStackMetaRefD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16ItemStackMetaRef, i64 16), ptr %this, align 8, !tbaa !10
   %istack = getelementptr inbounds i8, ptr %this, i64 8
@@ -399,7 +399,7 @@ _ZN25IntrusiveReferenceCounted4dropEv.exit:       ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16ItemStackMetaRefD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN16ItemStackMetaRefD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16ItemStackMetaRef, i64 16), ptr %this, align 8, !tbaa !10
   %istack.i = getelementptr inbounds i8, ptr %this, i64 8

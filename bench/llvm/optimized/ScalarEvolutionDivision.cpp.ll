@@ -76,7 +76,7 @@ $_ZN4llvm8DenseMapIPKNS_5ValueEPKNS_4SCEVENS_12DenseMapInfoIS3_vEENS_6detail12De
 @_ZN4llvm12SCEVDivisionC1ERNS_15ScalarEvolutionEPKNS_4SCEVES5_ = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN4llvm12SCEVDivisionC2ERNS_15ScalarEvolutionEPKNS_4SCEVES5_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12SCEVDivision6divideERNS_15ScalarEvolutionEPKNS_4SCEVES5_PS5_S6_(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12SCEVDivision6divideERNS_15ScalarEvolutionEPKNS_4SCEVES5_PS5_S6_(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.llvm::SCEVDivision", align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -454,7 +454,7 @@ declare void @_ZN4llvm5APInt7sdivremERKS0_S2_RS0_S3_(ptr noundef nonnull align 8
 declare noundef ptr @_ZN4llvm15ScalarEvolution11getConstantERKNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(1392), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm12SCEVDivision11visitVScaleEPKNS_10SCEVVScaleE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 32)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm12SCEVDivision11visitVScaleEPKNS_10SCEVVScaleE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -465,7 +465,7 @@ define dso_local void @_ZN4llvm12SCEVDivision11visitVScaleEPKNS_10SCEVVScaleE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm12SCEVDivision12cannotDivideEPKNS_4SCEVE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 32)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm12SCEVDivision12cannotDivideEPKNS_4SCEVE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -476,7 +476,7 @@ define dso_local void @_ZN4llvm12SCEVDivision12cannotDivideEPKNS_4SCEVE(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12SCEVDivision15visitAddRecExprEPKNS_14SCEVAddRecExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12SCEVDivision15visitAddRecExprEPKNS_14SCEVAddRecExprE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -1325,7 +1325,7 @@ _ZN4llvm13SCEVTraversalIZN12_GLOBAL__N_110sizeOfSCEVEPKNS_4SCEVEE12FindSCEVSizeE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12SCEVDivisionC2ERNS_15ScalarEvolutionEPKNS_4SCEVES5_(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12SCEVDivisionC2ERNS_15ScalarEvolutionEPKNS_4SCEVES5_(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr noundef %2, ptr noundef nonnull %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8

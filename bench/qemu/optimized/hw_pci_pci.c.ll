@@ -977,7 +977,7 @@ pci_bus_uninit.exit:                              ; preds = %entry, %if.then.i.i
 declare void @qbus_unrealize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_bus_irqs(ptr nocapture noundef initializes((152, 160), (176, 184), (2280, 2284)) %bus, ptr noundef %set_irq, ptr noundef %irq_opaque, i32 noundef %nirq) local_unnamed_addr #0 {
+define dso_local void @pci_bus_irqs(ptr nocapture noundef %bus, ptr noundef %set_irq, ptr noundef %irq_opaque, i32 noundef %nirq) local_unnamed_addr #0 {
 entry:
   %set_irq1 = getelementptr inbounds i8, ptr %bus, i64 152
   store ptr %set_irq, ptr %set_irq1, align 8
@@ -1001,7 +1001,7 @@ declare void @g_free(ptr noundef) local_unnamed_addr #2
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @pci_bus_map_irqs(ptr nocapture noundef writeonly initializes((160, 168)) %bus, ptr noundef %map_irq) local_unnamed_addr #4 {
+define dso_local void @pci_bus_map_irqs(ptr nocapture noundef writeonly %bus, ptr noundef %map_irq) local_unnamed_addr #4 {
 entry:
   %map_irq1 = getelementptr inbounds i8, ptr %bus, i64 160
   store ptr %map_irq, ptr %map_irq1, align 8
@@ -1009,7 +1009,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_bus_irqs_cleanup(ptr nocapture noundef initializes((152, 168), (176, 184), (2280, 2284)) %bus) local_unnamed_addr #0 {
+define dso_local void @pci_bus_irqs_cleanup(ptr nocapture noundef %bus) local_unnamed_addr #0 {
 entry:
   %set_irq = getelementptr inbounds i8, ptr %bus, i64 152
   %irq_opaque = getelementptr inbounds i8, ptr %bus, i64 176
@@ -1087,7 +1087,7 @@ pci_root_bus_new.exit:                            ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_unregister_root_bus(ptr noundef initializes((152, 168), (176, 184), (2280, 2284)) %bus) local_unnamed_addr #0 {
+define dso_local void @pci_unregister_root_bus(ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   %set_irq.i = getelementptr inbounds i8, ptr %bus, i64 152
   %irq_opaque.i = getelementptr inbounds i8, ptr %bus, i64 176
@@ -1137,7 +1137,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_bus_range(ptr noundef %bus, ptr nocapture noundef initializes((0, 4)) %min_bus, ptr nocapture noundef initializes((0, 4)) %max_bus) local_unnamed_addr #0 {
+define dso_local void @pci_bus_range(ptr noundef %bus, ptr nocapture noundef %min_bus, ptr nocapture noundef %max_bus) local_unnamed_addr #0 {
 entry:
   %call.i.i = tail call ptr @object_get_class(ptr noundef %bus) #25
   %call1.i.i = tail call ptr @object_class_dynamic_cast_assert(ptr noundef %call.i.i, ptr noundef nonnull @.str.49, ptr noundef nonnull @.str.50, i32 noundef 270, ptr noundef nonnull @__func__.PCI_BUS_GET_CLASS) #25
@@ -2600,7 +2600,7 @@ for.end8:                                         ; preds = %for.body6, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @pci_device_set_intx_routing_notifier(ptr nocapture noundef writeonly initializes((2552, 2560)) %dev, ptr noundef %notifier) local_unnamed_addr #4 {
+define dso_local void @pci_device_set_intx_routing_notifier(ptr nocapture noundef writeonly %dev, ptr noundef %notifier) local_unnamed_addr #4 {
 entry:
   %intx_routing_notifier = getelementptr inbounds i8, ptr %dev, i64 2552
   store ptr %notifier, ptr %intx_routing_notifier, align 8
@@ -3760,7 +3760,7 @@ if.end4:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pci_bus_get_w64_range(ptr nocapture noundef readonly %bus, ptr nocapture noundef initializes((0, 16)) %range) local_unnamed_addr #0 {
+define dso_local void @pci_bus_get_w64_range(ptr nocapture noundef readonly %bus, ptr nocapture noundef %range) local_unnamed_addr #0 {
 entry:
   %pref_range.i = alloca %struct.Range, align 8
   %region_range.i = alloca %struct.Range, align 8

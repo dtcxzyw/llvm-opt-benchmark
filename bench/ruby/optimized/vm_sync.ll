@@ -107,7 +107,7 @@ vm_lock_enter.exit:                               ; preds = %.lr.ph.i, %rb_curre
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_vm_lock_enter_body_nb(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #1 {
+define hidden void @rb_vm_lock_enter_body_nb(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = getelementptr i8, ptr %2, i64 88
   %.val = load ptr, ptr %3, align 8
@@ -219,7 +219,7 @@ vm_lock_enter.exit:                               ; preds = %vm_locked.exit, %.l
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_vm_lock_leave_body(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #1 {
+define hidden void @rb_vm_lock_leave_body(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr @ruby_current_vm_ptr, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 96
   %4 = load i32, ptr %3, align 8

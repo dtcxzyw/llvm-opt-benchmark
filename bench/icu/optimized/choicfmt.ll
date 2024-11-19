@@ -288,7 +288,7 @@ declare noundef nonnull align 8 dereferenceable(356) ptr @_ZN6icu_7512NumberForm
 declare noundef nonnull align 8 dereferenceable(127) ptr @_ZN6icu_7514MessagePatternaSERKS0_(ptr noundef nonnull align 8 dereferenceable(127), ptr noundef nonnull align 8 dereferenceable(127)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7512ChoiceFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(488) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7512ChoiceFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(488) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512ChoiceFormatE, i64 16), ptr %this, align 8
   %msgPattern = getelementptr inbounds i8, ptr %this, i64 360
@@ -809,21 +809,21 @@ declare signext i8 @uprv_isPositiveInfinity_75(double noundef) local_unnamed_add
 declare signext i8 @uprv_isNegativeInfinity_75(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat9getLimitsERi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %cnt) unnamed_addr #6 align 2 {
+define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat9getLimitsERi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %cnt) unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %cnt, align 4
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat11getClosuresERi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %cnt) unnamed_addr #6 align 2 {
+define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat11getClosuresERi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %cnt) unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %cnt, align 4
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat10getFormatsERi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %cnt) unnamed_addr #6 align 2 {
+define noalias noundef ptr @_ZNK6icu_7512ChoiceFormat10getFormatsERi(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %cnt) unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %cnt, align 4
   ret ptr null

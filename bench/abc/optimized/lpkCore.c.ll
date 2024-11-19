@@ -379,7 +379,7 @@ declare ptr @Abc_NtkDupObj(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare void @Abc_ObjAddFanin(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Lpk_IfManStart(ptr nocapture noundef initializes((8240048, 8240056)) %0) local_unnamed_addr #0 {
+define void @Lpk_IfManStart(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %calloc = tail call dereferenceable_or_null(352) ptr @calloc(i64 1, i64 352)
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 40
@@ -1987,7 +1987,7 @@ Abc_Clock.exit151:                                ; preds = %316, %319
 declare ptr @Lpk_Decompose(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Lpk_Resynthesize(ptr noundef %0, ptr noundef initializes((40, 44)) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Lpk_Resynthesize(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)

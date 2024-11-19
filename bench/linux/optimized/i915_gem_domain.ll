@@ -1235,7 +1235,7 @@ define dso_local i32 @i915_gem_set_domain_ioctl(ptr nocapture noundef readonly %
 declare dso_local i32 @i915_gem_object_userptr_validate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_gem_object_prepare_read(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @i915_gem_object_prepare_read(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 align 16 {
   store i32 0, ptr %1, align 4
   %3 = tail call zeroext i1 @i915_gem_object_has_struct_page(ptr noundef %0) #6
   br i1 %3, label %4, label %.thread7
@@ -1333,7 +1333,7 @@ define dso_local i32 @i915_gem_object_prepare_read(ptr noundef %0, ptr nocapture
 declare dso_local zeroext i1 @i915_gem_object_has_struct_page(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @i915_gem_object_prepare_write(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #1 align 16 {
+define dso_local i32 @i915_gem_object_prepare_write(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 align 16 {
   store i32 0, ptr %1, align 4
   %3 = tail call zeroext i1 @i915_gem_object_has_struct_page(ptr noundef %0) #6
   br i1 %3, label %4, label %84

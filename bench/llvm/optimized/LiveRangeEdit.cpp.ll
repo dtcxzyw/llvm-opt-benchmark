@@ -645,7 +645,7 @@ _ZN4llvm13LiveIntervals11getIntervalENS_8RegisterE.exit: ; preds = %_ZNK4llvm13L
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm13LiveRangeEdit21checkRematerializableEPNS_6VNInfoEPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(208) initializes((68, 69)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm13LiveRangeEdit21checkRematerializableEPNS_6VNInfoEPKNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i8 1, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48

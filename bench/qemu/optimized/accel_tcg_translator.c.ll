@@ -62,7 +62,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @translator_loop(ptr noundef %cpu, ptr noundef %tb, ptr nocapture noundef %max_insns, i64 noundef %pc, ptr noundef %host_pc, ptr nocapture noundef readonly %ops, ptr noundef initializes((0, 38), (40, 56)) %db) local_unnamed_addr #0 {
+define dso_local void @translator_loop(ptr noundef %cpu, ptr noundef %tb, ptr nocapture noundef %max_insns, i64 noundef %pc, ptr noundef %host_pc, ptr nocapture noundef readonly %ops, ptr noundef %db) local_unnamed_addr #0 {
 entry:
   %cflags.i = getelementptr inbounds i8, ptr %tb, i64 20
   %0 = load atomic i32, ptr %cflags.i monotonic, align 4

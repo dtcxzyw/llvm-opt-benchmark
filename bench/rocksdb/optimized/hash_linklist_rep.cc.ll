@@ -743,7 +743,7 @@ invoke.cont:                                      ; preds = %if.end.i.i, %_ZNSt1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_122HashLinkListRepFactoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_122HashLinkListRepFactoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -778,7 +778,7 @@ _ZN7rocksdb18MemTableRepFactoryD2Ev.exit:         ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_122HashLinkListRepFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_122HashLinkListRepFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1137,7 +1137,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep8AllocateEmPPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(69) %this, i64 noundef %len, ptr nocapture noundef writeonly initializes((0, 8)) %buf) unnamed_addr #3 align 2 {
+define internal noundef ptr @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep8AllocateEmPPc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(69) %this, i64 noundef %len, ptr nocapture noundef writeonly %buf) unnamed_addr #3 align 2 {
 entry:
   %allocator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %allocator_, align 8
@@ -2592,7 +2592,7 @@ declare void @_ZNK7rocksdb5Slice8ToStringB5cxx11Eb(ptr sret(%"class.std::__cxx11
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListIterator10SeekToHeadEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %this) unnamed_addr #12 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListIterator10SeekToHeadEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #12 align 2 {
 entry:
   %head_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %head_, align 8
@@ -2608,7 +2608,7 @@ declare noundef i64 @_ZN7rocksdb6Hash64EPKcm(ptr noundef, i64 noundef) local_unn
 declare noundef ptr @_ZN7rocksdb6Random14GetTLSInstanceEv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListIterator4PrevEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((16, 32)) %this) unnamed_addr #13 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListIterator4PrevEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #13 align 2 {
 entry:
   %head_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %head_.i, i8 0, i64 16, i1 false)
@@ -2616,7 +2616,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListIterator11SeekForPrevERKNS_5SliceEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((16, 32)) %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #13 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListIterator11SeekForPrevERKNS_5SliceEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture readnone %1) unnamed_addr #13 align 2 {
 entry:
   %head_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %head_.i, i8 0, i64 16, i1 false)
@@ -2630,7 +2630,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListIterator11SeekToFirstEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((16, 32)) %this) unnamed_addr #13 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListIterator11SeekToFirstEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #13 align 2 {
 entry:
   %head_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %head_.i, i8 0, i64 16, i1 false)
@@ -2638,7 +2638,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListIterator10SeekToLastEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((16, 32)) %this) unnamed_addr #13 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16LinkListIterator10SeekToLastEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #13 align 2 {
 entry:
   %head_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %head_.i, i8 0, i64 16, i1 false)
@@ -2657,7 +2657,7 @@ declare void @_ZN7rocksdb13HistogramStatC1Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16FullListIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16FullListIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashLinkListRep16FullListIteratorE, i64 16), ptr %this, align 8
   %tmp_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -2691,7 +2691,7 @@ _ZNSt10unique_ptrIN7rocksdb8SkipListIPKcRKNS0_11MemTableRep13KeyComparatorEEESt1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16FullListIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16FullListIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashLinkListRep16FullListIteratorE, i64 16), ptr %this, align 8
   %tmp_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -2902,7 +2902,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16FullListIterator11SeekToFirstEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((16, 24)) %this) unnamed_addr #16 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep16FullListIterator11SeekToFirstEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #16 align 2 {
 entry:
   %iter_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %iter_, align 8
@@ -3146,7 +3146,7 @@ while.end:                                        ; preds = %land.rhs, %_ZN7rock
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep15DynamicIteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep15DynamicIteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashLinkListRep15DynamicIteratorE, i64 16), ptr %this, align 8
   %skip_list_iter_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -3164,7 +3164,7 @@ _ZNSt10unique_ptrIN7rocksdb8SkipListIPKcRKNS0_11MemTableRep13KeyComparatorEE8Ite
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep15DynamicIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_115HashLinkListRep15DynamicIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_115HashLinkListRep15DynamicIteratorE, i64 16), ptr %this, align 8
   %skip_list_iter_.i = getelementptr inbounds i8, ptr %this, i64 40

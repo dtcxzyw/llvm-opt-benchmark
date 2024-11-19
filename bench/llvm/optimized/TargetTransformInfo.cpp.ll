@@ -676,7 +676,7 @@ _ZN4llvm11SmallPtrSetIPKNS_10BasicBlockELj32EED2Ev.exit: ; preds = %_ZZN4llvm22c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23IntrinsicCostAttributesC2EjRKNS_8CallBaseENS_15InstructionCostEb(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 20)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 %3, i32 %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm23IntrinsicCostAttributesC2EjRKNS_8CallBaseENS_15InstructionCostEb(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(88) %2, i64 %3, i32 %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = load i8, ptr %2, align 8
   %8 = icmp eq i8 %7, 85
   br i1 %8, label %9, label %_ZN4llvm8dyn_castINS_13IntrinsicInstEKNS_8CallBaseEEEDcPT0_.exit
@@ -1171,7 +1171,7 @@ _ZSt4copyIPKPN4llvm4TypeEPS2_ET0_T_S7_S6_.exit:   ; preds = %85, %._crit_edge, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23IntrinsicCostAttributesC2EjPNS_4TypeENS_8ArrayRefIS2_EENS_13FastMathFlagsEPKNS_13IntrinsicInstENS_15InstructionCostE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 20)) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, i32 %5, ptr noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::InstructionCost") align 8 %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm23IntrinsicCostAttributesC2EjPNS_4TypeENS_8ArrayRefIS2_EENS_13FastMathFlagsEPKNS_13IntrinsicInstENS_15InstructionCostE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, i32 %5, ptr noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::InstructionCost") align 8 %7) unnamed_addr #0 align 2 {
   store ptr %6, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %9, align 8
@@ -1194,7 +1194,7 @@ define dso_local void @_ZN4llvm23IntrinsicCostAttributesC2EjPNS_4TypeENS_8ArrayR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23IntrinsicCostAttributesC2EjPNS_4TypeENS_8ArrayRefIPKNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 20)) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm23IntrinsicCostAttributesC2EjPNS_4TypeENS_8ArrayRefIPKNS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -1427,7 +1427,7 @@ _ZSt4copyIPKPKN4llvm5ValueEPS3_ET0_T_S8_S7_.exit: ; preds = %85, %._crit_edge, %
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23IntrinsicCostAttributesC2EjPNS_4TypeENS_8ArrayRefIPKNS_5ValueEEENS3_IS2_EENS_13FastMathFlagsEPKNS_13IntrinsicInstENS_15InstructionCostE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 20)) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %5, i32 %6, ptr noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::InstructionCost") align 8 %8) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm23IntrinsicCostAttributesC2EjPNS_4TypeENS_8ArrayRefIPKNS_5ValueEEENS3_IS2_EENS_13FastMathFlagsEPKNS_13IntrinsicInstENS_15InstructionCostE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %5, i32 %6, ptr noundef %7, ptr nocapture noundef readonly byval(%"class.llvm::InstructionCost") align 8 %8) unnamed_addr #0 align 2 {
   store ptr %7, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %10, align 8
@@ -1456,7 +1456,7 @@ define dso_local void @_ZN4llvm23IntrinsicCostAttributesC2EjPNS_4TypeENS_8ArrayR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16HardwareLoopInfoC2EPNS_4LoopE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(51) initializes((0, 51)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16HardwareLoopInfoC2EPNS_4LoopE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(51) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1712,7 +1712,7 @@ declare noundef zeroext i1 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE8contai
 declare noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE9dominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124), ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19TargetTransformInfoC2ERKNS_10DataLayoutE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(512) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19TargetTransformInfoC2ERKNS_10DataLayoutE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(512) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
   store ptr getelementptr inbounds inrange(-16, 1472) (i8, ptr @_ZTVN4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_19NoTTIImplEEE, i64 16), ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1743,7 +1743,7 @@ _ZNSt10unique_ptrIN4llvm19TargetTransformInfo7ConceptESt14default_deleteIS2_EED2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm19TargetTransformInfoC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm19TargetTransformInfoC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -4432,7 +4432,7 @@ define dso_local void @_ZN4llvm19TargetTransformInfo7ConceptD0Ev(ptr nocapture n
 declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm16TargetIRAnalysisC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4llvm16TargetIRAnalysisC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #10 align 2 {
 _ZNSt8functionIFN4llvm19TargetTransformInfoERKNS0_8FunctionEEEC2IPS5_vEEOT_.exit:
   %1 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %1, align 8
@@ -4452,7 +4452,7 @@ define dso_local void @_ZN4llvm16TargetIRAnalysis13getDefaultTTIERKNS_8FunctionE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm16TargetIRAnalysisC2ESt8functionIFNS_19TargetTransformInfoERKNS_8FunctionEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm16TargetIRAnalysisC2ESt8functionIFNS_19TargetTransformInfoERKNS_8FunctionEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 24, i1 false)
@@ -4551,7 +4551,7 @@ define dso_local void @_ZN4llvm30TargetTransformInfoWrapperPass6anchorEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30TargetTransformInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm30TargetTransformInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.397, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4595,7 +4595,7 @@ _ZN4llvm44initializeTargetTransformInfoWrapperPassPassERNS_12PassRegistryE.exit:
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm30TargetTransformInfoWrapperPassC2ENS_16TargetIRAnalysisE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 28), (32, 64), (72, 73)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm30TargetTransformInfoWrapperPassC2ENS_16TargetIRAnalysisE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.397, align 8
   %4 = alloca %"class.std::reference_wrapper", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5770,7 +5770,7 @@ define internal noundef i64 @_ZNK4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef range(i32 -1, 67108863) i32 @_ZN4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_19NoTTIImplEE32getEstimatedNumberOfCaseClustersERKNS_10SwitchInstERjPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) unnamed_addr #5 align 2 {
+define internal noundef range(i32 -1, 67108863) i32 @_ZN4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_19NoTTIImplEE32getEstimatedNumberOfCaseClustersERKNS_10SwitchInstERjPNS_18ProfileSummaryInfoEPNS_18BlockFrequencyInfoE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(76) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) unnamed_addr #5 align 2 {
   store i32 0, ptr %2, align 4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
@@ -6386,7 +6386,7 @@ define internal noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5ModelIN12_GLOB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_19NoTTIImplEE21enableMemCmpExpansionEbb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::TargetTransformInfo::MemCmpExpansionOptions") align 8 initializes((0, 4)) %0, ptr nocapture nonnull readnone align 8 %1, i1 zeroext %2, i1 zeroext %3) unnamed_addr #0 align 2 {
+define internal void @_ZNK4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_19NoTTIImplEE21enableMemCmpExpansionEbb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::TargetTransformInfo::MemCmpExpansionOptions") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i1 zeroext %2, i1 zeroext %3) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8, !alias.scope !47
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6617,7 +6617,7 @@ define internal noundef i32 @_ZNK4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_19NoTTIImplEE34shouldConsiderAddressTypePromotionERKNS_11InstructionERb(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2) unnamed_addr #10 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm19TargetTransformInfo5ModelIN12_GLOBAL__N_19NoTTIImplEE34shouldConsiderAddressTypePromotionERKNS_11InstructionERb(ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) unnamed_addr #10 align 2 {
   store i8 0, ptr %2, align 1
   ret i1 false
 }

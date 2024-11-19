@@ -1129,7 +1129,7 @@ declare ptr @Aig_ObjCreateCo(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @Aig_ManCleanup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Fra_BmcPerform(ptr noundef initializes((64, 72)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @Fra_BmcPerform(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

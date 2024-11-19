@@ -466,7 +466,7 @@ _ZN4LuauL8joinImplINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES6_RKSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau5splitESt17basic_string_viewIcSt11char_traitsIcEEc(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, i64 %1, ptr %2, i8 noundef signext %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau5splitESt17basic_string_viewIcSt11char_traitsIcEEc(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, i64 %1, ptr %2, i8 noundef signext %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE9push_backERKS3_.exit.loopexit, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.lr.ph

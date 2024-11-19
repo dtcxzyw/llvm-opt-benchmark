@@ -3121,7 +3121,7 @@ Acb_NtkNodeNum.exit87:                            ; preds = %84, %._crit_edge107
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Acb_NtkCreateFanout(ptr nocapture noundef initializes((436, 440)) %0) unnamed_addr #0 {
+define internal fastcc void @Acb_NtkCreateFanout(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 432
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %.val.i = load i32, ptr %3, align 8
@@ -3296,7 +3296,7 @@ Acb_ObjAddFaninFanout.exit:                       ; preds = %Acb_ObjAddFaninFano
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_NtkPushLogic2(ptr nocapture noundef initializes((436, 440)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Acb_NtkPushLogic2(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @Acb_NtkCreateFanout(ptr noundef %0)
   %4 = getelementptr i8, ptr %0, i64 116
   %.val18 = load i32, ptr %4, align 4

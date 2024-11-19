@@ -8709,7 +8709,7 @@ define internal noalias noundef ptr @_wait_primary_prog(ptr noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_init_dep_job_ptr(ptr nocapture noundef initializes((24, 32)) %0, ptr nocapture readnone %1) #4 {
+define internal noundef i32 @_init_dep_job_ptr(ptr nocapture noundef %0, ptr nocapture readnone %1) #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %0, align 8

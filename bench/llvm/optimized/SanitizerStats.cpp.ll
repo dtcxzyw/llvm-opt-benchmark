@@ -60,7 +60,7 @@ $_ZN4llvm8CallInst6CreateEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefIS4_EENS5_IN
 @_ZN4llvm19SanitizerStatReportC1EPNS_6ModuleE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm19SanitizerStatReportC2EPNS_6ModuleE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19SanitizerStatReportC2EPNS_6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19SanitizerStatReportC2EPNS_6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca [3 x ptr], align 8
   %4 = alloca %"class.llvm::Twine", align 8
   store ptr %1, ptr %0, align 8

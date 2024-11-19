@@ -1700,7 +1700,7 @@ return:                                           ; preds = %if.end16.i, %if.end
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13PinnableSliceC2EOS0_(ptr noundef nonnull align 8 dereferenceable(89) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(89) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13PinnableSliceC2EOS0_(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef nonnull align 8 dereferenceable(89) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr @.str.2, ptr %this, align 8
   %size_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1986,7 +1986,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad.body
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_120FixedPrefixTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_120FixedPrefixTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_120FixedPrefixTransformE, i64 16), ptr %this, align 8
   %id_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -2024,7 +2024,7 @@ _ZN7rocksdb14SliceTransformD2Ev.exit:             ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_120FixedPrefixTransformD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_120FixedPrefixTransformD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_120FixedPrefixTransformE, i64 16), ptr %this, align 8
   %id_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -2428,7 +2428,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_120FixedPrefixTransform17FullLengthEnabledEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef writeonly initializes((0, 8)) %len) unnamed_addr #8 align 2 {
+define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_120FixedPrefixTransform17FullLengthEnabledEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef writeonly %len) unnamed_addr #8 align 2 {
 entry:
   %prefix_len_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %prefix_len_, align 8
@@ -2726,7 +2726,7 @@ declare noundef zeroext i1 @_ZN7rocksdb10StartsWithERKNSt7__cxx1112basic_stringI
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_121CappedPrefixTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_121CappedPrefixTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121CappedPrefixTransformE, i64 16), ptr %this, align 8
   %id_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -2764,7 +2764,7 @@ _ZN7rocksdb14SliceTransformD2Ev.exit:             ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_121CappedPrefixTransformD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_121CappedPrefixTransformD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_121CappedPrefixTransformE, i64 16), ptr %this, align 8
   %id_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -3076,7 +3076,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_121CappedPrefixTransform17FullLengthEnabledEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef writeonly initializes((0, 8)) %len) unnamed_addr #8 align 2 {
+define internal noundef zeroext i1 @_ZNK7rocksdb12_GLOBAL__N_121CappedPrefixTransform17FullLengthEnabledEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, ptr nocapture noundef writeonly %len) unnamed_addr #8 align 2 {
 entry:
   %cap_len_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %cap_len_, align 8
@@ -3096,7 +3096,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_113NoopTransformD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_113NoopTransformD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3131,7 +3131,7 @@ _ZN7rocksdb14SliceTransformD2Ev.exit:             ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_113NoopTransformD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_113NoopTransformD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8

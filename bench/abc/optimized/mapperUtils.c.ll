@@ -666,7 +666,7 @@ define void @Map_MappingSetupTruthTablesLarge(ptr nocapture noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_MappingSetupMask(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Map_MappingSetupMask(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq i32 %1, 6
   %.neg = shl nsw i32 -1, %1
   %4 = add nsw i32 %.neg, 32

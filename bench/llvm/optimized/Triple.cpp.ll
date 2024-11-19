@@ -5628,7 +5628,7 @@ _ZN4llvm9StringRef13consume_frontES0_.exit:       ; preds = %18, %_ZNK4llvm9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZNK4llvm6Triple16getMacOSXVersionERNS_12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %1) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZNK4llvm6Triple16getMacOSXVersionERNS_12VersionTupleE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   %3 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   %4 = extractvalue { i64, i64 } %3, 0
   %5 = extractvalue { i64, i64 } %3, 1

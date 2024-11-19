@@ -2678,7 +2678,7 @@ declare void @_ZN8JVMCIEnv19throw_InternalErrorEPKc(ptr noundef nonnull align 8 
 declare noundef zeroext i1 @_ZN7oopDesc14is_oop_or_nullEPS_b(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13CodeInstaller15get_scope_valueEP25HotSpotCompiledCodeStreamh9BasicTypeRP10ScopeValueP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN13CodeInstaller15get_scope_valueEP25HotSpotCompiledCodeStreamh9BasicTypeRP10ScopeValueP8JVMCIEnv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
   store ptr null, ptr %4, align 8
   switch i8 %2, label %435 [
     i8 0, label %7
@@ -4674,7 +4674,7 @@ _ZN26GrowableArrayWithAllocatorIP12MonitorValue13GrowableArrayIS1_EE6appendERKS1
 declare void @_ZN12MonitorValueC1EP10ScopeValue8Locationb(ptr noundef nonnull align 8 dereferenceable(13), ptr noundef, i32, i1 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller23initialize_dependenciesEP25HotSpotCompiledCodeStreamhP11OopRecorderP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) initializes((152, 160)) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller23initialize_dependenciesEP25HotSpotCompiledCodeStreamhP11OopRecorderP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #2 align 2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
@@ -6250,7 +6250,7 @@ declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN11OopRecorderC1EP5Arenab(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, i1 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CodeInstaller17initialize_fieldsEP25HotSpotCompiledCodeStreamhR12methodHandleR10CodeBufferP8JVMCIEnv(ptr nocapture noundef nonnull align 8 dereferenceable(225) initializes((108, 112)) %0, ptr nocapture noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN13CodeInstaller17initialize_fieldsEP25HotSpotCompiledCodeStreamhR12methodHandleR10CodeBufferP8JVMCIEnv(ptr nocapture noundef nonnull align 8 dereferenceable(225) %0, ptr nocapture noundef %1, i8 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %4, ptr noundef %5) local_unnamed_addr #2 align 2 {
   %7 = load ptr, ptr %3, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %23, label %9

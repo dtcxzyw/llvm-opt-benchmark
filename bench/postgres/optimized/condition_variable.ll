@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ProcGlobal = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ConditionVariableInit(ptr nocapture noundef writeonly initializes((0, 1), (4, 12)) %0) local_unnamed_addr #0 {
+define dso_local void @ConditionVariableInit(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #4, !srcloc !5
   store i8 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4

@@ -37,7 +37,7 @@ define internal noundef i32 @bc_handler(ptr nocapture readnone %0) #0 align 16 {
 declare dso_local void @clockevents_register_device(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @bc_set_next(i64 noundef %0, ptr nocapture noundef writeonly initializes((168, 172)) %1) #0 align 16 {
+define internal noundef i32 @bc_set_next(i64 noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   tail call void @hrtimer_start_range_ns(ptr noundef nonnull @bctimer, i64 noundef %0, i64 noundef 0, i32 noundef 10) #2
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @bctimer, i64 48), align 8
   %4 = load ptr, ptr %3, align 64

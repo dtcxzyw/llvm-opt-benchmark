@@ -275,7 +275,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9cmFileAPIC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9cmFileAPIC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.Json::CharReaderBuilder", align 8
   %5 = alloca %"class.Json::Value", align 8
@@ -998,7 +998,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare noundef zeroext i1 @_ZN5cmsys11SystemTools15FileIsDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9cmFileAPI7LoadDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.8") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9cmFileAPI7LoadDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.8") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cmsys::Directory", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -1720,7 +1720,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9cmFileAPI23GetConfigureLogVersionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.167") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(264) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9cmFileAPI23GetConfigureLogVersionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.167") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(264) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %.val10 = load ptr, ptr %3, align 8
@@ -3483,7 +3483,7 @@ declare noundef zeroext i1 @_ZNK4Json5Value6isNullEv(ptr noundef nonnull align 8
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN4Json5ValueaSERKS0_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9cmFileAPI19BuildClientRequestsERKN4Json5ValueE(ptr dead_on_unwind noalias writable sret(%"struct.cmFileAPI::ClientRequests") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9cmFileAPI19BuildClientRequestsERKN4Json5ValueE(ptr dead_on_unwind noalias writable sret(%"struct.cmFileAPI::ClientRequests") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.Json::ValueConstIterator", align 8
   %5 = alloca %"class.Json::ValueConstIterator", align 8
   %6 = alloca %"struct.cmFileAPI::ClientRequest", align 8
@@ -5008,7 +5008,7 @@ declare { ptr, i8 } @_ZNK4Json5Value5beginEv(ptr noundef nonnull align 8 derefer
 declare { ptr, i8 } @_ZNK4Json5Value3endEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9cmFileAPI18BuildClientRequestERKN4Json5ValueE(ptr dead_on_unwind noalias writable sret(%"struct.cmFileAPI::ClientRequest") align 8 initializes((8, 16)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9cmFileAPI18BuildClientRequestERKN4Json5ValueE(ptr dead_on_unwind noalias writable sret(%"struct.cmFileAPI::ClientRequest") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

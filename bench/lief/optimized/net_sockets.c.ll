@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.fd_set = type { [16 x i64] }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_net_init(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_net_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store i32 -1, ptr %0, align 4
   ret void
 }

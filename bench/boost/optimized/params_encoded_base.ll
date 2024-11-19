@@ -44,7 +44,7 @@ define void @_ZN5boost4urls19params_encoded_base8iteratorC2ERKNS0_6detail9query_
 declare void @_ZN5boost4urls6detail16params_iter_implC1ERKNS1_9query_refEi(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 8 dereferenceable(41), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost4urls19params_encoded_baseC2ERKNS0_6detail9query_refE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1) unnamed_addr #3 align 2 {
+define void @_ZN5boost4urls19params_encoded_baseC2ERKNS0_6detail9query_refE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1) unnamed_addr #3 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   ret void
 }

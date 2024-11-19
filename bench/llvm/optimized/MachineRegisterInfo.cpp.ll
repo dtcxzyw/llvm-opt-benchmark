@@ -173,7 +173,7 @@ define dso_local void @_ZN4llvm19MachineRegisterInfo8Delegate6anchorEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19MachineRegisterInfoC2EPNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19MachineRegisterInfoC2EPNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40

@@ -762,7 +762,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib29FdmVPPStartLimitStepCondition11changeStateEdRKNS_5ArrayEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, double noundef %gasPrice, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %state, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib29FdmVPPStartLimitStepCondition11changeStateEdRKNS_5ArrayEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, double noundef %gasPrice, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %state, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %startUpFixCost_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load double, ptr %startUpFixCost_, align 8, !tbaa !35

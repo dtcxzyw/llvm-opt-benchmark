@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_md5_init(ptr nocapture noundef writeonly initializes((0, 88)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_md5_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   ret void
 }
@@ -38,7 +38,7 @@ define hidden void @mbedtls_md5_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mbedtls_md5_clone(ptr nocapture noundef writeonly initializes((0, 88)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @mbedtls_md5_clone(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %0, ptr noundef nonnull align 4 dereferenceable(88) %1, i64 88, i1 false)
   ret void
 }
@@ -47,7 +47,7 @@ define hidden void @mbedtls_md5_clone(ptr nocapture noundef writeonly initialize
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mbedtls_md5_starts(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #0 {
+define hidden noundef i32 @mbedtls_md5_starts(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -902,7 +902,7 @@ define hidden noundef i32 @mbedtls_md5_update(ptr nocapture noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #2 {
+define hidden noundef i32 @mbedtls_md5_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 63
   %5 = getelementptr inbounds i8, ptr %0, i64 24

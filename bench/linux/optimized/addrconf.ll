@@ -9505,7 +9505,7 @@ declare dso_local i32 @rtnl_is_locked() local_unnamed_addr #2
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 3) i32 @check_cleanup_prefix_route(ptr noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 3) i32 @check_cleanup_prefix_route(ptr noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = load volatile i64, ptr @jiffies, align 64
@@ -11598,7 +11598,7 @@ declare dso_local i32 @__ipv6_dev_ac_inc(ptr noundef, ptr noundef) local_unnamed
 declare dso_local i32 @__ipv6_dev_ac_dec(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -105, 1) i32 @addrconf_init_net(ptr noundef initializes((2048, 2052), (2056, 2064)) %0) #0 align 16 {
+define internal noundef range(i32 -105, 1) i32 @addrconf_init_net(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2048
   store i32 0, ptr %2, align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 2056

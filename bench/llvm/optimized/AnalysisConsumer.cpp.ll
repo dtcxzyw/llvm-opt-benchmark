@@ -1446,7 +1446,7 @@ declare void @_ZN4llvm16EnableStatisticsEb(i1 noundef zeroext) local_unnamed_add
 declare void @_ZN5clang21MacroExpansionContext23registerForPreprocessorERNS_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(3288)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116AnalysisConsumerD2Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116AnalysisConsumerD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 184) (i8, ptr @_ZTVN12_GLOBAL__N_116AnalysisConsumerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -1752,14 +1752,14 @@ _ZNSt6vectorISt8functionIFvRN5clang4ento15CheckerRegistryEEESaIS6_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116AnalysisConsumerD0Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116AnalysisConsumerD0Ev(ptr noundef nonnull align 8 dereferenceable(608) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_116AnalysisConsumerD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 608) #21
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116AnalysisConsumer10InitializeERN5clang10ASTContextE(ptr noundef nonnull align 8 dereferenceable(608) initializes((48, 56)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116AnalysisConsumer10InitializeERN5clang10ASTContextE(ptr noundef nonnull align 8 dereferenceable(608) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::ArrayRef.983", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %4, align 8

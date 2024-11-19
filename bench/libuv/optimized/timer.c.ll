@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.heap_node = type { ptr, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uv_timer_init(ptr noundef %loop, ptr noundef initializes((8, 20), (32, 48), (88, 92)) %handle) local_unnamed_addr #0 {
+define noundef i32 @uv_timer_init(ptr noundef %loop, ptr noundef %handle) local_unnamed_addr #0 {
 entry:
   %loop1 = getelementptr inbounds i8, ptr %handle, i64 8
   store ptr %loop, ptr %loop1, align 8
@@ -670,7 +670,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @uv_timer_set_repeat(ptr nocapture noundef writeonly initializes((136, 144)) %handle, i64 noundef %repeat) local_unnamed_addr #2 {
+define void @uv_timer_set_repeat(ptr nocapture noundef writeonly %handle, i64 noundef %repeat) local_unnamed_addr #2 {
 entry:
   %repeat1 = getelementptr inbounds i8, ptr %handle, i64 136
   store i64 %repeat, ptr %repeat1, align 8

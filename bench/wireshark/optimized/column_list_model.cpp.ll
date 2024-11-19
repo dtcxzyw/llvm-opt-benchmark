@@ -347,7 +347,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16ColumnProxyModel20setShowDisplayedOnlyEb(ptr noundef nonnull align 8 dereferenceable(17) initializes((16, 17)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16ColumnProxyModel20setShowDisplayedOnlyEb(ptr noundef nonnull align 8 dereferenceable(17) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %3, ptr %4, align 8

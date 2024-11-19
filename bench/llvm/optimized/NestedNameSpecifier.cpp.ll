@@ -1978,7 +1978,7 @@ _ZN5clang22NestedNameSpecifierLoc13getDataLengthEPNS_19NestedNameSpecifierE.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilderC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilderC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2126,7 +2126,7 @@ _ZN4llvm12safe_reallocEPvm.exit:                  ; preds = %41, %34, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang29NestedNameSpecifierLocBuilderaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((0, 8), (16, 20)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang29NestedNameSpecifierLocBuilderaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2353,7 +2353,7 @@ define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder6ExtendERNS_10AST
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder10MakeGlobalERNS_10ASTContextENS_14SourceLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i32 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder10MakeGlobalERNS_10ASTContextENS_14SourceLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i32 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 1016
   %6 = load ptr, ptr %5, align 8
@@ -2417,7 +2417,7 @@ _ZN5clang19NestedNameSpecifier15GlobalSpecifierERKNS_10ASTContextE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder9MakeSuperERNS_10ASTContextEPNS_13CXXRecordDeclENS_14SourceLocationES5_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %2, i32 %3, i32 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder9MakeSuperERNS_10ASTContextEPNS_13CXXRecordDeclENS_14SourceLocationES5_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %2, i32 %3, i32 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca %"class.clang::NestedNameSpecifier", align 8
@@ -2447,7 +2447,7 @@ define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder9MakeSuperERNS_10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder11MakeTrivialERNS_10ASTContextEPNS_19NestedNameSpecifierENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
@@ -2591,7 +2591,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 declare noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23096), i64, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder5AdoptENS_22NestedNameSpecifierLocE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr %1, ptr %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang29NestedNameSpecifierLocBuilder5AdoptENS_22NestedNameSpecifierLocE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %.not = icmp eq i32 %5, 0

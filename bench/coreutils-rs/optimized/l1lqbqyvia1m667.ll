@@ -226,7 +226,7 @@ define internal noundef zeroext i1 @"_ZN47_$LT$std..fs..File$u20$as$u20$std..io.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.llvm.15335730073246084912"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 {
+define hidden void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h30cc80c750be000fE.llvm.15335730073246084912"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #1 {
   %.sroa.0 = alloca i32, align 4
   %3 = load i32, ptr %1, align 4, !range !4, !noundef !5
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)

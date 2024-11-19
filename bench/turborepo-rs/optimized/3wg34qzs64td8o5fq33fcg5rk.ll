@@ -431,7 +431,7 @@ _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15tu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7fgcolor(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) initializes((4, 8)) %1, i32 %2) unnamed_addr #4 {
+define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7fgcolor(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) %1, i32 %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %2, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 12, i1 false)
@@ -439,7 +439,7 @@ define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7fg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7bgcolor(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) initializes((8, 12)) %1, i32 %2) unnamed_addr #4 {
+define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7bgcolor(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) %1, i32 %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %2, ptr %4, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 12, i1 false)
@@ -447,7 +447,7 @@ define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7bg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs4bold(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) initializes((0, 1)) %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs4bold(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = zext i1 %2 to i8
   store i8 %4, ptr %1, align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %0, ptr noundef nonnull align 1 dereferenceable(12) %1, i64 12, i1 false)
@@ -455,7 +455,7 @@ define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs4bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs6italic(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) initializes((1, 2)) %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs6italic(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %1, i64 1
   store i8 %4, ptr %5, align 1
@@ -464,7 +464,7 @@ define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs6it
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs9underline(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) initializes((2, 3)) %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs9underline(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %1, i64 2
   store i8 %4, ptr %5, align 1
@@ -473,7 +473,7 @@ define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs9un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7inverse(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) initializes((0, 12)) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) initializes((3, 4)) %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define hidden void @_RNvMs7_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_5Attrs7inverse(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([12 x i8]) align 1 dereferenceable(12) %0, ptr noalias nocapture noundef align 1 dereferenceable(12) %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %1, i64 3
   store i8 %4, ptr %5, align 1
@@ -2775,7 +2775,7 @@ _RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_4CrlfNtB5_8BufWrite9write_buf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_RNvMsj_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_11ChangeTitle3new(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8) unnamed_addr #5 {
+define hidden void @_RNvMsj_NtCs8mTrBI1stz4_15turborepo_vt1004termNtB5_11ChangeTitle3new(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %8) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %10, align 8

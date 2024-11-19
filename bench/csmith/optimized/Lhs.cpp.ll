@@ -1130,7 +1130,7 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK3Lhs8get_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3Lhs9get_lvarsERKSt6vectorIPK4FactSaIS3_EERS0_IPK8VariableSaISA_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3Lhs9get_lvarsERKSt6vectorIPK4FactSaIS3_EERS0_IPK8VariableSaISA_EE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.3", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -1289,7 +1289,7 @@ define dso_local noundef zeroext i1 @_ZNK3Lhs11is_volatileEv(ptr nocapture nound
 declare noundef zeroext i1 @_ZNK8Variable23is_volatile_after_derefEi(ptr noundef nonnull align 8 dereferenceable(200), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3Lhs21get_dereferenced_ptrsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.73") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3Lhs21get_dereferenced_ptrsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.73") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %1, i64 24

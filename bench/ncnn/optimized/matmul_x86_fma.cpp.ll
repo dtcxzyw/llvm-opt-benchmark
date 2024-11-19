@@ -42,7 +42,7 @@ define hidden void @_ZN4ncnn14MatMul_x86_fmaC2Ev(ptr noundef nonnull align 8 der
 declare void @_ZN4ncnn6MatMulC2Ev(ptr noundef nonnull align 8 dereferenceable(212)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4ncnn14MatMul_x86_fma15create_pipelineERKNS_6OptionE(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((216, 224)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN4ncnn14MatMul_x86_fma15create_pipelineERKNS_6OptionE(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.ncnn::ParamDict", align 8
   %4 = alloca %"class.ncnn::ModelBinFromMatArray", align 8
   %5 = tail call noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef 74)

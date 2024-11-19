@@ -10265,7 +10265,7 @@ ehcleanup80:                                      ; preds = %if.then.i.i.i179, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122TensorTypeToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_8DataTypeEPN3org6apache5arrow7flatbuf4TypeEPNS4_6OffsetIvEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %out_type, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_122TensorTypeToFlatbufferERN22arrow_vendored_private11flatbuffers21FlatBufferBuilderImplILb0EEERKNS_8DataTypeEPN3org6apache5arrow7flatbuf4TypeEPNS4_6OffsetIvEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(128) %fbb, ptr noundef nonnull align 8 dereferenceable(72) %type, ptr nocapture noundef nonnull writeonly %out_type, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp42 = alloca %"class.std::__cxx11::basic_string", align 8
   %id_.i = getelementptr inbounds i8, ptr %type, i64 40
@@ -17008,7 +17008,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN5arrow5FieldEESaIS3_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc8internal17GetTensorMetadataERKNS_6BufferEPSt10shared_ptrINS_8DataTypeEEPSt6vectorIlSaIlEESC_PS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %metadata, ptr noundef %type, ptr nocapture noundef %shape, ptr nocapture noundef %strides, ptr noundef %dim_names) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc8internal17GetTensorMetadataERKNS_6BufferEPSt10shared_ptrINS_8DataTypeEEPSt6vectorIlSaIlEESC_PS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %metadata, ptr noundef %type, ptr nocapture noundef %shape, ptr nocapture noundef %strides, ptr noundef %dim_names) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %verifier.i.i = alloca %"class.arrow_vendored_private::flatbuffers::Verifier", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -17667,7 +17667,7 @@ _ZNK3org6apache5arrow7flatbuf20SparseTensorIndexCOO11indicesTypeEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc8internal25GetSparseCSXIndexMetadataEPKN3org6apache5arrow7flatbuf20SparseMatrixIndexCSXEPSt10shared_ptrINS_8DataTypeEESC_(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %sparse_index, ptr nocapture noundef %indptr_type, ptr nocapture noundef %indices_type) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc8internal25GetSparseCSXIndexMetadataEPKN3org6apache5arrow7flatbuf20SparseMatrixIndexCSXEPSt10shared_ptrINS_8DataTypeEESC_(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef readonly %sparse_index, ptr nocapture noundef %indptr_type, ptr nocapture noundef %indices_type) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp11 = alloca %"class.arrow::Status", align 8
@@ -17738,7 +17738,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc8internal25GetSparseCSFIndexMetadataEPKN3org6apache5arrow7flatbuf20SparseTensorIndexCSFEPSt6vectorIlSaIlEESC_PSt10shared_ptrINS_8DataTypeEESG_(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %sparse_index, ptr nocapture noundef %axis_order, ptr nocapture noundef %indices_size, ptr nocapture noundef %indptr_type, ptr nocapture noundef %indices_type) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc8internal25GetSparseCSFIndexMetadataEPKN3org6apache5arrow7flatbuf20SparseTensorIndexCSFEPSt6vectorIlSaIlEESC_PSt10shared_ptrINS_8DataTypeEESG_(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef readonly %sparse_index, ptr nocapture noundef %axis_order, ptr nocapture noundef %indices_size, ptr nocapture noundef %indptr_type, ptr nocapture noundef %indices_type) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp11 = alloca %"class.arrow::Status", align 8
@@ -18028,7 +18028,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc8internal23GetSparseTensorMetadataERKNS_6BufferEPSt10shared_ptrINS_8DataTypeEEPSt6vectorIlSaIlEEPS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEPlPNS_18SparseTensorFormat4typeE(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %metadata, ptr noundef %type, ptr noundef %shape, ptr noundef %dim_names, ptr noundef writeonly %non_zero_length, ptr noundef writeonly %sparse_tensor_format_id) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc8internal23GetSparseTensorMetadataERKNS_6BufferEPSt10shared_ptrINS_8DataTypeEEPSt6vectorIlSaIlEEPS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEPlPNS_18SparseTensorFormat4typeE(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %metadata, ptr noundef %type, ptr noundef %shape, ptr noundef %dim_names, ptr noundef writeonly %non_zero_length, ptr noundef writeonly %sparse_tensor_format_id) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %verifier.i.i = alloca %"class.arrow_vendored_private::flatbuffers::Verifier", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -19132,7 +19132,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(
 declare noundef i32 @_ZNK5arrow6Schema10num_fieldsEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor9GetResultERKSt10shared_ptrINS_5FieldEEPN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %field, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor9GetResultERKSt10shared_ptrINS_5FieldEEPN22arrow_vendored_private11flatbuffers6OffsetIN3org6apache5arrow7flatbuf5FieldEEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %field, ptr nocapture noundef nonnull writeonly %offset) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp22 = alloca %"class.arrow::Result.158", align 8
@@ -21862,7 +21862,7 @@ return:                                           ; preds = %sw.epilog, %_ZN5arr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_9UnionTypeE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) initializes((32, 33)) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc8internal12_GLOBAL__N_124FieldToFlatbufferVisitor5VisitERKNS_9UnionTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %fb_type_ = getelementptr inbounds i8, ptr %this, i64 32

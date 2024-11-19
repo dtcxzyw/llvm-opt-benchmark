@@ -1054,7 +1054,7 @@ define hidden range(i32 -1, 2) i32 @tm_int_cmp_inc(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @tm_topology_set_binding_constraints(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((72, 84)) %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @tm_topology_set_binding_constraints(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %2, i64 80
   store i32 %1, ptr %4, align 8
   %5 = sext i32 %1 to i64

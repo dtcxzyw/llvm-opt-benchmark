@@ -479,7 +479,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare i32 @ioctl(i32 noundef, i64 noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @phpdbg_set_addr_watchpoint(ptr noundef %0, i64 noundef %1, ptr noundef initializes((0, 16), (24, 32), (88, 96)) %2) local_unnamed_addr #0 {
+define hidden void @phpdbg_set_addr_watchpoint(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   store ptr %0, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   store i64 %1, ptr %4, align 8
@@ -495,7 +495,7 @@ define hidden void @phpdbg_set_addr_watchpoint(ptr noundef %0, i64 noundef %1, p
 declare void @_zend_hash_init(ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @phpdbg_set_zval_watchpoint(ptr noundef %0, ptr noundef initializes((0, 16), (24, 32), (88, 96)) %1) local_unnamed_addr #0 {
+define hidden void @phpdbg_set_zval_watchpoint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store ptr %0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 12, ptr %3, align 8
@@ -511,7 +511,7 @@ define hidden void @phpdbg_set_zval_watchpoint(ptr noundef %0, ptr noundef initi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @phpdbg_set_bucket_watchpoint(ptr noundef %0, ptr noundef initializes((0, 16), (24, 32), (88, 96)) %1) local_unnamed_addr #0 {
+define hidden void @phpdbg_set_bucket_watchpoint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store ptr %0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 32, ptr %3, align 8
@@ -527,7 +527,7 @@ define hidden void @phpdbg_set_bucket_watchpoint(ptr noundef %0, ptr noundef ini
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @phpdbg_set_ht_watchpoint(ptr noundef %0, ptr noundef initializes((0, 16), (24, 32), (88, 96)) %1) local_unnamed_addr #0 {
+define hidden void @phpdbg_set_ht_watchpoint(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store ptr %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3033,7 +3033,7 @@ phpdbg_clean_watch_element.exit24:                ; preds = %50, %40, %39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @phpdbg_backup_watch_element(ptr nocapture noundef initializes((120, 176)) %0) local_unnamed_addr #9 {
+define hidden void @phpdbg_backup_watch_element(ptr nocapture noundef %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -4962,7 +4962,7 @@ define internal fastcc i32 @phpdbg_watchpoint_parse_symtables(ptr noundef %0, i6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phpdbg_create_simple_watchpoint(ptr noundef %0, ptr noundef initializes((16, 17)) %1) #0 {
+define internal noundef i32 @phpdbg_create_simple_watchpoint(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct._phpdbg_watchpoint_t, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 1, ptr %4, align 8
@@ -4985,7 +4985,7 @@ define internal noundef i32 @phpdbg_create_simple_watchpoint(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @phpdbg_create_recursive_watchpoint(ptr noundef %0, ptr noundef initializes((16, 17), (24, 32)) %1) #0 {
+define internal noundef i32 @phpdbg_create_recursive_watchpoint(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct._phpdbg_watchpoint_t, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 34, ptr %4, align 8

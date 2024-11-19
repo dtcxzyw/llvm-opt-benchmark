@@ -4290,7 +4290,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, i64 %sv.coerce0, ptr %sv.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, i64 %sv.coerce0, ptr %sv.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #38
   store ptr @_Z9coro_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEE.resume, ptr %call, align 8
@@ -4858,7 +4858,7 @@ _ZN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, i64 %sv.coerce0, ptr %sv.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, i64 %sv.coerce0, ptr %sv.coerce1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(520) ptr @_Znwm(i64 noundef 520) #38
   store ptr @_Z11nested_echoB5cxx11St17basic_string_viewIcSt11char_traitsIcEE.resume, ptr %call, align 8
@@ -54178,7 +54178,7 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS5_EEvPT_D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8protocol17coro_rpc_protocolEEESA_E3$_1EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8protocol17coro_rpc_protocolEEESA_E3$_1EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8protocol17coro_rpc_protocolEEESA_E3$_1EEEEEE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
@@ -54279,7 +54279,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8protocol17coro_rpc_protocolEEESA_E3$_1EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8protocol17coro_rpc_protocolEEESA_E3$_1EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZ16hello_with_delayN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8protocol17coro_rpc_protocolEEESA_E3$_1EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) %this) #33
   tail call void @_ZdlPv(ptr noundef nonnull %this) #36
@@ -60102,7 +60102,7 @@ _ZSt3getILm2EJSt9monostateN2tl8expectedINSt7__cxx1112basic_stringIcSt11char_trai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8protocol17coro_rpc_protocolEEESB_E3$_1EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8protocol17coro_rpc_protocolEEESB_E3$_1EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8protocol17coro_rpc_protocolEEESB_E3$_1EEEEEE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
@@ -60203,7 +60203,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i.i:           ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8protocol17coro_rpc_protocolEEESB_E3$_1EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8protocol17coro_rpc_protocolEEESB_E3$_1EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12HelloService16hello_with_delayEN8coro_rpc12context_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8protocol17coro_rpc_protocolEEESB_E3$_1EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(56) %this) #33
   tail call void @_ZdlPv(ptr noundef nonnull %this) #36
@@ -64582,7 +64582,7 @@ _ZN12async_simple4coro6detail11LazyPromiseINSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7coro_io20get_current_executorIN4asio10io_contextEEEN12async_simple4coro4LazyINT_13executor_typeEEEv.resume(ptr noundef nonnull align 8 dereferenceable(72) initializes((48, 56)) %0) #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7coro_io20get_current_executorIN4asio10io_contextEEEN12async_simple4coro4LazyINT_13executor_typeEEEv.resume(ptr noundef nonnull align 8 dereferenceable(72) %0) #4 personality ptr @__gxx_personality_v0 {
 entry.resume:
   %executor.reload.addr = getelementptr inbounds i8, ptr %0, i64 48
   %ref.tmp7.reload.addr = getelementptr inbounds i8, ptr %0, i64 56
@@ -65934,7 +65934,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt10error_codeED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12async_simple4coro6detail12ViaCoroutine6createEPNS_8ExecutorE.resume(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (48, 56)) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12async_simple4coro6detail12ViaCoroutine6createEPNS_8ExecutorE.resume(ptr noundef nonnull align 8 dereferenceable(64) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 CoroSave28:
   %agg.tmp.i = alloca %"class.std::function.94", align 8
   %ref.tmp8.reload.addr = getelementptr inbounds i8, ptr %0, i64 48

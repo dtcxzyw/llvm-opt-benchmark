@@ -56,7 +56,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15b3GjkEpaSolver28DistanceERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RKS7_RNS_8sResultsE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transB, ptr noundef %hullA, ptr noundef %hullB, ptr noundef nonnull align 8 dereferenceable(25) %verticesA, ptr noundef nonnull align 8 dereferenceable(25) %verticesB, ptr noundef nonnull align 16 dereferenceable(16) %guess, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(80) initializes((0, 4), (16, 48)) %results) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN15b3GjkEpaSolver28DistanceERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RKS7_RNS_8sResultsE(ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transB, ptr noundef %hullA, ptr noundef %hullB, ptr noundef nonnull align 8 dereferenceable(25) %verticesA, ptr noundef nonnull align 8 dereferenceable(25) %verticesB, ptr noundef nonnull align 16 dereferenceable(16) %guess, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(80) %results) local_unnamed_addr #1 align 2 {
 entry:
   %shape = alloca %"struct.gjkepa2_impl2::b3MinkowskiDiff", align 16
   %gjk = alloca %"struct.gjkepa2_impl2::b3GJK", align 16
@@ -380,7 +380,7 @@ return:                                           ; preds = %if.else, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN13gjkepa2_impl2L10InitializeERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RN15b3GjkEpaSolver28sResultsERNS_15b3MinkowskiDiffEb(ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transB, ptr noundef %hullA, ptr noundef %hullB, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(80) initializes((0, 4), (16, 48)) %results, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(129) initializes((0, 129)) %shape, i1 noundef zeroext %withmargins) unnamed_addr #2 {
+define internal fastcc void @_ZN13gjkepa2_impl2L10InitializeERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RN15b3GjkEpaSolver28sResultsERNS_15b3MinkowskiDiffEb(ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transB, ptr noundef %hullA, ptr noundef %hullB, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(80) %results, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(129) %shape, i1 noundef zeroext %withmargins) unnamed_addr #2 {
 entry:
   %witnesses = getelementptr inbounds i8, ptr %results, i64 16
   store i32 0, ptr %results, align 16
@@ -1037,7 +1037,7 @@ sw.epilog212:                                     ; preds = %sw.epilog212.sink.s
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN15b3GjkEpaSolver211PenetrationERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RKS7_RNS_8sResultsEb(ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transB, ptr noundef %hullA, ptr noundef %hullB, ptr noundef nonnull align 8 dereferenceable(25) %verticesA, ptr noundef nonnull align 8 dereferenceable(25) %verticesB, ptr noundef nonnull align 16 dereferenceable(16) %guess, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(80) initializes((0, 4), (16, 48)) %results, i1 noundef zeroext %usemargins) local_unnamed_addr #1 align 2 {
+define dso_local noundef zeroext i1 @_ZN15b3GjkEpaSolver211PenetrationERK11b3TransformS2_PK22b3ConvexPolyhedronDataS5_RK20b3AlignedObjectArrayI9b3Vector3ESA_RKS7_RNS_8sResultsEb(ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(64) %transB, ptr noundef %hullA, ptr noundef %hullB, ptr noundef nonnull align 8 dereferenceable(25) %verticesA, ptr noundef nonnull align 8 dereferenceable(25) %verticesB, ptr noundef nonnull align 16 dereferenceable(16) %guess, ptr nocapture noundef nonnull writeonly align 16 dereferenceable(80) %results, i1 noundef zeroext %usemargins) local_unnamed_addr #1 align 2 {
 entry:
   %shape = alloca %"struct.gjkepa2_impl2::b3MinkowskiDiff", align 16
   %gjk = alloca %"struct.gjkepa2_impl2::b3GJK", align 16

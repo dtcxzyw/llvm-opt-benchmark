@@ -19,7 +19,7 @@ $__clang_call_terminate = comdat any
 @_ZN4absl15BlockingCounterC1Ei = dso_local unnamed_addr alias void (ptr, i32), ptr @_ZN4absl15BlockingCounterC2Ei
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl15BlockingCounterC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %this, i32 noundef %initial_count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl15BlockingCounterC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, i32 noundef %initial_count) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %this, align 8
   %count_ = getelementptr inbounds i8, ptr %this, i64 8

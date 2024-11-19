@@ -371,7 +371,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN15G1PLABAllocatorC1EP11G1Allocator = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN15G1PLABAllocatorC2EP11G1Allocator
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1AllocatorC2EP15G1CollectedHeap(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 18), (24, 48)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1AllocatorC2EP15G1CollectedHeap(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) unnamed_addr #0 align 2 {
 _ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit18:
   store ptr %1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
@@ -622,7 +622,7 @@ _ZN19G1HeapRegionPrinter5reuseEP12G1HeapRegion.exit: ; preds = %_ZN15G1Collected
 declare void @_ZN15G1GCAllocRegion5reuseEP12G1HeapRegion(ptr noundef nonnull align 8 dereferenceable(57), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11G1Allocator21init_gc_alloc_regionsEP10G1EvacInfo(ptr noundef nonnull align 8 dereferenceable(120) initializes((16, 18)) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11G1Allocator21init_gc_alloc_regionsEP10G1EvacInfo(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 17
@@ -709,7 +709,7 @@ define hidden void @_ZN11G1Allocator24release_gc_alloc_regionsEP10G1EvacInfo(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11G1Allocator24abandon_gc_alloc_regionsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((112, 120)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11G1Allocator24abandon_gc_alloc_regionsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr null, ptr %2, align 8
   ret void
@@ -732,14 +732,14 @@ define hidden noundef zeroext i1 @_ZNK11G1Allocator11old_is_fullEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11G1Allocator17set_survivor_fullEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((16, 17)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11G1Allocator17set_survivor_fullEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11G1Allocator12set_old_fullEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((17, 18)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11G1Allocator12set_old_fullEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 1, ptr %2, align 1
   ret void
@@ -1132,7 +1132,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %52, %_ZN13G1AllocRe
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15G1PLABAllocator8PLABDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 52)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN15G1PLABAllocator8PLABDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %0, i8 0, i64 52, i1 false)
   ret void
 }
@@ -1184,7 +1184,7 @@ define hidden void @_ZN15G1PLABAllocator8PLABDataD2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1PLABAllocator8PLABData10initializeEjmm(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8), (48, 52)) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1PLABAllocator8PLABData10initializeEjmm(ptr nocapture noundef nonnull align 8 dereferenceable(52) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %5, align 8
   %6 = zext i32 %1 to i64
@@ -1245,7 +1245,7 @@ define hidden void @_ZN15G1PLABAllocator8PLABData18notify_plab_refillEmm(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1PLABAllocatorC2EP11G1Allocator(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1PLABAllocatorC2EP11G1Allocator(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

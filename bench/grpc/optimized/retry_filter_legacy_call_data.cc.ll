@@ -499,7 +499,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC2EPS1_b(ptr noundef nonnull align 8 dereferenceable(3105) initializes((0, 33), (88, 89), (96, 120), (128, 133), (136, 225), (232, 246), (784, 814), (1352, 1382), (1920, 1944), (1976, 1977), (2280, 2281), (2296, 2302), (2840, 2912)) %this, ptr noundef %calld, i1 noundef zeroext %is_transparent_retry) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptC2EPS1_b(ptr noundef nonnull align 8 dereferenceable(3105) %this, ptr noundef %calld, i1 noundef zeroext %is_transparent_retry) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont16:
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
@@ -1098,7 +1098,7 @@ _ZN38grpc_transport_stream_op_batch_payloadUt5_D2Ev.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptD2Ev(ptr noundef nonnull align 8 dereferenceable(3105) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttemptD2Ev(ptr noundef nonnull align 8 dereferenceable(3105) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData11CallAttemptE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_retry_trace, i64 16) monotonic, align 8
@@ -2998,7 +2998,7 @@ lpad:                                             ; preds = %if.then.i7.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData17AddCancelStreamOpEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(120) initializes((96, 104)) %this, ptr nocapture noundef readonly %error) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData17AddCancelStreamOpEN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef readonly %error) local_unnamed_addr #3 align 2 {
 entry:
   %cancel_stream = getelementptr inbounds i8, ptr %this, i64 40
   %bf.load = load i8, ptr %cancel_stream, align 8
@@ -5078,7 +5078,7 @@ declare noundef ptr @_Z26grpc_status_code_to_string16grpc_status_code(i32 nounde
 declare noundef zeroext i1 @_ZN9grpc_core8internal23ServerRetryThrottleData13RecordFailureEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt21OnPerAttemptRecvTimerEv(ptr noundef nonnull align 8 dereferenceable(3105) initializes((48, 56)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt21OnPerAttemptRecvTimerEv(ptr noundef nonnull align 8 dereferenceable(3105) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %on_per_attempt_recv_timer_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -5711,7 +5711,7 @@ if.end11:                                         ; preds = %entry, %if.end10, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchDataC2ENS_13RefCountedPtrIS2_EEib(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 41), (48, 88)) %this, ptr nocapture noundef %attempt, i32 noundef %refcount, i1 noundef zeroext %set_on_complete) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchDataC2ENS_13RefCountedPtrIS2_EEib(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef %attempt, i32 noundef %refcount, i1 noundef zeroext %set_on_complete) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_retry_trace, i64 16) monotonic, align 8
   %conv = sext i32 %refcount to i64
@@ -6271,7 +6271,7 @@ _ZN9grpc_core13RefCountedPtrINS_11RetryFilter14LegacyCallData11CallAttempt9Batch
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchDataD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchDataD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchDataE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_retry_trace, i64 16) monotonic, align 8
@@ -10308,7 +10308,7 @@ _ZN9grpc_core15metadata_detail10UnknownMap5ClearEv.exit: ; preds = %entry, %whil
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData4InitEP17grpc_call_elementPK22grpc_call_element_args(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %elem, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData4InitEP17grpc_call_elementPK22grpc_call_element_args(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef readonly %elem, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %channel_data = getelementptr inbounds i8, ptr %elem, i64 8
   %0 = load ptr, ptr %channel_data, align 8
@@ -10862,7 +10862,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallDataC2EPS0_RK22grpc_call_element_args(ptr noundef nonnull align 8 dereferenceable(1848) initializes((0, 8), (16, 24)) %this, ptr noundef %chand, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallDataC2EPS0_RK22grpc_call_element_args(ptr noundef nonnull align 8 dereferenceable(1848) %this, ptr noundef %chand, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::BackOff::Options", align 8
   store ptr %chand, ptr %this, align 8
@@ -12132,7 +12132,7 @@ declare void @_ZN9grpc_core7BackOff5ResetEv(ptr noundef nonnull align 8 derefere
 declare i64 @_ZN9grpc_core7BackOff15NextAttemptTimeEv(ptr noundef nonnull align 8 dereferenceable(336)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core11RetryFilter14LegacyCallData12OnRetryTimerEv(ptr noundef nonnull align 8 dereferenceable(1848) initializes((616, 624)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11RetryFilter14LegacyCallData12OnRetryTimerEv(ptr noundef nonnull align 8 dereferenceable(1848) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
   %retry_closure_ = getelementptr inbounds i8, ptr %this, i64 608

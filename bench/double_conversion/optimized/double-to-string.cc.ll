@@ -624,7 +624,7 @@ return:                                           ; preds = %return.sink.split.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_(double noundef %v, i32 noundef %mode, i32 noundef %requested_digits, ptr noundef %buffer, i32 noundef %buffer_length, ptr nocapture noundef writeonly initializes((0, 1)) %sign, ptr noundef %length, ptr noundef %point) local_unnamed_addr #4 align 2 {
+define void @_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_(double noundef %v, i32 noundef %mode, i32 noundef %requested_digits, ptr noundef %buffer, i32 noundef %buffer_length, ptr nocapture noundef writeonly %sign, ptr noundef %length, ptr noundef %point) local_unnamed_addr #4 align 2 {
 entry:
   %0 = bitcast double %v to i64
   %.lobit = lshr i64 %0, 63

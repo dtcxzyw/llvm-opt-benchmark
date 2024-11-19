@@ -663,7 +663,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManSimulateWords(ptr nocapture noundef initializes((816, 820)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @Gia_ManSimulateWords(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 832
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -960,7 +960,7 @@ define internal fastcc void @Gia_ManObjSimAnd(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Gia_ManSimulateWordsInit(ptr nocapture noundef initializes((816, 820)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noundef i32 @Gia_ManSimulateWordsInit(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val48 = load i32, ptr %3, align 4
   %4 = getelementptr i8, ptr %0, i64 64
@@ -1165,7 +1165,7 @@ Gia_ManObjSimPo.exit:                             ; preds = %.lr.ph.i, %.lr.ph31
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManSimulateWordsOut(ptr nocapture noundef initializes((816, 820)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_ManSimulateWordsOut(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %1, i64 4
   %.val74 = load i32, ptr %3, align 4
   %4 = getelementptr i8, ptr %0, i64 64
@@ -2457,7 +2457,7 @@ Vec_IntSum.exit:                                  ; preds = %Vec_IntSum.exit.loo
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManCompareValues(ptr noundef initializes((816, 820)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Gia_ManCompareValues(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val46 = load i32, ptr %5, align 4
   %6 = getelementptr i8, ptr %0, i64 64
@@ -3098,7 +3098,7 @@ define i32 @Gia_ManGetExampleValue(ptr nocapture noundef readonly %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManCompareValues2(i32 %0, ptr noundef initializes((816, 820)) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @Gia_ManCompareValues2(i32 %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 4
   %.val64 = load i32, ptr %6, align 4
   %7 = getelementptr i8, ptr %1, i64 64
@@ -3444,7 +3444,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #12
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManSimulateBatch(ptr nocapture noundef initializes((816, 820)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @Gia_ManSimulateBatch(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [10 x ptr], align 16
   %8 = tail call i32 @Gia_ManSimulateWordsInit(ptr noundef %0, ptr noundef %1)
   %9 = getelementptr inbounds i8, ptr %0, i64 72

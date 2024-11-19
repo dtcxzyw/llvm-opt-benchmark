@@ -961,7 +961,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19FixedFunctionOpDataE, i64 16), ptr %this, align 8
   %m_params = getelementptr inbounds i8, ptr %this, i64 176
@@ -981,7 +981,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpDataD0Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev19FixedFunctionOpDataD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19FixedFunctionOpDataE, i64 16), ptr %this, align 8
   %m_params.i = getelementptr inbounds i8, ptr %this, i64 176
@@ -1005,7 +1005,7 @@ _ZN19OpenColorIO_v2_4dev19FixedFunctionOpDataD2Ev.exit: ; preds = %entry, %if.th
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev19FixedFunctionOpData5cloneEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev19FixedFunctionOpData5cloneEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_style.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i32, ptr %m_style.i, align 8
@@ -2031,7 +2031,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev19FixedFunctionOpData7inverseEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev19FixedFunctionOpData7inverseEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %m_style.i.i = getelementptr inbounds i8, ptr %this, i64 168

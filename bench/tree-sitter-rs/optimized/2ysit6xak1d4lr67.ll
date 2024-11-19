@@ -1602,25 +1602,25 @@ define noundef nonnull ptr @"_ZN11tree_sitter3ffi35_$LT$impl$u20$tree_sitter..Tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN11tree_sitter3ffi35_$LT$impl$u20$tree_sitter..Node$GT$8from_raw17h43d1b88d3c4352d8E"(ptr noalias nocapture noundef writeonly sret({ { [4 x i32], ptr, ptr }, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #6 {
+define void @"_ZN11tree_sitter3ffi35_$LT$impl$u20$tree_sitter..Node$GT$8from_raw17h43d1b88d3c4352d8E"(ptr noalias nocapture noundef writeonly sret({ { [4 x i32], ptr, ptr }, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN11tree_sitter3ffi35_$LT$impl$u20$tree_sitter..Node$GT$8into_raw17h88fa0f6a25f9e4c7E"(ptr noalias nocapture noundef writeonly sret({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #6 {
+define void @"_ZN11tree_sitter3ffi35_$LT$impl$u20$tree_sitter..Node$GT$8into_raw17h88fa0f6a25f9e4c7E"(ptr noalias nocapture noundef writeonly sret({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN11tree_sitter3ffi41_$LT$impl$u20$tree_sitter..TreeCursor$GT$8from_raw17hfe9d409b660760a5E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, [2 x i32] }, {} }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 {
+define void @"_ZN11tree_sitter3ffi41_$LT$impl$u20$tree_sitter..TreeCursor$GT$8from_raw17hfe9d409b660760a5E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, [2 x i32] }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN11tree_sitter3ffi41_$LT$impl$u20$tree_sitter..TreeCursor$GT$8into_raw17h9427f005f68f0bbeE"(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [2 x i32] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 {
+define void @"_ZN11tree_sitter3ffi41_$LT$impl$u20$tree_sitter..TreeCursor$GT$8into_raw17h9427f005f68f0bbeE"(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [2 x i32] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
@@ -2439,7 +2439,7 @@ _ZN11tree_sitter4Tree9root_node17h294ec109d0e19f8eE.exit: ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Tree14changed_ranges17hfdfc680ae54112c3E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64, i64 }, {} }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Tree14changed_ranges17hfdfc680ae54112c3E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64, i64 }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 0, ptr %4, align 4
@@ -2553,7 +2553,7 @@ define noundef nonnull ptr @"_ZN56_$LT$tree_sitter..Tree$u20$as$u20$core..clone.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11tree_sitter4Node3new17h9b71c164e87a3740E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #6 {
+define void @_ZN11tree_sitter4Node3new17h9b71c164e87a3740E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %.not = icmp eq ptr %4, null
@@ -2734,7 +2734,7 @@ define { i64, i64 } @_ZN11tree_sitter4Node10byte_range17h065e3b54adadfa7bE(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node5range17hd04bce46271f0c1fE(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i64, i64 }, i64, i64 }) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node5range17hd04bce46271f0c1fE(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i64, i64 }, i64, i64 }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = tail call noundef i32 @ts_node_start_byte(ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
   %4 = zext i32 %3 to i64
   %5 = tail call noundef i32 @ts_node_end_byte(ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
@@ -2780,7 +2780,7 @@ define { i64, i64 } @_ZN11tree_sitter4Node12end_position17hc6c94dfbb7e537f1E(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node5child17h0c8eafedf0a03daeE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node5child17h0c8eafedf0a03daeE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %5 = trunc i64 %2 to i32
@@ -2812,7 +2812,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN11tree_sitter4Node11child_count1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node11named_child17hffdd57e04353c3e3E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node11named_child17hffdd57e04353c3e3E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %5 = trunc i64 %2 to i32
@@ -2844,7 +2844,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN11tree_sitter4Node17named_child_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node17child_by_field_id17habea97090fe3396cE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i16 noundef %2) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node17child_by_field_id17habea97090fe3396cE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i16 noundef %2) unnamed_addr #1 {
   %4 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @ts_node_child_by_field_id(ptr noalias nocapture noundef nonnull sret({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %4, ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1, i16 noundef zeroext %2)
@@ -2909,7 +2909,7 @@ define { ptr, i64 } @_ZN11tree_sitter4Node20field_name_for_child17h80fede78bd9d7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node8children17hd929ab542019367eE(ptr noalias nocapture noundef writeonly sret({ ptr, { i64, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node8children17hd929ab542019367eE(ptr noalias nocapture noundef writeonly sret({ ptr, { i64, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 {
   tail call void @ts_tree_cursor_reset(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
   %4 = tail call noundef zeroext i1 @ts_tree_cursor_goto_first_child(ptr noundef nonnull align 8 dereferenceable(24) %2)
   %5 = tail call noundef i32 @ts_node_child_count(ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
@@ -2923,7 +2923,7 @@ define void @_ZN11tree_sitter4Node8children17hd929ab542019367eE(ptr noalias noca
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node14named_children17hf3497d7644e71142E(ptr noalias nocapture noundef writeonly sret({ ptr, { i64, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node14named_children17hf3497d7644e71142E(ptr noalias nocapture noundef writeonly sret({ ptr, { i64, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef align 8 dereferenceable(24) %2) unnamed_addr #1 {
   tail call void @ts_tree_cursor_reset(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
   %4 = tail call noundef zeroext i1 @ts_tree_cursor_goto_first_child(ptr noundef nonnull align 8 dereferenceable(24) %2)
   %5 = tail call noundef i32 @ts_node_named_child_count(ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
@@ -2937,7 +2937,7 @@ define void @_ZN11tree_sitter4Node14named_children17hf3497d7644e71142E(ptr noali
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node22children_by_field_name17h31545bd625ba4603E(ptr noalias nocapture noundef writeonly sret({ { ptr, i16, i8, [5 x i8] } }) align 8 dereferenceable(16) initializes((0, 11)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN11tree_sitter4Node22children_by_field_name17h31545bd625ba4603E(ptr noalias nocapture noundef writeonly sret({ { ptr, i16, i8, [5 x i8] } }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef align 8 dereferenceable(24) %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = tail call noundef ptr @ts_node_language(ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
   %7 = trunc i64 %3 to i32
   %8 = tail call noundef zeroext i16 @ts_language_field_id_for_name(ptr noundef %6, ptr noundef nonnull readonly align 1 %2, i32 noundef %7), !noalias !311
@@ -2960,7 +2960,7 @@ define void @_ZN11tree_sitter4Node22children_by_field_name17h31545bd625ba4603E(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node20children_by_field_id17hf09a17b52b1de8eaE(ptr noalias nocapture noundef writeonly sret({ { ptr, i16, i8, [5 x i8] } }) align 8 dereferenceable(16) initializes((0, 11)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i16 noundef %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node20children_by_field_id17hf09a17b52b1de8eaE(ptr noalias nocapture noundef writeonly sret({ { ptr, i16, i8, [5 x i8] } }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i16 noundef %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #1 {
   tail call void @ts_tree_cursor_reset(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
   %5 = tail call noundef zeroext i1 @ts_tree_cursor_goto_first_child(ptr noundef nonnull align 8 dereferenceable(24) %3)
   store ptr %3, ptr %0, align 8
@@ -2972,7 +2972,7 @@ define void @_ZN11tree_sitter4Node20children_by_field_id17hf09a17b52b1de8eaE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node6parent17hd9f0c9ef7bc82ad2E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node6parent17hd9f0c9ef7bc82ad2E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @ts_node_parent(ptr noalias nocapture noundef nonnull sret({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %3, ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
@@ -2996,7 +2996,7 @@ _ZN11tree_sitter4Node3new17h9b71c164e87a3740E.exit: ; preds = %2, %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node12next_sibling17h46b58ce9c4362837E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node12next_sibling17h46b58ce9c4362837E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @ts_node_next_sibling(ptr noalias nocapture noundef nonnull sret({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %3, ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
@@ -3020,7 +3020,7 @@ _ZN11tree_sitter4Node3new17h9b71c164e87a3740E.exit: ; preds = %2, %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node12prev_sibling17h2f4e7f8eb0d0d227E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node12prev_sibling17h2f4e7f8eb0d0d227E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @ts_node_prev_sibling(ptr noalias nocapture noundef nonnull sret({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %3, ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
@@ -3044,7 +3044,7 @@ _ZN11tree_sitter4Node3new17h9b71c164e87a3740E.exit: ; preds = %2, %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node18next_named_sibling17hb97a8244fc0b9ef1E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node18next_named_sibling17hb97a8244fc0b9ef1E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @ts_node_next_named_sibling(ptr noalias nocapture noundef nonnull sret({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %3, ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
@@ -3068,7 +3068,7 @@ _ZN11tree_sitter4Node3new17h9b71c164e87a3740E.exit: ; preds = %2, %6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node18prev_named_sibling17h492e5736b0a3e8faE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node18prev_named_sibling17h492e5736b0a3e8faE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @ts_node_prev_named_sibling(ptr noalias nocapture noundef nonnull sret({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %3, ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
@@ -3099,7 +3099,7 @@ define noundef range(i64 0, 4294967296) i64 @_ZN11tree_sitter4Node16descendant_c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node25descendant_for_byte_range17h278ee3d38bf2f73bE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node25descendant_for_byte_range17h278ee3d38bf2f73bE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %6 = trunc i64 %2 to i32
@@ -3125,7 +3125,7 @@ _ZN11tree_sitter4Node3new17h9b71c164e87a3740E.exit: ; preds = %4, %10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node31named_descendant_for_byte_range17h07a1363823c156e4E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node31named_descendant_for_byte_range17h07a1363823c156e4E(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   %6 = trunc i64 %2 to i32
@@ -3151,7 +3151,7 @@ _ZN11tree_sitter4Node3new17h9b71c164e87a3740E.exit: ; preds = %4, %10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node26descendant_for_point_range17h84380dab93ab0a0dE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node26descendant_for_point_range17h84380dab93ab0a0dE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #1 {
   %7 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %.sroa.2.0.insert.ext = shl i64 %3, 32
@@ -3181,7 +3181,7 @@ _ZN11tree_sitter4Node3new17h9b71c164e87a3740E.exit: ; preds = %6, %10
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node32named_descendant_for_point_range17h33aca0845de90a7aE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node32named_descendant_for_point_range17h33aca0845de90a7aE(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #1 {
   %7 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   %.sroa.2.0.insert.ext = shl i64 %3, 32
@@ -3333,7 +3333,7 @@ define { ptr, i64 } @_ZN11tree_sitter4Node10utf16_text17h75b19cddc7ce5d0bE(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter4Node4walk17h5476a56a99ff6109E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, [2 x i32] }, {} }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
+define void @_ZN11tree_sitter4Node4walk17h5476a56a99ff6109E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, [2 x i32] }, {} }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #1 {
   %3 = alloca { ptr, ptr, [2 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @ts_tree_cursor_new(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, [2 x i32] }) align 8 dereferenceable(24) %3, ptr noalias nocapture noundef nonnull byval({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %1)
@@ -3488,7 +3488,7 @@ _ZN11tree_sitter4Node4kind17habec0513fe3fd623E.exit: ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter10TreeCursor4node17h6b89bf9cdd560ef0E(ptr noalias nocapture noundef writeonly sret({ { [4 x i32], ptr, ptr }, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @_ZN11tree_sitter10TreeCursor4node17h6b89bf9cdd560ef0E(ptr noalias nocapture noundef writeonly sret({ { [4 x i32], ptr, ptr }, {} }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { [4 x i32], ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   call void @ts_tree_cursor_current_node(ptr noalias nocapture noundef nonnull sret({ [4 x i32], ptr, ptr }) align 8 dereferenceable(32) %3, ptr noundef nonnull %1)
@@ -3631,7 +3631,7 @@ define void @_ZN11tree_sitter10TreeCursor8reset_to17hd74b627dd25816baE(ptr noali
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN62_$LT$tree_sitter..TreeCursor$u20$as$u20$core..clone..Clone$GT$5clone17hb8d4fbceb2cb9b64E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, [2 x i32] }, {} }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @"_ZN62_$LT$tree_sitter..TreeCursor$u20$as$u20$core..clone..Clone$GT$5clone17hb8d4fbceb2cb9b64E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, [2 x i32] }, {} }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { ptr, ptr, [2 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @ts_tree_cursor_copy(ptr noalias nocapture noundef nonnull sret({ ptr, ptr, [2 x i32] }) align 8 dereferenceable(24) %3, ptr noundef nonnull %1)
@@ -7834,7 +7834,7 @@ define void @_ZN11tree_sitter10QueryMatch6remove17heec151ff5a2260e9E(ptr noalias
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11tree_sitter10QueryMatch23nodes_for_capture_index17ha851c8f5ea696183E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, i32, [1 x i32] }) align 8 dereferenceable(24) initializes((0, 20)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #6 {
+define void @_ZN11tree_sitter10QueryMatch23nodes_for_capture_index17ha851c8f5ea696183E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, i32, [1 x i32] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #6 {
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !155, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
@@ -7848,7 +7848,7 @@ define void @_ZN11tree_sitter10QueryMatch23nodes_for_capture_index17ha851c8f5ea6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11tree_sitter10QueryMatch3new17h811620d10164e2e3E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i64, ptr, i32, [1 x i32] }) align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #6 {
+define void @_ZN11tree_sitter10QueryMatch3new17h811620d10164e2e3E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i64, ptr, i32, [1 x i32] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #6 {
   %4 = load i32, ptr %1, align 8, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load i16, ptr %5, align 4, !noundef !4
@@ -8077,7 +8077,7 @@ define { i64, i64 } @"_ZN91_$LT$tree_sitter..Point$u20$as$u20$core..convert..Fro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN91_$LT$tree_sitter..Range$u20$as$u20$core..convert..From$LT$tree_sitter..ffi..TSRange$GT$$GT$4from17hd68ff57997cca0bbE"(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i64, i64 }, i64, i64 }) align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #6 {
+define void @"_ZN91_$LT$tree_sitter..Range$u20$as$u20$core..convert..From$LT$tree_sitter..ffi..TSRange$GT$$GT$4from17hd68ff57997cca0bbE"(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i64, i64 }, i64, i64 }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(24) %1) unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 4, !noundef !4
   %5 = zext i32 %4 to i64
@@ -8110,7 +8110,7 @@ define void @"_ZN91_$LT$tree_sitter..Range$u20$as$u20$core..convert..From$LT$tre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN11tree_sitter9LossyUtf83new17hac56428bbc277a9dE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i8, [7 x i8] }) align 8 dereferenceable(24) initializes((0, 17)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #9 {
+define void @_ZN11tree_sitter9LossyUtf83new17hac56428bbc277a9dE(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, i8, [7 x i8] }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #9 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -8393,7 +8393,7 @@ default.unreachable9:                             ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN11tree_sitter19wasm_stdlib_symbols17he8972fdf5d3881a2E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } }, {} } }, {} }) align 8 dereferenceable(72) initializes((0, 66)) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
+define void @_ZN11tree_sitter19wasm_stdlib_symbols17he8972fdf5d3881a2E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, i64, { { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }, i8, i8, [6 x i8] } }, {} } }, {} }) align 8 dereferenceable(72) %0) unnamed_addr #9 personality ptr @rust_eh_personality {
   store i64 0, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 242, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8

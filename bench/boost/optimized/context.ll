@@ -1760,7 +1760,7 @@ define linkonce_odr hidden void @_ZN5boost6fibers18dispatcher_context4run_EONS_7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost6fibers7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6fibers7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5boost6fibers7contextE, i64 16), ptr %0, align 8, !tbaa !10
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN5boost6fibers6detail13spinlock_ttas4lockEv(ptr noundef nonnull align 4 dereferenceable(4) %2) #8

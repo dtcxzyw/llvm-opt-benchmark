@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [3 x i8] c" }\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sle_ManCutMerge(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((4, 8)) %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Sle_ManCutMerge(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [8 x i32], align 16
   %7 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %7, align 8
@@ -2578,7 +2578,7 @@ declare void @sat_solver_delete(ptr noundef) local_unnamed_addr #6
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Sle_ManMarkupVariables(ptr nocapture noundef initializes((20, 24)) %0) local_unnamed_addr #3 {
+define void @Sle_ManMarkupVariables(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 24
   %.val59 = load i32, ptr %3, align 8
@@ -3433,7 +3433,7 @@ declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #1
 declare ptr @Gia_ManEdgeToArray(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Sle_ManDeriveCnf(ptr noundef initializes((56, 64)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Sle_ManDeriveCnf(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @sat_solver_new() #23
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %4, ptr %5, align 8

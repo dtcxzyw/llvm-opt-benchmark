@@ -1268,7 +1268,7 @@ declare dso_local void @input_unregister_device(ptr noundef) local_unnamed_addr 
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @alps_set_protocol(ptr noundef initializes((0, 8)) %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @alps_set_protocol(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 16 {
   %4 = alloca [4 x i8], align 4
   %5 = alloca [4 x i8], align 4
   %6 = alloca [4 x i8], align 4

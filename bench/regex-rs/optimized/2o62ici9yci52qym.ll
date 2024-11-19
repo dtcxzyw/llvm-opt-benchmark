@@ -933,7 +933,7 @@ define void @"_ZN66_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$regex..regex..bytes..Replace
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN66_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$regex..regex..bytes..Replacer$GT$12no_expansion17h89a5a4b41d6580d6E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @"_ZN66_$LT$$RF$$u5b$u8$u5d$$u20$as$u20$regex..regex..bytes..Replacer$GT$12no_expansion17h89a5a4b41d6580d6E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !99)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %3 = load ptr, ptr %1, align 8, !alias.scope !104, !noalias !99, !nonnull !5, !align !42, !noundef !5
@@ -994,7 +994,7 @@ define void @"_ZN79_$LT$regex..regex..bytes..NoExpand$u20$as$u20$regex..regex..b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN79_$LT$regex..regex..bytes..NoExpand$u20$as$u20$regex..regex..bytes..Replacer$GT$12no_expansion17h312355de3c800f9fE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #3 {
+define void @"_ZN79_$LT$regex..regex..bytes..NoExpand$u20$as$u20$regex..regex..bytes..Replacer$GT$12no_expansion17h312355de3c800f9fE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #3 {
   %3 = load ptr, ptr %1, align 8, !nonnull !5, !align !42, !noundef !5
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !5

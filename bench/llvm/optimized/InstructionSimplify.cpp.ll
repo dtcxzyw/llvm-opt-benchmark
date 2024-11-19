@@ -18745,7 +18745,7 @@ define weak_odr void @_ZN4llvm20getBestSimplifyQueryINS_8FunctionEJEEEKNS_13Simp
 declare noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20getBestSimplifyQueryERNS_4PassERNS_8FunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::SimplifyQuery") align 8 initializes((0, 58)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm20getBestSimplifyQueryERNS_4PassERNS_8FunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::SimplifyQuery") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::AnalysisManager", align 8
   %5 = alloca %"class.llvm::TargetLibraryInfo", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18843,7 +18843,7 @@ _ZNK4llvm4Pass22getAnalysisIfAvailableINS_22AssumptionCacheTrackerEEEPT_v.exit.t
 declare noundef nonnull align 8 dereferenceable(185) ptr @_ZN4llvm22AssumptionCacheTracker18getAssumptionCacheERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm20getBestSimplifyQueryERNS_27LoopStandardAnalysisResultsERKNS_10DataLayoutE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::SimplifyQuery") align 8 initializes((0, 58)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(512) %2) local_unnamed_addr #4 {
+define dso_local void @_ZN4llvm20getBestSimplifyQueryERNS_27LoopStandardAnalysisResultsERKNS_10DataLayoutE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::SimplifyQuery") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(512) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -35631,7 +35631,7 @@ define internal void @_ZZL18computePointerICmpN4llvm7CmpInst9PredicateEPNS_5Valu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZZL18computePointerICmpN4llvm7CmpInst9PredicateEPNS_5ValueES3_RKNS_13SimplifyQueryEEN20CustomCaptureTracker11tooManyUsesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((8, 9)) %0) unnamed_addr #9 align 2 {
+define internal void @_ZZL18computePointerICmpN4llvm7CmpInst9PredicateEPNS_5ValueES3_RKNS_13SimplifyQueryEEN20CustomCaptureTracker11tooManyUsesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8
   ret void

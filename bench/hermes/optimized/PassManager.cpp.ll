@@ -40,7 +40,7 @@ $_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE17_M_
 @_ZN6hermes11PassManagerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes11PassManagerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes11PassManagerC2ERKNS_22CodeGenerationSettingsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(392) %settings) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes11PassManagerC2ERKNS_22CodeGenerationSettingsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(392) %settings) unnamed_addr #0 align 2 {
 entry:
   store ptr %settings, ptr %this, align 8
   %pipeline_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -664,7 +664,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes12_GLOBAL__N_110DumpModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN6hermes12_GLOBAL__N_110DumpModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), ptr %this, align 8
   %pass_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -685,7 +685,7 @@ _ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes12_GLOBAL__N_110DumpModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN6hermes12_GLOBAL__N_110DumpModuleD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), ptr %this, align 8
   %pass_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -945,7 +945,7 @@ declare void @_ZNK6hermes8Function4dumpERN4llvh11raw_ostreamE(ptr noundef nonnul
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes12_GLOBAL__N_112DumpFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN6hermes12_GLOBAL__N_112DumpFunctionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), ptr %this, align 8
   %pass_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -966,7 +966,7 @@ _ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6hermes12_GLOBAL__N_112DumpFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN6hermes12_GLOBAL__N_112DumpFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), ptr %this, align 8
   %pass_.i = getelementptr inbounds i8, ptr %this, i64 48

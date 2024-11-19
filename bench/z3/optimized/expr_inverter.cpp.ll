@@ -304,7 +304,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13expr_inverterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13expr_inverterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13expr_inverter, i64 16), ptr %this, align 8
   %m_inverters = getelementptr inbounds i8, ptr %this, i64 64
@@ -452,7 +452,7 @@ _ZN6vectorIP14iexpr_inverterLb0EjED2Ev.exit:      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13expr_inverterD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN13expr_inverterD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN13expr_inverterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -897,7 +897,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %cleanup, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13expr_inverterC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 57), (64, 72)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13expr_inverterC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m2.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %m, ptr %m2.i, align 8
@@ -1823,7 +1823,7 @@ for.end:                                          ; preds = %for.inc, %_ZN3refI2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13expr_inverter18set_produce_proofsEb(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((56, 57)) %this, i1 noundef zeroext %pr) unnamed_addr #7 align 2 {
+define hidden void @_ZN13expr_inverter18set_produce_proofsEb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i1 noundef zeroext %pr) unnamed_addr #7 align 2 {
 entry:
   %frombool = zext i1 %pr to i8
   %m_produce_proofs = getelementptr inbounds i8, ptr %this, i64 56

@@ -244,7 +244,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4i18n9ConverterC2EPKcS3_(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %name, ptr noundef %sub) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4i18n9ConverterC2EPKcS3_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %name, ptr noundef %sub) unnamed_addr #3 align 2 {
 entry:
   %status.i = alloca i32, align 4
   %status = alloca i32, align 4
@@ -348,7 +348,7 @@ if.end21:                                         ; preds = %if.then6, %do.end5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4i18n9ConverterC2EP10UConverterPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %converter, ptr noundef %sub) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4i18n9ConverterC2EP10UConverterPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %converter, ptr noundef %sub) unnamed_addr #3 align 2 {
 entry:
   %status.i = alloca i32, align 4
   store ptr %converter, ptr %this, align 8
@@ -3388,7 +3388,7 @@ entry:
 declare void @node_module_register(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_Z21_register_isolate_icuPN4node11IsolateDataEN2v85LocalINS2_14ObjectTemplateEEE(ptr nocapture noundef initializes((2744, 2752)) %isolate_data, ptr %target.coerce) local_unnamed_addr #3 {
+define dso_local void @_Z21_register_isolate_icuPN4node11IsolateDataEN2v85LocalINS2_14ObjectTemplateEEE(ptr nocapture noundef %isolate_data, ptr %target.coerce) local_unnamed_addr #3 {
 entry:
   %isolate_.i.i = getelementptr inbounds i8, ptr %isolate_data, i64 4056
   %0 = load ptr, ptr %isolate_.i.i, align 8
@@ -3861,7 +3861,7 @@ declare noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferen
 declare noundef i32 @_ZN4node13ParseEncodingEPN2v87IsolateENS0_5LocalINS0_5ValueEEENS_8encodingE(ptr noundef, ptr, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal ptr @_ZN4node4i18n12_GLOBAL__N_19TranscodeEPNS_11EnvironmentEPKcS5_S5_mP10UErrorCode(ptr noundef %env, ptr noundef %fromEncoding, ptr noundef %toEncoding, ptr noundef %source, i64 noundef %source_length, ptr noundef initializes((0, 4)) %status) unnamed_addr #3 {
+define internal ptr @_ZN4node4i18n12_GLOBAL__N_19TranscodeEPNS_11EnvironmentEPKcS5_S5_mP10UErrorCode(ptr noundef %env, ptr noundef %fromEncoding, ptr noundef %toEncoding, ptr noundef %source, i64 noundef %source_length, ptr noundef %status) unnamed_addr #3 {
 entry:
   %status.i19 = alloca i32, align 4
   %status.i6 = alloca i32, align 4
@@ -4047,7 +4047,7 @@ _ZN4node16MaybeStackBufferIcLm1024EED2Ev.exit:    ; preds = %_ZN4node4i18n9Conve
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal ptr @_ZN4node4i18n12_GLOBAL__N_115TranscodeToUcs2EPNS_11EnvironmentEPKcS5_S5_mP10UErrorCode(ptr noundef %env, ptr noundef %fromEncoding, ptr nocapture readnone %toEncoding, ptr noundef %source, i64 noundef %source_length, ptr noundef initializes((0, 4)) %status) unnamed_addr #3 {
+define internal ptr @_ZN4node4i18n12_GLOBAL__N_115TranscodeToUcs2EPNS_11EnvironmentEPKcS5_S5_mP10UErrorCode(ptr noundef %env, ptr noundef %fromEncoding, ptr nocapture readnone %toEncoding, ptr noundef %source, i64 noundef %source_length, ptr noundef %status) unnamed_addr #3 {
 entry:
   %status.i = alloca i32, align 4
   %destbuf = alloca %"class.node::MaybeStackBuffer.269", align 8
@@ -4162,7 +4162,7 @@ _ZN4node16MaybeStackBufferIDsLm1024EED2Ev.exit:   ; preds = %_ZN4node4i18n9Conve
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal ptr @_ZN4node4i18n12_GLOBAL__N_121TranscodeUcs2FromUtf8EPNS_11EnvironmentEPKcS5_S5_mP10UErrorCode(ptr noundef %env, ptr nocapture readnone %fromEncoding, ptr nocapture readnone %toEncoding, ptr noundef %source, i64 noundef %source_length, ptr noundef initializes((0, 4)) %status) unnamed_addr #3 {
+define internal ptr @_ZN4node4i18n12_GLOBAL__N_121TranscodeUcs2FromUtf8EPNS_11EnvironmentEPKcS5_S5_mP10UErrorCode(ptr noundef %env, ptr nocapture readnone %fromEncoding, ptr nocapture readnone %toEncoding, ptr noundef %source, i64 noundef %source_length, ptr noundef %status) unnamed_addr #3 {
 entry:
   %destbuf = alloca %"class.node::MaybeStackBuffer.269", align 8
   %result_length = alloca i32, align 4
@@ -4343,7 +4343,7 @@ _ZN4node16MaybeStackBufferIDsLm1024EED2Ev.exit:   ; preds = %if.end26, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal ptr @_ZN4node4i18n12_GLOBAL__N_121TranscodeUtf8FromUcs2EPNS_11EnvironmentEPKcS5_S5_mP10UErrorCode(ptr noundef %env, ptr nocapture readnone %fromEncoding, ptr nocapture readnone %toEncoding, ptr nocapture noundef readonly %source, i64 noundef %source_length, ptr noundef initializes((0, 4)) %status) unnamed_addr #3 {
+define internal ptr @_ZN4node4i18n12_GLOBAL__N_121TranscodeUtf8FromUcs2EPNS_11EnvironmentEPKcS5_S5_mP10UErrorCode(ptr noundef %env, ptr nocapture readnone %fromEncoding, ptr nocapture readnone %toEncoding, ptr nocapture noundef readonly %source, i64 noundef %source_length, ptr noundef %status) unnamed_addr #3 {
 do.end6.i.i:
   %result_length = alloca i32, align 4
   %sourcebuf = alloca %"class.node::MaybeStackBuffer.269", align 8
@@ -4534,7 +4534,7 @@ _ZN4node16MaybeStackBufferIDsLm1024EED2Ev.exit:   ; preds = %_ZN4node16MaybeStac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal ptr @_ZN4node4i18n12_GLOBAL__N_117TranscodeFromUcs2EPNS_11EnvironmentEPKcS5_S5_mP10UErrorCode(ptr noundef %env, ptr nocapture readnone %fromEncoding, ptr noundef %toEncoding, ptr nocapture noundef readonly %source, i64 noundef %source_length, ptr noundef initializes((0, 4)) %status) unnamed_addr #3 {
+define internal ptr @_ZN4node4i18n12_GLOBAL__N_117TranscodeFromUcs2EPNS_11EnvironmentEPKcS5_S5_mP10UErrorCode(ptr noundef %env, ptr nocapture readnone %fromEncoding, ptr noundef %toEncoding, ptr nocapture noundef readonly %source, i64 noundef %source_length, ptr noundef %status) unnamed_addr #3 {
 entry:
   %status.i9 = alloca i32, align 4
   %status.i = alloca i32, align 4

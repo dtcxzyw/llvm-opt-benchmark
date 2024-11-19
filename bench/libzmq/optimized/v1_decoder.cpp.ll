@@ -51,7 +51,7 @@ $_ZTVN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEE = comdat
 @_ZN3zmq12v1_decoder_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq12v1_decoder_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq12v1_decoder_tC2Eml(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 64), (136, 144)) %this, i64 noundef %bufsize_, i64 noundef %maxmsgsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq12v1_decoder_tC2Eml(ptr noundef nonnull align 8 dereferenceable(144) %this, i64 noundef %bufsize_, i64 noundef %maxmsgsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14decoder_base_tINS_12v1_decoder_tENS_18c_single_allocatorEEE, i64 16), ptr %this, align 8
   %_next.i = getelementptr inbounds i8, ptr %this, i64 8

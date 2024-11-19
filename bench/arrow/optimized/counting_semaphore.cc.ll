@@ -61,7 +61,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow4util17CountingSemaphoreC2Ejd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %initial_avail, double noundef %timeout_seconds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow4util17CountingSemaphoreC2Ejd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i32 noundef %initial_avail, double noundef %timeout_seconds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #12
   store i32 %initial_avail, ptr %call, align 8

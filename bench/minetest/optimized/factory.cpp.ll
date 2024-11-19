@@ -97,7 +97,7 @@ lpad:                                             ; preds = %entry
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: uwtable
-define dso_local void @_Z14createPipelineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3irr14IrrlichtDeviceEP6ClientP3HudR20CreatePipelineResult(ptr noundef nonnull align 8 dereferenceable(32) %stereo_mode, ptr noundef %device, ptr noundef %client, ptr nocapture readnone %hud, ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z14createPipelineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3irr14IrrlichtDeviceEP6ClientP3HudR20CreatePipelineResult(ptr noundef nonnull align 8 dereferenceable(32) %stereo_mode, ptr noundef %device, ptr noundef %client, ptr nocapture readnone %hud, ptr noundef nonnull align 8 dereferenceable(24) %result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noundef ptr @_Z20createShadowRendererPN3irr14IrrlichtDeviceEP6Client(ptr noundef %device, ptr noundef %client)
   %shadow_renderer = getelementptr inbounds i8, ptr %result, i64 8

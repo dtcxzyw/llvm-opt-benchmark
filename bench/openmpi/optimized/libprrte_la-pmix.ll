@@ -702,7 +702,7 @@ declare i32 @PMIx_Info_load(ptr noundef, ptr noundef, ptr noundef, i16 noundef z
 declare i32 @PMIx_Job_control_nb(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @cleanup_cbfunc(i32 noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef initializes((212, 216)) %3, ptr noundef readonly %4, ptr noundef %5) #1 {
+define internal void @cleanup_cbfunc(i32 noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #1 {
   fence release
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %7
@@ -781,7 +781,7 @@ define internal void @infoitdecon(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @arritmcon(ptr noundef initializes((184, 196), (200, 264)) %0) #1 {
+define internal void @arritmcon(ptr noundef %0) #1 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

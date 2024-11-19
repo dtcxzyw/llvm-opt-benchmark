@@ -2007,7 +2007,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 initializes((0, 40)) %agg.result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113StrippingTest18OpenTestExecutableEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrI8_IO_FILESt8functionIFvPS0_EEEC2IS4_vEES2_NSt9enable_ifIXntsr19is_lvalue_referenceIT_EE5valueEOS8_E4typeE.exit:
   %ref.tmp.i = alloca [1 x %"class.absl::str_format_internal::FormatArgImpl"], align 8
   %err = alloca %"class.std::__cxx11::basic_string", align 8

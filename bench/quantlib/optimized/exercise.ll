@@ -419,7 +419,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16AmericanExerciseC2ERKNS_4DateES3_b(ptr nocapture noundef nonnull align 8 dereferenceable(37) initializes((0, 37)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %earliest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %latest, i1 noundef zeroext %payoffAtExpiry) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16AmericanExerciseC2ERKNS_4DateES3_b(ptr nocapture noundef nonnull align 8 dereferenceable(37) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %earliest, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %latest, i1 noundef zeroext %payoffAtExpiry) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -780,7 +780,7 @@ _ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EED2Ev.exit: ; preds = %lpad.body, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16AmericanExerciseC2ERKNS_4DateEb(ptr nocapture noundef nonnull align 8 dereferenceable(37) initializes((0, 37)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %latest, i1 noundef zeroext %payoffAtExpiry) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16AmericanExerciseC2ERKNS_4DateEb(ptr nocapture noundef nonnull align 8 dereferenceable(37) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %latest, i1 noundef zeroext %payoffAtExpiry) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -878,7 +878,7 @@ _ZN8QuantLib8ExerciseD2Ev.exit:                   ; preds = %ehcleanup, %if.then
 declare i64 @_ZN8QuantLib4Date7minDateEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16BermudanExerciseC2ERKSt6vectorINS_4DateESaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(37) initializes((0, 37)) %this, ptr noundef nonnull align 8 dereferenceable(24) %dates, i1 noundef zeroext %payoffAtExpiry) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16BermudanExerciseC2ERKSt6vectorINS_4DateESaIS2_EEb(ptr noundef nonnull align 8 dereferenceable(37) %this, ptr noundef nonnull align 8 dereferenceable(24) %dates, i1 noundef zeroext %payoffAtExpiry) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1356,7 +1356,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16EuropeanExerciseC2ERKNS_4DateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %date) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16EuropeanExerciseC2ERKNS_4DateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %date) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dates_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %dates_.i, i8 0, i64 24, i1 false)

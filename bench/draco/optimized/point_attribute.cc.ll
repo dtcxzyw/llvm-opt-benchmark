@@ -246,7 +246,7 @@ declare void @_ZN5draco17GeometryAttributeC2Ev(ptr noundef nonnull align 8 deref
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5draco14PointAttributeC2ERKNS_17GeometryAttributeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 101), (104, 112)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5draco14PointAttributeC2ERKNS_17GeometryAttributeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -569,7 +569,7 @@ declare noundef zeroext i1 @_ZN5draco17GeometryAttribute8CopyFromERKS0_(ptr noun
 declare noundef zeroext i1 @_ZN5draco10DataBuffer6UpdateEPKvl(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco14PointAttribute6ResizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((96, 100)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco14PointAttribute6ResizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = trunc i64 %1 to i32
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 %3, ptr %4, align 8

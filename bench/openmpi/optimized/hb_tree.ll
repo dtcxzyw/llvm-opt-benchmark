@@ -2015,7 +2015,7 @@ define range(i32 0, 2) i32 @ompi_coll_libnbc_hb_itor_valid(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ompi_coll_libnbc_hb_itor_invalidate(ptr nocapture noundef writeonly initializes((8, 16)) %0) #7 {
+define void @ompi_coll_libnbc_hb_itor_invalidate(ptr nocapture noundef writeonly %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   ret void

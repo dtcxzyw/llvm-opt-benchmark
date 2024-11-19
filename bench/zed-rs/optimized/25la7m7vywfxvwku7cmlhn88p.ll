@@ -9033,7 +9033,7 @@ define hidden void @"_ZN6picker15Picker$LT$D$GT$11select_prev17h47aa100ce13929d2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN6picker15Picker$LT$D$GT$12handle_click17h608d4c1c08ef607cE"(ptr noalias noundef align 8 dereferenceable(288) initializes((248, 256)) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN6picker15Picker$LT$D$GT$12handle_click17h608d4c1c08ef607cE"(ptr noalias noundef align 8 dereferenceable(288) %0, i64 noundef %1, i1 noundef zeroext %2, ptr noalias noundef align 8 dereferenceable(24) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = tail call noundef align 8 dereferenceable(1176) ptr @"_ZN74_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h85bea2cdafe8d9ebE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
   tail call void @_ZN4gpui3app10AppContext16stop_propagation17hde2929fd2a814efcE(ptr noalias noundef nonnull align 8 dereferenceable(1176) %5)
   tail call void @_ZN4gpui6window13WindowContext15prevent_default17h0e5c41f775643a4fE(ptr noalias noundef nonnull align 8 dereferenceable(16) %3)
@@ -10789,7 +10789,7 @@ _ZN4gpui3app10AppContext17observe_new_views17h2e3ae3b3dd38ab52E.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN15project_symbols22ProjectSymbolsDelegate3new17ha00acdcc9cad0cd0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([176 x i8]) align 8 dereferenceable(176) initializes((0, 169)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #7 {
+define hidden void @_ZN15project_symbols22ProjectSymbolsDelegate3new17ha00acdcc9cad0cd0E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([176 x i8]) align 8 dereferenceable(176) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -11602,7 +11602,7 @@ define noundef i64 @"_ZN82_$LT$project_symbols..ProjectSymbolsDelegate$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN82_$LT$project_symbols..ProjectSymbolsDelegate$u20$as$u20$picker..PickerDelegate$GT$18set_selected_index17h4bf6cc3804d9567eE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(176) initializes((160, 168)) %0, i64 noundef %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(24) %2) unnamed_addr #9 {
+define void @"_ZN82_$LT$project_symbols..ProjectSymbolsDelegate$u20$as$u20$picker..PickerDelegate$GT$18set_selected_index17h4bf6cc3804d9567eE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(176) %0, i64 noundef %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(24) %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   store i64 %1, ptr %4, align 8
   ret void

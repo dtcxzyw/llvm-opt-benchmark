@@ -817,7 +817,7 @@ cleanup:                                          ; preds = %if.then51, %for.bod
 declare void @block_job_user_resume(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @commit_prepare(ptr nocapture noundef initializes((565, 566)) %job) #0 {
+define internal i32 @commit_prepare(ptr nocapture noundef %job) #0 {
 entry:
   tail call void @bdrv_graph_rdlock_main_loop() #6
   %commit_top_bs = getelementptr inbounds i8, ptr %job, i64 520
@@ -975,7 +975,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @bdrv_commit_top_child_perm(ptr nocapture readnone %bs, ptr nocapture readnone %c, i32 %role, ptr nocapture readnone %reopen_queue, i64 %perm, i64 %shared, ptr nocapture noundef writeonly initializes((0, 8)) %nperm, ptr nocapture noundef writeonly initializes((0, 8)) %nshared) #4 {
+define internal void @bdrv_commit_top_child_perm(ptr nocapture readnone %bs, ptr nocapture readnone %c, i32 %role, ptr nocapture readnone %reopen_queue, i64 %perm, i64 %shared, ptr nocapture noundef writeonly %nperm, ptr nocapture noundef writeonly %nshared) #4 {
 entry:
   store i64 0, ptr %nperm, align 8
   store i64 15, ptr %nshared, align 8

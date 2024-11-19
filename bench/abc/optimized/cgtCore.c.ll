@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @enable_dbg_outs = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cgt_SetDefaultParams(ptr nocapture noundef writeonly initializes((0, 36)) %0) local_unnamed_addr #0 {
+define void @Cgt_SetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 4
   store i32 25, ptr %0, align 4
@@ -1191,7 +1191,7 @@ declare void @Cgt_ManDetectCandidates(ptr noundef, ptr noundef, ptr noundef, i32
 declare i32 @Cgt_CheckImplication(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cgt_ClockGatingRange(ptr noundef initializes((80, 104)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define i32 @Cgt_ClockGatingRange(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8

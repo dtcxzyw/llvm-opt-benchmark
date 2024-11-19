@@ -287,7 +287,7 @@ define noundef i32 @_ZN3gmx18nonbondedMtsFactorERK10t_inputrec(ptr nocapture nou
 declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx14setupMtsLevelsERKNS_13GromppMtsOptsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(44) %1, ptr noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx14setupMtsLevelsERKNS_13GromppMtsOptsEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(44) %1, ptr noundef %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::vector.53", align 8
@@ -919,7 +919,7 @@ define noundef zeroext i1 @_ZN3gmx17haveValidMtsSetupERK10t_inputrec(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx20checkMtsRequirementsB5cxx11ERK10t_inputrec(ptr dead_on_unwind noalias writable sret(%"class.std::vector.53") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx20checkMtsRequirementsB5cxx11ERK10t_inputrec(ptr dead_on_unwind noalias writable sret(%"class.std::vector.53") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(856) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

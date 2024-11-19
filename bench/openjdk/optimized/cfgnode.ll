@@ -770,7 +770,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZNK7PhiNode22simple_data_loop_checkE
 declare void @_ZN9VectorSetC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10RegionNode15set_loop_statusENS_10LoopStatusE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((56, 60)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN10RegionNode15set_loop_statusENS_10LoopStatusE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %3, align 8
   ret void
@@ -3577,7 +3577,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %102, %100, %2, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL18check_phi_clippingP7PhiNodeRP7ConNodeRjS3_S4_RP4NodeS4_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %6) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL18check_phi_clippingP7PhiNodeRP7ConNodeRjS3_S4_RP4NodeS4_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6) unnamed_addr #2 {
   store ptr null, ptr %1, align 8
   store ptr null, ptr %3, align 8
   store ptr null, ptr %5, align 8
@@ -3728,7 +3728,7 @@ _ZNK4Node7get_intEv.exit56:                       ; preds = %61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL17check_if_clippingPK10RegionNodeRP6IfNodeS4_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL17check_if_clippingPK10RegionNodeRP6IfNodeS4_(ptr nocapture noundef nonnull readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #2 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3935,7 +3935,7 @@ _ZNK4Node7get_intEv.exit:                         ; preds = %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL22check_convf2i_clippingP7PhiNodejRP11ConvF2INodeP4NodeS5_(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @_ZL22check_convf2i_clippingP7PhiNodejRP11ConvF2INodeP4NodeS5_(ptr nocapture noundef nonnull readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 {
   store ptr null, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8

@@ -773,7 +773,7 @@ trace_e1000x_link_negotiation_start.exit:         ; preds = %entry, %land.lhs.tr
 declare void @timer_mod(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @e1000x_reset_mac_addr(ptr noundef %nic, ptr nocapture noundef writeonly initializes((21504, 21512)) %mac_regs, ptr noundef %mac_addr) local_unnamed_addr #0 {
+define dso_local void @e1000x_reset_mac_addr(ptr noundef %nic, ptr nocapture noundef writeonly %mac_regs, ptr noundef %mac_addr) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %arrayidx = getelementptr i8, ptr %mac_regs, i64 21504
@@ -1303,7 +1303,7 @@ if.end24:                                         ; preds = %if.then.i43, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @e1000x_read_tx_ctx_descr(ptr nocapture noundef readonly %d, ptr nocapture noundef writeonly initializes((0, 13), (14, 19)) %props) local_unnamed_addr #5 {
+define dso_local void @e1000x_read_tx_ctx_descr(ptr nocapture noundef readonly %d, ptr nocapture noundef writeonly %props) local_unnamed_addr #5 {
 entry:
   %cmd_and_length = getelementptr inbounds i8, ptr %d, i64 8
   %0 = load i32, ptr %cmd_and_length, align 4

@@ -384,7 +384,7 @@ define hidden noundef zeroext i1 @_ZNK2OT4cff113accelerator_t11get_extentsEP9hb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %2, i1 noundef zeroext %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL11_get_boundsPKN2OT4cff113accelerator_tEjR8bounds_tb(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %2, i1 noundef zeroext %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.CFF::cff1_cs_interp_env_t", align 8
   %6 = alloca %struct.cff1_extents_param_t, align 8
   store double 0x41DFFFFFFFC00000, ptr %2, align 8

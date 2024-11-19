@@ -1071,7 +1071,7 @@ _ZNSt12_Vector_baseIN7rocksdb14ThreadPoolImplESaIS1_EED2Ev.exit: ; preds = %invo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnvD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnvD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_18PosixEnvE, i64 16), ptr %this, align 8
   %threads_to_join_storage_ = getelementptr inbounds i8, ptr %this, i64 136
@@ -1119,7 +1119,7 @@ _ZNSt6vectorIN7rocksdb14ThreadPoolImplESaIS1_EED2Ev.exit: ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnvD0Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnvD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_18PosixEnvE, i64 16), ptr %this, align 8
   %threads_to_join_storage_.i = getelementptr inbounds i8, ptr %this, i64 136
@@ -5249,7 +5249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv22SetAllowNonOwnerAccessEb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, i1 noundef zeroext %allow_non_owner_access) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv22SetAllowNonOwnerAccessEb(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, i1 noundef zeroext %allow_non_owner_access) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %allow_non_owner_access to i8
   %allow_non_owner_access_ = getelementptr inbounds i8, ptr %this, i64 192
@@ -5286,7 +5286,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv26LowerThreadPoolCPUPriorityENS_3Env8PriorityENS_11CpuPriorityE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, i32 noundef %pool, i32 noundef %pri) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_18PosixEnv26LowerThreadPoolCPUPriorityENS_3Env8PriorityENS_11CpuPriorityE(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %this, i32 noundef %pool, i32 noundef %pri) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %thread_pools_ = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %thread_pools_, align 8
@@ -7017,7 +7017,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_110PosixClockD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_110PosixClockD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -7052,7 +7052,7 @@ _ZN7rocksdb11SystemClockD2Ev.exit:                ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_110PosixClockD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_110PosixClockD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -1588,7 +1588,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30AndreasenHugeVolatilityInterplC2ERKSt6vectorISt4pairIN5boost10shared_ptrINS_13VanillaOptionEEENS4_INS_5QuoteEEEESaIS9_EENS_6HandleIS7_EENSE_INS_18YieldTermStructureEEESH_NS0_17InterpolationTypeENS0_15CalibrationTypeEmddNS4_INS_18OptimizationMethodEEERKNS_11EndCriteriaE(ptr noundef nonnull align 8 dereferenceable(488) initializes((0, 12), (16, 296), (320, 392), (400, 404), (408, 416)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %calibrationSet, ptr nocapture noundef %spot, ptr nocapture noundef %rTS, ptr nocapture noundef %qTS, i32 noundef %interplationType, i32 noundef %calibrationType, i64 noundef %nGridPoints, double noundef %_minStrike, double noundef %_maxStrike, ptr nocapture noundef %optimizationMethod, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %endCriteria) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30AndreasenHugeVolatilityInterplC2ERKSt6vectorISt4pairIN5boost10shared_ptrINS_13VanillaOptionEEENS4_INS_5QuoteEEEESaIS9_EENS_6HandleIS7_EENSE_INS_18YieldTermStructureEEESH_NS0_17InterpolationTypeENS0_15CalibrationTypeEmddNS4_INS_18OptimizationMethodEEERKNS_11EndCriteriaE(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %calibrationSet, ptr nocapture noundef %spot, ptr nocapture noundef %rTS, ptr nocapture noundef %qTS, i32 noundef %interplationType, i32 noundef %calibrationType, i64 noundef %nGridPoints, double noundef %_minStrike, double noundef %_maxStrike, ptr nocapture noundef %optimizationMethod, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %endCriteria) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5626,7 +5626,7 @@ _ZNSt12_Vector_baseISt4pairIN5boost10shared_ptrIN8QuantLib13VanillaOptionEEENS2_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30AndreasenHugeVolatilityInterplC1ERKSt6vectorISt4pairIN5boost10shared_ptrINS_13VanillaOptionEEENS4_INS_5QuoteEEEESaIS9_EENS_6HandleIS7_EENSE_INS_18YieldTermStructureEEESH_NS0_17InterpolationTypeENS0_15CalibrationTypeEmddNS4_INS_18OptimizationMethodEEERKNS_11EndCriteriaE(ptr noundef nonnull align 8 dereferenceable(488) initializes((504, 508), (512, 520)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %calibrationSet, ptr nocapture noundef %spot, ptr nocapture noundef %rTS, ptr nocapture noundef %qTS, i32 noundef %interplationType, i32 noundef %calibrationType, i64 noundef %nGridPoints, double noundef %_minStrike, double noundef %_maxStrike, ptr nocapture noundef %optimizationMethod, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %endCriteria) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30AndreasenHugeVolatilityInterplC1ERKSt6vectorISt4pairIN5boost10shared_ptrINS_13VanillaOptionEEENS4_INS_5QuoteEEEESaIS9_EENS_6HandleIS7_EENSE_INS_18YieldTermStructureEEESH_NS0_17InterpolationTypeENS0_15CalibrationTypeEmddNS4_INS_18OptimizationMethodEEERKNS_11EndCriteriaE(ptr noundef nonnull align 8 dereferenceable(488) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %calibrationSet, ptr nocapture noundef %spot, ptr nocapture noundef %rTS, ptr nocapture noundef %qTS, i32 noundef %interplationType, i32 noundef %calibrationType, i64 noundef %nGridPoints, double noundef %_minStrike, double noundef %_maxStrike, ptr nocapture noundef %optimizationMethod, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %endCriteria) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15172,7 +15172,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib30AndreasenHugeVolatilityInterpl16calibrationErrorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.114") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(488) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib30AndreasenHugeVolatilityInterpl16calibrationErrorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.114") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(488) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !33
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24

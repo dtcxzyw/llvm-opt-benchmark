@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.6f6dac06ba3173d8a747ae854c80cc29.26 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr78drop_in_place$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$GT$17h8c365aacaecf455bE", [16 x i8] c"8\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN94_$LT$cranelift_codegen_meta..cdsl..operands..OperandKindFields$u20$as$u20$core..fmt..Debug$GT$3fmt17h2c01e5904583296eE" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nocapture writeonly sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 initializes((0, 136)) %0, ptr nocapture align 8 initializes((120, 136)) %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl8operands7Operand8with_doc17h3978103bf1bca705E(ptr nocapture writeonly sret({ { { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %0, ptr nocapture align 8 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 120
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 128
@@ -137,7 +137,7 @@ define hidden align 8 ptr @_ZN22cranelift_codegen_meta4cdsl8operands17OperandKin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3new17hdbbba651d7307b8bE(ptr nocapture writeonly sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 initializes((0, 104)) %0, ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4, ptr nocapture readonly align 8 %5, ptr align 1 %6, i64 %7) unnamed_addr #0 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind3new17hdbbba651d7307b8bE(ptr nocapture writeonly sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %0, ptr align 1 %1, i64 %2, ptr align 1 %3, i64 %4, ptr nocapture readonly align 8 %5, ptr align 1 %6, i64 %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %3, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 64
@@ -165,7 +165,7 @@ define hidden zeroext i1 @_ZN22cranelift_codegen_meta4cdsl8operands11OperandKind
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nocapture writeonly sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 initializes((0, 16), (56, 96)) %0, ptr align 8 %1) unnamed_addr #1 {
+define void @"_ZN149_$LT$cranelift_codegen_meta..cdsl..operands..OperandKind$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17haa79f95ec8bdc4dcE"(ptr nocapture writeonly sret({ { i64, [6 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = tail call ptr @"_ZN144_$LT$cranelift_codegen_meta..cdsl..typevar..TypeVar$u20$as$u20$core..convert..From$LT$$RF$cranelift_codegen_meta..cdsl..typevar..TypeVar$GT$$GT$4from17h4b80ce8dcf9e285cE"(ptr align 8 %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr @anon.6f6dac06ba3173d8a747ae854c80cc29.5, ptr %4, align 8

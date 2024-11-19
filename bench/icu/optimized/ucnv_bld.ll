@@ -800,7 +800,7 @@ return:                                           ; preds = %ucnv_load_75.exit, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %inName, ptr noundef nonnull %pPieces, ptr nocapture noundef nonnull writeonly initializes((12, 16), (24, 40)) %pArgs, ptr nocapture noundef writeonly %err) unnamed_addr #3 {
+define internal fastcc void @_ZL21parseConverterOptionsPKcP20UConverterNamePiecesP18UConverterLoadArgsP10UErrorCode(ptr noundef %inName, ptr noundef nonnull %pPieces, ptr nocapture noundef nonnull writeonly %pArgs, ptr nocapture noundef writeonly %err) unnamed_addr #3 {
 entry:
   %name = getelementptr inbounds i8, ptr %pArgs, i64 24
   store ptr %inName, ptr %name, align 8

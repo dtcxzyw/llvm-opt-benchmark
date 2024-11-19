@@ -1658,7 +1658,7 @@ declare noundef ptr @_ZN6icu_7511PluralRules9forLocaleERKNS_6LocaleER10UErrorCod
 declare noundef ptr @_ZNK6icu_7511PluralRules5cloneEv(ptr noundef nonnull align 8 dereferenceable(28)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7512PluralFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(712) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7512PluralFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(712) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormatE, i64 16), ptr %this, align 8
   %numberFormat = getelementptr inbounds i8, ptr %this, i64 680
@@ -2891,7 +2891,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_7512PluralFormat11parseObjectERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((12, 16)) %pos) unnamed_addr #10 align 2 {
+define void @_ZNK6icu_7512PluralFormat11parseObjectERKNS_13UnicodeStringERNS_11FormattableERNS_13ParsePositionE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos) unnamed_addr #10 align 2 {
 entry:
   %index.i = getelementptr inbounds i8, ptr %pos, i64 8
   %2 = load i32, ptr %index.i, align 8
@@ -3200,7 +3200,7 @@ entry:
 declare void @llvm.trap() #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7512PluralFormat21PluralSelectorAdapterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7512PluralFormat21PluralSelectorAdapterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512PluralFormat21PluralSelectorAdapterE, i64 16), ptr %this, align 8
   %pluralRules = getelementptr inbounds i8, ptr %this, i64 8

@@ -638,7 +638,7 @@ _ompi_osc_rdma_register.exit:                     ; preds = %156, %opal_thread_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ompi_osc_get_data_complete(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((0, 1)) %4, ptr nocapture readnone %5, i32 %6) #1 {
+define internal void @ompi_osc_get_data_complete(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5, i32 %6) #1 {
   store i8 1, ptr %4, align 1
   ret void
 }

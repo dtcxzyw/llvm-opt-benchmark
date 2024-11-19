@@ -303,7 +303,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN99_$LT$arrayvec..arrayve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$7set_len17h794094b1a9b6dcf6E.llvm.17232701346507961806"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(1764) initializes((1760, 1764)) %0, i64 noundef %1) unnamed_addr #8 {
+define hidden void @"_ZN99_$LT$arrayvec..arrayvec..ArrayVec$LT$T$C$_$GT$$u20$as$u20$arrayvec..arrayvec_impl..ArrayVecImpl$GT$7set_len17h794094b1a9b6dcf6E.llvm.17232701346507961806"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(1764) %0, i64 noundef %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1760
   %4 = trunc i64 %1 to i32
   store i32 %4, ptr %3, align 4

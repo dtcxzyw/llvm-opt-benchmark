@@ -250,13 +250,13 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare double @elapsed_sec() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @routesplines(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @routesplines(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @routesplines_(ptr noundef %0, ptr noundef %1, i32 noundef 0)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @routesplines_(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca %struct.Ppoly_t, align 8
   %5 = alloca %struct.Ppoly_t, align 8
   %6 = alloca %struct.Ppoly_t, align 8
@@ -1462,7 +1462,7 @@ checkpath.exit:                                   ; preds = %77, %59, %613, %571
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @routepolylines(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @routepolylines(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @routesplines_(ptr noundef %0, ptr noundef %1, i32 noundef 1)
   ret ptr %3
 }

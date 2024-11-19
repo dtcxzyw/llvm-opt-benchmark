@@ -119,7 +119,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN6hermes3hbc24LowerBuiltinCallsContextC1ERNS_11StringTableE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN6hermes3hbc24LowerBuiltinCallsContextC2ERNS_11StringTableE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc24LowerBuiltinCallsContextC2ERNS_11StringTableE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 28), (32, 52)) %this, ptr noundef nonnull align 8 dereferenceable(32) %strTab) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc24LowerBuiltinCallsContextC2ERNS_11StringTableE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %strTab) unnamed_addr #0 align 2 {
 entry:
   %ConstFoundBucket.i.i.i2549 = alloca ptr, align 8
   %ConstFoundBucket.i.i.i2492 = alloca ptr, align 8

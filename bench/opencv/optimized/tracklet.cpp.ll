@@ -41,7 +41,7 @@ $_ZNSt5dequeIN2cv5Rect_IfEESaIS2_EE17_M_reallocate_mapEmb = comdat any
 @_ZN3vas2ot26ShortTermImagelessTrackletD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3vas2ot26ShortTermImagelessTrackletD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3vas2ot8TrackletC2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 44), (48, 128)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot8TrackletC2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3vas2ot8TrackletE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -112,7 +112,7 @@ _ZNSt11_Deque_baseIN2cv5Rect_IfEESaIS2_EED2Ev.exit: ; preds = %1, %_ZNSt11_Deque
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3vas2ot8TrackletD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot8TrackletD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3vas2ot8TrackletE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = load ptr, ptr %2, align 8
@@ -210,7 +210,7 @@ _ZNSt5dequeIN2cv5Rect_IfEESaIS2_EED2Ev.exit7:     ; preds = %_ZNSt5dequeIN2cv5Re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3vas2ot8TrackletD0Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN3vas2ot8TrackletD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN3vas2ot8TrackletD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) #15
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void
@@ -560,7 +560,7 @@ define hidden noalias noundef ptr @_ZN3vas2ot8Tracklet14GetRgbFeaturesEv(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3vas2ot25ZeroTermImagelessTrackletC2Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 44), (48, 128)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot25ZeroTermImagelessTrackletC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3vas2ot8TrackletE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -598,7 +598,7 @@ _ZN3vas2ot8TrackletC2Ev.exit:                     ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3vas2ot25ZeroTermImagelessTrackletD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot25ZeroTermImagelessTrackletD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3vas2ot25ZeroTermImagelessTrackletE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
@@ -616,7 +616,7 @@ _ZNSt10unique_ptrIN3vas20KalmanFilterNoOpencvESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3vas2ot25ZeroTermImagelessTrackletD0Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot25ZeroTermImagelessTrackletD0Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3vas2ot25ZeroTermImagelessTrackletE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
@@ -827,7 +827,7 @@ declare { <2 x float>, <2 x float> } @_ZN3vas20KalmanFilterNoOpencv7PredictEf(pt
 declare { <2 x float>, <2 x float> } @_ZN3vas20KalmanFilterNoOpencv7CorrectERKN2cv5Rect_IfEE(ptr noundef nonnull align 4 dereferenceable(284), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3vas2ot26ShortTermImagelessTrackletC2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 44), (48, 128)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot26ShortTermImagelessTrackletC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3vas2ot8TrackletE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -863,7 +863,7 @@ _ZN3vas2ot8TrackletC2Ev.exit:                     ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3vas2ot26ShortTermImagelessTrackletD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot26ShortTermImagelessTrackletD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3vas2ot26ShortTermImagelessTrackletE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
@@ -881,7 +881,7 @@ _ZNSt10unique_ptrIN3vas20KalmanFilterNoOpencvESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3vas2ot26ShortTermImagelessTrackletD0Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot26ShortTermImagelessTrackletD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3vas2ot26ShortTermImagelessTrackletE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8

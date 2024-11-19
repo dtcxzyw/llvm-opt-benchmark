@@ -220,7 +220,7 @@ pmix_obj_run_destructors.exit29:                  ; preds = %.lr.ph.i26, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @qcon(ptr noundef initializes((696, 708), (712, 776)) %0) #1 {
+define internal void @qcon(ptr noundef %0) #1 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

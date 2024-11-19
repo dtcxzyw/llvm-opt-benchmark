@@ -57,7 +57,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc57context7ContextC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 48)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc57context7ContextC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_scopeList = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %d_scopeList, i8 0, i64 40, i1 false)
@@ -882,7 +882,7 @@ cond.end40:                                       ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef readonly %pContext) unnamed_addr #11 align 2 {
+define void @_ZN4cvc57context10ContextObjC2EPNS0_7ContextE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %pContext) unnamed_addr #11 align 2 {
 cond.end:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context10ContextObjE, i64 16), ptr %this, align 8
   %d_pScope = getelementptr inbounds i8, ptr %this, i64 8
@@ -1069,7 +1069,7 @@ _ZNSt6vectorIPN4cvc57context10ContextObjESaIS3_EE9push_backERKS3_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4cvc57context16ContextNotifyObjC2EPNS0_7ContextEb(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef %pContext, i1 noundef zeroext %preNotify) unnamed_addr #10 align 2 {
+define hidden void @_ZN4cvc57context16ContextNotifyObjC2EPNS0_7ContextEb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %pContext, i1 noundef zeroext %preNotify) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i64 16), ptr %this, align 8
   br i1 %preNotify, label %if.then, label %if.else
@@ -1123,7 +1123,7 @@ if.end:                                           ; preds = %_ZN4cvc57context7Co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4cvc57context16ContextNotifyObjD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
+define hidden void @_ZN4cvc57context16ContextNotifyObjD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i64 16), ptr %this, align 8
   %d_pCNOnext = getelementptr inbounds i8, ptr %this, i64 8

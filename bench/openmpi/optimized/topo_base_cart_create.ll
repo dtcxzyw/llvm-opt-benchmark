@@ -463,7 +463,7 @@ declare i32 @ompi_comm_create(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @ompi_group_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_topo_base_comm_cart_2_2_0_construct(ptr nocapture noundef writeonly initializes((16, 20), (24, 48)) %0) #3 {
+define internal void @mca_topo_base_comm_cart_2_2_0_construct(ptr nocapture noundef writeonly %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24

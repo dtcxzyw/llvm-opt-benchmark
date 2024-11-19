@@ -690,7 +690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11MixEvalArgsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11MixEvalArgsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.nix::Args::Flag", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -2948,7 +2948,7 @@ _ZNSt7__cxx114listIN3nix10SearchPath4ElemESaIS3_EED2Ev.exit: ; preds = %_ZNSt16a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11MixEvalArgsC1Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((120, 128), (136, 140), (144, 152)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11MixEvalArgsC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.nix::Args::Flag", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1

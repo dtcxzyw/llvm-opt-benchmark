@@ -4225,7 +4225,7 @@ declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @restorePsetInfo(ptr nocapture noundef initializes((0, 48), (56, 64), (72, 88), (96, 120), (136, 168)) %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
+define dso_local void @restorePsetInfo(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #17

@@ -2583,7 +2583,7 @@ _ZN12_GLOBAL__N_120LowerTypeTestsModule13runForTestingERN4llvm6ModuleERNS1_15Ana
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120LowerTypeTestsModuleC2ERN4llvm6ModuleERNS1_15AnalysisManagerIS2_JEEEPNS1_18ModuleSummaryIndexEPKS7_b(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 25), (28, 32), (40, 42), (44, 52), (56, 148), (152, 184), (192, 212)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120LowerTypeTestsModuleC2ERN4llvm6ModuleERNS1_15AnalysisManagerIS2_JEEEPNS1_18ModuleSummaryIndexEPKS7_b(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Triple", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca ptr, align 8
@@ -20754,7 +20754,7 @@ declare void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef, i1 noundef zeroext)
 declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125ScopedSaveAliaseesAndUsedC2ERN4llvm6ModuleE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125ScopedSaveAliaseesAndUsedC2ERN4llvm6ModuleE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -30570,7 +30570,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12GlobalObjectEPN12_GLOBAL__N_116GlobalT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12GlobalObjectEPN12_GLOBAL__N_116GlobalTypeMemberENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12GlobalObjectEPN12_GLOBAL__N_116GlobalTypeMemberENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -30863,7 +30863,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEZN12_GLOBAL__N_120LowerTypeTes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEZN12_GLOBAL__N_120LowerTypeTestsModule5lowerEvE6TIInfoNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEZN12_GLOBAL__N_120LowerTypeTestsModule5lowerEvE6TIInfoNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -31216,7 +31216,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEN12_GLOBAL__N_120LowerTypeTest
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEN12_GLOBAL__N_120LowerTypeTestsModule14TypeIdUserInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEN12_GLOBAL__N_120LowerTypeTestsModule14TypeIdUserInfoENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -36184,7 +36184,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_8MetadataEmNS_12DenseMapInfoIS3_vEENS_6d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_116GlobalTypeMemberEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPN12_GLOBAL__N_116GlobalTypeMemberEmNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_mEEEES4_mS6_S9_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

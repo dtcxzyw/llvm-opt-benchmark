@@ -901,7 +901,7 @@ parse_policy_command.exit.thread:                 ; preds = %22, %13, %31, %pars
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly %0, ptr nocapture noundef nonnull initializes((0, 4)) %1) unnamed_addr #0 {
+define internal fastcc ptr @policy_role_list_to_array(ptr noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 

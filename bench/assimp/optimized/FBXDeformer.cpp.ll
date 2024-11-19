@@ -503,7 +503,7 @@ _ZNSt12__shared_ptrIKN6Assimp3FBX13PropertyTableELN9__gnu_cxx12_Lock_policyE2EED
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX8DeformerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX8DeformerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3FBX8DeformerE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -587,7 +587,7 @@ _ZNSt10shared_ptrIKN6Assimp3FBX13PropertyTableEED2Ev.exit: ; preds = %entry, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX8DeformerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX8DeformerD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3FBX8DeformerE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -1567,7 +1567,7 @@ eh.resume:                                        ; preds = %ehcleanup61, %lpad.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3FBX7ClusterE, i64 16), ptr %this, align 8
   %indices = getelementptr inbounds i8, ptr %this, i64 96
@@ -1672,7 +1672,7 @@ _ZN6Assimp3FBX8DeformerD2Ev.exit:                 ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX7ClusterD0Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp3FBX7ClusterD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN6Assimp3FBX7ClusterD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
@@ -2322,7 +2322,7 @@ eh.resume:                                        ; preds = %ehcleanup61, %lpad.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX4SkinD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX4SkinD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3FBX4SkinE, i64 16), ptr %this, align 8
   %clusters = getelementptr inbounds i8, ptr %this, i64 80
@@ -2417,7 +2417,7 @@ _ZN6Assimp3FBX8DeformerD2Ev.exit:                 ; preds = %_ZNSt6vectorIPKN6As
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX4SkinD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp3FBX4SkinD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN6Assimp3FBX4SkinD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
@@ -2921,7 +2921,7 @@ _ZNSt10_HashtableIPKN6Assimp3FBX17BlendShapeChannelES4_SaIS4_ENSt8__detail9_Iden
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX10BlendShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX10BlendShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3FBX10BlendShapeE, i64 16), ptr %this, align 8
   %blendShapeChannels = getelementptr inbounds i8, ptr %this, i64 72
@@ -3036,7 +3036,7 @@ _ZN6Assimp3FBX8DeformerD2Ev.exit:                 ; preds = %_ZNSt13unordered_se
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX10BlendShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp3FBX10BlendShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN6Assimp3FBX10BlendShapeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17
@@ -3756,7 +3756,7 @@ _ZNSt10_HashtableIPKN6Assimp3FBX13ShapeGeometryES4_SaIS4_ENSt8__detail9_Identity
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX17BlendShapeChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX17BlendShapeChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3FBX17BlendShapeChannelE, i64 16), ptr %this, align 8
   %shapeGeometries = getelementptr inbounds i8, ptr %this, i64 104
@@ -3881,7 +3881,7 @@ _ZN6Assimp3FBX8DeformerD2Ev.exit:                 ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX17BlendShapeChannelD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp3FBX17BlendShapeChannelD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN6Assimp3FBX17BlendShapeChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #17

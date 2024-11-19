@@ -750,7 +750,7 @@ _ZN2v814PersistentBaseINS_7ContextEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.e
 declare void @_ZN2v87Context31SetAlignedPointerInEmbedderDataEiPv(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10contextify17ContextifyContextD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10contextify17ContextifyContextD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10contextify17ContextifyContextE, i64 16), ptr %this, align 8
@@ -822,7 +822,7 @@ declare void @_ZN4node11Environment19UnassignFromContextEN2v85LocalINS1_7Context
 declare void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10contextify17ContextifyContextD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10contextify17ContextifyContextD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node10contextify17ContextifyContextD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -833,7 +833,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10contextify17ContextifyContext25InitializeGlobalTemplatesEPNS_11IsolateDataE(ptr noundef initializes((2616, 2624)) %isolate_data) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10contextify17ContextifyContext25InitializeGlobalTemplatesEPNS_11IsolateDataE(ptr noundef %isolate_data) local_unnamed_addr #3 align 2 {
 entry:
   %config = alloca %"struct.v8::NamedPropertyHandlerConfiguration", align 8
   %indexed_config = alloca %"struct.v8::IndexedPropertyHandlerConfiguration", align 8
@@ -6415,7 +6415,7 @@ declare ptr @_ZN2v86Object16GetPropertyNamesENS_5LocalINS_7ContextEEE(ptr nounde
 declare i16 @_ZN2v86Object6DeleteENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1), ptr, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10contextify16ContextifyScript26CreatePerIsolatePropertiesEPNS_11IsolateDataEN2v85LocalINS4_14ObjectTemplateEEE(ptr nocapture noundef initializes((2816, 2824)) %isolate_data, ptr %target.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10contextify16ContextifyScript26CreatePerIsolatePropertiesEPNS_11IsolateDataEN2v85LocalINS4_14ObjectTemplateEEE(ptr nocapture noundef %isolate_data, ptr %target.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %isolate_.i = getelementptr inbounds i8, ptr %isolate_data, i64 4056
   %0 = load ptr, ptr %isolate_.i, align 8
@@ -9234,7 +9234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10contextify16ContextifyScriptD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10contextify16ContextifyScriptD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10contextify16ContextifyScriptE, i64 16), ptr %this, align 8
   %script_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -9253,7 +9253,7 @@ _ZN2v814PersistentBaseINS_13UnboundScriptEE5ResetEv.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10contextify16ContextifyScriptD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10contextify16ContextifyScriptD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node10contextify16ContextifyScriptE, i64 16), ptr %this, align 8
   %script_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -9283,7 +9283,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10contextify17ContextifyContext25GetCommonJSSourceInstanceEPN2v87IsolateENS2_5LocalINS2_6StringEEES7_iiNS5_INS2_14PrimitiveArrayEEEPNS2_14ScriptCompiler10CachedDataE(ptr noalias nocapture writeonly sret(%"class.v8::ScriptCompiler::Source") align 8 initializes((0, 28), (32, 80)) %agg.result, ptr noundef %isolate, ptr %code.coerce, ptr %filename.coerce, i32 noundef %line_offset, i32 noundef %column_offset, i64 %host_defined_options.coerce, ptr noundef %cached_data) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10contextify17ContextifyContext25GetCommonJSSourceInstanceEPN2v87IsolateENS2_5LocalINS2_6StringEEES7_iiNS5_INS2_14PrimitiveArrayEEEPNS2_14ScriptCompiler10CachedDataE(ptr noalias nocapture writeonly sret(%"class.v8::ScriptCompiler::Source") align 8 %agg.result, ptr noundef %isolate, ptr %code.coerce, ptr %filename.coerce, i32 noundef %line_offset, i32 noundef %column_offset, i64 %host_defined_options.coerce, ptr noundef %cached_data) local_unnamed_addr #3 align 2 {
 entry:
   %origin = alloca %"class.v8::ScriptOrigin", align 8
   %coerce.val.ip = inttoptr i64 %host_defined_options.coerce to ptr
@@ -9555,7 +9555,7 @@ declare ptr @_ZNK2v88TryCatch7MessageEv(ptr noundef nonnull align 8 dereferencea
 declare ptr @_ZNK2v87Message3GetEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10contextify26CreatePerIsolatePropertiesEPNS_11IsolateDataEN2v85LocalINS3_14ObjectTemplateEEE(ptr nocapture noundef initializes((2816, 2824)) %isolate_data, ptr %target.coerce) local_unnamed_addr #3 {
+define dso_local void @_ZN4node10contextify26CreatePerIsolatePropertiesEPNS_11IsolateDataEN2v85LocalINS3_14ObjectTemplateEEE(ptr nocapture noundef %isolate_data, ptr %target.coerce) local_unnamed_addr #3 {
 entry:
   %isolate_.i = getelementptr inbounds i8, ptr %isolate_data, i64 4056
   %0 = load ptr, ptr %isolate_.i, align 8
@@ -10089,7 +10089,7 @@ entry:
 declare void @node_module_register(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_Z28_register_isolate_contextifyPN4node11IsolateDataEN2v85LocalINS2_14ObjectTemplateEEE(ptr nocapture noundef initializes((2816, 2824)) %isolate_data, ptr %target.coerce) local_unnamed_addr #3 {
+define dso_local void @_Z28_register_isolate_contextifyPN4node11IsolateDataEN2v85LocalINS2_14ObjectTemplateEEE(ptr nocapture noundef %isolate_data, ptr %target.coerce) local_unnamed_addr #3 {
 entry:
   tail call void @_ZN4node10contextify26CreatePerIsolatePropertiesEPNS_11IsolateDataEN2v85LocalINS3_14ObjectTemplateEEE(ptr noundef %isolate_data, ptr %target.coerce)
   ret void

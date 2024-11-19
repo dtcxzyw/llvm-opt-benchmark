@@ -2148,7 +2148,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp3IFC5Curve11ReverseEvalERK10aiVector3tIdERd(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %paramOut) unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp3IFC5Curve11ReverseEvalERK10aiVector3tIdERd(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %val, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %paramOut) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
@@ -2373,7 +2373,7 @@ entry:
 declare void @_ZN6Assimp3IFC21ConvertCartesianPointER10aiVector3tIdERKNS0_10Schema_2x317IfcCartesianPointE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6Assimp3IFC12_GLOBAL__N_18PolyLineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6Assimp3IFC12_GLOBAL__N_18PolyLineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_18PolyLineE, i64 16), ptr %this, align 8
   %points = getelementptr inbounds i8, ptr %this, i64 24
@@ -2390,7 +2390,7 @@ _ZNSt6vectorI10aiVector3tIdESaIS1_EED2Ev.exit:    ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6Assimp3IFC12_GLOBAL__N_18PolyLineD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6Assimp3IFC12_GLOBAL__N_18PolyLineD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_18PolyLineE, i64 16), ptr %this, align 8
   %points.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2408,7 +2408,7 @@ _ZN6Assimp3IFC12_GLOBAL__N_18PolyLineD2Ev.exit:   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK6Assimp3IFC12_GLOBAL__N_18PolyLine4EvalEd(ptr noalias nocapture writeonly sret(%class.aiVector3t) align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %p) unnamed_addr #9 align 2 {
+define internal void @_ZNK6Assimp3IFC12_GLOBAL__N_18PolyLine4EvalEd(ptr noalias nocapture writeonly sret(%class.aiVector3t) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, double noundef %p) unnamed_addr #9 align 2 {
 entry:
   %0 = tail call double @llvm.floor.f64(double %p)
   %conv = fptoui double %0 to i64
@@ -2666,7 +2666,7 @@ _ZNSt12__shared_ptrIKN6Assimp3IFC5CurveELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6Assimp3IFC12_GLOBAL__N_112TrimmedCurveD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6Assimp3IFC12_GLOBAL__N_112TrimmedCurveD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_112TrimmedCurveE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2747,7 +2747,7 @@ _ZNSt10shared_ptrIKN6Assimp3IFC5CurveEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6Assimp3IFC12_GLOBAL__N_112TrimmedCurveD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6Assimp3IFC12_GLOBAL__N_112TrimmedCurveD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_112TrimmedCurveE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -3454,7 +3454,7 @@ _ZNSt12_Vector_baseISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6Assimp3IFC12_GLOBAL__N_114CompositeCurveD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6Assimp3IFC12_GLOBAL__N_114CompositeCurveD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_114CompositeCurveE, i64 16), ptr %this, align 8
   %curves = getelementptr inbounds i8, ptr %this, i64 24
@@ -3562,7 +3562,7 @@ _ZNSt6vectorISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6Assimp3IFC12_GLOBAL__N_114CompositeCurveD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6Assimp3IFC12_GLOBAL__N_114CompositeCurveD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_114CompositeCurveE, i64 16), ptr %this, align 8
   %curves.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -4318,7 +4318,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal void @_ZNK6Assimp3IFC12_GLOBAL__N_16Circle4EvalEd(ptr noalias nocapture writeonly sret(%class.aiVector3t) align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, double noundef %u) unnamed_addr #18 align 2 {
+define internal void @_ZNK6Assimp3IFC12_GLOBAL__N_16Circle4EvalEd(ptr noalias nocapture writeonly sret(%class.aiVector3t) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, double noundef %u) unnamed_addr #18 align 2 {
 entry:
   %conv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %conv, align 8
@@ -4451,7 +4451,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal void @_ZNK6Assimp3IFC12_GLOBAL__N_17Ellipse4EvalEd(ptr noalias nocapture writeonly sret(%class.aiVector3t) align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, double noundef %u) unnamed_addr #20 align 2 {
+define internal void @_ZNK6Assimp3IFC12_GLOBAL__N_17Ellipse4EvalEd(ptr noalias nocapture writeonly sret(%class.aiVector3t) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, double noundef %u) unnamed_addr #20 align 2 {
 entry:
   %conv = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %conv, align 8
@@ -4530,7 +4530,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZNK6Assimp3IFC12_GLOBAL__N_14Line4EvalEd(ptr noalias nocapture writeonly sret(%class.aiVector3t) align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, double noundef %u) unnamed_addr #23 align 2 {
+define internal void @_ZNK6Assimp3IFC12_GLOBAL__N_14Line4EvalEd(ptr noalias nocapture writeonly sret(%class.aiVector3t) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, double noundef %u) unnamed_addr #23 align 2 {
 entry:
   %p = getelementptr inbounds i8, ptr %this, i64 24
   %v = getelementptr inbounds i8, ptr %this, i64 48

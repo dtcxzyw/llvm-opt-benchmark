@@ -1268,7 +1268,7 @@ _ZSt11stable_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm9symbolize22Symbolizable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm9symbolize22SymbolizableObjectFileC2EPKNS_6object10ObjectFileESt10unique_ptrINS_9DIContextESt14default_deleteIS7_EEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 25), (32, 80)) %0, ptr noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm9symbolize22SymbolizableObjectFileC2EPKNS_6object10ObjectFileESt10unique_ptrINS_9DIContextESt14default_deleteIS7_EEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr nocapture noundef %2, i1 noundef zeroext %3) unnamed_addr #4 align 2 {
   %5 = zext i1 %3 to i8
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm9symbolize22SymbolizableObjectFileE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2024,7 +2024,7 @@ define dso_local void @_ZNK4llvm9symbolize22SymbolizableObjectFile14symbolizeFra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm9symbolize22SymbolizableObjectFile10findSymbolENS_9StringRefEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.79") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr nocapture readonly %2, i64 %3, i64 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm9symbolize22SymbolizableObjectFile10findSymbolENS_9StringRefEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.79") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr nocapture readonly %2, i64 %3, i64 noundef %4) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load ptr, ptr %6, align 8

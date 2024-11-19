@@ -292,7 +292,7 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @logcat_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #1 {
+define internal range(i32 0, 2) i32 @logcat_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #1 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #9
   store i64 %8, ptr %5, align 8
@@ -456,7 +456,7 @@ define internal range(i32 -9, 1) i32 @logcat_dump_can_write_encap(i32 noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @logcat_binary_dump_open(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #7 {
+define internal noundef i32 @logcat_binary_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @logcat_binary_dump, ptr %4, align 8
   ret i32 1

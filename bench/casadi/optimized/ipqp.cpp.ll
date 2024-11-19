@@ -538,7 +538,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @casadi_register_conic_ipqp(ptr nocapture noundef writeonly initializes((0, 28), (32, 48)) %0) #4 {
+define noundef i32 @casadi_register_conic_ipqp(ptr nocapture noundef writeonly %0) #4 {
   store ptr @_ZN6casadi4Ipqp7creatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_NS_8SparsityESt4lessIS6_ESaISt4pairIS7_SA_EEE, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str.6, ptr %2, align 8
@@ -692,7 +692,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZN6casadi5ConicD2Ev(ptr noundef nonnull align 8 dereferenceable(1472)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi4IpqpD2Ev(ptr noundef nonnull align 8 dereferenceable(1656) initializes((0, 8), (1304, 1312)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi4IpqpD2Ev(ptr noundef nonnull align 8 dereferenceable(1656) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi4IpqpE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1304
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi4IpqpE, i64 960), ptr %2, align 8
@@ -1092,7 +1092,7 @@ declare void @_ZN6casadi5Conic4initERKSt3mapINSt7__cxx1112basic_stringIcSt11char
 declare void @_ZN6casadi8Sparsity3kktERKS0_S2_bb(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6casadi4Ipqp11set_qp_probEv(ptr nocapture noundef nonnull align 8 dereferenceable(1656) initializes((1472, 1552)) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN6casadi4Ipqp11set_qp_probEv(ptr nocapture noundef nonnull align 8 dereferenceable(1656) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1472
   %3 = getelementptr inbounds i8, ptr %0, i64 1448
   %4 = load i64, ptr %3, align 8

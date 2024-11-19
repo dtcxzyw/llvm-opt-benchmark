@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8OSThread13pd_initializeEv(ptr noundef nonnull align 8 dereferenceable(196) initializes((8, 16), (152, 172), (176, 184), (192, 196)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8OSThread13pd_initializeEv(ptr noundef nonnull align 8 dereferenceable(196) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8

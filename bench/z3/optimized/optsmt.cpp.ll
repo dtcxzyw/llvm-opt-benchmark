@@ -7642,7 +7642,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare void @_ZN3smt12theory_arithINS_7inf_extEE17conflict_minimizeEv(ptr sret(%class.inf_eps_rational) align 8, ptr noundef nonnull align 8 dereferenceable(1736)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3opt6optsmt5setupERNS_10opt_solverE(ptr noundef nonnull align 8 dereferenceable(120) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(1034) %solver) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3opt6optsmt5setupERNS_10opt_solverE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(1034) %solver) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %out = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %struct.mk_pp, align 8

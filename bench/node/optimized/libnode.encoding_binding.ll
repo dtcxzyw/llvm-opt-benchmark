@@ -599,7 +599,7 @@ return:                                           ; preds = %do.end5, %_ZN2v814P
 declare i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node16encoding_binding11BindingData23PrepareForSerializationEN2v85LocalINS2_7ContextEEEPNS2_15SnapshotCreatorE(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((96, 104)) %this, ptr %context.coerce, ptr noundef %creator) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node16encoding_binding11BindingData23PrepareForSerializationEN2v85LocalINS2_7ContextEEEPNS2_15SnapshotCreatorE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr %context.coerce, ptr noundef %creator) unnamed_addr #3 align 2 {
 entry:
   %type_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %type_.i, align 8

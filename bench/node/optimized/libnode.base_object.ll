@@ -80,7 +80,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %realm, ptr %object.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %realm, ptr %object.coerce) unnamed_addr #3 align 2 {
 entry:
   %cb.addr.i.i = alloca ptr, align 8
   %arg.addr.i.i = alloca ptr, align 8
@@ -198,7 +198,7 @@ delete.end:                                       ; preds = %delete.notnull, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   %search.i.i = alloca %"class.node::CleanupQueue::CleanupHookCallback", align 8
   %handle_scope = alloca %"class.v8::HandleScope", align 8
@@ -496,21 +496,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node10BaseObject20TransferForMessagingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.323") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4node10BaseObject20TransferForMessagingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.323") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4node10BaseObject17CloneForMessagingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.323") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4node10BaseObject17CloneForMessagingEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.323") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4node10BaseObject19NestedTransferablesEv(ptr noalias nocapture writeonly sret(%"class.v8::Maybe") align 8 initializes((0, 1), (8, 32)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4node10BaseObject19NestedTransferablesEv(ptr noalias nocapture writeonly sret(%"class.v8::Maybe") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #10 align 2 {
 _ZNSt6vectorIN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEESaIS3_EED2Ev.exit:
   store i8 1, ptr %agg.result, align 8, !alias.scope !6
   %value_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a0c736f85be67414a04cbb6002ce1af6.4 = private unnamed_addr constant <{ ptr, [9 x i8], [7 x i8] }> <{ ptr @anon.a0c736f85be67414a04cbb6002ce1af6.3, [9 x i8] c"!\00\00\00\00\00\00\00\17", [7 x i8] undef }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h797cb1b34cc80a21E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i8, [7 x i8], ptr }) align 8 dereferenceable(40) initializes((0, 25), (32, 40)) %0, i64 noundef %1, ptr noundef nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$13with_capacity17h797cb1b34cc80a21E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i8, [7 x i8], ptr }) align 8 dereferenceable(40) %0, i64 noundef %1, ptr noundef nonnull align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h56f574f71d3c745cE"(i64 noundef %1, i1 noundef zeroext false)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1

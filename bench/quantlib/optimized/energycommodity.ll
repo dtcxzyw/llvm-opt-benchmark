@@ -487,7 +487,7 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib19EnergyDailyPositionC2ERKNS_4DateEddb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 32), (40, 41)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %date, double noundef %payLegPrice, double noundef %receiveLegPrice, i1 noundef zeroext %unrealized) unnamed_addr #7 align 2 {
+define void @_ZN8QuantLib19EnergyDailyPositionC2ERKNS_4DateEddb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %date, double noundef %payLegPrice, double noundef %receiveLegPrice, i1 noundef zeroext %unrealized) unnamed_addr #7 align 2 {
 entry:
   %storedv = zext i1 %unrealized to i8
   %0 = load i64, ptr %date, align 8, !tbaa !15

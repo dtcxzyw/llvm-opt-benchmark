@@ -2336,7 +2336,7 @@ declare void @slurm_list_iterator_destroy(ptr noundef) local_unnamed_addr #1
 declare void @jobacct_gather_handle_mem_limit(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_reset_visited(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr nocapture readnone %1) #9 {
+define internal noundef i32 @_reset_visited(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #9 {
   store i8 0, ptr %0, align 8
   ret i32 0
 }

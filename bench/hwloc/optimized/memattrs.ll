@@ -53,7 +53,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.58 = private unnamed_addr constant [11 x i8] c"MemoryTier\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hwloc_internal_memattrs_init(ptr nocapture noundef writeonly initializes((748, 760)) %0) local_unnamed_addr #0 {
+define hidden void @hwloc_internal_memattrs_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 748
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 752
@@ -62,7 +62,7 @@ define hidden void @hwloc_internal_memattrs_init(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden void @hwloc_internal_memattrs_prepare(ptr nocapture noundef writeonly initializes((752, 760)) %0) local_unnamed_addr #1 {
+define hidden void @hwloc_internal_memattrs_prepare(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #26
   %3 = getelementptr inbounds i8, ptr %0, i64 752
   store ptr %2, ptr %3, align 8

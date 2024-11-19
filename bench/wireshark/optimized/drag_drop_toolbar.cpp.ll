@@ -117,7 +117,7 @@ define void @_ZN15DragDropToolBarC2ERK7QStringP7QWidget(ptr noundef nonnull alig
 declare void @_ZN8QToolBarC2ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15DragDropToolBar12setupToolbarEv(ptr noundef nonnull align 8 dereferenceable(52) initializes((48, 52)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15DragDropToolBar12setupToolbarEv(ptr noundef nonnull align 8 dereferenceable(52) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QIcon, align 8

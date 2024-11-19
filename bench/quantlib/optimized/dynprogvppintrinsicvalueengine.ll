@@ -510,7 +510,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30DynProgVPPIntrinsicValueEngineC2ESt6vectorIdSaIdEES3_dN5boost10shared_ptrINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(440) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %fuelPrices, ptr nocapture noundef %powerPrices, double noundef %fuelCostAddon, ptr nocapture noundef %rTS) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30DynProgVPPIntrinsicValueEngineC2ESt6vectorIdSaIdEES3_dN5boost10shared_ptrINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr nocapture noundef %fuelPrices, ptr nocapture noundef %powerPrices, double noundef %fuelCostAddon, ptr nocapture noundef %rTS) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !8

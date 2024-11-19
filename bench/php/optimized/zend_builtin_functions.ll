@@ -2131,7 +2131,7 @@ define internal fastcc noundef zeroext i1 @validate_constant_array_argument(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_constant_array(ptr nocapture noundef initializes((0, 12)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @copy_constant_array(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 28
   %5 = load i32, ptr %4, align 4
@@ -4146,7 +4146,7 @@ define hidden void @zflf_class_exists_1(ptr nocapture noundef writeonly %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_class_exists_impl(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef range(i32 2, 268435457) %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #0 {
+define internal fastcc void @_class_exists_impl(ptr nocapture noundef writeonly %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef range(i32 2, 268435457) %3, i32 noundef range(i32 0, 4) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 32
@@ -6313,7 +6313,7 @@ define hidden void @zif_debug_print_backtrace(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_fetch_debug_backtrace(ptr nocapture noundef initializes((0, 12)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @zend_fetch_debug_backtrace(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8

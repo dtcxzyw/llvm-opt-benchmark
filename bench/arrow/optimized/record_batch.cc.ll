@@ -1005,7 +1005,7 @@ entry:
 declare noundef i32 @_ZNK5arrow6Schema10num_fieldsEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN5arrow11RecordBatchC2ERKSt10shared_ptrINS_6SchemaEEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %schema, i64 noundef %num_rows) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow11RecordBatchC2ERKSt10shared_ptrINS_6SchemaEEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %schema, i64 noundef %num_rows) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow11RecordBatchE, i64 16), ptr %this, align 8
   %schema_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -8299,14 +8299,14 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow11RecordBatch8ValidateEv(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define void @_ZNK5arrow11RecordBatch8ValidateEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   tail call fastcc void @_ZN5arrow12_GLOBAL__N_113ValidateBatchERKNS_11RecordBatchEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ValidateBatchERKNS_11RecordBatchEb(ptr noalias align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, i1 noundef zeroext %full_validation) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow12_GLOBAL__N_113ValidateBatchERKNS_11RecordBatchEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %batch, i1 noundef zeroext %full_validation) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i54 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8651,7 +8651,7 @@ eh.resume:                                        ; preds = %ehcleanup42, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5arrow11RecordBatch12ValidateFullEv(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
+define void @_ZNK5arrow11RecordBatch12ValidateFullEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   tail call fastcc void @_ZN5arrow12_GLOBAL__N_113ValidateBatchERKNS_11RecordBatchEb(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i1 noundef zeroext true)
   ret void
@@ -10338,7 +10338,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow17RecordBatchReaderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow17RecordBatchReaderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow17RecordBatchReaderE, i64 16), ptr %this, align 8
   ret void

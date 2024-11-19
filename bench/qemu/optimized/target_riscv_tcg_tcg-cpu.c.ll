@@ -1464,7 +1464,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @tcg_cpu_class_init(ptr nocapture noundef writeonly initializes((336, 344)) %cc) #4 {
+define internal void @tcg_cpu_class_init(ptr nocapture noundef writeonly %cc) #4 {
 entry:
   %init_accel_cpu = getelementptr inbounds i8, ptr %cc, i64 336
   store ptr @tcg_cpu_init_ops, ptr %init_accel_cpu, align 8
@@ -1660,7 +1660,7 @@ return:                                           ; preds = %switch.lookup, %ris
 declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @tcg_cpu_init_ops(ptr nocapture readnone %accel_cpu, ptr nocapture noundef writeonly initializes((328, 336)) %cc) #4 {
+define internal void @tcg_cpu_init_ops(ptr nocapture readnone %accel_cpu, ptr nocapture noundef writeonly %cc) #4 {
 entry:
   %tcg_ops = getelementptr inbounds i8, ptr %cc, i64 328
   store ptr @riscv_tcg_ops, ptr %tcg_ops, align 8

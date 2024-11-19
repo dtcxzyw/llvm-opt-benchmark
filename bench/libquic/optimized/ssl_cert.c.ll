@@ -350,7 +350,7 @@ return:                                           ; preds = %if.end.i, %ssl_cert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ssl_cert_set_cert_cb(ptr nocapture noundef writeonly initializes((88, 104)) %c, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #5 {
+define hidden void @ssl_cert_set_cert_cb(ptr nocapture noundef writeonly %c, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #5 {
 entry:
   %cert_cb = getelementptr inbounds i8, ptr %c, i64 88
   store ptr %cb, ptr %cert_cb, align 8
@@ -1142,7 +1142,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @SSL_CTX_get0_chain_certs(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly initializes((0, 8)) %out_chain) local_unnamed_addr #8 {
+define hidden noundef i32 @SSL_CTX_get0_chain_certs(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_chain) local_unnamed_addr #8 {
 entry:
   %cert = getelementptr inbounds i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert, align 8
@@ -1153,7 +1153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @SSL_CTX_get_extra_chain_certs(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly initializes((0, 8)) %out_chain) local_unnamed_addr #8 {
+define hidden noundef i32 @SSL_CTX_get_extra_chain_certs(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %out_chain) local_unnamed_addr #8 {
 entry:
   %cert.i = getelementptr inbounds i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert.i, align 8
@@ -1164,7 +1164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @SSL_get0_chain_certs(ptr nocapture noundef readonly %ssl, ptr nocapture noundef writeonly initializes((0, 8)) %out_chain) local_unnamed_addr #8 {
+define hidden noundef i32 @SSL_get0_chain_certs(ptr nocapture noundef readonly %ssl, ptr nocapture noundef writeonly %out_chain) local_unnamed_addr #8 {
 entry:
   %cert = getelementptr inbounds i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8

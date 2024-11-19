@@ -379,7 +379,7 @@ define range(i32 -1, 1) i32 @H5Oget_info1(i64 noundef %0, ptr noundef %1) local_
 declare ptr @H5VL_vol_object(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__get_info_old(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull initializes((0, 160)) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__get_info_old(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.H5VL_object_get_args_t, align 8
   %6 = alloca %struct.H5O_info2_t, align 8
   %7 = alloca %struct.H5VL_optional_args_t, align 8

@@ -18,7 +18,7 @@ define hidden void @codec_register_l16() local_unnamed_addr #0 {
 declare zeroext i1 @register_codec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias noundef ptr @codec_l16_mono_init(ptr nocapture noundef writeonly initializes((0, 8)) %0) #2 {
+define internal noalias noundef ptr @codec_l16_mono_init(ptr nocapture noundef writeonly %0) #2 {
   store i32 44100, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 1, ptr %2, align 4
@@ -104,7 +104,7 @@ define internal i64 @codec_l16_decode(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias noundef ptr @codec_l16_stereo_init(ptr nocapture noundef writeonly initializes((0, 8)) %0) #2 {
+define internal noalias noundef ptr @codec_l16_stereo_init(ptr nocapture noundef writeonly %0) #2 {
   store i32 44100, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 2, ptr %2, align 4

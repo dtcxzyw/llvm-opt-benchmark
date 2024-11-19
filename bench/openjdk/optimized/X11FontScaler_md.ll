@@ -198,7 +198,7 @@ declare i32 @XFreeFontNames(ptr noundef) local_unnamed_addr #1
 declare void @awt_output_flush(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @AWTLoadFont(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define void @AWTLoadFont(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   %3 = load ptr, ptr @jvm, align 8
   %4 = tail call ptr @JNU_GetEnv(ptr noundef %3, i32 noundef 65538) #8
@@ -454,7 +454,7 @@ define i32 @AWTFontDescent(ptr nocapture noundef readonly %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @AWTFontTextExtents16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define void @AWTFontTextExtents16(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

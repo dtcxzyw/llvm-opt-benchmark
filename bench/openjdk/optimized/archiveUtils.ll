@@ -676,7 +676,7 @@ define hidden void @_ZN10DumpRegion22print_out_of_space_msgEPKcm(ptr nocapture n
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10DumpRegion4initEP13ReservedSpaceP12VirtualSpace(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((48, 64)) %0, ptr noundef %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10DumpRegion4initEP13ReservedSpaceP12VirtualSpace(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -712,7 +712,7 @@ declare noundef zeroext i1 @_ZN12VirtualSpace10initializeE13ReservedSpacem(ptr n
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10DumpRegion4packEPS_(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((24, 32), (40, 41)) %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10DumpRegion4packEPS_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 @_ZN15MetaspaceShared21core_region_alignmentEv() #10
@@ -809,7 +809,7 @@ _ZNK14ArchiveBuilder18is_in_buffer_spaceEPh.exit.thread..thread13_crit_edge: ; p
 declare noundef ptr @_ZNK14ArchiveBuilder17get_buffered_addrEPh(ptr noundef nonnull align 8 dereferenceable(1080), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11ReadClosure6do_ptrEPPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN11ReadClosure6do_ptrEPPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -826,7 +826,7 @@ define hidden void @_ZN11ReadClosure6do_ptrEPPv(ptr nocapture noundef nonnull re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11ReadClosure5do_u4EPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN11ReadClosure5do_u4EPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -839,7 +839,7 @@ define hidden void @_ZN11ReadClosure5do_u4EPj(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11ReadClosure6do_intEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN11ReadClosure6do_intEPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -852,7 +852,7 @@ define hidden void @_ZN11ReadClosure6do_intEPi(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11ReadClosure7do_boolEPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN11ReadClosure7do_boolEPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8

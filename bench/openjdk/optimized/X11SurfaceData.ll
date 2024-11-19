@@ -1736,7 +1736,7 @@ X11SD_DisposeOrCacheXImage.exit:                  ; preds = %82, %X11SD_DisposeX
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @X11SD_Dispose(ptr noundef %0, ptr nocapture noundef initializes((72, 73)) %1) #0 {
+define internal void @X11SD_Dispose(ptr noundef %0, ptr nocapture noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1824
   %5 = load ptr, ptr %4, align 8

@@ -1180,7 +1180,7 @@ _ZN9grpc_core22ImplementChannelFilterINS_23ServerCompressionFilterEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core18ChannelCompressionC2ERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(23) initializes((0, 23)) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core18ChannelCompressionC2ERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(23) %this, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca ptr, align 8
   %call = tail call i64 @_ZN9grpc_core29GetMaxRecvSizeFromChannelArgsERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(8) %args)
@@ -1824,7 +1824,7 @@ declare void @_ZN4absl12lts_202308026StrCatB5cxx11ERKNS0_8AlphaNumES3_(ptr sret(
 declare noundef ptr @_ZN9grpc_core28CompressionAlgorithmAsStringE26grpc_compression_algorithm(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN9grpc_core18ChannelCompression22HandleOutgoingMetadataER19grpc_metadata_batch(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) initializes((17, 18)) %outgoing_metadata) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN9grpc_core18ChannelCompression22HandleOutgoingMetadataER19grpc_metadata_batch(ptr nocapture noundef nonnull readonly align 8 dereferenceable(23) %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) %outgoing_metadata) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %outgoing_metadata, i64 2
   %0 = load i16, ptr %arrayidx.i.i.i.i.i.i, align 2
@@ -1931,7 +1931,7 @@ if.end:                                           ; preds = %land.rhs, %land.lhs
 declare noundef ptr @_ZN9grpc_core23MessageSizeParsedConfig18GetFromCallContextEPK25grpc_call_context_elementm(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) initializes((17, 18)) %md, ptr nocapture noundef readonly %filter) #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnClientInitialMetadataER19grpc_metadata_batchPS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) %md, ptr nocapture noundef readonly %filter) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %md, i64 2
   %0 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2
@@ -2291,7 +2291,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnServerInitialMetadataER19grpc_metadata_batchPS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((12, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) initializes((17, 18)) %md, ptr nocapture noundef readonly %filter) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnServerInitialMetadataER19grpc_metadata_batchPS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(568) %md, ptr nocapture noundef readonly %filter) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %md, i64 2
   %0 = load i16, ptr %arrayidx.i.i.i.i.i.i.i, align 2

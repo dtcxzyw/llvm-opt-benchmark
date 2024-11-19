@@ -247,7 +247,7 @@ $_ZTSPFvPN19OpenColorIO_v2_4dev12ViewingRulesEE = comdat any
 @_ZN19OpenColorIO_v2_4dev12ViewingRulesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_4dev12ViewingRulesD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRulesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRulesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12ViewingRulesE, i64 16), ptr %this, align 8
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
@@ -264,7 +264,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19OpenColorIO_v2_4dev12ViewingRulesD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev12ViewingRulesD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12ViewingRulesE, i64 16), ptr %this, align 8
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8

@@ -252,7 +252,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib17StochasticProcessC2EN5boost10shared_ptrINS0_14discretizationEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %disc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17StochasticProcessC2EN5boost10shared_ptrINS0_14discretizationEEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef %disc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !8
@@ -1403,7 +1403,7 @@ entry:
 declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib19StochasticProcess1DC2EN5boost10shared_ptrINS0_14discretizationEEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %disc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19StochasticProcess1DC2EN5boost10shared_ptrINS0_14discretizationEEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef %disc) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !8

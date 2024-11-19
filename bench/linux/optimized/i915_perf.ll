@@ -3392,7 +3392,7 @@ declare dso_local ptr @idr_get_next(ptr noundef, ptr noundef) local_unnamed_addr
 declare dso_local i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @create_dynamic_oa_sysfs_entry(ptr nocapture noundef readonly %0, ptr noundef nonnull initializes((160, 170), (176, 192)) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @create_dynamic_oa_sysfs_entry(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 160
   store ptr @.str.36, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 168
@@ -3546,7 +3546,7 @@ declare dso_local void @sysfs_remove_group(ptr noundef, ptr noundef) local_unnam
 declare dso_local ptr @idr_remove(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef initializes((9272, 9280)) %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @i915_perf_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 9032
   %3 = getelementptr inbounds i8, ptr %0, i64 9272
   store ptr @oa_formats, ptr %3, align 8
@@ -7148,7 +7148,7 @@ declare dso_local ptr @i915_gem_object_create_shmem(ptr noundef, i64 noundef) lo
 declare dso_local void @i915_gem_object_set_cache_coherency(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i915_oa_stream_enable(ptr noundef initializes((208, 209)) %0) #0 align 16 {
+define internal void @i915_oa_stream_enable(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   store i8 0, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8

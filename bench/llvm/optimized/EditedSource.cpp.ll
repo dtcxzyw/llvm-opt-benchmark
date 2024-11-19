@@ -98,7 +98,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4edit12EditedSource22deconstructMacroArgLocENS_14SourceLocationERS2_RNS1_11MacroArgUseE(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4edit12EditedSource22deconstructMacroArgLocENS_14SourceLocationERS2_RNS1_11MacroArgUseE(ptr noundef nonnull align 8 dereferenceable(384) %0, i32 %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallString", align 8
   %6 = load ptr, ptr %0, align 8
   %7 = tail call { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %6, i32 %1) #16

@@ -919,7 +919,7 @@ Vec_PtrPush.exit100:                              ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NtkCollectPiPos(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define i32 @Abc_NtkCollectPiPos(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #8
   %5 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %5, align 4

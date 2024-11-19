@@ -478,7 +478,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN23G1ParScanThreadStateSetD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN23G1ParScanThreadStateSetD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20G1ParScanThreadStateC2EP15G1CollectedHeapP22G1RedirtyCardsQueueSetP14PreservedMarksjjP15G1CollectionSetP20G1EvacFailureRegions(ptr noundef nonnull align 8 dereferenceable(632) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7) unnamed_addr #0 align 2 {
+define hidden void @_ZN20G1ParScanThreadStateC2EP15G1CollectedHeapP22G1RedirtyCardsQueueSetP14PreservedMarksjjP15G1CollectionSetP20G1EvacFailureRegions(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20G1ParScanThreadState, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %9, align 8
@@ -692,7 +692,7 @@ define hidden void @_ZN20G1ParScanThreadState21initialize_numa_statsEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN20G1ParScanThreadState11flush_statsEPmjP14BufferNodeList(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 24)) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN20G1ParScanThreadState11flush_statsEPmjP14BufferNodeList(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %struct.BufferNodeList, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   call void @_ZN27G1RedirtyCardsLocalQueueSet5flushEv(ptr dead_on_unwind nonnull writable sret(%struct.BufferNodeList) align 8 %5, ptr noundef nonnull align 8 dereferenceable(64) %6) #13
@@ -802,7 +802,7 @@ declare void @_ZN15G1PLABAllocator22flush_and_retire_statsEj(ptr noundef nonnull
 declare void @_ZN11G1NewTracer24report_evacuation_failedER20EvacuationFailedInfo(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20G1ParScanThreadStateD2Ev(ptr noundef nonnull align 8 dereferenceable(632) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20G1ParScanThreadStateD2Ev(ptr noundef nonnull align 8 dereferenceable(632) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV20G1ParScanThreadState, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
@@ -884,7 +884,7 @@ declare void @_ZN20G1OopStarChunkedListD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN11StringDedup8RequestsD1Ev(ptr noundef nonnull align 8 dereferenceable(25)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20G1ParScanThreadStateD0Ev(ptr noundef nonnull align 8 dereferenceable(632) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20G1ParScanThreadStateD0Ev(ptr noundef nonnull align 8 dereferenceable(632) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN20G1ParScanThreadStateD2Ev(ptr noundef nonnull align 8 dereferenceable(632) %0) #13
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #13
   ret void
@@ -3861,7 +3861,7 @@ declare noundef i32 @_ZNK6G1NUMA23index_of_current_threadEv(ptr noundef nonnull 
 declare void @_ZN6G1NUMA15copy_statisticsEN11G1NUMAStats13NodeDataItemsEjPm(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23G1ParScanThreadStateSetC2EP15G1CollectedHeapjP15G1CollectionSetP20G1EvacFailureRegions(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 16)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN23G1ParScanThreadStateSetC2EP15G1CollectedHeapjP15G1CollectionSetP20G1EvacFailureRegions(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %struct.BufferNodeList, align 8
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8

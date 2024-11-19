@@ -443,7 +443,7 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_110MachineCSED2Ev(ptr noundef nonnull align 8 dereferenceable(828) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_110MachineCSED2Ev(ptr noundef nonnull align 8 dereferenceable(828) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_110MachineCSEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %2) #17
@@ -487,7 +487,7 @@ _ZN4llvm11SmallVectorIPNS_12MachineInstrELj64EED2Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_110MachineCSED0Ev(ptr noundef nonnull align 8 dereferenceable(828) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_110MachineCSED0Ev(ptr noundef nonnull align 8 dereferenceable(828) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_110MachineCSED2Ev(ptr noundef nonnull align 8 dereferenceable(828) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 832) #20
   ret void

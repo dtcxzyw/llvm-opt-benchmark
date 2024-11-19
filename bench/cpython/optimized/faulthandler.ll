@@ -975,7 +975,7 @@ entry:
 declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyFaulthandler_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, i32 noundef %enable) local_unnamed_addr #0 {
+define hidden void @_PyFaulthandler_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, i32 noundef %enable) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @_PyRuntime, i64 3256), i8 0, i64 24, i1 false)
   %call = tail call i64 @sysconf(i32 noundef 250) #16

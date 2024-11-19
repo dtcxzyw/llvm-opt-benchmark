@@ -396,7 +396,7 @@ return:                                           ; preds = %entry, %if.end131, 
 declare i32 @ERR_set_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @raise_error(ptr nocapture noundef initializes((152, 168)) %qtls, i64 noundef range(i64 1, 377) %error_code, ptr noundef %error_msg, i32 noundef range(i32 746, 821) %src_line) unnamed_addr #0 {
+define internal fastcc void @raise_error(ptr nocapture noundef %qtls, i64 noundef range(i64 1, 377) %error_code, ptr noundef %error_msg, i32 noundef range(i32 746, 821) %src_line) unnamed_addr #0 {
 entry:
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %src_line, ptr noundef nonnull @__func__.ossl_quic_tls_tick) #9
@@ -425,7 +425,7 @@ declare void @ossl_ssl_set_custom_record_layer(ptr noundef, ptr noundef, ptr nou
 declare i32 @ossl_tls_add_custom_ext_intern(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @add_transport_params_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr nocapture noundef writeonly initializes((0, 8)) %outlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #3 {
+define internal noundef i32 @add_transport_params_cb(ptr nocapture readnone %s, i32 %ext_type, i32 %context, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outlen, ptr nocapture readnone %x, i64 %chainidx, ptr nocapture readnone %al, ptr nocapture noundef readonly %add_arg) #3 {
 entry:
   %local_transport_params = getelementptr inbounds i8, ptr %add_arg, i64 128
   %0 = load ptr, ptr %local_transport_params, align 8
@@ -476,7 +476,7 @@ declare i32 @ERR_pop_to_mark() local_unnamed_addr #1
 declare void @SSL_get0_alpn_selected(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ossl_quic_tls_set_transport_params(ptr nocapture noundef writeonly initializes((128, 144)) %qtls, ptr noundef %transport_params, i64 noundef %transport_params_len) local_unnamed_addr #5 {
+define noundef i32 @ossl_quic_tls_set_transport_params(ptr nocapture noundef writeonly %qtls, ptr noundef %transport_params, i64 noundef %transport_params_len) local_unnamed_addr #5 {
 entry:
   %local_transport_params = getelementptr inbounds i8, ptr %qtls, i64 128
   store ptr %transport_params, ptr %local_transport_params, align 8

@@ -374,7 +374,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @casadi_register_integrator_rk(ptr nocapture noundef writeonly initializes((0, 28), (32, 48)) %0) #4 {
+define noundef i32 @casadi_register_integrator_rk(ptr nocapture noundef writeonly %0) #4 {
   store ptr @_ZN6casadi10RungeKutta7creatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEdRKSt6vectorIdSaIdEE, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str.5, ptr %2, align 8

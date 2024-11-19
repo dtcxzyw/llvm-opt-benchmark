@@ -2041,7 +2041,7 @@ entry:
 declare i64 @_ZN8QuantLib4Date7maxDateEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30AnalyticAmericanMargrabeEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEES4_d(ptr noundef nonnull align 8 dereferenceable(368) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process1, ptr nocapture noundef %process2, double noundef %correlation) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30AnalyticAmericanMargrabeEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEES4_d(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef %process1, ptr nocapture noundef %process2, double noundef %correlation) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp5 = alloca %"class.boost::shared_ptr", align 8

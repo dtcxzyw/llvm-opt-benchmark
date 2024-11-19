@@ -278,7 +278,7 @@ declare ptr @Cudd_bddVectorCompose(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @Cudd_bddXorExistAbstract(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_bddSpaceFromFunction(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @Extra_bddSpaceFromFunction(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   br label %5
 
@@ -576,7 +576,7 @@ tailrecurse:                                      ; preds = %29, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_bddSpaceFromFunctionPos(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_bddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -788,7 +788,7 @@ define ptr @extraBddSpaceFromFunctionPos(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_bddSpaceFromFunctionNeg(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_bddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -1003,7 +1003,7 @@ define ptr @extraBddSpaceFromFunctionNeg(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_bddSpaceCanonVars(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_bddSpaceCanonVars(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -1134,7 +1134,7 @@ declare ptr @Extra_bddSupportNegativeCube(ptr noundef, ptr noundef) local_unname
 declare ptr @Cudd_Cofactor(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Extra_bddSpaceEquations(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @Extra_bddSpaceEquations(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -1167,7 +1167,7 @@ Extra_bddSpaceEquationsNeg.exit:                  ; preds = %8
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_bddSpaceEquationsPos(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_bddSpaceEquationsPos(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -1183,7 +1183,7 @@ define ptr @Extra_bddSpaceEquationsPos(ptr noundef initializes((448, 452)) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_bddSpaceEquationsNeg(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_bddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -1625,7 +1625,7 @@ define ptr @extraBddSpaceEquationsNeg(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_bddSpaceFromMatrixPos(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_bddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 
@@ -1818,7 +1818,7 @@ define ptr @extraBddSpaceFromMatrixPos(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Extra_bddSpaceFromMatrixNeg(ptr noundef initializes((448, 452)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @Extra_bddSpaceFromMatrixNeg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 

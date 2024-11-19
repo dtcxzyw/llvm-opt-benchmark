@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @i915_ttm_adjust_domains_after_move(ptr nocapture noundef initializes((646, 650)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_ttm_adjust_domains_after_move(ptr nocapture noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 384
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

@@ -1267,7 +1267,7 @@ define hidden void @"_ZN3syn4expr8printing78_$LT$impl$u20$quote..to_tokens..ToTo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN66_$LT$syn..generics..Generics$u20$as$u20$core..default..Default$GT$7default17h119c2424f9e7edf0E"(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr }, i64 }, ptr }, { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] } }) align 8 dereferenceable(88) initializes((0, 40), (72, 76), (80, 84)) %0) unnamed_addr #2 {
+define void @"_ZN66_$LT$syn..generics..Generics$u20$as$u20$core..default..Default$GT$7default17h119c2424f9e7edf0E"(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr }, i64 }, ptr }, { i64, [4 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] } }) align 8 dereferenceable(88) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %2, align 8
   store i64 0, ptr %0, align 8
@@ -1536,7 +1536,7 @@ tailrecurse:                                      ; preds = %9, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3syn8generics8Generics14split_for_impl17h717205bf17ae8843E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #3 {
+define void @_ZN3syn8generics8Generics14split_for_impl17h717205bf17ae8843E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, ptr }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8, !range !48, !noundef !5
   %5 = icmp eq i64 %4, -9223372036854775808
@@ -1597,7 +1597,7 @@ define void @"_ZN72_$LT$syn..generics..BoundLifetimes$u20$as$u20$core..default..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3syn8generics13LifetimeParam3new17h6c3c195d044b77d5E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, { { { i64, ptr }, i64 }, ptr }, { { { i64, [3 x i64] }, { {} } }, i32, [1 x i32] }, { i32, [1 x i32] } }) align 8 dereferenceable(104) initializes((0, 100)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
+define void @_ZN3syn8generics13LifetimeParam3new17h6c3c195d044b77d5E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, { { { i64, ptr }, i64 }, ptr }, { { { i64, [3 x i64] }, { {} } }, i32, [1 x i32] }, { i32, [1 x i32] } }) align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
@@ -1617,7 +1617,7 @@ define void @_ZN3syn8generics13LifetimeParam3new17h6c3c195d044b77d5E(ptr noalias
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$syn..generics..TypeParam$u20$as$u20$core..convert..From$LT$proc_macro2..Ident$GT$$GT$4from17h1264d0c04ce35959E"(ptr noalias nocapture noundef writeonly sret({ { i64, [28 x i64] }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i32, [1 x i32] }, { i32, [1 x i32] } }) align 8 dereferenceable(336) initializes((0, 8), (232, 324), (328, 332)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
+define void @"_ZN90_$LT$syn..generics..TypeParam$u20$as$u20$core..convert..From$LT$proc_macro2..Ident$GT$$GT$4from17h1264d0c04ce35959E"(ptr noalias nocapture noundef writeonly sret({ { i64, [28 x i64] }, { { i64, ptr }, i64 }, { { { i64, ptr }, i64 }, ptr }, { { i64, [3 x i64] }, { {} } }, { i32, [1 x i32] }, { i32, [1 x i32] } }) align 8 dereferenceable(336) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   store i64 0, ptr %3, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 240
@@ -6831,7 +6831,7 @@ _ZN3syn4path13PathArguments8is_empty17hddc373d2b8f89ef4E.exit.thread: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN3syn8generics7parsing81_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..generics..TraitBoundModifier$GT$5parse17h0b7c47511dd8cbeaE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 12)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
+define void @"_ZN3syn8generics7parsing81_$LT$impl$u20$syn..parse..Parse$u20$for$u20$syn..generics..TraitBoundModifier$GT$5parse17h0b7c47511dd8cbeaE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   %3 = alloca { ptr, { ptr, i64 } }, align 8
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
@@ -12748,7 +12748,7 @@ define hidden void @_ZN3syn5token5Paren8surround17hfdc6a5ac57cb9305E(ptr noalias
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN103_$LT$syn..generics..GenericParam$u20$as$u20$core..convert..From$LT$syn..generics..LifetimeParam$GT$$GT$4from17h24c7b7ffc22b248eE"(ptr noalias nocapture noundef writeonly sret({ i64, [59 x i64] }) align 8 dereferenceable(480) initializes((0, 112)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %1) unnamed_addr #3 {
+define void @"_ZN103_$LT$syn..generics..GenericParam$u20$as$u20$core..convert..From$LT$syn..generics..LifetimeParam$GT$$GT$4from17h24c7b7ffc22b248eE"(ptr noalias nocapture noundef writeonly sret({ i64, [59 x i64] }) align 8 dereferenceable(480) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(104) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   store i64 17, ptr %0, align 8
@@ -12756,7 +12756,7 @@ define void @"_ZN103_$LT$syn..generics..GenericParam$u20$as$u20$core..convert..F
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN99_$LT$syn..generics..GenericParam$u20$as$u20$core..convert..From$LT$syn..generics..TypeParam$GT$$GT$4from17h933140f8c629a07bE"(ptr noalias nocapture noundef writeonly sret({ i64, [59 x i64] }) align 8 dereferenceable(480) initializes((0, 344)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(336) %1) unnamed_addr #3 {
+define void @"_ZN99_$LT$syn..generics..GenericParam$u20$as$u20$core..convert..From$LT$syn..generics..TypeParam$GT$$GT$4from17h933140f8c629a07bE"(ptr noalias nocapture noundef writeonly sret({ i64, [59 x i64] }) align 8 dereferenceable(480) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(336) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %3, ptr noundef nonnull align 8 dereferenceable(336) %1, i64 336, i1 false)
   store i64 18, ptr %0, align 8
@@ -12764,7 +12764,7 @@ define void @"_ZN99_$LT$syn..generics..GenericParam$u20$as$u20$core..convert..Fr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN100_$LT$syn..generics..GenericParam$u20$as$u20$core..convert..From$LT$syn..generics..ConstParam$GT$$GT$4from17h56bf105733f111e4E"(ptr noalias nocapture noundef writeonly sret({ i64, [59 x i64] }) align 8 dereferenceable(480) initializes((0, 480)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(480) %1) unnamed_addr #3 {
+define void @"_ZN100_$LT$syn..generics..GenericParam$u20$as$u20$core..convert..From$LT$syn..generics..ConstParam$GT$$GT$4from17h56bf105733f111e4E"(ptr noalias nocapture noundef writeonly sret({ i64, [59 x i64] }) align 8 dereferenceable(480) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(480) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(480) %1, i64 480, i1 false)
   ret void
 }
@@ -12820,13 +12820,13 @@ define noundef nonnull align 8 dereferenceable(88) ptr @"_ZN63_$LT$syn..generics
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..generics..TypeParamBound$u20$as$u20$core..convert..From$LT$syn..generics..TraitBound$GT$$GT$4from17hf8ecbd0f874f72fcE"(ptr noalias nocapture noundef writeonly sret({ i64, [14 x i64] }) align 8 dereferenceable(120) initializes((0, 120)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #3 {
+define void @"_ZN102_$LT$syn..generics..TypeParamBound$u20$as$u20$core..convert..From$LT$syn..generics..TraitBound$GT$$GT$4from17hf8ecbd0f874f72fcE"(ptr noalias nocapture noundef writeonly sret({ i64, [14 x i64] }) align 8 dereferenceable(120) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN100_$LT$syn..generics..TypeParamBound$u20$as$u20$core..convert..From$LT$syn..lifetime..Lifetime$GT$$GT$4from17h65530dd76073f9f0E"(ptr noalias nocapture noundef writeonly sret({ i64, [14 x i64] }) align 8 dereferenceable(120) initializes((0, 48)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
+define void @"_ZN100_$LT$syn..generics..TypeParamBound$u20$as$u20$core..convert..From$LT$syn..lifetime..Lifetime$GT$$GT$4from17h65530dd76073f9f0E"(ptr noalias nocapture noundef writeonly sret({ i64, [14 x i64] }) align 8 dereferenceable(120) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
@@ -12902,7 +12902,7 @@ define void @"_ZN76_$LT$syn..generics..TypeParamBound$u20$as$u20$quote..to_token
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN109_$LT$syn..generics..WherePredicate$u20$as$u20$core..convert..From$LT$syn..generics..PredicateLifetime$GT$$GT$4from17h798a0c96dd22b4dcE"(ptr noalias nocapture noundef writeonly sret({ i64, [39 x i64] }) align 8 dereferenceable(320) initializes((0, 88)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #3 {
+define void @"_ZN109_$LT$syn..generics..WherePredicate$u20$as$u20$core..convert..From$LT$syn..generics..PredicateLifetime$GT$$GT$4from17h798a0c96dd22b4dcE"(ptr noalias nocapture noundef writeonly sret({ i64, [39 x i64] }) align 8 dereferenceable(320) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   store i64 17, ptr %0, align 8
@@ -12910,7 +12910,7 @@ define void @"_ZN109_$LT$syn..generics..WherePredicate$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN105_$LT$syn..generics..WherePredicate$u20$as$u20$core..convert..From$LT$syn..generics..PredicateType$GT$$GT$4from17h3cb1cb56ea764ec5E"(ptr noalias nocapture noundef writeonly sret({ i64, [39 x i64] }) align 8 dereferenceable(320) initializes((0, 320)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(320) %1) unnamed_addr #3 {
+define void @"_ZN105_$LT$syn..generics..WherePredicate$u20$as$u20$core..convert..From$LT$syn..generics..PredicateType$GT$$GT$4from17h3cb1cb56ea764ec5E"(ptr noalias nocapture noundef writeonly sret({ i64, [39 x i64] }) align 8 dereferenceable(320) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(320) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, i64 320, i1 false)
   ret void
 }
@@ -14283,7 +14283,7 @@ define void @"_ZN3syn3gen5clone78_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN3syn3gen5clone75_$LT$impl$u20$core..clone..Clone$u20$for$u20$syn..generics..WhereClause$GT$5clone17he164ff42b1710c66E"(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr }, i64 }, ptr }, i32, [1 x i32] }) align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #0 {
+define void @"_ZN3syn3gen5clone75_$LT$impl$u20$core..clone..Clone$u20$for$u20$syn..generics..WhereClause$GT$5clone17he164ff42b1710c66E"(ptr noalias nocapture noundef writeonly sret({ { { { i64, ptr }, i64 }, ptr }, i32, [1 x i32] }) align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #0 {
   %3 = alloca { { { i64, ptr }, i64 }, ptr }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8, !alias.scope !2463, !noundef !5
@@ -14297,7 +14297,7 @@ define void @"_ZN3syn3gen5clone75_$LT$impl$u20$core..clone..Clone$u20$for$u20$sy
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN3syn3gen5clone78_$LT$impl$u20$core..clone..Clone$u20$for$u20$syn..generics..WherePredicate$GT$5clone17h7c28eeadb957444fE"(ptr noalias nocapture noundef writeonly sret({ i64, [39 x i64] }) align 8 dereferenceable(320) initializes((0, 88)) %0, ptr noalias noundef readonly align 8 dereferenceable(320) %1) unnamed_addr #0 {
+define void @"_ZN3syn3gen5clone78_$LT$impl$u20$core..clone..Clone$u20$for$u20$syn..generics..WherePredicate$GT$5clone17h7c28eeadb957444fE"(ptr noalias nocapture noundef writeonly sret({ i64, [39 x i64] }) align 8 dereferenceable(320) %0, ptr noalias noundef readonly align 8 dereferenceable(320) %1) unnamed_addr #0 {
   %3 = alloca { { i64, [28 x i64] }, { { { i64, ptr }, i64 }, ptr }, { i64, [5 x i64] }, { [1 x i32] }, [1 x i32] }, align 8
   %4 = alloca { { { { i64, ptr }, i64 }, ptr }, { { { i64, [3 x i64] }, { {} } }, i32, [1 x i32] }, { [1 x i32] }, [1 x i32] }, align 8
   %5 = load i64, ptr %1, align 8, !range !448, !noundef !5

@@ -245,7 +245,7 @@ $_ZTVN4llvm3pdb8RawErrorE = comdat any
 @_ZN4llvm3pdb14PDBFileBuilderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb14PDBFileBuilderD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb14PDBFileBuilderC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb14PDBFileBuilderC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
 _ZNSt6vectorISt4pairIjN4llvm3pdb19SrcHeaderBlockEntryEESaIS4_EE17_M_default_appendEm.exit:
   store ptr %1, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -622,7 +622,7 @@ _ZN4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb14PDBFileBuilder10initializeEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(480) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb14PDBFileBuilder10initializeEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(480) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Expected", align 8
   %5 = load ptr, ptr %1, align 8
   call void @_ZN4llvm3msf10MSFBuilder6createERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEjjb(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %5, i32 noundef %2, i32 noundef 0, i1 noundef zeroext true) #16
@@ -1930,7 +1930,7 @@ _ZNK4llvm3pdb9HashTableINS0_19SrcHeaderBlockEntryEE4sizeEv.exit: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb14PDBFileBuilder19getNamedStreamIndexENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.183") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(480) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm3pdb14PDBFileBuilder19getNamedStreamIndexENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.183") align 8 %0, ptr noundef nonnull align 8 dereferenceable(480) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4

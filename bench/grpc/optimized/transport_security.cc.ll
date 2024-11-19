@@ -676,14 +676,14 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z22tsi_init_peer_propertyv(ptr noalias nocapture writeonly sret(%struct.tsi_peer_property) align 8 initializes((0, 24)) %agg.result) local_unnamed_addr #4 {
+define void @_Z22tsi_init_peer_propertyv(ptr noalias nocapture writeonly sret(%struct.tsi_peer_property) align 8 %agg.result) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26tsi_peer_property_destructP17tsi_peer_property(ptr nocapture noundef initializes((16, 24)) %property) local_unnamed_addr #2 {
+define void @_Z26tsi_peer_property_destructP17tsi_peer_property(ptr nocapture noundef %property) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %property, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -772,7 +772,7 @@ return:                                           ; preds = %entry, %if.end5
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z44tsi_construct_allocated_string_peer_propertyPKcmP17tsi_peer_property(ptr noundef %name, i64 noundef %value_length, ptr nocapture noundef writeonly initializes((0, 24)) %property) local_unnamed_addr #2 {
+define noundef i32 @_Z44tsi_construct_allocated_string_peer_propertyPKcmP17tsi_peer_property(ptr noundef %name, i64 noundef %value_length, ptr nocapture noundef writeonly %property) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %property, i8 0, i64 24, i1 false)
   %cmp.not = icmp eq ptr %name, null
@@ -804,7 +804,7 @@ declare ptr @gpr_strdup(ptr noundef) local_unnamed_addr #0
 declare ptr @gpr_zalloc(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef %name, ptr nocapture noundef readonly %value, ptr nocapture noundef writeonly initializes((0, 24)) %property) local_unnamed_addr #2 {
+define noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef %name, ptr nocapture noundef readonly %value, ptr nocapture noundef writeonly %property) local_unnamed_addr #2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %property, i8 0, i64 24, i1 false)
@@ -834,7 +834,7 @@ _Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef %name, ptr nocapture noundef readonly %value, i64 noundef %value_length, ptr nocapture noundef writeonly initializes((0, 24)) %property) local_unnamed_addr #2 {
+define noundef i32 @_Z34tsi_construct_string_peer_propertyPKcS0_mP17tsi_peer_property(ptr noundef %name, ptr nocapture noundef readonly %value, i64 noundef %value_length, ptr nocapture noundef writeonly %property) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %property, i8 0, i64 24, i1 false)
   %cmp.not.i = icmp eq ptr %name, null
@@ -866,7 +866,7 @@ return:                                           ; preds = %if.end.i, %if.then2
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z18tsi_construct_peermP8tsi_peer(i64 noundef %property_count, ptr nocapture noundef writeonly initializes((0, 16)) %peer) local_unnamed_addr #2 {
+define noundef i32 @_Z18tsi_construct_peermP8tsi_peer(i64 noundef %property_count, ptr nocapture noundef writeonly %peer) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %peer, i8 0, i64 16, i1 false)
   %cmp.not = icmp eq i64 %property_count, 0

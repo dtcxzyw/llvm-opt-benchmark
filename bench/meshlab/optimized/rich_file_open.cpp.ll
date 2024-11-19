@@ -362,7 +362,7 @@ _ZN12RichFileOpenC2ERKS_.exit:                    ; preds = %_ZN7QStringC2ERKS_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12RichFileOpen10stringTypeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
+define void @_ZNK12RichFileOpen10stringTypeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str, i32 noundef 12)
   store ptr %3, ptr %0, align 8
   ret void
@@ -665,7 +665,7 @@ declare noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 derefere
 declare void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12RichFileOpenD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12RichFileOpenD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12RichFileOpen, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8

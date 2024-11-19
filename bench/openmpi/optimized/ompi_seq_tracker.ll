@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_seq_tracker_construct(ptr noundef initializes((0, 8)) %0) #0 {
+define internal void @ompi_seq_tracker_construct(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

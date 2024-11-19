@@ -4877,7 +4877,7 @@ declare dso_local void @inetpeer_invalidate_tree(ptr noundef) local_unnamed_addr
 declare dso_local i32 @ip_valid_fib_dump_req(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @fib6_dump_done(ptr noundef initializes((24, 32), (88, 96)) %0) #0 align 16 {
+define internal i32 @fib6_dump_done(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8

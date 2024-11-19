@@ -677,7 +677,7 @@ define void @gui_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %3, align 8, !tbaa !27

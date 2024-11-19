@@ -44,7 +44,7 @@ $_ZNK15btCompoundShape28calculateSerializeBufferSizeEv = comdat any
 @_ZN15btCompoundShapeD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN15btCompoundShapeD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15btCompoundShapeC2Ebi(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 12), (16, 32), (36, 44), (48, 57), (64, 128)) %this, i1 noundef zeroext %enableDynamicAabbTree, i32 noundef %initialChildCapacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15btCompoundShapeC2Ebi(ptr noundef nonnull align 8 dereferenceable(128) %this, i1 noundef zeroext %enableDynamicAabbTree, i32 noundef %initialChildCapacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m_shapeType.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_userPointer.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -229,7 +229,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15btCompoundShapeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15btCompoundShapeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15btCompoundShape, i64 16), ptr %this, align 8
   %m_dynamicAabbTree = getelementptr inbounds i8, ptr %this, i64 96
@@ -302,7 +302,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15btCompoundShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15btCompoundShapeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15btCompoundShape, i64 16), ptr %this, align 8
   %m_dynamicAabbTree.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -864,7 +864,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15btCompoundShape20recalculateLocalAabbEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((64, 96)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN15btCompoundShape20recalculateLocalAabbEv(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #0 align 2 {
 entry:
   %localAabbMin = alloca %class.btVector3, align 4
   %localAabbMax = alloca %class.btVector3, align 4
@@ -950,7 +950,7 @@ for.end48:                                        ; preds = %for.inc46, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK15btCompoundShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMax) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK15btCompoundShape7getAabbERK11btTransformR9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %trans, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMax) unnamed_addr #7 align 2 {
 entry:
   %m_localAabbMax = getelementptr inbounds i8, ptr %this, i64 80
   %m_localAabbMin = getelementptr inbounds i8, ptr %this, i64 64
@@ -1091,7 +1091,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK15btCompoundShape21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(128) %this, float noundef %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 12)) %inertia) unnamed_addr #7 align 2 {
+define dso_local void @_ZNK15btCompoundShape21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(128) %this, float noundef %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %inertia) unnamed_addr #7 align 2 {
 entry:
   %ident = alloca %class.btTransform, align 4
   %aabbMin = alloca %class.btVector3, align 4

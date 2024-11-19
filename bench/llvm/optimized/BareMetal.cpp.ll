@@ -1883,7 +1883,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang6driver10toolchains9BareMetal19getOrderedMultilibsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(2168) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK5clang6driver10toolchains9BareMetal19getOrderedMultilibsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2168) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [1 x %"class.clang::driver::Multilib"], align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.std::vector.41", align 8

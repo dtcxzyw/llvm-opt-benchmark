@@ -16521,7 +16521,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node173Handle$LT$allo
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17h676f35c4a639878dE.llvm.14780125840797112574"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #4 {
+define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$13as_mut_slices17h676f35c4a639878dE.llvm.14780125840797112574"(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { ptr, i64 } }) align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(32) %1) unnamed_addr #4 {
   %3 = alloca { { i64, i64 }, { i64, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %1, i64 24

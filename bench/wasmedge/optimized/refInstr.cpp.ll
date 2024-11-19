@@ -864,7 +864,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8WasmEdge8Executor8Executor14runRefIsNullOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull align 16 dereferenceable(16) initializes((0, 4)) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8WasmEdge8Executor8Executor14runRefIsNullOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull align 16 dereferenceable(16) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
@@ -989,7 +989,7 @@ _ZN8WasmEdge7Runtime12StackManager4pushINS_10RefVariantEEEvOT_.exit: ; preds = %
 declare noundef ptr @_ZNK8WasmEdge8Executor8Executor16getFuncInstByIdxERNS_7Runtime12StackManagerEj(ptr noundef nonnull align 8 dereferenceable(408), ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8WasmEdge8Executor8Executor10runRefEqOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSF_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull align 16 dereferenceable(16) initializes((0, 4)) %2, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %3) local_unnamed_addr #5 align 2 {
+define void @_ZNK8WasmEdge8Executor8Executor10runRefEqOpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEERKSF_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull align 16 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
@@ -6280,7 +6280,7 @@ _ZN8WasmEdge3AST11TypeMatcher13matchTypeCodeENS_8TypeCodeES2_.exit: ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8WasmEdge8Executor8Executor12runRefConvOpERNS_10RefVariantENS_8TypeCodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull align 16 dereferenceable(16) initializes((1, 2)) %2, i8 noundef zeroext %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8WasmEdge8Executor8Executor12runRefConvOpERNS_10RefVariantENS_8TypeCodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull align 16 dereferenceable(16) %2, i8 noundef zeroext %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = icmp eq i8 %3, 110
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
@@ -6326,7 +6326,7 @@ _ZNK8WasmEdge7ValType15isExternRefTypeEv.exit:    ; preds = %11, %17, %18, %10, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK8WasmEdge8Executor8Executor11runRefI31OpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull align 16 dereferenceable(16) initializes((4, 16)) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8WasmEdge8Executor8Executor11runRefI31OpERNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1, ptr nocapture noundef nonnull align 16 dereferenceable(16) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %2, align 16
   %5 = or i32 %4, -2147483648
   %6 = zext i32 %5 to i64

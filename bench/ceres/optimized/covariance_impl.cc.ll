@@ -1665,7 +1665,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN5ceres8internal14CovarianceImplD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal14CovarianceImplD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5ceres8internal14CovarianceImplC2ERKNS_10Covariance7OptionsE(ptr noundef nonnull align 8 dereferenceable(216) initializes((8, 96), (104, 106), (120, 124), (128, 136)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal14CovarianceImplC2ERKNS_10Covariance7OptionsE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 48

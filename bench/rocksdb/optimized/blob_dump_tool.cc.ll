@@ -290,7 +290,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb7blob_db12BlobDumpToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb7blob_db12BlobDumpToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   ret void
@@ -2032,7 +2032,7 @@ _ZN7rocksdb6StatusD2Ev.exit21:                    ; preds = %ehcleanup46, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb7blob_db12BlobDumpTool17DumpBlobLogFooterEmPm(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %file_size, ptr nocapture noundef writeonly initializes((0, 8)) %footer_offset) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb7blob_db12BlobDumpTool17DumpBlobLogFooterEmPm(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, i64 noundef %file_size, ptr nocapture noundef writeonly %footer_offset) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %slice = alloca %"class.rocksdb::Slice", align 8
   %s = alloca %"class.rocksdb::Status", align 8

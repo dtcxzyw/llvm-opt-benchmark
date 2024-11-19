@@ -34,7 +34,7 @@ $_ZN9QuickSort9partitionI12LogSelection20SimilarityComparatorEEmPT_mmT0_ = comda
 @_ZN12LogSelectionC1EPKN6LogTag4typeEbN8LogLevel4typeE = hidden unnamed_addr alias void (ptr, ptr, i1, i32), ptr @_ZN12LogSelectionC2EPKN6LogTag4typeEbN8LogLevel4typeE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12LogSelectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 8), (28, 29), (32, 36), (40, 48)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12LogSelectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i8 0, ptr %2, align 4
@@ -46,7 +46,7 @@ define hidden void @_ZN12LogSelectionC2Ev(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN12LogSelectionC2EPKN6LogTag4typeEbN8LogLevel4typeE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (28, 29), (32, 36), (40, 48)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN12LogSelectionC2EPKN6LogTag4typeEbN8LogLevel4typeE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 align 2 {
 .lr.ph:
   %4 = zext i1 %2 to i8
   store i64 0, ptr %0, align 8

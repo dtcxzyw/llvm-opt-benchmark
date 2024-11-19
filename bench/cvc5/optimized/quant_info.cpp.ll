@@ -1515,7 +1515,7 @@ lpad:                                             ; preds = %if.then13.i4.i.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval9QuantInfo20getFailureConstraintEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.5") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this) local_unnamed_addr #8 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers5ieval9QuantInfo20getFailureConstraintEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.5") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %this) local_unnamed_addr #8 align 2 {
 entry:
   %d_data.i = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %d_data.i, align 8

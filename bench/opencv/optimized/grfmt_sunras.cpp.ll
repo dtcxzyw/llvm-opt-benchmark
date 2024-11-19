@@ -232,7 +232,7 @@ define hidden void @_ZN2cv16SunRasterDecoderD0Ev(ptr noundef nonnull align 8 der
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv16SunRasterDecoder10newDecoderEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv16SunRasterDecoder10newDecoderEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_16SunRasterDecoderEED2Ev.exit:
   %2 = alloca %"class.std::allocator.18", align 1
   %3 = alloca %"class.std::shared_ptr.7", align 8
@@ -1434,7 +1434,7 @@ _ZN2cv3PtrINS_16SunRasterEncoderEED2Ev.exit:      ; preds = %.noexc.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv16SunRasterEncoderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv16SunRasterEncoderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv16BaseImageEncoderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14
@@ -1446,7 +1446,7 @@ define hidden void @_ZN2cv16SunRasterEncoderD2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv16SunRasterEncoderD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv16SunRasterEncoderD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv16BaseImageEncoderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #14

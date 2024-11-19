@@ -599,7 +599,7 @@ define internal range(i32 -1, 2) i32 @sequence_analysis_sort_compare(ptr nocaptu
 declare void @g_queue_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @sequence_analysis_item_free(ptr noundef initializes((16, 24), (48, 56)) %0) #0 {
+define internal void @sequence_analysis_item_free(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   tail call void @g_free(ptr noundef %3) #14

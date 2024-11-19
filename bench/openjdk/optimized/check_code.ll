@@ -162,7 +162,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.VerifyClassForMajorVersion = private unnamed_addr constant [8 x i32] [i32 48, i32 47, i32 35, i32 36, i32 45, i32 46, i32 34, i32 38], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @initialize_class_hash(ptr noundef initializes((448, 464)) %0) local_unnamed_addr #0 {
+define hidden void @initialize_class_hash(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 448
   %3 = tail call noalias dereferenceable_or_null(2048) ptr @calloc(i64 noundef 256, i64 noundef 8) #16
   store ptr %3, ptr %2, align 8

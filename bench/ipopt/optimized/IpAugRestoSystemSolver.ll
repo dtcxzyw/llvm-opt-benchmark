@@ -145,7 +145,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt20AugRestoSystemSolverC2ERNS_15AugSystemSolverEb(ptr nocapture noundef nonnull align 8 dereferenceable(281) initializes((0, 12), (16, 49), (56, 68), (72, 92), (96, 116), (120, 140), (144, 164), (168, 188), (192, 212), (216, 236), (240, 260), (264, 281)) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt20AugRestoSystemSolverC2ERNS_15AugSystemSolverEb(ptr nocapture noundef nonnull align 8 dereferenceable(281) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -303,7 +303,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultINS1_8SmartPtrINS1_6VectorEEEEESaIS7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt20AugRestoSystemSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(281) initializes((0, 8), (248, 256)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt20AugRestoSystemSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(281) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt20AugRestoSystemSolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = load ptr, ptr %2, align 8

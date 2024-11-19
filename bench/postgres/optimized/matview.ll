@@ -1050,7 +1050,7 @@ define internal noundef zeroext i1 @transientrel_receive(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @transientrel_startup(ptr nocapture noundef initializes((48, 72)) %0, i32 %1, ptr nocapture readnone %2) #0 {
+define internal void @transientrel_startup(ptr nocapture noundef %0, i32 %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
   %6 = tail call ptr @table_open(i32 noundef %5, i32 noundef 0) #8

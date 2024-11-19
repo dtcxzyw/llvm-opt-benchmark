@@ -1407,7 +1407,7 @@ if.end:                                           ; preds = %if.then, %reconnect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @nbd_refresh_limits(ptr nocapture noundef initializes((16464, 16468), (16472, 16480), (16488, 16496), (16504, 16508)) %bs, ptr nocapture readnone %errp) #8 {
+define internal void @nbd_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #8 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -3277,7 +3277,7 @@ declare ptr @nbd_reply_type_lookup(i16 noundef zeroext) local_unnamed_addr #1
 declare void @error_propagate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @nbd_co_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly initializes((0, 4)) %request_ret, ptr noundef %qiov, ptr nocapture noundef writeonly initializes((0, 32)) %reply, ptr noundef %payload, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @nbd_co_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly %request_ret, ptr noundef %qiov, ptr nocapture noundef writeonly %reply, ptr noundef %payload, ptr noundef %errp) #0 {
 entry:
   %call = tail call i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr noundef %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp)
   %cmp = icmp slt i32 %call, 0
@@ -3363,7 +3363,7 @@ nbd_recv_coroutines_wake.exit:                    ; preds = %for.cond.i, %nbd_re
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly initializes((0, 4)) %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp) #0 {
+define internal range(i32 -22, 1) i32 @nbd_co_do_receive_one_chunk(ptr noundef %s, i64 noundef %cookie, i1 noundef zeroext %only_structured, ptr nocapture noundef writeonly %request_ret, ptr noundef %qiov, ptr noundef %payload, ptr noundef %errp) #0 {
 entry:
   %local_payload = alloca ptr, align 8
   store ptr null, ptr %local_payload, align 8

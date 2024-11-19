@@ -106,7 +106,7 @@ declare dso_local void @cpu_latency_qos_remove_request(ptr noundef) local_unname
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_dp_aux_init(ptr noundef initializes((1264, 1272), (2968, 3000)) %0) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_dp_aux_init(ptr noundef %0) local_unnamed_addr #2 align 16 {
   %2 = alloca [6 x i8], align 1
   %3 = getelementptr i8, ptr %0, i64 -392
   %4 = load ptr, ptr %3, align 8

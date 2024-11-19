@@ -93,7 +93,7 @@ entry:
 declare i64 @_ZN4base4Time9FromTimeTEl(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base14FileEnumeratorC2ERKNS_8FilePathEbi(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %root_path, i1 noundef zeroext %recursive, i32 noundef %file_type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base14FileEnumeratorC2ERKNS_8FilePathEbi(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(32) %root_path, i1 noundef zeroext %recursive, i32 noundef %file_type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %root_path_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
@@ -212,7 +212,7 @@ _ZNSt12_Vector_baseIN4base14FileEnumerator8FileInfoESaIS2_EED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base14FileEnumeratorC2ERKNS_8FilePathEbiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %root_path, i1 noundef zeroext %recursive, i32 noundef %file_type, ptr noundef nonnull align 8 dereferenceable(32) %pattern) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base14FileEnumeratorC2ERKNS_8FilePathEbiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(32) %root_path, i1 noundef zeroext %recursive, i32 noundef %file_type, ptr noundef nonnull align 8 dereferenceable(32) %pattern) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.base::FilePath", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
@@ -860,7 +860,7 @@ declare i32 @fnmatch(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base14FileEnumerator7GetInfoEv(ptr noalias sret(%"class.base::FileEnumerator::FileInfo") align 8 initializes((0, 144)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4base14FileEnumerator7GetInfoEv(ptr noalias sret(%"class.base::FileEnumerator::FileInfo") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) local_unnamed_addr #0 align 2 {
 entry:
   %current_directory_entry_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %current_directory_entry_, align 8

@@ -1147,7 +1147,7 @@ declare void @Ssw_ManResimulateWord(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare void @Ssw_ManResimulateBit(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Ssw_ManSweepBmc(ptr noundef initializes((24, 32)) %0) local_unnamed_addr #0 {
+define i32 @Ssw_ManSweepBmc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)

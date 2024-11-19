@@ -976,7 +976,7 @@ define { i32, i32 } @_ZN14wasmtime_types10EntityType11unwrap_func17ha4caad5613c9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN114_$LT$wasmtime_types..Memory$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..MemoryType$GT$$GT$4from17hdca2a4f25b45df88E"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(32) initializes((0, 26)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #4 {
+define void @"_ZN114_$LT$wasmtime_types..Memory$u20$as$u20$core..convert..From$LT$wasmparser..readers..core..types..MemoryType$GT$$GT$4from17hdca2a4f25b45df88E"(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8, !noundef !5
   %5 = load i64, ptr %1, align 8, !range !73, !noundef !5

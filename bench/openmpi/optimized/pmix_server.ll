@@ -5054,7 +5054,7 @@ define internal void @debugger_aggregator(i64 %0, i32 noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @evhandler_reg_callbk(i32 noundef %0, i64 %1, ptr noundef initializes((0, 4)) %2) #0 {
+define internal void @evhandler_reg_callbk(i32 noundef %0, i64 %1, ptr noundef %2) #0 {
   store i32 %0, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 128
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #16
@@ -5080,7 +5080,7 @@ declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal void @job_data(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef initializes((500, 504)) %3) #0 {
+define internal void @job_data(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   store i32 1, ptr %6, align 4
@@ -5528,7 +5528,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i28, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opcbfunc(i32 noundef %0, ptr noundef initializes((0, 4)) %1) #0 {
+define internal void @opcbfunc(i32 noundef %0, ptr noundef %1) #0 {
   store i32 %0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 128
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %3) #16

@@ -148,7 +148,7 @@ $_ZTVN4llvm6VPUserE = comdat any
 @_ZTVN4llvm6VPUserE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZN4llvm6VPUserD2Ev, ptr @_ZN4llvm6VPUserD0Ev, ptr @_ZNK4llvm6VPUser11usesScalarsEPKNS_7VPValueE, ptr @_ZNK4llvm6VPUser17onlyFirstLaneUsedEPKNS_7VPValueE, ptr @_ZNK4llvm6VPUser17onlyFirstPartUsedEPKNS_7VPValueE] }, comdat, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noalias noundef ptr @_ZN4llvm8VPlanSlp10markFailedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(289) initializes((40, 41)) %0) local_unnamed_addr #0 align 2 {
+define dso_local noalias noundef ptr @_ZN4llvm8VPlanSlp10markFailedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(289) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %2, align 8
   ret ptr null

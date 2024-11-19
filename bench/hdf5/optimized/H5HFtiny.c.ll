@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [30 x i8] c"application's callback failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__tiny_init(ptr nocapture noundef initializes((688, 697)) %0) local_unnamed_addr #0 {
+define noundef i32 @H5HF__tiny_init(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -1
@@ -109,7 +109,7 @@ declare i32 @H5HF__hdr_dirty(ptr noundef) local_unnamed_addr #4
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5HF__tiny_get_obj_len(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @H5HF__tiny_get_obj_len(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 696
   %5 = load i8, ptr %4, align 8
   %6 = trunc i8 %5 to i1

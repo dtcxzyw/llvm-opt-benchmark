@@ -401,7 +401,7 @@ declare i32 @Aig_ManLevels(ptr noundef) local_unnamed_addr #1
 declare ptr @Aig_ManDfsReverse(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Aig_ManStopReverseLevels(ptr nocapture noundef initializes((288, 292)) %0) local_unnamed_addr #2 {
+define void @Aig_ManStopReverseLevels(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8

@@ -106,7 +106,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes8oscompat11vm_allocateEmPv(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 initializes((0, 4)) %agg.result, i64 noundef %sz, ptr noundef %hint) local_unnamed_addr #1 {
+define hidden void @_ZN6hermes8oscompat11vm_allocateEmPv(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 %agg.result, i64 noundef %sz, ptr noundef %hint) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %call.i = tail call ptr @mmap(ptr noundef %hint, i64 noundef %sz, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #22, !noalias !4
@@ -139,7 +139,7 @@ _ZN6hermes8oscompatL7vm_mmapEPvmiib.exit:         ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes8oscompat19vm_allocate_alignedEmmPv(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 initializes((0, 4)) %agg.result, i64 noundef %sz, i64 noundef %alignment, ptr noundef %hint) local_unnamed_addr #1 {
+define hidden void @_ZN6hermes8oscompat19vm_allocate_alignedEmmPv(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 %agg.result, i64 noundef %sz, i64 noundef %alignment, ptr noundef %hint) local_unnamed_addr #1 {
 entry:
   %call.i = tail call ptr @mmap(ptr noundef %hint, i64 noundef %sz, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #22, !noalias !7
   %cmp.i = icmp eq ptr %call.i, inttoptr (i64 -1 to ptr)
@@ -186,7 +186,7 @@ cleanup:                                          ; preds = %if.end4, %if.then3,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN6hermes8oscompatL15vm_mmap_alignedEPvmmii(ptr noalias nocapture align 8 initializes((0, 4)) %agg.result, ptr noundef %addr, i64 noundef %sz, i64 noundef %alignment, i32 noundef range(i32 0, 4) %prot, i32 noundef range(i32 34, 16419) %flags) unnamed_addr #1 {
+define internal fastcc void @_ZN6hermes8oscompatL15vm_mmap_alignedEPvmmii(ptr noalias nocapture align 8 %agg.result, ptr noundef %addr, i64 noundef %sz, i64 noundef %alignment, i32 noundef range(i32 0, 4) %prot, i32 noundef range(i32 34, 16419) %flags) unnamed_addr #1 {
 entry:
   %add = add i64 %alignment, %sz
   %call.i = tail call i32 @getpagesize() #21
@@ -262,7 +262,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes8oscompat18vm_reserve_alignedEmmPv(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 initializes((0, 4)) %agg.result, i64 noundef %sz, i64 noundef %alignment, ptr noundef %hint) local_unnamed_addr #1 {
+define hidden void @_ZN6hermes8oscompat18vm_reserve_alignedEmmPv(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 %agg.result, i64 noundef %sz, i64 noundef %alignment, ptr noundef %hint) local_unnamed_addr #1 {
 entry:
   tail call fastcc void @_ZN6hermes8oscompatL15vm_mmap_alignedEPvmmii(ptr noalias align 8 %agg.result, ptr noundef %hint, i64 noundef %sz, i64 noundef %alignment, i32 noundef 0, i32 noundef 16418)
   ret void
@@ -276,7 +276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes8oscompat9vm_commitEPvm(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 initializes((0, 4)) %agg.result, ptr noundef %p, i64 noundef %sz) local_unnamed_addr #1 {
+define hidden void @_ZN6hermes8oscompat9vm_commitEPvm(ptr noalias nocapture sret(%"class.llvh::ErrorOr") align 8 %agg.result, ptr noundef %p, i64 noundef %sz) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %call.i = tail call ptr @mmap(ptr noundef %p, i64 noundef %sz, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #22, !noalias !13
@@ -817,7 +817,7 @@ declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr nocapture noundef) loca
 declare i64 @atoll(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes8oscompat20get_vm_protect_modesB5cxx11EPKvm(ptr noalias sret(%"class.std::vector.25") align 8 initializes((0, 24)) %agg.result, ptr noundef %p, i64 noundef %sz) local_unnamed_addr #1 {
+define hidden void @_ZN6hermes8oscompat20get_vm_protect_modesB5cxx11EPKvm(ptr noalias sret(%"class.std::vector.25") align 8 %agg.result, ptr noundef %p, i64 noundef %sz) local_unnamed_addr #1 {
 entry:
   %begin = alloca i64, align 8
   %end = alloca i64, align 8
@@ -963,7 +963,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef i32 @fgetc(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes8oscompat20num_context_switchesERlS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %voluntary, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %involuntary) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_ZN6hermes8oscompat20num_context_switchesERlS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %voluntary, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %involuntary) local_unnamed_addr #1 {
 entry:
   %ru = alloca %struct.rusage, align 8
   store i64 -1, ptr %involuntary, align 8
@@ -1144,7 +1144,7 @@ declare i32 @pthread_getname_np(i64 noundef, ptr noundef, i64 noundef) local_unn
 declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes8oscompat17sched_getaffinityEv(ptr noalias sret(%"class.std::vector.30") align 8 initializes((0, 12), (16, 28), (32, 40)) %agg.result) local_unnamed_addr #1 {
+define hidden void @_ZN6hermes8oscompat17sched_getaffinityEv(ptr noalias sret(%"class.std::vector.30") align 8 %agg.result) local_unnamed_addr #1 {
 entry:
   %mask = alloca %struct.cpu_set_t, align 8
   store ptr null, ptr %agg.result, align 8

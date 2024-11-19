@@ -638,7 +638,7 @@ define dso_local void @intel_hpd_poll_disable(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_hpd_init_early(ptr noundef initializes((6040, 6048)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_hpd_init_early(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 6040
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 6048

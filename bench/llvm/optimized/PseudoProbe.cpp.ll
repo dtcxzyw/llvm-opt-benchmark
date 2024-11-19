@@ -46,7 +46,7 @@ $_ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE18growAndEmplaceBa
 @_ZTVN4llvm24IRBuilderDefaultInserterE = external unnamed_addr constant { [5 x ptr] }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm29extractProbeFromDiscriminatorEPKNS_10DILocationE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 4 initializes((20, 21)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm29extractProbeFromDiscriminatorEPKNS_10DILocationE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 4 %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZNK4llvm10DILocation16getDiscriminatorEv.exit.thread, label %3
 
@@ -118,7 +118,7 @@ _ZNK4llvm10DILocation16getDiscriminatorEv.exit.thread: ; preds = %2, %_ZNK4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm29extractProbeFromDiscriminatorERKNS_11InstructionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 4 initializes((20, 21)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm29extractProbeFromDiscriminatorERKNS_11InstructionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 4 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -198,7 +198,7 @@ _ZN4llvm29extractProbeFromDiscriminatorEPKNS_10DILocationE.exit: ; preds = %2, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12extractProbeERKNS_11InstructionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 4 initializes((20, 21)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm12extractProbeERKNS_11InstructionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 4 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 8
   switch i8 %3, label %_ZN4llvm29extractProbeFromDiscriminatorERKNS_11InstructionE.exit [
     i8 85, label %4

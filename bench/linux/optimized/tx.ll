@@ -647,7 +647,7 @@ define dso_local void @ieee80211_txq_set_params(ptr nocapture noundef %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @ieee80211_txq_setup_flows(ptr noundef initializes((192, 264)) %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ieee80211_txq_setup_flows(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
@@ -1010,7 +1010,7 @@ define dso_local noundef zeroext i1 @ieee80211_tx_prepare_skb(ptr noundef %0, pt
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 3) i32 @ieee80211_tx_prepare(ptr noundef %0, ptr noundef initializes((0, 8), (24, 72)) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @ieee80211_tx_prepare(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1256
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 40
@@ -6443,7 +6443,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2
 declare dso_local zeroext i1 @ieee80211_is_our_addr(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_tx_h_select_key(ptr nocapture noundef initializes((56, 64)) %0) unnamed_addr #10 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ieee80211_tx_h_select_key(ptr nocapture noundef %0) unnamed_addr #10 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 40
   %4 = getelementptr inbounds i8, ptr %2, i64 200
@@ -11760,7 +11760,7 @@ define dso_local ptr @ieee80211_probereq_get(ptr nocapture noundef readonly %0, 
 declare dso_local ptr @skb_put(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_rts_get(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 16)) %5) #0 align 16 {
+define dso_local void @ieee80211_rts_get(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
   store i16 180, ptr %5, align 2
   %7 = tail call zeroext i16 @ieee80211_rts_duration(ptr noundef %0, ptr noundef %1, i64 noundef %3, ptr noundef %4) #20
   %8 = getelementptr inbounds i8, ptr %5, i64 2
@@ -11778,7 +11778,7 @@ define dso_local void @ieee80211_rts_get(ptr noundef %0, ptr noundef %1, ptr noc
 declare dso_local zeroext i16 @ieee80211_rts_duration(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_ctstoself_get(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 10)) %5) #0 align 16 {
+define dso_local void @ieee80211_ctstoself_get(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 align 16 {
   store i16 196, ptr %5, align 2
   %7 = tail call zeroext i16 @ieee80211_ctstoself_duration(ptr noundef %0, ptr noundef %1, i64 noundef %3, ptr noundef %4) #20
   %8 = getelementptr inbounds i8, ptr %5, i64 2
@@ -12059,7 +12059,7 @@ define dso_local void @ieee80211_unreserve_tid(ptr nocapture noundef %0, i8 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__ieee80211_tx_skb_tid_band(ptr noundef %0, ptr noundef initializes((16, 24), (124, 126), (140, 144), (182, 184)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local void @__ieee80211_tx_skb_tid_band(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %1, i64 200
   %7 = load ptr, ptr %6, align 8
   %8 = and i32 %2, 7

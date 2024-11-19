@@ -148,7 +148,7 @@ entry:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21btSimpleDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(308) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21btSimpleDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV21btSimpleDynamicsWorld, i64 16), ptr %this, align 8
   %m_ownsConstraintSolver = getelementptr inbounds i8, ptr %this, i64 288
@@ -189,7 +189,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21btSimpleDynamicsWorldD0Ev(ptr noundef nonnull align 8 dereferenceable(308) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21btSimpleDynamicsWorldD0Ev(ptr noundef nonnull align 8 dereferenceable(308) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV21btSimpleDynamicsWorld, i64 16), ptr %this, align 8
   %m_ownsConstraintSolver.i = getelementptr inbounds i8, ptr %this, i64 288
@@ -635,7 +635,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21btSimpleDynamicsWorld10setGravityERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(308) initializes((292, 308)) %this, ptr noundef nonnull align 4 dereferenceable(16) %gravity) unnamed_addr #1 align 2 {
+define dso_local void @_ZN21btSimpleDynamicsWorld10setGravityERK9btVector3(ptr nocapture noundef nonnull align 8 dereferenceable(308) %this, ptr noundef nonnull align 4 dereferenceable(16) %gravity) unnamed_addr #1 align 2 {
 entry:
   %m_gravity = getelementptr inbounds i8, ptr %this, i64 292
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_gravity, ptr noundef nonnull align 4 dereferenceable(16) %gravity, i64 16, i1 false)

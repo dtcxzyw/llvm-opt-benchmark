@@ -175,7 +175,7 @@ entry:
 declare void @_ZN4cvc58internal6theory17QuantifiersModuleC2ERNS0_3EnvERNS1_11quantifiers16QuantifiersStateERNS5_27QuantifiersInferenceManagerERNS5_19QuantifiersRegistryERNS5_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(576), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(376), ptr noundef nonnull align 8 dereferenceable(488), ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11ModelEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11ModelEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers11ModelEngineE, i64 16), ptr %this, align 8
   %d_incompleteQuants = getelementptr inbounds i8, ptr %this, i64 72
@@ -240,7 +240,7 @@ _ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb1EEESt4hashIS3_ESt8equal_to
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11ModelEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11ModelEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers11ModelEngineE, i64 16), ptr %this, align 8
   %d_incompleteQuants.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -376,7 +376,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11ModelEngine11reset_roundENS1_6Theory6EffortE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((48, 49)) %this, i32 %e) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11ModelEngine11reset_roundENS1_6Theory6EffortE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this, i32 %e) unnamed_addr #7 align 2 {
 entry:
   %d_incomplete_check = getelementptr inbounds i8, ptr %this, i64 48
   store i8 1, ptr %d_incomplete_check, align 8

@@ -1136,7 +1136,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory25DecisionStrategySingleton9mkLiteralEj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %n) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory25DecisionStrategySingleton9mkLiteralEj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this, i32 noundef %n) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %n, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1204,7 +1204,7 @@ return:                                           ; preds = %if.then13.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory25DecisionStrategySingleton16getSingleLiteralEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory25DecisionStrategySingleton16getSingleLiteralEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_literal = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %d_literal, align 8

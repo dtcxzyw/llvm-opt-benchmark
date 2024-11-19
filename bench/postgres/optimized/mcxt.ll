@@ -69,7 +69,7 @@ define dso_local void @MemoryContextInit() local_unnamed_addr #0 {
 declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @MemoryContextAllowInCriticalSection(ptr nocapture noundef writeonly initializes((5, 6)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
+define dso_local void @MemoryContextAllowInCriticalSection(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 5
   store i8 %3, ptr %4, align 1
@@ -462,7 +462,7 @@ define dso_local void @MemoryContextSetParent(ptr noundef %0, ptr noundef %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @MemoryContextRegisterResetCallback(ptr nocapture noundef initializes((4, 5)) %0, ptr noundef initializes((16, 24)) %1) local_unnamed_addr #4 {
+define dso_local void @MemoryContextRegisterResetCallback(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -474,7 +474,7 @@ define dso_local void @MemoryContextRegisterResetCallback(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @MemoryContextSetIdentifier(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @MemoryContextSetIdentifier(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   ret void
@@ -557,7 +557,7 @@ define dso_local i64 @MemoryContextMemAllocated(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @MemoryContextMemConsumed(ptr noundef %0, ptr noundef initializes((0, 32)) %1) local_unnamed_addr #0 {
+define dso_local void @MemoryContextMemConsumed(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   tail call fastcc void @MemoryContextStatsInternal(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false, i32 noundef 0, ptr noundef %1, i1 noundef zeroext false)
   ret void
@@ -778,7 +778,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @MemoryContextCreate(ptr noundef initializes((0, 5), (8, 80)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
+define dso_local void @MemoryContextCreate(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 {
   store i32 %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 1, ptr %6, align 4
@@ -871,7 +871,7 @@ define dso_local void @MemoryContextSizeFailure(ptr nocapture noundef readnone %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @MemoryContextAlloc(ptr noundef initializes((4, 5)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @MemoryContextAlloc(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -882,7 +882,7 @@ define dso_local ptr @MemoryContextAlloc(ptr noundef initializes((4, 5)) %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @MemoryContextAllocZero(ptr noundef initializes((4, 5)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @MemoryContextAllocZero(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1242,7 +1242,7 @@ define dso_local ptr @repalloc0(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @MemoryContextAllocHuge(ptr noundef initializes((4, 5)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @MemoryContextAllocHuge(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1264,7 +1264,7 @@ define dso_local ptr @repalloc_huge(ptr noundef %0, i64 noundef %1) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @MemoryContextStrdup(ptr noundef initializes((4, 5)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local ptr @MemoryContextStrdup(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #18
   %4 = add i64 %3, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 4

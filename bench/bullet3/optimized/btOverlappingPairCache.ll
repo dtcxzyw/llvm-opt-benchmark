@@ -119,7 +119,7 @@ $_ZTI17btOverlapCallback = comdat any
 @_ZN28btSortedOverlappingPairCacheD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN28btSortedOverlappingPairCacheD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN28btHashedOverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (12, 20), (24, 33), (40, 48), (52, 60), (64, 73), (84, 92), (96, 105), (112, 120)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN28btHashedOverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28btHashedOverlappingPairCache, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -542,7 +542,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN28btHashedOverlappingPairCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN28btHashedOverlappingPairCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28btHashedOverlappingPairCache, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -639,7 +639,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev.exit: ; preds = %_ZN20btAligne
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN28btHashedOverlappingPairCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN28btHashedOverlappingPairCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN28btHashedOverlappingPairCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #13
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
@@ -2229,7 +2229,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN28btSortedOverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (12, 20), (24, 33), (40, 42), (48, 64)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN28btSortedOverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28btSortedOverlappingPairCache, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -2297,7 +2297,7 @@ lpad3:                                            ; preds = %if.then3.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN28btSortedOverlappingPairCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN28btSortedOverlappingPairCacheD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28btSortedOverlappingPairCache, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2334,7 +2334,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev.exit: ; preds = %entry, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN28btSortedOverlappingPairCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN28btSortedOverlappingPairCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28btSortedOverlappingPairCache, i64 16), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24

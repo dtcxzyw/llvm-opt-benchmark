@@ -39,7 +39,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BIO_new_bio_dgram_pair(ptr nocapture noundef writeonly initializes((0, 8)) %pbio1, i64 noundef %writebuf1, ptr nocapture noundef writeonly initializes((0, 8)) %pbio2, i64 noundef %writebuf2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BIO_new_bio_dgram_pair(ptr nocapture noundef writeonly %pbio1, i64 noundef %writebuf1, ptr nocapture noundef writeonly %pbio2, i64 noundef %writebuf2) local_unnamed_addr #1 {
 entry:
   %call1 = tail call ptr @BIO_new(ptr noundef nonnull @dgram_pair_method) #8
   %cmp = icmp eq ptr %call1, null

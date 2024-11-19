@@ -5978,7 +5978,7 @@ _ZN7mitsuba7variantIJbldN5drjit5ArrayIdLm3EEENSt3__112basic_stringIcNS4_11char_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba10PropertiesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba10PropertiesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #29
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -5996,7 +5996,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba10PropertiesC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba10PropertiesC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #29
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -6690,7 +6690,7 @@ _ZN7mitsuba5EntryaSERKS0_.exit:                   ; preds = %42, %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7mitsuba10Properties14property_namesEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7mitsuba10Properties14property_namesEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
@@ -6804,7 +6804,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7mitsuba10Properties16named_referencesEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__1::vector.79") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7mitsuba10Properties16named_referencesEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__1::vector.79") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__1::pair.86", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8
@@ -7059,7 +7059,7 @@ _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7mitsuba10Properties7objectsEb(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__1::vector.87") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7mitsuba10Properties7objectsEb(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__1::vector.87") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::__1::pair.94", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %1, align 8
@@ -7347,7 +7347,7 @@ _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7mitsuba10Properties9unqueriedEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7mitsuba10Properties9unqueriedEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8

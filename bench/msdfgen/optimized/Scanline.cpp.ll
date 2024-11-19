@@ -362,14 +362,14 @@ while.end132:                                     ; preds = %if.end131, %while.c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen8ScanlineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN7msdfgen8ScanlineC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %this, i8 0, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree uwtable
-define dso_local void @_ZN7msdfgen8Scanline10preprocessEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((24, 28)) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN7msdfgen8Scanline10preprocessEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #3 align 2 {
 entry:
   %lastIndex = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %lastIndex, align 8
@@ -574,7 +574,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen8Scanline16setIntersectionsEOSt6vectorINS0_12IntersectionESaIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((8, 28)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %intersections) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7msdfgen8Scanline16setIntersectionsEOSt6vectorINS0_12IntersectionESaIS2_EE(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %intersections) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8

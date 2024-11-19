@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Sbd_ParSetDefault(ptr nocapture noundef writeonly initializes((0, 68)) %0) local_unnamed_addr #0 {
+define void @Sbd_ParSetDefault(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store i32 4, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 3, ptr %2, align 4
@@ -3563,7 +3563,7 @@ Abc_TtCopy.exit:                                  ; preds = %.lr.ph.i239, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Sbd_ManWindow(ptr noundef initializes((232, 236), (240, 248)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Sbd_ManWindow(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
@@ -12967,7 +12967,7 @@ Vec_IntPush.exit47:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Sbd_ManDeriveMapping(ptr nocapture noundef initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @Sbd_ManDeriveMapping(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4

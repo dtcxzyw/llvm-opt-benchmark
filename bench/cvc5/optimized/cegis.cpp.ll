@@ -559,7 +559,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers5Cegis10initializeENS0_12NodeTemplateILb1EEES5_RKSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1193) initializes((328, 329)) %this, ptr nocapture noundef readonly %conj, ptr nocapture noundef readonly %n, ptr noundef nonnull align 8 dereferenceable(24) %candidates) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers5Cegis10initializeENS0_12NodeTemplateILb1EEES5_RKSt6vectorIS5_SaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1193) %this, ptr nocapture noundef readonly %conj, ptr nocapture noundef readonly %n, ptr noundef nonnull align 8 dereferenceable(24) %candidates) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp11 = alloca %"class.cvc5::internal::NodeTemplate", align 8

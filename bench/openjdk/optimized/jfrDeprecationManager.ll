@@ -91,7 +91,7 @@ define hidden void @_ZN21JfrDeprecationManager16on_recorder_stopEv() local_unnam
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17JfrDeprecatedEdgeC2EPK6MethodPS0_ihP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(82) initializes((0, 82)) %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #1 align 2 {
+define hidden void @_ZN17JfrDeprecatedEdgeC2EPK6MethodPS0_ihP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(82) %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3, i8 noundef zeroext %4, ptr nocapture readnone %5) unnamed_addr #1 align 2 {
   %7 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #11
   store i64 %7, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8

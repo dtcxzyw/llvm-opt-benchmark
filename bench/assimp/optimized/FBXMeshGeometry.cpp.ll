@@ -8076,7 +8076,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit37:  ; preds = %_ZNSt6vectorI10aiVe
 declare void @_ZN6Assimp3FBX20ParseVectorDataArrayERSt6vectorIjSaIjEERKNS0_7ElementE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX13ShapeGeometryD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX13ShapeGeometryD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3FBX13ShapeGeometryE, i64 16), ptr %this, align 8
   %m_indices = getelementptr inbounds i8, ptr %this, i64 168
@@ -8147,7 +8147,7 @@ _ZN6Assimp3FBX8GeometryD2Ev.exit:                 ; preds = %_ZNSt10_HashtableIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX13ShapeGeometryD0Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp3FBX13ShapeGeometryD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN6Assimp3FBX13ShapeGeometryD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -8348,7 +8348,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit:    ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX12LineGeometryD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12LineGeometryD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3FBX12LineGeometryE, i64 16), ptr %this, align 8
   %m_indices = getelementptr inbounds i8, ptr %this, i64 144
@@ -8409,7 +8409,7 @@ _ZN6Assimp3FBX8GeometryD2Ev.exit:                 ; preds = %_ZNSt10_HashtableIP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp3FBX12LineGeometryD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp3FBX12LineGeometryD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN6Assimp3FBX12LineGeometryD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23

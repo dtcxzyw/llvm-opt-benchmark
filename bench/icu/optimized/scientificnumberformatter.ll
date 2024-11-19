@@ -969,7 +969,7 @@ return:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525ScientificNumberFormatterC2EPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 18), (72, 88)) %this, ptr noundef %fmtToAdopt, ptr noundef %styleToAdopt, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525ScientificNumberFormatterC2EPNS_13DecimalFormatEPNS0_5StyleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %fmtToAdopt, ptr noundef %styleToAdopt, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i64 16), ptr %this, align 8
   %fPreExponent = getelementptr inbounds i8, ptr %this, i64 8
@@ -1098,7 +1098,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7525ScientificNumberFormatterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(88) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7525ScientificNumberFormatterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i64 16), ptr %this, align 8
   %fPreExponent = getelementptr inbounds i8, ptr %this, i64 8
@@ -1152,7 +1152,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7525ScientificNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7525ScientificNumberFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7525ScientificNumberFormatterE, i64 16), ptr %this, align 8
   %fDecimalFormat = getelementptr inbounds i8, ptr %this, i64 72

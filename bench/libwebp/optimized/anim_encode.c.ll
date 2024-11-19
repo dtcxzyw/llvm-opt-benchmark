@@ -2015,7 +2015,7 @@ declare i32 @WebPConfigInitInternal(ptr noundef, i32 noundef, float noundef, i32
 declare void @WebPCopyPixels(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @SetFrame(ptr noundef nonnull initializes((68, 300)) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #1 {
+define internal fastcc i32 @SetFrame(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #1 {
   %6 = alloca [4 x %struct.Candidate], align 16
   %7 = alloca %struct.SubFrameParams, align 8
   %8 = alloca %struct.SubFrameParams, align 8
@@ -2423,7 +2423,7 @@ SubFrameParamsInit.exit.thread:                   ; preds = %33, %23, %SubFrameP
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @GetSubRects(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, float noundef %4, ptr noundef nonnull initializes((8, 24)) %5) unnamed_addr #1 {
+define internal fastcc i32 @GetSubRects(ptr nocapture noundef nonnull readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2, i32 noundef %3, float noundef %4, ptr noundef nonnull %5) unnamed_addr #1 {
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 12

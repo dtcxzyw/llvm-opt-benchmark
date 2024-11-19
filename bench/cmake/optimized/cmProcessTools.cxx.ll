@@ -683,7 +683,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN16cmUVProcessChainD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) initializes((0, 24)) %0, i8 noundef signext %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) %0, i8 noundef signext %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 {
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN14cmProcessTools10LineParserE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -700,7 +700,7 @@ define dso_local void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(59) initializes((8, 24)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(59) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %.not = icmp eq ptr %2, null
@@ -1021,7 +1021,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN14cmProcessT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0ZNS0_10RunProcessES2_S4_S4_S6_E3$_1ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeESJ_mSL_"(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #0 align 2 {
+define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_0ZNS0_10RunProcessES2_S4_S4_S6_E3$_1ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeESJ_mSL_"(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 align 2 {
   %.val = load ptr, ptr %0, align 8
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %.val, i64 noundef %1)
   %4 = load ptr, ptr %.val, align 8
@@ -1383,7 +1383,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN14cmProcessT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2ZNS0_10RunProcessES2_S4_S4_S6_E3$_3ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeESJ_mSL_"(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #0 align 2 {
+define internal void @"_ZZ14cmUVStreamReadIZN14cmProcessTools10RunProcessER23cmUVProcessChainBuilderPNS0_12OutputParserES4_N15cmProcessOutput8EncodingEE3$_2ZNS0_10RunProcessES2_S4_S4_S6_E3$_3ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISA_EEP11uv_stream_sT_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeESJ_mSL_"(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 align 2 {
   %.val = load ptr, ptr %0, align 8
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %.val, i64 noundef %1)
   %4 = load ptr, ptr %.val, align 8

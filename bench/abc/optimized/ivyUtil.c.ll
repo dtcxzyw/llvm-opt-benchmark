@@ -83,7 +83,7 @@ Ivy_ManCleanTravId.exit:                          ; preds = %Ivy_ManCleanTravId.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_ManCleanTravId(ptr nocapture noundef initializes((176, 180)) %0) local_unnamed_addr #0 {
+define void @Ivy_ManCleanTravId(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -219,7 +219,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_ManCollectCut(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #1 {
+define void @Ivy_ManCollectCut(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %2, i64 4
@@ -520,7 +520,7 @@ define void @Ivy_ManCutTruthOne(ptr nocapture readnone %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ivy_ManCutTruth(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((4, 8)) %3, ptr nocapture noundef %4) local_unnamed_addr #1 {
+define ptr @Ivy_ManCutTruth(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #1 {
   tail call void @Ivy_ManCollectCut(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %6 = getelementptr i8, ptr %3, i64 4
   %.val4148 = load i32, ptr %6, align 4

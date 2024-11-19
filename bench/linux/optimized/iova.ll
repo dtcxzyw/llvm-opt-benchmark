@@ -1263,7 +1263,7 @@ declare dso_local ptr @rb_first(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @rb_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @iova_domain_init_rcaches(ptr noundef initializes((104, 112)) %0) #1 align 16 {
+define dso_local i32 @iova_domain_init_rcaches(ptr noundef %0) #1 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 80), align 16
   %3 = tail call noalias noundef align 8 dereferenceable_or_null(720) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3520, i64 noundef 720) #12
   %4 = getelementptr inbounds i8, ptr %0, i64 104

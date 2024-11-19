@@ -1223,7 +1223,7 @@ cond.end:                                         ; preds = %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_aad(ptr noundef initializes((472, 476)) %vctx, ptr nocapture noundef %param) #2 {
+define internal range(i32 -1, 2) i32 @aesni_cbc_hmac_sha1_tls1_multiblock_aad(ptr noundef %vctx, ptr nocapture noundef %param) #2 {
 entry:
   %inp = getelementptr inbounds i8, ptr %param, i64 8
   %0 = load ptr, ptr %inp, align 8

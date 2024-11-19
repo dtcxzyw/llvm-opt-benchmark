@@ -1251,7 +1251,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24MarketQuotedOptionPricerC2EdNS_4DateERKNS_6PeriodERKN5boost10shared_ptrINS_27SwaptionVolatilityStructureEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 48)) %this, double noundef %forwardValue, i64 %expiryDate.coerce, ptr noundef nonnull align 4 dereferenceable(8) %swapTenor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatilityStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24MarketQuotedOptionPricerC2EdNS_4DateERKNS_6PeriodERKN5boost10shared_ptrINS_27SwaptionVolatilityStructureEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %forwardValue, i64 %expiryDate.coerce, ptr noundef nonnull align 4 dereferenceable(8) %swapTenor, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatilityStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %expiryDate = alloca %"class.QuantLib::Date", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -2707,7 +2707,7 @@ _ZN8QuantLib6HandleINS_27SwaptionVolatilityStructureEED2Ev.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib11HaganPricer10initializeERKNS_18FloatingRateCouponE(ptr noundef nonnull align 8 dereferenceable(200) initializes((72, 80)) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib11HaganPricer10initializeERKNS_18FloatingRateCouponE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -5314,7 +5314,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16GFunctionFactory20newGFunctionStandardEmdm(ptr dead_on_unwind noalias writable sret(%"class.boost::shared_ptr.54") align 8 initializes((0, 16)) %agg.result, i64 noundef %q, double noundef %delta, i64 noundef %swapLength) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16GFunctionFactory20newGFunctionStandardEmdm(ptr dead_on_unwind noalias writable sret(%"class.boost::shared_ptr.54") align 8 %agg.result, i64 noundef %q, double noundef %delta, i64 noundef %swapLength) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib16GFunctionFactory17GFunctionStandardE, i64 16), ptr %call, align 8, !tbaa !35
@@ -6916,7 +6916,7 @@ lpad:                                             ; preds = %_ZN8QuantLib6Handle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18NumericHaganPricerC1ERKNS_6HandleINS_27SwaptionVolatilityStructureEEENS_16GFunctionFactory15YieldCurveModelERKNS1_INS_5QuoteEEEdddd(ptr noundef nonnull align 8 dereferenceable(264) initializes((264, 272), (280, 284), (288, 296)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swaptionVol, i32 noundef %modelOfYieldCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %meanReversion, double noundef %lowerLimit, double noundef %upperLimit, double noundef %precision, double noundef %hardUpperLimit) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18NumericHaganPricerC1ERKNS_6HandleINS_27SwaptionVolatilityStructureEEENS_16GFunctionFactory15YieldCurveModelERKNS1_INS_5QuoteEEEdddd(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swaptionVol, i32 noundef %modelOfYieldCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %meanReversion, double noundef %lowerLimit, double noundef %upperLimit, double noundef %precision, double noundef %hardUpperLimit) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 264
@@ -8870,7 +8870,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare double @exp(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib18NumericHaganPricer18ConundrumIntegrandC2EN5boost10shared_ptrINS_19VanillaOptionPricerEEERKNS3_INS_18YieldTermStructureEEENS3_INS_9GFunctionEEENS_4DateESC_dddNS_6Option4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 68), (72, 88)) %this, ptr nocapture noundef %o, ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef %gFunction, i64 %fixingDate.coerce, i64 %paymentDate.coerce, double noundef %annuity, double noundef %forwardValue, double noundef %strike, i32 noundef %optionType) unnamed_addr #17 align 2 {
+define void @_ZN8QuantLib18NumericHaganPricer18ConundrumIntegrandC2EN5boost10shared_ptrINS_19VanillaOptionPricerEEERKNS3_INS_18YieldTermStructureEEENS3_INS_9GFunctionEEENS_4DateESC_dddNS_6Option4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr nocapture noundef %o, ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef %gFunction, i64 %fixingDate.coerce, i64 %paymentDate.coerce, double noundef %annuity, double noundef %forwardValue, double noundef %strike, i32 noundef %optionType) unnamed_addr #17 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib18NumericHaganPricer18ConundrumIntegrandE, i64 16), ptr %this, align 8, !tbaa !35
   %vanillaOptionPricer_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -8905,7 +8905,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib18NumericHaganPricer18ConundrumIntegrand9setStrikeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((56, 64)) %this, double noundef %strike) local_unnamed_addr #18 align 2 {
+define void @_ZN8QuantLib18NumericHaganPricer18ConundrumIntegrand9setStrikeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, double noundef %strike) local_unnamed_addr #18 align 2 {
 entry:
   %strike_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store double %strike, ptr %strike_, align 8, !tbaa !193
@@ -9160,7 +9160,7 @@ lpad:                                             ; preds = %_ZN8QuantLib6Handle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19AnalyticHaganPricerC1ERKNS_6HandleINS_27SwaptionVolatilityStructureEEENS_16GFunctionFactory15YieldCurveModelERKNS1_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(200) initializes((200, 208), (216, 220), (224, 232)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swaptionVol, i32 noundef %modelOfYieldCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %meanReversion) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19AnalyticHaganPricerC1ERKNS_6HandleINS_27SwaptionVolatilityStructureEEENS_16GFunctionFactory15YieldCurveModelERKNS1_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swaptionVol, i32 noundef %modelOfYieldCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %meanReversion) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Handle", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 200
@@ -10122,7 +10122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16GFunctionFactory19GFunctionExactYieldC2ERKNS_9CmsCouponE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (16, 40)) %this, ptr noundef nonnull align 8 dereferenceable(192) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16GFunctionFactory19GFunctionExactYieldC2ERKNS_9CmsCouponE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(192) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.62", align 8
   %ref.tmp5 = alloca %"class.QuantLib::Date", align 8
@@ -11464,7 +11464,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit58:                  ; preds = %ehcleanup, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16GFunctionFactory19GFunctionWithShiftsC2ERKNS_9CmsCouponENS_6HandleINS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (24, 96), (120, 176)) %this, ptr noundef nonnull align 8 dereferenceable(192) %coupon, ptr nocapture noundef %meanReversion) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16GFunctionFactory19GFunctionWithShiftsC2ERKNS_9CmsCouponENS_6HandleINS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(192) %coupon, ptr nocapture noundef %meanReversion) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.62", align 8
   %ref.tmp5 = alloca %"class.QuantLib::Date", align 8
@@ -14371,7 +14371,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define noundef double @_ZNK8QuantLib16GFunctionFactory19GFunctionWithShifts17ObjectiveFunctionclERKd(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %x) unnamed_addr #21 align 2 {
+define noundef double @_ZNK8QuantLib16GFunctionFactory19GFunctionWithShifts17ObjectiveFunctionclERKd(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %x) unnamed_addr #21 align 2 {
 entry:
   %derivative_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store double 0.000000e+00, ptr %derivative_, align 8, !tbaa !269
@@ -14458,7 +14458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib16GFunctionFactory19GFunctionWithShifts17ObjectiveFunction16setSwapRateValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((16, 24)) %this, double noundef %x) local_unnamed_addr #18 align 2 {
+define void @_ZN8QuantLib16GFunctionFactory19GFunctionWithShifts17ObjectiveFunction16setSwapRateValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, double noundef %x) local_unnamed_addr #18 align 2 {
 entry:
   %Rs_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store double %x, ptr %Rs_, align 8, !tbaa !260

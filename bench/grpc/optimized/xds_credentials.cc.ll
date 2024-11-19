@@ -209,7 +209,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core22XdsCertificateVerifierC2ENS_13RefCountedPtrINS_22XdsCertificateProviderEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %this, ptr nocapture noundef %xds_certificate_provider, ptr noundef nonnull %cluster_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core22XdsCertificateVerifierC2ENS_13RefCountedPtrINS_22XdsCertificateProviderEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %xds_certificate_provider, ptr noundef nonnull %cluster_name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8

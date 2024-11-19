@@ -747,7 +747,7 @@ define internal void @someip_service_ident_id_set_cb(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_service_ident_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_service_ident_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -771,7 +771,7 @@ define internal void @someip_service_ident_name_set_cb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_service_ident_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_service_ident_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -806,7 +806,7 @@ define internal void @someip_method_ident_id_set_cb(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_method_ident_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_method_ident_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -827,7 +827,7 @@ define internal void @someip_method_ident_id2_set_cb(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_method_ident_id2_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_method_ident_id2_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -850,7 +850,7 @@ define internal void @someip_method_ident_name_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_method_ident_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_method_ident_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -885,7 +885,7 @@ define internal void @someip_eventgroup_ident_id_set_cb(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_eventgroup_ident_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_eventgroup_ident_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -906,7 +906,7 @@ define internal void @someip_eventgroup_ident_id2_set_cb(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_eventgroup_ident_id2_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_eventgroup_ident_id2_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -929,7 +929,7 @@ define internal void @someip_eventgroup_ident_name_set_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_eventgroup_ident_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_eventgroup_ident_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -964,7 +964,7 @@ define internal void @someip_client_ident_id_set_cb(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_client_ident_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_client_ident_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -985,7 +985,7 @@ define internal void @someip_client_ident_id2_set_cb(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_client_ident_id2_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_client_ident_id2_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -1008,7 +1008,7 @@ define internal void @someip_client_ident_name_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_client_ident_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_client_ident_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1043,7 +1043,7 @@ define internal void @someip_parameter_list_service_id_set_cb(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_service_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_service_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -1064,7 +1064,7 @@ define internal void @someip_parameter_list_method_id_set_cb(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_method_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_method_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -1088,7 +1088,7 @@ define internal void @someip_parameter_list_version_set_cb(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_version_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_version_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1110,7 +1110,7 @@ define internal void @someip_parameter_list_message_type_set_cb(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_message_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_message_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -1124,7 +1124,7 @@ define internal void @someip_parameter_list_message_type_tostr_cb(ptr nocapture 
 declare zeroext i1 @uat_fld_chk_bool(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_wtlv_encoding_set_cb(ptr nocapture noundef writeonly initializes((16, 20)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_wtlv_encoding_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #14
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.307) #14
@@ -1137,7 +1137,7 @@ define internal void @someip_parameter_list_wtlv_encoding_set_cb(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_wtlv_encoding_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_wtlv_encoding_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -1161,7 +1161,7 @@ define internal void @someip_parameter_list_num_of_params_set_cb(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_num_of_params_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_num_of_params_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1183,7 +1183,7 @@ define internal void @someip_parameter_list_pos_set_cb(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_pos_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_pos_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1206,7 +1206,7 @@ define internal void @someip_parameter_list_name_set_cb(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1242,7 +1242,7 @@ define internal void @someip_parameter_list_data_type_set_cb(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1264,7 +1264,7 @@ define internal void @someip_parameter_list_id_ref_set_cb(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -1287,7 +1287,7 @@ define internal void @someip_parameter_list_filter_string_set_cb(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_list_filter_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_list_filter_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1322,7 +1322,7 @@ define internal void @someip_parameter_arrays_id_set_cb(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_arrays_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_arrays_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -1344,7 +1344,7 @@ define internal void @someip_parameter_arrays_name_set_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_arrays_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_arrays_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1380,7 +1380,7 @@ define internal void @someip_parameter_arrays_data_type_set_cb(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_arrays_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_arrays_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1402,7 +1402,7 @@ define internal void @someip_parameter_arrays_id_ref_set_cb(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_arrays_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_arrays_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -1424,7 +1424,7 @@ define internal void @someip_parameter_arrays_num_of_dims_set_cb(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_arrays_num_of_dims_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_arrays_num_of_dims_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1447,7 +1447,7 @@ define internal void @someip_parameter_arrays_filter_string_set_cb(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_arrays_filter_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_arrays_filter_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1483,7 +1483,7 @@ define internal void @someip_parameter_arrays_num_set_cb(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_arrays_num_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_arrays_num_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1505,7 +1505,7 @@ define internal void @someip_parameter_arrays_lower_limit_set_cb(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_arrays_lower_limit_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_arrays_lower_limit_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1527,7 +1527,7 @@ define internal void @someip_parameter_arrays_upper_limit_set_cb(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_arrays_upper_limit_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_arrays_upper_limit_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1549,7 +1549,7 @@ define internal void @someip_parameter_arrays_length_of_length_set_cb(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_arrays_length_of_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_arrays_length_of_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1571,7 +1571,7 @@ define internal void @someip_parameter_arrays_pad_to_set_cb(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_arrays_pad_to_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_arrays_pad_to_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1592,7 +1592,7 @@ define internal void @someip_parameter_structs_id_set_cb(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -1614,7 +1614,7 @@ define internal void @someip_parameter_structs_struct_name_set_cb(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_struct_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_struct_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1650,7 +1650,7 @@ define internal void @someip_parameter_structs_length_of_length_set_cb(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_length_of_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_length_of_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1672,7 +1672,7 @@ define internal void @someip_parameter_structs_pad_to_set_cb(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_pad_to_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_pad_to_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1684,7 +1684,7 @@ define internal void @someip_parameter_structs_pad_to_tostr_cb(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_wtlv_encoding_set_cb(ptr nocapture noundef writeonly initializes((24, 28)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_wtlv_encoding_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #14
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.307) #14
@@ -1697,7 +1697,7 @@ define internal void @someip_parameter_structs_wtlv_encoding_set_cb(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_wtlv_encoding_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_wtlv_encoding_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -1721,7 +1721,7 @@ define internal void @someip_parameter_structs_num_of_items_set_cb(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_num_of_items_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_num_of_items_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1743,7 +1743,7 @@ define internal void @someip_parameter_structs_pos_set_cb(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_pos_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_pos_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1766,7 +1766,7 @@ define internal void @someip_parameter_structs_name_set_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1802,7 +1802,7 @@ define internal void @someip_parameter_structs_data_type_set_cb(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1824,7 +1824,7 @@ define internal void @someip_parameter_structs_id_ref_set_cb(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -1847,7 +1847,7 @@ define internal void @someip_parameter_structs_filter_string_set_cb(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_structs_filter_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_structs_filter_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1882,7 +1882,7 @@ define internal void @someip_parameter_unions_id_set_cb(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_unions_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_unions_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -1904,7 +1904,7 @@ define internal void @someip_parameter_unions_name_set_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_unions_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_unions_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1940,7 +1940,7 @@ define internal void @someip_parameter_unions_length_of_length_set_cb(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_unions_length_of_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_unions_length_of_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1962,7 +1962,7 @@ define internal void @someip_parameter_unions_length_of_type_set_cb(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_unions_length_of_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_unions_length_of_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -1984,7 +1984,7 @@ define internal void @someip_parameter_unions_pad_to_set_cb(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_unions_pad_to_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_unions_pad_to_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2006,7 +2006,7 @@ define internal void @someip_parameter_unions_num_of_items_set_cb(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_unions_num_of_items_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_unions_num_of_items_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2028,7 +2028,7 @@ define internal void @someip_parameter_unions_type_id_set_cb(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_unions_type_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_unions_type_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2051,7 +2051,7 @@ define internal void @someip_parameter_unions_type_name_set_cb(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_unions_type_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_unions_type_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2087,7 +2087,7 @@ define internal void @someip_parameter_unions_data_type_set_cb(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_unions_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_unions_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2109,7 +2109,7 @@ define internal void @someip_parameter_unions_id_ref_set_cb(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_unions_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_unions_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -2132,7 +2132,7 @@ define internal void @someip_parameter_unions_filter_string_set_cb(ptr nocapture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_unions_filter_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_unions_filter_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2167,7 +2167,7 @@ define internal void @someip_parameter_enums_id_set_cb(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_enums_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_enums_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -2189,7 +2189,7 @@ define internal void @someip_parameter_enums_name_set_cb(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_enums_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_enums_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2225,7 +2225,7 @@ define internal void @someip_parameter_enums_data_type_set_cb(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_enums_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_enums_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2247,7 +2247,7 @@ define internal void @someip_parameter_enums_id_ref_set_cb(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_enums_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_enums_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -2269,7 +2269,7 @@ define internal void @someip_parameter_enums_num_of_items_set_cb(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_enums_num_of_items_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_enums_num_of_items_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2291,7 +2291,7 @@ define internal void @someip_parameter_enums_value_set_cb(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_enums_value_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_enums_value_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -2314,7 +2314,7 @@ define internal void @someip_parameter_enums_value_name_set_cb(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_enums_value_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_enums_value_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2349,7 +2349,7 @@ define internal void @someip_parameter_base_type_list_id_set_cb(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_base_type_list_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_base_type_list_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -2371,7 +2371,7 @@ define internal void @someip_parameter_base_type_list_name_set_cb(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_base_type_list_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_base_type_list_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2408,7 +2408,7 @@ define internal void @someip_parameter_base_type_list_data_type_set_cb(ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_base_type_list_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_base_type_list_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2434,7 +2434,7 @@ define internal void @someip_parameter_base_type_list_data_type_tostr_cb(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_base_type_list_big_endian_set_cb(ptr nocapture noundef writeonly initializes((24, 28)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_base_type_list_big_endian_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #14
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.307) #14
@@ -2447,7 +2447,7 @@ define internal void @someip_parameter_base_type_list_big_endian_set_cb(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_base_type_list_big_endian_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_base_type_list_big_endian_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -2471,7 +2471,7 @@ define internal void @someip_parameter_base_type_list_bitlength_base_type_set_cb
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_base_type_list_bitlength_base_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_base_type_list_bitlength_base_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2493,7 +2493,7 @@ define internal void @someip_parameter_base_type_list_bitlength_encoded_type_set
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_base_type_list_bitlength_encoded_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_base_type_list_bitlength_encoded_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2514,7 +2514,7 @@ define internal void @someip_parameter_strings_id_set_cb(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_strings_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_strings_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -2536,7 +2536,7 @@ define internal void @someip_parameter_strings_name_set_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_strings_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_strings_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2573,7 +2573,7 @@ define internal void @someip_parameter_strings_encoding_set_cb(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_strings_encoding_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_strings_encoding_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2599,7 +2599,7 @@ define internal void @someip_parameter_strings_encoding_tostr_cb(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_strings_dynamic_length_set_cb(ptr nocapture noundef writeonly initializes((24, 28)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_strings_dynamic_length_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #14
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.307) #14
@@ -2612,7 +2612,7 @@ define internal void @someip_parameter_strings_dynamic_length_set_cb(ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_strings_dynamic_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_strings_dynamic_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 0
@@ -2636,7 +2636,7 @@ define internal void @someip_parameter_strings_max_length_set_cb(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_strings_max_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_strings_max_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2658,7 +2658,7 @@ define internal void @someip_parameter_strings_length_of_length_set_cb(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_strings_length_of_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_strings_length_of_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2670,7 +2670,7 @@ define internal void @someip_parameter_strings_length_of_length_tostr_cb(ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_strings_big_endian_set_cb(ptr nocapture noundef writeonly initializes((36, 40)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_strings_big_endian_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #14
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull @.str.307) #14
@@ -2683,7 +2683,7 @@ define internal void @someip_parameter_strings_big_endian_set_cb(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_strings_big_endian_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_strings_big_endian_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 36
   %7 = load i32, ptr %6, align 4
   %.not = icmp eq i32 %7, 0
@@ -2707,7 +2707,7 @@ define internal void @someip_parameter_strings_pad_to_set_cb(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_strings_pad_to_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_strings_pad_to_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2728,7 +2728,7 @@ define internal void @someip_parameter_typedefs_id_set_cb(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_typedefs_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_typedefs_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %6) #14
   store ptr %7, ptr %1, align 8
@@ -2750,7 +2750,7 @@ define internal void @someip_parameter_typedefs_name_set_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_typedefs_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_typedefs_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2786,7 +2786,7 @@ define internal void @someip_parameter_typedefs_data_type_set_cb(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_typedefs_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_typedefs_data_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.306, i32 noundef %7) #14
@@ -2808,7 +2808,7 @@ define internal void @someip_parameter_typedefs_id_ref_set_cb(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @someip_parameter_typedefs_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @someip_parameter_typedefs_id_ref_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.305, i32 noundef %7) #14
@@ -3122,7 +3122,7 @@ clean_all_hashtables_with_empty_uat.exit:         ; preds = %81, %76, %1
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned writeonly initializes((0, 4), (8, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @copy_generic_one_id_string_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #14
@@ -3247,7 +3247,7 @@ define internal void @reset_someip_service_cb() #0 {
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_generic_two_id_string_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @copy_generic_two_id_string_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #14
@@ -3572,7 +3572,7 @@ define internal void @reset_someip_client_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_list_cb(ptr noundef returned writeonly initializes((0, 28), (32, 56)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_list_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -3956,7 +3956,7 @@ define internal void @reset_someip_parameter_list_cb() #0 {
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_array_cb(ptr noundef returned writeonly initializes((0, 4), (8, 28), (32, 60)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_array_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4296,7 +4296,7 @@ define internal void @reset_someip_parameter_array_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_struct_cb(ptr noundef returned writeonly initializes((0, 4), (8, 36), (40, 64)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_struct_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4675,7 +4675,7 @@ define internal void @reset_someip_parameter_struct_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_union_cb(ptr noundef returned writeonly initializes((0, 4), (8, 36), (40, 64)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_union_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5042,7 +5042,7 @@ define internal void @reset_someip_parameter_union_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_enum_cb(ptr noundef returned writeonly initializes((0, 4), (8, 40)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_enum_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5309,7 +5309,7 @@ define internal void @reset_someip_parameter_enum_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_base_type_list_cb(ptr noundef returned writeonly initializes((0, 4), (8, 36)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_base_type_list_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -5494,7 +5494,7 @@ define internal void @reset_someip_parameter_base_type_list_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_string_list_cb(ptr noundef returned writeonly initializes((0, 4), (8, 44)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_string_list_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -5678,7 +5678,7 @@ define internal void @reset_someip_parameter_string_list_cb() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @copy_someip_parameter_typedef_list_cb(ptr noundef returned writeonly initializes((0, 4), (8, 24)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @copy_someip_parameter_typedef_list_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

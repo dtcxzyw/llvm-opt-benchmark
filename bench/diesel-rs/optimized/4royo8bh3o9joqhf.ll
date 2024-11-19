@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.866eefe3e23ff7b20e86deba5e508555.21 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr92drop_in_place$LT$std..io..Write..write_fmt..Adapter$LT$std..sys..unix..stdio..Stderr$GT$$GT$17haae98824093c48ffE", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$LT$T$GT$$u20$as$u20$core..fmt..Write$GT$9write_str17h1dceb8dc9c83891aE", ptr @_ZN4core3fmt5Write10write_char17hefae1271c5833bd6E, ptr @_ZN4core3fmt5Write9write_fmt17h7d72bf3969388fddE }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12darling_core5error11Accumulator6handle17h1b93a5834356be76E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #0 {
+define hidden void @_ZN12darling_core5error11Accumulator6handle17h1b93a5834356be76E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #0 {
   %4 = alloca { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }, align 8
   %5 = load i64, ptr %2, align 8, !range !4, !noundef !5
   %6 = icmp eq i64 %5, -9223372036854775808
@@ -35,7 +35,7 @@ define hidden void @_ZN12darling_core5error11Accumulator6handle17h1b93a5834356be
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12darling_core5error11Accumulator6handle17h6ae868dff0c1ee10E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #0 {
+define hidden void @_ZN12darling_core5error11Accumulator6handle17h6ae868dff0c1ee10E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #0 {
   %4 = alloca { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }, align 8
   %5 = load i64, ptr %2, align 8, !range !4, !noundef !5
   %6 = icmp eq i64 %5, -9223372036854775808
@@ -84,7 +84,7 @@ define hidden { i32, i32 } @_ZN12darling_core5error11Accumulator6handle17h6b3e88
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN12darling_core5error11Accumulator6handle17h6e2a87c896f97febE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #0 {
+define hidden void @_ZN12darling_core5error11Accumulator6handle17h6e2a87c896f97febE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %2) unnamed_addr #0 {
   %4 = alloca { { { i64, ptr }, i64 }, { i64, [6 x i64] }, { i32, i32 } }, align 8
   %5 = load i64, ptr %2, align 8, !range !4, !noundef !5
   %6 = icmp eq i64 %5, -9223372036854775808
@@ -543,7 +543,7 @@ define hidden void @_ZN12darling_core5error5Error9with_span17hbd7d6856a3b55964E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h6351797757346454E.llvm.8606994207189466011"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h6351797757346454E.llvm.8606994207189466011"(ptr noundef nonnull writeonly align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %.not.i.i = icmp eq ptr %1, null

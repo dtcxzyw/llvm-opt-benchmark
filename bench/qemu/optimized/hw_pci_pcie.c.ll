@@ -1311,7 +1311,7 @@ if.end28:                                         ; preds = %if.then11, %do.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @pcie_cap_slot_get(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly initializes((0, 2)) %slt_ctl, ptr nocapture noundef writeonly initializes((0, 2)) %slt_sta) local_unnamed_addr #5 {
+define dso_local void @pcie_cap_slot_get(ptr nocapture noundef readonly %dev, ptr nocapture noundef writeonly %slt_ctl, ptr nocapture noundef writeonly %slt_sta) local_unnamed_addr #5 {
 entry:
   %exp = getelementptr inbounds i8, ptr %dev, i64 2168
   %0 = load i8, ptr %exp, align 8
@@ -1529,7 +1529,7 @@ return:                                           ; preds = %if.end.i, %if.end43
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @pcie_cap_slot_post_load(ptr noundef initializes((2170, 2171)) %opaque, i32 noundef %version_id) local_unnamed_addr #0 {
+define dso_local noundef i32 @pcie_cap_slot_post_load(ptr noundef %opaque, i32 noundef %version_id) local_unnamed_addr #0 {
 entry:
   %power.i = alloca i8, align 1
   %exp.i = getelementptr inbounds i8, ptr %opaque, i64 2168

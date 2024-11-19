@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @XXH3_kSecret = internal constant [192 x i8] c"\B8\FEl9#\A4K\BE|\01\81,\F7!\AD\1C\DE\D4m\E9\83\90\97\DBr@\A4\A4\B7\B3g\1F\CBy\E6N\CC\C0\E5x\82Z\D0}\CC\FFr!\B8\08Ft\F7C$\8E\E05\90\E6\81:&L<(R\BB\91\C3\00\CB\88\D0e\8B\1BS.\A3qdH\97\A2\0D\F9N8\19\EFF\A9\DE\AC\D8\A8\FAv?\E3\9C4?\F9\DC\BB\C7\C7\0BO\1D\8AQ\E0K\CD\B4Y1\C8\9F~\C9\D9xsd\EA\C5\AC\834\D3\EB\C3\C5\81\A0\FF\FA\13c\EB\17\0D\DDQ\B7\F0\DAI\D3\16U&)\D4h\9E+\16\BEX}G\A1\FC\8F\F8\B8\D1z\D01\CEE\CB:\8F\95\16\04(\AF\D7\FB\CA\BBK@~", align 64
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_XXH32Init(ptr nocapture noundef writeonly initializes((0, 48)) %0, ptr noundef %1) #0 {
+define void @PHP_XXH32Init(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %3
@@ -344,7 +344,7 @@ XXH_INLINE_XXH32_digest.exit:                     ; preds = %.lr.ph27.i.i, %.pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH32Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 48)) %2) #2 {
+define noundef i32 @PHP_XXH32Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(48) %1, i64 48, i1 false)
   ret i32 0
 }
@@ -382,7 +382,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_XXH64Init(ptr nocapture noundef writeonly initializes((0, 88)) %0, ptr noundef %1) #0 {
+define void @PHP_XXH64Init(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %3
@@ -736,7 +736,7 @@ XXH_INLINE_XXH64_digest.exit:                     ; preds = %.lr.ph39.i.i, %74
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH64Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 88)) %2) #2 {
+define noundef i32 @PHP_XXH64Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   ret i32 0
 }
@@ -766,7 +766,7 @@ define internal i32 @php_hash_xxh64_unserialize(ptr noundef %0, i64 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_XXH3_64_Init(ptr noundef initializes((0, 576)) %0, ptr noundef %1) #6 {
+define void @PHP_XXH3_64_Init(ptr noundef %0, ptr noundef %1) #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %0, i8 0, i64 576, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %XXH_INLINE_XXH3_64bits_reset_withSeed.exit67, label %3
@@ -1198,7 +1198,7 @@ XXH_INLINE_XXH3_64bits_digest.exit:               ; preds = %XXH3_mergeAccs.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH3_64_Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 576)) %2) #2 {
+define noundef i32 @PHP_XXH3_64_Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %2, ptr noundef nonnull align 64 dereferenceable(576) %1, i64 576, i1 false)
   ret i32 0
 }
@@ -1206,7 +1206,7 @@ define noundef i32 @PHP_XXH3_64_Copy(ptr nocapture readnone %0, ptr nocapture no
 declare i32 @php_hash_unserialize(ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define void @PHP_XXH3_128_Init(ptr noundef initializes((0, 576)) %0, ptr noundef %1) #6 {
+define void @PHP_XXH3_128_Init(ptr noundef %0, ptr noundef %1) #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %0, i8 0, i64 576, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %XXH_INLINE_XXH3_128bits_reset_withSeed.exit67, label %3
@@ -1684,7 +1684,7 @@ XXH_INLINE_XXH3_128bits_digest.exit:              ; preds = %XXH3_mergeAccs.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @PHP_XXH3_128_Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 576)) %2) #2 {
+define noundef i32 @PHP_XXH3_128_Copy(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(576) %2, ptr noundef nonnull align 64 dereferenceable(576) %1, i64 576, i1 false)
   ret i32 0
 }

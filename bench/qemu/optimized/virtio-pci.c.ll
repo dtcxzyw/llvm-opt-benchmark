@@ -135,7 +135,7 @@ declare void @guest_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @g_free(ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvirtio_pci_device_enable(ptr nocapture noundef initializes((80, 89)) %d) local_unnamed_addr #0 {
+define dso_local void @qvirtio_pci_device_enable(ptr nocapture noundef %d) local_unnamed_addr #0 {
 entry:
   %pdev = getelementptr inbounds i8, ptr %d, i64 72
   %0 = load ptr, ptr %pdev, align 8
@@ -367,7 +367,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvirtio_pci_start_hw(ptr noundef initializes((80, 89)) %obj) #0 {
+define dso_local void @qvirtio_pci_start_hw(ptr noundef %obj) #0 {
 entry:
   %pdev.i = getelementptr inbounds i8, ptr %obj, i64 72
   %0 = load ptr, ptr %pdev.i, align 8
@@ -390,7 +390,7 @@ entry:
 declare void @qvirtio_start_device(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_pci_init(ptr noundef initializes((72, 80), (104, 106)) %dev, ptr noundef %bus, ptr nocapture noundef readonly %addr) local_unnamed_addr #0 {
+define dso_local void @virtio_pci_init(ptr noundef %dev, ptr noundef %bus, ptr nocapture noundef readonly %addr) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %addr, align 4
   %call = tail call ptr @qpci_device_find(ptr noundef %bus, i32 noundef %0) #7

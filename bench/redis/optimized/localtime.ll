@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__const.nolocks_localtime.mdays = private unnamed_addr constant [12 x i32] [i32 31, i32 28, i32 31, i32 30, i32 31, i32 30, i32 31, i32 31, i32 30, i32 31, i32 30, i32 31], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @nolocks_localtime(ptr nocapture noundef writeonly initializes((0, 12), (24, 28), (32, 36)) %tmp, i64 noundef %t, i64 noundef %tz, i32 noundef %dst) local_unnamed_addr #0 {
+define dso_local void @nolocks_localtime(ptr nocapture noundef writeonly %tmp, i64 noundef %t, i64 noundef %tz, i32 noundef %dst) local_unnamed_addr #0 {
 entry:
   %mdays = alloca [12 x i32], align 16
   %sub = sub nsw i64 %t, %tz

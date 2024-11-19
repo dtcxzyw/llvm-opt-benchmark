@@ -131,7 +131,7 @@ _ZN12_GLOBAL__N_18rcDeleteI13rcHeightfieldEEvPT_.exit: ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13rcHeightfieldC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0) unnamed_addr #5 align 2 {
+define void @_ZN13rcHeightfieldC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   ret void
 }
@@ -221,7 +221,7 @@ _ZN12_GLOBAL__N_18rcDeleteI20rcCompactHeightfieldEEvPT_.exit: ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN20rcCompactHeightfieldC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 60), (64, 96)) %0) unnamed_addr #5 align 2 {
+define void @_ZN20rcCompactHeightfieldC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %0, i8 0, i64 60, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -286,7 +286,7 @@ _ZN12_GLOBAL__N_18rcDeleteI21rcHeightfieldLayerSetEEvPT_.exit: ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN21rcHeightfieldLayerSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #5 align 2 {
+define void @_ZN21rcHeightfieldLayerSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0) unnamed_addr #5 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -376,7 +376,7 @@ _ZN12_GLOBAL__N_18rcDeleteI12rcContourSetEEvPT_.exit: ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12rcContourSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 60)) %0) unnamed_addr #5 align 2 {
+define void @_ZN12rcContourSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %0, i8 0, i64 60, i1 false)
   ret void
 }
@@ -457,7 +457,7 @@ _ZN12_GLOBAL__N_18rcDeleteI10rcPolyMeshEEvPT_.exit: ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10rcPolyMeshC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 96)) %0) unnamed_addr #5 align 2 {
+define void @_ZN10rcPolyMeshC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   ret void
 }
@@ -532,13 +532,13 @@ define void @_Z20rcFreePolyMeshDetailP16rcPolyMeshDetail(ptr noundef %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16rcPolyMeshDetailC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0) unnamed_addr #5 align 2 {
+define void @_ZN16rcPolyMeshDetailC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %0, i8 0, i64 36, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z12rcCalcBoundsPKfiPfS1_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 12)) %2, ptr nocapture noundef initializes((0, 12)) %3) local_unnamed_addr #11 {
+define void @_Z12rcCalcBoundsPKfiPfS1_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #11 {
   %5 = load float, ptr %0, align 4
   store float %5, ptr %2, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -609,7 +609,7 @@ define void @_Z12rcCalcBoundsPKfiPfS1_(ptr nocapture noundef readonly %0, i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z14rcCalcGridSizePKfS0_fPiS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, float noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #12 {
+define void @_Z14rcCalcGridSizePKfS0_fPiS1_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, float noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #12 {
   %6 = load float, ptr %1, align 4
   %7 = load float, ptr %0, align 4
   %8 = fsub float %6, %7
@@ -630,7 +630,7 @@ define void @_Z14rcCalcGridSizePKfS0_fPiS1_(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z19rcCreateHeightfieldP9rcContextR13rcHeightfieldiiPKfS4_ff(ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 48)) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, float noundef %6, float noundef %7) local_unnamed_addr #2 {
+define noundef zeroext i1 @_Z19rcCreateHeightfieldP9rcContextR13rcHeightfieldiiPKfS4_ff(ptr nocapture noundef readnone %0, ptr nocapture noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, float noundef %6, float noundef %7) local_unnamed_addr #2 {
   store i32 %2, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 %3, ptr %9, align 4

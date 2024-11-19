@@ -86,7 +86,7 @@ define linkonce_odr hidden void @_ZN19GCLogPreciousHandle5writeEPKcz(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN9CardTableC2E9MemRegion(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN9CardTableC2E9MemRegion(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr %1, i64 %2) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTV9CardTable, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -101,7 +101,7 @@ define hidden void @_ZN9CardTableC2E9MemRegion(ptr nocapture noundef nonnull wri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9CardTable10initializeEPvS0_(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((32, 88)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9CardTable10initializeEPvS0_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.ThreadCritical, align 1
   %5 = alloca %class.ReservedSpace, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -224,7 +224,7 @@ declare void @_ZN2os16trace_page_sizesEPKcmmS1_mm(ptr noundef, i64 noundef, i64 
 declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9CardTable25initialize_covered_regionEPvS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((56, 88)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN9CardTable25initialize_covered_regionEPvS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %4, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64

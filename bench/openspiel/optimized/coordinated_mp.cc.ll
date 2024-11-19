@@ -1075,7 +1075,7 @@ define void @_ZN10open_spiel14coordinated_mp12PenniesState13DoApplyActionEl(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel14coordinated_mp12PenniesState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.6") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel14coordinated_mp12PenniesState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.6") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -1423,7 +1423,7 @@ define noundef zeroext i1 @_ZNK10open_spiel14coordinated_mp12PenniesState10IsTer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel14coordinated_mp12PenniesState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.11") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel14coordinated_mp12PenniesState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.11") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8

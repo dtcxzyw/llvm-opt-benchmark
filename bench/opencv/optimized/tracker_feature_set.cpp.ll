@@ -31,7 +31,7 @@ $_ZNSt6vectorIN2cv3PtrINS0_6detail8tracking14TrackerFeatureEEESaIS5_EE17_M_reall
 @_ZN2cv6detail8tracking17TrackerFeatureSetD1Ev = unnamed_addr alias void (ptr), ptr @_ZN2cv6detail8tracking17TrackerFeatureSetD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv6detail8tracking17TrackerFeatureSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 1), (8, 56)) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv6detail8tracking17TrackerFeatureSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -173,7 +173,7 @@ _ZNSt6vectorIN2cv3PtrINS0_6detail8tracking14TrackerFeatureEEESaIS5_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail8tracking17TrackerFeatureSet10extractionERKSt6vectorINS_3MatESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail8tracking17TrackerFeatureSet10extractionERKSt6vectorINS_3MatESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8

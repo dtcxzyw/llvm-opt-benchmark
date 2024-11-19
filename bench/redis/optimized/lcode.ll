@@ -272,7 +272,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @luaK_getlabel(ptr nocapture noundef initializes((52, 56)) %fs) local_unnamed_addr #2 {
+define hidden i32 @luaK_getlabel(ptr nocapture noundef %fs) local_unnamed_addr #2 {
 entry:
   %pc = getelementptr inbounds i8, ptr %fs, i64 48
   %0 = load i32, ptr %pc, align 8, !tbaa !4
@@ -440,7 +440,7 @@ if.end:                                           ; preds = %if.end.i, %if.else,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_patchtohere(ptr nocapture noundef initializes((52, 56)) %fs, i32 noundef %list) local_unnamed_addr #0 {
+define hidden void @luaK_patchtohere(ptr nocapture noundef %fs, i32 noundef %list) local_unnamed_addr #0 {
 entry:
   %pc.i = getelementptr inbounds i8, ptr %fs, i64 48
   %0 = load i32, ptr %pc.i, align 8, !tbaa !4
@@ -2804,7 +2804,7 @@ return:                                           ; preds = %freeexp.exit, %clea
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_indexed(ptr nocapture noundef %fs, ptr nocapture noundef writeonly initializes((0, 4), (12, 16)) %t, ptr nocapture noundef %k) local_unnamed_addr #0 {
+define hidden void @luaK_indexed(ptr nocapture noundef %fs, ptr nocapture noundef writeonly %t, ptr nocapture noundef %k) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @luaK_exp2RK(ptr noundef %fs, ptr noundef %k)
   %aux = getelementptr inbounds i8, ptr %t, i64 12

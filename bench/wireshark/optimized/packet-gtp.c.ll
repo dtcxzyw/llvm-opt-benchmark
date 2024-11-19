@@ -7655,7 +7655,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @pdcp_uat_fld_ip_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #1 {
+define internal noundef zeroext i1 @pdcp_uat_fld_ip_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #1 {
   %7 = alloca i32, align 4
   %8 = alloca %struct.e_in6_addr, align 1
   %.not = icmp eq ptr %1, null
@@ -7691,7 +7691,7 @@ define internal void @pdcp_lte_users_ip_addr_str_set_cb(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_ip_addr_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_ip_addr_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -7716,7 +7716,7 @@ define internal void @pdcp_lte_users_ip_addr_str_tostr_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @pdcp_uat_fld_teid_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #1 {
+define internal noundef zeroext i1 @pdcp_uat_fld_teid_chk_cb(ptr nocapture readnone %0, ptr noundef %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #1 {
   %7 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %sub_0
@@ -7759,7 +7759,7 @@ define internal void @pdcp_lte_users_teid_str_set_cb(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_teid_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_teid_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -7787,7 +7787,7 @@ define internal void @pdcp_lte_users_teid_str_tostr_cb(ptr nocapture noundef rea
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_header_present_set_cb(ptr nocapture noundef writeonly initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_header_present_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -7877,7 +7877,7 @@ define internal void @pdcp_lte_users_header_present_tostr_cb(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_plane_set_cb(ptr nocapture noundef writeonly initializes((52, 56)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_plane_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 52
@@ -7967,7 +7967,7 @@ define internal void @pdcp_lte_users_plane_tostr_cb(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_lte_sn_length_set_cb(ptr nocapture noundef writeonly initializes((56, 60)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_lte_sn_length_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8057,7 +8057,7 @@ define internal void @pdcp_lte_users_lte_sn_length_tostr_cb(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_rohc_compression_set_cb(ptr nocapture noundef writeonly initializes((60, 64)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_rohc_compression_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 60
@@ -8147,7 +8147,7 @@ define internal void @pdcp_lte_users_rohc_compression_tostr_cb(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_users_rohc_profile_set_cb(ptr nocapture noundef writeonly initializes((64, 68)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_lte_users_rohc_profile_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 64
@@ -8239,7 +8239,7 @@ define internal void @pdcp_lte_users_rohc_profile_tostr_cb(ptr nocapture noundef
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pdcp_lte_copy_cb(ptr noundef returned initializes((0, 40), (48, 68)) %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal noundef ptr @pdcp_lte_copy_cb(ptr noundef returned %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
@@ -8392,7 +8392,7 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_lte_free_cb(ptr nocapture noundef initializes((16, 24)) %0) #1 {
+define internal void @pdcp_lte_free_cb(ptr nocapture noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #13
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8438,7 +8438,7 @@ define internal void @pdcp_nr_users_ip_addr_str_set_cb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_ip_addr_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_ip_addr_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -8474,7 +8474,7 @@ define internal void @pdcp_nr_users_teid_str_set_cb(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_teid_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_teid_str_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -8500,7 +8500,7 @@ define internal void @pdcp_nr_users_teid_str_tostr_cb(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_direction_set_cb(ptr nocapture noundef writeonly initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_direction_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -8590,7 +8590,7 @@ define internal void @pdcp_nr_users_direction_tostr_cb(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_sdap_header_present_set_cb(ptr nocapture noundef writeonly initializes((52, 56)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_sdap_header_present_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 52
@@ -8680,7 +8680,7 @@ define internal void @pdcp_nr_users_sdap_header_present_tostr_cb(ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_mac_i_present_set_cb(ptr nocapture noundef writeonly initializes((56, 60)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_mac_i_present_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8770,7 +8770,7 @@ define internal void @pdcp_nr_users_mac_i_present_tostr_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_plane_set_cb(ptr nocapture noundef writeonly initializes((60, 64)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_plane_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 60
@@ -8860,7 +8860,7 @@ define internal void @pdcp_nr_users_plane_tostr_cb(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_pdcp_nr_sn_length_set_cb(ptr nocapture noundef writeonly initializes((64, 68)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_pdcp_nr_sn_length_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 64
@@ -8950,7 +8950,7 @@ define internal void @pdcp_nr_users_pdcp_nr_sn_length_tostr_cb(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_rohc_compression_set_cb(ptr nocapture noundef writeonly initializes((68, 72)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_rohc_compression_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 68
@@ -9040,7 +9040,7 @@ define internal void @pdcp_nr_users_rohc_compression_tostr_cb(ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_users_rohc_profile_set_cb(ptr nocapture noundef writeonly initializes((72, 76)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
+define internal void @pdcp_nr_users_rohc_profile_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #1 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #13
   %8 = getelementptr inbounds i8, ptr %0, i64 72
@@ -9130,7 +9130,7 @@ define internal void @pdcp_nr_users_rohc_profile_tostr_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pdcp_nr_copy_cb(ptr noundef returned initializes((0, 40), (48, 76)) %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
+define internal noundef ptr @pdcp_nr_copy_cb(ptr noundef returned %0, ptr nocapture noundef readonly %1, i64 %2) #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #13
   store ptr %5, ptr %0, align 8
@@ -9291,7 +9291,7 @@ free_address_wmem.exit:                           ; preds = %20, %24, %28, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pdcp_nr_free_cb(ptr nocapture noundef initializes((16, 24)) %0) #1 {
+define internal void @pdcp_nr_free_cb(ptr nocapture noundef %0) #1 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #13
   %3 = getelementptr inbounds i8, ptr %0, i64 32

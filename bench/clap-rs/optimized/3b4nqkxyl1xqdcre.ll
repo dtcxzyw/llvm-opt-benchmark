@@ -9992,7 +9992,7 @@ define hidden noundef zeroext i1 @_ZN12clap_builder6output13help_template12HelpT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN12clap_builder6output13help_template19positional_sort_key17hd1dee7dfdf228cb6E(ptr noalias nocapture noundef writeonly sret({ i64, { { { i64, ptr }, i64 } } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(552) %1) unnamed_addr #7 {
+define internal void @_ZN12clap_builder6output13help_template19positional_sort_key17hd1dee7dfdf228cb6E(ptr noalias nocapture noundef writeonly sret({ i64, { { { i64, ptr }, i64 } } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(552) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8, !range !375, !noundef !12
   %trunc = trunc nuw i64 %4 to i1

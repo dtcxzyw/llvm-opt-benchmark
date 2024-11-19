@@ -996,7 +996,7 @@ define internal fastcc range(i32 0, -2147483647) i32 @ttm_pool_shrink() unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ttm_pool_init(ptr noundef initializes((0, 14)) %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) #0 align 16 {
+define dso_local void @ttm_pool_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) #0 align 16 {
   %6 = zext i1 %3 to i8
   %7 = zext i1 %4 to i8
   %8 = icmp eq ptr %1, null

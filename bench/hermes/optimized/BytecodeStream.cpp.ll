@@ -54,7 +54,7 @@ $_ZGVZN4llvh7hashing6detail18get_execution_seedEvE4seed = comdat any
 @_ZN4llvh7hashing6detail19fixed_seed_overrideE = external local_unnamed_addr global i64, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc18BytecodeSerializer9serializeERNS0_14BytecodeModuleERKSt5arrayIhLm20EE(ptr noundef nonnull align 8 dereferenceable(176) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(513) %BM, ptr nocapture noundef nonnull readonly align 1 dereferenceable(20) %sourceHash) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc18BytecodeSerializer9serializeERNS0_14BytecodeModuleERKSt5arrayIhLm20EE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(513) %BM, ptr nocapture noundef nonnull readonly align 1 dereferenceable(20) %sourceHash) local_unnamed_addr #0 align 2 {
 entry:
   %header = alloca %"struct.hermes::hbc::BytecodeFileHeader", align 8
   %fileHash = alloca %"struct.std::array", align 1
@@ -1131,7 +1131,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare { ptr, i64 } @_ZN4llvh4SHA16resultEv(ptr noundef nonnull align 4 dereferenceable(112)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes3hbc18BytecodeSerializer12finishLayoutERNS0_14BytecodeModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((48, 49), (52, 56)) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(513) %BM) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6hermes3hbc18BytecodeSerializer12finishLayoutERNS0_14BytecodeModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(513) %BM) local_unnamed_addr #3 align 2 {
 entry:
   %loc_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %loc_, align 8

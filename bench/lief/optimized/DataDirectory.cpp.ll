@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.88" = type { ptr }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN4LIEF2PE23init_c_data_directoriesEP11Pe_Binary_tPNS0_6BinaryE(ptr nocapture noundef initializes((240, 248)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @_ZN4LIEF2PE23init_c_data_directoriesEP11Pe_Binary_tPNS0_6BinaryE(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 352
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 360

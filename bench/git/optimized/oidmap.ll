@@ -140,7 +140,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @hashmap_remove(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @oidmap_put(ptr noundef %map, ptr noundef initializes((0, 12)) %entry1) local_unnamed_addr #0 {
+define dso_local ptr @oidmap_put(ptr noundef %map, ptr noundef %entry1) local_unnamed_addr #0 {
 entry:
   %cmpfn = getelementptr inbounds i8, ptr %map, i64 8
   %0 = load ptr, ptr %cmpfn, align 8

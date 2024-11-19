@@ -223,7 +223,7 @@ declare double @llvm.fabs.f64(double) #7
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 
 ; Function Attrs: nounwind uwtable
-define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly initializes((0, 4), (8, 12), (16, 32)) %4) local_unnamed_addr #1 {
+define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 16, !tbaa !36
   %8 = getelementptr inbounds i8, ptr %7, i64 4
@@ -824,7 +824,7 @@ declare double @llvm.copysign.f64(double, double) #7
 declare float @llvm.pow.f32(float, float) #7
 
 ; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #10 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
   %4 = tail call noalias dereferenceable_or_null(524340) ptr @calloc(i64 noundef 1, i64 noundef 524340) #21
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !36
@@ -916,7 +916,7 @@ define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture nound
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #14 {
+define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #14 {
   %2 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #20
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !71
@@ -963,7 +963,7 @@ define void @cleanup_global(ptr nocapture noundef %0) local_unnamed_addr #12 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 48) #19
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

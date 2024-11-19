@@ -81,7 +81,7 @@ declare noundef zeroext i1 @_ZN17grpc_event_engine12experimental9TimerHeap8is_em
 declare noundef ptr @_ZN17grpc_event_engine12experimental9TimerHeap3TopEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental9TimerList5ShardC2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental9TimerList5ShardC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %this, align 8
   %stats = getelementptr inbounds i8, ptr %this, i64 8
@@ -110,7 +110,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental9TimerListC2EPNS0_13TimerListHostE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %this, ptr noundef %host) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental9TimerListC2EPNS0_13TimerListHostE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %host) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %host, ptr %this, align 8
   %num_shards_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1185,7 +1185,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit16:      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17grpc_event_engine12experimental9TimerList17FindExpiredTimersEN9grpc_core9TimestampEPS3_(ptr noalias nocapture sret(%"class.std::vector.12") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i64 %now.coerce, ptr noundef %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17grpc_event_engine12experimental9TimerList17FindExpiredTimersEN9grpc_core9TimestampEPS3_(ptr noalias nocapture sret(%"class.std::vector.12") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, i64 %now.coerce, ptr noundef %next) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_min_deadline = alloca %"class.grpc_core::Timestamp", align 8
   %min_timer_ = getelementptr inbounds i8, ptr %this, i64 24

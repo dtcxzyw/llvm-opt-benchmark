@@ -1175,7 +1175,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18QdFpLegendreSchemeC2Emmmm(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 40)) %this, i64 noundef %l, i64 noundef %m, i64 noundef %n, i64 noundef %p) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18QdFpLegendreSchemeC2Emmmm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %l, i64 noundef %m, i64 noundef %n, i64 noundef %p) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost10shared_ptrIN8QuantLib6detail28GaussianQuadratureIntegratorINS1_24GaussLegendreIntegrationEEEED2Ev.exit:
   %l.addr = alloca i64, align 8
   %p.addr = alloca i64, align 8
@@ -1807,7 +1807,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib18QdFpLegendreScheme23getFixedPointIntegratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.23") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib18QdFpLegendreScheme23getFixedPointIntegratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.23") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fpIntegrator_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %fpIntegrator_, align 8, !tbaa !46
@@ -1829,7 +1829,7 @@ _ZN5boost10shared_ptrIN8QuantLib10IntegratorEEC2ERKS3_.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib18QdFpLegendreScheme36getExerciseBoundaryToPriceIntegratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.23") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib18QdFpLegendreScheme36getExerciseBoundaryToPriceIntegratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.23") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exerciseBoundaryIntegrator_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %exerciseBoundaryIntegrator_, align 8, !tbaa !46
@@ -1851,7 +1851,7 @@ _ZN5boost10shared_ptrIN8QuantLib10IntegratorEEC2ERKS3_.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27QdFpTanhSinhIterationSchemeC2Emmd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, i64 noundef %m, i64 noundef %n, double noundef %eps) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27QdFpTanhSinhIterationSchemeC2Emmd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i64 noundef %m, i64 noundef %n, double noundef %eps) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost10shared_ptrIN8QuantLib16TanhSinhIntegralEED2Ev.exit:
   %eps.addr = alloca double, align 8
   %ref.tmp = alloca %"class.boost::shared_ptr.25", align 8
@@ -2067,7 +2067,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib27QdFpTanhSinhIterationScheme23getFixedPointIntegratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.23") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib27QdFpTanhSinhIterationScheme23getFixedPointIntegratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.23") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %integrator_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %integrator_, align 8, !tbaa !46
@@ -2089,7 +2089,7 @@ _ZN5boost10shared_ptrIN8QuantLib10IntegratorEEC2ERKS3_.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib27QdFpTanhSinhIterationScheme36getExerciseBoundaryToPriceIntegratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.23") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib27QdFpTanhSinhIterationScheme36getExerciseBoundaryToPriceIntegratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.23") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %integrator_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %integrator_, align 8, !tbaa !46
@@ -2111,7 +2111,7 @@ _ZN5boost10shared_ptrIN8QuantLib10IntegratorEEC2ERKS3_.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26QdFpLegendreTanhSinhSchemeC2Emmmd(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 40)) %this, i64 noundef %l, i64 noundef %m, i64 noundef %n, double noundef %eps) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib26QdFpLegendreTanhSinhSchemeC2Emmmd(ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %l, i64 noundef %m, i64 noundef %n, double noundef %eps) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN8QuantLib18QdFpLegendreSchemeC2Emmmm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %l, i64 noundef %m, i64 noundef %n, i64 noundef 1)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib26QdFpLegendreTanhSinhSchemeE, i64 16), ptr %this, align 8, !tbaa !35
@@ -2121,7 +2121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib26QdFpLegendreTanhSinhScheme36getExerciseBoundaryToPriceIntegratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.23") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib26QdFpLegendreTanhSinhScheme36getExerciseBoundaryToPriceIntegratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.23") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost10shared_ptrIN8QuantLib16TanhSinhIntegralEED2Ev.exit:
   %ref.tmp = alloca %"class.boost::shared_ptr.25", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #37

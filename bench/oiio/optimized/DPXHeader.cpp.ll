@@ -245,7 +245,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3dpx14IndustryHeaderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) initializes((0, 384)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN3dpx14IndustryHeaderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) %this) unnamed_addr #5 align 2 {
 entry:
   %heldCount.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(384) %this, i8 0, i64 48, i1 false)
@@ -292,7 +292,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3dpx13GenericHeader5ResetEv(ptr noundef nonnull align 4 dereferenceable(1664) initializes((0, 16)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3dpx13GenericHeader5ResetEv(ptr noundef nonnull align 4 dereferenceable(1664) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   store i32 1396985944, ptr %this, align 4
@@ -351,7 +351,7 @@ entry:
 declare noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3dpx14IndustryHeader5ResetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) initializes((0, 384)) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3dpx14IndustryHeader5ResetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) %this) local_unnamed_addr #5 align 2 {
 entry:
   %heldCount = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %this, i8 0, i64 48, i1 false)
@@ -398,7 +398,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3dpx12ImageElementC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(72) initializes((0, 72)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN3dpx12ImageElementC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(72) %this) unnamed_addr #5 align 2 {
 entry:
   store i32 -1, ptr %this, align 4
   %lowData = getelementptr inbounds i8, ptr %this, i64 4
@@ -1725,7 +1725,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3dpx6Header5ResetEv(ptr noundef nonnull align 4 dereferenceable(2049) initializes((0, 16)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3dpx6Header5ResetEv(ptr noundef nonnull align 4 dereferenceable(2049) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -2008,7 +2008,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK3dpx14IndustryHeader12FilmEdgeCodeEPc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(384) %this, ptr nocapture noundef writeonly initializes((0, 17)) %edge) local_unnamed_addr #9 align 2 {
+define hidden void @_ZNK3dpx14IndustryHeader12FilmEdgeCodeEPc(ptr nocapture noundef nonnull readonly align 4 dereferenceable(384) %this, ptr nocapture noundef writeonly %edge) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i8, ptr %this, align 4
   store i8 %0, ptr %edge, align 1
@@ -2078,7 +2078,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3dpx14IndustryHeader15SetFileEdgeCodeEPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) initializes((0, 16)) %this, ptr nocapture noundef readonly %edge) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN3dpx14IndustryHeader15SetFileEdgeCodeEPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(384) %this, ptr nocapture noundef readonly %edge) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i8, ptr %edge, align 1
   store i8 %0, ptr %this, align 4
@@ -2482,7 +2482,7 @@ return:                                           ; preds = %entry, %_ZNK3dpx13G
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3dpx6Header12SetDatumSwapEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(2049) initializes((2048, 2049)) %this, i1 noundef zeroext %swap) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN3dpx6Header12SetDatumSwapEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(2049) %this, i1 noundef zeroext %swap) local_unnamed_addr #5 align 2 {
 entry:
   %frombool = zext i1 %swap to i8
   %datumSwap = getelementptr inbounds i8, ptr %this, i64 2048

@@ -169,7 +169,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6format17WhitespaceManager6Change
 declare noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696), i32, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format17WhitespaceManager6ChangeC2ERKNS0_11FormatTokenEbNS_11SourceRangeEijjN4llvm9StringRefES8_bbb(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 9), (12, 28)) %0, ptr noundef nonnull align 8 dereferenceable(305) %1, i1 noundef zeroext %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6format17WhitespaceManager6ChangeC2ERKNS0_11FormatTokenEbNS_11SourceRangeEijjN4llvm9StringRefES8_bbb(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(305) %1, i1 noundef zeroext %2, i64 %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11) unnamed_addr #0 align 2 {
   %13 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %14 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %15 = alloca %"class.std::allocator.74", align 1

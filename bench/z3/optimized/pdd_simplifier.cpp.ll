@@ -4202,7 +4202,7 @@ _ZN6vectorIPN2dd6solver8equationELb0EjED2Ev.exit: ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2dd10simplifier12get_use_listEv(ptr noalias sret(%class.vector.2) align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2dd10simplifier12get_use_listEv(ptr noalias sret(%class.vector.2) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %0 = load ptr, ptr %this, align 8

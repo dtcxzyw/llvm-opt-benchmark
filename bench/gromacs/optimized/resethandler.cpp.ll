@@ -34,7 +34,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 @_ZN3gmx12ResetHandlerC1ENS_6compat8not_nullIPNS_16SimulationSignalEEEblbbfRKNS_8MDLoggerEP13gmx_wallcycleP23gmx_walltime_accounting = unnamed_addr alias void (ptr, ptr, i1, i64, i1, i1, float, ptr, ptr, ptr), ptr @_ZN3gmx12ResetHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalEEEblbbfRKNS_8MDLoggerEP13gmx_wallcycleP23gmx_walltime_accounting
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx12ResetHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalEEEblbbfRKNS_8MDLoggerEP13gmx_wallcycleP23gmx_walltime_accounting(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 10), (12, 16)) %0, ptr %1, i1 noundef zeroext %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, float noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx12ResetHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalEEEblbbfRKNS_8MDLoggerEP13gmx_wallcycleP23gmx_walltime_accounting(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr %1, i1 noundef zeroext %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, float noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %7, ptr noundef %8, ptr noundef %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.gmx::LogEntryWriter", align 8
   store ptr %1, ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8

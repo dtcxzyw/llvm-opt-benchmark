@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @DES_fcrypt(ptr nocapture noundef readonly %buf, ptr nocapture noundef readonly %salt, ptr noundef writeonly initializes((0, 1)) %ret) local_unnamed_addr #0 {
+define noundef ptr @DES_fcrypt(ptr nocapture noundef readonly %buf, ptr nocapture noundef readonly %salt, ptr noundef writeonly %ret) local_unnamed_addr #0 {
 entry:
   %out = alloca [2 x i32], align 4
   %key = alloca [8 x i8], align 1

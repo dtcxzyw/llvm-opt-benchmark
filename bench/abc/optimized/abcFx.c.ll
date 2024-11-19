@@ -1956,7 +1956,7 @@ Vec_IntFree.exit31:                               ; preds = %Vec_IntFree.exit29,
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Fx_ManComputeLevel(ptr nocapture noundef initializes((64, 72)) %0) local_unnamed_addr #8 {
+define void @Fx_ManComputeLevel(ptr nocapture noundef %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr i8, ptr %2, i64 8
   %.val23 = load ptr, ptr %3, align 8
@@ -2090,7 +2090,7 @@ Vec_IntUpdateEntry.exit:                          ; preds = %Fx_ManComputeLevelC
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Fx_ManDivFindCubeFree(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture readnone %3) local_unnamed_addr #0 {
+define i32 @Fx_ManDivFindCubeFree(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture readnone %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 8
   %.val86 = load ptr, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %.val86, i64 4
@@ -2570,7 +2570,7 @@ Vec_IntDrop.exit.thread157:                       ; preds = %195, %._crit_edge, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fx_ManCreateLiterals(ptr nocapture noundef initializes((128, 136)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Fx_ManCreateLiterals(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 132
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 128
@@ -5494,7 +5494,7 @@ Hsh_VecManStart.exit:                             ; preds = %Abc_PrimeCudd.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Fx_ManFindCommonPairs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((4, 8)) %3, ptr nocapture noundef initializes((4, 8)) %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, ptr nocapture readnone %7) local_unnamed_addr #0 {
+define void @Fx_ManFindCommonPairs(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, ptr nocapture readnone %7) local_unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %2, i64 8

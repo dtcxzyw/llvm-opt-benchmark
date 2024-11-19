@@ -117,7 +117,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib6Region4DataEEE = comdat any
 @_ZN8QuantLib8ZARegionC1Ev = unnamed_addr alias void (ptr), ptr @_ZN8QuantLib8ZARegionC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12CustomRegionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %code) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12CustomRegionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %code) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -588,7 +588,7 @@ _ZN5boost10shared_ptrIN8QuantLib6Region4DataEED2Ev.exit: ; preds = %entry, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15AustraliaRegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15AustraliaRegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -959,7 +959,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #3
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib8EURegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib8EURegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -1239,7 +1239,7 @@ ehcleanup16:                                      ; preds = %ehcleanup13, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12FranceRegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12FranceRegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -1519,7 +1519,7 @@ ehcleanup16:                                      ; preds = %ehcleanup13, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib8UKRegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib8UKRegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -1799,7 +1799,7 @@ ehcleanup16:                                      ; preds = %ehcleanup13, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib8USRegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib8USRegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1
@@ -2079,7 +2079,7 @@ ehcleanup16:                                      ; preds = %ehcleanup13, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib8ZARegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib8ZARegionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1

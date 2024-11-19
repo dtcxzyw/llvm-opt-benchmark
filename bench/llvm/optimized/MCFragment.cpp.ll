@@ -16,7 +16,7 @@ $_ZN4llvm20MCCVDefRangeFragmentD2Ev = comdat any
 @_ZN4llvm10MCFragmentC1ENS0_12FragmentTypeEb = unnamed_addr alias void (ptr, i8, i1), ptr @_ZN4llvm10MCFragmentC2ENS0_12FragmentTypeEb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm10MCFragmentC2ENS0_12FragmentTypeEb(ptr nocapture noundef nonnull align 8 dereferenceable(30) initializes((0, 29)) %0, i8 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10MCFragmentC2ENS0_12FragmentTypeEb(ptr nocapture noundef nonnull align 8 dereferenceable(30) %0, i8 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)

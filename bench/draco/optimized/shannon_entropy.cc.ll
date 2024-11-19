@@ -161,19 +161,19 @@ define noundef double @_ZN5draco27ComputeBinaryShannonEntropyEjj(i32 noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5draco21ShannonEntropyTrackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 44)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5draco21ShannonEntropyTrackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %0, i8 0, i64 44, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco21ShannonEntropyTracker4PeekEPKji(ptr dead_on_unwind noalias nocapture writable sret(%"struct.draco::ShannonEntropyTracker::EntropyData") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco21ShannonEntropyTracker4PeekEPKji(ptr dead_on_unwind noalias nocapture writable sret(%"struct.draco::ShannonEntropyTracker::EntropyData") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   tail call void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_unwind writable sret(%"struct.draco::ShannonEntropyTracker::EntropyData") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_unwind noalias nocapture writable sret(%"struct.draco::ShannonEntropyTracker::EntropyData") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_unwind noalias nocapture writable sret(%"struct.draco::ShannonEntropyTracker::EntropyData") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
@@ -312,7 +312,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %38, %36, %34, %32, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco21ShannonEntropyTracker4PushEPKji(ptr dead_on_unwind noalias nocapture writable sret(%"struct.draco::ShannonEntropyTracker::EntropyData") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco21ShannonEntropyTracker4PushEPKji(ptr dead_on_unwind noalias nocapture writable sret(%"struct.draco::ShannonEntropyTracker::EntropyData") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   tail call void @_ZN5draco21ShannonEntropyTracker13UpdateSymbolsEPKjib(ptr dead_on_unwind writable sret(%"struct.draco::ShannonEntropyTracker::EntropyData") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true)
   ret void
 }

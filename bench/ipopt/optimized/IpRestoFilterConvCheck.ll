@@ -60,7 +60,7 @@ define void @_ZN5Ipopt27RestoFilterConvergenceCheckC2Ev(ptr noundef nonnull alig
 declare void @_ZN5Ipopt21RestoConvergenceCheckC2Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt27RestoFilterConvergenceCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN5Ipopt27RestoFilterConvergenceCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt27RestoFilterConvergenceCheckE, i64 16), ptr %0, align 8
   tail call void @_ZN5Ipopt21RestoConvergenceCheckD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) #10
   ret void
@@ -80,7 +80,7 @@ define void @_ZN5Ipopt27RestoFilterConvergenceCheckD0Ev(ptr noundef nonnull alig
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define void @_ZN5Ipopt27RestoFilterConvergenceCheck17SetOrigLSAcceptorERKNS_22BacktrackingLSAcceptorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((224, 232)) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) unnamed_addr #6 align 2 {
+define void @_ZN5Ipopt27RestoFilterConvergenceCheck17SetOrigLSAcceptorERKNS_22BacktrackingLSAcceptorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(49) %1) unnamed_addr #6 align 2 {
   %3 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN5Ipopt22BacktrackingLSAcceptorE, ptr nonnull @_ZTIN5Ipopt16FilterLSAcceptorE, i64 0) #10
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   store ptr %3, ptr %4, align 8

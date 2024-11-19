@@ -36,7 +36,7 @@ $__clang_call_terminate = comdat any
 @_ZN4i18n12phonenumbers19MappingFileProviderC1EPKiiPFPKNS0_16CountryLanguagesEiE = dso_local unnamed_addr alias void (ptr, ptr, i32, ptr), ptr @_ZN4i18n12phonenumbers19MappingFileProviderC2EPKiiPFPKNS0_16CountryLanguagesEiE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4i18n12phonenumbers19MappingFileProviderC2EPKiiPFPKNS0_16CountryLanguagesEiE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4i18n12phonenumbers19MappingFileProviderC2EPKiiPFPKNS0_16CountryLanguagesEiE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %5, align 8

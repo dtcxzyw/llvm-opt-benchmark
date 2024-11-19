@@ -4391,7 +4391,7 @@ declare void @nvgFontFace(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare void @nvgTextAlign(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev11ImageCanvas18getValuesAtNanoPosEN7nanogui5ArrayIiLm2EEERNSt3__16vectorIfNS4_9allocatorIfEEEERKNS5_INS4_12basic_stringIcNS4_11char_traitsIcEENS6_IcEEEENS6_ISE_EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev11ImageCanvas18getValuesAtNanoPosEN7nanogui5ArrayIiLm2EEERNSt3__16vectorIfNS4_9allocatorIfEEEERKNS5_INS4_12basic_stringIcNS4_11char_traitsIcEENS6_IcEEEENS6_ISE_EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.fmt::v9::format_arg_store", align 16
   %6 = alloca %"class.std::__1::basic_string", align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
@@ -9759,7 +9759,7 @@ _ZNSt3__16vectorIN3tev7ChannelENS_9allocatorIS2_EEED2B8ne190000Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricEi(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector.51") align 8 initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev11ImageCanvas18channelsFromImagesENSt3__110shared_ptrINS_5ImageEEES4_RKNS1_12basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEENS_7EMetricEi(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector.51") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.tlog::Stream", align 8
   %8 = alloca %"class.tlog::Stream", align 8
   %9 = alloca %"class.tlog::Stream", align 8
@@ -11299,7 +11299,7 @@ _ZNSt3__16vectorIN3tev7ChannelENS_9allocatorIS2_EEE16__destroy_vectorclB8ne19000
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3tev11ImageCanvas15getLdrImageDataEbi(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector.132") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(376) %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3tev11ImageCanvas15getLdrImageDataEbi(ptr dead_on_unwind noalias writable sret(%"class.std::__1::vector.132") align 8 %0, ptr noundef nonnull align 8 dereferenceable(376) %1, i1 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.tlog::Stream", align 8
   %6 = alloca %"class.tlog::Stream", align 8
   %7 = alloca %"class.tlog::Stream", align 8
@@ -61913,7 +61913,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageCanvas16canvasStatisticsEvE3$_0NS_9allocatorIS4_EEFviEE7__cloneEPNS0_6__baseIS7_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageCanvas16canvasStatisticsEvE3$_0NS_9allocatorIS4_EEFviEE7__cloneEPNS0_6__baseIS7_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageCanvas16canvasStatisticsEvE3$_0NS_9allocatorIS4_EEFviEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -61981,7 +61981,7 @@ define internal noalias noundef nonnull ptr @"_ZNKSt3__110__function6__funcIZN3t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageCanvas16canvasStatisticsEvE3$_1NS_9allocatorIS4_EEFviEE7__cloneEPNS0_6__baseIS7_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNKSt3__110__function6__funcIZN3tev11ImageCanvas16canvasStatisticsEvE3$_1NS_9allocatorIS4_EEFviEE7__cloneEPNS0_6__baseIS7_EE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt3__110__function6__funcIZN3tev11ImageCanvas16canvasStatisticsEvE3$_1NS_9allocatorIS4_EEFviEEE", i64 16), ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8

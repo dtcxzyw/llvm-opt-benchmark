@@ -381,7 +381,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog9ddnf_coreC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %n) unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog9ddnf_coreC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i32 noundef %n) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 656)
   tail call void @_ZN7datalog8ddnf_mgrC2Ej(ptr noundef nonnull align 8 dereferenceable(656) %call, i32 noundef %n)
@@ -2257,7 +2257,7 @@ ehcleanup39:                                      ; preds = %ehcleanup38, %lpad6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog4ddnfD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog4ddnfD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog4ddnfE, i64 16), ptr %this, align 8
   %m_imp = getelementptr inbounds i8, ptr %this, i64 48
@@ -2285,7 +2285,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog4ddnfD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog4ddnfD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog4ddnfE, i64 16), ptr %this, align 8
   %m_imp.i = getelementptr inbounds i8, ptr %this, i64 48

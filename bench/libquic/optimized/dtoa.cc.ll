@@ -2585,7 +2585,7 @@ declare ptr @__errno_location() local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc noundef ptr @_ZN6dmg_fpL3d2bEPNS_1UEPiS2_(ptr nocapture noundef nonnull %d, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %e, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %bits) unnamed_addr #6 {
+define internal fastcc noundef ptr @_ZN6dmg_fpL3d2bEPNS_1UEPiS2_(ptr nocapture noundef nonnull %d, ptr nocapture noundef nonnull writeonly %e, ptr nocapture noundef nonnull writeonly %bits) unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN6dmg_fpL8freelistE, i64 8), align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -3580,7 +3580,7 @@ return:                                           ; preds = %while.end34, %_ZN6d
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_ZN6dmg_fp8freedtoaEPc(ptr noundef initializes((4, 12)) %s) local_unnamed_addr #8 {
+define dso_local void @_ZN6dmg_fp8freedtoaEPc(ptr noundef %s) local_unnamed_addr #8 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 -4
   %0 = load i32, ptr %add.ptr, align 4
@@ -3618,7 +3618,7 @@ if.end:                                           ; preds = %if.then, %_ZN6dmg_f
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN6dmg_fp4dtoaEdiiPiS0_PPc(double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr nocapture noundef writeonly %decpt, ptr nocapture noundef writeonly initializes((0, 4)) %sign, ptr noundef writeonly %rve) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @_ZN6dmg_fp4dtoaEdiiPiS0_PPc(double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr nocapture noundef writeonly %decpt, ptr nocapture noundef writeonly %sign, ptr noundef writeonly %rve) local_unnamed_addr #0 {
 entry:
   %bbits = alloca i32, align 4
   %be = alloca i32, align 4
@@ -5826,7 +5826,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #10
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly %a, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %e) unnamed_addr #12 {
+define internal fastcc noundef double @_ZN6dmg_fpL3b2dEPNS_6BigintEPi(ptr noundef readonly %a, ptr nocapture noundef nonnull writeonly %e) unnamed_addr #12 {
 entry:
   %x.ptr = getelementptr inbounds i8, ptr %a, i64 24
   %wds = getelementptr inbounds i8, ptr %a, i64 20

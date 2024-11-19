@@ -25137,7 +25137,7 @@ _ZN12_GLOBAL__N_114OverrideSearchD2Ev.exit130:    ; preds = %._crit_edge, %262
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114OverrideSearchC2ERN5clang4SemaEPKNS1_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 28)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114OverrideSearchC2ERN5clang4SemaEPKNS1_14ObjCMethodDeclE(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %2, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 20, i1 false)
@@ -32824,7 +32824,7 @@ _ZN5clang27CorrectionCandidateCallback11MatchesTypoERKNS_14TypoCorrectionE.exit.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125ObjCInterfaceValidatorCCC5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.1574") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_125ObjCInterfaceValidatorCCC5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.1574") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_125ObjCInterfaceValidatorCCCESt14default_deleteIS1_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24, !noalias !231
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -34888,7 +34888,7 @@ _ZNK5clang14TypoCorrection19getCorrectionDeclAsINS_16ObjCProtocolDeclEEEPT_v.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133ObjCTypeArgOrProtocolValidatorCCC5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.1574") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_133ObjCTypeArgOrProtocolValidatorCCC5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.1574") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_133ObjCTypeArgOrProtocolValidatorCCCESt14default_deleteIS1_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #24, !noalias !242
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8

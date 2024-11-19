@@ -116,7 +116,7 @@ $_ZN4llvm14SSAUpdaterImplINS_17MachineSSAUpdaterEE18RecordMatchingPHIsEPNS_15Sma
 @_ZN4llvm17MachineSSAUpdaterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm17MachineSSAUpdaterD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17MachineSSAUpdaterC2ERNS_15MachineFunctionEPNS_15SmallVectorImplIPNS_12MachineInstrEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17MachineSSAUpdaterC2ERNS_15MachineFunctionEPNS_15SmallVectorImplIPNS_12MachineInstrEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store ptr %2, ptr %4, align 8

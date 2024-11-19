@@ -186,7 +186,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11MergeHelperC2EPNS_3EnvEPKNS_10ComparatorEPKNS_13MergeOperatorEPKNS_16CompactionFilterEPNS_6LoggerEbmPKNS_15SnapshotCheckerEiPNS_10StatisticsEPKSt6atomicIbE(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 58), (64, 84), (88, 168)) %this, ptr noundef nonnull %env, ptr noundef %user_comparator, ptr noundef %user_merge_operator, ptr noundef %compaction_filter, ptr noundef %logger, i1 noundef zeroext %assert_valid_internal_key, i64 noundef %latest_snapshot, ptr noundef %snapshot_checker, i32 noundef %level, ptr noundef %stats, ptr noundef %shutting_down) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11MergeHelperC2EPNS_3EnvEPKNS_10ComparatorEPKNS_13MergeOperatorEPKNS_16CompactionFilterEPNS_6LoggerEbmPKNS_15SnapshotCheckerEiPNS_10StatisticsEPKSt6atomicIbE(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef nonnull %env, ptr noundef %user_comparator, ptr noundef %user_merge_operator, ptr noundef %compaction_filter, ptr noundef %logger, i1 noundef zeroext %assert_valid_internal_key, i64 noundef %latest_snapshot, ptr noundef %snapshot_checker, i32 noundef %level, ptr noundef %stats, ptr noundef %shutting_down) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %frombool = zext i1 %assert_valid_internal_key to i8
   store ptr %env, ptr %this, align 8
@@ -5969,7 +5969,7 @@ terminate.lpad:                                   ; preds = %_ZN7rocksdb10Record
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7rocksdb19MergeOutputIteratorC2EPKNS_11MergeHelperE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef %merge_helper) unnamed_addr #8 align 2 {
+define void @_ZN7rocksdb19MergeOutputIteratorC2EPKNS_11MergeHelperE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %merge_helper) unnamed_addr #8 align 2 {
 entry:
   %__tmp.i.i.i.i.i.i.i.i = alloca %"class.rocksdb::Slice", align 8
   store ptr %merge_helper, ptr %this, align 8

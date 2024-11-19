@@ -27,7 +27,7 @@ $_ZNSt6vectorI10cmFileLockSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__nor
 @_ZN14cmFileLockPool9ScopePoolC1EOS0_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN14cmFileLockPool9ScopePoolC2EOS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14cmFileLockPoolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14cmFileLockPoolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 72, i1 false)
   ret void
 }
@@ -820,7 +820,7 @@ define dso_local noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14cmFileLockPool9ScopePoolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN14cmFileLockPool9ScopePoolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -858,7 +858,7 @@ _ZNSt6vectorI10cmFileLockSaIS0_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIP10cm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN14cmFileLockPool9ScopePoolC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN14cmFileLockPool9ScopePoolC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

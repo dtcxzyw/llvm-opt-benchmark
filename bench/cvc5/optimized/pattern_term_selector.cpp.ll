@@ -237,7 +237,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers4inst19PatternTermSelectorC2ERKNS0_7OptionsENS0_12NodeTemplateILb1EEENS0_7options14TriggerSelModeERKSt6vectorIS9_SaIS9_EEb(ptr noundef nonnull align 8 dereferenceable(43) initializes((0, 12), (16, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %opts, ptr nocapture noundef readonly %q, i32 noundef %tstrt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exc, i1 noundef zeroext %filterInst) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers4inst19PatternTermSelectorC2ERKNS0_7OptionsENS0_12NodeTemplateILb1EEENS0_7options14TriggerSelModeERKSt6vectorIS9_SaIS9_EEb(ptr noundef nonnull align 8 dereferenceable(43) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(392) %opts, ptr nocapture noundef readonly %q, i32 noundef %tstrt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exc, i1 noundef zeroext %filterInst) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %q, align 8
   store ptr %0, ptr %this, align 8
@@ -421,7 +421,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers4inst19PatternTermSelectorC2ENS0_12NodeTemplateILb1EEENS0_7options14TriggerSelModeERKSt6vectorIS6_SaIS6_EEbbb(ptr noundef nonnull align 8 dereferenceable(43) initializes((0, 12), (16, 40)) %this, ptr nocapture noundef readonly %q, i32 noundef %tstrt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exc, i1 noundef zeroext %filterInst, i1 noundef zeroext %purifyTriggers, i1 noundef zeroext %relationalTriggers) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers4inst19PatternTermSelectorC2ENS0_12NodeTemplateILb1EEENS0_7options14TriggerSelModeERKSt6vectorIS6_SaIS6_EEbbb(ptr noundef nonnull align 8 dereferenceable(43) %this, ptr nocapture noundef readonly %q, i32 noundef %tstrt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exc, i1 noundef zeroext %filterInst, i1 noundef zeroext %purifyTriggers, i1 noundef zeroext %relationalTriggers) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %q, align 8
   store ptr %0, ptr %this, align 8

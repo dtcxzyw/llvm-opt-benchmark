@@ -126,14 +126,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @TS_VERIFY_CTX_set_flags(ptr nocapture noundef writeonly initializes((0, 4)) %ctx, i32 noundef returned %f) local_unnamed_addr #5 {
+define noundef i32 @TS_VERIFY_CTX_set_flags(ptr nocapture noundef writeonly %ctx, i32 noundef returned %f) local_unnamed_addr #5 {
 entry:
   store i32 %f, ptr %ctx, align 8
   ret i32 %f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @TS_VERIFY_CTX_set_data(ptr nocapture noundef writeonly initializes((56, 64)) %ctx, ptr noundef returned %b) local_unnamed_addr #5 {
+define noundef ptr @TS_VERIFY_CTX_set_data(ptr nocapture noundef writeonly %ctx, ptr noundef returned %b) local_unnamed_addr #5 {
 entry:
   %data = getelementptr inbounds i8, ptr %ctx, i64 56
   store ptr %b, ptr %data, align 8
@@ -141,7 +141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @TS_VERIFY_CTX_set_store(ptr nocapture noundef writeonly initializes((8, 16)) %ctx, ptr noundef returned %s) local_unnamed_addr #5 {
+define noundef ptr @TS_VERIFY_CTX_set_store(ptr nocapture noundef writeonly %ctx, ptr noundef returned %s) local_unnamed_addr #5 {
 entry:
   %store = getelementptr inbounds i8, ptr %ctx, i64 8
   store ptr %s, ptr %store, align 8
@@ -149,7 +149,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @TS_VERIFY_CTX_set_certs(ptr nocapture noundef writeonly initializes((16, 24)) %ctx, ptr noundef returned %certs) local_unnamed_addr #5 {
+define noundef ptr @TS_VERIFY_CTX_set_certs(ptr nocapture noundef writeonly %ctx, ptr noundef returned %certs) local_unnamed_addr #5 {
 entry:
   %certs1 = getelementptr inbounds i8, ptr %ctx, i64 16
   store ptr %certs, ptr %certs1, align 8
@@ -157,7 +157,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @TS_VERIFY_CTX_set_imprint(ptr nocapture noundef initializes((48, 52)) %ctx, ptr noundef returned %hexstr, i64 noundef %len) local_unnamed_addr #0 {
+define noundef ptr @TS_VERIFY_CTX_set_imprint(ptr nocapture noundef %ctx, ptr noundef returned %hexstr, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %imprint = getelementptr inbounds i8, ptr %ctx, i64 40
   %0 = load ptr, ptr %imprint, align 8

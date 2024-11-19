@@ -128,7 +128,7 @@ VP8LClearBackwardRefs.exit:                       ; preds = %1, %4
 declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @VP8LBackwardRefsInit(ptr noundef initializes((0, 40)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define hidden void @VP8LBackwardRefsInit(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -142,7 +142,7 @@ define hidden void @VP8LBackwardRefsInit(ptr noundef initializes((0, 40)) %0, i3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8LRefsCursorInit(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.VP8LRefsCursor) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define hidden void @VP8LRefsCursorInit(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.VP8LRefsCursor) align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -169,7 +169,7 @@ define hidden void @VP8LRefsCursorInit(ptr dead_on_unwind noalias nocapture writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @VP8LRefsCursorNextBlock(ptr nocapture noundef initializes((0, 8), (16, 24)) %0) local_unnamed_addr #6 {
+define hidden void @VP8LRefsCursorNextBlock(ptr nocapture noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -278,7 +278,7 @@ BackwardRefsNewBlock.exit:                        ; preds = %25, %28
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8LHashChainInit(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @VP8LHashChainInit(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = sext i32 %1 to i64
   %4 = tail call ptr @WebPSafeMalloc(i64 noundef %3, i64 noundef 4) #11
   store ptr %4, ptr %0, align 8
@@ -298,7 +298,7 @@ define hidden range(i32 0, 2) i32 @VP8LHashChainInit(ptr nocapture noundef write
 declare ptr @WebPSafeMalloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LHashChainClear(ptr nocapture noundef initializes((8, 12)) %0) local_unnamed_addr #2 {
+define hidden void @VP8LHashChainClear(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   tail call void @WebPSafeFree(ptr noundef %2) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 8

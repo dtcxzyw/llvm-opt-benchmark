@@ -115,7 +115,7 @@ define hidden noundef zeroext i1 @_ZN11ZForwarding5claimEv(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZForwarding25in_place_relocation_startE7zoffset(ptr noundef nonnull align 8 dereferenceable(184) initializes((164, 165)) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZForwarding25in_place_relocation_startE7zoffset(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call void (ptr, ptr, ...) @_ZNK5ZPage7log_msgEPKcz(ptr noundef nonnull align 8 dereferenceable(192) %4, ptr noundef nonnull @.str, i64 noundef %1)
@@ -381,7 +381,7 @@ define hidden noundef zeroext i1 @_ZNK11ZForwarding7is_doneEv(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZForwarding42relocated_remembered_fields_after_relocateEv(ptr noundef nonnull align 8 dereferenceable(184) initializes((160, 164)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZForwarding42relocated_remembered_fields_after_relocateEv(ptr noundef nonnull align 8 dereferenceable(184) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN11ZGeneration6_youngE, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 3220
   %4 = load i32, ptr %3, align 4

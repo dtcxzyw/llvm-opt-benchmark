@@ -82,7 +82,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN35btReducedDeformableStaticConstraintC2EP23btReducedDeformableBodyPN10btSoftBody4NodeERK9btVector3S7_S7_RK19btContactSolverInfof(ptr nocapture noundef nonnull align 8 dereferenceable(172) initializes((0, 9), (16, 172)) %this, ptr noundef %rsb, ptr noundef %node, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ri, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dir, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %dt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN35btReducedDeformableStaticConstraintC2EP23btReducedDeformableBodyPN10btSoftBody4NodeERK9btVector3S7_S7_RK19btContactSolverInfof(ptr nocapture noundef nonnull align 8 dereferenceable(172) %this, ptr noundef %rsb, ptr noundef %node, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %ri, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dir, ptr noundef nonnull align 4 dereferenceable(128) %infoGlobal, float noundef %dt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %class.btMatrix3x3, align 4
   %m_static.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -975,7 +975,7 @@ if.end76:                                         ; preds = %for.body.i155, %if.
 declare float @llvm.fmuladd.f32(float, float, float) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(436) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %deltaImpulse_tangent, ptr nocapture noundef nonnull align 4 dereferenceable(4) %appliedImpulse, float noundef %rhs_tangent, float noundef %tangentImpulseFactorInv, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tangent, float noundef %lower_limit, float noundef %upper_limit, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %deltaV_rel) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN41btReducedDeformableRigidContactConstraint26calculateTangentialImpulseERfS0_ffRK9btVector3ffS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(436) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %deltaImpulse_tangent, ptr nocapture noundef nonnull align 4 dereferenceable(4) %appliedImpulse, float noundef %rhs_tangent, float noundef %tangentImpulseFactorInv, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %tangent, float noundef %lower_limit, float noundef %upper_limit, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %deltaV_rel) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load float, ptr %deltaV_rel, align 4
   %1 = load float, ptr %tangent, align 4

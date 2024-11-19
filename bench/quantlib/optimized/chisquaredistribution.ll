@@ -740,7 +740,7 @@ declare double @pow(double noundef, double noundef) local_unnamed_addr #3
 declare noundef double @_ZNK8QuantLib28CumulativeNormalDistributionclEd(ptr noundef nonnull align 8 dereferenceable(57), double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib48InverseNonCentralCumulativeChiSquareDistributionC2Eddmd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, double noundef %df, double noundef %ncp, i64 noundef %maxEvaluations, double noundef %accuracy) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib48InverseNonCentralCumulativeChiSquareDistributionC2Eddmd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, double noundef %df, double noundef %ncp, i64 noundef %maxEvaluations, double noundef %accuracy) unnamed_addr #8 align 2 {
 entry:
   store double %df, ptr %this, align 8, !tbaa !21
   %ncp_.i = getelementptr inbounds nuw i8, ptr %this, i64 8

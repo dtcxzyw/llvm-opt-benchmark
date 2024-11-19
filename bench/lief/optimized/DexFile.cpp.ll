@@ -316,14 +316,14 @@ define void @_ZN4LIEF3OAT7DexFile8locationERKNSt7__cxx1112basic_stringIcSt11char
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF3OAT7DexFile8checksumEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF3OAT7DexFile8checksumEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF3OAT7DexFile10dex_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF3OAT7DexFile10dex_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 %1, ptr %3, align 4
   ret void
@@ -343,7 +343,7 @@ define noundef i32 @_ZNK4LIEF3OAT7DexFile19lookup_table_offsetEv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF3OAT7DexFile19lookup_table_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF3OAT7DexFile19lookup_table_offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret void
@@ -408,7 +408,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt8showb
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF3OAT7DexFileD2Ev(ptr noundef nonnull align 8 dereferenceable(92) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF3OAT7DexFileD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3OAT7DexFileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8

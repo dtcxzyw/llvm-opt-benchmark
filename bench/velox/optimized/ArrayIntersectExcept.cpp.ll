@@ -1192,7 +1192,7 @@ ehcleanup8:                                       ; preds = %lpad, %lpad.i, %ehc
 declare noundef zeroext i1 @_ZN8facebook5velox4exec30registerStatefulVectorFunctionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISt10shared_ptrINS1_17FunctionSignatureEESaISD_EESt8functionIFSB_INS1_14VectorFunctionEES9_RKSA_INS1_17VectorFunctionArgESaISJ_EERKNS0_4core11QueryConfigEEENS1_22VectorFunctionMetadataEb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef, i8, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %returnTypeTemplate) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_110signaturesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %returnTypeTemplate) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i63 = alloca %"class.fmt::v8::format_arg_store", align 16
   %ref.tmp.i51 = alloca %"class.fmt::v8::format_arg_store", align 16
@@ -8618,7 +8618,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -8655,7 +8655,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIbEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbED0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIbEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -13972,7 +13972,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -14009,7 +14009,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIiEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiED0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIiEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -17277,7 +17277,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -17314,7 +17314,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIaEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaED0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIaEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -20562,7 +20562,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -20599,7 +20599,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIsEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsED0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIsEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -23854,7 +23854,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -23891,7 +23891,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIlEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlED0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIlEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -27146,7 +27146,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -27183,7 +27183,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullInEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInED0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionInEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -30437,7 +30437,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -30474,7 +30474,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIfEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfED0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIfEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -33599,7 +33599,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -33636,7 +33636,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIdEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdED0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionIdEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -36750,7 +36750,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -36787,7 +36787,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_10Strin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEED0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -40128,7 +40128,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -40165,7 +40165,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_9Timest
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEED0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEED0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_121ArraysOverlapFunctionINS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -42835,7 +42835,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -42872,7 +42872,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIbEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EbEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -50762,7 +50762,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -50799,7 +50799,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIiEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EiEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -54103,7 +54103,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -54140,7 +54140,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIaEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EaEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -57433,7 +57433,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -57470,7 +57470,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIsEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EsEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -60765,7 +60765,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -60802,7 +60802,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIlEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ElEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -64099,7 +64099,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -64136,7 +64136,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullInEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EnEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -67432,7 +67432,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -67469,7 +67469,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIfEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EfEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -70628,7 +70628,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -70665,7 +70665,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIdEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1EdEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -73819,7 +73819,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -73856,7 +73856,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_10Strin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -77229,7 +77229,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -77266,7 +77266,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_9Timest
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb1ENS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -80388,7 +80388,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -80425,7 +80425,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIbEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EbEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -83498,7 +83498,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -83535,7 +83535,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIiEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EiEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -86598,7 +86598,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -86635,7 +86635,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIaEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EaEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -89696,7 +89696,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -89733,7 +89733,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIsEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EsEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -92794,7 +92794,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -92831,7 +92831,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIlEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ElEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -95892,7 +95892,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -95929,7 +95929,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullInEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EnEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -98994,7 +98994,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -99031,7 +99031,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIfEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EfEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -101949,7 +101949,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -101986,7 +101986,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullIdEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0EdEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -104904,7 +104904,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -104941,7 +104941,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_10Strin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_10StringViewEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -107963,7 +107963,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -108000,7 +108000,7 @@ _ZNSt8optionalIN8facebook5velox9functions12_GLOBAL__N_111SetWithNullINS1_9Timest
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128ArrayIntersectExceptFunctionILb0ENS0_9TimestampEEE, i64 16), ptr %this, align 8
   %constantSet_.i = getelementptr inbounds i8, ptr %this, i64 8

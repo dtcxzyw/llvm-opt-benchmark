@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @enable_dbg_outs = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Bbr_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #0 {
+define void @Bbr_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, i8 0, i64 36, i1 false)
   store i32 50000, ptr %2, align 4

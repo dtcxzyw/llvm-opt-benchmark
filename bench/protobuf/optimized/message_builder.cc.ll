@@ -378,7 +378,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler4java23MessageBuilderGeneratorC2EPKNS0_10DescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 32)) %this, ptr noundef %descriptor, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java23MessageBuilderGeneratorC2EPKNS0_10DescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %descriptor, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp10 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %oneof = alloca ptr, align 8
@@ -678,7 +678,7 @@ _ZN4absl12lts_2023080218container_internal11node_handleINS1_10map_paramsIiPKN6go
 declare void @_ZN6google8protobuf8compiler4java17FieldGeneratorMapINS2_23ImmutableFieldGeneratorEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler4java23MessageBuilderGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java23MessageBuilderGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java23MessageBuilderGeneratorE, i64 16), ptr %this, align 8
   %oneofs_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -699,7 +699,7 @@ _ZN4absl12lts_202308029btree_mapIiPKN6google8protobuf15OneofDescriptorESt4lessIi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler4java23MessageBuilderGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java23MessageBuilderGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java23MessageBuilderGeneratorE, i64 16), ptr %this, align 8
   %oneofs_.i = getelementptr inbounds i8, ptr %this, i64 64

@@ -13182,7 +13182,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull al
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesWriterC2EN4llvm9StringRefEPKNS_9FileEntryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesWriterC2EN4llvm9StringRefEPKNS_9FileEntryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator.10", align 1
   %7 = tail call noalias noundef nonnull dereferenceable(904) ptr @_Znwm(i64 noundef 904) #20

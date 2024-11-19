@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @kmalloc_caches = external dso_local local_unnamed_addr global [3 x [14 x ptr]], align 16
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @i915_syncmap_init(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_syncmap_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %0, align 8
   ret void
 }

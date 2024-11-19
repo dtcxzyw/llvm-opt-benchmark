@@ -113,7 +113,7 @@ define internal ptr @H5O__refcount_decode(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5O__refcount_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 5)) %3, ptr nocapture noundef readonly %4) #1 {
+define internal noundef i32 @H5O__refcount_encode(ptr nocapture readnone %0, i1 zeroext %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef readonly %4) #1 {
   %6 = getelementptr inbounds i8, ptr %3, i64 1
   store i8 0, ptr %3, align 1
   %7 = load i32, ptr %4, align 4
@@ -176,7 +176,7 @@ define internal noundef i32 @H5O__refcount_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5O__refcount_pre_copy_file(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #3 {
+define internal noundef i32 @H5O__refcount_pre_copy_file(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #3 {
   store i8 1, ptr %2, align 1
   ret i32 0
 }

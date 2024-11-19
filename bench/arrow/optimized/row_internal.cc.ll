@@ -578,7 +578,7 @@ while.end110:                                     ; preds = %while.cond103
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow7compute12RowTableImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(209) initializes((0, 8), (32, 152), (184, 200)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute12RowTableImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(209) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %column_metadatas.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -589,7 +589,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute12RowTableImpl4InitEPNS_10MemoryPoolERKNS0_16RowTableMetadataE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(209) initializes((0, 32)) %this, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(120) %metadata) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute12RowTableImpl4InitEPNS_10MemoryPoolERKNS0_16RowTableMetadataE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(209) %this, ptr noundef %pool, ptr noundef nonnull align 8 dereferenceable(120) %metadata) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.arrow::Result", align 8
   %ref.tmp28 = alloca %"class.arrow::Result", align 8
@@ -1313,7 +1313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute12RowTableImpl20UpdateBufferPointersEv(ptr nocapture noundef nonnull align 8 dereferenceable(209) initializes((152, 176)) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN5arrow7compute12RowTableImpl20UpdateBufferPointersEv(ptr nocapture noundef nonnull align 8 dereferenceable(209) %this) local_unnamed_addr #9 align 2 {
 entry:
   %null_masks_ = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %null_masks_, align 8
@@ -1387,7 +1387,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow7compute12RowTableImpl5CleanEv(ptr nocapture noundef nonnull align 8 dereferenceable(209) initializes((176, 184), (200, 209)) %this) local_unnamed_addr #10 align 2 {
+define void @_ZN5arrow7compute12RowTableImpl5CleanEv(ptr nocapture noundef nonnull align 8 dereferenceable(209) %this) local_unnamed_addr #10 align 2 {
 entry:
   %num_rows_ = getelementptr inbounds i8, ptr %this, i64 176
   store i64 0, ptr %num_rows_, align 8
@@ -1790,7 +1790,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute12RowTableImpl19AppendSelectionFromERKS1_jPKt(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(209) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %from, i32 noundef %num_rows_to_append, ptr noundef readonly %source_row_ids) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute12RowTableImpl19AppendSelectionFromERKS1_jPKt(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(209) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(209) %from, i32 noundef %num_rows_to_append, ptr noundef readonly %source_row_ids) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp40 = alloca %"class.arrow::Status", align 8
@@ -2174,7 +2174,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute12RowTableImpl11AppendEmptyEjj(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(209) %this, i32 noundef %num_rows_to_append, i32 noundef %num_extra_bytes_to_append) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute12RowTableImpl11AppendEmptyEjj(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(209) %this, i32 noundef %num_rows_to_append, i32 noundef %num_extra_bytes_to_append) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp12 = alloca %"class.arrow::Status", align 8

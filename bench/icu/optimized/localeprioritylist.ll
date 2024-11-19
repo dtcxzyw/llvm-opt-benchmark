@@ -489,7 +489,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518LocalePriorityListC2ENS_11StringPieceER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 17), (24, 32)) %this, ptr %s.coerce0, i32 %s.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518LocalePriorityListC2ENS_11StringPieceER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr %s.coerce0, i32 %s.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca ptr, align 8
   %tag = alloca %"class.icu_75::CharString", align 8

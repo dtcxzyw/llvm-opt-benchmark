@@ -272,7 +272,7 @@ define internal ptr @net_ctl_header_lookup(ptr nocapture readnone %0) #3 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @net_ctl_set_ownership(ptr nocapture readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #4 align 16 {
+define internal void @net_ctl_set_ownership(ptr nocapture readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #4 align 16 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   ret void

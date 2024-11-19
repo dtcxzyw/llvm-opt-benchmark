@@ -10193,7 +10193,7 @@ rb_long2num_inline.exit34:                        ; preds = %wv2timet.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @gmtimew_noleapsecond(i64 noundef %0, ptr nocapture noundef nonnull initializes((0, 32)) %1) unnamed_addr #1 {
+define internal fastcc void @gmtimew_noleapsecond(i64 noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -16712,7 +16712,7 @@ declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare i64 @rb_data_typed_object_zalloc(i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @time_arg(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull initializes((0, 32)) %2) unnamed_addr #1 {
+define internal fastcc void @time_arg(i32 noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #1 {
   %4 = alloca [8 x i64], align 16
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -19096,7 +19096,7 @@ declare i64 @rb_str_subseq(i64 noundef, i64 noundef, i64 noundef) local_unnamed_
 declare i64 @rb_int_mul(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 1, -7) i64 @time_init_vtm(i64 noundef returned %0, ptr nocapture noundef byval(%struct.vtm) align 8 initializes((16, 24)) %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc range(i64 1, -7) i64 @time_init_vtm(i64 noundef returned %0, ptr nocapture noundef byval(%struct.vtm) align 8 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 36

@@ -75,7 +75,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN31grpc_channel_security_connectorC2ESt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrI24grpc_channel_credentialsEENS5_I21grpc_call_credentialsEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, i64 %url_scheme.coerce0, ptr %url_scheme.coerce1, ptr nocapture noundef %channel_creds, ptr nocapture noundef %request_metadata_creds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN31grpc_channel_security_connectorC2ESt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrI24grpc_channel_credentialsEENS5_I21grpc_call_credentialsEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i64 %url_scheme.coerce0, ptr %url_scheme.coerce1, ptr nocapture noundef %channel_creds, ptr nocapture noundef %request_metadata_creds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
@@ -191,7 +191,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN30grpc_server_security_connectorC2ESt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrI23grpc_server_credentialsEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, i64 %url_scheme.coerce0, ptr %url_scheme.coerce1, ptr nocapture noundef %server_creds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN30grpc_server_security_connectorC2ESt17basic_string_viewIcSt11char_traitsIcEEN9grpc_core13RefCountedPtrI23grpc_server_credentialsEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i64 %url_scheme.coerce0, ptr %url_scheme.coerce1, ptr nocapture noundef %server_creds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8

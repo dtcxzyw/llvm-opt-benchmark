@@ -77,7 +77,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @grpc_byte_buffer_reader_init(ptr nocapture noundef writeonly initializes((0, 8)) %reader, ptr noundef %buffer) local_unnamed_addr #3 {
+define noundef i32 @grpc_byte_buffer_reader_init(ptr nocapture noundef writeonly %reader, ptr noundef %buffer) local_unnamed_addr #3 {
 entry:
   store ptr %buffer, ptr %reader, align 8
   %type = getelementptr inbounds i8, ptr %buffer, i64 8
@@ -97,7 +97,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @grpc_byte_buffer_reader_destroy(ptr nocapture noundef writeonly initializes((8, 16)) %reader) local_unnamed_addr #4 {
+define void @grpc_byte_buffer_reader_destroy(ptr nocapture noundef writeonly %reader) local_unnamed_addr #4 {
 entry:
   %buffer_out = getelementptr inbounds i8, ptr %reader, i64 8
   store ptr null, ptr %buffer_out, align 8

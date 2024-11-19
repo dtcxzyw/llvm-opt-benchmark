@@ -3212,7 +3212,7 @@ declare noundef double @_ZN2cv3RNG8gaussianEd(ptr noundef nonnull align 8 derefe
 declare noundef double @_ZN2cv8tracking4impl3tld7overlapERKNS_5Rect_IdEES6_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv8tracking4impl3tld4DataC2ENS_5Rect_IdEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((4, 24)) %0, ptr nocapture noundef readonly byval(%"class.cv::Rect_") align 8 %1) unnamed_addr #12 align 2 {
+define hidden void @_ZN2cv8tracking4impl3tld4DataC2ENS_5Rect_IdEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly byval(%"class.cv::Rect_") align 8 %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = getelementptr inbounds i8, ptr %1, i64 16

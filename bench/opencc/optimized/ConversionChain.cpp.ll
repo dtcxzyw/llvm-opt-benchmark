@@ -107,7 +107,7 @@ _ZNSt7__cxx114listISt10shared_ptrIN6opencc10ConversionEESaIS4_EEC2ERKS6_.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6opencc15ConversionChain7ConvertERKSt10shared_ptrINS_8SegmentsEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6opencc15ConversionChain7ConvertERKSt10shared_ptrINS_8SegmentsEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.3", align 8
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = load ptr, ptr %2, align 8

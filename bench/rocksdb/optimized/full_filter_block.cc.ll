@@ -108,7 +108,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb22FullFilterBlockBuilderC2EPKNS_14SliceTransformEbPNS_17FilterBitsBuilderE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 26)) %this, ptr noundef %_prefix_extractor, i1 noundef zeroext %whole_key_filtering, ptr noundef %filter_bits_builder) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb22FullFilterBlockBuilderC2EPKNS_14SliceTransformEbPNS_17FilterBitsBuilderE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %_prefix_extractor, i1 noundef zeroext %whole_key_filtering, ptr noundef %filter_bits_builder) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %whole_key_filtering to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22FullFilterBlockBuilderE, i64 16), ptr %this, align 8
@@ -334,7 +334,7 @@ if.end14:                                         ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb22FullFilterBlockBuilder5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((25, 26), (64, 65)) %this) unnamed_addr #5 align 2 {
+define void @_ZN7rocksdb22FullFilterBlockBuilder5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this) unnamed_addr #5 align 2 {
 entry:
   %last_whole_key_recorded_ = getelementptr inbounds i8, ptr %this, i64 25
   store i8 0, ptr %last_whole_key_recorded_, align 1
@@ -344,7 +344,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, i64 } @_ZN7rocksdb22FullFilterBlockBuilder6FinishERKNS_11BlockHandleEPNS_6StatusEPSt10unique_ptrIA_KcSt14default_deleteIS8_EE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef initializes((0, 6)) %status, ptr noundef %filter_data) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define { ptr, i64 } @_ZN7rocksdb22FullFilterBlockBuilder6FinishERKNS_11BlockHandleEPNS_6StatusEPSt10unique_ptrIA_KcSt14default_deleteIS8_EE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture nonnull readnone align 8 %0, ptr noundef %status, ptr noundef %filter_data) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
@@ -391,7 +391,7 @@ return:                                           ; preds = %_ZN7rocksdb6StatusD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21FullFilterBlockReaderC2EPKNS_15BlockBasedTableEONS_13CachableEntryINS_21ParsedFullFilterBlockEEE(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 41), (48, 57)) %this, ptr noundef %t, ptr nocapture noundef nonnull align 8 dereferenceable(25) %filter_block) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21FullFilterBlockReaderC2EPKNS_15BlockBasedTableEONS_13CachableEntryINS_21ParsedFullFilterBlockEEE(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef %t, ptr nocapture noundef nonnull align 8 dereferenceable(25) %filter_block) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb23FilterBlockReaderCommonINS_21ParsedFullFilterBlockEEE, i64 16), ptr %this, align 8
   %table_.i = getelementptr inbounds i8, ptr %this, i64 8

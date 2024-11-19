@@ -130,7 +130,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZN12_GLOBAL__N_142handshaker_result_get_frame_protector_typeEPK21tsi_handshaker_resultP24tsi_frame_protector_type(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %frame_protector_type) #6 {
+define internal noundef i32 @_ZN12_GLOBAL__N_142handshaker_result_get_frame_protector_typeEPK21tsi_handshaker_resultP24tsi_frame_protector_type(ptr nocapture readnone %0, ptr nocapture noundef writeonly %frame_protector_type) #6 {
 entry:
   store i32 3, ptr %frame_protector_type, align 4
   ret i32 0

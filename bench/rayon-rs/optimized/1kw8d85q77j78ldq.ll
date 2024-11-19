@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.67303f06dd5c8e910f75e734f9332f5f.9 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr50drop_in_place$LT$$RF$alloc..vec..Vec$LT$u8$GT$$GT$17ha93f4de8782c03aaE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h14fe5965931f2f9aE" }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h00c49ffefa43def5E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef align 8 dereferenceable(104) %2) unnamed_addr #0 {
+define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h00c49ffefa43def5E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef align 8 dereferenceable(104) %2) unnamed_addr #0 {
   %4 = alloca { ptr, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN3std6thread7Builder16spawn_unchecked_17ha6c874a7af07769cE.llvm.1542315820148976100(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(104) %2, ptr noundef null)
@@ -1117,7 +1117,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN91_$LT$core..s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN10rayon_core11thread_pool10ThreadPool5build17hcd99165cbd7a3634E(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1) unnamed_addr #0 {
+define hidden void @_ZN10rayon_core11thread_pool10ThreadPool5build17hcd99165cbd7a3634E(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(96) %1) unnamed_addr #0 {
   %3 = alloca { i64, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @_ZN10rayon_core8registry8Registry3new17h48fd43abfedc4925E(ptr noalias nocapture noundef nonnull sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(96) %1)

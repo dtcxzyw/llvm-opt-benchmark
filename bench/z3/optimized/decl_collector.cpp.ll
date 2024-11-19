@@ -928,7 +928,7 @@ declare void @_ZN6recfun4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(24
 declare void @_ZN8ast_mark4markEP3astb(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14decl_collectorC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 64), (72, 88), (96, 136)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14decl_collectorC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %rec_util = alloca %"class.recfun::util", align 8
   store ptr %m, ptr %this, align 8

@@ -38,7 +38,7 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (128, 156)) %this, ptr noundef %eventBase, i32 %fd.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12EventHandlerC2EPNS_9EventBaseENS_13NetworkSocketE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %eventBase, i32 %fd.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12EventHandlerE, i64 16), ptr %this, align 8, !tbaa !7
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -192,7 +192,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12EventHandlerE, i64 16), ptr %this, align 8, !tbaa !7
   %evcb_flags.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24

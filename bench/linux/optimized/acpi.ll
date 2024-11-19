@@ -418,7 +418,7 @@ declare void @llvm.assume(i1 noundef) #5
 declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -5, 1) i32 @pci_acpi_root_init_info(ptr nocapture noundef initializes((88, 91)) %0) #3 align 16 {
+define internal noundef range(i32 -5, 1) i32 @pci_acpi_root_init_info(ptr nocapture noundef %0) #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8

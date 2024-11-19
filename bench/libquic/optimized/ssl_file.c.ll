@@ -722,7 +722,7 @@ declare i32 @SSL_CTX_add0_chain_cert(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @ERR_peek_last_error() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SSL_CTX_set_default_passwd_cb(ptr nocapture noundef writeonly initializes((208, 216)) %ctx, ptr noundef %cb) local_unnamed_addr #2 {
+define hidden void @SSL_CTX_set_default_passwd_cb(ptr nocapture noundef writeonly %ctx, ptr noundef %cb) local_unnamed_addr #2 {
 entry:
   %default_passwd_callback = getelementptr inbounds i8, ptr %ctx, i64 208
   store ptr %cb, ptr %default_passwd_callback, align 8
@@ -730,7 +730,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @SSL_CTX_set_default_passwd_cb_userdata(ptr nocapture noundef writeonly initializes((216, 224)) %ctx, ptr noundef %data) local_unnamed_addr #2 {
+define hidden void @SSL_CTX_set_default_passwd_cb_userdata(ptr nocapture noundef writeonly %ctx, ptr noundef %data) local_unnamed_addr #2 {
 entry:
   %default_passwd_callback_userdata = getelementptr inbounds i8, ptr %ctx, i64 216
   store ptr %data, ptr %default_passwd_callback_userdata, align 8

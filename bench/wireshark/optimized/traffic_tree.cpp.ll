@@ -479,7 +479,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK14MenuEditAction4textEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK14MenuEditAction4textEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -1471,7 +1471,7 @@ _ZN7QStringD2Ev.exit89:                           ; preds = %248, %_ZN17QArrayDa
 declare void @_ZN11QHeaderViewD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN21TrafficTreeHeaderViewD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 {
+define void @_ZN21TrafficTreeHeaderViewD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21TrafficTreeHeaderView, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV21TrafficTreeHeaderView, i64 832), ptr %2, align 8
@@ -5038,7 +5038,7 @@ define void @_ZN11TrafficTree8setModelEP18QAbstractItemModel(ptr noundef nonnull
 declare void @_ZN9QTreeView8setModelEP18QAbstractItemModel(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11TrafficTree18tapListenerEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((40, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define void @_ZN11TrafficTree18tapListenerEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8

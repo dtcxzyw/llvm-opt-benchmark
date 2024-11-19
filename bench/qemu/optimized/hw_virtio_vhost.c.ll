@@ -1297,7 +1297,7 @@ declare void @virtio_queue_invalidate_signalled_used(ptr noundef, i32 noundef) l
 declare void @virtio_queue_update_used_idx(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @vhost_dev_init(ptr noundef initializes((0, 8), (520, 528)) %hdev, ptr noundef %opaque, i32 noundef %backend_type, i32 noundef %busyloop_timeout, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483648, 1) i32 @vhost_dev_init(ptr noundef %hdev, ptr noundef %opaque, i32 noundef %backend_type, i32 noundef %busyloop_timeout, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %state.i97 = alloca %struct.vhost_vring_state, align 4
   %state.i = alloca %struct.vhost_vring_state, align 4
@@ -1774,7 +1774,7 @@ declare void @error_setg_internal(ptr noundef, ptr noundef, i32 noundef, ptr nou
 declare void @error_append_hint(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @vhost_begin(ptr nocapture noundef writeonly initializes((408, 412), (416, 424)) %listener) #5 {
+define internal void @vhost_begin(ptr nocapture noundef writeonly %listener) #5 {
 entry:
   %tmp_sections = getelementptr i8, ptr %listener, i64 416
   store ptr null, ptr %tmp_sections, align 8
@@ -3523,7 +3523,7 @@ return:                                           ; preds = %if.end, %if.then3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @vhost_dev_set_config_notifier(ptr nocapture noundef writeonly initializes((632, 640)) %hdev, ptr noundef %ops) local_unnamed_addr #5 {
+define dso_local void @vhost_dev_set_config_notifier(ptr nocapture noundef writeonly %hdev, ptr noundef %ops) local_unnamed_addr #5 {
 entry:
   %config_ops = getelementptr inbounds i8, ptr %hdev, i64 632
   store ptr %ops, ptr %config_ops, align 8

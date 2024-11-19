@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.min_cost_flow_ssp = private unnamed_addr constant [18 x i8] c"min_cost_flow_ssp\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @edge_constructor(ptr noundef initializes((160, 172), (176, 240)) %0) #0 {
+define internal void @edge_constructor(ptr noundef %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_item_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

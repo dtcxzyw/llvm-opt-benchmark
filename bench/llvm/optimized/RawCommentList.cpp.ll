@@ -135,7 +135,7 @@ $_ZN4llvm8DenseMapIPN5clang10RawCommentEjNS_12DenseMapInfoIS3_vEENS_6detail12Den
 @_ZN5clang10RawCommentC1ERKNS_13SourceManagerENS_11SourceRangeERKNS_14CommentOptionsEb = unnamed_addr alias void (ptr, ptr, i64, ptr, i1), ptr @_ZN5clang10RawCommentC2ERKNS_13SourceManagerENS_11SourceRangeERKNS_14CommentOptionsEb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10RawCommentC2ERKNS_13SourceManagerENS_11SourceRangeERKNS_14CommentOptionsEb(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10RawCommentC2ERKNS_13SourceManagerENS_11SourceRangeERKNS_14CommentOptionsEb(ptr nocapture noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i64 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %.sroa.035.0.extract.trunc = trunc i64 %2 to i32
@@ -537,7 +537,7 @@ define dso_local { ptr, i64 } @_ZNK5clang10RawComment14getRawTextSlowERKNS_13Sou
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZNK5clang10RawComment16extractBriefTextERKNS_10ASTContextE(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((24, 32)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZNK5clang10RawComment16extractBriefTextERKNS_10ASTContextE(ptr nocapture noundef nonnull align 8 dereferenceable(33) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.llvm::BumpPtrAllocatorImpl", align 8
   %5 = alloca %"class.clang::comments::Lexer", align 8
@@ -2054,7 +2054,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang10RawComment17getFormattedLinesERKNS_13SourceManagerERNS_17DiagnosticsEngineE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.488") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 8 dereferenceable(1304) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang10RawComment17getFormattedLinesERKNS_13SourceManagerERNS_17DiagnosticsEngineE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.488") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 8 dereferenceable(1304) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i8, align 1
   %6 = alloca %"class.llvm::BumpPtrAllocatorImpl", align 8
   %7 = alloca %"struct.clang::CommentOptions", align 8

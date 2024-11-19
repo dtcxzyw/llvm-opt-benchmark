@@ -608,7 +608,7 @@ declare void @GetCurrentTimeUsec(ptr noundef, ptr noundef, ptr noundef) local_un
 declare ptr @palloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @tm2timetz(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 12)) %3) local_unnamed_addr #3 {
+define dso_local noundef i32 @tm2timetz(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = mul i32 %6, 60
@@ -718,7 +718,7 @@ AdjustTimeForTypmod.exit:                         ; preds = %26, %30, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @tm2time(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
+define dso_local noundef i32 @tm2time(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = mul i32 %5, 60
@@ -3633,7 +3633,7 @@ define dso_local zeroext i1 @float_time_overflows(i32 noundef %0, i32 noundef %1
 declare double @llvm.rint.f64(double) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @time2tm(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #8 {
+define dso_local noundef i32 @time2tm(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
   %4 = sdiv i64 %0, 3600000000
   %5 = trunc i64 %4 to i32
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -4891,7 +4891,7 @@ define dso_local i64 @timetz_out(ptr nocapture noundef readonly %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @timetz2tm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
+define dso_local noundef i32 @timetz2tm(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
   %5 = load i64, ptr %0, align 8
   %6 = sdiv i64 %5, 3600000000
   %7 = trunc i64 %6 to i32

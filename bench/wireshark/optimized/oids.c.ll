@@ -1925,7 +1925,7 @@ define ptr @oid_resolved_from_string(ptr noundef %0, ptr noundef %1) local_unnam
 declare noalias ptr @wmem_strconcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @oid_both(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define void @oid_both(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = tail call ptr @oid_resolved(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   store ptr %6, ptr %3, align 8
   %7 = icmp eq ptr %2, null
@@ -2103,7 +2103,7 @@ oid_subid2string.exit:                            ; preds = %43, %51
 }
 
 ; Function Attrs: nounwind uwtable
-define void @oid_both_from_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define void @oid_both_from_string(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = call i32 @oid_string2subid(ptr noundef null, ptr noundef %1, ptr noundef nonnull %5)
   %7 = load ptr, ptr %5, align 8

@@ -1197,7 +1197,7 @@ declare void @_ZN10StringList5ResetEv(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN11SecPassword5CleanEv(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11CommandData16ParseCommandLineEbiPPc(ptr noundef nonnull align 8 dereferenceable(100904) initializes((83465, 83466), (83476, 83480)) %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11CommandData16ParseCommandLineEbiPPc(ptr noundef nonnull align 8 dereferenceable(100904) %0, i1 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 83476
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 83465

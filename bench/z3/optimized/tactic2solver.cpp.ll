@@ -515,7 +515,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 declare void @_ZN12solver_na2asD2Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113tactic2solverD2Ev(ptr noundef nonnull align 8 dereferenceable(225) initializes((0, 8), (72, 80)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_113tactic2solverD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_113tactic2solverE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 72
@@ -810,7 +810,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113tactic2solverD0Ev(ptr noundef nonnull align 8 dereferenceable(225) initializes((0, 8), (72, 80)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_113tactic2solverD0Ev(ptr noundef nonnull align 8 dereferenceable(225) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_113tactic2solverD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -1525,7 +1525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_113tactic2solver18set_produce_modelsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(225) initializes((200, 201)) %this, i1 noundef zeroext %f) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_113tactic2solver18set_produce_modelsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(225) %this, i1 noundef zeroext %f) unnamed_addr #7 align 2 {
 entry:
   %frombool = zext i1 %f to i8
   %m_produce_models = getelementptr inbounds i8, ptr %this, i64 200
@@ -1534,7 +1534,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_113tactic2solver16assert_expr_coreEP4expr(ptr noundef nonnull align 8 dereferenceable(225) initializes((152, 156)) %this, ptr noundef %t) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_113tactic2solver16assert_expr_coreEP4expr(ptr noundef nonnull align 8 dereferenceable(225) %this, ptr noundef %t) unnamed_addr #3 align 2 {
 entry:
   %m_last_assertions_valid = getelementptr inbounds i8, ptr %this, i64 152
   store i32 0, ptr %m_last_assertions_valid, align 8
@@ -1729,7 +1729,7 @@ declare noundef i32 @_ZN12solver_na2as12find_mutexesERK10ref_vectorI4expr11ast_m
 declare noundef i32 @_ZN6solver13preferred_satERK10ref_vectorI4expr11ast_managerER6vectorIS3_Lb1EjE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_113tactic2solver4cubeER10ref_vectorI4expr11ast_managerEj(ptr noalias nocapture writeonly sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(225) %this, ptr nocapture nonnull readnone align 8 %vars, i32 %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_113tactic2solver4cubeER10ref_vectorI4expr11ast_managerEj(ptr noalias nocapture writeonly sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(225) %this, ptr nocapture nonnull readnone align 8 %vars, i32 %0) unnamed_addr #3 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
@@ -1782,7 +1782,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6solver7displayERSojPKP4expr(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZNK12_GLOBAL__N_113tactic2solver19get_model_converterEv(ptr noalias nocapture writeonly sret(%class.ref) align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %this) unnamed_addr #9 align 2 {
+define internal void @_ZNK12_GLOBAL__N_113tactic2solver19get_model_converterEv(ptr noalias nocapture writeonly sret(%class.ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(225) %this) unnamed_addr #9 align 2 {
 entry:
   %m_mc = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %m_mc, align 8
@@ -2858,7 +2858,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_113tactic2solver9push_coreEv(ptr noundef nonnull align 8 dereferenceable(225) initializes((152, 156)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_113tactic2solver9push_coreEv(ptr noundef nonnull align 8 dereferenceable(225) %this) unnamed_addr #3 align 2 {
 entry:
   %m_last_assertions_valid = getelementptr inbounds i8, ptr %this, i64 152
   store i32 0, ptr %m_last_assertions_valid, align 8
@@ -2931,7 +2931,7 @@ _ZN3refI23simple_check_sat_resultEaSEPS0_.exit:   ; preds = %_ZN6vectorIjLb0EjE9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_113tactic2solver8pop_coreEj(ptr nocapture noundef nonnull align 8 dereferenceable(225) initializes((152, 156)) %this, i32 noundef %n) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_113tactic2solver8pop_coreEj(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this, i32 noundef %n) unnamed_addr #3 align 2 {
 entry:
   %m_last_assertions_valid = getelementptr inbounds i8, ptr %this, i64 152
   store i32 0, ptr %m_last_assertions_valid, align 8
@@ -3169,7 +3169,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn72_N12_GLOBAL__N_113tactic2solverD1Ev(ptr noundef initializes((-72, -64), (0, 8)) %this) unnamed_addr #11 align 2 {
+define internal void @_ZThn72_N12_GLOBAL__N_113tactic2solverD1Ev(ptr noundef %this) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   tail call void @_ZN12_GLOBAL__N_113tactic2solverD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %0) #24
@@ -3177,7 +3177,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn72_N12_GLOBAL__N_113tactic2solverD0Ev(ptr noundef initializes((-72, -64), (0, 8)) %this) unnamed_addr #11 align 2 {
+define internal void @_ZThn72_N12_GLOBAL__N_113tactic2solverD0Ev(ptr noundef %this) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   tail call void @_ZN12_GLOBAL__N_113tactic2solverD2Ev(ptr noundef nonnull align 8 dereferenceable(225) %0) #24
@@ -4333,7 +4333,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121tactic2solver_factoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_121tactic2solver_factoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121tactic2solver_factoryE, i64 16), ptr %this, align 8
   %m_tactic = getelementptr inbounds i8, ptr %this, i64 8
@@ -4368,7 +4368,7 @@ _ZN3refI6tacticED2Ev.exit:                        ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121tactic2solver_factoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_121tactic2solver_factoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_121tactic2solver_factoryE, i64 16), ptr %this, align 8
   %m_tactic.i = getelementptr inbounds i8, ptr %this, i64 8

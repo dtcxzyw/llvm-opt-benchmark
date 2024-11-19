@@ -60,7 +60,7 @@ $_ZTV16ShenandoahTracer = comdat any
 @_ZN25ShenandoahCollectorPolicyC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN25ShenandoahCollectorPolicyC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25ShenandoahCollectorPolicyC2Ev(ptr noundef nonnull align 8 dereferenceable(528) initializes((0, 32)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25ShenandoahCollectorPolicyC2Ev(ptr noundef nonnull align 8 dereferenceable(528) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   store volatile i64 0, ptr %2, align 8
@@ -121,7 +121,7 @@ define hidden void @_ZN25ShenandoahCollectorPolicy35record_alloc_failure_to_dege
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN25ShenandoahCollectorPolicy34record_degenerated_upgrade_to_fullEv(ptr nocapture noundef nonnull align 8 dereferenceable(528) initializes((40, 44)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25ShenandoahCollectorPolicy34record_degenerated_upgrade_to_fullEv(ptr nocapture noundef nonnull align 8 dereferenceable(528) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -132,7 +132,7 @@ define hidden void @_ZN25ShenandoahCollectorPolicy34record_degenerated_upgrade_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN25ShenandoahCollectorPolicy25record_success_concurrentEb(ptr nocapture noundef nonnull align 8 dereferenceable(528) initializes((40, 44)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25ShenandoahCollectorPolicy25record_success_concurrentEb(ptr nocapture noundef nonnull align 8 dereferenceable(528) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %3, align 8
   %4 = load i64, ptr %0, align 8
@@ -175,7 +175,7 @@ define hidden void @_ZN25ShenandoahCollectorPolicy26record_success_degeneratedEb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN25ShenandoahCollectorPolicy19record_success_fullEv(ptr noundef nonnull align 8 dereferenceable(528) initializes((40, 44)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN25ShenandoahCollectorPolicy19record_success_fullEv(ptr noundef nonnull align 8 dereferenceable(528) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32

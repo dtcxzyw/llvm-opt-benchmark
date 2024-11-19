@@ -24,7 +24,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_27RgbaYca9computeYwERKNS_14ChromaticitiesE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec3") align 4 initializes((0, 12)) %agg.result, ptr noundef nonnull align 4 dereferenceable(32) %cr) local_unnamed_addr #3 {
+define void @_ZN7Imf_3_27RgbaYca9computeYwERKNS_14ChromaticitiesE(ptr noalias nocapture writeonly sret(%"class.Imath_3_2::Vec3") align 4 %agg.result, ptr noundef nonnull align 4 dereferenceable(32) %cr) local_unnamed_addr #3 {
 entry:
   %m = alloca %"class.Imath_3_2::Matrix44", align 4
   call void @_ZN7Imf_3_28RGBtoXYZERKNS_14ChromaticitiesEf(ptr nonnull sret(%"class.Imath_3_2::Matrix44") align 4 %m, ptr noundef nonnull align 4 dereferenceable(32) %cr, float noundef 1.000000e+00)

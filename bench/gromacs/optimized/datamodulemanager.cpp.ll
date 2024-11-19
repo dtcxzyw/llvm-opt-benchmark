@@ -118,7 +118,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @_ZN3gmx25AnalysisDataModuleManagerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx25AnalysisDataModuleManagerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx25AnalysisDataModuleManager4ImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 30), (32, 40)) %0) unnamed_addr #0 align 2 {
+define void @_ZN3gmx25AnalysisDataModuleManager4ImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %0, i8 0, i64 27, i1 false)
   store i8 1, ptr %2, align 1

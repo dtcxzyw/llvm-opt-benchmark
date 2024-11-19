@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @mq_clustering(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define void @mq_clustering(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call ptr @SparseMatrix_symmetrize(ptr noundef %0, i1 noundef zeroext false) #13
   %8 = icmp eq ptr %7, %0

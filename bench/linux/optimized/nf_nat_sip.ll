@@ -1069,7 +1069,7 @@ define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_session(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_media(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef initializes((0, 16)) %9) #2 align 16 {
+define internal noundef range(i32 0, 2) i32 @nf_nat_sdp_media(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef %9) #2 align 16 {
   %11 = getelementptr inbounds i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, -8

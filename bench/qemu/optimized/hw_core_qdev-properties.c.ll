@@ -1490,7 +1490,7 @@ declare ptr @object_property_add(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare void @object_property_set_description(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @device_class_set_props(ptr noundef initializes((120, 128)) %dc, ptr noundef %props) local_unnamed_addr #0 {
+define dso_local void @device_class_set_props(ptr noundef %dc, ptr noundef %props) local_unnamed_addr #0 {
 entry:
   %props_ = getelementptr inbounds i8, ptr %dc, i64 120
   store ptr %props, ptr %props_, align 8

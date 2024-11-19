@@ -68,7 +68,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib12DistributionC1Eidd = unnamed_addr alias void (ptr, i32, double, double), ptr @_ZN8QuantLib12DistributionC2Eidd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12DistributionC2Eidd(ptr nocapture noundef nonnull align 8 dereferenceable(225) initializes((0, 4), (8, 24)) %this, i32 noundef %nBuckets, double noundef %xmin, double noundef %xmax) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12DistributionC2Eidd(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this, i32 noundef %nBuckets, double noundef %xmin, double noundef %xmax) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %nBuckets, ptr %this, align 8, !tbaa !3
   %xmin_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -804,7 +804,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib12Distribution3addEd(ptr nocapture noundef nonnull align 8 dereferenceable(225) initializes((224, 225)) %this, double noundef %value) local_unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib12Distribution3addEd(ptr nocapture noundef nonnull align 8 dereferenceable(225) %this, double noundef %value) local_unnamed_addr #6 align 2 {
 entry:
   %isNormalized_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   store i8 0, ptr %isNormalized_, align 8, !tbaa !45

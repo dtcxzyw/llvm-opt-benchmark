@@ -83,7 +83,7 @@ $_ZNSt6vectorIN3ozz9animation7offline12RawAnimation8ScaleKeyENS0_12StdAllocatorI
 @_ZN3ozz9animation7offline18AnimationOptimizerC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3ozz9animation7offline18AnimationOptimizerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation7offline18AnimationOptimizerC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 20), (24, 32)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3ozz9animation7offline18AnimationOptimizerC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store float 0x3F50624DE0000000, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0x3FB99999A0000000, ptr %2, align 4

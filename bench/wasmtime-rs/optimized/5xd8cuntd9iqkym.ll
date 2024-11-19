@@ -915,7 +915,7 @@ define { i64, i64 } @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hfe0051a0e994346dE"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 initializes((0, 36)) %0, ptr align 8 %1, i64 %2, i64 %3, i32 %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN8indexmap3map4core3raw64_$LT$impl$u20$indexmap..map..core..IndexMapCore$LT$K$C$V$GT$$GT$5entry17hfe0051a0e994346dE"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 %0, ptr align 8 %1, i64 %2, i64 %3, i32 %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, { ptr, i64 } }, align 8
   %7 = alloca { i64, i32, {}, [4 x i8] }, align 8
   store i64 %3, ptr %7, align 8

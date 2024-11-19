@@ -235,7 +235,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @casadi_register_linsol_ldl(ptr nocapture noundef writeonly initializes((0, 28), (32, 48)) %0) #3 {
+define noundef i32 @casadi_register_linsol_ldl(ptr nocapture noundef writeonly %0) #3 {
   store ptr @_ZN6casadi9LinsolLdl7creatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8SparsityE, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str, ptr %2, align 8
@@ -337,7 +337,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6casadi14LinsolInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(184)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi9LinsolLdlD2Ev(ptr noundef nonnull align 8 dereferenceable(218) initializes((0, 8), (168, 176)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi9LinsolLdlD2Ev(ptr noundef nonnull align 8 dereferenceable(218) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi9LinsolLdlE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi9LinsolLdlE, i64 232), ptr %2, align 8

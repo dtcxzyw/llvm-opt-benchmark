@@ -26,7 +26,7 @@ $_ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_default_appendEm = comdat any
 @_ZN4llvm8codeview19TypeTableCollectionC1ENS_8ArrayRefINS2_IhEEEE = unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN4llvm8codeview19TypeTableCollectionC2ENS_8ArrayRefINS2_IhEEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview19TypeTableCollectionC2ENS_8ArrayRefINS2_IhEEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview19TypeTableCollectionC2ENS_8ArrayRefINS2_IhEEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4llvm8codeview19TypeTableCollectionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24

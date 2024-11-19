@@ -8605,7 +8605,7 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -1, 65539) i32 @decode_udvm_multitype_operand(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %2) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 65539) i32 @decode_udvm_multitype_operand(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
   store i16 0, ptr %2, align 2
   %4 = icmp ugt i32 %1, 65535
   br i1 %4, label %127, label %5
@@ -8817,7 +8817,7 @@ declare ptr @proto_tree_add_bytes_with_length(ptr noundef, i32 noundef, ptr noun
 declare zeroext i16 @crc16_ccitt_seed(ptr noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, i8 %.68.val, i8 %.69.val, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %8, i32 noundef %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #0 {
+define internal fastcc range(i32 0, 65536) i32 @decomp_dispatch_get_bits(ptr noundef %0, ptr noundef %1, i8 noundef zeroext range(i8 0, 2) %2, i8 %.68.val, i8 %.69.val, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, i16 noundef zeroext %7, ptr nocapture noundef nonnull writeonly %8, i32 noundef %9, i32 noundef range(i32 0, 2) %10) unnamed_addr #0 {
   %.69.val.fr = freeze i8 %.69.val
   %12 = load i32, ptr %6, align 4
   %13 = sub i32 %9, %12
@@ -9150,7 +9150,7 @@ declare i32 @tvb_find_line_end(ptr noundef, i32 noundef, i32 noundef, ptr nounde
 declare ptr @proto_tree_add_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_udvm_reference_operand(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_udvm_reference_operand(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #8
   %7 = zext i8 %6 to i32
   %.not = icmp sgt i8 %6, -1
@@ -9217,7 +9217,7 @@ define internal fastcc noundef i32 @dissect_udvm_reference_operand(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_udvm_multitype_operand(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5) unnamed_addr #0 {
   store i32 0, ptr %5, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #8
   %8 = zext i8 %7 to i32
@@ -9431,7 +9431,7 @@ default.unreachable137:                           ; preds = %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_udvm_literal_operand(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_udvm_literal_operand(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2) #8
   %7 = zext i8 %6 to i32
   %.not = icmp sgt i8 %6, -1

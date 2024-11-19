@@ -2315,7 +2315,7 @@ define hidden noundef nonnull align 8 ptr @_ZN5serde3ser10Serializer11collect_se
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h557df84887130a59E(ptr noalias noundef align 8 dereferenceable(40) initializes((32, 33)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef align 8 ptr @_ZN5serde3ser10Serializer11collect_seq17h557df84887130a59E(ptr noalias noundef align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !1101, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 16

@@ -685,7 +685,7 @@ define noundef range(i64 -2147483624, 2147483648) i64 @_ZN10open_spiel16nine_men
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10open_spiel16nine_mens_morris14FromMoveActionElPiS1_(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #8 {
+define void @_ZN10open_spiel16nine_mens_morris14FromMoveActionElPiS1_(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
   %4 = add nsw i64 %0, -24
   %5 = sdiv i64 %4, 24
   %6 = trunc i64 %5 to i32
@@ -2117,7 +2117,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel16nine_mens_morris19NineMensMorrisState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.7") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel16nine_mens_morris19NineMensMorrisState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.7") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -2952,7 +2952,7 @@ define noundef zeroext i1 @_ZNK10open_spiel16nine_mens_morris19NineMensMorrisSta
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel16nine_mens_morris19NineMensMorrisState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.15") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel16nine_mens_morris19NineMensMorrisState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.15") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
   store ptr %3, ptr %0, align 8

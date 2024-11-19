@@ -489,7 +489,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare ptr @_ZN4cvc58internal18StatisticsRegistry13registerTimerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 1, 4) i32 @_ZN4cvc58internal6theory5arith6linear28DualSimplexDecisionProcedure13dualFindModelEb(ptr noundef nonnull align 8 dereferenceable(424) initializes((16, 20)) %this, i1 noundef zeroext %exactResult) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 1, 4) i32 @_ZN4cvc58internal6theory5arith6linear28DualSimplexDecisionProcedure13dualFindModelEb(ptr noundef nonnull align 8 dereferenceable(424) %this, i1 noundef zeroext %exactResult) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_pivots = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %d_pivots, align 8

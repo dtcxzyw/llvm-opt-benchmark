@@ -355,7 +355,7 @@ define noundef ptr @Hop_ObjCreate(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Hop_ObjConnect(ptr noundef %0, ptr noundef initializes((16, 32)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Hop_ObjConnect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 24

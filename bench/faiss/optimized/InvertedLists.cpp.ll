@@ -2762,7 +2762,7 @@ define void @_ZN5faiss21InvertedListsIteratorD2Ev(ptr nocapture nonnull readnone
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss13InvertedListsC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #8 align 2 {
+define void @_ZN5faiss13InvertedListsC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss13InvertedListsE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
@@ -4149,7 +4149,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit20:                  ; preds = %28
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss18ArrayInvertedListsC2Emm(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 25), (32, 80)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss18ArrayInvertedListsC2Emm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4962,7 +4962,7 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss18ArrayInvertedListsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss18ArrayInvertedListsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss18ArrayInvertedListsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -5040,7 +5040,7 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss19HStackInvertedListsC2EiPPKNS_13InvertedListsE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 25), (32, 56)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss19HStackInvertedListsC2EiPPKNS_13InvertedListsE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = icmp sgt i32 %1, 0
@@ -5283,7 +5283,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #17
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss18SliceInvertedListsC2EPKNS_13InvertedListsEll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 25), (32, 56)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #22 align 2 {
+define void @_ZN5faiss18SliceInvertedListsC2EPKNS_13InvertedListsEll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #22 align 2 {
   %5 = sub nsw i64 %3, %2
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load i64, ptr %6, align 8
@@ -5717,7 +5717,7 @@ define internal fastcc noundef range(i32 0, 1073741824) i32 @_ZN5faiss12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss19MaskedInvertedListsC2EPKNS_13InvertedListsES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 25), (32, 48)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss19MaskedInvertedListsC2EPKNS_13InvertedListsES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5828,7 +5828,7 @@ define void @_ZN5faiss19MaskedInvertedListsC2EPKNS_13InvertedListsES3_(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss22StopWordsInvertedListsC2EPKNS_13InvertedListsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 25), (32, 48)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
+define void @_ZN5faiss22StopWordsInvertedListsC2EPKNS_13InvertedListsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #22 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16

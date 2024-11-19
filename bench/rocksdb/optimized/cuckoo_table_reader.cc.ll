@@ -262,7 +262,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17CuckooTableReaderC2ERKNS_16ImmutableOptionsEOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS5_EEmPKNS_10ComparatorEPFmRKNS_5SliceEjmE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 35), (40, 62), (64, 76)) %this, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr nocapture noundef nonnull align 8 dereferenceable(8) %file, i64 noundef %file_size, ptr noundef %comparator, ptr noundef %get_slice_hash) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb17CuckooTableReaderC2ERKNS_16ImmutableOptionsEOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS5_EEmPKNS_10ComparatorEPFmRKNS_5SliceEjmE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr nocapture noundef nonnull align 8 dereferenceable(8) %file, i64 noundef %file_size, ptr noundef %comparator, ptr noundef %get_slice_hash) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__shared_ptr", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8

@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.shm_mq_wait_internal = private unnamed_addr constant [21 x i8] c"shm_mq_wait_internal\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @shm_mq_create(ptr noundef returned initializes((0, 1), (8, 24)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @shm_mq_create(ptr noundef returned %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = and i64 %1, -8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !5
   store i8 0, ptr %0, align 8
@@ -212,7 +212,7 @@ shm_mq_detach_internal.exit:                      ; preds = %15, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @shm_mq_set_handle(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @shm_mq_set_handle(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void

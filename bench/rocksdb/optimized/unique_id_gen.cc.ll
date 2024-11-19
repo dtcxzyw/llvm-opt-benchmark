@@ -185,7 +185,7 @@ _ZN7rocksdb12_GLOBAL__N_123GenerateRawUniqueIdImplEPmS1_RKNS0_23GenerateRawUniqu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25SemiStructuredUniqueIdGen5ResetEv(ptr noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25SemiStructuredUniqueIdGen5ResetEv(ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef i64 @_ZN7rocksdb4port12GetProcessIDEv()
   %saved_process_id_ = getelementptr inbounds i8, ptr %this, i64 24

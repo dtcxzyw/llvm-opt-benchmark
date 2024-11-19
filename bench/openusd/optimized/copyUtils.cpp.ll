@@ -1816,7 +1816,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer7HasS
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfChangeBlockC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryC2ERKNS_7SdfPathES4_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryC2ERKNS_7SdfPathES4_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %0, align 4
   %.not.i.i = icmp eq i32 %4, 0
@@ -1870,7 +1870,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathC2ERKS0_.exit4: ; preds = %_ZN32pxr
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EEC2EmRKS2_RKS3_(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt5dequeIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryESaIS2_EEC2EmRKS2_RKS3_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 8, ptr %3, align 8
@@ -2074,7 +2074,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit2: ; preds = %_ZN32pxrInte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryC2ERKS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CopyStackEntryC2ERKS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i32, ptr %1, align 4
   store i32 %3, ptr %0, align 4
   %.not.i.i = icmp eq i32 %3, 0
@@ -22442,7 +22442,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt8optionalIN32pxrInternal_v0_24__pxrReserved__7SdfPathEERKS2_EZNS1_18SdfShouldCopyValueES5_S5_NS1_11SdfSpecTypeERKNS1_7TfTokenERKNS1_9TfWeakPtrINS1_8SdfLayerEEES5_bSF_S5_bPS0_INS1_7VtValueEEE3$_0E9_M_invokeERKSt9_Any_dataS5_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.234") align 4 initializes((0, 9)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt8optionalIN32pxrInternal_v0_24__pxrReserved__7SdfPathEERKS2_EZNS1_18SdfShouldCopyValueES5_S5_NS1_11SdfSpecTypeERKNS1_7TfTokenERKNS1_9TfWeakPtrINS1_8SdfLayerEEES5_bSF_S5_bPS0_INS1_7VtValueEEE3$_0E9_M_invokeERKSt9_Any_dataS5_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.234") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4
   %.val = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8

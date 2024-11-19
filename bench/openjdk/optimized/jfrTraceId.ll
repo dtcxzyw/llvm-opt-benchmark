@@ -601,7 +601,7 @@ define hidden void @_ZN10JfrTraceId6removeEPK5Klass(ptr nocapture noundef %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10JfrTraceId6removeEPK6Method(ptr nocapture noundef writeonly initializes((54, 56)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10JfrTraceId6removeEPK6Method(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 54
   store i16 0, ptr %2, align 2
   ret void

@@ -3565,7 +3565,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZN32pxrInter
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERKNS1_9TfWeakPtrINS1_8SdfLayerEEEEZL19TestSimpleValidatorvE3$_0E9_M_invokeERKSt9_Any_dataS9_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorIN32pxrInternal_v0_24__pxrReserved__18UsdValidationErrorESaIS2_EERKNS1_9TfWeakPtrINS1_8SdfLayerEEEEZL19TestSimpleValidatorvE3$_0E9_M_invokeERKSt9_Any_dataS9_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x %"class.pxrInternal_v0_24__pxrReserved__::UsdValidationError"], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)

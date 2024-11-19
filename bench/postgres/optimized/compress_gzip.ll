@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [44 x i8] c"could not read from input file: end of file\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InitCompressorGzip(ptr nocapture noundef initializes((0, 24), (40, 72)) %0, ptr nocapture noundef readonly byval(%struct.pg_compress_specification) align 8 %1) local_unnamed_addr #0 {
+define dso_local void @InitCompressorGzip(ptr nocapture noundef %0, ptr nocapture noundef readonly byval(%struct.pg_compress_specification) align 8 %1) local_unnamed_addr #0 {
   store ptr @ReadDataFromArchiveGzip, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @WriteDataToArchiveGzip, ptr %3, align 8
@@ -390,7 +390,7 @@ DeflateCompressorEnd.exit:                        ; preds = %DeflateCompressorCo
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @InitCompressFileHandleGzip(ptr nocapture noundef writeonly initializes((0, 112)) %0, ptr nocapture noundef readonly byval(%struct.pg_compress_specification) align 8 %1) local_unnamed_addr #2 {
+define dso_local void @InitCompressFileHandleGzip(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly byval(%struct.pg_compress_specification) align 8 %1) local_unnamed_addr #2 {
   store ptr @Gzip_open, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @Gzip_open_write, ptr %3, align 8

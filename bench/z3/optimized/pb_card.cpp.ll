@@ -92,7 +92,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2pb4cardC2EjN3sat7literalERK7svectorIS2_jEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 13), (16, 36), (40, 49), (52, 57), (60, 64)) %this, i32 noundef %id, i32 %lit.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lits, i32 noundef %k) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2pb4cardC2EjN3sat7literalERK7svectorIS2_jEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, i32 noundef %id, i32 %lit.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %lits, i32 noundef %k) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %lits, align 8
   %cmp.i = icmp eq ptr %0, null

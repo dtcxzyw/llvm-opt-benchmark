@@ -1714,7 +1714,7 @@ define internal range(i32 0, 2) i32 @unix_gid_match(ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @unix_gid_init(ptr nocapture noundef writeonly initializes((48, 52)) %0, ptr nocapture noundef readonly %1) #7 align 16 {
+define internal void @unix_gid_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i32, ptr %4, align 8
@@ -1723,7 +1723,7 @@ define internal void @unix_gid_init(ptr nocapture noundef writeonly initializes(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @unix_gid_update(ptr nocapture noundef writeonly initializes((56, 64)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @unix_gid_update(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 1, ptr elementtype(i32) %4) #19, !srcloc !14
@@ -2298,7 +2298,7 @@ define internal void @ip_map_init(ptr noundef %0, ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @update(ptr nocapture noundef writeonly initializes((72, 80)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @update(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %4, i32 1, ptr elementtype(i32) %4) #19, !srcloc !14

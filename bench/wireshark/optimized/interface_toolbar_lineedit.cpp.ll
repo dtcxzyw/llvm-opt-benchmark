@@ -857,7 +857,7 @@ declare void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN9QLineEdit10textEditedERK7QString(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN24InterfaceToolbarLineEdit18validateEditedTextEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) initializes((57, 58)) %0) #5 align 2 {
+define void @_ZN24InterfaceToolbarLineEdit18validateEditedTextEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) %0) #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 57
   store i8 1, ptr %2, align 1
   ret void
@@ -899,7 +899,7 @@ declare void @_ZN9QLineEditD2Ev(ptr noundef nonnull align 8 dereferenceable(40))
 declare void @_ZN24InterfaceToolbarLineEdit17editedTextAppliedEv(ptr noundef nonnull align 8 dereferenceable(58)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN24InterfaceToolbarLineEdit18disableApplyButtonEv(ptr nocapture noundef nonnull align 8 dereferenceable(58) initializes((57, 58)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN24InterfaceToolbarLineEdit18disableApplyButtonEv(ptr nocapture noundef nonnull align 8 dereferenceable(58) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %3, i1 noundef zeroext false)

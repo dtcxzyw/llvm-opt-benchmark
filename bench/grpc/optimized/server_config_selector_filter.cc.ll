@@ -3202,7 +3202,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -3283,7 +3283,7 @@ _ZNSt10shared_ptrIN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter5StateEED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_126ServerConfigSelectorFilter27ServerConfigSelectorWatcherE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16

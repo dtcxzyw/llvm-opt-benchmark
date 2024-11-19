@@ -163,7 +163,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_number17h3305b5a93b7ca6caE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef nonnull align 8 dereferenceable(112) %1, i1 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_number17h3305b5a93b7ca6caE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(112) %1, i1 noundef zeroext %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { i64, [1 x i64] }, align 8
@@ -329,7 +329,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$12parse_n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17h97743b87a3a0d84cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(112) initializes((96, 97)) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$13parse_decimal17h97743b87a3a0d84cE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(112) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
@@ -1671,7 +1671,7 @@ define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hc25e49aa02179d55E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(112) initializes((96, 97)) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_exponent17hc25e49aa02179d55E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noalias noundef nonnull align 8 dereferenceable(112) %1, i1 noundef zeroext %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [2 x i64] }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca i8, align 1
@@ -2099,7 +2099,7 @@ define internal fastcc void @"_ZN10serde_json2de21Deserializer$LT$R$GT$14parse_e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$15ignore_exponent17hec9b762ebca6cb8aE"(ptr noalias noundef nonnull align 8 dereferenceable(112) initializes((96, 97)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noundef align 8 ptr @"_ZN10serde_json2de21Deserializer$LT$R$GT$15ignore_exponent17hec9b762ebca6cb8aE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca i8, align 1
   %3 = alloca { i8, [15 x i8] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
@@ -3877,7 +3877,7 @@ common.resume:                                    ; preds = %31, %71, %84, %22
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h6a2d56c6af2bc85aE"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h6a2d56c6af2bc85aE"(ptr noundef nonnull writeonly align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1003)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3

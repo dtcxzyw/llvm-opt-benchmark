@@ -285,7 +285,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_dirty_bitmap_set_busy(ptr nocapture noundef initializes((16, 17)) %bitmap, i1 noundef zeroext %busy) local_unnamed_addr #0 {
+define dso_local void @bdrv_dirty_bitmap_set_busy(ptr nocapture noundef %bitmap, i1 noundef zeroext %busy) local_unnamed_addr #0 {
 entry:
   %frombool = zext i1 %busy to i8
   %0 = load ptr, ptr %bitmap, align 8
@@ -451,7 +451,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @bdrv_enable_dirty_bitmap_locked(ptr nocapture noundef writeonly initializes((48, 49)) %bitmap) local_unnamed_addr #7 {
+define dso_local void @bdrv_enable_dirty_bitmap_locked(ptr nocapture noundef writeonly %bitmap) local_unnamed_addr #7 {
 entry:
   %disabled = getelementptr inbounds i8, ptr %bitmap, i64 48
   store i8 0, ptr %disabled, align 8
@@ -867,7 +867,7 @@ return:                                           ; preds = %if.end5, %if.then3,
 declare ptr @bdrv_get_device_or_node_name(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_disable_dirty_bitmap(ptr nocapture noundef initializes((48, 49)) %bitmap) local_unnamed_addr #0 {
+define dso_local void @bdrv_disable_dirty_bitmap(ptr nocapture noundef %bitmap) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -883,7 +883,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_enable_dirty_bitmap(ptr nocapture noundef initializes((48, 49)) %bitmap) local_unnamed_addr #0 {
+define dso_local void @bdrv_enable_dirty_bitmap(ptr nocapture noundef %bitmap) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %bitmap, align 8
   %1 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
@@ -1455,7 +1455,7 @@ entry:
 declare i64 @hbitmap_count(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_dirty_bitmap_set_readonly(ptr nocapture noundef initializes((56, 57)) %bitmap, i1 noundef zeroext %value) local_unnamed_addr #0 {
+define dso_local void @bdrv_dirty_bitmap_set_readonly(ptr nocapture noundef %bitmap, i1 noundef zeroext %value) local_unnamed_addr #0 {
 entry:
   %frombool = zext i1 %value to i8
   %0 = load ptr, ptr %bitmap, align 8
@@ -1524,7 +1524,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_dirty_bitmap_set_persistence(ptr nocapture noundef initializes((57, 58)) %bitmap, i1 noundef zeroext %persistent) local_unnamed_addr #0 {
+define dso_local void @bdrv_dirty_bitmap_set_persistence(ptr nocapture noundef %bitmap, i1 noundef zeroext %persistent) local_unnamed_addr #0 {
 entry:
   %frombool = zext i1 %persistent to i8
   %0 = load ptr, ptr %bitmap, align 8
@@ -1569,7 +1569,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_dirty_bitmap_skip_store(ptr nocapture noundef initializes((59, 60)) %bitmap, i1 noundef zeroext %skip) local_unnamed_addr #0 {
+define dso_local void @bdrv_dirty_bitmap_skip_store(ptr nocapture noundef %bitmap, i1 noundef zeroext %skip) local_unnamed_addr #0 {
 entry:
   %frombool = zext i1 %skip to i8
   %0 = load ptr, ptr %bitmap, align 8

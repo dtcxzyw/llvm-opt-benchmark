@@ -188,7 +188,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapIiiSt4lessIiESaISt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16PacketListRecordC2EP11_frame_data(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 21), (24, 29), (32, 37)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define void @_ZN16PacketListRecordC2EP11_frame_data(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16PacketListRecord, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -426,7 +426,7 @@ define void @_ZN16PacketListRecord7dissectEP13_capture_filebb(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16PacketListRecord12columnStringEP13_capture_fileib(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(37) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16PacketListRecord12columnStringEP13_capture_fileib(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(37) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = icmp eq ptr %2, null
   %7 = icmp slt i32 %3, 0
   %or.cond = or i1 %6, %7

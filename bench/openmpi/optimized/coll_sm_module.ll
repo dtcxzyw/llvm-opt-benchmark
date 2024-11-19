@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_byte = external global %struct.ompi_predefined_datatype_t, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_coll_sm_module_construct(ptr nocapture noundef writeonly initializes((568, 576), (592, 593), (600, 624)) %0) #0 {
+define internal void @mca_coll_sm_module_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 592
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 600

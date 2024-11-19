@@ -1171,7 +1171,7 @@ Ver_ParseStop.exit:                               ; preds = %Vec_IntFree.exit.i,
 declare void @Hop_ManStop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Ver_ParsePrintErrorMessage(ptr noundef initializes((76, 80)) %0) local_unnamed_addr #0 {
+define void @Ver_ParsePrintErrorMessage(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1412,7 +1412,7 @@ Ver_ParsePrintErrorMessage.exit:                  ; preds = %65, %62, %35, %32, 
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ver_ParseLookupSuffix(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define noundef i32 @Ver_ParseLookupSuffix(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 -1, ptr %3, align 4
   store i32 -1, ptr %2, align 4

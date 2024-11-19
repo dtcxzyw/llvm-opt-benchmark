@@ -172,7 +172,7 @@ define void @_ZN5boost13serialization13typeid_system27extended_type_info_typeid_
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost13serialization13typeid_system27extended_type_info_typeid_013type_registerERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost13serialization13typeid_system27extended_type_info_typeid_013type_registerERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8, !tbaa !3
   %4 = load atomic i8, ptr @_ZGVZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t acquire, align 8

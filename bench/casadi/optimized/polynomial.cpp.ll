@@ -108,7 +108,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi10PolynomialC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, double noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi10PolynomialC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
@@ -125,7 +125,7 @@ define void @_ZN6casadi10PolynomialC2Ed(ptr nocapture noundef nonnull writeonly 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi10PolynomialC2Edd(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, double noundef %1, double noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi10PolynomialC2Edd(ptr noundef nonnull align 8 dereferenceable(24) %0, double noundef %1, double noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 2)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %6
@@ -154,7 +154,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %6, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi10PolynomialC2Eddd(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi10PolynomialC2Eddd(ptr noundef nonnull align 8 dereferenceable(24) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 3)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %9
@@ -186,7 +186,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %9, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi10PolynomialC2Edddd(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi10PolynomialC2Edddd(ptr noundef nonnull align 8 dereferenceable(24) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZNSt6vectorIdSaIdEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 2)
           to label %_ZNSt6vectorIdSaIdEE6resizeEm.exit unwind label %12
@@ -855,7 +855,7 @@ _ZN6casadi10PolynomialD2Ev.exit:                  ; preds = %12, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi10PolynomialdvEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.casadi::Polynomial") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi10PolynomialdvEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.casadi::Polynomial") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, double noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8

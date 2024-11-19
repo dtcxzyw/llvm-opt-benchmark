@@ -154,7 +154,7 @@ define dso_local range(i32 0, 2) i32 @has_suffix(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @dbuf_init2(ptr nocapture noundef writeonly initializes((0, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define dso_local void @dbuf_init2(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 32, i1 false)
   %.not = icmp eq ptr %2, null
   %spec.store.select = select i1 %.not, ptr @dbuf_default_realloc, ptr %2
@@ -175,7 +175,7 @@ define internal noalias noundef ptr @dbuf_default_realloc(ptr nocapture readnone
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @dbuf_init(ptr nocapture noundef writeonly initializes((0, 48)) %0) local_unnamed_addr #4 {
+define dso_local void @dbuf_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 32, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
@@ -641,7 +641,7 @@ dbuf_put.exit:                                    ; preds = %52, %40, %28, %27, 
 declare noundef i32 @vsnprintf(ptr nocapture noundef, i64 noundef, ptr nocapture noundef readonly, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dbuf_free(ptr nocapture noundef initializes((8, 32)) %0) local_unnamed_addr #7 {
+define dso_local void @dbuf_free(ptr nocapture noundef %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3

@@ -61,7 +61,7 @@ define weak_odr hidden noundef ptr @_ZTWN7rocksdb15iostats_contextE() local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb14IOStatsContext5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(153) initializes((0, 152)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN7rocksdb14IOStatsContext5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(153) %this) local_unnamed_addr #1 align 2 {
 entry:
   store i64 4, ptr %this, align 8
   %bytes_written = getelementptr inbounds i8, ptr %this, i64 8

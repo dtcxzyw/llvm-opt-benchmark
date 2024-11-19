@@ -116,7 +116,7 @@ define hidden ptr @mbedtls_md_info_from_ctx(ptr noundef readonly %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_md_init(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #4 {
+define hidden void @mbedtls_md_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }

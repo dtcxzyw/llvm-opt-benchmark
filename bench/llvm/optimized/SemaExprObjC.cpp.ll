@@ -12198,7 +12198,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 3) i32 @_ZN5clang8SemaObjC18getObjCMessageKindEPNS_5ScopeEPNS_14IdentifierInfoENS_14SourceLocationEbbRNS_9OpaquePtrINS_8QualTypeEEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef %2, i32 %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 3) i32 @_ZN5clang8SemaObjC18getObjCMessageKindEPNS_5ScopeEPNS_14IdentifierInfoENS_14SourceLocationEbbRNS_9OpaquePtrINS_8QualTypeEEE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1, ptr noundef %2, i32 %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.clang::SourceLocation", align 4
   %9 = alloca %"class.clang::LookupResult", align 8
   %10 = alloca ptr, align 8
@@ -17524,7 +17524,7 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread: ; preds = %68, %_ZNK5clang4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeNSCastIN5clang14ObjCBridgeAttrEEbRNS0_4SemaENS0_8QualTypeEPNS0_4ExprERbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeNSCastIN5clang14ObjCBridgeAttrEEbRNS0_4SemaENS0_8QualTypeEPNS0_4ExprERbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca ptr, align 8
@@ -17910,7 +17910,7 @@ _ZNK5clang4Type12isObjCIdTypeEv.exit.thread:      ; preds = %150, %171, %_ZNK5cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeNSCastIN5clang21ObjCBridgeMutableAttrEEbRNS0_4SemaENS0_8QualTypeEPNS0_4ExprERbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeNSCastIN5clang21ObjCBridgeMutableAttrEEbRNS0_4SemaENS0_8QualTypeEPNS0_4ExprERbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca ptr, align 8
@@ -18296,7 +18296,7 @@ _ZNK5clang4Type12isObjCIdTypeEv.exit.thread:      ; preds = %150, %171, %_ZNK5cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeCFCastIN5clang14ObjCBridgeAttrEEbRNS0_4SemaENS0_8QualTypeEPNS0_4ExprERbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeCFCastIN5clang14ObjCBridgeAttrEEbRNS0_4SemaENS0_8QualTypeEPNS0_4ExprERbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca %"class.clang::LookupResult", align 8
@@ -18584,7 +18584,7 @@ _ZNK5clang21ObjCObjectPointerType13getObjectTypeEv.exit: ; preds = %76, %84
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeCFCastIN5clang21ObjCBridgeMutableAttrEEbRNS0_4SemaENS0_8QualTypeEPNS0_4ExprERbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21CheckObjCBridgeCFCastIN5clang21ObjCBridgeMutableAttrEEbRNS0_4SemaENS0_8QualTypeEPNS0_4ExprERbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca %"class.clang::LookupResult", align 8
@@ -27096,7 +27096,7 @@ _ZN5clang27CorrectionCandidateCallback11MatchesTypoERKNS_14TypoCorrectionE.exit.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123ObjCInterfaceOrSuperCCC5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.1724") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_123ObjCInterfaceOrSuperCCC5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.1724") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_123ObjCInterfaceOrSuperCCCESt14default_deleteIS1_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21, !noalias !168
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8

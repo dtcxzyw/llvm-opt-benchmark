@@ -135,7 +135,7 @@ sw.epilog:                                        ; preds = %for.end, %sw.bb37
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fill_bloom_key(ptr nocapture noundef readonly %data, i64 noundef %len, ptr nocapture noundef initializes((0, 8)) %key, ptr nocapture noundef readonly %settings) local_unnamed_addr #1 {
+define dso_local void @fill_bloom_key(ptr nocapture noundef readonly %data, i64 noundef %len, ptr nocapture noundef %key, ptr nocapture noundef readonly %settings) local_unnamed_addr #1 {
 entry:
   %call = tail call i32 @murmur3_seeded(i32 noundef 691726191, ptr noundef %data, i64 noundef %len)
   %call1 = tail call i32 @murmur3_seeded(i32 noundef 2120511020, ptr noundef %data, i64 noundef %len)

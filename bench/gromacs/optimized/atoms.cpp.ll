@@ -111,7 +111,7 @@ define noundef ptr @_Z17enumValueToString12ParticleType(i32 noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18SimulationParticleC2EPN3gmx11ISerializerERK11StringTable(ptr noundef nonnull align 8 dereferenceable(174) initializes((0, 9), (12, 21), (24, 29)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18SimulationParticleC2EPN3gmx11ISerializerERK11StringTable(ptr noundef nonnull align 8 dereferenceable(174) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   store i64 0, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -568,7 +568,7 @@ _ZN12_GLOBAL__N_122serializeFEPStateValueISt8optionalI16StringTableEntryEEEvPN3g
 declare void @_ZNK16StringTableEntry9serializeEPN3gmx11ISerializerE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z9init_atomP7t_atoms(ptr nocapture noundef writeonly initializes((0, 4), (8, 44), (48, 69)) %0) local_unnamed_addr #8 {
+define void @_Z9init_atomP7t_atoms(ptr nocapture noundef writeonly %0) local_unnamed_addr #8 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -578,7 +578,7 @@ define void @_Z9init_atomP7t_atoms(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z9done_atomP7t_atoms(ptr nocapture noundef initializes((0, 4), (40, 44), (64, 69)) %0) local_unnamed_addr #1 {
+define void @_Z9done_atomP7t_atoms(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, i32 noundef 230, ptr noundef %3)
@@ -787,7 +787,7 @@ define void @_Z11add_t_atomsP7t_atomsii(ptr nocapture noundef %0, i32 noundef %1
 declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z12init_t_atomsP7t_atomsib(ptr nocapture noundef writeonly initializes((0, 4), (8, 44), (48, 69)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define void @_Z12init_t_atomsP7t_atomsib(ptr nocapture noundef writeonly %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = zext i1 %2 to i8
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -824,7 +824,7 @@ define void @_Z12init_t_atomsP7t_atomsib(ptr nocapture noundef writeonly initial
 declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr nocapture noundef writeonly initializes((0, 10), (16, 25), (28, 52)) %0) local_unnamed_addr #8 {
+define void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr nocapture noundef writeonly %0) local_unnamed_addr #8 {
 _ZSt4fillIPidEvT_S1_RKT0_.exit:
   store i32 0, ptr %0, align 4
   %1 = getelementptr inbounds i8, ptr %0, i64 4

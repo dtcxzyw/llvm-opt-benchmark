@@ -254,7 +254,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen2hq11getGreaseIdEm(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 initializes((0, 1), (8, 9)) %agg.result, i64 noundef %n) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq11getGreaseIdEm(ptr noalias nocapture writeonly sret(%"class.folly::Optional") align 8 %agg.result, i64 noundef %n) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp ugt i64 %n, 148764065110560899
   br i1 %cmp, label %if.then, label %if.end
@@ -466,7 +466,7 @@ _ZN8proxygen2hqL16parseIdOnlyFrameERN5folly2io6CursorERKNS0_11FrameHeaderERm.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen2hq18decodeSettingValueERN5folly2io6CursorERmNS0_9SettingIdE(ptr noalias nocapture writeonly sret(%"class.folly::Expected") align 8 initializes((0, 1), (16, 17)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull align 8 dereferenceable(8) %frameLength, i64 noundef %settingId) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen2hq18decodeSettingValueERN5folly2io6CursorERmNS0_9SettingIdE(ptr noalias nocapture writeonly sret(%"class.folly::Expected") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %cursor, ptr nocapture noundef nonnull align 8 dereferenceable(8) %frameLength, i64 noundef %settingId) local_unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %settingValue = alloca %"class.folly::Optional.7", align 8
   %0 = load i64, ptr %frameLength, align 8

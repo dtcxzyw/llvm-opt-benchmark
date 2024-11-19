@@ -36,7 +36,7 @@ $_ZN12b2WheelJointD0Ev = comdat any
 @_ZN12b2WheelJointC1EPK15b2WheelJointDef = unnamed_addr alias void (ptr, ptr), ptr @_ZN12b2WheelJointC2EPK15b2WheelJointDef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN15b2WheelJointDef10InitializeEP6b2BodyS1_RK6b2Vec2S4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) initializes((16, 32), (36, 60)) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %axis) local_unnamed_addr #0 align 2 {
+define void @_ZN15b2WheelJointDef10InitializeEP6b2BodyS1_RK6b2Vec2S4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(92) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %axis) local_unnamed_addr #0 align 2 {
 entry:
   %bodyA = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %bA, ptr %bodyA, align 8
@@ -181,7 +181,7 @@ declare void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferen
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN12b2WheelJoint23InitVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 dereferenceable(308) initializes((212, 308)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
+define void @_ZN12b2WheelJoint23InitVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
   %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8
@@ -1687,7 +1687,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12b2WheelJoint12SetStiffnessEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(308) initializes((204, 208)) %this, float noundef %stiffness) local_unnamed_addr #11 align 2 {
+define void @_ZN12b2WheelJoint12SetStiffnessEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(308) %this, float noundef %stiffness) local_unnamed_addr #11 align 2 {
 entry:
   %m_stiffness = getelementptr inbounds i8, ptr %this, i64 204
   store float %stiffness, ptr %m_stiffness, align 4
@@ -1703,7 +1703,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12b2WheelJoint10SetDampingEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(308) initializes((208, 212)) %this, float noundef %damping) local_unnamed_addr #11 align 2 {
+define void @_ZN12b2WheelJoint10SetDampingEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(308) %this, float noundef %damping) local_unnamed_addr #11 align 2 {
 entry:
   %m_damping = getelementptr inbounds i8, ptr %this, i64 208
   store float %damping, ptr %m_damping, align 8

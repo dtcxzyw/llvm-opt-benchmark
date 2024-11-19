@@ -607,7 +607,7 @@ define noundef range(i32 0, 3) i32 @_Z12guessPbcTypePA3_Kf(ptr noundef readonly 
 declare float @llvm.fabs.f32(float) #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_Z14matrix_convertPA3_fPKfS2_(ptr nocapture noundef initializes((0, 4), (12, 20), (24, 36)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #11 {
+define void @_Z14matrix_convertPA3_fPKfS2_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #11 {
   %4 = load float, ptr %2, align 4
   %5 = fmul float %4, 0x3F91DF46A0000000
   %6 = getelementptr inbounds i8, ptr %2, i64 4
@@ -1011,7 +1011,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr nocapture noundef initializes((0, 4)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq i32 %1, 4
   br i1 %4, label %5, label %7
 
@@ -1026,7 +1026,7 @@ define void @_Z7set_pbcP5t_pbc7PbcTypePA3_Kf(ptr nocapture noundef initializes((
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11low_set_pbcP5t_pbc7PbcTypePKiPA3_Kf(ptr nocapture noundef initializes((0, 4)) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL11low_set_pbcP5t_pbc7PbcTypePKiPA3_Kf(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x i32], align 4
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -1851,7 +1851,7 @@ define noundef ptr @_Z10set_pbc_ddP5t_pbc7PbcTypePKibPA3_Kf(ptr noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 12)) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x float], align 4
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %7 = load float, ptr %1, align 4
@@ -2429,7 +2429,7 @@ define void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 12)) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x float], align 4
   %6 = alloca [3 x i32], align 4
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -3260,7 +3260,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %459, %462
 declare void @_Z20range_check_functioniiiPKcS0_RKNSt10filesystem7__cxx114pathEi(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z8pbc_dx_dPK5t_pbcPKdS3_Pd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 24)) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z8pbc_dx_dPK5t_pbcPKdS3_Pd(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x double], align 16
   %6 = alloca [3 x double], align 16
   %7 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -3757,7 +3757,7 @@ define void @_Z11calc_shiftsPA3_KfN3gmx8ArrayRefINS2_11BasicVectorIfEEEE(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z15calc_box_centeriPA3_KfPf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 12)) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z15calc_box_centeriPA3_KfPf(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   store float 0.000000e+00, ptr %2, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 4
@@ -3821,7 +3821,7 @@ define void @_Z15calc_box_centeriPA3_KfPf(i32 noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z21calc_triclinic_imagesPA3_KfPA3_f(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 36)) %1) local_unnamed_addr #15 {
+define void @_Z21calc_triclinic_imagesPA3_KfPA3_f(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #15 {
   %3 = load float, ptr %0, align 4
   store float %3, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -5552,7 +5552,7 @@ _ZN7t_graphD2Ev.exit:                             ; preds = %141, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_Z21setBoxDeformationRatePA3_KfS1_PA3_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 36)) %2) local_unnamed_addr #15 {
+define void @_Z21setBoxDeformationRatePA3_KfS1_PA3_f(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #15 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %2, i8 0, i64 36, i1 false)
   br label %.preheader
 

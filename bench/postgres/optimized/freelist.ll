@@ -47,7 +47,7 @@ define dso_local zeroext i1 @have_free_buffer() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @StrategyGetBuffer(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #1 {
+define dso_local ptr @StrategyGetBuffer(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   store i8 0, ptr %2, align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %GetBufferFromRing.exit.thread, label %4

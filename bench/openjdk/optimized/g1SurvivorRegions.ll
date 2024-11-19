@@ -10,7 +10,7 @@ $_ZN26GrowableArrayWithAllocatorIP12G1HeapRegion13GrowableArrayIS1_EE9expand_toE
 @_ZN17G1SurvivorRegionsC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN17G1SurvivorRegionsC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17G1SurvivorRegionsC2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17G1SurvivorRegionsC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 5) #8
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4

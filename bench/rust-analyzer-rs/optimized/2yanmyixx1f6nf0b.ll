@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.2247117e12b55e7aec981c63123cff78.3.llvm.12770805382643999604 = hidden unnamed_addr constant <{ [8 x i8], [8 x i8] }> <{ [8 x i8] c"\01\00\00\00\00\00\00\80", [8 x i8] undef }>, align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hca850271797de835E.llvm.12770805382643999604"(ptr noalias nocapture noundef writeonly sret({ { i64, { { i64, [2 x i64] } } }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 16), (32, 33)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(48) %1) unnamed_addr #0 {
+define hidden void @"_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit28_$u7b$$u7b$closure$u7d$$u7d$17hca850271797de835E.llvm.12770805382643999604"(ptr noalias nocapture noundef writeonly sret({ { i64, { { i64, [2 x i64] } } }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(48) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %"_ZN4core3ptr80drop_in_place$LT$core..option..Option$LT$tracing_core..dispatcher..State$GT$$GT$17hc68a4cb196e222d7E.llvm.12770805382643999604.exit", label %3
 
@@ -36,7 +36,7 @@ define hidden void @"_ZN12tracing_core10dispatcher13CURRENT_STATE7__getit28_$u7b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h6e9fa4eb6b2e5958E"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #1 {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h6e9fa4eb6b2e5958E"(ptr noundef nonnull writeonly align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %5, label %3

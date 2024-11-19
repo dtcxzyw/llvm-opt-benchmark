@@ -2111,7 +2111,7 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12LuaAreaStoreC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN12LuaAreaStoreC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN9AreaStore24getOptimalImplementationEv()
   store ptr %call, ptr %this, align 8, !tbaa !8
@@ -2121,7 +2121,7 @@ entry:
 declare noundef ptr @_ZN9AreaStore24getOptimalImplementationEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12LuaAreaStoreC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture nonnull readnone align 8 %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12LuaAreaStoreC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture nonnull readnone align 8 %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr null, ptr %this, align 8, !tbaa !8
   %call = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #26

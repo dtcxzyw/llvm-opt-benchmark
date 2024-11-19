@@ -269,7 +269,7 @@ _ZN5alloc3vec16in_place_collect13needs_realloc17h856181ffc2aaea32E.exit.thread: 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop28_$u7b$$u7b$closure$u7d$$u7d$17hce61629c9925f7a7E"(ptr nocapture readnone align 8 %0, ptr %1, ptr initializes((0, 40)) %2, ptr nocapture readonly align 8 %3) unnamed_addr #2 {
+define { ptr, ptr } @"_ZN5alloc3vec16in_place_collect24write_in_place_with_drop28_$u7b$$u7b$closure$u7d$$u7d$17hce61629c9925f7a7E"(ptr nocapture readnone align 8 %0, ptr %1, ptr %2, ptr nocapture readonly align 8 %3) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 40
   %6 = insertvalue { ptr, ptr } poison, ptr %1, 0

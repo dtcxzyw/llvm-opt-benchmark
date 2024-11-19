@@ -1579,7 +1579,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN77_$LT$thread_local..ThreadLocal$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h4a9a4d816b4f4f64E.llvm.15122249053216906536"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([512 x i8]) align 8 dereferenceable(512) initializes((0, 512)) %0) unnamed_addr #17 {
+define hidden void @"_ZN77_$LT$thread_local..ThreadLocal$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h4a9a4d816b4f4f64E.llvm.15122249053216906536"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([512 x i8]) align 8 dereferenceable(512) %0) unnamed_addr #17 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %0, i8 0, i64 512, i1 false)
   ret void
 }

@@ -739,7 +739,7 @@ _ZNSt6vectorIbSaIbEEaSERKS1_.exit:                ; preds = %_ZNSt6vectorIbSaIbE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11xfeatures2d10GMSMatcher8setScaleEi(ptr noundef nonnull align 8 dereferenceable(512) initializes((88, 96), (100, 104)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11xfeatures2d10GMSMatcher8setScaleEi(ptr noundef nonnull align 8 dereferenceable(512) %0, i32 noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::MatExpr", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load i32, ptr %4, align 8
@@ -1258,7 +1258,7 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11xfeatures2d10GMSMatcher6getNB9EiRKNS_5Size_IiEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.5") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(512) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11xfeatures2d10GMSMatcher6getNB9EiRKNS_5Size_IiEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.5") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(512) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %4 = tail call noalias noundef nonnull dereferenceable(36) ptr @_Znwm(i64 noundef 36) #20
   store ptr %4, ptr %0, align 8

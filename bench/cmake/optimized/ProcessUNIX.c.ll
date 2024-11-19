@@ -4209,7 +4209,7 @@ kwsysProcessWaitForPipe.exit:                     ; preds = %.critedge3.i, %240
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, ptr nocapture noundef nonnull initializes((0, 16)) %2) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @kwsysProcessGetTimeoutTime(ptr nocapture noundef nonnull %0, ptr noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #3 {
   %4 = alloca %struct.timespec, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1080
   %6 = load double, ptr %5, align 8

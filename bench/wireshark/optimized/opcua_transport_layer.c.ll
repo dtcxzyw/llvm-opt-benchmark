@@ -406,7 +406,7 @@ define hidden void @get_encryption_info(ptr noundef %0, ptr nocapture noundef wr
 declare ptr @conversation_get_proto_data(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @parseOpenSecureChannel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((0, 1)) %4) local_unnamed_addr #0 {
+define hidden i32 @parseOpenSecureChannel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   store ptr null, ptr %6, align 8

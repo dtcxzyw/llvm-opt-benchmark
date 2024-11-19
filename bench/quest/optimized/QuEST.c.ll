@@ -2727,7 +2727,7 @@ define void @mixNonTPMultiQubitKrausMap(ptr noundef byval(%struct.Qureg) align 8
 declare void @validateMultiQubitKrausMapDimensions(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @createComplexMatrixN(ptr dead_on_unwind noalias writable sret(%struct.ComplexMatrixN) align 8 initializes((0, 4), (8, 24)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @createComplexMatrixN(ptr dead_on_unwind noalias writable sret(%struct.ComplexMatrixN) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateNumQubitsInMatrix(i32 noundef %1, ptr noundef nonnull @__func__.createComplexMatrixN) #17
   %3 = shl nuw i32 1, %1
   store i32 %1, ptr %0, align 8
@@ -2868,7 +2868,7 @@ define void @initComplexMatrixN(ptr noundef byval(%struct.ComplexMatrixN) align 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @createPauliHamil(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PauliHamil) align 8 initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @createPauliHamil(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PauliHamil) align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   tail call void @validateHamilParams(i32 noundef %1, i32 noundef %2, ptr noundef nonnull @__func__.createPauliHamil) #17
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %4, align 4
@@ -3244,7 +3244,7 @@ define void @createDiagonalOpFromPauliHamilFile(ptr dead_on_unwind noalias writa
 declare void @validateDiagPauliHamilFromFile(ptr noundef byval(%struct.PauliHamil) align 8, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @createSubDiagonalOp(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.SubDiagonalOp) align 8 initializes((0, 4), (8, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @createSubDiagonalOp(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.SubDiagonalOp) align 8 %0, i32 noundef %1) local_unnamed_addr #0 {
   tail call void @validateNumQubitsInSubDiagOp(i32 noundef %1, ptr noundef nonnull @__func__.createSubDiagonalOp) #17
   store i32 %1, ptr %0, align 8
   %3 = zext nneg i32 %1 to i64
@@ -3365,7 +3365,7 @@ declare void @getQuESTDefaultSeedKey(ptr noundef) local_unnamed_addr #1
 declare void @seedQuEST(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @getQuESTSeeds(ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #9 {
+define void @getQuESTSeeds(ptr nocapture noundef readonly byval(%struct.QuESTEnv) align 8 %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8

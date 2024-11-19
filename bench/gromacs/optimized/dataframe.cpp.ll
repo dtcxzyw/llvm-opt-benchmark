@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3gmx20AnalysisDataFrameRefC1ERKS0_ii = unnamed_addr alias void (ptr, ptr, i32, i32), ptr @_ZN3gmx20AnalysisDataFrameRefC2ERKS0_ii
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx23AnalysisDataFrameHeaderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
+define void @_ZN3gmx23AnalysisDataFrameHeaderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) unnamed_addr #0 align 2 {
   store i32 -1, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %2, align 4
@@ -27,7 +27,7 @@ define void @_ZN3gmx23AnalysisDataFrameHeaderC2Ev(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx23AnalysisDataFrameHeaderC2Eiff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1, float noundef %2, float noundef %3) unnamed_addr #0 align 2 {
+define void @_ZN3gmx23AnalysisDataFrameHeaderC2Eiff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, i32 noundef %1, float noundef %2, float noundef %3) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store float %2, ptr %5, align 4
@@ -37,7 +37,7 @@ define void @_ZN3gmx23AnalysisDataFrameHeaderC2Eiff(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx23AnalysisDataPointSetRefC2ERKNS_23AnalysisDataFrameHeaderERKNS_24AnalysisDataPointSetInfoERKNS_8ArrayRefIKNS_17AnalysisDataValueEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 40)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #1 align 2 {
+define void @_ZN3gmx23AnalysisDataPointSetRefC2ERKNS_23AnalysisDataFrameHeaderERKNS_24AnalysisDataPointSetInfoERKNS_8ArrayRefIKNS_17AnalysisDataValueEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -68,7 +68,7 @@ define void @_ZN3gmx23AnalysisDataPointSetRefC2ERKNS_23AnalysisDataFrameHeaderER
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx23AnalysisDataPointSetRefC2ERKNS_23AnalysisDataFrameHeaderERKSt6vectorINS_17AnalysisDataValueESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 40)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #1 align 2 {
+define void @_ZN3gmx23AnalysisDataPointSetRefC2ERKNS_23AnalysisDataFrameHeaderERKSt6vectorINS_17AnalysisDataValueESaIS5_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %4, align 4
@@ -89,7 +89,7 @@ define void @_ZN3gmx23AnalysisDataPointSetRefC2ERKNS_23AnalysisDataFrameHeaderER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx23AnalysisDataPointSetRefC2ERKS0_ii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 20), (24, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define void @_ZN3gmx23AnalysisDataPointSetRefC2ERKS0_ii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = getelementptr inbounds i8, ptr %1, i64 12
@@ -198,7 +198,7 @@ define void @_ZN3gmx20AnalysisDataFrameRefC2Ev(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx20AnalysisDataFrameRefC2ERKNS_23AnalysisDataFrameHeaderERKNS_8ArrayRefIKNS_17AnalysisDataValueEEERKNS4_IKNS_24AnalysisDataPointSetInfoEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #1 align 2 {
+define void @_ZN3gmx20AnalysisDataFrameRefC2ERKNS_23AnalysisDataFrameHeaderERKNS_8ArrayRefIKNS_17AnalysisDataValueEEERKNS4_IKNS_24AnalysisDataPointSetInfoEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
@@ -208,7 +208,7 @@ define void @_ZN3gmx20AnalysisDataFrameRefC2ERKNS_23AnalysisDataFrameHeaderERKNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx20AnalysisDataFrameRefC2ERKNS_23AnalysisDataFrameHeaderERKSt6vectorINS_17AnalysisDataValueESaIS5_EERKS4_INS_24AnalysisDataPointSetInfoESaISA_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #1 align 2 {
+define void @_ZN3gmx20AnalysisDataFrameRefC2ERKNS_23AnalysisDataFrameHeaderERKSt6vectorINS_17AnalysisDataValueESaIS5_EERKS4_INS_24AnalysisDataPointSetInfoESaISA_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3) unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %2, align 8
@@ -236,7 +236,7 @@ define void @_ZN3gmx20AnalysisDataFrameRefC2ERKNS_23AnalysisDataFrameHeaderERKSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx20AnalysisDataFrameRefC2ERKS0_ii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 12), (16, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define void @_ZN3gmx20AnalysisDataFrameRefC2ERKS0_ii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 16

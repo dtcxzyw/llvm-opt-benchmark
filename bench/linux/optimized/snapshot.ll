@@ -8760,7 +8760,7 @@ declare dso_local void @clear_page_erms(ptr noundef) #8
 declare dso_local i32 @arch_hibernation_header_restore(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @duplicate_memory_bitmap(ptr noundef %0, ptr noundef initializes((24, 60)) %1) unnamed_addr #3 align 16 {
+define internal fastcc void @duplicate_memory_bitmap(ptr noundef %0, ptr noundef %1) unnamed_addr #3 align 16 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %1, align 8

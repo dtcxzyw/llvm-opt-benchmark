@@ -4277,7 +4277,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_reconnect(ptr noundef %0, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hwloc_propagate_symmetric_subtree(ptr nocapture noundef initializes((136, 140)) %0) unnamed_addr #5 {
+define internal fastcc void @hwloc_propagate_symmetric_subtree(ptr nocapture noundef %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 136
@@ -5867,7 +5867,7 @@ define hidden void @hwloc_alloc_root_sets(ptr nocapture noundef %0) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @hwloc_topology_setup_defaults(ptr nocapture noundef initializes((4, 8), (40, 120), (232, 240), (256, 656), (856, 868), (872, 880)) %0) local_unnamed_addr #5 {
+define hidden void @hwloc_topology_setup_defaults(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 464
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %2, i8 0, i64 192, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 656
@@ -9552,7 +9552,7 @@ hwloc_compare_levels_structure.exit.thread:       ; preds = %103, %.lr.ph.split.
 declare void @hwloc_internal_cpukinds_restrict(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @propagate_total_memory(ptr nocapture noundef initializes((32, 40)) %0) unnamed_addr #20 {
+define internal fastcc void @propagate_total_memory(ptr nocapture noundef %0) unnamed_addr #20 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 120
@@ -9838,7 +9838,7 @@ define nonnull ptr @hwloc_topology_get_support(ptr noundef readnone %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @hwloc_topology_set_userdata(ptr nocapture noundef writeonly initializes((224, 232)) %0, ptr noundef %1) local_unnamed_addr #21 {
+define void @hwloc_topology_set_userdata(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #21 {
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   store ptr %1, ptr %3, align 8
   ret void

@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table._ZN5memfd7sealing17seals_to_bitflags17h68064dfeaccf2ab9E = private unnamed_addr constant [5 x i32] [i32 2, i32 4, i32 8, i32 1, i32 16], align 4
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$13with_capacity17h287aefcefcde690cE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i64, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$13with_capacity17h287aefcefcde690cE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i64, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 }, i64, {} }, align 8
   %5 = add i64 %1, 63
@@ -76,7 +76,7 @@ define hidden void @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$13with_capacit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$13with_capacity17h9fd9cb0cc1fc19dcE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i64, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN16cranelift_entity3set18EntitySet$LT$K$GT$13with_capacity17h9fd9cb0cc1fc19dcE"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i64, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { { { i64, ptr, {} }, i64 }, i64, {} }, align 8
   %5 = add i64 %1, 63
@@ -3130,7 +3130,7 @@ define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN91_$LT$core..s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN120_$LT$wasmtime_runtime..export..Export$u20$as$u20$core..convert..From$LT$wasmtime_runtime..export..ExportFunction$GT$$GT$4from17h12bedb2a6beb749fE"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #7 {
+define void @"_ZN120_$LT$wasmtime_runtime..export..Export$u20$as$u20$core..convert..From$LT$wasmtime_runtime..export..ExportFunction$GT$$GT$4from17h12bedb2a6beb749fE"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %0, ptr noundef nonnull %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i64 2, ptr %0, align 8
@@ -3138,7 +3138,7 @@ define void @"_ZN120_$LT$wasmtime_runtime..export..Export$u20$as$u20$core..conve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN117_$LT$wasmtime_runtime..export..Export$u20$as$u20$core..convert..From$LT$wasmtime_runtime..export..ExportTable$GT$$GT$4from17h668626afb6f2b556E"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) initializes((0, 48)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #8 {
+define void @"_ZN117_$LT$wasmtime_runtime..export..Export$u20$as$u20$core..convert..From$LT$wasmtime_runtime..export..ExportTable$GT$$GT$4from17h668626afb6f2b556E"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   store i64 3, ptr %0, align 8
@@ -3146,13 +3146,13 @@ define void @"_ZN117_$LT$wasmtime_runtime..export..Export$u20$as$u20$core..conve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN118_$LT$wasmtime_runtime..export..Export$u20$as$u20$core..convert..From$LT$wasmtime_runtime..export..ExportMemory$GT$$GT$4from17h1ef162f88453a0a9E"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) initializes((0, 88)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #8 {
+define void @"_ZN118_$LT$wasmtime_runtime..export..Export$u20$as$u20$core..convert..From$LT$wasmtime_runtime..export..ExportMemory$GT$$GT$4from17h1ef162f88453a0a9E"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(88) %1) unnamed_addr #8 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN118_$LT$wasmtime_runtime..export..Export$u20$as$u20$core..convert..From$LT$wasmtime_runtime..export..ExportGlobal$GT$$GT$4from17h7708524cf27ab5e3E"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) initializes((0, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
+define void @"_ZN118_$LT$wasmtime_runtime..export..Export$u20$as$u20$core..convert..From$LT$wasmtime_runtime..export..ExportGlobal$GT$$GT$4from17h7708524cf27ab5e3E"(ptr noalias nocapture noundef writeonly sret({ i64, [10 x i64] }) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i64 5, ptr %0, align 8

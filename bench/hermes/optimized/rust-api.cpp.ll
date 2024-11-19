@@ -4930,7 +4930,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @hermes_parser_find_location(ptr nocapture noundef readonly %parserCtx, ptr %loc.coerce, ptr nocapture noundef writeonly initializes((0, 8)) %res) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @hermes_parser_find_location(ptr nocapture noundef readonly %parserCtx, ptr %loc.coerce, ptr nocapture noundef writeonly %res) local_unnamed_addr #2 {
 entry:
   %coords = alloca %"class.hermes::SourceErrorManager::SourceCoords", align 4
   store i32 0, ptr %coords, align 4

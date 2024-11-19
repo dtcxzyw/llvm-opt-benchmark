@@ -3086,7 +3086,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory16RelevanceManager9postCheckENS1_6Theory6EffortE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(656) initializes((408, 409)) %this, i32 %effort) unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory16RelevanceManager9postCheckENS1_6Theory6EffortE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(656) %this, i32 %effort) unnamed_addr #5 align 2 {
 entry:
   %d_inFullEffortCheck = getelementptr inbounds i8, ptr %this, i64 408
   store i8 0, ptr %d_inFullEffortCheck, align 8
@@ -6443,7 +6443,7 @@ _ZNSt12__shared_ptrIN4cvc57context6CDListINS0_8internal12NodeTemplateILb1EEENS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory16RelevanceManager21getRelevantAssertionsERb(ptr noalias sret(%"class.std::unordered_set") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(656) initializes((408, 410)) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %success) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory16RelevanceManager21getRelevantAssertionsERb(ptr noalias sret(%"class.std::unordered_set") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %success) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8

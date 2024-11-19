@@ -53,7 +53,7 @@ define void @_Z13dtFreeNavMeshP9dtNavMesh(ptr noundef %0) local_unnamed_addr #0 
 declare void @_Z6dtFreePv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9dtNavMeshC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((0, 60), (64, 100)) %0) unnamed_addr #2 align 2 {
+define void @_ZN9dtNavMeshC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %0, i8 0, i64 60, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 0, i64 36, i1 false)
@@ -155,7 +155,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dtNavMeshParams(ptr nocapture noundef nonnull align 8 dereferenceable(100) initializes((0, 60), (80, 88)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define noundef range(i32 1073741824, -2147483639) i32 @_ZN9dtNavMesh4initEPK15dtNavMeshParams(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef nonnull align 4 dereferenceable(28) %1, i64 28, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load float, ptr %1, align 4
@@ -2449,7 +2449,7 @@ declare noundef zeroext i1 @_Z16dtPointInPolygonPKfS0_i(ptr noundef, ptr noundef
 declare noundef zeroext i1 @_Z28dtClosestHeightPointTrianglePKfS0_S0_S0_Rf(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr noundef %2, ptr noundef initializes((0, 12)) %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 {
+define void @_ZNK9dtNavMesh18closestPointOnPolyEjPKfPfPb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 {
   %6 = alloca [3 x ptr], align 16
   %7 = alloca float, align 4
   %8 = alloca float, align 4
@@ -2710,7 +2710,7 @@ _ZN12_GLOBAL__N_125closestPointOnDetailEdgesILb1EEEvPK10dtMeshTilePK6dtPolyPKfPf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9dtNavMesh25getTileAndPolyByRefUnsafeEjPPK10dtMeshTilePPK6dtPoly(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #13 align 2 {
+define void @_ZNK9dtNavMesh25getTileAndPolyByRefUnsafeEjPPK10dtMeshTilePPK6dtPoly(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #13 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4
   %notmask9.i = shl nsw i32 -1, %6
@@ -3514,7 +3514,7 @@ define noundef ptr @_ZNK9dtNavMesh7getTileEi(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK9dtNavMesh11calcTileLocEPKfPiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #15 align 2 {
+define void @_ZNK9dtNavMesh11calcTileLocEPKfPiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(100) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #15 align 2 {
   %5 = load float, ptr %1, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 28
   %7 = load float, ptr %6, align 4

@@ -2239,7 +2239,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectEKNS_11GlobalValueEEEDcPT0_.exit.thread: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm11GlobalValue22getAbsoluteSymbolRangeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.477") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm11GlobalValue22getAbsoluteSymbolRangeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.477") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::ConstantRange", align 8
   %4 = load i8, ptr %1, align 8
   switch i8 %4, label %_ZN4llvm13ConstantRangeD2Ev.exit [
@@ -2605,7 +2605,7 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit8:               ; preds = %58, %62
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm14GlobalVariable18replaceInitializerEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(81) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4llvm14GlobalVariable18replaceInitializerEPNS_8ConstantE(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24

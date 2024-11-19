@@ -732,7 +732,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib37BjerksundStenslandApproximationEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr noundef nonnull align 8 dereferenceable(352) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib37BjerksundStenslandApproximationEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr nocapture noundef %process) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -1105,7 +1105,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib37BjerksundStenslandApproximationEngine19europeanCallResultsEddddd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::OneAssetOption::results") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, double noundef %S, double noundef %X, double noundef %rfD, double noundef %dD, double noundef %variance) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib37BjerksundStenslandApproximationEngine19europeanCallResultsEddddd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::OneAssetOption::results") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, double noundef %S, double noundef %X, double noundef %rfD, double noundef %dD, double noundef %variance) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %black = alloca %"class.QuantLib::BlackCalculator", align 8
   %rfdc = alloca %"class.QuantLib::DayCounter", align 8
@@ -2815,7 +2815,7 @@ _ZN8QuantLib14OneAssetOption7resultsD2Ev.exit:    ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib37BjerksundStenslandApproximationEngine17immediateExerciseEdd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::OneAssetOption::results") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, double noundef %S, double noundef %X) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib37BjerksundStenslandApproximationEngine17immediateExerciseEdd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::OneAssetOption::results") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, double noundef %S, double noundef %X) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp25 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3081,7 +3081,7 @@ ehcleanup47:                                      ; preds = %ehcleanup44, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib37BjerksundStenslandApproximationEngine25americanCallApproximationEddddd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::OneAssetOption::results") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, double noundef %S, double noundef %X, double noundef %rfD, double noundef %dD, double noundef %variance) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib37BjerksundStenslandApproximationEngine25americanCallApproximationEddddd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::OneAssetOption::results") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %this, double noundef %S, double noundef %X, double noundef %rfD, double noundef %dD, double noundef %variance) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %europeanResults = alloca %"class.QuantLib::OneAssetOption::results", align 8
   %ref.tmp38 = alloca %"class.QuantLib::OneAssetOption::results", align 8

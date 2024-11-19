@@ -2465,7 +2465,7 @@ define internal void @svcauth_gss_domain_release(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 5, 9) i32 @svcauth_gss_set_client(ptr noundef initializes((11328, 11332), (11376, 11384)) %0) #2 align 16 {
+define internal range(i32 5, 9) i32 @svcauth_gss_set_client(ptr noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11320
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
@@ -2765,7 +2765,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @svcauth_gss_unwrap_integ(p
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @svcxdr_set_auth_slack(ptr noundef initializes((11332, 11336)) %0, i32 noundef range(i32 400, 801) %1) unnamed_addr #9 align 16 {
+define internal fastcc void @svcxdr_set_auth_slack(ptr noundef %0, i32 noundef range(i32 400, 801) %1) unnamed_addr #9 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 576
   %4 = getelementptr inbounds i8, ptr %0, i64 664
   %5 = getelementptr inbounds i8, ptr %0, i64 11332
@@ -3996,7 +3996,7 @@ define internal range(i32 0, 2) i32 @rsc_match(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @rsc_init(ptr nocapture noundef writeonly initializes((48, 52), (56, 64), (72, 80), (88, 120), (152, 160)) %0, ptr nocapture noundef %1) #19 align 16 {
+define internal void @rsc_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #19 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4017,7 +4017,7 @@ define internal void @rsc_init(ptr nocapture noundef writeonly initializes((48, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @update_rsc(ptr nocapture noundef writeonly initializes((64, 160)) %0, ptr nocapture noundef %1) #19 align 16 {
+define internal void @update_rsc(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #19 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152
@@ -4452,7 +4452,7 @@ define internal range(i32 0, 2) i32 @rsi_match(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @rsi_init(ptr nocapture noundef writeonly initializes((48, 52), (56, 68), (72, 84), (88, 100), (104, 112)) %0, ptr nocapture noundef %1) #19 align 16 {
+define internal void @rsi_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef %1) #19 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %4, align 8

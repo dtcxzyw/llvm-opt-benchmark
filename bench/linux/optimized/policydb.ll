@@ -1013,7 +1013,7 @@ define dso_local range(i32 0, -2147483647) i32 @string_to_av_perm(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @policydb_read(ptr noundef initializes((0, 592)) %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local i32 @policydb_read(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(592) %0, i8 0, i64 592, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   tail call void @avtab_init(ptr noundef %3) #22
@@ -2183,7 +2183,7 @@ thread-pre-split:                                 ; preds = %191, %238, %227, %t
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @policydb_index(ptr noundef initializes((264, 272)) %0) unnamed_addr #2 align 16 {
+define internal fastcc i32 @policydb_index(ptr noundef %0) unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
@@ -6679,7 +6679,7 @@ define internal fastcc i32 @mls_read_range_helper(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @mls_read_level(ptr noundef initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @mls_read_level(ptr noundef %0, ptr noundef %1) unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8

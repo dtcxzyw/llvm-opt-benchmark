@@ -2855,7 +2855,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #8
 declare void @Int2_ManStop(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @sat_solver2_addclause(ptr nocapture noundef initializes((364, 368)) %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #2 {
+define i32 @sat_solver2_addclause(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 360
   %6 = getelementptr inbounds i8, ptr %0, i64 364
   store i32 0, ptr %6, align 4
@@ -3321,7 +3321,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sat_solver2_reducedb(ptr noundef initializes((80, 84)) %0) local_unnamed_addr #2 {
+define void @sat_solver2_reducedb(ptr noundef %0) local_unnamed_addr #2 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
@@ -5290,7 +5290,7 @@ define noundef i32 @sat_solver2_check_watched(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @sat_solver2_solve(ptr noundef initializes((16, 20), (480, 488), (592, 608)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @sat_solver2_solve(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 480
@@ -6951,7 +6951,7 @@ solver2_search.exit:                              ; preds = %223, %solver2_progr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @solver2_analyze_final(ptr nocapture noundef initializes((380, 384)) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc i32 @solver2_analyze_final(ptr nocapture noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 376
   %5 = getelementptr inbounds i8, ptr %0, i64 380
   store i32 0, ptr %5, align 4

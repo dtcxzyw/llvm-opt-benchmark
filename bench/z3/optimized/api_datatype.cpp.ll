@@ -4581,7 +4581,7 @@ terminate.lpad:                                   ; preds = %lpad32
 declare void @_Z41log_Z3_get_datatype_sort_num_constructorsP11_Z3_contextP8_Z3_sort(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @get_datatype_sort_constructor_core(ptr noundef initializes((1560, 1564)) %c, ptr noundef %t, i32 noundef %idx) local_unnamed_addr #3 {
+define hidden noundef ptr @get_datatype_sort_constructor_core(ptr noundef %c, ptr noundef %t, i32 noundef %idx) local_unnamed_addr #3 {
 entry:
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
   store i32 0, ptr %m_error_code.i, align 8

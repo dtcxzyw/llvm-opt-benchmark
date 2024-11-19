@@ -465,7 +465,7 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat14cut_simplifierC2ERNS_6solverE(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 67)) %this, ptr noundef nonnull align 8 dereferenceable(4408) %_s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat14cut_simplifierC2ERNS_6solverE(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(4408) %_s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_on_add = alloca %"class.std::function", align 8
   %_on_del = alloca %"class.std::function", align 8

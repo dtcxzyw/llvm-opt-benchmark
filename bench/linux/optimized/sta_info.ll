@@ -6964,7 +6964,7 @@ define dso_local i32 @sta_get_expected_throughput(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @ieee80211_sta_set_expected_throughput(ptr nocapture noundef initializes((-1368, -1364), (-1360, -1356), (-1352, -1351)) %0, i32 noundef %1) local_unnamed_addr #8 align 16 {
+define dso_local void @ieee80211_sta_set_expected_throughput(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 align 16 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %12, label %4
 
@@ -7335,7 +7335,7 @@ define dso_local void @ieee80211_sta_remove_link(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ieee80211_sta_set_max_amsdu_subframes(ptr nocapture noundef writeonly initializes((2708, 2709)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 align 16 {
+define dso_local void @ieee80211_sta_set_max_amsdu_subframes(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2708
   store i8 0, ptr %4, align 4
   %5 = icmp ult i32 %2, 8

@@ -745,7 +745,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPPN4llvm14AccelTableBase
 declare noundef ptr @_ZNK4llvm10AsmPrinter16createTempSymbolERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(785), ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm20DWARF5AccelTableDataC2ERKNS_3DIEEjb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 17), (32, 33), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm20DWARF5AccelTableDataC2ERKNS_3DIEEjb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm20DWARF5AccelTableDataE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -2172,7 +2172,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 declare noundef nonnull align 8 dereferenceable(968) ptr @_ZNK4llvm10AsmPrinter18getObjFileLoweringEv(ptr noundef nonnull align 8 dereferenceable(785)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriterC2EPN4llvm10AsmPrinterERKNS1_14AccelTableBaseENS1_8ArrayRefISt7variantIJPNS1_8MCSymbolEmEEEESC_NS1_12function_refIFSt8optionalINS1_16DWARF5AccelTable20UnitIndexAndEncodingEERKNS1_20DWARF5AccelTableDataEEEEb(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 17), (20, 60)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.477") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::function_ref") align 8 %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriterC2EPN4llvm10AsmPrinterERKNS1_14AccelTableBaseENS1_8ArrayRefISt7variantIJPNS1_8MCSymbolEmEEEESC_NS1_12function_refIFSt8optionalINS1_16DWARF5AccelTable20UnitIndexAndEncodingEERKNS1_20DWARF5AccelTableDataEEEEb(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.477") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::function_ref") align 8 %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 {
   %.sroa.0.i126 = alloca [13 x i8], align 8
   %.sroa.0.i107 = alloca [13 x i8], align 8
   %.sroa.0.i66 = alloca [13 x i8], align 8
@@ -3577,7 +3577,7 @@ _ZN12_GLOBAL__N_122Dwarf5AccelTableWriter18populateAbbrevsMapEv.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv(ptr noundef nonnull align 8 dereferenceable(344) initializes((280, 288)) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_122Dwarf5AccelTableWriter4emitEv(ptr noundef nonnull align 8 dereferenceable(344) %0) unnamed_addr #0 align 2 {
   %.sroa.0.i.i = alloca [13 x i8], align 8
   %.sroa.0.i.i.i24.i.i = alloca [13 x i8], align 8
   %.sroa.0.i.i.i.i.i = alloca [13 x i8], align 8

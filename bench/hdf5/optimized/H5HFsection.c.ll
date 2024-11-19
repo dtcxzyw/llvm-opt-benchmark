@@ -1840,7 +1840,7 @@ H5HF__sect_single_locate_parent.exit:             ; preds = %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF__sect_single_dblock_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #8 {
+define noundef i32 @H5HF__sect_single_dblock_info(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds i8, ptr %0, i64 304
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 0
@@ -2144,7 +2144,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_row_parent_removed(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5HF__sect_row_reduce(ptr noundef %0, ptr noundef initializes((44, 45)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5HF__sect_row_reduce(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 44
   store i8 1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 24
@@ -2760,7 +2760,7 @@ define internal fastcc ptr @H5HF__sect_indirect_new(ptr noundef %0, i64 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef nonnull initializes((76, 84), (88, 96), (104, 112)) %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef range(i32 1, 5) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5HF__sect_indirect_init_rows(ptr noundef %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef %3, i32 noundef range(i32 1, 5) %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca i64, align 8
   %12 = zext i1 %2 to i8

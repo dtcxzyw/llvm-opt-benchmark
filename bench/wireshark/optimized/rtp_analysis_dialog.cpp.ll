@@ -5958,7 +5958,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17RtpAnalysisDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17RtpAnalysisDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17RtpAnalysisDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV17RtpAnalysisDialog, i64 528), ptr %2, align 8
@@ -13889,7 +13889,7 @@ declare void @_ZNK20QCPAbstractPlottable11rescaleAxesEb(ptr noundef nonnull alig
 declare void @_ZN11QCustomPlot6replotENS_15RefreshPriorityE(ptr noundef nonnull align 8 dereferenceable(513), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17RtpAnalysisDialog17getSelectedRtpIdsEv(ptr dead_on_unwind noalias writable sret(%class.QList.78) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(328) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17RtpAnalysisDialog17getSelectedRtpIdsEv(ptr dead_on_unwind noalias writable sret(%class.QList.78) align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 152

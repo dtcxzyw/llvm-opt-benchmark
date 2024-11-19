@@ -11595,7 +11595,7 @@ _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaParser14ReadControllerERN4pugi8xml_nodeERNS_7Collada10ControllerE(ptr noundef nonnull align 8 dereferenceable(772) %this, ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8)) %controller) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaParser14ReadControllerERN4pugi8xml_nodeERNS_7Collada10ControllerE(ptr noundef nonnull align 8 dereferenceable(772) %this, ptr noundef nonnull align 8 dereferenceable(8) %node, ptr noundef nonnull align 8 dereferenceable(408) %controller) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %xmlIt = alloca %"class.Assimp::XmlNodeIterator", align 8
   %currentNode = alloca %"class.pugi::xml_node", align 8
@@ -17588,7 +17588,7 @@ ehcleanup64:                                      ; preds = %ehcleanup, %lpad7.b
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN6Assimp13ColladaParser15ReadEffectFloatERN4pugi8xml_nodeERf(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %pFloat) local_unnamed_addr #15 align 2 {
+define hidden void @_ZN6Assimp13ColladaParser15ReadEffectFloatERN4pugi8xml_nodeERf(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %node, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %pFloat) local_unnamed_addr #15 align 2 {
 entry:
   store float 0.000000e+00, ptr %pFloat, align 4
   %0 = load ptr, ptr %node, align 8
@@ -26472,7 +26472,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp13ColladaParser24CalculateResultTransformERKSt6vectorINS_7Collada9TransformESaIS3_EE(ptr noalias sret(%class.aiMatrix4x4t) align 4 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(772) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pTransforms) local_unnamed_addr #16 align 2 {
+define hidden void @_ZNK6Assimp13ColladaParser24CalculateResultTransformERKSt6vectorINS_7Collada9TransformESaIS3_EE(ptr noalias sret(%class.aiMatrix4x4t) align 4 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(772) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %pTransforms) local_unnamed_addr #16 align 2 {
 entry:
   %ref.tmp31 = alloca %class.aiMatrix4x4t, align 4
   %rot = alloca %class.aiMatrix4x4t, align 4

@@ -169,7 +169,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_38 = internal constant [1 x i8] c"y", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2) i32 @english_ISO_8859_1_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @english_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -885,7 +885,7 @@ r_Step_1a.exit:                                   ; preds = %105, %333, %r_excep
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_1c(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_1c(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -933,7 +933,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_1c(ptr noundef init
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_2(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_2(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1100,7 +1100,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_2(ptr noundef initi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_3(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_3(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1199,7 +1199,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_3(ptr noundef initi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_4(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_4(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1284,7 +1284,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_4(ptr noundef initi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_5(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Step_5(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

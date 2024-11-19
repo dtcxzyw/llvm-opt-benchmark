@@ -2421,7 +2421,7 @@ pmix_obj_run_destructors.exit342:                 ; preds = %.lr.ph.i339, %458
 declare ptr @PMIx_Error_string(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @mycbfn(i32 noundef %0, i64 noundef %1, ptr noundef initializes((472, 476)) %2) #0 {
+define internal void @mycbfn(i32 noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   fence acquire
   %4 = icmp eq i32 %0, 0
   %5 = trunc i64 %1 to i32
@@ -5056,7 +5056,7 @@ define internal fastcc zeroext i1 @pmix_iof_fd_always_ready(i32 noundef %0) unna
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_iof_read_local_handler(i32 %0, i16 signext %1, ptr noundef initializes((268, 269)) %2) #0 {
+define void @pmix_iof_read_local_handler(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %4 = alloca [8192 x i8], align 16
   %5 = alloca i8, align 1
   %6 = alloca %struct.pmix_byte_object, align 8
@@ -6220,7 +6220,7 @@ define noundef zeroext i1 @pmix_iof_stdin_check(i32 noundef %0) local_unnamed_ad
 declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @myopcb(i32 noundef %0, ptr noundef initializes((472, 476)) %1) #0 {
+define internal void @myopcb(i32 noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 472
   store i32 %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 376
@@ -11574,7 +11574,7 @@ define internal void @iof_stdin_cbfunc(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @iof_sink_construct(ptr noundef initializes((448, 460), (464, 528)) %0) #0 {
+define internal void @iof_sink_construct(ptr noundef %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_iof_write_event_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -11667,7 +11667,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %18, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @iof_read_event_construct(ptr nocapture noundef writeonly initializes((248, 269), (272, 281), (544, 546), (552, 584)) %0) #12 {
+define internal void @iof_read_event_construct(ptr nocapture noundef writeonly %0) #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -11759,7 +11759,7 @@ define internal void @iof_read_event_destruct(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @iof_write_event_construct(ptr noundef initializes((144, 146), (148, 160), (176, 180), (224, 236), (240, 304)) %0) #0 {
+define internal void @iof_write_event_construct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 145
@@ -11959,7 +11959,7 @@ pmix_obj_run_destructors.exit29:                  ; preds = %.lr.ph.i26, %._crit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @wocon(ptr nocapture noundef writeonly initializes((144, 156)) %0) #12 {
+define internal void @wocon(ptr nocapture noundef writeonly %0) #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -12028,7 +12028,7 @@ declare zeroext i1 @pmix_fd_is_chardev(i32 noundef) local_unnamed_addr #1
 declare zeroext i1 @pmix_fd_is_blkdev(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ltcon(ptr noundef initializes((296, 308), (312, 376)) %0) #0 {
+define internal void @ltcon(ptr noundef %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

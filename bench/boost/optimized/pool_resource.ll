@@ -108,7 +108,7 @@ _ZN5boost9container3pmr13pool_resource17priv_limit_optionERmmm.exit4: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resource15priv_init_poolsEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((40, 48)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9container3pmr13pool_resource15priv_init_poolsEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 .lr.ph.preheader:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2 = load i64, ptr %1, align 8, !tbaa !7
@@ -178,7 +178,7 @@ _ZN5boost9container3pmr13pool_resource16priv_fix_optionsEv.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_optionsEPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_optionsEPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !25
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %4, align 8, !tbaa !26
@@ -232,7 +232,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resourceC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9container3pmr13pool_resourceC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef ptr @_ZN5boost9container3pmr20get_default_resourceEv() #18
@@ -275,7 +275,7 @@ define hidden void @_ZN5boost9container3pmr13pool_resourceC2Ev(ptr noundef nonnu
 declare noundef ptr @_ZN5boost9container3pmr20get_default_resourceEv() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resourceC2EPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(56) initializes((16, 24)) %0, ptr noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9container3pmr13pool_resourceC2EPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8, !tbaa !26
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -291,7 +291,7 @@ define hidden void @_ZN5boost9container3pmr13pool_resourceC2EPNS1_15memory_resou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_optionsE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9container3pmr13pool_resourceC2ERKNS1_12pool_optionsE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = tail call noundef ptr @_ZN5boost9container3pmr20get_default_resourceEv() #18

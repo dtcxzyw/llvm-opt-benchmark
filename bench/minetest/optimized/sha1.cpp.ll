@@ -44,7 +44,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4SHA120storeBigEndianUint32EPhj(ptr nocapture noundef writeonly initializes((0, 4)) %byte, i32 noundef %num) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4SHA120storeBigEndianUint32EPhj(ptr nocapture noundef writeonly %byte, i32 noundef %num) local_unnamed_addr #3 align 2 {
 entry:
   %shr = lshr i32 %num, 24
   %conv = trunc nuw i32 %shr to i8
@@ -64,7 +64,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4SHA1C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(92) initializes((0, 20), (84, 92)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4SHA1C2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(92) %this) unnamed_addr #3 align 2 {
 entry:
   store <4 x i32> <i32 1732584193, i32 -271733879, i32 -1732584194, i32 271733878>, ptr %this, align 4, !tbaa !9
   %H4 = getelementptr inbounds i8, ptr %this, i64 16
@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4SHA1D2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(92) initializes((0, 92)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4SHA1D2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(92) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(92) %this, i8 0, i64 92, i1 false)
   ret void

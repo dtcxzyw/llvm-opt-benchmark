@@ -25,7 +25,7 @@ $_ZNK4llvm23MCELFObjectTargetWriter22getMemtagRelocsSectionERNS_9MCContextE = co
 @.str.2 = private unnamed_addr constant [38 x i8] c"2-byte data relocations not supported\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26createRISCVELFObjectWriterEhb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, i8 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm26createRISCVELFObjectWriterEhb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, i8 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_120RISCVELFObjectWriterESt14default_deleteIS1_EED2Ev.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #5, !noalias !4
   tail call void @_ZN4llvm23MCELFObjectTargetWriterC2Ebhtbh(ptr noundef nonnull align 8 dereferenceable(13) %3, i1 noundef zeroext %2, i8 noundef zeroext %1, i16 noundef zeroext 243, i1 noundef zeroext true, i8 noundef zeroext 0) #6, !noalias !4

@@ -1919,7 +1919,7 @@ define hidden ptr @zend_ast_fetch_class(ptr nocapture noundef readonly %0, ptr n
 declare ptr @zend_fetch_class_with_scope(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @zend_ast_evaluate_ex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @zend_ast_evaluate_ex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.thread, label %7
 
@@ -1952,7 +1952,7 @@ define i32 @zend_ast_evaluate_ex(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define i32 @zend_ast_evaluate_inner(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca i8, align 1
@@ -4790,7 +4790,7 @@ define internal fastcc i64 @zend_ast_tree_size(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc nonnull ptr @zend_ast_tree_copy(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 4)) %1) unnamed_addr #8 {
+define internal fastcc nonnull ptr @zend_ast_tree_copy(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #8 {
   %3 = load i16, ptr %0, align 8
   %4 = zext i16 %3 to i32
   switch i16 %3, label %38 [

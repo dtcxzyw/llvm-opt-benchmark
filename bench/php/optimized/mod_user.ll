@@ -449,7 +449,7 @@ ps_call_handler.exit:                             ; preds = %.lr.ph.i, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @ps_gc_user(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define hidden i64 @ps_gc_user(ptr nocapture readnone %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca [1 x %struct._zval_struct], align 16
   %5 = alloca %struct._zval_struct, align 8
   store i64 %1, ptr %4, align 16

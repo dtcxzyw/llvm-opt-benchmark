@@ -2166,7 +2166,7 @@ define internal fastcc i32 @perf_ibs_pmu_init(ptr noundef %0, ptr noundef %1) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @rand_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 11)) %2) #15 align 16 {
+define internal noundef i64 @rand_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #15 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(11) @.str.13, i64 11, i1 false)
   ret i64 10
 }
@@ -2215,7 +2215,7 @@ define internal zeroext i16 @cnt_ctl_is_visible(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @cnt_ctl_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 11)) %2) #15 align 16 {
+define internal noundef i64 @cnt_ctl_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #15 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(11) @.str.21, i64 11, i1 false)
   ret i64 10
 }

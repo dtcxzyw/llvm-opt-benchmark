@@ -307,7 +307,7 @@ $_ZTISt15_Sp_counted_ptrIPN6Assimp3FBX8PropertyELN9__gnu_cxx12_Lock_policyE2EE =
 @_ZN6Assimp3FBX13PropertyTableD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp3FBX13PropertyTableD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp3FBX8PropertyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp3FBX8PropertyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp3FBX8PropertyE, i64 16), ptr %this, align 8
   ret void
@@ -330,7 +330,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp3FBX13PropertyTableC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((8, 12), (16, 24)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX13PropertyTableC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %0, align 8
@@ -356,7 +356,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX13PropertyTableC2ERKNS0_7ElementESt10shared_ptrIKS1_E(ptr noundef nonnull align 8 dereferenceable(120) initializes((8, 12), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(40) %element, ptr nocapture noundef %templateProps) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX13PropertyTableC2ERKNS0_7ElementESt10shared_ptrIKS1_E(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(40) %element, ptr nocapture noundef %templateProps) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::allocator.12", align 1
@@ -1706,7 +1706,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp3FBX13PropertyTable21GetUnparsedPropertiesB5cxx11Ev(ptr noalias sret(%"class.std::map.22") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp3FBX13PropertyTable21GetUnparsedPropertiesB5cxx11Ev(ptr noalias sret(%"class.std::map.22") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prop = alloca %"class.std::shared_ptr.27", align 8
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8

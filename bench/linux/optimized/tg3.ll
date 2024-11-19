@@ -1393,7 +1393,7 @@ tg3_phy_start.exit:                               ; preds = %.loopexit, %154
 declare dso_local ptr @pci_ioremap_bar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tg3_get_invariants(ptr noundef initializes((4860, 4864)) %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 16 {
+define internal fastcc i32 @tg3_get_invariants(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -7012,7 +7012,7 @@ select.unfold:                                    ; preds = %147, %152, %127, %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal fastcc void @tg3_init_coal(ptr noundef initializes((5216, 5308)) %0) unnamed_addr #7 align 16 {
+define internal fastcc void @tg3_init_coal(ptr noundef %0) unnamed_addr #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 5216
   %3 = getelementptr inbounds i8, ptr %0, i64 5256
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(92) %3, i8 0, i64 52, i1 false)
@@ -7178,7 +7178,7 @@ declare dso_local ptr @ptp_clock_register(ptr noundef, ptr noundef) local_unname
 declare dso_local void @netdev_info(ptr noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @tg3_bus_string(ptr noundef %0, ptr noundef returned initializes((0, 5)) %1) unnamed_addr #2 align 16 {
+define internal fastcc noundef ptr @tg3_bus_string(ptr noundef %0, ptr noundef returned %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4680
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 17179869184
@@ -21942,7 +21942,7 @@ define internal fastcc void @tg3_ptp_resume(ptr noundef %0) unnamed_addr #2 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tg3_enable_ints(ptr noundef initializes((0, 4)) %0) unnamed_addr #2 align 16 {
+define internal fastcc void @tg3_enable_ints(ptr noundef %0) unnamed_addr #2 align 16 {
   store i32 0, ptr %0, align 64
   tail call void asm sideeffect "sfence", "~{memory},~{dirflag},~{fpsr},~{flags}"() #27, !srcloc !132
   %2 = getelementptr inbounds i8, ptr %0, i64 24
@@ -22136,7 +22136,7 @@ define internal noundef i32 @tg3_get_regs_len(ptr nocapture readnone %0) #9 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tg3_get_regs(ptr noundef %0, ptr nocapture noundef writeonly initializes((4, 8)) %1, ptr noundef initializes((0, 32768)) %2) #2 align 16 {
+define internal void @tg3_get_regs(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %4, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(32768) %2, i8 0, i64 32768, i1 false)
@@ -22159,7 +22159,7 @@ define internal void @tg3_get_regs(ptr noundef %0, ptr nocapture noundef writeon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite)
-define internal void @tg3_get_wol(ptr noundef %0, ptr nocapture noundef writeonly initializes((4, 18)) %1) #13 align 16 {
+define internal void @tg3_get_wol(ptr noundef %0, ptr nocapture noundef writeonly %1) #13 align 16 {
   %3 = getelementptr i8, ptr %0, i64 6984
   %4 = load volatile i64, ptr %3, align 8
   %5 = and i64 %4, 16777216
@@ -22275,7 +22275,7 @@ define internal i32 @tg3_get_msglevel(ptr nocapture noundef readonly %0) #14 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @tg3_set_msglevel(ptr nocapture noundef writeonly initializes((2388, 2392)) %0, i32 noundef %1) #15 align 16 {
+define internal void @tg3_set_msglevel(ptr nocapture noundef writeonly %0, i32 noundef %1) #15 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2388
   store i32 %1, ptr %3, align 4
   ret void
@@ -23503,7 +23503,7 @@ define internal i32 @tg3_set_eeprom(ptr noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @tg3_get_coalesce(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 92)) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #16 align 16 {
+define internal noundef i32 @tg3_get_coalesce(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #16 align 16 {
   %5 = getelementptr i8, ptr %0, i64 7520
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(92) %1, ptr noundef align 32 dereferenceable(92) %5, i64 92, i1 false)
   ret i32 0
@@ -23623,7 +23623,7 @@ define internal noundef range(i32 -22, 1) i32 @tg3_set_coalesce(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal void @tg3_get_ringparam(ptr noundef %0, ptr nocapture noundef writeonly initializes((4, 8), (12, 24), (28, 36)) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #7 align 16 {
+define internal void @tg3_get_ringparam(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #7 align 16 {
   %5 = getelementptr i8, ptr %0, i64 6156
   %6 = load i32, ptr %5, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 4
@@ -23916,7 +23916,7 @@ tg3_phy_start.exit:                               ; preds = %138, %102, %.thread
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal void @tg3_get_pauseparam(ptr noundef %0, ptr nocapture noundef writeonly initializes((4, 16)) %1) #7 align 16 {
+define internal void @tg3_get_pauseparam(ptr noundef %0, ptr nocapture noundef writeonly %1) #7 align 16 {
   %3 = getelementptr i8, ptr %0, i64 6984
   %4 = load volatile i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -24247,7 +24247,7 @@ define internal i32 @tg3_set_pauseparam(ptr noundef %0, ptr noundef %1) #2 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tg3_self_test(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef initializes((0, 64)) %2) #2 align 16 {
+define internal void @tg3_self_test(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) #2 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -25859,7 +25859,7 @@ define internal noundef range(i32 0, 2) i32 @tg3_set_phys_id(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @tg3_get_ethtool_stats(ptr noundef %0, ptr nocapture readnone %1, ptr noundef initializes((0, 576)) %2) #17 align 16 {
+define internal void @tg3_get_ethtool_stats(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2) #17 align 16 {
   %4 = getelementptr i8, ptr %0, i64 7432
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -25941,7 +25941,7 @@ define internal range(i32 0, 129) i32 @tg3_get_rxfh_indir_size(ptr noundef %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @tg3_get_rxfh(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 1)) %1) #19 align 16 {
+define internal noundef i32 @tg3_get_rxfh(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #19 align 16 {
   store i8 1, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -26068,7 +26068,7 @@ define internal noundef range(i32 -95, 1) i32 @tg3_set_rxfh(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tg3_get_channels(ptr noundef %0, ptr nocapture noundef writeonly initializes((4, 12), (20, 28)) %1) #2 align 16 {
+define internal void @tg3_get_channels(ptr noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = tail call i32 @netif_get_num_default_rss_queues() #27
   %4 = getelementptr i8, ptr %0, i64 6196
   %5 = load i32, ptr %4, align 4
@@ -26178,7 +26178,7 @@ define internal noundef range(i32 -95, 1) i32 @tg3_set_channels(ptr noundef %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_get_ts_info(ptr noundef %0, ptr nocapture noundef writeonly initializes((4, 16), (28, 32)) %1) #2 align 16 {
+define internal noundef i32 @tg3_get_ts_info(ptr noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 26, ptr %3, align 4
   %4 = getelementptr i8, ptr %0, i64 6992
@@ -31658,7 +31658,7 @@ define internal fastcc void @tg3_pwrsrc_die_with_vmain(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @tg3_get_estats(ptr noundef readonly %0, ptr noundef writeonly initializes((0, 576)) %1) unnamed_addr #17 align 16 {
+define internal fastcc void @tg3_get_estats(ptr noundef readonly %0, ptr noundef writeonly %1) unnamed_addr #17 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4104
   %4 = getelementptr inbounds i8, ptr %0, i64 5128
   %5 = load ptr, ptr %4, align 8
@@ -37626,7 +37626,7 @@ define internal void @tg3_tx_timeout(ptr noundef %0, i32 %1) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tg3_get_stats64(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 48), (64, 88), (96, 112), (120, 144)) %1) #2 align 16 {
+define internal void @tg3_get_stats64(ptr noundef %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = getelementptr i8, ptr %0, i64 2308
   tail call void @_raw_spin_lock_bh(ptr noundef %4) #27
@@ -38749,7 +38749,7 @@ declare dso_local i64 @_copy_to_user(ptr noundef, ptr noundef, i64 noundef) loca
 declare dso_local void @netdev_update_features(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @tg3_get_nstats(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 48), (64, 88), (96, 112), (120, 144)) %1) unnamed_addr #2 align 16 {
+define internal fastcc void @tg3_get_nstats(ptr noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 3904
   %5 = getelementptr inbounds i8, ptr %0, i64 5128
@@ -42201,7 +42201,7 @@ define internal noundef i32 @tg3_ptp_adjtime(ptr noundef %0, i64 noundef %1) #2 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tg3_ptp_gettimex(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr noundef %2) #2 align 16 {
+define internal noundef i32 @tg3_ptp_gettimex(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -88
   %5 = getelementptr i8, ptr %0, i64 -84
   tail call void @_raw_spin_lock_bh(ptr noundef %5) #27

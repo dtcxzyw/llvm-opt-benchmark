@@ -445,7 +445,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @casadi_register_conic_nlpsol(ptr nocapture noundef writeonly initializes((0, 28), (32, 48)) %0) #4 {
+define noundef i32 @casadi_register_conic_nlpsol(ptr nocapture noundef writeonly %0) #4 {
   store ptr @_ZN6casadi7QpToNlp7creatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt3mapIS6_NS_8SparsityESt4lessIS6_ESaISt4pairIS7_SA_EEE, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str.6, ptr %2, align 8
@@ -534,7 +534,7 @@ declare void @_ZN6casadi8FunctionC1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN6casadi5ConicD2Ev(ptr noundef nonnull align 8 dereferenceable(1472)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi7QpToNlpD2Ev(ptr noundef nonnull align 8 dereferenceable(1480) initializes((0, 8), (1304, 1312)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi7QpToNlpD2Ev(ptr noundef nonnull align 8 dereferenceable(1480) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi7QpToNlpE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1304
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi7QpToNlpE, i64 960), ptr %2, align 8

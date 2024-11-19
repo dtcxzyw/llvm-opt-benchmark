@@ -604,7 +604,7 @@ return:                                           ; preds = %_ZN6icu_7515MaybeSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517CollationIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(389) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(389) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517CollationIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(389) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CollationIteratorE, i64 16), ptr %this, align 8
   %trie = getelementptr inbounds i8, ptr %this, i64 8
@@ -726,7 +726,7 @@ if.end:                                           ; preds = %if.else, %for.end
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(389) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7517CollationIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(389) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517CollationIteratorE, i64 16), ptr %this, align 8
   %skipped = getelementptr inbounds i8, ptr %this, i64 376
@@ -854,7 +854,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7517CollationIterator5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(389) initializes((24, 28), (368, 372)) %this) local_unnamed_addr #11 align 2 {
+define void @_ZN6icu_7517CollationIterator5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(389) %this) local_unnamed_addr #11 align 2 {
 entry:
   %ceBuffer = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %ceBuffer, align 8
@@ -1209,7 +1209,7 @@ return:                                           ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7517CollationIterator14handleNextCE32ERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %c, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7517CollationIterator14handleNextCE32ERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(389) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %c, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 48

@@ -1436,7 +1436,7 @@ define void @_ZN16tree_sitter_tags11TagsContext13generate_tags17h1e2fbfd4181454e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN16tree_sitter_tags3Tag7ignored17hf0881109e00c49aaE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { { i64, i64 }, { i64, i64 } }, { i64, i64 }, i32, i8, [3 x i8] }) align 8 dereferenceable(128) initializes((0, 8), (24, 125)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
+define void @_ZN16tree_sitter_tags3Tag7ignored17hf0881109e00c49aaE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i64, i64 }, { i64, i64 }, { i64, i64 }, { { i64, i64 }, { i64, i64 } }, { i64, i64 }, i32, i8, [3 x i8] }) align 8 dereferenceable(128) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = tail call { i64, i64 } @_ZN11tree_sitter5Point3new17hf3edc6e56e969b79E(i64 noundef 0, i64 noundef 0)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
@@ -1675,13 +1675,13 @@ define noundef zeroext i1 @"_ZN62_$LT$tree_sitter_tags..Error$u20$as$u20$core..f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN94_$LT$tree_sitter_tags..Error$u20$as$u20$core..convert..From$LT$tree_sitter..QueryError$GT$$GT$4from17h5e043dcf6e8a9986E"(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #5 {
+define void @"_ZN94_$LT$tree_sitter_tags..Error$u20$as$u20$core..convert..From$LT$tree_sitter..QueryError$GT$$GT$4from17h5e043dcf6e8a9986E"(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #5 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$tree_sitter_tags..Error$u20$as$u20$core..convert..From$LT$regex..error..Error$GT$$GT$4from17hde07d098a43c2bb0E"(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
+define void @"_ZN90_$LT$tree_sitter_tags..Error$u20$as$u20$core..convert..From$LT$regex..error..Error$GT$$GT$4from17hde07d098a43c2bb0E"(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8

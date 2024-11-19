@@ -319,7 +319,7 @@ _ZN5clang6interp5Block10addPointerEPNS0_7PointerE.exit: ; preds = %_ZN5clang6int
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang6interp9DeadBlockC2ERPS1_PNS0_5BlockE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (24, 28), (32, 40), (44, 45), (48, 53), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang6interp9DeadBlockC2ERPS1_PNS0_5BlockE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32

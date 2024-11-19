@@ -142,7 +142,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @str = private unnamed_addr constant [22 x i8] c"Available NIC models:\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @convert_host_port(ptr noundef initializes((0, 16)) %saddr, ptr noundef %host, ptr noundef %port, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @convert_host_port(ptr noundef %saddr, ptr noundef %host, ptr noundef %port, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %r = alloca ptr, align 8
   %p = alloca i64, align 8
@@ -451,7 +451,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @qemu_net_client_setup(ptr noundef initializes((0, 8), (48, 56)) %nc, ptr noundef %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name, ptr noundef %destructor, i1 noundef zeroext %is_datapath) unnamed_addr #0 {
+define internal fastcc void @qemu_net_client_setup(ptr noundef %nc, ptr noundef %info, ptr noundef %peer, ptr noundef %model, ptr noundef %name, ptr noundef %destructor, i1 noundef zeroext %is_datapath) unnamed_addr #0 {
 entry:
   store ptr %info, ptr %nc, align 8
   %call = tail call noalias ptr @g_strdup(ptr noundef %model) #27
@@ -3829,7 +3829,7 @@ for.end11:                                        ; preds = %for.inc9, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @net_socket_rs_init(ptr nocapture noundef writeonly initializes((0, 5), (8, 69652), (69656, 69664)) %rs, ptr noundef %finalize, i1 noundef zeroext %vnet_hdr) local_unnamed_addr #20 {
+define dso_local void @net_socket_rs_init(ptr nocapture noundef writeonly %rs, ptr noundef %finalize, i1 noundef zeroext %vnet_hdr) local_unnamed_addr #20 {
 entry:
   %frombool = zext i1 %vnet_hdr to i8
   store i32 0, ptr %rs, align 8

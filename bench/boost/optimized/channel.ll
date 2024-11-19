@@ -505,7 +505,7 @@ _ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit: ; preds = %_ZN5boos
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost6cobalt7channelIvE5closeEv(ptr noundef nonnull align 8 dereferenceable(112) initializes((72, 73)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6cobalt7channelIvE5closeEv(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i8 1, ptr %2, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1078,7 +1078,7 @@ _ZNK5boost6system6resultIvNS0_10error_codeEE5valueERKNS_15source_locationE.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost6cobalt7channelIvE7read_op12await_resumeERKNS0_12as_tuple_tagE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.12") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6cobalt7channelIvE7read_op12await_resumeERKNS0_12as_tuple_tagE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.12") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::system::error_code", align 8
   %5 = alloca %"class.boost::system::result", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -1365,7 +1365,7 @@ _ZNK5boost6system6resultIvNS0_10error_codeEE5valueERKNS_15source_locationE.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost6cobalt7channelIvE8write_op12await_resumeERKNS0_12as_tuple_tagE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.12") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6cobalt7channelIvE8write_op12await_resumeERKNS0_12as_tuple_tagE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple.12") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::system::error_code", align 8
   %5 = alloca %"class.boost::system::result", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)

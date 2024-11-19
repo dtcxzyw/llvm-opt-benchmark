@@ -654,7 +654,7 @@ $_ZTIN3fmt2v819basic_memory_bufferIcLm500ESaIcEEE = comdat any
 @.str.172 = private unnamed_addr constant [30 x i8] c"invalid export in core module\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader9loadAliasERNS_3AST9Component5AliasE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader9loadAliasERNS_3AST9Component5AliasE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"class.cxx20::expected", align 4

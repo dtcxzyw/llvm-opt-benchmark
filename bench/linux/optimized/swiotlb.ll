@@ -1338,7 +1338,7 @@ declare dso_local void @memblock_free_late(i64 noundef, i64 noundef) local_unnam
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @swiotlb_dev_init(ptr nocapture noundef writeonly initializes((616, 624)) %0) local_unnamed_addr #9 align 16 {
+define dso_local void @swiotlb_dev_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #9 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 616
   store ptr @io_tlb_default_mem, ptr %2, align 8
   ret void
@@ -2494,7 +2494,7 @@ declare dso_local i32 @simple_attr_release(ptr noundef, ptr noundef) #0
 declare dso_local i32 @simple_attr_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef i32 @io_tlb_used_get(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #19 align 16 {
+define internal noundef i32 @io_tlb_used_get(ptr noundef %0, ptr nocapture noundef writeonly %1) #19 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load volatile i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -2508,7 +2508,7 @@ define internal i32 @fops_io_tlb_hiwater_open(ptr noundef %0, ptr noundef %1) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-define internal noundef i32 @io_tlb_hiwater_get(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #19 align 16 {
+define internal noundef i32 @io_tlb_hiwater_get(ptr noundef %0, ptr nocapture noundef writeonly %1) #19 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load volatile i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8

@@ -189,7 +189,7 @@ $_ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJE
 @_ZN5clang6format20ContinuationIndenterC1ERKNS0_11FormatStyleERKNS0_18AdditionalKeywordsERKNS_13SourceManagerERNS0_17WhitespaceManagerENS0_8encoding8EncodingEb = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, i32, i1), ptr @_ZN5clang6format20ContinuationIndenterC2ERKNS0_11FormatStyleERKNS0_18AdditionalKeywordsERKNS_13SourceManagerERNS0_17WhitespaceManagerENS0_8encoding8EncodingEb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format27RawStringFormatStyleManagerC2ERKNS0_11FormatStyleE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6format27RawStringFormatStyleManagerC2ERKNS0_11FormatStyleE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(936) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::optional.13", align 8
   %4 = alloca %"struct.clang::format::FormatStyle", align 8
   %5 = alloca %"struct.clang::format::FormatStyle", align 8
@@ -7063,7 +7063,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm9StringSetINS_15MallocAl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN5clang6format20ContinuationIndenter15addTokenToStateERNS0_9LineStateEbbj(ptr noundef nonnull align 8 dereferenceable(1032) %0, ptr noundef nonnull align 8 dereferenceable(128) initializes((16, 17)) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN5clang6format20ContinuationIndenter15addTokenToStateERNS0_9LineStateEbbj(ptr noundef nonnull align 8 dereferenceable(1032) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 208

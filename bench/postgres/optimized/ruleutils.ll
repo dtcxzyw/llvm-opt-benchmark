@@ -9304,7 +9304,7 @@ declare ptr @makeAlias(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_rtable_names(ptr nocapture noundef initializes((8, 16)) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_rtable_names(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.HASHCTL, align 8
   %5 = alloca i8, align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -9694,7 +9694,7 @@ define dso_local noundef ptr @set_deparse_context_plan(ptr noundef readonly retu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_deparse_plan(ptr nocapture noundef initializes((64, 72), (80, 88), (96, 104)) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @set_deparse_plan(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   %4 = load i32, ptr %1, align 4
@@ -10496,7 +10496,7 @@ declare ptr @getInsertSelectQuery(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @AcquireRewriteLocks(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_deparse_for_query(ptr noundef nonnull initializes((0, 144)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @set_deparse_for_query(ptr noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %0, i8 0, i64 144, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -18172,7 +18172,7 @@ define internal void @get_special_variable(ptr noundef %0, ptr noundef %1, ptr n
 declare ptr @get_tle_by_resno(ptr noundef, i16 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @push_child_plan(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 144)) %2) unnamed_addr #0 {
+define internal fastcc void @push_child_plan(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef nonnull align 8 dereferenceable(144) %0, i64 144, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -18193,7 +18193,7 @@ declare ptr @lcons(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @list_delete_first(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_param_referent(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3) unnamed_addr #0 {
+define internal fastcc ptr @find_param_referent(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -19670,7 +19670,7 @@ declare i64 @DirectFunctionCall1Coll(ptr noundef, i32 noundef, i64 noundef) loca
 declare i64 @namein(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 16, 20) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 16, 20) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8

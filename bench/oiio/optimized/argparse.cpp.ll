@@ -805,7 +805,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_09ArgOptionC2ERNS_8ArgParseEPKc(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(16) %ap, ptr noundef %argspec) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_09ArgOptionC2ERNS_8ArgParseEPKc(ptr noundef nonnull align 8 dereferenceable(360) %this, ptr noundef nonnull align 8 dereferenceable(16) %ap, ptr noundef %argspec) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i85 = alloca %"class.std::allocator", align 1
   %ref.tmp.i = alloca %"class.std::allocator", align 1
@@ -2594,7 +2594,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 -1, 1) i32 @_ZN18OpenImageIO_v2_6_08ArgParse4Impl10parse_argsEiPPKc(ptr noundef nonnull align 8 dereferenceable(392) initializes((8, 12), (16, 24), (235, 236)) %this, i32 noundef %xargc, ptr noundef %xargv) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN18OpenImageIO_v2_6_08ArgParse4Impl10parse_argsEiPPKc(ptr noundef nonnull align 8 dereferenceable(392) %this, i32 noundef %xargc, ptr noundef %xargv) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i182 = alloca %"class.fmt::v8::format_arg_store.167", align 16
   %ref.tmp.i183 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4574,7 +4574,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK18OpenImageIO_v2_6_08ArgParse3Arg4nameEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_08ArgParse3Arg4nameEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_name.i = getelementptr inbounds i8, ptr %this, i64 104
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %m_name.i) #31
@@ -4586,7 +4586,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK18OpenImageIO_v2_6_08ArgParse3Arg4destEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_08ArgParse3Arg4destEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_dest.i = getelementptr inbounds i8, ptr %this, i64 136
   %call.i = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %m_dest.i) #31
@@ -5334,7 +5334,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18OpenImageIO_v2_6_08ArgParse3Arg6hiddenEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(8) initializes((357, 358)) %this) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18OpenImageIO_v2_6_08ArgParse3Arg6hiddenEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(8) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_hidden = getelementptr inbounds i8, ptr %this, i64 357
   store i8 1, ptr %m_hidden, align 1
@@ -5342,7 +5342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18OpenImageIO_v2_6_08ArgParse3Arg10always_runEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(8) initializes((358, 359)) %this) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18OpenImageIO_v2_6_08ArgParse3Arg10always_runEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(8) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_always_run = getelementptr inbounds i8, ptr %this, i64 358
   store i8 1, ptr %m_always_run, align 2
@@ -5350,7 +5350,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18OpenImageIO_v2_6_08ArgParse10do_nothingEv(ptr noalias nocapture writeonly sret(%"class.std::function.38") align 8 initializes((0, 32)) %agg.result) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_08ArgParse10do_nothingEv(ptr noalias nocapture writeonly sret(%"class.std::function.38") align 8 %agg.result) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.result, i64 24
@@ -5361,7 +5361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18OpenImageIO_v2_6_08ArgParse10store_trueEv(ptr noalias nocapture writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %agg.result) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_08ArgParse10store_trueEv(ptr noalias nocapture writeonly sret(%"class.std::function") align 8 %agg.result) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.result, i64 24
@@ -5372,7 +5372,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18OpenImageIO_v2_6_08ArgParse11store_falseEv(ptr noalias nocapture writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %agg.result) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_08ArgParse11store_falseEv(ptr noalias nocapture writeonly sret(%"class.std::function") align 8 %agg.result) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.result, i64 24

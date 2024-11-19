@@ -2118,7 +2118,7 @@ $_ZTIPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN32pxrInternal_v0_2
 @"_ZTIZN32pxrInternal_v0_24__pxrReserved__20UsdFlattenLayerStackERKNS_8TfRefPtrINS_13PcpLayerStackEEERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9TfWeakPtrINS_8SdfLayerEEERKSB_EESI_E3$_0" = internal constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @"_ZTSZN32pxrInternal_v0_24__pxrReserved__20UsdFlattenLayerStackERKNS_8TfRefPtrINS_13PcpLayerStackEEERKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9TfWeakPtrINS_8SdfLayerEEERKSB_EESI_E3$_0" }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__7_ReduceINS_12VtDictionaryEEENS_7VtValueERKT_S5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__7_ReduceINS_12VtDictionaryEEENS_7VtValueERKT_S5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::VtDictionary", align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__25VtDictionaryOverRecursiveERKNS_12VtDictionaryES2_b(ptr dead_on_unwind nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::VtDictionary") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2661,7 +2661,7 @@ _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES2_ESaIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__7_ReduceINS_12SdfSpecifierEEENS_7VtValueERKT_S5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 initializes((0, 4), (8, 16)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__7_ReduceINS_12SdfSpecifierEEENS_7VtValueERKT_S5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp eq i32 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

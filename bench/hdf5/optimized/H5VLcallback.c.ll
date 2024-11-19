@@ -2414,7 +2414,7 @@ define range(i32 -1, -2147483648) i32 @H5VLattr_optional_op(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef range(i32 1, 8) %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull initializes((0, 8)) %6) unnamed_addr #0 {
+define internal fastcc i32 @H5VL__common_optional_op(i64 noundef %0, i32 noundef range(i32 1, 8) %1, ptr nocapture noundef readonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = tail call ptr @H5I_object_verify(i64 noundef %0, i32 noundef %1) #6
   store ptr %8, ptr %6, align 8
   %9 = icmp eq ptr %8, null
@@ -5230,7 +5230,7 @@ declare void @H5VL__is_default_conn(i64 noundef, i64 noundef, ptr noundef) local
 declare i32 @H5PL_iterate(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5VL__file_open_find_connector_cb(i32 %0, ptr noundef %1, ptr nocapture noundef initializes((8, 16)) %2) #0 {
+define internal range(i32 -1, 2) i32 @H5VL__file_open_find_connector_cb(i32 %0, ptr noundef %1, ptr nocapture noundef %2) #0 {
   %4 = alloca %struct.H5VL_file_specific_args_t, align 8
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4

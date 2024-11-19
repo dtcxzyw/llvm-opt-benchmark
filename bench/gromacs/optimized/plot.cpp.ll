@@ -886,7 +886,7 @@ _ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE.exit32: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx24AnalysisDataPlotSettingsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #6 align 2 {
+define void @_ZN3gmx24AnalysisDataPlotSettingsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %2, align 8
@@ -896,7 +896,7 @@ define void @_ZN3gmx24AnalysisDataPlotSettingsC2Ev(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx24AnalysisDataPlotSettings22setSelectionCollectionEPKNS_19SelectionCollectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN3gmx24AnalysisDataPlotSettings22setSelectionCollectionEPKNS_19SelectionCollectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -1582,7 +1582,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx18AbstractPlotModule4ImplC2ERKNS_24AnalysisDataPlotSettingsE(ptr noundef nonnull align 8 dereferenceable(284) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx18AbstractPlotModule4ImplC2ERKNS_24AnalysisDataPlotSettingsE(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.18", align 1
   %4 = alloca %"class.std::allocator.18", align 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
@@ -1937,7 +1937,7 @@ declare noundef i32 @_Z14gmx_fio_fcloseP8_IO_FILE(ptr noundef) local_unnamed_add
 declare void @_Z9xvgrcloseP8_IO_FILE(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx18AbstractPlotModuleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx18AbstractPlotModuleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.gmx::AnalysisDataPlotSettings", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18AbstractPlotModuleE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #32
@@ -1961,7 +1961,7 @@ define void @_ZN3gmx18AbstractPlotModuleC2Ev(ptr nocapture noundef nonnull write
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx18AbstractPlotModuleC2ERKNS_24AnalysisDataPlotSettingsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx18AbstractPlotModuleC2ERKNS_24AnalysisDataPlotSettingsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18AbstractPlotModuleE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #32
   invoke void @_ZN3gmx18AbstractPlotModule4ImplC1ERKNS_24AnalysisDataPlotSettingsE(ptr noundef nonnull align 8 dereferenceable(284) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -1980,7 +1980,7 @@ define void @_ZN3gmx18AbstractPlotModuleC2ERKNS_24AnalysisDataPlotSettingsE(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3gmx18AbstractPlotModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx18AbstractPlotModuleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18AbstractPlotModuleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -2903,7 +2903,7 @@ define void @_ZNK3gmx18AbstractPlotModule10writeValueERKNS_17AnalysisDataValueE(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx22AnalysisDataPlotModuleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx22AnalysisDataPlotModuleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.gmx::AnalysisDataPlotSettings", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18AbstractPlotModuleE, i64 16), ptr %0, align 8
@@ -2930,7 +2930,7 @@ _ZN3gmx18AbstractPlotModuleC2Ev.exit:             ; preds = %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx22AnalysisDataPlotModuleC2ERKNS_24AnalysisDataPlotSettingsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx22AnalysisDataPlotModuleC2ERKNS_24AnalysisDataPlotSettingsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18AbstractPlotModuleE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #32
   invoke void @_ZN3gmx18AbstractPlotModule4ImplC1ERKNS_24AnalysisDataPlotSettingsE(ptr noundef nonnull align 8 dereferenceable(284) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -2950,7 +2950,7 @@ _ZN3gmx18AbstractPlotModuleC2ERKNS_24AnalysisDataPlotSettingsE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx28AnalysisDataVectorPlotModuleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx28AnalysisDataVectorPlotModuleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.gmx::AnalysisDataPlotSettings", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18AbstractPlotModuleE, i64 16), ptr %0, align 8
@@ -2985,7 +2985,7 @@ _ZN3gmx18AbstractPlotModuleC2Ev.exit:             ; preds = %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx28AnalysisDataVectorPlotModuleC2ERKNS_24AnalysisDataPlotSettingsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx28AnalysisDataVectorPlotModuleC2ERKNS_24AnalysisDataPlotSettingsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx18AbstractPlotModuleE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #32
   invoke void @_ZN3gmx18AbstractPlotModule4ImplC1ERKNS_24AnalysisDataPlotSettingsE(ptr noundef nonnull align 8 dereferenceable(284) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -3013,7 +3013,7 @@ _ZN3gmx18AbstractPlotModuleC2ERKNS_24AnalysisDataPlotSettingsE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx28AnalysisDataVectorPlotModule9setWriteXEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 17)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN3gmx28AnalysisDataVectorPlotModule9setWriteXEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %3, ptr %4, align 8
@@ -3021,7 +3021,7 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule9setWriteXEb(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx28AnalysisDataVectorPlotModule9setWriteYEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((17, 18)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN3gmx28AnalysisDataVectorPlotModule9setWriteYEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 %3, ptr %4, align 1
@@ -3029,7 +3029,7 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule9setWriteYEb(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx28AnalysisDataVectorPlotModule9setWriteZEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((18, 19)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN3gmx28AnalysisDataVectorPlotModule9setWriteZEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 18
   store i8 %3, ptr %4, align 2
@@ -3037,7 +3037,7 @@ define void @_ZN3gmx28AnalysisDataVectorPlotModule9setWriteZEb(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx28AnalysisDataVectorPlotModule12setWriteNormEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((19, 20)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN3gmx28AnalysisDataVectorPlotModule12setWriteNormEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 19
   store i8 %3, ptr %4, align 1

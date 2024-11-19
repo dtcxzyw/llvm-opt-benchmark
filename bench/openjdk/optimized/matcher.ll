@@ -2968,7 +2968,7 @@ _ZN4Node7add_outEPS_.exit:                        ; preds = %37, %26, %_ZN4Node7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7Matcher10match_treeEPK4Node(ptr noundef nonnull align 8 dereferenceable(1008) initializes((320, 324)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN7Matcher10match_treeEPK4Node(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -7110,7 +7110,7 @@ define hidden noalias noundef nonnull ptr @_ZN7Matcher9transformEP4Node(ptr noca
 declare void @_Z22report_should_not_callPKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7Matcher10match_sfptEP13SafePointNode(ptr noundef nonnull align 8 dereferenceable(1008) initializes((320, 324)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN7Matcher10match_sfptEP13SafePointNode(ptr noundef nonnull align 8 dereferenceable(1008) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 7
@@ -12915,7 +12915,7 @@ _ZNK7Compile21is_method_compilationEv.exit.thread: ; preds = %19, %28, %71, %86,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5StateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) initializes((1260, 1890)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN5StateC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1920) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1260
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(630) %2, i8 0, i64 630, i1 false)
   ret void

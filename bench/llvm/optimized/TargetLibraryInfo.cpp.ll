@@ -1950,7 +1950,7 @@ _ZL24isCallingConvCCompatiblejN4llvm9StringRefEPNS_12FunctionTypeE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21TargetLibraryInfoImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((0, 126), (128, 148), (152, 208)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21TargetLibraryInfoImplC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) %0) unnamed_addr #0 align 2 {
 switch.early.test.i.i:
   %1 = alloca %"class.llvm::Triple", align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -1976,7 +1976,7 @@ switch.early.test.i.i:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21TargetLibraryInfoImplC2ERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 126), (128, 148), (152, 208)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21TargetLibraryInfoImplC2ERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -3494,7 +3494,7 @@ _ZL10initializeRN4llvm21TargetLibraryInfoImplERKNS_6TripleENS_8ArrayRefINS_13Str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21TargetLibraryInfoImplC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(208) initializes((128, 148)) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21TargetLibraryInfoImplC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
@@ -3651,7 +3651,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN4llvm7VecDescESt6vectorIS3_SaIS3_EEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21TargetLibraryInfoImplC2EOS0_(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 126), (128, 148), (152, 208)) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21TargetLibraryInfoImplC2EOS0_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
@@ -4592,7 +4592,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm21TargetLibraryInfoImpl10getLibFun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm21TargetLibraryInfoImpl19disableAllFunctionsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((0, 126)) %0) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4llvm21TargetLibraryInfoImpl19disableAllFunctionsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) %0) local_unnamed_addr #7 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(126) %0, i8 0, i64 126, i1 false)
   ret void
 }
@@ -6004,7 +6004,7 @@ define dso_local noundef i32 @_ZNK4llvm21TargetLibraryInfoImpl12getWCharSizeERKN
 declare noundef ptr @_ZNK4llvm6Module13getModuleFlagENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857), ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28TargetLibraryInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm28TargetLibraryInfoWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.188, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = alloca %"class.llvm::TargetLibraryInfoImpl", align 8
@@ -6149,7 +6149,7 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28TargetLibraryInfoWrapperPassC2ERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm28TargetLibraryInfoWrapperPassC2ERKNS_6TripleE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.188, align 8
   %4 = alloca %"class.std::reference_wrapper", align 8
   %5 = alloca %"class.llvm::TargetLibraryInfoImpl", align 8
@@ -6264,7 +6264,7 @@ _ZN4llvm42initializeTargetLibraryInfoWrapperPassPassERNS_12PassRegistryE.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28TargetLibraryInfoWrapperPassC2ERKNS_21TargetLibraryInfoImplE(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm28TargetLibraryInfoWrapperPassC2ERKNS_21TargetLibraryInfoImplE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.188, align 8
   %4 = alloca %"class.std::reference_wrapper", align 8
   %5 = alloca %"class.llvm::TargetLibraryInfoImpl", align 8
@@ -6379,7 +6379,7 @@ _ZN4llvm42initializeTargetLibraryInfoWrapperPassPassERNS_12PassRegistryE.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28TargetLibraryInfoWrapperPassC2ERKNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 28)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm28TargetLibraryInfoWrapperPassC2ERKNS_17TargetLibraryInfoE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   tail call void @_ZN4llvm28TargetLibraryInfoWrapperPassC2ERKNS_21TargetLibraryInfoImplE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef nonnull align 8 dereferenceable(208) %3)
   ret void
@@ -6413,7 +6413,7 @@ define dso_local void @_ZN4llvm28TargetLibraryInfoWrapperPass6anchorEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4llvm21TargetLibraryInfoImpl11getWidestVFENS_9StringRefERNS_12ElementCountES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull align 4 dereferenceable(5) initializes((0, 5)) %3, ptr nocapture noundef nonnull align 4 dereferenceable(5) initializes((0, 5)) %4) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZNK4llvm21TargetLibraryInfoImpl11getWidestVFENS_9StringRefERNS_12ElementCountES3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull align 4 dereferenceable(5) %3, ptr nocapture noundef nonnull align 4 dereferenceable(5) %4) local_unnamed_addr #10 align 2 {
   %6 = icmp eq i64 %2, 0
   br i1 %6, label %_ZL20sanitizeFunctionNameN4llvm9StringRefE.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i.i.i
 

@@ -128,7 +128,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16b3CpuNarrowPhaseC2ERK8b3Config(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %config) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16b3CpuNarrowPhaseC2ERK8b3Config(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %config) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16b3CpuNarrowPhase, i64 16), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #16
@@ -238,7 +238,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16b3CpuNarrowPhaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN16b3CpuNarrowPhaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16b3CpuNarrowPhase, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 8
@@ -532,7 +532,7 @@ _ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit:      ; preds = %_ZN20b3AlignedObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16b3CpuNarrowPhaseD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN16b3CpuNarrowPhaseD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16b3CpuNarrowPhase, i64 16), ptr %this, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -101,7 +101,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.finalize_grouping_exprs_walker = private unnamed_addr constant [31 x i8] c"finalize_grouping_exprs_walker\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @transformAggregateCall(ptr noundef %0, ptr nocapture noundef initializes((32, 40)) %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @transformAggregateCall(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 74
@@ -2236,7 +2236,7 @@ declare ptr @list_make1_impl(i32 noundef, ptr) local_unnamed_addr #1
 declare ptr @makeFuncExpr(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @build_aggregate_serialfn_expr(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local void @build_aggregate_serialfn_expr(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -2258,7 +2258,7 @@ define dso_local void @build_aggregate_serialfn_expr(i32 noundef %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @build_aggregate_deserialfn_expr(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local void @build_aggregate_deserialfn_expr(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 28) #10
   store i32 8, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %3, i64 4

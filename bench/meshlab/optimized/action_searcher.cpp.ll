@@ -3366,7 +3366,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK14ActionSearcher19bestMatchingActionsE7QStringi(ptr dead_on_unwind noalias writable sret(%"class.std::vector.28") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull %2, i32 noundef %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK14ActionSearcher19bestMatchingActionsE7QStringi(ptr dead_on_unwind noalias writable sret(%"class.std::vector.28") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull %2, i32 noundef %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::tuple.83", align 8
   %6 = alloca %"class.std::tuple.43", align 1
   %7 = alloca %class.QString, align 8

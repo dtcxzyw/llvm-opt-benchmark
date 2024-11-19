@@ -3088,7 +3088,7 @@ define hidden void @_ZN9CodeCache25increment_unloading_cycleEv() local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9CodeCache14UnlinkingScopeC2EP17BoolObjectClosure(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN9CodeCache14UnlinkingScopeC2EP17BoolObjectClosure(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV27ClosureIsUnloadingBehaviour, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

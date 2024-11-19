@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3ozz9animation15LocalToModelJobC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3ozz9animation15LocalToModelJobC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation15LocalToModelJobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 25), (32, 64)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3ozz9animation15LocalToModelJobC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 -1, ptr %2, align 8

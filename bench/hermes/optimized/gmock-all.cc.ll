@@ -1295,7 +1295,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ES8_(ptr noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ES8_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Matcher", align 8
   %ref.tmp2 = alloca %"class.testing::internal::EqMatcher", align 8
@@ -1497,7 +1497,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %this, ptr noundef %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Matcher", align 8
   %ref.tmp2 = alloca %"class.testing::internal::EqMatcher", align 8
@@ -1673,7 +1673,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing7MatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing7MatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Matcher.1", align 8
   %ref.tmp2 = alloca %"class.testing::internal::EqMatcher", align 8
@@ -1873,7 +1873,7 @@ _ZN7testing8internal11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing7MatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %this, ptr noundef %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing7MatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EPKc(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.testing::Matcher.1", align 8
   %ref.tmp2 = alloca %"class.testing::internal::EqMatcher", align 8
@@ -4273,7 +4273,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing8internal15ExpectationBaseC2EPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 20)) %this, ptr noundef %a_file, i32 noundef %a_line, ptr noundef nonnull align 8 dereferenceable(32) %a_source_text) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing8internal15ExpectationBaseC2EPKciRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef %a_file, i32 noundef %a_line, ptr noundef nonnull align 8 dereferenceable(32) %a_source_text) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ss.i.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15ExpectationBaseE, i64 16), ptr %this, align 8
@@ -4483,7 +4483,7 @@ _ZN7testing8internal10linked_ptrIKNS_20CardinalityInterfaceEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7testing8internal15ExpectationBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing8internal15ExpectationBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal15ExpectationBaseE, i64 16), ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 176
@@ -4621,7 +4621,7 @@ entry:
 declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing8internal15ExpectationBase18SpecifyCardinalityERKNS_11CardinalityE(ptr noundef nonnull align 8 dereferenceable(232) initializes((56, 57)) %this, ptr noundef nonnull align 8 dereferenceable(16) %a_cardinality) local_unnamed_addr #3 align 2 {
+define void @_ZN7testing8internal15ExpectationBase18SpecifyCardinalityERKNS_11CardinalityE(ptr noundef nonnull align 8 dereferenceable(232) %this, ptr noundef nonnull align 8 dereferenceable(16) %a_cardinality) local_unnamed_addr #3 align 2 {
 entry:
   %cardinality_specified_ = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %cardinality_specified_, align 8
@@ -5476,7 +5476,7 @@ sw.epilog:                                        ; preds = %_ZN7testing8interna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7testing8internal25UntypedFunctionMockerBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this) unnamed_addr #11 align 2 {
+define void @_ZN7testing8internal25UntypedFunctionMockerBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25UntypedFunctionMockerBaseE, i64 16), ptr %this, align 8
   %mock_obj_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -5489,7 +5489,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7testing8internal25UntypedFunctionMockerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing8internal25UntypedFunctionMockerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal25UntypedFunctionMockerBaseE, i64 16), ptr %this, align 8
   %untyped_expectations_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -5600,7 +5600,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing8internal25UntypedFunctionMockerBase13RegisterOwnerEPKv(ptr noundef nonnull align 8 dereferenceable(72) initializes((8, 16)) %this, ptr noundef %mock_obj) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing8internal25UntypedFunctionMockerBase13RegisterOwnerEPKv(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %mock_obj) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
   %mock_obj_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -5727,7 +5727,7 @@ _ZN7testing8internal14GTestMutexLockD2Ev.exit3:   ; preds = %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing8internal25UntypedFunctionMockerBase15SetOwnerAndNameEPKvPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((8, 24)) %this, ptr noundef %mock_obj, ptr noundef %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing8internal25UntypedFunctionMockerBase15SetOwnerAndNameEPKvPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr noundef %mock_obj, ptr noundef %name) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7testing8internal9MutexBase4LockEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
   %mock_obj_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -8393,7 +8393,7 @@ for.end:                                          ; preds = %for.inc, %entry, %i
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7testing11ExpectationC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #11 align 2 {
+define void @_ZN7testing11ExpectationC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #11 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %link_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -8402,7 +8402,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7testing11ExpectationC2ERKNS_8internal10linked_ptrINS1_15ExpectationBaseEEE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(16) %an_expectation_base) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7testing11ExpectationC2ERKNS_8internal10linked_ptrINS1_15ExpectationBaseEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %an_expectation_base) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %an_expectation_base, align 8
   store ptr %0, ptr %this, align 8

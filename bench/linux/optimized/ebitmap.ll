@@ -67,7 +67,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @ebitmap_cpy(ptr noundef initializes((0, 16)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ebitmap_cpy(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
@@ -164,7 +164,7 @@ define dso_local void @ebitmap_destroy(ptr noundef %0) local_unnamed_addr #2 ali
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr nocapture noundef initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @ebitmap_and(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null
@@ -940,7 +940,7 @@ define dso_local range(i32 0, 2) i32 @ebitmap_contains(ptr nocapture noundef rea
 declare dso_local void @kmem_cache_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef initializes((0, 16)) %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @ebitmap_read(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8

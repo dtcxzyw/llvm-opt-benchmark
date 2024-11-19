@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN13BalanceRegionD1Ev = unnamed_addr alias void (ptr), ptr @_ZN13BalanceRegionD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13BalanceRegionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13BalanceRegionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %2 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #10
           to label %_ZNSt10unique_ptrIN13BalanceRegion4ImplESt14default_deleteIS1_EED2Ev.exit unwind label %_ZNSt10unique_ptrIN13BalanceRegion4ImplESt14default_deleteIS1_EED2Ev.exit4

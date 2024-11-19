@@ -4626,7 +4626,7 @@ declare void @_ZN6casadi8SparsityC1Exx(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZNK6casadi16FunctionInternal16get_jac_sparsityExxb(ptr dead_on_unwind writable sret(%"class.casadi::Sparsity") align 8, ptr noundef nonnull align 8 dereferenceable(1304), i64 noundef, i64 noundef, i1 noundef zeroext) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi4ExpmD2Ev(ptr noundef nonnull align 8 dereferenceable(1321) initializes((0, 8), (1304, 1312)) %0) unnamed_addr #5 align 2 {
+define void @_ZN6casadi4ExpmD2Ev(ptr noundef nonnull align 8 dereferenceable(1321) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi4ExpmE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1304
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi4ExpmE, i64 912), ptr %2, align 8

@@ -67,7 +67,7 @@ $_ZTVN8QuantLib8ExerciseE = comdat any
 @_ZN8QuantLib15RebatedExerciseC1ERKNS_8ExerciseERKSt6vectorIdSaIdEEjNS_8CalendarENS_21BusinessDayConventionE = unnamed_addr alias void (ptr, ptr, ptr, i32, ptr, i32), ptr @_ZN8QuantLib15RebatedExerciseC2ERKNS_8ExerciseERKSt6vectorIdSaIdEEjNS_8CalendarENS_21BusinessDayConventionE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15RebatedExerciseC2ERKNS_8ExerciseEdjNS_8CalendarENS_21BusinessDayConventionE(ptr nocapture noundef nonnull align 8 dereferenceable(92) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %exercise, double noundef %rebate, i32 noundef %rebateSettlementDays, ptr nocapture noundef %rebatePaymentCalendar, i32 noundef %rebatePaymentConvention) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15RebatedExerciseC2ERKNS_8ExerciseEdjNS_8CalendarENS_21BusinessDayConventionE(ptr nocapture noundef nonnull align 8 dereferenceable(92) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %exercise, double noundef %rebate, i32 noundef %rebateSettlementDays, ptr nocapture noundef %rebatePaymentCalendar, i32 noundef %rebatePaymentConvention) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib8ExerciseE, i64 16), ptr %this, align 8, !tbaa !3
   %dates_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -210,7 +210,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15RebatedExerciseC2ERKNS_8ExerciseERKSt6vectorIdSaIdEEjNS_8CalendarENS_21BusinessDayConventionE(ptr noundef nonnull align 8 dereferenceable(92) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %exercise, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rebates, i32 noundef %rebateSettlementDays, ptr nocapture noundef %rebatePaymentCalendar, i32 noundef %rebatePaymentConvention) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15RebatedExerciseC2ERKNS_8ExerciseERKSt6vectorIdSaIdEEjNS_8CalendarENS_21BusinessDayConventionE(ptr noundef nonnull align 8 dereferenceable(92) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %exercise, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %rebates, i32 noundef %rebateSettlementDays, ptr nocapture noundef %rebatePaymentCalendar, i32 noundef %rebatePaymentConvention) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

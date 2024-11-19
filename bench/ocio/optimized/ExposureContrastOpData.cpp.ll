@@ -889,7 +889,7 @@ ehcleanup14:                                      ; preds = %lpad, %_ZNSt15__all
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev22ExposureContrastOpDataE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 216
@@ -1121,7 +1121,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev25DynamicPropertyDoubleImplEED2Ev.exit64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpDataD0Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpDataD0Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev22ExposureContrastOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -1132,7 +1132,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData5cloneEv(ptr noalias sret(%"class.std::shared_ptr.9") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData5cloneEv(ptr noalias sret(%"class.std::shared_ptr.9") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_style.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i32, ptr %m_style.i, align 8
@@ -1621,7 +1621,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData7inverseEv(ptr noalias sret(%"class.std::shared_ptr.9") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData7inverseEv(ptr noalias sret(%"class.std::shared_ptr.9") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %m_style.i.i = getelementptr inbounds i8, ptr %this, i64 168

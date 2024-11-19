@@ -5560,7 +5560,7 @@ _ZNSt14__basic_futureIvE6_ResetD2Ev.exit:         ; preds = %4, %23, %36, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10collective4Loop6SubmitENS1_2OpE(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef initializes((40, 48)) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10collective4Loop6SubmitENS1_2OpE(ptr noundef nonnull align 8 dereferenceable(368) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.87", align 1
   %4 = alloca %"class.std::shared_ptr", align 8
   %5 = alloca %"class.std::future", align 8
@@ -6228,7 +6228,7 @@ _ZNSt12__shared_ptrISt7promiseIvELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10collective4LoopC2ENSt6chrono8durationIlSt5ratioILl1ELl1EEEE(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 8)) %0, i64 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10collective4LoopC2ENSt6chrono8durationIlSt5ratioILl1ELl1EEEE(ptr noundef nonnull align 8 dereferenceable(368) %0, i64 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.102", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.5", align 1

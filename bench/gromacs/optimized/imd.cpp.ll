@@ -188,7 +188,7 @@ $_ZTIN3gmx28InteractiveMolecularDynamicsE = comdat any
 @_ZN3gmx10ImdSessionD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx10ImdSessionD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx40createInteractiveMolecularDynamicsModuleEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx40createInteractiveMolecularDynamicsModuleEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN3gmx28InteractiveMolecularDynamicsESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx28InteractiveMolecularDynamicsE, i64 16), ptr %1, align 8, !noalias !5
@@ -1158,7 +1158,7 @@ define void @_ZN3gmx10ImdSession4Impl16prepareVmdForcesEv(ptr nocapture noundef 
 declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx10ImdSession4Impl13readVmdForcesEv(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((144, 148)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx10ImdSession4Impl13readVmdForcesEv(ptr nocapture noundef nonnull align 8 dereferenceable(296) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
@@ -1396,7 +1396,7 @@ _ZN3gmxL12rvecs_differEPKfS1_.exit:               ; preds = %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx10ImdSession4Impl13keepOldValuesEv(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((240, 244)) %0) local_unnamed_addr #14 align 2 {
+define void @_ZN3gmx10ImdSession4Impl13keepOldValuesEv(ptr nocapture noundef nonnull align 8 dereferenceable(296) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 240
@@ -2483,7 +2483,7 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx10ImdSession4ImplC2ERKNS_8MDLoggerE(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 1), (8, 44), (48, 129), (136, 148), (152, 172), (176, 216), (240, 244), (248, 296)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 {
+define void @_ZN3gmx10ImdSession4ImplC2ERKNS_8MDLoggerE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2937,7 +2937,7 @@ _ZN3gmxL15shift_positionsEPA3_KfPA3_fPKii.exit:   ; preds = %88, %69, %61, %.pre
 declare float @llvm.fmuladd.f32(float, float, float) #17
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx10ImdSession4Impl26prepareForPositionAssemblyEPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((48, 88)) %0, ptr nocapture noundef readonly %1, ptr nocapture readonly %2, ptr nocapture readnone %3) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx10ImdSession4Impl26prepareForPositionAssemblyEPK9t_commrecNS_8ArrayRefIKNS_11BasicVectorIfEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(296) %0, ptr nocapture noundef readonly %1, ptr nocapture readonly %2, ptr nocapture readnone %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8

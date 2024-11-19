@@ -9590,7 +9590,7 @@ ehcleanup:                                        ; preds = %if.then5.i.i13, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14StrandExecutor6createESt10shared_ptrINS_13StrandContextEENS_8Executor9KeepAliveIS4_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Executor::KeepAlive.135") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef %context, ptr nocapture noundef %parentExecutor) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14StrandExecutor6createESt10shared_ptrINS_13StrandContextEENS_8Executor9KeepAliveIS4_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.folly::Executor::KeepAlive.135") align 8 %agg.result, ptr nocapture noundef %context, ptr nocapture noundef %parentExecutor) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12__shared_ptrIN5folly13StrandContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #38
   %refCount_.i = getelementptr inbounds i8, ptr %call, i64 8
@@ -9734,7 +9734,7 @@ _ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit13:     ; preds = %if.then5.i.i10, %lp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly14StrandExecutorC1ESt10shared_ptrINS_13StrandContextEENS_8Executor9KeepAliveIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef %context, ptr nocapture noundef %parent) unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14StrandExecutorC1ESt10shared_ptrINS_13StrandContextEENS_8Executor9KeepAliveIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef %context, ptr nocapture noundef %parent) unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14StrandExecutorE, i64 72), ptr %this, align 8, !tbaa !16
   %refCount_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -9898,7 +9898,7 @@ _ZN5folly14StrandExecutor16keepAliveReleaseEv.exit: ; preds = %_ZN5folly14Strand
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly14StrandExecutorC2ESt10shared_ptrINS_13StrandContextEENS_8Executor9KeepAliveIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %context, ptr nocapture noundef %parent) unnamed_addr #34 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14StrandExecutorC2ESt10shared_ptrINS_13StrandContextEENS_8Executor9KeepAliveIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %context, ptr nocapture noundef %parent) unnamed_addr #34 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16

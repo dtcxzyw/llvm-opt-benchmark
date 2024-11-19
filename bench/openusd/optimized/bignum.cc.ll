@@ -24,7 +24,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZNK32pxrInternal_v0_24__
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt16Et(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) initializes((0, 4)) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt16Et(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   store i16 0, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %3, align 2
@@ -43,7 +43,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) initializes((0, 4)) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignUInt64Em(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   store i16 0, ptr %0, align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %3, align 2
@@ -77,7 +77,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignBignumERKS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) initializes((2, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum12AssignBignumERKS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(516) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(516) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -110,7 +110,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr nocapture noundef nonnull align 4 dereferenceable(516) initializes((0, 4)) %0, ptr nocapture readonly %1, i32 %2) local_unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum19AssignDecimalStringENS0_6VectorIKcEE(ptr nocapture noundef nonnull align 4 dereferenceable(516) %0, ptr nocapture readonly %1, i32 %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::pxr_double_conversion::Bignum", align 4
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::pxr_double_conversion::Bignum", align 4
   store i16 0, ptr %0, align 4
@@ -656,7 +656,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum15AssignHexStringENS0_6VectorIKcEE(ptr nocapture noundef nonnull align 4 dereferenceable(516) initializes((0, 4)) %0, ptr nocapture readonly %1, i32 %2) local_unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum15AssignHexStringENS0_6VectorIKcEE(ptr nocapture noundef nonnull align 4 dereferenceable(516) %0, ptr nocapture readonly %1, i32 %2) local_unnamed_addr #4 align 2 {
   store i16 0, ptr %0, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %4, align 2
@@ -1675,7 +1675,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum5ClampEv.exit
 declare void @abort() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum17AssignPowerUInt16Eti(ptr nocapture noundef nonnull align 4 dereferenceable(516) initializes((0, 4)) %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversion6Bignum17AssignPowerUInt16Eti(ptr nocapture noundef nonnull align 4 dereferenceable(516) %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %8
 

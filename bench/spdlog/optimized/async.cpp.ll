@@ -240,7 +240,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN6spdlog7details11thread_poolD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6spdlog7details11thread_poolD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6spdlog12async_loggerC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt10shared_ptrINS_5sinks4sinkEEESt8weak_ptrINS_7details11thread_poolEENS_21async_overflow_policyE(ptr noundef nonnull align 8 dereferenceable(248) initializes((208, 224)) %this, ptr noundef nonnull %logger_name, ptr %sinks_list.coerce0, i64 %sinks_list.coerce1, ptr nocapture noundef %tp, i32 noundef %overflow_policy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6spdlog12async_loggerC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt16initializer_listISt10shared_ptrINS_5sinks4sinkEEESt8weak_ptrINS_7details11thread_poolEENS_21async_overflow_policyE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull %logger_name, ptr %sinks_list.coerce0, i64 %sinks_list.coerce1, ptr nocapture noundef %tp, i32 noundef %overflow_policy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -320,7 +320,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6spdlog12async_loggerC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_5sinks4sinkEESt8weak_ptrINS_7details11thread_poolEENS_21async_overflow_policyE(ptr noundef nonnull align 8 dereferenceable(248) initializes((208, 224)) %this, ptr noundef nonnull %logger_name, ptr nocapture noundef %single_sink, ptr nocapture noundef %tp, i32 noundef %overflow_policy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6spdlog12async_loggerC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_5sinks4sinkEESt8weak_ptrINS_7details11thread_poolEENS_21async_overflow_policyE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull %logger_name, ptr nocapture noundef %single_sink, ptr nocapture noundef %tp, i32 noundef %overflow_policy) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca [1 x %"class.std::shared_ptr"], align 8
@@ -2223,7 +2223,7 @@ unreachable:                                      ; preds = %invoke.cont11
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6spdlog12async_logger5cloneENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.34") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %new_name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6spdlog12async_logger5cloneENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.34") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %new_name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN6spdlog12async_loggerEED2Ev.exit:
   %__a.i = alloca %"class.std::allocator.50", align 1
   %cloned = alloca %"class.std::shared_ptr.28", align 8
@@ -2305,7 +2305,7 @@ declare void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6spdlog7details11thread_poolC2EmmSt8functionIFvvEES4_(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 40)) %this, i64 noundef %q_max_items, i64 noundef %threads_n, ptr noundef %on_thread_start, ptr noundef %on_thread_stop) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6spdlog7details11thread_poolC2EmmSt8functionIFvvEES4_(ptr noundef nonnull align 8 dereferenceable(224) %this, i64 noundef %q_max_items, i64 noundef %threads_n, ptr noundef %on_thread_start, ptr noundef %on_thread_stop) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i.i.i = alloca %"class.std::unique_ptr", align 8
   %agg.tmp.i.i.i.i = alloca %"class.std::unique_ptr", align 8
@@ -3039,7 +3039,7 @@ terminate.lpad.i.i27:                             ; preds = %if.then.i.i25
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6spdlog7details11thread_poolC2Emm(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 40)) %this, i64 noundef %q_max_items, i64 noundef %threads_n) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6spdlog7details11thread_poolC2Emm(ptr noundef nonnull align 8 dereferenceable(224) %this, i64 noundef %q_max_items, i64 noundef %threads_n) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function.37", align 8
   %agg.tmp2 = alloca %"class.std::function.37", align 8
@@ -6925,7 +6925,7 @@ declare void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14defaul
 declare void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN6spdlog7details11thread_poolC1EmmSt8functionIFvvEES8_E3$_0EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN6spdlog7details11thread_poolC1EmmSt8functionIFvvEES8_E3$_0EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN6spdlog7details11thread_poolC1EmmSt8functionIFvvEES8_E3$_0EEEEEE", i64 16), ptr %this, align 8
   %_M_manager.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -6969,7 +6969,7 @@ terminate.lpad.i.i5.i.i.i.i.i:                    ; preds = %if.then.i.i3.i.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN6spdlog7details11thread_poolC1EmmSt8functionIFvvEES8_E3$_0EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN6spdlog7details11thread_poolC1EmmSt8functionIFvvEES8_E3$_0EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN6spdlog7details11thread_poolC1EmmSt8functionIFvvEES8_E3$_0EEEEEE", i64 16), ptr %this, align 8
   %_M_manager.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64

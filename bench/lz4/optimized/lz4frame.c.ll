@@ -2342,7 +2342,7 @@ if.end:                                           ; preds = %if.end.i19, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @LZ4F_resetDecompressionContext(ptr nocapture noundef writeonly initializes((68, 80), (128, 144), (264, 268)) %dctx) local_unnamed_addr #7 {
+define void @LZ4F_resetDecompressionContext(ptr nocapture noundef writeonly %dctx) local_unnamed_addr #7 {
 entry:
   %dStage = getelementptr inbounds i8, ptr %dctx, i64 68
   store i32 0, ptr %dStage, align 4

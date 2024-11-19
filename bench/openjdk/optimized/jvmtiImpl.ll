@@ -670,7 +670,7 @@ _ZN17GrowableArrayViewIP15GrowableElementE6removeERKS1_.exit: ; preds = %21, %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13GrowableCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN13GrowableCacheC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
@@ -793,7 +793,7 @@ define hidden void @_ZN13GrowableCache5clearEv(ptr nocapture noundef nonnull ali
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13GrowableCache10initializeEPvPFvS0_PPhE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 16), (24, 32)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13GrowableCache10initializeEPvPFvS0_PPhE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %2, ptr %4, align 8
@@ -924,7 +924,7 @@ _ZN26GrowableArrayWithAllocatorIP15GrowableElement13GrowableArrayIS1_EE6appendER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15JvmtiBreakpointC2EP6Methodl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 20), (24, 32)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15JvmtiBreakpointC2EP6Methodl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15JvmtiBreakpoint, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -961,7 +961,7 @@ _ZN9OopHandleC2EP10OopStorageP7oopDesc.exit:      ; preds = %3
 declare noundef ptr @_ZN11JvmtiExport17jvmti_oop_storageEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15JvmtiBreakpointD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15JvmtiBreakpointD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15JvmtiBreakpoint, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call noundef ptr @_ZN11JvmtiExport17jvmti_oop_storageEv() #17
@@ -982,7 +982,7 @@ _ZN9OopHandle7releaseEP10OopStorage.exit:         ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15JvmtiBreakpointD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15JvmtiBreakpointD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTV15JvmtiBreakpoint, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = tail call noundef ptr @_ZN11JvmtiExport17jvmti_oop_storageEv() #17
@@ -1004,7 +1004,7 @@ _ZN15JvmtiBreakpointD2Ev.exit:                    ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15JvmtiBreakpoint4copyERS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 20)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15JvmtiBreakpoint4copyERS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1784,7 +1784,7 @@ _ZN20JvmtiBreakpointCache4findER15JvmtiBreakpoint.exit.thread: ; preds = %17, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16JvmtiBreakpointsC2EPFvPvPPhE(ptr noundef nonnull align 8 dereferenceable(40) initializes((16, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16JvmtiBreakpointsC2EPFvPvPPhE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 16, i1 false)
@@ -2239,7 +2239,7 @@ define hidden void @_ZN23JvmtiCurrentBreakpoints12listener_funEPvPPh(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20VM_BaseGetOrSetLocalC2EP10JavaThreadii9BasicType6jvaluebb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 33), (40, 58), (60, 64)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, i64 %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #2 align 2 {
+define hidden void @_ZN20VM_BaseGetOrSetLocalC2EP10JavaThreadii9BasicType6jvaluebb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, i64 %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #2 align 2 {
   %9 = zext i1 %6 to i8
   %10 = zext i1 %7 to i8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3209,7 +3209,7 @@ define hidden noundef zeroext i1 @_ZNK20VM_BaseGetOrSetLocal26allow_nested_vm_op
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadii9BasicTypeb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 33), (40, 58), (60, 89)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
+define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadii9BasicTypeb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
   %7 = zext i1 %5 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %8, align 8
@@ -3236,7 +3236,7 @@ define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadii9BasicTypeb(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadii9BasicType6jvalueb(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 33), (40, 58), (60, 89)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, i64 %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadii9BasicType6jvalueb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i8 noundef zeroext %4, i64 %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = zext i1 %6 to i8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
@@ -3294,7 +3294,7 @@ _ZN13EscapeBarrierC2EbP10JavaThreadS1_.exit:      ; preds = %26, %33, %.critedge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadS1_iib(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 33), (40, 58), (60, 89)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN16VM_GetOrSetLocalC2EP10JavaThreadS1_iib(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %5 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %8, align 8
@@ -3451,7 +3451,7 @@ _ZN16VM_GetOrSetLocal10get_vframeEv.exit:         ; preds = %.lr.ph.i, %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14VM_GetReceiverC2EP10JavaThreadS1_ib(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 33), (40, 58), (60, 89)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN14VM_GetReceiverC2EP10JavaThreadS1_ib(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %4 to i8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8
@@ -3496,7 +3496,7 @@ _ZN16VM_GetOrSetLocalC2EP10JavaThreadS1_iib.exit: ; preds = %5, %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN29VM_VirtualThreadGetOrSetLocalC2EP8JvmtiEnv6Handleii9BasicTypeb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 33), (40, 58), (60, 80)) %0, ptr noundef %1, ptr %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #2 align 2 {
+define hidden void @_ZN29VM_VirtualThreadGetOrSetLocalC2EP8JvmtiEnv6Handleii9BasicTypeb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #2 align 2 {
   %8 = zext i1 %6 to i8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
@@ -3523,7 +3523,7 @@ define hidden void @_ZN29VM_VirtualThreadGetOrSetLocalC2EP8JvmtiEnv6Handleii9Bas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN29VM_VirtualThreadGetOrSetLocalC2EP8JvmtiEnv6Handleii9BasicType6jvalueb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 33), (40, 58), (60, 80)) %0, ptr noundef %1, ptr %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i64 %6, i1 noundef zeroext %7) unnamed_addr #2 align 2 {
+define hidden void @_ZN29VM_VirtualThreadGetOrSetLocalC2EP8JvmtiEnv6Handleii9BasicType6jvalueb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr %2, i32 noundef %3, i32 noundef %4, i8 noundef zeroext %5, i64 %6, i1 noundef zeroext %7) unnamed_addr #2 align 2 {
   %9 = zext i1 %7 to i8
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %10, align 8
@@ -3554,7 +3554,7 @@ define hidden void @_ZN29VM_VirtualThreadGetOrSetLocalC2EP8JvmtiEnv6Handleii9Bas
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN29VM_VirtualThreadGetOrSetLocalC2EP8JvmtiEnv6HandleP10JavaThreadiib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 33), (40, 58), (60, 80)) %0, ptr noundef %1, ptr %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #2 align 2 {
+define hidden void @_ZN29VM_VirtualThreadGetOrSetLocalC2EP8JvmtiEnv6HandleP10JavaThreadiib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #2 align 2 {
   %8 = zext i1 %6 to i8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %9, align 8
@@ -3852,7 +3852,7 @@ declare void @_ZN12vframeStreamC1EP7oopDesc6Handle(ptr noundef nonnull align 8 d
 declare noundef ptr @_ZN12JvmtiEnvBase28check_and_skip_hidden_framesEP7oopDescP10javaVFrame(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN27VM_VirtualThreadGetReceiverC2EP8JvmtiEnv6HandleP10JavaThreadib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 33), (40, 58), (60, 80)) %0, ptr noundef %1, ptr %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
+define hidden void @_ZN27VM_VirtualThreadGetReceiverC2EP8JvmtiEnv6HandleP10JavaThreadib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef %1, ptr %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
   %7 = zext i1 %5 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %8, align 8
@@ -3900,7 +3900,7 @@ define hidden void @_ZN19JvmtiSuspendControl5printEv() local_unnamed_addr #6 ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18JvmtiDeferredEvent26compiled_method_load_eventEP7nmethod(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.JvmtiDeferredEvent) align 8 initializes((0, 4), (8, 16)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN18JvmtiDeferredEvent26compiled_method_load_eventEP7nmethod(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.JvmtiDeferredEvent) align 8 %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   store i32 1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -3908,7 +3908,7 @@ define hidden void @_ZN18JvmtiDeferredEvent26compiled_method_load_eventEP7nmetho
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18JvmtiDeferredEvent28compiled_method_unload_eventEP10_jmethodIDPKv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.JvmtiDeferredEvent) align 8 initializes((0, 4), (8, 24)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN18JvmtiDeferredEvent28compiled_method_unload_eventEP10_jmethodIDPKv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.JvmtiDeferredEvent) align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #2 align 2 {
   store i32 2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -3918,7 +3918,7 @@ define hidden void @_ZN18JvmtiDeferredEvent28compiled_method_unload_eventEP10_jm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18JvmtiDeferredEvent28dynamic_code_generated_eventEPKcPKvS3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.JvmtiDeferredEvent) align 8 initializes((0, 4), (8, 32)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18JvmtiDeferredEvent28dynamic_code_generated_eventEPKcPKvS3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.JvmtiDeferredEvent) align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   store i32 3, ptr %0, align 8
   %5 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 9) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3933,7 +3933,7 @@ define hidden void @_ZN18JvmtiDeferredEvent28dynamic_code_generated_eventEPKcPKv
 declare noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18JvmtiDeferredEvent18class_unload_eventEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.JvmtiDeferredEvent) align 8 initializes((0, 4), (8, 16)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18JvmtiDeferredEvent18class_unload_eventEPKc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.JvmtiDeferredEvent) align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   store i32 4, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN2os6strdupEPKc8MEMFLAGS(ptr noundef %1, i8 noundef zeroext 9) #17
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4121,7 +4121,7 @@ define hidden void @_ZN23JvmtiDeferredEventQueue7enqueueE18JvmtiDeferredEvent(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23JvmtiDeferredEventQueue7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.JvmtiDeferredEvent) align 8 initializes((0, 4)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN23JvmtiDeferredEventQueue7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.JvmtiDeferredEvent) align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6

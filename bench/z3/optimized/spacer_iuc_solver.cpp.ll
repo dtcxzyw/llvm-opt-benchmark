@@ -2501,7 +2501,7 @@ declare void @_ZN10statistics6updateEPKcd(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6spacer10iuc_solver16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(398) initializes((240, 248), (264, 272), (288, 296), (312, 320)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer10iuc_solver16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(398) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_elapsed.i = getelementptr inbounds i8, ptr %this, i64 240
   store i64 0, ptr %m_elapsed.i, align 8

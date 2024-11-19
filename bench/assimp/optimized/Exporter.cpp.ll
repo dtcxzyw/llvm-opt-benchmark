@@ -471,7 +471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp12BlobIOStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp12BlobIOStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp12BlobIOStreamE, i64 16), ptr %this, align 8
@@ -572,7 +572,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp12BlobIOStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define hidden void @_ZN6Assimp12BlobIOStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6Assimp12BlobIOStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) #29
   tail call void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef nonnull %this) #29
@@ -3565,7 +3565,7 @@ for.end:                                          ; preds = %for.inc, %entry, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Assimp16ExportPropertiesC2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((8, 12), (16, 24)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp16ExportPropertiesC2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %0, align 8
@@ -3621,7 +3621,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp16ExportPropertiesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(240) initializes((8, 12), (16, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp16ExportPropertiesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i68 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::function<void *(void *)>>, std::_Select1st<std::pair<const unsigned int, std::function<void *(void *)>>>, std::less<unsigned int>>::_Alloc_node", align 8
   %__an.i.i.i48 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, aiMatrix4x4t<float>>, std::_Select1st<std::pair<const unsigned int, aiMatrix4x4t<float>>>, std::less<unsigned int>>::_Alloc_node", align 8

@@ -880,7 +880,7 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @_ZN6duckdb21BoundWindowExpressionC1ENS_14ExpressionTypeENS_11LogicalTypeENS_10unique_ptrINS_17AggregateFunctionESt14default_deleteIS4_ELb1EEENS3_INS_12FunctionDataES5_IS8_ELb1EEE = unnamed_addr alias void (ptr, i8, ptr, ptr, ptr), ptr @_ZN6duckdb21BoundWindowExpressionC2ENS_14ExpressionTypeENS_11LogicalTypeENS_10unique_ptrINS_17AggregateFunctionESt14default_deleteIS4_ELb1EEENS3_INS_12FunctionDataES5_IS8_ELb1EEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb15BoundExpressionC2ENS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 10)) %this, ptr nocapture noundef %expr_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb15BoundExpressionC2ENS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef %expr_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type2.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %type2.i.i, align 8, !tbaa !3

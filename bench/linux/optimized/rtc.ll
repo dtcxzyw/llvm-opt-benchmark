@@ -123,7 +123,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mach_get_cmos_time(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @mach_get_cmos_time(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.rtc_time, align 4
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %2) #6
   %3 = load i8, ptr @pm_trace_rtc_abused, align 1, !range !6, !noundef !7

@@ -79,7 +79,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.31 = private unnamed_addr constant [40 x i8] c"Could not call the sapi_header_callback\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @sapi_startup(ptr nocapture noundef initializes((256, 264)) %0) local_unnamed_addr #0 {
+define void @sapi_startup(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr null, ptr %2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) @sapi_module, ptr noundef nonnull align 8 dereferenceable(280) %0, i64 280, i1 false)
@@ -498,7 +498,7 @@ define noalias ptr @sapi_get_default_content_type() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias ptr @get_default_content_type(i32 noundef range(i32 0, 15) %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #0 {
+define internal fastcc noalias ptr @get_default_content_type(i32 noundef range(i32 0, 15) %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 400), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %4
@@ -571,7 +571,7 @@ define internal fastcc noalias ptr @get_default_content_type(i32 noundef range(i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @sapi_get_default_content_type_header(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
+define void @sapi_get_default_content_type_header(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = call fastcc ptr @get_default_content_type(i32 noundef 14, ptr noundef %2)
   store ptr %3, ptr %0, align 8

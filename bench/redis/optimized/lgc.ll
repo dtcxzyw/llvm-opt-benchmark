@@ -1264,7 +1264,7 @@ sw.epilog:                                        ; preds = %if.end12, %tailrecu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaC_barrierback(ptr nocapture noundef readonly %L, ptr noundef initializes((56, 64)) %t) local_unnamed_addr #3 {
+define hidden void @luaC_barrierback(ptr nocapture noundef readonly %L, ptr noundef %t) local_unnamed_addr #3 {
 entry:
   %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4
@@ -1281,7 +1281,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaC_link(ptr nocapture noundef readonly %L, ptr noundef initializes((0, 8)) %o, i8 noundef zeroext %tt) local_unnamed_addr #3 {
+define hidden void @luaC_link(ptr nocapture noundef readonly %L, ptr noundef %o, i8 noundef zeroext %tt) local_unnamed_addr #3 {
 entry:
   %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4
@@ -1300,7 +1300,7 @@ entry:
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @luaC_linkupval(ptr nocapture noundef readonly %L, ptr noundef initializes((0, 8)) %uv) local_unnamed_addr #2 {
+define hidden void @luaC_linkupval(ptr nocapture noundef readonly %L, ptr noundef %uv) local_unnamed_addr #2 {
 entry:
   %l_G = getelementptr inbounds i8, ptr %L, i64 32
   %0 = load ptr, ptr %l_G, align 8, !tbaa !4

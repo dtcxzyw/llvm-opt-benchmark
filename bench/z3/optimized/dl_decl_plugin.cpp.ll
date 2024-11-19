@@ -255,7 +255,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog14dl_decl_pluginC2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 20)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog14dl_decl_pluginC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %m_manager.i, align 8
@@ -4822,7 +4822,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7datalog12dl_decl_utilC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog12dl_decl_utilC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_arith = getelementptr inbounds i8, ptr %this, i64 8

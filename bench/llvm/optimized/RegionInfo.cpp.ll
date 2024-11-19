@@ -9451,7 +9451,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm6RegionC2EPNS_10BasicBlockES2_PNS_10RegionInfoEPNS_13DominatorTreeEPS0_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 64), (72, 76), (80, 88)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm6RegionC2EPNS_10BasicBlockES2_PNS_10RegionInfoEPNS_13DominatorTreeEPS0_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #9 align 2 {
   %7 = ptrtoint ptr %1 to i64
   %8 = or i64 %7, 4
   store i64 %8, ptr %0, align 8
@@ -9539,7 +9539,7 @@ _ZN4llvm10RegionBaseINS_12RegionTraitsINS_8FunctionEEEED2Ev.exit: ; preds = %_ZS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm10RegionInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 8), (32, 60)) %0) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm10RegionInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %2, i8 0, i64 28, i1 false)
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm10RegionInfoE, i64 16), ptr %0, align 8
@@ -9547,7 +9547,7 @@ define dso_local void @_ZN4llvm10RegionInfoC2Ev(ptr nocapture noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10RegionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10RegionInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm14RegionInfoBaseINS_12RegionTraitsINS_8FunctionEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -10166,7 +10166,7 @@ define dso_local void @_ZN4llvm10RegionInfo16updateStatisticsEPNS_6RegionE(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10RegionInfo11recalculateERNS_8FunctionEPNS_13DominatorTreeEPNS_17PostDominatorTreeEPNS_17DominanceFrontierE(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 32)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10RegionInfo11recalculateERNS_8FunctionEPNS_13DominatorTreeEPNS_17PostDominatorTreeEPNS_17DominanceFrontierE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::DenseMap.127", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -10206,7 +10206,7 @@ define dso_local void @_ZN4llvm10RegionInfo11recalculateERNS_8FunctionEPNS_13Dom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RegionInfoPassC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14RegionInfoPassC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.381, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10276,7 +10276,7 @@ _ZN4llvm9call_onceIRFPvRNS_12PassRegistryEEJSt17reference_wrapperIS2_EEEEvRSt9on
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RegionInfoPassD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14RegionInfoPassD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm14RegionInfoPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm10RegionInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %2) #21
@@ -10501,7 +10501,7 @@ _ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_8FunctionEEEE14verifyAnalysisEv.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm14RegionInfoPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm14RegionInfoPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage23addRequiredTransitiveIDERc(ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4llvm24DominatorTreeWrapperPass2IDE) #21
@@ -10641,7 +10641,7 @@ define dso_local void @_ZN4llvm18RegionInfoAnalysis3runERNS_8FunctionERNS_15Anal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm21RegionInfoPrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm21RegionInfoPrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #9 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

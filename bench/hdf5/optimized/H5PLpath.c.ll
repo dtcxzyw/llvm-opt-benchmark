@@ -696,7 +696,7 @@ H5PL__path_table_iterate_process_path.exit:       ; preds = %.thread.i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5PL__find_plugin_in_path_table(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 1)) %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @H5PL__find_plugin_in_path_table(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   store i8 0, ptr %1, align 1
   store ptr null, ptr %2, align 8

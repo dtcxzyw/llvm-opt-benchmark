@@ -232,7 +232,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14LoopRotatePassC2Ebb(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(2) initializes((0, 2)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm14LoopRotatePassC2Ebb(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(2) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #2 align 2 {
   %4 = zext i1 %1 to i8
   %5 = zext i1 %2 to i8
   store i8 %4, ptr %0, align 1

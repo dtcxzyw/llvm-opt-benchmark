@@ -153,7 +153,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4base18StatisticsRecorderC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base18StatisticsRecorderC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKSt17_Rb_tree_iteratorISt4pairIKNS0_9StringKeyEPNS_13HistogramBaseEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %iter, i1 noundef zeroext %include_persistent) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKSt17_Rb_tree_iteratorISt4pairIKNS0_9StringKeyEPNS_13HistogramBaseEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(9) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %iter, i1 noundef zeroext %include_persistent) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %include_persistent to i8
   %0 = load i64, ptr %iter, align 8
@@ -288,7 +288,7 @@ return:                                           ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %rhs) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4base18StatisticsRecorder17HistogramIteratorC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(9) %rhs) unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %rhs, align 8
   store i64 %0, ptr %this, align 8
@@ -3282,7 +3282,7 @@ declare noundef ptr @_ZN4base24GlobalHistogramAllocator3GetEv() local_unnamed_ad
 declare void @_ZN4base24GlobalHistogramAllocator36ImportHistogramsToStatisticsRecorderEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base18StatisticsRecorderC2Ev(ptr noundef nonnull align 8 dereferenceable(25) initializes((0, 25)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base18StatisticsRecorderC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %existing_callbacks_ = getelementptr inbounds i8, ptr %this, i64 8
   %existing_ranges_ = getelementptr inbounds i8, ptr %this, i64 16

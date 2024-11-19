@@ -219,7 +219,7 @@ $_ZNSt8_Rb_treeIjSt4pairIKjN4llvm3MVTEESt10_Select1stIS4_ESt4lessIjESaIS4_EE8_M_
 @_ZN4llvm18CodeGenInstructionC1EPNS_6RecordE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm18CodeGenInstructionC2EPNS_6RecordE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14CGIOperandListC2EPNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(67) initializes((0, 8), (16, 67)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14CGIOperandListC2EPNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(67) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -2518,7 +2518,7 @@ define dso_local void @_ZN4llvm14CGIOperandList22ProcessDisableEncodingENS_9Stri
 declare void @_ZN4llvm8getTokenENS_9StringRefES0_(ptr dead_on_unwind writable sret(%"struct.std::pair.57") align 8, ptr, i64, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18CodeGenInstructionC2EPNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(236) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18CodeGenInstructionC2EPNS_6RecordE(ptr noundef nonnull align 8 dereferenceable(236) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"struct.std::pair.57", align 8
   %5 = alloca %"class.llvm::StringRef", align 8

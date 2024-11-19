@@ -244,7 +244,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123DependencyGraphCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_123DependencyGraphCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN12_GLOBAL__N_123DependencyGraphCallbackE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -322,7 +322,7 @@ _ZN4llvm9SetVectorIN5clang12FileEntryRefENS_11SmallVectorIS2_Lj0EEENS_8DenseSetI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123DependencyGraphCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_123DependencyGraphCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_123DependencyGraphCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 144) #15
   ret void

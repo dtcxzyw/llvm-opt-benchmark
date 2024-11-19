@@ -267,7 +267,7 @@ declare i64 @sendmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @__errno_location() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN9grpc_core21TcpZerocopySendRecord12PopulateIovsEPmS1_S1_P5iovec(ptr nocapture noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef writeonly initializes((0, 8)) %unwind_slice_idx, ptr nocapture noundef writeonly initializes((0, 8)) %unwind_byte_idx, ptr nocapture noundef %sending_length, ptr nocapture noundef writeonly %iov) local_unnamed_addr #5 align 2 {
+define noundef i64 @_ZN9grpc_core21TcpZerocopySendRecord12PopulateIovsEPmS1_S1_P5iovec(ptr nocapture noundef nonnull align 8 dereferenceable(288) %this, ptr nocapture noundef writeonly %unwind_slice_idx, ptr nocapture noundef writeonly %unwind_byte_idx, ptr nocapture noundef %sending_length, ptr nocapture noundef writeonly %iov) local_unnamed_addr #5 align 2 {
 entry:
   %out_offset_ = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load i64, ptr %out_offset_, align 8

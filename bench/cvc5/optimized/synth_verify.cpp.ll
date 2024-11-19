@@ -240,7 +240,7 @@ declare void @_ZN4cvc58internal3smt11SetDefaults15disableCheckingERNS0_7OptionsE
 declare void @_ZN4cvc58internal7OptionsD1Ev(ptr noundef nonnull align 8 dereferenceable(392)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11SynthVerifyD2Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11SynthVerifyD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers11SynthVerifyE, i64 16), ptr %this, align 8
   %d_subOptions = getelementptr inbounds i8, ptr %this, i64 24
@@ -249,7 +249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11SynthVerifyD0Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11SynthVerifyD0Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers11SynthVerifyE, i64 16), ptr %this, align 8
   %d_subOptions.i = getelementptr inbounds i8, ptr %this, i64 24

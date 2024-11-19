@@ -14505,7 +14505,7 @@ return:                                           ; preds = %_ZNK6google8protobu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler3cpp18AnnotatedAccessorsEPKNS0_15FieldDescriptorEN4absl12lts_202308024SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEESt8optionalINS0_2io19AnnotationCollector8SemanticEE(ptr noalias sret(%"class.std::vector.205") align 8 initializes((0, 24)) %agg.result, ptr noundef %field, ptr readonly %prefixes.coerce0, i64 %prefixes.coerce1, i64 %semantic.coerce) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler3cpp18AnnotatedAccessorsEPKNS0_15FieldDescriptorEN4absl12lts_202308024SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEESt8optionalINS0_2io19AnnotationCollector8SemanticEE(ptr noalias sret(%"class.std::vector.205") align 8 %agg.result, ptr noundef %field, ptr readonly %prefixes.coerce0, i64 %prefixes.coerce1, i64 %semantic.coerce) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %field_name = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.google::protobuf::io::Printer::Sub", align 8

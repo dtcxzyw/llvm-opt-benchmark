@@ -1109,7 +1109,7 @@ define void @cli_hashtab_clear(ptr nocapture noundef %0) local_unnamed_addr #0 {
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @cli_htu32_clear(ptr nocapture noundef initializes((16, 24)) %0) local_unnamed_addr #10 {
+define void @cli_htu32_clear(ptr nocapture noundef %0) local_unnamed_addr #10 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -1181,7 +1181,7 @@ cli_hashtab_clear.exit:                           ; preds = %._crit_edge.i, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cli_htu32_free(ptr nocapture noundef initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @cli_htu32_free(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   tail call void @mpool_free(ptr noundef %1, ptr noundef %3) #18
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -2133,7 +2133,7 @@ define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cli_hashset_init_noalloc(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #14 {
+define void @cli_hashset_init_noalloc(ptr nocapture noundef writeonly %0) local_unnamed_addr #14 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   ret void
 }

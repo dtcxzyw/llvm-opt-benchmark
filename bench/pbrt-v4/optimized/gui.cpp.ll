@@ -2056,7 +2056,7 @@ declare ptr @glfwGetPrimaryMonitor() local_unnamed_addr #2
 declare ptr @glfwGetVideoMode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4pbrt3GUI17cursorPosCallbackEP10GLFWwindowdd(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((208, 216)) %this, ptr nocapture noundef readnone %window, double noundef %xpos, double noundef %ypos) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4pbrt3GUI17cursorPosCallbackEP10GLFWwindowdd(ptr nocapture noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef readnone %window, double noundef %xpos, double noundef %ypos) local_unnamed_addr #6 align 2 {
 entry:
   %lastX = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load double, ptr %lastX, align 8
@@ -2076,7 +2076,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt3GUIC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7Vector2IiEENS_7Bounds3IfEE(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 5), (16, 20), (24, 32)) %this, ptr nocapture readnone %title, i64 %resolution.coerce, ptr nocapture noundef readonly byval(%"class.pbrt::Bounds3") align 8 %sceneBounds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt3GUIC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7Vector2IiEENS_7Bounds3IfEE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture readnone %title, i64 %resolution.coerce, ptr nocapture noundef readonly byval(%"class.pbrt::Bounds3") align 8 %sceneBounds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %resolution.sroa.0.0.extract.trunc = trunc i64 %resolution.coerce to i32
   %resolution.sroa.5.0.extract.shift = lshr i64 %resolution.coerce, 32
@@ -6138,7 +6138,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E9_M_invokeERKSt9_Any_dataOS1_"(ptr noalias nonnull sret(%"class.pbrt::Transform") align 4 initializes((0, 128)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readnone align 4 %__args) #1 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN4pbrt9TransformES1_EZNS0_3GUI11processKeysEvE4$_10E9_M_invokeERKSt9_Any_dataOS1_"(ptr noalias nonnull sret(%"class.pbrt::Transform") align 4 %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readnone align 4 %__args) #1 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %agg.result, i8 0, i64 128, i1 false), !alias.scope !191
   tail call void @_ZN4pbrt12SquareMatrixILi4EEC1Ev(ptr noundef nonnull align 4 dereferenceable(128) %agg.result)

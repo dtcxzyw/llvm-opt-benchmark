@@ -589,7 +589,7 @@ define void @_ZN11ShaderUtils17linkShaderProgramEj(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8AlignSetC2Ev(ptr noundef nonnull align 8 dereferenceable(688) initializes((32, 320), (400, 408)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8AlignSetC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(132) %2, i8 0, i64 56, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 88
@@ -3251,7 +3251,7 @@ _ZNSt6vectorIN3vcg8Matrix44IfEESaIS2_EE9push_backERKS2_.exit243: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8AlignSet6resizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(688) initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8AlignSet6resizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(688) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QSize, align 4
   %4 = alloca %class.QImage, align 8
   %5 = alloca %class.QImage, align 8

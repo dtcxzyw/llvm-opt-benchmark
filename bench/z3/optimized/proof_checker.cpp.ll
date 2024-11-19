@@ -325,7 +325,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13proof_checker15hyp_decl_pluginC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 20), (24, 56)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN13proof_checker15hyp_decl_pluginC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %m_manager.i, align 8
@@ -421,7 +421,7 @@ _ZN11ast_manager7dec_refEP3ast.exit21:            ; preds = %_ZN11ast_manager7de
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13proof_checker15hyp_decl_plugin11set_managerEP11ast_manageri(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((8, 20)) %this, ptr noundef %m, i32 noundef %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13proof_checker15hyp_decl_plugin11set_managerEP11ast_manageri(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %m, i32 noundef %id) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %domain.addr.i = alloca ptr, align 8
   %d.i = alloca [2 x ptr], align 16
@@ -1115,7 +1115,7 @@ if.end:                                           ; preds = %_ZN6vectorI12builti
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13proof_checkerC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(156) initializes((0, 24), (32, 64)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13proof_checkerC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(156) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %ref.tmp9 = alloca %"class.std::allocator", align 1
   %fam_name = alloca %class.symbol, align 8

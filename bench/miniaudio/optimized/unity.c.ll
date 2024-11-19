@@ -2823,7 +2823,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ma_async_notification_poll__on_signal(ptr nocapture noundef writeonly initializes((8, 12)) %pNotification) #0 {
+define internal void @ma_async_notification_poll__on_signal(ptr nocapture noundef writeonly %pNotification) #0 {
 entry:
   %signalled = getelementptr inbounds i8, ptr %pNotification, i64 8
   store i32 1, ptr %signalled, align 8
@@ -9093,7 +9093,7 @@ return:                                           ; preds = %for.inc, %for.inc.u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @ma_context_init__null(ptr nocapture readnone %pContext, ptr nocapture readnone %pConfig, ptr nocapture noundef writeonly initializes((0, 88)) %pCallbacks) #0 {
+define internal noundef i32 @ma_context_init__null(ptr nocapture readnone %pContext, ptr nocapture readnone %pConfig, ptr nocapture noundef writeonly %pCallbacks) #0 {
 entry:
   store ptr @ma_context_init__null, ptr %pCallbacks, align 8
   %onContextUninit = getelementptr inbounds i8, ptr %pCallbacks, i64 8
@@ -19284,7 +19284,7 @@ sw.epilog:                                        ; preds = %for.cond17.for.inc3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_biquad_config_init(ptr noalias nocapture writeonly sret(%struct.ma_biquad_config) align 8 initializes((0, 56)) %agg.result, i32 noundef %format, i32 noundef %channels, double noundef %b0, double noundef %b1, double noundef %b2, double noundef %a0, double noundef %a1, double noundef %a2) local_unnamed_addr #0 {
+define void @ma_biquad_config_init(ptr noalias nocapture writeonly sret(%struct.ma_biquad_config) align 8 %agg.result, i32 noundef %format, i32 noundef %channels, double noundef %b0, double noundef %b1, double noundef %b2, double noundef %a0, double noundef %a1, double noundef %a2) local_unnamed_addr #0 {
 entry:
   store i32 %format, ptr %agg.result, align 8
   %channels2 = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -28512,7 +28512,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_delay_config_init(ptr noalias nocapture writeonly sret(%struct.ma_delay_config) align 4 initializes((0, 28)) %agg.result, i32 noundef %channels, i32 noundef %sampleRate, i32 noundef %delayInFrames, float noundef %decay) local_unnamed_addr #0 {
+define void @ma_delay_config_init(ptr noalias nocapture writeonly sret(%struct.ma_delay_config) align 4 %agg.result, i32 noundef %channels, i32 noundef %sampleRate, i32 noundef %delayInFrames, float noundef %decay) local_unnamed_addr #0 {
 entry:
   store i32 %channels, ptr %agg.result, align 4
   %sampleRate2 = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -30822,7 +30822,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_atomic_vec3f_init(ptr nocapture noundef writeonly initializes((0, 16)) %v, <2 x float> %value.coerce0, float %value.coerce1) local_unnamed_addr #39 {
+define void @ma_atomic_vec3f_init(ptr nocapture noundef writeonly %v, <2 x float> %value.coerce0, float %value.coerce1) local_unnamed_addr #39 {
 entry:
   store <2 x float> %value.coerce0, ptr %v, align 4
   %value.sroa.2.0.v1.sroa_idx = getelementptr inbounds i8, ptr %v, i64 8
@@ -41597,7 +41597,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_data_converter_get_heap_layout(ptr noundef readonly %pConfig, ptr nocapture noundef nonnull initializes((0, 24)) %pHeapLayout) unnamed_addr #4 {
+define internal fastcc i32 @ma_data_converter_get_heap_layout(ptr noundef readonly %pConfig, ptr nocapture noundef nonnull %pHeapLayout) unnamed_addr #4 {
 entry:
   %heapLayout.i = alloca %struct.ma_channel_converter_heap_layout, align 8
   %channelConverterConfig = alloca %struct.ma_channel_converter_config, align 8
@@ -69161,7 +69161,7 @@ return:                                           ; preds = %if.end, %if.end4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_waveform_config_init(ptr noalias nocapture writeonly sret(%struct.ma_waveform_config) align 8 initializes((0, 32)) %agg.result, i32 noundef %format, i32 noundef %channels, i32 noundef %sampleRate, i32 noundef %type, double noundef %amplitude, double noundef %frequency) local_unnamed_addr #0 {
+define void @ma_waveform_config_init(ptr noalias nocapture writeonly sret(%struct.ma_waveform_config) align 8 %agg.result, i32 noundef %format, i32 noundef %channels, i32 noundef %sampleRate, i32 noundef %type, double noundef %amplitude, double noundef %frequency) local_unnamed_addr #0 {
 entry:
   store i32 %format, ptr %agg.result, align 8
   %channels2 = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -73780,7 +73780,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ma_resource_manager_inline_notification_init(ptr noundef %pResourceManager, ptr noundef nonnull initializes((0, 8), (104, 112)) %pNotification) unnamed_addr #4 {
+define internal fastcc void @ma_resource_manager_inline_notification_init(ptr noundef %pResourceManager, ptr noundef nonnull %pNotification) unnamed_addr #4 {
 entry:
   %pResourceManager1 = getelementptr inbounds i8, ptr %pNotification, i64 104
   store ptr %pResourceManager, ptr %pResourceManager1, align 8
@@ -79104,7 +79104,7 @@ return:                                           ; preds = %ma_node_get_output_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_node_read_pcm_frames(ptr noundef %pNode, i32 noundef range(i32 0, 256) %outputBusIndex, ptr noundef %pFramesOut, i32 noundef %frameCount, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %pFramesRead, i64 noundef %globalTime) unnamed_addr #4 {
+define internal fastcc i32 @ma_node_read_pcm_frames(ptr noundef %pNode, i32 noundef range(i32 0, 256) %outputBusIndex, ptr noundef %pFramesOut, i32 noundef %frameCount, ptr nocapture noundef nonnull writeonly %pFramesRead, i64 noundef %globalTime) unnamed_addr #4 {
 entry:
   %totalFramesRead = alloca i32, align 4
   %ppFramesIn = alloca [254 x ptr], align 16
@@ -79996,7 +79996,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @ma_node_get_heap_layout(ptr nocapture noundef readonly %pNodeGraph, ptr noundef readonly %pConfig, ptr nocapture noundef nonnull writeonly initializes((0, 40)) %pHeapLayout) unnamed_addr #17 {
+define internal fastcc range(i32 -2, 1) i32 @ma_node_get_heap_layout(ptr nocapture noundef readonly %pNodeGraph, ptr noundef readonly %pConfig, ptr nocapture noundef nonnull writeonly %pHeapLayout) unnamed_addr #17 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %pHeapLayout, i8 0, i64 40, i1 false)
   %cmp = icmp eq ptr %pConfig, null
@@ -81260,7 +81260,7 @@ return:                                           ; preds = %ma_node_get_state_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_data_source_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_data_source_node_config) align 8 initializes((0, 48)) %agg.result, ptr noundef %pDataSource) local_unnamed_addr #0 {
+define void @ma_data_source_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_data_source_node_config) align 8 %agg.result, ptr noundef %pDataSource) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -81415,7 +81415,7 @@ return:                                           ; preds = %if.end.i, %if.end, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_splitter_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_splitter_node_config) align 8 initializes((0, 48)) %agg.result, i32 noundef %channels) local_unnamed_addr #0 {
+define void @ma_splitter_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_splitter_node_config) align 8 %agg.result, i32 noundef %channels) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -81497,7 +81497,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_biquad_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_biquad_node_config) align 8 initializes((0, 96)) %agg.result, i32 noundef %channels, float noundef %b0, float noundef %b1, float noundef %b2, float noundef %a0, float noundef %a1, float noundef %a2) local_unnamed_addr #0 {
+define void @ma_biquad_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_biquad_node_config) align 8 %agg.result, i32 noundef %channels, float noundef %b0, float noundef %b1, float noundef %b2, float noundef %a0, float noundef %a1, float noundef %a2) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -81700,7 +81700,7 @@ return:                                           ; preds = %if.else7.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_lpf_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_lpf_node_config) align 8 initializes((0, 72)) %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %cutoffFrequency, i32 noundef %order) local_unnamed_addr #0 {
+define void @ma_lpf_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_lpf_node_config) align 8 %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %cutoffFrequency, i32 noundef %order) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -81809,7 +81809,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_hpf_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_hpf_node_config) align 8 initializes((0, 72)) %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %cutoffFrequency, i32 noundef %order) local_unnamed_addr #0 {
+define void @ma_hpf_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_hpf_node_config) align 8 %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %cutoffFrequency, i32 noundef %order) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -81918,7 +81918,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_bpf_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_bpf_node_config) align 8 initializes((0, 72)) %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %cutoffFrequency, i32 noundef %order) local_unnamed_addr #0 {
+define void @ma_bpf_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_bpf_node_config) align 8 %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %cutoffFrequency, i32 noundef %order) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -82027,7 +82027,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_notch_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_notch_node_config) align 8 initializes((0, 72)) %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %q, double noundef %frequency) local_unnamed_addr #0 {
+define void @ma_notch_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_notch_node_config) align 8 %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %q, double noundef %frequency) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -82160,7 +82160,7 @@ return:                                           ; preds = %if.else7.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_peak_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_peak_node_config) align 8 initializes((0, 80)) %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %gainDB, double noundef %q, double noundef %frequency) local_unnamed_addr #0 {
+define void @ma_peak_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_peak_node_config) align 8 %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %gainDB, double noundef %q, double noundef %frequency) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -82299,7 +82299,7 @@ return:                                           ; preds = %if.else7.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_loshelf_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_loshelf_node_config) align 8 initializes((0, 80)) %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %gainDB, double noundef %q, double noundef %frequency) local_unnamed_addr #0 {
+define void @ma_loshelf_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_loshelf_node_config) align 8 %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %gainDB, double noundef %q, double noundef %frequency) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -82432,7 +82432,7 @@ return:                                           ; preds = %if.else7.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_hishelf_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_hishelf_node_config) align 8 initializes((0, 80)) %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %gainDB, double noundef %q, double noundef %frequency) local_unnamed_addr #0 {
+define void @ma_hishelf_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_hishelf_node_config) align 8 %agg.result, i32 noundef %channels, i32 noundef %sampleRate, double noundef %gainDB, double noundef %q, double noundef %frequency) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -82565,7 +82565,7 @@ return:                                           ; preds = %if.else7.i.i.i, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_delay_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_delay_node_config) align 8 initializes((0, 68)) %agg.result, i32 noundef %channels, i32 noundef %sampleRate, i32 noundef %delayInFrames, float noundef %decay) local_unnamed_addr #0 {
+define void @ma_delay_node_config_init(ptr noalias nocapture writeonly sret(%struct.ma_delay_node_config) align 8 %agg.result, i32 noundef %channels, i32 noundef %sampleRate, i32 noundef %delayInFrames, float noundef %decay) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -82899,7 +82899,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -2, 1) i32 @ma_engine_node_get_heap_layout(ptr noundef readonly %pConfig, ptr nocapture noundef nonnull writeonly initializes((0, 40)) %pHeapLayout) unnamed_addr #27 {
+define internal fastcc range(i32 -2, 1) i32 @ma_engine_node_get_heap_layout(ptr noundef readonly %pConfig, ptr nocapture noundef nonnull writeonly %pHeapLayout) unnamed_addr #27 {
 entry:
   %heapLayout.i = alloca %struct.ma_node_heap_layout, align 8
   %baseNodeConfig = alloca %struct.ma_node_config, align 8
@@ -86621,7 +86621,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ma_sound_init_from_file_internal(ptr noundef %pEngine, ptr nocapture noundef readonly %pConfig, ptr noundef initializes((944, 952)) %pSound) local_unnamed_addr #4 {
+define i32 @ma_sound_init_from_file_internal(ptr noundef %pEngine, ptr nocapture noundef readonly %pConfig, ptr noundef %pSound) local_unnamed_addr #4 {
 entry:
   %config = alloca %struct.ma_sound_config, align 8
   %notifications = alloca %struct.ma_resource_manager_pipeline_notifications, align 8
@@ -86853,7 +86853,7 @@ return:                                           ; preds = %if.else.i55, %for.c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_sound_init_from_data_source_internal(ptr noundef %pEngine, ptr nocapture noundef nonnull readonly %pConfig, ptr noundef initializes((896, 904)) %pSound) unnamed_addr #4 {
+define internal fastcc i32 @ma_sound_init_from_data_source_internal(ptr noundef %pEngine, ptr nocapture noundef nonnull readonly %pConfig, ptr noundef %pSound) unnamed_addr #4 {
 entry:
   %cursor.i.i56 = alloca i64, align 8
   %cursor.i.i = alloca i64, align 8
@@ -93765,7 +93765,7 @@ return:                                           ; preds = %lor.lhs.false8.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @ma_dr_wav_take_ownership_of_metadata(ptr nocapture noundef initializes((184, 188)) %pWav) local_unnamed_addr #11 {
+define ptr @ma_dr_wav_take_ownership_of_metadata(ptr nocapture noundef %pWav) local_unnamed_addr #11 {
 entry:
   %pMetadata = getelementptr inbounds i8, ptr %pWav, i64 176
   %0 = load ptr, ptr %pMetadata, align 8
@@ -103202,7 +103202,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ma_dr_mp3dec_init(ptr nocapture noundef writeonly initializes((6152, 6153)) %dec) local_unnamed_addr #0 {
+define void @ma_dr_mp3dec_init(ptr nocapture noundef writeonly %dec) local_unnamed_addr #0 {
 entry:
   %header = getelementptr inbounds i8, ptr %dec, i64 6152
   store i8 0, ptr %header, align 4
@@ -103210,7 +103210,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 1153) i32 @ma_dr_mp3dec_decode_frame(ptr nocapture noundef initializes((6155, 6156)) %dec, ptr noundef readonly %mp3, i32 noundef %mp3_bytes, ptr noundef writeonly %pcm, ptr nocapture noundef %info) local_unnamed_addr #29 {
+define range(i32 0, 1153) i32 @ma_dr_mp3dec_decode_frame(ptr nocapture noundef %dec, ptr noundef readonly %mp3, i32 noundef %mp3_bytes, ptr noundef writeonly %pcm, ptr nocapture noundef %info) local_unnamed_addr #29 {
 entry:
   %co.i56.i.i.i = alloca [3 x float], align 4
   %si.i57.i.i.i = alloca [3 x float], align 4
@@ -111449,7 +111449,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_resource_manager_data_buffer_node_init_supply_decoded(ptr noundef readonly %pResourceManager, ptr noundef %pDataBufferNode, ptr noundef %pFilePath, ptr noundef %pFilePathW, i32 noundef %flags, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %ppDecoder) unnamed_addr #4 {
+define internal fastcc i32 @ma_resource_manager_data_buffer_node_init_supply_decoded(ptr noundef readonly %pResourceManager, ptr noundef %pDataBufferNode, ptr noundef %pFilePath, ptr noundef %pFilePathW, i32 noundef %flags, ptr nocapture noundef nonnull writeonly %ppDecoder) unnamed_addr #4 {
 entry:
   %format.i.i = alloca i32, align 4
   %channels.i.i = alloca i32, align 4
@@ -113116,7 +113116,7 @@ done:                                             ; preds = %ma_wait_for_operati
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -400, 1) i32 @ma_device_init__pulse(ptr noundef initializes((3424, 3456)) %pDevice, ptr nocapture noundef readonly %pConfig, ptr nocapture noundef %pDescriptorPlayback, ptr nocapture noundef %pDescriptorCapture) #4 {
+define internal range(i32 -400, 1) i32 @ma_device_init__pulse(ptr noundef %pDevice, ptr nocapture noundef readonly %pConfig, ptr nocapture noundef %pDescriptorPlayback, ptr nocapture noundef %pDescriptorCapture) #4 {
 entry:
   %actualStreamName.i = alloca [256 x i8], align 16
   %sinkInfo = alloca %struct.ma_pa_sink_info, align 8
@@ -114779,7 +114779,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ma_context_get_default_device_index__pulse(ptr nocapture noundef readonly %pContext, i32 noundef %deviceType, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %pIndex) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 1) i32 @ma_context_get_default_device_index__pulse(ptr nocapture noundef readonly %pContext, i32 noundef %deviceType, ptr nocapture noundef nonnull writeonly %pIndex) unnamed_addr #4 {
 entry:
   %sinkInfo = alloca %struct.ma_pa_sink_info, align 8
   %sourceInfo = alloca %struct.ma_pa_source_info, align 8
@@ -115398,7 +115398,7 @@ return:                                           ; preds = %if.end.i14, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @ma_device__pa_buffer_attr_new(ptr noalias nocapture nonnull writeonly align 4 initializes((0, 20)) %agg.result, i32 noundef %periodSizeInFrames, i32 noundef %periods, i32 %ss.0.val, i8 %ss.8.val) unnamed_addr #0 {
+define internal fastcc void @ma_device__pa_buffer_attr_new(ptr noalias nocapture nonnull writeonly align 4 %agg.result, i32 noundef %periodSizeInFrames, i32 noundef %periods, i32 %ss.0.val, i8 %ss.8.val) unnamed_addr #0 {
 entry:
   %0 = icmp ult i32 %ss.0.val, 10
   br i1 %0, label %switch.lookup, label %ma_format_from_pulse.exit
@@ -116238,7 +116238,7 @@ return:                                           ; preds = %ma_device_get_conte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ma_pulse_operation_complete_callback(ptr nocapture readnone %pStream, i32 noundef %success, ptr nocapture noundef writeonly initializes((0, 4)) %pUserData) #0 {
+define internal void @ma_pulse_operation_complete_callback(ptr nocapture readnone %pStream, i32 noundef %success, ptr nocapture noundef writeonly %pUserData) #0 {
 entry:
   store i32 %success, ptr %pUserData, align 4
   ret void
@@ -117726,7 +117726,7 @@ return:                                           ; preds = %if.end10, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -401, 1) i32 @ma_device_init__alsa(ptr noundef initializes((3424, 3480)) %pDevice, ptr nocapture noundef readonly %pConfig, ptr noundef %pDescriptorPlayback, ptr noundef %pDescriptorCapture) #4 {
+define internal range(i32 -401, 1) i32 @ma_device_init__alsa(ptr noundef %pDevice, ptr nocapture noundef readonly %pConfig, ptr noundef %pDescriptorPlayback, ptr noundef %pDescriptorCapture) #4 {
 entry:
   %0 = getelementptr inbounds i8, ptr %pDevice, i64 3424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %0, i8 0, i64 56, i1 false)
@@ -118776,7 +118776,7 @@ if.end27:                                         ; preds = %if.end27.sink.split
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -401, 1) i32 @ma_context_open_pcm__alsa(ptr noundef readonly %pContext, i32 noundef %shareMode, i32 noundef %deviceType, ptr noundef readonly %pDeviceID, i32 noundef range(i32 0, 524288) %openMode, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %ppPCM) unnamed_addr #4 {
+define internal fastcc range(i32 -401, 1) i32 @ma_context_open_pcm__alsa(ptr noundef readonly %pContext, i32 noundef %shareMode, i32 noundef %deviceType, ptr noundef readonly %pDeviceID, i32 noundef range(i32 0, 524288) %openMode, ptr nocapture noundef nonnull writeonly %ppPCM) unnamed_addr #4 {
 entry:
   %pPCM = alloca ptr, align 8
   %defaultDeviceNames = alloca [7 x ptr], align 16
@@ -123235,7 +123235,7 @@ return:                                           ; preds = %land.lhs.true, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -201, 1) i32 @ma_device_init__null(ptr noundef initializes((3424, 3776)) %pDevice, ptr nocapture noundef readonly %pConfig, ptr nocapture noundef %pDescriptorPlayback, ptr nocapture noundef %pDescriptorCapture) #4 {
+define internal range(i32 -201, 1) i32 @ma_device_init__null(ptr noundef %pDevice, ptr nocapture noundef readonly %pConfig, ptr nocapture noundef %pDescriptorPlayback, ptr nocapture noundef %pDescriptorCapture) #4 {
 entry:
   %0 = getelementptr inbounds i8, ptr %pDevice, i64 3424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(352) %0, i8 0, i64 352, i1 false)
@@ -125647,7 +125647,7 @@ ma_audio_buffer_ref_seek_to_pcm_frame.exit:       ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_data_format(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly initializes((0, 4)) %pFormat, ptr nocapture noundef writeonly initializes((0, 4)) %pChannels, ptr nocapture noundef writeonly initializes((0, 4)) %pSampleRate, ptr noundef writeonly %pChannelMap, i64 noundef %channelMapCap) #2 {
+define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_data_format(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly %pFormat, ptr nocapture noundef writeonly %pChannels, ptr nocapture noundef writeonly %pSampleRate, ptr noundef writeonly %pChannelMap, i64 noundef %channelMapCap) #2 {
 entry:
   %format = getelementptr inbounds i8, ptr %pDataSource, i64 72
   %0 = load i32, ptr %format, align 8
@@ -125685,7 +125685,7 @@ ma_channel_map_init_standard.exit:                ; preds = %if.end7.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_cursor(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly initializes((0, 8)) %pCursor) #11 {
+define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_cursor(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly %pCursor) #11 {
 entry:
   %cursor = getelementptr inbounds i8, ptr %pDataSource, i64 88
   %0 = load i64, ptr %cursor, align 8
@@ -125694,7 +125694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_length(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly initializes((0, 8)) %pLength) #11 {
+define internal noundef i32 @ma_audio_buffer_ref__data_source_on_get_length(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly %pLength) #11 {
 entry:
   %sizeInFrames = getelementptr inbounds i8, ptr %pDataSource, i64 96
   %0 = load i64, ptr %sizeInFrames, align 8
@@ -125910,7 +125910,7 @@ ma_paged_audio_buffer_seek_to_pcm_frame.exit:     ; preds = %seqcst.i.i, %entry,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @ma_paged_audio_buffer__data_source_on_get_data_format(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly initializes((0, 4)) %pFormat, ptr nocapture noundef writeonly initializes((0, 4)) %pChannels, ptr nocapture noundef writeonly initializes((0, 4)) %pSampleRate, ptr noundef writeonly %pChannelMap, i64 noundef %channelMapCap) #17 {
+define internal noundef i32 @ma_paged_audio_buffer__data_source_on_get_data_format(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly %pFormat, ptr nocapture noundef writeonly %pChannels, ptr nocapture noundef writeonly %pSampleRate, ptr noundef writeonly %pChannelMap, i64 noundef %channelMapCap) #17 {
 entry:
   %pData = getelementptr inbounds i8, ptr %pDataSource, i64 72
   %0 = load ptr, ptr %pData, align 8
@@ -127869,7 +127869,7 @@ ma_free.exit:                                     ; preds = %entry, %if.then2.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_decoder__on_tell_memory(ptr nocapture noundef readonly %pDecoder, ptr nocapture noundef writeonly initializes((0, 8)) %pCursor) #11 {
+define internal noundef i32 @ma_decoder__on_tell_memory(ptr nocapture noundef readonly %pDecoder, ptr nocapture noundef writeonly %pCursor) #11 {
 entry:
   %currentReadPos = getelementptr inbounds i8, ptr %pDecoder, i64 544
   %0 = load i64, ptr %currentReadPos, align 8
@@ -128016,7 +128016,7 @@ ma_waveform_seek_to_pcm_frame.exit:               ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_waveform__data_source_on_get_data_format(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly initializes((0, 4)) %pFormat, ptr nocapture noundef writeonly initializes((0, 4)) %pChannels, ptr nocapture noundef writeonly initializes((0, 4)) %pSampleRate, ptr noundef writeonly %pChannelMap, i64 noundef %channelMapCap) #2 {
+define internal noundef i32 @ma_waveform__data_source_on_get_data_format(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly %pFormat, ptr nocapture noundef writeonly %pChannels, ptr nocapture noundef writeonly %pSampleRate, ptr noundef writeonly %pChannelMap, i64 noundef %channelMapCap) #2 {
 entry:
   %config = getelementptr inbounds i8, ptr %pDataSource, i64 72
   %0 = load i32, ptr %config, align 8
@@ -128054,7 +128054,7 @@ ma_channel_map_init_standard.exit:                ; preds = %if.end7.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_waveform__data_source_on_get_cursor(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly initializes((0, 8)) %pCursor) #11 {
+define internal noundef i32 @ma_waveform__data_source_on_get_cursor(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly %pCursor) #11 {
 entry:
   %time = getelementptr inbounds i8, ptr %pDataSource, i64 112
   %0 = load double, ptr %time, align 8
@@ -128080,7 +128080,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @ma_noise__data_source_on_get_data_format(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly initializes((0, 4)) %pFormat, ptr nocapture noundef writeonly initializes((0, 4)) %pChannels, ptr nocapture noundef writeonly initializes((0, 4)) %pSampleRate, ptr noundef writeonly %pChannelMap, i64 noundef %channelMapCap) #2 {
+define internal noundef i32 @ma_noise__data_source_on_get_data_format(ptr nocapture noundef readonly %pDataSource, ptr nocapture noundef writeonly %pFormat, ptr nocapture noundef writeonly %pChannels, ptr nocapture noundef writeonly %pSampleRate, ptr noundef writeonly %pChannelMap, i64 noundef %channelMapCap) #2 {
 entry:
   %config = getelementptr inbounds i8, ptr %pDataSource, i64 72
   %0 = load i32, ptr %config, align 8
@@ -129166,7 +129166,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ma_node_input_bus_read_pcm_frames(ptr noundef %pInputBus, ptr noundef %pFramesOut, i32 noundef %frameCount, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %pFramesRead, i64 noundef %globalTime) unnamed_addr #4 {
+define internal fastcc i32 @ma_node_input_bus_read_pcm_frames(ptr noundef %pInputBus, ptr noundef %pFramesOut, i32 noundef %frameCount, ptr nocapture noundef nonnull writeonly %pFramesRead, i64 noundef %globalTime) unnamed_addr #4 {
 if.end.i.i:
   %framesProcessed = alloca i32, align 4
   %temp = alloca [1024 x float], align 16
@@ -130523,7 +130523,7 @@ ma_engine_node_update_pitch_if_required.exit:     ; preds = %if.end.i, %ma_engin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ma_engine_node_get_required_input_frame_count__group(ptr noundef %pNode, i32 noundef %outputFrameCount, ptr nocapture noundef writeonly initializes((0, 4)) %pInputFrameCount) #4 {
+define internal noundef i32 @ma_engine_node_get_required_input_frame_count__group(ptr noundef %pNode, i32 noundef %outputFrameCount, ptr nocapture noundef writeonly %pInputFrameCount) #4 {
 entry:
   %pitch.i = getelementptr inbounds i8, ptr %pNode, i64 828
   %0 = load atomic volatile i32, ptr %pitch.i acquire, align 4
@@ -134765,7 +134765,7 @@ return:                                           ; preds = %while.cond, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -100, 1) i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull initializes((104, 232)) %pFlac) unnamed_addr #4 {
+define internal fastcc range(i32 -100, 1) i32 @ma_dr_flac__decode_flac_frame(ptr noundef nonnull %pFlac) unnamed_addr #4 {
 entry:
   %result.i.i.i = alloca i32, align 4
   %coefficients.i.i = alloca [32 x i32], align 16
@@ -136712,7 +136712,7 @@ return:                                           ; preds = %if.then73, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__init_private__native(ptr noundef nonnull initializes((24, 28)) %pInit, ptr nocapture noundef nonnull readonly %onRead, ptr noundef readonly %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef range(i32 0, 2) %relaxed) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__init_private__native(ptr noundef nonnull %pInit, ptr nocapture noundef nonnull readonly %onRead, ptr noundef readonly %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD, i32 noundef range(i32 0, 2) %relaxed) unnamed_addr #4 {
 entry:
   %blockSizes.i = alloca i32, align 4
   %frameSizes.i = alloca i64, align 8
@@ -136888,7 +136888,7 @@ return:                                           ; preds = %ma_dr_flac__read_st
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__init_private__ogg(ptr nocapture noundef nonnull initializes((24, 28), (4296, 4304)) %pInit, ptr nocapture noundef nonnull readonly %onRead, ptr nocapture noundef nonnull readonly %onSeek, ptr noundef readonly %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__init_private__ogg(ptr nocapture noundef nonnull %pInit, ptr nocapture noundef nonnull readonly %onRead, ptr nocapture noundef nonnull readonly %onSeek, ptr noundef readonly %onMeta, ptr noundef %pUserData, ptr noundef %pUserDataMD) unnamed_addr #4 {
 entry:
   %data.i73 = alloca [23 x i8], align 16
   %id.i = alloca [4 x i8], align 1
@@ -151957,7 +151957,7 @@ return:                                           ; preds = %ma_dr_flac__decode_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__seek_to_approximate_flac_frame_to_byte(ptr noundef nonnull %pFlac, i64 noundef %targetByte, i64 noundef %rangeLo, i64 noundef %rangeHi, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %pLastSuccessfulSeekOffset) unnamed_addr #4 {
+define internal fastcc range(i32 0, 2) i32 @ma_dr_flac__seek_to_approximate_flac_frame_to_byte(ptr noundef nonnull %pFlac, i64 noundef %targetByte, i64 noundef %rangeLo, i64 noundef %rangeHi, ptr nocapture noundef nonnull writeonly %pLastSuccessfulSeekOffset) unnamed_addr #4 {
 entry:
   %firstFLACFramePosInBytes = getelementptr inbounds i8, ptr %pFlac, i64 240
   %0 = load i64, ptr %firstFLACFramePosInBytes, align 8
@@ -152397,7 +152397,7 @@ for.end176:                                       ; preds = %for.inc172
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @ma_dr_mp3d_synth_pair(ptr nocapture noundef nonnull writeonly initializes((0, 2)) %pcm, i32 noundef %nch, ptr nocapture noundef nonnull readonly %z) unnamed_addr #11 {
+define internal fastcc void @ma_dr_mp3d_synth_pair(ptr nocapture noundef nonnull writeonly %pcm, i32 noundef %nch, ptr nocapture noundef nonnull readonly %z) unnamed_addr #11 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %z, i64 3584
   %0 = load float, ptr %arrayidx, align 4

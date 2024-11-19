@@ -493,7 +493,7 @@ define hidden void @proto_register_ipsec() local_unnamed_addr #0 {
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_esp_sa_records_protocol_set_cb(ptr nocapture noundef writeonly initializes((0, 1)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_esp_sa_records_protocol_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #17
   store i8 1, ptr %0, align 8
@@ -596,7 +596,7 @@ define internal void @uat_esp_sa_records_srcIP_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_esp_sa_records_srcIP_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_esp_sa_records_srcIP_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -633,7 +633,7 @@ define internal void @uat_esp_sa_records_dstIP_set_cb(ptr nocapture noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_esp_sa_records_dstIP_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_esp_sa_records_dstIP_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -670,7 +670,7 @@ define internal void @uat_esp_sa_records_spi_set_cb(ptr nocapture noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_esp_sa_records_spi_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_esp_sa_records_spi_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -696,7 +696,7 @@ define internal void @uat_esp_sa_records_spi_tostr_cb(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_esp_sa_records_encryption_algo_set_cb(ptr nocapture noundef writeonly initializes((32, 33)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_esp_sa_records_encryption_algo_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #17
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -799,7 +799,7 @@ define internal void @uat_esp_sa_records_encryption_key_string_set_cb(ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_esp_sa_records_encryption_key_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_esp_sa_records_encryption_key_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -825,7 +825,7 @@ define internal void @uat_esp_sa_records_encryption_key_string_tostr_cb(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_esp_sa_records_authentication_algo_set_cb(ptr nocapture noundef writeonly initializes((72, 73)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_esp_sa_records_authentication_algo_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #17
   %8 = getelementptr inbounds i8, ptr %0, i64 72
@@ -928,7 +928,7 @@ define internal void @uat_esp_sa_records_authentication_key_string_set_cb(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_esp_sa_records_authentication_key_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_esp_sa_records_authentication_key_string_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -954,7 +954,7 @@ define internal void @uat_esp_sa_records_authentication_key_string_tostr_cb(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_esp_sa_records_sn_length_set_cb(ptr nocapture noundef writeonly initializes((100, 101)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_esp_sa_records_sn_length_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #17
   %8 = getelementptr inbounds i8, ptr %0, i64 100
@@ -1058,7 +1058,7 @@ define internal void @uat_esp_sa_records_sn_upper_set_cb(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uat_esp_sa_records_sn_upper_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @uat_esp_sa_records_sn_upper_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.157, i32 noundef %7) #17
@@ -1123,7 +1123,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @uat_esp_sa_record_copy_cb(ptr noundef returned initializes((0, 1), (8, 33), (40, 56), (60, 64), (72, 73), (80, 96), (100, 101), (104, 108)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @uat_esp_sa_record_copy_cb(ptr noundef returned %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = alloca ptr, align 8
   %5 = load i8, ptr %1, align 8
   store i8 %5, ptr %0, align 8
@@ -3016,7 +3016,7 @@ declare i32 @find_tap_id(ptr noundef) local_unnamed_addr #3
 declare void @gcry_cipher_close(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compute_ascii_key(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
+define internal fastcc i32 @compute_ascii_key(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2) unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #19
   %5 = trunc i64 %4 to i32
   %6 = icmp ugt i32 %5, 2

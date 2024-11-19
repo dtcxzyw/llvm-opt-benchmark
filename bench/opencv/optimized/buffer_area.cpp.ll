@@ -42,7 +42,7 @@ $_ZNK2cv5utils10BufferArea5Block13fast_allocateEPv = comdat any
 declare noundef zeroext i1 @_ZN2cv5utils29getConfigurationParameterBoolEPKcb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN2cv5utils10BufferAreaC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %0, i1 noundef zeroext %1) unnamed_addr #1 align 2 {
+define void @_ZN2cv5utils10BufferAreaC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, i1 noundef zeroext %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %4 = load i8, ptr @_ZL33CV_BUFFER_AREA_OVERRIDE_SAFE_MODE, align 1

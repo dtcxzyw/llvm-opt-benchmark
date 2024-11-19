@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.17 = private unnamed_addr constant [6 x i8] c"close\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @Curl_http_proxy_get_destination(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_http_proxy_get_destination(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 672
@@ -112,7 +112,7 @@ define dso_local noundef i32 @Curl_http_proxy_get_destination(ptr nocapture noun
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_http_proxy_create_CONNECT(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define dso_local i32 @Curl_http_proxy_create_CONNECT(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 {
 ._crit_edge:
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8

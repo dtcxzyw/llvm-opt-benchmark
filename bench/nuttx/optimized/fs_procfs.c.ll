@@ -172,7 +172,7 @@ define internal i32 @procfs_dup(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @procfs_fstat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 88)) %1) #2 {
+define internal noundef i32 @procfs_fstat(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %1, i8 0, i64 88, i1 false)
@@ -544,7 +544,7 @@ define internal i32 @procfs_readdir(ptr nocapture readnone %0, ptr noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @procfs_rewinddir(ptr nocapture readnone %0, ptr nocapture noundef initializes((18, 20)) %1) #4 {
+define internal noundef i32 @procfs_rewinddir(ptr nocapture readnone %0, ptr nocapture noundef %1) #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8
   %.not = icmp eq i8 %4, 0
@@ -579,7 +579,7 @@ define internal noundef i32 @procfs_unbind(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @procfs_statfs(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 36)) %1) #5 {
+define internal noundef i32 @procfs_statfs(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #5 {
   store i32 1129271888, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -589,7 +589,7 @@ define internal noundef i32 @procfs_statfs(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @procfs_stat(ptr nocapture readnone %0, ptr noundef %1, ptr noundef initializes((0, 88)) %2) #0 {
+define internal i32 @procfs_stat(ptr nocapture readnone %0, ptr noundef %1, ptr noundef %2) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %2, i8 0, i64 88, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4

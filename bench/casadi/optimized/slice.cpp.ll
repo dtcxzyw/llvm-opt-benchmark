@@ -144,7 +144,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6casadi5SliceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #3 align 2 {
+define void @_ZN6casadi5SliceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 9223372036854775807, ptr %2, align 8
@@ -154,7 +154,7 @@ define void @_ZN6casadi5SliceC2Ev(ptr nocapture noundef nonnull writeonly align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi5SliceC2Exb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi5SliceC2Exb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -591,7 +591,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6casadi5SliceC2Exxx(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
+define void @_ZN6casadi5SliceC2Exxx(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
   store i64 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
@@ -601,7 +601,7 @@ define void @_ZN6casadi5SliceC2Exxx(ptr nocapture noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6casadi5SliceC2Eiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 {
+define void @_ZN6casadi5SliceC2Eiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 {
   %5 = sext i32 %1 to i64
   store i64 %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -614,7 +614,7 @@ define void @_ZN6casadi5SliceC2Eiii(ptr nocapture noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6casadi5SliceC2Eixi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 {
+define void @_ZN6casadi5SliceC2Eixi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 {
   %5 = sext i32 %1 to i64
   store i64 %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -626,7 +626,7 @@ define void @_ZN6casadi5SliceC2Eixi(ptr nocapture noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6casadi5SliceC2Exii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 {
+define void @_ZN6casadi5SliceC2Exii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 align 2 {
   store i64 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = sext i32 %2 to i64
@@ -1906,7 +1906,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEx(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi5Slice3allERKS0_x(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.3") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi5Slice3allERKS0_x(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i64 noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = load i64, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8

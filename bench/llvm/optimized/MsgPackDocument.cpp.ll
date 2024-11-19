@@ -99,7 +99,7 @@ $_ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE14_M_fill_insertEN9__gnu_cxx17__nor
 @.str.3 = private unnamed_addr constant [23 x i8] c"vector::_M_fill_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack7DocNode14convertToArrayEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7msgpack7DocNode14convertToArrayEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::msgpack::DocNode", align 8
   %3 = alloca %"class.std::unique_ptr", align 8
   %.sroa.0 = alloca %"class.llvm::msgpack::DocNode", align 8
@@ -234,7 +234,7 @@ _ZNSt10unique_ptrISt6vectorIN4llvm7msgpack7DocNodeESaIS3_EESt14default_deleteIS5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7msgpack7DocNode12convertToMapEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7msgpack7DocNode12convertToMapEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::msgpack::DocNode", align 8
   %3 = alloca %"class.std::unique_ptr.33", align 8
   %.sroa.0 = alloca %"class.llvm::msgpack::DocNode", align 8
@@ -915,7 +915,7 @@ _ZNSt6vectorIN4llvm7msgpack7DocNodeESaIS2_EE6resizeEmRKS2_.exit: ; preds = %25, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSENS_9StringRefE(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((8, 24)) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSENS_9StringRefE(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176
@@ -928,7 +928,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSENS_15MemoryBufferRefE(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((8, 24)) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSENS_15MemoryBufferRefE(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %.sroa.02.0.copyload = load ptr, ptr %1, align 8
@@ -944,7 +944,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSEb(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((8, 9)) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSEb(ptr noundef nonnull returned align 8 dereferenceable(24) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = zext i1 %1 to i8
@@ -956,7 +956,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSEi(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSEi(ptr noundef nonnull returned align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -968,7 +968,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSEj(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSEj(ptr noundef nonnull returned align 8 dereferenceable(24) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 112
@@ -980,7 +980,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSEl(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSEl(ptr noundef nonnull returned align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 96
@@ -991,7 +991,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSEm(ptr noundef nonnull returned align 8 dereferenceable(24) initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm7msgpack7DocNodeaSEm(ptr noundef nonnull returned align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 112

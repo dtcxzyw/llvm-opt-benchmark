@@ -2074,7 +2074,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang16HlslParseContextD2Ev(ptr noundef nonnull align 8 dereferenceable(2489) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN7glslang16HlslParseContextD2Ev(ptr noundef nonnull align 8 dereferenceable(2489) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 632) (i8, ptr @_ZTVN7glslang16HlslParseContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 2432
   %3 = getelementptr inbounds i8, ptr %0, i64 2456
@@ -2436,7 +2436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE12_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7glslang16HlslParseContext9setLimitsERK16TBuiltInResource(ptr nocapture noundef nonnull align 8 dereferenceable(2489) initializes((504, 924)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(420) %1) unnamed_addr #3 align 2 {
+define void @_ZN7glslang16HlslParseContext9setLimitsERK16TBuiltInResource(ptr nocapture noundef nonnull align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(420) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 504
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(420) %3, ptr noundef nonnull align 4 dereferenceable(420) %1, i64 420, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2452,7 +2452,7 @@ define void @_ZN7glslang16HlslParseContext9setLimitsERK16TBuiltInResource(ptr no
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang16HlslParseContext18parseShaderStringsERNS_10TPpContextERNS_13TInputScannerEb(ptr noundef nonnull align 8 dereferenceable(2489) initializes((216, 224)) %0, ptr noundef nonnull align 8 dereferenceable(969) %1, ptr noundef nonnull align 8 dereferenceable(90) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang16HlslParseContext18parseShaderStringsERNS_10TPpContextERNS_13TInputScannerEb(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(969) %1, ptr noundef nonnull align 8 dereferenceable(90) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.glslang::HlslScanContext", align 8
   %6 = alloca %"class.glslang::HlslGrammar", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 216
@@ -4629,7 +4629,7 @@ define linkonce_odr void @_ZN7glslang5TTypeC2ENS_10TBasicTypeENS_17TStorageQuali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK7glslang16HlslParseContext20getTextureReturnTypeERKNS_8TSamplerERNS_5TTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(152) initializes((16, 33), (36, 65), (68, 90), (96, 104), (112, 132)) %2) local_unnamed_addr #0 align 2 {
+define void @_ZNK7glslang16HlslParseContext20getTextureReturnTypeERKNS_8TSamplerERNS_5TTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(152) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load i32, ptr %1, align 4
   %6 = and i32 %5, 503316480
@@ -26414,7 +26414,7 @@ _ZNK7glslang16HlslParseContext11isReferenceERKNS_5TTypeE.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(340) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang16HlslParseContext17remapEntryPointIOERNS_9TFunctionERPNS_9TVariableERNS_7TVectorIS4_EES8_(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(340) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(32) %3, ptr nocapture noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #0 align 2 {
   %.sroa.3.i = alloca %"struct.glslang::TSourceLoc", align 8
   %6 = alloca %"class.glslang::TType", align 8
   %7 = load ptr, ptr %1, align 8
@@ -31341,7 +31341,7 @@ _ZN7glslang16HlslParseContext12correctInputERNS_10TQualifierE.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang16HlslParseContext23clearUniformInputOutputERNS_10TQualifierE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((20, 28), (45, 46)) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN7glslang16HlslParseContext23clearUniformInputOutputERNS_10TQualifierE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -31425,7 +31425,7 @@ define noundef ptr @_ZN7glslang16HlslParseContext13handleDeclareERKNS_10TSourceL
 declare noundef ptr @_ZNK7glslang13TIntermediate12addUnaryNodeENS_9TOperatorEPNS_12TIntermTypedERKNS_10TSourceLocERKNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2024), i32 noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN7glslang16HlslParseContext17handleReturnValueERKNS_10TSourceLocEPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(2489) initializes((304, 305)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define noundef ptr @_ZN7glslang16HlslParseContext17handleReturnValueERKNS_10TSourceLocEPNS_12TIntermTypedE(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 304
   store i8 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 296
@@ -46024,7 +46024,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang16HlslParseContext16constructorErrorERKNS_10TSourceLocEP11TIntermNodeRNS_9TFunctionENS_9TOperatorERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(340) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(152) initializes((16, 104), (112, 132)) %5) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang16HlslParseContext16constructorErrorERKNS_10TSourceLocEP11TIntermNodeRNS_9TFunctionENS_9TOperatorERNS_5TTypeE(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(340) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(152) %5) local_unnamed_addr #0 align 2 {
   %7 = load ptr, ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 96
   %9 = load ptr, ptr %8, align 8
@@ -52919,7 +52919,7 @@ define noundef range(i32 0, 4063) i32 @_ZN7glslang16HlslParseContext23computeSam
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang16HlslParseContext14arraySizeCheckERKNS_10TSourceLocEPNS_12TIntermTypedERNS_10TArraySizeE(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %3) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang16HlslParseContext14arraySizeCheckERKNS_10TSourceLocEPNS_12TIntermTypedERNS_10TArraySizeE(ptr noundef nonnull align 8 dereferenceable(2489) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %3) local_unnamed_addr #0 align 2 {
   store i32 1, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %5, align 8
@@ -56191,7 +56191,7 @@ define internal fastcc void @"_ZZN7glslang16HlslParseContext13declareStructERKNS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang16HlslParseContext12correctInputERNS_10TQualifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((20, 28), (45, 46)) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN7glslang16HlslParseContext12correctInputERNS_10TQualifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, -8070450532247928833
@@ -56264,7 +56264,7 @@ define void @_ZN7glslang16HlslParseContext12correctInputERNS_10TQualifierE(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7glslang16HlslParseContext13correctOutputERNS_10TQualifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((20, 28), (45, 46)) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN7glslang16HlslParseContext13correctOutputERNS_10TQualifierE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, -8070450532247928833
@@ -63079,7 +63079,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE6ap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang16HlslParseContext12clearUniformERNS_10TQualifierE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((20, 28), (45, 46)) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN7glslang16HlslParseContext12clearUniformERNS_10TQualifierE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2489) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = and i64 %4, -8070450532247928833

@@ -579,7 +579,7 @@ return:                                           ; preds = %if.then, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @init_bio_counts(ptr nocapture noundef initializes((552, 568)) %bev_ssl) #0 {
+define internal void @init_bio_counts(ptr nocapture noundef %bev_ssl) #0 {
 entry:
   %ssl = getelementptr inbounds i8, ptr %bev_ssl, i64 528
   %0 = load ptr, ptr %ssl, align 8

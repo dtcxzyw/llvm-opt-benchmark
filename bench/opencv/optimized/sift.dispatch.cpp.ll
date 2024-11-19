@@ -3761,7 +3761,7 @@ _ZN2cv7TLSDataISt6vectorINS_8KeyPointESaIS2_EEED2Ev.exit: ; preds = %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv9SIFT_ImplC2Eiidddib(ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 45)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv9SIFT_ImplC2Eiidddib(ptr noundef nonnull align 8 dereferenceable(45) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
   %12 = zext i1 %8 to i8

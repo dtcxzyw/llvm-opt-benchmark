@@ -100,7 +100,7 @@ define hidden range(i32 0, 9) i32 @aom_get_num_layers_from_operating_point_idc(i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 2) i32 @aom_decode_frame_from_obus(ptr noundef initializes((431896, 431904), (458936, 458940)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @aom_decode_frame_from_obus(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

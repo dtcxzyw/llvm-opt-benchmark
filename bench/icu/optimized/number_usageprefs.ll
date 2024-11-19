@@ -556,7 +556,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl10StringPropC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 10), (12, 16)) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl10StringPropC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -701,7 +701,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756number4impl10StringPropC2EOS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 10), (12, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number4impl10StringPropC2EOS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %src, align 8
   store ptr %0, ptr %this, align 8
@@ -758,7 +758,7 @@ terminate.lpad:                                   ; preds = %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl10StringProp3setENS_11StringPieceE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 10)) %this, ptr nocapture readonly %value.coerce0, i32 %value.coerce1) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl10StringProp3setENS_11StringPieceE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture readonly %value.coerce0, i32 %value.coerce1) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -809,7 +809,7 @@ return:                                           ; preds = %if.end23, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z24mixedMeasuresToMicros_75RKN6icu_7516MaybeStackVectorINS_7MeasureELi8EEEPNS_6number4impl15DecimalQuantityEPNS6_10MicroPropsE10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %measures, ptr noundef %quantity, ptr nocapture noundef initializes((484, 488)) %micros, i32 noundef %status) local_unnamed_addr #1 {
+define void @_Z24mixedMeasuresToMicros_75RKN6icu_7516MaybeStackVectorINS_7MeasureELi8EEEPNS_6number4impl15DecimalQuantityEPNS6_10MicroPropsE10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %measures, ptr noundef %quantity, ptr nocapture noundef %micros, i32 noundef %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %measures, align 8
   %mixedMeasuresCount = getelementptr inbounds i8, ptr %micros, i64 484
@@ -945,7 +945,7 @@ declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl1
 declare void @abort() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl17UsagePrefsHandlerC2ERKNS_6LocaleERKNS_11MeasureUnitENS_11StringPieceEPKNS1_19MicroPropsGeneratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(19) %inputUnit, ptr %usage.coerce0, i32 %usage.coerce1, ptr noundef %parent, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl17UsagePrefsHandlerC2ERKNS_6LocaleERKNS_11MeasureUnitENS_11StringPieceEPKNS1_19MicroPropsGeneratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 8 dereferenceable(19) %inputUnit, ptr %usage.coerce0, i32 %usage.coerce1, ptr noundef %parent, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl17UsagePrefsHandlerE, i64 16), ptr %this, align 8
   %fUnitsRouter = getelementptr inbounds i8, ptr %this, i64 8
@@ -1267,7 +1267,7 @@ _ZN6icu_7516MaybeStackVectorINS_7MeasureELi8EED2Ev.exit: ; preds = %for.end.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl21UnitConversionHandlerC2ERKNS_11MeasureUnitEPKNS1_19MicroPropsGeneratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(19) %targetUnit, ptr noundef %parent, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl21UnitConversionHandlerC2ERKNS_11MeasureUnitEPKNS1_19MicroPropsGeneratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(19) %targetUnit, ptr noundef %parent, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tempInput = alloca %"class.icu_75::MeasureUnitImpl", align 8
   %tempOutput = alloca %"class.icu_75::MeasureUnitImpl", align 8

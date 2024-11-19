@@ -14621,7 +14621,7 @@ _ZN12colvarmodule8vector1dIdEdVEd.exit:           ; preds = %.lr.ph.i188, %458, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN30colvarbias_restraint_histogramD1Ev(ptr noundef nonnull align 8 dereferenceable(425) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN30colvarbias_restraint_histogramD1Ev(ptr noundef nonnull align 8 dereferenceable(425) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN30colvarbias_restraint_histogramD2Ev(ptr noundef nonnull align 8 dereferenceable(425) %0, ptr noundef nonnull @_ZTT30colvarbias_restraint_histogram) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 752
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #27
@@ -14631,7 +14631,7 @@ define void @_ZN30colvarbias_restraint_histogramD1Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN30colvarbias_restraint_histogramD0Ev(ptr noundef nonnull align 8 dereferenceable(425) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN30colvarbias_restraint_histogramD0Ev(ptr noundef nonnull align 8 dereferenceable(425) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN30colvarbias_restraint_histogramD2Ev(ptr noundef nonnull align 8 dereferenceable(425) %0, ptr noundef nonnull @_ZTT30colvarbias_restraint_histogram) #27
   %2 = getelementptr inbounds i8, ptr %0, i64 752
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #27
@@ -15026,7 +15026,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20colvarbias_restraintC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
+define void @_ZN20colvarbias_restraintC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -15913,7 +15913,7 @@ define void @_ZN20colvarbias_restraintD2Ev(ptr nocapture noundef nonnull readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN28colvarbias_restraint_centersC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN28colvarbias_restraint_centersC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -16477,7 +16477,7 @@ declare void @_ZN11colvarvalueC1ERKS_(ptr noundef nonnull align 8 dereferenceabl
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN22colvarbias_restraint_kC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 17)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN22colvarbias_restraint_kC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -16524,7 +16524,7 @@ define void @_ZN22colvarbias_restraint_kC2EPKc(ptr nocapture noundef nonnull ali
 declare noundef zeroext i1 @_ZN11colvarparse10get_keyvalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcRdRKdNS_10Parse_ModeE(ptr noundef nonnull align 8 dereferenceable(320), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN27colvarbias_restraint_movingC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 10), (12, 20), (24, 56), (64, 72)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN27colvarbias_restraint_movingC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -16581,7 +16581,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare noundef ptr @_ZN12colvarmodule4mainEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN35colvarbias_restraint_centers_movingC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((0, 81)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN35colvarbias_restraint_centers_movingC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(81) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -17598,7 +17598,7 @@ define noundef nonnull ptr @_ZTv0_n104_N35colvarbias_restraint_centers_moving10w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN29colvarbias_restraint_k_movingC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN29colvarbias_restraint_k_movingC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -17783,7 +17783,7 @@ define noundef i32 @_ZN29colvarbias_restraint_k_moving15update_acc_workEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN29colvarbias_restraint_harmonicC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 81), (88, 144)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN29colvarbias_restraint_harmonicC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
@@ -18445,7 +18445,7 @@ define noundef double @_ZTv0_n72_N29colvarbias_restraint_harmonic17energy_differ
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN35colvarbias_restraint_harmonic_wallsC2EPKc(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 120)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN35colvarbias_restraint_harmonic_wallsC2EPKc(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
@@ -19109,7 +19109,7 @@ _ZN35colvarbias_restraint_harmonic_walls10write_trajERSo.exit: ; preds = %2, %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN27colvarbias_restraint_linearC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 81), (88, 144)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
+define void @_ZN27colvarbias_restraint_linearC2EPKc(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #18 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
@@ -20060,7 +20060,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef 
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN30colvarbias_restraint_histogramD2Ev(ptr noundef nonnull align 8 dereferenceable(425) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN30colvarbias_restraint_histogramD2Ev(ptr noundef nonnull align 8 dereferenceable(425) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32

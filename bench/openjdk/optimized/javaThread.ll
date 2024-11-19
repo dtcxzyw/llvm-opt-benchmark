@@ -1629,7 +1629,7 @@ declare void @_ZN14CompilerThread12thread_entryEP10JavaThreadS1_(ptr noundef, pt
 declare noundef zeroext i1 @_ZN2os13create_threadEP6ThreadNS_10ThreadTypeEm(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1800) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10JavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1800) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 224) (i8, ptr @_ZTV10JavaThread, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @Service_lock, align 8
   %.not.i.i.i = icmp eq ptr %2, null
@@ -1818,7 +1818,7 @@ declare void @_ZN15StackWatermarksD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(888)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JavaThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1800) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10JavaThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(1800) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN10JavaThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(1800) %0) #21
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #21
   ret void
@@ -3624,7 +3624,7 @@ define linkonce_odr hidden void @_ZN30InstallAsyncExceptionHandshakeD2Ev(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10JavaThread25set_is_in_VTMS_transitionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1800) initializes((1139, 1140)) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN10JavaThread25set_is_in_VTMS_transitionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1800) %0, i1 noundef zeroext %1) local_unnamed_addr #11 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 1139
   store i8 %3, ptr %4, align 1
@@ -5742,7 +5742,7 @@ define hidden noundef range(i32 -268435456, 268435456) i32 @_ZN10JavaThread37pop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10JavaThread28popframe_free_preserved_argsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1800) initializes((1528, 1532)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10JavaThread28popframe_free_preserved_argsEv(ptr nocapture noundef nonnull align 8 dereferenceable(1800) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z8FreeHeapPv(ptr noundef %3) #21

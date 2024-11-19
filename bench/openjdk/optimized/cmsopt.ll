@@ -1760,7 +1760,7 @@ declare double @llvm.floor.f64(double) #4
 declare ptr @_cmsMallocZero(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @Eval16nop1D(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, ptr nocapture readnone %2) #5 {
+define internal void @Eval16nop1D(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #5 {
   %4 = load i16, ptr %0, align 2
   store i16 %4, ptr %1, align 2
   ret void
@@ -3474,7 +3474,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.split, %35, %37
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @MatShaperEval16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 6)) %1, ptr nocapture noundef readonly %2) #5 {
+define internal void @MatShaperEval16(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #5 {
   %4 = load i16, ptr %0, align 2
   %5 = and i16 %4, 255
   %6 = getelementptr inbounds i8, ptr %0, i64 2

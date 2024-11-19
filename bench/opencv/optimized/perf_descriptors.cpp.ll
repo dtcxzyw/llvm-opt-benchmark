@@ -792,7 +792,7 @@ _ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_1
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -800,7 +800,7 @@ define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11ope
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN7testing12_GLOBAL__N_124ParameterizedTestFactoryIN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -832,7 +832,7 @@ define internal noundef nonnull ptr @_ZN7testing12_GLOBAL__N_124ParameterizedTes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -869,7 +869,7 @@ _ZN11opencv_test12_GLOBAL__N_120file_str_descriptorsD2Ev.exit: ; preds = %_ZNSt6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -907,7 +907,7 @@ _ZN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestD2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) initializes((256, 257)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -1302,7 +1302,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_137file_str_descriptors_descr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestD1Ev(ptr noundef initializes((-248, -240)) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestD1Ev(ptr noundef %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -248
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -176
@@ -1340,7 +1340,7 @@ _ZN11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestD2Ev.exit: 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestD0Ev(ptr noundef initializes((-248, -240)) %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn248_N11opencv_test12_GLOBAL__N_137file_str_descriptors_descriptors_TestD0Ev(ptr noundef %0) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -248
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -176
@@ -2275,7 +2275,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @abort() local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_120file_str_descriptorsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_120file_str_descriptorsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_120file_str_descriptorsEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
@@ -2341,7 +2341,7 @@ _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_120file_str_descriptorsEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_120file_str_descriptorsEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_120file_str_descriptorsEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   ret void

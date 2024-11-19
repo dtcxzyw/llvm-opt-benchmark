@@ -121,7 +121,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #3
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @getUnitVector(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Vector) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %1) local_unnamed_addr #1 {
+define void @getUnitVector(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Vector) align 8 %0, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %1) local_unnamed_addr #1 {
   %3 = load double, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load double, ptr %4, align 8
@@ -260,7 +260,7 @@ define void @setConjugateMatrixN(ptr nocapture noundef readonly byval(%struct.Co
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @getComplexPairFromRotation(double noundef %0, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %1, ptr nocapture noundef writeonly initializes((0, 16)) %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) local_unnamed_addr #8 {
+define void @getComplexPairFromRotation(double noundef %0, ptr nocapture noundef readonly byval(%struct.Vector) align 8 %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #8 {
   %.sroa.08.0.copyload = load double, ptr %1, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.49.0.copyload = load double, ptr %.sroa.49.0..sroa_idx, align 8
@@ -299,7 +299,7 @@ declare double @cos(double noundef) local_unnamed_addr #3
 declare double @sin(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @getZYZRotAnglesFromComplexPair(double %0, double %1, double %2, double %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6) local_unnamed_addr #9 {
+define void @getZYZRotAnglesFromComplexPair(double %0, double %1, double %2, double %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #9 {
   %8 = fmul double %1, %1
   %9 = tail call double @llvm.fmuladd.f64(double %0, double %0, double %8)
   %sqrt = tail call double @llvm.sqrt.f64(double %9)
@@ -323,7 +323,7 @@ declare double @acos(double noundef) local_unnamed_addr #3
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @getComplexPairAndPhaseFromUnitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr nocapture noundef writeonly initializes((0, 16)) %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #8 {
+define void @getComplexPairAndPhaseFromUnitary(ptr nocapture noundef readonly byval(%struct.ComplexMatrix2) align 8 %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load double, ptr %5, align 8
   %7 = load double, ptr %0, align 8
@@ -433,7 +433,7 @@ define void @shiftSubregIndices(ptr nocapture noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @generateMeasurementOutcome(double noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @generateMeasurementOutcome(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 {
   %3 = fcmp olt double %0, 1.000000e-13
   %4 = fsub double 1.000000e+00, %0
   br i1 %3, label %.thread, label %5
@@ -483,7 +483,7 @@ define i64 @hashString(ptr nocapture noundef readonly %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @getQuESTDefaultSeedKey(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #10 {
+define void @getQuESTDefaultSeedKey(ptr nocapture noundef writeonly %0) local_unnamed_addr #10 {
   %2 = alloca %struct.timeval, align 8
   %3 = call i32 @gettimeofday(ptr noundef nonnull %2, ptr noundef null) #22
   %4 = load i64, ptr %2, align 8
@@ -843,7 +843,7 @@ define void @statevec_controlledRotateZ(ptr nocapture noundef readonly byval(%st
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @statevec_measureWithStats(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @statevec_measureWithStats(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
   %4 = tail call double @statevec_calcProbOfOutcome(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef 0) #22
   %5 = fcmp olt double %4, 1.000000e-13
   %6 = fsub double 1.000000e+00, %4
@@ -874,7 +874,7 @@ declare double @statevec_calcProbOfOutcome(ptr noundef byval(%struct.Qureg) alig
 declare void @statevec_collapseToKnownProbOutcome(ptr noundef byval(%struct.Qureg) align 8, i32 noundef, i32 noundef, double noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @densmatr_measureWithStats(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #10 {
+define range(i32 0, 2) i32 @densmatr_measureWithStats(ptr noundef byval(%struct.Qureg) align 8 %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
   %4 = tail call double @densmatr_calcProbOfOutcome(ptr noundef nonnull byval(%struct.Qureg) align 8 %0, i32 noundef %1, i32 noundef 0) #22
   %5 = fcmp olt double %4, 1.000000e-13
   %6 = fsub double 1.000000e+00, %4
@@ -2331,7 +2331,7 @@ populateKrausSuperOperator2.exit:                 ; preds = %42, %.preheader83.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @bindArraysToStackComplexMatrixN(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ComplexMatrixN) align 8 initializes((0, 4), (8, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #17 {
+define void @bindArraysToStackComplexMatrixN(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ComplexMatrixN) align 8 %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #17 {
   store i32 %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %4, ptr %7, align 8

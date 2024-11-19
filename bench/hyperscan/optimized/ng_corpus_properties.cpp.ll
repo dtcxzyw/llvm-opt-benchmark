@@ -10,7 +10,7 @@ $_ZN5boost6random23mersenne_twister_engineIjLm32ELm624ELm397ELm31ELj2567483615EL
 @_ZN16CorpusPropertiesC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN16CorpusPropertiesC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN16CorpusPropertiesC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2556) initializes((0, 52), (2544, 2552)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN16CorpusPropertiesC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2556) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 100, ptr %this, align 8
   %unmatchness = getelementptr inbounds i8, ptr %this, i64 4
@@ -138,7 +138,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN16CorpusProperties4seedEj(ptr nocapture noundef nonnull align 8 dereferenceable(2556) initializes((48, 52), (2544, 2556)) %this, i32 noundef %val) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16CorpusProperties4seedEj(ptr nocapture noundef nonnull align 8 dereferenceable(2556) %this, i32 noundef %val) local_unnamed_addr #0 align 2 {
 entry:
   %rngSeed = getelementptr inbounds i8, ptr %this, i64 2552
   store i32 %val, ptr %rngSeed, align 8

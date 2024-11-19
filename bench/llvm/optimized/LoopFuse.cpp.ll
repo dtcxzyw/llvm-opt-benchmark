@@ -7074,7 +7074,7 @@ _ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit165: ; preds = %.lr.ph.i, 
 declare i64 @_ZN4llvm24gatherPeelingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERKNS_19TargetTransformInfoESt8optionalIbES8_b(ptr noundef, ptr noundef nonnull align 8 dereferenceable(1392), ptr noundef nonnull align 8 dereferenceable(8), i16, i16, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115FusionCandidateC2EPN4llvm4LoopERNS1_13DominatorTreeEPKNS1_17PostDominatorTreeERNS1_25OptimizationRemarkEmitterENS1_19TargetTransformInfo18PeelingPreferencesE(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 48)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(124) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115FusionCandidateC2EPN4llvm4LoopERNS1_13DominatorTreeEPKNS1_17PostDominatorTreeERNS1_25OptimizationRemarkEmitterENS1_19TargetTransformInfo18PeelingPreferencesE(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(124) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = tail call noundef ptr @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE16getLoopPreheaderEv(ptr noundef nonnull align 8 dereferenceable(152) %1) #17
   store ptr %7, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8

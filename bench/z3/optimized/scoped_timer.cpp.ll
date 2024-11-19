@@ -129,7 +129,7 @@ _ZNSt12_Vector_baseIP18scoped_timer_stateSaIS1_EED2Ev.exit: ; preds = %invoke.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN12scoped_timerC2EjP13event_handler(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %ms, ptr noundef %eh) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN12scoped_timerC2EjP13event_handler(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, i32 noundef %ms, ptr noundef %eh) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp = alloca %"class.std::thread", align 8

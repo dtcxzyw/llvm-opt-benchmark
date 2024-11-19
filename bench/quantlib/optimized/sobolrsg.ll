@@ -39008,7 +39008,7 @@ $_ZSt8_DestroyIPSt6vectorIjSaIjEEEvT_S4_ = comdat any
 @_ZN8QuantLib8SobolRsgC1EmmNS0_17DirectionIntegersEb = unnamed_addr alias void (ptr, i64, i64, i32, i1), ptr @_ZN8QuantLib8SobolRsgC2EmmNS0_17DirectionIntegersEb
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib8SobolRsgC2EmmNS0_17DirectionIntegersEb(ptr noundef nonnull align 8 dereferenceable(97) initializes((0, 13)) %this, i64 noundef %dimensionality, i64 noundef %seed, i32 noundef %directionIntegers, i1 noundef zeroext %useGrayCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib8SobolRsgC2EmmNS0_17DirectionIntegersEb(ptr noundef nonnull align 8 dereferenceable(97) %this, i64 noundef %dimensionality, i64 noundef %seed, i32 noundef %directionIntegers, i1 noundef zeroext %useGrayCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp12 = alloca %"class.std::vector.0", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8

@@ -19,7 +19,7 @@ define hidden void @_ZN24WorkerThreadsBarrierSyncC2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24WorkerThreadsBarrierSync13set_n_workersEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(114) initializes((104, 114)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN24WorkerThreadsBarrierSync13set_n_workersEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(114) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 108
@@ -102,7 +102,7 @@ _ZN11MutexLockerD2Ev.exit:
 declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12SubTasksDoneC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12SubTasksDoneC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -160,7 +160,7 @@ define hidden void @_ZN12SubTasksDoneD2Ev(ptr nocapture noundef nonnull readonly
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN22SequentialSubTasksDone14try_claim_taskERj(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN22SequentialSubTasksDone14try_claim_taskERj(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load volatile i32, ptr %3, align 4
   store i32 %4, ptr %1, align 4

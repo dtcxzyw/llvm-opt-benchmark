@@ -136,7 +136,7 @@ declare void @SplashClosePlatform(ptr noundef) local_unnamed_addr #4
 declare void @SplashUnlock(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SplashCleanup(ptr noundef initializes((10628, 10632)) %0) local_unnamed_addr #2 {
+define hidden void @SplashCleanup(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 10628
   store i32 -1, ptr %2, align 4
   tail call void @SplashCleanupPlatform(ptr noundef %0) #20
@@ -241,7 +241,7 @@ SplashGetInstance.exit:                           ; preds = %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @SplashDone(ptr noundef initializes((10628, 10632)) %0) local_unnamed_addr #2 {
+define hidden void @SplashDone(ptr noundef %0) local_unnamed_addr #2 {
   tail call void @SplashCleanup(ptr noundef %0)
   tail call void @SplashDonePlatform(ptr noundef %0) #20
   ret void
@@ -1006,7 +1006,7 @@ define range(i32 0, 2) i32 @SplashLoadFile(ptr nocapture noundef readonly %0) lo
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 0, 2) i32 @SplashStreamInitFile(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @SplashStreamInitFile(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #8 {
   %3 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str)
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %3, ptr %4, align 8
@@ -1150,7 +1150,7 @@ define range(i32 0, 2) i32 @SplashLoadMemory(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @SplashStreamInitMemory(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
+define hidden noundef i32 @SplashStreamInitMemory(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = sext i32 %2 to i64
@@ -1487,7 +1487,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #15
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @cleanUp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #17 {
+define hidden void @cleanUp(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #17 {
   store float 1.000000e+00, ptr %3, align 4
   tail call void @free(ptr noundef %0) #20
   tail call void @free(ptr noundef %1) #20

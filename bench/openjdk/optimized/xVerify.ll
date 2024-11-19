@@ -485,7 +485,7 @@ define hidden void @_ZN7XVerify21after_weak_processingEv() local_unnamed_addr #0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16XVerifyViewsFlipC2EPK14XPageAllocator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16XVerifyViewsFlipC2EPK14XPageAllocator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.XPageDebugMapOrUnmapClosure, align 8
   store ptr %1, ptr %0, align 8
   %4 = load i8, ptr @ZVerifyViews, align 1

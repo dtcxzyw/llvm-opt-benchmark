@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.cfl_store_block.3 = private unnamed_addr constant [8 x i64] [i64 6, i64 8, i64 0, i64 10, i64 0, i64 0, i64 0, i64 12], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @cfl_init(ptr nocapture noundef writeonly initializes((0, 4108), (4244, 4260)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define hidden void @cfl_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4096) %0, i8 0, i64 4096, i1 false)
   %4 = load i32, ptr %3, align 8
@@ -5751,7 +5751,7 @@ define hidden ptr @cfl_get_luma_subsampling_444_hbd_c(i8 noundef zeroext %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cfl_store_tx(ptr noundef initializes((47780, 47784)) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #7 {
+define hidden void @cfl_store_tx(ptr noundef %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 43536
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -5881,7 +5881,7 @@ cfl_store.exit:                                   ; preds = %cfl_subsampling_hbd
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @cfl_store_block(ptr noundef initializes((47780, 47784)) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #7 {
+define hidden void @cfl_store_block(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 43536
   %5 = zext i8 %1 to i64
   %6 = shl nuw i64 1, %5

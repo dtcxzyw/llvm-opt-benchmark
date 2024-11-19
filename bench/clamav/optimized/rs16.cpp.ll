@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9RSCoder16D1Ev = unnamed_addr alias void (ptr), ptr @_ZN9RSCoder16D2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9RSCoder16C2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 17), (20, 64)) %0) unnamed_addr #0 align 2 {
+define void @_ZN9RSCoder16C2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 20
@@ -61,7 +61,7 @@ _ZN9RSCoder166gfInitEv.exit:                      ; preds = %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9RSCoder166gfInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN9RSCoder166gfInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(1048564) ptr @_Znam(i64 noundef 1048564) #6
   store ptr %2, ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(262144) ptr @_Znam(i64 noundef 262144) #6
@@ -171,7 +171,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9RSCoder164InitEjjPb(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((16, 17), (20, 32)) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN9RSCoder164InitEjjPb(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 24

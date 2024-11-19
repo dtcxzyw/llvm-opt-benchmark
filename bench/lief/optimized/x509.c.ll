@@ -99,7 +99,7 @@ define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_alg(ptr n
 declare i32 @mbedtls_asn1_get_alg(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_rsassa_pss_params(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 4)) %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2147474688) i32 @mbedtls_x509_get_rsassa_pss_params(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca %struct.mbedtls_asn1_buf, align 8
@@ -1464,7 +1464,7 @@ x509_check_time.exit:                             ; preds = %55, %51, %43, %37, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -9216, 1) i32 @x509_parse_int(ptr nocapture noundef %0, i64 noundef range(i64 2, 5) %1, ptr nocapture noundef initializes((0, 4)) %2) unnamed_addr #7 {
+define internal fastcc range(i32 -9216, 1) i32 @x509_parse_int(ptr nocapture noundef %0, i64 noundef range(i64 2, 5) %1, ptr nocapture noundef %2) unnamed_addr #7 {
   store i32 0, ptr %2, align 4
   br label %4
 

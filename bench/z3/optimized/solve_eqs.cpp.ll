@@ -5379,7 +5379,7 @@ for.end:                                          ; preds = %while.body.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf9solve_eqs18filter_unsafe_varsEv(ptr noundef nonnull align 8 dereferenceable(200) initializes((128, 132)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf9solve_eqs18filter_unsafe_varsEv(ptr noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rec = alloca %"class.recfun::util", align 8
   %ref.tmp = alloca %class.ref_vector, align 8
@@ -5997,7 +5997,7 @@ _ZN15ref_vector_coreI9func_decl19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit
 declare void @_ZN6recfun4utilD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf9solve_eqsC2ER11ast_managerR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 41), (44, 48)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(160) %fmls) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf9solve_eqsC2ER11ast_managerR20dependent_expr_state(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(160) %fmls) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.params_ref, align 8
   %m2.i = getelementptr inbounds i8, ptr %this, i64 8

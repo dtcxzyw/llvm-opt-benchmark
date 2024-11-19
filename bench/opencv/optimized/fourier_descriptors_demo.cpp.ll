@@ -2893,7 +2893,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL11UpdateShapeiPv(i32 %0, ptr nocapture noundef writeonly initializes((24, 25)) %1) #4 {
+define internal void @_ZL11UpdateShapeiPv(i32 %0, ptr nocapture noundef writeonly %1) #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   store i8 1, ptr %3, align 4
   ret void

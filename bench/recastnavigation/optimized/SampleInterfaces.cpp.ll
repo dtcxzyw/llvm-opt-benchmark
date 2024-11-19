@@ -45,7 +45,7 @@ $_ZN11DebugDrawGLD0Ev = comdat any
 @_ZN6FileIOD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6FileIOD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12BuildContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16472) initializes((0, 10), (240, 8468), (16468, 16472)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12BuildContextC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16472) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN9rcContext11resetTimersEv.exit:
   %1 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %1, align 8
@@ -67,7 +67,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12BuildContext10doResetLogEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16472) initializes((8464, 8468), (16468, 16472)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN12BuildContext10doResetLogEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16472) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8464
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16468
@@ -128,7 +128,7 @@ define dso_local void @_ZN12BuildContext5doLogE13rcLogCategoryPKci(ptr noundef n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12BuildContext13doResetTimersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16472) initializes((240, 464)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN12BuildContext13doResetTimersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16472) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %2, i8 -1, i64 224, i1 false)
   ret void
@@ -499,7 +499,7 @@ define dso_local void @_ZN11DebugDrawGL3endEv(ptr nocapture nonnull readnone ali
 declare void @glEnd() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6FileIOC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN6FileIOC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV6FileIO, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -509,7 +509,7 @@ define dso_local void @_ZN6FileIOC2Ev(ptr nocapture noundef nonnull writeonly al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6FileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6FileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV6FileIO, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -544,7 +544,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 declare void @_ZN8duFileIOD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6FileIOD0Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6FileIOD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV6FileIO, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

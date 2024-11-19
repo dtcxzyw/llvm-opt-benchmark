@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [13 x i8] c"%s%d | %s%d\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_FindEssential(ptr noundef initializes((448, 452)) %0, ptr noundef %1) #0 {
+define ptr @Cudd_FindEssential(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 

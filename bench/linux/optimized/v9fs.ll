@@ -292,7 +292,7 @@ declare dso_local i32 @p9_show_client_options(ptr noundef, ptr noundef) local_un
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @v9fs_session_init(ptr noundef initializes((16, 24)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @v9fs_session_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
   %6 = alloca [3 x %struct.substring_t], align 16
@@ -998,7 +998,7 @@ declare dso_local i32 @register_filesystem(ptr noundef) local_unnamed_addr #2
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @v9fs_inode_init_once(ptr noundef initializes((632, 648)) %0) #0 align 16 {
+define internal void @v9fs_inode_init_once(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 632
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   tail call void @inode_init_once(ptr noundef %0) #7

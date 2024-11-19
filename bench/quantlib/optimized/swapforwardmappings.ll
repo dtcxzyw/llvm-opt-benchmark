@@ -508,7 +508,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond.cleanup9, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19SwapForwardMappings28coinitialSwapForwardJacobianERKNS_10CurveStateE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %cs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19SwapForwardMappings28coinitialSwapForwardJacobianERKNS_10CurveStateE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %cs) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %numberOfRates_.i = getelementptr inbounds nuw i8, ptr %cs, i64 8
   %0 = load i64, ptr %numberOfRates_.i, align 8, !tbaa !14
@@ -681,7 +681,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond.cleanup3, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19SwapForwardMappings21cmSwapForwardJacobianERKNS_10CurveStateEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %spanningForwards) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19SwapForwardMappings21cmSwapForwardJacobianERKNS_10CurveStateEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %spanningForwards) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %numberOfRates_.i = getelementptr inbounds nuw i8, ptr %cs, i64 8
   %0 = load i64, ptr %numberOfRates_.i, align 8, !tbaa !14
@@ -860,7 +860,7 @@ nrvo.skipdtor:                                    ; preds = %for.cond.cleanup3, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19SwapForwardMappings22coinitialSwapZedMatrixERKNS_10CurveStateEd(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %cs, double noundef %displacement) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19SwapForwardMappings22coinitialSwapZedMatrixERKNS_10CurveStateEd(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %cs, double noundef %displacement) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %numberOfRates_.i = getelementptr inbounds nuw i8, ptr %cs, i64 8
   %0 = load i64, ptr %numberOfRates_.i, align 8, !tbaa !14
@@ -996,7 +996,7 @@ _ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %ehcleanup33, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19SwapForwardMappings15cmSwapZedMatrixERKNS_10CurveStateEmd(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %spanningForwards, double noundef %displacement) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19SwapForwardMappings15cmSwapZedMatrixERKNS_10CurveStateEmd(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %cs, i64 noundef %spanningForwards, double noundef %displacement) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %numberOfRates_.i = getelementptr inbounds nuw i8, ptr %cs, i64 8
   %0 = load i64, ptr %numberOfRates_.i, align 8, !tbaa !14

@@ -135,7 +135,7 @@ $_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryE
 @_ZN4llvm36OptimizationRemarkEmitterWrapperPassC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm36OptimizationRemarkEmitterWrapperPassC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm25OptimizationRemarkEmitterC2EPKNS_8FunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm25OptimizationRemarkEmitterC2EPKNS_8FunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DominatorTree", align 8
   %4 = alloca %"class.llvm::LoopInfo", align 8
   %5 = alloca %"class.llvm::BranchProbabilityInfo", align 8
@@ -537,7 +537,7 @@ declare noundef i64 @_ZNK4llvm11LLVMContext30getDiagnosticsHotnessThresholdEv(pt
 declare void @_ZN4llvm11LLVMContext8diagnoseERKNS_14DiagnosticInfoE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(13)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm36OptimizationRemarkEmitterWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm36OptimizationRemarkEmitterWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -766,7 +766,7 @@ define dso_local void @_ZNK4llvm36OptimizationRemarkEmitterWrapperPass16getAnaly
 declare void @_ZN4llvm26LazyBlockFrequencyInfoPass23getLazyBFIAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(161)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm33OptimizationRemarkEmitterAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::OptimizationRemarkEmitter") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm33OptimizationRemarkEmitterAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::OptimizationRemarkEmitter") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #12
   %6 = tail call noundef zeroext i1 @_ZNK4llvm11LLVMContext30getDiagnosticsHotnessRequestedEv(ptr noundef nonnull align 8 dereferenceable(8) %5) #12
   br i1 %6, label %7, label %_ZNK4llvm25OuterAnalysisManagerProxyINS_15AnalysisManagerINS_6ModuleEJEEENS_8FunctionEJEE6Result15getCachedResultINS_22ProfileSummaryAnalysisES2_EEPNT_6ResultERT0_.exit.thread

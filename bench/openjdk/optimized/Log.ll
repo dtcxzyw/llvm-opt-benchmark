@@ -149,7 +149,7 @@ declare void @_ZN6Logger19initializingLoggingEv() local_unnamed_addr #0
 declare void @_ZN6Logger17initializeLoggingEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6LoggerC2ER11LogAppenderNS_8LogLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #5 align 2 {
+define hidden void @_ZN6LoggerC2ER11LogAppenderNS_8LogLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #5 align 2 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -157,7 +157,7 @@ define hidden void @_ZN6LoggerC2ER11LogAppenderNS_8LogLevelE(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Logger11setLogLevelENS_8LogLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Logger11setLogLevelENS_8LogLevelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   store i32 %1, ptr %0, align 8
   ret void
 }
@@ -457,7 +457,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Logger11ScopeTracerC2ERS_NS_8LogLevelEPKciS4_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(121) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Logger11ScopeTracerC2ERS_NS_8LogLevelEPKciS4_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator", align 1

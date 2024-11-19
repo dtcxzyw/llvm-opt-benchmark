@@ -226,7 +226,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20SyncProcessStdioPipeC2EPNS_17SyncProcessRunnerEbb8uv_buf_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(588) initializes((0, 10), (16, 588)) %this, ptr noundef %process_handler, i1 noundef zeroext %readable, i1 noundef zeroext %writable, ptr %input_buffer.coerce0, i64 %input_buffer.coerce1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node20SyncProcessStdioPipeC2EPNS_17SyncProcessRunnerEbb8uv_buf_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(588) %this, ptr noundef %process_handler, i1 noundef zeroext %readable, i1 noundef zeroext %writable, ptr %input_buffer.coerce0, i64 %input_buffer.coerce1) unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %readable to i8
   %frombool1 = zext i1 %writable to i8
@@ -488,7 +488,7 @@ _ZN4node20SyncProcessStdioPipe14OnShutdownDoneEi.exit: ; preds = %entry, %do.end
 declare i32 @uv_read_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20SyncProcessStdioPipe13AllocCallbackEP11uv_handle_smP8uv_buf_t(ptr nocapture noundef readonly %handle, i64 %suggested_size, ptr nocapture noundef writeonly initializes((0, 16)) %buf) #3 align 2 {
+define dso_local void @_ZN4node20SyncProcessStdioPipe13AllocCallbackEP11uv_handle_smP8uv_buf_t(ptr nocapture noundef readonly %handle, i64 %suggested_size, ptr nocapture noundef writeonly %buf) #3 align 2 {
 entry:
   %0 = load ptr, ptr %handle, align 8
   %last_output_buffer_.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -957,7 +957,7 @@ cleanup:                                          ; preds = %do.end9, %if.end16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node17SyncProcessRunnerC2EPNS_11EnvironmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((0, 20), (24, 36), (40, 73), (80, 313), (320, 340), (344, 497), (500, 520)) %this, ptr noundef %env) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4node17SyncProcessRunnerC2EPNS_11EnvironmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) %this, ptr noundef %env) unnamed_addr #10 align 2 {
 entry:
   %kill_signal_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)

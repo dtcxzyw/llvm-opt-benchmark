@@ -530,7 +530,7 @@ define hidden void @_ZN5zxing6common15CharacterSetECI15addCharacterSetEPKiPKPKc(
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing6common15CharacterSetECIC2EPKiPKPKc(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing6common15CharacterSetECIC2EPKiPKPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple", align 8
   %5 = alloca %"class.std::tuple.16", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -43,7 +43,7 @@ $_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcE
 @_ZN4absl12_GLOBAL__N_112LookupTablesINS_7uint128EE13kVmaxOverBaseE = internal unnamed_addr constant [37 x %"class.absl::uint128"] [%"class.absl::uint128" zeroinitializer, %"class.absl::uint128" zeroinitializer, %"class.absl::uint128" { i64 -1, i64 9223372036854775807 }, %"class.absl::uint128" { i64 6148914691236517205, i64 6148914691236517205 }, %"class.absl::uint128" { i64 -1, i64 4611686018427387903 }, %"class.absl::uint128" { i64 3689348814741910323, i64 3689348814741910323 }, %"class.absl::uint128" { i64 -6148914691236517206, i64 3074457345618258602 }, %"class.absl::uint128" { i64 5270498306774157604, i64 2635249153387078802 }, %"class.absl::uint128" { i64 -1, i64 2305843009213693951 }, %"class.absl::uint128" { i64 -4099276460824344804, i64 2049638230412172401 }, %"class.absl::uint128" { i64 -7378697629483820647, i64 1844674407370955161 }, %"class.absl::uint128" { i64 8384883669867978007, i64 1676976733973595601 }, %"class.absl::uint128" { i64 6148914691236517205, i64 1537228672809129301 }, %"class.absl::uint128" { i64 4256940940086819603, i64 1418980313362273201 }, %"class.absl::uint128" { i64 2635249153387078802, i64 1317624576693539401 }, %"class.absl::uint128" { i64 1229782938247303441, i64 1229782938247303441 }, %"class.absl::uint128" { i64 -1, i64 1152921504606846975 }, %"class.absl::uint128" { i64 1085102592571150095, i64 1085102592571150095 }, %"class.absl::uint128" { i64 -2049638230412172402, i64 1024819115206086200 }, %"class.absl::uint128" { i64 -1941762534074689644, i64 970881267037344821 }, %"class.absl::uint128" { i64 -3689348814741910324, i64 922337203685477580 }, %"class.absl::uint128" { i64 -4392081922311798004, i64 878416384462359600 }, %"class.absl::uint128" { i64 -5030930201920786805, i64 838488366986797800 }, %"class.absl::uint128" { i64 4812194106185100421, i64 802032351030850070 }, %"class.absl::uint128" { i64 -6148914691236517206, i64 768614336404564650 }, %"class.absl::uint128" { i64 -6640827866535438582, i64 737869762948382064 }, %"class.absl::uint128" { i64 -7094901566811366007, i64 709490156681136600 }, %"class.absl::uint128" { i64 -1366425486941448268, i64 683212743470724133 }, %"class.absl::uint128" { i64 -7905747460161236407, i64 658812288346769700 }, %"class.absl::uint128" { i64 -3180473116156819245, i64 636094623231363848 }, %"class.absl::uint128" { i64 -8608480567731124088, i64 614891469123651720 }, %"class.absl::uint128" { i64 -8925843906633654008, i64 595056260442243600 }, %"class.absl::uint128" { i64 -1, i64 576460752303423487 }, %"class.absl::uint128" { i64 8943875914525843207, i64 558992244657865200 }, %"class.absl::uint128" { i64 -8680820740569200761, i64 542551296285575047 }, %"class.absl::uint128" { i64 8432797290838652167, i64 527049830677415760 }, %"class.absl::uint128" { i64 8198552921648689607, i64 512409557603043100 }], align 16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewIcSt11char_traitsIcEEPf(i64 %str.coerce0, ptr %str.coerce1, ptr noundef initializes((0, 4)) %out) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtofESt17basic_string_viewIcSt11char_traitsIcEEPf(i64 %str.coerce0, ptr %str.coerce1, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   store float 0.000000e+00, ptr %out, align 4
   %call.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %str.coerce0, ptr %str.coerce1)
@@ -109,7 +109,7 @@ return:                                           ; preds = %return.sink.split, 
 declare { ptr, i32 } @_ZN4absl10from_charsEPKcS1_RfNS_12chars_formatE(ptr noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewIcSt11char_traitsIcEEPd(i64 %str.coerce0, ptr %str.coerce1, ptr noundef initializes((0, 8)) %out) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4absl10SimpleAtodESt17basic_string_viewIcSt11char_traitsIcEEPd(i64 %str.coerce0, ptr %str.coerce1, ptr noundef %out) local_unnamed_addr #0 {
 entry:
   store double 0.000000e+00, ptr %out, align 8
   %call.i = tail call { i64, ptr } @_ZN4absl27StripLeadingAsciiWhitespaceESt17basic_string_viewIcSt11char_traitsIcEE(i64 %str.coerce0, ptr %str.coerce1)
@@ -240,7 +240,7 @@ declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 no
 declare noundef zeroext i1 @_ZN4absl16EqualsIgnoreCaseESt17basic_string_viewIcSt11char_traitsIcEES3_(i64, ptr, i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %i, ptr nocapture noundef writeonly initializes((0, 2)) %buf) local_unnamed_addr #3 {
+define dso_local void @_ZN4absl16numbers_internal12PutTwoDigitsEjPc(i32 noundef %i, ptr nocapture noundef writeonly %buf) local_unnamed_addr #3 {
 entry:
   %conv = zext i32 %i to i64
   %mul = mul nuw nsw i64 %conv, 103
@@ -257,7 +257,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferEjPc(i32 noundef %n, ptr noundef writeonly initializes((0, 1)) %out_str) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferEjPc(i32 noundef %n, ptr noundef writeonly %out_str) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i = icmp ult i32 %n, 10
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -471,7 +471,7 @@ _ZN4absl12_GLOBAL__N_113EncodeFullU32EjPc.exit:   ; preds = %if.end8.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %i, ptr noundef writeonly initializes((0, 1)) %buffer) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull ptr @_ZN4absl16numbers_internal15FastIntToBufferEmPc(i64 noundef %i, ptr noundef writeonly %buffer) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.not = icmp ugt i64 %i, 4294967295
   br i1 %cmp.i.not, label %if.end.i, label %if.then.i
@@ -1532,7 +1532,7 @@ return:                                           ; preds = %if.end181, %while.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 4)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto32_baseESt17basic_string_viewIcSt11char_traitsIcEEPii(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4
@@ -1638,7 +1638,7 @@ _ZN4absl12_GLOBAL__N_117safe_int_internalIiEEbSt17basic_string_viewIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal17safe_strto64_baseESt17basic_string_viewIcSt11char_traitsIcEEPli(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4
@@ -1745,7 +1745,7 @@ _ZN4absl12_GLOBAL__N_117safe_int_internalIlEEbSt17basic_string_viewIcSt11char_tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 16)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strto128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_6int128Ei(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4
@@ -1924,7 +1924,7 @@ _ZN4absl12_GLOBAL__N_117safe_int_internalINS_6int128EEEbSt17basic_string_viewIcS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 4)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou32_baseESt17basic_string_viewIcSt11char_traitsIcEEPji(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4
@@ -1998,7 +1998,7 @@ _ZN4absl12_GLOBAL__N_118safe_uint_internalIjEEbSt17basic_string_viewIcSt11char_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 8)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal18safe_strtou64_baseESt17basic_string_viewIcSt11char_traitsIcEEPmi(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4
@@ -2072,7 +2072,7 @@ _ZN4absl12_GLOBAL__N_118safe_uint_internalImEEbSt17basic_string_viewIcSt11char_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly initializes((0, 16)) %value, i32 noundef %base) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN4absl16numbers_internal19safe_strtou128_baseESt17basic_string_viewIcSt11char_traitsIcEEPNS_7uint128Ei(i64 %text.coerce0, ptr %text.coerce1, ptr nocapture noundef writeonly %value, i32 noundef %base) local_unnamed_addr #6 {
 entry:
   %text.i = alloca %"class.std::basic_string_view", align 8
   %base.addr.i = alloca i32, align 4

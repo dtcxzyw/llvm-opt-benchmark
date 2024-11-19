@@ -156,7 +156,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer11prop_solverC2ER11ast_managerP6solverS4_RK9fp_paramsRK6symbol(ptr noundef nonnull align 8 dereferenceable(156) initializes((0, 96)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %solver0, ptr noundef %solver1, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer11prop_solverC2ER11ast_managerP6solverS4_RK9fp_paramsRK6symbol(ptr noundef nonnull align 8 dereferenceable(156) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %solver0, ptr noundef %solver1, ptr noundef nonnull align 8 dereferenceable(16) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_name = getelementptr inbounds i8, ptr %this, i64 8

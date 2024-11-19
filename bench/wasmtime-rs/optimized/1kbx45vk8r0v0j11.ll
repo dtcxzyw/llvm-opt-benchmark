@@ -101,7 +101,7 @@ define hidden zeroext i1 @"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17hcf3670369a20d639E"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 1 %1, i64 %2) unnamed_addr #0 {
+define hidden void @"_ZN76_$LT$alloc..string..String$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17hcf3670369a20d639E"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nocapture readonly align 1 %1, i64 %2) unnamed_addr #0 {
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb8fa3daa2305a230E"(i64 %2, i1 zeroext false)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1

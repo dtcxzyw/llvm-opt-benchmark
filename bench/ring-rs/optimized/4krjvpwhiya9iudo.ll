@@ -107,7 +107,7 @@ define hidden void @_ZN4core9panicking13assert_failed17hcf95da16f3904d6aE(i8 nou
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN9untrusted5input5Input8read_all17h16da7085d5ce7fc0E(ptr noalias nocapture noundef writeonly sret({ i64, [12 x i64] }) align 8 dereferenceable(104) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN9untrusted5input5Input8read_all17h16da7085d5ce7fc0E(ptr noalias nocapture noundef writeonly sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { [6 x i64], {}, {} }, { [6 x i64], {}, {} } }, align 8
   %5 = alloca { i64, [6 x i64] }, align 8
   %.sroa.05.i = alloca [6 x i64], align 8
@@ -187,7 +187,7 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h16da7085d5ce7fc0E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN9untrusted5input5Input8read_all17h25aa886a24fa966cE(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2, ptr noalias noundef readonly align 8 dereferenceable(16) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN9untrusted5input5Input8read_all17h25aa886a24fa966cE(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %2, ptr noalias noundef readonly align 8 dereferenceable(16) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, [3 x i64] }, align 8
   %.sroa.5 = alloca [24 x i8], align 8
   %6 = alloca { { ptr, i64 }, i64 }, align 8
@@ -250,7 +250,7 @@ define hidden { ptr, ptr } @_ZN9untrusted5input5Input8read_all17h3b5501a55f45cda
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN9untrusted5input5Input8read_all17h3ece5dc86dc8b2a9E(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(48) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN9untrusted5input5Input8read_all17h3ece5dc86dc8b2a9E(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(48) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, [3 x i64] }, align 8
   %7 = alloca { { ptr, i64 }, i64 }, align 8
   %8 = alloca { [1 x i64], ptr, [1 x i64] }, align 8
@@ -354,7 +354,7 @@ define hidden void @_ZN9untrusted5input5Input8read_all17h3ece5dc86dc8b2a9E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN9untrusted5input5Input8read_all17h43ed9def5937e2b1E(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN9untrusted5input5Input8read_all17h43ed9def5937e2b1E(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   %4 = alloca { [1 x i64], ptr, [1 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, i64 }, align 8
@@ -597,7 +597,7 @@ define hidden { ptr, i64 } @_ZN9untrusted5input5Input8read_all17h7e0efe2a6d6e25c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN9untrusted5input5Input8read_all17h8ec3260fcf1a50f7E.llvm.4525565709555364834(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !12, !noundef !4
@@ -658,7 +658,7 @@ _ZN4ring2io3der16positive_integer17h0412890f1706fadfE.exit24.i: ; preds = %13
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN9untrusted5input5Input8read_all17h91e78c218ee6c2d8E(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN9untrusted5input5Input8read_all17h91e78c218ee6c2d8E(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { ptr, [3 x i64] }, align 8
   %7 = alloca { { ptr, i64 }, i64 }, align 8
   %8 = alloca { [1 x i64], ptr, [1 x i64] }, align 8
@@ -840,7 +840,7 @@ define hidden noundef zeroext i1 @_ZN9untrusted5input5Input8read_all17h95dc2da41
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN9untrusted5input5Input8read_all17hc03e61e8997edcf5E(ptr noalias nocapture noundef writeonly sret({ ptr, [29 x i64] }) align 8 dereferenceable(240) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN9untrusted5input5Input8read_all17hc03e61e8997edcf5E(ptr noalias nocapture noundef writeonly sret({ ptr, [29 x i64] }) align 8 dereferenceable(240) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { ptr, [29 x i64] }, align 8
   %6 = alloca { { { { ptr, i64 }, { [2 x i64] }, i64 }, { ptr, i64 }, { ptr, i64 } }, { { { ptr, i64 }, { [2 x i64] }, i64 }, { ptr, i64 }, { ptr, i64 } }, { ptr, i64 }, { { { { { ptr, i64 }, { [2 x i64] }, i64 }, { ptr, i64 } }, i64 }, { ptr, i64 } } }, align 8
   %7 = alloca { { ptr, i64 }, i64 }, align 8
@@ -1146,7 +1146,7 @@ _ZN9untrusted5input5Input8read_all17h44e99081b328cf83E.llvm.4525565709555364834.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4ring2io3der6nested17h2b89b9586a9703eaE(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 8)) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4ring2io3der6nested17h2b89b9586a9703eaE(ptr noalias nocapture noundef writeonly sret({ ptr, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef align 8 dereferenceable(24) %1, i8 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { { ptr, i64 }, i64 }, align 8
   %5 = alloca { [1 x i64], ptr, [1 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5), !noalias !177

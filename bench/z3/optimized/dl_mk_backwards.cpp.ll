@@ -89,7 +89,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7datalog12mk_backwardsC2ERNS_7contextEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 13), (16, 40)) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx, i32 noundef %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog12mk_backwardsC2ERNS_7contextEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx, i32 noundef %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_priority.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %priority, ptr %m_priority.i, align 8

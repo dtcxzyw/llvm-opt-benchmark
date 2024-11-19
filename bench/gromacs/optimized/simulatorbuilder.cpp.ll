@@ -75,7 +75,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN3gmx16SimulatorBuilderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx16SimulatorBuilderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx16SimulatorBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 128)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx16SimulatorBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   ret void
 }

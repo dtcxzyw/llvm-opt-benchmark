@@ -3596,7 +3596,7 @@ _ZN5boost10shared_ptrIN8QuantLib17InterestRateIndexEED2Ev.exit: ; preds = %_ZN8Q
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13DigitalCouponC1ERKN5boost10shared_ptrINS_18FloatingRateCouponEEEdNS_8Position4TypeEbddS8_bdNS2_INS_18DigitalReplicationEEEb(ptr noundef nonnull align 8 dereferenceable(289) initializes((296, 304), (312, 316), (320, 328)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %underlying, double noundef %callStrike, i32 noundef %callPosition, i1 noundef zeroext %isCallATMIncluded, double noundef %callDigitalPayoff, double noundef %putStrike, i32 noundef %putPosition, i1 noundef zeroext %isPutATMIncluded, double noundef %putDigitalPayoff, ptr nocapture noundef %replication, i1 noundef zeroext %nakedOption) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13DigitalCouponC1ERKN5boost10shared_ptrINS_18FloatingRateCouponEEEdNS_8Position4TypeEbddS8_bdNS2_INS_18DigitalReplicationEEEb(ptr noundef nonnull align 8 dereferenceable(289) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %underlying, double noundef %callStrike, i32 noundef %callPosition, i1 noundef zeroext %isCallATMIncluded, double noundef %callDigitalPayoff, double noundef %putStrike, i32 noundef %putPosition, i1 noundef zeroext %isPutATMIncluded, double noundef %putDigitalPayoff, ptr nocapture noundef %replication, i1 noundef zeroext %nakedOption) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8

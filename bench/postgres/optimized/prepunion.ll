@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.13 = private unnamed_addr constant [39 x i8] c"All column datatypes must be hashable.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @plan_set_operations(ptr noundef initializes((184, 185)) %0) local_unnamed_addr #0 {
+define dso_local ptr @plan_set_operations(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -1045,7 +1045,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 -1, 2) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr noundef readonly %6, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %7) unnamed_addr #0 {
+define internal fastcc ptr @generate_setop_tlist(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 -1, 2) %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef readonly %5, ptr noundef readonly %6, ptr nocapture noundef nonnull writeonly %7) unnamed_addr #0 {
   store i8 1, ptr %7, align 1
   %.not = icmp eq ptr %0, null
   %.not84 = icmp eq ptr %1, null

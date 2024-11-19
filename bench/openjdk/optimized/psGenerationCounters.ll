@@ -23,7 +23,7 @@ $_ZTV20PSGenerationCounters = comdat any
 @_ZN20PSGenerationCountersC1EPKciimmP14PSVirtualSpace = hidden unnamed_addr alias void (ptr, ptr, i32, i32, i64, i64, ptr), ptr @_ZN20PSGenerationCountersC2EPKciimmP14PSVirtualSpace
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20PSGenerationCountersC2EPKciimmP14PSVirtualSpace(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN20PSGenerationCountersC2EPKciimmP14PSVirtualSpace(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) unnamed_addr #0 align 2 {
   %8 = alloca %class.ExceptionMark, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)

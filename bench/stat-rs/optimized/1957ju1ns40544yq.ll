@@ -139,7 +139,7 @@ define hidden { double, i32 } @"_ZN68_$LT$approx..Ulps$LT$A$C$B$GT$$u20$as$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution5dirac5Dirac3new17hbd0bf98ebf3a1406E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1) unnamed_addr #2 {
+define void @_ZN6statrs12distribution5dirac5Dirac3new17hbd0bf98ebf3a1406E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1) unnamed_addr #2 {
   %3 = fcmp uno double %1, 0.000000e+00
   br i1 %3, label %6, label %4
 
@@ -247,7 +247,7 @@ define { i64, double } @"_ZN126_$LT$statrs..distribution..dirac..Dirac$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution5gamma5Gamma3new17h9d848519378ef99aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
+define void @_ZN6statrs12distribution5gamma5Gamma3new17h9d848519378ef99aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
   %or.cond = fcmp uno double %1, %2
   br i1 %or.cond, label %16, label %4
 
@@ -892,7 +892,7 @@ define noundef double @"_ZN104_$LT$statrs..distribution..gamma..Gamma$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution7laplace7Laplace3new17h40cc8dbaa6e570bdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
+define void @_ZN6statrs12distribution7laplace7Laplace3new17h40cc8dbaa6e570bdE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
   %or.cond = fcmp uno double %1, %2
   %4 = fcmp ole double %2, 0.000000e+00
   %or.cond1 = or i1 %or.cond, %4
@@ -1117,7 +1117,7 @@ define noundef double @"_ZN108_$LT$statrs..distribution..laplace..Laplace$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution10log_normal9LogNormal3new17hefce19d541c480d9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
+define void @_ZN6statrs12distribution10log_normal9LogNormal3new17hefce19d541c480d9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
   %or.cond = fcmp uno double %1, %2
   %4 = fcmp ole double %2, 0.000000e+00
   %or.cond1 = or i1 %or.cond, %4
@@ -1439,7 +1439,7 @@ define noundef double @"_ZN113_$LT$statrs..distribution..log_normal..LogNormal$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution6normal6Normal3new17h40448d97d1b9dc9eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
+define void @_ZN6statrs12distribution6normal6Normal3new17h40448d97d1b9dc9eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
   %or.cond = fcmp uno double %1, %2
   %4 = fcmp ole double %2, 0.000000e+00
   %or.cond1 = or i1 %or.cond, %4

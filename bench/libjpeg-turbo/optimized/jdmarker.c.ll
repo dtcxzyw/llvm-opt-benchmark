@@ -325,7 +325,7 @@ define void @jinit_marker_reader(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @reset_marker_reader(ptr nocapture noundef initializes((172, 176), (304, 312), (540, 544)) %0) #1 {
+define internal void @reset_marker_reader(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 584
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 304

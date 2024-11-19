@@ -28,7 +28,7 @@ $_ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EE8_M_eraseEPSt1
 @_ZN10OpenSubdiv6v3_6_03Sdc6Crease16SHARPNESS_SMOOTHE = external local_unnamed_addr constant float, align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex10InitializeEii(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((156, 159), (160, 164)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex10InitializeEii(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = trunc i32 %1 to i16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i16 %4, ptr %5, align 4
@@ -48,7 +48,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex10InitializeEii(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex8FinalizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((152, 156), (160, 164)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr10FaceVertex8FinalizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = trunc i32 %1 to i16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 154
   store i16 %3, ptr %4, align 2
@@ -388,7 +388,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex15GetFacePreviousEi.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18initCompleteSubsetEPNS1_16FaceVertexSubsetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex18initCompleteSubsetEPNS1_16FaceVertexSubsetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -530,7 +530,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex11GetFaceNextEi.exit23: ; preds = %52, %6
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex25findConnectedSubsetExtentEPNS1_16FaceVertexSubsetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex25findConnectedSubsetExtentEPNS1_16FaceVertexSubsetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load i16, ptr %3, align 8, !noalias !12
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -745,7 +745,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex15GetFacePreviousEi.exit32: ; preds = %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex15GetVertexSubsetEPNS1_16FaceVertexSubsetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, ptr nocapture noundef initializes((0, 12)) %1) local_unnamed_addr #4 align 2 {
+define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex15GetVertexSubsetEPNS1_16FaceVertexSubsetE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, ptr nocapture noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load i16, ptr %3, align 8
   %5 = and i16 %4, 512
@@ -1014,7 +1014,7 @@ define void @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex13SharpenSubsetEPNS1_16FaceV
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20findFVarSubsetExtentERKNS1_16FaceVertexSubsetEPS3_PKi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef writeonly initializes((0, 12)) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20findFVarSubsetExtentERKNS1_16FaceVertexSubsetEPS3_PKi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #1 align 2 {
   %5 = load i16, ptr %1, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2
   store i16 0, ptr %6, align 2
@@ -1430,7 +1430,7 @@ _ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex26FaceIndicesMatchAcrossEdgeEiiPKi.exit75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex21FindFaceVaryingSubsetEPNS1_16FaceVertexSubsetEPKiRKS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, ptr nocapture noundef initializes((0, 12)) %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 4 dereferenceable(12) %3) local_unnamed_addr #1 align 2 {
+define noundef range(i32 -32768, 32768) i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex21FindFaceVaryingSubsetEPNS1_16FaceVertexSubsetEPKiRKS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 4 dereferenceable(12) %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr10FaceVertex20findFVarSubsetExtentERKNS1_16FaceVertexSubsetEPS3_PKi(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 4 dereferenceable(12) %3, ptr noundef %1, ptr noundef %2)
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 6
   %7 = load i16, ptr %6, align 2

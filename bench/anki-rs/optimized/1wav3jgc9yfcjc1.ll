@@ -178,7 +178,7 @@ define void @"_ZN61_$LT$std..path..PathBuf$u20$as$u20$anki_io..ToUtf8PathBuf$GT$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN55_$LT$std..path..Path$u20$as$u20$anki_io..ToUtf8Path$GT$4utf817h8ddbe5c202ccedcaE"(ptr nocapture writeonly sret({ i64, [7 x i64] }) align 8 initializes((0, 8)) %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
+define void @"_ZN55_$LT$std..path..Path$u20$as$u20$anki_io..ToUtf8Path$GT$4utf817h8ddbe5c202ccedcaE"(ptr nocapture writeonly sret({ i64, [7 x i64] }) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #2 {
   %4 = alloca { { { ptr, i64 }, i64 } }, align 8
   %5 = tail call { ptr, i64 } @_ZN6camino8Utf8Path9from_path17he184e548550e5653E(ptr align 1 %1, i64 %2)
   %.fca.0.extract = extractvalue { ptr, i64 } %5, 0

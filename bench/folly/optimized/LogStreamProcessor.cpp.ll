@@ -24,7 +24,7 @@ $__clang_call_terminate = comdat any
 @_ZN5folly18LogStreamProcessorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly18LogStreamProcessorD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly18LogStreamProcessorC2EPKNS_11LogCategoryENS_8LogLevelENS_5RangeIPKcEEjS8_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 12), (16, 36), (40, 56)) %this, ptr noundef %category, i32 noundef %level, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, i32 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18LogStreamProcessorC2EPKNS_11LogCategoryENS_8LogLevelENS_5RangeIPKcEEjS8_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef %category, i32 noundef %level, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, i32 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #14
@@ -88,7 +88,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly18LogStreamProcessorC2EPKNS_11LogCategoryENS_8LogLevelENS_5RangeIPKcEEjS8_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 12), (16, 36), (40, 56)) %this, ptr noundef %category, i32 noundef %level, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, i32 %0, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18LogStreamProcessorC2EPKNS_11LogCategoryENS_8LogLevelENS_5RangeIPKcEEjS8_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr noundef %category, i32 noundef %level, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, i32 %0, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %category, ptr %this, align 8, !tbaa !7
   %level_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -349,7 +349,7 @@ declare void @_ZN5folly9LogStreamC1EPNS_18LogStreamProcessorE(ptr noundef nonnul
 declare noundef ptr @_ZN5folly16XlogCategoryInfoILb1EE4initENS_5RangeIPKcEEb(ptr noundef nonnull align 8 dereferenceable(16), ptr, ptr, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 12), (16, 36), (40, 56)) %this, ptr nocapture noundef readonly %fileScopeInfo, i32 noundef %level, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, i32 %0, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_12InternalTypeEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr nocapture noundef readonly %fileScopeInfo, i32 noundef %level, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, i32 %0, ptr noundef nonnull align 8 dereferenceable(32) %msg) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = getelementptr i8, ptr %fileScopeInfo, i64 8
   %fileScopeInfo.val = load ptr, ptr %1, align 8, !tbaa !36
@@ -411,7 +411,7 @@ terminate.lpad:                                   ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 12), (16, 36), (40, 56)) %this, ptr nocapture noundef readonly %fileScopeInfo, i32 noundef %level, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, i32 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18LogStreamProcessorC2EPNS_17XlogFileScopeInfoENS_8LogLevelENS_5RangeIPKcEEjS7_NS0_10AppendTypeE(ptr noundef nonnull align 8 dereferenceable(464) %this, ptr nocapture noundef readonly %fileScopeInfo, i32 noundef %level, ptr %filename.coerce0, ptr %filename.coerce1, i32 noundef %lineNumber, ptr nocapture noundef readonly byval(%"class.folly::Range") align 8 %functionName, i32 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #14

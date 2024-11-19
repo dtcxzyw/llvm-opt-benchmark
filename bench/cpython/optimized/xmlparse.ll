@@ -1081,7 +1081,7 @@ return:                                           ; preds = %if.end, %entry, %dt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parserInit(ptr noundef nonnull initializes((528, 536)) %parser, ptr noundef readonly %encodingName) unnamed_addr #0 {
+define internal fastcc void @parserInit(ptr noundef nonnull %parser, ptr noundef readonly %encodingName) unnamed_addr #0 {
 entry:
   %afterValue.i78 = alloca ptr, align 8
   %afterValue.i = alloca ptr, align 8
@@ -17581,7 +17581,7 @@ return:                                           ; preds = %land.lhs.true.i, %l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 44) i32 @epilogProcessor(ptr noundef initializes((528, 536), (544, 552)) %parser, ptr noundef %s, ptr noundef %end, ptr nocapture noundef writeonly %nextPtr) #0 {
+define internal range(i32 0, 44) i32 @epilogProcessor(ptr noundef %parser, ptr noundef %s, ptr noundef %end, ptr nocapture noundef writeonly %nextPtr) #0 {
 entry:
   %s.addr.i41 = alloca ptr, align 8
   %dataPtr.i42 = alloca ptr, align 8
@@ -20369,7 +20369,7 @@ return:                                           ; preds = %accountingGetCurren
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @externalEntityInitProcessor3(ptr noundef initializes((544, 560)) %parser, ptr noundef %start, ptr noundef %end, ptr nocapture noundef writeonly %endPtr) #0 {
+define internal i32 @externalEntityInitProcessor3(ptr noundef %parser, ptr noundef %start, ptr noundef %end, ptr nocapture noundef writeonly %endPtr) #0 {
 entry:
   %next = alloca ptr, align 8
   store ptr %start, ptr %next, align 8
@@ -20446,7 +20446,7 @@ return:                                           ; preds = %sw.bb9, %sw.bb5, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 44) i32 @entityValueInitProcessor(ptr noundef initializes((544, 560)) %parser, ptr noundef %s, ptr noundef %end, ptr nocapture noundef writeonly %nextPtr) #0 {
+define internal range(i32 0, 44) i32 @entityValueInitProcessor(ptr noundef %parser, ptr noundef %s, ptr noundef %end, ptr nocapture noundef writeonly %nextPtr) #0 {
 entry:
   %next.i = alloca ptr, align 8
   %next = alloca ptr, align 8

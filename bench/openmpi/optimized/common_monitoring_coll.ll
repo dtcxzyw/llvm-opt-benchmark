@@ -411,7 +411,7 @@ mca_common_monitoring_get_world_rank.exit38:      ; preds = %112
 }
 
 ; Function Attrs: nounwind uwtable
-define void @mca_common_monitoring_coll_release(ptr nocapture noundef initializes((36, 40)) %0) local_unnamed_addr #0 {
+define void @mca_common_monitoring_coll_release(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 1, ptr %2, align 4
   tail call fastcc void @mca_common_monitoring_coll_cache(ptr noundef %0)
@@ -920,7 +920,7 @@ define i32 @mca_common_monitoring_coll_get_a2a_size(ptr nocapture noundef readno
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @mca_monitoring_coll_construct(ptr noundef initializes((16, 48)) %0) #8 {
+define internal void @mca_monitoring_coll_construct(ptr noundef %0) #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)

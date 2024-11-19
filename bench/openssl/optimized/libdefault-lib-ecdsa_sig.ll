@@ -314,7 +314,7 @@ return:                                           ; preds = %if.end.i, %lor.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ecdsa_freectx(ptr noundef initializes((352, 360)) %vctx) #0 {
+define internal void @ecdsa_freectx(ptr noundef %vctx) #0 {
 entry:
   %propq = getelementptr inbounds i8, ptr %vctx, i64 8
   %0 = load ptr, ptr %propq, align 8

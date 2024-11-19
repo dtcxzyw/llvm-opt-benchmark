@@ -473,7 +473,7 @@ return:                                           ; preds = %if.end9, %do.body, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_lcidm_generate(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, ptr noundef initializes((0, 16)) %ncid_frame) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_lcidm_generate(ptr nocapture noundef readonly %lcidm, ptr noundef %opaque, ptr noundef %ncid_frame) local_unnamed_addr #0 {
 entry:
   %conn_id = getelementptr inbounds i8, ptr %ncid_frame, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ncid_frame, i8 0, i64 16, i1 false)

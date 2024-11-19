@@ -11345,7 +11345,7 @@ declare void @_ZN4node11Environment22RequestInterruptFromV8Ev(ptr noundef nonnul
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -11366,7 +11366,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6reportL15WriteNodeReportEPN2v87IsolateES2_PKcSA_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSoNS6_5LocalINS6_5ValueEEEbENK3$_0clEPNS_6worker6WorkerEEUlS2_E_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16

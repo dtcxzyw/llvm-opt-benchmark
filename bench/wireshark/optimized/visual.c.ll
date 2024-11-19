@@ -609,7 +609,7 @@ define internal range(i32 -9, 1) i32 @visual_dump_can_write_encap(i32 noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @visual_dump_open(ptr noundef initializes((40, 48), (64, 80)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @visual_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @visual_dump, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72

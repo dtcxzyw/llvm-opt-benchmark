@@ -1457,7 +1457,7 @@ declare ptr @qapi_clone(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @visit_type_BitmapMigrationNodeAliasList(ptr noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @migrate_params_init(ptr nocapture noundef writeonly initializes((0, 1), (16, 17), (32, 33), (48, 49), (64, 65), (66, 67), (68, 69), (70, 71), (72, 73), (74, 75), (76, 77), (78, 79), (80, 96), (104, 105), (136, 137), (152, 153), (160, 161), (162, 163), (164, 165), (176, 177), (192, 193), (194, 195), (200, 201), (202, 203), (216, 217), (232, 233), (248, 249)) %params) local_unnamed_addr #0 {
+define dso_local void @migrate_params_init(ptr nocapture noundef writeonly %params) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.75) #8
   %tls_hostname = getelementptr inbounds i8, ptr %params, i64 88

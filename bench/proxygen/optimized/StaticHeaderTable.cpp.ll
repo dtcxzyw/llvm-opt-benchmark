@@ -234,7 +234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen17StaticHeaderTableC2EPA2_PKci(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 53), (56, 80)) %this, ptr nocapture noundef readonly %entries, i32 noundef %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen17StaticHeaderTableC2EPA2_PKci(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %entries, i32 noundef %size) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hlist = alloca %"class.std::__cxx11::list", align 8
   %ref.tmp = alloca %"class.proxygen::HPACKHeader", align 8

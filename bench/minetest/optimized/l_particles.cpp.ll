@@ -543,7 +543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17LuaParticleParams12readTexValueEP9lua_StateR21ServerParticleTexture(ptr noundef %L, ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 1)) %tex) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17LuaParticleParams12readTexValueEP9lua_StateR21ServerParticleTexture(ptr noundef %L, ptr noundef nonnull align 8 dereferenceable(136) %tex) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %unroll = alloca %class.StackUnroller, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %unroll) #25

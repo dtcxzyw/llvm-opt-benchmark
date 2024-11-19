@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopCreate(ptr nocapture noundef initializes((4, 16)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Kit_SopCreate(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 4
@@ -66,7 +66,7 @@ Vec_IntFetch.exit:                                ; preds = %4, %8, %14
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopCreateInverse(ptr nocapture noundef initializes((4, 16)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define void @Kit_SopCreateInverse(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 4
   %.val = load i32, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -136,7 +136,7 @@ Vec_IntFetch.exit:                                ; preds = %9, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopDup(ptr nocapture noundef initializes((4, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Kit_SopDup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 4
@@ -250,7 +250,7 @@ define void @Kit_SopDivideByLiteralQuo(ptr nocapture noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopDivideByCube(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 16)) %2, ptr nocapture noundef initializes((4, 16)) %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @Kit_SopDivideByCube(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 8
   %.val25 = load ptr, ptr %6, align 8
   %7 = load i32, ptr %.val25, align 4
@@ -368,7 +368,7 @@ Vec_IntFetch.exit27:                              ; preds = %Vec_IntFetch.exit, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopDivideInternal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 16)) %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
+define void @Kit_SopDivideInternal(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %1, i64 4
   %.val152 = load i32, ptr %6, align 4
   %7 = icmp eq i32 %.val152, 1
@@ -983,7 +983,7 @@ Kit_SopCommonCube.exit:                           ; preds = %Kit_SopCommonCube.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Kit_SopCommonCubeCover(ptr nocapture noundef initializes((4, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
+define void @Kit_SopCommonCubeCover(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 4

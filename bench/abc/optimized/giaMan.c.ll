@@ -5364,7 +5364,7 @@ declare i32 @Gia_ManConeSize(ptr noundef, ptr noundef, i32 noundef) local_unname
 declare i32 @Gia_NodeMffcSize(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Gia_ManSetRegNum(ptr nocapture noundef writeonly initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #9 {
+define void @Gia_ManSetRegNum(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void

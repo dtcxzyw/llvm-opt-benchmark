@@ -855,7 +855,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef %in) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN7doctest6detail9TestSuitemlEPKc(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) %this, ptr noundef %in) local_unnamed_addr #2 align 2 {
 entry:
   store ptr %in, ptr %this, align 8
   ret ptr %this
@@ -1173,7 +1173,7 @@ entry:
 declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN7doctest6String8allocateEj(ptr noundef nonnull writeonly align 8 dereferenceable(24) initializes((23, 24)) %this, i32 noundef %sz) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZN7doctest6String8allocateEj(ptr noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %sz) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp ult i32 %sz, 24
   br i1 %cmp, label %if.then, label %if.else
@@ -1210,7 +1210,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7doctest6String7setLastEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((23, 24)) %this, i32 noundef %in) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN7doctest6String7setLastEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %in) local_unnamed_addr #2 align 2 {
 entry:
   %conv = trunc i32 %in to i8
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 23
@@ -1219,7 +1219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7doctest6String9setOnHeapEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((23, 24)) %this) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN7doctest6String9setOnHeapEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) local_unnamed_addr #2 align 2 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %this, i64 23
   store i8 -128, ptr %arrayidx, align 1
@@ -1260,7 +1260,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6String4copyERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((23, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %other) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN7doctest6String4copyERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %other) local_unnamed_addr #7 align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %other, i64 23
   %0 = load i8, ptr %arrayidx.i, align 1
@@ -1319,7 +1319,7 @@ if.end:                                           ; preds = %_ZN7doctest6String8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7doctest6StringC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 1), (23, 24)) %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN7doctest6StringC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 23
@@ -1352,7 +1352,7 @@ if.end:                                           ; preds = %if.then, %delete.no
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6StringC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((23, 24)) %this, ptr nocapture noundef readonly %in) unnamed_addr #7 align 2 {
+define dso_local void @_ZN7doctest6StringC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %in) unnamed_addr #7 align 2 {
 entry:
   %call = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %in) #47
   %conv = trunc i64 %call to i32
@@ -1396,7 +1396,7 @@ _ZN7doctest6StringC2EPKcj.exit:                   ; preds = %if.then.i.i, %if.el
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6StringC2EPKcj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((23, 24)) %this, ptr nocapture noundef readonly %in, i32 noundef %in_size) unnamed_addr #7 align 2 {
+define dso_local void @_ZN7doctest6StringC2EPKcj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %in, i32 noundef %in_size) unnamed_addr #7 align 2 {
 entry:
   %cmp.i = icmp ult i32 %in_size, 24
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -1435,7 +1435,7 @@ _ZN7doctest6String8allocateEj.exit:               ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6StringC2ERSij(ptr noundef nonnull align 8 dereferenceable(24) initializes((23, 24)) %this, ptr noundef nonnull align 8 dereferenceable(16) %in, i32 noundef %in_size) unnamed_addr #7 align 2 {
+define dso_local void @_ZN7doctest6StringC2ERSij(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(16) %in, i32 noundef %in_size) unnamed_addr #7 align 2 {
 entry:
   %cmp.i = icmp ult i32 %in_size, 24
   br i1 %cmp.i, label %if.then.i, label %if.else.i
@@ -1476,7 +1476,7 @@ _ZN7doctest6String8allocateEj.exit:               ; preds = %if.then.i, %if.else
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6StringC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((23, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %other) unnamed_addr #7 align 2 {
+define dso_local void @_ZN7doctest6StringC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %other) unnamed_addr #7 align 2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %other, i64 23
   %0 = load i8, ptr %arrayidx.i.i, align 1
@@ -1738,7 +1738,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7doctest6StringC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #16 align 2 {
+define dso_local void @_ZN7doctest6StringC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %other) unnamed_addr #16 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %other, i64 24, i1 false)
   store i8 0, ptr %other, align 8
@@ -1819,7 +1819,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNO7doctest6String6substrEjj(ptr noalias nocapture writeonly sret(%"class.doctest::String") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %pos, i32 noundef %cnt) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNO7doctest6String6substrEjj(ptr noalias nocapture writeonly sret(%"class.doctest::String") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %pos, i32 noundef %cnt) local_unnamed_addr #0 align 2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i.i, align 1
@@ -1869,7 +1869,7 @@ _ZN7doctest6String7setSizeEj.exit:                ; preds = %if.then.i, %if.else
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNKR7doctest6String6substrEjj(ptr noalias nocapture writeonly sret(%"class.doctest::String") align 8 initializes((23, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %pos, i32 noundef %cnt) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZNKR7doctest6String6substrEjj(ptr noalias nocapture writeonly sret(%"class.doctest::String") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i32 noundef %pos, i32 noundef %cnt) local_unnamed_addr #7 align 2 {
 entry:
   %arrayidx.i.i = getelementptr inbounds i8, ptr %this, i64 23
   %0 = load i8, ptr %arrayidx.i.i, align 1
@@ -2389,7 +2389,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest8ContainsC2ERKNS_6StringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((23, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %str) unnamed_addr #7 align 2 {
+define dso_local void @_ZN7doctest8ContainsC2ERKNS_6StringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %str) unnamed_addr #7 align 2 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %str, i64 23
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -3038,7 +3038,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7doctest8toStringENS_6StringE(ptr noalias nocapture writeonly sret(%"class.doctest::String") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef %in) local_unnamed_addr #16 {
+define dso_local void @_ZN7doctest8toStringENS_6StringE(ptr noalias nocapture writeonly sret(%"class.doctest::String") align 8 %agg.result, ptr nocapture noundef %in) local_unnamed_addr #16 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %in, i64 24, i1 false)
   store i8 0, ptr %in, align 8
@@ -3048,7 +3048,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7doctest8toStringEDn(ptr noalias nocapture writeonly sret(%"class.doctest::String") align 8 initializes((0, 8), (23, 24)) %agg.result, ptr nocapture readnone %0) local_unnamed_addr #16 {
+define dso_local void @_ZN7doctest8toStringEDn(ptr noalias nocapture writeonly sret(%"class.doctest::String") align 8 %agg.result, ptr nocapture readnone %0) local_unnamed_addr #16 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 7
   store i8 0, ptr %arrayidx.i.i.i, align 1
@@ -3059,7 +3059,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN7doctest8toStringEb(ptr noalias nocapture writeonly sret(%"class.doctest::String") align 8 initializes((23, 24)) %agg.result, i1 noundef zeroext %in) local_unnamed_addr #16 {
+define dso_local void @_ZN7doctest8toStringEb(ptr noalias nocapture writeonly sret(%"class.doctest::String") align 8 %agg.result, i1 noundef zeroext %in) local_unnamed_addr #16 {
 entry:
   %call.i = select i1 %in, i64 4, i64 5
   %arrayidx.i.i.i = getelementptr inbounds [24 x i8], ptr %agg.result, i64 0, i64 %call.i
@@ -3203,7 +3203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7doctest6ApproxC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, double noundef %value) unnamed_addr #2 align 2 {
+define dso_local void @_ZN7doctest6ApproxC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, double noundef %value) unnamed_addr #2 align 2 {
 entry:
   store double 0x3EE9000000000000, ptr %this, align 8
   %m_scale = getelementptr inbounds i8, ptr %this, i64 8
@@ -3214,7 +3214,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK7doctest6ApproxclEd(ptr noalias nocapture writeonly sret(%"struct.doctest::Approx") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, double noundef %value) local_unnamed_addr #16 align 2 {
+define dso_local void @_ZNK7doctest6ApproxclEd(ptr noalias nocapture writeonly sret(%"struct.doctest::Approx") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, double noundef %value) local_unnamed_addr #16 align 2 {
 entry:
   %m_scale.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %m_value.i = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -3228,14 +3228,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6Approx7epsilonEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) initializes((0, 8)) %this, double noundef %newEpsilon) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6Approx7epsilonEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) %this, double noundef %newEpsilon) local_unnamed_addr #2 align 2 {
 entry:
   store double %newEpsilon, ptr %this, align 8
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6Approx5scaleEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) initializes((8, 16)) %this, double noundef %newScale) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN7doctest6Approx5scaleEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) %this, double noundef %newScale) local_unnamed_addr #2 align 2 {
 entry:
   %m_scale = getelementptr inbounds i8, ptr %this, i64 8
   store double %newScale, ptr %m_scale, align 8
@@ -4642,7 +4642,7 @@ return:                                           ; preds = %for.inc, %if.then17
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail7SubcaseC2ERKNS_6StringEPKci(ptr noundef nonnull align 8 dereferenceable(41) initializes((23, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %name, ptr noundef %file, i32 noundef %line) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest6detail7SubcaseC2ERKNS_6StringEPKci(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %name, ptr noundef %file, i32 noundef %line) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %name, i64 23
   %0 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -5748,7 +5748,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail6ResultC2EbRKNS_6StringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 1), (31, 32)) %this, i1 noundef zeroext %passed, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %decomposition) unnamed_addr #7 align 2 {
+define dso_local void @_ZN7doctest6detail6ResultC2EbRKNS_6StringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, i1 noundef zeroext %passed, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %decomposition) unnamed_addr #7 align 2 {
 entry:
   %frombool = zext i1 %passed to i8
   store i8 %frombool, ptr %this, align 8
@@ -5807,14 +5807,14 @@ _ZN7doctest6StringC2ERKS0_.exit:                  ; preds = %if.then.i.i, %_ZN7d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7doctest6detail20ExpressionDecomposerC2ENS_10assertType4EnumE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %at) unnamed_addr #2 align 2 {
+define dso_local void @_ZN7doctest6detail20ExpressionDecomposerC2ENS_10assertType4EnumE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %at) unnamed_addr #2 align 2 {
 entry:
   store i32 %at, ptr %this, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail8TestCaseC2EPFvvEPKcjRKNS0_9TestSuiteERKNS_6StringEi(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 1), (23, 24), (88, 89), (111, 112), (120, 121), (143, 144)) %this, ptr noundef %test, ptr nocapture noundef readonly %file, i32 noundef %line, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %test_suite, ptr noundef nonnull readonly align 8 dereferenceable(24) %type, i32 noundef %template_id) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest6detail8TestCaseC2EPFvvEPKcjRKNS0_9TestSuiteERKNS_6StringEi(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %test, ptr nocapture noundef readonly %file, i32 noundef %line, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %test_suite, ptr noundef nonnull readonly align 8 dereferenceable(24) %type, i32 noundef %template_id) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.doctest::String", align 8
   store i8 0, ptr %this, align 8
@@ -6008,7 +6008,7 @@ _ZN7doctest12TestCaseDataD2Ev.exit:               ; preds = %_ZN7doctest6StringD
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail8TestCaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 80), (88, 89), (111, 112), (120, 121), (143, 144)) %this, ptr noundef nonnull align 8 dereferenceable(144) %other) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest6detail8TestCaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(144) %other) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 23
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %this, i8 0, i64 80, i1 false)
@@ -6325,7 +6325,7 @@ if.end:                                           ; preds = %if.then, %_ZN7docte
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6detail8TestCasemlEPKc(ptr noundef nonnull returned align 8 dereferenceable(144) initializes((32, 40)) %this, ptr noundef %in) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZN7doctest6detail8TestCasemlEPKc(ptr noundef nonnull returned align 8 dereferenceable(144) %this, ptr noundef %in) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.doctest::String", align 8
   %ref.tmp2 = alloca %"class.doctest::String", align 8
@@ -7051,7 +7051,7 @@ _ZNSt12_Vector_baseIPN7doctest13IContextScopeESaIS2_EED2Ev.exit: ; preds = %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -7128,7 +7128,7 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIPN7doc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN7doctest6detail16ContextScopeBaseC2EOS1_(ptr noundef nonnull align 8 dereferenceable(9) initializes((0, 9)) %this, ptr noundef nonnull align 8 dereferenceable(9) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest6detail16ContextScopeBaseC2EOS1_(ptr noundef nonnull align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(9) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -7388,7 +7388,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest10AssertDataC2ENS_10assertType4EnumEPKciS4_S4_RKNS0_14StringContainsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((0, 12), (16, 28), (32, 42), (48, 49), (71, 73), (95, 97), (104, 112), (135, 136)) %this, i32 noundef %at, ptr noundef %file, i32 noundef %line, ptr noundef %expr, ptr noundef %exception_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %exception_string) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest10AssertDataC2ENS_10assertType4EnumEPKciS4_S4_RKNS0_14StringContainsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %this, i32 noundef %at, ptr noundef %file, i32 noundef %line, ptr noundef %expr, ptr noundef %exception_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %exception_string) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr @_ZN7doctest6detail4g_csE, align 8
   %currentTest = getelementptr inbounds i8, ptr %0, i64 32
@@ -7478,7 +7478,7 @@ invoke.cont:                                      ; preds = %_ZN7doctest6String8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail13ResultBuilderC2ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((0, 12), (16, 28), (32, 42), (48, 49), (71, 73), (95, 97), (104, 112), (135, 136)) %this, i32 noundef %at, ptr noundef %file, i32 noundef %line, ptr noundef %expr, ptr noundef %exception_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exception_string) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest6detail13ResultBuilderC2ENS_10assertType4EnumEPKciS5_S5_RKNS_6StringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %this, i32 noundef %at, ptr noundef %file, i32 noundef %line, ptr noundef %expr, ptr noundef %exception_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exception_string) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.doctest::AssertData::StringContains", align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds i8, ptr %exception_string, i64 23
@@ -7638,7 +7638,7 @@ _ZN7doctest10AssertData14StringContainsD2Ev.exit13: ; preds = %if.then.i.i.i10, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail13ResultBuilderC2ENS_10assertType4EnumEPKciS5_S5_RKNS_8ContainsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((0, 12), (16, 28), (32, 42), (48, 49), (71, 73), (95, 97), (104, 112), (135, 136)) %this, i32 noundef %at, ptr noundef %file, i32 noundef %line, ptr noundef %expr, ptr noundef %exception_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exception_string) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest6detail13ResultBuilderC2ENS_10assertType4EnumEPKciS5_S5_RKNS_8ContainsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %this, i32 noundef %at, ptr noundef %file, i32 noundef %line, ptr noundef %expr, ptr noundef %exception_type, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exception_string) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.doctest::Contains", align 8
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %exception_string, i64 23
@@ -7884,7 +7884,7 @@ _ZN7doctest6StringaSERKS0_.exit:                  ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((41, 42), (56, 71)) %this) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN7doctest6detail13ResultBuilder18translateExceptionEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ref.tmp = alloca %"class.doctest::String", align 8
   %m_threw = getelementptr inbounds i8, ptr %this, i64 41
@@ -9008,7 +9008,7 @@ _ZN7doctest10AssertDataD2Ev.exit:                 ; preds = %_ZN7doctest6StringD
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7doctest6detail14MessageBuilderC2EPKciNS_10assertType4EnumE(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 1), (23, 24), (48, 49)) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7doctest6detail14MessageBuilderC2EPKciNS_10assertType4EnumE(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %file, i32 noundef %line, i32 noundef %severity) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 23
@@ -22685,7 +22685,7 @@ if.end:                                           ; preds = %invoke.cont4, %entr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7doctest12_GLOBAL__N_111XmlReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7doctest12_GLOBAL__N_111XmlReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i64 16), ptr %this, align 8
   %xml = getelementptr inbounds i8, ptr %this, i64 8
@@ -22743,7 +22743,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriterD2Ev.exit:     ; preds = %invoke.cont.i.i, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7doctest12_GLOBAL__N_111XmlReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7doctest12_GLOBAL__N_111XmlReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i64 16), ptr %this, align 8
   %xml.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -27775,7 +27775,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7doctest12_GLOBAL__N_113JUnitReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7doctest12_GLOBAL__N_113JUnitReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i64 16), ptr %this, align 8
   %testCaseData = getelementptr inbounds i8, ptr %this, i64 152
@@ -27903,7 +27903,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriterD2Ev.exit:     ; preds = %invoke.cont.i.i7, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7doctest12_GLOBAL__N_113JUnitReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7doctest12_GLOBAL__N_113JUnitReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN7doctest12_GLOBAL__N_113JUnitReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) #43
   tail call void @_ZdlPv(ptr noundef nonnull %this) #44
@@ -30971,7 +30971,7 @@ return:                                           ; preds = %entry, %_ZN7doctest
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporter15test_case_startERKNS_12TestCaseDataE(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((16, 17), (104, 112)) %this, ptr noundef nonnull align 8 dereferenceable(80) %in) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporter15test_case_startERKNS_12TestCaseDataE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(80) %in) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hasLoggedCurrentTestStart = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %hasLoggedCurrentTestStart, align 8
@@ -31765,7 +31765,7 @@ _ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EE9push_backERKS1_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporter11subcase_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((16, 17)) %this) unnamed_addr #16 align 2 {
+define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporter11subcase_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #16 align 2 {
 entry:
   %currentSubcaseLevel = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i64, ptr %currentSubcaseLevel, align 8
@@ -32024,7 +32024,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i64 16), ptr %this, align 8
   %subcasesStack = getelementptr inbounds i8, ptr %this, i64 24
@@ -32073,7 +32073,7 @@ _ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EED2Ev.exit: ; preds = %invoke.co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i64 16), ptr %this, align 8
   %subcasesStack.i = getelementptr inbounds i8, ptr %this, i64 24

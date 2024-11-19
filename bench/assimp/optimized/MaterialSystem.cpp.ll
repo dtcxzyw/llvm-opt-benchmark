@@ -1277,7 +1277,7 @@ return:                                           ; preds = %aiGetMaterialString
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10aiMaterialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #2 align 2 {
+define void @_ZN10aiMaterialC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %mNumProperties = getelementptr inbounds i8, ptr %this, i64 8
@@ -1397,7 +1397,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10aiMaterial7GetNameEv(ptr noalias nocapture writeonly sret(%struct.aiString) align 4 initializes((0, 5)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #2 align 2 {
+define void @_ZNK10aiMaterial7GetNameEv(ptr noalias nocapture writeonly sret(%struct.aiString) align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #2 align 2 {
 entry:
   %pKey.addr.i.i = alloca ptr, align 8
   store i32 0, ptr %agg.result, align 4

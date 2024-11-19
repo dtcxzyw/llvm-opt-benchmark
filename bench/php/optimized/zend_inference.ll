@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @zend_ce_generator = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @zend_ssa_find_sccs(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((44, 48)) %1) local_unnamed_addr #0 {
+define void @zend_ssa_find_sccs(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -1871,7 +1871,7 @@ maxOR.exit:                                       ; preds = %54, %50
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @zend_inference_propagate_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly initializes((16, 18)) %5) local_unnamed_addr #6 {
+define noundef zeroext i1 @zend_inference_propagate_range(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #6 {
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 17
@@ -26404,7 +26404,7 @@ zend_fetch_prop_type.exit10209:                   ; preds = %7409
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @zend_get_return_info_from_signature_only(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define hidden i32 @zend_get_return_info_from_signature_only(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, 8192

@@ -1891,7 +1891,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__17TraceReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__13TraceReporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
@@ -6887,7 +6887,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_14TraceEventNodeEEC2ERKS2_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporter12GetEventTreeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.17") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporter12GetEventTreeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.17") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -7013,7 +7013,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_18TraceAggregateTreeEEptEv.ex
 declare noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18TraceAggregateTree10AddCounterERKNS_7TfTokenEid(ptr noundef nonnull align 8 dereferenceable(196), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporter18SetGroupByFunctionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((136, 137)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporter18SetGroupByFunctionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 %3, ptr %4, align 8
@@ -7029,7 +7029,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__13TraceReporter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporter21SetFoldRecursiveCallsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((137, 138)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporter21SetFoldRecursiveCallsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 137
   store i8 %3, ptr %4, align 1
@@ -7037,7 +7037,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporter21SetFoldRecurs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporter34SetShouldAdjustForOverheadAndNoiseEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((138, 139)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__13TraceReporter34SetShouldAdjustForOverheadAndNoiseEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 138
   store i8 %3, ptr %4, align 2

@@ -3294,7 +3294,7 @@ WalSndWaitForWal.exit:                            ; preds = %5, %103
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @WalSndSegmentOpen(ptr nocapture noundef initializes((1208, 1212)) %0, i64 noundef %1, ptr nocapture noundef initializes((0, 4)) %2) #0 {
+define internal void @WalSndSegmentOpen(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef %2) #0 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = load i32, ptr @sendTimeLine, align 4

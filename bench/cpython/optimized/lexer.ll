@@ -1195,7 +1195,7 @@ if.end:                                           ; preds = %if.then, %tok_get.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @tok_get_normal_mode(ptr noundef initializes((56, 64), (520, 524)) %tok, ptr nocapture noundef %current_tok, ptr noundef %token) unnamed_addr #0 {
+define internal fastcc i32 @tok_get_normal_mode(ptr noundef %tok, ptr nocapture noundef %current_tok, ptr noundef %token) unnamed_addr #0 {
 entry:
   %start = getelementptr inbounds i8, ptr %tok, i64 56
   %starting_col_offset = getelementptr inbounds i8, ptr %tok, i64 520

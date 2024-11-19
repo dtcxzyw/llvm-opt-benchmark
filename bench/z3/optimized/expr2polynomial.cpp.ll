@@ -152,7 +152,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15expr2polynomialC2ER11ast_managerRN10polynomial7managerEP8expr2varb(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %am, ptr noundef nonnull align 8 dereferenceable(8) %pm, ptr noundef %e2v, i1 noundef zeroext %use_var_idxs) unnamed_addr #3 align 2 {
+define hidden void @_ZN15expr2polynomialC2ER11ast_managerRN10polynomial7managerEP8expr2varb(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(976) %am, ptr noundef nonnull align 8 dereferenceable(8) %pm, ptr noundef %e2v, i1 noundef zeroext %use_var_idxs) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15expr2polynomial, i64 16), ptr %this, align 8
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 192)
@@ -281,7 +281,7 @@ ehcleanup27:                                      ; preds = %ehcleanup24, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15expr2polynomialD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15expr2polynomialD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15expr2polynomial, i64 16), ptr %this, align 8
   %m_imp = getelementptr inbounds i8, ptr %this, i64 8
@@ -320,7 +320,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15expr2polynomialD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15expr2polynomialD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15expr2polynomial, i64 16), ptr %this, align 8
   %m_imp.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2023,7 +2023,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN23default_expr2polynomialC2ER11ast_managerRN10polynomial7managerE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %am, ptr noundef nonnull align 8 dereferenceable(8) %pm) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN23default_expr2polynomialC2ER11ast_managerRN10polynomial7managerE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(976) %am, ptr noundef nonnull align 8 dereferenceable(8) %pm) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15expr2polynomial, i64 16), ptr %this, align 8
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 192)
@@ -2037,7 +2037,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23default_expr2polynomialD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN23default_expr2polynomialD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23default_expr2polynomial, i64 16), ptr %this, align 8
   %m_is_int = getelementptr inbounds i8, ptr %this, i64 16
@@ -2081,7 +2081,7 @@ _ZN15expr2polynomialD2Ev.exit:                    ; preds = %_ZN7svectorIbjED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23default_expr2polynomialD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN23default_expr2polynomialD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23default_expr2polynomial, i64 16), ptr %this, align 8
   %m_is_int.i = getelementptr inbounds i8, ptr %this, i64 16

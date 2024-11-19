@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [51 x i8] c"This node should not be in the approximated table\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_SubsetHeavyBranch(ptr noundef initializes((448, 452)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Cudd_SubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   store i1 false, ptr @memOut, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 448
   br label %6
@@ -658,7 +658,7 @@ SubsetCountNodes.exit:                            ; preds = %98
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_SupersetHeavyBranch(ptr noundef initializes((448, 452)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Cudd_SupersetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %1 to i64
   %6 = xor i64 %5, 1
   %7 = inttoptr i64 %6 to ptr

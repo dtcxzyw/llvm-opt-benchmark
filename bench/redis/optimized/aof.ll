@@ -1279,7 +1279,7 @@ if.end:                                           ; preds = %cond.end14, %cond.e
 declare ptr @listAddNodeHead(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @getNewIncrAofName(ptr nocapture noundef initializes((40, 44)) %am) local_unnamed_addr #0 {
+define dso_local ptr @getNewIncrAofName(ptr nocapture noundef %am) local_unnamed_addr #0 {
 entry:
   %call.i = tail call noalias noundef dereferenceable_or_null(24) ptr @zcalloc(i64 noundef 24) #19
   %file_type = getelementptr inbounds i8, ptr %call.i, i64 16

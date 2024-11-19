@@ -41,7 +41,7 @@ $_ZN12TailJumpNodeC2EP4NodeS1_S1_S1_S1_S1_ = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8GraphKit8gen_stubEPhPKcibb(ptr noundef nonnull align 8 dereferenceable(84) initializes((40, 48), (56, 60), (64, 72), (80, 84)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8GraphKit8gen_stubEPhPKcibb(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 800

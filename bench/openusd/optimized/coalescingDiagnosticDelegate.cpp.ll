@@ -113,7 +113,7 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8DelegateE = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegateD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegateD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegateE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -296,7 +296,7 @@ _ZN3tbb6detail2d220concurrent_queue_repIPN32pxrInternal_v0_24__pxrReserved__16Tf
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr8DelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.40", align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegateE, i64 16), ptr %0, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(481) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_15TfDiagnosticMgrEE11GetInstanceEv()
@@ -340,7 +340,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__15TfDiagnosticMgr14RemoveDelegateEPNS0_8DelegateE(ptr noundef nonnull align 8 dereferenceable(481), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegate26TakeUncoalescedDiagnosticsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.40") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegate26TakeUncoalescedDiagnosticsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.40") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -841,7 +841,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnostic
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegate24TakeCoalescedDiagnosticsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.48") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__36UsdUtilsCoalescingDiagnosticDelegate24TakeCoalescedDiagnosticsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.48") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState", align 8
   %5 = alloca %"class.std::unordered_map", align 8

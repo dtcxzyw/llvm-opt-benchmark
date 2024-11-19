@@ -713,7 +713,7 @@ define void @ompi_comm_request_start(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @opal_progress_register(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @ompi_comm_request_construct(ptr noundef initializes((56, 60), (76, 80), (120, 136), (160, 176)) %0) #0 {
+define internal void @ompi_comm_request_construct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56

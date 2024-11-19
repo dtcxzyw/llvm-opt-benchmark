@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @arena_config_default = external constant %struct.arena_config_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @ckh_new(ptr noundef %tsd, ptr nocapture noundef writeonly initializes((0, 16)) %ckh, i64 noundef %minitems, ptr noundef %ckh_hash, ptr noundef %keycomp) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @ckh_new(ptr noundef %tsd, ptr nocapture noundef writeonly %ckh, i64 noundef %minitems, ptr noundef %ckh_hash, ptr noundef %keycomp) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.rtree_contents_s, align 8
   store i64 42, ptr %ckh, align 8
@@ -1712,7 +1712,7 @@ entry:
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ckh_pointer_hash(ptr noundef %key, ptr nocapture noundef writeonly initializes((0, 16)) %r_hash) local_unnamed_addr #7 {
+define hidden void @ckh_pointer_hash(ptr noundef %key, ptr nocapture noundef writeonly %r_hash) local_unnamed_addr #7 {
 entry:
   %0 = ptrtoint ptr %key to i64
   %mul100.i.i = mul i64 %0, -8663945395140668459

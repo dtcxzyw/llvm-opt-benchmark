@@ -13,7 +13,7 @@ $_ZN3url12DoAppendUTF8INS_12CanonOutputTIcEETnPFvhPT_EXadL_ZNS_17AppendEscapedCh
 @_ZN3url14kHexCharLookupE = external local_unnamed_addr constant [16 x i8], align 16
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url16CanonicalizePathEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr noundef %output, ptr nocapture noundef initializes((0, 4)) %out_path) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url16CanonicalizePathEPKcRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr nocapture noundef readonly %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr noundef %output, ptr nocapture noundef %out_path) local_unnamed_addr #0 {
 entry:
   %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i.i, align 4
@@ -137,7 +137,7 @@ _ZN3url12_GLOBAL__N_16DoPathIchEEbPKT_RKNS_9ComponentEPNS_12CanonOutputTIcEEPS5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN3url16CanonicalizePathEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr noundef %output, ptr nocapture noundef initializes((0, 4)) %out_path) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN3url16CanonicalizePathEPKtRKNS_9ComponentEPNS_12CanonOutputTIcEEPS2_(ptr noundef %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %path, ptr noundef %output, ptr nocapture noundef %out_path) local_unnamed_addr #0 {
 entry:
   %cur_len_.i.i = getelementptr inbounds i8, ptr %output, i64 20
   %0 = load i32, ptr %cur_len_.i.i, align 4

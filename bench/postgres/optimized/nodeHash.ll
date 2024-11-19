@@ -1353,7 +1353,7 @@ ExecParallelHashTableAlloc.exit:                  ; preds = %.lr.ph.i, %165, %15
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @ExecChooseHashTableSize(double noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly initializes((0, 4)) %8) local_unnamed_addr #3 {
+define dso_local void @ExecChooseHashTableSize(double noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8) local_unnamed_addr #3 {
   %10 = add i32 %1, 7
   %11 = and i32 %10, -8
   %12 = add i32 %11, 32
@@ -1522,7 +1522,7 @@ declare i32 @BarrierPhase(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @BarrierArriveAndWait(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecParallelHashJoinSetUpBatches(ptr nocapture noundef initializes((64, 68), (256, 264)) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @ExecParallelHashJoinSetUpBatches(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 {
   %3 = alloca [1024 x i8], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
@@ -1967,7 +1967,7 @@ dense_alloc.exit:                                 ; preds = %51, %64, %73
 declare ptr @ExecFetchSlotMinimalTuple(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ExecHashGetBucketAndBatch(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #7 {
+define dso_local void @ExecHashGetBucketAndBatch(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #7 {
   %5 = load i32, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load i32, ptr %6, align 8
@@ -3081,7 +3081,7 @@ ExecQualAndReset.exit:                            ; preds = %.lr.ph.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ExecPrepHashTableForUnmatched(ptr nocapture noundef writeonly initializes((260, 268), (272, 280)) %0) local_unnamed_addr #9 {
+define dso_local void @ExecPrepHashTableForUnmatched(ptr nocapture noundef writeonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 260
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 264
@@ -3472,7 +3472,7 @@ define dso_local noundef zeroext i1 @ExecParallelScanHashTableForUnmatched(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecHashTableReset(ptr nocapture noundef initializes((24, 32), (160, 168), (224, 232)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecHashTableReset(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
@@ -3958,7 +3958,7 @@ define dso_local void @ExecHashTableDetach(ptr nocapture noundef %0) local_unnam
 declare void @sts_end_write(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecParallelHashTableSetCurrentBatch(ptr nocapture noundef initializes((0, 8), (24, 32), (68, 72), (232, 240), (264, 272)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @ExecParallelHashTableSetCurrentBatch(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 240

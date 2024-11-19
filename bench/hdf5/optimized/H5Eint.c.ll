@@ -2897,7 +2897,7 @@ H5E__push_stack.exit.thread:                      ; preds = %6, %H5E__set_stack_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @H5E__set_default_auto(ptr nocapture noundef writeonly initializes((2056, 2061), (2064, 2104)) %0) local_unnamed_addr #2 {
+define void @H5E__set_default_auto(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2056
   store i32 2, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2080
@@ -3408,7 +3408,7 @@ H5E__clear_stack.exit.thread:                     ; preds = %._crit_edge.thread,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5E__copy_stack_entry(ptr nocapture noundef initializes((0, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5E__copy_stack_entry(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %3 = load i8, ptr %0, align 8
   %4 = trunc i8 %3 to i1
@@ -4276,7 +4276,7 @@ define noundef i32 @H5E__get_auto(ptr nocapture noundef readonly %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5E__set_auto(ptr nocapture noundef writeonly initializes((2056, 2104)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #10 {
+define noundef i32 @H5E__set_auto(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #10 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2056
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 2096

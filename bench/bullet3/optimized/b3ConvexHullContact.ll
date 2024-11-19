@@ -3638,7 +3638,7 @@ if.end67:                                         ; preds = %if.then, %if.then6,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15GpuSatCollisionC2EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(864) initializes((0, 40), (56, 72), (192, 242), (248, 298), (304, 354), (360, 410), (416, 466), (472, 522), (528, 578), (584, 634), (640, 690), (696, 746), (752, 802), (808, 858)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %q) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GpuSatCollisionC2EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(864) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %q) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont45:
   %ref.tmp = alloca i32, align 4
   %errNum = alloca i32, align 4
@@ -4234,7 +4234,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15GpuSatCollisionD2Ev(ptr noundef nonnull align 8 dereferenceable(864) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15GpuSatCollisionD2Ev(ptr noundef nonnull align 8 dereferenceable(864) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV15GpuSatCollision, i64 16), ptr %this, align 8
   %m_findSeparatingAxisVertexFaceKernel = getelementptr inbounds i8, ptr %this, i64 56
@@ -4816,7 +4816,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15GpuSatCollisionD0Ev(ptr noundef nonnull align 8 dereferenceable(864) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN15GpuSatCollisionD0Ev(ptr noundef nonnull align 8 dereferenceable(864) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN15GpuSatCollisionD2Ev(ptr noundef nonnull align 8 dereferenceable(864) %this) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
@@ -4827,7 +4827,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef float @_Z30signedDistanceFromPointToPlaneRK9b3Vector3S1_PS_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %point, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %planeEqn, ptr nocapture noundef writeonly initializes((0, 16)) %closestPointOnFace) local_unnamed_addr #13 {
+define dso_local noundef float @_Z30signedDistanceFromPointToPlaneRK9b3Vector3S1_PS_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %point, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %planeEqn, ptr nocapture noundef writeonly %closestPointOnFace) local_unnamed_addr #13 {
 entry:
   %n.sroa.0.0.copyload = load float, ptr %planeEqn, align 16
   %n.sroa.3.0.planeEqn.sroa_idx = getelementptr inbounds i8, ptr %planeEqn, i64 4

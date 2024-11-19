@@ -13262,7 +13262,7 @@ declare noundef ptr @_ZNK4llvm8Constant13getSplatValueEb(ptr noundef nonnull ali
 declare noundef ptr @_ZNK4llvm8Constant19getAggregateElementEj(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113DecompositionC2EPN4llvm5ValueEb(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113DecompositionC2EPN4llvm5ValueEb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.(anonymous namespace)::DecompEntry", align 8
   %5 = zext i1 %2 to i8
   store i64 0, ptr %0, align 8

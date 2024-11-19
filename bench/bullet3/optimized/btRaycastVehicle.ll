@@ -183,7 +183,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 declare void @_ZN11btRigidBody12setMassPropsEfRK9btVector3(ptr noundef nonnull align 8 dereferenceable(744), float noundef, ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16btRaycastVehicleC2ERKNS_15btVehicleTuningEP11btRigidBodyP18btVehicleRaycaster(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((0, 8), (12, 20), (24, 33), (44, 52), (56, 65), (76, 84), (88, 97), (108, 116), (120, 129), (144, 164), (168, 188), (196, 204), (208, 217)) %this, ptr nocapture nonnull readnone align 4 %tuning, ptr noundef %chassis, ptr noundef %raycaster) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btRaycastVehicleC2ERKNS_15btVehicleTuningEP11btRigidBodyP18btVehicleRaycaster(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this, ptr nocapture nonnull readnone align 4 %tuning, ptr noundef %chassis, ptr noundef %raycaster) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16btRaycastVehicle, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -246,7 +246,7 @@ invoke.cont9:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16btRaycastVehicle11defaultInitERKNS_15btVehicleTuningE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((156, 164)) %this, ptr nocapture noundef nonnull readnone align 4 dereferenceable(24) %tuning) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN16btRaycastVehicle11defaultInitERKNS_15btVehicleTuningE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readnone align 4 dereferenceable(24) %tuning) local_unnamed_addr #4 align 2 {
 entry:
   %m_currentVehicleSpeedKmHour = getelementptr inbounds i8, ptr %this, i64 160
   store float 0.000000e+00, ptr %m_currentVehicleSpeedKmHour, align 8
@@ -256,7 +256,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16btRaycastVehicleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16btRaycastVehicleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16btRaycastVehicle, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -413,7 +413,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit42: ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16btRaycastVehicleD0Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN16btRaycastVehicleD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN16btRaycastVehicleD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
@@ -707,7 +707,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16btRaycastVehicle23updateWheelTransformsWSER11btWheelInfob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull align 8 dereferenceable(296) initializes((36, 85)) %wheel, i1 noundef zeroext %interpolatedTransform) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN16btRaycastVehicle23updateWheelTransformsWSER11btWheelInfob(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull align 8 dereferenceable(296) %wheel, i1 noundef zeroext %interpolatedTransform) local_unnamed_addr #6 align 2 {
 entry:
   %chassisTrans = alloca %class.btTransform, align 4
   %m_isInContact = getelementptr inbounds i8, ptr %wheel, i64 84
@@ -1186,7 +1186,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef float @_ZN16btRaycastVehicle7rayCastER11btWheelInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(296) initializes((36, 85)) %wheel) local_unnamed_addr #6 align 2 {
+define dso_local noundef float @_ZN16btRaycastVehicle7rayCastER11btWheelInfo(ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(296) %wheel) local_unnamed_addr #6 align 2 {
 entry:
   %rayResults = alloca %"struct.btVehicleRaycaster::btVehicleRaycasterResult", align 4
   %m_isInContact.i = getelementptr inbounds i8, ptr %wheel, i64 84

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_byte = external global %struct.ompi_predefined_datatype_t, align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define void @ADIOI_P2PContigWriteAggregation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ompi_status_public_t, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -813,7 +813,7 @@ declare void @ADIOI_Free_fn(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare i32 @PMPI_Barrier(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 4)) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define void @ADIOI_P2PContigReadAggregation(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
   %8 = alloca %struct.ompi_status_public_t, align 8
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4

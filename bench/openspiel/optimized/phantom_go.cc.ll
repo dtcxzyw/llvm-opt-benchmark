@@ -2401,7 +2401,7 @@ _ZN10open_spiel19ContiguousAllocatorC2EN4absl7debian24SpanIfEE.exit: ; preds = %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10phantom_go14PhantomGoState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.23") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8846) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10phantom_go14PhantomGoState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.23") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8846) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
@@ -3137,7 +3137,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10phantom_go14PhantomGoState10IsTermi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10phantom_go14PhantomGoState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.33") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8846) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10phantom_go14PhantomGoState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.33") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8846) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8

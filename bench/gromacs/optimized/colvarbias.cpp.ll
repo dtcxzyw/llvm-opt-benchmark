@@ -284,7 +284,7 @@ $_ZNSt6vectorIPN10colvardeps7featureESaIS2_EED2Ev = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_colvarbias.cpp, ptr null }]
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN10colvarbias6updateEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((257, 258)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN10colvarbias6updateEv(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 257
   store i8 1, ptr %2, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -363,7 +363,7 @@ define noundef zeroext i1 @_ZN10colvarbias19can_accumulate_dataEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN10colvarbias11calc_energyEPKSt6vectorI11colvarvalueSaIS1_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) initializes((248, 256)) %0, ptr nocapture readnone %1) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN10colvarbias11calc_energyEPKSt6vectorI11colvarvalueSaIS1_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(312) %0, ptr nocapture readnone %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   store double 0.000000e+00, ptr %3, align 8
   ret i32 0
@@ -1970,7 +1970,7 @@ _ZN10colvardeps13feature_stateD2Ev.exit17:        ; preds = %270, %267, %200
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN10colvarbias5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) initializes((248, 256)) %0) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN10colvarbias5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   store double 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -2146,7 +2146,7 @@ define noundef i32 @_ZN10colvarbias16clear_state_dataEv(ptr nocapture nonnull re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10colvarbiasD1Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN10colvarbiasD1Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @_ZTT10colvarbias) #24
   %2 = getelementptr inbounds i8, ptr %0, i64 632
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #24
@@ -2156,7 +2156,7 @@ define void @_ZN10colvarbiasD1Ev(ptr noundef nonnull align 8 dereferenceable(312
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10colvarbiasD0Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN10colvarbiasD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @_ZTT10colvarbias) #24
   %2 = getelementptr inbounds i8, ptr %0, i64 632
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #24
@@ -2422,7 +2422,7 @@ define noundef i32 @_ZTv0_n56_N10colvarbias17init_dependenciesEv(ptr noundef %0)
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13colvarbias_tiD1Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (72, 80), (384, 392), (704, 712)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13colvarbias_tiD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-40, 112) (i8, ptr @_ZTV13colvarbias_ti, i64 40), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr getelementptr inbounds inrange(-288, 264) (i8, ptr @_ZTV13colvarbias_ti, i64 440), ptr %2, align 8
@@ -2477,7 +2477,7 @@ _ZN13colvarbias_tiD2Ev.exit:                      ; preds = %_ZN13colvarbias_ti1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13colvarbias_tiD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (72, 80), (384, 392), (704, 712)) %0) unnamed_addr #3 align 2 {
+define void @_ZN13colvarbias_tiD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN13colvarbias_tiD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
@@ -4802,7 +4802,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10colvarbiasC2EPKc(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -6858,7 +6858,7 @@ _ZNSt12_Vector_baseIN10colvardeps13feature_stateESaIS1_EE13_M_deallocateEPS1_m.e
 declare void @_ZN11colvarvalue5resetEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10colvarbiasC2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
+define void @_ZN10colvarbiasC2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -6927,7 +6927,7 @@ define void @_ZN10colvarbiasC1Ev(ptr noundef nonnull align 8 dereferenceable(312
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10colvarbiasD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -12316,7 +12316,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsI
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13colvarbias_tiC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 32), (48, 72)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13colvarbias_tiC2EPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -12497,7 +12497,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %35, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13colvarbias_tiD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8

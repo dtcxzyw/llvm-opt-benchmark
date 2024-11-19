@@ -116,7 +116,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14DynamicFilters4CallC2ENS1_4ArgsEPN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %args, ptr noundef %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14DynamicFilters4CallC2ENS1_4ArgsEPN4absl12lts_202308026StatusE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %args, ptr noundef %error) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call_args = alloca %struct.grpc_call_element_args, align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -418,7 +418,7 @@ do.end7:                                          ; preds = %do.body2
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core14DynamicFilters4Call3RefEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.3") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #7 align 2 {
+define void @_ZN9grpc_core14DynamicFilters4Call3RefEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this) local_unnamed_addr #7 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = atomicrmw add ptr %add.ptr.i, i64 1 monotonic, align 8
@@ -435,7 +435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core14DynamicFilters4Call3RefERKNS_13DebugLocationEPKc(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.3") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %location, ptr nocapture noundef readnone %reason) local_unnamed_addr #7 align 2 {
+define void @_ZN9grpc_core14DynamicFilters4Call3RefERKNS_13DebugLocationEPKc(ptr noalias nocapture writeonly sret(%"class.grpc_core::RefCountedPtr.3") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %location, ptr nocapture noundef readnone %reason) local_unnamed_addr #7 align 2 {
 entry:
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = atomicrmw add ptr %add.ptr.i, i64 1 monotonic, align 8

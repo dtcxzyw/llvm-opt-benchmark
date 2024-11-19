@@ -965,7 +965,7 @@ _ZN14ZUncoloredRoot7barrierIPFv8zaddressEEEvT_P15zaddress_unsafem.exit: ; preds 
 declare void @_ZN13ZStatSubPhaseC1EPKc13ZGenerationId(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i8 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ZMarkC2EP11ZGenerationP10ZPageTable(ptr noundef nonnull align 64 dereferenceable(2652) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN5ZMarkC2EP11ZGenerationP10ZPageTable(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 64
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -1155,7 +1155,7 @@ declare noundef ptr @_ZN14ZMarkStripeSet17stripe_for_workerEjj(ptr noundef nonnu
 declare noundef ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull align 64 dereferenceable(6592)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ZMark12prepare_workEv(ptr noundef nonnull align 64 dereferenceable(2652) initializes((2648, 2652)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5ZMark12prepare_workEv(ptr noundef nonnull align 64 dereferenceable(2652) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 64
   %3 = tail call noundef ptr @_ZN11ZGeneration7workersEv(ptr noundef nonnull align 64 dereferenceable(6592) %2) #15
   %4 = tail call noundef i32 @_ZNK8ZWorkers14active_workersEv(ptr noundef nonnull align 8 dereferenceable(184) %3) #15
@@ -2779,7 +2779,7 @@ _ZN5ZMark14flush_and_freeEP6Thread.exit:          ; preds = %1, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN5ZMark5drainEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef initializes((24592, 24600)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN5ZMark5drainEP12ZMarkContext(ptr noundef nonnull align 64 dereferenceable(2652) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ZMarkStackEntry, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24600
   %5 = load ptr, ptr %4, align 8
@@ -3346,7 +3346,7 @@ _ZN14ZMarkTerminate5leaveEv.exit:                 ; preds = %1, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ZMark14resize_workersEj(ptr noundef nonnull align 64 dereferenceable(2652) initializes((2648, 2652)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5ZMark14resize_workersEj(ptr noundef nonnull align 64 dereferenceable(2652) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2648
   store i32 %1, ptr %3, align 8
   %4 = tail call noundef range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %1, i1 true)

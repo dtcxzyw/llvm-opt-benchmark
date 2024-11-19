@@ -962,7 +962,7 @@ _ZN4absl12lts_2023080218container_internal16node_handle_baseINS1_18hash_policy_t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core19Chttp2PingCallbacks9CancelAllEPN17grpc_event_engine12experimental11EventEngineE(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((64, 72)) %this, ptr noundef %event_engine) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core19Chttp2PingCallbacks9CancelAllEPN17grpc_event_engine12experimental11EventEngineE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %event_engine) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %on_start_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %on_start_, align 8

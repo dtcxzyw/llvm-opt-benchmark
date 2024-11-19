@@ -54,7 +54,7 @@ $_ZN4llvm6detail13DoubleAPFloatD2Ev = comdat any
 @_ZN5clang6interp7InitMapC1Ej = unnamed_addr alias void (ptr, i32), ptr @_ZN5clang6interp7InitMapC2Ej
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 45), (48, 53), (56, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, i64 %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, i64 %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %8 = zext i1 %4 to i8
   %9 = zext i1 %5 to i8
@@ -149,7 +149,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef i64 @_ZN5clang6interp8primSizeENS0_8PrimTypeE(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEmbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 45), (48, 53)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, i64 %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEmbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, i64 %3, i64 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 {
 switch.lookup:
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %8 = zext i1 %5 to i8
@@ -213,7 +213,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 40), (44, 45), (48, 53)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEENS0_8PrimTypeESt8optionalIjEbNS1_11UnknownSizeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
 switch.lookup:
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %5 = zext i1 %4 to i8
@@ -266,7 +266,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEEPKS1_St8optionalIjEjbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 40), (44, 45), (48, 53), (56, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef %2, i64 %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEEPKS1_St8optionalIjEjbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef %2, i64 %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7) unnamed_addr #3 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %9 = zext i1 %5 to i8
   %10 = zext i1 %6 to i8
@@ -698,7 +698,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEEPKS1_St8optionalIjEbNS1_11UnknownSizeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 40), (44, 45), (48, 53), (56, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEEPKS1_St8optionalIjEbNS1_11UnknownSizeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #3 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %6 = zext i1 %4 to i8
   %7 = load i64, ptr %1, align 8
@@ -744,7 +744,7 @@ define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEEPKNS0_6RecordESt8optionalIjEbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 40), (44, 45), (48, 53), (56, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEEPKNS0_6RecordESt8optionalIjEbbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #3 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %8 = zext i1 %4 to i8
   %9 = zext i1 %5 to i8
@@ -1077,7 +1077,7 @@ define internal void @_ZL10moveRecordPN5clang6interp5BlockEPSt4byteS4_PKNS0_10De
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 40), (44, 45), (48, 53), (56, 80)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang6interp10DescriptorC2ERKN4llvm12PointerUnionIJPKNS_4DeclEPKNS_4ExprEEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1359,7 +1359,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang6interp10Descriptor7isUnionEv(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp7InitMapC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp7InitMapC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
@@ -1445,7 +1445,7 @@ define internal void @_ZL6ctorTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt4byteb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL6ctorTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture readnone %6) #9 {
+define internal void @_ZL6ctorTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture readnone %6) #9 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %8, align 8
   store i64 7, ptr %1, align 8
@@ -1453,7 +1453,7 @@ define internal void @_ZL6ctorTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL6ctorTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture readnone %6) #9 {
+define internal void @_ZL6ctorTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture readnone %6) #9 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 3, ptr %8, align 8
   store i64 7, ptr %1, align 8
@@ -1461,7 +1461,7 @@ define internal void @_ZL6ctorTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL6ctorTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 72)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture readnone %6) #9 {
+define internal void @_ZL6ctorTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture readnone %6) #9 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %1, i8 0, i64 72, i1 false)
   store i32 1, ptr %8, align 8
@@ -1473,7 +1473,7 @@ define internal void @_ZL6ctorTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL6ctorTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 40), (48, 52)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture readnone %6) #9 {
+define internal void @_ZL6ctorTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture readnone %6) #9 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %1, i8 0, i64 24, i1 false)
   store i32 1, ptr %8, align 8
@@ -1650,7 +1650,7 @@ _ZN5clang6interp8FloatingC2EOS1_.exit:            ; preds = %9, %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL6moveTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL6moveTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
@@ -1662,7 +1662,7 @@ define internal void @_ZL6moveTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL6moveTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2, ptr nocapture readnone %3) #3 {
+define internal void @_ZL6moveTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4byteS7_PKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #3 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i32, ptr %6, align 8
@@ -1695,7 +1695,7 @@ declare void @_ZN4llvm6detail13DoubleAPFloatC1EOS1_(ptr noundef nonnull align 8 
 declare void @_ZN5clang6interp7PointerC1EOS1_(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef nonnull align 8 dereferenceable(52)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj8ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 32
@@ -1721,7 +1721,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj8ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 32
@@ -1747,7 +1747,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj16ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 32
@@ -1774,7 +1774,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj16ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 32
@@ -1801,7 +1801,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj32ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 32
@@ -1828,7 +1828,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj32ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 32
@@ -1855,7 +1855,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj64ELb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 32
@@ -1882,7 +1882,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp8IntegralILj64ELb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 32
@@ -1909,7 +1909,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #14 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp10IntegralAPILb0EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #14 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1944,7 +1944,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #14 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp10IntegralAPILb1EEEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #14 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 32
@@ -1979,7 +1979,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr noundef initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #0 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp8FloatingEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr noundef %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #0 {
   %8 = alloca %"class.llvm::detail::IEEEFloat", align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %9, align 8
@@ -2019,7 +2019,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp7BooleanEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 32
@@ -2045,7 +2045,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #14 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp7PointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #14 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 32
@@ -2082,7 +2082,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp15FunctionPointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr i8, ptr %1, i64 32
@@ -2109,7 +2109,7 @@ _ZNK5clang6interp10Descriptor11getNumElemsEv.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZL11ctorArrayTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((24, 25)) %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #14 {
+define internal void @_ZL11ctorArrayTyIN5clang6interp13MemberPointerEEvPNS1_5BlockEPSt4bytebbbbPKNS1_10DescriptorE(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, i1 zeroext %2, i1 zeroext %3, i1 zeroext %4, i1 zeroext %5, ptr nocapture noundef readonly %6) #14 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i8 0, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 32

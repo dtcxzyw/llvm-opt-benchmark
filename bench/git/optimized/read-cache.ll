@@ -6228,7 +6228,7 @@ if.end11:                                         ; preds = %should_validate_cac
 declare ptr @xmalloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @index_state_init(ptr nocapture noundef writeonly initializes((0, 256)) %istate, ptr noundef %r) local_unnamed_addr #14 {
+define dso_local void @index_state_init(ptr nocapture noundef writeonly %istate, ptr noundef %r) local_unnamed_addr #14 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %istate, i8 0, i64 240, i1 false)
   %blank.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %istate, i64 240
@@ -7205,7 +7205,7 @@ return:                                           ; preds = %land.lhs.true, %lan
 declare ptr @repo_read_object_file(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @move_index_extensions(ptr nocapture noundef writeonly initializes((32, 40), (200, 208)) %dst, ptr nocapture noundef %src) local_unnamed_addr #18 {
+define dso_local void @move_index_extensions(ptr nocapture noundef writeonly %dst, ptr nocapture noundef %src) local_unnamed_addr #18 {
 entry:
   %untracked = getelementptr inbounds i8, ptr %src, i64 200
   %0 = load ptr, ptr %untracked, align 8
@@ -9667,7 +9667,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) l
 declare i32 @git_config_get_bool(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @copy_cache_entry_to_ondisk(ptr nocapture noundef nonnull writeonly initializes((0, 40)) %ondisk, ptr nocapture noundef readonly %ce) unnamed_addr #22 {
+define internal fastcc void @copy_cache_entry_to_ondisk(ptr nocapture noundef nonnull writeonly %ondisk, ptr nocapture noundef readonly %ce) unnamed_addr #22 {
 entry:
   %0 = load ptr, ptr @the_repository, align 8
   %hash_algo = getelementptr inbounds i8, ptr %0, i64 256

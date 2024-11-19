@@ -573,7 +573,7 @@ _Z4ReadIfET_PN6Assimp8IOStreamE.exit33:           ; preds = %_Z4ReadIfET_PN6Assi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z4ReadI8aiStringET_PN6Assimp8IOStreamE(ptr noalias sret(%struct.aiString) align 4 initializes((0, 5)) %agg.result, ptr noundef %stream) local_unnamed_addr #1 {
+define hidden void @_Z4ReadI8aiStringET_PN6Assimp8IOStreamE(ptr noalias sret(%struct.aiString) align 4 %agg.result, ptr noundef %stream) local_unnamed_addr #1 {
 entry:
   store i32 0, ptr %agg.result, align 4
   %data.i = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -672,7 +672,7 @@ _Z4ReadIfET_PN6Assimp8IOStreamE.exit:             ; preds = %_Z4ReadIjET_PN6Assi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z4ReadI12aiMatrix4x4tIfEET_PN6Assimp8IOStreamE(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 initializes((0, 64)) %agg.result, ptr noundef %stream) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z4ReadI12aiMatrix4x4tIfEET_PN6Assimp8IOStreamE(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 %agg.result, ptr noundef %stream) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i = alloca float, align 4
   store float 1.000000e+00, ptr %agg.result, align 4
@@ -762,7 +762,7 @@ for.end7:                                         ; preds = %for.inc5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z4ReadI11aiVectorKeyET_PN6Assimp8IOStreamE(ptr noalias nocapture writeonly sret(%struct.aiVectorKey) align 8 initializes((0, 20)) %agg.result, ptr noundef %stream) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z4ReadI11aiVectorKeyET_PN6Assimp8IOStreamE(ptr noalias nocapture writeonly sret(%struct.aiVectorKey) align 8 %agg.result, ptr noundef %stream) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i = alloca double, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %agg.result, i8 0, i64 20, i1 false)
@@ -804,7 +804,7 @@ _Z4ReadIdET_PN6Assimp8IOStreamE.exit:             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z4ReadI9aiQuatKeyET_PN6Assimp8IOStreamE(ptr noalias nocapture writeonly sret(%struct.aiQuatKey) align 8 initializes((0, 24)) %agg.result, ptr noundef %stream) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z4ReadI9aiQuatKeyET_PN6Assimp8IOStreamE(ptr noalias nocapture writeonly sret(%struct.aiQuatKey) align 8 %agg.result, ptr noundef %stream) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %t.i = alloca double, align 8
   store double 0.000000e+00, ptr %agg.result, align 8

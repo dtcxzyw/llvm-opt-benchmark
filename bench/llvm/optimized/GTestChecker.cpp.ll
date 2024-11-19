@@ -1558,7 +1558,7 @@ declare noundef zeroext i1 @_ZNK5clang18CXXConstructorDecl17isCopyConstructorERj
 declare { ptr, i8 } @_ZNK5clang4ento21AnyCXXConstructorCall13getCXXThisValEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr %1, i8 %2, ptr %3, i8 %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_112GTestChecker17assumeValuesEqualEN5clang4ento4SValES3_N4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEERNS2_14CheckerContextE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %1, i8 %2, ptr %3, i8 %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %6) unnamed_addr #0 align 2 {
 _ZNK5clang4ento4SVal5getAsINS0_20DefinedOrUnknownSValEEESt8optionalIT_Ev.exit:
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

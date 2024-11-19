@@ -117,7 +117,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @i915_gem_init__contexts(ptr noundef initializes((9336, 9340)) %0) local_unnamed_addr #3 align 16 {
+define dso_local void @i915_gem_init__contexts(ptr noundef %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 9336
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 9344
@@ -1019,7 +1019,7 @@ define internal fastcc void @proto_context_close(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @gem_context_register(ptr noundef initializes((8, 16), (72, 80), (96, 104)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @gem_context_register(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8

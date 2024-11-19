@@ -3298,7 +3298,7 @@ ehcleanup:                                        ; preds = %lpad50, %lpad45, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL11skip_parserPvP21grpc_chttp2_transportP18grpc_chttp2_streamRK10grpc_slicei(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture nonnull readnone align 8 %3, i32 %4) #10 {
+define internal void @_ZL11skip_parserPvP21grpc_chttp2_transportP18grpc_chttp2_streamRK10grpc_slicei(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture nonnull readnone align 8 %3, i32 %4) #10 {
 entry:
   store i64 0, ptr %agg.result, align 8, !alias.scope !114
   ret void
@@ -3630,7 +3630,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #14
 declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEiPc(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transportiRm(ptr noalias nonnull align 8 %agg.result, ptr noundef initializes((2896, 2900)) %t, i32 noundef range(i32 0, 2) %is_continuation, ptr nocapture noundef nonnull align 8 dereferenceable(8) %requests_started) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL24init_header_frame_parserP21grpc_chttp2_transportiRm(ptr noalias nonnull align 8 %agg.result, ptr noundef %t, i32 noundef range(i32 0, 2) %is_continuation, ptr nocapture noundef nonnull align 8 dereferenceable(8) %requests_started) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %struct.grpc_slice, align 8
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
@@ -4593,7 +4593,7 @@ declare noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatA
 declare void @_ZN9grpc_core20Chttp2PingRatePolicy17ReceivedDataFrameEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef initializes((2928, 2944)) %t, i8 noundef zeroext range(i8 0, 2) %priority_type, i1 noundef zeroext %is_eoh) unnamed_addr #3 {
+define internal fastcc void @_ZL29init_header_skip_frame_parserP21grpc_chttp2_transportN9grpc_core11HPackParser8PriorityEb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %t, i8 noundef zeroext range(i8 0, 2) %priority_type, i1 noundef zeroext %is_eoh) unnamed_addr #3 {
 entry:
   %hpack_parser = getelementptr inbounds i8, ptr %t, i64 2352
   %parser1 = getelementptr inbounds i8, ptr %t, i64 2928

@@ -146,7 +146,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ChatBufferC2Ej(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 4), (8, 44), (48, 97), (104, 105), (112, 113)) %this, i32 noundef %scrollback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10ChatBufferC2Ej(ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %scrollback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i63 = alloca i64, align 8
   %__dnew.i.i51 = alloca i64, align 8
@@ -707,7 +707,7 @@ _ZNSt12_Vector_baseI8ChatLineSaIS0_EED2Ev.exit:   ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ChatBuffer7addLineERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES7_(ptr noundef nonnull align 8 dereferenceable(113) initializes((112, 113)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %text) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10ChatBuffer7addLineERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEES7_(ptr noundef nonnull align 8 dereferenceable(113) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %text) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.irr::video::SColor", align 4
   %ref.tmp2.i = alloca %"class.irr::video::SColor", align 4
@@ -4437,7 +4437,7 @@ for.body:                                         ; preds = %entry, %for.body
 declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10ChatBuffer14scrollAbsoluteEi(ptr nocapture noundef nonnull align 8 dereferenceable(113) initializes((40, 44)) %this, i32 noundef %scroll) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN10ChatBuffer14scrollAbsoluteEi(ptr nocapture noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %scroll) local_unnamed_addr #10 align 2 {
 entry:
   %m_formatted.i = getelementptr inbounds i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -4854,7 +4854,7 @@ if.end53:                                         ; preds = %if.else50, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10ChatBuffer12scrollBottomEv(ptr nocapture noundef nonnull align 8 dereferenceable(113) initializes((40, 44)) %this) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN10ChatBuffer12scrollBottomEv(ptr nocapture noundef nonnull align 8 dereferenceable(113) %this) local_unnamed_addr #10 align 2 {
 entry:
   %m_formatted.i = getelementptr inbounds i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -5248,7 +5248,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_Z12wide_to_utf8B5cxx11St17basic_string_viewIwSt11char_traitsIwEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i64, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ChatBuffer6resizeEj(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 4)) %this, i32 noundef %scrollback) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN10ChatBuffer6resizeEj(ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef %scrollback) local_unnamed_addr #3 align 2 {
 entry:
   store i32 %scrollback, ptr %this, align 8, !tbaa !4
   %m_unformatted = getelementptr inbounds i8, ptr %this, i64 8
@@ -8565,7 +8565,7 @@ _ZN10ChatPrompt9clampViewEv.exit:                 ; preds = %if.else.i241, %if.t
 declare i32 @llvm.abs.i32(i32, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11ChatBackendC2Ev(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 4), (8, 44), (48, 97), (104, 105), (112, 113)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11ChatBackendC2Ev(ptr noundef nonnull align 8 dereferenceable(360) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN10ChatBufferC2Ej(ptr noundef nonnull align 8 dereferenceable(113) %this, i32 noundef 1500)
   %m_recent_buffer = getelementptr inbounds i8, ptr %this, i64 120

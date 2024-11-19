@@ -2493,7 +2493,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
 declare void @_ZN4cvc58internal6theory17QuantifiersModuleC2ERNS0_3EnvERNS1_11quantifiers16QuantifiersStateERNS5_27QuantifiersInferenceManagerERNS5_19QuantifiersRegistryERNS5_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(576), ptr noundef nonnull align 8 dereferenceable(248), ptr noundef nonnull align 8 dereferenceable(376), ptr noundef nonnull align 8 dereferenceable(488), ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15BoundedIntegersD2Ev(ptr noundef nonnull align 8 dereferenceable(768) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15BoundedIntegersD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15BoundedIntegersE, i64 16), ptr %this, align 8
   %d_bnd_it = getelementptr inbounds i8, ptr %this, i64 720
@@ -2855,7 +2855,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15BoundedIntegersD0Ev(ptr noundef nonnull align 8 dereferenceable(768) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15BoundedIntegersD0Ev(ptr noundef nonnull align 8 dereferenceable(768) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers15BoundedIntegersD2Ev(ptr noundef nonnull align 8 dereferenceable(768) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27

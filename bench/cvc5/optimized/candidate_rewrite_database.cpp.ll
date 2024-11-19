@@ -947,7 +947,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers22CandidateRewriteFilter10ini
 declare void @_ZN4cvc58internal6theory11quantifiers9ExprMiner10initializeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEPNS2_12SygusSamplerE(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers24CandidateRewriteDatabase15initializeSygusERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEPNS2_11TermDbSygusES6_PNS2_12SygusSamplerE(ptr noundef nonnull align 8 dereferenceable(872) initializes((120, 129), (148, 149)) %this, ptr noundef nonnull align 8 dereferenceable(24) %vars, ptr noundef %tds, ptr nocapture noundef readonly %f, ptr noundef %ss) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers24CandidateRewriteDatabase15initializeSygusERKSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EEPNS2_11TermDbSygusES6_PNS2_12SygusSamplerE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef nonnull align 8 dereferenceable(24) %vars, ptr noundef %tds, ptr nocapture noundef readonly %f, ptr noundef %ss) local_unnamed_addr #3 align 2 {
 entry:
   %d_candidate = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %d_candidate, align 8
@@ -5159,7 +5159,7 @@ lpad:                                             ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers24CandidateRewriteDatabase22enableExtendedRewriterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(872) initializes((128, 129)) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers24CandidateRewriteDatabase22enableExtendedRewriterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(872) %this) local_unnamed_addr #6 align 2 {
 entry:
   %d_useExtRewriter = getelementptr inbounds i8, ptr %this, i64 128
   store i8 1, ptr %d_useExtRewriter, align 8

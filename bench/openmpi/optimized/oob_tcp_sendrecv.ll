@@ -2125,7 +2125,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @prte_oob_base_send_nb(i32 noundef, i16 noundef signext, ptr noundef) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @snd_cons(ptr nocapture noundef writeonly initializes((284, 852), (856, 873), (876, 896)) %0) #7 {
+define internal void @snd_cons(ptr nocapture noundef writeonly %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 284
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(568) %2, i8 0, i64 568, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 856
@@ -2151,7 +2151,7 @@ define internal void @snd_des(ptr nocapture noundef readonly %0) #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @rcv_cons(ptr nocapture noundef writeonly initializes((144, 713), (728, 744)) %0) #7 {
+define internal void @rcv_cons(ptr nocapture noundef writeonly %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = getelementptr inbounds i8, ptr %0, i64 728
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(569) %2, i8 0, i64 569, i1 false)
@@ -2160,7 +2160,7 @@ define internal void @rcv_cons(ptr nocapture noundef writeonly initializes((144,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @err_cons(ptr nocapture noundef writeonly initializes((248, 264)) %0) #7 {
+define internal void @err_cons(ptr nocapture noundef writeonly %0) #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void

@@ -773,7 +773,7 @@ if.end15:                                         ; preds = %if.end12, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN6icu_7522Normalizer2DataBuilder19setOverrideHandlingENS0_16OverrideHandlingE(ptr nocapture noundef nonnull align 8 dereferenceable(860) initializes((428, 432)) %this, i32 noundef %oh) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN6icu_7522Normalizer2DataBuilder19setOverrideHandlingENS0_16OverrideHandlingE(ptr nocapture noundef nonnull align 8 dereferenceable(860) %this, i32 noundef %oh) local_unnamed_addr #12 align 2 {
 entry:
   %overrideHandling = getelementptr inbounds i8, ptr %this, i64 428
   store i32 %oh, ptr %overrideHandling, align 4

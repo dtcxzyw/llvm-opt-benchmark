@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN7JfrBlobD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7JfrBlobD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7JfrBlobC2EPKhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN7JfrBlobC2EPKhm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr nocapture noundef readonly %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN11JfrCHeapObj23allocate_array_noinlineEmm(i64 noundef %2, i64 noundef 1) #6
   tail call void @_ZN11JfrCHeapObj20on_memory_allocationEPKvm(ptr noundef %4, i64 noundef %2) #6
   store ptr %4, ptr %0, align 8
@@ -165,7 +165,7 @@ _ZN14RefCountHandleI15RefCountPointerI7JfrBlob23MultiThreadedRefCounterEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RefCountHandle) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7JfrBlob4makeEPKhm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.RefCountHandle) align 8 %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 32) #6
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6

@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Multilevel_control_new(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Multilevel_control) align 8 initializes((0, 24)) %0) local_unnamed_addr #0 {
+define void @Multilevel_control_new(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.Multilevel_control) align 8 %0) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) @__const.Multilevel_control_new.ctrl, i64 24, i1 false)
   ret void
 }
@@ -68,7 +68,7 @@ declare void @SparseMatrix_delete(ptr noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef readonly byval(%struct.Multilevel_control) align 8 %4) local_unnamed_addr #2 {
+define void @Multilevel_coarsen(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly byval(%struct.Multilevel_control) align 8 %4) local_unnamed_addr #2 {
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8

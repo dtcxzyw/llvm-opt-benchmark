@@ -303,7 +303,7 @@ define hidden void @_ZN13StubAssemblerC2EP10CodeBufferPKci(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13StubAssembler8set_infoEPKcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((48, 57)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN13StubAssembler8set_infoEPKcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %5, align 8

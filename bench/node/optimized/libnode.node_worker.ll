@@ -1177,7 +1177,7 @@ cleanup:                                          ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4node6worker6Worker25UpdateResourceConstraintsEPN2v819ResourceConstraintsE(ptr nocapture noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef initializes((40, 48)) %constraints) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4node6worker6Worker25UpdateResourceConstraintsEPN2v819ResourceConstraintsE(ptr nocapture noundef nonnull align 8 dereferenceable(392) %this, ptr nocapture noundef %constraints) local_unnamed_addr #5 align 2 {
 entry:
   %stack_base_ = getelementptr inbounds i8, ptr %this, i64 256
   %0 = load i64, ptr %stack_base_, align 8
@@ -3456,7 +3456,7 @@ declare ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef, i32 noundef) local_u
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6worker6WorkerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6worker6WorkerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6worker6WorkerE, i64 16), ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 160
@@ -3759,7 +3759,7 @@ _ZNSt10shared_ptrIN4node17PerIsolateOptionsEED2Ev.exit: ; preds = %_ZNSt6vectorI
 declare void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6worker6WorkerD0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6worker6WorkerD0Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node6worker6WorkerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -9519,7 +9519,7 @@ if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN
 declare i32 @uv_async_send(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS7_5ValueEEEENK3$_0clEPvEUlS2_E_ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS7_5ValueEEEENK3$_0clEPvEUlS2_E_ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_, align 8
@@ -9554,7 +9554,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS7_5ValueEEEENK3$_0clEPvEUlS2_E_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6worker6Worker11StartThreadERKN2v820FunctionCallbackInfoINS7_5ValueEEEENK3$_0clEPvEUlS2_E_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -12990,7 +12990,7 @@ declare void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull alig
 declare void @_ZN4node11Environment22RequestInterruptFromV8Ev(ptr noundef nonnull align 8 dereferenceable(2872)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_, align 8
@@ -13031,7 +13031,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8
@@ -13157,7 +13157,7 @@ declare noundef ptr @_ZN2v87Isolate15GetHeapProfilerEv(ptr noundef nonnull align
 declare noundef ptr @_ZN2v812HeapProfiler16TakeHeapSnapshotERKNS0_19HeapSnapshotOptionsE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEEN3$_0clES2_EUlS2_E_ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEEN3$_0clES2_EUlS2_E_ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -13209,7 +13209,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEEN3$_0clES2_EUlS2_E_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZZNS_6worker6Worker16TakeHeapSnapshotERKN2v820FunctionCallbackInfoINS7_5ValueEEEEN3$_0clES2_EUlS2_E_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = getelementptr inbounds i8, ptr %this, i64 32

@@ -359,7 +359,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8MapBlockC2EN3irr4core8vector3dIsEEP8IGameDef(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 45), (48, 92), (96, 97), (112, 116), (120, 128)) %this, i48 %pos.coerce, ptr noundef %gamedef) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8MapBlockC2EN3irr4core8vector3dIsEEP8IGameDef(ptr noundef nonnull align 8 dereferenceable(336) %this, i48 %pos.coerce, ptr noundef %gamedef) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pos.sroa.0.0.extract.trunc = trunc i48 %pos.coerce to i16
   %pos.sroa.3.0.extract.shift = lshr i48 %pos.coerce, 16
@@ -1873,7 +1873,7 @@ entry:
 declare void @_ZN16VoxelManipulator6copyToEP7MapNodeRK9VoxelAreaN3irr4core8vector3dIsEES8_RKS8_(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef nonnull align 2 dereferenceable(18), i48, i48, ptr noundef nonnull align 2 dereferenceable(6)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN8MapBlock19actuallyUpdateIsAirEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((73, 74)) %this) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN8MapBlock19actuallyUpdateIsAirEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_is_air_expired = getelementptr inbounds i8, ptr %this, i64 73
   store i8 0, ptr %m_is_air_expired, align 1, !tbaa !56
@@ -1922,7 +1922,7 @@ cleanup3:                                         ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN8MapBlock16expireIsAirCacheEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) initializes((73, 74)) %this) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN8MapBlock16expireIsAirCacheEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) %this) local_unnamed_addr #12 align 2 {
 entry:
   %m_is_air_expired = getelementptr inbounds i8, ptr %this, i64 73
   store i8 1, ptr %m_is_air_expired, align 1, !tbaa !56
@@ -5223,7 +5223,7 @@ unreachable:                                      ; preds = %invoke.cont154, %in
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN8MapBlock17deSerialize_pre22ERSihb(ptr noundef nonnull align 8 dereferenceable(336) initializes((72, 73), (88, 92)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i8 noundef zeroext %version, i1 noundef zeroext %disk) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8MapBlock17deSerialize_pre22ERSihb(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i8 noundef zeroext %version, i1 noundef zeroext %disk) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i1203 = alloca i64, align 8
   %__dnew.i.i1145 = alloca i64, align 8

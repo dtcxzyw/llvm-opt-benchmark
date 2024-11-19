@@ -3958,7 +3958,7 @@ declare i64 @rb_ivar_set(i64 noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ssl_npn_advertise_cb(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly %2, ptr noundef %3) #0 {
+define internal noundef i32 @ssl_npn_advertise_cb(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr noundef %3) #0 {
   %5 = ptrtoint ptr %3 to i64
   %6 = load i64, ptr @id_npn_protocols_encoded, align 8
   %7 = tail call i64 @rb_attr_get(i64 noundef %5, i64 noundef %6) #10

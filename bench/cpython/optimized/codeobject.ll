@@ -3008,7 +3008,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_PyCode_InitAddressRange(ptr nocapture noundef readonly %co, ptr nocapture noundef writeonly initializes((0, 12), (16, 20), (24, 40)) %bounds) local_unnamed_addr #5 {
+define hidden noundef i32 @_PyCode_InitAddressRange(ptr nocapture noundef readonly %co, ptr nocapture noundef writeonly %bounds) local_unnamed_addr #5 {
 entry:
   %co_linetable = getelementptr inbounds i8, ptr %co, i64 136
   %0 = load ptr, ptr %co_linetable, align 8
@@ -3261,7 +3261,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_PyLineTable_InitAddressRange(ptr noundef %linetable, i64 noundef %length, i32 noundef %firstlineno, ptr nocapture noundef writeonly initializes((0, 12), (16, 20), (24, 40)) %range) local_unnamed_addr #7 {
+define hidden void @_PyLineTable_InitAddressRange(ptr noundef %linetable, i64 noundef %length, i32 noundef %firstlineno, ptr nocapture noundef writeonly %range) local_unnamed_addr #7 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %range, i64 16
   %lo_next = getelementptr inbounds i8, ptr %range, i64 24
@@ -3622,7 +3622,7 @@ return:                                           ; preds = %retreat.exit, %if.t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @advance_with_locations(ptr nocapture noundef initializes((0, 4)) %bounds, ptr nocapture noundef writeonly %endline, ptr nocapture noundef writeonly %column, ptr nocapture noundef writeonly %endcolumn) unnamed_addr #6 {
+define internal fastcc void @advance_with_locations(ptr nocapture noundef %bounds, ptr nocapture noundef writeonly %endline, ptr nocapture noundef writeonly %column, ptr nocapture noundef writeonly %endcolumn) unnamed_addr #6 {
 entry:
   %lo_next.i = getelementptr inbounds i8, ptr %bounds, i64 24
   %0 = load ptr, ptr %lo_next.i, align 8

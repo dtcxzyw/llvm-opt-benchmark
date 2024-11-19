@@ -157,7 +157,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal14RtfTermContext8getFlagsEjRbS2_(i32 noundef %val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %inQuant, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %inTerm) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal14RtfTermContext8getFlagsEjRbS2_(i32 noundef %val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %inQuant, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %inTerm) local_unnamed_addr #5 align 2 {
 entry:
   %0 = trunc i32 %val to i8
   %frombool = and i8 %0, 1
@@ -278,7 +278,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal19PolarityTermContext8getFlagsEjRbS2_(i32 noundef %val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %hasPol, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %pol) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal19PolarityTermContext8getFlagsEjRbS2_(i32 noundef %val, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %hasPol, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %pol) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp ne i32 %val, 0
   %frombool = zext i1 %cmp to i8

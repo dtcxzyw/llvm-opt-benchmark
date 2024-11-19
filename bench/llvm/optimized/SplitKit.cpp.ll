@@ -390,7 +390,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm19InsertPointAnalysisC2ERKNS_13LiveIntervalsEj(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(440) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm19InsertPointAnalysisC2ERKNS_13LiveIntervalsEj(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(440) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext i32 %2 to i64
@@ -1383,7 +1383,7 @@ _ZN4llvm19InsertPointAnalysis18getLastInsertPointERKNS_12LiveIntervalERKNS_17Mac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm13SplitAnalysisC2ERKNS_10VirtRegMapERKNS_13LiveIntervalsERKNS_15MachineLoopInfoE(ptr noundef nonnull align 8 dereferenceable(701) initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1, ptr noundef nonnull align 8 dereferenceable(440) %2, ptr noundef nonnull align 8 dereferenceable(144) %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm13SplitAnalysisC2ERKNS_10VirtRegMapERKNS_13LiveIntervalsERKNS_15MachineLoopInfoE(ptr noundef nonnull align 8 dereferenceable(701) %0, ptr noundef nonnull align 8 dereferenceable(184) %1, ptr noundef nonnull align 8 dereferenceable(440) %2, ptr noundef nonnull align 8 dereferenceable(144) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %0, align 8
@@ -2913,7 +2913,7 @@ define hidden void @_ZN4llvm13SplitAnalysis7analyzeEPKNS_12LiveIntervalE(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm11SplitEditorC2ERNS_13SplitAnalysisERNS_13LiveIntervalsERNS_10VirtRegMapERNS_20MachineDominatorTreeERNS_25MachineBlockFrequencyInfoERNS_14VirtRegAuxInfoE(ptr noundef nonnull align 8 dereferenceable(1824) initializes((0, 112)) %0, ptr noundef nonnull align 8 dereferenceable(701) %1, ptr noundef nonnull align 8 dereferenceable(440) %2, ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef nonnull align 8 dereferenceable(1200) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm11SplitEditorC2ERNS_13SplitAnalysisERNS_13LiveIntervalsERNS_10VirtRegMapERNS_20MachineDominatorTreeERNS_25MachineBlockFrequencyInfoERNS_14VirtRegAuxInfoE(ptr noundef nonnull align 8 dereferenceable(1824) %0, ptr noundef nonnull align 8 dereferenceable(701) %1, ptr noundef nonnull align 8 dereferenceable(440) %2, ptr noundef nonnull align 8 dereferenceable(184) %3, ptr noundef nonnull align 8 dereferenceable(1200) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 %6) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %8, align 8
@@ -3000,7 +3000,7 @@ define hidden void @_ZN4llvm11SplitEditorC2ERNS_13SplitAnalysisERNS_13LiveInterv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm11SplitEditor5resetERNS_13LiveRangeEditENS0_19ComplementSpillModeE(ptr noundef nonnull align 8 dereferenceable(1824) initializes((72, 88)) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm11SplitEditor5resetERNS_13LiveRangeEditENS0_19ComplementSpillModeE(ptr noundef nonnull align 8 dereferenceable(1824) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -4705,7 +4705,7 @@ declare noundef zeroext i1 @_ZN4llvm13LiveRangeEdit18canRematerializeAtERNS0_5Re
 declare i64 @_ZN4llvm13LiveRangeEdit15rematerializeAtERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEENS_8RegisterERKNS0_5RematERKNS_18TargetRegisterInfoEbjPS4_(ptr noundef nonnull align 8 dereferenceable(208), ptr noundef nonnull align 8 dereferenceable(288), ptr, i32, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(308), i1 noundef zeroext, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvm11SplitEditor8openIntvEv(ptr nocapture noundef nonnull align 8 dereferenceable(1824) initializes((80, 84)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN4llvm11SplitEditor8openIntvEv(ptr nocapture noundef nonnull align 8 dereferenceable(1824) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -4748,7 +4748,7 @@ define hidden noundef i32 @_ZN4llvm11SplitEditor8openIntvEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4llvm11SplitEditor10selectIntvEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1824) initializes((80, 84)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4llvm11SplitEditor10selectIntvEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1824) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   ret void
@@ -12890,7 +12890,7 @@ _ZNK4llvm15TargetInstrInfo11isCopyInstrERKNS_12MachineInstrE.exit: ; preds = %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm11SplitEditor16splitSingleBlockERKNS_13SplitAnalysis9BlockInfoE(ptr noundef nonnull align 8 dereferenceable(1824) initializes((80, 84)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm11SplitEditor16splitSingleBlockERKNS_13SplitAnalysis9BlockInfoE(ptr noundef nonnull align 8 dereferenceable(1824) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -13018,7 +13018,7 @@ _ZN4llvm13SplitAnalysis17getLastSplitPointEPNS_17MachineBasicBlockE.exit._crit_e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm11SplitEditor21splitLiveThroughBlockEjjNS_9SlotIndexEjS1_(ptr noundef nonnull align 8 dereferenceable(1824) initializes((80, 84)) %0, i32 noundef %1, i32 noundef %2, i64 %3, i32 noundef %4, i64 %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm11SplitEditor21splitLiveThroughBlockEjjNS_9SlotIndexEjS1_(ptr noundef nonnull align 8 dereferenceable(1824) %0, i32 noundef %1, i32 noundef %2, i64 %3, i32 noundef %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
@@ -13193,7 +13193,7 @@ _ZN4llvm13SplitAnalysis17getLastSplitPointEj.exit: ; preds = %57, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm11SplitEditor15splitRegInBlockERKNS_13SplitAnalysis9BlockInfoEjNS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(1824) initializes((80, 84)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm11SplitEditor15splitRegInBlockERKNS_13SplitAnalysis9BlockInfoEjNS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(1824) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -13437,7 +13437,7 @@ _ZN4llvm11SplitEditor8openIntvEv.exit:            ; preds = %101, %111
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm11SplitEditor16splitRegOutBlockERKNS_13SplitAnalysis9BlockInfoEjNS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(1824) initializes((80, 84)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvm11SplitEditor16splitRegOutBlockERKNS_13SplitAnalysis9BlockInfoEjNS_9SlotIndexE(ptr noundef nonnull align 8 dereferenceable(1824) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(34) %1, i32 noundef %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32

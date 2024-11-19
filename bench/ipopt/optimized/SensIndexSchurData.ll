@@ -59,7 +59,7 @@ $_ZTVN5Ipopt16ReferencedObjectE = comdat any
 @_ZN5Ipopt14IndexSchurDataD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5Ipopt14IndexSchurDataD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Ipopt14IndexSchurDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 13), (16, 20), (24, 72)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt14IndexSchurDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -73,7 +73,7 @@ define void @_ZN5Ipopt14IndexSchurDataC2Ev(ptr nocapture noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14IndexSchurDataC2ESt6vectorIiSaIiEES3_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 13), (16, 20), (24, 72)) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14IndexSchurDataC2ESt6vectorIiSaIiEES3_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
@@ -254,7 +254,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt14IndexSchurDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14IndexSchurDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt14IndexSchurDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -2742,7 +2742,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit31:        ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14IndexSchurData12AddData_ListESt6vectorIiSaIiEERS3_Rii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3, i32 noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14IndexSchurData12AddData_ListESt6vectorIiSaIiEERS3_Rii(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3, i32 noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8

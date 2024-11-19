@@ -328,7 +328,7 @@ cond.end:                                         ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl12diffMultisetERKSt3mapINS0_12NodeTemplateILb1EEEjSt4lessIS6_ESaISt4pairIKS6_jEEESF_(ptr noalias sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %a, ptr noundef nonnull readonly align 8 dereferenceable(48) %b) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl12diffMultisetERKSt3mapINS0_12NodeTemplateILb1EEEjSt4lessIS6_ESaISt4pairIKS6_jEEESF_(ptr noalias sret(%"class.std::map") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %a, ptr noundef nonnull readonly align 8 dereferenceable(48) %b) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.134", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.137", align 1
@@ -651,7 +651,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_jESt10_Select1stI
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl14ExpandMultisetERKSt3mapINS0_12NodeTemplateILb1EEEjSt4lessIS6_ESaISt4pairIKS6_jEEE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %a) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl14ExpandMultisetERKSt3mapINS0_12NodeTemplateILb1EEEjSt4lessIS6_ESaISt4pairIKS6_jEEE(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %a) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_left.i.i = getelementptr inbounds i8, ptr %a, i64 24

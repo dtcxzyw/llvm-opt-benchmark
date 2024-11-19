@@ -423,7 +423,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt11TNLPAdapterC2ENS_8SmartPtrINS_4TNLPEEENS1_IKNS_10JournalistEEE(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 12), (16, 40), (200, 372), (376, 552), (560, 600)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt11TNLPAdapterC2ENS_8SmartPtrINS_4TNLPEEENS1_IKNS_10JournalistEEE(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.7", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1407,7 +1407,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt11TNLPAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt11TNLPAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt11TNLPAdapterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   %3 = load ptr, ptr %2, align 8

@@ -17,7 +17,7 @@ $_ZN4llvm14MCDisassembler13setABIVersionEj = comdat any
 @_ZN4llvm14MCDisassemblerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm14MCDisassemblerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14MCDisassemblerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14MCDisassemblerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm14MCDisassemblerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -46,7 +46,7 @@ define dso_local void @_ZN4llvm14MCDisassemblerD0Ev(ptr nocapture nonnull readno
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4llvm14MCDisassembler13onSymbolStartERNS_12SymbolInfoTyERmNS_8ArrayRefIhEEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 1)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture readnone %4, i64 %5, i64 %6) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm14MCDisassembler13onSymbolStartERNS_12SymbolInfoTyERmNS_8ArrayRefIhEEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture readnone %4, i64 %5, i64 %6) unnamed_addr #3 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i8, ptr %8, align 8
   %10 = and i8 %9, -2

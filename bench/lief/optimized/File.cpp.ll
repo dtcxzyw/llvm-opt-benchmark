@@ -1449,7 +1449,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN4LIEF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF3DEX4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF3DEX4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3DEX4FileE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 448
   %3 = load ptr, ptr %2, align 8
@@ -1993,7 +1993,7 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1ERKNSt7__cxx1112basic_
 declare noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF3DEX4File3rawEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.94") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF3DEX4File3rawEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.94") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(472) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8
@@ -3999,13 +3999,13 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF3DEX5Class8ful
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF3DEX6Method4nameB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF3DEX4File17deoptimize_returnEPhj(ptr nocapture noundef writeonly initializes((0, 1)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF3DEX4File17deoptimize_returnEPhj(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   store i8 14, ptr %0, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF3DEX4File32deoptimize_instance_field_accessEPhjNS0_7OPCODESE(ptr nocapture noundef writeonly initializes((0, 1), (2, 4)) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF3DEX4File32deoptimize_instance_field_accessEPhjNS0_7OPCODESE(ptr nocapture noundef writeonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   store i8 %2, ptr %0, align 1
   %4 = trunc i32 %1 to i16
   %5 = getelementptr inbounds i8, ptr %0, i64 2
@@ -4014,7 +4014,7 @@ define void @_ZN4LIEF3DEX4File32deoptimize_instance_field_accessEPhjNS0_7OPCODES
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF3DEX4File25deoptimize_invoke_virtualEPhjNS0_7OPCODESE(ptr nocapture noundef writeonly initializes((0, 1), (2, 4)) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF3DEX4File25deoptimize_invoke_virtualEPhjNS0_7OPCODESE(ptr nocapture noundef writeonly %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   store i8 %2, ptr %0, align 1
   %4 = trunc i32 %1 to i16
   %5 = getelementptr inbounds i8, ptr %0, i64 2
@@ -4103,7 +4103,7 @@ _ZNSt10_HashtableIPN4LIEF3DEX5ClassESt4pairIKS3_St13unordered_mapIPNS1_6MethodES
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF3DEX4File14deoptimize_nopEPhj(ptr nocapture noundef writeonly initializes((0, 1)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF3DEX4File14deoptimize_nopEPhj(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   store i8 31, ptr %0, align 1
   ret void
 }
@@ -4121,7 +4121,7 @@ define noundef nonnull align 8 dereferenceable(120) ptr @_ZN4LIEF3DEX4File6heade
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF3DEX4File7classesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4LIEF3DEX4File7classesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 424
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -4133,7 +4133,7 @@ define void @_ZNK4LIEF3DEX4File7classesEv(ptr dead_on_unwind noalias nocapture w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF3DEX4File7classesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.160") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF3DEX4File7classesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.160") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 424
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5330,7 +5330,7 @@ _ZN8nlohmann16json_abi_v3_11_26detail10serializerINS0_10basic_jsonISt3mapSt6vect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF3DEX4File7methodsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.207") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4LIEF3DEX4File7methodsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.207") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 248
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5342,7 +5342,7 @@ define void @_ZNK4LIEF3DEX4File7methodsEv(ptr dead_on_unwind noalias nocapture w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF3DEX4File7methodsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.208") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF3DEX4File7methodsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.208") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 248
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5354,7 +5354,7 @@ define void @_ZN4LIEF3DEX4File7methodsEv(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF3DEX4File6fieldsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.210") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4LIEF3DEX4File6fieldsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.210") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 272
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5366,7 +5366,7 @@ define void @_ZNK4LIEF3DEX4File6fieldsEv(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF3DEX4File6fieldsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.212") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF3DEX4File6fieldsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.212") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 272
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5378,7 +5378,7 @@ define void @_ZN4LIEF3DEX4File6fieldsEv(ptr dead_on_unwind noalias nocapture wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF3DEX4File7stringsB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.214") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4LIEF3DEX4File7stringsB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.214") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 296
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5390,7 +5390,7 @@ define void @_ZNK4LIEF3DEX4File7stringsB5cxx11Ev(ptr dead_on_unwind noalias noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF3DEX4File7stringsB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.216") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF3DEX4File7stringsB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.216") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 296
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5402,7 +5402,7 @@ define void @_ZN4LIEF3DEX4File7stringsB5cxx11Ev(ptr dead_on_unwind noalias nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF3DEX4File5typesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.218") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4LIEF3DEX4File5typesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.218") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 320
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5414,7 +5414,7 @@ define void @_ZNK4LIEF3DEX4File5typesEv(ptr dead_on_unwind noalias nocapture wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF3DEX4File5typesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.220") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF3DEX4File5typesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.220") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 320
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5426,7 +5426,7 @@ define void @_ZN4LIEF3DEX4File5typesEv(ptr dead_on_unwind noalias nocapture writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF3DEX4File10prototypesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.222") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4LIEF3DEX4File10prototypesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.222") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 344
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5438,7 +5438,7 @@ define void @_ZNK4LIEF3DEX4File10prototypesEv(ptr dead_on_unwind noalias nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF3DEX4File10prototypesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.224") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF3DEX4File10prototypesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.224") align 8 %0, ptr noundef nonnull align 8 dereferenceable(472) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 344
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

@@ -275,7 +275,7 @@ declare dso_local ptr @drm_atomic_helper_connector_duplicate_state(ptr noundef) 
 declare dso_local void @drm_atomic_helper_connector_destroy_state(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @drm_bridge_connector_oob_hotplug_event(ptr noundef initializes((176, 180)) %0, i32 noundef %1) #0 align 16 {
+define internal void @drm_bridge_connector_oob_hotplug_event(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 368
   tail call void @mutex_lock(ptr noundef %4) #4
@@ -514,7 +514,7 @@ declare dso_local i32 @drm_add_edid_modes(ptr noundef, ptr noundef) local_unname
 declare dso_local void @drm_bridge_hpd_enable(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @drm_bridge_connector_hpd_cb(ptr noundef initializes((176, 180)) %0, i32 noundef %1) #0 align 16 {
+define internal void @drm_bridge_connector_hpd_cb(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 368
   tail call void @mutex_lock(ptr noundef %4) #4

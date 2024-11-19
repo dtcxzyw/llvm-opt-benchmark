@@ -315,7 +315,7 @@ define void @"_ZN4core6option15Option$LT$T$GT$7or_else17h9de4023a15d1a51eE"(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h2e1299b1c5d9a789E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h2e1299b1c5d9a789E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6

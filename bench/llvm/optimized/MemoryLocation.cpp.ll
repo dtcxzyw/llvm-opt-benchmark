@@ -401,7 +401,7 @@ define dso_local void @_ZN4llvm14MemoryLocation3getEPKNS_13AtomicRMWInstE(ptr de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14MemoryLocation9getOrNoneEPKNS_11InstructionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.20") align 8 initializes((48, 49)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14MemoryLocation9getOrNoneEPKNS_11InstructionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.20") align 8 %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::MemoryLocation", align 8
   %4 = alloca %"class.llvm::MemoryLocation", align 8
   %5 = alloca %"class.llvm::MemoryLocation", align 8
@@ -532,25 +532,25 @@ define dso_local void @_ZN4llvm14MemoryLocation9getOrNoneEPKNS_11InstructionE(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14MemoryLocation12getForSourceEPKNS_15MemTransferInstE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 initializes((0, 48)) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14MemoryLocation12getForSourceEPKNS_15MemTransferInstE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE(ptr dead_on_unwind writable sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14MemoryLocation12getForSourceEPKNS_18AnyMemTransferInstE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 initializes((0, 48)) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14MemoryLocation12getForSourceEPKNS_18AnyMemTransferInstE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE(ptr dead_on_unwind writable sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef %1, i32 noundef 1, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14MemoryLocation12getForSourceEPKNS_21AtomicMemTransferInstE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 initializes((0, 48)) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14MemoryLocation12getForSourceEPKNS_21AtomicMemTransferInstE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE(ptr dead_on_unwind writable sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef nonnull %1, i32 noundef 1, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 initializes((0, 48)) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::AAMDNodes", align 8
   %6 = alloca i32, align 4
   call void @_ZNK4llvm11Instruction13getAAMetadataEv(ptr dead_on_unwind nonnull writable sret(%"struct.llvm::AAMDNodes") align 8 %5, ptr noundef nonnull align 8 dereferenceable(72) %1) #5
@@ -1042,19 +1042,19 @@ _ZNK4llvm17TargetLibraryInfo10getLibFuncERKNS_8CallBaseERNS_7LibFuncE.exit.threa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14MemoryLocation10getForDestEPKNS_12MemIntrinsicE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 initializes((0, 48)) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14MemoryLocation10getForDestEPKNS_12MemIntrinsicE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE(ptr dead_on_unwind writable sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14MemoryLocation10getForDestEPKNS_15AnyMemIntrinsicE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 initializes((0, 48)) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14MemoryLocation10getForDestEPKNS_15AnyMemIntrinsicE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE(ptr dead_on_unwind writable sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef %1, i32 noundef 0, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14MemoryLocation10getForDestEPKNS_18AtomicMemIntrinsicE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 initializes((0, 48)) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14MemoryLocation10getForDestEPKNS_18AtomicMemIntrinsicE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm14MemoryLocation14getForArgumentEPKNS_8CallBaseEjPKNS_17TargetLibraryInfoE(ptr dead_on_unwind writable sret(%"class.llvm::MemoryLocation") align 8 %0, ptr noundef nonnull %1, i32 noundef 0, ptr noundef null)
   ret void
 }

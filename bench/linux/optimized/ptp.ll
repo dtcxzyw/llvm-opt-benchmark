@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @system_wq = external dso_local local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @e1000e_ptp_init(ptr noundef initializes((12256, 12264)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @e1000e_ptp_init(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12256
   store ptr null, ptr %2, align 32
   %3 = getelementptr inbounds i8, ptr %0, i64 11916
@@ -291,7 +291,7 @@ define internal noundef i32 @e1000e_phc_adjtime(ptr noundef %0, i64 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000e_phc_gettimex(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr noundef %2) #0 align 16 {
+define internal noundef i32 @e1000e_phc_gettimex(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -12264
   %5 = getelementptr i8, ptr %0, i64 -80
   %6 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %5) #8

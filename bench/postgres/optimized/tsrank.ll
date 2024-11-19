@@ -2054,7 +2054,7 @@ define internal fastcc ptr @SortAndUniqItems(ptr noundef %0, ptr nocapture nound
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc ptr @find_wordentry(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   %7 = load i32, ptr %6, align 4

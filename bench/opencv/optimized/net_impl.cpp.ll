@@ -991,7 +991,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3dnn14dnn4_v202405216detail11NetImplBaseC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv3dnn14dnn4_v202405216detail11NetImplBaseC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) unnamed_addr #3 align 2 {
   %2 = atomicrmw add ptr @_ZN2cv3dnn14dnn4_v20240521L11g_networkIdE, i32 1 acq_rel, align 4
   store i32 %2, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1022,7 +1022,7 @@ declare void @_ZN2cv6formatB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv3dnn14dnn4_v202405213Net4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3dnn14dnn4_v202405213Net4ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 112) (i8, ptr @_ZTVN2cv3dnn14dnn4_v202405213Net4ImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 480
   %3 = load ptr, ptr %2, align 8
@@ -1564,7 +1564,7 @@ define void @_ZN2cv3dnn14dnn4_v202405213Net4ImplD0Ev(ptr noundef nonnull align 8
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv3dnn14dnn4_v202405213Net4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(504) initializes((0, 20), (24, 80), (88, 92), (96, 104)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv3dnn14dnn4_v202405213Net4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::pair.74", align 8
   %3 = alloca %"struct.cv::dnn::dnn4_v20240521::detail::LayerData", align 8
   %4 = alloca %"struct.std::pair.110", align 8
@@ -12409,7 +12409,7 @@ declare noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereference
 declare void @_ZN2cv3Mat6createEiPKii(ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, i32 %.4.val, ptr %.64.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_3MatE(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 %.4.val, ptr %.64.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !130
   %2 = sext i32 %.4.val to i64
   %3 = getelementptr inbounds i32, ptr %.64.val, i64 %2
@@ -15275,7 +15275,7 @@ _ZN2cv7details26FPDenormalsIgnoreHintScopeD2Ev.exit24: ; preds = %87, %25
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv3dnn14dnn4_v202405213Net4Impl13getLayerNamesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.54") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(504) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv3dnn14dnn4_v202405213Net4Impl13getLayerNamesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.54") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(504) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 120
   %4 = load i64, ptr %3, align 8
@@ -31357,7 +31357,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv3dnn14dnn4_v202405213Net4Impl23getUnconnectedOutLayersEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.134") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(504) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv3dnn14dnn4_v202405213Net4Impl23getUnconnectedOutLayersEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.134") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(504) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 216
   %4 = load i64, ptr %3, align 8

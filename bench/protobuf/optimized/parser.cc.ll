@@ -10400,7 +10400,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_114ParseFieldMaskINS1_21ParseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE(ptr noalias align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %lex, ptr noundef nonnull align 8 dereferenceable(152) %desc, ptr noundef nonnull align 8 dereferenceable(72) %msg) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_114ParseFieldMaskINS1_21ParseProto2DescriptorEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %lex, ptr noundef nonnull align 8 dereferenceable(152) %desc, ptr noundef nonnull align 8 dereferenceable(72) %msg) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.absl::lts_20230802::StatusOr.161", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::strings_internal::Splitter", align 8
@@ -24571,7 +24571,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_114ParseFieldMaskINS1_15ParseProto3TypeEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %lex, ptr noundef nonnull align 8 dereferenceable(208) %desc, ptr noundef nonnull align 8 dereferenceable(144) %msg) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_114ParseFieldMaskINS1_15ParseProto3TypeEEEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSA_3MsgE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %lex, ptr noundef nonnull align 8 dereferenceable(208) %desc, ptr noundef nonnull align 8 dereferenceable(144) %msg) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str = alloca %"class.absl::lts_20230802::StatusOr.161", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::strings_internal::Splitter", align 8
@@ -25049,7 +25049,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteRawEPKvi.exit: ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal15ParseProto3Type10NewDynamicIZNS1_12_GLOBAL__N_18ParseAnyIS2_EEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSB_3MsgEEUlRKNS1_12ResolverPool7MessageERNS2_3MsgEE_EES8_PKNSH_5FieldERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESM_SB_(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(32) %type_url, ptr noundef nonnull align 8 dereferenceable(144) %msg, ptr nonnull %body.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal15ParseProto3Type10NewDynamicIZNS1_12_GLOBAL__N_18ParseAnyIS2_EEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSB_3MsgEEUlRKNS1_12ResolverPool7MessageERNS2_3MsgEE_EES8_PKNSH_5FieldERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESM_SB_(ptr noalias nonnull align 8 %agg.result, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(32) %type_url, ptr noundef nonnull align 8 dereferenceable(144) %msg, ptr nonnull %body.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i.i.i.i = alloca ptr, align 8
   %size.i.i.i.i = alloca i32, align 4
@@ -26419,7 +26419,7 @@ _ZN6google8protobuf2io17CodedOutputStream8WriteRawEPKvi.exit: ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal15ParseProto3Type6NewMsgIZNS1_12_GLOBAL__N_110ParseValueIS2_EEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSB_3MsgEEUlRSB_RT0_E_EES8_PKNS1_12ResolverPool5FieldERNS2_3MsgESB_(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(144) %msg, ptr nonnull %body.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal15ParseProto3Type6NewMsgIZNS1_12_GLOBAL__N_110ParseValueIS2_EEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSB_3MsgEEUlRSB_RT0_E_EES8_PKNS1_12ResolverPool5FieldERNS2_3MsgESB_(ptr noalias nonnull align 8 %agg.result, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(144) %msg, ptr nonnull %body.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i.i.i = alloca ptr, align 8
   %size.i.i.i = alloca i32, align 4
@@ -26753,7 +26753,7 @@ _ZN6google8protobuf13json_internal10Proto3Type15WithDynamicTypeIZNS1_15ParseProt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf13json_internal15ParseProto3Type6NewMsgIZNS1_12_GLOBAL__N_110ParseValueIS2_EEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSB_3MsgEEUlRSB_RT0_E0_EES8_PKNS1_12ResolverPool5FieldERNS2_3MsgESB_(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(144) %msg, ptr nonnull %body.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf13json_internal15ParseProto3Type6NewMsgIZNS1_12_GLOBAL__N_110ParseValueIS2_EEN4absl12lts_202308026StatusERNS1_9JsonLexerERKNT_4DescERNSB_3MsgEEUlRSB_RT0_E0_EES8_PKNS1_12ResolverPool5FieldERNS2_3MsgESB_(ptr noalias nonnull align 8 %agg.result, ptr noundef %f, ptr noundef nonnull align 8 dereferenceable(144) %msg, ptr nonnull %body.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data.i.i.i = alloca ptr, align 8
   %size.i.i.i = alloca i32, align 4

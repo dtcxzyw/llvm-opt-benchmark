@@ -173,7 +173,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog17rule_dependenciesC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 20), (24, 40)) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog17rule_dependenciesC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i.i.i.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 128)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %call.i.i.i.i, i8 0, i64 128, i1 false)
@@ -306,7 +306,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP13obj_hashtableIS1_EE13obj_map_entryE8o
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog17rule_dependenciesC2ERKS0_b(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 20), (24, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %o, i1 noundef zeroext %reversed) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog17rule_dependenciesC2ERKS0_b(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %o, i1 noundef zeroext %reversed) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.obj_map<func_decl, obj_hashtable<func_decl> *>::key_data", align 8
   %temp.i.i.i.i = alloca %"struct.obj_map<func_decl, obj_hashtable<func_decl> *>::key_data", align 8
@@ -4120,7 +4120,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog8rule_setC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog8rule_setC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %ctx, ptr %this, align 8
   %m_rule_manager = getelementptr inbounds i8, ptr %this, i64 8
@@ -4442,7 +4442,7 @@ _ZN15ref_vector_coreIN7datalog4ruleE19ref_manager_wrapperIS1_NS0_12rule_managerE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog8rule_setC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog8rule_setC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8

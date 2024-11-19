@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_addIte(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @Cudd_addIte(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 448
   br label %6
 
@@ -530,7 +530,7 @@ common.ret83:                                     ; preds = %._crit_edge, %3, %7
 declare void @cuddCacheInsert2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_addCmpl(ptr noundef initializes((448, 452)) %0, ptr noundef %1) #0 {
+define ptr @Cudd_addCmpl(ptr noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   br label %4
 

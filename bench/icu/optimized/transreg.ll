@@ -532,7 +532,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7519TransliteratorAliasC2ERKNS_13UnicodeStringEPKNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(160) initializes((8, 18)) %this, ptr noundef nonnull align 8 dereferenceable(64) %theAliasID, ptr noundef %cpdFilter) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7519TransliteratorAliasC2ERKNS_13UnicodeStringEPKNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(64) %theAliasID, ptr noundef %cpdFilter) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ID = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %ID, align 8
@@ -1479,7 +1479,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518TransliteratorSpec9setupNextEv(ptr noundef nonnull align 8 dereferenceable(280) initializes((265, 266)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7518TransliteratorSpec9setupNextEv(ptr noundef nonnull align 8 dereferenceable(280) %this) local_unnamed_addr #1 align 2 {
 entry:
   %isNextLocale = getelementptr inbounds i8, ptr %this, i64 265
   store i8 0, ptr %isNextLocale, align 1
@@ -1610,7 +1610,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7519TransliteratorEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 4), (8, 18), (80, 96)) %this) unnamed_addr #12 align 2 {
+define void @_ZN6icu_7519TransliteratorEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this) unnamed_addr #12 align 2 {
 entry:
   %stringArg = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %stringArg, align 8
@@ -1752,7 +1752,7 @@ if.end:                                           ; preds = %if.then, %delete.no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7519TransliteratorEntry10setFactoryEPFPNS_14TransliteratorERKNS_13UnicodeStringENS1_5TokenEES6_(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((96, 104)) %this, ptr noundef %factory, ptr %context.coerce) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7519TransliteratorEntry10setFactoryEPFPNS_14TransliteratorERKNS_13UnicodeStringENS1_5TokenEES6_(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %factory, ptr %context.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 8
   %cmp = icmp eq i32 %0, 3
@@ -1781,7 +1781,7 @@ if.end:                                           ; preds = %if.then, %delete.no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522TransliteratorRegistryC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(312) initializes((8, 16)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7522TransliteratorRegistryC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %registry = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %registry, align 8
@@ -3581,7 +3581,7 @@ return:                                           ; preds = %if.end4, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522TransliteratorRegistry11Enumeration5resetER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((116, 124)) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7522TransliteratorRegistry11Enumeration5resetER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #1 align 2 {
 entry:
   %pos = getelementptr inbounds i8, ptr %this, i64 116
   store i32 -1, ptr %pos, align 4

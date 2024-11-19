@@ -654,7 +654,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb8FlushJobC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16ColumnFamilyDataERKNS_18ImmutableDBOptionsERKNS_16MutableCFOptionsEmRKNS_11FileOptionsEPNS_10VersionSetEPNS_17InstrumentedMutexEPSt6atomicIbESt6vectorImSaImEEmPNS_15SnapshotCheckerEPNS_10JobContextENS_11FlushReasonEPNS_9LogBufferEPNS_11FSDirectoryES12_NS_15CompressionTypeEPNS_10StatisticsEPNS_11EventLoggerEbbbNS_3Env8PriorityERKSt10shared_ptrINS_8IOTracerEERKNS_18SeqnoToTimeMappingES8_S8_S6_PNS_26BlobFileCompletionCallbackE(ptr noundef nonnull align 8 dereferenceable(1760) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef %cfd, ptr noundef nonnull align 8 dereferenceable(569) %db_options, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options, i64 noundef %max_memtable_id, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef %versions, ptr noundef %db_mutex, ptr noundef %shutting_down, ptr nocapture noundef %existing_snapshots, i64 noundef %earliest_write_conflict_snapshot, ptr noundef %snapshot_checker, ptr noundef %job_context, i32 noundef %flush_reason, ptr noundef %log_buffer, ptr noundef %db_directory, ptr noundef %output_file_directory, i8 noundef zeroext %output_compression, ptr noundef %stats, ptr noundef %event_logger, i1 noundef zeroext %measure_io_stats, i1 noundef zeroext %sync_output_directory, i1 noundef zeroext %write_manifest, i32 noundef %thread_pri, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %io_tracer, ptr noundef nonnull align 8 dereferenceable(97) %seqno_to_time_mapping, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, ptr noundef %full_history_ts_low, ptr noundef %blob_callback) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8FlushJobC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_16ColumnFamilyDataERKNS_18ImmutableDBOptionsERKNS_16MutableCFOptionsEmRKNS_11FileOptionsEPNS_10VersionSetEPNS_17InstrumentedMutexEPSt6atomicIbESt6vectorImSaImEEmPNS_15SnapshotCheckerEPNS_10JobContextENS_11FlushReasonEPNS_9LogBufferEPNS_11FSDirectoryES12_NS_15CompressionTypeEPNS_10StatisticsEPNS_11EventLoggerEbbbNS_3Env8PriorityERKSt10shared_ptrINS_8IOTracerEERKNS_18SeqnoToTimeMappingES8_S8_S6_PNS_26BlobFileCompletionCallbackE(ptr noundef nonnull align 8 dereferenceable(1760) %this, ptr noundef nonnull align 8 dereferenceable(32) %dbname, ptr noundef %cfd, ptr noundef nonnull align 8 dereferenceable(569) %db_options, ptr noundef nonnull align 8 dereferenceable(560) %mutable_cf_options, i64 noundef %max_memtable_id, ptr noundef nonnull align 8 dereferenceable(146) %file_options, ptr noundef %versions, ptr noundef %db_mutex, ptr noundef %shutting_down, ptr nocapture noundef %existing_snapshots, i64 noundef %earliest_write_conflict_snapshot, ptr noundef %snapshot_checker, ptr noundef %job_context, i32 noundef %flush_reason, ptr noundef %log_buffer, ptr noundef %db_directory, ptr noundef %output_file_directory, i8 noundef zeroext %output_compression, ptr noundef %stats, ptr noundef %event_logger, i1 noundef zeroext %measure_io_stats, i1 noundef zeroext %sync_output_directory, i1 noundef zeroext %write_manifest, i32 noundef %thread_pri, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %io_tracer, ptr noundef nonnull align 8 dereferenceable(97) %seqno_to_time_mapping, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, ptr noundef %full_history_ts_low, ptr noundef %blob_callback) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %frombool = zext i1 %measure_io_stats to i8
@@ -1728,7 +1728,7 @@ _ZTWN7rocksdb15iostats_contextE.exit4:            ; preds = %_ZTWN7rocksdb15iost
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8FlushJob12PickMemTableEv(ptr noundef nonnull align 8 dereferenceable(1760) initializes((1544, 1545)) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8FlushJob12PickMemTableEv(ptr noundef nonnull align 8 dereferenceable(1760) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %max_next_log_number = alloca i64, align 8
   %db_mutex_ = getelementptr inbounds i8, ptr %this, i64 264
@@ -4374,7 +4374,7 @@ return:                                           ; preds = %if.end, %entry, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8FlushJob8MemPurgeEv(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1760) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8FlushJob8MemPurgeEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1760) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.363", align 8
   %new_mem = alloca ptr, align 8
@@ -9600,7 +9600,7 @@ declare void @_ZN7rocksdb17InstrumentedMutex4LockEv(ptr noundef nonnull align 8 
 declare void @_ZN7rocksdb12MemTableList3AddEPNS_8MemTableEPNS_10autovectorIS2_Lm8EEE(ptr noundef nonnull align 8 dereferenceable(41), ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb8FlushJob15GetFlushJobInfoEv(ptr noalias sret(%"class.std::unique_ptr.210") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1760) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb8FlushJob15GetFlushJobInfoEv(ptr noalias sret(%"class.std::unique_ptr.210") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1760) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %blob_file_addition_info = alloca %"struct.rocksdb::BlobFileAdditionInfo", align 8

@@ -52,7 +52,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_ObjRecycle(ptr noundef initializes((8, 32), (40, 48), (56, 72)) %0) local_unnamed_addr #0 {
+define void @Abc_ObjRecycle(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 248
   %4 = load ptr, ptr %3, align 8

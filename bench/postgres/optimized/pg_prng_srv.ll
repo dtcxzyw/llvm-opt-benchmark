@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pg_global_prng_state = dso_local local_unnamed_addr global %struct.pg_prng_state zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @pg_prng_seed(ptr nocapture noundef writeonly initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @pg_prng_seed(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = add i64 %1, -7046029254386353131
   %4 = lshr i64 %3, 30
   %5 = xor i64 %4, %3
@@ -65,7 +65,7 @@ define dso_local noundef zeroext i1 @pg_prng_seed_check(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @pg_prng_fseed(ptr nocapture noundef writeonly initializes((0, 16)) %0, double noundef %1) local_unnamed_addr #0 {
+define dso_local void @pg_prng_fseed(ptr nocapture noundef writeonly %0, double noundef %1) local_unnamed_addr #0 {
   %3 = fmul double %1, 0x432FFFFFFFFFFFFE
   %4 = fptosi double %3 to i64
   %5 = add i64 %4, -7046029254386353131

@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @Curl_ccalloc = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_bufcp_init(ptr nocapture noundef writeonly initializes((0, 32)) %pool, i64 noundef %chunk_size, i64 noundef %spare_max) local_unnamed_addr #0 {
+define hidden void @Curl_bufcp_init(ptr nocapture noundef writeonly %pool, i64 noundef %chunk_size, i64 noundef %spare_max) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %pool, i8 0, i64 24, i1 false)
   %chunk_size3 = getelementptr inbounds i8, ptr %pool, i64 8
@@ -44,7 +44,7 @@ chunk_list_free.exit:                             ; preds = %while.body.i, %entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_bufq_init2(ptr nocapture noundef writeonly initializes((0, 64)) %q, i64 noundef %chunk_size, i64 noundef %max_chunks, i32 noundef %opts) local_unnamed_addr #0 {
+define hidden void @Curl_bufq_init2(ptr nocapture noundef writeonly %q, i64 noundef %chunk_size, i64 noundef %max_chunks, i32 noundef %opts) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %q, i8 0, i64 64, i1 false)
   %chunk_size3.i = getelementptr inbounds i8, ptr %q, i64 48
@@ -57,7 +57,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_bufq_init(ptr nocapture noundef writeonly initializes((0, 64)) %q, i64 noundef %chunk_size, i64 noundef %max_chunks) local_unnamed_addr #0 {
+define hidden void @Curl_bufq_init(ptr nocapture noundef writeonly %q, i64 noundef %chunk_size, i64 noundef %max_chunks) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %q, i8 0, i64 64, i1 false)
   %chunk_size3.i = getelementptr inbounds i8, ptr %q, i64 48
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Curl_bufq_initp(ptr nocapture noundef writeonly initializes((0, 64)) %q, ptr noundef %pool, i64 noundef %max_chunks, i32 noundef %opts) local_unnamed_addr #3 {
+define hidden void @Curl_bufq_initp(ptr nocapture noundef writeonly %q, ptr noundef %pool, i64 noundef %max_chunks, i32 noundef %opts) local_unnamed_addr #3 {
 entry:
   %chunk_size = getelementptr inbounds i8, ptr %pool, i64 8
   %0 = load i64, ptr %chunk_size, align 8
@@ -483,7 +483,7 @@ return:                                           ; preds = %if.end.i.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 1, 0) i64 @Curl_bufq_read(ptr nocapture noundef %q, ptr nocapture noundef writeonly %buf, i64 noundef %len, ptr nocapture noundef writeonly initializes((0, 4)) %err) local_unnamed_addr #2 {
+define hidden range(i64 1, 0) i64 @Curl_bufq_read(ptr nocapture noundef %q, ptr nocapture noundef writeonly %buf, i64 noundef %len, ptr nocapture noundef writeonly %err) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %err, align 4
   %tobool.not14 = icmp eq i64 %len, 0
@@ -1032,7 +1032,7 @@ while.end:                                        ; preds = %if.end10, %entry, %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @Curl_bufq_write_pass(ptr nocapture noundef %q, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef readonly %writer, ptr noundef %writer_ctx, ptr noundef initializes((0, 4)) %err) local_unnamed_addr #2 {
+define hidden i64 @Curl_bufq_write_pass(ptr nocapture noundef %q, ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef readonly %writer, ptr noundef %writer_ctx, ptr noundef %err) local_unnamed_addr #2 {
 entry:
   %buf.i = alloca ptr, align 8
   %blen.i = alloca i64, align 8
@@ -1333,7 +1333,7 @@ return:                                           ; preds = %Curl_bufq_write.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 -1, -9223372036854775808) i64 @Curl_bufq_sipn(ptr nocapture noundef %q, i64 noundef %max_len, ptr nocapture noundef readonly %reader, ptr noundef %reader_ctx, ptr noundef initializes((0, 4)) %err) local_unnamed_addr #2 {
+define hidden range(i64 -1, -9223372036854775808) i64 @Curl_bufq_sipn(ptr nocapture noundef %q, i64 noundef %max_len, ptr nocapture noundef readonly %reader, ptr noundef %reader_ctx, ptr noundef %err) local_unnamed_addr #2 {
 entry:
   store i32 81, ptr %err, align 4
   %call = tail call fastcc ptr @get_non_full_tail(ptr noundef %q)
@@ -1399,7 +1399,7 @@ return:                                           ; preds = %if.else, %chunk_slu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @Curl_bufq_slurp(ptr nocapture noundef %q, ptr nocapture noundef readonly %reader, ptr noundef %reader_ctx, ptr noundef initializes((0, 4)) %err) local_unnamed_addr #2 {
+define hidden i64 @Curl_bufq_slurp(ptr nocapture noundef %q, ptr nocapture noundef readonly %reader, ptr noundef %reader_ctx, ptr noundef %err) local_unnamed_addr #2 {
 entry:
   store i32 81, ptr %err, align 4
   %call.i26.i = tail call fastcc ptr @get_non_full_tail(ptr noundef %q)

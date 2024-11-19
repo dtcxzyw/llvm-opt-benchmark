@@ -178,7 +178,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 declare dso_local i32 @__skb_get_poff(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext range(i16 6, 0) i16 @eth_type_trans(ptr noundef initializes((16, 24), (182, 184)) %0, ptr noundef %1) #0 align 16 {
+define dso_local zeroext range(i16 6, 0) i16 @eth_type_trans(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %3) #12
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -315,7 +315,7 @@ define internal fastcc ptr @skb_header_pointer(ptr noundef %0, ptr noundef %1) u
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @eth_header_parse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 6)) %1) #7 align 16 {
+define dso_local noundef i32 @eth_header_parse(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 182
@@ -354,7 +354,7 @@ define dso_local noundef range(i32 -1, 1) i32 @eth_header_cache(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @eth_header_cache_update(ptr nocapture noundef writeonly initializes((18, 24)) %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #8 align 16 {
+define dso_local void @eth_header_cache_update(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2) #8 align 16 {
   %4 = getelementptr i8, ptr %0, i64 18
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(6) %4, ptr noundef align 1 dereferenceable(6) %2, i64 6, i1 false)
   ret void
@@ -477,7 +477,7 @@ define dso_local range(i32 -99, 1) i32 @eth_validate_addr(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ether_setup(ptr nocapture noundef initializes((16, 24), (56, 60), (168, 174), (544, 555), (813, 814), (1000, 1006), (1072, 1076)) %0) #8 align 16 {
+define dso_local void @ether_setup(ptr nocapture noundef %0) #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @eth_header_ops, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 552

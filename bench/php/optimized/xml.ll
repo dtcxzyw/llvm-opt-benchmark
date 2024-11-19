@@ -272,7 +272,7 @@ define hidden void @zm_info_xml(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_xml(ptr nocapture noundef writeonly initializes((0, 8)) %0) #1 {
+define internal void @zm_globals_ctor_xml(ptr nocapture noundef writeonly %0) #1 {
   store ptr @.str.5, ptr %0, align 8
   ret void
 }
@@ -1141,7 +1141,7 @@ xml_parser_free_ltags.exit:                       ; preds = %5, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @xml_parser_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @xml_parser_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = tail call ptr @zend_get_gc_buffer_create() #16
   %5 = getelementptr inbounds i8, ptr %0, i64 -488
   %6 = load ptr, ptr %5, align 8

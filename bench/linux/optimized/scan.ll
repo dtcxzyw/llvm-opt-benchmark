@@ -244,7 +244,7 @@ define dso_local void @acpi_unlock_hp_context() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_initialize_hp_context(ptr noundef %0, ptr noundef initializes((0, 24)) %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
+define dso_local void @acpi_initialize_hp_context(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @acpi_hp_context_lock) #19
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %2, ptr %5, align 8

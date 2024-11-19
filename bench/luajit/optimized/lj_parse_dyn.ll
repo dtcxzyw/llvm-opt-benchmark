@@ -69,7 +69,7 @@ declare hidden ptr @lj_tab_setstr(ptr noundef, ptr noundef, ptr noundef) local_u
 declare hidden i32 @lj_gc_step(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_parse_keepcdata(ptr nocapture noundef readonly %ls, ptr noundef initializes((0, 8)) %tv, ptr noundef %cd) local_unnamed_addr #0 {
+define hidden void @lj_parse_keepcdata(ptr nocapture noundef readonly %ls, ptr noundef %tv, ptr noundef %cd) local_unnamed_addr #0 {
 entry:
   %L1 = getelementptr inbounds i8, ptr %ls, i64 8
   %0 = load ptr, ptr %L1, align 8
@@ -86,7 +86,7 @@ entry:
 declare hidden ptr @lj_tab_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_parse(ptr noundef initializes((120, 128), (172, 176)) %ls) local_unnamed_addr #0 {
+define hidden ptr @lj_parse(ptr noundef %ls) local_unnamed_addr #0 {
 entry:
   %fs = alloca %struct.FuncState, align 8
   %bl = alloca %struct.FuncScope, align 8
@@ -7178,7 +7178,7 @@ bcreg_bump.exit:                                  ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @expr_table(ptr noundef %ls, ptr nocapture noundef nonnull initializes((0, 4), (8, 20)) %e) unnamed_addr #0 {
+define internal fastcc void @expr_table(ptr noundef %ls, ptr nocapture noundef nonnull %e) unnamed_addr #0 {
 entry:
   %key.i.i.i141 = alloca %union.TValue, align 8
   %key.i = alloca %union.TValue, align 8

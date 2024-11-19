@@ -463,7 +463,7 @@ define void @init_presets(ptr nocapture noundef readnone %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = getelementptr i8, ptr %4, i64 1168
@@ -479,7 +479,7 @@ define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_lib_collect_update_params(ptr initializes((0, 2604)) %0) unnamed_addr #1 {
+define internal fastcc void @_lib_collect_update_params(ptr %0) unnamed_addr #1 {
   %2 = alloca [200 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2604) %0, i8 0, i64 2604, i1 false)
   %3 = tail call i32 @dt_conf_get_int(ptr noundef nonnull @.str.5) #17
@@ -2749,7 +2749,7 @@ define internal void @_sort_reverse_changed(ptr noundef %0, ptr nocapture readno
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(1200) ptr @calloc(i64 noundef 1, i64 noundef 1200) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !14
@@ -3586,7 +3586,7 @@ define internal noundef i32 @entry_focus_in_callback(ptr nocapture readnone %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @entry_changed(ptr nocapture readnone %0, ptr noundef initializes((40, 44)) %1) #1 {
+define internal void @entry_changed(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   store i32 1, ptr %3, align 8, !tbaa !44
   %4 = getelementptr inbounds i8, ptr %1, i64 16

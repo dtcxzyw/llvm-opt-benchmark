@@ -253,7 +253,7 @@ sub_1:                                            ; preds = %sub_0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define ptr @h5tools_str_reset(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #5 {
+define ptr @h5tools_str_reset(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -398,7 +398,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define ptr @h5tools_str_prefix(ptr nocapture noundef initializes((8, 16)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define ptr @h5tools_str_prefix(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %10, label %6
@@ -480,7 +480,7 @@ h5tools_str_reset.exit:                           ; preds = %6, %10
 declare i64 @calc_acc_pos(i32 noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define ptr @h5tools_str_region_prefix(ptr nocapture noundef initializes((8, 16)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #4 {
+define ptr @h5tools_str_region_prefix(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #4 {
   %6 = load ptr, ptr %0, align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %11, label %7

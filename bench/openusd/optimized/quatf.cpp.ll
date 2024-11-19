@@ -40,7 +40,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfC2ERKNS_7GfQuatdE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfC2ERKNS_7GfQuatdE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #1 align 2 {
   %3 = load double, ptr %1, align 8
   %4 = fptrunc double %3 to float
   store float %4, ptr %0, align 4
@@ -63,7 +63,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfC2ERKNS_7GfQuatdE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfC2ERKNS_7GfQuathE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(8) %1) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__7GfQuatfC2ERKNS_7GfQuathE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(8) %1) unnamed_addr #2 align 2 {
   %3 = load i16, ptr %1, align 2
   %4 = zext i16 %3 to i64
   %5 = getelementptr inbounds [65536 x %"union.pxrInternal_v0_24__pxrReserved__::pxr_half::half::uif"], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8pxr_half4half8_toFloatE, i64 0, i64 %4

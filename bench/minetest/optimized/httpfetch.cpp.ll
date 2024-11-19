@@ -2045,7 +2045,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit40:          ; preds = %lor.lhs.false.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16HTTPFetchOngoingC2ERK16HTTPFetchRequestP14CurlHandlePool(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(216) %request_, ptr noundef %pool_) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16HTTPFetchOngoingC2ERK16HTTPFetchRequestP14CurlHandlePool(ptr noundef nonnull align 8 dereferenceable(320) %this, ptr noundef nonnull align 8 dereferenceable(216) %request_, ptr noundef %pool_) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__dnew.i.i445 = alloca i64, align 8
   %__dnew.i.i319 = alloca i64, align 8
@@ -3550,7 +3550,7 @@ declare i32 @curl_easy_perform(ptr noundef) local_unnamed_addr #0
 declare i32 @curl_multi_add_handle(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local noundef nonnull ptr @_ZN16HTTPFetchOngoing8completeE8CURLcode(ptr noundef nonnull align 8 dereferenceable(320) initializes((240, 242), (248, 256)) %this, i32 noundef %res) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZN16HTTPFetchOngoing8completeE8CURLcode(ptr noundef nonnull align 8 dereferenceable(320) %this, i32 noundef %res) local_unnamed_addr #7 align 2 {
 entry:
   %cmp = icmp eq i32 %res, 0
   %result = getelementptr inbounds i8, ptr %this, i64 240

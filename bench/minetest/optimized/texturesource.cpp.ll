@@ -537,7 +537,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13TextureSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(500) initializes((0, 16), (24, 28), (32, 40)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TextureSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(500) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i146 = alloca i64, align 8
   %__dnew.i.i110 = alloca i64, align 8
@@ -1354,7 +1354,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN13TextureSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(500) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13TextureSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(500) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator", align 16
@@ -1911,7 +1911,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #12
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN13TextureSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(500) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
+define dso_local void @_ZN13TextureSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(500) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN13TextureSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(500) %this) #15
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32

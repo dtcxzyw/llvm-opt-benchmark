@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @pcpu_hot = external dso_local global %struct.pcpu_hot, section ".data..percpu..shared_aligned", align 64
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_gem_ww_ctx_init(ptr noundef initializes((0, 24)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_gem_ww_ctx_init(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = zext i1 %1 to i8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #2, !srcloc !5
   %5 = inttoptr i64 %4 to ptr

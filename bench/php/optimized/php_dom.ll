@@ -11710,7 +11710,7 @@ define internal i32 @dom_property_exists(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dom_get_debug_info(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
+define internal ptr @dom_get_debug_info(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
   %3 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -14482,7 +14482,7 @@ dom_get_ns_resolve_prefix_conflict.exit:          ; preds = %.lr.ph.i, %7, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @dom_get_ns(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden ptr @dom_get_ns(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.critedge25, label %5
 
@@ -14652,7 +14652,7 @@ define hidden void @dom_remove_all_children(ptr nocapture noundef %0) local_unna
 declare void @php_libxml_node_free_list(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @php_dom_get_content_into_zval(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 12)) %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
+define hidden void @php_dom_get_content_into_zval(ptr noundef %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %4)
   %5 = getelementptr inbounds i8, ptr %0, i64 8

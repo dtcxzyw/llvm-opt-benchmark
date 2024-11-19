@@ -543,7 +543,7 @@ _ZN14ZRootStatTimerD2Ev.exit:                     ; preds = %_ZN12ResourceMarkD2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ZNMethodsIteratorImplC2E21ZGenerationIdOptionalbb(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(3) initializes((0, 3)) %0, i8 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ZNMethodsIteratorImplC2E21ZGenerationIdOptionalbb(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(3) %0, i8 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %2 to i8
   %6 = zext i1 %3 to i8
   store i8 %5, ptr %0, align 1

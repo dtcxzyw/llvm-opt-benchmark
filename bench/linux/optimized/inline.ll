@@ -3031,7 +3031,7 @@ define dso_local ptr @ext4_read_inline_link(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ext4_get_first_inline_block(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @ext4_get_first_inline_block(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.ext4_iloc, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false), !annotation !5

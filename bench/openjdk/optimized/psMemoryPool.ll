@@ -72,7 +72,7 @@ define hidden void @_ZN16PSGenerationPoolC2EP8PSOldGenPKcb(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16PSGenerationPool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16PSGenerationPool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -159,7 +159,7 @@ define hidden void @_ZN20EdenMutableSpacePoolC2EP10PSYoungGenP12MutableSpacePKcb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20EdenMutableSpacePool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(224) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20EdenMutableSpacePool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -220,7 +220,7 @@ define hidden void @_ZN24SurvivorMutableSpacePoolC2EP10PSYoungGenPKcb(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24SurvivorMutableSpacePool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN24SurvivorMutableSpacePool16get_memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1

@@ -443,7 +443,7 @@ lpad:                                             ; preds = %sw.bb5.i, %sw.bb4.i
 declare void @_ZN6duckdb11LogicalTypeC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14BaseStatistics9ConstructERS0_NS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 2), (32, 40)) %stats, ptr nocapture noundef %type) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb14BaseStatistics9ConstructERS0_NS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(88) %stats, ptr nocapture noundef %type) local_unnamed_addr #3 align 2 {
 entry:
   %distinct_count = getelementptr inbounds i8, ptr %stats, i64 32
   store i64 0, ptr %distinct_count, align 8, !tbaa !8
@@ -1249,7 +1249,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb14BaseStatistics17InitializeUnknownEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((24, 26)) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN6duckdb14BaseStatistics17InitializeUnknownEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this) local_unnamed_addr #9 align 2 {
 entry:
   %has_null = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %has_null, align 8, !tbaa !34
@@ -1259,7 +1259,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb14BaseStatistics15InitializeEmptyEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((24, 26)) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN6duckdb14BaseStatistics15InitializeEmptyEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this) local_unnamed_addr #9 align 2 {
 entry:
   %has_null = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %has_null, align 8, !tbaa !34
@@ -3387,7 +3387,7 @@ sw.epilog:                                        ; preds = %tailrecurse, %for.b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb14BaseStatistics8CopyBaseERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((24, 26), (32, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %other) local_unnamed_addr #10 align 2 {
+define void @_ZN6duckdb14BaseStatistics8CopyBaseERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %other) local_unnamed_addr #10 align 2 {
 entry:
   %has_null = getelementptr inbounds i8, ptr %other, i64 24
   %0 = load i8, ptr %has_null, align 8, !tbaa !34, !range !35, !noundef !36
@@ -3628,7 +3628,7 @@ _ZN6duckdb10unique_ptrINS_14BaseStatisticsESt14default_deleteIS1_ELb1EE13AssertN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14BaseStatistics10SetHasNullEv(ptr noundef nonnull align 8 dereferenceable(88) initializes((24, 25)) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb14BaseStatistics10SetHasNullEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 {
 entry:
   %has_null = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %has_null, align 8, !tbaa !34
@@ -3656,7 +3656,7 @@ if.end:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14BaseStatistics12SetHasNoNullEv(ptr noundef nonnull align 8 dereferenceable(88) initializes((25, 26)) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN6duckdb14BaseStatistics12SetHasNoNullEv(ptr noundef nonnull align 8 dereferenceable(88) %this) local_unnamed_addr #3 align 2 {
 entry:
   %has_no_null = getelementptr inbounds i8, ptr %this, i64 25
   store i8 1, ptr %has_no_null, align 1, !tbaa !37
@@ -3778,7 +3778,7 @@ unreachable:                                      ; preds = %invoke.cont4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb14BaseStatistics15CombineValidityERS0_S1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((24, 26)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %right) local_unnamed_addr #10 align 2 {
+define void @_ZN6duckdb14BaseStatistics15CombineValidityERS0_S1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %right) local_unnamed_addr #10 align 2 {
 entry:
   %has_null = getelementptr inbounds i8, ptr %left, i64 24
   %0 = load i8, ptr %has_null, align 8, !tbaa !34, !range !35, !noundef !36
@@ -3800,7 +3800,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb14BaseStatistics12CopyValidityERS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((24, 26)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %stats) local_unnamed_addr #10 align 2 {
+define void @_ZN6duckdb14BaseStatistics12CopyValidityERS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %stats) local_unnamed_addr #10 align 2 {
 entry:
   %has_null = getelementptr inbounds i8, ptr %stats, i64 24
   %0 = load i8, ptr %has_null, align 8, !tbaa !34, !range !35, !noundef !36
@@ -3814,7 +3814,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb14BaseStatistics16SetDistinctCountEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((32, 40)) %this, i64 noundef %count) local_unnamed_addr #9 align 2 {
+define void @_ZN6duckdb14BaseStatistics16SetDistinctCountEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, i64 noundef %count) local_unnamed_addr #9 align 2 {
 entry:
   %distinct_count = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %count, ptr %distinct_count, align 8, !tbaa !8
@@ -13461,7 +13461,7 @@ _ZN6duckdb9make_uniqINS_11HyperLogLogEJEEENS_11__unique_ifIT_Lb1EE15__unique_sin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb18DistinctStatisticsC2ENS_10unique_ptrINS_11HyperLogLogESt14default_deleteIS2_ELb1EEEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef %log, i64 noundef %sample_count, i64 noundef %total_count) unnamed_addr #10 align 2 {
+define void @_ZN6duckdb18DistinctStatisticsC2ENS_10unique_ptrINS_11HyperLogLogESt14default_deleteIS2_ELb1EEEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef %log, i64 noundef %sample_count, i64 noundef %total_count) unnamed_addr #10 align 2 {
 entry:
   %0 = load i64, ptr %log, align 8, !tbaa !26
   store i64 %0, ptr %this, align 8, !tbaa !26
@@ -24686,7 +24686,7 @@ _ZN6duckdb20GetStringMinMaxValueB5cxx11EPKh.exit: ; preds = %if.end.i.i.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb11StringStats20ResetMaxStringLengthERNS_14BaseStatisticsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((57, 58)) %stats) local_unnamed_addr #9 align 2 {
+define void @_ZN6duckdb11StringStats20ResetMaxStringLengthERNS_14BaseStatisticsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %stats) local_unnamed_addr #9 align 2 {
 entry:
   %has_max_string_length = getelementptr inbounds i8, ptr %stats, i64 57
   store i8 0, ptr %has_max_string_length, align 1, !tbaa !45
@@ -24694,7 +24694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb11StringStats18SetContainsUnicodeERNS_14BaseStatisticsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((56, 57)) %stats) local_unnamed_addr #9 align 2 {
+define void @_ZN6duckdb11StringStats18SetContainsUnicodeERNS_14BaseStatisticsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %stats) local_unnamed_addr #9 align 2 {
 entry:
   %has_unicode = getelementptr inbounds i8, ptr %stats, i64 56
   store i8 1, ptr %has_unicode, align 8, !tbaa !42
@@ -28823,7 +28823,7 @@ unreachable:                                      ; preds = %invoke.cont25
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6duckdbL28DeserializeNumericStatsValueERKNS_11LogicalTypeERNS_17NumericValueUnionERbRNS_12DeserializerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %result, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %has_stats, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6duckdbL28DeserializeNumericStatsValueERKNS_11LogicalTypeERNS_17NumericValueUnionERbRNS_12DeserializerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %type, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %result, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %has_stats, ptr noundef nonnull align 8 dereferenceable(416) %deserializer) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp37 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp38 = alloca %"class.std::allocator", align 1

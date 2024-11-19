@@ -69,7 +69,7 @@ define range(i32 -5, 1) i32 @NBC_Comm_neighbors_count(ptr noundef %0, ptr nocapt
 declare i32 @mca_topo_base_graph_neighbors_count(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @NBC_Comm_neighbors(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @NBC_Comm_neighbors(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

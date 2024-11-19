@@ -55,7 +55,7 @@ define void @_ZN5draco11MeshDecoderC2Ev(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN5draco17PointCloudDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco11MeshDecoder6DecodeERKNS_12DracoOptionsINS_17GeometryAttribute4TypeEEEPNS_13DecoderBufferEPNS_4MeshE(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) initializes((88, 96)) %1, ptr noundef nonnull align 1 %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco11MeshDecoder6DecodeERKNS_12DracoOptionsINS_17GeometryAttribute4TypeEEEPNS_13DecoderBufferEPNS_4MeshE(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 1 %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 88
   store ptr %4, ptr %6, align 8
   tail call void @_ZN5draco17PointCloudDecoder6DecodeERKNS_12DracoOptionsINS_17GeometryAttribute4TypeEEEPNS_13DecoderBufferEPNS_10PointCloudE(ptr dead_on_unwind writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 1 %2, ptr noundef %3, ptr noundef %4)

@@ -713,7 +713,7 @@ default.unreachable1:                             ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN139_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..LaneType$GT$$GT$4from17h99ffb43714b49f97E"(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 initializes((0, 3)) %0, i1 zeroext %1, i8 %2) unnamed_addr #3 {
+define void @"_ZN139_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..LaneType$GT$$GT$4from17h99ffb43714b49f97E"(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 %0, i1 zeroext %1, i8 %2) unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %4, align 1
@@ -724,7 +724,7 @@ define void @"_ZN139_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN144_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..ReferenceType$GT$$GT$4from17h3771c48bd958e1adE"(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 initializes((0, 2)) %0, i8 %1) unnamed_addr #3 {
+define void @"_ZN144_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..ReferenceType$GT$$GT$4from17h3771c48bd958e1adE"(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 %0, i8 %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %1, ptr %3, align 1
   store i8 1, ptr %0, align 8
@@ -732,7 +732,7 @@ define void @"_ZN144_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN141_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..VectorType$GT$$GT$4from17h9f09c6a6661af67aE"(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 initializes((0, 1), (8, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN141_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..VectorType$GT$$GT$4from17h9f09c6a6661af67aE"(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   store i8 2, ptr %0, align 8
@@ -740,7 +740,7 @@ define void @"_ZN141_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN148_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..DynamicVectorType$GT$$GT$4from17hec94872f6afd6732E"(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 initializes((0, 1), (8, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN148_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..DynamicVectorType$GT$$GT$4from17hec94872f6afd6732E"(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   store i8 3, ptr %0, align 8
@@ -806,7 +806,7 @@ define hidden { i1, i8 } @_ZN22cranelift_codegen_meta4cdsl5types8LaneType15float
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl5types8LaneType2by17hd6e4595ab379371dE(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 initializes((0, 1)) %0, i1 zeroext %1, i8 %2, i16 %3) unnamed_addr #3 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl5types8LaneType2by17hd6e4595ab379371dE(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 %0, i1 zeroext %1, i8 %2, i16 %3) unnamed_addr #3 {
   %5 = icmp eq i16 %3, 1
   %6 = zext i1 %1 to i8
   br i1 %5, label %7, label %9
@@ -834,7 +834,7 @@ define hidden void @_ZN22cranelift_codegen_meta4cdsl5types8LaneType2by17hd6e4595
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl5types8LaneType10to_dynamic17h97d0e4b667a90d13E(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 initializes((0, 1), (8, 18)) %0, i1 zeroext %1, i8 %2, i16 %3) unnamed_addr #3 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl5types8LaneType10to_dynamic17h97d0e4b667a90d13E(ptr nocapture writeonly sret({ i8, [23 x i8] }) align 8 %0, i1 zeroext %1, i8 %2, i16 %3) unnamed_addr #3 {
   %5 = zext i16 %3 to i64
   %6 = zext i1 %1 to i8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1036,7 +1036,7 @@ define { i8, i8 } @"_ZN112_$LT$cranelift_codegen_meta..cdsl..types..LaneTypeIter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl5types10VectorType3new17h73c594a52a55a648E(ptr nocapture writeonly sret({ i64, { i8, [1 x i8] }, [6 x i8] }) align 8 initializes((0, 10)) %0, i1 zeroext %1, i8 %2, i64 %3) unnamed_addr #3 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl5types10VectorType3new17h73c594a52a55a648E(ptr nocapture writeonly sret({ i64, { i8, [1 x i8] }, [6 x i8] }) align 8 %0, i1 zeroext %1, i8 %2, i64 %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = zext i1 %1 to i8
   store i8 %6, ptr %5, align 8
@@ -1105,7 +1105,7 @@ define zeroext i1 @"_ZN84_$LT$cranelift_codegen_meta..cdsl..types..VectorType$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType3new17h4cba0d77d5f34e60E(ptr nocapture writeonly sret({ i64, { i8, [1 x i8] }, [6 x i8] }) align 8 initializes((0, 10)) %0, i1 zeroext %1, i8 %2, i64 %3) unnamed_addr #3 {
+define hidden void @_ZN22cranelift_codegen_meta4cdsl5types17DynamicVectorType3new17h4cba0d77d5f34e60E(ptr nocapture writeonly sret({ i64, { i8, [1 x i8] }, [6 x i8] }) align 8 %0, i1 zeroext %1, i8 %2, i64 %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = zext i1 %1 to i8
   store i8 %6, ptr %5, align 8

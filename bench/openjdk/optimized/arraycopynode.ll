@@ -1965,7 +1965,7 @@ _ZN4Node7set_reqEjPS_.exit:                       ; preds = %_ZN4Node7del_outEPS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13ArrayCopyNode18prepare_array_copyEP8PhaseGVNbRP4NodeS4_S4_S4_R9BasicTypeRPK4TypeRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %9) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN13ArrayCopyNode18prepare_array_copyEP8PhaseGVNbRP4NodeS4_S4_S4_R9BasicTypeRPK4TypeRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %9) local_unnamed_addr #0 align 2 {
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 40
@@ -2580,7 +2580,7 @@ define hidden noundef ptr @_ZN13ArrayCopyNode16get_address_typeEP8PhaseGVNPK7Typ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ArrayCopyNode23array_copy_test_overlapEP8PhaseGVNbbiRP4NodeS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef %1, i1 zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13ArrayCopyNode23array_copy_test_overlapEP8PhaseGVNbbiRP4NodeS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef %1, i1 zeroext %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8

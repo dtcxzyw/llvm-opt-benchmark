@@ -151,7 +151,7 @@ terminate.lpad:                                   ; preds = %_ZN6vectorI8rationa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rational12power_of_twoEj(ptr noalias sret(%class.rational) align 8 initializes((0, 4), (8, 20), (24, 32)) %agg.result, i32 noundef %k) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rational12power_of_twoEj(ptr noalias sret(%class.rational) align 8 %agg.result, i32 noundef %k) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %curr.i = alloca %class.rational, align 8
   %two.i = alloca %class.rational, align 8
@@ -3163,7 +3163,7 @@ return:                                           ; preds = %.noexc.i149, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK8rational14pseudo_inverseEj(ptr noalias sret(%class.rational) align 8 initializes((0, 4), (8, 20), (24, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %num_bits) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK8rational14pseudo_inverseEj(ptr noalias sret(%class.rational) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %num_bits) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %odd = alloca %class.rational, align 8
   store i32 0, ptr %agg.result, align 8

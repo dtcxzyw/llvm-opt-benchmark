@@ -43,7 +43,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.fetch_att = private unnamed_addr constant [10 x i8] c"fetch_att\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ExecSubPlan(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 1)) %2) local_unnamed_addr #0 {
+define dso_local i64 @ExecSubPlan(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1

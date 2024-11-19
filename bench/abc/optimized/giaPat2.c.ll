@@ -703,7 +703,7 @@ Min_ManCleanVisitedValL.exit:                     ; preds = %18, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Min_LitMinimize(ptr noundef initializes((84, 88)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define void @Min_LitMinimize(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = getelementptr inbounds i8, ptr %0, i64 84
   store i32 0, ptr %5, align 4
@@ -1521,7 +1521,7 @@ select.unfold:                                    ; preds = %36, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Min_LitJustify(ptr noundef initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Min_LitJustify(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 84
   store i32 0, ptr %3, align 4
   %4 = icmp slt i32 %1, 2
@@ -3079,7 +3079,7 @@ Vec_IntFree.exit:                                 ; preds = %Min_ManStartValsL.e
 declare void @Gia_ManStopP(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Min_ManStop(ptr nocapture noundef initializes((16, 24), (32, 40), (48, 56), (64, 72)) %0) unnamed_addr #2 {
+define internal fastcc void @Min_ManStop(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -3590,7 +3590,7 @@ Gia_ObjUpdateTravIdCurrent.exit:                  ; preds = %5, %3, %Gia_ManAppe
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManDupCones2(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define ptr @Gia_ManDupCones2(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   tail call void @Gia_ManIncrementTravId(ptr noundef %0) #26
@@ -5819,7 +5819,7 @@ Vec_IntFree.exit373:                              ; preds = %Vec_IntFree.exit371
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Vec_IntClearAppend(ptr nocapture noundef initializes((4, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @Vec_IntClearAppend(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr i8, ptr %1, i64 4

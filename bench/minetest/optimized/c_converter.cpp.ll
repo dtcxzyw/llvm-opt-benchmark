@@ -3255,7 +3255,7 @@ unreachable:                                      ; preds = %invoke.cont133, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z8read_v3dP9lua_Statei(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::vector3d.3") align 8 initializes((0, 24)) %agg.result, ptr noundef %L, i32 noundef %index) local_unnamed_addr #5 {
+define dso_local void @_Z8read_v3dP9lua_Statei(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::vector3d.3") align 8 %agg.result, ptr noundef %L, i32 noundef %index) local_unnamed_addr #5 {
 entry:
   tail call void @lua_pushvalue(ptr noundef %L, i32 noundef %index)
   tail call void @lua_rawgeti(ptr noundef %L, i32 noundef -10000, i32 noundef 7)
@@ -4827,7 +4827,7 @@ return:                                           ; preds = %if.end16, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z11read_aabb3fP9lua_Stateif(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::aabbox3d") align 4 initializes((0, 24)) %agg.result, ptr noundef %L, i32 noundef %index, float noundef %scale) local_unnamed_addr #5 {
+define dso_local void @_Z11read_aabb3fP9lua_Stateif(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::aabbox3d") align 4 %agg.result, ptr noundef %L, i32 noundef %index, float noundef %scale) local_unnamed_addr #5 {
 entry:
   %Y.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
   %Z.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4957,7 +4957,7 @@ entry:
 declare void @lua_rawseti(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z18read_aabb3f_vectorP9lua_Stateif(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef %L, i32 noundef %index, float noundef %scale) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z18read_aabb3f_vectorP9lua_Stateif(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %agg.result, ptr noundef %L, i32 noundef %index, float noundef %scale) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.irr::core::aabbox3d", align 4
   %ref.tmp25 = alloca %"class.irr::core::aabbox3d", align 4

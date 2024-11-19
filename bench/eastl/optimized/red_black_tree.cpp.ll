@@ -200,7 +200,7 @@ if.end17:                                         ; preds = %if.end, %if.then10,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef initializes((0, 25)) %pNode, ptr noundef %pNodeParent, ptr noundef %pNodeAnchor, i32 noundef %insertionSide) local_unnamed_addr #2 {
+define dso_local void @_ZN5eastl12RBTreeInsertEPNS_16rbtree_node_baseES1_S1_NS_10RBTreeSideE(ptr noundef %pNode, ptr noundef %pNodeParent, ptr noundef %pNodeAnchor, i32 noundef %insertionSide) local_unnamed_addr #2 {
 entry:
   %mpNodeParent = getelementptr inbounds i8, ptr %pNodeAnchor, i64 16
   %mpNodeParent1 = getelementptr inbounds i8, ptr %pNode, i64 16

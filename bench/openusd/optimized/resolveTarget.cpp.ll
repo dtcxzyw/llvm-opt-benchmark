@@ -34,7 +34,7 @@ $_ZTSN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_13PcpLayerStackEEE = comdat
 @_ZN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetC1ERKSt10shared_ptrINS_12PcpPrimIndexEERKNS_10PcpNodeRefERKNS_9TfWeakPtrINS_8SdfLayerEEES8_SD_ = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetC2ERKSt10shared_ptrINS_12PcpPrimIndexEERKNS_10PcpNodeRefERKNS_9TfWeakPtrINS_8SdfLayerEEES8_SD_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetC2ERKSt10shared_ptrINS_12PcpPrimIndexEERKNS_10PcpNodeRefERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetC2ERKSt10shared_ptrINS_12PcpPrimIndexEERKNS_10PcpNodeRefERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpNodeRef", align 8
   %6 = load ptr, ptr %1, align 8
   store ptr %6, ptr %0, align 8
@@ -319,7 +319,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12PcpPrimIndexELN9__gnu_c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetC2ERKSt10shared_ptrINS_12PcpPrimIndexEERKNS_10PcpNodeRefERKNS_9TfWeakPtrINS_8SdfLayerEEES8_SD_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16UsdResolveTargetC2ERKSt10shared_ptrINS_12PcpPrimIndexEERKNS_10PcpNodeRefERKNS_9TfWeakPtrINS_8SdfLayerEEES8_SD_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpNodeRef", align 8
   %8 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpNodeRef", align 8
   %9 = load ptr, ptr %1, align 8
@@ -498,7 +498,7 @@ define { ptr, i64 } @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdResolveTarget11G
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdResolveTarget13GetStartLayerEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdResolveTarget13GetStartLayerEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.3", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -758,7 +758,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8SdfLayerEE10_RemoveRefEPKNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdResolveTarget12GetStopLayerEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdResolveTarget12GetStopLayerEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr.3", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32

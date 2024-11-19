@@ -1323,7 +1323,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 declare noundef ptr @_ZN5faiss27get_extra_distance_computerEmNS_10MetricTypeEfmPKf(i64 noundef, i32 noundef, float noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_19FlatL2Dis9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((40, 48)) %0, ptr noundef %1) unnamed_addr #14 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_19FlatL2Dis9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void
@@ -1345,7 +1345,7 @@ define linkonce_odr noundef float @_ZN5faiss25FlatCodesDistanceComputerclEl(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_19FlatL2Dis17distances_batch_4EllllRfS2_S2_S2_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %8) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_19FlatL2Dis17distances_batch_4EllllRfS2_S2_S2_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %8) unnamed_addr #2 align 2 {
   %10 = alloca float, align 4
   %11 = alloca float, align 4
   %12 = alloca float, align 4
@@ -1430,14 +1430,14 @@ declare void @_ZN5faiss18fvec_L2sqr_batch_4EPKfS1_S1_S1_S1_mRfS2_S2_S2_(ptr noun
 declare noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_19FlatIPDis9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((40, 48)) %0, ptr noundef %1) unnamed_addr #14 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_19FlatIPDis9set_queryEPKf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_19FlatIPDis17distances_batch_4EllllRfS2_S2_S2_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %8) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_19FlatIPDis17distances_batch_4EllllRfS2_S2_S2_(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %8) unnamed_addr #2 align 2 {
   %10 = alloca float, align 4
   %11 = alloca float, align 4
   %12 = alloca float, align 4
@@ -1767,7 +1767,7 @@ _ZNSt19__shrink_to_fit_auxISt6vectorIfSaIfEELb1EE8_S_do_itERS2_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118FlatL2WithNormsDis9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((40, 48), (72, 76)) %0, ptr noundef %1) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118FlatL2WithNormsDis9set_queryEPKf(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1806,7 +1806,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_118FlatL2WithNormsDisclEl(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118FlatL2WithNormsDis17distances_batch_4EllllRfS2_S2_S2_(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %8) unnamed_addr #2 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118FlatL2WithNormsDis17distances_batch_4EllllRfS2_S2_S2_(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %8) unnamed_addr #2 align 2 {
   %10 = alloca float, align 4
   %11 = alloca float, align 4
   %12 = alloca float, align 4

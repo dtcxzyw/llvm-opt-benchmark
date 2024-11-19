@@ -32,7 +32,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [19 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.6, ptr @.str.7, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_flush, ptr @.str.8, ptr @.str.7, i32 372, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @vhdx_log_write, ptr @.str.9, ptr @.str.10, i32 861, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pread, ptr @.str.9, ptr @.str.11, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_truncate, ptr @.str.6, ptr @.str.7, i32 362, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_truncate, ptr @.str.8, ptr @.str.7, i32 362, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwritev, ptr @.str.9, ptr @.str.11, i32 53, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @vhdx_log_write_sectors, ptr @.str.9, ptr @.str.10, i32 175, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_pwrite, ptr @.str.9, ptr @.str.11, i32 70, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_getlength, ptr @.str.9, ptr @.str.7, i32 84, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.6, ptr @.str.7, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pwrite_sync, ptr @.str.8, ptr @.str.7, i32 60, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @vhdx_log_write_and_flush, ptr @.str.9, ptr @.str.10, i32 1045, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_flush, ptr @.str.9, ptr @.str.7, i32 111, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.6, ptr @.str.7, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_getlength, ptr @.str.8, ptr @.str.7, i32 85, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.6, ptr @.str.7, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_pread, ptr @.str.8, ptr @.str.7, i32 52, ptr null }, { ptr, ptr, ptr, i32, ptr } { ptr @bdrv_co_preadv, ptr @.str.9, ptr @.str.11, i32 47, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vhdx_parse_log(ptr noundef %bs, ptr noundef %s, ptr nocapture noundef writeonly initializes((0, 1)) %flushed, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local i32 @vhdx_parse_log(ptr noundef %bs, ptr noundef %s, ptr nocapture noundef writeonly %flushed, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %seq_valid.i = alloca i8, align 1
   %candidate.sroa.5.i = alloca [3 x i8], align 1
@@ -932,7 +932,7 @@ exit:                                             ; preds = %if.then80, %if.then
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull %log, i64 noundef %seq, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %valid, ptr nocapture noundef nonnull writeonly %entry1) unnamed_addr #0 {
+define internal fastcc i32 @vhdx_validate_log_entry(ptr noundef %bs, ptr nocapture noundef readonly %s, ptr nocapture noundef nonnull %log, i64 noundef %seq, ptr nocapture noundef nonnull writeonly %valid, ptr nocapture noundef nonnull writeonly %entry1) unnamed_addr #0 {
 entry:
   %hdr = alloca %struct.VHDXLogEntryHeader, align 4
   %desc_buffer = alloca ptr, align 8

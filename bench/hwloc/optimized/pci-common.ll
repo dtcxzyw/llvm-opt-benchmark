@@ -139,7 +139,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.hwloc_pci_class_string.11 = private unnamed_addr constant [10 x ptr] [ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.30, ptr @.str.93, ptr @.str.94, ptr @.str.95], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hwloc_pci_discovery_init(ptr nocapture noundef writeonly initializes((880, 904), (920, 936)) %0) local_unnamed_addr #0 {
+define hidden void @hwloc_pci_discovery_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 880
   %3 = getelementptr inbounds i8, ptr %0, i64 920
   %4 = getelementptr inbounds i8, ptr %0, i64 896
@@ -1577,7 +1577,7 @@ define range(i32 0, 253) i32 @hwloc_pcidisc_find_cap(ptr nocapture noundef reado
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #11 {
+define noundef i32 @hwloc_pcidisc_find_linkspeed(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #11 {
   %4 = add i32 %1, 18
   %5 = zext i32 %4 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5

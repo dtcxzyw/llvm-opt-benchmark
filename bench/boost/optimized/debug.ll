@@ -371,7 +371,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 declare i32 @getpid() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_112process_infoC2Ei(ptr noundef nonnull align 8 dereferenceable(1042) initializes((0, 4), (8, 40)) %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost5debug12_GLOBAL__N_112process_infoC2Ei(ptr noundef nonnull align 8 dereferenceable(1042) %0, i32 noundef range(i32 1, 0) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [30 x i8], align 16
   store i32 0, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

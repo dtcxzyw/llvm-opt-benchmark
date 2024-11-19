@@ -298,7 +298,7 @@ define internal void @idma32_encode_maxburst(ptr nocapture readnone %0, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal i32 @idma32_bytes2block(ptr nocapture noundef readonly %0, i64 noundef %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #3 align 16 {
+define internal i32 @idma32_bytes2block(ptr nocapture noundef readonly %0, i64 noundef %1, i32 %2, ptr nocapture noundef writeonly %3) #3 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 188
   %6 = load i32, ptr %5, align 4
   %7 = zext i32 %6 to i64

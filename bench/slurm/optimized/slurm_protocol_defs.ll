@@ -3151,7 +3151,7 @@ define void @print_multi_line_string(ptr noundef %0, i32 noundef %1, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_msg_t_init(ptr noundef initializes((0, 416)) %0) local_unnamed_addr #1 {
+define void @slurm_msg_t_init(ptr noundef %0) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %0, i8 0, i64 416, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 140
   store i32 99, ptr %2, align 4
@@ -3174,7 +3174,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @forward_init(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_msg_t_copy(ptr noundef initializes((0, 416)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @slurm_msg_t_copy(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %0, i8 0, i64 416, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 140
   store i32 99, ptr %3, align 4
@@ -4104,7 +4104,7 @@ declare ptr @hostset_ranged_string_xmalloc(ptr noundef) local_unnamed_addr #5
 declare void @hostset_destroy(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2160) i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture noundef initializes((0, 20)) %1) local_unnamed_addr #1 {
+define range(i32 0, 2160) i32 @unfmt_job_id_string(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -4773,7 +4773,7 @@ define void @slurm_free_last_update_msg(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @slurm_init_reboot_msg(ptr nocapture noundef writeonly initializes((12, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
+define void @slurm_init_reboot_msg(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   br i1 %1, label %3, label %4
 
 3:                                                ; preds = %2
@@ -9712,7 +9712,7 @@ define void @slurm_free_front_end_info_members(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @slurm_init_node_info_t(ptr nocapture noundef writeonly initializes((200, 204)) %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
+define void @slurm_init_node_info_t(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   br i1 %1, label %3, label %4
 
 3:                                                ; preds = %2
@@ -10830,7 +10830,7 @@ define void @slurm_free_suspend_exc_update_msg(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define void @slurm_copy_node_alias_addrs_members(ptr noundef initializes((0, 8), (24, 28)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @slurm_copy_node_alias_addrs_members(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24

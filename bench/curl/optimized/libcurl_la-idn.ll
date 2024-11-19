@@ -125,7 +125,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 5) i32 @Curl_idnconvert_hostname(ptr nocapture noundef initializes((24, 32)) %host) local_unnamed_addr #1 {
+define hidden range(i32 0, 5) i32 @Curl_idnconvert_hostname(ptr nocapture noundef %host) local_unnamed_addr #1 {
 entry:
   %decoded.i = alloca ptr, align 8
   %name = getelementptr inbounds i8, ptr %host, i64 16

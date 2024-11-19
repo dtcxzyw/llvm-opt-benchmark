@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN17cmSubcommandTableC1ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EER17cmExecutionStatusEEE = dso_local unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN17cmSubcommandTableC2ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EER17cmExecutionStatusEEE
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17cmSubcommandTableC2ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EER17cmExecutionStatusEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr readonly %1, i64 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17cmSubcommandTableC2ESt16initializer_listISt4pairIN2cm18static_string_viewEPFbRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EER17cmExecutionStatusEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr readonly %1, i64 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds %"struct.std::pair.11", ptr %1, i64 %2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.idx = mul nsw i64 %2, 24

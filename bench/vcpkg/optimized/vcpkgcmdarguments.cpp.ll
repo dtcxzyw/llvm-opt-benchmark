@@ -1060,7 +1060,7 @@ declare void @_ZN5vcpkg30convert_argc_argv_to_argumentsB5cxx11EiPKPKc(ptr dead_o
 declare void @_ZN5vcpkg32replace_response_file_parametersERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKNS_11ILineReaderE(ptr dead_on_unwind writable sret(%"struct.vcpkg::ExpectedT") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 1) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg17VcpkgCmdArguments24create_from_arg_sequenceEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::VcpkgCmdArguments") align 8 initializes((0, 1), (8, 9), (40, 41), (48, 49), (80, 81), (88, 89), (120, 121), (128, 129), (160, 161), (168, 169), (200, 201), (208, 209), (240, 241), (248, 249), (280, 281), (288, 289), (320, 321), (328, 329), (360, 361), (368, 369), (400, 401), (408, 409), (440, 441), (448, 449), (480, 481), (488, 489), (520, 521), (528, 529), (560, 681), (688, 689), (720, 721), (728, 729), (760, 761), (768, 769), (800, 801), (808, 809), (840, 842), (848, 849), (856, 857), (888, 889), (896, 897), (928, 929), (936, 937), (968, 969), (976, 977), (1008, 1009), (1016, 1017), (1048, 1049), (1056, 1057), (1088, 1089), (1096, 1097), (1128, 1129), (1136, 1137), (1192, 1193), (1200, 1201), (1256, 1297), (1304, 1305), (1312, 1313), (1344, 1345), (1352, 1353), (1384, 1385), (1392, 1393), (1424, 1425), (1432, 1433), (1464, 1476), (1480, 1505), (1512, 1513), (1544, 1545), (1552, 1553)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg17VcpkgCmdArguments24create_from_arg_sequenceEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::VcpkgCmdArguments") align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.fmt::v10::format_arg_store", align 16
   %5 = alloca %"struct.vcpkg::msg::TagArg", align 8
   %6 = alloca %"class.fmt::v10::format_arg_store", align 16
@@ -3100,7 +3100,7 @@ _ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5vcpkg17VcpkgCmdArguments15parse_argumentsERKNS_15CommandMetadataE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ParsedArguments") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(1784) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5vcpkg17VcpkgCmdArguments15parse_argumentsERKNS_15CommandMetadataE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ParsedArguments") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1784) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::CmdParser", align 8
   %5 = alloca %"struct.vcpkg::StringView", align 8
   %6 = alloca %"struct.vcpkg::Optional", align 8
@@ -4334,7 +4334,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5vcpkg17Vc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5vcpkg17VcpkgCmdArgumentsC2EONS_9CmdParserE(ptr noundef nonnull align 8 dereferenceable(1784) initializes((0, 1), (8, 9), (40, 41), (48, 49), (80, 81), (88, 89), (120, 121), (128, 129), (160, 161), (168, 169), (200, 201), (208, 209), (240, 241), (248, 249), (280, 281), (288, 289), (320, 321), (328, 329), (360, 361), (368, 369), (400, 401), (408, 409), (440, 441), (448, 449), (480, 481), (488, 489), (520, 521), (528, 529), (560, 681), (688, 689), (720, 721), (728, 729), (760, 761), (768, 769), (800, 801), (808, 809), (840, 842), (848, 849), (856, 857), (888, 889), (896, 897), (928, 929), (936, 937), (968, 969), (976, 977), (1008, 1009), (1016, 1017), (1048, 1049), (1056, 1057), (1088, 1089), (1096, 1097), (1128, 1129), (1136, 1137), (1192, 1193), (1200, 1201), (1256, 1297), (1304, 1305), (1312, 1313), (1344, 1345), (1352, 1353), (1384, 1385), (1392, 1393), (1424, 1425), (1432, 1433), (1464, 1476), (1480, 1505), (1512, 1513), (1544, 1545), (1552, 1553)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5vcpkg17VcpkgCmdArgumentsC2EONS_9CmdParserE(ptr noundef nonnull align 8 dereferenceable(1784) %0, ptr noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8

@@ -600,7 +600,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorIN6herm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm20CodeCoverageProfiler25getExecutedFunctionsLocalEv(ptr noalias sret(%"class.std::vector.29") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(97) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm20CodeCoverageProfiler25getExecutedFunctionsLocalEv(ptr noalias sret(%"class.std::vector.29") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(97) %this) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"class.std::allocator.47", align 1
   %agg.tmp.i.i.i23 = alloca %"class.std::__cxx11::basic_string", align 8

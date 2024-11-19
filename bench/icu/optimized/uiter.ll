@@ -698,7 +698,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL12noopSetStateP13UCharIteratorjP10UErrorCode(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 4)) %pErrorCode) #10 {
+define internal void @_ZL12noopSetStateP13UCharIteratorjP10UErrorCode(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef writeonly %pErrorCode) #10 {
 entry:
   store i32 16, ptr %pErrorCode, align 4
   ret void

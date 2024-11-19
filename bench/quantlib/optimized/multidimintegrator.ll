@@ -392,7 +392,7 @@ $_ZTIZNK8QuantLib16MultidimIntegral9spawnFctsILm1EEEvvEUlRKT_RKT0_RKT1_E_ = comd
 @_ZN8QuantLib16MultidimIntegralC1ERKSt6vectorIN5boost10shared_ptrINS_10IntegratorEEESaIS5_EE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib16MultidimIntegralC2ERKSt6vectorIN5boost10shared_ptrINS_10IntegratorEEESaIS5_EE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16MultidimIntegralC2ERKSt6vectorIN5boost10shared_ptrINS_10IntegratorEEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %integrators) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16MultidimIntegralC2ERKSt6vectorIN5boost10shared_ptrINS_10IntegratorEEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %integrators) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8

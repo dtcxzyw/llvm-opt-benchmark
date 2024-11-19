@@ -154,7 +154,7 @@ define dso_local void @_Z8next_argRjRKSt6vectorINSt7__cxx1112basic_stringIcSt11c
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z13simplify_argsB5cxx11iPPKc(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z13simplify_argsB5cxx11iPPKc(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %struct._Guard, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

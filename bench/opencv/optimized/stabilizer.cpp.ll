@@ -412,7 +412,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9videostab14StabilizerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(688) initializes((0, 104), (120, 128)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9videostab14StabilizerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.cv::Ptr.33", align 8
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN2cv9videostab14StabilizerBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2004,7 +2004,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9videostab14StabilizerBase5resetEv(ptr noundef nonnull align 8 dereferenceable(688) initializes((120, 128)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9videostab14StabilizerBase5resetEv(ptr noundef nonnull align 8 dereferenceable(688) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::Mat", align 8
   %3 = alloca %"class.cv::Mat", align 8
   %4 = alloca %"class.cv::Mat", align 8
@@ -3085,7 +3085,7 @@ define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9videostab14StabilizerBase5setUpERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(688) initializes((336, 337)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9videostab14StabilizerBase5setUpERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3305,7 +3305,7 @@ define void @_ZN2cv9videostab14StabilizerBase16postProcessFrameERKNS_3MatE(ptr d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9videostab17OnePassStabilizerC2Ev(ptr noundef nonnull align 8 dereferenceable(712) initializes((0, 104), (120, 128)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9videostab17OnePassStabilizerC2Ev(ptr noundef nonnull align 8 dereferenceable(712) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9videostab14StabilizerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 688
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv9videostab17OnePassStabilizerE, i64 16), ptr %0, align 8
@@ -3610,20 +3610,20 @@ _ZNSt10shared_ptrIN2cv9videostab16MotionFilterBaseEED2Ev.exit: ; preds = %1, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9videostab17OnePassStabilizer5resetEv(ptr noundef nonnull align 8 dereferenceable(712) initializes((120, 128)) %0) unnamed_addr #3 align 2 {
+define void @_ZN2cv9videostab17OnePassStabilizer5resetEv(ptr noundef nonnull align 8 dereferenceable(712) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN2cv9videostab14StabilizerBase5resetEv(ptr noundef nonnull align 8 dereferenceable(688) %0)
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn688_N2cv9videostab17OnePassStabilizer5resetEv(ptr noundef initializes((-568, -560)) %0) unnamed_addr #6 align 2 {
+define void @_ZThn688_N2cv9videostab17OnePassStabilizer5resetEv(ptr noundef %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -688
   tail call void @_ZN2cv9videostab14StabilizerBase5resetEv(ptr noundef nonnull align 8 dereferenceable(712) %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9videostab17OnePassStabilizer5setUpERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(712) initializes((120, 128)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9videostab17OnePassStabilizer5setUpERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(712) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::_InputArray", align 8
   %4 = alloca double, align 8
   %5 = alloca %"class.cv::MatExpr", align 8
@@ -4015,7 +4015,7 @@ define void @_ZN2cv9videostab17OnePassStabilizer16postProcessFrameERKNS_3MatE(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9videostab17TwoPassStabilizerC2Ev(ptr noundef nonnull align 8 dereferenceable(864) initializes((0, 104), (120, 128)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9videostab17TwoPassStabilizerC2Ev(ptr noundef nonnull align 8 dereferenceable(864) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv9videostab14StabilizerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(688) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 688
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv9videostab17TwoPassStabilizerE, i64 16), ptr %0, align 8
@@ -4596,7 +4596,7 @@ _ZNSt10shared_ptrIN2cv9videostab20WobbleSuppressorBaseEED2Ev.exit: ; preds = %1,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9videostab17TwoPassStabilizer5resetEv(ptr noundef nonnull align 8 dereferenceable(864) initializes((120, 128)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9videostab17TwoPassStabilizer5resetEv(ptr noundef nonnull align 8 dereferenceable(864) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::Mat", align 8
   tail call void @_ZN2cv9videostab14StabilizerBase5resetEv(ptr noundef nonnull align 8 dereferenceable(688) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 732
@@ -4641,7 +4641,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE5clearEv.exit:      ; preds = %1, %_ZSt8_DestroyIP
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn688_N2cv9videostab17TwoPassStabilizer5resetEv(ptr noundef initializes((-568, -560)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn688_N2cv9videostab17TwoPassStabilizer5resetEv(ptr noundef %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::Mat", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 -688
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %2)

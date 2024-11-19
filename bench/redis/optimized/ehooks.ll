@@ -31,7 +31,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @tsd_tls = external thread_local(initialexec) global %struct.tsd_s, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @ehooks_init(ptr nocapture noundef writeonly initializes((0, 4)) %ehooks, ptr noundef %extent_hooks, i32 noundef %ind) local_unnamed_addr #0 {
+define hidden void @ehooks_init(ptr nocapture noundef writeonly %ehooks, ptr noundef %extent_hooks, i32 noundef %ind) local_unnamed_addr #0 {
 entry:
   store i32 %ind, ptr %ehooks, align 8
   %ptr.i = getelementptr inbounds i8, ptr %ehooks, i64 8

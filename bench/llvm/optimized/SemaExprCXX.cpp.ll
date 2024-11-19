@@ -3313,7 +3313,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang4Sema17getDestructorNameERKNS_14IdentifierInfoENS_14SourceLocationEPNS_5ScopeERNS_12CXXScopeSpecENS_9OpaquePtrINS_8QualTypeEEEbENK3$_4clEv"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 9), (12, 21)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang4Sema17getDestructorNameERKNS_14IdentifierInfoENS_14SourceLocationEPNS_5ScopeERNS_12CXXScopeSpecENS_9OpaquePtrINS_8QualTypeEEEbENK3$_4clEv"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -8763,7 +8763,7 @@ declare i64 @_ZNK5clang13CXXMethodDecl11getThisTypeEv(ptr noundef nonnull align 
 declare i64 @_ZNK5clang10ASTContext14getPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096), i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema16CXXThisScopeRAIIC2ERS0_PNS_4DeclENS_10QualifiersEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema16CXXThisScopeRAIIC2ERS0_PNS_4DeclENS_10QualifiersEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 10048
@@ -17474,7 +17474,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIN5clang14DeclAccessPairEPNS2_12Functio
 declare void @_ZN5clang8SemaCUDA20EraseUnwantedMatchesEPKNS_12FunctionDeclERN4llvm15SmallVectorImplISt4pairINS_14DeclAccessPairEPS1_EEE(ptr noundef nonnull align 8 dereferenceable(76), ptr noundef, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27resolveDeallocationOverloadRN5clang4SemaERNS_12LookupResultEbbPN4llvm15SmallVectorImplIN12_GLOBAL__N_118UsualDeallocFnInfoEEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc void @_ZL27resolveDeallocationOverloadRN5clang4SemaERNS_12LookupResultEbbPN4llvm15SmallVectorImplIN12_GLOBAL__N_118UsualDeallocFnInfoEEE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %"struct.(anonymous namespace)::UsualDeallocFnInfo", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -17827,7 +17827,7 @@ _ZNK5clang10ASTContext15getTypeDeclTypeEPKNS_8TypeDeclES3_.exit: ; preds = %65, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118UsualDeallocFnInfoC2ERN5clang4SemaENS1_14DeclAccessPairE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 19), (20, 24)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_118UsualDeallocFnInfoC2ERN5clang4SemaENS1_14DeclAccessPairE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i64 %2) unnamed_addr #0 align 2 {
   store i64 %2, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = and i64 %2, -8
@@ -19875,7 +19875,7 @@ _ZN12_GLOBAL__N_128MismatchingNewDeleteDetectorD2Ev.exit: ; preds = %13, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_128MismatchingNewDeleteDetector12analyzeFieldEPN5clang9FieldDeclEb(ptr noundef nonnull align 8 dereferenceable(59) initializes((0, 8), (56, 57)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN12_GLOBAL__N_128MismatchingNewDeleteDetector12analyzeFieldEPN5clang9FieldDeclEb(ptr noundef nonnull align 8 dereferenceable(59) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca ptr, align 8
   %5 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
@@ -22526,7 +22526,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNK5clang8QualType19getAsStringInternalERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14PrintingPolicyE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema22ActOnConditionVariableEPNS_4DeclENS_14SourceLocationENS0_13ConditionKindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::Sema::ConditionResult") align 8 initializes((0, 17), (18, 19)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema22ActOnConditionVariableEPNS_4DeclENS_14SourceLocationENS0_13ConditionKindE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::Sema::ConditionResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::optional.1671", align 8
   %7 = tail call i64 @_ZN5clang4Sema22CheckConditionVariableEPNS_7VarDeclENS_14SourceLocationENS0_13ConditionKindE(ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i32 %3, i32 noundef %4)
   %8 = icmp eq i64 %7, 1
@@ -31576,7 +31576,7 @@ declare i64 @_ZN5clang4Sema27CheckSizelessVectorOperandsERNS_12ActionResultIPNS_
 declare i64 @_ZNK5clang10ASTContext21getScalableVectorTypeENS_8QualTypeEjj(ptr noundef nonnull align 8 dereferenceable(23096), i64, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang4Sema27CXXCheckConditionalOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_S5_RNS_13ExprValueKindERNS_14ExprObjectKindENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %5, i32 %6) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang4Sema27CXXCheckConditionalOperandsERNS_12ActionResultIPNS_4ExprELb1EEES5_S5_RNS_13ExprValueKindERNS_14ExprObjectKindENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %5, i32 %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.clang::QualType", align 8
   %9 = alloca %"class.clang::QualType", align 8
   %10 = alloca %"class.clang::SourceRange", align 8
@@ -32488,7 +32488,7 @@ declare noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull a
 declare noundef zeroext i1 @_ZNK5clang4Type22isWebAssemblyTableTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19TryClassUnificationRN5clang4SemaEPNS_4ExprES3_NS_14SourceLocationERbRNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef nonnull %2, i32 %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19TryClassUnificationRN5clang4SemaEPNS_4ExprES3_NS_14SourceLocationERbRNS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef nonnull %2, i32 %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca %"class.clang::InitializationKind", align 8
   %9 = alloca %"class.clang::InitializedEntity", align 8
@@ -43584,7 +43584,7 @@ define linkonce_odr hidden void @_ZN5clang4Sema19ICEConvertDiagnoser15diagnoseNo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser18diagnoseIncompleteERS0_S2_S8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser18diagnoseIncompleteERS0_S2_S8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %8 = alloca %"class.clang::SourceRange", align 8
@@ -43645,7 +43645,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %5, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser20diagnoseExplicitConvERS0_S2_S8_S8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4, i64 %5) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser20diagnoseExplicitConvERS0_S2_S8_S8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca %"class.clang::QualType", align 8
   %9 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
@@ -43703,7 +43703,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %6, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser16noteExplicitConvERS0_PNS_17CXXConversionDeclES8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser16noteExplicitConvERS0_PNS_17CXXConversionDeclES8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %8 = alloca i8, align 1
@@ -43775,7 +43775,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %5, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser17diagnoseAmbiguousERS0_S2_S8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser17diagnoseAmbiguousERS0_S2_S8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   store i64 %4, ptr %6, align 8
@@ -43830,7 +43830,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %5, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser13noteAmbiguousERS0_PNS_17CXXConversionDeclES8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser13noteAmbiguousERS0_PNS_17CXXConversionDeclES8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %8 = alloca i8, align 1
@@ -43902,7 +43902,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %5, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser18diagnoseConversionERS0_S2_S8_S8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4, i64 %5) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser18diagnoseConversionERS0_S2_S8_S8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca %"class.clang::QualType", align 8
   %9 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
@@ -43987,7 +43987,7 @@ define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14Source
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser14diagnoseNotIntERS0_S2_S8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema11BuildCXXNewENS_11SourceRangeEbNS_14SourceLocationEN4llvm15MutableArrayRefIPNS_4ExprEEES2_S1_NS_8QualTypeEPNS_14TypeSourceInfoESt8optionalIS6_ES1_S6_EN20SizeConvertDiagnoser14diagnoseNotIntERS0_S2_S8_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %8 = alloca i32, align 4
@@ -45644,7 +45644,7 @@ declare noundef ptr @_ZNK5clang18CXXConstructorDecl10init_beginEv(ptr noundef no
 declare noundef ptr @_ZNK5clang9FieldDecl21getInClassInitializerEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter15diagnoseNoMatchERS0_S1_NS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter15diagnoseNoMatchERS0_S1_NS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   store i64 %4, ptr %6, align 8
@@ -45699,7 +45699,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %5, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter18diagnoseIncompleteERS0_S1_NS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter18diagnoseIncompleteERS0_S1_NS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   store i64 %4, ptr %6, align 8
@@ -45754,7 +45754,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %5, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter20diagnoseExplicitConvERS0_S1_NS_8QualTypeES6_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4, i64 %5) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter20diagnoseExplicitConvERS0_S1_NS_8QualTypeES6_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca %"class.clang::QualType", align 8
   %9 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
@@ -45812,7 +45812,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %6, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter16noteExplicitConvERS0_PNS_17CXXConversionDeclENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter16noteExplicitConvERS0_PNS_17CXXConversionDeclENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   store i64 %4, ptr %6, align 8
@@ -45869,7 +45869,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %5, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter17diagnoseAmbiguousERS0_S1_NS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter17diagnoseAmbiguousERS0_S1_NS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, i32 %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   store i64 %4, ptr %6, align 8
@@ -45924,7 +45924,7 @@ _ZN5clang8SemaBase21SemaDiagnosticBuilderC2ERKS1_.exit: ; preds = %5, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter13noteAmbiguousERS0_PNS_17CXXConversionDeclENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZZN5clang4Sema14ActOnCXXDeleteENS_14SourceLocationEbbPNS_4ExprEEN15DeleteConverter13noteAmbiguousERS0_PNS_17CXXConversionDeclENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(17560) %2, ptr nocapture noundef readonly %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   store i64 %4, ptr %6, align 8
@@ -75382,7 +75382,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %20, %18, %168, %165
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_114TransformTyposEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 4), (8, 16)) %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_114TransformTyposEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::TemplateName", align 8
   %6 = alloca %"class.clang::TemplateArgument", align 8
   %7 = load i32, ptr %1, align 8
@@ -164882,7 +164882,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %20, %18, %168, %165
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS3_Lb1EEES3_EEEE12TyposReplaceE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 4), (8, 16)) %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7VarDeclEbN4llvm12function_refIFNS_12ActionResultIS3_Lb1EEES3_EEEE12TyposReplaceE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::TemplateName", align 8
   %6 = alloca %"class.clang::TemplateArgument", align 8
   %7 = load i32, ptr %1, align 8

@@ -906,7 +906,7 @@ define hidden range(i32 0, 2) i32 @hb_set_previous(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 2) i32 @hb_set_next_range(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef %2) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @hb_set_next_range(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %0, i64 64

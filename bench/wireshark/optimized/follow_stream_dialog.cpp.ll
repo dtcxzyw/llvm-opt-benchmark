@@ -5678,7 +5678,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18FollowStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(444) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18FollowStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(444) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18FollowStreamDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV18FollowStreamDialog, i64 528), ptr %2, align 8
@@ -6352,7 +6352,7 @@ declare ptr @get_follow_sub_stream_id_func(ptr noundef) local_unnamed_addr #3
 declare void @_ZN15WiresharkDialog13updateWidgetsEv(ptr noundef nonnull align 8 dereferenceable(133)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18FollowStreamDialog12useRegexFindEb(ptr nocapture noundef nonnull align 8 dereferenceable(444) initializes((436, 437)) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18FollowStreamDialog12useRegexFindEb(ptr nocapture noundef nonnull align 8 dereferenceable(444) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = zext i1 %1 to i8
@@ -6790,7 +6790,7 @@ declare void @_ZN15MainApplication15helpTopicActionE14topic_action_e(ptr noundef
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18FollowStreamDialog5closeEv(ptr noundef nonnull align 8 dereferenceable(444) initializes((437, 438)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18FollowStreamDialog5closeEv(ptr noundef nonnull align 8 dereferenceable(444) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 437
   store i8 1, ptr %3, align 1
@@ -6861,7 +6861,7 @@ declare void @_ZN18FollowStreamDialog12updateFilterE7QStringb(ptr noundef nonnul
 declare noundef zeroext i1 @_ZN7QWidget5closeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN18FollowStreamDialog10readStreamEv(ptr noundef nonnull align 8 dereferenceable(444) initializes((392, 412), (432, 436)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN18FollowStreamDialog10readStreamEv(ptr noundef nonnull align 8 dereferenceable(444) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = cmpxchg ptr @_ZL16loop_break_mutex, i64 0, i64 1 acquire acquire, align 8
   %3 = extractvalue { i64, i1 } %2, 1
   br i1 %3, label %_ZN11QBasicMutex4lockEv.exit, label %4
@@ -10274,7 +10274,7 @@ _ZN10QByteArrayD2Ev.exit32:                       ; preds = %_ZN11QBasicMutex6un
 declare void @_ZN15QAbstractSlider8setValueEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18FollowStreamDialog12followStreamEv(ptr noundef nonnull align 8 dereferenceable(444) initializes((392, 412), (432, 436)) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN18FollowStreamDialog12followStreamEv(ptr noundef nonnull align 8 dereferenceable(444) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef i32 @_ZN18FollowStreamDialog10readStreamEv(ptr noundef nonnull align 8 dereferenceable(444) %0)
   ret void
 }

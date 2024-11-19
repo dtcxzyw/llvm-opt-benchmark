@@ -107,7 +107,7 @@ $_ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_ = comdat any
 @_ZN5clang8comments4SemaC1ERN4llvm20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEERKNS_13SourceManagerERNS_17DiagnosticsEngineERNS0_13CommandTraitsEPKNS_12PreprocessorE = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN5clang8comments4SemaC2ERN4llvm20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEERKNS_13SourceManagerERNS_17DiagnosticsEngineERNS0_13CommandTraitsEPKNS_12PreprocessorE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8comments4SemaC2ERN4llvm20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEERKNS_13SourceManagerERNS_17DiagnosticsEngineERNS0_13CommandTraitsEPKNS_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 88)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 8 dereferenceable(1304) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8comments4SemaC2ERN4llvm20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEERKNS_13SourceManagerERNS_17DiagnosticsEngineERNS0_13CommandTraitsEPKNS_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 8 dereferenceable(1304) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %5) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -535,7 +535,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %81, %87, %75, %_ZN5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8comments4Sema21actOnBlockCommandArgsEPNS0_19BlockCommandCommentEN4llvm8ArrayRefINS0_7Comment8ArgumentEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0, ptr nocapture noundef initializes((16, 32)) %1, ptr %2, i64 %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang8comments4Sema21actOnBlockCommandArgsEPNS0_19BlockCommandCommentEN4llvm8ArrayRefINS0_7Comment8ArgumentEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0, ptr nocapture noundef %1, ptr %2, i64 %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %2, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 24
@@ -565,7 +565,7 @@ _ZN5clang8comments19BlockCommandComment7setArgsEN4llvm8ArrayRefINS0_7Comment8Arg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8comments4Sema23actOnBlockCommandFinishEPNS0_19BlockCommandCommentEPNS0_16ParagraphCommentE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef initializes((32, 40)) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8comments4Sema23actOnBlockCommandFinishEPNS0_19BlockCommandCommentEPNS0_16ParagraphCommentE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4475,7 +4475,7 @@ _ZN5clanglsERKNS_19StreamingDiagnosticERKNS_9FixItHintE.exit: ; preds = %2, %13
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8comments4Sema29actOnParamCommandParamNameArgEPNS0_19ParamCommandCommentENS_14SourceLocationES4_N4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr nocapture noundef initializes((16, 32)) %1, i32 %2, i32 %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8comments4Sema29actOnParamCommandParamNameArgEPNS0_19ParamCommandCommentENS_14SourceLocationES4_N4llvm9StringRefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr nocapture noundef %1, i32 %2, i32 %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = icmp slt i32 %8, 0
@@ -4554,7 +4554,7 @@ _ZN5clang8comments19BlockCommandComment7setArgsEN4llvm8ArrayRefINS0_7Comment8Arg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8comments4Sema23actOnParamCommandFinishEPNS0_19ParamCommandCommentEPNS0_16ParagraphCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr nocapture noundef initializes((32, 40)) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8comments4Sema23actOnParamCommandFinishEPNS0_19ParamCommandCommentEPNS0_16ParagraphCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4841,7 +4841,7 @@ define dso_local noundef zeroext i1 @_ZN5clang8comments4Sema26isTemplateOrSpecia
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8comments4Sema30actOnTParamCommandParamNameArgEPNS0_20TParamCommandCommentENS_14SourceLocationES4_N4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef initializes((16, 32)) %1, i32 %2, i32 %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8comments4Sema30actOnTParamCommandParamNameArgEPNS0_20TParamCommandCommentENS_14SourceLocationES4_N4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, i32 %2, i32 %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator.100", align 1
@@ -5670,7 +5670,7 @@ define dso_local { ptr, i64 } @_ZN5clang8comments4Sema28correctTypoInTParamRefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8comments4Sema24actOnTParamCommandFinishEPNS0_20TParamCommandCommentEPNS0_16ParagraphCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr nocapture noundef initializes((32, 40)) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8comments4Sema24actOnTParamCommandFinishEPNS0_20TParamCommandCommentEPNS0_16ParagraphCommentE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -6166,7 +6166,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8comments4Sema24actOnVerbatimBlockFinishEPNS0_20VerbatimBlockCommentENS_14SourceLocationEN4llvm9StringRefENS5_8ArrayRefIPNS0_24VerbatimBlockLineCommentEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0, ptr nocapture noundef writeonly initializes((40, 60), (64, 80)) %1, i32 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.137") align 8 %5) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang8comments4Sema24actOnVerbatimBlockFinishEPNS0_20VerbatimBlockCommentENS_14SourceLocationEN4llvm9StringRefENS5_8ArrayRefIPNS0_24VerbatimBlockLineCommentEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %0, ptr nocapture noundef writeonly %1, i32 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.137") align 8 %5) local_unnamed_addr #2 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %3, ptr %7, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 48
@@ -6318,7 +6318,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8comments4Sema23actOnHTMLStartTagFinishEPNS0_19HTMLStartTagCommentEN4llvm8ArrayRefINS2_9AttributeEEENS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef initializes((8, 12), (40, 56)) %1, ptr %2, i64 %3, i32 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8comments4Sema23actOnHTMLStartTagFinishEPNS0_19HTMLStartTagCommentEN4llvm8ArrayRefINS2_9AttributeEEENS_14SourceLocationEb(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, ptr %2, i64 %3, i32 %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
 _ZN5clang8comments19HTMLStartTagComment8setAttrsEN4llvm8ArrayRefINS1_9AttributeEEE.exit:
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store ptr %2, ptr %6, align 8

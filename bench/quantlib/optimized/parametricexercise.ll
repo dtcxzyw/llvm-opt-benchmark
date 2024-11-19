@@ -1375,7 +1375,7 @@ _ZN5boost10shared_ptrIN8QuantLib10Constraint4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_113ValueEstimateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_113ValueEstimateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113ValueEstimateE, i64 16), ptr %this, align 8, !tbaa !18
   %parameters_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -1516,7 +1516,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_113ValueEstimateD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_113ValueEstimateD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_113ValueEstimateE, i64 16), ptr %this, align 8, !tbaa !18
   %parameters_.i = getelementptr inbounds nuw i8, ptr %this, i64 32

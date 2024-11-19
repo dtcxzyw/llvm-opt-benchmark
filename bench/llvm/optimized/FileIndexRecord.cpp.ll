@@ -141,7 +141,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5index15FileIndexRecord16addDeclOccurenceEjjPKNS_4DeclEN4llvm8ArrayRefINS0_14SymbolRelationEEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((5, 6)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang5index15FileIndexRecord16addDeclOccurenceEjjPKNS_4DeclEN4llvm8ArrayRefINS0_14SymbolRelationEEE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::ArrayRef.0", align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -191,7 +191,7 @@ _ZNSt6vectorIN5clang5index14DeclOccurrenceESaIS2_EE12emplace_backIJRjS6_RPKNS0_4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5index15FileIndexRecord17addMacroOccurenceEjjPKNS_14IdentifierInfoEPKNS_9MacroInfoE(ptr noundef nonnull align 8 dereferenceable(32) initializes((5, 6)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang5index15FileIndexRecord17addMacroOccurenceEjjPKNS_14IdentifierInfoEPKNS_9MacroInfoE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8

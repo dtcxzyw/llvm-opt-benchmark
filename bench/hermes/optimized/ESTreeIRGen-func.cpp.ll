@@ -127,7 +127,7 @@ $_ZN4llvh8DenseMapIPN6hermes6ESTree23FunctionDeclarationNodeESt4pairIPNS1_8Funct
 @_ZN6hermes5irgen15EnterBlockScopeD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes5irgen15EnterBlockScopeD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen15FunctionContextC2EPNS0_11ESTreeIRGenEPNS_8FunctionEPNS_3sem12FunctionInfoE(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 48)) %this, ptr noundef %irGen, ptr noundef %function, ptr noundef %semInfo) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen15FunctionContextC2EPNS0_11ESTreeIRGenEPNS_8FunctionEPNS_3sem12FunctionInfoE(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef %irGen, ptr noundef %function, ptr noundef %semInfo) unnamed_addr #0 align 2 {
 entry:
   store ptr %irGen, ptr %this, align 8
   %semInfo_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -279,7 +279,7 @@ if.end:                                           ; preds = %if.end15.sink.split
 declare noundef nonnull align 8 dereferenceable(656) ptr @_ZNK6hermes8Function10getContextEv(ptr noundef nonnull align 8 dereferenceable(304)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes5irgen15FunctionContext18setupFunctionScopeEPNS0_15EnterBlockScopeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) initializes((128, 144)) %this, ptr noundef %scope) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6hermes5irgen15FunctionContext18setupFunctionScopeEPNS0_15EnterBlockScopeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) %this, ptr noundef %scope) local_unnamed_addr #2 align 2 {
 entry:
   %blockScope_ = getelementptr inbounds i8, ptr %scope, i64 32
   %functionScope = getelementptr inbounds i8, ptr %this, i64 128
@@ -592,7 +592,7 @@ declare ptr @_ZN6hermes23InternalIdentifierMaker4nextEN4llvh9StringRefE(ptr noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes5irgen15EnterBlockScopeC2EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 36), (40, 64)) %this, ptr noundef %currentContext) unnamed_addr #4 align 2 {
+define hidden void @_ZN6hermes5irgen15EnterBlockScopeC2EPNS0_15FunctionContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %currentContext) unnamed_addr #4 align 2 {
 entry:
   store ptr %currentContext, ptr %this, align 8
   %oldIRScopeDesc_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2252,7 +2252,7 @@ return:                                           ; preds = %lor.rhs, %entry, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen20emitFunctionPreambleEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(200) initializes((32, 48)) %this, ptr noundef %entry1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen20emitFunctionPreambleEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %entry1) local_unnamed_addr #0 align 2 {
 entry:
   %functionContext_.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %functionContext_.i, align 8
@@ -2782,7 +2782,7 @@ declare noundef ptr @_ZN6hermes6ESTree17getBlockStatementEPNS0_16FunctionLikeNod
 declare noundef ptr @_ZN6hermes9IRBuilder28createGeneratorInnerFunctionEPNS_9ScopeDescENS_10IdentifierENS_8Function14DefinitionKindEbN4llvh7SMRangeEPS4_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr, i32 noundef, i1 noundef zeroext, ptr noundef byval(%"class.llvh::SMRange") align 8, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen14setupLazyScopeEPNS_6ESTree16FunctionLikeNodeEPNS_8FunctionEPNS2_18BlockStatementNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %functionNode, ptr nocapture noundef initializes((248, 274), (280, 288)) %function, ptr nocapture noundef readonly %bodyBlock) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen14setupLazyScopeEPNS_6ESTree16FunctionLikeNodeEPNS_8FunctionEPNS2_18BlockStatementNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %functionNode, ptr nocapture noundef %function, ptr nocapture noundef readonly %bodyBlock) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %scopeDesc_.i = getelementptr inbounds i8, ptr %function, i64 72

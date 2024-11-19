@@ -148,7 +148,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZN4LIEF5MachO11LoadCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF5MachO12DylibCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define void @_ZN4LIEF5MachO12DylibCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO12DylibCommandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
@@ -272,14 +272,14 @@ define void @_ZN4LIEF5MachO12DylibCommand4nameERKNSt7__cxx1112basic_stringIcSt11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO12DylibCommand9timestampEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO12DylibCommand9timestampEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO12DylibCommand15current_versionESt5arrayItLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((92, 96)) %0, i48 %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO12DylibCommand15current_versionESt5arrayItLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %0, i48 %1) local_unnamed_addr #9 align 2 {
   %.sroa.0.0.extract.trunc.i = trunc i48 %1 to i32
   %.sroa.3.0.extract.shift.i = lshr i48 %1, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i48 %.sroa.3.0.extract.shift.i to i32
@@ -294,7 +294,7 @@ define void @_ZN4LIEF5MachO12DylibCommand15current_versionESt5arrayItLm3EE(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO12DylibCommand21compatibility_versionESt5arrayItLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((96, 100)) %0, i48 %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO12DylibCommand21compatibility_versionESt5arrayItLm3EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %0, i48 %1) local_unnamed_addr #9 align 2 {
   %.sroa.0.0.extract.trunc.i = trunc i48 %1 to i32
   %.sroa.3.0.extract.shift.i = lshr i48 %1, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw nsw i48 %.sroa.3.0.extract.shift.i to i32

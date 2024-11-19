@@ -360,7 +360,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp4D3MF14D3MFOpcPackageC2EPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %pIOHandler, ptr noundef nonnull align 8 dereferenceable(32) %rFile) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp4D3MF14D3MFOpcPackageC2EPNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %pIOHandler, ptr noundef nonnull align 8 dereferenceable(32) %rFile) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %extension.i = alloca %"class.std::__cxx11::basic_string", align 8
   %fileList = alloca %"class.std::vector", align 8

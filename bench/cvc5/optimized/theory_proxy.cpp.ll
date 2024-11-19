@@ -490,7 +490,7 @@ _ZN4cvc57context6CDListISt4pairINS_8internal12NodeTemplateILb0EEEiENS0_14Default
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal4prop11TheoryProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(521) initializes((0, 8), (16, 24), (472, 480)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop11TheoryProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(521) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop11TheoryProxyE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -611,7 +611,7 @@ _ZNSt10unique_ptrIN4cvc58internal8decision14DecisionEngineESt14default_deleteIS3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn16_N4cvc58internal4prop11TheoryProxyD1Ev(ptr noundef initializes((-16, -8), (0, 8), (456, 464)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn16_N4cvc58internal4prop11TheoryProxyD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4cvc58internal4prop11TheoryProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(521) %0) #23
@@ -619,7 +619,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal4prop11TheoryProxyD0Ev(ptr noundef nonnull align 8 dereferenceable(521) initializes((0, 8), (16, 24), (472, 480)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal4prop11TheoryProxyD0Ev(ptr noundef nonnull align 8 dereferenceable(521) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal4prop11TheoryProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(521) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -630,7 +630,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn16_N4cvc58internal4prop11TheoryProxyD0Ev(ptr noundef initializes((-16, -8), (0, 8), (456, 464)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn16_N4cvc58internal4prop11TheoryProxyD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4cvc58internal4prop11TheoryProxyD2Ev(ptr noundef nonnull align 8 dereferenceable(521) %0) #23
@@ -1420,7 +1420,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal12NodeTemplateILb1EE7isConstEv(ptr
 declare void @_ZN4cvc58internal4prop18TheoryPreregistrar12addAssertionENS0_12NodeTemplateILb0EEES4_b(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal4prop11TheoryProxy11theoryCheckENS0_6theory6Theory6EffortE(ptr noundef nonnull align 8 dereferenceable(521) initializes((520, 521)) %this, i32 noundef %effort) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop11TheoryProxy11theoryCheckENS0_6theory6Theory6EffortE(ptr noundef nonnull align 8 dereferenceable(521) %this, i32 noundef %effort) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.438", align 8
   %agg.tmp36 = alloca %"class.cvc5::internal::NodeTemplate.438", align 8
@@ -2862,7 +2862,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i64 @_ZN4cvc58internal4prop11TheoryProxy22getNextDecisionRequestERbS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(521) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %requirePhase, ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %stopSearch) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden i64 @_ZN4cvc58internal4prop11TheoryProxy22getNextDecisionRequestERbS3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(521) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %requirePhase, ptr noundef nonnull align 1 dereferenceable(1) %stopSearch) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %ref.tmp5 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.438", align 8

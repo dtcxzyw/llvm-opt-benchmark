@@ -599,7 +599,7 @@ define internal noundef nonnull ptr @_ZL50initializeBranchProbabilityInfoWrapper
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm32BranchProbabilityInfoWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((0, 28), (32, 52), (56, 76), (80, 112)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm32BranchProbabilityInfoWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.412, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -690,7 +690,7 @@ define linkonce_odr hidden void @_ZNSt3mapIN4llvm7CmpInst9PredicateENS0_11SmallV
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21BranchProbabilityInfo7SccInfoC2ERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 20), (24, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21BranchProbabilityInfo7SccInfoC2ERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::scc_iterator", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2592,7 +2592,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21BranchProbabilityInfo9LoopBlockC2EPKNS_10BasicBlockERKNS_8LoopInfoERKNS0_7SccInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21BranchProbabilityInfo9LoopBlockC2EPKNS_10BasicBlockERKNS_8LoopInfoERKNS0_7SccInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
@@ -8732,7 +8732,7 @@ declare void @_ZNK4llvm5Value14printAsOperandERNS_11raw_ostreamEbPKNS_6ModuleE(p
 declare noundef ptr @_ZNK4llvm10BasicBlock9getModuleEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21BranchProbabilityInfo9calculateERKNS_8FunctionERKNS_8LoopInfoEPKNS_17TargetLibraryInfoEPNS_13DominatorTreeEPNS_17PostDominatorTreeE(ptr noundef nonnull align 8 dereferenceable(248) initializes((48, 64)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21BranchProbabilityInfo9calculateERKNS_8FunctionERKNS_8LoopInfoEPKNS_17TargetLibraryInfoEPNS_13DominatorTreeEPNS_17PostDominatorTreeE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(144) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::iterator_range.260", align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.llvm::po_iterator", align 8
@@ -9606,7 +9606,7 @@ define dso_local void @_ZNK4llvm32BranchProbabilityInfoWrapperPass5printERNS_11r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm25BranchProbabilityAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::BranchProbabilityInfo") align 8 initializes((0, 20), (24, 44), (48, 80)) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm25BranchProbabilityAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::BranchProbabilityInfo") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm12LoopAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #19
   %6 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm21TargetLibraryAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #19
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm21DominatorTreeAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #19

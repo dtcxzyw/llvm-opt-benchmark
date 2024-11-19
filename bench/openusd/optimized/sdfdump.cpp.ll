@@ -53362,7 +53362,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__11TfErrorMark1
 declare noundef nonnull align 8 dereferenceable(481) ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_15TfDiagnosticMgrEE11GetInstanceEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112CollectPathsERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS0_12ReportParamsE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr %.0.val, ptr readonly %.8.val, ptr noundef nonnull align 8 dereferenceable(108) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112CollectPathsERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS0_12ReportParamsE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr readonly %.8.val, ptr noundef nonnull align 8 dereferenceable(108) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %4 = alloca %"class.std::function.334", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

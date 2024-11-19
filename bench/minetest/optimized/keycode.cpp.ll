@@ -1140,7 +1140,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN8KeyPressC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef %name) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8KeyPressC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %name) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %k = alloca %struct.table_key, align 8
   store i32 256, ptr %this, align 8, !tbaa !27
@@ -1470,7 +1470,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8KeyPressC2ERKN3irr6SEvent9SKeyInputEb(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %in, i1 noundef zeroext %prefer_character) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8KeyPressC2ERKN3irr6SEvent9SKeyInputEb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %in, i1 noundef zeroext %prefer_character) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp11 = alloca %struct.table_key, align 8
   %ref.tmp19 = alloca %struct.table_key, align 8

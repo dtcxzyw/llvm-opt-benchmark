@@ -1846,7 +1846,7 @@ _ZN4llvm19MachineFunctionInfo6createINS_24RISCVMachineFunctionInfoENS_19TargetSu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm18RISCVTargetMachine22getTargetTransformInfoERKNS_8FunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::TargetTransformInfo") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1264) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm18RISCVTargetMachine22getTargetTransformInfoERKNS_8FunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::TargetTransformInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1264) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
   %4 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136) %2) #24
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1887,7 +1887,7 @@ define internal noalias noundef ptr @_ZN12_GLOBAL__N_127useDefaultRegisterAlloca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl3optIPFPNS_12FunctionPassEvELb0ENS_18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl3optIPFPNS_12FunctionPassEvELb0ENS_18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(680) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIPFPNS_12FunctionPassEvELb0ENS_18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %3 = load ptr, ptr %2, align 8
@@ -2611,7 +2611,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm16BasicTTIImplBaseINS_12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEED2Ev(ptr noundef nonnull align 8 dereferenceable(488) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEED2Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20RegisterRegAllocBaseIN12_GLOBAL__N_119RVVRegisterRegAllocEE8RegistryE, i64 16), align 8
@@ -2678,7 +2678,7 @@ define internal noundef range(i32 2, 4) i32 @_ZNK4llvm2cl3optIPFPNS_12FunctionPa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl3optIPFPNS_12FunctionPassEvELb0ENS_18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl3optIPFPNS_12FunctionPassEvELb0ENS_18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(680) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm2cl3optIPFPNS_12FunctionPassEvELb0ENS_18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(680) %0) #24
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 680) #27
   ret void
@@ -2733,7 +2733,7 @@ define internal void @_ZNK4llvm2cl3optIPFPNS_12FunctionPassEvELb0ENS_18RegisterP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN4llvm2cl3optIPFPNS_12FunctionPassEvELb0ENS_18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEEE10setDefaultEv(ptr nocapture noundef nonnull align 8 dereferenceable(680) initializes((128, 136)) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN4llvm2cl3optIPFPNS_12FunctionPassEvELb0ENS_18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEEE10setDefaultEv(ptr nocapture noundef nonnull align 8 dereferenceable(680) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -2753,7 +2753,7 @@ define internal void @_ZN4llvm2cl3optIPFPNS_12FunctionPassEvELb0ENS_18RegisterPa
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEED1Ev(ptr noundef initializes((-8, 8)) %0) unnamed_addr #13 align 2 {
+define internal void @_ZThn8_N4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEED1Ev(ptr noundef %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEE, i64 16), ptr %2, align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20RegisterRegAllocBaseIN12_GLOBAL__N_119RVVRegisterRegAllocEE8RegistryE, i64 16), align 8
@@ -2779,7 +2779,7 @@ define linkonce_odr hidden void @_ZN4llvm27MachinePassRegistryListenerIPFPNS_12F
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEED0Ev(ptr noundef nonnull align 8 dereferenceable(488) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEED0Ev(ptr noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20RegisterRegAllocBaseIN12_GLOBAL__N_119RVVRegisterRegAllocEE8RegistryE, i64 16), align 8
@@ -2883,7 +2883,7 @@ _ZN4llvm2cl6parserIPFPNS_12FunctionPassEvEE19removeLiteralOptionENS_9StringRefE.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEED0Ev(ptr noundef initializes((-8, 8)) %0) unnamed_addr #13 align 2 {
+define internal void @_ZThn8_N4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEED0Ev(ptr noundef %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm18RegisterPassParserIN12_GLOBAL__N_119RVVRegisterRegAllocEEE, i64 16), ptr %2, align 8
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm20RegisterRegAllocBaseIN12_GLOBAL__N_119RVVRegisterRegAllocEE8RegistryE, i64 16), align 8

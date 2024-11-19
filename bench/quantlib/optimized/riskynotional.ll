@@ -41,7 +41,7 @@ $_ZTVN8QuantLib12NotionalRiskE = comdat any
 @_ZN8QuantLib12NotionalPathC1Ev = unnamed_addr alias void (ptr), ptr @_ZN8QuantLib12NotionalPathC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12NotionalPathC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12NotionalPathC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)

@@ -106,14 +106,14 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18OpenImageIO_v2_6_08DeepDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this) unnamed_addr #4 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08DeepDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this, i8 0, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08DeepDataC2ERKNS_9ImageSpecE(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 20)) %this, ptr noundef nonnull align 8 dereferenceable(160) %spec) unnamed_addr #5 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08DeepDataC2ERKNS_9ImageSpecE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(160) %spec) unnamed_addr #5 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %this, i8 0, i64 20, i1 false)
   tail call void @_ZN18OpenImageIO_v2_6_08DeepData4initERKNS_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(160) %spec)
@@ -121,7 +121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08DeepData4initERKNS_9ImageSpecE(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((8, 20)) %this, ptr noundef nonnull align 8 dereferenceable(160) %spec) local_unnamed_addr #5 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08DeepData4initERKNS_9ImageSpecE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(160) %spec) local_unnamed_addr #5 align 2 {
 entry:
   %agg.tmp7 = alloca %"class.OpenImageIO_v2_6_0::span.30", align 8
   %agg.tmp13 = alloca %"class.OpenImageIO_v2_6_0::span.30", align 8
@@ -321,7 +321,7 @@ _ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit: ; preds = %_ZNSt6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08DeepDataC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %src) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_08DeepDataC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %src) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_npixels = getelementptr inbounds i8, ptr %this, i64 8
   %m_nchannels = getelementptr inbounds i8, ptr %this, i64 16
@@ -388,7 +388,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18OpenImageIO_v2_6_08DeepDataC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #8 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08DeepDataC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #8 align 2 {
 entry:
   %m_npixels = getelementptr inbounds i8, ptr %this, i64 8
   %m_nchannels = getelementptr inbounds i8, ptr %this, i64 16
@@ -406,7 +406,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08DeepDataC2ERKS0_NS_4spanIKNS_8TypeDescELln1EEE(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 20)) %this, ptr noundef nonnull align 8 dereferenceable(20) %src, ptr %channeltypes.coerce0, i64 %channeltypes.coerce1) unnamed_addr #5 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08DeepDataC2ERKS0_NS_4spanIKNS_8TypeDescELln1EEE(ptr noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(20) %src, ptr %channeltypes.coerce0, i64 %channeltypes.coerce1) unnamed_addr #5 align 2 {
 entry:
   %agg.tmp6 = alloca %"class.OpenImageIO_v2_6_0::span.30", align 8
   %m_npixels = getelementptr inbounds i8, ptr %this, i64 8
@@ -591,7 +591,7 @@ if.end14:                                         ; preds = %if.then8, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08DeepData4initEliNS_4spanIKNS_8TypeDescELln1EEENS1_IKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELln1EEE(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((8, 20)) %this, i64 noundef %npix, i32 noundef %nchan, ptr %channeltypes.coerce0, i64 %channeltypes.coerce1, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::span.30") align 8 %channelnames) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_08DeepData4initEliNS_4spanIKNS_8TypeDescELln1EEENS1_IKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELln1EEE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, i64 noundef %npix, i32 noundef %nchan, ptr %channeltypes.coerce0, i64 %channeltypes.coerce1, ptr nocapture noundef readonly byval(%"class.OpenImageIO_v2_6_0::span.30") align 8 %channelnames) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i456 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %agg.tmp.i452 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -2682,7 +2682,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK18OpenImageIO_v2_6_08DeepData11channelnameEi(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i32 noundef %c) local_unnamed_addr #6 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_08DeepData11channelnameEi(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i32 noundef %c) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp sgt i32 %c, -1
   %m_nchannels = getelementptr inbounds i8, ptr %this, i64 16
@@ -2713,7 +2713,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK18OpenImageIO_v2_6_08DeepData11channeltypeEi(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::TypeDesc") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i32 noundef %c) local_unnamed_addr #12 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_08DeepData11channeltypeEi(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::TypeDesc") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %this, i32 noundef %c) local_unnamed_addr #12 align 2 {
 entry:
   %cmp = icmp sgt i32 %c, -1
   %m_nchannels = getelementptr inbounds i8, ptr %this, i64 16
@@ -2787,7 +2787,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_08DeepData5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((8, 20)) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08DeepData5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_npixels = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %m_npixels, align 8
@@ -2825,7 +2825,7 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07Strutil7iequalsENS_17basic_s
 declare noundef i64 @_ZNK18OpenImageIO_v2_6_09ImageSpec12image_pixelsEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_08DeepData4freeEv(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((8, 20)) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08DeepData4freeEv(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_npixels.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %m_npixels.i, align 8

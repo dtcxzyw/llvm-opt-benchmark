@@ -91,7 +91,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 16), ptr %this, align 8, !tbaa !7
   %executor_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -123,7 +123,7 @@ _ZN5folly8Executor9KeepAliveINS_20SoftRealTimeExecutorEED2Ev.exit: ; preds = %if
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly12_GLOBAL__N_116DeadlineExecutorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12_GLOBAL__N_116DeadlineExecutorE, i64 16), ptr %this, align 8, !tbaa !7
   %executor_.i = getelementptr inbounds i8, ptr %this, i64 24

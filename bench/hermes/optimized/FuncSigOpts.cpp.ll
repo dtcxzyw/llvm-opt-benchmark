@@ -776,7 +776,7 @@ _ZNSt6vectorIPN6hermes8FunctionESaIS2_EED2Ev.exit: ; preds = %entry, %while.end,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes17createFuncSigOptsEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes17createFuncSigOptsEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN6hermes11FuncSigOptsESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12, !noalias !17
   %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8

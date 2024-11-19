@@ -1354,7 +1354,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_122BytewiseComparatorImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_122BytewiseComparatorImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1389,7 +1389,7 @@ _ZN7rocksdb10ComparatorD2Ev.exit:                 ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_122BytewiseComparatorImplD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_122BytewiseComparatorImplD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1900,7 +1900,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_122BytewiseComparatorImplD1Ev(ptr nocapture noundef initializes((-32, -24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_122BytewiseComparatorImplD1Ev(ptr nocapture noundef %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %0, align 8
@@ -1936,7 +1936,7 @@ _ZN7rocksdb12_GLOBAL__N_122BytewiseComparatorImplD2Ev.exit: ; preds = %invoke.co
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_122BytewiseComparatorImplD0Ev(ptr noundef initializes((-32, -24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_122BytewiseComparatorImplD0Ev(ptr noundef %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %0, align 8
@@ -2157,7 +2157,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2192,7 +2192,7 @@ _ZN7rocksdb12_GLOBAL__N_122BytewiseComparatorImplD2Ev.exit: ; preds = %invoke.co
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImplD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImplD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %this, align 8
   %options_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2342,7 +2342,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImplD1Ev(ptr nocapture noundef initializes((-32, -24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImplD1Ev(ptr nocapture noundef %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %0, align 8
@@ -2378,7 +2378,7 @@ _ZN7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImplD2Ev.exit: ; preds = %in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImplD0Ev(ptr noundef initializes((-32, -24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_129ReverseBytewiseComparatorImplD0Ev(ptr noundef %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ConfigurableE, i64 16), ptr %0, align 8
@@ -2447,7 +2447,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (32, 40), (48, 56)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 32
@@ -2515,7 +2515,7 @@ _ZN7rocksdb10ComparatorD2Ev.exit:                 ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (32, 40), (48, 56)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEEE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -2713,7 +2713,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEED1Ev(ptr nocapture noundef initializes((-32, -24), (0, 8), (16, 24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEED1Ev(ptr nocapture noundef %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEEE, i64 16), ptr %0, align 8
@@ -2781,7 +2781,7 @@ _ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplE
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEED0Ev(ptr noundef initializes((-32, -24), (0, 8), (16, 24)) %this) unnamed_addr #11 align 2 {
+define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEED0Ev(ptr noundef %this) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #24
@@ -2838,7 +2838,7 @@ _ZNK7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImpl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (32, 40), (48, 56)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEEE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 32
@@ -2906,7 +2906,7 @@ _ZN7rocksdb10ComparatorD2Ev.exit:                 ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (32, 40), (48, 56)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEEE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -3105,7 +3105,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEED1Ev(ptr nocapture noundef initializes((-32, -24), (0, 8), (16, 24)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEED1Ev(ptr nocapture noundef %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEEE, i64 16), ptr %0, align 8
@@ -3173,7 +3173,7 @@ _ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparat
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEED0Ev(ptr noundef initializes((-32, -24), (0, 8), (16, 24)) %this) unnamed_addr #11 align 2 {
+define internal void @_ZThn32_N7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEED0Ev(ptr noundef %this) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   tail call void @_ZN7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #24

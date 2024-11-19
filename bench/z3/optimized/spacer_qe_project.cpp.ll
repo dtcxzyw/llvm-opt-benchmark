@@ -397,7 +397,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN9spacer_qe3peqC2EP3appR11ast_manager(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 44), (48, 112)) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN9spacer_qe3peqC2EP3appR11ast_manager(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %p, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %m, ptr %this, align 8
@@ -881,7 +881,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN9spacer_qe3peqC2EP4exprS2_jPKS2_R11ast_manager(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 44), (48, 112)) %this, ptr noundef %lhs, ptr noundef %rhs, i32 noundef %num_indices, ptr nocapture noundef readonly %diff_indices, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN9spacer_qe3peqC2EP4exprS2_jPKS2_R11ast_manager(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %lhs, ptr noundef %rhs, i32 noundef %num_indices, ptr nocapture noundef readonly %diff_indices, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sorts = alloca %class.ptr_vector.30, align 8
   %ref.tmp39 = alloca %class.symbol, align 8

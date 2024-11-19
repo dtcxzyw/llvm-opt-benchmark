@@ -68,13 +68,13 @@ $_ZN4ncnn18ThreadLocalStorageD2Ev = comdat any
 @_ZN4ncnn6CpuSetC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4ncnn6CpuSetC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn6CpuSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 128)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN4ncnn6CpuSetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn6CpuSet11disable_allEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 128)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4ncnn6CpuSet11disable_allEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   ret void
 }

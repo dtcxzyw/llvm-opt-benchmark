@@ -340,7 +340,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers20SimpleLoopControllerC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 18), (20, 28), (32, 40)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers20SimpleLoopControllerC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.5", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly6fibers20SimpleLoopControllerE, i64 16), ptr %this, align 8, !tbaa !96
@@ -987,7 +987,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly6fibers20SimpleLoopControllerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers20SimpleLoopControllerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly6fibers20SimpleLoopControllerE, i64 16), ptr %this, align 8, !tbaa !96
   %scheduled_ = getelementptr inbounds i8, ptr %this, i64 16

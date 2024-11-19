@@ -17343,7 +17343,7 @@ for.end:                                          ; preds = %_ZN5eastl12basic_st
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL16AccumulateStringN5eastl12basic_stringIcNS_9allocatorEEEi(ptr noalias nocapture sret(%"class.eastl::basic_string") align 8 initializes((0, 1), (23, 24)) %agg.result, ptr noundef %s, i32 noundef %x) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL16AccumulateStringN5eastl12basic_stringIcNS_9allocatorEEEi(ptr noalias nocapture sret(%"class.eastl::basic_string") align 8 %agg.result, ptr noundef %s, i32 noundef %x) #0 personality ptr @__gxx_personality_v0 {
 entry:
   %temp.sroa.0.i.i.i.i = alloca [24 x i8], align 1
   %0 = trunc i32 %x to i8

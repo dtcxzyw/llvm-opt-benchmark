@@ -44,7 +44,7 @@ $_ZTVN5Ipopt16ReferencedObjectE = comdat any
 @_ZN5Ipopt11TNLPReducerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5Ipopt11TNLPReducerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt11TNLPReducerC2ERNS_4TNLPEiPKiiS4_iS4_iS4_(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 12), (16, 24), (32, 36), (40, 48), (56, 68), (80, 92), (96, 108), (112, 124), (128, 136)) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8, ptr nocapture noundef readonly %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt11TNLPReducerC2ERNS_4TNLPEiPKiiS4_iS4_iS4_(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly %7, i32 noundef %8, ptr nocapture noundef readonly %9) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %11, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt11TNLPReducerE, i64 16), ptr %0, align 8
@@ -326,7 +326,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt11TNLPReducerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt11TNLPReducerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt11TNLPReducerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8

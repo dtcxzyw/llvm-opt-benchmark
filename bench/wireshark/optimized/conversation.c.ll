@@ -3896,7 +3896,7 @@ find_conversation_by_id.exit:                     ; preds = %17, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define void @conversation_set_conv_addr_port_endpoints(ptr nocapture noundef initializes((304, 308), (312, 320)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @conversation_set_conv_addr_port_endpoints(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noalias ptr @wmem_alloc0(ptr noundef %8, i64 noundef 64) #13
@@ -3973,7 +3973,7 @@ copy_address_wmem.exit18:                         ; preds = %35, %25, %copy_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @conversation_set_elements_by_id(ptr nocapture noundef initializes((320, 328)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @conversation_set_elements_by_id(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 408
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @wmem_alloc0(ptr noundef %5, i64 noundef 64) #13

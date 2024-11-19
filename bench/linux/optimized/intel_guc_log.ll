@@ -578,7 +578,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_log_destroy(ptr noundef initializes((64, 72)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_log_destroy(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -1472,7 +1472,7 @@ define internal range(i32 0, 2) i32 @subbuf_start_callback(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @create_buf_file_callback(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #0 align 16 {
+define internal ptr @create_buf_file_callback(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef writeonly %4) #0 align 16 {
   store i32 1, ptr %4, align 4
   %6 = icmp eq ptr %1, null
   br i1 %6, label %11, label %7

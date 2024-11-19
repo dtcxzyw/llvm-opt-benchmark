@@ -966,7 +966,7 @@ declare void @g_source_add_child_source(ptr noundef, ptr noundef) local_unnamed_
 declare void @g_source_unref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @qio_channel_tls_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly initializes((0, 4)) %timeout) #0 {
+define internal range(i32 0, 2) i32 @qio_channel_tls_source_prepare(ptr nocapture noundef readonly %source, ptr nocapture noundef writeonly %timeout) #0 {
 entry:
   store i32 -1, ptr %timeout, align 4
   %tioc.i = getelementptr inbounds i8, ptr %source, i64 96

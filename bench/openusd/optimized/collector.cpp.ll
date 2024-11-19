@@ -632,7 +632,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.anon.78, align 8
   %3 = alloca %class.anon, align 8
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
@@ -851,7 +851,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10SetEnabledEb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector21_MeasureScopeOverheadEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((56, 64)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector21_MeasureScopeOverheadEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0) local_unnamed_addr #3 align 2 {
   %2 = alloca %class.anon.78, align 8
   %3 = alloca %class.anon, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__22externallyVisibleValueE, ptr %3, align 8
@@ -3298,7 +3298,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEEclE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 1)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector14_PerThreadDataC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceThreadId", align 8
   store i8 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16

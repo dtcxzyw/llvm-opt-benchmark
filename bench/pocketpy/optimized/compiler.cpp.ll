@@ -843,7 +843,7 @@ define noundef range(i32 0, 3) i32 @_ZNK4pkpy8Compiler10name_scopeEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler19push_global_contextEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.10") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler19push_global_contextEv(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.10") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pkpy::CodeEmitContext", align 8
   %4 = alloca %"class.std::shared_ptr.10", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1630,7 +1630,7 @@ _ZNSt12__shared_ptrIN4pkpy10CodeObjectELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy8Compiler14push_f_contextENS_3StrE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.54") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy8Compiler14push_f_contextENS_3StrE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.54") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pkpy::CodeEmitContext", align 8
   %5 = alloca %"class.std::shared_ptr.10", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9)

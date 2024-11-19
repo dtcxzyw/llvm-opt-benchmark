@@ -4372,7 +4372,7 @@ define internal fastcc i32 @calc_plane_remap_info(ptr nocapture noundef readonly
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @intel_fb_fill_view(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 136)) %2) local_unnamed_addr #7 align 16 {
+define dso_local void @intel_fb_fill_view(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 align 16 {
   %4 = and i32 %1, 10
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %29

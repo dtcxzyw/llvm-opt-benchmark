@@ -147,7 +147,7 @@ define { i64, i64 } @_ZNK4LIEF5MachO11UUIDCommand4uuidEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF5MachO11UUIDCommand4uuidERKSt5arrayIhLm16EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((56, 72)) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO11UUIDCommand4uuidERKSt5arrayIhLm16EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(16) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 1 dereferenceable(16) %1, i64 16, i1 false)
   ret void

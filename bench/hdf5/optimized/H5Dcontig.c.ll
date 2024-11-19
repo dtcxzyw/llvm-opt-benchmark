@@ -324,7 +324,7 @@ define zeroext i1 @H5D__contig_is_data_cached(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__contig_io_init(ptr nocapture noundef %0, ptr noundef initializes((160, 168), (192, 200)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5D__contig_io_init(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = alloca i8, align 1
   %4 = alloca [33 x i64], align 16
   %5 = alloca i8, align 1
@@ -1094,7 +1094,7 @@ define internal range(i32 -1, 1) i32 @H5D__contig_io_term(ptr nocapture readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__contig_alloc(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__contig_alloc(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = tail call i64 @H5MF_alloc(ptr noundef %0, i32 noundef 3, i64 noundef %4) #8
@@ -1408,7 +1408,7 @@ declare i32 @H5F_shared_select_read(ptr noundef, i32 noundef, i32 noundef, ptr n
 declare i32 @H5F_shared_select_write(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5D__contig_copy(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5D__contig_copy(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca [1 x i64], align 8
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 64

@@ -77,7 +77,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core17EndpointAddressesC2ERK21grpc_resolved_addressRKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %address, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core17EndpointAddressesC2ERK21grpc_resolved_addressRKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(132) %address, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   %call5.i.i.i.i2.i.i2 = tail call noalias noundef nonnull dereferenceable(132) ptr @_Znwm(i64 noundef 132) #19
@@ -116,7 +116,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN9grpc_core11ChannelArgsC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core17EndpointAddressesC2ESt6vectorI21grpc_resolved_addressSaIS2_EERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %this, ptr nocapture noundef %addresses, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core17EndpointAddressesC2ESt6vectorI21grpc_resolved_addressSaIS2_EERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %addresses, ptr noundef nonnull align 8 dereferenceable(8) %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %addresses, align 8
   store ptr %0, ptr %this, align 8
@@ -181,7 +181,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @_ZN9grpc_core11ChannelArgsD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core17EndpointAddressesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core17EndpointAddressesC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -384,7 +384,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN9grpc_core11ChannelArgsaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core17EndpointAddressesC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #5 align 2 {
+define void @_ZN9grpc_core17EndpointAddressesC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8
@@ -407,7 +407,7 @@ entry:
 declare void @_ZN9grpc_core11ChannelArgsC1EOS0_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN9grpc_core17EndpointAddressesaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(32) initializes((8, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN9grpc_core17EndpointAddressesaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %other) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8

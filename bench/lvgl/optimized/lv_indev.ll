@@ -2007,7 +2007,7 @@ define void @lv_indev_stop_processing(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_indev_reset_long_press(ptr nocapture noundef initializes((28, 36)) %0) local_unnamed_addr #0 {
+define void @lv_indev_reset_long_press(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, -2
@@ -2101,7 +2101,7 @@ define void @lv_indev_set_button_points(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_indev_get_point(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define void @lv_indev_get_point(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -2219,7 +2219,7 @@ define ptr @lv_indev_get_scroll_obj(ptr noundef readonly %0) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @lv_indev_get_vect(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define void @lv_indev_get_vect(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   store i32 0, ptr %1, align 4, !tbaa !94
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4, !tbaa !95

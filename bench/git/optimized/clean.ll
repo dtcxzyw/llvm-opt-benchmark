@@ -1107,7 +1107,7 @@ declare ptr @string_list_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @dir_clear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @remove_dirs(ptr noundef nonnull %path, ptr noundef %prefix, i32 noundef range(i32 0, 3) %force_flag, i32 noundef %dry_run, i32 noundef %quiet, ptr nocapture noundef nonnull initializes((0, 4)) %dir_gone) unnamed_addr #0 {
+define internal fastcc i32 @remove_dirs(ptr noundef nonnull %path, ptr noundef %prefix, i32 noundef range(i32 0, 3) %force_flag, i32 noundef %dry_run, i32 noundef %quiet, ptr nocapture noundef nonnull %dir_gone) unnamed_addr #0 {
 entry:
   %quoted = alloca %struct.strbuf, align 8
   %realpath = alloca %struct.strbuf, align 8

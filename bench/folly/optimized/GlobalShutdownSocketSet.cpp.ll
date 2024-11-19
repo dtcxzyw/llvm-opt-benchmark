@@ -11413,7 +11413,7 @@ declare void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5))
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly23tryGetShutdownSocketSetEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::shared_ptr") align 8 initializes((8, 16)) %agg.result) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly23tryGetShutdownSocketSetEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %cpu.i.i.i.i.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !399)
@@ -11538,7 +11538,7 @@ _ZN5folly9SingletonINS_17ShutdownSocketSetENS_12_GLOBAL__N_110PrivateTagENS_6det
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly27tryGetShutdownSocketSetFastEv(ptr dead_on_unwind noalias writable sret(%"class.folly::ReadMostlySharedPtr") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly27tryGetShutdownSocketSetFastEv(ptr dead_on_unwind noalias writable sret(%"class.folly::ReadMostlySharedPtr") align 8 %agg.result) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !418)
   %0 = load atomic i64, ptr @_ZZN5folly6detail30StaticSingletonManagerWithRtti6createINS0_15SingletonHolderINS_17ShutdownSocketSetEE4ImplINS_12_GLOBAL__N_110PrivateTagENS0_10DefaultTagEEEvEERT_vE3arg acquire, align 8, !noalias !418

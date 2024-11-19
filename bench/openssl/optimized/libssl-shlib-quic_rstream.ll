@@ -898,7 +898,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ossl_quic_rstream_set_cleanse(ptr nocapture noundef writeonly initializes((44, 48)) %qrs, i32 noundef %cleanse) local_unnamed_addr #3 {
+define void @ossl_quic_rstream_set_cleanse(ptr nocapture noundef writeonly %qrs, i32 noundef %cleanse) local_unnamed_addr #3 {
 entry:
   %cleanse1 = getelementptr inbounds i8, ptr %qrs, i64 44
   store i32 %cleanse, ptr %cleanse1, align 4

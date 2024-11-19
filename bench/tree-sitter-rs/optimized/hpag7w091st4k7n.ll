@@ -371,7 +371,7 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN99_$LT$regex_au
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4ded3db108b123aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(168) initializes((120, 124)) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he4ded3db108b123aE"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noalias noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca [2 x { ptr, ptr }], align 8

@@ -3681,14 +3681,14 @@ declare void @net_tx_pkt_uninit(ptr noundef) local_unnamed_addr #1
 declare void @net_rx_pkt_uninit(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @e1000e_core_reset(ptr noundef initializes((131768, 131772)) %core) local_unnamed_addr #0 {
+define dso_local void @e1000e_core_reset(ptr noundef %core) local_unnamed_addr #0 {
 entry:
   tail call fastcc void @e1000e_reset(ptr noundef %core, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @e1000e_reset(ptr noundef initializes((131768, 131772)) %core, i1 noundef zeroext %sw) unnamed_addr #0 {
+define internal fastcc void @e1000e_reset(ptr noundef %core, i1 noundef zeroext %sw) unnamed_addr #0 {
 entry:
   %autoneg_timer = getelementptr inbounds i8, ptr %core, i64 131680
   %0 = load ptr, ptr %autoneg_timer, align 8
@@ -4197,7 +4197,7 @@ declare i64 @net_rx_pkt_get_l4_hdr_offset(ptr noundef) local_unnamed_addr #1
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @e1000e_build_rx_metadata(ptr nocapture noundef readonly %core, ptr noundef %pkt, i1 noundef zeroext %is_eop, ptr nocapture noundef nonnull readonly %rss_info, ptr nocapture noundef nonnull %rss, ptr nocapture noundef nonnull writeonly %mrq, ptr nocapture noundef nonnull initializes((0, 4)) %status_flags, ptr nocapture noundef nonnull writeonly %ip_id, ptr nocapture noundef nonnull writeonly %vlan_tag) unnamed_addr #0 {
+define internal fastcc void @e1000e_build_rx_metadata(ptr nocapture noundef readonly %core, ptr noundef %pkt, i1 noundef zeroext %is_eop, ptr nocapture noundef nonnull readonly %rss_info, ptr nocapture noundef nonnull %rss, ptr nocapture noundef nonnull writeonly %mrq, ptr nocapture noundef nonnull %status_flags, ptr nocapture noundef nonnull writeonly %ip_id, ptr nocapture noundef nonnull writeonly %vlan_tag) unnamed_addr #0 {
 entry:
   %_now.i.i177 = alloca %struct.timeval, align 8
   %_now.i.i163 = alloca %struct.timeval, align 8
@@ -5058,7 +5058,7 @@ declare zeroext i1 @net_rx_pkt_has_tcp_data(ptr noundef) local_unnamed_addr #1
 declare i32 @msix_enabled(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @e1000e_intrmgr_rearm_timer(ptr nocapture noundef initializes((8, 9)) %timer) unnamed_addr #0 {
+define internal fastcc void @e1000e_intrmgr_rearm_timer(ptr nocapture noundef %timer) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %core = getelementptr inbounds i8, ptr %timer, i64 24
@@ -5817,7 +5817,7 @@ return:                                           ; preds = %if.end, %if.then2, 
 declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_set_ctrl(ptr noundef initializes((0, 8)) %core, i32 noundef %index, i32 noundef %val) #0 {
+define internal void @e1000e_set_ctrl(ptr noundef %core, i32 noundef %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i36 = alloca %struct.timeval, align 8
   %_now.i.i22 = alloca %struct.timeval, align 8
@@ -6067,7 +6067,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_set_ctrlext(ptr nocapture noundef writeonly initializes((24, 28)) %core, i32 %index, i32 noundef %val) #0 {
+define internal void @e1000e_set_ctrlext(ptr nocapture noundef writeonly %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %and = and i32 %val, 4096
@@ -6411,7 +6411,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_set_vet(ptr nocapture noundef writeonly initializes((56, 60)) %core, i32 %index, i32 noundef %val) #0 {
+define internal void @e1000e_set_vet(ptr nocapture noundef writeonly %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %and = and i32 %val, 65535
@@ -6520,7 +6520,7 @@ if.end:                                           ; preds = %trace_e1000e_irq_ic
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_set_itr(ptr nocapture noundef writeonly initializes((132136, 132140)) %core, i32 noundef %index, i32 noundef %val) #0 {
+define internal void @e1000e_set_itr(ptr nocapture noundef writeonly %core, i32 noundef %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)
@@ -6869,7 +6869,7 @@ trace_e1000e_irq_eitr_set.exit:                   ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_set_rx_control(ptr nocapture noundef initializes((256, 260)) %core, i32 %index, i32 noundef %val) #0 {
+define internal void @e1000e_set_rx_control(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i.i9 = alloca %struct.timeval, align 8
   %_now.i.i.i = alloca %struct.timeval, align 8
@@ -7136,7 +7136,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @e1000e_set_eewr(ptr nocapture noundef writeonly initializes((20, 24)) %core, i32 %index, i32 noundef %val) #8 {
+define internal void @e1000e_set_eewr(ptr nocapture noundef writeonly %core, i32 %index, i32 noundef %val) #8 {
 entry:
   %shr = lshr i32 %val, 2
   %0 = and i32 %shr, 16383
@@ -7167,7 +7167,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @e1000e_set_fcrtl(ptr nocapture noundef writeonly initializes((8544, 8548)) %core, i32 %index, i32 noundef %val) #8 {
+define internal void @e1000e_set_fcrtl(ptr nocapture noundef writeonly %core, i32 %index, i32 noundef %val) #8 {
 entry:
   %and = and i32 %val, -2147418120
   %arrayidx = getelementptr i8, ptr %core, i64 8544
@@ -7176,7 +7176,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @e1000e_set_fcrth(ptr nocapture noundef writeonly initializes((8552, 8556)) %core, i32 %index, i32 noundef %val) #8 {
+define internal void @e1000e_set_fcrth(ptr nocapture noundef writeonly %core, i32 %index, i32 noundef %val) #8 {
 entry:
   %and = and i32 %val, 65528
   %arrayidx = getelementptr i8, ptr %core, i64 8552
@@ -7443,7 +7443,7 @@ if.end:                                           ; preds = %trace_e1000e_irq_rd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @e1000e_set_rxdctl(ptr nocapture noundef writeonly initializes((10280, 10284), (10536, 10540)) %core, i32 %index, i32 noundef %val) #8 {
+define internal void @e1000e_set_rxdctl(ptr nocapture noundef writeonly %core, i32 %index, i32 noundef %val) #8 {
 entry:
   %arrayidx = getelementptr i8, ptr %core, i64 10536
   store i32 %val, ptr %arrayidx, align 8
@@ -7633,7 +7633,7 @@ if.end:                                           ; preds = %trace_e1000e_irq_ti
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_set_rxcsum(ptr nocapture noundef initializes((20480, 20484)) %core, i32 %index, i32 noundef %val) #0 {
+define internal void @e1000e_set_rxcsum(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %arrayidx = getelementptr i8, ptr %core, i64 20480
   store i32 %val, ptr %arrayidx, align 8
@@ -7642,7 +7642,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_set_rfctl(ptr nocapture noundef writeonly initializes((20488, 20492)) %core, i32 %index, i32 noundef %val) #0 {
+define internal void @e1000e_set_rfctl(ptr nocapture noundef writeonly %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %_now.i.i33 = alloca %struct.timeval, align 8
   %_now.i.i19 = alloca %struct.timeval, align 8
@@ -7904,7 +7904,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_set_pbaclr(ptr nocapture noundef initializes((23400, 23404)) %core, i32 %index, i32 noundef %val) #0 {
+define internal void @e1000e_set_pbaclr(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #0 {
 entry:
   %0 = and i32 %val, 31
   %arrayidx = getelementptr i8, ptr %core, i64 23400
@@ -7968,7 +7968,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @e1000e_set_timadjh(ptr nocapture noundef initializes((46608, 46612)) %core, i32 %index, i32 noundef %val) #7 {
+define internal void @e1000e_set_timadjh(ptr nocapture noundef %core, i32 %index, i32 noundef %val) #7 {
 entry:
   %arrayidx = getelementptr i8, ptr %core, i64 46608
   store i32 %val, ptr %arrayidx, align 8
@@ -7986,7 +7986,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_set_phy_ctrl(ptr noundef initializes((131072, 131074)) %core, i32 %index, i16 noundef zeroext %val) #0 {
+define internal void @e1000e_set_phy_ctrl(ptr noundef %core, i32 %index, i16 noundef zeroext %val) #0 {
 entry:
   %and = and i16 %val, 32192
   %phy = getelementptr inbounds i8, ptr %core, i64 131072
@@ -8006,7 +8006,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @e1000e_set_phy_page(ptr nocapture noundef writeonly initializes((131116, 131118)) %core, i32 %index, i16 noundef zeroext %val) #8 {
+define internal void @e1000e_set_phy_page(ptr nocapture noundef writeonly %core, i32 %index, i16 noundef zeroext %val) #8 {
 entry:
   %0 = and i16 %val, 127
   %arrayidx2 = getelementptr i8, ptr %core, i64 131116
@@ -8015,7 +8015,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_set_phy_oem_bits(ptr noundef initializes((131122, 131124)) %core, i32 %index, i16 noundef zeroext %val) #0 {
+define internal void @e1000e_set_phy_oem_bits(ptr noundef %core, i32 %index, i16 noundef zeroext %val) #0 {
 entry:
   %and = and i16 %val, -1025
   %arrayidx2 = getelementptr i8, ptr %core, i64 131122
@@ -8322,7 +8322,7 @@ if.end4:                                          ; preds = %trace_e1000e_irq_ms
 declare void @msix_clr_pending(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_intrmgr_on_throttling_timer(ptr nocapture noundef initializes((8, 9)) %opaque) #0 {
+define internal void @e1000e_intrmgr_on_throttling_timer(ptr nocapture noundef %opaque) #0 {
 entry:
   %_now.i.i6 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8
@@ -9785,7 +9785,7 @@ declare void @timer_init_full(ptr noundef, ptr noundef, i32 noundef, i32 noundef
 declare void @e1000x_update_regs_on_autoneg_done(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @e1000e_intrmgr_on_timer(ptr nocapture noundef initializes((8, 9)) %opaque) #0 {
+define internal void @e1000e_intrmgr_on_timer(ptr nocapture noundef %opaque) #0 {
 entry:
   %_now.i.i.i = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8

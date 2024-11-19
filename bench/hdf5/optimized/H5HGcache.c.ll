@@ -46,7 +46,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5HG__cache_heap_free_icr = private unnamed_addr constant [26 x i8] c"H5HG__cache_heap_free_icr\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5HG__cache_heap_get_initial_load_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5HG__cache_heap_get_initial_load_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #0 {
   store i64 4096, ptr %1, align 8
   ret i32 0
 }
@@ -557,7 +557,7 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5HG__cache_heap_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define internal noundef i32 @H5HG__cache_heap_image_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8

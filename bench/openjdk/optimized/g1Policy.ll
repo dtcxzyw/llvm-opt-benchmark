@@ -473,7 +473,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1PolicyC2EP10STWGCTimer(ptr noundef nonnull align 8 dereferenceable(552) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1PolicyC2EP10STWGCTimer(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef %1) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8G1Policy, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr @G1ConfidencePercent, align 4
@@ -619,7 +619,7 @@ declare void @_ZN15G1YoungGenSizerC1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN8AgeTableC1Eb(ptr noundef nonnull align 8 dereferenceable(264), i1 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1PolicyD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(552) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1PolicyD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(552) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8G1Policy, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -638,7 +638,7 @@ define hidden void @_ZN8G1PolicyD2Ev(ptr nocapture noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1PolicyD0Ev(ptr noundef nonnull align 8 dereferenceable(552) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1PolicyD0Ev(ptr noundef nonnull align 8 dereferenceable(552) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV8G1Policy, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -666,7 +666,7 @@ define hidden noundef nonnull ptr @_ZNK8G1Policy15collector_stateEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1Policy4initEP15G1CollectedHeapP15G1CollectionSet(ptr noundef nonnull align 8 dereferenceable(552) initializes((232, 248)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1Policy4initEP15G1CollectedHeapP15G1CollectionSet(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 232
@@ -775,7 +775,7 @@ define hidden noundef ptr @_ZNK8G1Policy11phase_timesEv(ptr nocapture noundef no
 declare void @_ZN14G1GCPhaseTimes21record_gc_pause_startEv(ptr noundef nonnull align 8 dereferenceable(872)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1Policy20record_new_heap_sizeEj(ptr noundef nonnull align 8 dereferenceable(552) initializes((144, 148)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1Policy20record_new_heap_sizeEj(ptr noundef nonnull align 8 dereferenceable(552) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = uitofp i32 %1 to double
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load double, ptr %4, align 8
@@ -1663,7 +1663,7 @@ declare noundef i64 @_ZNK11G1Analytics39predict_dirtied_cards_in_thread_buffersE
 declare noundef i64 @_ZNK19G1DirtyCardQueueSet9num_cardsEv(ptr noundef nonnull align 8 dereferenceable(928)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1Policy28record_full_collection_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(552) initializes((96, 104), (192, 200)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1Policy28record_full_collection_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(552) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #18
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store double %2, ptr %3, align 8
@@ -1685,7 +1685,7 @@ define hidden void @_ZN8G1Policy28record_full_collection_startEv(ptr nocapture n
 declare void @_ZN15G1CollectionSet22abandon_all_candidatesEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1Policy26record_full_collection_endEv(ptr noundef nonnull align 8 dereferenceable(552) initializes((176, 180)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1Policy26record_full_collection_endEv(ptr noundef nonnull align 8 dereferenceable(552) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #18
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
@@ -2006,7 +2006,7 @@ _ZN8G1Policy29update_time_to_mixed_trackingE13G1GCPauseTypedd.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1Policy34record_concurrent_refinement_statsEmm(ptr nocapture noundef nonnull align 8 dereferenceable(552) initializes((192, 200)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1Policy34record_concurrent_refinement_statsEmm(ptr nocapture noundef nonnull align 8 dereferenceable(552) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.G1ConcurrentRefineStats, align 8
   %5 = alloca %class.G1ConcurrentRefineStats, align 8
   %6 = alloca %class.G1ConcurrentRefineStats, align 8
@@ -2363,7 +2363,7 @@ define hidden void @_ZN8G1Policy31record_concurrent_mark_init_endEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1Policy35record_concurrent_mark_remark_startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(552) initializes((264, 272)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1Policy35record_concurrent_mark_remark_startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(552) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #18
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   store double %2, ptr %3, align 8
@@ -2414,7 +2414,7 @@ _ZN8G1Policy12record_pauseE13G1GCPauseTypeddb.exit: ; preds = %1, %23
 declare void @_ZN11G1Analytics38report_concurrent_mark_remark_times_msEd(ptr noundef nonnull align 8 dereferenceable(2048), double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8G1Policy36record_concurrent_mark_cleanup_startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(552) initializes((272, 280)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN8G1Policy36record_concurrent_mark_cleanup_startEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(552) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #18
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   store double %2, ptr %3, align 8
@@ -3774,7 +3774,7 @@ define hidden void @_ZN8G1Policy22update_ihop_predictionEdb(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8G1Policy28abort_time_to_mixed_trackingEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(552) initializes((200, 201), (208, 232)) %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN8G1Policy28abort_time_to_mixed_trackingEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(552) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 224

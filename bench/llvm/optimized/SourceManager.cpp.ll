@@ -1911,7 +1911,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13SourceManagerC2ERNS_17DiagnosticsEngineERNS_11FileManagerEb(ptr noundef nonnull align 8 dereferenceable(696) initializes((0, 4), (8, 40)) %0, ptr noundef nonnull align 8 dereferenceable(1304) %1, ptr noundef nonnull align 8 dereferenceable(808) %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang13SourceManagerC2ERNS_17DiagnosticsEngineERNS_11FileManagerEb(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef nonnull align 8 dereferenceable(1304) %1, ptr noundef nonnull align 8 dereferenceable(808) %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 {
   %5 = zext i1 %3 to i8
   store i32 0, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2003,7 +2003,7 @@ define dso_local void @_ZN5clang13SourceManagerC2ERNS_17DiagnosticsEngineERNS_11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13SourceManager13clearIDTablesEv(ptr noundef nonnull align 8 dereferenceable(696) initializes((448, 452)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang13SourceManager13clearIDTablesEv(ptr noundef nonnull align 8 dereferenceable(696) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %"class.clang::SrcMgr::SLocEntry", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
@@ -5913,7 +5913,7 @@ define dso_local void @_ZN5clang13SourceManager18setFileIsTransientENS_12FileEnt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang13SourceManager26getNonBuiltinFilenameForIDENS_6FileIDE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.229") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK5clang13SourceManager26getNonBuiltinFilenameForIDENS_6FileIDE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.229") align 8 %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 0, ptr %4, align 1
@@ -6035,7 +6035,7 @@ _ZNK5clang13SourceManager19getBufferDataOrNoneENS_6FileIDE.exit: ; preds = %_ZN5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang13SourceManager19getBufferDataOrNoneENS_6FileIDE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.229") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK5clang13SourceManager19getBufferDataOrNoneENS_6FileIDE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.229") align 8 %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.std::optional.2", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
@@ -6092,7 +6092,7 @@ _ZNK5clang13SourceManager19getSLocEntryForFileENS_6FileIDE.exit.thread: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang13SourceManager21getBufferDataIfLoadedENS_6FileIDE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.229") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK5clang13SourceManager21getBufferDataIfLoadedENS_6FileIDE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.229") align 8 %0, ptr noundef nonnull align 8 dereferenceable(696) %1, i32 %2) local_unnamed_addr #1 align 2 {
   %4 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 0, ptr %4, align 1
@@ -7984,7 +7984,7 @@ _ZN4llvm11SmallVectorIjLj256EED2Ev.exit:          ; preds = %._crit_edge, %98
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6SrcMgr17LineOffsetMappingC2EN4llvm8ArrayRefIjEERNS2_20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(96) %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang6SrcMgr17LineOffsetMappingC2EN4llvm8ArrayRefIjEERNS2_20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(96) %3) unnamed_addr #1 align 2 {
   %5 = shl i64 %2, 2
   %6 = add i64 %5, 4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 80
@@ -13300,7 +13300,7 @@ define dso_local noundef i64 @_ZNK5clang13SourceManager21getDataStructureSizesEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20SourceManagerForFileC2EN4llvm9StringRefES2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang20SourceManagerForFileC2EN4llvm9StringRefES2_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.std::optional.2", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -17491,7 +17491,7 @@ _ZN4llvm13SmallDenseMapIN5clang6FileIDEZNKS1_13SourceManager26isInTheSameTransla
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_(ptr noundef nonnull align 1 dereferenceable(1) initializes((4, 8)) %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #19 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDEZNKS2_13SourceManager26isInTheSameTranslationUnitERSt4pairIS3_jES7_E5EntryLj16ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E18moveFromOldBucketsEPSD_SG_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef readonly %1, ptr noundef readnone %2) unnamed_addr #19 align 2 {
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 1
   store i32 %5, ptr %0, align 8

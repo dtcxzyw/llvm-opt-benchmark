@@ -60,7 +60,7 @@ $_ZNSt6vectorIN5clang4ento11CheckerInfoESaIS2_EED2Ev = comdat any
 @_ZN5clang4ento14CheckerManagerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang4ento14CheckerManagerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento14CheckerManagerC2ERNS_10ASTContextERNS_15AnalyzerOptionsERKNS_12PreprocessorEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSA_ISt8functionIFvRNS0_15CheckerRegistryEEEEE(ptr noundef nonnull align 8 dereferenceable(1552) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 1 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.0") align 8 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento14CheckerManagerC2ERNS_10ASTContextERNS_15AnalyzerOptionsERKNS_12PreprocessorEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENSA_ISt8functionIFvRNS0_15CheckerRegistryEEEEE(ptr noundef nonnull align 8 dereferenceable(1552) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 1 %3, ptr %4, i64 %5, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.0") align 8 %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.clang::ento::CheckerRegistry", align 8
   store ptr %1, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -737,7 +737,7 @@ declare void @_ZNK5clang4ento15CheckerRegistry17initializeManagerERNS0_14Checker
 declare void @_ZN5clang4ento14CheckerManager27finishedCheckerRegistrationEv(ptr noundef nonnull align 8 dereferenceable(1552)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento14CheckerManagerC2ERNS_15AnalyzerOptionsERKNS_11LangOptionsERNS_17DiagnosticsEngineEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(1552) initializes((0, 8)) %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 8 dereferenceable(841) %2, ptr noundef nonnull align 8 dereferenceable(1304) %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento14CheckerManagerC2ERNS_15AnalyzerOptionsERKNS_11LangOptionsERNS_17DiagnosticsEngineEN4llvm8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(1552) %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 8 dereferenceable(841) %2, ptr noundef nonnull align 8 dereferenceable(1304) %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::ento::CheckerRegistry", align 8
   %8 = alloca %"class.llvm::ArrayRef.0", align 8
   store ptr null, ptr %0, align 8

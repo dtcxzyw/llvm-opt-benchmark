@@ -306,7 +306,7 @@ define linkonce_odr void @_ZN5ZXing7ContentD2Ev(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress optsize uwtable
-define void @_ZN5ZXing6ResultC2EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) initializes((0, 54)) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ZXing6ResultC2EONS_13DecoderResultEONS_14DetectorResultENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load <2 x ptr>, ptr %1, align 8, !tbaa !56
   store <2 x ptr> %5, ptr %0, align 8, !tbaa !56
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -454,7 +454,7 @@ define void @_ZN5ZXing6ResultC2EONS_13DecoderResultEONS_14DetectorResultENS_13Ba
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress optsize uwtable
-define void @_ZN5ZXing6ResultC2EONS_13DecoderResultEONS_13QuadrilateralINS_6PointTIiEEEENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) initializes((0, 54)) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ZXing6ResultC2EONS_13DecoderResultEONS_13QuadrilateralINS_6PointTIiEEEENS_13BarcodeFormatE(ptr noundef nonnull align 8 dereferenceable(211) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.ZXing::DetectorResult", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #25
   %6 = getelementptr inbounds i8, ptr %5, i64 32
@@ -844,7 +844,7 @@ define void @_ZNK5ZXing6Result7versionB5cxx11Ev(ptr dead_on_unwind noalias nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind optsize willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(211) ptr @_ZN5ZXing6Result16setReaderOptionsERKNS_13ReaderOptionsE(ptr noundef nonnull returned writeonly align 8 dereferenceable(211) initializes((136, 148)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(211) ptr @_ZN5ZXing6Result16setReaderOptionsERKNS_13ReaderOptionsE(ptr noundef nonnull returned writeonly align 8 dereferenceable(211) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #10 align 2 {
   %3 = load i32, ptr %1, align 4
   %4 = lshr i32 %3, 24
   %5 = trunc nuw i32 %4 to i8

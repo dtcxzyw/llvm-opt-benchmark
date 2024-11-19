@@ -656,7 +656,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core16init_cache_stackEv(ptr noundef nonnull align 8 dereferenceable(144) initializes((32, 40)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core16init_cache_stackEv(ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 96)
   %m_manager.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -948,7 +948,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core11reset_cacheEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((32, 40)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core11reset_cacheEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_cache_stack = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_cache_stack, align 8
@@ -1229,7 +1229,7 @@ if.end25:                                         ; preds = %if.then21, %if.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core9end_scopeEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((120, 132)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core9end_scopeEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_cache = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_cache, align 8
@@ -1550,7 +1550,7 @@ _ZN15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE6shrinkEj.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 18), (24, 32), (40, 72), (80, 96)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %proof_gen) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %proof_gen) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %frombool = zext i1 %proof_gen to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTV13rewriter_core, i64 16), ptr %this, align 8
@@ -1852,7 +1852,7 @@ _ZN6vectorIN13rewriter_core5frameELb0EjED2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13rewriter_coreD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN13rewriter_coreD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV13rewriter_core, i64 16), ptr %this, align 8
   invoke void @_ZN13rewriter_core15del_cache_stackEv(ptr noundef nonnull align 8 dereferenceable(144) %this)
@@ -2100,7 +2100,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13rewriter_coreD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN13rewriter_coreD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
@@ -2111,7 +2111,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN13rewriter_core5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((32, 40)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN13rewriter_core5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_cache_stack.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_cache_stack.i, align 8
@@ -3159,7 +3159,7 @@ if.end40:                                         ; preds = %_ZNK10quantifier9ge
 declare noundef ptr @_ZN11ast_manager17update_quantifierEP10quantifierjPKP4exprjS5_S3_(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16var_shifter_core9main_loopEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(144) initializes((120, 128)) %this, ptr noundef %t, ptr nocapture noundef nonnull align 8 dereferenceable(16) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN16var_shifter_core9main_loopEP4exprR7obj_refIS0_11ast_managerE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %t, ptr nocapture noundef nonnull align 8 dereferenceable(16) %r) local_unnamed_addr #3 align 2 {
 entry:
   %m_root = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %t, ptr %m_root, align 8

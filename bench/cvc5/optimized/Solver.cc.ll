@@ -1700,7 +1700,7 @@ _ZN4cvc58internal7Minisat3vecINS2_INS1_3LitEEEE5clearEb.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal7Minisat6SolverE, i64 16), ptr %this, align 8
   %add_tmp = getelementptr inbounds i8, ptr %this, i64 792
@@ -2129,7 +2129,7 @@ _ZNSt10unique_ptrIN4cvc58internal4prop15SatProofManagerESt14default_deleteIS3_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal7Minisat6SolverD0Ev(ptr noundef nonnull align 8 dereferenceable(850) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal7Minisat6SolverD0Ev(ptr noundef nonnull align 8 dereferenceable(850) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(850) %this) #31
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -3970,7 +3970,7 @@ declare void @_ZN4cvc58internal4prop15SatProofManager13finalizeProofERKNS0_7Mini
 declare void @_ZN4cvc58internal4prop15SatProofManager24registerSatLitAssumptionENS0_7Minisat3LitE(ptr noundef nonnull align 8 dereferenceable(1128), i32) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4cvc58internal7Minisat6Solver9propagateENS2_15TheoryCheckTypeE(ptr noundef nonnull align 8 dereferenceable(850) initializes((96, 97), (849, 850)) %this, i32 noundef %type) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN4cvc58internal7Minisat6Solver9propagateENS2_15TheoryCheckTypeE(ptr noundef nonnull align 8 dereferenceable(850) %this, i32 noundef %type) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %recheck = getelementptr inbounds i8, ptr %this, i64 96
   store i8 0, ptr %recheck, align 8
@@ -8791,7 +8791,7 @@ return:                                           ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i8 0, 3) i8 @_ZN4cvc58internal7Minisat6Solver6searchEi(ptr noundef nonnull align 8 dereferenceable(850) initializes((96, 97), (849, 850)) %this, i32 noundef %nof_conflicts) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden range(i8 0, 3) i8 @_ZN4cvc58internal7Minisat6Solver6searchEi(ptr noundef nonnull align 8 dereferenceable(850) %this, i32 noundef %nof_conflicts) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp121.i466 = alloca %"class.cvc5::internal::prop::SatLiteral", align 8
   %ref.tmp121.i52 = alloca %"class.cvc5::internal::prop::SatLiteral", align 8
@@ -12096,7 +12096,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare void @_ZN4cvc58internal4prop15SatProofManager8getProofEv(ptr sret(%"class.std::shared_ptr.410") align 8, ptr noundef nonnull align 8 dereferenceable(1128)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal7Minisat6Solver19getMiniSatOrderHeapEv(ptr noalias sret(%"class.std::vector.413") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(850) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal7Minisat6Solver19getMiniSatOrderHeapEv(ptr noalias sret(%"class.std::vector.413") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(850) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %n = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate.405", align 8

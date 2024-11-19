@@ -18,7 +18,7 @@ define void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8745ab434a9977d6E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h8745ab434a9977d6E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %0, align 8

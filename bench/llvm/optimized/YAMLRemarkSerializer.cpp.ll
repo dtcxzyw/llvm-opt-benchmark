@@ -189,7 +189,7 @@ $_ZTVN4llvm7remarks16RemarkSerializerE = comdat any
 @_ZN4llvm7remarks20YAMLRemarkSerializerC1ENS0_6FormatERNS_11raw_ostreamENS0_14SerializerModeESt8optionalINS0_11StringTableEE = unnamed_addr alias void (ptr, i32, ptr, i32, ptr), ptr @_ZN4llvm7remarks20YAMLRemarkSerializerC2ENS0_6FormatERNS_11raw_ostreamENS0_14SerializerModeESt8optionalINS0_11StringTableEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks20YAMLRemarkSerializerC2ERNS_11raw_ostreamENS0_14SerializerModeESt8optionalINS0_11StringTableEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 12), (16, 28), (160, 161)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks20YAMLRemarkSerializerC2ERNS_11raw_ostreamENS0_14SerializerModeESt8optionalINS0_11StringTableEE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::optional", align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -247,7 +247,7 @@ _ZNSt8optionalIN4llvm7remarks11StringTableEED2Ev.exit: ; preds = %_ZNSt8optional
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks20YAMLRemarkSerializerC2ENS0_6FormatERNS_11raw_ostreamENS0_14SerializerModeESt8optionalINS0_11StringTableEE(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 12), (16, 28), (160, 161)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks20YAMLRemarkSerializerC2ENS0_6FormatERNS_11raw_ostreamENS0_14SerializerModeESt8optionalINS0_11StringTableEE(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -349,7 +349,7 @@ _ZN4llvm4yamllsIPNS_7remarks6RemarkEEENSt9enable_ifIXsr17has_MappingTraitsIT_NS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks20YAMLRemarkSerializer14metaSerializerERNS_11raw_ostreamESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef readonly byval(%"class.std::optional.37") align 8 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks20YAMLRemarkSerializer14metaSerializerERNS_11raw_ostreamESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef readonly byval(%"class.std::optional.37") align 8 %3) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN4llvm7remarks18YAMLMetaSerializerESt14default_deleteIS2_EED2Ev.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14, !noalias !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -435,7 +435,7 @@ _ZN4llvm7remarks20YAMLRemarkSerializer4emitERKNS0_6RemarkE.exit: ; preds = %28, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks26YAMLStrTabRemarkSerializer14metaSerializerERNS_11raw_ostreamESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(297) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef readonly byval(%"class.std::optional.37") align 8 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks26YAMLStrTabRemarkSerializer14metaSerializerERNS_11raw_ostreamESt8optionalINS_9StringRefEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(297) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef readonly byval(%"class.std::optional.37") align 8 %3) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN4llvm7remarks24YAMLStrTabMetaSerializerESt14default_deleteIS2_EED2Ev.exit:
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #14, !noalias !7

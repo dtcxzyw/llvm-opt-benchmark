@@ -439,7 +439,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN43grpc_service_account_jwt_access_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN43grpc_service_account_jwt_access_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV43grpc_service_account_jwt_access_credentials, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds i8, ptr %this, i64 120
@@ -1470,7 +1470,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataINSt7__cxx1112basic_strin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN43grpc_service_account_jwt_access_credentialsC2E18grpc_auth_json_key12gpr_timespec(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 20), (112, 113), (120, 160)) %this, ptr nocapture noundef readonly byval(%struct.grpc_auth_json_key) align 8 %key, i64 %token_lifetime.coerce0, i64 %token_lifetime.coerce1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN43grpc_service_account_jwt_access_credentialsC2E18grpc_auth_json_key12gpr_timespec(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef readonly byval(%struct.grpc_auth_json_key) align 8 %key, i64 %token_lifetime.coerce0, i64 %token_lifetime.coerce1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8

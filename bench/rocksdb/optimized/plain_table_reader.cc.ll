@@ -503,7 +503,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16PlainTableReaderC2ERKNS_16ImmutableOptionsEOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS5_EERKNS_10EnvOptionsERKNS_21InternalKeyComparatorENS_12EncodingTypeEmPKNS_15TablePropertiesEPKNS_14SliceTransformE(ptr noundef nonnull align 16 dereferenceable(2536) initializes((0, 25), (32, 38), (40, 60), (64, 81), (84, 92), (96, 105)) %this, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr nocapture noundef nonnull align 8 dereferenceable(8) %file, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %storage_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %icomparator, i8 noundef signext %encoding_type, i64 noundef %file_size, ptr nocapture noundef readonly %table_properties, ptr noundef %prefix_extractor) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16PlainTableReaderC2ERKNS_16ImmutableOptionsEOSt10unique_ptrINS_22RandomAccessFileReaderESt14default_deleteIS5_EERKNS_10EnvOptionsERKNS_21InternalKeyComparatorENS_12EncodingTypeEmPKNS_15TablePropertiesEPKNS_14SliceTransformE(ptr noundef nonnull align 16 dereferenceable(2536) %this, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr nocapture noundef nonnull align 8 dereferenceable(8) %file, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %storage_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %icomparator, i8 noundef signext %encoding_type, i64 noundef %file_size, ptr nocapture noundef readonly %table_properties, ptr noundef %prefix_extractor) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16PlainTableReaderE, i64 16), ptr %this, align 16
   %internal_comparator_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -627,7 +627,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb16PlainTableReaderD2Ev(ptr noundef nonnull align 16 dereferenceable(2536) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16PlainTableReaderD2Ev(ptr noundef nonnull align 16 dereferenceable(2536) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb16PlainTableReaderE, i64 16), ptr %this, align 16
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 2528
@@ -4572,7 +4572,7 @@ _ZNSt10unique_ptrIA_cN7rocksdb13CustomDeleterEED2Ev.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb16PlainTableReader9GetOffsetEPNS_20PlainTableKeyDecoderERKNS_5SliceES5_jRbPj(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(2536) %this, ptr noundef %decoder, ptr noundef nonnull align 8 dereferenceable(16) %target, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %prefix, i32 noundef %prefix_hash, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %prefix_matched, ptr nocapture noundef writeonly %offset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb16PlainTableReader9GetOffsetEPNS_20PlainTableKeyDecoderERKNS_5SliceES5_jRbPj(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(2536) %this, ptr noundef %decoder, ptr noundef nonnull align 8 dereferenceable(16) %target, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %prefix, i32 noundef %prefix_hash, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %prefix_matched, ptr nocapture noundef writeonly %offset) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prefix_index_offset = alloca i32, align 4
   %upper_bound = alloca i32, align 4
@@ -6109,7 +6109,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb18PlainTableIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18PlainTableIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18PlainTableIteratorE, i64 16), ptr %this, align 8
   %state_.i = getelementptr inbounds i8, ptr %this, i64 272
@@ -6224,7 +6224,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18PlainTableIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(280) initializes((224, 228), (264, 270)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18PlainTableIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status_ = getelementptr inbounds i8, ptr %this, i64 264
   %state_16.i = getelementptr inbounds i8, ptr %this, i64 272
@@ -7031,7 +7031,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6Statusa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18PlainTableIterator4NextEv(ptr noundef nonnull align 8 dereferenceable(280) initializes((220, 224)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18PlainTableIterator4NextEv(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parsed_key = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   %ref.tmp = alloca %"class.rocksdb::Status", align 8

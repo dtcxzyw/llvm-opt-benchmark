@@ -532,7 +532,7 @@ define internal i64 @H5FD_stdio_get_eoa(ptr nocapture noundef readonly %0, i32 %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5FD_stdio_set_eoa(ptr nocapture noundef writeonly initializes((96, 104)) %0, i32 %1, i64 noundef %2) #0 {
+define internal noundef i32 @H5FD_stdio_set_eoa(ptr nocapture noundef writeonly %0, i32 %1, i64 noundef %2) #0 {
   %4 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   store i64 %2, ptr %5, align 8
@@ -548,7 +548,7 @@ define internal i64 @H5FD_stdio_get_eof(ptr nocapture noundef readonly %0, i32 %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5FD_stdio_get_handle(ptr noundef %0, i64 %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define internal noundef i32 @H5FD_stdio_get_handle(ptr noundef %0, i64 %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %5, ptr %2, align 8

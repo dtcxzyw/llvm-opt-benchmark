@@ -84,7 +84,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Star
 @_ZN5clang4ento12StoreManager15BindingsHandlerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang4ento12StoreManager15BindingsHandlerD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang4ento12StoreManagerC2ERNS0_19ProgramStateManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento12StoreManagerC2ERNS0_19ProgramStateManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN5clang4ento12StoreManagerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 240
@@ -104,7 +104,7 @@ define dso_local void @_ZN5clang4ento12StoreManagerC2ERNS0_19ProgramStateManager
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento12StoreManager15enterStackFrameEPKvRKNS0_9CallEventEPKNS_17StackFrameContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang4ento12StoreManager15enterStackFrameEPKvRKNS0_9CallEventEPKNS_17StackFrameContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::StoreRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::SmallVector.425", align 8
   %7 = alloca %"class.clang::ento::StoreRef", align 8
   store ptr %2, ptr %0, align 8

@@ -430,7 +430,7 @@ define hidden noundef zeroext i1 @_ZNK16VM_G1CollectFull14skip_operationEv(ptr n
 declare noundef zeroext i1 @_ZNK15VM_GC_Operation14skip_operationEv(ptr noundef nonnull align 8 dereferenceable(33)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16VM_G1CollectFull4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(34) initializes((33, 34)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16VM_G1CollectFull4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(34) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
@@ -448,7 +448,7 @@ define hidden void @_ZN16VM_G1CollectFull4doitEv(ptr nocapture noundef nonnull a
 declare noundef zeroext i1 @_ZN15G1CollectedHeap18do_full_collectionEbb(ptr noundef nonnull align 8 dereferenceable(1488), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24VM_G1TryInitiateConcMarkC2EjN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(38) initializes((0, 26), (28, 38)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN24VM_G1TryInitiateConcMarkC2EjN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(38) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -486,7 +486,7 @@ define hidden noundef zeroext i1 @_ZN24VM_G1TryInitiateConcMark13doit_prologueEv
 declare noundef zeroext i1 @_ZN15VM_GC_Operation13doit_prologueEv(ptr noundef nonnull align 8 dereferenceable(33)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24VM_G1TryInitiateConcMark4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(38) initializes((36, 37)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24VM_G1TryInitiateConcMark4doitEv(ptr nocapture noundef nonnull align 8 dereferenceable(38) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
@@ -563,7 +563,7 @@ define hidden void @_ZN25VM_G1CollectForAllocationC2EmjN7GCCause5CauseE(ptr noun
 declare void @_ZN23VM_CollectForAllocationC2EmjN7GCCause5CauseE(ptr noundef nonnull align 8 dereferenceable(56), i64 noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25VM_G1CollectForAllocation4doitEv(ptr noundef nonnull align 8 dereferenceable(57) initializes((56, 57)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25VM_G1CollectForAllocation4doitEv(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4

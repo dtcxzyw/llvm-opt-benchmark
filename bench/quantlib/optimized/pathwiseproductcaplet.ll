@@ -135,7 +135,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30MarketModelPathwiseMultiCapletC2ERKSt6vectorIdSaIdEES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %accruals, ptr noundef nonnull align 8 dereferenceable(24) %paymentTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strikes) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30MarketModelPathwiseMultiCapletC2ERKSt6vectorIdSaIdEES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %accruals, ptr noundef nonnull align 8 dereferenceable(24) %paymentTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strikes) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %evolTimes = alloca %"class.std::vector", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -2210,7 +2210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib30MarketModelPathwiseMultiCaplet21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib30MarketModelPathwiseMultiCaplet21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %paymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -2270,7 +2270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib30MarketModelPathwiseMultiCaplet5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((112, 120)) %this) unnamed_addr #12 align 2 {
+define void @_ZN8QuantLib30MarketModelPathwiseMultiCaplet5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %this) unnamed_addr #12 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 0, ptr %currentIndex_, align 8, !tbaa !46
@@ -2284,7 +2284,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib38MarketModelPathwiseMultiDeflatedCapletC2ERKSt6vectorIdSaIdEES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %accruals, ptr noundef nonnull align 8 dereferenceable(24) %paymentTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strikes) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib38MarketModelPathwiseMultiDeflatedCapletC2ERKSt6vectorIdSaIdEES5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %accruals, ptr noundef nonnull align 8 dereferenceable(24) %paymentTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %strikes) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %evolTimes = alloca %"class.std::vector", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -3529,7 +3529,7 @@ unreachable:                                      ; preds = %invoke.cont159, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib38MarketModelPathwiseMultiDeflatedCapletC2ERKSt6vectorIdSaIdEES5_S5_d(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %accruals, ptr noundef nonnull align 8 dereferenceable(24) %paymentTimes, double noundef %strike) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib38MarketModelPathwiseMultiDeflatedCapletC2ERKSt6vectorIdSaIdEES5_S5_d(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %accruals, ptr noundef nonnull align 8 dereferenceable(24) %paymentTimes, double noundef %strike) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %evolTimes = alloca %"class.std::vector", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -5123,7 +5123,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib38MarketModelPathwiseMultiDeflatedCaplet21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib38MarketModelPathwiseMultiDeflatedCaplet21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %paymentTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -5183,7 +5183,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib38MarketModelPathwiseMultiDeflatedCaplet5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((112, 120)) %this) unnamed_addr #12 align 2 {
+define void @_ZN8QuantLib38MarketModelPathwiseMultiDeflatedCaplet5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %this) unnamed_addr #12 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   store i64 0, ptr %currentIndex_, align 8, !tbaa !60
@@ -5191,7 +5191,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib35MarketModelPathwiseMultiDeflatedCapC2ERKSt6vectorIdSaIdEES5_S5_dS1_ISt4pairImmESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr noundef nonnull align 8 dereferenceable(24) %accruals, ptr noundef nonnull align 8 dereferenceable(24) %paymentTimes, double noundef %strike, ptr nocapture noundef %startsAndEnds) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib35MarketModelPathwiseMultiDeflatedCapC2ERKSt6vectorIdSaIdEES5_S5_dS1_ISt4pairImmESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(344) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr noundef nonnull align 8 dereferenceable(24) %accruals, ptr noundef nonnull align 8 dereferenceable(24) %paymentTimes, double noundef %strike, ptr nocapture noundef %startsAndEnds) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6196,7 +6196,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib35MarketModelPathwiseMultiDeflatedCap21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(344) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib35MarketModelPathwiseMultiDeflatedCap21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(344) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   %paymentTimes_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
@@ -6269,7 +6269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib35MarketModelPathwiseMultiDeflatedCap5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(344) initializes((120, 128), (288, 296)) %this) unnamed_addr #12 align 2 {
+define void @_ZN8QuantLib35MarketModelPathwiseMultiDeflatedCap5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(344) %this) unnamed_addr #12 align 2 {
 entry:
   %currentIndex_.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store i64 0, ptr %currentIndex_.i, align 8, !tbaa !60

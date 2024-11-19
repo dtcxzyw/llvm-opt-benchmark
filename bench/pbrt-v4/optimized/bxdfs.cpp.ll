@@ -10822,7 +10822,7 @@ _ZN4pbrt12StringPrintfIJRKNS_27TrowbridgeReitzDistributionERKNS_15SampledSpectru
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt8HairBxDFC2EffRKNS_15SampledSpectrumEfff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(76) initializes((0, 32)) %this, float noundef %h, float noundef %eta, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %sigma_a, float noundef %beta_m, float noundef %beta_n, float noundef %alpha) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4pbrt8HairBxDFC2EffRKNS_15SampledSpectrumEfff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(76) %this, float noundef %h, float noundef %eta, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %sigma_a, float noundef %beta_m, float noundef %beta_n, float noundef %alpha) unnamed_addr #2 align 2 {
 entry:
   store float %h, ptr %this, align 4
   %eta3 = getelementptr inbounds i8, ptr %this, i64 4

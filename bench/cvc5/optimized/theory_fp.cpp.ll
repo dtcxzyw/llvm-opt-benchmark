@@ -1232,7 +1232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2fp8TheoryFp19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(10432) %this, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %esi) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2fp8TheoryFp19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(10432) %this, ptr noundef nonnull align 8 dereferenceable(45) %esi) unnamed_addr #3 align 2 {
 entry:
   %d_notify = getelementptr inbounds i8, ptr %this, i64 10248
   store ptr %d_notify, ptr %esi, align 8

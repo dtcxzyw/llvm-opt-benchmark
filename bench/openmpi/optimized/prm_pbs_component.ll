@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [13 x i8] c"COBALT_JOBID\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define internal range(i32 -1366, 1) i32 @component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal range(i32 -1366, 1) i32 @component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @pmix_globals, i64 328), align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 136
   %5 = load i32, ptr %4, align 8

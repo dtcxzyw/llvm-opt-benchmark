@@ -3163,7 +3163,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb13GetColumnInfoERNS_9DataChunkEm(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.25") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %args, i64 noundef %row_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb13GetColumnInfoERNS_9DataChunkEm(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.25") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %args, i64 noundef %row_count) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_finish.i.i = getelementptr inbounds i8, ptr %args, i64 8
@@ -3452,7 +3452,7 @@ _ZNSt12_Vector_baseIN6duckdb16LambdaColumnInfoESaIS1_EED2Ev.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb23GetInconstantColumnInfoERNS_6vectorINS_16LambdaColumnInfoELb1EEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.duckdb::vector.52") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb23GetInconstantColumnInfoERNS_6vectorINS_16LambdaColumnInfoELb1EEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.duckdb::vector.52") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %data, align 8, !tbaa !10
@@ -3641,7 +3641,7 @@ if.end:                                           ; preds = %_ZNSt6vectorISt17re
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17ExecuteExpressionEmRKNS_16LambdaColumnInfoERKNS_6vectorIS0_Lb1EEERKNS_6VectorERNS_17LambdaExecuteInfoE(i64 noundef %elem_cnt, ptr noundef nonnull align 8 dereferenceable(104) %column_info, ptr noundef nonnull align 8 dereferenceable(24) %column_infos, ptr noundef nonnull align 8 dereferenceable(104) %index_vector, ptr noundef nonnull align 8 dereferenceable(137) initializes((32, 40), (96, 104)) %info) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb17ExecuteExpressionEmRKNS_16LambdaColumnInfoERKNS_6vectorIS0_Lb1EEERKNS_6VectorERNS_17LambdaExecuteInfoE(i64 noundef %elem_cnt, ptr noundef nonnull align 8 dereferenceable(104) %column_info, ptr noundef nonnull align 8 dereferenceable(24) %column_infos, ptr noundef nonnull align 8 dereferenceable(104) %index_vector, ptr noundef nonnull align 8 dereferenceable(137) %info) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %elem_cnt.addr = alloca i64, align 8
   %slice = alloca %"class.duckdb::Vector", align 8

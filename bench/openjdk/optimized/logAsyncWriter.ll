@@ -988,7 +988,7 @@ _ZN14AsyncLogWriter6Buffer16push_flush_tokenEv.exit: ; preds = %2, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14AsyncLogWriter13BufferUpdaterC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN14AsyncLogWriter13BufferUpdaterC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr @_ZN14AsyncLogWriter9_instanceE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 928
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #16

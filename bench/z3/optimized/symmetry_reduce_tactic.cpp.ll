@@ -4282,7 +4282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN22symmetry_reduce_tacticC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22symmetry_reduce_tacticC2ER11ast_manager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ref_count.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_ref_count.i, align 8
@@ -4336,7 +4336,7 @@ invoke.cont2:                                     ; preds = %_Z7deallocI13expr_r
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22symmetry_reduce_tacticD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22symmetry_reduce_tacticD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV22symmetry_reduce_tactic, i64 16), ptr %this, align 8
   %m_imp = getelementptr inbounds i8, ptr %this, i64 16
@@ -4394,7 +4394,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22symmetry_reduce_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN22symmetry_reduce_tacticD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV22symmetry_reduce_tactic, i64 16), ptr %this, align 8
   %m_imp.i = getelementptr inbounds i8, ptr %this, i64 16

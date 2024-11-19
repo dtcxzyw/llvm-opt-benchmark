@@ -2731,7 +2731,7 @@ define noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr4qsub21CountNonUniformFacetsEiPKii
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation18initializeDefaultsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation18initializeDefaultsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) local_unnamed_addr #6 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 4, ptr %2, align 4
@@ -2798,7 +2798,7 @@ define noundef zeroext i1 @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation17validateArg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation10initializeERKNS1_16ParameterizationEiPKiRKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(4) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %4) local_unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation10initializeERKNS1_16ParameterizationEiPKiRKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(4) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %4) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 4, ptr %6, align 4
@@ -2992,7 +2992,7 @@ _ZN10OpenSubdiv6v3_6_03Bfr12Tessellation17validateArgumentsERKNS1_16Parameteriza
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation15initializeRatesEiPKi(ptr noundef nonnull align 8 dereferenceable(64) initializes((16, 20)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define noundef i32 @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation15initializeRatesEiPKi(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -3219,7 +3219,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation31initializeInventoryForParamQuadEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((24, 28)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation31initializeInventoryForParamQuadEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -3340,7 +3340,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation31initializeInventoryForPar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation30initializeInventoryForParamTriEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((20, 32)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation30initializeInventoryForParamTriEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3417,7 +3417,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation30initializeInventoryForPar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation32initializeInventoryForParamQPolyEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((20, 32)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr12Tessellation32initializeInventoryForParamQPolyEi(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
@@ -3606,7 +3606,7 @@ define noundef i32 @_ZNK10OpenSubdiv6v3_6_03Bfr12Tessellation8GetRatesEPi(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr12TessellationC2ERKNS1_16ParameterizationEiRKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(4) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %3) unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr12TessellationC2ERKNS1_16ParameterizationEiRKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(4) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
   store i8 0, ptr %0, align 8
@@ -3619,7 +3619,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Bfr12TessellationC2ERKNS1_16Parameterization
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10OpenSubdiv6v3_6_03Bfr12TessellationC2ERKNS1_16ParameterizationEiPKiRKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(4) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %4) unnamed_addr #0 align 2 {
+define void @_ZN10OpenSubdiv6v3_6_03Bfr12TessellationC2ERKNS1_16ParameterizationEiPKiRKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 2 dereferenceable(4) %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %4) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %6, align 1

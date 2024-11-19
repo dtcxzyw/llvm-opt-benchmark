@@ -1201,7 +1201,7 @@ if.end73:                                         ; preds = %if.end73.sink.split
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16Database_SQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 17)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %dbname) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16Database_SQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %dbname) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i3 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -3762,7 +3762,7 @@ declare i32 @sqlite3_exec(ptr noundef, ptr noundef, ptr noundef, ptr noundef, pt
 declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN16Database_SQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16Database_SQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16Database_SQLite3, i64 16), ptr %this, align 8, !tbaa !29
   %m_stmt_begin = getelementptr inbounds i8, ptr %this, i64 88
@@ -4213,7 +4213,7 @@ entry:
 declare void @llvm.trap() #14
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18MapDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 17)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18MapDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
@@ -4277,7 +4277,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN18MapDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18MapDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18MapDatabaseSQLite3, i64 16), ptr %this, align 8, !tbaa !29
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 120
@@ -4793,7 +4793,7 @@ terminate.lpad:                                   ; preds = %call1.i.noexc272, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N18MapDatabaseSQLite3D1Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N18MapDatabaseSQLite3D1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN18MapDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #30
@@ -4801,7 +4801,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18MapDatabaseSQLite3D0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8), (120, 128)) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN18MapDatabaseSQLite3D0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN18MapDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -4812,7 +4812,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N18MapDatabaseSQLite3D0Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N18MapDatabaseSQLite3D0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN18MapDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #30
@@ -6430,7 +6430,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21PlayerDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 17)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21PlayerDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
@@ -6491,7 +6491,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN21PlayerDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21PlayerDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV21PlayerDatabaseSQLite3, i64 16), ptr %this, align 8, !tbaa !29
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 120
@@ -8237,7 +8237,7 @@ terminate.lpad:                                   ; preds = %call1.i.noexc1084, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N21PlayerDatabaseSQLite3D1Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N21PlayerDatabaseSQLite3D1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN21PlayerDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #30
@@ -8245,7 +8245,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN21PlayerDatabaseSQLite3D0Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8), (120, 128)) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN21PlayerDatabaseSQLite3D0Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN21PlayerDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(240) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -8253,7 +8253,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N21PlayerDatabaseSQLite3D0Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N21PlayerDatabaseSQLite3D0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN21PlayerDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) #30
@@ -12871,7 +12871,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19AuthDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 17)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19AuthDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
@@ -12932,7 +12932,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN19AuthDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19AuthDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV19AuthDatabaseSQLite3, i64 16), ptr %this, align 8, !tbaa !29
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 120
@@ -14063,7 +14063,7 @@ terminate.lpad:                                   ; preds = %call1.i.noexc678, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N19AuthDatabaseSQLite3D1Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N19AuthDatabaseSQLite3D1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19AuthDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #30
@@ -14071,7 +14071,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN19AuthDatabaseSQLite3D0Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8), (120, 128)) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN19AuthDatabaseSQLite3D0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN19AuthDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -14079,7 +14079,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N19AuthDatabaseSQLite3D0Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N19AuthDatabaseSQLite3D0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN19AuthDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) #30
@@ -15861,7 +15861,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN19AuthDatabaseSQLite310createAuthER9AuthEntry(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %authEntry) unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN19AuthDatabaseSQLite310createAuthER9AuthEntry(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(104) %authEntry) unnamed_addr #4 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !29
   %0 = load ptr, ptr %vtable, align 8
@@ -15914,7 +15914,7 @@ entry:
 }
 
 ; Function Attrs: uwtable
-define dso_local noundef zeroext i1 @_ZThn120_N19AuthDatabaseSQLite310createAuthER9AuthEntry(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %authEntry) unnamed_addr #17 align 2 {
+define dso_local noundef zeroext i1 @_ZThn120_N19AuthDatabaseSQLite310createAuthER9AuthEntry(ptr noundef %this, ptr noundef nonnull align 8 dereferenceable(104) %authEntry) unnamed_addr #17 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   %call = tail call noundef zeroext i1 @_ZN19AuthDatabaseSQLite310createAuthER9AuthEntry(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(104) %authEntry)
@@ -16086,7 +16086,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25ModStorageDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 17)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25ModStorageDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %savedir) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #30
@@ -16147,7 +16147,7 @@ ehcleanup:                                        ; preds = %if.then.i.i12, %_ZN
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN25ModStorageDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8), (120, 128)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25ModStorageDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV25ModStorageDatabaseSQLite3, i64 16), ptr %this, align 8, !tbaa !29
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 120
@@ -17032,7 +17032,7 @@ terminate.lpad:                                   ; preds = %call1.i.noexc516, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N25ModStorageDatabaseSQLite3D1Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N25ModStorageDatabaseSQLite3D1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN25ModStorageDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #30
@@ -17040,7 +17040,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN25ModStorageDatabaseSQLite3D0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8), (120, 128)) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN25ModStorageDatabaseSQLite3D0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN25ModStorageDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -17048,7 +17048,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn120_N25ModStorageDatabaseSQLite3D0Ev(ptr noundef initializes((-120, -112), (0, 8)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZThn120_N25ModStorageDatabaseSQLite3D0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   tail call void @_ZN25ModStorageDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #30

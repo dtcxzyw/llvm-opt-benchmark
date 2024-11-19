@@ -2143,7 +2143,7 @@ gv_calloc.exit:                                   ; preds = %.thread, %22
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef ptr @SparseMatrix_alloc(ptr noundef returned initializes((40, 48)) %0, i32 noundef range(i32 1, -2147483648) %1) unnamed_addr #3 {
+define internal fastcc noundef ptr @SparseMatrix_alloc(ptr noundef returned %0, i32 noundef range(i32 1, -2147483648) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = zext nneg i32 %1 to i64

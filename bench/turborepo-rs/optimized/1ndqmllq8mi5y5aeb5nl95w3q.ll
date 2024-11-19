@@ -286,7 +286,7 @@ _RNvXsp_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_21CharPredicateSearcherNCNvMB7_
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_RNvXs7_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_18MultiCharEqPatternNCNvMB7_e4trim0ENtB5_7Pattern13into_searcherCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNvXs7_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_18MultiCharEqPatternNCNvMB7_e4trim0ENtB5_7Pattern13into_searcherCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -301,7 +301,7 @@ define hidden void @_RNvXs7_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_18MultiChar
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_RNvXs8_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_8Searcher4nextCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #2 {
+define hidden void @_RNvXs8_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_8Searcher4nextCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !nonnull !15, !noundef !15
@@ -449,7 +449,7 @@ _RNvXs3_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_11MultiCharEq7mat
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_RNvXs9_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_15ReverseSearcher9next_backCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #2 {
+define hidden void @_RNvXs9_NtNtCs1LoaDTb72WA_4core3str7patternINtB5_19MultiCharEqSearcherNCNvMB7_e4trim0ENtB5_15ReverseSearcher9next_backCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !nonnull !15, !noundef !15
@@ -779,7 +779,7 @@ _RNvYINtNtNtCs1LoaDTb72WA_4core3str7pattern19MultiCharEqSearcherNCNvMB7_e4trim0E
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_RNvXsr_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_7Pattern13into_searcherCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_RNvXsr_NtNtCs1LoaDTb72WA_4core3str7patternNCNvMB7_e4trim0NtB5_7Pattern13into_searcherCslOtZNRIhnDi_7pidlock.llvm.14410696560546022678(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8

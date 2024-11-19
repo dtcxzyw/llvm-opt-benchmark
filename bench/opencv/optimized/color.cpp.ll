@@ -270,7 +270,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN2cv3ccm5ColorESaIvELN9__gnu_cxx12_Lock_policyE
 @_ZN2cv3ccm5ColorC1ENS_3MatERKNS0_10ColorSpaceE = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN2cv3ccm5ColorC2ENS_3MatERKNS0_10ColorSpaceE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3ccm5ColorC2Ev(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3ccm5ColorC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm5ColorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #15
@@ -479,7 +479,7 @@ _ZNSt12__shared_ptrIN2cv3ccm10ColorSpaceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3ccm5ColorC2ENS_3MatENS0_11COLOR_SPACEE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3ccm5ColorC2ENS_3MatENS0_11COLOR_SPACEE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr", align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm5ColorE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -599,7 +599,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN2cv3ccm5GetCS11getIn
 declare void @_ZN2cv3ccm5GetCS6get_csENS0_11COLOR_SPACEE(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(48), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3ccm5ColorC2ENS_3MatERKNS0_10ColorSpaceES2_(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3ccm5ColorC2ENS_3MatERKNS0_10ColorSpaceES2_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(200) %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::MatExpr", align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm5ColorE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -705,7 +705,7 @@ _ZNSt8_Rb_treeIN2cv3ccm10ColorSpaceESt4pairIKS2_St10shared_ptrINS1_5ColorEEESt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3ccm5ColorC2ENS_3MatENS0_11COLOR_SPACEES2_(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3ccm5ColorC2ENS_3MatENS0_11COLOR_SPACEES2_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
   %6 = alloca %"class.cv::MatExpr", align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm5ColorE, i64 16), ptr %0, align 8
@@ -873,7 +873,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %58
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3ccm5ColorC2ENS_3MatERKNS0_10ColorSpaceE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(200) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3ccm5ColorC2ENS_3MatERKNS0_10ColorSpaceE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(200) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm5ColorE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 8 dereferenceable(96) %1)
@@ -3449,7 +3449,7 @@ declare void @_ZN2cv11mixChannelsEPKNS_3MatEmPS0_mPKim(ptr noundef, i64 noundef,
 declare void @_ZN2cvltERKNS_3MatEd(ptr dead_on_unwind writable sret(%"class.cv::MatExpr") align 8, ptr noundef nonnull align 8 dereferenceable(96), double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3ccm5ColorixENS_3MatE(ptr dead_on_unwind noalias writable sret(%"class.cv::ccm::Color") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3ccm5ColorixENS_3MatE(ptr dead_on_unwind noalias writable sret(%"class.cv::ccm::Color") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Mat", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   call void @_ZN2cv3ccm10maskCopyToERKNS_3MatES3_(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %4, ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %2)

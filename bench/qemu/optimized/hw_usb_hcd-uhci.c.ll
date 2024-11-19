@@ -292,7 +292,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @uhci_frame_timer(ptr noundef initializes((3120, 3121)) %opaque) #0 {
+define internal void @uhci_frame_timer(ptr noundef %opaque) #0 {
 entry:
   %_now.i.i.i99 = alloca %struct.timeval, align 8
   %_now.i.i.i80 = alloca %struct.timeval, align 8

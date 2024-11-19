@@ -627,7 +627,7 @@ define dso_local void @dma_resv_replace_fences(ptr noundef %0, i64 noundef %1, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @dma_resv_iter_first_unlocked(ptr nocapture noundef initializes((28, 45)) %0) #0 align 16 {
+define dso_local ptr @dma_resv_iter_first_unlocked(ptr nocapture noundef %0) #0 align 16 {
   tail call void @__rcu_read_lock() #9
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -829,7 +829,7 @@ define internal fastcc void @dma_resv_iter_walk_unlocked(ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @dma_resv_iter_next_unlocked(ptr nocapture noundef initializes((44, 45)) %0) #0 align 16 {
+define dso_local ptr @dma_resv_iter_next_unlocked(ptr nocapture noundef %0) #0 align 16 {
   tail call void @__rcu_read_lock() #9
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   store i8 0, ptr %2, align 4
@@ -880,7 +880,7 @@ define dso_local ptr @dma_resv_iter_next_unlocked(ptr nocapture noundef initiali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @dma_resv_iter_first(ptr nocapture noundef initializes((28, 40), (44, 45)) %0) #3 align 16 {
+define dso_local ptr @dma_resv_iter_first(ptr nocapture noundef %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %2, align 4
   %3 = load ptr, ptr %0, align 8
@@ -929,7 +929,7 @@ define dso_local ptr @dma_resv_iter_first(ptr nocapture noundef initializes((28,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @dma_resv_iter_next(ptr nocapture noundef initializes((44, 45)) %0) #3 align 16 {
+define dso_local ptr @dma_resv_iter_next(ptr nocapture noundef %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -1274,7 +1274,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @dma_resv_get_fences(ptr noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef initializes((0, 8)) %3) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @dma_resv_get_fences(ptr noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #0 align 16 {
   %5 = alloca %struct.dma_resv_iter, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5) #9
   %6 = getelementptr inbounds i8, ptr %5, i64 8

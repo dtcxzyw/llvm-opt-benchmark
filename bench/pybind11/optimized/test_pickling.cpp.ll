@@ -6957,14 +6957,14 @@ _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %52, %54, %57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZZ23test_submodule_picklingRN8pybind117module_EEN10Pickleable9setExtra1Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((32, 36)) %0, i32 noundef %1) #9 align 2 {
+define internal void @_ZZ23test_submodule_picklingRN8pybind117module_EEN10Pickleable9setExtra1Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZZ23test_submodule_picklingRN8pybind117module_EEN10Pickleable9setExtra2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((36, 40)) %0, i32 noundef %1) #9 align 2 {
+define internal void @_ZZ23test_submodule_picklingRN8pybind117module_EEN10Pickleable9setExtra2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1) #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4
   ret void

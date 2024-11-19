@@ -546,7 +546,7 @@ define dso_local void @serio_unregister_child_port(ptr noundef readonly %0) #0 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__serio_register_driver(ptr noundef initializes((88, 112)) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
+define dso_local i32 @__serio_register_driver(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i8, ptr %4, align 8, !range !15, !noundef !16
   %6 = getelementptr inbounds i8, ptr %0, i64 80
@@ -595,7 +595,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local void @driver_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @serio_unregister_driver(ptr noundef initializes((16, 17)) %0) #0 align 16 {
+define dso_local void @serio_unregister_driver(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @serio_mutex) #10
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 1, ptr %2, align 8

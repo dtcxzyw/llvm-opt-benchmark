@@ -222,7 +222,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi19DeserializingStreamC2ERSi(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 41)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi19DeserializingStreamC2ERSi(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -1219,7 +1219,7 @@ define linkonce_odr hidden void @_ZN6casadi3strIxEENSt7__cxx1112basic_stringIcSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi19DeserializingStream6unpackERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN6casadi19DeserializingStream6unpackERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   tail call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 98)
@@ -8135,7 +8135,7 @@ _ZN6casadi17SerializingStream8decorateEc.exit:    ; preds = %2, %6
 declare void @_ZNK6casadi5Slice9serializeERNS_17SerializingStreamE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(73)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi19DeserializingStream6unpackERNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN6casadi19DeserializingStream6unpackERNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 {
   %3 = alloca %"class.casadi::Slice", align 8
   tail call void @_ZN6casadi19DeserializingStream17assert_decorationEc(ptr noundef nonnull align 8 dereferenceable(41) %0, i8 noundef signext 83)
   call void @_ZN6casadi5Slice11deserializeERNS_19DeserializingStreamE(ptr dead_on_unwind nonnull writable sret(%"class.casadi::Slice") align 8 %3, ptr noundef nonnull align 8 dereferenceable(41) %0)
@@ -10105,7 +10105,7 @@ _ZN6casadi17SerializingStream8decorateEc.exit.i.i: ; preds = %.noexc3, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6casadi18UniversalNodeOwnerC2EPNS_20SharedObjectInternalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN6casadi18UniversalNodeOwnerC2EPNS_20SharedObjectInternalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
@@ -10124,7 +10124,7 @@ define hidden void @_ZN6casadi18UniversalNodeOwnerC2EPNS_20SharedObjectInternalE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6casadi18UniversalNodeOwnerC2EPNS_6SXNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr noundef %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN6casadi18UniversalNodeOwnerC2EPNS_6SXNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef %1) unnamed_addr #8 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %3, align 8
@@ -10143,7 +10143,7 @@ define hidden void @_ZN6casadi18UniversalNodeOwnerC2EPNS_6SXNodeE(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6casadi18UniversalNodeOwnerC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #8 align 2 {
+define hidden void @_ZN6casadi18UniversalNodeOwnerC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr nocapture noundef nonnull align 8 dereferenceable(9) %1) unnamed_addr #8 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -10219,14 +10219,14 @@ define hidden void @_ZN6casadi18UniversalNodeOwnerD2Ev(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6casadi17SerializingStream7connectERNS_19DeserializingStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(41) %1) local_unnamed_addr #9 align 2 {
+define void @_ZN6casadi17SerializingStream7connectERNS_19DeserializingStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(41) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6casadi19DeserializingStream7connectERNS_17SerializingStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((24, 32)) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) local_unnamed_addr #9 align 2 {
+define void @_ZN6casadi19DeserializingStream7connectERNS_17SerializingStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(73) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void

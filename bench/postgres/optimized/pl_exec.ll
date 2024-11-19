@@ -235,7 +235,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.instantiate_empty_record_variable = private unnamed_addr constant [34 x i8] c"instantiate_empty_record_variable\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @plpgsql_exec_function(ptr noundef initializes((536, 544)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define hidden i64 @plpgsql_exec_function(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca %struct.PLpgSQL_execstate, align 8
   %8 = alloca %struct.ErrorContextCallback, align 8
   %9 = alloca i32, align 4
@@ -711,7 +711,7 @@ exec_eval_cleanup.exit79:                         ; preds = %240, %248, %249
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @plpgsql_estate_setup(ptr noundef nonnull %0, ptr noundef initializes((536, 544)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @plpgsql_estate_setup(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.HASHCTL, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 536
   store ptr %0, ptr %7, align 8
@@ -985,7 +985,7 @@ define internal void @plpgsql_exec_error_callback(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_plpgsql_datums(ptr nocapture noundef nonnull initializes((112, 120)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @copy_plpgsql_datums(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 108
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
@@ -1052,7 +1052,7 @@ define internal fastcc void @copy_plpgsql_datums(ptr nocapture noundef nonnull i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assign_simple_var(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((68, 72)) %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc void @assign_simple_var(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 47
   %7 = load i8, ptr %6, align 1
   %8 = trunc i8 %7 to i1
@@ -2138,7 +2138,7 @@ do_cast_value.exit:                               ; preds = %._crit_edge.i, %get
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @plpgsql_exec_trigger(ptr noundef initializes((536, 544)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @plpgsql_exec_trigger(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PLpgSQL_execstate, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   %5 = alloca %struct.HeapTupleData, align 8
@@ -2571,7 +2571,7 @@ declare ptr @SPI_copytuple(ptr noundef) local_unnamed_addr #1
 declare void @DecrTupleDescRefCount(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_exec_event_trigger(ptr noundef initializes((536, 544)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @plpgsql_exec_event_trigger(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PLpgSQL_execstate, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   call fastcc void @plpgsql_estate_setup(ptr noundef %3, ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null)
@@ -3091,7 +3091,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @ProcessInterrupts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @exec_stmt_block(ptr noundef nonnull initializes((216, 232)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc i32 @exec_stmt_block(ptr noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %5 = alloca i16, align 2
@@ -3863,7 +3863,7 @@ declare void @BeginInternalSubTransaction(ptr noundef) local_unnamed_addr #1
 declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @plpgsql_create_econtext(ptr nocapture noundef nonnull initializes((200, 208)) %0) unnamed_addr #0 {
+define internal fastcc void @plpgsql_create_econtext(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -8515,7 +8515,7 @@ declare void @RollbackAndReleaseCurrentSubTransaction() local_unnamed_addr #1
 declare void @MemoryContextDeleteChildren(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @assign_text_var(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((68, 72)) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @assign_text_var(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @cstring_to_text(ptr noundef %2) #11
   %5 = ptrtoint ptr %4 to i64
   tail call fastcc void @assign_simple_var(ptr noundef %0, ptr noundef %1, i64 noundef %5, i1 noundef zeroext false, i1 noundef zeroext true)
@@ -8535,7 +8535,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare zeroext i1 @type_is_rowtype(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_prepare_plan(ptr nocapture noundef readonly %0, ptr noundef initializes((32, 40)) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @exec_prepare_plan(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.SPIPrepareOptions, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 32

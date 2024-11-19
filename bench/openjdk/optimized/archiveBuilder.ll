@@ -545,7 +545,7 @@ declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #3
 declare void @_ZN11CHeapBitMapD1Ev(ptr noundef nonnull align 8 dereferenceable(17)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef initializes((28, 32)) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ArchiveBuilder13SourceObjList6appendEPNS_13SourceObjInfoE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 4
@@ -614,7 +614,7 @@ _ZN26GrowableArrayWithAllocatorIPN14ArchiveBuilder13SourceObjInfoE13GrowableArra
 declare void @_ZN14GrowableBitMapI11CHeapBitMapE6resizeEmb(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ArchiveBuilder13SourceObjList25remember_embedded_pointerEPNS_13SourceObjInfoEPN16MetaspaceClosure3RefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef initializes((17, 18)) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN14ArchiveBuilder13SourceObjList25remember_embedded_pointerEPNS_13SourceObjInfoEPN16MetaspaceClosure3RefE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 17
   store i8 1, ptr %4, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -730,7 +730,7 @@ _ZNK6BitMap7iterateI24RelocateEmbeddedPointersEEbPT_mm.exit: ; preds = %41, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ArchiveBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(1080) initializes((0, 36), (40, 104)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ArchiveBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14ArchiveBuilder, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -885,7 +885,7 @@ declare void @_ZN13ReservedSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN12VirtualSpaceC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ArchiveBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1080) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14ArchiveBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(1080) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14ArchiveBuilder, i64 16), ptr %0, align 8
   store ptr null, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 608
@@ -1663,7 +1663,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZN14ArchiveBuilder21compare_klass_b
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN14ArchiveBuilder21estimate_archive_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1080) initializes((1072, 1080)) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef i64 @_ZN14ArchiveBuilder21estimate_archive_sizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(1080) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef i64 @_ZN11SymbolTable25estimate_size_for_archiveEv() #19
   %3 = tail call noundef i64 @_ZN22SystemDictionaryShared25estimate_size_for_archiveEv() #19
   %4 = add i64 %3, %2
@@ -1719,7 +1719,7 @@ declare noundef i64 @_ZN22SystemDictionaryShared25estimate_size_for_archiveEv() 
 declare noundef i64 @_ZN15MetaspaceShared21core_region_alignmentEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ArchiveBuilder14reserve_bufferEv(ptr noundef nonnull align 8 dereferenceable(1080) initializes((1072, 1080)) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN14ArchiveBuilder14reserve_bufferEv(ptr noundef nonnull align 8 dereferenceable(1080) %0) local_unnamed_addr #1 align 2 {
   %2 = alloca %class.ReservedSpace, align 8
   %3 = tail call noundef i64 @_ZN14ArchiveBuilder21estimate_archive_sizeEv(ptr noundef nonnull align 8 dereferenceable(1080) %0)
   %4 = tail call noundef i64 @_ZN15MetaspaceShared21core_region_alignmentEv() #19

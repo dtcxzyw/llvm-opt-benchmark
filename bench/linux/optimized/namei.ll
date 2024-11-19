@@ -1037,7 +1037,7 @@ define internal fastcc i32 @htree_dirblock_to_tree(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef initializes((0, 72)) %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @dx_probe(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca [3 x i32], align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #13
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -2014,7 +2014,7 @@ define dso_local noundef range(i32 -117, 1) i32 @ext4_generic_delete_entry(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ext4_init_dot_dotdot(ptr nocapture noundef readonly %0, ptr noundef writeonly initializes((0, 4), (6, 7)) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local ptr @ext4_init_dot_dotdot(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
@@ -7336,7 +7336,7 @@ define internal fastcc range(i32 0, 536870912) i32 @dx_node_limit(ptr noundef re
 declare dso_local i32 @__SCT__cond_resched() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__ext4_find_entry(ptr noundef %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__ext4_find_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = alloca [3 x %struct.dx_frame], align 16
   %6 = alloca [8 x ptr], align 16
   %7 = alloca i32, align 4
@@ -9358,7 +9358,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local void @init_special_inode(ptr noundef, i16 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @ext4_rename_dir_prepare(ptr noundef %0, ptr noundef initializes((24, 25)) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @ext4_rename_dir_prepare(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   %5 = getelementptr inbounds i8, ptr %1, i64 24

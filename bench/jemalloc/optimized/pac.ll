@@ -291,7 +291,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pac_dalloc_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, ptr nocapture noundef writeonly initializes((0, 1)) %deferred_work_generated) #0 {
+define internal void @pac_dalloc_impl(ptr noundef %tsdn, ptr noundef %self, ptr noundef %edata, ptr nocapture noundef writeonly %deferred_work_generated) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 58376
   %self.val = load ptr, ptr %0, align 8

@@ -11933,7 +11933,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(10) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -11960,7 +11960,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(10) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN5utilsL19DOCTEST_ANON_FUNC_2EvE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -12360,7 +12360,7 @@ entry:
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -12525,7 +12525,7 @@ _ZNSt8functionIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_1ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_1ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -12550,7 +12550,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -12575,7 +12575,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -28452,7 +28452,7 @@ _ZNSt12_Vector_baseIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -28536,7 +28536,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL19DOCTEST_ANON_FUNC_7vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -29603,7 +29603,7 @@ eh.resume:                                        ; preds = %lpad15, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_3ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_3ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_3EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -29628,7 +29628,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_2ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_2ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -30038,7 +30038,7 @@ eh.resume:                                        ; preds = %lpad15, %lpad
 declare void @_ZN7doctest6ApproxC1Ed(ptr noundef nonnull align 8 dereferenceable(24), double noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE0_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE0_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE0_EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -30063,7 +30063,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE_EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -30088,7 +30088,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE_EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -30218,7 +30218,7 @@ lpad:                                             ; preds = %_ZN7doctest8toStrin
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE0_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE0_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_0clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdEUlPSoE0_EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -36989,7 +36989,7 @@ eh.resume:                                        ; preds = %lpad15, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE0_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE0_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE0_EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -37014,7 +37014,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE_EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -37039,7 +37039,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE_EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -37122,7 +37122,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE0_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE0_ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZZL20DOCTEST_ANON_FUNC_21vENK3$_1clERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_EUlPSoE0_EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -37344,7 +37344,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -37730,7 +37730,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare noundef i32 @_ZNSt15basic_streambufIcSt11char_traitsIcEE5sgetcEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_3ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_3ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_21vE3$_3EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -55648,7 +55648,7 @@ _ZN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -55673,7 +55673,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_1ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_1ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -55698,7 +55698,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_2ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_2ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -55723,7 +55723,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_3ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_3ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_3EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -55748,7 +55748,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_4ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_4ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_4EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -55773,7 +55773,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_5ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_5ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_5EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -55798,7 +55798,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -55882,7 +55882,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -55966,7 +55966,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -56050,7 +56050,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_3ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_3ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_3EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -56134,7 +56134,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_4ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_4ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_4EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -56218,7 +56218,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_5ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_5ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_64vE3$_5EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -56442,7 +56442,7 @@ _ZNSt8functionIFbiN8nlohmann16json_abi_v3_11_36detail13parse_event_tERNS1_10basi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -56467,7 +56467,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_1ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_1ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -56492,7 +56492,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_2ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_2ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -56517,7 +56517,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_3ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_3ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_3EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -56542,7 +56542,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_4ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_4ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_4EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -56567,7 +56567,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -57896,7 +57896,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit236:                 ; preds = %ehcleanup495, %if.t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_1EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -57980,7 +57980,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_2ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_2EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -58064,7 +58064,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_3ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_3ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_3EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -58148,7 +58148,7 @@ lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_4ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_4ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL20DOCTEST_ANON_FUNC_91vE3$_4EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -58244,7 +58244,7 @@ declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(p
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_114vE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_114vE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_114vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
@@ -58275,7 +58275,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE17fin
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16find_last_not_ofEcm(ptr noundef nonnull align 8 dereferenceable(32), i8 noundef signext, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_114vE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_114vE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZL21DOCTEST_ANON_FUNC_114vE3$_0EE", i64 16), ptr %this, align 8
   %need_to_destroy.i = getelementptr inbounds i8, ptr %this, i64 8

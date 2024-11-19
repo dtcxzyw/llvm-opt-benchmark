@@ -48,7 +48,7 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceE = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__29HdFlattenedDataSourceProviderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__29HdFlattenedDataSourceProviderD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__29HdFlattenedDataSourceProvider7Context18GetInputDataSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__29HdFlattenedDataSourceProvider7Context18GetInputDataSourceEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -59,7 +59,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__29HdFlattenedDataSourceProvid
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_GetERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((0, 16)) %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L4_GetERKSt10shared_ptrINS_21HdContainerDataSourceEERKNS_7TfTokenE(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::shared_ptr.13", align 8
   %.not = icmp eq ptr %.0.val, null
   br i1 %.not, label %4, label %5

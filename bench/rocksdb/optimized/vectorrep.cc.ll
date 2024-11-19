@@ -341,7 +341,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16VectorRepFactoryC2Em(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, i64 noundef %count) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16VectorRepFactoryC2Em(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %count) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.5", align 1
@@ -2113,7 +2113,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_19VectorRepD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_19VectorRepD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_19VectorRepE, i64 16), ptr %this, align 8
   %rwlock_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -2196,7 +2196,7 @@ _ZNSt10shared_ptrISt6vectorIPKcSaIS2_EEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_19VectorRepD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_19VectorRepD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_19VectorRepE, i64 16), ptr %this, align 8
   %rwlock_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -3418,7 +3418,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_19VectorRep8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_19VectorRep8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_19VectorRep8IteratorE, i64 16), ptr %this, align 8
   %tmp_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -3504,7 +3504,7 @@ _ZNSt10shared_ptrISt6vectorIPKcSaIS2_EEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_19VectorRep8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_19VectorRep8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_19VectorRep8IteratorE, i64 16), ptr %this, align 8
   %tmp_.i = getelementptr inbounds i8, ptr %this, i64 48

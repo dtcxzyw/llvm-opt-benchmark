@@ -16971,7 +16971,7 @@ define hidden void @"_ZN101_$LT$$RF$mut$u20$zvariant..gvariant..de..Deserializer
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN101_$LT$$RF$mut$u20$zvariant..gvariant..de..Deserializer$LT$F$GT$$u20$as$u20$serde..de..Deserializer$GT$26deserialize_newtype_struct17hfbb2f6919924fe70E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(120) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
+define hidden void @"_ZN101_$LT$$RF$mut$u20$zvariant..gvariant..de..Deserializer$LT$F$GT$$u20$as$u20$serde..de..Deserializer$GT$26deserialize_newtype_struct17hfbb2f6919924fe70E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(120) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [64 x i8], align 8
   %.sroa.6.i = alloca [24 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4520)
@@ -21306,7 +21306,7 @@ common.resume:                                    ; preds = %.body, %478, %455
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN170_$LT$zbus..message..fields.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$zbus..message..fields..Fields$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17hde00b3fba84e15a0E.llvm.17011823932056613842"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 32)) %0, ptr noalias noundef align 8 dereferenceable(120) %1) unnamed_addr #1 {
+define hidden void @"_ZN170_$LT$zbus..message..fields.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$zbus..message..fields..Fields$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$20visit_newtype_struct17hde00b3fba84e15a0E.llvm.17011823932056613842"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(120) %1) unnamed_addr #1 {
   %3 = alloca [64 x i8], align 8
   %.sroa.6 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.6)
@@ -45773,7 +45773,7 @@ define internal fastcc void @_ZN5serde2de9SeqAccess12next_element17hf00225d01ca8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN68_$LT$serde..de..impls..UnitVisitor$u20$as$u20$serde..de..Visitor$GT$10visit_unit17h9ec13ee2badbf6ddE.llvm.17011823932056613842"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #2 {
+define hidden void @"_ZN68_$LT$serde..de..impls..UnitVisitor$u20$as$u20$serde..de..Visitor$GT$10visit_unit17h9ec13ee2badbf6ddE.llvm.17011823932056613842"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([64 x i8]) align 8 dereferenceable(64) %0) unnamed_addr #2 {
   store i64 14, ptr %0, align 8
   ret void
 }

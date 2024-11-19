@@ -1383,7 +1383,7 @@ declare noundef ptr @_ZNK5clang13CXXRecordDecl25getDescribedClassTemplateEv(ptr 
 declare noundef zeroext i1 @_ZNK5clang11DeclContext18isDependentContextEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_143ConvertConstructorToDeductionGuideTransformC2ERN5clang4SemaEPNS1_17ClassTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 60)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_143ConvertConstructorToDeductionGuideTransformC2ERN5clang4SemaEPNS1_17ClassTemplateDeclE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::MultiLevelTemplateArgumentList", align 8
   %5 = alloca %"class.std::optional.2213", align 8
   store ptr %1, ptr %0, align 8
@@ -4001,7 +4001,7 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm7hashing6detail10hash_shortEPKcm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125getRHSTemplateDeclAndArgsERN5clang4SemaEPNS0_21TypeAliasTemplateDeclE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr nonnull %.256.val, i64 %.48.val.80.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_125getRHSTemplateDeclAndArgsERN5clang4SemaEPNS0_21TypeAliasTemplateDeclE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nonnull %.256.val, i64 %.48.val.80.val) unnamed_addr #0 {
   %2 = alloca %"class.clang::TemplateName", align 8
   %3 = and i64 %.48.val.80.val, -8
   %4 = inttoptr i64 %3 to ptr
@@ -74305,7 +74305,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %20, %18, %168, %165
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_128ExtractTypeForDeductionGuideEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 4), (8, 16)) %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_128ExtractTypeForDeductionGuideEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::TemplateName", align 8
   %6 = alloca %"class.clang::TemplateArgument", align 8
   %7 = load i32, ptr %1, align 8

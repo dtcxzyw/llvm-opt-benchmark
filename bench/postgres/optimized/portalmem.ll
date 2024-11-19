@@ -440,7 +440,7 @@ GetPortalByName.exit.thread:                      ; preds = %2, %GetPortalByName
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @PortalDefineQuery(ptr nocapture noundef writeonly initializes((8, 16), (56, 68), (72, 76), (80, 104), (132, 136)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
+define dso_local void @PortalDefineQuery(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 56
@@ -461,7 +461,7 @@ define dso_local void @PortalDefineQuery(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PortalCreateHoldStore(ptr nocapture noundef initializes((176, 192)) %0) local_unnamed_addr #0 {
+define dso_local void @PortalCreateHoldStore(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @TopPortalContext, align 8
   %3 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str.10, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #7
   %4 = getelementptr inbounds i8, ptr %0, i64 184
@@ -545,7 +545,7 @@ define dso_local void @MarkPortalActive(ptr nocapture noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @MarkPortalDone(ptr noundef initializes((132, 136)) %0) local_unnamed_addr #0 {
+define dso_local void @MarkPortalDone(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 132
   store i32 4, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -563,7 +563,7 @@ define dso_local void @MarkPortalDone(ptr noundef initializes((132, 136)) %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @MarkPortalFailed(ptr noundef initializes((132, 136)) %0) local_unnamed_addr #0 {
+define dso_local void @MarkPortalFailed(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 132
   store i32 5, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 32

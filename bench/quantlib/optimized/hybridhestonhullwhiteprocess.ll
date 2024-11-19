@@ -390,7 +390,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28HybridHestonHullWhiteProcessC2ERKN5boost10shared_ptrINS_13HestonProcessEEERKNS2_INS_23HullWhiteForwardProcessEEEdNS0_14DiscretizationE(ptr noundef nonnull align 8 dereferenceable(216) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hestonProcess, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hullWhiteProcess, double noundef %corrEquityShortRate, i32 noundef %discretization) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib28HybridHestonHullWhiteProcessC2ERKN5boost10shared_ptrINS_13HestonProcessEEERKNS2_INS_23HullWhiteForwardProcessEEEdNS0_14DiscretizationE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hestonProcess, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hullWhiteProcess, double noundef %corrEquityShortRate, i32 noundef %discretization) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1546,7 +1546,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28HybridHestonHullWhiteProcess13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib28HybridHestonHullWhiteProcess13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %hestonProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %hestonProcess_, align 8, !tbaa !39
@@ -2154,7 +2154,7 @@ _ZN8QuantLib5ArrayD2Ev.exit46:                    ; preds = %ehcleanup39, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28HybridHestonHullWhiteProcess9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib28HybridHestonHullWhiteProcess9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %xt = alloca %"class.QuantLib::Array", align 8
   %m = alloca %"class.QuantLib::Matrix", align 8
@@ -3452,7 +3452,7 @@ _ZNK5boost10shared_ptrIN8QuantLib13HestonProcessEEptEv.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib28HybridHestonHullWhiteProcess6updateEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((208, 216)) %this) unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib28HybridHestonHullWhiteProcess6updateEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #6 align 2 {
 entry:
   %hestonProcess_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load ptr, ptr %hestonProcess_, align 8, !tbaa !39

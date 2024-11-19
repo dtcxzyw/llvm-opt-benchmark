@@ -816,7 +816,7 @@ define dso_local i32 @snd_hdac_override_parm(ptr noundef %0, i16 noundef zeroext
 declare dso_local i32 @snd_hdac_regmap_write_raw(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 32768) i32 @snd_hdac_get_sub_nodes(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 2)) %2) #0 align 16 {
+define dso_local range(i32 0, 32768) i32 @snd_hdac_get_sub_nodes(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 0, ptr %4, align 4, !annotation !6

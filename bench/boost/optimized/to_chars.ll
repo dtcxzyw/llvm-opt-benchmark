@@ -3168,7 +3168,7 @@ declare x86_fp80 @llvm.fabs.f80(x86_fp80) #6
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.0.val, i64 %.8.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 -262143, 267305) %1, i32 noundef range(i32 0, 5) %2, ptr nocapture noundef nonnull writeonly initializes((0, 32)) %3) unnamed_addr #8 {
+define internal fastcc void @_ZN5boost8charconv6detail3ryuL17mul_128_256_shiftEPKmS4_jjPm(i64 %.0.val, i64 %.8.val, ptr nocapture noundef readonly %0, i32 noundef range(i32 -262143, 267305) %1, i32 noundef range(i32 0, 5) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #8 {
   %5 = zext i64 %.0.val to i128
   %6 = load i64, ptr %0, align 8, !tbaa !14
   %7 = zext i64 %6 to i128

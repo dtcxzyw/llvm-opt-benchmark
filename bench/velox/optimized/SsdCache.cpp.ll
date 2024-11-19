@@ -1750,7 +1750,7 @@ _ZNSt12_Vector_baseISt6vectorIN8facebook5velox5cache8CachePinESaIS4_EESaIS6_EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox5cache8SsdCache5statsEv(ptr noalias sret(%"struct.facebook::velox::cache::SsdCacheStats") align 8 initializes((0, 88)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %this) local_unnamed_addr #0 align 2 {
+define void @_ZNK8facebook5velox5cache8SsdCache5statsEv(ptr noalias sret(%"struct.facebook::velox::cache::SsdCacheStats") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, i8 0, i64 88, i1 false)
   %files_ = getelementptr inbounds i8, ptr %this, i64 40

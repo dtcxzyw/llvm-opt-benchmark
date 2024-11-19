@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4base19SampleCountIteratorD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4base19SampleCountIteratorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (16, 28)) %this, i64 noundef %id) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %id) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base16HistogramSamplesE, i64 16), ptr %this, align 8
   %local_meta_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -41,7 +41,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %this, i64 noundef %id, ptr noundef %meta) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i64 noundef %id, ptr noundef %meta) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base16HistogramSamplesE, i64 16), ptr %this, align 8
   %local_meta_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -478,7 +478,7 @@ if.end:                                           ; preds = %if.then, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK4base12_GLOBAL__N_125SampleCountPickleIterator3GetEPiS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef writeonly initializes((0, 4)) %min, ptr nocapture noundef writeonly initializes((0, 4)) %max, ptr nocapture noundef writeonly initializes((0, 4)) %count) unnamed_addr #1 align 2 {
+define internal void @_ZNK4base12_GLOBAL__N_125SampleCountPickleIterator3GetEPiS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(29) %this, ptr nocapture noundef writeonly %min, ptr nocapture noundef writeonly %max, ptr nocapture noundef writeonly %count) unnamed_addr #1 align 2 {
 entry:
   %min_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %min_, align 8

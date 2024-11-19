@@ -3725,7 +3725,7 @@ define hidden void @_Z24universe_oopstorage_initv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17LatestMethodCache4initEP10JavaThreadP13InstanceKlassPKcP6Symbolb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17LatestMethodCache4initEP10JavaThreadP13InstanceKlassPKcP6Symbolb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.FormatBuffer, align 8
   %8 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #18
   %9 = trunc i64 %8 to i32

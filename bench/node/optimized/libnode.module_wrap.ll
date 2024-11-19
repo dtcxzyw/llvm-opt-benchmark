@@ -500,7 +500,7 @@ declare void @_ZN2v86Object16SetInternalFieldEiNS_5LocalINS_4DataEEE(ptr noundef
 declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6loader10ModuleWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6loader10ModuleWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6loader10ModuleWrapE, i64 16), ptr %this, align 8
   %realm_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -748,7 +748,7 @@ _ZN2v814PersistentBaseINS_6ModuleEE5ResetEv.exit: ; preds = %_ZNSt13unordered_ma
 declare void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6loader10ModuleWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6loader10ModuleWrapD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node6loader10ModuleWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21

@@ -907,14 +907,14 @@ _ZN5folly15fileutil_detail9wrapvFullIPFliPK5iovecilEJlEEElT_iPS2_iDpT0_.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly22WriteFileAtomicOptions14setPermissionsEj(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) initializes((0, 4)) %this, i32 noundef %_permissions) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly22WriteFileAtomicOptions14setPermissionsEj(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) %this, i32 noundef %_permissions) local_unnamed_addr #9 align 2 {
 entry:
   store i32 %_permissions, ptr %this, align 8, !tbaa !46
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly22WriteFileAtomicOptions11setSyncTypeENS_8SyncTypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) initializes((4, 8)) %this, i32 noundef %_syncType) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly22WriteFileAtomicOptions11setSyncTypeENS_8SyncTypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) %this, i32 noundef %_syncType) local_unnamed_addr #9 align 2 {
 entry:
   %syncType = getelementptr inbounds i8, ptr %this, i64 4
   store i32 %_syncType, ptr %syncType, align 4, !tbaa !51

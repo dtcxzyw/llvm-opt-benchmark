@@ -380,7 +380,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7cmStateC2ENS_4ModeENS_11ProjectKindE(ptr noundef nonnull align 8 dereferenceable(705) initializes((8, 12), (16, 24)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN7cmStateC2ENS_4ModeENS_11ProjectKindE(ptr noundef nonnull align 8 dereferenceable(705) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1994,7 +1994,7 @@ define dso_local noundef zeroext i1 @_ZNK7cmState13IsCacheLoadedEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7cmState17GetCacheEntryKeysB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(705) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK7cmState17GetCacheEntryKeysB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(705) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 296
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
@@ -4902,7 +4902,7 @@ define dso_local noundef zeroext i1 @_ZNK7cmState25GetIsGeneratorMultiConfigEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7cmState25SetIsGeneratorMultiConfigEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) initializes((616, 617)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN7cmState25SetIsGeneratorMultiConfigEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 616
   store i8 %3, ptr %4, align 8
@@ -5696,7 +5696,7 @@ declare noundef ptr @_ZNK10cmMakefile16GetCMakeInstanceEv(ptr noundef nonnull al
 declare void @_ZNK5cmake12IssueMessageE11MessageTypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK19cmListFileBacktrace(ptr noundef nonnull align 8 dereferenceable(2216), i32 noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7cmState21GetCommandByExactNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::function") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK7cmState21GetCommandByExactNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::function") align 8 %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 128
   %5 = tail call ptr @_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFbRKSt6vectorI18cmListFileArgumentSaISA_EER17cmExecutionStatusEEESaISJ_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   %.not = icmp eq ptr %5, null
@@ -5834,7 +5834,7 @@ define linkonce_odr dso_local void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx111
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7cmState10GetCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::function") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK7cmState10GetCommandERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::function") align 8 %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN5cmsys11SystemTools9LowerCaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %2)
   invoke void @_ZNK7cmState21GetCommandByExactNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::function") align 8 %0, ptr noundef nonnull align 8 dereferenceable(705) %1, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -5852,7 +5852,7 @@ define dso_local void @_ZNK7cmState10GetCommandERKNSt7__cxx1112basic_stringIcSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7cmState15GetCommandNamesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(705) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK7cmState15GetCommandNamesB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(705) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load i64, ptr %3, align 8
@@ -7138,7 +7138,7 @@ define dso_local void @_ZN7cmState18SetBinaryDirectoryERKNSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7cmState15SetWindowsShellEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) initializes((617, 618)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN7cmState15SetWindowsShellEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 617
   store i8 %3, ptr %4, align 1
@@ -7154,7 +7154,7 @@ define dso_local noundef zeroext i1 @_ZNK7cmState15UseWindowsShellEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7cmState15SetWindowsVSIDEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) initializes((618, 619)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN7cmState15SetWindowsVSIDEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 618
   store i8 %3, ptr %4, align 2
@@ -7170,7 +7170,7 @@ define dso_local noundef zeroext i1 @_ZNK7cmState15UseWindowsVSIDEEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7cmState14SetGhsMultiIDEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) initializes((619, 620)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN7cmState14SetGhsMultiIDEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 619
   store i8 %3, ptr %4, align 1
@@ -7186,7 +7186,7 @@ define dso_local noundef zeroext i1 @_ZNK7cmState14UseGhsMultiIDEEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7cmState14SetWatcomWMakeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) initializes((620, 621)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN7cmState14SetWatcomWMakeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 620
   store i8 %3, ptr %4, align 4
@@ -7202,7 +7202,7 @@ define dso_local noundef zeroext i1 @_ZNK7cmState14UseWatcomWMakeEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7cmState12SetMinGWMakeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) initializes((621, 622)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN7cmState12SetMinGWMakeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 621
   store i8 %3, ptr %4, align 1
@@ -7218,7 +7218,7 @@ define dso_local noundef zeroext i1 @_ZNK7cmState12UseMinGWMakeEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7cmState8SetNMakeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) initializes((622, 623)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN7cmState8SetNMakeEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 622
   store i8 %3, ptr %4, align 2
@@ -7234,7 +7234,7 @@ define dso_local noundef zeroext i1 @_ZNK7cmState8UseNMakeEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7cmState12SetMSYSShellEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) initializes((623, 624)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN7cmState12SetMSYSShellEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 623
   store i8 %3, ptr %4, align 1
@@ -7250,7 +7250,7 @@ define dso_local noundef zeroext i1 @_ZNK7cmState12UseMSYSShellEv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7cmState8SetNinjaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) initializes((624, 625)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN7cmState8SetNinjaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 624
   store i8 %3, ptr %4, align 8
@@ -7266,7 +7266,7 @@ define dso_local noundef zeroext i1 @_ZNK7cmState8UseNinjaEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7cmState13SetNinjaMultiEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) initializes((625, 626)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN7cmState13SetNinjaMultiEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(705) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 625
   store i8 %3, ptr %4, align 1

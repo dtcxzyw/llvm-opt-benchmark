@@ -163,7 +163,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @event_mm_free_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_configure_monotonic_time(ptr nocapture noundef writeonly initializes((0, 4)) %timer, i32 noundef %flags) local_unnamed_addr #1 {
+define dso_local noundef i32 @evutil_configure_monotonic_time(ptr nocapture noundef writeonly %timer, i32 noundef %flags) local_unnamed_addr #1 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ts.i)
@@ -197,7 +197,7 @@ evutil_configure_monotonic_time_.exit:            ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @evutil_configure_monotonic_time_(ptr nocapture noundef writeonly initializes((0, 4)) %base, i32 noundef %flags) local_unnamed_addr #1 {
+define dso_local noundef i32 @evutil_configure_monotonic_time_(ptr nocapture noundef writeonly %base, i32 noundef %flags) local_unnamed_addr #1 {
 entry:
   %ts = alloca %struct.timespec, align 8
   %and1 = and i32 %flags, 2

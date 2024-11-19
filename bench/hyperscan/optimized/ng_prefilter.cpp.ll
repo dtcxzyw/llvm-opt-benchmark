@@ -6093,7 +6093,7 @@ declare void @_ZNSt12length_errorC1EPKc(ptr noundef nonnull align 8 dereferencea
 declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt11_Deque_baseIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE17_M_initialize_mapEm(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 16)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt11_Deque_baseIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE17_M_initialize_mapEm(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt11_Deque_baseIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE15_M_allocate_mapEm.exit:
   %_M_map_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 8, ptr %_M_map_size, align 8

@@ -437,7 +437,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN16G1IsAliveClosure11do_object_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1IsAliveClosureC2EP15G1FullCollector(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1IsAliveClosureC2EP15G1FullCollector(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN15G1FullCollector11mark_bitmapEv(ptr noundef nonnull align 8 dereferenceable(824) %1) #8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16G1IsAliveClosure, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

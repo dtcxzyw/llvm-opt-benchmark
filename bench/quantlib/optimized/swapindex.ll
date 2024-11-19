@@ -2569,7 +2569,7 @@ eh.resume:                                        ; preds = %if.then.i.i139, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib9SwapIndex23forwardingTermStructureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Handle") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib9SwapIndex23forwardingTermStructureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Handle") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %iborIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   %0 = load ptr, ptr %iborIndex_, align 8, !tbaa !52
@@ -2604,7 +2604,7 @@ _ZNK8QuantLib9IborIndex23forwardingTermStructureEv.exit: ; preds = %_ZNK5boost10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8QuantLib9SwapIndex24discountingTermStructureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Handle") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib9SwapIndex24discountingTermStructureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Handle") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(320) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %discount_, align 8, !tbaa !80

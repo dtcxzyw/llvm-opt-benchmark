@@ -710,7 +710,7 @@ define dso_local range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
+define dso_local range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readnone %3) local_unnamed_addr #2 {
   store i32 0, ptr %1, align 4
   %5 = icmp sgt i32 %0, 644
   br i1 %5, label %onigenc_unicode_ctype_code_range.exit, label %6

@@ -97,7 +97,7 @@ define linkonce_odr void @_ZN3gmx12SetPrecisionD0Ev(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3gmx12SetPrecision12processFrameEiP10t_trxframe(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, ptr nocapture noundef writeonly initializes((56, 57), (60, 64)) %2) unnamed_addr #1 align 2 {
+define void @_ZN3gmx12SetPrecision12processFrameEiP10t_trxframe(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, i32 %1, ptr nocapture noundef writeonly %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sitofp i32 %5 to double

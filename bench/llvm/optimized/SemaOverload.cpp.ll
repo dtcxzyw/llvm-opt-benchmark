@@ -1075,7 +1075,7 @@ define dso_local noundef i32 @_ZN5clang26GetDimensionConversionRankENS_22Implici
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang26StandardConversionSequence23setAsIdentityConversionEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((40, 48)) %0) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang26StandardConversionSequence23setAsIdentityConversionEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #1 align 2 {
   %2 = load i64, ptr %0, align 8
   %3 = and i64 %2, -4380866641920
   %4 = or disjoint i64 %3, 137438953472
@@ -3086,7 +3086,7 @@ _ZN4llvm11SmallVectorISt4pairIPN5clang9NamedDeclEPNS2_12FunctionDeclEELj4EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang27AmbiguousConversionSequence8copyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang27AmbiguousConversionSequence8copyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5566,13 +5566,13 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema10IsOverrideEPNS_12FunctionDe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21TryImplicitConversionEPNS_4ExprENS_8QualTypeEbNS0_15AllowedExplicitEbbb(ptr dead_on_unwind noalias writable sret(%"class.clang::ImplicitConversionSequence") align 8 initializes((0, 4), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang4Sema21TryImplicitConversionEPNS_4ExprENS_8QualTypeEbNS0_15AllowedExplicitEbbb(ptr dead_on_unwind noalias writable sret(%"class.clang::ImplicitConversionSequence") align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) local_unnamed_addr #4 align 2 {
   tail call fastcc void @_ZL21TryImplicitConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeEbNS0_15AllowedExplicitEbbbb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21TryImplicitConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeEbNS0_15AllowedExplicitEbbbb(ptr dead_on_unwind noalias writable align 8 initializes((0, 4), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #4 {
+define internal fastcc void @_ZL21TryImplicitConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeEbNS0_15AllowedExplicitEbbbb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i1 noundef zeroext %9) unnamed_addr #4 {
   %11 = alloca %"class.clang::ImplicitConversionSequence", align 8
   store i32 6, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -7773,7 +7773,7 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread: ; preds = %23, %9, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema19IsPointerConversionEPNS_4ExprENS_8QualTypeES3_bRS3_Rb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i64 %2, i64 %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %6) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema19IsPointerConversionEPNS_4ExprENS_8QualTypeES3_bRS3_Rb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i64 %2, i64 %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6) local_unnamed_addr #4 align 2 {
   store i8 0, ptr %6, align 1
   %8 = tail call noundef zeroext i1 @_ZN5clang4Sema23isObjCPointerConversionENS_8QualTypeES1_RS1_Rb(ptr noundef nonnull align 8 dereferenceable(17560) %0, i64 %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %6)
   br i1 %8, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread, label %9
@@ -11515,7 +11515,7 @@ declare noundef zeroext i1 @_ZNK5clang12FunctionDecl37hasCXXExplicitFunctionObje
 declare noundef ptr @_ZNK5clang4Decl15getFunctionTypeEb(ptr noundef nonnull align 8 dereferenceable(33), i1 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema22CheckPointerConversionEPNS_4ExprENS_8QualTypeERNS_8CastKindERN4llvm11SmallVectorIPNS_16CXXBaseSpecifierELj4EEEbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i64 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema22CheckPointerConversionEPNS_4ExprENS_8QualTypeERNS_8CastKindERN4llvm11SmallVectorIPNS_16CXXBaseSpecifierELj4EEEbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i64 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #4 align 2 {
   %8 = alloca %"class.clang::CharSourceRange", align 8
   %9 = alloca %"class.clang::QualType", align 8
   %10 = alloca %"class.clang::PartialDiagnostic", align 8
@@ -13102,7 +13102,7 @@ _ZNSt7__cxx114listIN5clang11CXXBasePathESaIS2_EED2Ev.exit: ; preds = %_ZNSt16all
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema25IsQualificationConversionENS_8QualTypeES1_bRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, i64 %1, i64 %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %4) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema25IsQualificationConversionENS_8QualTypeES1_bRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, i64 %1, i64 %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) local_unnamed_addr #4 align 2 {
   %6 = alloca %"class.clang::QualType", align 8
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca i8, align 1
@@ -67106,7 +67106,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttr
 declare noundef zeroext i1 @_ZNK4llvm16FoldingSetNodeIDeqERKS0_(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL20IsStandardConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeEbRNS_26StandardConversionSequenceEbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i64 %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((8, 16), (40, 48)) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZL20IsStandardConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeEbRNS_26StandardConversionSequenceEbb(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, i64 %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull align 8 dereferenceable(56) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #4 {
   %8 = alloca %"class.clang::QualType", align 8
   %9 = alloca %"class.clang::QualType", align 8
   %10 = alloca %"class.clang::DeclAccessPair", align 8
@@ -68596,7 +68596,7 @@ _ZN5clang26ImplicitConversionSequence7setKindENS0_4KindE.exit: ; preds = %4, %8,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24TryUserDefinedConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeEbNS0_15AllowedExplicitEbbbb(ptr dead_on_unwind noalias writable align 8 initializes((0, 4), (8, 16), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #4 {
+define internal fastcc void @_ZL24TryUserDefinedConversionRN5clang4SemaEPNS_4ExprENS_8QualTypeEbNS0_15AllowedExplicitEbbbb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i64 %3, i1 noundef zeroext %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #4 {
   %8 = alloca %"class.clang::OverloadCandidateSet", align 8
   store i32 6, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -72195,7 +72195,7 @@ _ZN5clang26ImplicitConversionSequenceD2Ev.exit267: ; preds = %_ZN5clang26Implici
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16TryReferenceInitRN5clang4SemaEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbb(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 4), (8, 28), (32, 48), (56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i64 %3, i32 %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #4 {
+define internal fastcc void @_ZL16TryReferenceInitRN5clang4SemaEPNS_4ExprENS_8QualTypeENS_14SourceLocationEbb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef %2, i64 %3, i32 %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #4 {
 _ZN5clang26ImplicitConversionSequence6setBadENS_21BadConversionSequence11FailureKindEPNS_4ExprENS_8QualTypeE.exit:
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca %"class.clang::QualType", align 8

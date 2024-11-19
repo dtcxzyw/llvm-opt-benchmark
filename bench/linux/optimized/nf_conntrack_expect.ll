@@ -922,7 +922,7 @@ define dso_local ptr @nf_ct_expect_alloc(ptr noundef %0) #0 align 16 {
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @nf_ct_expect_init(ptr nocapture noundef writeonly initializes((48, 52), (68, 71), (72, 90), (96, 120), (168, 186)) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, i8 noundef zeroext %5, ptr noundef readonly %6, ptr nocapture noundef readonly %7) #3 align 16 {
+define dso_local void @nf_ct_expect_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, i8 noundef zeroext %5, ptr noundef readonly %6, ptr nocapture noundef readonly %7) #3 align 16 {
   %9 = icmp eq i8 %2, 2
   %10 = select i1 %9, i64 4, i64 16
   %11 = getelementptr inbounds i8, ptr %0, i64 96

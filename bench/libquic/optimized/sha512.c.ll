@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @SHA512.buf = internal global [64 x i8] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @SHA384_Init(ptr nocapture noundef writeonly initializes((0, 80), (208, 216)) %sha) local_unnamed_addr #0 {
+define hidden noundef i32 @SHA384_Init(ptr nocapture noundef writeonly %sha) local_unnamed_addr #0 {
 entry:
   store i64 -3766243637369397544, ptr %sha, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %sha, i64 8
@@ -37,7 +37,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @SHA512_Init(ptr nocapture noundef writeonly initializes((0, 80), (208, 216)) %sha) local_unnamed_addr #0 {
+define hidden noundef i32 @SHA512_Init(ptr nocapture noundef writeonly %sha) local_unnamed_addr #0 {
 entry:
   store i64 7640891576956012808, ptr %sha, align 8
   %arrayidx2 = getelementptr inbounds i8, ptr %sha, i64 8

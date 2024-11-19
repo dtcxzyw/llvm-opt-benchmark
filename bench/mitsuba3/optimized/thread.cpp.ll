@@ -291,7 +291,7 @@ _ZN7mitsuba6Thread26unregister_external_threadEv.exit: ; preds = %10, %4, %1
 declare i32 @__cxa_thread_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba6ThreadC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba6ThreadC2ERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba6ThreadE, i64 16), ptr %0, align 8
@@ -349,7 +349,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 declare void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @_ZN7mitsuba6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__1::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba6ThreadE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2634,7 +2634,7 @@ define void @_ZN7mitsuba6Thread16set_thread_countEm(i64 noundef %0) local_unname
 declare void @pool_set_size(ptr noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: uwtable
-define void @_ZN7mitsuba17ThreadEnvironmentC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba17ThreadEnvironmentC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %.b.i.i.i = load i1, ptr @__tls_guard, align 1
@@ -2743,7 +2743,7 @@ _ZN7mitsuba3refINS_6LoggerEED2Ev.exit:            ; preds = %_ZN7mitsuba3refINS_
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7mitsuba26ScopedSetThreadEnvironmentC2ERNS_17ThreadEnvironmentE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba26ScopedSetThreadEnvironmentC2ERNS_17ThreadEnvironmentE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %.b.i.i.i = load i1, ptr @__tls_guard, align 1

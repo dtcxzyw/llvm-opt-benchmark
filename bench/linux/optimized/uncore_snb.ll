@@ -860,31 +860,31 @@ declare dso_local void @do_trace_write_msr(i32 noundef, i64 noundef, i32 noundef
 declare dso_local i64 @uncore_event_show(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @__uncore_event_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #5 align 16 {
+define internal noundef i64 @__uncore_event_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(12) %2, ptr noundef nonnull align 1 dereferenceable(12) @.str.6, i64 12, i1 false)
   ret i64 11
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @__uncore_umask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 13)) %2) #5 align 16 {
+define internal noundef i64 @__uncore_umask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(13) %2, ptr noundef nonnull align 1 dereferenceable(13) @.str.8, i64 13, i1 false)
   ret i64 12
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @__uncore_edge_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 11)) %2) #5 align 16 {
+define internal noundef i64 @__uncore_edge_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(11) @.str.10, i64 11, i1 false)
   ret i64 10
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @__uncore_inv_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 11)) %2) #5 align 16 {
+define internal noundef i64 @__uncore_inv_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(11) @.str.12, i64 11, i1 false)
   ret i64 10
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @__uncore_cmask5_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 14)) %2) #5 align 16 {
+define internal noundef i64 @__uncore_cmask5_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(14) %2, ptr noundef nonnull align 1 dereferenceable(14) @.str.14, i64 14, i1 false)
   ret i64 13
 }
@@ -1043,7 +1043,7 @@ define internal void @adl_uncore_msr_enable_box(ptr nocapture readnone %0) #1 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @__uncore_threshold_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 14)) %2) #5 align 16 {
+define internal noundef i64 @__uncore_threshold_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(14) %2, ptr noundef nonnull align 1 dereferenceable(14) @.str.26, i64 14, i1 false)
   ret i64 13
 }
@@ -1102,7 +1102,7 @@ define internal void @mtl_uncore_msr_init_box(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snb_uncore_imc_init_box(ptr nocapture noundef initializes((376, 384), (480, 488)) %0) #1 align 16 {
+define internal void @snb_uncore_imc_init_box(ptr nocapture noundef %0) #1 align 16 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load ptr, ptr %3, align 8
@@ -1383,7 +1383,7 @@ define internal void @nhm_uncore_msr_enable_event(ptr nocapture readnone %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @__uncore_cmask8_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 14)) %2) #5 align 16 {
+define internal noundef i64 @__uncore_cmask8_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(14) %2, ptr noundef nonnull align 1 dereferenceable(14) @.str.88, i64 14, i1 false)
   ret i64 13
 }
@@ -1580,7 +1580,7 @@ declare dso_local void @intel_generic_uncore_mmio_disable_event(ptr noundef, ptr
 declare dso_local void @intel_generic_uncore_mmio_enable_event(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @__uncore_chmask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 13)) %2) #5 align 16 {
+define internal noundef i64 @__uncore_chmask_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #5 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(13) %2, ptr noundef nonnull align 1 dereferenceable(13) @.str.107, i64 13, i1 false)
   ret i64 12
 }

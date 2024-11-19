@@ -6925,7 +6925,7 @@ define void @_ZN5faiss14IndexBinaryIVF16replace_invlistsEPNS_13InvertedListsEb(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer4EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 12)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer4EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %1, align 4
   store i32 %4, ptr %3, align 8
@@ -6933,7 +6933,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer4EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((32, 40)) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer4EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %1, ptr %4, align 8
   ret void
@@ -7214,7 +7214,7 @@ declare i64 @llvm.ctpop.i64(i64) #19
 declare void @_ZN5faiss16RangeQueryResult3addEfl(ptr noundef nonnull align 8 dereferenceable(24), float noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer8EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 16)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer8EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -7222,7 +7222,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer8EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((32, 40)) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingComputer8EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %1, ptr %4, align 8
   ret void
@@ -7503,7 +7503,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_16HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer16EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((8, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer16EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -7515,7 +7515,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer16EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((40, 48)) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer16EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %4, align 8
   ret void
@@ -7760,7 +7760,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer20EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((8, 28)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer20EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -7777,7 +7777,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer20EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer20EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %4, align 8
   ret void
@@ -8043,7 +8043,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer32EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((8, 40)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer32EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -8063,7 +8063,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer32EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 64)) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer32EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %1, ptr %4, align 8
   ret void
@@ -8356,7 +8356,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer64EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((8, 72)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer64EE9set_queryEPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %3, align 8
@@ -8392,7 +8392,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer64EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 96)) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingComputer64EE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 %1, ptr %4, align 8
   ret void
@@ -8781,7 +8781,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_17HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_22HammingComputerDefaultEE9set_queryEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((8, 24)) %0, ptr noundef %1) unnamed_addr #14 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_22HammingComputerDefaultEE9set_queryEPKh(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -8797,7 +8797,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_22HammingCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_22HammingComputerDefaultEE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((40, 48)) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_118IVFBinaryScannerL2INS_22HammingComputerDefaultEE8set_listElh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i64 noundef %1, i8 zeroext %2) unnamed_addr #15 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %4, align 8
   ret void
@@ -25712,7 +25712,7 @@ define internal void @_ZNK5faiss14IndexBinaryIVF24range_search_preassignedElPKhi
 declare void @_ZN5faiss10BufferListD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss14IndexBinaryIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss14IndexBinaryIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss14IndexBinaryIVFE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8

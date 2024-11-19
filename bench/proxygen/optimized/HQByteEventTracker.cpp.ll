@@ -196,7 +196,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen18HQByteEventTrackerC2EPNS_16ByteEventTracker8CallbackEPN4quic10QuicSocketEm(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 24)) %this, ptr noundef %callback, ptr noundef %socket, i64 noundef %streamId) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HQByteEventTrackerC2EPNS_16ByteEventTracker8CallbackEPN4quic10QuicSocketEm(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %callback, ptr noundef %socket, i64 noundef %streamId) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bytesWritten_.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_header.i1.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -597,7 +597,7 @@ lpad3:                                            ; preds = %_ZNSt8functionIFvRN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120HQTransportByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_120HQTransportByteEventD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %this, align 8
   %txn_.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -636,7 +636,7 @@ _ZN8proxygen20TransactionByteEventD2Ev.exit:      ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120HQTransportByteEventD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_120HQTransportByteEventD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %this, align 8
   %txn_.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -732,7 +732,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn72_N12_GLOBAL__N_120HQTransportByteEventD1Ev(ptr noundef initializes((-72, -64)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn72_N12_GLOBAL__N_120HQTransportByteEventD1Ev(ptr noundef %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %0, align 8
@@ -772,7 +772,7 @@ _ZN12_GLOBAL__N_120HQTransportByteEventD2Ev.exit: ; preds = %invoke.cont.i.i, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn72_N12_GLOBAL__N_120HQTransportByteEventD0Ev(ptr noundef initializes((-72, -64)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn72_N12_GLOBAL__N_120HQTransportByteEventD0Ev(ptr noundef %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen20TransactionByteEventE, i64 16), ptr %0, align 8

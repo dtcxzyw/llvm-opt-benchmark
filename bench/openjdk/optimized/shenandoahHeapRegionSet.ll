@@ -41,7 +41,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @_ZN23ShenandoahHeapRegionSetD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN23ShenandoahHeapRegionSetD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN31ShenandoahHeapRegionSetIteratorC2EPK23ShenandoahHeapRegionSet(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN31ShenandoahHeapRegionSetIteratorC2EPK23ShenandoahHeapRegionSet(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -52,7 +52,7 @@ define hidden void @_ZN31ShenandoahHeapRegionSetIteratorC2EPK23ShenandoahHeapReg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ShenandoahHeapRegionSetC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN23ShenandoahHeapRegionSetC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -110,7 +110,7 @@ define hidden void @_ZN23ShenandoahHeapRegionSet13remove_regionEP20ShenandoahHea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN23ShenandoahHeapRegionSet5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN23ShenandoahHeapRegionSet5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

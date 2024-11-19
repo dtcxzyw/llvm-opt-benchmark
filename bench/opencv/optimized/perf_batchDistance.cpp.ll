@@ -1095,7 +1095,7 @@ define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test66Norm_Destination_CrossCheck_batchDistance_8U_batchDistance_8U_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) initializes((256, 257)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test66Norm_Destination_CrossCheck_batchDistance_8U_batchDistance_8U_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -2923,7 +2923,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test66Norm_CrossCheck_batchDistance_Dest_32S_batchDistance_Dest_32S_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) initializes((256, 257)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test66Norm_CrossCheck_batchDistance_Dest_32S_batchDistance_Dest_32S_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -3834,7 +3834,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test56Source_CrossCheck_batchDistance_L2_batchDistance_L2_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) initializes((256, 257)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test56Source_CrossCheck_batchDistance_L2_batchDistance_L2_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -4870,7 +4870,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %18, %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_test56Norm_CrossCheck_batchDistance_32F_batchDistance_32F_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) initializes((256, 257)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_test56Norm_CrossCheck_batchDistance_32F_batchDistance_32F_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -7821,7 +7821,7 @@ _ZN7testing8internal10linked_ptrIKNS0_23ParamGeneratorInterfaceIN11opencv_test12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
@@ -7837,7 +7837,7 @@ _ZNSt6vectorIN11opencv_test12_GLOBAL__N_18NormTypeESaIS2_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %2, align 8
@@ -7884,7 +7884,7 @@ define internal noalias noundef nonnull ptr @_ZNK7testing8internal30ValuesInIter
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEE8IteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEE8IteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEE8IteratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -7923,7 +7923,7 @@ _ZN7testing8internal10scoped_ptrIKN11opencv_test12_GLOBAL__N_18NormTypeEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEE8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEE8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEE8IteratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -8481,7 +8481,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %5, %12, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbED2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -8649,7 +8649,7 @@ _ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define internal void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 align 2 {
   tail call void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
@@ -8970,7 +8970,7 @@ _ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_18NormTypeEED2Ev.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJS4_S6_bEEEERKNS0_14ParamGeneratorIS4_EERKNS0_13ParamIteratorIS4_EERKNSF_IS6_EERKNSJ_IS6_EERKNSF_IbEERKNSJ_IbEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 24)) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJS4_S6_bEEEERKNS0_14ParamGeneratorIS4_EERKNS0_13ParamIteratorIS4_EERKNSF_IS6_EERKNSJ_IS6_EERKNSF_IbEERKNSJ_IbEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbE8IteratorE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %8, align 8
@@ -9476,7 +9476,7 @@ _ZN7testing8internal10linked_ptrISt5tupleIJN11opencv_test12_GLOBAL__N_18NormType
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbE8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbE8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbE8IteratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = getelementptr inbounds i8, ptr %0, i64 96
@@ -9857,7 +9857,7 @@ _ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_18NormTypeEED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbE8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define internal void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbE8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #8 align 2 {
   tail call void @_ZN7testing8internal26CartesianProductGenerator3IN11opencv_test12_GLOBAL__N_18NormTypeEN4perf7MatTypeEbE8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
@@ -11288,7 +11288,7 @@ _ZN7testing8internal14ParamGeneratorIbED2Ev.exit: ; preds = %_ZN7testing8interna
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbED2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -11402,7 +11402,7 @@ _ZN7testing8internal14ParamGeneratorIN11opencv_test12_GLOBAL__N_18NormTypeEED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbED0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define internal void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 align 2 {
   tail call void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void
@@ -11629,7 +11629,7 @@ _ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_18NormTypeEED2Ev.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJS4_bEEEERKNS0_14ParamGeneratorIS4_EERKNS0_13ParamIteratorIS4_EERKNSD_IbEERKNSH_IbEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbE8IteratorC2EPKNS0_23ParamGeneratorInterfaceISt5tupleIJS4_bEEEERKNS0_14ParamGeneratorIS4_EERKNS0_13ParamIteratorIS4_EERKNSD_IbEERKNSH_IbEE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr %.0.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbE8IteratorE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
@@ -11927,7 +11927,7 @@ _ZN7testing8internal10linked_ptrISt5tupleIJN11opencv_test12_GLOBAL__N_18NormType
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbE8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbE8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbE8IteratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 72
@@ -12200,7 +12200,7 @@ _ZN7testing8internal13ParamIteratorIN11opencv_test12_GLOBAL__N_18NormTypeEED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbE8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define internal void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbE8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #8 align 2 {
   tail call void @_ZN7testing8internal26CartesianProductGenerator2IN11opencv_test12_GLOBAL__N_18NormTypeEbE8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #28
   tail call void @_ZdlPv(ptr noundef nonnull %0) #31
   ret void

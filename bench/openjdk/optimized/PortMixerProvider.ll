@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [77 x i8] c"(ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @getPortMixerDescription(i32 noundef %0, ptr noundef initializes((0, 13), (200, 215), (400, 411), (600, 616)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @getPortMixerDescription(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(13) %1, ptr noundef nonnull align 1 dereferenceable(13) @.str, i64 13, i1 false) #3
   %3 = getelementptr inbounds i8, ptr %1, i64 200
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %3, ptr noundef nonnull align 1 dereferenceable(15) @.str.1, i64 15, i1 false) #3

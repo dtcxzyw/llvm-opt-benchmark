@@ -141,7 +141,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @php_dl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((8, 12)) %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @php_dl(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @php_load_extension(ptr noundef %0, i32 noundef %1, i32 noundef %3)
   %6 = icmp eq i32 %5, -1
   %spec.select = select i1 %6, i32 2, i32 3

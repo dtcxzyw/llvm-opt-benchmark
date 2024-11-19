@@ -230,7 +230,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MD5Importer15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((139, 140)) %this, ptr noundef nonnull %pImp) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp11MD5Importer15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) %this, ptr noundef nonnull %pImp) unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.1, i32 noundef 0)
   %cmp = icmp ne i32 %call, 0
@@ -243,7 +243,7 @@ entry:
 declare noundef i32 @_ZNK6Assimp8Importer18GetPropertyIntegerEPKci(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MD5Importer14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(140) initializes((72, 80), (128, 139)) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %_pScene, ptr noundef %pIOHandler) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11MD5Importer14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(140) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %_pScene, ptr noundef %pIOHandler) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %extension = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3682,7 +3682,7 @@ unreachable:                                      ; preds = %invoke.cont363
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11MD5Importer20UnloadFileFromMemoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(140) initializes((120, 124)) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11MD5Importer20UnloadFileFromMemoryEv(ptr nocapture noundef nonnull align 8 dereferenceable(140) %this) local_unnamed_addr #0 align 2 {
 entry:
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %mBuffer, align 8
@@ -3718,7 +3718,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11MD5Importer18LoadFileIntoMemoryEPNS_8IOStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(140) initializes((120, 128)) %this, ptr noundef %file) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp11MD5Importer18LoadFileIntoMemoryEPNS_8IOStreamE(ptr nocapture noundef nonnull align 8 dereferenceable(140) %this, ptr noundef %file) local_unnamed_addr #2 align 2 {
 entry:
   %mBuffer.i = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %mBuffer.i, align 8

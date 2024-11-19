@@ -1188,7 +1188,7 @@ rbt_delete_node.exit:                             ; preds = %2, %226, %229
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rbt_begin_iterate(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8), (16, 25)) %2) local_unnamed_addr #0 {
+define dso_local void @rbt_begin_iterate(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   store ptr %0, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr null, ptr %4, align 8

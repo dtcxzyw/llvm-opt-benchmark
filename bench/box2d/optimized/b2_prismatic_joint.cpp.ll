@@ -40,7 +40,7 @@ $_ZN16b2PrismaticJointD0Ev = comdat any
 @_ZN16b2PrismaticJointC1EPK19b2PrismaticJointDef = unnamed_addr alias void (ptr, ptr), ptr @_ZN16b2PrismaticJointC2EPK19b2PrismaticJointDef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19b2PrismaticJointDef10InitializeEP6b2BodyS1_RK6b2Vec2S4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((16, 32), (36, 64)) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %axis) local_unnamed_addr #0 align 2 {
+define void @_ZN19b2PrismaticJointDef10InitializeEP6b2BodyS1_RK6b2Vec2S4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %axis) local_unnamed_addr #0 align 2 {
 entry:
   %bodyA = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %bA, ptr %bodyA, align 8
@@ -204,7 +204,7 @@ declare void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferen
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN16b2PrismaticJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(300) initializes((204, 292), (296, 300)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
+define void @_ZN16b2PrismaticJoint23InitVelocityConstraintsERK12b2SolverData(ptr nocapture noundef nonnull align 8 dereferenceable(300) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
   %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_bodyA, align 8

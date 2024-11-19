@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.46 = private unnamed_addr constant [5 x i8] c"%s%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @NIStartBuild(ptr nocapture noundef writeonly initializes((96, 104)) %0) local_unnamed_addr #0 {
+define dso_local void @NIStartBuild(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurTransactionContext, align 8
   %3 = tail call ptr @AllocSetContextCreateInternal(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef 0, i64 noundef 8192, i64 noundef 8388608) #15
   %4 = getelementptr inbounds i8, ptr %0, i64 96
@@ -79,7 +79,7 @@ define dso_local void @NIStartBuild(ptr nocapture noundef writeonly initializes(
 declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @NIFinishBuild(ptr nocapture noundef initializes((80, 88), (104, 112), (120, 128)) %0) local_unnamed_addr #0 {
+define dso_local void @NIFinishBuild(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   tail call void @MemoryContextDelete(ptr noundef %3) #15

@@ -1791,7 +1791,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc i32 @get_encoded_strval(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #5

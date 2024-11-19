@@ -3823,7 +3823,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen16http_parser_initEPNS_11http_parserENS_16http_parser_typeE(ptr nocapture noundef writeonly initializes((0, 2), (4, 8), (16, 20), (22, 24)) %parser, i32 noundef %t) local_unnamed_addr #2 {
+define void @_ZN8proxygen16http_parser_initEPNS_11http_parserENS_16http_parser_typeE(ptr nocapture noundef writeonly %parser, i32 noundef %t) local_unnamed_addr #2 {
 entry:
   %conv = trunc i32 %t to i8
   %bf.value = and i8 %conv, 3
@@ -3866,14 +3866,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZN8proxygen21http_parser_parse_urlEPKcmiPNS_15http_parser_urlE(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef initializes((0, 4)) %u) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_ZN8proxygen21http_parser_parse_urlEPKcmiPNS_15http_parser_urlE(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef %u) local_unnamed_addr #3 {
 entry:
   %call = tail call noundef i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr noundef %u, i8 noundef zeroext 0)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef initializes((0, 4)) %u, i8 noundef zeroext %options) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_ZN8proxygen29http_parser_parse_url_optionsEPKcmiPNS_15http_parser_urlEh(ptr noundef %buf, i64 noundef %buflen, i32 noundef %is_connect, ptr nocapture noundef %u, i8 noundef zeroext %options) local_unnamed_addr #3 {
 entry:
   store i16 0, ptr %u, align 2
   %port = getelementptr inbounds i8, ptr %u, i64 2

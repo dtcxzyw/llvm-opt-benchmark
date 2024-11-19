@@ -581,7 +581,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %76, %84, %86
 declare noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19DWARFDebugAddrTable9extractV5ERKNS_18DWARFDataExtractorEPmhSt8functionIFvNS_5ErrorEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 1), (8, 24)) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19DWARFDebugAddrTable9extractV5ERKNS_18DWARFDataExtractorEPmhSt8functionIFvNS_5ErrorEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1037,7 +1037,7 @@ define linkonce_odr hidden void @_ZN4llvm17createStringErrorIJmhhEEENS_5ErrorESt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19DWARFDebugAddrTable18extractPreStandardERKNS_18DWARFDataExtractorEPmth(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) initializes((8, 28)) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19DWARFDebugAddrTable18extractPreStandardERKNS_18DWARFDataExtractorEPmth(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3, i16 noundef zeroext %4, i8 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = load i64, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %7, ptr %8, align 8
@@ -1410,7 +1410,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 declare { ptr, i64 } @_ZN4llvm5dwarf12FormatStringENS0_11DwarfFormatE(i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm19DWARFDebugAddrTable12getAddrEntryEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm19DWARFDebugAddrTable12getAddrEntryEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.llvm::raw_string_ostream", align 8

@@ -947,7 +947,7 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIiSt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementEiNS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_iEEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_iEES6_S8_SC_EEESt16initializer_listIS9_IS4_iEEmRKS6_RKS8_RKSC_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr nonnull readonly %1, i64 range(i64 2, 5) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementEiNS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_iEEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_iEES6_S8_SC_EEESt16initializer_listIS9_IS4_iEEmRKS6_RKS8_RKSC_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nonnull readonly %1, i64 range(i64 2, 5) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [20 x i8], align 4
   %5 = getelementptr inbounds %"struct.std::pair.57", ptr %1, i64 %2
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %0, align 8
@@ -1450,7 +1450,7 @@ _ZN4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10op
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementES4_NS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_S4_EEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_S4_EES6_S8_SC_EEESt16initializer_listIS9_IS4_S4_EEmRKS6_RKS8_RKSC_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr nonnull readonly %1, i64 range(i64 2, 16) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl7debian213flat_hash_mapIN10open_spiel15stones_and_gems7ElementES4_NS3_12_GLOBAL__N_111ElementHashESt8equal_toIS4_ESaISt4pairIKS4_S4_EEECI2NS0_18container_internal12raw_hash_setINSE_17FlatHashMapPolicyIS4_S4_EES6_S8_SC_EEESt16initializer_listIS9_IS4_S4_EEmRKS6_RKS8_RKSC_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nonnull readonly %1, i64 range(i64 2, 16) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [32 x i8], align 4
   %5 = getelementptr inbounds %"struct.std::pair.69", ptr %1, i64 %2
   store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %0, align 8
@@ -3357,7 +3357,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7Elemen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.95") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.95") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %4 = load i32, ptr %3, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -3374,7 +3374,7 @@ define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7ReturnsEv(ptr d
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.95") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel15stones_and_gems16StonesNGemsState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.95") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(188) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load i32, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -10282,7 +10282,7 @@ _ZNK4absl7debian218container_internal12raw_hash_mapINS1_17FlatHashMapPolicyIN10o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9StartScanEv(ptr nocapture noundef nonnull align 8 dereferenceable(188) initializes((76, 80), (100, 101), (112, 116)) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN10open_spiel15stones_and_gems16StonesNGemsState9StartScanEv(ptr nocapture noundef nonnull align 8 dereferenceable(188) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %3 = load i32, ptr %2, align 4
   %4 = add nsw i32 %3, -1
@@ -15251,7 +15251,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKN10open_spiel15stones_and_gems7Eleme
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.90") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5364) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.90") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(5364) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 5296
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 5300
@@ -15273,7 +15273,7 @@ define void @_ZNK10open_spiel15stones_and_gems15StonesNGemsGame22ObservationTens
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel15stones_and_gems15StonesNGemsGame9ParseGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr dead_on_unwind noalias writable sret(%"struct.open_spiel::stones_and_gems::Grid") align 8 initializes((8, 56)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(5364) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, double noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel15stones_and_gems15StonesNGemsGame9ParseGridERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEd(ptr dead_on_unwind noalias writable sret(%"struct.open_spiel::stones_and_gems::Grid") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(5364) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, double noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   %6 = alloca %"struct.absl::debian2::strings_internal::Splitter<absl::debian2::ByChar, absl::debian2::AllowEmpty, absl::debian2::string_view>::ConvertToContainer", align 1
   %7 = alloca i32, align 4

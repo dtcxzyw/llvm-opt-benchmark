@@ -25,7 +25,7 @@ $_ZTIN5zxing7CountedE = comdat any
 @_ZN5zxing12BinaryBitmapD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5zxing12BinaryBitmapD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing12BinaryBitmapC2ENS_3RefINS_9BinarizerEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 12), (16, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing12BinaryBitmapC2ENS_3RefINS_9BinarizerEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing12BinaryBitmapE, i64 16), ptr %0, align 8
@@ -70,7 +70,7 @@ define hidden void @_ZN5zxing12BinaryBitmapC2ENS_3RefINS_9BinarizerEEE(ptr nocap
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing12BinaryBitmapD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN5zxing12BinaryBitmapD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing12BinaryBitmapE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -120,7 +120,7 @@ _ZN5zxing3RefINS_9BinarizerEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing12BinaryBitmapD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN5zxing12BinaryBitmapD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing12BinaryBitmapE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -796,7 +796,7 @@ define hidden noundef zeroext i1 @_ZNK5zxing12BinaryBitmap17isRotateSupportedEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing12BinaryBitmap22rotateCounterClockwiseEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref.4") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing12BinaryBitmap22rotateCounterClockwiseEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref.4") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 @_ZN5zxing9Binarizer22rotateCounterClockwiseEv(ptr noundef nonnull align 8 dereferenceable(72) %4)

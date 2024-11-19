@@ -1574,7 +1574,7 @@ if.end26:                                         ; preds = %land.end, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @transport_push(ptr noundef %r, ptr noundef %transport, ptr noundef %rs, i32 noundef %flags, ptr nocapture noundef initializes((0, 4)) %reject_reasons) local_unnamed_addr #1 {
+define dso_local i32 @transport_push(ptr noundef %r, ptr noundef %transport, ptr noundef %rs, i32 noundef %flags, ptr nocapture noundef %reject_reasons) local_unnamed_addr #1 {
 entry:
   %flag.i = alloca i32, align 4
   %proc.i = alloca %struct.child_process, align 8
@@ -4175,7 +4175,7 @@ declare i32 @unbundle(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 no
 declare void @bundle_header_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @connect_git(ptr nocapture noundef readonly %transport, ptr noundef %name, ptr noundef %executable, ptr nocapture noundef writeonly initializes((0, 8)) %fd) #1 {
+define internal noundef i32 @connect_git(ptr nocapture noundef readonly %transport, ptr noundef %name, ptr noundef %executable, ptr nocapture noundef writeonly %fd) #1 {
 entry:
   %data1 = getelementptr inbounds i8, ptr %transport, i64 24
   %0 = load ptr, ptr %data1, align 8

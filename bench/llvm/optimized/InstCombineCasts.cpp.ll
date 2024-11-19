@@ -7594,7 +7594,7 @@ _ZN4llvm12InstCombiner19replaceInstUsesWithERNS_11InstructionEPNS_5ValueE.exit: 
 declare noundef zeroext i1 @_ZNK4llvm11Instruction9hasNonNegEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL16canEvaluateZExtdPN4llvm5ValueEPNS_4TypeERjRNS_16InstCombinerImplEPNS_11InstructionE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull align 8 dereferenceable(1088) %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL16canEvaluateZExtdPN4llvm5ValueEPNS_4TypeERjRNS_16InstCombinerImplEPNS_11InstructionE(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(1088) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %"struct.llvm::SimplifyQuery", align 8
   %7 = alloca i32, align 4
   %8 = alloca %"class.llvm::APInt", align 8

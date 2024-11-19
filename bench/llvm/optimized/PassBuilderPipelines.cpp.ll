@@ -3434,7 +3434,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm21PipelineTuningOptionsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(25) initializes((0, 5), (8, 19), (20, 25)) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm21PipelineTuningOptionsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(25) %0) unnamed_addr #2 align 2 {
   store i8 1, ptr %0, align 4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %2, align 1
@@ -3905,7 +3905,7 @@ _ZNKSt8functionIFvRN4llvm11PassManagerINS0_6ModuleENS0_15AnalysisManagerIS2_JEEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder37buildO1FunctionSimplificationPipelineENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder37buildO1FunctionSimplificationPipelineENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::OptimizationLevel", align 8
   %6 = alloca %"class.std::unique_ptr.385", align 8
   %7 = alloca %"class.llvm::InstCombinePass", align 8
@@ -6708,7 +6708,7 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %_ZNSt6vectorISt10un
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder35buildFunctionSimplificationPipelineENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder35buildFunctionSimplificationPipelineENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::OptimizationLevel", align 8
   %6 = alloca %"class.std::unique_ptr.385", align 8
   %7 = alloca %"class.llvm::InstCombinePass", align 8
@@ -14110,7 +14110,7 @@ declare void @_ZN4llvm15getInlineParamsEi(ptr dead_on_unwind writable sret(%"str
 declare void @_ZN4llvm13CoroSplitPassC1Eb(ptr noundef nonnull align 8 dereferenceable(33), i1 noundef zeroext) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder26buildModuleInlinerPipelineENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder26buildModuleInlinerPipelineENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr.914", align 8
   %6 = alloca %"struct.llvm::CoroSplitPass", align 8
   %7 = alloca %"class.std::unique_ptr.914", align 8
@@ -14427,7 +14427,7 @@ _ZN4llvm13CoroSplitPassD2Ev.exit:                 ; preds = %126, %_ZN4llvm33Mod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder33buildModuleSimplificationPipelineENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder33buildModuleSimplificationPipelineENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr.914", align 8
   %6 = alloca %"class.llvm::GlobalDCEPass", align 8
   %7 = alloca %"class.std::unique_ptr.914", align 8
@@ -19774,7 +19774,7 @@ _ZN4llvm9MapVectorIPNS_5ValueENS_11SmallVectorIPNS_9StoreInstELj8EEENS_8DenseMap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder31buildModuleOptimizationPipelineENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder31buildModuleOptimizationPipelineENS_17OptimizationLevelENS_18ThinOrFullLTOPhaseE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr.914", align 8
   %6 = alloca %"class.std::unique_ptr.914", align 8
   %7 = alloca %"class.std::unique_ptr.914", align 8
@@ -22698,7 +22698,7 @@ _ZN4llvm14SmallSetVectorIPNS_11InstructionELj8EED2Ev.exit: ; preds = %_ZN4llvm9M
 declare void @_ZN4llvm26ControlHeightReductionPassC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder29buildPerModuleDefaultPipelineENS_17OptimizationLevelEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder29buildPerModuleDefaultPipelineENS_17OptimizationLevelEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr.914", align 8
   %6 = alloca %"class.std::unique_ptr.914", align 8
   %7 = alloca %"class.llvm::OptimizationLevel", align 8
@@ -23112,7 +23112,7 @@ _ZL24addAnnotationRemarksPassRN4llvm11PassManagerINS_6ModuleENS_15AnalysisManage
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder22buildO0DefaultPipelineENS_17OptimizationLevelEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder22buildO0DefaultPipelineENS_17OptimizationLevelEb(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr.914", align 8
   %6 = alloca %"class.llvm::OptimizationLevel", align 8
   %7 = alloca %"class.std::unique_ptr.914", align 8
@@ -25244,7 +25244,7 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder26buildFatLTODefaultPipelineENS_17OptimizationLevelEbb(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder26buildFatLTODefaultPipelineENS_17OptimizationLevelEbb(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::unique_ptr.914", align 8
   %7 = alloca %"class.std::unique_ptr.914", align 8
   %8 = alloca %"class.llvm::PassManager.193", align 8
@@ -25661,7 +25661,7 @@ _ZN4llvm11PassManagerINS_6ModuleENS_15AnalysisManagerIS1_JEEEJEED2Ev.exit41: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder34buildThinLTOPreLinkDefaultPipelineENS_17OptimizationLevelE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder34buildThinLTOPreLinkDefaultPipelineENS_17OptimizationLevelE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.914", align 8
   %5 = alloca %"class.llvm::OptimizationLevel", align 8
   %6 = alloca %"class.llvm::OptimizationLevel", align 8
@@ -26110,13 +26110,13 @@ _ZL24addAnnotationRemarksPassRN4llvm11PassManagerINS_6ModuleENS_15AnalysisManage
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder30buildLTOPreLinkDefaultPipelineENS_17OptimizationLevelE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder30buildLTOPreLinkDefaultPipelineENS_17OptimizationLevelE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm11PassBuilder29buildPerModuleDefaultPipelineENS_17OptimizationLevelEb(ptr dead_on_unwind writable sret(%"class.llvm::PassManager.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder27buildThinLTODefaultPipelineENS_17OptimizationLevelEPKNS_18ModuleSummaryIndexE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder27buildThinLTODefaultPipelineENS_17OptimizationLevelEPKNS_18ModuleSummaryIndexE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr.914", align 8
   %6 = alloca %"class.std::unique_ptr.914", align 8
   %7 = alloca %"class.llvm::GlobalDCEPass", align 8
@@ -26666,7 +26666,7 @@ _ZL24addAnnotationRemarksPassRN4llvm11PassManagerINS_6ModuleENS_15AnalysisManage
 declare void @_ZN4llvm28MemProfContextDisambiguationC1EPKNS_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11PassBuilder23buildLTODefaultPipelineENS_17OptimizationLevelEPNS_18ModuleSummaryIndexE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11PassBuilder23buildLTODefaultPipelineENS_17OptimizationLevelEPNS_18ModuleSummaryIndexE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PassManager.193") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2208) %1, i64 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr.914", align 8
   %6 = alloca %"class.llvm::OptimizationLevel", align 8
   %7 = alloca %"class.std::unique_ptr.914", align 8

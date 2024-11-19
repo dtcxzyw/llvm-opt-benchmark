@@ -1244,7 +1244,7 @@ tree_free.exit:                                   ; preds = %11, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_archive_read_next_header(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal i32 @_archive_read_next_header(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   store ptr null, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -3648,7 +3648,7 @@ declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @tree_reopen(ptr noundef nonnull returned initializes((8, 24), (32, 44), (56, 64), (80, 92), (400, 404), (481, 482), (504, 508), (520, 536)) %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @tree_reopen(ptr noundef nonnull returned %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = select i1 %.not, i32 256, i32 384

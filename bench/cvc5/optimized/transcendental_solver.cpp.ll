@@ -792,7 +792,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit72: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl14transcendental20TranscendentalSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(960) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl14transcendental20TranscendentalSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(960) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith2nl14transcendental20TranscendentalSolverE, i64 16), ptr %this, align 8
   %d_sineSlv = getelementptr inbounds i8, ptr %this, i64 800
@@ -805,7 +805,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl14transcendental20TranscendentalSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(960) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl14transcendental20TranscendentalSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(960) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith2nl14transcendental20TranscendentalSolverE, i64 16), ptr %this, align 8
   %d_sineSlv.i = getelementptr inbounds i8, ptr %this, i64 800

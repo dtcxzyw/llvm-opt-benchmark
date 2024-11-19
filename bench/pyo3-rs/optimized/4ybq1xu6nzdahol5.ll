@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.5e8de04b0c03a0670b5ee506853709d3.4 = private unnamed_addr constant <{ [33 x i8] }> <{ [33 x i8] c"`name` may only be specified once" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN19pyo3_macros_backend5konst9ConstSpec11python_name17heb6307f81aa8d510E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8), (16, 17)) %0, ptr align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN19pyo3_macros_backend5konst9ConstSpec11python_name17heb6307f81aa8d510E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i8, ptr %4, align 8
@@ -145,7 +145,7 @@ _ZN19pyo3_macros_backend5konst9ConstSpec11python_name17heb6307f81aa8d510E.exit: 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend5konst18PyO3ConstAttribute4Name17hc5bbd953a0b60a8bE(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define hidden void @_ZN19pyo3_macros_backend5konst18PyO3ConstAttribute4Name17hc5bbd953a0b60a8bE(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   ret void
 }

@@ -1755,7 +1755,7 @@ declare void @_ZN4llvm24initializeLiveStacksPassERNS_12PassRegistryE(ptr noundef
 declare void @_ZN4llvm24initializeVirtRegMapPassERNS_12PassRegistryE(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112RegAllocPBQPD2Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112RegAllocPBQPD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_112RegAllocPBQPE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -1782,7 +1782,7 @@ _ZN4llvm11SmallPtrSetIPNS_12MachineInstrELj32EED2Ev.exit: ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112RegAllocPBQPD0Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112RegAllocPBQPD0Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_112RegAllocPBQPE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168

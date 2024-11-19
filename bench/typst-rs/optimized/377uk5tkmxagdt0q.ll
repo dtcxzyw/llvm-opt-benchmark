@@ -4768,7 +4768,7 @@ _ZN10pdf_writer6object3Obj9primitive17h1295cd226a0d2412E.exit.i.i: ; preds = %.n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9typst_pdf4page12PageResource3new17h8489b00038e4732bE(ptr noalias nocapture noundef writeonly sret({ { { { [2 x i64] } } }, i8, [7 x i8] }) align 8 dereferenceable(24) initializes((0, 17)) %0, i8 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #4 {
+define hidden void @_ZN9typst_pdf4page12PageResource3new17h8489b00038e4732bE(ptr noalias nocapture noundef writeonly sret({ { { { [2 x i64] } } }, i8, [7 x i8] }) align 8 dereferenceable(24) %0, i8 noundef %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 %1, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
@@ -5380,7 +5380,7 @@ define hidden void @_ZN9typst_pdf4page11PageContext20set_fill_color_space17h81f9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9typst_pdf4page11PageContext22reset_fill_color_space17h021c33952cc24b02E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(416) initializes((304, 312)) %0) unnamed_addr #6 {
+define hidden void @_ZN9typst_pdf4page11PageContext22reset_fill_color_space17h021c33952cc24b02E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(416) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 304
   store ptr null, ptr %2, align 8
   ret void
@@ -6609,7 +6609,7 @@ define hidden void @_ZN9typst_pdf4page11PageContext22set_stroke_color_space17h31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9typst_pdf4page11PageContext24reset_stroke_color_space17h22579949a6c335acE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(416) initializes((320, 328)) %0) unnamed_addr #6 {
+define hidden void @_ZN9typst_pdf4page11PageContext24reset_stroke_color_space17h22579949a6c335acE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(416) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr null, ptr %2, align 8
   ret void

@@ -158,7 +158,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.del_nspace = private unnamed_addr constant [11 x i8] c"del_nspace\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @packed_job_info_construct(ptr nocapture noundef writeonly initializes((120, 124), (128, 144)) %0) #0 {
+define internal void @packed_job_info_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
@@ -167,7 +167,7 @@ define internal void @packed_job_info_construct(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @unpacked_seg_blob_construct(ptr nocapture noundef writeonly initializes((120, 132), (136, 160)) %0) #0 {
+define internal void @unpacked_seg_blob_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
@@ -189,7 +189,7 @@ define internal void @unpacked_seg_blob_destruct(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @shmem_allocator_construct(ptr noundef initializes((160, 172), (176, 240)) %0) #2 {
+define internal void @shmem_allocator_construct(ptr noundef %0) #2 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_hash_table_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -273,7 +273,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @host_alias_construct(ptr nocapture noundef writeonly initializes((144, 152)) %0) #0 {
+define internal void @host_alias_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   ret void
@@ -307,7 +307,7 @@ pmix_tma_free.exit:                               ; preds = %10, %7, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nodeinfo_construct(ptr noundef initializes((144, 148), (152, 160)) %0) #2 {
+define internal void @nodeinfo_construct(ptr noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -683,7 +683,7 @@ pmix_obj_run_destructors.exit64:                  ; preds = %.lr.ph.i61, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @job_construct(ptr nocapture noundef writeonly initializes((144, 154), (160, 176)) %0) #2 {
+define internal void @job_construct(ptr nocapture noundef writeonly %0) #2 {
   %2 = tail call i32 @geteuid() #20
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %2, ptr %3, align 8
@@ -1367,7 +1367,7 @@ pmix_obj_run_destructors.exit147:                 ; preds = %.lr.ph.i144, %212
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @app_construct(ptr noundef initializes((144, 148)) %0) #2 {
+define internal void @app_construct(ptr noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1776,7 +1776,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %7, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @session_destruct(ptr nocapture noundef writeonly initializes((144, 153), (160, 168)) %0) #0 {
+define internal void @session_destruct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -2039,7 +2039,7 @@ pmix_obj_run_destructors.exit51:                  ; preds = %.lr.ph.i48, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @assign_module(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((0, 4)) %2) #2 {
+define internal noundef i32 @assign_module(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2) #2 {
   store i32 20, ptr %2, align 4
   %.not25 = icmp eq i64 %1, 0
   br i1 %.not25, label %.critedge, label %.lr.ph

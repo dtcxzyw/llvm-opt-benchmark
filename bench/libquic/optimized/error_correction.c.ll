@@ -154,7 +154,7 @@ for.end:                                          ; preds = %for.body
 declare i32 @RAND_bytes(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @newhope_reconcile(ptr nocapture noundef initializes((0, 32)) %key, ptr nocapture noundef readonly %v, ptr nocapture noundef readonly %c) local_unnamed_addr #2 {
+define hidden void @newhope_reconcile(ptr nocapture noundef %key, ptr nocapture noundef readonly %v, ptr nocapture noundef readonly %c) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %key, i8 0, i64 32, i1 false)
   br label %for.body

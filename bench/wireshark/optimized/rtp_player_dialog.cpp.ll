@@ -9216,7 +9216,7 @@ declare void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnam
 declare void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog18setStartPlayMarkerEd(ptr nocapture noundef nonnull align 8 dereferenceable(448) initializes((192, 200)) %0, double noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog18setStartPlayMarkerEd(ptr nocapture noundef nonnull align 8 dereferenceable(448) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 520
@@ -9651,7 +9651,7 @@ declare void @_ZN11QToolButton12setPopupModeENS_19ToolButtonPopupModeE(ptr nound
 declare void @_ZN7QAction9triggeredEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog34on_actionSelectInaudible_triggeredEv(ptr noundef nonnull align 8 dereferenceable(448) initializes((424, 425)) %0) #0 align 2 {
+define void @_ZN15RtpPlayerDialog34on_actionSelectInaudible_triggeredEv(ptr noundef nonnull align 8 dereferenceable(448) %0) #0 align 2 {
   tail call void @_ZN15RtpPlayerDialog15selectInaudibleEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext true)
   ret void
 }
@@ -11290,7 +11290,7 @@ declare void @_ZN5QMenu18setToolTipsVisibleEb(ptr noundef nonnull align 8 derefe
 declare noundef ptr @_ZN5QMenu9addActionERK7QString(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15RtpPlayerDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QVariant, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV15RtpPlayerDialog, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16023,7 +16023,7 @@ declare void @_ZNK11QTreeWidget9findItemsERK7QString6QFlagsIN2Qt9MatchFlagEEi(pt
 declare void @_ZN8QVariantC1Ei(ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog19updateStartStopTimeEP15_rtpstream_infob(ptr nocapture noundef nonnull align 8 dereferenceable(448) initializes((184, 192)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog19updateStartStopTimeEP15_rtpstream_infob(ptr nocapture noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 2176
   %5 = tail call double @nstime_to_sec(ptr noundef nonnull %4)
   %6 = getelementptr inbounds i8, ptr %1, i64 2208
@@ -16068,7 +16068,7 @@ define void @_ZN15RtpPlayerDialog19updateStartStopTimeEP15_rtpstream_infob(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog10setMarkersEv(ptr noundef nonnull align 8 dereferenceable(448) initializes((192, 200)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog10setMarkersEv(ptr noundef nonnull align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 520
@@ -19527,7 +19527,7 @@ define void @_ZN15RtpPlayerDialog26on_actionZoomOut_triggeredEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog31on_actionSelectInvert_triggeredEv(ptr noundef nonnull align 8 dereferenceable(448) initializes((424, 425)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog31on_actionSelectInvert_triggeredEv(ptr noundef nonnull align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN15RtpPlayerDialog15invertSelectionEv(ptr noundef nonnull align 8 dereferenceable(448) %0)
   tail call void @_ZN15RtpPlayerDialog15updateHintLabelEv(ptr noundef nonnull align 8 dereferenceable(448) %0)
   ret void
@@ -20222,7 +20222,7 @@ define void @_ZN15RtpPlayerDialog23on_actionStop_triggeredEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog36on_actionDeselectInaudible_triggeredEv(ptr noundef nonnull align 8 dereferenceable(448) initializes((424, 425)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog36on_actionDeselectInaudible_triggeredEv(ptr noundef nonnull align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   tail call void @_ZN15RtpPlayerDialog15selectInaudibleEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext false)
   ret void
 }
@@ -21525,7 +21525,7 @@ define noundef double @_ZN15RtpPlayerDialog18getStartPlayMarkerEv(ptr nocapture 
 declare void @_ZNK7QString3argExii5QChar(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(24), i64 noundef, i32 noundef, i32 noundef, i16) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog15getFormatedTimeEd(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1, double noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog15getFormatedTimeEd(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1, double noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QDateTime, align 8
   %6 = alloca %class.QString, align 8
@@ -24227,7 +24227,7 @@ declare noundef ptr @_ZN12AudioRouting26formatAudioRoutingToStringEv(ptr noundef
 declare noundef i32 @_ZNK12QAudioDevice19maximumChannelCountEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog15invertSelectionEv(ptr noundef nonnull align 8 dereferenceable(448) initializes((424, 425)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN15RtpPlayerDialog15invertSelectionEv(ptr noundef nonnull align 8 dereferenceable(448) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 424
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 136
@@ -25504,7 +25504,7 @@ _ZN7QStringD2Ev.exit68:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog23getSelectedRtpStreamIDsEv(ptr dead_on_unwind noalias writable sret(%class.QList.107) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog23getSelectedRtpStreamIDsEv(ptr dead_on_unwind noalias writable sret(%class.QList.107) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.QList.72, align 8
   %5 = alloca %class.QVariant, align 8
@@ -25670,7 +25670,7 @@ _ZN17QArrayDataPointerIP13_rtpstream_idED2Ev.exit: ; preds = %1, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog38getSelectedAudibleNonmutedAudioStreamsEv(ptr dead_on_unwind noalias writable sret(%class.QList.2) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog38getSelectedAudibleNonmutedAudioStreamsEv(ptr dead_on_unwind noalias writable sret(%class.QList.2) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %class.QList.72, align 8
   %5 = alloca %class.QVariant, align 8
@@ -27892,7 +27892,7 @@ define void @_ZN15RtpPlayerDialog30on_actionSavePayload_triggeredEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15RtpPlayerDialog15selectInaudibleEb(ptr noundef nonnull align 8 dereferenceable(448) initializes((424, 425)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15RtpPlayerDialog15selectInaudibleEb(ptr noundef nonnull align 8 dereferenceable(448) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QVariant, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 424
   store i8 1, ptr %4, align 8

@@ -545,7 +545,7 @@ _ZN12_GLOBAL__N_124StructurizeCFGLegacyPassC2Eb.exit: ; preds = %14
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm18StructurizeCFGPassC2Eb(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm18StructurizeCFGPassC2Eb(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 1
   %4 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZN12_GLOBAL__N_123ForceSkipUniformRegionsE, i64 8), align 8
@@ -11069,7 +11069,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIPNS_10RegionNodeEPNS_13SmallDenseSet
 declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114SubGraphTraits8childrenERKSt4pairIPN4llvm10RegionNodeEPNS2_13SmallDenseSetIS4_Lj4ENS2_12DenseMapInfoIS4_vEEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 144)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114SubGraphTraits8childrenERKSt4pairIPN4llvm10RegionNodeEPNS2_13SmallDenseSetIS4_Lj4ENS2_12DenseMapInfoIS4_vEEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::filter_iterator_impl", align 8
   %4 = alloca %"class.llvm::filter_iterator_impl", align 8
   %.sroa.08 = alloca %"class.llvm::RNSuccIterator", align 8

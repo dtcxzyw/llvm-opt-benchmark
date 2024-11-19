@@ -214,7 +214,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24ModifiedCraigSneydSchemeC2EddN5boost10shared_ptrINS_20FdmLinearOpCompositeEEERKSt6vectorINS2_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 40)) %this, double noundef %theta, double noundef %mu, ptr nocapture noundef %map, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bcSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24ModifiedCraigSneydSchemeC2EddN5boost10shared_ptrINS_20FdmLinearOpCompositeEEERKSt6vectorINS2_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(64) %this, double noundef %theta, double noundef %mu, ptr nocapture noundef %map, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bcSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store double 0x47EFFFFFE0000000, ptr %this, align 8, !tbaa !18
   %theta_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2713,7 +2713,7 @@ unreachable:                                      ; preds = %invoke.cont24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib24ModifiedCraigSneydScheme7setStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 8)) %this, double noundef %dt) local_unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib24ModifiedCraigSneydScheme7setStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, double noundef %dt) local_unnamed_addr #11 align 2 {
 entry:
   store double %dt, ptr %this, align 8, !tbaa !18
   ret void

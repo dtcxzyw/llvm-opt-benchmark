@@ -1558,7 +1558,7 @@ return:                                           ; preds = %if.end15.i.i, %for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith8PolyNorm11getMonoVarsENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef readonly %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith8PolyNorm11getMonoVarsENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef readonly %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %m, align 8

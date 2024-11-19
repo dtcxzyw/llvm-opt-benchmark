@@ -287,7 +287,7 @@ define linkonce_odr hidden void @_ZN4ncnn12InnerProductD2Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4ncnn16InnerProduct_x8615create_pipelineERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(744) initializes((592, 600)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN4ncnn16InnerProduct_x8615create_pipelineERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.ncnn::Mat", align 8
   %4 = alloca %"class.ncnn::ParamDict", align 8
   %5 = tail call noundef ptr @_ZN4ncnn16create_layer_cpuEi(i32 noundef 14)

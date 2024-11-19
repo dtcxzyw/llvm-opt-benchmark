@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @data_ascii2bin = internal unnamed_addr constant [128 x i8] c"\FF\FF\FF\FF\FF\FF\FF\FF\FF\E0\F0\FF\FF\F1\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\E0\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF>\FF\F2\FF?456789:;<=\FF\FF\FF\FF\FF\FF\FF\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\FF\FF\FF\FF\FF\FF\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123\FF\FF\FF\FF\FF", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EVP_EncodeInit(ptr nocapture noundef writeonly initializes((0, 8), (88, 92)) %ctx) local_unnamed_addr #0 {
+define hidden void @EVP_EncodeInit(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
 entry:
   %length = getelementptr inbounds i8, ptr %ctx, i64 4
   store i32 48, ptr %length, align 4
@@ -18,7 +18,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @EVP_EncodeUpdate(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly initializes((0, 4)) %out_len, ptr nocapture noundef readonly %in, i64 noundef %in_len) local_unnamed_addr #1 {
+define hidden void @EVP_EncodeUpdate(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %out_len, ptr nocapture noundef readonly %in, i64 noundef %in_len) local_unnamed_addr #1 {
 entry:
   store i32 0, ptr %out_len, align 4
   %cmp = icmp eq i64 %in_len, 0
@@ -782,7 +782,7 @@ return:                                           ; preds = %if.end29, %lor.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EVP_DecodeInit(ptr nocapture noundef writeonly initializes((0, 8), (88, 96)) %ctx) local_unnamed_addr #0 {
+define hidden void @EVP_DecodeInit(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #0 {
 entry:
   %length = getelementptr inbounds i8, ptr %ctx, i64 4
   store i32 30, ptr %length, align 4
@@ -1196,7 +1196,7 @@ return:                                           ; preds = %while.end15, %if.en
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly initializes((0, 4)) %outl) local_unnamed_addr #1 {
+define hidden range(i32 -1, 2) i32 @EVP_DecodeFinal(ptr nocapture noundef %ctx, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %outl) local_unnamed_addr #1 {
 entry:
   %dst_len.i = alloca i64, align 8
   store i32 0, ptr %outl, align 4

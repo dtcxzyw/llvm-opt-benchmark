@@ -885,7 +885,7 @@ return:                                           ; preds = %if.end2, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ossl_ccm_initctx(ptr nocapture noundef initializes((8, 40), (144, 152)) %ctx, i64 noundef %keybits, ptr noundef %hw) local_unnamed_addr #3 {
+define void @ossl_ccm_initctx(ptr nocapture noundef %ctx, i64 noundef %keybits, ptr noundef %hw) local_unnamed_addr #3 {
 entry:
   %div9 = lshr i64 %keybits, 3
   %keylen = getelementptr inbounds i8, ptr %ctx, i64 24

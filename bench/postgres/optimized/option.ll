@@ -733,7 +733,7 @@ declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 declare void @pfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @adjust_data_dir(ptr noundef initializes((144, 152)) %0) local_unnamed_addr #0 {
+define dso_local void @adjust_data_dir(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i8], align 16

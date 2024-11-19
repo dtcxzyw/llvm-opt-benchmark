@@ -138,7 +138,7 @@ return:                                           ; preds = %cond.end, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 initializes((16, 24)) %parameters) local_unnamed_addr #4 {
+define i64 @ZDICT_trainFromBuffer_cover(ptr noundef %dictBuffer, i64 noundef %dictBufferCapacity, ptr noundef %samplesBuffer, ptr noundef %samplesSizes, i32 noundef %nbSamples, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %parameters) local_unnamed_addr #4 {
 entry:
   %ctx = alloca %struct.COVER_ctx_t, align 8
   %activeDmers = alloca %struct.COVER_map_s, align 8
@@ -1584,7 +1584,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @COVER_dictSelectionError(ptr noalias nocapture writeonly sret(%struct.COVER_dictSelection) align 8 initializes((0, 24)) %agg.result, i64 noundef %error) local_unnamed_addr #11 {
+define void @COVER_dictSelectionError(ptr noalias nocapture writeonly sret(%struct.COVER_dictSelection) align 8 %agg.result, i64 noundef %error) local_unnamed_addr #11 {
 entry:
   %totalCompressedSize.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)

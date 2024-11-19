@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mem_pool_init(ptr nocapture noundef initializes((0, 24)) %pool, i64 noundef %initial_size) local_unnamed_addr #0 {
+define dso_local void @mem_pool_init(ptr nocapture noundef %pool, i64 noundef %initial_size) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %pool, i8 0, i64 24, i1 false)
   %block_alloc = getelementptr inbounds i8, ptr %pool, i64 8

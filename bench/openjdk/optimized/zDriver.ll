@@ -231,7 +231,7 @@ define hidden void @_ZN7ZDriverC2Ev(ptr noundef nonnull align 8 dereferenceable(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7ZDriver12set_gc_causeEN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(924) initializes((920, 924)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN7ZDriver12set_gc_causeEN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(924) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 920
   store i32 %1, ptr %3, align 8
   ret void
@@ -340,7 +340,7 @@ define hidden noundef nonnull ptr @_ZN12ZDriverMinor10jfr_tracerEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZDriverMinor17set_used_at_startEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1264) initializes((1256, 1264)) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN12ZDriverMinor17set_used_at_startEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1264) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1256
   store i64 %1, ptr %3, align 8
   ret void
@@ -602,7 +602,7 @@ define hidden noundef nonnull ptr @_ZN12ZDriverMajor10jfr_tracerEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12ZDriverMajor17set_used_at_startEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1264) initializes((1256, 1264)) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN12ZDriverMajor17set_used_at_startEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1264) %0, i64 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1256
   store i64 %1, ptr %3, align 8
   ret void

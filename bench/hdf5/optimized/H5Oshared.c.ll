@@ -507,7 +507,7 @@ declare void @H5F_addr_decode(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @H5O__shared_encode(ptr noundef %0, ptr noundef initializes((0, 1)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
+define noundef i32 @H5O__shared_encode(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load i32, ptr %2, align 8
   %6 = icmp eq i32 %5, 1
@@ -542,7 +542,7 @@ define noundef i32 @H5O__shared_encode(ptr noundef %0, ptr noundef initializes((
 declare void @H5F_addr_encode(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5O_set_shared(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define noundef i32 @H5O_set_shared(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   ret i32 0
 }

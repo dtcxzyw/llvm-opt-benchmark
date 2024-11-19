@@ -381,7 +381,7 @@ _ZL9hb_memsetPvij.exit:                           ; preds = %29, %26, %_ZN11hb_b
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN11hb_buffer_t18get_scratch_bufferEPj(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((82, 84), (92, 96), (112, 120)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN11hb_buffer_t18get_scratch_bufferEPj(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 82
   store i8 0, ptr %3, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 83
@@ -405,7 +405,7 @@ define hidden noundef ptr @_ZN11hb_buffer_t18get_scratch_bufferEPj(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11hb_buffer_t7similarERKS_(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((24, 44)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN11hb_buffer_t7similarERKS_(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(220) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @hb_unicode_funcs_destroy(ptr noundef %4)
@@ -441,7 +441,7 @@ declare void @hb_unicode_funcs_destroy(ptr noundef) local_unnamed_addr #6
 declare ptr @hb_unicode_funcs_reference(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11hb_buffer_t5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((24, 96), (112, 120), (128, 178), (180, 184)) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN11hb_buffer_t5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @hb_unicode_funcs_destroy(ptr noundef %3)
@@ -474,7 +474,7 @@ define hidden void @_ZN11hb_buffer_t5resetEv(ptr nocapture noundef nonnull align
 declare ptr @hb_unicode_funcs_get_default() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11hb_buffer_t5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((44, 96), (112, 120), (128, 178), (180, 184)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11hb_buffer_t5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -501,7 +501,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11hb_buffer_t5enterEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((81, 82), (176, 178), (180, 184)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11hb_buffer_t5enterEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 177
@@ -535,7 +535,7 @@ define hidden void @_ZN11hb_buffer_t5enterEv(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11hb_buffer_t5leaveEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(220) initializes((176, 178), (184, 192)) %0) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN11hb_buffer_t5leaveEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(220) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 1073741823, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 188
@@ -626,7 +626,7 @@ _ZN11hb_buffer_t6ensureEj.exit.thread:            ; preds = %_ZN11hb_buffer_t6en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11hb_buffer_t12clear_outputEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((82, 88), (92, 96), (112, 120)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11hb_buffer_t12clear_outputEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 82
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 83
@@ -643,7 +643,7 @@ define hidden void @_ZN11hb_buffer_t12clear_outputEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN11hb_buffer_t15clear_positionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) initializes((82, 84), (92, 96), (112, 120)) %0) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN11hb_buffer_t15clear_positionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(220) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 82
   store i8 0, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 83
@@ -2061,7 +2061,7 @@ _ZL23hb_object_get_user_dataIK11hb_buffer_tEPvPT_P18hb_user_data_key_t.exit: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @hb_buffer_set_content_type(ptr nocapture noundef writeonly initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define hidden void @hb_buffer_set_content_type(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 %1, ptr %3, align 4
   ret void
@@ -2195,7 +2195,7 @@ define hidden void @hb_buffer_set_segment_properties(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @hb_buffer_get_segment_properties(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #1 {
+define hidden void @hb_buffer_get_segment_properties(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   ret void

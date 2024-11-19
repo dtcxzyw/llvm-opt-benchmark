@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o6SolverC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 49), (56, 64)) %0) unnamed_addr #3 align 2 {
+define void @_ZN3g2o6SolverC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN3g2o6SolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -38,7 +38,7 @@ define void @_ZN3g2o6SolverC2Ev(ptr nocapture noundef nonnull writeonly align 8 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN3g2o6SolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o6SolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN3g2o6SolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -148,14 +148,14 @@ _ZN3g2o16allocate_alignedIdEEPT_m.exit9:          ; preds = %34
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o6Solver12setOptimizerEPNS_15SparseOptimizerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3g2o6Solver12setOptimizerEPNS_15SparseOptimizerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o6Solver12setLevenbergEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((48, 49)) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3g2o6Solver12setLevenbergEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 %3, ptr %4, align 8
@@ -163,7 +163,7 @@ define void @_ZN3g2o6Solver12setLevenbergEb(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o6Solver24setAdditionalVectorSpaceEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((56, 64)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN3g2o6Solver24setAdditionalVectorSpaceEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 %1, ptr %3, align 8
   ret void

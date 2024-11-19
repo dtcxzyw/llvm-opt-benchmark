@@ -455,7 +455,7 @@ define noundef zeroext i1 @_ZN6common3cpu9CpuBudget16has_budget_exact17h942ad163
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6common3cpu9CpuBudget26notify_on_budget_available17h40763f1473abc0e3E(ptr noalias nocapture noundef writeonly sret({ ptr, i64, [144 x i8], i8, [7 x i8] }) align 8 dereferenceable(168) initializes((0, 16), (160, 161)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #2 {
+define void @_ZN6common3cpu9CpuBudget26notify_on_budget_available17h40763f1473abc0e3E(ptr noalias nocapture noundef writeonly sret({ ptr, i64, [144 x i8], i8, [7 x i8] }) align 8 dereferenceable(168) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -523,7 +523,7 @@ _ZN6common3cpu9CpuBudget3new17h4c4933f1c18335abE.exit: ; preds = %_ZN6common3cpu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6common3cpu9CpuPermit3new17h3050bf2812eeb274E(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i32, [1 x i32] }) align 8 dereferenceable(24) initializes((0, 12), (16, 20)) %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #2 {
+define void @_ZN6common3cpu9CpuPermit3new17h3050bf2812eeb274E(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i32, [1 x i32] }) align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %5, align 8
   store ptr %2, ptr %0, align 8
@@ -533,7 +533,7 @@ define void @_ZN6common3cpu9CpuPermit3new17h3050bf2812eeb274E(ptr noalias nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6common3cpu9CpuPermit5dummy17h63d5789af4c35b57E(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i32, [1 x i32] }) align 8 dereferenceable(24) initializes((0, 8), (16, 20)) %0, i32 noundef %1) unnamed_addr #2 {
+define void @_ZN6common3cpu9CpuPermit5dummy17h63d5789af4c35b57E(ptr noalias nocapture noundef writeonly sret({ { ptr, [1 x i64] }, i32, [1 x i32] }) align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   store ptr null, ptr %0, align 8
@@ -592,7 +592,7 @@ define void @_ZN6common3cpu9CpuPermit7release17h3861c7620a48dba7E(ptr noalias no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6common3cpu25linux_low_thread_priority17h6657dd750c3b1684E(ptr noalias nocapture noundef writeonly sret({ i32, [5 x i32] }) align 8 dereferenceable(24) initializes((0, 4)) %0) unnamed_addr #0 {
+define void @_ZN6common3cpu25linux_low_thread_priority17h6657dd750c3b1684E(ptr noalias nocapture noundef writeonly sret({ i32, [5 x i32] }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = alloca { i32, [5 x i32] }, align 8
   %3 = alloca { ptr, [1 x i64] }, align 8
   %4 = alloca { [12 x i32], i32, [1 x i32] }, align 8
@@ -647,7 +647,7 @@ _ZN6common3cpu25set_linux_thread_priority17h82e84a0272316ef8E.exit: ; preds = %"
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6common3cpu26linux_high_thread_priority17he36007dab0a7fcb6E(ptr noalias nocapture noundef writeonly sret({ i32, [5 x i32] }) align 8 dereferenceable(24) initializes((0, 4)) %0) unnamed_addr #0 {
+define void @_ZN6common3cpu26linux_high_thread_priority17he36007dab0a7fcb6E(ptr noalias nocapture noundef writeonly sret({ i32, [5 x i32] }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = alloca { i32, [5 x i32] }, align 8
   %3 = alloca { ptr, [1 x i64] }, align 8
   %4 = alloca { [12 x i32], i32, [1 x i32] }, align 8

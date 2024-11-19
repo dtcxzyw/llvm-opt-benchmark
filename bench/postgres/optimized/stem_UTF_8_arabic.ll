@@ -322,7 +322,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_2_4 = internal constant [2 x i8] c"\D8\A6", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2) i32 @arabic_UTF_8_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @arabic_UTF_8_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8
@@ -1679,7 +1679,7 @@ r_Suffix_All_alef_maqsura.exit:                   ; preds = %43, %46, %49, %52, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Verb_Step2a(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Verb_Step2a(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1754,7 +1754,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Verb_Step2a(ptr n
 declare i32 @skip_b_utf8(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2a(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2a(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1784,7 +1784,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2a(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2b(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2b(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1830,7 +1830,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2b(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2c1(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2c1(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1875,7 +1875,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Suffix_Noun_Step2c1(ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_Prefix_Step3_Verb(ptr noundef initializes((20, 24)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Prefix_Step3_Verb(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -1948,7 +1948,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_Prefix_Step3_Verb(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_Prefix_Step4_Verb(ptr noundef initializes((20, 24)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_Prefix_Step4_Verb(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20

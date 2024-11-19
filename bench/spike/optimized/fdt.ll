@@ -514,7 +514,7 @@ define ptr @fdt_offset_ptr(ptr noundef readonly %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #2 {
+define noundef i32 @fdt_next_tag(ptr noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   store i32 -8, ptr %2, align 4
   %4 = tail call ptr @fdt_offset_ptr(ptr noundef %0, i32 noundef %1, i32 noundef 4)
   %.not = icmp eq ptr %4, null

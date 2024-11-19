@@ -33,7 +33,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_40ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN15G1YoungGenSizerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15G1YoungGenSizerC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1YoungGenSizerC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 13), (16, 24)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1YoungGenSizerC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = alloca i64, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV15G1YoungGenSizer, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8

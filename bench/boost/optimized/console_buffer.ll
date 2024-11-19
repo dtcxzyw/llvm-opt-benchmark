@@ -361,7 +361,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE12trail_lengthEc.exit: ; preds = %9, %17,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN5boost6nowide6detail25console_input_buffer_base4syncEv(ptr nocapture noundef nonnull align 8 dereferenceable(8289) initializes((8, 32), (8256, 8264), (8288, 8289)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN5boost6nowide6detail25console_input_buffer_base4syncEv(ptr nocapture noundef nonnull align 8 dereferenceable(8289) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8256
   store i64 0, ptr %2, align 8, !tbaa !25
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8288

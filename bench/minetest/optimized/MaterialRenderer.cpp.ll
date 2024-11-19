@@ -91,7 +91,7 @@ $_ZTVN3irr5video25IMaterialRendererServicesE = comdat any
 @.str.14 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseERiPKcS6_PNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 34), (36, 65), (72, 76)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %outMaterialTypeNr, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, ptr noundef %callback, i32 noundef %baseMaterial, i32 noundef %userData) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseERiPKcS6_PNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %outMaterialTypeNr, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, ptr noundef %callback, i32 noundef %baseMaterial, i32 noundef %userData) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -162,7 +162,7 @@ if.end:                                           ; preds = %if.then, %sw.epilog
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video24COpenGL3MaterialRenderer4initERiPKcS4_b(ptr noundef nonnull align 8 dereferenceable(76) initializes((36, 40)) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %outMaterialTypeNr, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, i1 noundef zeroext %addMaterial) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr5video24COpenGL3MaterialRenderer4initERiPKcS4_b(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %outMaterialTypeNr, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, i1 noundef zeroext %addMaterial) local_unnamed_addr #0 align 2 {
 entry:
   store i32 -1, ptr %outMaterialTypeNr, align 4, !tbaa !26
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @GL, i64 944), align 8, !tbaa !27
@@ -229,7 +229,7 @@ if.end22:                                         ; preds = %if.then20, %if.end1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video24COpenGL3MaterialRendererC1EPNS0_18COpenGL3DriverBaseERiPKcS6_PNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 34), (36, 65), (72, 76), (80, 100)) %this, ptr noundef %driver, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %outMaterialTypeNr, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, ptr noundef %callback, i32 noundef %baseMaterial, i32 noundef %userData) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video24COpenGL3MaterialRendererC1EPNS0_18COpenGL3DriverBaseERiPKcS6_PNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef %driver, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %outMaterialTypeNr, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, ptr noundef %callback, i32 noundef %baseMaterial, i32 noundef %userData) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 80
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -289,7 +289,7 @@ if.end:                                           ; preds = %if.then, %sw.epilog
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((0, 34), (36, 65), (72, 76)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver, ptr noundef %callback, i32 noundef %baseMaterial, i32 noundef %userData) unnamed_addr #1 align 2 {
+define void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %this, ptr nocapture noundef readonly %vtt, ptr noundef %driver, ptr noundef %callback, i32 noundef %baseMaterial, i32 noundef %userData) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -359,7 +359,7 @@ if.end:                                           ; preds = %if.then, %sw.epilog
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video24COpenGL3MaterialRendererC1EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((0, 34), (36, 65), (72, 76), (80, 100)) %this, ptr noundef %driver, ptr noundef %callback, i32 noundef %baseMaterial, i32 noundef %userData) unnamed_addr #1 align 2 {
+define void @_ZN3irr5video24COpenGL3MaterialRendererC1EPNS0_18COpenGL3DriverBaseEPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %this, ptr noundef %driver, ptr noundef %callback, i32 noundef %baseMaterial, i32 noundef %userData) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 80
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -418,7 +418,7 @@ if.end:                                           ; preds = %if.then, %sw.epilog
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %shaders = alloca [8 x i32], align 16
   %count = alloca i32, align 4
@@ -589,14 +589,14 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video24COpenGL3MaterialRendererD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video24COpenGL3MaterialRendererD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull @_ZTTN3irr5video24COpenGL3MaterialRendererE) #19
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr5video24COpenGL3MaterialRendererD1Ev(ptr nocapture noundef initializes((-8, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZThn8_N3irr5video24COpenGL3MaterialRendererD1Ev(ptr nocapture noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull @_ZTTN3irr5video24COpenGL3MaterialRendererE) #19
@@ -615,7 +615,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video24COpenGL3MaterialRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video24COpenGL3MaterialRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull @_ZTTN3irr5video24COpenGL3MaterialRendererE) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
@@ -626,7 +626,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr5video24COpenGL3MaterialRendererD0Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZThn8_N3irr5video24COpenGL3MaterialRendererD0Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull @_ZTTN3irr5video24COpenGL3MaterialRendererE) #19

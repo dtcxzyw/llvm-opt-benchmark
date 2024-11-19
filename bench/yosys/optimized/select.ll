@@ -92851,7 +92851,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofERKS4_m(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef initializes((0, 1), (16, 20), (24, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_112_GLOBAL__N_113expand_rule_tEEE9constructIS2_JRKS2_EEEvRS3_PT_DpOT0_(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<Yosys::RTLIL::IdString, Yosys::RTLIL::IdString, std::_Identity<Yosys::RTLIL::IdString>, std::less<Yosys::RTLIL::IdString>>::_Alloc_node", align 8
   %4 = alloca %"struct.std::_Rb_tree<Yosys::RTLIL::IdString, Yosys::RTLIL::IdString, std::_Identity<Yosys::RTLIL::IdString>, std::less<Yosys::RTLIL::IdString>>::_Alloc_node", align 8
   %5 = load i8, ptr %1, align 8

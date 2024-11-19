@@ -853,7 +853,7 @@ _ZN4cvc58internal4expr9NodeValue3incEv.exit:      ; preds = %if.then.i, %if.else
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15CegInstantiatorD2Ev(ptr noundef nonnull align 8 dereferenceable(992) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15CegInstantiatorD2Ev(ptr noundef nonnull align 8 dereferenceable(992) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15CegInstantiatorE, i64 16), ptr %this, align 8
   %d_instantiator = getelementptr inbounds i8, ptr %this, i64 944
@@ -1864,7 +1864,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15CegInstantiatorD0Ev(ptr noundef nonnull align 8 dereferenceable(992) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15CegInstantiatorD0Ev(ptr noundef nonnull align 8 dereferenceable(992) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers15CegInstantiatorD2Ev(ptr noundef nonnull align 8 dereferenceable(992) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22

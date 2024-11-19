@@ -93,7 +93,7 @@ _ZN11BigUnsignedaSERKS_.exit:                     ; preds = %24, %_ZN15Numberlik
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10BigIntegerC2EPKmjNS_4SignE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10BigIntegerC2EPKmjNS_4SignE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -195,7 +195,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10BigIntegerC2ERK11BigUnsignedNS_4SignE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10BigIntegerC2ERK11BigUnsignedNS_4SignE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = getelementptr inbounds i8, ptr %1, i64 4
@@ -320,7 +320,7 @@ define void @_ZN10BigIntegerC2Et(ptr noundef nonnull align 8 dereferenceable(24)
 declare void @_ZN11BigUnsignedC1Et(ptr noundef nonnull align 8 dereferenceable(16), i16 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10BigIntegerC2El(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 4)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN10BigIntegerC2El(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i64(i64 %1, i64 0)
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -330,7 +330,7 @@ define void @_ZN10BigIntegerC2El(ptr noundef nonnull align 8 dereferenceable(24)
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10BigIntegerC2Ei(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN10BigIntegerC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %1, 0
   %.inv.i = icmp slt i32 %1, 1
   %4 = select i1 %.inv.i, i32 -1, i32 1
@@ -344,7 +344,7 @@ define void @_ZN10BigIntegerC2Ei(ptr noundef nonnull align 8 dereferenceable(24)
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10BigIntegerC2Es(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 4)) %0, i16 noundef signext %1) unnamed_addr #0 align 2 {
+define void @_ZN10BigIntegerC2Es(ptr noundef nonnull align 8 dereferenceable(24) %0, i16 noundef signext %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef range(i32 -1, 2) i32 @llvm.scmp.i32.i16(i16 %1, i16 0)
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

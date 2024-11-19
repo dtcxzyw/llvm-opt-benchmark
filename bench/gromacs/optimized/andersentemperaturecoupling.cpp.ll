@@ -266,7 +266,7 @@ define linkonce_odr void @_ZN3gmx27AndersenTemperatureCouplingD0Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx27AndersenTemperatureCouplingC2EdblNS_8ArrayRefIKfEES3_PNS_19StatePropagatorDataEPKNS_7MDAtomsEPK9t_commrec(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 9), (12, 20), (24, 88)) %0, double noundef %1, i1 noundef zeroext %2, i64 noundef %3, ptr %4, ptr %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %6, ptr noundef %7, ptr nocapture noundef readonly %8, ptr noundef %9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx27AndersenTemperatureCouplingC2EdblNS_8ArrayRefIKfEES3_PNS_19StatePropagatorDataEPKNS_7MDAtomsEPK9t_commrec(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, double noundef %1, i1 noundef zeroext %2, i64 noundef %3, ptr %4, ptr %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %6, ptr noundef %7, ptr nocapture noundef readonly %8, ptr noundef %9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %11 = zext i1 %2 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx27AndersenTemperatureCouplingE, i64 16), ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 8

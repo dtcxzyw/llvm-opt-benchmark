@@ -462,7 +462,7 @@ define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuum(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @HeapTupleSatisfiesVacuumHorizon(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   store i32 0, ptr %2, align 4

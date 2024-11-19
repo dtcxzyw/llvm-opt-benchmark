@@ -812,7 +812,7 @@ declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9pymeshlab17FunctionParameterC2ERK13RichParameter(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #7 align 2 {
+define void @_ZN9pymeshlab17FunctionParameterC2ERK13RichParameter(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9pymeshlab17FunctionParameterE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
@@ -824,7 +824,7 @@ define void @_ZN9pymeshlab17FunctionParameterC2ERK13RichParameter(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9pymeshlab17FunctionParameterC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #7 align 2 {
+define void @_ZN9pymeshlab17FunctionParameterC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9pymeshlab17FunctionParameterE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -838,7 +838,7 @@ define void @_ZN9pymeshlab17FunctionParameterC2ERKS0_(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9pymeshlab17FunctionParameterC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #8 align 2 {
+define void @_ZN9pymeshlab17FunctionParameterC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9pymeshlab17FunctionParameterE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -849,7 +849,7 @@ define void @_ZN9pymeshlab17FunctionParameterC2EOS0_(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9pymeshlab17FunctionParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN9pymeshlab17FunctionParameterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9pymeshlab17FunctionParameterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -881,7 +881,7 @@ define void @_ZNK9pymeshlab17FunctionParameter10pythonNameEv(ptr dead_on_unwind 
 declare void @_ZNK13RichParameter10pythonNameEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9pymeshlab17FunctionParameter11meshlabNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9pymeshlab17FunctionParameter11meshlabNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter4nameEv(ptr noundef nonnull align 8 dereferenceable(56) %4)
@@ -924,7 +924,7 @@ define void @_ZNK9pymeshlab17FunctionParameter17meshlabTypeStringEv(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9pymeshlab17FunctionParameter11descriptionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9pymeshlab17FunctionParameter11descriptionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -954,7 +954,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %10, %5, %12
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK13RichParameter16fieldDescriptionEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9pymeshlab17FunctionParameter15longDescriptionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9pymeshlab17FunctionParameter15longDescriptionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

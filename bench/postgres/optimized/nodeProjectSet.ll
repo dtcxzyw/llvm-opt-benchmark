@@ -220,7 +220,7 @@ define dso_local void @ExecEndProjectSet(ptr nocapture noundef readonly %0) loca
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanProjectSet(ptr nocapture noundef initializes((220, 221)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanProjectSet(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 220
@@ -247,7 +247,7 @@ declare void @ProcessInterrupts() local_unnamed_addr #1
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef initializes((220, 221)) %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @ExecProjectSRF(ptr nocapture noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 128

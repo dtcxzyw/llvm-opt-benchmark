@@ -1931,7 +1931,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp12glTFExporterC2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesEb(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 40), (48, 52), (56, 64)) %this, ptr noundef %filename, ptr noundef %pIOSystem, ptr noundef %pScene, ptr noundef %pProperties, i1 noundef zeroext %isBinary) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp12glTFExporterC2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesEb(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %filename, ptr noundef %pIOSystem, ptr noundef %pScene, ptr noundef %pProperties, i1 noundef zeroext %isBinary) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sceneCopy_tmp = alloca ptr, align 8
   %tri_splitter = alloca %"class.Assimp::SplitLargeMeshesProcess_Triangle", align 8
@@ -45017,7 +45017,7 @@ if.end:                                           ; preds = %if.then.i.i.i308, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4glTF12_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 16)) %val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4glTF12_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) %val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %val, i8 0, i64 16, i1 false)
   %flags.i.i = getelementptr inbounds i8, ptr %val, i64 14
@@ -45139,7 +45139,7 @@ for.end:                                          ; preds = %_ZN9rapidjson12Gene
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4glTF12_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 16)) %val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN4glTF12_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) %val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %val, i8 0, i64 16, i1 false)
   %flags.i.i = getelementptr inbounds i8, ptr %val, i64 14

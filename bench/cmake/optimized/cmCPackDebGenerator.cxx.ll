@@ -318,7 +318,7 @@ define dso_local void @_ZN19cmCPackDebGeneratorC2Ev(ptr noundef nonnull align 8 
 declare void @_ZN16cmCPackGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN19cmCPackDebGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19cmCPackDebGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19cmCPackDebGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 360
   %3 = load ptr, ptr %2, align 8
@@ -388,7 +388,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZN16cmCPackGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN19cmCPackDebGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19cmCPackDebGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19cmCPackDebGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 360
   %3 = load ptr, ptr %2, align 8
@@ -7539,7 +7539,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112DebGeneratorC2EP10cmCPackLogNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_7cmValueS9_S9_St3mapIS8_S8_St4lessIS8_ESaISt4pairIKS8_S8_EEEbS8_bS8_bS8_S9_bSt6vectorIS8_SaIS8_EE(ptr noundef nonnull align 8 dereferenceable(420) initializes((0, 8)) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 %6, i64 %7, i64 %8, ptr noundef nonnull %9, i1 noundef zeroext %10, ptr noundef nonnull %11, i1 noundef zeroext %12, ptr noundef nonnull %13, i1 noundef zeroext %14, ptr noundef nonnull %15, i64 %16, i1 noundef zeroext %17, ptr nocapture noundef nonnull %18) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112DebGeneratorC2EP10cmCPackLogNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_S8_S8_7cmValueS9_S9_St3mapIS8_S8_St4lessIS8_ESaISt4pairIKS8_S8_EEEbS8_bS8_bS8_S9_bSt6vectorIS8_SaIS8_EE(ptr noundef nonnull align 8 dereferenceable(420) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, i64 %6, i64 %7, i64 %8, ptr noundef nonnull %9, i1 noundef zeroext %10, ptr noundef nonnull %11, i1 noundef zeroext %12, ptr noundef nonnull %13, i1 noundef zeroext %14, ptr noundef nonnull %15, i64 %16, i1 noundef zeroext %17, ptr nocapture noundef nonnull %18) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %20 = alloca %"class.std::allocator", align 1
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
   %22 = alloca %"class.std::allocator", align 1

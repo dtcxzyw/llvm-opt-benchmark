@@ -10816,7 +10816,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__8SdfLayer13GetPrimAtPathERKNS
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec9IsDormantEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_AggregateDataFromClipsERKNS_8TfRefPtrINS_8SdfLayerEEERKSt6vectorIS3_SaIS3_EERKNS_7SdfPathERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_123_AggregateDataFromClipsERKNS_8TfRefPtrINS_8SdfLayerEEERKSt6vectorIS3_SaIS3_EERKNS_7SdfPathERKNS_7TfTokenE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.tbb::detail::d1::wait_node", align 8
   %6 = alloca %"class.tbb::detail::d1::small_object_allocator", align 8
   %7 = alloca %"class.tbb::detail::d1::task_group_context", align 8
@@ -11088,7 +11088,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_StitchLayersResultC2ERKNS_7SdfPathERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_119_StitchLayersResultC2ERKNS_7SdfPathERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::map", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

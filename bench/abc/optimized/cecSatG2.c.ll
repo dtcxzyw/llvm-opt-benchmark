@@ -313,7 +313,7 @@ declare ptr @Gia_ManSimPatSimOut(ptr noundef, ptr noundef, i32 noundef) local_un
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cec4_ManSetParams(ptr nocapture noundef writeonly initializes((0, 100)) %0) local_unnamed_addr #3 {
+define void @Cec4_ManSetParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %2, i8 0, i64 76, i1 false)
   store i32 2, ptr %0, align 4
@@ -1983,7 +1983,7 @@ Vec_PtrPushUnique.exit:                           ; preds = %64, %Vec_PtrPush.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cec4_CollectSuper(ptr noundef %0, i32 noundef %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
+define void @Cec4_CollectSuper(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   tail call void @Cec4_CollectSuper_rec(ptr noundef %0, ptr noundef %2, i32 noundef 1, i32 noundef %1)
@@ -4832,7 +4832,7 @@ Cec4_ObjSimXor.exit:                              ; preds = %.lr.ph.i, %.lr.ph43
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Cec4_ManSimAlloc(ptr nocapture noundef initializes((816, 820)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @Cec4_ManSimAlloc(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 832
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -7792,7 +7792,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cec4_ManSatSolverRecycle(ptr nocapture noundef initializes((208, 212)) %0) local_unnamed_addr #0 {
+define void @Cec4_ManSatSolverRecycle(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, 1
@@ -7853,7 +7853,7 @@ define void @Cec4_ManSatSolverRecycle(ptr nocapture noundef initializes((208, 21
 declare void @bmcg2_sat_solver_reset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec4_ManSolveTwo(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define i32 @Cec4_ManSolveTwo(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8
   %10 = alloca [2 x i32], align 4

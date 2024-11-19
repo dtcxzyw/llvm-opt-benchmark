@@ -53,7 +53,7 @@ $_ZTVN4llvm8codeview13CodeViewErrorE = comdat any
 @_ZN4llvm13ErrorInfoBase2IDE = external global i8, align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8codeview16CodeViewRecordIO11beginRecordESt8optionalIjE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview16CodeViewRecordIO11beginRecordESt8optionalIjE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.llvm::codeview::CodeViewRecordIO::RecordLimit", align 8
   %.4..4..4..sroa_idx = getelementptr inbounds i8, ptr %4, i64 4
   store i64 %2, ptr %.4..4..4..sroa_idx, align 4

@@ -268,7 +268,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22DiscretizedConvertibleC2ENS_15ConvertibleBond9argumentsEN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEESt6vectorINS4_INS_8DividendEEESaIS9_EENS_6HandleINS_5QuoteEEERKNS_8TimeGridE(ptr noundef nonnull align 8 dereferenceable(496) initializes((0, 8), (16, 496)) %this, ptr nocapture noundef %args, ptr nocapture noundef %process, ptr nocapture noundef readonly %dividends, ptr nocapture noundef %creditSpread, ptr noundef nonnull align 8 dereferenceable(72) %grid) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22DiscretizedConvertibleC2ENS_15ConvertibleBond9argumentsEN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEESt6vectorINS4_INS_8DividendEEESaIS9_EENS_6HandleINS_5QuoteEEERKNS_8TimeGridE(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr nocapture noundef %args, ptr nocapture noundef %process, ptr nocapture noundef readonly %dividends, ptr nocapture noundef %creditSpread, ptr noundef nonnull align 8 dereferenceable(72) %grid) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %ref.tmp94 = alloca %"class.QuantLib::Date", align 8
   %dayCounter = alloca %"class.QuantLib::DayCounter", align 8

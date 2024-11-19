@@ -4285,7 +4285,7 @@ define dso_local void @_ZN4Luau6TxnLog5clearEv(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6TxnLog7inverseEv(ptr dead_on_unwind noalias writable sret(%"struct.Luau::TxnLog") align 8 initializes((0, 32), (40, 72), (80, 114), (120, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6TxnLog7inverseEv(ptr dead_on_unwind noalias writable sret(%"struct.Luau::TxnLog") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.Luau::TypePackVar", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::unique_ptr.43", align 8
@@ -6015,7 +6015,7 @@ define dso_local noundef ptr @_ZNK4Luau6TxnLog6followEPKNS_11TypePackVarE(ptr no
 declare noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarEPKvPFS2_S4_S2_E(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4Luau6TxnLog10getChangesEv(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.130") align 8 initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4Luau6TxnLog10getChangesEv(ptr dead_on_unwind noalias writable sret(%"struct.std::pair.130") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8

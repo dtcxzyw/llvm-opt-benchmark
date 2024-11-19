@@ -82,7 +82,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.qemu_opts_print_help = private unnamed_addr constant [4 x ptr] [ptr @.str.31, ptr @.str.32, ptr @.str.33, ptr @.str.34], align 8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @get_opt_value(ptr noundef %p, ptr nocapture noundef initializes((0, 8)) %value) local_unnamed_addr #0 {
+define dso_local noundef ptr @get_opt_value(ptr noundef %p, ptr nocapture noundef %value) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %value, align 8
   br label %while.body
@@ -428,7 +428,7 @@ return:                                           ; preds = %for.cond.i.i, %cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @qemu_opt_iter_init(ptr nocapture noundef writeonly initializes((0, 24)) %iter, ptr noundef %opts, ptr noundef %name) local_unnamed_addr #7 {
+define dso_local void @qemu_opt_iter_init(ptr nocapture noundef writeonly %iter, ptr noundef %opts, ptr noundef %name) local_unnamed_addr #7 {
 entry:
   store ptr %opts, ptr %iter, align 8
   %head = getelementptr inbounds i8, ptr %opts, i64 40
@@ -1749,7 +1749,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_opts_set_id(ptr nocapture noundef writeonly initializes((0, 8)) %opts, ptr noundef %id) local_unnamed_addr #10 {
+define dso_local void @qemu_opts_set_id(ptr nocapture noundef writeonly %opts, ptr noundef %id) local_unnamed_addr #10 {
 entry:
   store ptr %id, ptr %opts, align 8
   ret void
@@ -1942,7 +1942,7 @@ return:                                           ; preds = %for.cond, %for.body
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @get_opt_name_value(ptr noundef %params, ptr noundef %firstname, i1 noundef zeroext %warn_on_flag, ptr noundef writeonly %help_wanted, ptr nocapture noundef nonnull initializes((0, 8)) %name, ptr nocapture noundef nonnull %value) unnamed_addr #0 {
+define internal fastcc ptr @get_opt_name_value(ptr noundef %params, ptr noundef %firstname, i1 noundef zeroext %warn_on_flag, ptr noundef writeonly %help_wanted, ptr nocapture noundef nonnull %name, ptr nocapture noundef nonnull %value) unnamed_addr #0 {
 entry:
   %call = tail call i64 @strcspn(ptr noundef %params, ptr noundef nonnull @.str.42) #19
   %arrayidx = getelementptr i8, ptr %params, i64 %call

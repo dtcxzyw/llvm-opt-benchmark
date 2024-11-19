@@ -7434,7 +7434,7 @@ HUF_decompress4X2_DCtx_wksp.exit:                 ; preds = %46, %45, %42, %38, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef nonnull writeonly initializes((0, 12), (16, 40)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #7 {
+define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #7 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 

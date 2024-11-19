@@ -43,7 +43,7 @@ declare ptr @lexbor_dobject_create() local_unnamed_addr #1
 declare i32 @lexbor_dobject_init(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lexbor_avl_clean(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
+define hidden void @lexbor_avl_clean(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
@@ -97,7 +97,7 @@ define hidden ptr @lexbor_avl_node_make(ptr nocapture noundef readonly %0, i64 n
 declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_avl_node_clean(ptr nocapture noundef writeonly initializes((0, 48)) %0) local_unnamed_addr #2 {
+define hidden void @lexbor_avl_node_clean(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
@@ -203,7 +203,7 @@ lexbor_avl_node_make.exit:                        ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @lexbor_avl_node_balance(ptr noundef nonnull initializes((8, 10)) %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
+define internal fastcc ptr @lexbor_avl_node_balance(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null

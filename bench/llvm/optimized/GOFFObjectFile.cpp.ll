@@ -214,7 +214,7 @@ $_ZTVN4llvm13format_objectIJjNS_4GOFF13ESDExecutableEEEE = comdat any
 @_ZN4llvm6object14GOFFObjectFileC1ENS_15MemoryBufferRefERNS_5ErrorE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm6object14GOFFObjectFileC2ENS_15MemoryBufferRefERNS_5ErrorE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object10ObjectFile20createGOFFObjectFileENS_15MemoryBufferRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object10ObjectFile20createGOFFObjectFileENS_15MemoryBufferRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %2 = alloca %"class.llvm::Error", align 8
   store ptr null, ptr %2, align 8
@@ -1066,7 +1066,7 @@ define dso_local void @_ZNK4llvm6object14GOFFObjectFile13getSymbolNameENS0_9Symb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZNK4llvm6object14GOFFObjectFile16getSymbolAddressENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.33") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(4256) %1, i64 %2) unnamed_addr #6 align 2 {
+define dso_local void @_ZNK4llvm6object14GOFFObjectFile16getSymbolAddressENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.33") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(4256) %1, i64 %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = and i64 %2, 4294967295
   %6 = load ptr, ptr %4, align 8
@@ -1151,7 +1151,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14GOFFObjectFile16isSymbolI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6object14GOFFObjectFile14getSymbolFlagsENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.37") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(4256) %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm6object14GOFFObjectFile14getSymbolFlagsENS0_11DataRefImplE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.37") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4256) %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Expected.15", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = and i64 %2, 4294967295

@@ -1606,7 +1606,7 @@ declare void @zend_array_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @dn_skipname(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @php_parserr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef range(i32 1, 0) %3, i32 noundef range(i32 0, 2) %4, i1 noundef zeroext %5, ptr noundef nonnull initializes((8, 12)) %6) unnamed_addr #0 {
+define internal fastcc ptr @php_parserr(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef range(i32 1, 0) %3, i32 noundef range(i32 0, 2) %4, i1 noundef zeroext %5, ptr noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca [1024 x i8], align 16
   %9 = alloca %struct._zval_struct, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)

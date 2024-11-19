@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define range(i32 -12, 1) i32 @circbuf_init(ptr nocapture noundef writeonly initializes((32, 33)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @circbuf_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = zext i1 %4 to i8
@@ -173,14 +173,14 @@ circbuf_peek.exit:                                ; preds = %3, %6
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @circbuf_reset(ptr nocapture noundef writeonly initializes((16, 32)) %0) local_unnamed_addr #7 {
+define void @circbuf_reset(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @circbuf_uninit(ptr nocapture noundef initializes((8, 32), (33, 40)) %0) local_unnamed_addr #2 {
+define void @circbuf_uninit(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i8, ptr %2, align 8
   %4 = trunc i8 %3 to i1
@@ -401,7 +401,7 @@ define i64 @circbuf_overwrite(ptr nocapture noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @circbuf_get_writeptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define ptr @circbuf_get_writeptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -420,7 +420,7 @@ define ptr @circbuf_get_writeptr(ptr nocapture noundef readonly %0, ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @circbuf_get_readptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define ptr @circbuf_get_readptr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

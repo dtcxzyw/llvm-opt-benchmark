@@ -893,7 +893,7 @@ Vec_IntGrow.exit:                                 ; preds = %Vec_IntGrow.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_SclUnBufferPhase(ptr noundef initializes((384, 392)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define noundef ptr @Abc_SclUnBufferPhase(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val59 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val59, i64 4
@@ -2605,7 +2605,7 @@ define float @Abc_BufComputeDep(ptr nocapture noundef readonly %0, ptr noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Abc_BufUpdateGlobal(ptr nocapture noundef initializes((80, 84)) %0) local_unnamed_addr #7 {
+define void @Abc_BufUpdateGlobal(ptr nocapture noundef %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

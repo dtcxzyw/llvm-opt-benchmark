@@ -597,7 +597,7 @@ define dso_local void @_ZN4llvm12EarlyCSEPass3runERNS_8FunctionERNS_15AnalysisMa
 declare noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18EarlyCSEC2ERKN4llvm10DataLayoutERKNS1_17TargetLibraryInfoERKNS1_19TargetTransformInfoERNS1_13DominatorTreeERNS1_15AssumptionCacheEPNS1_9MemorySSAE(ptr noundef nonnull align 8 dereferenceable(696) initializes((0, 90), (96, 136)) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(124) %4, ptr noundef nonnull align 8 dereferenceable(185) %5, ptr noundef %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18EarlyCSEC2ERKN4llvm10DataLayoutERKNS1_17TargetLibraryInfoERKNS1_19TargetTransformInfoERNS1_13DominatorTreeERNS1_15AssumptionCacheEPNS1_9MemorySSAE(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(124) %4, ptr noundef nonnull align 8 dereferenceable(185) %5, ptr noundef %6) unnamed_addr #0 align 2 {
   store ptr %2, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %8, align 8
@@ -4297,7 +4297,7 @@ _ZNSt5dequeIPN12_GLOBAL__N_18EarlyCSE9StackNodeESaIS3_EED2Ev.exit: ; preds = %._
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18EarlyCSED2Ev(ptr noundef nonnull align 8 dereferenceable(696) initializes((552, 560)) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18EarlyCSED2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 656
   %.val.i = load ptr, ptr %3, align 8
@@ -6148,7 +6148,7 @@ declare noundef ptr @_ZN4llvm19simplifyInstructionEPNS_11InstructionERKNS_13Simp
 declare void @_ZN4llvm5Value18replaceAllUsesWithEPS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18EarlyCSE15ParseMemoryInstC2EPN4llvm11InstructionERKNS2_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 4), (8, 25), (32, 40)) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18EarlyCSE15ParseMemoryInstC2EPN4llvm11InstructionERKNS2_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %4, i8 0, i64 17, i1 false)
@@ -11025,7 +11025,7 @@ _ZN4llvm12PatternMatch14CmpClass_matchINS0_14specificval_tyES2_NS_7CmpInstENS3_9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_111SimpleValueEPNS_18ScopedHashTableValIS3_PNS_5ValueEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_111SimpleValueEPNS_18ScopedHashTableValIS3_PNS_5ValueEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEES3_S8_SA_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -12642,7 +12642,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_18ScopedHashTableValIS3_N12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_18ScopedHashTableValIS3_N12_GLOBAL__N_18EarlyCSE9LoadValueEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEPNS_18ScopedHashTableValIS3_N12_GLOBAL__N_18EarlyCSE9LoadValueEEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S9_EEEES3_S9_SB_SE_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

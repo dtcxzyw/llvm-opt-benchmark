@@ -100,7 +100,7 @@ declare void @archive_read_extract_set_skip_file(ptr noundef, i64 noundef, i64 n
 declare i32 @archive_read_set_read_callback(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @file_read(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define internal noundef i64 @file_read(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8

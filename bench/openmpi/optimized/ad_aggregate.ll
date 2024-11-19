@@ -260,7 +260,7 @@ define void @ADIOI_Calc_file_domains(ptr nocapture noundef readonly %0, ptr noca
 declare ptr @ADIOI_Malloc_fn(i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Calc_my_req(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6, i64 noundef %7, i32 noundef %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly initializes((0, 8)) %10, ptr nocapture noundef writeonly %11, ptr nocapture noundef writeonly %12) local_unnamed_addr #0 {
+define void @ADIOI_Calc_my_req(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, i64 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6, i64 noundef %7, i32 noundef %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, ptr nocapture noundef writeonly %11, ptr nocapture noundef writeonly %12) local_unnamed_addr #0 {
   %14 = sext i32 %8 to i64
   %15 = tail call ptr @ADIOI_Calloc_fn(i64 noundef %14, i64 noundef 4, i32 noundef 269, ptr noundef nonnull @.str.1) #6
   store ptr %15, ptr %10, align 8
@@ -692,7 +692,7 @@ ADIOI_Calc_aggregator.exit180:                    ; preds = %199, %.loopexit.i17
 declare ptr @ADIOI_Calloc_fn(i64 noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) local_unnamed_addr #0 {
+define void @ADIOI_Calc_others_req(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = sext i32 %4 to i64
   %10 = shl nsw i64 %9, 2
   %11 = tail call ptr @ADIOI_Malloc_fn(i64 noundef %10, i32 noundef 449, ptr noundef nonnull @.str.1) #6
@@ -876,7 +876,7 @@ declare i32 @PMPI_Isend(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 
 declare i32 @PMPI_Waitall(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_Icalc_others_req(ptr nocapture noundef initializes((24, 28)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define void @ADIOI_Icalc_others_req(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 56

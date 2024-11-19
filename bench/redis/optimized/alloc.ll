@@ -23,7 +23,7 @@ declare noalias ptr @strdup(ptr nocapture noundef readonly) #3
 declare void @free(ptr allocptr nocapture noundef) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @hiredisSetAllocators(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.hiredisAllocFuncs) align 8 initializes((0, 40)) %agg.result, ptr nocapture noundef readonly %override) local_unnamed_addr #5 {
+define void @hiredisSetAllocators(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.hiredisAllocFuncs) align 8 %agg.result, ptr nocapture noundef readonly %override) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) @hiredisAllocFns, i64 40, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) @hiredisAllocFns, ptr noundef nonnull align 8 dereferenceable(40) %override, i64 40, i1 false)

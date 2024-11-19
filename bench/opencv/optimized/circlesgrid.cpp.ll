@@ -1226,7 +1226,7 @@ _ZNSt12_Vector_baseINSt7__cxx114listImSaImEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN24CirclesGridClusterFinder8findGridERKSt6vectorIN2cv6Point_IfEESaIS3_EENS1_5Size_IiEERS5_(ptr nocapture noundef nonnull align 4 dereferenceable(20) initializes((12, 20)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN24CirclesGridClusterFinder8findGridERKSt6vectorIN2cv6Point_IfEESaIS3_EENS1_5Size_IiEERS5_(ptr nocapture noundef nonnull align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.cv::_InputArray", align 8
@@ -4235,7 +4235,7 @@ declare void @_ZN2cv5flann12SearchParamsC1Eifb(ptr noundef nonnull align 8 deref
 declare void @_ZN2cv5flann5IndexD1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5GraphC2Em(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %0, i64 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5GraphC2Em(ptr noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5418,7 +5418,7 @@ _ZNKSt3mapImN5Graph6VertexESt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17CirclesGridFinder7SegmentC2EN2cv6Point_IfEES3_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, <2 x float> %1, <2 x float> %2) unnamed_addr #12 align 2 {
+define hidden void @_ZN17CirclesGridFinder7SegmentC2EN2cv6Point_IfEES3_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, <2 x float> %1, <2 x float> %2) unnamed_addr #12 align 2 {
   store <2 x float> %1, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store <2 x float> %2, ptr %4, align 4
@@ -5426,7 +5426,7 @@ define hidden void @_ZN17CirclesGridFinder7SegmentC2EN2cv6Point_IfEES3_(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv27CirclesGridFinderParametersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(68) initializes((0, 68)) %0) unnamed_addr #13 align 2 {
+define void @_ZN2cv27CirclesGridFinderParametersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(68) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store float 1.000000e+01, ptr %3, align 4
@@ -5464,7 +5464,7 @@ define void @_ZN2cv27CirclesGridFinderParametersC2Ev(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17CirclesGridFinderC2EN2cv5Size_IiEERKSt6vectorINS0_6Point_IfEESaIS5_EERKNS0_27CirclesGridFinderParametersE(ptr noundef nonnull align 8 dereferenceable(173) initializes((0, 72), (88, 104)) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(68) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17CirclesGridFinderC2EN2cv5Size_IiEERKSt6vectorINS0_6Point_IfEESaIS5_EERKNS0_27CirclesGridFinderParametersE(ptr noundef nonnull align 8 dereferenceable(173) %0, i64 %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(68) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.14", align 1
   %7 = getelementptr inbounds i8, ptr %0, i64 24

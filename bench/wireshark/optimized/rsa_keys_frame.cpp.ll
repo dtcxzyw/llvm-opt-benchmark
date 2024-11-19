@@ -1360,7 +1360,7 @@ _ZNK11QModelIndex7isValidEv.exit:                 ; preds = %3, %13
 declare void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12RsaKeysFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
+define void @_ZN12RsaKeysFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12RsaKeysFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV12RsaKeysFrame, i64 456), ptr %2, align 8

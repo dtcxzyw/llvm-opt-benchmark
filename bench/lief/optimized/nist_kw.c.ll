@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_nist_kw_init(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_nist_kw_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
   ret void
 }
@@ -87,7 +87,7 @@ define hidden void @mbedtls_nist_kw_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, i64 noundef %6) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = alloca [16 x i8], align 16
   %10 = alloca [16 x i8], align 16
@@ -251,7 +251,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare i32 @mbedtls_cipher_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef initializes((0, 8)) %5, i64 noundef %6) local_unnamed_addr #2 {
+define hidden i32 @mbedtls_nist_kw_unwrap(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr nocapture noundef %5, i64 noundef %6) local_unnamed_addr #2 {
   %8 = alloca i64, align 8
   %9 = alloca [8 x i8], align 8
   %10 = alloca i8, align 1
@@ -410,7 +410,7 @@ select.unfold:                                    ; preds = %select.unfold.sink.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @unwrap(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 2, 18014398509481985) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) unnamed_addr #2 {
+define internal fastcc i32 @unwrap(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef range(i64 2, 18014398509481985) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #2 {
   %7 = alloca i64, align 8
   %8 = alloca [16 x i8], align 16
   %9 = alloca [16 x i8], align 16

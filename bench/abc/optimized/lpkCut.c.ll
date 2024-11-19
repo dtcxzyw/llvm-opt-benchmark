@@ -1414,7 +1414,7 @@ define void @Lpk_NodePrintCut(ptr nocapture noundef readonly %0, ptr nocapture n
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Lpk_NodeCutSignature(ptr nocapture noundef initializes((4, 12)) %0) local_unnamed_addr #5 {
+define void @Lpk_NodeCutSignature(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 4
@@ -2211,7 +2211,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %14, %._crit_edge.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Lpk_NodeCuts(ptr nocapture noundef initializes((24, 28)) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Lpk_NodeCuts(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8240896
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4

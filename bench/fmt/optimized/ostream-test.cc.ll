@@ -7463,7 +7463,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN43ostream_test_write_to_ostream_max_size_Test8TestBodyEvEN14mock_streambufD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZZN43ostream_test_write_to_ostream_max_size_Test8TestBodyEvEN14mock_streambufD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN43ostream_test_write_to_ostream_max_size_Test8TestBodyEvE14mock_streambuf, i64 16), ptr %this, align 8
   %gmock02_xsputn_143 = getelementptr inbounds i8, ptr %this, i64 64
@@ -10701,7 +10701,7 @@ declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnul
 declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN43ostream_test_write_to_ostream_max_size_Test8TestBodyEvEN14mock_streambufD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZZN43ostream_test_write_to_ostream_max_size_Test8TestBodyEvEN14mock_streambufD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN43ostream_test_write_to_ostream_max_size_Test8TestBodyEvE14mock_streambuf, i64 16), ptr %this, align 8
   %gmock02_xsputn_143.i = getelementptr inbounds i8, ptr %this, i64 64

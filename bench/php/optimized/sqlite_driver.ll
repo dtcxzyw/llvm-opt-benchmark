@@ -788,7 +788,7 @@ define hidden void @zim_PDO_SQLite_Ext_sqliteCreateCollation(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @php_sqlite3_collation_callback(ptr noundef initializes((32, 52), (56, 84)) %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
+define internal i32 @php_sqlite3_collation_callback(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef readonly %4) #0 {
   %6 = alloca [2 x %struct._zval_struct], align 16
   %7 = alloca %struct._zval_struct, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -884,7 +884,7 @@ define internal i32 @php_sqlite3_collation_callback(ptr noundef initializes((32,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @pdo_sqlite_handle_factory(ptr noundef initializes((8, 16)) %0, ptr noundef readonly %1) #0 {
+define internal range(i32 0, 2) i32 @pdo_sqlite_handle_factory(ptr noundef %0, ptr noundef readonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 1
@@ -1045,7 +1045,7 @@ declare zeroext i1 @zend_parse_arg_long_slow(ptr noundef, ptr noundef, i32 nound
 declare ptr @sqlite3_user_data(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_callback(ptr noundef initializes((0, 20), (24, 32), (40, 52)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc void @do_callback(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = icmp ne i32 %5, 0
   %spec.store.select = select i1 %8, i32 2, i32 0
@@ -1557,7 +1557,7 @@ define internal void @sqlite_handle_closer(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @sqlite_handle_preparer(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 16)) %2, ptr noundef readonly %3) #0 {
+define internal noundef zeroext i1 @sqlite_handle_preparer(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8

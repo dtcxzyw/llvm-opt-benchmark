@@ -1592,7 +1592,7 @@ _ZN7QStringD2Ev.exit8:                            ; preds = %30, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11DataPrinter11hexTextDumpE10QByteArrayb(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11DataPrinter11hexTextDumpE10QByteArrayb(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -2163,7 +2163,7 @@ declare void @_ZN9QMimeData7setDataERK7QStringRK10QByteArray(ptr noundef nonnull
 declare void @_ZN10QClipboard11setMimeDataEP9QMimeDataNS_4ModeE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11DataPrinter17setByteLineLengthEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN11DataPrinter17setByteLineLengthEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void

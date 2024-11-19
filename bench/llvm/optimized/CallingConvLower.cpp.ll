@@ -72,7 +72,7 @@ $_ZN4llvm15SmallVectorImplIjE10resizeImplILb0EEEvm = comdat any
 @_ZN4llvm7CCStateC1EjbRNS_15MachineFunctionERNS_15SmallVectorImplINS_11CCValAssignEEERNS_11LLVMContextEb = unnamed_addr alias void (ptr, i32, i1, ptr, ptr, ptr, i1), ptr @_ZN4llvm7CCStateC2EjbRNS_15MachineFunctionERNS_15SmallVectorImplINS_11CCValAssignEEERNS_11LLVMContextEb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7CCStateC2EjbRNS_15MachineFunctionERNS_15SmallVectorImplINS_11CCValAssignEEERNS_11LLVMContextEb(ptr noundef nonnull align 8 dereferenceable(420) initializes((0, 6), (8, 41), (56, 57)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1041) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7CCStateC2EjbRNS_15MachineFunctionERNS_15SmallVectorImplINS_11CCValAssignEEERNS_11LLVMContextEb(ptr noundef nonnull align 8 dereferenceable(420) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(1041) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = zext i1 %2 to i8
   %9 = zext i1 %6 to i8
   store i32 %1, ptr %0, align 8

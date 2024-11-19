@@ -269,7 +269,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19ImplicitEulerSchemeC2EN5boost10shared_ptrINS_20FdmLinearOpCompositeEEERKSt6vectorINS2_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaIS9_EEdNS0_10SolverTypeE(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this, ptr nocapture noundef %map, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bcSet, double noundef %relTol, i32 noundef %solverType) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19ImplicitEulerSchemeC2EN5boost10shared_ptrINS_20FdmLinearOpCompositeEEERKSt6vectorINS2_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaIS9_EEdNS0_10SolverTypeE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef %map, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %bcSet, double noundef %relTol, i32 noundef %solverType) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca i32, align 4
   store double 0x47EFFFFFE0000000, ptr %this, align 8, !tbaa !18
@@ -1987,7 +1987,7 @@ _ZNSt7__cxx1110_List_baseIdSaIdEED2Ev.exit:       ; preds = %while.body.i.i, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib19ImplicitEulerScheme7setStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((0, 8)) %this, double noundef %dt) local_unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib19ImplicitEulerScheme7setStepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %this, double noundef %dt) local_unnamed_addr #11 align 2 {
 entry:
   store double %dt, ptr %this, align 8, !tbaa !18
   ret void

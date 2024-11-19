@@ -47,7 +47,7 @@ $_ZTIN3net30QuicSentPacketManagerInterfaceE = comdat any
 @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC1ERKS1_ = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC2ERKS1_
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net30QuicMultipathSentPacketManagerC2EPNS_30QuicSentPacketManagerInterfaceEPNS_36QuicConnectionCloseDelegateInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %manager, ptr noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net30QuicMultipathSentPacketManagerC2EPNS_30QuicSentPacketManagerInterfaceEPNS_36QuicConnectionCloseDelegateInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %manager, ptr noundef %delegate) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 cond.true.i.i.i.i:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
   %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -70,7 +70,7 @@ cond.true.i.i.i.i:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net30QuicMultipathSentPacketManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net30QuicMultipathSentPacketManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
   %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -116,7 +116,7 @@ _ZNSt6vectorIN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoESa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net30QuicMultipathSentPacketManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net30QuicMultipathSentPacketManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net30QuicMultipathSentPacketManagerE, i64 16), ptr %this, align 8
   %path_managers_info_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -989,7 +989,7 @@ for.end:                                          ; preds = %for.inc, %entry
 declare void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local { i64, i64 } @_ZN3net30QuicMultipathSentPacketManager13TimeUntilSendENS_8QuicTimeEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 %now.coerce, ptr noundef initializes((0, 1)) %path_id) unnamed_addr #0 align 2 {
+define dso_local { i64, i64 } @_ZN3net30QuicMultipathSentPacketManager13TimeUntilSendENS_8QuicTimeEPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 %now.coerce, ptr noundef %path_id) unnamed_addr #0 align 2 {
 entry:
   store i8 -1, ptr %path_id, align 1
   %path_managers_info_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1706,7 +1706,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   %state = getelementptr inbounds i8, ptr %this, i64 8
@@ -1715,7 +1715,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC2EPNS_30QuicSentPacketManagerInterfaceENS0_26PathSentPacketManagerStateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr noundef %manager, i32 noundef %state) unnamed_addr #6 align 2 {
+define dso_local void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC2EPNS_30QuicSentPacketManagerInterfaceENS0_26PathSentPacketManagerStateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr noundef %manager, i32 noundef %state) unnamed_addr #6 align 2 {
 entry:
   store ptr %manager, ptr %this, align 8
   %state3 = getelementptr inbounds i8, ptr %this, i64 8
@@ -1724,7 +1724,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %other) unnamed_addr #7 align 2 {
+define dso_local void @_ZN3net30QuicMultipathSentPacketManager25PathSentPacketManagerInfoC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %other) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(12) %other, i64 12, i1 false)
   ret void

@@ -98,7 +98,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.50 = private unnamed_addr constant [18 x i8] c"pack-objects died\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @bundle_header_init(ptr nocapture noundef writeonly initializes((0, 184)) %header) local_unnamed_addr #0 {
+define dso_local void @bundle_header_init(ptr nocapture noundef writeonly %header) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %header, ptr noundef nonnull align 8 dereferenceable(184) @__const.is_bundle.header, i64 184, i1 false)
   ret void

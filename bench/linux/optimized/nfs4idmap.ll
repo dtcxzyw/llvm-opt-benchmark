@@ -159,7 +159,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nfs_map_stri
 @llvm.compiler.used = appending global [9 x ptr] [ptr @__UNIQUE_ID___addressable_nfs_map_string_to_numeric1517, ptr @trace_nfs4_map_gid_to_group.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1466, ptr @trace_nfs4_map_gid_to_group.__UNIQUE_ID___addressable___SCK__tp_func_nfs4_map_gid_to_group1465, ptr @trace_nfs4_map_group_to_gid.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1438, ptr @trace_nfs4_map_group_to_gid.__UNIQUE_ID___addressable___SCK__tp_func_nfs4_map_group_to_gid1437, ptr @trace_nfs4_map_name_to_uid.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1424, ptr @trace_nfs4_map_name_to_uid.__UNIQUE_ID___addressable___SCK__tp_func_nfs4_map_name_to_uid1423, ptr @trace_nfs4_map_uid_to_name.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace1452, ptr @trace_nfs4_map_uid_to_name.__UNIQUE_ID___addressable___SCK__tp_func_nfs4_map_uid_to_name1451], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @nfs_fattr_init_names(ptr nocapture noundef writeonly initializes((192, 208)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @nfs_fattr_init_names(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 200

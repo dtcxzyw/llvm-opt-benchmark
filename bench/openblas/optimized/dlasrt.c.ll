@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [7 x i8] c"DLASRT\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
+define void @dlasrt_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca [64 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #3

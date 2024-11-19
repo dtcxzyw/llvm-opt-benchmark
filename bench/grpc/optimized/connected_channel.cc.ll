@@ -1290,7 +1290,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL32connected_channel_init_call_elemP17grpc_call_elementPK22grpc_call_element_args(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %elem, ptr nocapture noundef readonly %args) #3 {
+define internal void @_ZL32connected_channel_init_call_elemP17grpc_call_elementPK22grpc_call_element_args(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef readonly %elem, ptr nocapture noundef readonly %args) #3 {
 entry:
   %call_data = getelementptr inbounds i8, ptr %elem, i64 16
   %0 = load ptr, ptr %call_data, align 8
@@ -4889,7 +4889,7 @@ _ZN9grpc_core13RefCountedPtrINS_12BatchBuilder5BatchEED2Ev.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122ConnectedChannelStream12RecvMessagesEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEb(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 9), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, ptr nocapture noundef %incoming_messages, i1 noundef zeroext %cancel_on_error) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_122ConnectedChannelStream12RecvMessagesEPNS_10PipeSenderISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEEb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %this, ptr nocapture noundef %incoming_messages, i1 noundef zeroext %cancel_on_error) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %class.anon.290, align 8
   %agg.tmp.i = alloca %class.anon.290, align 8
@@ -5530,7 +5530,7 @@ eh.resume:                                        ; preds = %lpad14, %lpad.i, %l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122ConnectedChannelStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122ConnectedChannelStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122ConnectedChannelStreamE, i64 16), ptr %this, align 8
   %stream_ = getelementptr inbounds i8, ptr %this, i64 96
@@ -5588,7 +5588,7 @@ _ZN9grpc_core13RefCountedPtrINS_11CallContextEED2Ev.exit: ; preds = %_ZNSt10uniq
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_122ConnectedChannelStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(132) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_122ConnectedChannelStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_122ConnectedChannelStreamE, i64 16), ptr %this, align 8
   %stream_.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -23116,7 +23116,7 @@ terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZN9grpc_core14promise_detail3SeqINS0_4RaceIJNS0_3MapIZNS_25ExternallyObservableLatchIvE4WaitEvEUlvE_ZNS_12_GLOBAL__N_121MakeServerCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEESA_EEE3$_1EENS1_INS_11pipe_detail4NextISH_EEJZNS_12PipeReceiverISH_E4NextEvEUlSt8optionalISH_EE_EEEEEEJZNS7_21MakeServerCallPromiseES9_SA_SK_E3$_2EEC2EOSY_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((88, 89)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN9grpc_core14promise_detail3SeqINS0_4RaceIJNS0_3MapIZNS_25ExternallyObservableLatchIvE4WaitEvEUlvE_ZNS_12_GLOBAL__N_121MakeServerCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEESA_EEE3$_1EENS1_INS_11pipe_detail4NextISH_EEJZNS_12PipeReceiverISH_E4NextEvEUlSt8optionalISH_EE_EEEEEEJZNS7_21MakeServerCallPromiseES9_SA_SK_E3$_2EEC2EOSY_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i = getelementptr inbounds i8, ptr %this, i64 88
   %state2.i = getelementptr inbounds i8, ptr %0, i64 88
@@ -29218,7 +29218,7 @@ if.end.sink.split.i.i:                            ; preds = %if.then.i.i.i.i2.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @"_ZN9grpc_core14promise_detail6TrySeqINS0_3SeqINS0_4RaceIJNS0_3MapIZNS_25ExternallyObservableLatchIvE4WaitEvEUlvE_ZNS_12_GLOBAL__N_121MakeServerCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEESB_EEE3$_1EENS2_INS_11pipe_detail4NextISI_EEJZNS_12PipeReceiverISI_E4NextEvEUlSt8optionalISI_EE_EEEEEEJZNS8_21MakeServerCallPromiseESA_SB_SL_E3$_2EEEJNS_15for_each_detail7ForEachINSR_ISE_INS_7MessageESH_EEEZNS8_22ConnectedChannelStream12SendMessagesEPS14_E3$_0EEEEC2EOS19_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((176, 177)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN9grpc_core14promise_detail6TrySeqINS0_3SeqINS0_4RaceIJNS0_3MapIZNS_25ExternallyObservableLatchIvE4WaitEvEUlvE_ZNS_12_GLOBAL__N_121MakeServerCallPromiseEPNS_9TransportENS_8CallArgsESt8functionIFNS_12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEESB_EEE3$_1EENS2_INS_11pipe_detail4NextISI_EEJZNS_12PipeReceiverISI_E4NextEvEUlSt8optionalISI_EE_EEEEEEJZNS8_21MakeServerCallPromiseESA_SB_SL_E3$_2EEEJNS_15for_each_detail7ForEachINSR_ISE_INS_7MessageESH_EEEZNS8_22ConnectedChannelStream12SendMessagesEPS14_E3$_0EEEEC2EOS19_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i = getelementptr inbounds i8, ptr %this, i64 176
   %state2.i = getelementptr inbounds i8, ptr %0, i64 176

@@ -5489,7 +5489,7 @@ _ZNK10open_spiel11pathfinding16PathfindingState24AllPlayersOnDestinationsEv.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11pathfinding16PathfindingState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.24") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11pathfinding16PathfindingState7RewardsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.24") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -5534,7 +5534,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %.thread, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11pathfinding16PathfindingState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.24") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11pathfinding16PathfindingState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.24") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %5 = load ptr, ptr %4, align 8
@@ -6266,7 +6266,7 @@ define noundef double @_ZNK10open_spiel11pathfinding15PathfindingGame10MaxUtilit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11pathfinding15PathfindingGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.29") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(424) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11pathfinding15PathfindingGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.29") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(424) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 280

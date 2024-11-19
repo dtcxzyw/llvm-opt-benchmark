@@ -155,7 +155,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf2io16ArrayInputStreamC2EPKvii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %data, i32 noundef %size, i32 noundef %block_size) unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf2io16ArrayInputStreamC2EPKvii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %data, i32 noundef %size, i32 noundef %block_size) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16ArrayInputStreamE, i64 16), ptr %this, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -174,7 +174,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf2io16ArrayInputStream4NextEPPKvPi(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((28, 32)) %this, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %size) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf2io16ArrayInputStream4NextEPPKvPi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %size) unnamed_addr #4 align 2 {
 entry:
   %position_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %position_, align 8
@@ -341,7 +341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf2io17ArrayOutputStreamC2EPvii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %data, i32 noundef %size, i32 noundef %block_size) unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf2io17ArrayOutputStreamC2EPvii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %data, i32 noundef %size, i32 noundef %block_size) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io17ArrayOutputStreamE, i64 16), ptr %this, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -360,7 +360,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf2io17ArrayOutputStream4NextEPPvPi(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((28, 32)) %this, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %size) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf2io17ArrayOutputStream4NextEPPvPi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %size) unnamed_addr #4 align 2 {
 entry:
   %position_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %position_, align 8
@@ -470,7 +470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf2io18StringOutputStreamC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %target) unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf2io18StringOutputStreamC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %target) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io18StringOutputStreamE, i64 16), ptr %this, align 8
   %target_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -636,7 +636,7 @@ return:                                           ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorC2EPNS1_18CopyingInputStreamEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 18), (24, 52)) %this, ptr noundef %copying_stream, i32 noundef %block_size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorC2EPNS1_18CopyingInputStreamEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this, ptr noundef %copying_stream, i32 noundef %block_size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io25CopyingInputStreamAdaptorE, i64 16), ptr %this, align 8
   %copying_stream_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -659,7 +659,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io25CopyingInputStreamAdaptorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io25CopyingInputStreamAdaptorE, i64 16), ptr %this, align 8
   %owns_copying_stream_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1057,7 +1057,7 @@ entry:
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC2EPNS1_19CopyingOutputStreamEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 18), (24, 48)) %this, ptr noundef %copying_stream, i32 noundef %block_size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorC2EPNS1_19CopyingOutputStreamEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %copying_stream, i32 noundef %block_size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io26CopyingOutputStreamAdaptorE, i64 16), ptr %this, align 8
   %copying_stream_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1078,7 +1078,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io26CopyingOutputStreamAdaptorE, i64 16), ptr %this, align 8
   %failed_.i = getelementptr inbounds i8, ptr %this, i64 17
@@ -1866,7 +1866,7 @@ return:                                           ; preds = %entry, %if.end, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((44, 48)) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN6google8protobuf2io26CopyingOutputStreamAdaptor10FreeBufferEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) local_unnamed_addr #9 align 2 {
 entry:
   %buffer_used_ = getelementptr inbounds i8, ptr %this, i64 44
   store i32 0, ptr %buffer_used_, align 4
@@ -1885,7 +1885,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetEDn.exit: ; preds = %entry, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf2io19LimitingInputStreamC2EPNS1_19ZeroCopyInputStreamEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %input, i64 noundef %limit) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io19LimitingInputStreamC2EPNS1_19ZeroCopyInputStreamEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %input, i64 noundef %limit) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io19LimitingInputStreamE, i64 16), ptr %this, align 8
   %input_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2127,7 +2127,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf2io15CordInputStreamC2EPKN4absl12lts_202308024CordE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this, ptr noundef %cord) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io15CordInputStreamC2EPKN4absl12lts_202308024CordE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %cord) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io15CordInputStreamE, i64 16), ptr %this, align 8
   %it_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2175,7 +2175,7 @@ invoke.cont4:                                     ; preds = %if.then.i, %invoke.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf2io15CordInputStream13LoadChunkDataEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) initializes((184, 200)) %this) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf2io15CordInputStream13LoadChunkDataEv(ptr nocapture noundef nonnull align 8 dereferenceable(200) %this) local_unnamed_addr #4 align 2 {
 entry:
   %bytes_remaining_ = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load i64, ptr %bytes_remaining_, align 8
@@ -2748,7 +2748,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf2io16CordOutputStreamC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 36), (40, 56)) %this, i64 noundef %size_hint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io16CordOutputStreamC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i64 noundef %size_hint) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16CordOutputStreamE, i64 16), ptr %this, align 8
   %cord_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2765,7 +2765,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6google8protobuf2io16CordOutputStreamC2EN4absl12lts_202308024CordEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 36), (40, 56)) %this, ptr nocapture noundef %cord, i64 noundef %size_hint) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io16CordOutputStreamC2EN4absl12lts_202308024CordEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %cord, i64 noundef %size_hint) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16CordOutputStreamE, i64 16), ptr %this, align 8
   %cord_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2803,7 +2803,7 @@ invoke.cont3:                                     ; preds = %cond.true.i.i.i, %c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6google8protobuf2io16CordOutputStreamC2EN4absl12lts_2023080210CordBufferEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 36), (40, 56)) %this, ptr nocapture noundef %buffer, i64 noundef %size_hint) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io16CordOutputStreamC2EN4absl12lts_2023080210CordBufferEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr nocapture noundef %buffer, i64 noundef %size_hint) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16CordOutputStreamE, i64 16), ptr %this, align 8
   %cord_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2851,7 +2851,7 @@ invoke.cont2:                                     ; preds = %cond.false.i3, %inv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6google8protobuf2io16CordOutputStreamC2EN4absl12lts_202308024CordENS4_10CordBufferEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 36), (40, 56)) %this, ptr nocapture noundef %cord, ptr nocapture noundef %buffer, i64 noundef %size_hint) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io16CordOutputStreamC2EN4absl12lts_202308024CordENS4_10CordBufferEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr nocapture noundef %cord, ptr nocapture noundef %buffer, i64 noundef %size_hint) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf2io16CordOutputStreamE, i64 16), ptr %this, align 8
   %cord_ = getelementptr inbounds i8, ptr %this, i64 8

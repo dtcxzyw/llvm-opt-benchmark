@@ -571,7 +571,7 @@ invoke.cont:                                      ; preds = %if.end.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12RemoteClientC2Ev(ptr noundef nonnull align 8 dereferenceable(632) initializes((0, 3), (4, 6)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12RemoteClientC2Ev(ptr noundef nonnull align 8 dereferenceable(632) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %__dnew.i.i241 = alloca i64, align 8
@@ -1445,7 +1445,7 @@ if.end:                                           ; preds = %lor.lhs.false.i.i.i
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12RemoteClient15SetBlockNotSentEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(632) initializes((532, 536)) %this, i48 %p.coerce) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN12RemoteClient15SetBlockNotSentEN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(632) %this, i48 %p.coerce) local_unnamed_addr #5 align 2 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %p = alloca %"class.irr::core::vector3d", align 8
@@ -3433,7 +3433,7 @@ if.end:                                           ; preds = %_ZSt4endlIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12RemoteClient16SetBlocksNotSentERKSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(632) initializes((532, 536)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %blocks) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN12RemoteClient16SetBlocksNotSentERKSt6vectorIN3irr4core8vector3dIsEESaIS4_EE(ptr noundef nonnull align 8 dereferenceable(632) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %blocks) local_unnamed_addr #5 align 2 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %p = alloca %"class.irr::core::vector3d", align 2
@@ -4185,7 +4185,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12RemoteClient15resetChosenMechEv(ptr nocapture noundef nonnull align 8 dereferenceable(632) initializes((44, 48)) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN12RemoteClient15resetChosenMechEv(ptr nocapture noundef nonnull align 8 dereferenceable(632) %this) local_unnamed_addr #5 align 2 {
 entry:
   %auth_data = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %auth_data, align 8, !tbaa !257
@@ -4238,7 +4238,7 @@ cond.end:                                         ; preds = %_ZNSt11char_traitsI
 declare void @_Z14fatal_error_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12RemoteClient14setVersionInfoEhhhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(632) initializes((576, 579)) %this, i8 noundef zeroext %major, i8 noundef zeroext %minor, i8 noundef zeroext %patch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %full) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12RemoteClient14setVersionInfoEhhhRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(632) %this, i8 noundef zeroext %major, i8 noundef zeroext %minor, i8 noundef zeroext %patch, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %full) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %m_version_major = getelementptr inbounds i8, ptr %this, i64 576
@@ -4620,7 +4620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZN15ClientInterfaceC2ERKSt10shared_ptrIN3con10ConnectionEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %con) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15ClientInterfaceC2ERKSt10shared_ptrIN3con10ConnectionEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %con) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %con, align 8, !tbaa !267
   store ptr %0, ptr %this, align 8, !tbaa !267
@@ -5115,7 +5115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %if.
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15ClientInterface12getClientIDsE11ClientState(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.295") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %min_state) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15ClientInterface12getClientIDsE11ClientState(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.295") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %min_state) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %m_clients_mutex = getelementptr inbounds i8, ptr %this, i64 16

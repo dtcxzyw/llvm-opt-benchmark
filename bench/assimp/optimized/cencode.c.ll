@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [65 x i8] c"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @base64_init_encodestate(ptr nocapture noundef writeonly initializes((0, 5), (8, 12)) %state_in) local_unnamed_addr #0 {
+define void @base64_init_encodestate(ptr nocapture noundef writeonly %state_in) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %state_in, align 4
   %result = getelementptr inbounds i8, ptr %state_in, i64 4

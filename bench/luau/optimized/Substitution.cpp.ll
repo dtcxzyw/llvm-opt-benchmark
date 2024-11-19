@@ -1555,7 +1555,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6TarjanC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(224) initializes((0, 40)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6TarjanC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4Luau6TarjanE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr @_ZN5FFlag25LuauReusableSubstitutionsE, align 8
@@ -4164,7 +4164,7 @@ define dso_local void @_ZN4Luau6Tarjan8visitSCCEi(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan9visitRootEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(224) initializes((136, 140)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan9visitRootEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 140
@@ -4267,7 +4267,7 @@ _ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan9visitRootEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(224) initializes((136, 140)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan9visitRootEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 140
@@ -4626,19 +4626,19 @@ define dso_local void @_ZN4Luau6Tarjan8setDirtyEib(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan9findDirtyEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(224) initializes((136, 140)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan9findDirtyEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef i32 @_ZN4Luau6Tarjan9visitRootEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan9findDirtyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(224) initializes((136, 140)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan9findDirtyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef i32 @_ZN4Luau6Tarjan9visitRootEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau12SubstitutionC2EPKNS_6TxnLogEPNS_9TypeArenaE(ptr nocapture noundef nonnull align 8 dereferenceable(472) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau12SubstitutionC2EPKNS_6TxnLogEPNS_9TypeArenaE(ptr nocapture noundef nonnull align 8 dereferenceable(472) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4Luau6TarjanC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN4Luau12SubstitutionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 224
@@ -9491,7 +9491,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 declare noundef ptr @_ZN4Luau9asMutableEPKNS_4TypeE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_9Unifiable5BoundIS3_EEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_9Unifiable5BoundIS3_EEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8
   %.val3 = load ptr, ptr %2, align 8
@@ -9501,14 +9501,14 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9T
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_9Unifiable5ErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture readnone %2) #11 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_9Unifiable5ErrorEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture readnone %2) #11 {
   %.val = load ptr, ptr %0, align 8
   store ptr %.val, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_8FreeTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture readnone %2) #11 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_8FreeTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture readnone %2) #11 {
   %.val = load ptr, ptr %0, align 8
   store ptr %.val, ptr %1, align 8
   ret void
@@ -9546,7 +9546,7 @@ define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9T
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_13PrimitiveTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture readnone %2) #11 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_13PrimitiveTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture readnone %2) #11 {
   %.val = load ptr, ptr %0, align 8
   store ptr %.val, ptr %1, align 8
   ret void
@@ -9611,7 +9611,7 @@ _ZN4Luau13SingletonTypeD2Ev.exit3.i:              ; preds = %21
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_11BlockedTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_11BlockedTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8
   %.val3 = load i32, ptr %2, align 8
@@ -11252,7 +11252,7 @@ _ZN4Luau9ClassTypeC2EOS0_.exit.i:                 ; preds = %123, %110
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_7AnyTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture readnone %2) #11 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_7AnyTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture readnone %2) #11 {
   %.val = load ptr, ptr %0, align 8
   store ptr %.val, ptr %1, align 8
   ret void
@@ -11415,28 +11415,28 @@ _ZN4Luau16IntersectionTypeD2Ev.exit11.i:          ; preds = %31, %28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_8LazyTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture readnone %2) #11 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_8LazyTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture readnone %2) #11 {
   %.val = load ptr, ptr %0, align 8
   store ptr %.val, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_11UnknownTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture readnone %2) #11 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_11UnknownTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture readnone %2) #11 {
   %.val = load ptr, ptr %0, align 8
   store ptr %.val, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_9NeverTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture readnone %2) #11 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_9NeverTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture readnone %2) #11 {
   %.val = load ptr, ptr %0, align 8
   store ptr %.val, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_12NegationTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef readonly %2) #1 {
+define internal void @"_ZN4LuauL8fnVisitRIRZNS_L12shallowCloneEPKNS_4TypeERNS_9TypeArenaEPKNS_6TxnLogEbE3$_0S3_KNS_12NegationTypeEEEvRT_RT0_PNSt11conditionalIXsr3stdE10is_const_vIT1_EEKvvE4typeE"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef readonly %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8
   %.val3 = load ptr, ptr %2, align 8

@@ -591,7 +591,7 @@ define internal fastcc void @_selection_scroll_to(ptr dead_on_unwind noalias noc
 declare void @cairo_surface_destroy(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = tail call noalias dereferenceable_or_null(240) ptr @calloc(i64 noundef 1, i64 noundef 240) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 280
@@ -4442,7 +4442,7 @@ declare void @cairo_line_to(ptr noundef, double noundef, double noundef) local_u
 declare void @cairo_stroke(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 initializes((0, 28)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #12 {
+define internal fastcc void @_time_get_from_pos(ptr dead_on_unwind noalias nonnull writable align 4 %0, i32 noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #12 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false), !alias.scope !115
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %4, align 4, !tbaa !37, !alias.scope !115

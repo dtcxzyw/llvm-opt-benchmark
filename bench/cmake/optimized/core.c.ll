@@ -48,7 +48,7 @@ define dso_local i64 @uv_hrtime() local_unnamed_addr #0 {
 declare i64 @uv__hrtime(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_close(ptr noundef initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @uv_close(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 1
@@ -173,7 +173,7 @@ declare void @uv__fs_poll_close(ptr noundef) local_unnamed_addr #1
 declare void @uv__signal_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @uv__make_close_pending(ptr noundef initializes((80, 88)) %0) local_unnamed_addr #2 {
+define dso_local void @uv__make_close_pending(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 360
@@ -709,7 +709,7 @@ declare void @uv__metrics_update_idle_time(ptr noundef) local_unnamed_addr #1
 declare void @uv__run_check(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_update_time(ptr nocapture noundef writeonly initializes((544, 552)) %0) local_unnamed_addr #0 {
+define dso_local void @uv_update_time(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @uv__hrtime(i32 noundef 1) #22
   %3 = udiv i64 %2, 1000000
   %4 = getelementptr inbounds i8, ptr %0, i64 544
@@ -2198,7 +2198,7 @@ define dso_local range(i32 -2147483648, 1) i32 @uv_translate_sys_error(i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -12, 1) i32 @uv_os_environ(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   store i32 0, ptr %1, align 4
   %3 = load ptr, ptr @environ, align 8

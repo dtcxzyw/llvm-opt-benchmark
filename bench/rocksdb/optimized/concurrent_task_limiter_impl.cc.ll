@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN7rocksdb16TaskLimiterTokenD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb16TaskLimiterTokenD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25ConcurrentTaskLimiterImplC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %max_outstanding_task) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25ConcurrentTaskLimiterImplC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, i32 noundef %max_outstanding_task) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25ConcurrentTaskLimiterImplE, i64 16), ptr %this, align 8
   %name_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -34,7 +34,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb25ConcurrentTaskLimiterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb25ConcurrentTaskLimiterImplD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb25ConcurrentTaskLimiterImplE, i64 16), ptr %this, align 8
   %name_ = getelementptr inbounds i8, ptr %this, i64 8

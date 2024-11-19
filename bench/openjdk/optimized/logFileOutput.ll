@@ -81,7 +81,7 @@ $_ZN9LogPrefixILN6LogTag4typeE76ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 @_ZN13LogFileOutputD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN13LogFileOutputD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13LogFileOutputC2EPKc(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 9)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13LogFileOutputC2EPKc(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV9LogOutput, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
@@ -513,7 +513,7 @@ declare noundef ptr @_ZN2os12localtime_pdEPKlP2tm(ptr noundef, ptr noundef) loca
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13LogFileOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13LogFileOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV13LogFileOutput, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
@@ -570,7 +570,7 @@ declare ptr @__errno_location() local_unnamed_addr #6
 declare void @_ZN2os4freeEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13LogFileOutputD0Ev(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13LogFileOutputD0Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN13LogFileOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) #13
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #13
   ret void

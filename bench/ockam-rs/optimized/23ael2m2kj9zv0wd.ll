@@ -3439,7 +3439,7 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9mitm_node15tcp_interceptor7workers9processor16TcpMitmProcessor3new17hc0a08fbd2f2cd001E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr, ptr, ptr, i8, [7 x i8] }) align 8 dereferenceable(64) initializes((0, 57)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #7 {
+define void @_ZN9mitm_node15tcp_interceptor7workers9processor16TcpMitmProcessor3new17hc0a08fbd2f2cd001E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr, ptr, ptr, i8, [7 x i8] }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5) unnamed_addr #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = zext i1 %2 to i8
@@ -3454,7 +3454,7 @@ define void @_ZN9mitm_node15tcp_interceptor7workers9processor16TcpMitmProcessor3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9mitm_node15tcp_interceptor7workers9processor16TcpMitmProcessor5start17h89d7538bb02c2ac1E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, [181 x i64], ptr, ptr, ptr, { ptr, i8 }, [4 x i8], i8, i8, [2 x i8] }) align 8 dereferenceable(1560) initializes((0, 64), (1512, 1545), (1556, 1558)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, i1 noundef zeroext %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext %7, ptr noundef nonnull %8) unnamed_addr #7 {
+define hidden void @_ZN9mitm_node15tcp_interceptor7workers9processor16TcpMitmProcessor5start17h89d7538bb02c2ac1E(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 }, i8, [7 x i8] }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, [181 x i64], ptr, ptr, ptr, { ptr, i8 }, [4 x i8], i8, i8, [2 x i8] }) align 8 dereferenceable(1560) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, i1 noundef zeroext %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %4, ptr noundef nonnull %5, ptr noundef nonnull %6, i1 noundef zeroext %7, ptr noundef nonnull %8) unnamed_addr #7 {
   %10 = getelementptr inbounds i8, ptr %0, i64 1512
   store ptr %1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 1557

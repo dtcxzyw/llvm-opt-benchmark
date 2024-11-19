@@ -150,7 +150,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_7_3 = internal constant [3 x i8] c"\C5\CA\DB", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2) i32 @russian_KOI8_R_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @russian_KOI8_R_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
@@ -746,7 +746,7 @@ r_derivational.exit:                              ; preds = %17, %188, %185, %12
 declare i32 @slice_from_s(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2) i32 @r_noun(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2) i32 @r_noun(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

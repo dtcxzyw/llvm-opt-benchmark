@@ -510,7 +510,7 @@ declare void @pci_register_bar(ptr noundef, i32 noundef, i8 noundef zeroext, ptr
 declare void @qemu_macaddr_default_if_unset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @nic_reset(ptr noundef initializes((2608, 2616)) %opaque) #0 {
+define internal void @nic_reset(ptr noundef %opaque) #0 {
 entry:
   %mult = getelementptr inbounds i8, ptr %opaque, i64 2608
   store i64 0, ptr %mult, align 16
@@ -1873,7 +1873,7 @@ declare void @pci_set_irq(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @qemu_flush_queued_packets(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @action_command(ptr noundef initializes((11784, 11788)) %s) unnamed_addr #0 {
+define internal fastcc void @action_command(ptr noundef %s) unnamed_addr #0 {
 entry:
   %val.addr.i.i = alloca i16, align 2
   %buf.i = alloca [2600 x i8], align 16

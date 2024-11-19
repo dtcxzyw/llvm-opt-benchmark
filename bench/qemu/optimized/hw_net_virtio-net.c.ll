@@ -4678,7 +4678,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @qemu_using_vnet_hdr(ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @virtio_net_set_mrg_rx_bufs(ptr nocapture noundef initializes((592, 600), (616, 620)) %n, i32 noundef %mergeable_rx_bufs, i32 noundef range(i32 0, 2) %version_1, i32 noundef range(i32 0, 2) %hash_report) unnamed_addr #0 {
+define internal fastcc void @virtio_net_set_mrg_rx_bufs(ptr nocapture noundef %n, i32 noundef %mergeable_rx_bufs, i32 noundef range(i32 0, 2) %version_1, i32 noundef range(i32 0, 2) %hash_report) unnamed_addr #0 {
 entry:
   %mergeable_rx_bufs1 = getelementptr inbounds i8, ptr %n, i64 616
   store i32 %mergeable_rx_bufs, ptr %mergeable_rx_bufs1, align 8
@@ -8327,7 +8327,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @virtio_net_vnet_pre_save(ptr nocapture noundef initializes((20, 24)) %opaque) #15 {
+define internal noundef i32 @virtio_net_vnet_pre_save(ptr nocapture noundef %opaque) #15 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %has_vnet_hdr = getelementptr inbounds i8, ptr %0, i64 576
@@ -8374,7 +8374,7 @@ return:                                           ; preds = %entry, %peer_has_uf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @virtio_net_ufo_pre_save(ptr nocapture noundef initializes((18, 19)) %opaque) #15 {
+define internal noundef i32 @virtio_net_ufo_pre_save(ptr nocapture noundef %opaque) #15 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %has_ufo = getelementptr inbounds i8, ptr %0, i64 614
@@ -8385,7 +8385,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @virtio_net_tx_waiting_pre_load(ptr nocapture noundef initializes((8, 18)) %opaque) #0 {
+define internal range(i32 -22, 1) i32 @virtio_net_tx_waiting_pre_load(ptr nocapture noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %vqs.i = getelementptr inbounds i8, ptr %0, i64 528
@@ -8420,7 +8420,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @virtio_net_tx_waiting_pre_save(ptr nocapture noundef initializes((8, 18)) %opaque) #15 {
+define internal noundef i32 @virtio_net_tx_waiting_pre_save(ptr nocapture noundef %opaque) #15 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %vqs = getelementptr inbounds i8, ptr %0, i64 528

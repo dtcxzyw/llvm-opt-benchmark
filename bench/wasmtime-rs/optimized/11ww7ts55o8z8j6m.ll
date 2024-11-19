@@ -247,7 +247,7 @@ define internal fastcc void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$5clear17h1e7832da717b1e3bE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) initializes((16, 24), (40, 48)) %0) unnamed_addr #2 {
+define hidden void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$5clear17h1e7832da717b1e3bE"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -256,7 +256,7 @@ define hidden void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$5clear17h1e783
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$5clear17hc7eb4ece4f6c7276E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) initializes((16, 24), (40, 48)) %0) unnamed_addr #2 {
+define hidden void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$5clear17hc7eb4ece4f6c7276E"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(48) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40

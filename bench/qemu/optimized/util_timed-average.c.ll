@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.check_expirations = private unnamed_addr constant [51 x i8] c"void check_expirations(TimedAverage *, uint64_t *)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @timed_average_init(ptr nocapture noundef writeonly initializes((0, 96)) %ta, i32 noundef %clock_type, i64 noundef %period) local_unnamed_addr #0 {
+define dso_local void @timed_average_init(ptr nocapture noundef writeonly %ta, i32 noundef %clock_type, i64 noundef %period) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef %clock_type) #4
   %mul = shl i64 %period, 2

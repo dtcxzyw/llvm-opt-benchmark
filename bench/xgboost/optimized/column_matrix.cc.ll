@@ -239,7 +239,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost6common12ColumnMatrix11InitStorageERKNS_16GHistIndexMatrixEd(ptr nocapture noundef nonnull align 8 dereferenceable(218) initializes((32, 56)) %0, ptr noundef nonnull align 8 dereferenceable(233) %1, double noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost6common12ColumnMatrix11InitStorageERKNS_16GHistIndexMatrixEd(ptr nocapture noundef nonnull align 8 dereferenceable(218) %0, ptr noundef nonnull align 8 dereferenceable(233) %1, double noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.xgboost::common::RefResourceView.9", align 8
   %5 = alloca i8, align 1
   %6 = alloca i32, align 4

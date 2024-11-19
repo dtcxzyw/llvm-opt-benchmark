@@ -2165,7 +2165,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11SearchFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11SearchFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11SearchFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV11SearchFrame, i64 456), ptr %2, align 8
@@ -3675,7 +3675,7 @@ define void @_ZN11SearchFrame8setFocusEv(ptr nocapture noundef nonnull readonly 
 declare void @_ZN9QLineEdit9selectAllEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11SearchFrame14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(104) initializes((64, 72)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN11SearchFrame14setCaptureFileEP13_capture_file(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   %.not = icmp eq ptr %1, null

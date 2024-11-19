@@ -3514,7 +3514,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_7SDValueENS_8RegisterENS_12DenseMapInfoIS
 declare void @_ZN4llvm19MachineRegisterInfo11setRegClassENS_8RegisterEPKNS_19TargetRegisterClassE(ptr noundef nonnull align 8 dereferenceable(512), i32, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN4llvm12InstrEmitter12EmitDbgValueEPNS_10SDDbgValueERNS_8DenseMapINS_7SDValueENS_8RegisterENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %0, ptr nocapture noundef initializes((63, 64)) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN4llvm12InstrEmitter12EmitDbgValueEPNS_10SDDbgValueERNS_8DenseMapINS_7SDValueENS_8RegisterENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::DebugLoc", align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -4777,7 +4777,7 @@ _ZN4llvm8DebugLocD2Ev.exit20:                     ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z18GetMOForConstDbgOpRKN4llvm12SDDbgOperandE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::MachineOperand") align 8 initializes((8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 {
+define dso_local void @_Z18GetMOForConstDbgOpRKN4llvm12SDDbgOperandE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::MachineOperand") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 8
@@ -7382,7 +7382,7 @@ _ZNK4llvm19MachineInstrBuilder15setMMRAMetadataEPNS_6MDNodeE.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvm12InstrEmitterC2ERKNS_13TargetMachineEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 57)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, ptr %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN4llvm12InstrEmitterC2ERKNS_13TargetMachineEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEE(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, ptr %3) unnamed_addr #1 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %0, align 8

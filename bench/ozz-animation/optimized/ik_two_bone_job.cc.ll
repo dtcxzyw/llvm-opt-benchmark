@@ -20,7 +20,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation12IKTwoBoneJobC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(112) initializes((0, 60), (64, 112)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3ozz9animation12IKTwoBoneJobC2Ev(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(112) %0) unnamed_addr #3 align 2 {
   store <4 x float> zeroinitializer, ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store <4 x float> <float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %2, align 16

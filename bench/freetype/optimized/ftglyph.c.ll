@@ -73,7 +73,7 @@ define internal void @ft_bitmap_glyph_done(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_bitmap_glyph_copy(ptr noundef %0, ptr noundef initializes((40, 48)) %1) #0 {
+define internal i32 @ft_bitmap_glyph_copy(ptr noundef %0, ptr noundef %1) #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8
@@ -90,7 +90,7 @@ define internal i32 @ft_bitmap_glyph_copy(ptr noundef %0, ptr noundef initialize
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @ft_bitmap_glyph_bbox(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) #1 {
+define internal void @ft_bitmap_glyph_bbox(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = shl nsw i32 %4, 6
@@ -212,7 +212,7 @@ define internal void @ft_outline_glyph_bbox(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @ft_outline_glyph_prepare(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((144, 148), (200, 240)) %1) #1 {
+define internal noundef i32 @ft_outline_glyph_prepare(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store i32 1869968492, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 200

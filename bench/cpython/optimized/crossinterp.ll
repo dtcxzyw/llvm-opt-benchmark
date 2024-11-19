@@ -1117,7 +1117,7 @@ _xidata_clear.exit:                               ; preds = %do.body.i, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_PyCrossInterpreterData_Init(ptr nocapture noundef writeonly initializes((0, 40)) %data, ptr noundef readonly %interp, ptr noundef %shared, ptr noundef %obj, ptr noundef %new_object) local_unnamed_addr #2 {
+define dso_local void @_PyCrossInterpreterData_Init(ptr nocapture noundef writeonly %data, ptr noundef readonly %interp, ptr noundef %shared, ptr noundef %obj, ptr noundef %new_object) local_unnamed_addr #2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %data, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
@@ -1160,7 +1160,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_PyCrossInterpreterData_InitWithSize(ptr nocapture noundef writeonly initializes((0, 40)) %data, ptr noundef readonly %interp, i64 noundef %size, ptr noundef %obj, ptr noundef %new_object) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyCrossInterpreterData_InitWithSize(ptr nocapture noundef writeonly %data, ptr noundef readonly %interp, i64 noundef %size, ptr noundef %obj, ptr noundef %new_object) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %data, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
@@ -1356,7 +1356,7 @@ return:                                           ; preds = %_lookup_getdata.exi
 declare ptr @PyErr_Occurred() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @_PyObject_GetCrossInterpreterData(ptr noundef %obj, ptr noundef initializes((0, 40)) %data) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @_PyObject_GetCrossInterpreterData(ptr noundef %obj, ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyThreadState_GetCurrent() #13
   %interp1 = getelementptr inbounds i8, ptr %call, i64 16
@@ -3582,7 +3582,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyXI_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 32)) %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyXI_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 352), align 8
   %cmp.i.not = icmp eq ptr %interp, %0
@@ -4100,7 +4100,7 @@ if.end:                                           ; preds = %Py_XDECREF.exit.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyXI_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
+define hidden void @_PyXI_InitTypes(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @PyExc_BaseException, align 8
   store ptr %0, ptr getelementptr inbounds (i8, ptr @_PyExc_InterpreterError, i64 256), align 8
@@ -4318,7 +4318,7 @@ declare ptr @PyThreadState_New(ptr noundef) local_unnamed_addr #1
 declare ptr @PyThreadState_Swap(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_PyXI_InitError(ptr nocapture noundef initializes((8, 12), (16, 24)) %error, ptr noundef %excobj, i32 noundef %code) unnamed_addr #0 {
+define internal fastcc noundef ptr @_PyXI_InitError(ptr nocapture noundef %error, ptr noundef %excobj, i32 noundef %code) unnamed_addr #0 {
 entry:
   %size.i.i35.i = alloca i64, align 8
   %size.i.i = alloca i64, align 8
@@ -5074,7 +5074,7 @@ declare void @PyThreadState_Delete(ptr noundef) local_unnamed_addr #1
 declare ptr @PyObject_Type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_none_shared(ptr nocapture noundef readonly %tstate, ptr nocapture readnone %obj, ptr nocapture noundef writeonly initializes((0, 40)) %data) #9 {
+define internal noundef i32 @_none_shared(ptr nocapture noundef readonly %tstate, ptr nocapture readnone %obj, ptr nocapture noundef writeonly %data) #9 {
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
@@ -5155,7 +5155,7 @@ return:                                           ; preds = %if.then, %if.then4,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_bytes_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef initializes((0, 40)) %data) #0 {
+define internal range(i32 -1, 1) i32 @_bytes_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef %data) #0 {
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
@@ -5254,7 +5254,7 @@ return:                                           ; preds = %_PyCrossInterpreter
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_str_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef writeonly initializes((0, 40)) %data) #0 {
+define internal range(i32 -1, 1) i32 @_str_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef writeonly %data) #0 {
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
@@ -5340,7 +5340,7 @@ return:                                           ; preds = %_PyCrossInterpreter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @_bool_shared(ptr nocapture noundef readonly %tstate, ptr noundef readnone %obj, ptr nocapture noundef writeonly initializes((0, 40)) %data) #9 {
+define internal noundef i32 @_bool_shared(ptr nocapture noundef readonly %tstate, ptr noundef readnone %obj, ptr nocapture noundef writeonly %data) #9 {
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8
@@ -5369,7 +5369,7 @@ _PyCrossInterpreterData_Init.exit:                ; preds = %entry, %cond.true.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @_float_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef writeonly initializes((0, 40)) %data) #0 {
+define internal range(i32 -1, 1) i32 @_float_shared(ptr nocapture noundef readonly %tstate, ptr noundef %obj, ptr nocapture noundef writeonly %data) #0 {
 entry:
   %interp = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp, align 8

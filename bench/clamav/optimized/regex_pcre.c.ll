@@ -482,7 +482,7 @@ declare void @cli_warnmsg(ptr noundef, ...) local_unnamed_addr #1
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_pcre_results_reset(ptr nocapture noundef initializes((0, 12)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_pcre_results_reset(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8

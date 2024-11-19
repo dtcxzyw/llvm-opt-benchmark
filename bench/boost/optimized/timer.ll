@@ -361,7 +361,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN5boost3log11v2_mt_posix9attribute4impldlEPvm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: read) uwtable
-define void @_ZN5boost3log11v2_mt_posix10attributes5timerC2ERKNS2_11cast_sourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix10attributes5timerC2ERKNS2_11cast_sourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !13
   %4 = icmp eq ptr %3, null
   br i1 %4, label %_ZN5boost13intrusive_ptrINS_3log11v2_mt_posix9attribute4implEED2Ev.exit, label %_ZNK5boost3log11v2_mt_posix10attributes11cast_source2asINS2_5timer4implEEEPT_v.exit

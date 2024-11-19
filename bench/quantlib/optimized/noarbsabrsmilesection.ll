@@ -1329,7 +1329,7 @@ _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21NoArbSabrSmileSectionC1EddSt6vectorIdSaIdEEdNS_14VolatilityTypeE(ptr noundef nonnull align 8 dereferenceable(128) initializes((128, 136), (144, 148), (152, 160)) %this, double noundef %timeToExpiry, double noundef %forward, ptr nocapture noundef %sabrParams, double noundef %shift, i32 noundef %volatilityType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21NoArbSabrSmileSectionC1EddSt6vectorIdSaIdEEdNS_14VolatilityTypeE(ptr noundef nonnull align 8 dereferenceable(128) %this, double noundef %timeToExpiry, double noundef %forward, ptr nocapture noundef %sabrParams, double noundef %shift, i32 noundef %volatilityType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 128
@@ -1605,7 +1605,7 @@ declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN8QuantLib12SmileSectionC2ERKNS_4DateENS_10DayCounterES3_NS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, double noundef) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21NoArbSabrSmileSectionC1ERKNS_4DateEdSt6vectorIdSaIdEERKNS_10DayCounterEdNS_14VolatilityTypeE(ptr noundef nonnull align 8 dereferenceable(128) initializes((128, 136), (144, 148), (152, 160)) %this, ptr noundef nonnull align 8 dereferenceable(8) %d, double noundef %forward, ptr nocapture noundef %sabrParams, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, double noundef %shift, i32 noundef %volatilityType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21NoArbSabrSmileSectionC1ERKNS_4DateEdSt6vectorIdSaIdEERKNS_10DayCounterEdNS_14VolatilityTypeE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(8) %d, double noundef %forward, ptr nocapture noundef %sabrParams, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, double noundef %shift, i32 noundef %volatilityType) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %ref.tmp = alloca %"class.QuantLib::Date", align 8

@@ -103,7 +103,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [29 x i8] c"[%s:%d] GDS STORE KV WITH %s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @dcd_con(ptr nocapture noundef writeonly initializes((252, 256), (264, 296)) %0) #0 {
+define internal void @dcd_con(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 252
   store i32 -1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 264
@@ -2649,7 +2649,7 @@ pmix_obj_run_destructors.exit77:                  ; preds = %.lr.ph.i114, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -64, 1) i32 @defer_response(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %8) unnamed_addr #1 {
+define internal fastcc range(i32 -64, 1) i32 @defer_response(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef nonnull writeonly %8) unnamed_addr #1 {
   store ptr null, ptr %8, align 8
   br i1 %4, label %10, label %19
 
@@ -4650,7 +4650,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 declare i32 @pmix_event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_timeout(i32 %0, i16 signext %1, ptr noundef initializes((272, 273)) %2) #1 {
+define internal void @get_timeout(i32 %0, i16 signext %1, ptr noundef %2) #1 {
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_server_globals, i64 2660), align 4
   %or.cond = icmp ult i32 %4, 64
   br i1 %or.cond, label %5, label %11

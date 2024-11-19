@@ -747,7 +747,7 @@ _ZN4llvm4json4Path4RootD2Ev.exit:                 ; preds = %134, %137
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4llvm21getTensorSpecFromJSONERNS_11LLVMContextERKNS_4json5ValueEENK3$_0clERKNS_5TwineE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 initializes((80, 81)) %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #2 align 2 {
+define internal fastcc void @"_ZZN4llvm21getTensorSpecFromJSONERNS_11LLVMContextERKNS_4json5ValueEENK3$_0clERKNS_5TwineE"(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr %.0.val, ptr %.8.val, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #2 align 2 {
   %3 = alloca %"class.llvm::json::OStream", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8

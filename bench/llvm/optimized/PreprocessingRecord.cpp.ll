@@ -140,7 +140,7 @@ define dso_local void @_ZN5clang33ExternalPreprocessingRecordSourceD0Ev(ptr noca
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18InclusionDirectiveC2ERNS_19PreprocessingRecordENS0_13InclusionKindEN4llvm9StringRefEbbNS_20CustomizableOptionalINS_12FileEntryRefEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 12), (16, 32), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, i32 noundef %2, ptr nocapture readonly %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i64 %7, i64 %8) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang18InclusionDirectiveC2ERNS_19PreprocessingRecordENS0_13InclusionKindEN4llvm9StringRefEbbNS_20CustomizableOptionalINS_12FileEntryRefEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, i32 noundef %2, ptr nocapture readonly %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i64 %7, i64 %8) unnamed_addr #3 align 2 {
   %10 = inttoptr i64 %7 to ptr
   store i32 3, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -203,7 +203,7 @@ _ZN5clang19PreprocessingRecord8AllocateEjj.exit:  ; preds = %37, %.critedge.i.i.
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19PreprocessingRecordC2ERNS_13SourceManagerE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(696) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang19PreprocessingRecordC2ERNS_13SourceManagerE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(696) %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 384) (i8, ptr @_ZTVN5clang19PreprocessingRecordE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -230,7 +230,7 @@ define dso_local void @_ZN5clang19PreprocessingRecordC2ERNS_13SourceManagerE(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang19PreprocessingRecord30getPreprocessedEntitiesInRangeENS_11SourceRangeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 initializes((0, 4), (8, 20), (24, 32)) %0, ptr noundef nonnull align 8 dereferenceable(240) %1, i64 %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang19PreprocessingRecord30getPreprocessedEntitiesInRangeENS_11SourceRangeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range") align 8 %0, ptr noundef nonnull align 8 dereferenceable(240) %1, i64 %2) local_unnamed_addr #3 align 2 {
   %.sroa.018.0.extract.trunc = trunc i64 %2 to i32
   %4 = icmp eq i32 %.sroa.018.0.extract.trunc, 0
   %5 = icmp ult i64 %2, 4294967296
@@ -1403,7 +1403,7 @@ _ZNSt6vectorIPN5clang18PreprocessedEntityESaIS2_EE17_M_realloc_insertIJRKS2_EEEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang19PreprocessingRecord17SetExternalSourceERNS_33ExternalPreprocessingRecordSourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) initializes((216, 224)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang19PreprocessingRecord17SetExternalSourceERNS_33ExternalPreprocessingRecordSourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %1, ptr %3, align 8
   ret void

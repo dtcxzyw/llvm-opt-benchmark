@@ -566,7 +566,7 @@ define internal i32 @proc_pid_readlink(ptr noundef %0, ptr noundef %1, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @task_dump_owner(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 align 16 {
+define dso_local void @task_dump_owner(ptr noundef %0, i16 noundef zeroext %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 2097152
@@ -865,7 +865,7 @@ declare dso_local void @generic_fillattr(ptr noundef, i32 noundef, ptr noundef, 
 declare dso_local ptr @pid_task(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pid_update_inode(ptr noundef %0, ptr noundef initializes((4, 12)) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @pid_update_inode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 2097152
@@ -3661,7 +3661,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @proc_pid_attr_write(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @proc_pid_attr_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((200, 208)) %1) #0 align 16 {
+define internal noundef i32 @proc_pid_attr_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 200
   store ptr null, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 -72

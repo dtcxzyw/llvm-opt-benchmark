@@ -291,7 +291,7 @@ define dso_local void @ieee80211_offchannel_return(ptr noundef %0) local_unnamed
 declare dso_local void @ieee80211_wake_queues_by_reason(ptr noundef, i64 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ieee80211_ready_on_channel(ptr noundef initializes((5680, 5688)) %0) #0 align 16 {
+define dso_local void @ieee80211_ready_on_channel(ptr noundef %0) #0 align 16 {
   %2 = load volatile i64, ptr @jiffies, align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 5680
   store i64 %2, ptr %3, align 8

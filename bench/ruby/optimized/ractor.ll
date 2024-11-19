@@ -216,7 +216,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_ractor_atfork(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef initializes((0, 16)) %1) local_unnamed_addr #0 {
+define hidden void @rb_ractor_atfork(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 28
@@ -254,7 +254,7 @@ define hidden void @rb_ractor_living_threads_init(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @rb_ractor_living_threads_insert(ptr noundef %0, ptr noundef initializes((0, 16)) %1) local_unnamed_addr #0 {
+define hidden void @rb_ractor_living_threads_insert(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @rb_native_mutex_lock(ptr noundef nonnull %3) #20
   %4 = getelementptr inbounds i8, ptr %0, i64 256
@@ -5923,7 +5923,7 @@ declare void @llvm.assume(i1 noundef) #23
 declare void @rb_ec_vm_lock_rec_release(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @move_enter(i64 noundef %0, ptr nocapture noundef writeonly initializes((32, 40)) %1) #0 {
+define internal range(i32 0, 2) i32 @move_enter(i64 noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct.obj_traverse_data, align 8
   %4 = alloca %struct.rb_obj_traverse_final_data, align 8
   %5 = and i64 %0, 7
@@ -8114,7 +8114,7 @@ declare i64 @rb_obj_is_proc(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_proc_ractor_make_shareable(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 2) i32 @copy_enter(i64 noundef %0, ptr nocapture noundef writeonly initializes((32, 40)) %1) #0 {
+define internal range(i32 0, 2) i32 @copy_enter(i64 noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct.obj_traverse_data, align 8
   %4 = alloca %struct.rb_obj_traverse_final_data, align 8
   %5 = and i64 %0, 7

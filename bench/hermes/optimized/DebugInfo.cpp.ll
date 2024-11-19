@@ -118,7 +118,7 @@ $_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPhS1_EEEEv
 @_ZN6hermes3hbc18DebugInfoGeneratorC1EONS0_21UniquingFilenameTableE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN6hermes3hbc18DebugInfoGeneratorC2EONS0_21UniquingFilenameTableE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes3hbc20DebugScopeDescriptor5FlagsC2Ej(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(2) initializes((0, 2)) %this, i32 noundef %bits) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc20DebugScopeDescriptor5FlagsC2Ej(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(2) %this, i32 noundef %bits) unnamed_addr #0 align 2 {
 entry:
   %0 = trunc i32 %bits to i8
   %frombool = and i8 %0, 1
@@ -441,7 +441,7 @@ return:                                           ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias nocapture nonnull writeonly align 4 initializes((0, 33)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_129FunctionDebugInfoDeserializer4nextEv(ptr noalias nocapture nonnull writeonly align 4 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 {
 entry:
   %result.i32 = alloca i64, align 8
   %result.i25 = alloca i64, align 8
@@ -911,7 +911,7 @@ return:                                           ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes3hbc9DebugInfo18getScopeDescriptorEj(ptr noalias sret(%"struct.hermes::hbc::DebugScopeDescriptor") align 8 initializes((0, 5)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %offset) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK6hermes3hbc9DebugInfo18getScopeDescriptorEj(ptr noalias sret(%"struct.hermes::hbc::DebugScopeDescriptor") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, i32 noundef %offset) local_unnamed_addr #2 align 2 {
 entry:
   %strSize.i.i = alloca i64, align 8
   %strOffset.i = alloca i64, align 8
@@ -3034,7 +3034,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc18DebugInfoGeneratorC2EONS0_21UniquingFilenameTableE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 1), (8, 32)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(104) %filenameTable) unnamed_addr #2 align 2 {
+define hidden void @_ZN6hermes3hbc18DebugInfoGeneratorC2EONS0_21UniquingFilenameTableE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef nonnull align 8 dereferenceable(104) %filenameTable) unnamed_addr #2 align 2 {
 entry:
   %__tmp.sroa.0.i.i.i.i.i.i = alloca { ptr, i64 }, align 8
   %agg.tmp = alloca %"struct.hermes::hbc::UniquingFilenameTable", align 8
@@ -3240,7 +3240,7 @@ return:                                           ; preds = %for.body, %cond.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc18DebugInfoGenerator17serializeWithMoveEv(ptr noalias sret(%"class.hermes::hbc::DebugInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 1)) %this) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6hermes3hbc18DebugInfoGenerator17serializeWithMoveEv(ptr noalias sret(%"class.hermes::hbc::DebugInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #2 align 2 {
 entry:
   %combinedData = alloca %"class.std::vector", align 8
   store i8 0, ptr %this, align 8

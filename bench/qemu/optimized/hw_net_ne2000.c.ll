@@ -57,7 +57,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.27 = private unnamed_addr constant [55 x i8] c"ne2000_ioport_write io write addr=0x%02lx val=0x%02lx\0A\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local void @ne2000_reset(ptr nocapture noundef initializes((298, 299)) %s) local_unnamed_addr #0 {
+define dso_local void @ne2000_reset(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
   %isr = getelementptr inbounds i8, ptr %s, i64 298
   store i8 -128, ptr %isr, align 2

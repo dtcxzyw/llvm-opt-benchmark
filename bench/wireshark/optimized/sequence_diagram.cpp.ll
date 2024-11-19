@@ -122,13 +122,13 @@ $_ZN9QtPrivate12QPodArrayOpsI6QPointE7emplaceIJRKS1_EEEvxDpOT_ = comdat any
 @_ZN15SequenceDiagramD1Ev = unnamed_addr alias void (ptr), ptr @_ZN15SequenceDiagramD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11WSCPSeqDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define void @_ZN11WSCPSeqDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11WSCPSeqDataC2EdP18_seq_analysis_item(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, double noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN11WSCPSeqDataC2EdP18_seq_analysis_item(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, double noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store double %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -726,7 +726,7 @@ declare void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnam
 declare void @_ZN20QCPAbstractPlottableD2Ev(ptr noundef nonnull align 8 dereferenceable(184)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15SequenceDiagramD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15SequenceDiagramD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15SequenceDiagram, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
@@ -898,7 +898,7 @@ _ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread: ; preds = %_ZNK9QMultiMapId11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15SequenceDiagram7setDataEP18_seq_analysis_info(ptr nocapture noundef nonnull align 8 dereferenceable(240) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15SequenceDiagram7setDataEP18_seq_analysis_info(ptr nocapture noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca double, align 8
   %5 = alloca %class.QString, align 8
@@ -2348,7 +2348,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15SequenceDiagram17setSelectedPacketEi(ptr nocapture noundef nonnull align 8 dereferenceable(240) initializes((224, 228), (232, 240)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define void @_ZN15SequenceDiagram17setSelectedPacketEi(ptr nocapture noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   store double -1.000000e+00, ptr %3, align 8
   %spec.select = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
@@ -3803,7 +3803,7 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit.._crit_edge_crit_edge: ; preds
 declare void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define { double, double } @_ZNK15SequenceDiagram13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, i32 noundef %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3) unnamed_addr #1 align 2 {
+define { double, double } @_ZNK15SequenceDiagram13getValueRangeERbN3QCP10SignDomainERK8QCPRange(ptr nocapture noundef nonnull readonly align 8 dereferenceable(240) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, i32 noundef %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %3) unnamed_addr #1 align 2 {
   %5 = alloca %class.QCPRange, align 8
   call void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
   %6 = getelementptr inbounds i8, ptr %0, i64 216

@@ -908,7 +908,7 @@ declare noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 de
 declare void @_ZN10JNIHandles14destroy_globalEP8_jobject(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12CompileQueue3addEP11CompileTask(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef initializes((88, 104)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12CompileQueue3addEP11CompileTask(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -1757,7 +1757,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16CompilerCountersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) initializes((0, 1), (160, 164)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN16CompilerCountersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(164) %0) unnamed_addr #6 align 2 {
   store i8 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 0, ptr %2, align 4

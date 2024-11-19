@@ -115,7 +115,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN21quantifier_macro_infoC2ER11ast_managerP10quantifier(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 34)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %q) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN21quantifier_macro_infoC2ER11ast_managerP10quantifier(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %q) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV21quantifier_macro_info, i64 16), ptr %this, align 8
   %m2 = getelementptr inbounds i8, ptr %this, i64 8

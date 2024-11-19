@@ -89,7 +89,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @grabbag__cuesheet_frame_to_msf(i32 noundef %frame, ptr nocapture noundef writeonly initializes((0, 4)) %minutes, ptr nocapture noundef writeonly initializes((0, 4)) %seconds, ptr nocapture noundef writeonly initializes((0, 4)) %frames) local_unnamed_addr #1 {
+define dso_local void @grabbag__cuesheet_frame_to_msf(i32 noundef %frame, ptr nocapture noundef writeonly %minutes, ptr nocapture noundef writeonly %seconds, ptr nocapture noundef writeonly %frames) local_unnamed_addr #1 {
 entry:
   %rem = urem i32 %frame, 75
   store i32 %rem, ptr %frames, align 4
@@ -102,7 +102,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @grabbag__cuesheet_parse(ptr nocapture noundef %file, ptr nocapture noundef writeonly %error_message, ptr nocapture noundef initializes((0, 4)) %last_line_read, i32 noundef %sample_rate, i32 noundef %is_cdda, i64 noundef %lead_out_offset) local_unnamed_addr #2 {
+define dso_local ptr @grabbag__cuesheet_parse(ptr nocapture noundef %file, ptr nocapture noundef writeonly %error_message, ptr nocapture noundef %last_line_read, i32 noundef %sample_rate, i32 noundef %is_cdda, i64 noundef %lead_out_offset) local_unnamed_addr #2 {
 entry:
   %end.i.i = alloca ptr, align 8
   %buffer.i = alloca [4096 x i8], align 16

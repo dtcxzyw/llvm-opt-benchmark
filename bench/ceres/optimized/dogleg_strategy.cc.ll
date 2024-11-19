@@ -418,7 +418,7 @@ $_ZGVZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes 
 @_ZN5ceres8internal14DoglegStrategyC1ERKNS0_19TrustRegionStrategy7OptionsE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN5ceres8internal14DoglegStrategyC2ERKNS0_19TrustRegionStrategy7OptionsE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal14DoglegStrategyC2ERKNS0_19TrustRegionStrategy7OptionsE(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 160), (168, 177), (180, 184), (192, 216)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal14DoglegStrategyC2ERKNS0_19TrustRegionStrategy7OptionsE(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::LogMessageFatal", align 8
   %4 = alloca %"struct.google::CheckOpString", align 8
   %5 = alloca double, align 8
@@ -3040,7 +3040,7 @@ common.resume:                                    ; preds = %116, %114
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal14DoglegStrategy22ComputeGaussNewtonStepERKNS0_19TrustRegionStrategy15PerSolveOptionsEPNS0_12SparseMatrixEPKd(ptr dead_on_unwind noalias writable sret(%"struct.ceres::internal::LinearSolver::Summary") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal14DoglegStrategy22ComputeGaussNewtonStepERKNS0_19TrustRegionStrategy15PerSolveOptionsEPNS0_12SparseMatrixEPKd(ptr dead_on_unwind noalias writable sret(%"struct.ceres::internal::LinearSolver::Summary") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.ceres::internal::LinearSolver::PerSolveOptions", align 8
   %7 = alloca %"struct.ceres::internal::LinearSolver::Summary", align 8
   %8 = alloca %"class.google::LogMessage", align 8
@@ -4184,7 +4184,7 @@ common.resume:                                    ; preds = %28
 declare void @_ZN6google10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK5ceres8internal14DoglegStrategy43MakePolynomialForBoundaryConstrainedProblemEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.Eigen::Matrix") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK5ceres8internal14DoglegStrategy43MakePolynomialForBoundaryConstrainedProblemEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.Eigen::Matrix") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 232
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 240
@@ -4634,7 +4634,7 @@ _ZN6google12Check_GTImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5ceres8internal14DoglegStrategy12StepRejectedEd(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((176, 177)) %0, double %1) unnamed_addr #9 align 2 {
+define hidden void @_ZN5ceres8internal14DoglegStrategy12StepRejectedEd(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, double %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8
   %5 = fmul double %4, 5.000000e-01
@@ -4645,7 +4645,7 @@ define hidden void @_ZN5ceres8internal14DoglegStrategy12StepRejectedEd(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5ceres8internal14DoglegStrategy13StepIsInvalidEv(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((176, 177)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN5ceres8internal14DoglegStrategy13StepIsInvalidEv(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48

@@ -196,7 +196,7 @@ _Z10luai_veceqPKfS0_.exit:                        ; preds = %23, %17, %13, %33, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_Z10luaO_str2dPKcPd(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #2 {
+define hidden noundef range(i32 0, 2) i32 @_Z10luaO_str2dPKcPd(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = call double @strtod(ptr noundef %0, ptr noundef nonnull %3) #15
   store double %4, ptr %1, align 8

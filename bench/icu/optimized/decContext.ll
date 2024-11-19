@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @uprv_decContextDefault_75(ptr noundef returned writeonly initializes((0, 25)) %context, i32 noundef %kind) local_unnamed_addr #1 {
+define noundef ptr @uprv_decContextDefault_75(ptr noundef returned writeonly %context, i32 noundef %kind) local_unnamed_addr #1 {
 entry:
   store i32 9, ptr %context, align 4
   %emax = getelementptr inbounds i8, ptr %context, i64 4
@@ -138,7 +138,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @uprv_decContextSetRounding_75(ptr noundef returned writeonly initializes((12, 16)) %context, i32 noundef %newround) local_unnamed_addr #1 {
+define noundef ptr @uprv_decContextSetRounding_75(ptr noundef returned writeonly %context, i32 noundef %newround) local_unnamed_addr #1 {
 entry:
   %round = getelementptr inbounds i8, ptr %context, i64 12
   store i32 %newround, ptr %round, align 4
@@ -586,7 +586,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @uprv_decContextZeroStatus_75(ptr noundef returned writeonly initializes((20, 24)) %context) local_unnamed_addr #1 {
+define noundef ptr @uprv_decContextZeroStatus_75(ptr noundef returned writeonly %context) local_unnamed_addr #1 {
 entry:
   %status = getelementptr inbounds i8, ptr %context, i64 20
   store i32 0, ptr %status, align 4

@@ -1972,7 +1972,7 @@ define dso_local void @acpi_os_release_lock(ptr noundef %0, i64 noundef %1) loca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @acpi_os_create_cache(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @acpi_os_create_cache(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = zext i16 %1 to i32
   %6 = tail call ptr @kmem_cache_create(ptr noundef %0, i32 noundef %5, i32 noundef 0, i32 noundef 0, ptr noundef null) #20
   store ptr %6, ptr %3, align 8

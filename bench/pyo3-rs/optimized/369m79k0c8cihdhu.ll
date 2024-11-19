@@ -533,7 +533,7 @@ define hidden void @"_ZN19pyo3_macros_backend7pyclass18PyClassPyO3Options17take_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend7pyclass14build_py_class28_$u7b$$u7b$closure$u7d$$u7d$17h8628bbe17c0ac630E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((8, 12), (16, 40)) %0, ptr nocapture readnone align 1 %1, ptr align 8 %2) unnamed_addr #3 {
+define hidden void @"_ZN19pyo3_macros_backend7pyclass14build_py_class28_$u7b$$u7b$closure$u7d$$u7d$17h8628bbe17c0ac630E"(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr align 8 %2) unnamed_addr #3 {
   %4 = alloca [48 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 224
   call void @_ZN19pyo3_macros_backend7pyclass16FieldPyO3Options17take_pyo3_options17ha6f48dde61f77e88E(ptr nonnull sret([48 x i8]) align 8 %4, ptr nonnull align 8 %5)
@@ -560,7 +560,7 @@ define hidden void @"_ZN19pyo3_macros_backend7pyclass14build_py_class28_$u7b$$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend7pyclass14build_py_class28_$u7b$$u7b$closure$u7d$$u7d$17hb8325dbb041cd55aE"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((8, 12), (16, 40)) %0, ptr nocapture readnone align 1 %1, ptr align 8 %2) unnamed_addr #3 {
+define hidden void @"_ZN19pyo3_macros_backend7pyclass14build_py_class28_$u7b$$u7b$closure$u7d$$u7d$17hb8325dbb041cd55aE"(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr align 8 %2) unnamed_addr #3 {
   %4 = alloca [48 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 224
   call void @_ZN19pyo3_macros_backend7pyclass16FieldPyO3Options17take_pyo3_options17ha6f48dde61f77e88E(ptr nonnull sret([48 x i8]) align 8 %4, ptr nonnull align 8 %5)
@@ -661,7 +661,7 @@ define hidden zeroext i1 @"_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3n
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new28_$u7b$$u7b$closure$u7d$$u7d$17h9f362934b3ef83b1E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((16, 17)) %0, ptr nocapture readnone align 1 %1, ptr align 8 %2) unnamed_addr #3 {
+define hidden void @"_ZN19pyo3_macros_backend7pyclass17PyClassSimpleEnum3new28_$u7b$$u7b$closure$u7d$$u7d$17h9f362934b3ef83b1E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr align 8 %2) unnamed_addr #3 {
   %4 = alloca [32 x i8], align 8
   call void @"_ZN40_$LT$F$u20$as$u20$syn..parse..Parser$GT$6parse217h20af73fc124c658dE"(ptr nonnull sret([32 x i8]) align 8 %4, ptr align 8 %2)
   %5 = load i64, ptr %4, align 8
@@ -1102,7 +1102,7 @@ define hidden void @"_ZN19pyo3_macros_backend7pyclass22EnumVariantPyO3Options17t
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h87c652542bad85f3E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #3 {
+define hidden void @"_ZN19pyo3_macros_backend7pyclass16impl_simple_enum28_$u7b$$u7b$closure$u7d$$u7d$17h87c652542bad85f3E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #3 {
   %4 = alloca [24 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 88
   %6 = load ptr, ptr %5, align 8
@@ -1132,7 +1132,7 @@ _ZN19pyo3_macros_backend7pyclass11EnumVariant15get_python_name17ha831ef64091c089
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN19pyo3_macros_backend7pyclass17impl_complex_enum28_$u7b$$u7b$closure$u7d$$u7d$17h249ad5b0a6b4e014E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #3 {
+define hidden void @"_ZN19pyo3_macros_backend7pyclass17impl_complex_enum28_$u7b$$u7b$closure$u7d$$u7d$17h249ad5b0a6b4e014E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #3 {
   %4 = alloca [24 x i8], align 8
   %5 = tail call align 8 ptr @"_ZN110_$LT$pyo3_macros_backend..pyclass..PyClassEnumVariant$u20$as$u20$pyo3_macros_backend..pyclass..EnumVariant$GT$9get_ident17h7b95fdbc86ea0477E"(ptr align 8 %2)
   %6 = load ptr, ptr %1, align 8

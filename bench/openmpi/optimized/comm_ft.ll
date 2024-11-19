@@ -57,7 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [65 x i8] c"%s ompi: comm_ishrink: Determine context id failed with error %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_comm_failure_ack_internal(ptr nocapture noundef writeonly initializes((352, 361)) %0) local_unnamed_addr #0 {
+define noundef i32 @ompi_comm_failure_ack_internal(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull getelementptr inbounds (i8, ptr @ompi_group_afp_mutex, i64 16)) #10
   %3 = load ptr, ptr @ompi_group_all_failed_procs, align 8
   %4 = getelementptr i8, ptr %3, i64 16
@@ -419,7 +419,7 @@ define i32 @ompi_comm_get_failed_internal(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_shrink_internal(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define i32 @ompi_comm_shrink_internal(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -722,7 +722,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare i32 @ompi_comm_activate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_ishrink_internal(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @ompi_comm_ishrink_internal(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [1 x ptr], align 8
   store i32 1, ptr %4, align 4
@@ -1369,7 +1369,7 @@ define zeroext i1 @ompi_comm_is_proc_active(ptr nocapture noundef readonly %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_comm_set_rank_failed(ptr noundef initializes((360, 361)) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define noundef i32 @ompi_comm_set_rank_failed(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 360
   store i8 0, ptr %4, align 8
   fence release

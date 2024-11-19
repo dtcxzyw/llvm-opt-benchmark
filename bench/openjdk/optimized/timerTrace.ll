@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9TraceTimeD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN9TraceTimeD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9TraceTimeC2EPKcb(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 2), (8, 16), (24, 25), (40, 56)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN9TraceTimeC2EPKcb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -44,7 +44,7 @@ define hidden void @_ZN9TraceTimeC2EPKcb(ptr noundef nonnull align 8 dereference
 declare void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 2), (8, 16), (24, 25), (40, 56)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %3 to i8
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -71,7 +71,7 @@ define hidden void @_ZN9TraceTimeC2EPKcP12elapsedTimerbb(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9TraceTimeC2EPKcPFvS1_zE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 2), (8, 16), (24, 25), (40, 56)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN9TraceTimeC2EPKcPFvS1_zE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %5, align 8

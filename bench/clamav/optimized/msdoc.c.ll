@@ -576,7 +576,7 @@ define internal fastcc noundef i32 @cli_ole2_summary_json_cleanup(ptr nocapture 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull initializes((48, 50), (52, 64)) %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
+define internal fastcc i32 @ole2_summary_propset_json(ptr noundef nonnull %0, i64 noundef range(i64 0, 4294967296) %1) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca [256 x i8], align 16
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32) #10

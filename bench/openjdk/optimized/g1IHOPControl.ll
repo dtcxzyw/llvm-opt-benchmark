@@ -366,7 +366,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN21G1AdaptiveIHOPControlC1EdPK25G1OldGenAllocationTrackerPK13G1Predictionsmm = hidden unnamed_addr alias void (ptr, double, ptr, ptr, i64, i64), ptr @_ZN21G1AdaptiveIHOPControlC2EdPK25G1OldGenAllocationTrackerPK13G1Predictionsmm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13G1IHOPControlC2EdPK25G1OldGenAllocationTracker(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, double noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN13G1IHOPControlC2EdPK25G1OldGenAllocationTracker(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, double noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTV13G1IHOPControl, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store double %1, ptr %4, align 8
@@ -405,7 +405,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_55ELS1_0ELS1_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13G1IHOPControl22update_allocation_infoEdm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 32)) %0, double noundef %1, i64 %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN13G1IHOPControl22update_allocation_infoEdm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, double noundef %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store double %1, ptr %4, align 8
   ret void
@@ -484,7 +484,7 @@ define hidden void @_ZN13G1IHOPControl16send_trace_eventEP11G1NewTracer(ptr noun
 declare void @_ZN11G1NewTracer28report_basic_ihop_statisticsEmmmmdd(ptr noundef nonnull align 8 dereferenceable(88), i64 noundef, i64 noundef, i64 noundef, i64 noundef, double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19G1StaticIHOPControlC2EdPK25G1OldGenAllocationTracker(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, double noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1StaticIHOPControlC2EdPK25G1OldGenAllocationTracker(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, double noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store double %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -498,7 +498,7 @@ define hidden void @_ZN19G1StaticIHOPControlC2EdPK25G1OldGenAllocationTracker(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21G1AdaptiveIHOPControlC2EdPK25G1OldGenAllocationTrackerPK13G1Predictionsmm(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 64)) %0, double noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #1 align 2 {
+define hidden void @_ZN21G1AdaptiveIHOPControlC2EdPK25G1OldGenAllocationTrackerPK13G1Predictionsmm(ptr noundef nonnull align 8 dereferenceable(216) %0, double noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #1 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store double %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -756,7 +756,7 @@ define hidden noundef double @_ZNK21G1AdaptiveIHOPControl39last_mutator_period_o
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21G1AdaptiveIHOPControl22update_allocation_infoEdm(ptr noundef nonnull align 8 dereferenceable(216) initializes((24, 32)) %0, double noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN21G1AdaptiveIHOPControl22update_allocation_infoEdm(ptr noundef nonnull align 8 dereferenceable(216) %0, double noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store double %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 136

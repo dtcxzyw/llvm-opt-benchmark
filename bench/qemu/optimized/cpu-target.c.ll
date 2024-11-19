@@ -119,7 +119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @cpu_set_start_powered_off(ptr nocapture noundef writeonly initializes((204, 205)) %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #4 {
+define internal void @cpu_set_start_powered_off(ptr nocapture noundef writeonly %obj, i1 noundef zeroext %value, ptr nocapture readnone %errp) #4 {
 entry:
   %frombool = zext i1 %value to i8
   %start_powered_off = getelementptr inbounds i8, ptr %obj, i64 204
@@ -128,7 +128,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @cpu_exec_initfn(ptr nocapture noundef writeonly initializes((520, 524), (528, 536)) %cpu) local_unnamed_addr #4 {
+define dso_local void @cpu_exec_initfn(ptr nocapture noundef writeonly %cpu) local_unnamed_addr #4 {
 entry:
   %as = getelementptr inbounds i8, ptr %cpu, i64 528
   store ptr null, ptr %as, align 16

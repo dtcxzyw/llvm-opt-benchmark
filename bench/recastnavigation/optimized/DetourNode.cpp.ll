@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 @_ZN11dtNodeQueueD1Ev = unnamed_addr alias void (ptr), ptr @_ZN11dtNodeQueueD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10dtNodePoolC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 36)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN10dtNodePoolC2Eii(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -189,7 +189,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN10dtNodePool5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((32, 36)) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN10dtNodePool5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 28
@@ -435,7 +435,7 @@ define noundef ptr @_ZN10dtNodePool7getNodeEjh(ptr nocapture noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11dtNodeQueueC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN11dtNodeQueueC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8

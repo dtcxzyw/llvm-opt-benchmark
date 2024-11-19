@@ -589,7 +589,7 @@ declare void @_ZN8QuantLib10InstrumentC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12VarianceSwapC1ENS_8Position4TypeEddRKNS_4DateES5_(ptr noundef nonnull align 8 dereferenceable(152) initializes((152, 160), (168, 172), (176, 184)) %this, i32 noundef %position, double noundef %strike, double noundef %notional, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %startDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %maturityDate) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12VarianceSwapC1ENS_8Position4TypeEddRKNS_4DateES5_(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %position, double noundef %strike, double noundef %notional, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %startDate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %maturityDate) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 152
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !35
@@ -826,7 +826,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib12VarianceSwap12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(152) initializes((16, 40)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib12VarianceSwap12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %NPV_.i = getelementptr inbounds nuw i8, ptr %this, i64 16

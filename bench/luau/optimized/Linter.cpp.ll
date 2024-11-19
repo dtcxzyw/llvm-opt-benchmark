@@ -4625,7 +4625,7 @@ _ZNSt6vectorIN4Luau11LintWarningESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau20getDeprecatedGlobalsERKNS_12AstNameTableE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.10") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau20getDeprecatedGlobalsERKNS_12AstNameTableE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.10") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 ._crit_edge:
   %2 = alloca %"struct.Luau::LintContext", align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 88

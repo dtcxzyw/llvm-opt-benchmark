@@ -13733,7 +13733,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @load(ptr noundef readonly %st, ptr noundef initializes((248, 256), (264, 268)) %self) unnamed_addr #0 {
+define internal fastcc ptr @load(ptr noundef readonly %st, ptr noundef %self) unnamed_addr #0 {
 entry:
   %s.i1861 = alloca ptr, align 8
   %s.i1723 = alloca ptr, align 8
@@ -22770,7 +22770,7 @@ declare ptr @PyErr_NewException(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_Pickle_InitState(ptr nocapture noundef initializes((96, 104)) %st) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_Pickle_InitState(ptr nocapture noundef %st) unnamed_addr #0 {
 entry:
   %call = tail call ptr @_PyEval_GetBuiltin(ptr noundef nonnull getelementptr inbounds (i8, ptr @_PyRuntime, i64 46848)) #11
   %getattr = getelementptr inbounds i8, ptr %st, i64 96
@@ -25229,7 +25229,7 @@ declare ptr @PyType_GetModuleByDef(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @PyMethod_New(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @init_method_ref(ptr noundef %self, ptr noundef %name, ptr nocapture noundef %method_func, ptr nocapture noundef writeonly initializes((0, 8)) %method_self) unnamed_addr #0 {
+define internal fastcc i32 @init_method_ref(ptr noundef %self, ptr noundef %name, ptr nocapture noundef %method_func, ptr nocapture noundef writeonly %method_self) unnamed_addr #0 {
 entry:
   %func = alloca ptr, align 8
   %call = call i32 @PyObject_GetOptionalAttr(ptr noundef %self, ptr noundef %name, ptr noundef nonnull %func) #11

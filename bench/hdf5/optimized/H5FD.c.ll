@@ -2198,7 +2198,7 @@ define i64 @H5FD_get_maxaddr(ptr nocapture noundef readonly %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5FD_get_feature_flags(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #6 {
+define noundef i32 @H5FD_get_feature_flags(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -2206,7 +2206,7 @@ define noundef i32 @H5FD_get_feature_flags(ptr nocapture noundef readonly %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5FD_set_feature_flags(ptr nocapture noundef writeonly initializes((32, 40)) %0, i64 noundef %1) local_unnamed_addr #7 {
+define noundef i32 @H5FD_set_feature_flags(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %1, ptr %3, align 8
   ret i32 0
@@ -4588,7 +4588,7 @@ define range(i32 -1, 1) i32 @H5FD_ctl(ptr noundef %0, i64 noundef %1, i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5FD_get_fileno(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #6 {
+define noundef i32 @H5FD_get_fileno(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -4763,7 +4763,7 @@ define range(i32 -1, 1) i32 @H5FD_get_vfd_handle(ptr noundef %0, i64 noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5FD_set_base_addr(ptr nocapture noundef writeonly initializes((48, 56)) %0, i64 noundef %1) local_unnamed_addr #7 {
+define noundef i32 @H5FD_set_base_addr(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret i32 0
@@ -4777,7 +4777,7 @@ define i64 @H5FD_get_base_addr(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5FD_set_paged_aggr(ptr nocapture noundef writeonly initializes((72, 73)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
+define noundef i32 @H5FD_set_paged_aggr(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 %3, ptr %4, align 8

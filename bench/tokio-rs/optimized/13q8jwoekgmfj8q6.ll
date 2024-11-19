@@ -462,7 +462,7 @@ define hidden void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..op
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN88_$LT$core..future..pending..Pending$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb87181d4cb99568dE.llvm.1636463278540328082"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture nonnull readnone align 1 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #6 {
+define hidden void @"_ZN88_$LT$core..future..pending..Pending$LT$T$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hb87181d4cb99568dE.llvm.1636463278540328082"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture nonnull readnone align 1 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #6 {
   store i64 1, ptr %0, align 8
   ret void
 }

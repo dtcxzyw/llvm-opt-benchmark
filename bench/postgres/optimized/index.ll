@@ -4742,7 +4742,7 @@ list_length.exit:                                 ; preds = %0, %2
 declare i64 @mul_size(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SerializeReindexState(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) local_unnamed_addr #7 {
+define dso_local void @SerializeReindexState(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
   %3 = load i32, ptr @currentlyReindexedHeap, align 4
   store i32 %3, ptr %1, align 4
   %4 = load i32, ptr @currentlyReindexedIndex, align 4

@@ -75,7 +75,7 @@ $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_
 @_ZN7glslang14TStringAtomMapC1Ev = unnamed_addr alias void (ptr), ptr @_ZN7glslang14TStringAtomMapC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang14TStringAtomMapC2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN7glslang14TStringAtomMapC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 align 2 {
   %2 = alloca [2 x i8], align 1
   %3 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #9
   store ptr %3, ptr %0, align 8

@@ -661,7 +661,7 @@ cleanup:                                          ; preds = %if.end, %_ZNSt10loc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6memory15MemoryAllocator21createDefaultInstanceEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6memory15MemoryAllocator21createDefaultInstanceEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN8facebook5velox6memory15MallocAllocatorEED2Ev.exit:
   %__a.i = alloca %"class.std::allocator.33", align 1
   %ref.tmp = alloca %"class.std::shared_ptr.6", align 8

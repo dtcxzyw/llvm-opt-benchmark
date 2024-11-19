@@ -1127,7 +1127,7 @@ declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef n
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18FilterMutualGlobalC1Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((80, 89)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18FilterMutualGlobalC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [1 x i32], align 4
   %3 = alloca %"class.std::__cxx11::list.41", align 8
   %4 = alloca %class.QString, align 8
@@ -1370,14 +1370,14 @@ declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18FilterMutualGlobal10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
+define void @_ZNK18FilterMutualGlobal10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.8, i32 noundef 18)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK18FilterMutualGlobal10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 {
+define void @_ZTv0_n40_NK18FilterMutualGlobal10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #13 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.8, i32 noundef 18), !noalias !14
   store ptr %3, ptr %0, align 8, !alias.scope !14
@@ -1385,7 +1385,7 @@ define void @_ZTv0_n40_NK18FilterMutualGlobal10pluginNameEv(ptr dead_on_unwind n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18FilterMutualGlobal10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK18FilterMutualGlobal10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -1400,7 +1400,7 @@ define void @_ZNK18FilterMutualGlobal10filterNameEi(ptr dead_on_unwind noalias n
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK18FilterMutualGlobal10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #13 align 2 {
+define void @_ZThn16_NK18FilterMutualGlobal10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #13 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %_ZNK18FilterMutualGlobal10filterNameEi.exit
@@ -1416,7 +1416,7 @@ _ZNK18FilterMutualGlobal10filterNameEi.exit:      ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18FilterMutualGlobal16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK18FilterMutualGlobal16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -1431,7 +1431,7 @@ define void @_ZNK18FilterMutualGlobal16pythonFilterNameEi(ptr dead_on_unwind noa
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK18FilterMutualGlobal16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #13 align 2 {
+define void @_ZThn16_NK18FilterMutualGlobal16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #13 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %_ZNK18FilterMutualGlobal16pythonFilterNameEi.exit
@@ -1447,7 +1447,7 @@ _ZNK18FilterMutualGlobal16pythonFilterNameEi.exit: ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18FilterMutualGlobal10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK18FilterMutualGlobal10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -1466,7 +1466,7 @@ define void @_ZNK18FilterMutualGlobal10filterInfoEi(ptr dead_on_unwind noalias n
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK18FilterMutualGlobal10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #13 align 2 {
+define void @_ZThn16_NK18FilterMutualGlobal10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #13 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %6
@@ -7721,7 +7721,7 @@ declare void @glShadeModel(i32 noundef) local_unnamed_addr #0
 declare void @_ZN8AlignSet12initializeGLEv(ptr noundef nonnull align 8 dereferenceable(688)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18FilterMutualGlobal24filterScriptFunctionNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZN18FilterMutualGlobal24filterScriptFunctionNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -7736,7 +7736,7 @@ define void @_ZN18FilterMutualGlobal24filterScriptFunctionNameEi(ptr dead_on_unw
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N18FilterMutualGlobal24filterScriptFunctionNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #13 align 2 {
+define void @_ZThn16_N18FilterMutualGlobal24filterScriptFunctionNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #13 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %_ZN18FilterMutualGlobal24filterScriptFunctionNameEi.exit
@@ -8952,7 +8952,7 @@ _ZNSt6vectorI9AlignPairSaIS0_EED2Ev.exit195:      ; preds = %439, %441
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18FilterMutualGlobal12CreateGraphsER12MeshDocumentSt6vectorI9AlignPairSaIS3_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.215") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18FilterMutualGlobal12CreateGraphsER12MeshDocumentSt6vectorI9AlignPairSaIS3_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.215") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(192) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4096 x i8], align 16
   %7 = alloca [4096 x i8], align 16

@@ -161,7 +161,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @Acb_ObjCollectTfi(ptr noundef initializes((524, 528)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @Acb_ObjCollectTfi(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 524
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %0, i64 260
@@ -283,7 +283,7 @@ Acb_NtkIncTravId.exit:                            ; preds = %3, %Acb_NtkCleanObj
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @Acb_ObjCollectTfiVec(ptr noundef initializes((524, 528)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define nonnull ptr @Acb_ObjCollectTfiVec(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 524
   store i32 0, ptr %3, align 4
   %4 = getelementptr i8, ptr %0, i64 260
@@ -514,7 +514,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define nonnull ptr @Acb_ObjCollectTfo(ptr noundef initializes((540, 544)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define nonnull ptr @Acb_ObjCollectTfo(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 540
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %0, i64 260
@@ -3340,7 +3340,7 @@ Acb_ObjComputeLevelR.exit:                        ; preds = %54, %..critedge_cri
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_NtkUpdateLevelD(ptr noundef initializes((540, 544)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Acb_NtkUpdateLevelD(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Acb_ObjCollectTfo(ptr noundef %0, i32 noundef %1, i32 noundef 1)
   %4 = tail call i32 @Acb_NtkComputeLevelD(ptr noundef %0, ptr noundef nonnull %3)
   ret void
@@ -4215,7 +4215,7 @@ define void @Acb_NtkPrintPaths(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Acb_NtkComputePaths(ptr nocapture noundef initializes((524, 528)) %0) local_unnamed_addr #0 {
+define i32 @Acb_NtkComputePaths(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 524
   store i32 0, ptr %2, align 4
   %3 = getelementptr i8, ptr %0, i64 260
@@ -4993,7 +4993,7 @@ Vec_QueUpdate.exit:                               ; preds = %Vec_QueUpdate.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_NtkUpdateTiming(ptr noundef initializes((524, 528)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Acb_NtkUpdateTiming(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 100
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @Acb_ObjCollectTfi(ptr noundef %0, i32 noundef %1, i32 noundef 1)
@@ -7253,7 +7253,7 @@ Vec_IntFree.exit:                                 ; preds = %.critedge2, %.crite
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_NtkSaveSupport(ptr nocapture noundef initializes((484, 488)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @Acb_NtkSaveSupport(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 480
   %4 = getelementptr inbounds i8, ptr %0, i64 484
   store i32 0, ptr %4, align 4
@@ -7351,7 +7351,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_NtkUpdateNode(ptr noundef initializes((484, 488)) %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Acb_NtkUpdateNode(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call void @Acb_NtkSaveSupport(ptr noundef %0, i32 noundef %1)
   tail call void @Acb_NtkResetNode(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3)
   %5 = getelementptr i8, ptr %0, i64 136
@@ -7644,7 +7644,7 @@ Acb_NtkIncTravId.exit:                            ; preds = %1, %Acb_NtkCleanObj
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Acb_ObjToGia2(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef initializes((4, 8)) %4, i32 noundef %5) local_unnamed_addr #0 {
+define i32 @Acb_ObjToGia2(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %7, align 4
   %8 = getelementptr i8, ptr %2, i64 136
@@ -10102,7 +10102,7 @@ declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare ptr @Abc_ObjName(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_ObjToGia2(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((4, 8)) %3, i32 %4) local_unnamed_addr #0 {
+define i32 @Abc_ObjToGia2(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr i8, ptr %2, i64 28

@@ -316,7 +316,7 @@ define hidden void @_ZN9metaspace9Metachunk15uncommit_lockedEv(ptr nocapture nou
 declare void @_ZN9metaspace16VirtualSpaceNode14uncommit_rangeEPP12MetaWordImplm(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9metaspace9Metachunk19set_committed_wordsEm(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN9metaspace9Metachunk19set_committed_wordsEm(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = add i64 %1, 8191
   %4 = and i64 %3, -8192
   %5 = getelementptr inbounds i8, ptr %0, i64 24

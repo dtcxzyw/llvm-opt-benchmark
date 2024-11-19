@@ -72,7 +72,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @xdl_mmfile_first(ptr nocapture noundef readonly %mmf, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #2 {
+define dso_local ptr @xdl_mmfile_first(ptr nocapture noundef readonly %mmf, ptr nocapture noundef writeonly %size) local_unnamed_addr #2 {
 entry:
   %size1 = getelementptr inbounds i8, ptr %mmf, i64 8
   %0 = load i64, ptr %size1, align 8
@@ -90,7 +90,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @xdl_cha_init(ptr nocapture noundef writeonly initializes((0, 56)) %cha, i64 noundef %isize, i64 noundef %icount) local_unnamed_addr #4 {
+define dso_local noundef i32 @xdl_cha_init(ptr nocapture noundef writeonly %cha, i64 noundef %isize, i64 noundef %icount) local_unnamed_addr #4 {
 entry:
   %isize1 = getelementptr inbounds i8, ptr %cha, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cha, i8 0, i64 16, i1 false)

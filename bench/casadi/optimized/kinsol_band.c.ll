@@ -228,7 +228,7 @@ define internal range(i32 -1, 1) i32 @kinBandSetup(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kinBandsolve(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) #0 {
+define internal noundef i32 @kinBandsolve(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 496
   %7 = load ptr, ptr %6, align 8
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %2, ptr noundef %1) #5

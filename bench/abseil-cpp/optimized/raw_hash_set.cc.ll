@@ -477,7 +477,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef initializes((0, 16)) %new_ctrl, i64 noundef %new_capacity) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZNK4absl18container_internal19HashSetResizeHelper38GrowIntoSingleGroupShuffleControlBytesEPNS0_6ctrl_tEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %this, ptr nocapture noundef %new_ctrl, i64 noundef %new_capacity) local_unnamed_addr #9 align 2 {
 entry:
   %old_capacity_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %old_capacity_, align 8

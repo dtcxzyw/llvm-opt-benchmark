@@ -450,7 +450,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Identi
 declare void @_ZN21cmCTestGenericHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(284)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmCTestSubmitHandler10InitializeEv(ptr noundef nonnull align 8 dereferenceable(480) initializes((368, 382)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20cmCTestSubmitHandler10InitializeEv(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 368
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, i8 1, i64 12, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 380

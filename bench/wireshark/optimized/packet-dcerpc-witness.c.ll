@@ -1085,14 +1085,14 @@ define internal i32 @witness_dissect_element_interfaceList_interfaces__(ptr noun
 declare i32 @dissect_null_term_wstring(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @witness_dissect_GetInterfaceList_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @witness_dissect_GetInterfaceList_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.133, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @witness_dissect_GetInterfaceList_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @witness_dissect_GetInterfaceList_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.133, ptr %8, align 8
@@ -1117,7 +1117,7 @@ define internal i32 @witness_dissect_GetInterfaceList_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @witness_dissect_Register_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @witness_dissect_Register_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.134, ptr %8, align 8
@@ -1140,7 +1140,7 @@ define internal i32 @witness_dissect_Register_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @witness_dissect_Register_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @witness_dissect_Register_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.134, ptr %8, align 8
@@ -1165,7 +1165,7 @@ define internal i32 @witness_dissect_Register_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @witness_dissect_UnRegister_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @witness_dissect_UnRegister_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.135, ptr %7, align 8
   %8 = load i32, ptr @hf_witness_witness_UnRegister_context_handle, align 4
@@ -1175,7 +1175,7 @@ define internal i32 @witness_dissect_UnRegister_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @witness_dissect_UnRegister_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @witness_dissect_UnRegister_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.135, ptr %8, align 8
@@ -1197,7 +1197,7 @@ define internal i32 @witness_dissect_UnRegister_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @witness_dissect_AsyncNotify_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @witness_dissect_AsyncNotify_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.136, ptr %7, align 8
   %8 = load i32, ptr @hf_witness_witness_AsyncNotify_context_handle, align 4
@@ -1207,7 +1207,7 @@ define internal i32 @witness_dissect_AsyncNotify_request(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @witness_dissect_AsyncNotify_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @witness_dissect_AsyncNotify_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.136, ptr %8, align 8
@@ -1232,7 +1232,7 @@ define internal i32 @witness_dissect_AsyncNotify_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @witness_dissect_RegisterEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @witness_dissect_RegisterEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.137, ptr %8, align 8
@@ -1264,7 +1264,7 @@ define internal i32 @witness_dissect_RegisterEx_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @witness_dissect_RegisterEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @witness_dissect_RegisterEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.137, ptr %8, align 8

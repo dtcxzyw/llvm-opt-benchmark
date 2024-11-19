@@ -203,13 +203,13 @@ $_ZZN10JvmtiTrace10event_nameEiE14ext_event_name = comdat any
 @_ZN19VM_ChangeSingleStepC1Eb = hidden unnamed_addr alias void (ptr, i1), ptr @_ZN19VM_ChangeSingleStepC2Eb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17JvmtiEventEnabledC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17JvmtiEventEnabledC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   store i64 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17JvmtiEventEnabled5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17JvmtiEventEnabled5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   store i64 0, ptr %0, align 8
   ret void
 }
@@ -229,43 +229,43 @@ define hidden void @_ZN17JvmtiEventEnabled11set_enabledE10jvmtiEventb(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN25JvmtiEnvThreadEventEnableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25JvmtiEnvThreadEventEnableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN25JvmtiEnvThreadEventEnableD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25JvmtiEnvThreadEventEnableD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22JvmtiThreadEventEnableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22JvmtiThreadEventEnableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   store i64 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22JvmtiThreadEventEnableD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22JvmtiThreadEventEnableD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   store i64 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19JvmtiEnvEventEnableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN19JvmtiEnvEventEnableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19JvmtiEnvEventEnableD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN19JvmtiEnvEventEnableD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19VM_ChangeSingleStepC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19VM_ChangeSingleStepC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8

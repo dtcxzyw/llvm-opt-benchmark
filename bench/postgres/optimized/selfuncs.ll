@@ -457,7 +457,7 @@ declare zeroext i1 @get_attstatsslot(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @fmgr_info(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @get_variable_numdistinct(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
+define dso_local double @get_variable_numdistinct(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -854,7 +854,7 @@ statistic_proc_security_check.exit.thread:        ; preds = %22, %20, %17, %._cr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @histogram_selectivity(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) local_unnamed_addr #0 {
+define dso_local double @histogram_selectivity(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca %struct.AttStatsSlot, align 8
   %10 = alloca %union.anon.3, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5861,7 +5861,7 @@ define dso_local noundef i64 @scalargejoinsel(ptr nocapture noundef readnone %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mergejoinscansel(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef initializes((0, 8)) %5, ptr nocapture noundef initializes((0, 8)) %6, ptr nocapture noundef initializes((0, 8)) %7, ptr nocapture noundef initializes((0, 8)) %8) local_unnamed_addr #0 {
+define dso_local void @mergejoinscansel(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.VariableStatData, align 8
   %11 = alloca %struct.VariableStatData, align 8
   %12 = alloca i32, align 4
@@ -7479,7 +7479,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare double @pow(double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @estimate_hash_bucket_stats(ptr noundef %0, ptr noundef %1, double noundef %2, ptr nocapture noundef initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define dso_local void @estimate_hash_bucket_stats(ptr noundef %0, ptr noundef %1, double noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.VariableStatData, align 8
   %7 = alloca i8, align 1
   %8 = alloca %struct.AttStatsSlot, align 8
@@ -8812,7 +8812,7 @@ declare i32 @get_op_opfamily_strategy(i32 noundef, i32 noundef) local_unnamed_ad
 declare double @log(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashcostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) local_unnamed_addr #0 {
+define dso_local void @hashcostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca %struct.GenericCosts, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %9, i8 0, i64 64, i1 false)
   call void @genericcostestimate(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef nonnull %9)
@@ -8834,7 +8834,7 @@ define dso_local void @hashcostestimate(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gistcostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) local_unnamed_addr #0 {
+define dso_local void @gistcostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca %struct.GenericCosts, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8
@@ -8916,7 +8916,7 @@ define dso_local void @gistcostestimate(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @spgcostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) local_unnamed_addr #0 {
+define dso_local void @spgcostestimate(ptr noundef %0, ptr nocapture noundef readonly %1, double noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca %struct.GenericCosts, align 8
   %10 = getelementptr inbounds i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8

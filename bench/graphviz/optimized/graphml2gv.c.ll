@@ -519,7 +519,7 @@ declare i32 @agwrite(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @stack_reset(ptr nocapture noundef initializes((8, 24)) %0) unnamed_addr #4 {
+define internal fastcc void @stack_reset(ptr nocapture noundef %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8

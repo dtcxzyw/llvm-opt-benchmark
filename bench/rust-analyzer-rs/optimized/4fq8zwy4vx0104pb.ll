@@ -4704,7 +4704,7 @@ common.resume:                                    ; preds = %234, %237, %242, %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h199d1cccfa7d8e6aE"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [6 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(80) initializes((0, 78)) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN5salsa7derived4slot18Slot$LT$Q$C$MP$GT$3new17h199d1cccfa7d8e6aE"(ptr noalias nocapture noundef writeonly sret({ { { { i64 } }, { { i64, [6 x i64] } } }, { { i64 } }, i32, i16, {}, [2 x i8] }) align 8 dereferenceable(80) %0, i64 %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.sroa.5 = alloca [6 x i64], align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %.sroa.5)
   %3 = tail call i64 @"_ZN63_$LT$salsa..lru..LruIndex$u20$as$u20$core..default..Default$GT$7default17h787de8d9fe99be65E"()

@@ -713,7 +713,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #9 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18KahaleSmileSectionC2ERKN5boost10shared_ptrINS_12SmileSectionEEEdbbbRKSt6vectorIdSaIdEEdii(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 112)) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %interpolate, i1 noundef zeroext %exponentialExtrapolation, i1 noundef zeroext %deleteArbitragePoints, ptr noundef nonnull align 8 dereferenceable(24) %moneynessGrid, double noundef %gap, i32 noundef %forcedLeftIndex, i32 noundef %forcedRightIndex) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18KahaleSmileSectionC2ERKN5boost10shared_ptrINS_12SmileSectionEEEdbbbRKSt6vectorIdSaIdEEdii(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %vtt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %interpolate, i1 noundef zeroext %exponentialExtrapolation, i1 noundef zeroext %deleteArbitragePoints, ptr noundef nonnull align 8 dereferenceable(24) %moneynessGrid, double noundef %gap, i32 noundef %forcedLeftIndex, i32 noundef %forcedRightIndex) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %atm.addr = alloca double, align 8
   %deleteArbitragePoints.addr = alloca i8, align 1
@@ -1650,7 +1650,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18KahaleSmileSection7computeEv(ptr noundef nonnull align 8 dereferenceable(248) initializes((176, 192)) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18KahaleSmileSection7computeEv(ptr noundef nonnull align 8 dereferenceable(248) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %brent = alloca %"class.QuantLib::Brent", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -4059,7 +4059,7 @@ _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18KahaleSmileSectionC1ERKN5boost10shared_ptrINS_12SmileSectionEEEdbbbRKSt6vectorIdSaIdEEdii(ptr noundef nonnull align 8 dereferenceable(248) initializes((248, 256), (264, 268), (272, 280)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %interpolate, i1 noundef zeroext %exponentialExtrapolation, i1 noundef zeroext %deleteArbitragePoints, ptr noundef nonnull align 8 dereferenceable(24) %moneynessGrid, double noundef %gap, i32 noundef %forcedLeftIndex, i32 noundef %forcedRightIndex) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18KahaleSmileSectionC1ERKN5boost10shared_ptrINS_12SmileSectionEEEdbbbRKSt6vectorIdSaIdEEdii(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %source, double noundef %atm, i1 noundef zeroext %interpolate, i1 noundef zeroext %exponentialExtrapolation, i1 noundef zeroext %deleteArbitragePoints, ptr noundef nonnull align 8 dereferenceable(24) %moneynessGrid, double noundef %gap, i32 noundef %forcedLeftIndex, i32 noundef %forcedRightIndex) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %atm.addr = alloca double, align 8
   %deleteArbitragePoints.addr = alloca i8, align 1

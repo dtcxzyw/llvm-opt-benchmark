@@ -512,7 +512,7 @@ Vec_StrFree.exit:                                 ; preds = %Vec_StrFree.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeSupport(ptr nocapture noundef %0, ptr noundef initializes((4, 8)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @Abc_NodeSupport(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %.not.i.i = icmp slt i32 %4, %2
   br i1 %.not.i.i, label %5, label %Vec_StrGrow.exit.i
@@ -1000,7 +1000,7 @@ define i32 @Abc_NodeCheckDupFanin(ptr noundef readnone %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Abc_NodeCollapseSuppSize(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
+define i32 @Abc_NodeCollapseSuppSize(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 28

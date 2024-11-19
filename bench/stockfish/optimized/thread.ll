@@ -123,7 +123,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9Stockfish6ThreadC2ERNS_6Search11SharedStateESt10unique_ptrINS1_14ISearchManagerESt14default_deleteIS5_EEm(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
+define dso_local void @_ZN9Stockfish6ThreadC2ERNS_6Search11SharedStateESt10unique_ptrINS1_14ISearchManagerESt14default_deleteIS5_EEm(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.std::unique_lock", align 8
   %6 = alloca %union.pthread_attr_t, align 8
   %7 = alloca %"class.std::unique_ptr", align 8
@@ -415,7 +415,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %"_ZNSt18condition_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9Stockfish6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (120, 121)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN9Stockfish6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9Stockfish6ThreadE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store i8 1, ptr %2, align 8
@@ -537,7 +537,7 @@ _ZNSt5mutex4lockEv.exit:                          ; preds = %1
 declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9Stockfish6ThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (120, 121)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN9Stockfish6ThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN9Stockfish6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) #14
   tail call void @_ZdlPv(ptr noundef nonnull %0) #16
   ret void

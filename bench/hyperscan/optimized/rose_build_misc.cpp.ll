@@ -212,7 +212,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213RoseBuildImplC2ERNS_13ReportManagerERNS_14SomSlotManagerERNS_15SmallWriteBuildERKNS_14CompileContextERKNS_15BoundaryReportsE(ptr noundef nonnull align 8 dereferenceable(780) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(505) %rm_in, ptr noundef nonnull align 1 %ssm_in, ptr noundef nonnull align 8 dereferenceable(8) %smwr_in, ptr noundef nonnull align 8 dereferenceable(320) %cc_in, ptr noundef nonnull align 8 dereferenceable(144) %boundary_in) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213RoseBuildImplC2ERNS_13ReportManagerERNS_14SomSlotManagerERNS_15SmallWriteBuildERKNS_14CompileContextERKNS_15BoundaryReportsE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr noundef nonnull align 8 dereferenceable(505) %rm_in, ptr noundef nonnull align 1 %ssm_in, ptr noundef nonnull align 8 dereferenceable(8) %smwr_in, ptr noundef nonnull align 8 dereferenceable(320) %cc_in, ptr noundef nonnull align 8 dereferenceable(144) %boundary_in) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue213RoseBuildImplE, i64 16), ptr %this, align 8
   %cc = getelementptr inbounds i8, ptr %this, i64 8
@@ -567,7 +567,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN3ue29ue2_graphINS3_9RoseGraphENS3_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue213RoseBuildImplD2Ev(ptr noundef nonnull align 8 dereferenceable(780) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213RoseBuildImplD2Ev(ptr noundef nonnull align 8 dereferenceable(780) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i46 = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp2.i.i47 = alloca %"struct.std::_Deque_iterator", align 16
@@ -1143,7 +1143,7 @@ _ZN3ue29ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue213RoseBuildImplD0Ev(ptr noundef nonnull align 8 dereferenceable(780) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN3ue213RoseBuildImplD0Ev(ptr noundef nonnull align 8 dereferenceable(780) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN3ue213RoseBuildImplD2Ev(ptr noundef nonnull align 8 dereferenceable(780) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -5770,7 +5770,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214RoseSuffixInfo5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 4), (8, 16), (24, 32), (40, 48), (56, 64), (72, 80), (88, 96)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214RoseSuffixInfo5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %graph = getelementptr inbounds i8, ptr %this, i64 8
@@ -7158,7 +7158,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211LeftEngInfo5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (16, 24), (32, 40), (48, 56), (64, 72), (80, 96)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211LeftEngInfo5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 8

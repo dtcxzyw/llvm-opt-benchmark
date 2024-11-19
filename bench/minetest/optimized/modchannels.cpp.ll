@@ -614,7 +614,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10ModChannel8setStateE15ModChannelState(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((32, 33)) %this, i8 noundef zeroext %state) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN10ModChannel8setStateE15ModChannelState(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, i8 noundef zeroext %state) local_unnamed_addr #7 align 2 {
 entry:
   %m_state = getelementptr inbounds i8, ptr %this, i64 32
   store i8 %state, ptr %m_state, align 8, !tbaa !23

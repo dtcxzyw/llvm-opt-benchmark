@@ -26,7 +26,7 @@ entry:
 declare i64 @_ZNSt6chrono3_V212steady_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_4TimeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, i64 %t.coerce0, i32 %t.coerce1) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_4TimeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i64 %t.coerce0, i32 %t.coerce1) unnamed_addr #2 align 2 {
 entry:
   %cmp.i.i = icmp eq i64 %t.coerce0, 9223372036854775807
   %cmp8.i.i = icmp eq i32 %t.coerce1, -1
@@ -53,7 +53,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare noundef i64 @_ZN4absl11ToUnixNanosENS_4TimeE(i64, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_8DurationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, i64 %d.coerce0, i32 %d.coerce1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl24synchronization_internal13KernelTimeoutC2ENS_8DurationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i64 %d.coerce0, i32 %d.coerce1) unnamed_addr #0 align 2 {
 entry:
   %cmp.i = icmp eq i64 %d.coerce0, 9223372036854775807
   %cmp8.i = icmp eq i32 %d.coerce1, -1

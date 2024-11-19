@@ -3265,7 +3265,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZN4llvm12SelectionDAG12getCopyToRegENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel10selectVLOpENS_7SDValueERS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel10selectVLOpENS_7SDValueERS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SDLoc", align 8
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = alloca %"class.llvm::SDLoc", align 8
@@ -11625,7 +11625,7 @@ _ZN4llvm5SDLocD2Ev.exit62:                        ; preds = %35, %35, %83, %_ZN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel21SelectAddrRegRegScaleENS_7SDValueEjRS1_S2_S2_ENK3$_0clES1_S2_S2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %4) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN4llvm17RISCVDAGToDAGISel21SelectAddrRegRegScaleENS_7SDValueEjRS1_S2_S2_ENK3$_0clES1_S2_S2_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(28) %0, ptr %1, i32 %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::SDLoc", align 8
   %7 = load ptr, ptr %0, align 8
   store ptr %1, ptr %3, align 8
@@ -12151,7 +12151,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel16SelectAddrRegR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel15selectShiftMaskENS_7SDValueEjRS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, i32 noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm17RISCVDAGToDAGISel15selectShiftMaskENS_7SDValueEjRS1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(280) %0, ptr %1, i32 %2, i32 noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(12) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"struct.llvm::KnownBits", align 8
   %8 = alloca %"class.llvm::APInt", align 8

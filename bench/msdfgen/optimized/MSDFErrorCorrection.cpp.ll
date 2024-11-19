@@ -9050,7 +9050,7 @@ for.end:                                          ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7msdfgen19MSDFErrorCorrectionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN7msdfgen19MSDFErrorCorrectionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %projection = getelementptr inbounds i8, ptr %this, i64 16
@@ -9061,7 +9061,7 @@ entry:
 declare void @_ZN7msdfgen10ProjectionC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN7msdfgen19MSDFErrorCorrectionC2ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stencil, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %projection, double noundef %range) unnamed_addr #6 align 2 {
+define dso_local void @_ZN7msdfgen19MSDFErrorCorrectionC2ERKNS_9BitmapRefIhLi1EEERKNS_10ProjectionEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %stencil, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %projection, double noundef %range) unnamed_addr #6 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %stencil, i64 16, i1 false)
   %projection3 = getelementptr inbounds i8, ptr %this, i64 16
@@ -9089,7 +9089,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen19MSDFErrorCorrection20setMinDeviationRatioEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((56, 64)) %this, double noundef %minDeviationRatio) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN7msdfgen19MSDFErrorCorrection20setMinDeviationRatioEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, double noundef %minDeviationRatio) local_unnamed_addr #8 align 2 {
 entry:
   %minDeviationRatio2 = getelementptr inbounds i8, ptr %this, i64 56
   store double %minDeviationRatio, ptr %minDeviationRatio2, align 8
@@ -9097,7 +9097,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen19MSDFErrorCorrection18setMinImproveRatioEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((64, 72)) %this, double noundef %minImproveRatio) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN7msdfgen19MSDFErrorCorrection18setMinImproveRatioEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, double noundef %minImproveRatio) local_unnamed_addr #8 align 2 {
 entry:
   %minImproveRatio2 = getelementptr inbounds i8, ptr %this, i64 64
   store double %minImproveRatio, ptr %minImproveRatio2, align 8

@@ -224,7 +224,7 @@ define internal void @model_callback(i64 %0, i32 %1, ptr nocapture readnone %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @evhandler_reg_callbk(i32 noundef %0, i64 %1, ptr noundef initializes((116, 120)) %2) #0 {
+define internal void @evhandler_reg_callbk(i32 noundef %0, i64 %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 116
   store i32 %0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 16

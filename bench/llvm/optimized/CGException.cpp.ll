@@ -1402,7 +1402,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction16EmitAnyExprToMemEPKNS_4ExprENS
 declare void @_ZN5clang7CodeGen15CodeGenFunction22DeactivateCleanupBlockENS0_12EHScopeStack15stable_iteratorEPN4llvm11InstructionE(ptr noundef nonnull align 8 dereferenceable(6488), i64, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16getExceptionSlotEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16getExceptionSlotEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2960
   %5 = load ptr, ptr %4, align 8
@@ -1447,7 +1447,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16getExceptionSlotEv(pt
 declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction16CreateTempAllocaEPN4llvm4TypeERKNS2_5TwineEPNS2_5ValueE(ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef, ptr noundef nonnull align 8 dereferenceable(34), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17getEHSelectorSlotEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17getEHSelectorSlotEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 2968
   %5 = load ptr, ptr %4, align 8
@@ -6676,7 +6676,7 @@ declare noundef ptr @_ZN5clang7CodeGen13CodeGenModule12getIntrinsicEjN4llvm8Arra
 declare void @_ZN5clang7CodeGen15CodeGenFunction31EmitNoreturnRuntimeCallOrInvokeEN4llvm14FunctionCalleeENS2_8ArrayRefIPNS2_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(6488), ptr, ptr, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction11FinallyInfo5enterERS1_PKNS_4StmtEN4llvm14FunctionCalleeES8_S8_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 20), (24, 56)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr %3, ptr %4, ptr nocapture noundef readonly byval(%"class.llvm::FunctionCallee") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::FunctionCallee") align 8 %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction11FinallyInfo5enterERS1_PKNS_4StmtEN4llvm14FunctionCalleeES8_S8_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2, ptr %3, ptr %4, ptr nocapture noundef readonly byval(%"class.llvm::FunctionCallee") align 8 %5, ptr nocapture noundef readonly byval(%"class.llvm::FunctionCallee") align 8 %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::Twine", align 8
@@ -9863,7 +9863,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang7CodeGen7AddressELb1EE28reserveForParam
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction22startOutlinedSEHHelperERS1_bPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(6488) initializes((2128, 2129)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i1 noundef zeroext %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction22startOutlinedSEHHelperERS1_bPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i1 noundef zeroext %2, ptr noundef nonnull %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallString", align 8
   %6 = alloca %"class.llvm::raw_svector_ostream", align 8
   %7 = alloca %"class.clang::CodeGen::FunctionArgList", align 8
@@ -10153,7 +10153,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction13StartFunctionENS_10GlobalDeclE
 declare void @_ZN5clang7CodeGen13CodeGenModule29SetInternalFunctionAttributesENS_10GlobalDeclEPN4llvm8FunctionERKNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(3600), i64, i32, ptr noundef, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction25GenerateSEHFilterFunctionERS1_RKNS_13SEHExceptStmtE(ptr noundef nonnull align 8 dereferenceable(6488) initializes((2128, 2129)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction25GenerateSEHFilterFunctionERS1_RKNS_13SEHExceptStmtE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -10214,7 +10214,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction14FinishFunctionENS_14SourceLoca
 declare i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction26GenerateSEHFinallyFunctionERS1_RKNS_14SEHFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(6488) initializes((2128, 2129)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction26GenerateSEHFinallyFunctionERS1_RKNS_14SEHFinallyStmtE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = load ptr, ptr %4, align 8
   tail call void @_ZN5clang7CodeGen15CodeGenFunction22startOutlinedSEHHelperERS1_bPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(6488) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, i1 noundef zeroext false, ptr noundef %5)

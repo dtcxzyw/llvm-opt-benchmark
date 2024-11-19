@@ -75,7 +75,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.30 = private unnamed_addr constant [11 x i8] c"H5B2_hdr_t\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5B2__hdr_init(ptr noundef initializes((272, 274), (276, 286), (352, 360), (424, 432)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5B2__hdr_init(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 284
   store i16 %3, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 16

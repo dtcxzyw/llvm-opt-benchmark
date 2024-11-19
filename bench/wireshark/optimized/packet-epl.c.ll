@@ -2207,7 +2207,7 @@ declare void @prefs_register_filename_preference(ptr noundef, ptr noundef, ptr n
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @device_profile_uat_copy_cb(ptr noundef returned writeonly initializes((0, 20)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
+define internal noundef ptr @device_profile_uat_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #18
   store ptr %5, ptr %0, align 8
@@ -2346,7 +2346,7 @@ define internal void @device_profile_parse_uat() #2 {
 declare void @prefs_register_uat_preference(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @nodeid_profile_uat_copy_cb(ptr noundef returned initializes((0, 8), (16, 17), (40, 48)) %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
+define internal noundef ptr @nodeid_profile_uat_copy_cb(ptr noundef returned %0, ptr nocapture noundef readonly %1, i64 %2) #2 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #18
   store ptr %5, ptr %0, align 8
@@ -7022,7 +7022,7 @@ declare ptr @wmem_map_remove(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @wmem_destroy_allocator(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @epl_profile_uat_fld_fileopen_check_cb(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #2 {
+define internal noundef zeroext i1 @epl_profile_uat_fld_fileopen_check_cb(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4, ptr nocapture noundef writeonly %5) #2 {
   %7 = alloca %struct.stat, align 8
   %8 = icmp ne ptr %1, null
   %9 = icmp ne i32 %2, 0
@@ -7118,7 +7118,7 @@ define internal void @device_profile_list_uats_device_type_set_cb(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @device_profile_list_uats_device_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal void @device_profile_list_uats_device_type_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1110, i32 noundef %7) #18
@@ -7155,7 +7155,7 @@ define internal void @device_profile_list_uats_vendor_id_set_cb(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @device_profile_list_uats_vendor_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal void @device_profile_list_uats_vendor_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1112, i32 noundef %7) #18
@@ -7177,7 +7177,7 @@ define internal void @device_profile_list_uats_product_code_set_cb(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @device_profile_list_uats_product_code_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal void @device_profile_list_uats_product_code_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.1112, i32 noundef %7) #18
@@ -7199,7 +7199,7 @@ define internal void @device_profile_list_uats_path_set_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @device_profile_list_uats_path_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal void @device_profile_list_uats_path_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -7323,7 +7323,7 @@ define internal void @nodeid_profile_list_uats_nodeid_set_cb(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nodeid_profile_list_uats_nodeid_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal void @nodeid_profile_list_uats_nodeid_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -7359,7 +7359,7 @@ define internal void @nodeid_profile_list_uats_path_set_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nodeid_profile_list_uats_path_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
+define internal void @nodeid_profile_list_uats_path_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #2 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7

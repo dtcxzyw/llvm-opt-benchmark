@@ -1401,7 +1401,7 @@ declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_fmp_status(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %1) #3
   switch i32 %5, label %7 [
     i32 0, label %8

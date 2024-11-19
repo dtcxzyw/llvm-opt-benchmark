@@ -58,7 +58,7 @@ $_ZTIN8proxygen18StreamDecompressorE = comdat any
 @_ZN8proxygen22ZlibStreamDecompressorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8proxygen22ZlibStreamDecompressorD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen22ZlibStreamDecompressor4initENS_15CompressionTypeE(ptr noundef nonnull align 8 dereferenceable(148) initializes((8, 12), (32, 44), (48, 68), (96, 120), (144, 148)) %this, i32 noundef %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen22ZlibStreamDecompressor4initENS_15CompressionTypeE(ptr noundef nonnull align 8 dereferenceable(148) %this, i32 noundef %type) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type_11 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %type, ptr %type_11, align 8
@@ -88,7 +88,7 @@ declare i32 @__gxx_personality_v0(...)
 declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen22ZlibStreamDecompressorC2ENS_15CompressionTypeEmm(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 12), (16, 44), (48, 68), (96, 120), (144, 148)) %this, i32 noundef %type, i64 noundef %zlib_decompressor_buffer_growth, i64 noundef %zlib_decompressor_buffer_minsize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen22ZlibStreamDecompressorC2ENS_15CompressionTypeEmm(ptr noundef nonnull align 8 dereferenceable(148) %this, i32 noundef %type, i64 noundef %zlib_decompressor_buffer_growth, i64 noundef %zlib_decompressor_buffer_minsize) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i64 16), ptr %this, align 8
   %type_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -115,7 +115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen22ZlibStreamDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen22ZlibStreamDecompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(148) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen22ZlibStreamDecompressorE, i64 16), ptr %this, align 8
   %type_ = getelementptr inbounds i8, ptr %this, i64 8

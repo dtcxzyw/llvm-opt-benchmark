@@ -74,7 +74,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.27161dca19b793d1c66d33c8aa93d579.70 = private unnamed_addr constant <{ [29 x i8] }> <{ [29 x i8] c"extract_argument_with_default" }>, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend6params7Holders3new17hd8279ba84014e17dE(ptr nocapture writeonly sret([48 x i8]) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
+define hidden void @_ZN19pyo3_macros_backend6params7Holders3new17hd8279ba84014e17dE(ptr nocapture writeonly sret([48 x i8]) align 8 %0) unnamed_addr #0 {
   store i64 0, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx, align 8

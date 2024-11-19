@@ -748,7 +748,7 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112CloneCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8), (368, 376)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112CloneCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_112CloneCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -779,7 +779,7 @@ _ZN5clang13CloneDetectorD2Ev.exit:                ; preds = %1, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112CloneCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(472) initializes((0, 8), (368, 376)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112CloneCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(472) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_112CloneCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8

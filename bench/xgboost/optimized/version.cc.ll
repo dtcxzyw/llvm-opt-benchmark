@@ -1554,7 +1554,7 @@ _ZN7xgboost4JsonD2Ev.exit34:                      ; preds = %135, %139, %143
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7xgboost7Version4SelfEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple") align 4 initializes((0, 12)) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost7Version4SelfEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::tuple") align 4 %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 4, !alias.scope !15
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 2, ptr %2, align 4, !alias.scope !15

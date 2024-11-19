@@ -83,7 +83,7 @@ define dso_local void @_ZN4llvm6object11BinaryError6anchorEv(ptr nocapture nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object18GenericBinaryErrorC2ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm6object18GenericBinaryErrorC2ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -116,7 +116,7 @@ _ZN4llvm9ErrorInfoINS_6object18GenericBinaryErrorENS1_11BinaryErrorEEC2Ev.exit: 
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object18GenericBinaryErrorC2ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm6object18GenericBinaryErrorC2ERKNS_5TwineENS0_12object_errorE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -208,7 +208,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #4
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object31isNotObjectErrorInvalidFileTypeENS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
+define dso_local void @_ZN4llvm6object31isNotObjectErrorInvalidFileTypeENS_5ErrorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::Error", align 8
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8

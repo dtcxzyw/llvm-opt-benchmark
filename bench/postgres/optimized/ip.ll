@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [4 x i8] c"@%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @pg_getaddrinfo_all(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local i32 @pg_getaddrinfo_all(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4

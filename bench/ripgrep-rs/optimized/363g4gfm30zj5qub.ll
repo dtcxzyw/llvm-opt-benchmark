@@ -48,7 +48,7 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$$RF$grep_cli..process..Com
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN92_$LT$grep_cli..decompress..DecompressionMatcherBuilder$u20$as$u20$core..default..Default$GT$7default17h4202924af3c845b8E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i8, [7 x i8] }) align 8 dereferenceable(32) initializes((0, 25)) %0) unnamed_addr #1 {
+define void @"_ZN92_$LT$grep_cli..decompress..DecompressionMatcherBuilder$u20$as$u20$core..default..Default$GT$7default17h4202924af3c845b8E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i8, [7 x i8] }) align 8 dereferenceable(32) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8, !alias.scope !4
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !4
@@ -60,7 +60,7 @@ define void @"_ZN92_$LT$grep_cli..decompress..DecompressionMatcherBuilder$u20$as
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8grep_cli10decompress27DecompressionMatcherBuilder3new17h6f30793e5cdd6228E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i8, [7 x i8] }) align 8 dereferenceable(32) initializes((0, 25)) %0) unnamed_addr #1 {
+define void @_ZN8grep_cli10decompress27DecompressionMatcherBuilder3new17h6f30793e5cdd6228E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i8, [7 x i8] }) align 8 dereferenceable(32) %0) unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
@@ -580,7 +580,7 @@ select.unfold:                                    ; preds = %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8grep_cli10decompress27DecompressionMatcherBuilder8defaults17hcdf95c9ea93202deE(ptr noalias noundef returned writeonly align 8 dereferenceable(32) initializes((24, 25)) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8grep_cli10decompress27DecompressionMatcherBuilder8defaults17hcdf95c9ea93202deE(ptr noalias noundef returned writeonly align 8 dereferenceable(32) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8
@@ -667,7 +667,7 @@ define void @_ZN8grep_cli10decompress20DecompressionMatcher3new17h4e5df2edd4ed45
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8grep_cli10decompress26DecompressionReaderBuilder3new17hd4eb6064c1d6b166E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr, {} }, i64 }, i64 }, { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }) align 8 dereferenceable(64) initializes((0, 57)) %0) unnamed_addr #2 {
+define void @_ZN8grep_cli10decompress26DecompressionReaderBuilder3new17hd4eb6064c1d6b166E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, ptr, {} }, i64 }, i64 }, { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }) align 8 dereferenceable(64) %0) unnamed_addr #2 {
   %2 = alloca { { { { i64, ptr, {} }, i64 }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2)
   call void @_ZN8grep_cli10decompress20DecompressionMatcher3new17h4e5df2edd4ed45bbE(ptr noalias nocapture noundef nonnull sret({ { { { i64, ptr, {} }, i64 }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(56) %2)
@@ -700,7 +700,7 @@ define noundef nonnull align 8 dereferenceable(56) ptr @_ZN8grep_cli10decompress
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN8grep_cli10decompress26DecompressionReaderBuilder12async_stderr17h43d030f6495d4055E(ptr noalias noundef returned writeonly align 8 dereferenceable(64) initializes((56, 57)) %0, i1 noundef zeroext %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN8grep_cli10decompress26DecompressionReaderBuilder12async_stderr17h43d030f6495d4055E(ptr noalias noundef returned writeonly align 8 dereferenceable(64) %0, i1 noundef zeroext %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8, !alias.scope !87
@@ -708,7 +708,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN8grep_cli10decompress
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8grep_cli10decompress19DecompressionReader12new_passthru17h4016e5fa0a8eb835E(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) initializes((0, 4)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN8grep_cli10decompress19DecompressionReader12new_passthru17h4016e5fa0a8eb835E(ptr noalias nocapture noundef writeonly sret({ i32, [15 x i32] }) align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { { i32, i32, i8, i8, i8, i8, i8, i8, [2 x i8] } }, align 4
   %5 = alloca { i32, [3 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

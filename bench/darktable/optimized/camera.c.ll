@@ -273,7 +273,7 @@ define void @gui_post_expose(ptr nocapture noundef readonly %0, ptr noundef %1, 
 declare void @cairo_set_font_size(ptr noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(136) ptr @calloc(i64 noundef 1, i64 noundef 136) #21
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6

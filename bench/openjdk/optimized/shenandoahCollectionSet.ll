@@ -48,7 +48,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23ShenandoahCollectionSetC2EP14ShenandoahHeap13ReservedSpacePc(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 120)) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %2, ptr noundef %3) unnamed_addr #1 align 2 {
+define hidden void @_ZN23ShenandoahCollectionSetC2EP14ShenandoahHeap13ReservedSpacePc(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%class.ReservedSpace) align 8 %2, ptr noundef %3) unnamed_addr #1 align 2 {
   %5 = alloca %class.ThreadCritical, align 1
   %6 = getelementptr inbounds i8, ptr %1, i64 544
   %7 = load i64, ptr %6, align 8
@@ -168,7 +168,7 @@ define hidden void @_ZN23ShenandoahCollectionSet10add_regionEP20ShenandoahHeapRe
 declare void @_ZN20ShenandoahHeapRegion9make_csetEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN23ShenandoahCollectionSet5clearEv(ptr noundef nonnull align 8 dereferenceable(256) initializes((96, 120)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN23ShenandoahCollectionSet5clearEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = load i64, ptr %0, align 8

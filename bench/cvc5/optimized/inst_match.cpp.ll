@@ -838,7 +838,7 @@ if.end:                                           ; preds = %if.then, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers9InstMatch3getEm(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.0") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %i) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers9InstMatch3getEm(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate.0") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this, i64 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %d_vals = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_vals, align 8

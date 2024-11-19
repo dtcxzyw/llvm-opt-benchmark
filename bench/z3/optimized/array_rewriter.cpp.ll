@@ -10687,7 +10687,7 @@ while.end:                                        ; preds = %_ZNK17array_recogni
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14array_rewriter12expand_storeEP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(22) %this, ptr noundef nonnull %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14array_rewriter12expand_storeEP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(22) %this, ptr noundef nonnull %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator", align 1

@@ -1077,7 +1077,7 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17h996700ad2487d67
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5alloc5slice4hack8into_vec17h66c010340b693f3bE.llvm.16979978850130570624(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull align 8 %1, i64 noundef %2) unnamed_addr #7 {
+define hidden void @_ZN5alloc5slice4hack8into_vec17h66c010340b693f3bE.llvm.16979978850130570624(ptr noalias nocapture noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull align 8 %1, i64 noundef %2) unnamed_addr #7 {
   store i64 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -3826,7 +3826,7 @@ _ZN10grep_regex7literal4TSeq16keep_first_bytes17h3080cbb49f9a1935E.llvm.16979978
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10grep_regex7literal4TSeq5empty17h103a90ca4dcb920dE(ptr noalias nocapture noundef writeonly sret({ { { i64, [2 x i64] } }, i8, [7 x i8] }) align 8 dereferenceable(32) initializes((0, 25)) %0) unnamed_addr #7 {
+define hidden void @_ZN10grep_regex7literal4TSeq5empty17h103a90ca4dcb920dE(ptr noalias nocapture noundef writeonly sret({ { { i64, [2 x i64] } }, i8, [7 x i8] }) align 8 dereferenceable(32) %0) unnamed_addr #7 {
   store i64 0, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
@@ -4222,7 +4222,7 @@ _ZN12regex_syntax3hir7literal3Seq15min_literal_len17h495f07da7a76dcc0E.llvm.1697
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10grep_regex7literal4TSeq15make_not_prefix17ha93282b60c9e077cE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) initializes((24, 25)) %0) unnamed_addr #7 {
+define hidden void @_ZN10grep_regex7literal4TSeq15make_not_prefix17ha93282b60c9e077cE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %2, align 8
   ret void

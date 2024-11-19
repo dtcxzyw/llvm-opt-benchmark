@@ -148,7 +148,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16structured_light15GrayCodePattern6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN2cv16structured_light15GrayCodePattern6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0) unnamed_addr #3 align 2 {
   store i32 1024, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 768, ptr %2, align 4
@@ -156,7 +156,7 @@ define void @_ZN2cv16structured_light15GrayCodePattern6ParamsC2Ev(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN2cv16structured_light20GrayCodePattern_ImplC2ERKNS0_15GrayCodePattern6ParamsE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16structured_light20GrayCodePattern_ImplC2ERKNS0_15GrayCodePattern6ParamsE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -219,7 +219,7 @@ define void @_ZN2cv16structured_light20GrayCodePattern_ImplC2ERKNS0_15GrayCodePa
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN2cv16structured_light20GrayCodePattern_Impl28computeNumberOfPatternImagesEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((16, 40)) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv16structured_light20GrayCodePattern_Impl28computeNumberOfPatternImagesEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sitofp i32 %3 to double
@@ -2447,21 +2447,21 @@ define noundef i32 @_ZNK2cv16structured_light20GrayCodePattern_Impl9grayToDecERK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16structured_light20GrayCodePattern_Impl17setBlackThresholdEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((40, 48)) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN2cv16structured_light20GrayCodePattern_Impl17setBlackThresholdEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv16structured_light20GrayCodePattern_Impl17setWhiteThresholdEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 56)) %0, i64 noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN2cv16structured_light20GrayCodePattern_Impl17setWhiteThresholdEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16structured_light15GrayCodePattern6createERKNS1_6ParamsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16structured_light15GrayCodePattern6createERKNS1_6ParamsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr noundef nonnull align 4 dereferenceable(8) %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_16structured_light20GrayCodePattern_ImplEED2Ev.exit:
   %2 = alloca %"class.std::allocator.38", align 1
   %3 = alloca %"class.std::shared_ptr.26", align 8

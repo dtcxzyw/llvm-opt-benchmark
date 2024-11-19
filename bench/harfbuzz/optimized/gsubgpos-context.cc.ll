@@ -55,7 +55,7 @@ $_ZN12hb_hashmap_tIjjLb0EE13set_with_hashIjjEEbOT_jOT0_b = comdat any
 @_ZN5graph24gsubgpos_graph_context_tC1EjRNS_7graph_tE = hidden unnamed_addr alias void (ptr, i32, ptr), ptr @_ZN5graph24gsubgpos_graph_context_tC2EjRNS_7graph_tE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5graph24gsubgpos_graph_context_tC2EjRNS_7graph_tE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 4), (8, 20)) %this, i32 noundef %table_tag_, ptr noundef nonnull align 8 dereferenceable(72) %graph_) unnamed_addr #0 align 2 {
+define hidden void @_ZN5graph24gsubgpos_graph_context_tC2EjRNS_7graph_tE(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %table_tag_, ptr noundef nonnull align 8 dereferenceable(72) %graph_) unnamed_addr #0 align 2 {
 entry:
   store i32 %table_tag_, ptr %this, align 8
   %graph = getelementptr inbounds i8, ptr %this, i64 8

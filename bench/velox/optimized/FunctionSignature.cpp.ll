@@ -2353,7 +2353,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4exec17FunctionSignatureC2ESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_17SignatureVariableESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEENS1_13TypeSignatureESt6vectorISK_SaISK_EESL_IbSaIbEEb(ptr noundef nonnull align 8 dereferenceable(225) initializes((0, 64)) %this, ptr noundef %variables, ptr noundef %returnType, ptr nocapture noundef %argumentTypes, ptr nocapture noundef %constantArguments, i1 noundef zeroext %variableArity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4exec17FunctionSignatureC2ESt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_17SignatureVariableESt4hashIS9_ESt8equal_toIS9_ESaISt4pairIKS9_SA_EEENS1_13TypeSignatureESt6vectorISK_SaISK_EESL_IbSaIbEEb(ptr noundef nonnull align 8 dereferenceable(225) %this, ptr noundef %variables, ptr noundef %returnType, ptr nocapture noundef %argumentTypes, ptr nocapture noundef %constantArguments, i1 noundef zeroext %variableArity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %usedVariables.i = alloca %"class.std::unordered_set", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec17FunctionSignatureE, i64 16), ptr %this, align 8

@@ -42619,7 +42619,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_15MatchESaIS1_EED2Ev.exit: ; preds = %_ZSt8_De
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114searchByPrefixERKNSt7__cxx114listIN3nix11PackageInfoE19traceable_allocatorIS3_EEESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 %2, ptr %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114searchByPrefixERKNSt7__cxx114listIN3nix11PackageInfoE19traceable_allocatorIS3_EEESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 %2, ptr %3) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.nix::DrvName", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8

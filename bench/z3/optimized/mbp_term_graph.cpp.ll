@@ -1545,7 +1545,7 @@ _ZN3mbp4term5cg_eqEPKS0_S2_.exit:                 ; preds = %for.body.i, %_ZNK3m
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3mbp10term_graphC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(244) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(976) %man) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3mbp10term_graphC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(976) %man) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr %man, ptr %this, align 8
   %m_terms = getelementptr inbounds i8, ptr %this, i64 8
@@ -11496,7 +11496,7 @@ eh.resume:                                        ; preds = %ehcleanup113, %ehcl
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %e1, ptr noundef %e2) unnamed_addr #3 {
+define internal fastcc void @_ZN3mbpL6mk_neqER11ast_managerP4exprS3_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef %e1, ptr noundef %e2) unnamed_addr #3 {
 entry:
   %m_kind.i.i.i.i = getelementptr inbounds i8, ptr %e1, i64 4
   %bf.load.i.i.i.i = load i32, ptr %m_kind.i.i.i.i, align 4
@@ -17633,7 +17633,7 @@ _ZN3mbp10term_graph9projector13find_term2appERKNS_4termE.exit: ; preds = %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerE(ptr noalias nocapture sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(160) %mdl, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3mbp10term_graph5dcertER5modelRK10ref_vectorI4expr11ast_managerE(ptr noalias nocapture sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 8 dereferenceable(160) %mdl, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lits) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i508 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i509 = alloca %"class.std::allocator", align 1

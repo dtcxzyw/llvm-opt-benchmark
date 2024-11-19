@@ -879,7 +879,7 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120UnixAPIMisuseCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8), (344, 352)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120UnixAPIMisuseCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120UnixAPIMisuseCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -910,7 +910,7 @@ define internal void @_ZN12_GLOBAL__N_120UnixAPIMisuseCheckerD2Ev(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120UnixAPIMisuseCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8), (344, 352)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120UnixAPIMisuseCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120UnixAPIMisuseCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -3017,7 +3017,7 @@ declare noundef nonnull ptr @_ZNK5clang4ento9MemRegion14getMemorySpaceEv(ptr nou
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16EnsurePtrNotNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS9_9StringRefESt8optionalISt17reference_wrapperIKNS2_7BugTypeEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr %2, i8 %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(81) %5, ptr nocapture noundef nonnull %6, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i8 %.8.val3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120UnixAPIMisuseChecker16EnsurePtrNotNullEN5clang4ento4SValEPKNS1_4ExprERNS2_14CheckerContextEN4llvm18IntrusiveRefCntPtrIKNS2_12ProgramStateEEENS9_9StringRefESt8optionalISt17reference_wrapperIKNS2_7BugTypeEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(464) %1, ptr %2, i8 %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(81) %5, ptr nocapture noundef nonnull %6, ptr %.0.val, i64 %.8.val, ptr %.0.val1, i8 %.8.val3) unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::unique_ptr.282", align 8
   %9 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
@@ -3438,7 +3438,7 @@ define internal void @_ZN5clang4ento14CheckerManager8destructIN12_GLOBAL__N_125U
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125UnixAPIPortabilityCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_125UnixAPIPortabilityCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125UnixAPIPortabilityCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -3451,7 +3451,7 @@ define internal void @_ZN12_GLOBAL__N_125UnixAPIPortabilityCheckerD2Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125UnixAPIPortabilityCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8), (32, 40)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_125UnixAPIPortabilityCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_125UnixAPIPortabilityCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8

@@ -477,7 +477,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_IdentityRegistryC2ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_IdentityRegistryC2ERKNS_9TfWeakPtrINS_8SdfLayerEEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -251,7 +251,7 @@ _ZN4llvm13ManagedStaticINS_2cl3optIbLb0ENS1_6parserIbEEEEN12_GLOBAL__N_116Create
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20CreateInfoOutputFileEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm20CreateInfoOutputFileEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 {
   %2 = alloca %"class.std::error_code", align 8
   %3 = load atomic i64, ptr @_ZL28LibSupportInfoOutputFilenameB5cxx11 acquire, align 8
   %.not.i.i = icmp eq i64 %3, 0
@@ -622,7 +622,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10TimeRecord14getCurrentTimeEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::TimeRecord") align 8 initializes((0, 40)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10TimeRecord14getCurrentTimeEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::TimeRecord") align 8 %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::chrono::time_point", align 8
   %4 = alloca %"class.std::chrono::duration", align 8
   %5 = alloca %"class.std::chrono::duration", align 8
@@ -711,7 +711,7 @@ _ZL11getMemUsagev.exit5:                          ; preds = %_ZN4llvm13ManagedSt
 declare void @_ZN4llvm3sys7Process12GetTimeUsageERNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERS9_SC_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5Timer10startTimerEv(ptr noundef nonnull align 8 dereferenceable(176) initializes((144, 146)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5Timer10startTimerEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::chrono::time_point", align 8
   %3 = alloca %"class.std::chrono::duration", align 8
   %4 = alloca %"class.std::chrono::duration", align 8
@@ -789,7 +789,7 @@ _ZN4llvm10TimeRecord14getCurrentTimeEb.exit:      ; preds = %_ZN4llvm13ManagedSt
 declare void @_ZN4llvm15SignpostEmitter13startIntervalEPKvNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5Timer9stopTimerEv(ptr noundef nonnull align 8 dereferenceable(176) initializes((144, 145)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm5Timer9stopTimerEv(ptr noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::chrono::time_point", align 8
   %3 = alloca %"class.std::chrono::duration", align 8
   %4 = alloca %"class.std::chrono::duration", align 8
@@ -888,7 +888,7 @@ _ZN4llvm13ManagedStaticINS_15SignpostEmitterENS_14object_creatorIS1_EENS_14objec
 declare void @_ZN4llvm15SignpostEmitter11endIntervalEPKvNS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm5Timer5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((0, 80), (144, 146)) %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm5Timer5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 145
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -2955,7 +2955,7 @@ _ZN4llvm13ManagedStaticIN12_GLOBAL__N_112Name2PairMapENS_14object_creatorIS2_EEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm10TimerGroup18aquireDefaultGroupEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.52") align 8 initializes((0, 8)) %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm10TimerGroup18aquireDefaultGroupEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.52") align 8 %0) local_unnamed_addr #6 align 2 {
   %2 = atomicrmw xchg ptr @_ZL17DefaultTimerGroup, i64 0 seq_cst, align 8
   %.0.i.i = inttoptr i64 %2 to ptr
   store ptr %.0.i.i, ptr %0, align 8

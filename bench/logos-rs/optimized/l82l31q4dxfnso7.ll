@@ -219,7 +219,7 @@ define zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From$LT$logos_codegen..graph..fork..Fork$GT$$u20$for$u20$logos_codegen..graph..Node$LT$T$GT$$GT$4from17h6b2e47f0bb8a5f0dE"(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 20)) %0, ptr align 4 %1, i32 %2) unnamed_addr #4 {
+define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From$LT$logos_codegen..graph..fork..Fork$GT$$u20$for$u20$logos_codegen..graph..Node$LT$T$GT$$GT$4from17h6b2e47f0bb8a5f0dE"(ptr nocapture writeonly sret([88 x i8]) align 8 %0, ptr align 4 %1, i32 %2) unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -229,7 +229,7 @@ define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From$LT$logos_codegen..graph..rope..Rope$GT$$u20$for$u20$logos_codegen..graph..Node$LT$T$GT$$GT$4from17h04df9a23ad5e7325E"(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 48)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
+define void @"_ZN13logos_codegen5graph5impls125_$LT$impl$u20$core..convert..From$LT$logos_codegen..graph..rope..Rope$GT$$u20$for$u20$logos_codegen..graph..Node$LT$T$GT$$GT$4from17h04df9a23ad5e7325E"(ptr nocapture writeonly sret([88 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   store i64 -9223372036854775805, ptr %0, align 8
@@ -923,7 +923,7 @@ define internal fastcc i32 @"_ZN13logos_codegen5graph5regex57_$LT$impl$u20$logos
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3new17h3b815831b5b583a1E"(ptr nocapture writeonly sret([120 x i8]) align 8 initializes((0, 80), (88, 104), (112, 120)) %0) unnamed_addr #0 {
+define hidden void @"_ZN13logos_codegen5graph17Graph$LT$Leaf$GT$3new17h3b815831b5b583a1E"(ptr nocapture writeonly sret([120 x i8]) align 8 %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = tail call ptr @_ZN5alloc5alloc15exchange_malloc17hb0a9e51216425750E(i64 88, i64 8)
   store i64 -9223372036854775804, ptr %3, align 8

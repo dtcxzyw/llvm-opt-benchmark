@@ -553,7 +553,7 @@ declare void @abort() local_unnamed_addr #4
 declare noundef i32 @_ZNK2v85Int325ValueEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto19NidKeyPairGenTraits5SetupEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.5") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %params) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto19NidKeyPairGenTraits5SetupEPNS0_16KeyPairGenConfigINS0_16NidKeyPairParamsEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.5") align 8 %agg.result, ptr nocapture noundef readonly %params) local_unnamed_addr #3 align 2 {
 entry:
   %id = getelementptr inbounds i8, ptr %params, i64 120
   %0 = load i32, ptr %id, align 8
@@ -808,7 +808,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSo
 declare void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 1, 258) i16 @_ZN4node6crypto18SecretKeyGenTraits9EncodeKeyEPNS_11EnvironmentEPNS0_18SecretKeyGenConfigEPN2v85LocalINS6_5ValueEEE(ptr noundef %env, ptr noundef %params, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 1, 258) i16 @_ZN4node6crypto18SecretKeyGenTraits9EncodeKeyEPNS_11EnvironmentEPNS0_18SecretKeyGenConfigEPN2v85LocalINS6_5ValueEEE(ptr noundef %env, ptr noundef %params, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
   %data = alloca %"class.std::shared_ptr.20", align 8
   %agg.tmp = alloca %"class.node::crypto::ByteSource", align 8

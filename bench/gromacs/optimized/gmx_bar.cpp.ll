@@ -11277,7 +11277,7 @@ define internal fastcc void @_ZL14calc_dg_stddevP13sample_coll_tS0_ddPd(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZL28sample_coll_create_subsampleP13sample_coll_tS0_ii(ptr nocapture noundef nonnull initializes((0, 80)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL28sample_coll_create_subsampleP13sample_coll_tS0_ii(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i64 80, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = getelementptr inbounds i8, ptr %1, i64 24
@@ -11508,7 +11508,7 @@ _ZL21sample_coll_calc_ntotP13sample_coll_t.exit:  ; preds = %100, %132, %._crit_
 declare double @log(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL19sample_coll_min_maxP13sample_coll_tdPdS1_(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef nonnull initializes((0, 8)) %2, ptr nocapture noundef nonnull initializes((0, 8)) %3) unnamed_addr #19 {
+define internal fastcc void @_ZL19sample_coll_min_maxP13sample_coll_tdPdS1_(ptr nocapture noundef readonly %0, double noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #19 {
   store double 0x47EFFFFFE0000000, ptr %2, align 8
   store double 0xC7EFFFFFE0000000, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24

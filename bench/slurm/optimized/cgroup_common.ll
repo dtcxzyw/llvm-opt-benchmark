@@ -843,7 +843,7 @@ define void @common_cgroup_ns_destroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @common_cgroup_destroy(ptr noundef initializes((0, 8)) %0) local_unnamed_addr #0 {
+define void @common_cgroup_destroy(ptr noundef %0) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @slurm_xfree(ptr noundef nonnull %2) #8

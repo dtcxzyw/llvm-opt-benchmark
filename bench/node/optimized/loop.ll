@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_loop_init(ptr noundef initializes((8, 848)) %loop) local_unnamed_addr #0 {
+define dso_local i32 @uv_loop_init(ptr noundef %loop) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %loop, align 8
   %1 = getelementptr inbounds i8, ptr %loop, i64 8

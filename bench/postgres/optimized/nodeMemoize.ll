@@ -1204,7 +1204,7 @@ declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #1
 declare void @ExecEndNode(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecReScanMemoize(ptr noundef initializes((224, 228), (336, 352)) %0) local_unnamed_addr #0 {
+define dso_local void @ExecReScanMemoize(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 224
@@ -1358,7 +1358,7 @@ declare ptr @shm_toc_allocate(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @shm_toc_insert(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecMemoizeInitializeWorker(ptr nocapture noundef initializes((400, 408)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define dso_local void @ExecMemoizeInitializeWorker(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

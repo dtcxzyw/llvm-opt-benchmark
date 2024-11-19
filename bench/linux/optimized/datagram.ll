@@ -214,7 +214,7 @@ declare dso_local void @finish_wait(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__skb_try_recv_from_queue(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 align 16 {
+define dso_local ptr @__skb_try_recv_from_queue(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 align 16 {
   %7 = and i32 %2, 2
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %.thread.thread, label %9
@@ -1099,7 +1099,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @__skb_datagram_iter(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @hash_and_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr noundef initializes((48, 52), (56, 72)) %2, ptr noundef %3) #0 align 16 {
+define internal i64 @hash_and_copy_to_iter(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = alloca %struct.scatterlist, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #9
   %6 = icmp ugt i64 %1, 2147483647

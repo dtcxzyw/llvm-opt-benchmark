@@ -1240,7 +1240,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit19:      ; preds = %if.end9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core11OrcaWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core11OrcaWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core11OrcaWatcherE, i64 16), ptr %this, align 8
   %producer_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -1537,7 +1537,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core27MakeOobBackendMetricWatcherENS_8DurationESt10unique_ptrINS_23OobBackendMetricWatcherESt14default_deleteIS2_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.68") align 8 initializes((0, 8)) %agg.result, i64 %report_interval.coerce, ptr nocapture noundef %watcher) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core27MakeOobBackendMetricWatcherENS_8DurationESt10unique_ptrINS_23OobBackendMetricWatcherESt14default_deleteIS2_EE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.68") align 8 %agg.result, i64 %report_interval.coerce, ptr nocapture noundef %watcher) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN9grpc_core11OrcaWatcherESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !35
   %0 = load i64, ptr %watcher, align 8, !noalias !35

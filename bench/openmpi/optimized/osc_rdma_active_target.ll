@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @mca_osc_rdma_component = external global %struct.ompi_osc_rdma_component_t, align 16
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @ompi_osc_rdma_pending_op_construct(ptr noundef initializes((48, 72)) %0) #0 {
+define internal void @ompi_osc_rdma_pending_op_construct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -45,7 +45,7 @@ define internal void @ompi_osc_rdma_pending_op_construct(ptr noundef initializes
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal void @ompi_osc_rdma_pending_op_destruct(ptr noundef initializes((56, 72)) %0) #1 {
+define internal void @ompi_osc_rdma_pending_op_destruct(ptr noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

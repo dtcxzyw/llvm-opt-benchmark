@@ -108,7 +108,7 @@ define dso_local void @tcf_em_unregister(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((0, 16)) %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2) #0 align 16 {
   %4 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)

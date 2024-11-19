@@ -5931,7 +5931,7 @@ _ZN6uucore4mods5error12USimpleError3new17h9358211b44091477E.exit: ; preds = %.no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8uu_touch19pathbuf_from_stdout17h4ae053e696571fc8E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #1 {
+define void @_ZN8uu_touch19pathbuf_from_stdout17h4ae053e696571fc8E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %.sroa.0 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0)
   call void @_ZN3std3sys6os_str5bytes5Slice8to_owned17had945b6c4cd6e040E(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %.sroa.0, ptr noalias noundef nonnull readonly align 1 @anon.ea5baef05395b46ce30c759981cc8125.104, i64 noundef 11)

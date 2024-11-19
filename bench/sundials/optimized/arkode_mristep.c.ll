@@ -1711,7 +1711,7 @@ mriStep_AccessStepMem.exit.thread:                ; preds = %12, %7, %81, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mriStep_TakeStep(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 4)) %2) #0 {
+define i32 @mriStep_TakeStep(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) #0 {
   store i32 0, ptr %2, align 4
   store double 0.000000e+00, ptr %1, align 8
   %4 = icmp eq ptr %0, null
@@ -4086,7 +4086,7 @@ mriStep_RKCoeffs.exit:                            ; preds = %13, %3, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mriStep_StageDIRKNoFast(ptr noundef %0, ptr nocapture noundef initializes((144, 148)) %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define i32 @mriStep_StageDIRKNoFast(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 144
   store i32 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 128

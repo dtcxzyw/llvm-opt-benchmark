@@ -1478,7 +1478,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %28, %30
 declare void @_ZN12BarrierSetC116load_at_resolvedER9LIRAccess7LIR_Opr(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(80), i64) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14G1BarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14G1BarrierSetC125generate_c1_runtime_stubsEP10BufferBlob(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.C1G1PreBarrierCodeGenClosure, align 8
   %4 = alloca %class.C1G1PostBarrierCodeGenClosure, align 8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV28C1G1PreBarrierCodeGenClosure, i64 16), ptr %3, align 8

@@ -105,7 +105,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.79 = private unnamed_addr constant [5 x i8] c"mdat\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define hidden void @avifSetTileConfiguration(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #0 {
+define hidden void @avifSetTileConfiguration(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %4, align 4
   %6 = icmp sgt i32 %0, 1
@@ -4371,7 +4371,7 @@ declare i64 @avifRWStreamOffset(ptr noundef) local_unnamed_addr #2
 declare void @avifRWStreamSetOffset(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @avifEncoderWriteMediaDataBox(ptr nocapture noundef initializes((88, 104)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc i32 @avifEncoderWriteMediaDataBox(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -4992,7 +4992,7 @@ split:                                            ; preds = %42, %32
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @avifEncoderDetectChanges(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %1) unnamed_addr #6 {
+define internal fastcc range(i32 0, 2) i32 @avifEncoderDetectChanges(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %4 = load ptr, ptr %3, align 8
   store i32 0, ptr %1, align 4

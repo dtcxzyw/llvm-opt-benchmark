@@ -1815,7 +1815,7 @@ declare void @_ZN4mold4Glob7compileESt17basic_string_viewIcSt11char_traitsIcEE(p
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind
-define dso_local void @_ZN4mold9MultiGlob7compileEv(ptr nocapture noundef nonnull align 8 dereferenceable(61) initializes((60, 61)) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4mold9MultiGlob7compileEv(ptr nocapture noundef nonnull align 8 dereferenceable(61) %this) local_unnamed_addr #4 align 2 {
 entry:
   %is_compiled = getelementptr inbounds i8, ptr %this, i64 60
   store i8 1, ptr %is_compiled, align 4

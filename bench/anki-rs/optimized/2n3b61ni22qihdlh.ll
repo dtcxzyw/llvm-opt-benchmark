@@ -55,7 +55,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$co
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN61_$LT$std..path..PathBuf$u20$as$u20$anki_io..ToUtf8PathBuf$GT$4utf828_$u7b$$u7b$closure$u7d$$u7d$17hc2b0a69bfad4967dE"(ptr nocapture writeonly sret({ { i64, [3 x i64] }, { { { { { ptr, i64 }, i64 } } } }, ptr }) align 8 initializes((0, 8), (32, 64)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
+define hidden void @"_ZN61_$LT$std..path..PathBuf$u20$as$u20$anki_io..ToUtf8PathBuf$GT$4utf828_$u7b$$u7b$closure$u7d$$u7d$17hc2b0a69bfad4967dE"(ptr nocapture writeonly sret({ { i64, [3 x i64] }, { { { { { ptr, i64 }, i64 } } } }, ptr }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 9, ptr %0, align 8

@@ -1573,7 +1573,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 declare i32 @ini_lex(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_ini_init_string(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %0) unnamed_addr #0 {
+define internal fastcc void @zend_ini_init_string(ptr nocapture noundef nonnull writeonly %0) unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 84), align 4
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %8
@@ -1603,7 +1603,7 @@ define internal fastcc void @zend_ini_init_string(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_ini_add_string(ptr nocapture noundef nonnull writeonly initializes((0, 12)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @zend_ini_add_string(ptr nocapture noundef nonnull writeonly %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 8
   %.not = icmp eq i8 %5, 6
@@ -1971,7 +1971,7 @@ get_int_val.exit82:                               ; preds = %45, %44, %35, %32, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_ini_get_var(ptr nocapture noundef nonnull writeonly initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
+define internal fastcc void @zend_ini_get_var(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call ptr @zend_get_configuration_directive(ptr noundef %4) #17
   %.not = icmp eq ptr %5, null

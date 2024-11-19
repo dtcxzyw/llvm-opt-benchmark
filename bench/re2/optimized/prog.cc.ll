@@ -105,7 +105,7 @@ $_ZSt11__make_heapIPN3re211SparseArrayIiE10IndexValueEN9__gnu_cxx5__ops15_Iter_c
 @_ZN3re24ProgD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3re24ProgD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3re24Prog4Inst7InitAltEjj(ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((4, 8)) %this, i32 noundef %out, i32 noundef %out1) local_unnamed_addr #0 align 2 {
+define void @_ZN3re24Prog4Inst7InitAltEjj(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %out, i32 noundef %out1) local_unnamed_addr #0 align 2 {
 entry:
   %shl.i = shl i32 %out, 4
   %0 = load i32, ptr %this, align 4
@@ -118,7 +118,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((4, 8)) %this, i32 noundef %lo, i32 noundef %hi, i32 noundef %foldcase, i32 noundef %out) local_unnamed_addr #0 align 2 {
+define void @_ZN3re24Prog4Inst13InitByteRangeEiiij(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %lo, i32 noundef %hi, i32 noundef %foldcase, i32 noundef %out) local_unnamed_addr #0 align 2 {
 entry:
   %shl.i = shl i32 %out, 4
   %0 = load i32, ptr %this, align 4
@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3re24Prog4Inst11InitCaptureEij(ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((4, 8)) %this, i32 noundef %cap, i32 noundef %out) local_unnamed_addr #0 align 2 {
+define void @_ZN3re24Prog4Inst11InitCaptureEij(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %cap, i32 noundef %out) local_unnamed_addr #0 align 2 {
 entry:
   %shl.i = shl i32 %out, 4
   %0 = load i32, ptr %this, align 4
@@ -154,7 +154,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((4, 8)) %this, i32 noundef %empty, i32 noundef %out) local_unnamed_addr #0 align 2 {
+define void @_ZN3re24Prog4Inst14InitEmptyWidthENS_7EmptyOpEj(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %empty, i32 noundef %out) local_unnamed_addr #0 align 2 {
 entry:
   %shl.i = shl i32 %out, 4
   %0 = load i32, ptr %this, align 4
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3re24Prog4Inst9InitMatchEi(ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((4, 8)) %this, i32 noundef %id) local_unnamed_addr #0 align 2 {
+define void @_ZN3re24Prog4Inst9InitMatchEi(ptr nocapture noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %id) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %or.i = and i32 %0, -8
@@ -382,7 +382,7 @@ return:                                           ; preds = %_ZN4absl7debian219s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3re24ProgC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(432) initializes((0, 5), (8, 25), (32, 40), (48, 52), (88, 168), (424, 432)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re24ProgC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(432) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %start_ = getelementptr inbounds i8, ptr %this, i64 8
   %prefix_size_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -2054,7 +2054,7 @@ return:                                           ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re214ByteMapBuilder5BuildEPhPi(ptr noundef nonnull align 8 dereferenceable(1112) initializes((1056, 1060)) %this, ptr nocapture noundef writeonly %bytemap, ptr nocapture noundef writeonly %bytemap_range) local_unnamed_addr #1 align 2 {
+define void @_ZN3re214ByteMapBuilder5BuildEPhPi(ptr noundef nonnull align 8 dereferenceable(1112) %this, ptr nocapture noundef writeonly %bytemap, ptr nocapture noundef writeonly %bytemap_range) local_unnamed_addr #1 align 2 {
 entry:
   %nextcolor_ = getelementptr inbounds i8, ptr %this, i64 1056
   store i32 0, ptr %nextcolor_, align 8
@@ -3729,7 +3729,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit228:                 ; preds = %ehcleanup179, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re24Prog14MarkSuccessorsEPNS_11SparseArrayIiEES3_PSt6vectorIS4_IiSaIiEESaIS6_EEPNS_10SparseSetTIvEEPS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this, ptr nocapture noundef %rootmap, ptr nocapture noundef %predmap, ptr nocapture noundef %predvec, ptr nocapture noundef initializes((0, 4)) %reachable, ptr nocapture noundef %stk) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re24Prog14MarkSuccessorsEPNS_11SparseArrayIiEES3_PSt6vectorIS4_IiSaIiEESaIS6_EEPNS_10SparseSetTIvEEPS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this, ptr nocapture noundef %rootmap, ptr nocapture noundef %predmap, ptr nocapture noundef %predvec, ptr nocapture noundef %reachable, ptr nocapture noundef %stk) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp36 = alloca [2 x i32], align 4
   %dense_.i.i.i = getelementptr inbounds i8, ptr %rootmap, i64 24
@@ -4397,7 +4397,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re24Prog13MarkDominatorEiPNS_11SparseArrayIiEES3_PSt6vectorIS4_IiSaIiEESaIS6_EEPNS_10SparseSetTIvEEPS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this, i32 noundef %root, ptr nocapture noundef %rootmap, ptr nocapture noundef readonly %predmap, ptr nocapture noundef readonly %predvec, ptr nocapture noundef initializes((0, 4)) %reachable, ptr nocapture noundef %stk) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re24Prog13MarkDominatorEiPNS_11SparseArrayIiEES3_PSt6vectorIS4_IiSaIiEESaIS6_EEPNS_10SparseSetTIvEEPS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this, i32 noundef %root, ptr nocapture noundef %rootmap, ptr nocapture noundef readonly %predmap, ptr nocapture noundef readonly %predvec, ptr nocapture noundef %reachable, ptr nocapture noundef %stk) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %reachable, align 8
   %0 = load ptr, ptr %stk, align 8
@@ -4820,7 +4820,7 @@ for.end51:                                        ; preds = %for.inc50, %while.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re24Prog8EmitListEiPNS_11SparseArrayIiEEPSt6vectorINS0_4InstESaIS5_EEPNS_10SparseSetTIvEEPS4_IiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this, i32 noundef %root, ptr nocapture noundef readonly %rootmap, ptr nocapture noundef %flat, ptr nocapture noundef initializes((0, 4)) %reachable, ptr nocapture noundef %stk) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re24Prog8EmitListEiPNS_11SparseArrayIiEEPSt6vectorINS0_4InstESaIS5_EEPNS_10SparseSetTIvEEPS4_IiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %this, i32 noundef %root, ptr nocapture noundef readonly %rootmap, ptr nocapture noundef %flat, ptr nocapture noundef %reachable, ptr nocapture noundef %stk) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %reachable, align 8
   %0 = load ptr, ptr %stk, align 8
@@ -5750,7 +5750,7 @@ while.end:                                        ; preds = %while.body, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re24Prog20ConfigurePrefixAccelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(432) initializes((24, 25), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(32) %prefix, i1 noundef zeroext %prefix_foldcase) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re24Prog20ConfigurePrefixAccelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr nocapture noundef nonnull align 8 dereferenceable(432) %this, ptr noundef nonnull align 8 dereferenceable(32) %prefix, i1 noundef zeroext %prefix_foldcase) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nfa.i = alloca [256 x i16], align 16
   %states.i = alloca [10 x i16], align 16

@@ -26,7 +26,7 @@ define void @_ZN7glslang15HlslTokenStream12pushPreTokenERKNS_9HlslTokenE(ptr noc
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang15HlslTokenStream11popPreTokenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.glslang::HlslToken") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(324) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang15HlslTokenStream11popPreTokenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.glslang::HlslToken") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(324) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   %4 = getelementptr inbounds i8, ptr %1, i64 232
   %5 = load i32, ptr %4, align 8
@@ -54,7 +54,7 @@ define void @_ZN7glslang15HlslTokenStream15pushTokenBufferERKNS_9HlslTokenE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7glslang15HlslTokenStream14popTokenBufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.glslang::HlslToken") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(324) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang15HlslTokenStream14popTokenBufferEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.glslang::HlslToken") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(324) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 320
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
@@ -289,7 +289,7 @@ _ZNSt6vectorIiN7glslang14pool_allocatorIiEEE9push_backEOi.exit: ; preds = %74, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7glslang15HlslTokenStream14popTokenStreamEv(ptr nocapture noundef nonnull align 8 dereferenceable(324) initializes((8, 48)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN7glslang15HlslTokenStream14popTokenStreamEv(ptr nocapture noundef nonnull align 8 dereferenceable(324) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -8

@@ -963,7 +963,7 @@ declare void @_ZN6google15LogMessageFatalC1EPKciRKNS_13CheckOpStringE(ptr nounde
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8proxygen12HPACKDecoder19decodeIndexedHeaderERNS_17HPACKDecodeBufferEPNS_5HPACK17StreamingCallbackEPSt6vectorINS_11HPACKHeaderESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf, ptr noundef %streamingCb, ptr noundef %emitted) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8proxygen12HPACKDecoder19decodeIndexedHeaderERNS_17HPACKDecodeBufferEPNS_5HPACK17StreamingCallbackEPSt6vectorINS_11HPACKHeaderESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(100) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf, ptr noundef %streamingCb, ptr noundef %emitted) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index = alloca i64, align 8
   %ref.tmp = alloca %"class.google::LogMessage", align 8

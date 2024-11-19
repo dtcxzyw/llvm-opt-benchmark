@@ -62,7 +62,7 @@ $_ZNKSt10filesystem7__cxx114path6stringEv = comdat any
 @.str.31 = private unnamed_addr constant [3 x i8] c"}\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22gmx_espresso_read_confRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7t_atomsPA3_fSB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef initializes((64, 69)) %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly initializes((0, 36)) %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z22gmx_espresso_read_confRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7t_atomsPA3_fSB_SB_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::allocator", align 1
   %9 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8

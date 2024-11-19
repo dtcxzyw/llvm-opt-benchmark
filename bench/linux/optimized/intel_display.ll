@@ -1550,7 +1550,7 @@ define dso_local i32 @intel_plane_fb_max_stride(ptr noundef %0, i32 noundef %1, 
 declare dso_local ptr @intel_first_crtc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @intel_set_plane_visible(ptr nocapture noundef %0, ptr nocapture noundef initializes((140, 141)) %1, i1 noundef zeroext %2) local_unnamed_addr #12 align 16 {
+define dso_local void @intel_set_plane_visible(ptr nocapture noundef %0, ptr nocapture noundef %1, i1 noundef zeroext %2) local_unnamed_addr #12 align 16 {
   %4 = zext i1 %2 to i8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 140
@@ -1580,7 +1580,7 @@ define dso_local void @intel_set_plane_visible(ptr nocapture noundef %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @intel_plane_fixup_bitmasks(ptr nocapture noundef initializes((4328, 4330)) %0) local_unnamed_addr #13 align 16 {
+define dso_local void @intel_plane_fixup_bitmasks(ptr nocapture noundef %0) local_unnamed_addr #13 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4328
@@ -3001,7 +3001,7 @@ define internal fastcc void @intel_crtc_readout_derived_state(ptr noundef %0) un
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_link_compute_m_n(i16 noundef zeroext %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 12)) %5) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_link_compute_m_n(i16 noundef zeroext %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 align 16 {
   %7 = tail call i32 @intel_dp_link_symbol_clock(i32 noundef %3) #25
   %8 = zext i16 %0 to i32
   %9 = tail call i32 @intel_dp_effective_data_rate(i32 noundef %2, i32 noundef %8, i32 noundef %4) #25
@@ -3122,7 +3122,7 @@ define dso_local void @intel_panel_sanitize_ssc(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @intel_zero_m_n(ptr nocapture noundef writeonly initializes((0, 20)) %0) local_unnamed_addr #14 align 16 {
+define dso_local void @intel_zero_m_n(ptr nocapture noundef writeonly %0) local_unnamed_addr #14 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(20) %2, i8 0, i64 16, i1 false)
   store i32 1, ptr %0, align 4
@@ -3709,7 +3709,7 @@ define dso_local noundef i32 @ilk_get_lanes_required(i32 noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_get_m_n(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 20)) %1, i32 %2, i32 %3, i32 %4, i32 %5) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_get_m_n(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 %2, i32 %3, i32 %4, i32 %5) local_unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 7368
   %8 = getelementptr inbounds i8, ptr %0, i64 7512
   %9 = load ptr, ptr %8, align 8
@@ -3742,7 +3742,7 @@ define dso_local void @intel_get_m_n(ptr noundef %0, ptr nocapture noundef write
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_cpu_transcoder_get_m1_n1(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 20)) %2) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_cpu_transcoder_get_m1_n1(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 2632
   %6 = load i16, ptr %5, align 8
@@ -12167,7 +12167,7 @@ declare dso_local i32 @intel_cdclk_atomic_check(ptr noundef, ptr noundef) local_
 declare dso_local zeroext i1 @intel_any_crtc_needs_modeset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @intel_modeset_checks(ptr noundef initializes((142, 143)) %0) unnamed_addr #0 align 16 {
+define internal fastcc i32 @intel_modeset_checks(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 142
@@ -13317,7 +13317,7 @@ define dso_local void @intel_crtc_arm_fifo_underrun(ptr noundef %0, ptr nocaptur
 declare dso_local zeroext i1 @intel_set_pch_fifo_underrun_reporting(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_atomic_commit(ptr noundef %0, ptr noundef initializes((120, 128)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_atomic_commit(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8928
   %5 = tail call i64 @intel_runtime_pm_get(ptr noundef %4) #25
   %6 = getelementptr inbounds i8, ptr %1, i64 120
@@ -16095,7 +16095,7 @@ define dso_local range(i32 0, 5) i32 @intel_mode_valid_max_plane_size(ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @intel_init_display_hooks(ptr nocapture noundef initializes((1552, 1560)) %0) local_unnamed_addr #12 align 16 {
+define dso_local void @intel_init_display_hooks(ptr nocapture noundef %0) local_unnamed_addr #12 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2632
   %3 = load i16, ptr %2, align 8
   %4 = icmp ugt i16 %3, 8
@@ -20650,7 +20650,7 @@ declare dso_local zeroext i1 @intel_display_power_get_in_set_if_enabled(ptr noun
 declare dso_local void @intel_dsc_get_config(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @intel_get_transcoder_timings(ptr %.0.val, ptr nocapture noundef initializes((640, 642), (646, 652), (654, 656), (660, 666)) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @intel_get_transcoder_timings(ptr %.0.val, ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 864
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %.0.val, i64 2624
@@ -20988,7 +20988,7 @@ define internal fastcc void @ilk_get_pfit_config(ptr nocapture noundef %0) unnam
 declare dso_local void @hsw_ips_get_config(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @enabled_bigjoiner_pipes(ptr noundef %0, ptr nocapture noundef initializes((0, 1)) %1, ptr nocapture noundef initializes((0, 1)) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @enabled_bigjoiner_pipes(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #0 align 16 {
   store i8 0, ptr %1, align 1
   store i8 0, ptr %2, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 736

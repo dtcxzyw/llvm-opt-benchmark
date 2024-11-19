@@ -259,7 +259,7 @@ define linkonce_odr hidden void @_ZN5boost15throw_exceptionINS_9iostreams10lzma_
 declare void @_ZNSt8ios_base7failureB5cxx11D2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail9lzma_baseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5boost9iostreams6detail9lzma_baseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #23
   store ptr %2, ptr %0, align 8, !tbaa !23
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -311,7 +311,7 @@ define void @_ZN5boost9iostreams6detail9lzma_base6beforeERPKcS4_RPcS6_(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost9iostreams6detail9lzma_base5afterERPKcRPcb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2, i1 noundef zeroext %3) local_unnamed_addr #9 align 2 {
+define void @_ZN5boost9iostreams6detail9lzma_base5afterERPKcRPcb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #9 align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !23
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   store ptr %6, ptr %1, align 8, !tbaa !7
@@ -436,7 +436,7 @@ _ZN5boost9iostreams10lzma_error5checkEi.exit:     ; preds = %19, %19
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost9iostreams6detail9lzma_base7do_initERKNS0_11lzma_paramsEbPFPvS6_mmEPFvS6_S6_ES6_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 align 2 {
+define void @_ZN5boost9iostreams6detail9lzma_base7do_initERKNS0_11lzma_paramsEbPFPvS6_mmEPFvS6_S6_ES6_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, i1 noundef zeroext %2, ptr nocapture noundef readnone %3, ptr nocapture noundef readnone %4, ptr nocapture noundef readnone %5) local_unnamed_addr #0 align 2 {
   %7 = load i32, ptr %1, align 4, !tbaa !40
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8, !tbaa !25

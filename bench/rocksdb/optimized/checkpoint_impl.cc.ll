@@ -222,7 +222,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb10Checkpoint6CreateEPNS_2DBEPPS0_(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef %db, ptr nocapture noundef writeonly initializes((0, 8)) %checkpoint_ptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb10Checkpoint6CreateEPNS_2DBEPPS0_(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %db, ptr nocapture noundef writeonly %checkpoint_ptr) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb14CheckpointImplE, i64 16), ptr %call, align 8
@@ -1751,7 +1751,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE16fin
 declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14CheckpointImpl22CreateCustomCheckpointESt8functionIFNS_6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_NS_8FileTypeEEES1_IFS2_SA_SA_mSB_SA_SA_NS_11TemperatureEEESD_Pmmb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %link_file_cb, ptr noundef %copy_file_cb, ptr noundef %create_file_cb, ptr nocapture noundef writeonly initializes((0, 8)) %sequence_number, i64 noundef %log_size_for_flush, i1 noundef zeroext %get_live_table_checksum) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14CheckpointImpl22CreateCustomCheckpointESt8functionIFNS_6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_NS_8FileTypeEEES1_IFS2_SA_SA_mSB_SA_SA_NS_11TemperatureEEESD_Pmmb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %link_file_cb, ptr noundef %copy_file_cb, ptr noundef %create_file_cb, ptr nocapture noundef writeonly %sequence_number, i64 noundef %log_size_for_flush, i1 noundef zeroext %get_live_table_checksum) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr4.i180 = alloca i64, align 8
   %__args.addr6.i181 = alloca i32, align 4
@@ -5068,7 +5068,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14CheckpointImpl21ExportFilesInMetaDataERKNS_9DBOptionsERKNS_20ColumnFamilyMetaDataESt8functionIFNS_6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_EESI_(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(688) %db_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %metadata, ptr noundef %link_file_cb, ptr noundef %copy_file_cb) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14CheckpointImpl21ExportFilesInMetaDataERKNS_9DBOptionsERKNS_20ColumnFamilyMetaDataESt8functionIFNS_6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESG_EESI_(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(688) %db_options, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %metadata, ptr noundef %link_file_cb, ptr noundef %copy_file_cb) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %number = alloca i64, align 8
   %type = alloca i32, align 4

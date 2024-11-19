@@ -743,7 +743,7 @@ spl_dllist_object_count_elements.exit:            ; preds = %23, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @spl_dllist_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal range(i32 -1, 1) i32 @spl_dllist_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   %5 = load ptr, ptr %4, align 8
@@ -3703,7 +3703,7 @@ define internal ptr @spl_dllist_it_get_current_data(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @spl_dllist_it_get_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #10 {
+define internal void @spl_dllist_it_get_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -3728,7 +3728,7 @@ define internal void @spl_dllist_it_move_forward(ptr nocapture noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @spl_dllist_it_rewind(ptr nocapture noundef initializes((96, 100)) %0) #0 {
+define internal void @spl_dllist_it_rewind(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 -72

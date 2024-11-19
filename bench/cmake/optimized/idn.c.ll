@@ -121,7 +121,7 @@ define dso_local void @Curl_free_idnconverted_hostname(ptr nocapture noundef %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @Curl_idnconvert_hostname(ptr nocapture noundef initializes((24, 32)) %0) local_unnamed_addr #1 {
+define dso_local range(i32 0, 5) i32 @Curl_idnconvert_hostname(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8

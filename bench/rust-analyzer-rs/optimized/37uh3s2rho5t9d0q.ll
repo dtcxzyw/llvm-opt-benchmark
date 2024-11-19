@@ -1328,7 +1328,7 @@ default.unreachable:                              ; preds = %"_ZN53_$LT$smol_str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3cfg3dnf7DnfExpr20compute_enable_hints17h3b27c0ffa2f774d4E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, ptr }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #2 {
+define void @_ZN3cfg3dnf7DnfExpr20compute_enable_hints17h3b27c0ffa2f774d4E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, ptr }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds i8, ptr %1, i64 16

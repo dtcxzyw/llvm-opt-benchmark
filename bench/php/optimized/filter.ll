@@ -418,7 +418,7 @@ define void @php_stream_bucket_delref(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @php_stream_bucket_split(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef initializes((0, 8)) %2, i64 noundef %3) local_unnamed_addr #2 {
+define noundef i32 @php_stream_bucket_split(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 41
   %6 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %6, 0
@@ -545,7 +545,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 declare void @_efree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @php_stream_bucket_prepend(ptr noundef %0, ptr noundef initializes((0, 16)) %1) local_unnamed_addr #7 {
+define void @php_stream_bucket_prepend(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
   store ptr %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -745,7 +745,7 @@ define void @php_stream_filter_free(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @php_stream_filter_prepend_ex(ptr noundef %0, ptr noundef initializes((24, 40)) %1) local_unnamed_addr #7 {
+define noundef i32 @php_stream_filter_prepend_ex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %3, ptr %4, align 8
@@ -773,7 +773,7 @@ define noundef i32 @php_stream_filter_prepend_ex(ptr noundef %0, ptr noundef ini
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_php_stream_filter_prepend(ptr noundef %0, ptr noundef initializes((24, 40)) %1) local_unnamed_addr #7 {
+define void @_php_stream_filter_prepend(ptr noundef %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   store ptr %3, ptr %4, align 8
@@ -801,7 +801,7 @@ php_stream_filter_prepend_ex.exit:                ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @php_stream_filter_append_ex(ptr noundef %0, ptr noundef initializes((24, 40)) %1) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @php_stream_filter_append_ex(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._php_stream_bucket_brigade, align 8
   %4 = alloca %struct._php_stream_bucket_brigade, align 8
   %5 = alloca i64, align 8
@@ -1265,7 +1265,7 @@ declare ptr @__zend_realloc(ptr noundef, i64 noundef) local_unnamed_addr #12
 declare ptr @_erealloc(ptr noundef, i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define void @_php_stream_filter_append(ptr noundef %0, ptr noundef initializes((24, 40)) %1) local_unnamed_addr #2 {
+define void @_php_stream_filter_append(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = tail call i32 @php_stream_filter_append_ex(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %14, label %4

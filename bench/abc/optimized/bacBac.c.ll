@@ -57,7 +57,7 @@ define range(i32 0, 2) i32 @BacManReadBacLine(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @BacManReadBacNameAndNums(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @BacManReadBacNameAndNums(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
   store i32 -1, ptr %4, align 4
   store i32 -1, ptr %3, align 4
   store i32 -1, ptr %2, align 4
@@ -146,7 +146,7 @@ define range(i32 0, 2) i32 @BacManReadBacNameAndNums(ptr nocapture noundef %0, p
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Bac_ManReadBacVecStr(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef initializes((4, 8)) %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @Bac_ManReadBacVecStr(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %2, i64 8
   %.val = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 8
@@ -168,7 +168,7 @@ define void @Bac_ManReadBacVecStr(ptr nocapture noundef readonly %0, ptr nocaptu
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Bac_ManReadBacVecInt(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef initializes((4, 8)) %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @Bac_ManReadBacVecInt(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %2, i64 8
   %.val7 = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %0, i64 8
@@ -188,7 +188,7 @@ define void @Bac_ManReadBacVecInt(ptr nocapture noundef readonly %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bac_ManReadBacNtk(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef initializes((68, 72), (84, 88), (100, 104)) %2) local_unnamed_addr #5 {
+define void @Bac_ManReadBacNtk(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %2, i64 80
   %.val = load i32, ptr %4, align 8
   %5 = getelementptr i8, ptr %2, i64 88

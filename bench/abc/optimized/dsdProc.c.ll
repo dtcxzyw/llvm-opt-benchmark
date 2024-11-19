@@ -44,7 +44,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [43 x i8] c"The cumulative decomposability statistics:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Dsd_Decompose(ptr noundef initializes((20, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @Dsd_Decompose(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8

@@ -313,7 +313,7 @@ declare noundef i32 @_ZN2os18current_process_idEv() local_unnamed_addr #2
 declare i32 @getrlimit64(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN2os18committed_in_rangeEPhmRS0_Rm(ptr noundef %0, i64 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca [1025 x i8], align 16
   %6 = load i64, ptr @_ZN6OSInfo13_vm_page_sizeE, align 8
   %7 = udiv i64 %1, %6
@@ -2526,7 +2526,7 @@ define hidden void @_ZN2os5Posix6init_2Ev() local_unnamed_addr #1 align 2 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os5Posix14to_RTC_abstimeEP8timespecl(ptr nocapture noundef writeonly initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN2os5Posix14to_RTC_abstimeEP8timespecl(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %struct.timespec, align 8
   %4 = icmp sgt i64 %1, 100000000999
   %5 = mul nsw i64 %1, 1000000
@@ -2585,7 +2585,7 @@ define hidden noundef i64 @_ZN2os14javaTimeMillisEv() local_unnamed_addr #1 alig
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os17javaTimeSystemUTCERlS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN2os17javaTimeSystemUTCERlS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %struct.timespec, align 8
   %4 = call i32 @clock_gettime(i32 noundef 0, ptr noundef nonnull %3) #28
   %5 = load i64, ptr %3, align 8
@@ -2597,7 +2597,7 @@ define hidden void @_ZN2os17javaTimeSystemUTCERlS0_(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2os18javaTimeNanos_infoEP14jvmtiTimerInfo(ptr nocapture noundef writeonly initializes((0, 10), (12, 16)) %0) local_unnamed_addr #19 align 2 {
+define hidden void @_ZN2os18javaTimeNanos_infoEP14jvmtiTimerInfo(ptr nocapture noundef writeonly %0) local_unnamed_addr #19 align 2 {
   store i64 -1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 9
   store i8 0, ptr %2, align 1

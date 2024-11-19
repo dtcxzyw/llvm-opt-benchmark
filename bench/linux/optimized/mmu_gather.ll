@@ -640,7 +640,7 @@ define dso_local void @tlb_flush_mmu(ptr noundef %0) local_unnamed_addr #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tlb_gather_mmu(ptr noundef initializes((0, 8), (48, 64)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @tlb_gather_mmu(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i16, ptr %3, align 8
@@ -695,7 +695,7 @@ define dso_local void @tlb_gather_mmu(ptr noundef initializes((0, 8), (48, 64)) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tlb_gather_mmu_fullmm(ptr noundef initializes((0, 8), (48, 64)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @tlb_gather_mmu_fullmm(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i16, ptr %3, align 8

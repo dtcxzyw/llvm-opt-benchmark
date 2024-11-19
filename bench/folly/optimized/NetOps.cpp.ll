@@ -103,7 +103,7 @@ entry:
 declare i32 @getsockopt(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef range(i32 0, 2) i32 @_ZN5folly6netops9inet_atonEPKcP7in_addr(ptr noundef %cp, ptr nocapture noundef writeonly initializes((0, 4)) %inp) local_unnamed_addr #3 {
+define noundef range(i32 0, 2) i32 @_ZN5folly6netops9inet_atonEPKcP7in_addr(ptr noundef %cp, ptr nocapture noundef writeonly %inp) local_unnamed_addr #3 {
 entry:
   %call = tail call i32 @inet_addr(ptr noundef %cp) #11
   store i32 %call, ptr %inp, align 4, !tbaa !8
@@ -285,7 +285,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6netops9Msgheader7setNameEP16sockaddr_storagem(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 12)) %this, ptr noundef %addrStorage, i64 noundef %len) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly6netops9Msgheader7setNameEP16sockaddr_storagem(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %addrStorage, i64 noundef %len) local_unnamed_addr #7 align 2 {
 entry:
   store ptr %addrStorage, ptr %this, align 8, !tbaa !15
   %conv = trunc i64 %len to i32
@@ -295,7 +295,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6netops9Msgheader9setIovecsEPK5iovecm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((16, 32)) %this, ptr noundef %vec, i64 noundef %iovec_len) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly6netops9Msgheader9setIovecsEPK5iovecm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %vec, i64 noundef %iovec_len) local_unnamed_addr #7 align 2 {
 entry:
   %msg_iov = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %vec, ptr %msg_iov, align 8, !tbaa !21
@@ -305,7 +305,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6netops9Msgheader10setCmsgPtrEPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((32, 40)) %this, ptr noundef %ctrlBuf) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly6netops9Msgheader10setCmsgPtrEPc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %ctrlBuf) local_unnamed_addr #7 align 2 {
 entry:
   %msg_control = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %ctrlBuf, ptr %msg_control, align 8, !tbaa !23
@@ -313,7 +313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6netops9Msgheader10setCmsgLenEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((40, 48)) %this, i64 noundef %len) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly6netops9Msgheader10setCmsgLenEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i64 noundef %len) local_unnamed_addr #7 align 2 {
 entry:
   %msg_controllen = getelementptr inbounds i8, ptr %this, i64 40
   store i64 %len, ptr %msg_controllen, align 8, !tbaa !24
@@ -321,7 +321,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly6netops9Msgheader8setFlagsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((48, 52)) %this, i32 noundef %flags) local_unnamed_addr #7 align 2 {
+define void @_ZN5folly6netops9Msgheader8setFlagsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i32 noundef %flags) local_unnamed_addr #7 align 2 {
 entry:
   %msg_flags = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %flags, ptr %msg_flags, align 8, !tbaa !25

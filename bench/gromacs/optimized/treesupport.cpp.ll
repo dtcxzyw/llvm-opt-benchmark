@@ -540,7 +540,7 @@ _ZN3gmx12_GLOBAL__N_115TreeCheckHelperD2Ev.exit:  ; preds = %_ZSt8_DestroyIPNSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx12_GLOBAL__N_115TreeCheckHelper20processOptionSectionERKNS_17OptionSectionInfoE(ptr noundef nonnull align 8 dereferenceable(72) initializes((40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx12_GLOBAL__N_115TreeCheckHelper20processOptionSectionERKNS_17OptionSectionInfoE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::OptionsIterator", align 8
   %4 = alloca %"class.std::set", align 8
   %5 = alloca %"class.gmx::KeyValueTreePath", align 8
@@ -1047,7 +1047,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_115TreeCheckHelperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3gmx12_GLOBAL__N_115TreeCheckHelperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12_GLOBAL__N_115TreeCheckHelperE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -2076,7 +2076,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx12_GLOBAL__N_115TreeCheckHelperD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN3gmx12_GLOBAL__N_115TreeCheckHelperD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN3gmx12_GLOBAL__N_115TreeCheckHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void

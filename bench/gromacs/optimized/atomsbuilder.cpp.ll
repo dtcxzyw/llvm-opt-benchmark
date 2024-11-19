@@ -35,7 +35,7 @@ $_ZNSt6vectorIfSaIfEE17_M_default_appendEm = comdat any
 @_ZN3gmx12AtomsRemoverD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx12AtomsRemoverD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx12AtomsBuilderC2EP7t_atomsP8t_symtab(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN3gmx12AtomsBuilderC2EP7t_atomsP8t_symtab(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -94,7 +94,7 @@ define noundef ptr @_ZN3gmx12AtomsBuilder12symtabStringEPPc(ptr nocapture nounde
 declare noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx12AtomsBuilder7reserveEii(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 24)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define void @_ZN3gmx12AtomsBuilder7reserveEii(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = sext i32 %1 to i64
@@ -134,7 +134,7 @@ define void @_ZN3gmx12AtomsBuilder7reserveEii(ptr nocapture noundef nonnull alig
 declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx12AtomsBuilder10clearAtomsEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN3gmx12AtomsBuilder10clearAtomsEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   store i32 0, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8
@@ -155,7 +155,7 @@ define noundef i32 @_ZNK3gmx12AtomsBuilder16currentAtomCountEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx12AtomsBuilder20setNextResidueNumberEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((28, 32)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN3gmx12AtomsBuilder20setNextResidueNumberEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %1, ptr %3, align 4
   ret void
@@ -239,7 +239,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_Z24gmx_pdbinfo_init_defaultP9t_pdbinfo(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 28)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN3gmx12AtomsBuilder12startResidueERK9t_resinfo(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, -1

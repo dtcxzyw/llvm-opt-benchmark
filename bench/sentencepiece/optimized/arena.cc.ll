@@ -55,7 +55,7 @@ define void @_ZN6google8protobuf8internal9ArenaFreeEPvm(ptr noundef %0, i64 noun
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal9ArenaImplC2ERKNS0_12ArenaOptionsE(ptr noundef nonnull align 8 dereferenceable(40) initializes((24, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal9ArenaImplC2ERKNS0_12ArenaOptionsE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
@@ -201,7 +201,7 @@ declare void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr
 declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6google8protobuf8internal9ArenaImpl4InitEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 32)) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal9ArenaImpl4InitEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i1 noundef zeroext %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef nonnull align 64 dereferenceable(64) ptr @llvm.threadlocal.address.p0(ptr align 64 @_ZN6google8protobuf8internal9ArenaImpl13thread_cache_E)
   %4 = load i64, ptr %3, align 64
   %5 = and i64 %4, 511

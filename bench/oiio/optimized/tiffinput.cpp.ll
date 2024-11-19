@@ -1672,7 +1672,7 @@ return:                                           ; preds = %if.end5, %if.end, %
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_09TIFFInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 72)) %newspec) unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_09TIFFInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecE(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) %newspec) unnamed_addr #5 align 2 {
 entry:
   %m_filename = getelementptr inbounds i8, ptr %this, i64 192
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_filename, ptr noundef nonnull align 8 dereferenceable(32) %name)
@@ -2019,7 +2019,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_09TIFFInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecERKS9_(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 72)) %newspec, ptr noundef nonnull align 8 dereferenceable(160) %config) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_09TIFFInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecERKS9_(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) %newspec, ptr noundef nonnull align 8 dereferenceable(160) %config) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp2 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
@@ -49234,7 +49234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput21read_native_scanlinesEiiiiiPvE3$_0SaIiEFviEEES6_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((16, 24)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput21read_native_scanlinesEiiiiiPvE3$_0SaIiEFviEEES6_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFviEEE, i64 16), ptr %_M_impl.i, align 8
@@ -49322,7 +49322,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput21read_native_scanlinesEiiiiiPvE3$_0SaIiEFviEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput21read_native_scanlinesEiiiiiPvE3$_0SaIiEFviEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFviEEE, i64 16), ptr %this, align 8
   %_M_result.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -49370,7 +49370,7 @@ _ZNSt13__future_base16_Task_state_baseIFviEED2Ev.exit: ; preds = %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput21read_native_scanlinesEiiiiiPvE3$_0SaIiEFviEED0Ev"(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput21read_native_scanlinesEiiiiiPvE3$_0SaIiEFviEED0Ev"(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFviEEE, i64 16), ptr %this, align 8
   %_M_result.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -51114,7 +51114,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput17read_native_tilesEiiiiiiiiPvE3$_0SaIiEFviEEES6_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((16, 24)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput17read_native_tilesEiiiiiiiiPvE3$_0SaIiEFviEEES6_LN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv"(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_impl.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFviEEE, i64 16), ptr %_M_impl.i, align 8
@@ -51202,7 +51202,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput17read_native_tilesEiiiiiiiiPvE3$_0SaIiEFviEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput17read_native_tilesEiiiiiiiiPvE3$_0SaIiEFviEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFviEEE, i64 16), ptr %this, align 8
   %_M_result.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -51250,7 +51250,7 @@ _ZNSt13__future_base16_Task_state_baseIFviEED2Ev.exit: ; preds = %_ZNSt10unique_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput17read_native_tilesEiiiiiiiiPvE3$_0SaIiEFviEED0Ev"(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt13__future_base11_Task_stateIZN18OpenImageIO_v2_6_09TIFFInput17read_native_tilesEiiiiiiiiPvE3$_0SaIiEFviEED0Ev"(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt13__future_base16_Task_state_baseIFviEEE, i64 16), ptr %this, align 8
   %_M_result.i.i = getelementptr inbounds i8, ptr %this, i64 32

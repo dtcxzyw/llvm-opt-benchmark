@@ -2472,7 +2472,7 @@ define dso_local range(i32 -22, -2147483648) i32 @generic_processor_info(i32 nou
 declare dso_local void @panic(ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__irq_msi_compose_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
+define dso_local void @__irq_msi_compose_msg(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   store i64 0, ptr %4, align 4
   store i32 -18874368, ptr %1, align 4

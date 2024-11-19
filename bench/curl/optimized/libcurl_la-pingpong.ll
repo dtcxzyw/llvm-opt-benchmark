@@ -252,7 +252,7 @@ declare i32 @Curl_pgrsUpdate(ptr noundef) local_unnamed_addr #1
 declare i32 @Curl_speedcheck(ptr noundef, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_pp_init(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly initializes((16, 33), (64, 76)) %pp) local_unnamed_addr #0 {
+define hidden void @Curl_pp_init(ptr nocapture noundef readonly %data, ptr nocapture noundef writeonly %pp) local_unnamed_addr #0 {
 entry:
   %nread_resp = getelementptr inbounds i8, ptr %pp, i64 16
   store i64 0, ptr %nread_resp, align 8
@@ -385,7 +385,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @Curl_pp_readresp(ptr noundef %data, i32 noundef %sockfd, ptr nocapture noundef %pp, ptr noundef initializes((0, 4)) %code, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #0 {
+define hidden i32 @Curl_pp_readresp(ptr noundef %data, i32 noundef %sockfd, ptr nocapture noundef %pp, ptr noundef %code, ptr nocapture noundef writeonly %size) local_unnamed_addr #0 {
 entry:
   %gotbytes = alloca i64, align 8
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
@@ -624,7 +624,7 @@ declare void @Curl_infof(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @Curl_memdup(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 1, 65537) i32 @Curl_pp_getsock(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %pp, ptr nocapture noundef writeonly initializes((0, 4)) %socks) local_unnamed_addr #5 {
+define hidden range(i32 1, 65537) i32 @Curl_pp_getsock(ptr nocapture noundef readonly %data, ptr nocapture noundef readonly %pp, ptr nocapture noundef writeonly %socks) local_unnamed_addr #5 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8

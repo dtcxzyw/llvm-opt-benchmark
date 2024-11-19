@@ -1876,7 +1876,7 @@ declare noundef double @_ZNK8QuantLib10IntegratorclERKSt8functionIFddEEdd(ptr no
 declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_123interpolated_volatilityD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8QuantLib12_GLOBAL__N_123interpolated_volatilityD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib13InterpolationE, i64 16), ptr %this, align 8, !tbaa !3
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24

@@ -415,7 +415,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRSimilarity17IRInstructionDataC2ERNS_11InstructionEbRNS0_21IRInstructionDataListE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12IRSimilarity17IRInstructionDataC2ERNS_11InstructionEbRNS0_21IRInstructionDataListE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %2 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -654,7 +654,7 @@ define dso_local noundef i32 @_ZN4llvm12IRSimilarity17IRInstructionData23predica
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRSimilarity17IRInstructionDataC2ERNS0_21IRInstructionDataListE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12IRSimilarity17IRInstructionDataC2ERNS0_21IRInstructionDataListE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1812,7 +1812,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm11InstVisitorINS_12IRSimilarity1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper18mapToLegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EE(ptr noundef nonnull align 8 dereferenceable(92) initializes((56, 57)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(10) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper18mapToLegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EE(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(10) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.82", align 8
   %6 = alloca %"struct.std::pair.85", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2080,7 +2080,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %107, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper20mapToIllegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EEb(ptr nocapture noundef nonnull align 8 dereferenceable(92) initializes((57, 58)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(10) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm12IRSimilarity19IRInstructionMapper20mapToIllegalUnsignedERNS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEERSt6vectorIjSaIjEERSA_IPNS0_17IRInstructionDataESaISF_EEb(ptr nocapture noundef nonnull align 8 dereferenceable(92) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(10) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 57
   store i8 0, ptr %6, align 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2474,7 +2474,7 @@ _ZN4llvm24SpecificBumpPtrAllocatorINS_12IRSimilarity21IRInstructionDataListEE8Al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12IRSimilarity21IRSimilarityCandidateC2EjjPNS0_17IRInstructionDataES3_(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 44), (48, 68), (72, 92), (96, 116)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12IRSimilarity21IRSimilarityCandidateC2EjjPNS0_17IRInstructionDataES3_(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -16649,7 +16649,7 @@ define internal noundef nonnull ptr @_ZL51initializeIRSimilarityIdentifierWrappe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm33IRSimilarityIdentifierWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm33IRSimilarityIdentifierWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.612, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

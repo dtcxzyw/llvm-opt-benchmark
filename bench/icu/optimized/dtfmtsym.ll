@@ -678,7 +678,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7523SharedDateFormatSymbolsD2Ev(ptr noundef nonnull align 8 dereferenceable(1296) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7523SharedDateFormatSymbolsD2Ev(ptr noundef nonnull align 8 dereferenceable(1296) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7523SharedDateFormatSymbolsE, i64 16), ptr %this, align 8
   %dfs = getelementptr inbounds i8, ptr %this, i64 24
@@ -870,7 +870,7 @@ lpad:                                             ; preds = %_ZN6icu_7514LocaleC
 declare void @_ZNK6icu_7512SharedObject9removeRefEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517DateFormatSymbolsC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) initializes((0, 8), (312, 322)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517DateFormatSymbolsC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517DateFormatSymbolsE, i64 16), ptr %this, align 8
   %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
@@ -917,7 +917,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517DateFormatSymbols14initializeDataERKNS_6LocaleEPKcR10UErrorCodea(ptr noundef nonnull align 8 dereferenceable(1272) initializes((8, 20), (24, 36), (40, 52), (56, 68), (72, 84), (88, 100), (104, 116), (120, 132), (136, 148), (152, 164), (168, 180), (184, 196), (200, 212), (216, 228), (232, 244), (248, 260), (264, 276), (280, 292), (296, 308)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status, i8 noundef signext %useLastResortData) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517DateFormatSymbols14initializeDataERKNS_6LocaleEPKcR10UErrorCodea(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status, i8 noundef signext %useLastResortData) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i2345 = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %agg.tmp.i2314 = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -7361,7 +7361,7 @@ declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517DateFormatSymbolsC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) initializes((0, 8), (312, 322)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517DateFormatSymbolsC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517DateFormatSymbolsE, i64 16), ptr %this, align 8
   %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
@@ -7409,7 +7409,7 @@ ehcleanup9:                                       ; preds = %lpad6, %lpad2
 declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517DateFormatSymbolsC2ERKNS_6LocaleEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) initializes((0, 8), (312, 322)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517DateFormatSymbolsC2ERKNS_6LocaleEPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517DateFormatSymbolsE, i64 16), ptr %this, align 8
   %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
@@ -7451,7 +7451,7 @@ ehcleanup8:                                       ; preds = %lpad6, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517DateFormatSymbolsC2EPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) initializes((0, 8), (312, 322)) %this, ptr noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517DateFormatSymbolsC2EPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef %type, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517DateFormatSymbolsE, i64 16), ptr %this, align 8
   %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
@@ -7497,7 +7497,7 @@ ehcleanup9:                                       ; preds = %lpad6, %lpad2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517DateFormatSymbolsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1272) initializes((0, 8), (312, 322)) %this, ptr noundef nonnull align 8 dereferenceable(1272) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517DateFormatSymbolsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr noundef nonnull align 8 dereferenceable(1272) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517DateFormatSymbolsE, i64 16), ptr %this, align 8
   %fTimeSeparator = getelementptr inbounds i8, ptr %this, i64 312
@@ -9887,7 +9887,7 @@ if.end101:                                        ; preds = %if.else97, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i(ptr nocapture noundef nonnull align 8 dereferenceable(8) %dstArray, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dstCount, ptr noundef %srcArray, i32 noundef %srcCount) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517DateFormatSymbols11assignArrayERPNS_13UnicodeStringERiPKS1_i(ptr nocapture noundef nonnull align 8 dereferenceable(8) %dstArray, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dstCount, ptr noundef %srcArray, i32 noundef %srcCount) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %srcArray, null
   br i1 %cmp, label %if.then, label %if.end
@@ -9955,7 +9955,7 @@ if.end7:                                          ; preds = %for.body, %if.end7.
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517DateFormatSymbols17createZoneStringsEPKPKNS_13UnicodeStringE(ptr nocapture noundef nonnull align 8 dereferenceable(1272) initializes((520, 528)) %this, ptr nocapture noundef readonly %otherStrings) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517DateFormatSymbols17createZoneStringsEPKPKNS_13UnicodeStringE(ptr nocapture noundef nonnull align 8 dereferenceable(1272) %this, ptr nocapture noundef readonly %otherStrings) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fZoneStringsRowCount = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load i32, ptr %fZoneStringsRowCount, align 8
@@ -12069,7 +12069,7 @@ return:                                           ; preds = %if.else, %land.rhs,
 declare noundef zeroext i1 @_ZNK6icu_756LocaleeqERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols7getErasERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols7getErasERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #10 align 2 {
 entry:
   %fErasCount = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %fErasCount, align 8
@@ -12080,7 +12080,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols11getEraNamesERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols11getEraNamesERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #10 align 2 {
 entry:
   %fEraNamesCount = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %fEraNamesCount, align 8
@@ -12091,7 +12091,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols13getNarrowErasERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols13getNarrowErasERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #10 align 2 {
 entry:
   %fNarrowErasCount = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load i32, ptr %fNarrowErasCount, align 8
@@ -12102,7 +12102,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols9getMonthsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #10 align 2 {
 entry:
   %fMonthsCount = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i32, ptr %fMonthsCount, align 8
@@ -12113,7 +12113,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getShortMonthsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getShortMonthsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #10 align 2 {
 entry:
   %fShortMonthsCount = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i32, ptr %fShortMonthsCount, align 8
@@ -12161,7 +12161,7 @@ sw.epilog13:                                      ; preds = %sw.bb6, %sw.bb, %sw
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols11getWeekdaysERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #10 align 2 {
 entry:
   %fWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load i32, ptr %fWeekdaysCount, align 8
@@ -12172,7 +12172,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols16getShortWeekdaysERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols16getShortWeekdaysERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #10 align 2 {
 entry:
   %fShortWeekdaysCount = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load i32, ptr %fShortWeekdaysCount, align 8
@@ -12265,7 +12265,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getAmPmStringsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getAmPmStringsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #10 align 2 {
 entry:
   %fAmPmsCount = getelementptr inbounds i8, ptr %this, i64 288
   %0 = load i32, ptr %fAmPmsCount, align 8
@@ -12276,7 +12276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols20getLeapMonthPatternsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols20getLeapMonthPatternsERi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count) local_unnamed_addr #10 align 2 {
 entry:
   %fLeapMonthPatternsCount = getelementptr inbounds i8, ptr %this, i64 480
   %0 = load i32, ptr %fLeapMonthPatternsCount, align 8
@@ -12287,7 +12287,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count, i32 noundef %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols12getYearNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count, i32 noundef %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
 entry:
   %fShortYearNamesCount = getelementptr inbounds i8, ptr %this, i64 496
   %2 = load i32, ptr %fShortYearNamesCount, align 8
@@ -12386,7 +12386,7 @@ if.end9:                                          ; preds = %_ZL14uprv_arrayCopy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %count, i32 noundef %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZodiacNamesERiNS0_13DtContextTypeENS0_11DtWidthTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %count, i32 noundef %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
 entry:
   %fShortZodiacNamesCount = getelementptr inbounds i8, ptr %this, i64 512
   %2 = load i32, ptr %fShortZodiacNamesCount, align 8
@@ -14673,7 +14673,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZoneStringsERiS1_(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %rowCount, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %columnCount) local_unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK6icu_7517DateFormatSymbols14getZoneStringsERiS1_(ptr noundef nonnull align 8 dereferenceable(1272) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %rowCount, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %columnCount) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @umtx_lock_75(ptr noundef nonnull @_ZZNK6icu_7517DateFormatSymbols14getZoneStringsERiS1_E4LOCK)
   %fZoneStrings = getelementptr inbounds i8, ptr %this, i64 520
@@ -15437,7 +15437,7 @@ if.end20:                                         ; preds = %cleanup, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6icu_7512_GLOBAL__N_116CalendarDataSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6icu_7512_GLOBAL__N_116CalendarDataSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512_GLOBAL__N_116CalendarDataSinkE, i64 16), ptr %this, align 8
   %arrays = getelementptr inbounds i8, ptr %this, i64 8
@@ -15708,7 +15708,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6icu_7512_GLOBAL__N_116CalendarDataSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(600) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN6icu_7512_GLOBAL__N_116CalendarDataSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(600) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_7512_GLOBAL__N_116CalendarDataSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %this) #17
   tail call void @_ZN6icu_757UMemorydlEPv(ptr noundef nonnull %this) #17

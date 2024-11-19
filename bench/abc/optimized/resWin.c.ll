@@ -2330,7 +2330,7 @@ define range(i32 0, 2) i32 @Res_WinIsTrivial(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Res_WinCompute(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 16)) %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Res_WinCompute(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   store ptr %0, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %1, ptr %5, align 8

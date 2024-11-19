@@ -126,7 +126,7 @@ define linkonce_odr hidden void @_ZN13NonJavaThread4ListD2Ev(ptr noundef nonnull
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13NonJavaThread8IteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13NonJavaThread8IteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 2, ptr nonnull align 8 dereferenceable(48) getelementptr inbounds (i8, ptr @_ZN13NonJavaThread9_the_listE, i64 8)) #11, !srcloc !6
   %3 = add i32 %2, 2
   store i32 %3, ptr %0, align 8
@@ -376,7 +376,7 @@ define hidden void @_ZN11NamedThreadC2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN11NamedThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(916) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTV11NamedThread, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 896
   %3 = load ptr, ptr %2, align 8

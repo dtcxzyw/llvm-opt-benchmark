@@ -159,7 +159,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9JSUDPWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 16)) %this, ptr noundef %env, ptr %obj.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9JSUDPWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %env, ptr %obj.coerce) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node11UDPWrapBaseE, i64 16), ptr %this, align 8
   %listener_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -767,7 +767,7 @@ declare ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef,
 declare { i8, i64 } @_ZNK2v85Value12IntegerValueENS_5LocalINS_7ContextEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9JSUDPWrap11GetPeerNameEv(ptr noalias sret(%"class.node::SocketAddress") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9JSUDPWrap11GetPeerNameEv(ptr noalias sret(%"class.node::SocketAddress") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %agg.result, align 8
   %call = tail call noundef zeroext i1 @_ZN4node13SocketAddress3NewEiPKcjPS0_(i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1337, ptr noundef nonnull %agg.result) #13
@@ -796,7 +796,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9JSUDPWrap11GetSockNameEv(ptr noalias sret(%"class.node::SocketAddress") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9JSUDPWrap11GetSockNameEv(ptr noalias sret(%"class.node::SocketAddress") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13SocketAddressE, i64 16), ptr %agg.result, align 8
   %call = tail call noundef zeroext i1 @_ZN4node13SocketAddress3NewEiPKcjPS0_(i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1337, ptr noundef nonnull %agg.result) #13

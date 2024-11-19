@@ -461,7 +461,7 @@ declare i32 @raxInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr n
 declare i32 @raxTryInsert(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @enableTracking(ptr noundef initializes((648, 656)) %c, i64 noundef %redirect_to, i64 noundef %options, ptr nocapture noundef readonly %prefix, i64 noundef %numprefix) local_unnamed_addr #0 {
+define dso_local void @enableTracking(ptr noundef %c, i64 noundef %redirect_to, i64 noundef %options, ptr nocapture noundef readonly %prefix, i64 noundef %numprefix) local_unnamed_addr #0 {
 entry:
   %flags = getelementptr inbounds i8, ptr %c, i64 8
   %0 = load i64, ptr %flags, align 8

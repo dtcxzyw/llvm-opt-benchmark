@@ -32,7 +32,7 @@ $_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPiS1_EEmRKi
 @_ZN3vas2ot13HungarianAlgoD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3vas2ot13HungarianAlgoD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3vas2ot13HungarianAlgoC2ERKN2cv4Mat_IfEE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 20), (24, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot13HungarianAlgoC2ERKN2cv4Mat_IfEE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4

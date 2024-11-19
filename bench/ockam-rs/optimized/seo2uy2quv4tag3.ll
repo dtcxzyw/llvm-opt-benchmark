@@ -29932,13 +29932,13 @@ define internal fastcc ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h5cae859833bd7b9cE"(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [251 x i32] }) align 8 dereferenceable(1016) initializes((0, 1016)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1016) %1) unnamed_addr #4 {
+define hidden void @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h5cae859833bd7b9cE"(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [251 x i32] }) align 8 dereferenceable(1016) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1016) %1) unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1016) %0, ptr noundef nonnull align 8 dereferenceable(1016) %1, i64 1016, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17hb2a8364435666d39E"(ptr noalias nocapture noundef writeonly sret({ i64, [299 x i64] }) align 8 dereferenceable(2400) initializes((0, 2400)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(2400) %1) unnamed_addr #4 {
+define hidden void @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17hb2a8364435666d39E"(ptr noalias nocapture noundef writeonly sret({ i64, [299 x i64] }) align 8 dereferenceable(2400) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(2400) %1) unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2400) %0, ptr noundef nonnull align 8 dereferenceable(2400) %1, i64 2400, i1 false)
   ret void
 }

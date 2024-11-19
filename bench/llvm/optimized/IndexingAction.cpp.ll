@@ -208,7 +208,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS0_17IndexDataConsumerEERKNS0_15IndexingOptionsES1_INS_12PreprocessorEESt8functionIFbPKNS_4DeclEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS0_17IndexDataConsumerEERKNS0_15IndexingOptionsES1_INS_12PreprocessorEESt8functionIFbPKNS_4DeclEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %"class.std::shared_ptr", align 8
   %7 = alloca %"class.std::shared_ptr.2", align 8
   %8 = alloca %"class.std::function", align 8
@@ -451,7 +451,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_116IndexASTConsumerESt14default_deleteIS1_EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS0_17IndexDataConsumerEERKNS0_15IndexingOptionsES1_INS_12PreprocessorEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang5index25createIndexingASTConsumerESt10shared_ptrINS0_17IndexDataConsumerEERKNS0_15IndexingOptionsES1_INS_12PreprocessorEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca %"class.std::function", align 8
   %6 = alloca %class.anon.13, align 8
   %7 = alloca %"class.std::shared_ptr", align 8
@@ -689,7 +689,7 @@ _ZNSt8functionIFbPKN5clang4DeclEEED2Ev.exit14:    ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5index20createIndexingActionESt10shared_ptrINS0_17IndexDataConsumerEERKNS0_15IndexingOptionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.14") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang5index20createIndexingActionESt10shared_ptrINS0_17IndexDataConsumerEERKNS0_15IndexingOptionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.14") align 8 %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
   %4 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #13, !noalias !7
   %5 = load ptr, ptr %1, align 8, !noalias !7
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1141,7 +1141,7 @@ _ZN5clang5index15IndexingContextD2Ev.exit:        ; preds = %._crit_edge, %54
 declare noundef zeroext i1 @_ZN5clang5index15IndexingContext17indexTopLevelDeclEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5index19indexMacrosCallbackERNS0_17IndexDataConsumerENS0_15IndexingOptionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.555") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang5index19indexMacrosCallbackERNS0_17IndexDataConsumerENS0_15IndexingOptionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.555") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.clang::index::IndexingOptions", align 8
   %5 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #13, !noalias !19
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1922,7 +1922,7 @@ _ZNSt10shared_ptrIN5clang5index17IndexDataConsumerEED2Ev.exit: ; preds = %_ZNSt1
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116IndexASTConsumerC2ESt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS3_15IndexingOptionsES1_INS2_12PreprocessorEESt8functionIFbPKNS2_4DeclEEE(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 9), (16, 96)) %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116IndexASTConsumerC2ESt10shared_ptrIN5clang5index17IndexDataConsumerEERKNS3_15IndexingOptionsES1_INS2_12PreprocessorEESt8functionIFbPKNS2_4DeclEEE(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.clang::index::IndexingOptions", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %7, align 8
@@ -3434,7 +3434,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang14FrontendAction22Prepar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111IndexAction17CreateASTConsumerERN5clang16CompilerInstanceEN4llvm9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::shared_ptr", align 8
   %7 = alloca %"class.std::shared_ptr.2", align 8
   %8 = alloca %"class.std::function", align 8

@@ -7883,7 +7883,7 @@ define hidden noundef i32 @_ZNK5clang6driver10toolchains6Darwin23GetDefaultCXXSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK5clang6driver10toolchains6Darwin21getDefaultObjCRuntimeEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ObjCRuntime") align 4 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(3824) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZNK5clang6driver10toolchains6Darwin21getDefaultObjCRuntimeEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ObjCRuntime") align 4 %0, ptr noundef nonnull align 8 dereferenceable(3824) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Triple", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -8209,7 +8209,7 @@ declare { ptr, i64 } @_ZNK5clang6driver9ToolChain27getDefaultUniversalArchNameEv
 declare noundef zeroext i1 @_ZN4llvm12VersionTuple8tryParseENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(16), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang6driver10toolchains6DarwinD2Ev(ptr noundef nonnull align 8 dereferenceable(3824) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN5clang6driver10toolchains6DarwinD2Ev(ptr noundef nonnull align 8 dereferenceable(3824) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 792) (i8, ptr @_ZTVN5clang6driver10toolchains6DarwinE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 3816
   %3 = load i8, ptr %2, align 8
@@ -8360,7 +8360,7 @@ _ZN5clang6driver10toolchains5MachOD2Ev.exit:      ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang6driver10toolchains5MachOD2Ev(ptr noundef nonnull align 8 dereferenceable(2212) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN5clang6driver10toolchains5MachOD2Ev(ptr noundef nonnull align 8 dereferenceable(2212) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 792) (i8, ptr @_ZTVN5clang6driver10toolchains5MachOE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   %3 = load ptr, ptr %2, align 8
@@ -8409,7 +8409,7 @@ _ZNSt10unique_ptrIN5clang6driver5tools6darwin4LipoESt14default_deleteIS4_EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang6driver10toolchains6DarwinD0Ev(ptr noundef nonnull align 8 dereferenceable(3824) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN5clang6driver10toolchains6DarwinD0Ev(ptr noundef nonnull align 8 dereferenceable(3824) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN5clang6driver10toolchains6DarwinD2Ev(ptr noundef nonnull align 8 dereferenceable(3824) %0) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 3824) #22
   ret void
@@ -8422,7 +8422,7 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare void @_ZN5clang6driver9ToolChainD2Ev(ptr noundef nonnull align 8 dereferenceable(2168)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang6driver10toolchains5MachOD0Ev(ptr noundef nonnull align 8 dereferenceable(2212) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN5clang6driver10toolchains5MachOD0Ev(ptr noundef nonnull align 8 dereferenceable(2212) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 792) (i8, ptr @_ZTVN5clang6driver10toolchains5MachOE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2184
   %3 = load ptr, ptr %2, align 8
@@ -25773,7 +25773,7 @@ _ZN4llvmlsINS_18raw_string_ostreamEcEENSt9enable_ifIXaantsr3stdE14is_reference_v
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt8optionalIN12_GLOBAL__N_114DarwinPlatformEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_IS6_ISt10in_place_tSD_EESt16is_constructibleIS1_JS9_EESt14is_convertibleIS9_S1_EEEbE4typeELb1EEEOS9_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 28, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -26627,7 +26627,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit41.thread47: ; preds = %_ZNK4llvm9Strin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114DarwinPlatform13createFromSDKEN5clang6driver10toolchains6Darwin18DarwinPlatformKindEN4llvm9StringRefEb(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 28)) %0, i32 noundef range(i32 0, 6) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114DarwinPlatform13createFromSDKEN5clang6driver10toolchains6Darwin18DarwinPlatformKindEN4llvm9StringRefEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, i32 noundef range(i32 0, 6) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)

@@ -223,7 +223,7 @@ define void @Llb_NonlinTrySubsetting(ptr noundef %0, ptr noundef %1) local_unnam
 declare ptr @Cudd_SubsetHeavyBranch(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Llb_NonlinPrepareVarMap(ptr nocapture noundef initializes((104, 136)) %0) local_unnamed_addr #3 {
+define void @Llb_NonlinPrepareVarMap(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 32

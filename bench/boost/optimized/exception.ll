@@ -2164,7 +2164,7 @@ _ZN5boost13intrusive_ptrINS_10filesystem16filesystem_error4implEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost10filesystem16filesystem_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost10filesystem16filesystem_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost10filesystem16filesystem_errorE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !6

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.72775910608dcbbd41351667e0644261.7 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr55drop_in_place$LT$diesel..result..UnexpectedEndOfRow$GT$17hd1924fd30bc7ec27E", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN71_$LT$diesel..result..UnexpectedEndOfRow$u20$as$u20$core..fmt..Debug$GT$3fmt17h4f3f56bc70061384E", ptr @"_ZN73_$LT$diesel..result..UnexpectedEndOfRow$u20$as$u20$core..fmt..Display$GT$3fmt17h0c54eef7e501ca4fE", ptr @anon.72775910608dcbbd41351667e0644261.6, ptr @_ZN4core5error5Error6source17h046e08365745112aE, ptr @_ZN4core5error5Error7type_id17hfd93e9eee3290300E, ptr @_ZN4core5error5Error11description17hc6e6d5d2ccf0e104E, ptr @_ZN4core5error5Error5cause17h60972e485089ca35E, ptr @_ZN4core5error5Error7provide17hdaa81d100798c32aE }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hd93ca783d397c5bbE"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17hd93ca783d397c5bbE"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
   %7 = ptrtoint ptr %2 to i64
@@ -572,7 +572,7 @@ define internal fastcc void @"_ZN74_$LT$T$u20$as$u20$diesel..deserialize..FromSt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN25diesel_demo_step_3_sqlite6models1_158_$LT$impl$u20$diesel..insertable..Insertable$LT$diesel_demo_step_3_sqlite..schema..posts..table$GT$$u20$for$u20$diesel_demo_step_3_sqlite..models..NewPost$GT$6values17ha107257fbb6cfdb4E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, { ptr, i64 } }, {} }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define void @"_ZN25diesel_demo_step_3_sqlite6models1_158_$LT$impl$u20$diesel..insertable..Insertable$LT$diesel_demo_step_3_sqlite..schema..posts..table$GT$$u20$for$u20$diesel_demo_step_3_sqlite..models..NewPost$GT$6values17ha107257fbb6cfdb4E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, { ptr, i64 } }, {} }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %1, align 8, !nonnull !4, !align !106, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4

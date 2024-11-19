@@ -55,7 +55,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_quic_fifd_pkt_commit(ptr noundef %fifd, ptr noundef initializes((40, 64), (112, 120)) %pkt) local_unnamed_addr #2 {
+define i32 @ossl_quic_fifd_pkt_commit(ptr noundef %fifd, ptr noundef %pkt) local_unnamed_addr #2 {
 entry:
   %fifd1 = getelementptr inbounds i8, ptr %pkt, i64 112
   store ptr %fifd, ptr %fifd1, align 8

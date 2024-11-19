@@ -4621,7 +4621,7 @@ define internal void @sd_unlock_native_capacity(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sd_getgeo(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #3 align 16 {
+define internal noundef i32 @sd_getgeo(ptr noundef %0, ptr nocapture noundef writeonly %1) #3 align 16 {
   %3 = alloca [4 x i32], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -5676,7 +5676,7 @@ define internal fastcc i32 @read_capacity_16(ptr nocapture noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @read_capacity_10(ptr nocapture noundef %0, ptr noundef %1, ptr noundef nonnull initializes((0, 8)) %2) unnamed_addr #3 align 16 {
+define internal fastcc i32 @read_capacity_10(ptr nocapture noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #3 align 16 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct.scsi_sense_hdr, align 8
   %6 = alloca %struct.scsi_exec_args, align 8
@@ -5839,7 +5839,7 @@ declare dso_local void @blk_queue_logical_block_size(ptr noundef, i32 noundef) l
 declare dso_local void @blk_queue_physical_block_size(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @read_capacity_error(ptr nocapture noundef initializes((760, 768)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 align 16 {
+define internal fastcc void @read_capacity_error(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #3 align 16 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %13
 
@@ -5915,7 +5915,7 @@ define internal fastcc void @read_capacity_error(ptr nocapture noundef initializ
 declare dso_local void @blk_queue_alignment_offset(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sd_config_discard(ptr nocapture noundef initializes((819, 820)) %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #3 align 16 {
+define internal fastcc void @sd_config_discard(ptr nocapture noundef %0, i32 noundef range(i32 0, -2147483648) %1) unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 736
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 80
@@ -6841,7 +6841,7 @@ declare void @llvm.write_register.i64(metadata, i64) #12
 declare dso_local void @scmd_printk(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc noundef zeroext range(i8 0, 33) i8 @sd_setup_protect_cmnd(ptr nocapture noundef initializes((152, 154)) %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #13 align 16 {
+define internal fastcc noundef zeroext range(i8 0, 33) i8 @sd_setup_protect_cmnd(ptr nocapture noundef %0, i32 noundef range(i32 0, 2) %1, i32 noundef range(i32 0, 4) %2) unnamed_addr #13 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -224
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %1, 0
@@ -7768,7 +7768,7 @@ define internal i64 @max_medium_access_timeouts_store(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef range(i64 5, 15) i64 @zoned_cap_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 6)) %2) #17 align 16 {
+define internal noundef range(i64 5, 15) i64 @zoned_cap_show(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #17 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 176

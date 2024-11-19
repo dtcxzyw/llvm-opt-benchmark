@@ -194,7 +194,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare void @abort() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_spawn(ptr noundef %loop, ptr noundef initializes((8, 20), (32, 48), (88, 92)) %process, ptr nocapture noundef readonly %options) local_unnamed_addr #0 {
+define dso_local i32 @uv_spawn(ptr noundef %loop, ptr noundef %process, ptr nocapture noundef readonly %options) local_unnamed_addr #0 {
 entry:
   %signewset.i.i = alloca %struct.__sigset_t, align 8
   %sigoldset.i.i = alloca %struct.__sigset_t, align 8

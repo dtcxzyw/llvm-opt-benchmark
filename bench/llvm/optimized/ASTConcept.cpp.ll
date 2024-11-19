@@ -36,7 +36,7 @@ $_ZN4llvm16FoldingSetNodeID10AddIntegerEy = comdat any
 @_ZN5clang25ASTConstraintSatisfactionC1ERKNS_10ASTContextERKS0_ = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5clang25ASTConstraintSatisfactionC2ERKNS_10ASTContextERKS0_
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang25ASTConstraintSatisfactionC2ERKNS_10ASTContextERKNS_22ConstraintSatisfactionE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 8 dereferenceable(184) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang25ASTConstraintSatisfactionC2ERKNS_10ASTContextERKNS_22ConstraintSatisfactionE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 8 dereferenceable(184) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #4
   store i64 %5, ptr %0, align 8
@@ -83,7 +83,7 @@ define dso_local void @_ZN5clang25ASTConstraintSatisfactionC2ERKNS_10ASTContextE
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10ASTContextERKN4llvm12PointerUnionIJPNS_4ExprEPSt4pairINS_14SourceLocationENS3_9StringRefEEEEEPSC_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.0.val, ptr nocapture noundef writeonly initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL33CreateUnsatisfiedConstraintRecordRKN5clang10ASTContextERKN4llvm12PointerUnionIJPNS_4ExprEPSt4pairINS_14SourceLocationENS3_9StringRefEEEEEPSC_(ptr noundef nonnull align 8 dereferenceable(23096) %0, i64 %.0.val, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = and i64 %.0.val, 2
   %4 = icmp eq i64 %3, 0
   %5 = and i64 %.0.val, -4
@@ -184,7 +184,7 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %35, %.critedge.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang25ASTConstraintSatisfactionC2ERKNS_10ASTContextERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang25ASTConstraintSatisfactionC2ERKNS_10ASTContextERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = load i64, ptr %2, align 8
   store i64 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

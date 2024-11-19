@@ -238,7 +238,7 @@ declare ptr @jv_mem_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare { i64, ptr } @jv_invalid() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @jq_util_input_set_parser(ptr nocapture noundef writeonly initializes((16, 24), (56, 72)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @jq_util_input_set_parser(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = icmp eq ptr %1, null
@@ -699,7 +699,7 @@ define { i64, ptr } @jq_util_input_get_current_line(ptr noundef %0) local_unname
 declare { i64, ptr } @jv_number(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @jq_util_input_read_more(ptr noundef initializes((72, 73), (4168, 4176)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @jq_util_input_read_more(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

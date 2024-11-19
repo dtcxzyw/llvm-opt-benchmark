@@ -22,7 +22,7 @@ define void @Ptngc_comp_canonical_dict(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @Ptngc_comp_make_dict_hist(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef initializes((0, 524304)) %4) local_unnamed_addr #1 {
+define void @Ptngc_comp_make_dict_hist(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef %4) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(524304) %4, i8 0, i64 524304, i1 false)
   %6 = icmp sgt i32 %1, 0
   br i1 %6, label %.lr.ph.preheader, label %.preheader.preheader

@@ -320,7 +320,7 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 @_ZN4llvm9symbolize14LLVMSymbolizerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm9symbolize14LLVMSymbolizerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizerC2Ev(ptr noundef nonnull align 8 dereferenceable(416) initializes((8, 12), (16, 24)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizerC2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -403,7 +403,7 @@ define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizerC2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizerC2ERKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(416) initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizerC2ERKNS1_7OptionsE(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2183,7 +2183,7 @@ _ZN4llvm8ExpectedIPNS_9symbolize18SymbolizableModuleEED2Ev.exit: ; preds = %16, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizer14symbolizeFrameERKNS_6object10ObjectFileENS2_16SectionedAddressE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.34") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(416) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizer14symbolizeFrameERKNS_6object10ObjectFileENS2_16SectionedAddressE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.34") align 8 %0, ptr noundef nonnull align 8 dereferenceable(416) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Expected.115", align 8
   %7 = alloca %"class.std::vector.310", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
@@ -2261,7 +2261,7 @@ _ZN4llvm9symbolize14LLVMSymbolizer20symbolizeFrameCommonINS_6object10ObjectFileE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizer14symbolizeFrameENS_9StringRefENS_6object16SectionedAddressE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.34") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(416) %1, ptr %2, i64 %3, i64 %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizer14symbolizeFrameENS_9StringRefENS_6object16SectionedAddressE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.34") align 8 %0, ptr noundef nonnull align 8 dereferenceable(416) %1, ptr %2, i64 %3, i64 %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Expected.115", align 8
   %8 = alloca %"class.std::vector.310", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
@@ -2339,7 +2339,7 @@ _ZN4llvm9symbolize14LLVMSymbolizer20symbolizeFrameCommonINS_9StringRefEEENS_8Exp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizer14symbolizeFrameENS_8ArrayRefIhEENS_6object16SectionedAddressE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.34") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(416) %1, ptr %2, i64 %3, i64 %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9symbolize14LLVMSymbolizer14symbolizeFrameENS_8ArrayRefIhEENS_6object16SectionedAddressE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.34") align 8 %0, ptr noundef nonnull align 8 dereferenceable(416) %1, ptr %2, i64 %3, i64 %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Expected.115", align 8
   %8 = alloca %"class.std::vector.310", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)

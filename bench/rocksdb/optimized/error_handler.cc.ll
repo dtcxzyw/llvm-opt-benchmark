@@ -410,7 +410,7 @@ _ZNSt8_Rb_treeISt5tupleIJN7rocksdb21BackgroundErrorReasonEbEESt4pairIKS3_NS1_6St
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12ErrorHandler19CancelErrorRecoveryEv(ptr noundef nonnull align 8 dereferenceable(288) initializes((152, 153)) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb12ErrorHandler19CancelErrorRecoveryEv(ptr noundef nonnull align 8 dereferenceable(288) %this) local_unnamed_addr #2 align 2 {
 entry:
   %db_mutex_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %db_mutex_, align 8

@@ -31,7 +31,7 @@ $_ZNSt6vectorItN8facebook5velox12StlAllocatorItEEE17_M_default_appendEm = comdat
 @_ZN8facebook5velox6common3hll8DenseHllC1EPKcPNS0_19HashStringAllocatorE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8facebook5velox6common3hll8DenseHllC2EPKcPNS0_19HashStringAllocatorE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common3hll8DenseHllC2EaPNS0_19HashStringAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) initializes((1, 2)) %this, i8 noundef signext %indexBitLength, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6common3hll8DenseHllC2EaPNS0_19HashStringAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) %this, i8 noundef signext %indexBitLength, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %baseline_ = getelementptr inbounds i8, ptr %this, i64 1
   store i8 0, ptr %baseline_, align 1
@@ -1599,7 +1599,7 @@ if.end:                                           ; preds = %if.then, %_ZN8faceb
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox6common3hll8DenseHllC2EPKcPNS0_19HashStringAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) initializes((1, 2)) %this, ptr nocapture noundef readonly %serialized, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox6common3hll8DenseHllC2EPKcPNS0_19HashStringAllocatorE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef readonly %serialized, ptr noundef %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %baseline_ = getelementptr inbounds i8, ptr %this, i64 1
   store i8 0, ptr %baseline_, align 1

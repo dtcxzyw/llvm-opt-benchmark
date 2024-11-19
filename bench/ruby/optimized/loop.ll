@@ -68,7 +68,7 @@ define internal range(i64 24, 17179869205) i64 @random_loop_memsize(ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @loop_init(ptr nocapture noundef initializes((8, 12)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
+define internal void @loop_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) #0 {
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %2, i64 1024)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -90,7 +90,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %3, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @loop_init_int32(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1) #0 {
+define internal void @loop_init_int32(ptr nocapture noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call nonnull dereferenceable(4) ptr @ruby_xrealloc2(ptr noundef %4, i64 noundef 1, i64 noundef 4) #11

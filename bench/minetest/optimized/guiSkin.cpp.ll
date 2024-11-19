@@ -61,7 +61,7 @@ $_ZTIN3irr3gui8IGUISkinE = comdat any
 @_ZTIN3irr3gui7GUISkinE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr3gui7GUISkinE, ptr @_ZTIN3irr3gui8IGUISkinE }, align 8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkinC2ENS0_14EGUI_SKIN_TYPEEPNS_5video12IVideoDriverE(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8), (336, 344)) %this, ptr nocapture noundef readonly %vtt, i32 noundef %type, ptr noundef %driver) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui7GUISkinC2ENS0_14EGUI_SKIN_TYPEEPNS_5video12IVideoDriverE(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr nocapture noundef readonly %vtt, i32 noundef %type, ptr noundef %driver) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -424,7 +424,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3irr3gui7GUISkinC1ENS0_14EGUI_SKIN_TYPEEPNS_5video12IVideoDriverE(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8), (336, 344), (616, 636)) %this, i32 noundef %type, ptr noundef %driver) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui7GUISkinC1ENS0_14EGUI_SKIN_TYPEEPNS_5video12IVideoDriverE(ptr noundef nonnull align 8 dereferenceable(616) %this, i32 noundef %type, ptr noundef %driver) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 616
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 624
@@ -766,7 +766,7 @@ _ZN3irr4core6stringIwED2Ev.exit.7:                ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3irr3gui7GUISkinD2Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3irr3gui7GUISkinD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
@@ -1074,7 +1074,7 @@ _ZN3irr4core6stringIwED2Ev.exit.7:                ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3irr3gui7GUISkinD1Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkinD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN3irr3gui7GUISkinD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull @_ZTTN3irr3gui7GUISkinE) #19
   ret void
@@ -1092,7 +1092,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3irr3gui7GUISkinD0Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkinD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN3irr3gui7GUISkinD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull @_ZTTN3irr3gui7GUISkinE) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
@@ -3002,7 +3002,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3irr3gui7GUISkin9getColorsEPNS_5video6SColorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, ptr nocapture noundef writeonly initializes((0, 100)) %colors) unnamed_addr #8 align 2 {
+define dso_local void @_ZN3irr3gui7GUISkin9getColorsEPNS_5video6SColorE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %this, ptr nocapture noundef writeonly %colors) unnamed_addr #8 align 2 {
 entry:
   %Colors = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %Colors, align 8, !tbaa !23

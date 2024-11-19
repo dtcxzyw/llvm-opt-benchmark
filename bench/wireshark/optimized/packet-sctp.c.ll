@@ -1078,7 +1078,7 @@ define internal void @type_fields_type_id_set_cb(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @type_fields_type_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @type_fields_type_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load i32, ptr %0, align 8
   %7 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.457, i32 noundef %6) #17
   store ptr %7, ptr %1, align 8
@@ -1102,7 +1102,7 @@ define internal void @type_fields_type_name_set_cb(ptr nocapture noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @type_fields_type_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @type_fields_type_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1130,7 +1130,7 @@ define internal void @type_fields_type_name_tostr_cb(ptr nocapture noundef reado
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @type_fields_type_enable_set_cb(ptr nocapture noundef writeonly initializes((16, 20)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @type_fields_type_enable_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #17
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1222,7 +1222,7 @@ define internal void @type_fields_type_enable_tostr_cb(ptr nocapture noundef rea
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @sctp_chunk_type_copy_cb(ptr noundef returned writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @sctp_chunk_type_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noalias ptr @g_strdup(ptr noundef %5) #17
@@ -1232,7 +1232,7 @@ define internal noundef ptr @sctp_chunk_type_copy_cb(ptr noundef returned writeo
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @sctp_chunk_type_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @sctp_chunk_type_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1306,7 +1306,7 @@ declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_sctp(ptr noundef %0, ptr noundef initializes((280, 292)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_sctp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
 .critedge:
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
@@ -1500,7 +1500,7 @@ declare void @register_decode_as(ptr noundef) local_unnamed_addr #1
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sctp_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @sctp_conversation_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 32
@@ -1522,7 +1522,7 @@ define internal noundef i32 @sctp_conversation_packet(ptr noundef initializes((2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sctp_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @sctp_endpoint_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 32

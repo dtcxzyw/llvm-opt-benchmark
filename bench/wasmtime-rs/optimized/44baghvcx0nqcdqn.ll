@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14wasmtime_fiber10FiberStack3new17h9461c1ebb33319baE(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) initializes((0, 1), (8, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define void @_ZN14wasmtime_fiber10FiberStack3new17h9461c1ebb33319baE(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca { i8, [23 x i8] }, align 8
   %.sroa.0.sroa.5 = alloca [7 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.0.sroa.5)
@@ -44,7 +44,7 @@ define void @_ZN14wasmtime_fiber10FiberStack3new17h9461c1ebb33319baE(ptr noalias
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14wasmtime_fiber10FiberStack11from_custom17he09bd23a0767ad83E(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) initializes((0, 1), (8, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
+define void @_ZN14wasmtime_fiber10FiberStack11from_custom17he09bd23a0767ad83E(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #1 {
   %4 = ptrtoint ptr %2 to i64
   store i8 1, ptr %0, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -55,7 +55,7 @@ define void @_ZN14wasmtime_fiber10FiberStack11from_custom17he09bd23a0767ad83E(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14wasmtime_fiber10FiberStack14from_raw_parts17h7f1129779c226421E(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) initializes((0, 2), (8, 24)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
+define void @_ZN14wasmtime_fiber10FiberStack14from_raw_parts17h7f1129779c226421E(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   store i8 0, ptr %0, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1

@@ -147,7 +147,7 @@ $_ZN10tinyformat6detail9FormatArg9toIntImplIPKcEEiPKv = comdat any
 @_ZN7mitsuba16MemoryMappedFileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7mitsuba16MemoryMappedFileD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba16MemoryMappedFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba16MemoryMappedFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__1::basic_string", align 8
   %3 = alloca %"class.mitsuba::filesystem::path", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -302,7 +302,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 declare void @_ZN7mitsuba6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba16MemoryMappedFileC2ERKNS_10filesystem4pathEm(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba16MemoryMappedFileC2ERKNS_10filesystem4pathEm(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__1::basic_string", align 8
   %5 = alloca %"class.std::__1::basic_string", align 8
   %6 = alloca %"class.mitsuba::filesystem::path", align 8
@@ -724,7 +724,7 @@ _ZNSt3__110unique_ptrIN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivateENS_14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba16MemoryMappedFileC2ERKNS_10filesystem4pathEb(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba16MemoryMappedFileC2ERKNS_10filesystem4pathEb(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(25) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__1::basic_string", align 8
   %5 = alloca %"class.std::__1::basic_string", align 8
   %6 = alloca %"class.mitsuba::filesystem::path", align 8
@@ -1091,7 +1091,7 @@ define linkonce_odr void @_ZN7mitsuba16MemoryMappedFile23MemoryMappedFilePrivate
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7mitsuba16MemoryMappedFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba16MemoryMappedFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__1::basic_string", align 8
   %3 = alloca ptr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba16MemoryMappedFileE, i64 16), ptr %0, align 8

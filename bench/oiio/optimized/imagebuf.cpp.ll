@@ -1488,7 +1488,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18OpenImageIO_v2_6_07get_roiERKNS_9ImageSpecE(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %spec) local_unnamed_addr #5 {
+define void @_ZN18OpenImageIO_v2_6_07get_roiERKNS_9ImageSpecE(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %spec) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %spec, align 8
   %width = getelementptr inbounds i8, ptr %spec, i64 12
@@ -1525,7 +1525,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18OpenImageIO_v2_6_012get_roi_fullERKNS_9ImageSpecE(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %spec) local_unnamed_addr #5 {
+define void @_ZN18OpenImageIO_v2_6_012get_roi_fullERKNS_9ImageSpecE(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %spec) local_unnamed_addr #5 {
 entry:
   %full_x = getelementptr inbounds i8, ptr %spec, i64 24
   %0 = load i32, ptr %full_x, align 8
@@ -1563,7 +1563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18OpenImageIO_v2_6_07set_roiERNS_9ImageSpecERKNS_3ROIE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 24)) %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %newroi) local_unnamed_addr #5 {
+define void @_ZN18OpenImageIO_v2_6_07set_roiERNS_9ImageSpecERKNS_3ROIE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %newroi) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %newroi, align 4
   store i32 %0, ptr %spec, align 8
@@ -1597,7 +1597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18OpenImageIO_v2_6_012set_roi_fullERNS_9ImageSpecERKNS_3ROIE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((24, 48)) %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %newroi) local_unnamed_addr #5 {
+define void @_ZN18OpenImageIO_v2_6_012set_roi_fullERNS_9ImageSpecERKNS_3ROIE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %spec, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %newroi) local_unnamed_addr #5 {
 entry:
   %0 = load i32, ptr %newroi, align 4
   %full_x = getelementptr inbounds i8, ptr %spec, i64 24
@@ -1647,7 +1647,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_012ImageBufImplC2ENS_17basic_string_viewIcSt11char_traitsIcEEEiiPNS_10ImageCacheEPKNS_9ImageSpecEPvS9_PNS_10Filesystem7IOProxyElll(ptr noundef nonnull align 8 dereferenceable(664) initializes((0, 4), (8, 44)) %this, ptr nocapture noundef readonly %filename, i32 noundef %subimage, i32 noundef %miplevel, ptr noundef %imagecache, ptr noundef %spec, ptr noundef %buffer, ptr noundef %config, ptr noundef %ioproxy, i64 noundef %xstride, i64 noundef %ystride, i64 noundef %zstride) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_012ImageBufImplC2ENS_17basic_string_viewIcSt11char_traitsIcEEEiiPNS_10ImageCacheEPKNS_9ImageSpecEPvS9_PNS_10Filesystem7IOProxyElll(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr nocapture noundef readonly %filename, i32 noundef %subimage, i32 noundef %miplevel, ptr noundef %imagecache, ptr noundef %spec, ptr noundef %buffer, ptr noundef %config, ptr noundef %ioproxy, i64 noundef %xstride, i64 noundef %ystride, i64 noundef %zstride) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp2 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
@@ -2466,7 +2466,7 @@ _ZNSt6vectorIN18OpenImageIO_v2_6_08TypeDescESaIS1_EED2Ev.exit: ; preds = %_ZNSt6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_012ImageBufImplC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(664) initializes((0, 4), (8, 44)) %this, ptr noundef nonnull align 8 dereferenceable(664) %src) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_012ImageBufImplC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull align 8 dereferenceable(664) %src) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp68 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
@@ -4313,7 +4313,7 @@ eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_012ImageBufImpl5allocERKNS_9ImageSpecEPS2_(ptr noundef nonnull align 8 dereferenceable(664) initializes((48, 120)) %this, ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef %nativespec) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN18OpenImageIO_v2_6_012ImageBufImpl5allocERKNS_9ImageSpecEPS2_(ptr noundef nonnull align 8 dereferenceable(664) %this, ptr noundef nonnull align 8 dereferenceable(160) %spec, ptr noundef %nativespec) local_unnamed_addr #6 align 2 {
 entry:
   %m_spec = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %m_spec, ptr noundef nonnull align 8 dereferenceable(160) %spec, i64 72, i1 false)
@@ -4596,7 +4596,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN18OpenImageIO_v2_6_08ImageBufC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) unnamed_addr #5 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08ImageBufC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %src) unnamed_addr #5 align 2 {
 entry:
   %0 = load i64, ptr %src, align 8
   store i64 %0, ptr %this, align 8
@@ -13067,7 +13067,7 @@ return:                                           ; preds = %sw.epilog253, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18OpenImageIO_v2_6_08ImageBuf3roiEv(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_08ImageBuf3roiEv(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
@@ -14005,7 +14005,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK18OpenImageIO_v2_6_08ImageBuf4nameEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #14 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_08ImageBuf4nameEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #14 align 2 {
 entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
@@ -15010,7 +15010,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK18OpenImageIO_v2_6_08ImageBuf5unameEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::ustring") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #15 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_08ImageBuf5unameEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::ustring") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #15 align 2 {
 entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
@@ -15021,7 +15021,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18OpenImageIO_v2_6_08ImageBuf16file_format_nameEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_08ImageBuf16file_format_nameEv(ptr noalias nocapture writeonly sret(%"class.OpenImageIO_v2_6_0::basic_string_view") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
@@ -15145,7 +15145,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18OpenImageIO_v2_6_08ImageBuf9pixeltypeEv(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::TypeDesc") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_08ImageBuf9pixeltypeEv(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::TypeDesc") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
@@ -48824,7 +48824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18OpenImageIO_v2_6_08ImageBuf8roi_fullEv(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_08ImageBuf8roi_fullEv(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::ROI") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #6 align 2 {
 entry:
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i, align 8
@@ -49605,7 +49605,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_NS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) initializes((0, 36), (60, 80), (96, 100), (104, 125)) %this, ptr noundef nonnull align 8 dereferenceable(16) %ib, i32 noundef %wrap, i1 noundef zeroext %write) unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_NS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %this, ptr noundef nonnull align 8 dereferenceable(16) %ib, i32 noundef %wrap, i1 noundef zeroext %write) unnamed_addr #6 align 2 {
 entry:
   store ptr %ib, ptr %this, align 8
   %m_valid = getelementptr inbounds i8, ptr %this, i64 8
@@ -49679,7 +49679,7 @@ if.end:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7init_ibENS0_8WrapModeEb(ptr nocapture noundef nonnull align 8 dereferenceable(125) initializes((10, 36), (60, 72), (96, 100), (104, 112), (120, 124)) %this, i32 noundef %wrap, i1 noundef zeroext %write) local_unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7init_ibENS0_8WrapModeEb(ptr nocapture noundef nonnull align 8 dereferenceable(125) %this, i32 noundef %wrap, i1 noundef zeroext %write) local_unnamed_addr #6 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %0 = load ptr, ptr %this, align 8
@@ -50082,7 +50082,7 @@ return:                                           ; preds = %if.end56, %if.end39
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_iiiNS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) initializes((0, 36), (60, 80), (96, 100), (104, 125)) %this, ptr noundef nonnull align 8 dereferenceable(16) %ib, i32 noundef %x, i32 noundef %y, i32 noundef %z, i32 noundef %wrap, i1 noundef zeroext %write) unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_iiiNS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %this, ptr noundef nonnull align 8 dereferenceable(16) %ib, i32 noundef %x, i32 noundef %y, i32 noundef %z, i32 noundef %wrap, i1 noundef zeroext %write) unnamed_addr #6 align 2 {
 entry:
   store ptr %ib, ptr %this, align 8
   %m_valid = getelementptr inbounds i8, ptr %this, i64 8
@@ -50125,7 +50125,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) initializes((0, 36), (60, 80), (96, 100), (104, 125)) %this, ptr noundef nonnull align 8 dereferenceable(16) %ib, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %roi, i32 noundef %wrap, i1 noundef zeroext %write) unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_RKNS_3ROIENS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %this, ptr noundef nonnull align 8 dereferenceable(16) %ib, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %roi, i32 noundef %wrap, i1 noundef zeroext %write) unnamed_addr #6 align 2 {
 entry:
   store ptr %ib, ptr %this, align 8
   %m_valid = getelementptr inbounds i8, ptr %this, i64 8
@@ -50238,7 +50238,7 @@ if.end15:                                         ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_iiiiiiNS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) initializes((0, 36), (60, 80), (96, 100), (104, 125)) %this, ptr noundef nonnull align 8 dereferenceable(16) %ib, i32 noundef %xbegin, i32 noundef %xend, i32 noundef %ybegin, i32 noundef %yend, i32 noundef %zbegin, i32 noundef %zend, i32 noundef %wrap, i1 noundef zeroext %write) unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS0_iiiiiiNS0_8WrapModeEb(ptr noundef nonnull align 8 dereferenceable(125) %this, ptr noundef nonnull align 8 dereferenceable(16) %ib, i32 noundef %xbegin, i32 noundef %xend, i32 noundef %ybegin, i32 noundef %yend, i32 noundef %zbegin, i32 noundef %zend, i32 noundef %wrap, i1 noundef zeroext %write) unnamed_addr #6 align 2 {
 entry:
   store ptr %ib, ptr %this, align 8
   %m_valid = getelementptr inbounds i8, ptr %this, i64 8
@@ -50300,7 +50300,7 @@ if.end:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(125) initializes((0, 80), (96, 100), (104, 125)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %i) unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(125) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %i) unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %i, align 8
   store ptr %0, ptr %this, align 8
@@ -50418,7 +50418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(125) ptr @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(125) initializes((10, 72), (96, 100), (104, 124)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %i) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(125) ptr @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(125) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(125) %i) local_unnamed_addr #6 align 2 {
 entry:
   %m_tile = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_tile, align 8
@@ -50627,7 +50627,7 @@ if.end25:                                         ; preds = %if.then4, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase24pos_xincr_local_past_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(125) initializes((9, 10), (112, 120)) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase24pos_xincr_local_past_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(125) %this) local_unnamed_addr #6 align 2 {
 entry:
   %x = alloca i32, align 4
   %y = alloca i32, align 4
@@ -50721,7 +50721,7 @@ if.end13:                                         ; preds = %if.end.i.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) initializes((36, 72), (120, 124)) %this, i32 noundef %xbegin, i32 noundef %xend, i32 noundef %ybegin, i32 noundef %yend, i32 noundef %zbegin, i32 noundef %zend, i32 noundef %wrap) local_unnamed_addr #6 align 2 {
+define void @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBase7rerangeEiiiiiiNS0_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(125) %this, i32 noundef %xbegin, i32 noundef %xend, i32 noundef %ybegin, i32 noundef %yend, i32 noundef %zbegin, i32 noundef %zend, i32 noundef %wrap) local_unnamed_addr #6 align 2 {
 entry:
   %m_x = getelementptr inbounds i8, ptr %this, i64 60
   store i32 -2147483648, ptr %m_x, align 4

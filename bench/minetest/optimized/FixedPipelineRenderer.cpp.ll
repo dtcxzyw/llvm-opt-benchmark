@@ -91,7 +91,7 @@ $_ZTIN3irr5video26IShaderConstantSetCallBackE = comdat any
 @_ZTIN3irr5video33COpenGL3MaterialOneTextureBlendCBE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr5video33COpenGL3MaterialOneTextureBlendCBE, ptr @_ZTIN3irr5video22COpenGL3MaterialBaseCBE }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video22COpenGL3MaterialBaseCBC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(180) initializes((0, 9), (12, 53), (56, 180)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video22COpenGL3MaterialBaseCBC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(180) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -140,7 +140,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video22COpenGL3MaterialBaseCBC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(180) initializes((0, 9), (12, 53), (56, 180), (184, 204)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr5video22COpenGL3MaterialBaseCBC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(180) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 184
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 192
@@ -179,7 +179,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video22COpenGL3MaterialBaseCB13OnSetMaterialERKNS0_9SMaterialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(180) initializes((52, 53), (72, 144), (176, 180)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(178) %material) unnamed_addr #2 align 2 {
+define void @_ZN3irr5video22COpenGL3MaterialBaseCB13OnSetMaterialERKNS0_9SMaterialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(180) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(178) %material) unnamed_addr #2 align 2 {
 entry:
   %Lighting = getelementptr inbounds i8, ptr %material, i64 176
   %bf.load = load i16, ptr %Lighting, align 8
@@ -731,7 +731,7 @@ if.end95:                                         ; preds = %if.then66, %_ZN3irr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video23COpenGL3MaterialSolidCBC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) initializes((0, 9), (12, 53), (56, 181), (184, 212)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video23COpenGL3MaterialSolidCBC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -799,7 +799,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video23COpenGL3MaterialSolidCBC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) initializes((0, 9), (12, 53), (56, 181), (184, 212), (216, 236)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr5video23COpenGL3MaterialSolidCBC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 216
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 224
@@ -848,7 +848,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video23COpenGL3MaterialSolidCB13OnSetMaterialERKNS0_9SMaterialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) initializes((52, 53), (72, 144), (176, 180), (200, 208)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(178) %material) unnamed_addr #2 align 2 {
+define void @_ZN3irr5video23COpenGL3MaterialSolidCB13OnSetMaterialERKNS0_9SMaterialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(178) %material) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN3irr5video22COpenGL3MaterialBaseCB13OnSetMaterialERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(180) %this, ptr noundef nonnull align 8 dereferenceable(178) %material)
   %MaterialTypeParam = getelementptr inbounds i8, ptr %material, i64 152
@@ -944,7 +944,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5video33COpenGL3MaterialOneTextureBlendCBC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) initializes((0, 9), (12, 53), (56, 181), (184, 212)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video33COpenGL3MaterialOneTextureBlendCBC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -1012,7 +1012,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5video33COpenGL3MaterialOneTextureBlendCBC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) initializes((0, 9), (12, 53), (56, 181), (184, 212), (216, 236)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr5video33COpenGL3MaterialOneTextureBlendCBC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 216
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 224
@@ -1061,7 +1061,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5video33COpenGL3MaterialOneTextureBlendCB13OnSetMaterialERKNS0_9SMaterialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) initializes((52, 53), (72, 144), (176, 180), (200, 208)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(178) %material) unnamed_addr #2 align 2 {
+define void @_ZN3irr5video33COpenGL3MaterialOneTextureBlendCB13OnSetMaterialERKNS0_9SMaterialE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(178) %material) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN3irr5video22COpenGL3MaterialBaseCB13OnSetMaterialERKNS0_9SMaterialE(ptr noundef nonnull align 8 dereferenceable(180) %this, ptr noundef nonnull align 8 dereferenceable(178) %material)
   %BlendType = getelementptr inbounds i8, ptr %this, i64 200

@@ -191,7 +191,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix3PosC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (56, 57)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix3PosC2EPKS0_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.anon.48, align 8
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -258,7 +258,7 @@ _ZNSt8__detail9__variant13_Variant_baseIJSt9monostateN3nix3Pos5StdinENS4_6String
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3nix3PoscvSt10shared_ptrIS0_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3nix3PoscvSt10shared_ptrIS0_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   store ptr null, ptr %0, align 8, !alias.scope !4
   %3 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #22, !noalias !7

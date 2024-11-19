@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @strvec_init(ptr nocapture noundef writeonly initializes((0, 24)) %array) local_unnamed_addr #0 {
+define dso_local void @strvec_init(ptr nocapture noundef writeonly %array) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %array, ptr noundef nonnull align 8 dereferenceable(24) @__const.strvec_init.blank, i64 24, i1 false)
   ret void

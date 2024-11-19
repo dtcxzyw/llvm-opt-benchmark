@@ -253,7 +253,7 @@ define noundef ptr @_ZNK4LIEF5MachO10Relocation7segmentEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO10Relocation4typeEh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((32, 33)) %0, i8 noundef zeroext %1) unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO10Relocation4typeEh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i8 noundef zeroext %1) unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %1, ptr %3, align 8
   ret void

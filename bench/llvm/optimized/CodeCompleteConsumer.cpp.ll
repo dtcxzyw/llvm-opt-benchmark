@@ -244,7 +244,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang20CodeCompletionString5ChunkC2ENS0_9ChunkKindEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang20CodeCompletionString5ChunkC2ENS0_9ChunkKindEPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #2 align 2 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @.str.39, ptr %4, align 8
@@ -389,7 +389,7 @@ define dso_local { i32, ptr } @_ZN5clang20CodeCompletionString5Chunk22CreateCurr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang20CodeCompletionStringC2EPKNS0_5ChunkEjj18CXAvailabilityKindPPKcjN4llvm9StringRefES6_(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((8, 32)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7, ptr noundef %8) unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang20CodeCompletionStringC2EPKNS0_5ChunkEjj18CXAvailabilityKindPPKcjN4llvm9StringRefES6_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readonly %5, i32 noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %7, ptr noundef %8) unnamed_addr #4 align 2 {
   %10 = zext i32 %2 to i64
   %11 = load i64, ptr %0, align 8
   %12 = and i64 %11, -1125899906842624
@@ -1892,7 +1892,7 @@ _ZNK5clang11DeclContext18isFunctionOrMethodEv.exit.thread: ; preds = %2, %2, %2,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21CodeCompletionBuilder15addBriefCommentEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((40, 48)) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang21CodeCompletionBuilder15addBriefCommentEN4llvm9StringRefE(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 32

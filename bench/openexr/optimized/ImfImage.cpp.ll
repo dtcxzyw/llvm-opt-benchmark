@@ -114,7 +114,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_25ImageC2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 56)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_25ImageC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_25ImageE, i64 16), ptr %this, align 8
   %_dataWindow = getelementptr inbounds i8, ptr %this, i64 8
@@ -162,7 +162,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_25ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 24)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_25ImageD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_25ImageE, i64 16), ptr %this, align 8
   %_dataWindow.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -303,7 +303,7 @@ terminate.lpad:                                   ; preds = %for.end16.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_25Image11clearLevelsEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((8, 24)) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN7Imf_3_25Image11clearLevelsEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #6 align 2 {
 entry:
   %_dataWindow = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %_dataWindow, align 8
@@ -912,7 +912,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE(ptr noundef nonnull align 8 dereferenceable(104) initializes((8, 24)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, i32 noundef %levelMode, i32 noundef %levelRoundingMode) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_25Image6resizeERKN9Imath_3_23BoxINS1_4Vec2IiEEEENS_9LevelModeENS_17LevelRoundingModeE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %dataWindow, i32 noundef %levelMode, i32 noundef %levelRoundingMode) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %levelDataWindow = alloca %"class.Imath_3_2::Box", align 4
   %_dataWindow.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3070,7 +3070,7 @@ unreachable:                                      ; preds = %invoke.cont12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7Imf_3_25Image11ChannelInfoC2ENS_9PixelTypeEiib(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(13) initializes((0, 13)) %this, i32 noundef %type, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear) unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_25Image11ChannelInfoC2ENS_9PixelTypeEiib(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(13) %this, i32 noundef %type, i32 noundef %xSampling, i32 noundef %ySampling, i1 noundef zeroext %pLinear) unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %pLinear to i8
   store i32 %type, ptr %this, align 4

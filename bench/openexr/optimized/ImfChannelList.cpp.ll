@@ -53,7 +53,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN7Imf_3_27ChannelC1ENS_9PixelTypeEiib = unnamed_addr alias void (ptr, i32, i32, i32, i1), ptr @_ZN7Imf_3_27ChannelC2ENS_9PixelTypeEiib
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7Imf_3_27ChannelC2ENS_9PixelTypeEiib(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(13) initializes((0, 13)) %this, i32 noundef %t, i32 noundef %xs, i32 noundef %ys, i1 noundef zeroext %pl) unnamed_addr #0 align 2 {
+define void @_ZN7Imf_3_27ChannelC2ENS_9PixelTypeEiib(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(13) %this, i32 noundef %t, i32 noundef %xs, i32 noundef %ys, i1 noundef zeroext %pl) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %pl to i8
   store i32 %t, ptr %this, align 4

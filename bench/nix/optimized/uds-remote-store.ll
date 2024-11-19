@@ -1574,7 +1574,7 @@ _ZN3nix20UDSRemoteStoreConfig3docB5cxx11Ev.exit:  ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3nix14UDSRemoteStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (40, 41)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %2) unnamed_addr #7 align 2 {
+define void @_ZN3nix14UDSRemoteStoreC2ERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %2) unnamed_addr #7 align 2 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3947,7 +3947,7 @@ _ZN3nix19OptionalPathSettingD2Ev.exit:            ; preds = %_ZNSt8optionalINSt7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix14UDSRemoteStoreC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (40, 41)) %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix14UDSRemoteStoreC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RKSt3mapIS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr nocapture noundef readnone %2, ptr noundef nonnull %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %4) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt19_Optional_base_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14_Optional_baseIS5_Lb0ELb0EEE8_M_resetEv.exit.i:
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8

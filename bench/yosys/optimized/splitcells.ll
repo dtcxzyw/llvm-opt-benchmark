@@ -8297,7 +8297,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNK5Yosys5RTLIL6Design16selected_modulesEv(ptr dead_on_unwind writable sret(%"class.std::vector.3") align 8, ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116SplitcellsWorkerC2EPN5Yosys5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 56), (64, 88)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116SplitcellsWorkerC2EPN5Yosys5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [75 x i32], align 4
   %4 = alloca %"class.std::allocator.10", align 1
   %5 = alloca [75 x i32], align 4

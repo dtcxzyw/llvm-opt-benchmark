@@ -531,7 +531,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26YoYInflationCapFloorEngineC2EN5boost10shared_ptrINS_17YoYInflationIndexEEENS_6HandleINS_29YoYOptionletVolatilitySurfaceEEENS5_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(496) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %index, ptr nocapture noundef %volatility, ptr nocapture noundef %nominalTermStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26YoYInflationCapFloorEngineC2EN5boost10shared_ptrINS_17YoYInflationIndexEEENS_6HandleINS_29YoYOptionletVolatilitySurfaceEEENS5_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr nocapture noundef %index, ptr nocapture noundef %volatility, ptr nocapture noundef %nominalTermStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp5 = alloca %"class.boost::shared_ptr", align 8
@@ -3712,7 +3712,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_25YoYInflationTermStructureEE4LinkEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31YoYInflationBlackCapFloorEngineC2ERKN5boost10shared_ptrINS_17YoYInflationIndexEEERKNS_6HandleINS_29YoYOptionletVolatilitySurfaceEEERKNS7_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(496) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %nominalTermStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31YoYInflationBlackCapFloorEngineC2ERKN5boost10shared_ptrINS_17YoYInflationIndexEEERKNS_6HandleINS_29YoYOptionletVolatilitySurfaceEEERKNS7_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %nominalTermStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.29", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Handle", align 8
@@ -3904,7 +3904,7 @@ entry:
 declare noundef double @_ZN8QuantLib12blackFormulaENS_6Option4TypeEddddd(i32 noundef, double noundef, double noundef, double noundef, double noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib44YoYInflationUnitDisplacedBlackCapFloorEngineC2ERKN5boost10shared_ptrINS_17YoYInflationIndexEEERKNS_6HandleINS_29YoYOptionletVolatilitySurfaceEEERKNS7_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(496) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %nominalTermStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib44YoYInflationUnitDisplacedBlackCapFloorEngineC2ERKN5boost10shared_ptrINS_17YoYInflationIndexEEERKNS_6HandleINS_29YoYOptionletVolatilitySurfaceEEERKNS7_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %nominalTermStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.29", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Handle", align 8
@@ -4096,7 +4096,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib35YoYInflationBachelierCapFloorEngineC2ERKN5boost10shared_ptrINS_17YoYInflationIndexEEERKNS_6HandleINS_29YoYOptionletVolatilitySurfaceEEERKNS7_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(496) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %nominalTermStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib35YoYInflationBachelierCapFloorEngineC2ERKN5boost10shared_ptrINS_17YoYInflationIndexEEERKNS_6HandleINS_29YoYOptionletVolatilitySurfaceEEERKNS7_INS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %volatility, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %nominalTermStructure) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.29", align 8
   %agg.tmp2 = alloca %"class.QuantLib::Handle", align 8

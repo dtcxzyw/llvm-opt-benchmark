@@ -3702,7 +3702,7 @@ declare noundef zeroext i1 @_ZN4llvm21isFunctionInPrintListENS_9StringRefE(ptr, 
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26AssignmentTrackingAnalysisC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 28), (32, 40)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm26AssignmentTrackingAnalysisC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -41858,7 +41858,7 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindELj12EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEN12_GLOBAL__N_126AssignmentTrackingLowering9BlockInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEN12_GLOBAL__N_126AssignmentTrackingLowering9BlockInfoENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -42933,7 +42933,7 @@ _ZSt4copyIPKN12_GLOBAL__N_126AssignmentTrackingLowering7LocKindEPS2_ET0_T_S7_S6_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126AssignmentTrackingLowering14joinAssignmentERKNS0_10AssignmentES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment") align 8 initializes((0, 4), (8, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #17 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126AssignmentTrackingLowering14joinAssignmentERKNS0_10AssignmentES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.(anonymous namespace)::AssignmentTrackingLowering::Assignment") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #17 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val3.val.i = load i32, ptr %1, align 8
@@ -52937,7 +52937,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %.lr.ph.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_9MapVectorINS_12PointerUnionIJPKNS_11InstructionEPKNS_9DbgRecordEEEENS_11SmallVectorIN12_GLOBAL__N_118MemLocFragmentFill10FragMemLocELj2EEENS1_ISD_jNS_12DenseMapInfoISD_vEENS_6detail12DenseMapPairISD_jEEEENSE_ISt4pairISD_SI_ELj0EEEEENSJ_IS4_vEENSM_IS4_SS_EEEES4_SS_ST_SU_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_9MapVectorINS_12PointerUnionIJPKNS_11InstructionEPKNS_9DbgRecordEEEENS_11SmallVectorIN12_GLOBAL__N_118MemLocFragmentFill10FragMemLocELj2EEENS1_ISD_jNS_12DenseMapInfoISD_vEENS_6detail12DenseMapPairISD_jEEEENSE_ISt4pairISD_SI_ELj0EEEEENSJ_IS4_vEENSM_IS4_SS_EEEES4_SS_ST_SU_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

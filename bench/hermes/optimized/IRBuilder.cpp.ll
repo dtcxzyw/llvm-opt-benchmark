@@ -529,7 +529,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6hermes9IRBuilder6insertEPNS_11InstructionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef initializes((0, 16), (56, 64), (112, 132)) %Inst) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6hermes9IRBuilder6insertEPNS_11InstructionE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr noundef %Inst) local_unnamed_addr #6 align 2 {
 entry:
   %Block.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Block.i, align 8
@@ -8045,7 +8045,7 @@ _ZN6hermes9IRBuilder6insertEPNS_11InstructionE.exit: ; preds = %entry._ZN6hermes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 24)) %this, ptr noundef %BB) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %BB) local_unnamed_addr #7 align 2 {
 entry:
   %tobool.not = icmp eq ptr %BB, null
   %InstList.i = getelementptr inbounds i8, ptr %BB, i64 56
@@ -8058,7 +8058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes9IRBuilder22setInsertionPointAfterEPNS_11InstructionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 24)) %this, ptr noundef %IP) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN6hermes9IRBuilder22setInsertionPointAfterEPNS_11InstructionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %IP) local_unnamed_addr #8 align 2 {
 entry:
   %InsertionPoint = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %IP, ptr %InsertionPoint, align 8
@@ -8073,7 +8073,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 24)) %this, ptr noundef %IP) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN6hermes9IRBuilder17setInsertionPointEPNS_11InstructionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %IP) local_unnamed_addr #8 align 2 {
 entry:
   %InsertionPoint = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %IP, ptr %InsertionPoint, align 8
@@ -8094,7 +8094,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6hermes9IRBuilder19resetInsertionPointEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((8, 24)) %this) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN6hermes9IRBuilder19resetInsertionPointEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) local_unnamed_addr #7 align 2 {
 entry:
   %InsertionPoint = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %InsertionPoint, i8 0, i64 16, i1 false)

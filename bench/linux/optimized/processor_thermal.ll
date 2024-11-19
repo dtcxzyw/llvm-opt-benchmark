@@ -400,7 +400,7 @@ define internal i32 @processor_set_cur_state(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_processor_thermal_init(ptr nocapture noundef initializes((864, 872)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_processor_thermal_init(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call ptr @thermal_cooling_device_register(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef nonnull @processor_cooling_ops) #4
   %4 = getelementptr inbounds i8, ptr %0, i64 864
   store ptr %3, ptr %4, align 8

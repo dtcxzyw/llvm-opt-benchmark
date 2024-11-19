@@ -22,7 +22,7 @@ $_ZTSN5boost9container3pmr15memory_resourceE = comdat any
 @_ZN5boost9container3pmr26synchronized_pool_resourceD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5boost9container3pmr26synchronized_pool_resourceD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr26synchronized_pool_resourceC2ERKNS1_12pool_optionsEPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr26synchronized_pool_resourceC2ERKNS1_12pool_optionsEPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr26synchronized_pool_resourceE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef null) #6
@@ -37,7 +37,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN5boost9container3pmr13pool_resourceC1ERKNS1_12pool_optionsEPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr26synchronized_pool_resourceC2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr26synchronized_pool_resourceC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr26synchronized_pool_resourceE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef null) #6
@@ -50,7 +50,7 @@ define void @_ZN5boost9container3pmr26synchronized_pool_resourceC2Ev(ptr noundef
 declare void @_ZN5boost9container3pmr13pool_resourceC1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr26synchronized_pool_resourceC2EPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr26synchronized_pool_resourceC2EPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr26synchronized_pool_resourceE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef null) #6
@@ -63,7 +63,7 @@ define void @_ZN5boost9container3pmr26synchronized_pool_resourceC2EPNS1_15memory
 declare void @_ZN5boost9container3pmr13pool_resourceC1EPNS1_15memory_resourceE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr26synchronized_pool_resourceC2ERKNS1_12pool_optionsE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9container3pmr26synchronized_pool_resourceC2ERKNS1_12pool_optionsE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr26synchronized_pool_resourceE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = tail call i32 @pthread_mutex_init(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef null) #6
@@ -76,7 +76,7 @@ define void @_ZN5boost9container3pmr26synchronized_pool_resourceC2ERKNS1_12pool_
 declare void @_ZN5boost9container3pmr13pool_resourceC1ERKNS1_12pool_optionsE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost9container3pmr26synchronized_pool_resourceD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5boost9container3pmr26synchronized_pool_resourceD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost9container3pmr26synchronized_pool_resourceE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @_ZN5boost9container3pmr13pool_resourceD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #6

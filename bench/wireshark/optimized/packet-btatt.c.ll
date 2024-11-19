@@ -8048,7 +8048,7 @@ proto_item_set_generated.exit85:                  ; preds = %171, %168, %167, %p
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 2 initializes((0, 20)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @get_service_uuid_from_handle(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 2 %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   store i32 %2, ptr %5, align 4
@@ -21891,7 +21891,7 @@ declare ptr @wmem_tree_lookup32_le(ptr noundef, i32 noundef) local_unnamed_addr 
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 2 initializes((0, 20)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @get_characteristic_uuid_from_handle(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 2 %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 65536) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   store i32 %2, ptr %5, align 4

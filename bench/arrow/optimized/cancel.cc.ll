@@ -252,7 +252,7 @@ $_ZTISt15_Sp_counted_ptrIPN5arrow14StopSourceImplELN9__gnu_cxx12_Lock_policyE2EE
 @_ZN5arrow10StopSourceD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5arrow10StopSourceD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow10StopSourceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10StopSourceC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #24
   store i32 0, ptr %call, align 4
@@ -821,7 +821,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6Status5St
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN5arrow10StopSource5tokenEv(ptr noalias nocapture writeonly sret(%"class.arrow::StopToken") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow10StopSource5tokenEv(ptr noalias nocapture writeonly sret(%"class.arrow::StopToken") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_M_refcount3.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3415,7 +3415,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_115SignalStopStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(160) initializes((120, 128)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12_GLOBAL__N_115SignalStopStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %st.i.i.i = alloca %"class.arrow::Status", align 8
   %_s.i.i.i = alloca %"class.arrow::Status", align 8

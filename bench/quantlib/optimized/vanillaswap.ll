@@ -2916,7 +2916,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit77:                  ; preds = %_ZN8QuantLib8Schedu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib11VanillaSwapC1ENS_4Swap4TypeEdNS_8ScheduleEdNS_10DayCounterES3_N5boost10shared_ptrINS_9IborIndexEEEdS4_NS5_8optionalINS_21BusinessDayConventionEEENS9_IbEE(ptr noundef nonnull align 8 dereferenceable(674) initializes((680, 688), (696, 700), (704, 712)) %this, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %fixedSchedule, double noundef %fixedRate, ptr nocapture noundef %fixedDayCount, ptr nocapture noundef %floatSchedule, ptr nocapture noundef %index, double noundef %spread, ptr nocapture noundef %floatingDayCount, i64 %paymentConvention.coerce, i16 %useIndexedCoupons.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib11VanillaSwapC1ENS_4Swap4TypeEdNS_8ScheduleEdNS_10DayCounterES3_N5boost10shared_ptrINS_9IborIndexEEEdS4_NS5_8optionalINS_21BusinessDayConventionEEENS9_IbEE(ptr noundef nonnull align 8 dereferenceable(674) %this, i32 noundef %type, double noundef %nominal, ptr nocapture noundef %fixedSchedule, double noundef %fixedRate, ptr nocapture noundef %fixedDayCount, ptr nocapture noundef %floatSchedule, ptr nocapture noundef %index, double noundef %spread, ptr nocapture noundef %floatingDayCount, i64 %paymentConvention.coerce, i16 %useIndexedCoupons.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector.43", align 8
   %agg.tmp5 = alloca %"class.QuantLib::Schedule", align 8

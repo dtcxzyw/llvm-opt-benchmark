@@ -3163,7 +3163,7 @@ return:                                           ; preds = %if.end, %do.body, %
 declare i32 @flock(i32 noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @deriveAnnouncedPorts(ptr nocapture noundef writeonly initializes((0, 4)) %announced_tcp_port, ptr nocapture noundef writeonly initializes((0, 4)) %announced_tls_port, ptr nocapture noundef writeonly initializes((0, 4)) %announced_cport) local_unnamed_addr #18 {
+define dso_local void @deriveAnnouncedPorts(ptr nocapture noundef writeonly %announced_tcp_port, ptr nocapture noundef writeonly %announced_tls_port, ptr nocapture noundef writeonly %announced_cport) local_unnamed_addr #18 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5268), align 4
   %tobool.not = icmp eq i32 %0, 0
@@ -7119,7 +7119,7 @@ return:                                           ; preds = %cond.end.i, %do.bod
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @getClientPortFromClusterMsg(ptr nocapture noundef readonly %hdr, ptr nocapture noundef writeonly initializes((0, 4)) %tls_port, ptr nocapture noundef writeonly initializes((0, 4)) %tcp_port) unnamed_addr #25 {
+define internal fastcc void @getClientPortFromClusterMsg(ptr nocapture noundef readonly %hdr, ptr nocapture noundef writeonly %tls_port, ptr nocapture noundef writeonly %tcp_port) unnamed_addr #25 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @server, i64 5448), align 8
   %tobool.not = icmp eq i32 %0, 0
@@ -8043,7 +8043,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local nonnull ptr @preparePingExt(ptr noundef writeonly initializes((0, 6)) %ext, i16 noundef zeroext %type, i32 noundef %length) local_unnamed_addr #28 {
+define dso_local nonnull ptr @preparePingExt(ptr noundef writeonly %ext, i16 noundef zeroext %type, i32 noundef %length) local_unnamed_addr #28 {
 entry:
   %call = tail call zeroext i16 @htons(i16 noundef zeroext %type) #36
   %type1 = getelementptr inbounds i8, ptr %ext, i64 4
@@ -15566,7 +15566,7 @@ for.end:                                          ; preds = %if.end35, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @clusterFreeNodesSlotsInfo(ptr nocapture noundef initializes((2160, 2164)) %n) local_unnamed_addr #3 {
+define dso_local void @clusterFreeNodesSlotsInfo(ptr nocapture noundef %n) local_unnamed_addr #3 {
 entry:
   %slot_info_pairs = getelementptr inbounds i8, ptr %n, i64 2152
   %0 = load ptr, ptr %slot_info_pairs, align 8

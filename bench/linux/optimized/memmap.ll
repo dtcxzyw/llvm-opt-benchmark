@@ -62,7 +62,7 @@ declare dso_local i32 @memblock_phys_free(i64 noundef, i64 noundef) local_unname
 declare dso_local void @free_pages(i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local range(i32 -12, 1) i32 @efi_memmap_alloc(i32 noundef %0, ptr nocapture noundef initializes((16, 32)) %1) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -12, 1) i32 @efi_memmap_alloc(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 section ".init.text" align 16 {
   %3 = load i64, ptr %1, align 8
   %4 = icmp eq i64 %3, 0
   br i1 %4, label %5, label %9

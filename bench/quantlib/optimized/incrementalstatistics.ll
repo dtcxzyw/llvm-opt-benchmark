@@ -55,7 +55,7 @@ $_ZN5boost12accumulators15accumulator_setIdNS0_5statsINS0_3tag5countENS3_3minENS
 @_ZN8QuantLib21IncrementalStatisticsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN8QuantLib21IncrementalStatisticsC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib21IncrementalStatisticsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 40), (48, 72), (80, 88), (96, 120)) %this) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib21IncrementalStatisticsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this) unnamed_addr #0 align 2 {
 entry:
   %cdr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cdr.i.i2.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib21IncrementalStatistics5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 40), (48, 72), (80, 88), (96, 120)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib21IncrementalStatistics5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this) local_unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %cdr3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8

@@ -719,7 +719,7 @@ define internal void @_ZN5bytes5bytes11static_drop17h7b0cc40933e82eb8E(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5bytes5bytes12static_clone17h5d85fa132ab860c5E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #6 {
+define internal void @_ZN5bytes5bytes12static_clone17h5d85fa132ab860c5E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -751,7 +751,7 @@ define noundef i8 @"_ZN68_$LT$actix_files..named..Flags$u20$as$u20$core..default
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11actix_files5named9NamedFile15set_status_code17h344c867eeaa9b618E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [3 x i64] }, { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [3 x i64] } } }, { { i64, [1 x i64] }, { i64, [3 x i64] }, { i8, [31 x i8] }, i64 }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, { [2 x i32], i32, [1 x i32] }, i32, i16, i8, i8 }) align 8 dereferenceable(360) initializes((0, 360)) %0, ptr noalias nocapture noundef align 8 dereferenceable(360) initializes((356, 358)) %1, i16 noundef %2) unnamed_addr #7 {
+define void @_ZN11actix_files5named9NamedFile15set_status_code17h344c867eeaa9b618E(ptr noalias nocapture noundef writeonly sret({ { { { i64, [3 x i64] }, { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, [3 x i64] } } }, { { i64, [1 x i64] }, { i64, [3 x i64] }, { i8, [31 x i8] }, i64 }, { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, { [2 x i32], i32, [1 x i32] }, i32, i16, i8, i8 }) align 8 dereferenceable(360) %0, ptr noalias nocapture noundef align 8 dereferenceable(360) %1, i16 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %1, i64 356
   store i16 %2, ptr %4, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, i64 360, i1 false)
@@ -4267,7 +4267,7 @@ define noundef zeroext i1 @"_ZN78_$LT$actix_files..named.._..InternalBitFlags$u2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN86_$LT$actix_files..named.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h9e24e553f2c61696E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define void @"_ZN86_$LT$actix_files..named.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17h9e24e553f2c61696E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZN8bitflags6parser8from_str17hbbaeffa593c80f8fE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -4354,7 +4354,7 @@ define noundef zeroext i1 @"_ZN79_$LT$actix_files..named.._..InternalBitFlags$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN101_$LT$actix_files..named.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h3c85595a90afb19eE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #6 {
+define void @"_ZN101_$LT$actix_files..named.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h3c85595a90afb19eE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #6 {
   store ptr @anon.bbb906e4541fad27cf5595ce5ea38697.77.llvm.10796002377775672969, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8
@@ -4414,7 +4414,7 @@ define noundef zeroext i1 @"_ZN11actix_files5named1_75_$LT$impl$u20$core..fmt..U
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN11actix_files5named1_97_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$actix_files..named..Flags$GT$9into_iter17h17c0348b4e14860bE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #6 {
+define void @"_ZN11actix_files5named1_97_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$actix_files..named..Flags$GT$9into_iter17h17c0348b4e14860bE"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #6 {
   store ptr @anon.bbb906e4541fad27cf5595ce5ea38697.77.llvm.10796002377775672969, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 4, ptr %.sroa.4.0..sroa_idx, align 8

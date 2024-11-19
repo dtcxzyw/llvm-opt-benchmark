@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c__1 = internal global i32 1, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef initializes((0, 4)) %6) local_unnamed_addr #0 {
+define void @dsytf2_rk_(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca double, align 8
   %10 = alloca double, align 8

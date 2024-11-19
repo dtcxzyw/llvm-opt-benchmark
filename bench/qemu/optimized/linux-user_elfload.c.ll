@@ -2216,7 +2216,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare i32 @target_mprotect(i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @do_init_thread(ptr nocapture noundef writeonly initializes((0, 8), (16, 24)) %regs, ptr nocapture noundef readonly %infop) local_unnamed_addr #12 {
+define dso_local void @do_init_thread(ptr nocapture noundef writeonly %regs, ptr nocapture noundef readonly %infop) local_unnamed_addr #12 {
 entry:
   %entry1.i = getelementptr inbounds i8, ptr %infop, i64 80
   %0 = load i64, ptr %entry1.i, align 8

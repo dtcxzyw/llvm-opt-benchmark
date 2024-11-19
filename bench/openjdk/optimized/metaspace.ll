@@ -336,7 +336,7 @@ _ZL14get_values_forN9Metaspace12MetadataTypeEPmS1_S1_.exit14: ; preds = %_ZL14ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MetaspaceCombinedStats) align 8 initializes((0, 72)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14MetaspaceUtils23get_combined_statisticsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MetaspaceCombinedStats) align 8 %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.MetaspaceStats, align 8
   %3 = alloca %class.MetaspaceStats, align 8
   call void @_ZN14MetaspaceUtils14get_statisticsEN9Metaspace12MetadataTypeE(ptr dead_on_unwind nonnull writable sret(%class.MetaspaceStats) align 8 %2, i32 noundef 0)

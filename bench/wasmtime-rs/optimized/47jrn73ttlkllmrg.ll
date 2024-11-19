@@ -2055,7 +2055,7 @@ define { ptr, i1 } @_ZN11wasi_common4sync14WasiCtxBuilder3new17hd9a4710b81612b7c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11wasi_common4sync14WasiCtxBuilder3env17h4580bd887a3d560fE(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #0 {
+define void @_ZN11wasi_common4sync14WasiCtxBuilder3env17h4580bd887a3d560fE(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #0 {
   %7 = tail call noundef i8 @_ZN11wasi_common3ctx7WasiCtx8push_env17h511a5740dcf8b2d7E(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5), !range !190
   %8 = icmp eq i8 %7, 3
   br i1 %8, label %9, label %11
@@ -2329,7 +2329,7 @@ define void @_ZN11wasi_common4sync14WasiCtxBuilder11inherit_env17h056a44889e59b4
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11wasi_common4sync14WasiCtxBuilder3arg17had1b32e36bfc6650E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
+define void @_ZN11wasi_common4sync14WasiCtxBuilder3arg17had1b32e36bfc6650E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %5 = tail call noundef i8 @_ZN11wasi_common3ctx7WasiCtx8push_arg17h099960a293ae5f10E(ptr noalias noundef nonnull align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3), !range !190
   %6 = icmp eq i8 %5, 3
   br i1 %6, label %7, label %9

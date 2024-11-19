@@ -1222,7 +1222,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16PyRotationWarperC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull %1, float noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16PyRotationWarperC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %1, float noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::Ptr.0", align 8
   %5 = alloca %"struct.cv::Ptr.24", align 8
   %6 = alloca %"struct.cv::Ptr.28", align 8
@@ -5804,7 +5804,7 @@ define { i64, i64 } @_ZN2cv6detail11PlaneWarper7warpRoiENS_5Size_IiEERKNS_11_Inp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv6detail11PlaneWarper15detectResultRoiENS_5Size_IiEERNS_6Point_IiEES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i64 %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %3) unnamed_addr #8 align 2 {
+define void @_ZN2cv6detail11PlaneWarper15detectResultRoiENS_5Size_IiEERNS_6Point_IiEES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i64 %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %3) unnamed_addr #8 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32

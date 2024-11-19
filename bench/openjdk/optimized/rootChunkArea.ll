@@ -47,7 +47,7 @@ $_ZN9LogPrefixILN6LogTag4typeE84ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = co
 @_ZN9metaspace16RootChunkAreaLUTD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN9metaspace16RootChunkAreaLUTD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9metaspace13RootChunkAreaC2EPKP12MetaWordImpl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace13RootChunkAreaC2EPKP12MetaWordImpl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -94,7 +94,7 @@ _ZN9metaspace15ChunkHeaderPool19return_chunk_headerEPNS_9MetachunkE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN9metaspace13RootChunkArea23alloc_root_chunk_headerEPNS_16VirtualSpaceNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN9metaspace13RootChunkArea23alloc_root_chunk_headerEPNS_16VirtualSpaceNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = load ptr, ptr @_ZN9metaspace15ChunkHeaderPool16_chunkHeaderPoolE, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -972,7 +972,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace16RootChunkAreaLUTC2EPKP12MetaWordImplm(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN9metaspace16RootChunkAreaLUTC2EPKP12MetaWordImplm(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = lshr i64 %2, 21

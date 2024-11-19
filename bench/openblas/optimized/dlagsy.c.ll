@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @c_b26 = internal global double 1.000000e+00, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @dlagsy_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) local_unnamed_addr #0 {
+define void @dlagsy_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4

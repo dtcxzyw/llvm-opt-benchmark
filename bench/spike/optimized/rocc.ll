@@ -71,7 +71,7 @@ define noundef i64 @_ZN6rocc_t7custom3E11rocc_insn_tmm(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6rocc_t16get_instructionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6rocc_t16get_instructionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -662,7 +662,7 @@ _ZN9regfile_tImLm32ELb1EE5writeEmm.exit:          ; preds = %56, %_ZNSt13unorder
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6rocc_t11get_disasmsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.0") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #4 align 2 {
+define void @_ZN6rocc_t11get_disasmsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.0") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #4 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }

@@ -231,7 +231,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22StochasticProcessArrayC2ERKSt6vectorIN5boost10shared_ptrINS_19StochasticProcess1DEEESaIS5_EERKNS_6MatrixE(ptr noundef nonnull align 8 dereferenceable(176) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %processes, ptr noundef nonnull align 8 dereferenceable(24) %correlation) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22StochasticProcessArrayC2ERKSt6vectorIN5boost10shared_ptrINS_19StochasticProcess1DEEESaIS5_EERKNS_6MatrixE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %processes, ptr noundef nonnull align 8 dereferenceable(24) %correlation) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1500,7 +1500,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22StochasticProcessArray13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22StochasticProcessArray13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !28
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
@@ -1584,7 +1584,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22StochasticProcessArray5driftEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22StochasticProcessArray5driftEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !28
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
@@ -1671,7 +1671,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22StochasticProcessArray9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22StochasticProcessArray9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sqrtCorrelation_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %rows_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -1801,7 +1801,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22StochasticProcessArray11expectationEdRKNS_5ArrayEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22StochasticProcessArray11expectationEdRKNS_5ArrayEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !28
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
@@ -1888,7 +1888,7 @@ nrvo.skipdtor:                                    ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22StochasticProcessArray12stdDeviationEdRKNS_5ArrayEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22StochasticProcessArray12stdDeviationEdRKNS_5ArrayEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sqrtCorrelation_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %rows_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
@@ -2832,7 +2832,7 @@ unreachable:                                      ; preds = %invoke.cont30
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22StochasticProcessArray5applyERKNS_5ArrayES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22StochasticProcessArray5applyERKNS_5ArrayES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this, align 8, !tbaa !28
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32

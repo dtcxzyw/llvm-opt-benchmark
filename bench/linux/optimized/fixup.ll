@@ -648,7 +648,7 @@ define internal void @pci_fixup_latency(ptr nocapture readnone %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @pci_fixup_piix4_acpi(ptr nocapture noundef writeonly initializes((916, 920)) %0) #2 align 16 {
+define internal void @pci_fixup_piix4_acpi(ptr nocapture noundef writeonly %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 916
   store i32 9, ptr %2, align 4
   ret void

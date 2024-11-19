@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @cache = internal global %struct.anon.0 zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @dtoa_alloc_init(ptr noundef returned initializes((0, 88)) %mem, i32 noundef %bytelen) local_unnamed_addr #0 {
+define hidden noundef ptr @dtoa_alloc_init(ptr noundef returned %mem, i32 noundef %bytelen) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %bytelen to i64
   %sub = add nsw i64 %conv, 34359738280
@@ -2727,7 +2727,7 @@ dalloc_done.exit:                                 ; preds = %for.inc.i7, %_herme
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @g_freedtoa(ptr nocapture noundef %dalloc, ptr noundef initializes((4, 12)) %s) local_unnamed_addr #2 {
+define hidden void @g_freedtoa(ptr nocapture noundef %dalloc, ptr noundef %s) local_unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %s, i64 -4
   %0 = load i32, ptr %add.ptr, align 4
@@ -2757,7 +2757,7 @@ Bfree.exit:                                       ; preds = %if.then1.i, %if.els
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @g_dtoa(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr nocapture noundef writeonly %decpt, ptr nocapture noundef writeonly initializes((0, 4)) %sign, ptr noundef writeonly %rve) local_unnamed_addr #1 {
+define hidden nonnull ptr @g_dtoa(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr nocapture noundef writeonly %decpt, ptr nocapture noundef writeonly %sign, ptr noundef writeonly %rve) local_unnamed_addr #1 {
 entry:
   %bbits = alloca i32, align 4
   %be = alloca i32, align 4
@@ -4709,7 +4709,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc ptr @d2b(ptr noundef %dalloc, ptr nocapture noundef nonnull %d, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %e, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %bits) unnamed_addr #3 {
+define internal fastcc ptr @d2b(ptr noundef %dalloc, ptr nocapture noundef nonnull %d, ptr nocapture noundef nonnull writeonly %e, ptr nocapture noundef nonnull writeonly %bits) unnamed_addr #3 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %dalloc, i64 24
   %0 = load ptr, ptr %arrayidx.i, align 8
@@ -6087,7 +6087,7 @@ return:                                           ; preds = %while.end36, %Ballo
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden nonnull ptr @dtoa_fixedpoint(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr nocapture noundef writeonly %decpt, ptr nocapture noundef writeonly initializes((0, 4)) %sign, ptr noundef writeonly %rve) local_unnamed_addr #1 {
+define hidden nonnull ptr @dtoa_fixedpoint(ptr noundef %dalloc, double noundef %dd, i32 noundef %mode, i32 noundef %ndigits, ptr nocapture noundef writeonly %decpt, ptr nocapture noundef writeonly %sign, ptr noundef writeonly %rve) local_unnamed_addr #1 {
 entry:
   %bbits = alloca i32, align 4
   %be = alloca i32, align 4
@@ -7993,7 +7993,7 @@ declare i32 @llvm.get.rounding() #10
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc double @b2d(ptr noundef readonly %a, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %e) unnamed_addr #12 {
+define internal fastcc double @b2d(ptr noundef readonly %a, ptr nocapture noundef nonnull writeonly %e) unnamed_addr #12 {
 entry:
   %x.ptr = getelementptr inbounds i8, ptr %a, i64 24
   %wds = getelementptr inbounds i8, ptr %a, i64 20

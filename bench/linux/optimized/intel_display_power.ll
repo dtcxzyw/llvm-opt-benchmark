@@ -1945,7 +1945,7 @@ define dso_local void @gen9_dbuf_slices_update(ptr noundef %0, i8 noundef zeroex
 declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_power_domains_init_hw(ptr noundef initializes((2752, 2753)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_power_domains_init_hw(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2752
   store i8 1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2632
@@ -2968,7 +2968,7 @@ define internal fastcc void @intel_pch_reset_handshake(ptr noundef %0, i1 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_power_domains_driver_remove(ptr noundef initializes((2776, 2784)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_power_domains_driver_remove(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2776
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 6772
@@ -3130,7 +3130,7 @@ define dso_local void @intel_power_domains_sanitize_state(ptr noundef %0) local_
 declare dso_local ptr @intel_power_well_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_power_domains_enable(ptr noundef initializes((2776, 2784)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_power_domains_enable(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2776
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2792
@@ -3185,7 +3185,7 @@ define dso_local void @intel_power_domains_disable(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_power_domains_suspend(ptr noundef initializes((2776, 2784)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_power_domains_suspend(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2776
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2792

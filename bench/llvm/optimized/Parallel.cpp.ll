@@ -183,7 +183,7 @@ _ZN4llvm8parallel6detail12_GLOBAL__N_18Executor18getDefaultExecutorEv.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8parallel9TaskGroupC2Ev(ptr noundef nonnull align 8 dereferenceable(97) initializes((0, 4), (8, 48)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8parallel9TaskGroupC2Ev(ptr noundef nonnull align 8 dereferenceable(97) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
@@ -690,7 +690,7 @@ _ZNSt6threadD2Ev.exit:                            ; preds = %_ZNSt6threadC2IZN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(316) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(316) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %2) #18
@@ -937,7 +937,7 @@ declare void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 derefere
 declare noundef i32 @_ZNK4llvm18ThreadPoolStrategy20compute_thread_countEv(ptr noundef nonnull align 4 dereferenceable(6)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutorD0Ev(ptr noundef nonnull align 8 dereferenceable(316) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutorD0Ev(ptr noundef nonnull align 8 dereferenceable(316) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm8parallel6detail12_GLOBAL__N_118ThreadPoolExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(316) %0) #18
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 320) #21
   ret void

@@ -133,7 +133,7 @@ entry:
 declare noundef i32 @_ZN7Iex_3_212fpExceptionsEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Iex_3_29MathExcOnC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %this, i32 noundef %when) unnamed_addr #0 align 2 {
+define void @_ZN7Iex_3_29MathExcOnC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, i32 noundef %when) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 4
   %call.i = tail call noundef i32 @_ZN7Iex_3_212fpExceptionsEv()

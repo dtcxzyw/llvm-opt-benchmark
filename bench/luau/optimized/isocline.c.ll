@@ -2296,7 +2296,7 @@ sbuf_string.exit30:                               ; preds = %.loopexit, %79
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ic_complete_filename(ptr noundef initializes((24, 32)) %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @ic_complete_filename(ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.filename_closure_s, align 8
   %7 = icmp eq i8 %2, 0
   %spec.select = select i1 %7, i8 47, i8 %2
@@ -22836,7 +22836,7 @@ tty_cpush_char.exit19:                            ; preds = %49, %._crit_edge.i.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 2097152) i32 @unicode_from_qutf8(ptr noundef readonly %0, i64 noundef range(i64 1, -9223372036854775808) %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #7 {
+define internal fastcc range(i32 0, 2097152) i32 @unicode_from_qutf8(ptr noundef readonly %0, i64 noundef range(i64 1, -9223372036854775808) %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread75, label %5
 
@@ -26976,7 +26976,7 @@ define internal void @sig_handler(i32 noundef %0, ptr noundef %1, ptr noundef %2
 declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal void @default_filename_completer(ptr noundef initializes((24, 32)) %0, ptr noundef %1) #0 {
+define internal void @default_filename_completer(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.filename_closure_s, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 16

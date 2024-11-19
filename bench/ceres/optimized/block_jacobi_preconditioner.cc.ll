@@ -312,7 +312,7 @@ $_ZGVZN5Eigen8internal20manage_caching_sizesENS_6ActionEPlS2_S2_E12m_cacheSizes 
 @_ZN5ceres8internal28BlockCRSJacobiPreconditionerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal28BlockCRSJacobiPreconditionerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal31BlockSparseJacobiPreconditionerC2ENS0_14Preconditioner7OptionsERKNS0_17BlockSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal31BlockSparseJacobiPreconditionerC2ENS0_14Preconditioner7OptionsERKNS0_17BlockSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal31BlockSparseJacobiPreconditionerE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 24, i1 false)
@@ -409,7 +409,7 @@ declare noundef ptr @_ZNK5ceres8internal17BlockSparseMatrix15block_structureEv(p
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal31BlockSparseJacobiPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal31BlockSparseJacobiPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal31BlockSparseJacobiPreconditionerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -440,7 +440,7 @@ _ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit: ; preds = %_ZNSt10unique_pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal31BlockSparseJacobiPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal31BlockSparseJacobiPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal31BlockSparseJacobiPreconditionerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
@@ -1785,7 +1785,7 @@ declare void @_ZN5ceres8internal31BlockRandomAccessDiagonalMatrix7SetZeroEv(ptr 
 declare void @_ZN5ceres8internal31BlockRandomAccessDiagonalMatrix6InvertEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal28BlockCRSJacobiPreconditionerC2ENS0_14Preconditioner7OptionsERKNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 80)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal28BlockCRSJacobiPreconditionerC2ENS0_14Preconditioner7OptionsERKNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(144) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %5 = alloca %"struct.google::CheckOpString", align 8
   %6 = alloca %"class.google::LogMessageFatal", align 8
@@ -2155,7 +2155,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6s
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal28BlockCRSJacobiPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal28BlockCRSJacobiPreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal28BlockCRSJacobiPreconditionerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
@@ -2196,7 +2196,7 @@ _ZN5ceres8internal14Preconditioner7OptionsD2Ev.exit: ; preds = %_ZNSt6vectorISt5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ceres8internal28BlockCRSJacobiPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal28BlockCRSJacobiPreconditionerD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal28BlockCRSJacobiPreconditionerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8

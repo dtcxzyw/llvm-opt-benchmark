@@ -1172,7 +1172,7 @@ define hidden noundef i128 @"_ZN36_$LT$T$u20$as$u20$core..any..Any$GT$7type_id17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h0261583866aab3dcE(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h0261583866aab3dcE(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i32, [3 x i32] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !196
@@ -1203,7 +1203,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h0261583866aab3dcE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h073310c93c888d1dE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h073310c93c888d1dE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !203
@@ -1233,7 +1233,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h073310c93c888d1dE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h074808254654c42cE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h074808254654c42cE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !206)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !209
@@ -1263,7 +1263,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h074808254654c42cE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h0757f4c4cd41259cE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h0757f4c4cd41259cE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !212)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !215
@@ -1293,7 +1293,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h0757f4c4cd41259cE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h150f5f6cb77d3653E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h150f5f6cb77d3653E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !218)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !221
@@ -1323,7 +1323,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h150f5f6cb77d3653E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h1589c9e28b360a84E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h1589c9e28b360a84E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !228
@@ -1418,7 +1418,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1906cfb87626518dE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h1c49a35050a0bebbE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h1c49a35050a0bebbE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { [2 x i32], i32, [1 x i32] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !242
@@ -1437,7 +1437,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1c49a35050a0bebbE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h1d4f423f9ae6c470E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h1d4f423f9ae6c470E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i32, [3 x i32] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !246)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !249
@@ -1468,7 +1468,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1d4f423f9ae6c470E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h1df5131b7b2e93e7E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h1df5131b7b2e93e7E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !252)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !255
@@ -1498,7 +1498,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1df5131b7b2e93e7E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h1e52ba2f450c230cE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h1e52ba2f450c230cE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [5 x i64] }, align 8
   %.sroa.6.i = alloca [4 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !258)
@@ -1533,7 +1533,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h1e52ba2f450c230cE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h23979fe3670201d4E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h23979fe3670201d4E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !265)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !268
@@ -1563,7 +1563,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h23979fe3670201d4E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h243b7953a27e11bdE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h243b7953a27e11bdE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !274
@@ -1593,7 +1593,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h243b7953a27e11bdE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h2a0b4a3bea90c7fdE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h2a0b4a3bea90c7fdE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !280
@@ -1623,7 +1623,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h2a0b4a3bea90c7fdE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h2d89900465370434E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h2d89900465370434E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !286
@@ -1653,7 +1653,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h2d89900465370434E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h3106ca1278d41693E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h3106ca1278d41693E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !292
@@ -1683,7 +1683,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h3106ca1278d41693E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h3275a68ed9abb7caE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h3275a68ed9abb7caE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !295)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !298
@@ -1713,7 +1713,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h3275a68ed9abb7caE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h35a0a336f2e8fdaeE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h35a0a336f2e8fdaeE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !304
@@ -1732,7 +1732,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h35a0a336f2e8fdaeE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h3a03677325c465a1E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h3a03677325c465a1E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !310
@@ -1751,7 +1751,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h3a03677325c465a1E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h3c3262137ad5ae65E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h3c3262137ad5ae65E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !316
@@ -1781,7 +1781,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h3c3262137ad5ae65E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h41e9d9737a73de00E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h41e9d9737a73de00E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !322
@@ -1811,7 +1811,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h41e9d9737a73de00E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h445a3e643a4781b9E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h445a3e643a4781b9E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i32, [3 x i32] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !325)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !328
@@ -1842,7 +1842,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h445a3e643a4781b9E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h5101a17d3f695410E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h5101a17d3f695410E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !334
@@ -1861,7 +1861,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5101a17d3f695410E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h52fe2ef74f885de8E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h52fe2ef74f885de8E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !337)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !340
@@ -1880,7 +1880,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h52fe2ef74f885de8E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h5447c45a070540c8E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h5447c45a070540c8E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !346
@@ -1910,7 +1910,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5447c45a070540c8E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h5603f058fd93fdb4E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h5603f058fd93fdb4E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !349)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !352
@@ -1941,7 +1941,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5603f058fd93fdb4E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h56ad2b6e36c1a460E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h56ad2b6e36c1a460E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !355)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !358
@@ -1971,7 +1971,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h56ad2b6e36c1a460E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h5b0283c5faee2577E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h5b0283c5faee2577E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !364
@@ -2001,7 +2001,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5b0283c5faee2577E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h5f31e32e66db8d9dE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h5f31e32e66db8d9dE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !367)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !370
@@ -2031,7 +2031,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h5f31e32e66db8d9dE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h6c151b950ceb1cbaE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h6c151b950ceb1cbaE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !373)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !376
@@ -2061,7 +2061,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h6c151b950ceb1cbaE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h6eac664c3973478eE(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h6eac664c3973478eE(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !379)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !382
@@ -2080,7 +2080,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h6eac664c3973478eE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h762a2ca00a3978ffE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h762a2ca00a3978ffE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !385)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !388
@@ -2110,7 +2110,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h762a2ca00a3978ffE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h7c3f8c0d54b6bbc2E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h7c3f8c0d54b6bbc2E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !391)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !394
@@ -2129,7 +2129,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7c3f8c0d54b6bbc2E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h7cfe6cee99994efaE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h7cfe6cee99994efaE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !397)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !400
@@ -2159,7 +2159,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7cfe6cee99994efaE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h7d92de620121816bE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h7d92de620121816bE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !403)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !406
@@ -2189,7 +2189,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h7d92de620121816bE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h826c3c0a516aaa20E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h826c3c0a516aaa20E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !409)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !412
@@ -2219,7 +2219,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h826c3c0a516aaa20E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h8559ad6ace6a4fedE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h8559ad6ace6a4fedE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !415)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !418
@@ -2238,7 +2238,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h8559ad6ace6a4fedE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h872124ba00bd80eaE(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h872124ba00bd80eaE(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !421)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !424
@@ -2257,7 +2257,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h872124ba00bd80eaE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h8a10c2297fc410a5E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h8a10c2297fc410a5E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !427)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !430
@@ -2288,7 +2288,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h8a10c2297fc410a5E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h8b34d9ebeb35f383E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h8b34d9ebeb35f383E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !433)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !436
@@ -2318,7 +2318,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h8b34d9ebeb35f383E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h9095ca3b1cfd3484E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h9095ca3b1cfd3484E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !439)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !442
@@ -2337,7 +2337,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h9095ca3b1cfd3484E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h926e44aab4a70909E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h926e44aab4a70909E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !445)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !448
@@ -2367,7 +2367,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h926e44aab4a70909E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h9df243574913e177E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h9df243574913e177E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i32, [3 x i32] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !454
@@ -2398,7 +2398,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h9df243574913e177E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17ha3574688d3eabf97E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 4), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17ha3574688d3eabf97E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i32, [3 x i32] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !457)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !460
@@ -2428,7 +2428,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha3574688d3eabf97E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17ha4bf2d150b0ab8fbE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17ha4bf2d150b0ab8fbE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !463)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !466
@@ -2458,7 +2458,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha4bf2d150b0ab8fbE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17ha5643491f2e9b9e5E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17ha5643491f2e9b9e5E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !469)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !472
@@ -2488,7 +2488,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha5643491f2e9b9e5E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17ha6ffae17db5c6695E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17ha6ffae17db5c6695E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !475)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !478
@@ -2518,7 +2518,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha6ffae17db5c6695E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17ha9dbe6621eb2578cE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17ha9dbe6621eb2578cE(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !481)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !484
@@ -2548,7 +2548,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17ha9dbe6621eb2578cE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hacf21f55a89a892dE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hacf21f55a89a892dE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !487)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !490
@@ -2578,7 +2578,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hacf21f55a89a892dE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hb22e1f88f7d13cb0E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hb22e1f88f7d13cb0E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !493)
   %7 = icmp eq ptr %3, null
@@ -2631,7 +2631,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hb22e1f88f7d13cb0E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hb2edfc49d3e84c69E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hb2edfc49d3e84c69E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !503)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !506
@@ -2661,7 +2661,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hb2edfc49d3e84c69E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hbdf01ba11c63ef58E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 16)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hbdf01ba11c63ef58E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !509)
   %7 = icmp eq ptr %3, null
@@ -2714,7 +2714,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hbdf01ba11c63ef58E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hc70cdddbaf51d82dE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hc70cdddbaf51d82dE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !519)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !522
@@ -2744,7 +2744,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hc70cdddbaf51d82dE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hc7378710a84552c2E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hc7378710a84552c2E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !525)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !528
@@ -2775,7 +2775,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hc7378710a84552c2E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hca5852d43ba4e115E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1), (8, 16)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hca5852d43ba4e115E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !531)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !534
@@ -2794,7 +2794,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hca5852d43ba4e115E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hca70e8b3b273f1f2E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hca70e8b3b273f1f2E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !537)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !540
@@ -2824,7 +2824,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hca70e8b3b273f1f2E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hcaba6bb256108afeE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hcaba6bb256108afeE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !543)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !546
@@ -2854,7 +2854,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hcaba6bb256108afeE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hcafe6604a53c8451E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hcafe6604a53c8451E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !549)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !552
@@ -2884,7 +2884,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hcafe6604a53c8451E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hce7f59fa32207d91E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hce7f59fa32207d91E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !555)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !558
@@ -2915,7 +2915,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hce7f59fa32207d91E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hcebd93b9d0f415f8E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hcebd93b9d0f415f8E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !561)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !564
@@ -2946,7 +2946,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hcebd93b9d0f415f8E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hd7879e5d309bd19aE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hd7879e5d309bd19aE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !567)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !570
@@ -2965,7 +2965,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hd7879e5d309bd19aE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hd83434472c1b26f4E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hd83434472c1b26f4E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !573)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !576
@@ -2996,7 +2996,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hd83434472c1b26f4E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hd920440db2bd36a7E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) initializes((0, 1)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hd920440db2bd36a7E(ptr noalias nocapture noundef writeonly sret({ i8, [15 x i8] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i32, [3 x i32] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !579)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !582
@@ -3027,7 +3027,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hd920440db2bd36a7E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hdd5a90aa69ff6b3cE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hdd5a90aa69ff6b3cE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !585)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !588
@@ -3057,7 +3057,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hdd5a90aa69ff6b3cE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17he12ae8b05a4cf3b4E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17he12ae8b05a4cf3b4E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !591)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !594
@@ -3087,7 +3087,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he12ae8b05a4cf3b4E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17he1e32ee9f3650b04E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17he1e32ee9f3650b04E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !597)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !600
@@ -3117,7 +3117,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he1e32ee9f3650b04E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17he1eef58da6f23452E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17he1eef58da6f23452E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !603)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !606
@@ -3147,7 +3147,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he1eef58da6f23452E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17he5a21434708e05d5E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 1), (8, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17he5a21434708e05d5E(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !609)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !612
@@ -3177,7 +3177,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17he5a21434708e05d5E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hea9fbfbb43b2a5c2E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hea9fbfbb43b2a5c2E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !615)
   %7 = icmp eq ptr %3, null
@@ -3228,7 +3228,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hea9fbfbb43b2a5c2E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hf0fc06429f8f347dE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) initializes((0, 12)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hf0fc06429f8f347dE(ptr noalias nocapture noundef writeonly sret({ [2 x i32], i32, [1 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i64, [1 x i64] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !625)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !628
@@ -3247,7 +3247,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hf0fc06429f8f347dE
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hf1d5b1c48e886d01E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hf1d5b1c48e886d01E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !631)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !634
@@ -3277,7 +3277,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hf1d5b1c48e886d01E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hf5654558e4b370b8E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hf5654558e4b370b8E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !637)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !640
@@ -3307,7 +3307,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17hf5654558e4b370b8E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17hfaa217a442285979E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17hfaa217a442285979E(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture nonnull readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 1 %3, i64 %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { i8, [15 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !643)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !646

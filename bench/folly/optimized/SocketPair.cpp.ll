@@ -39,7 +39,7 @@ $_ZN5folly6detail18ToAppendStrImplAllISt16integer_sequenceImJLm0ELm1ELm2EEEE4cal
 @_ZN5folly10SocketPairD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly10SocketPairD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10SocketPairC2ENS0_4ModeE(ptr noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %mode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10SocketPairC2ENS0_4ModeE(ptr noundef nonnull align 4 dereferenceable(8) %this, i32 noundef %mode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp14 = alloca %"class.std::__cxx11::basic_string", align 8

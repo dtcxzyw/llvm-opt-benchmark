@@ -357,7 +357,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   store i32 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %2, i64 4
@@ -441,7 +441,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter16setUseMEstimatorEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((8, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter16setUseMEstimatorEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %.sink1 = select i1 %1, float 0x40099999A0000000, float 0x47EFFFFFE0000000
   %.sink = select i1 %1, float 7.000000e+00, float 0x47EFFFFFE0000000
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -452,7 +452,7 @@ define void @_ZN2cv7optflow24RLOFOpticalFlowParameter16setUseMEstimatorEb(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter13setSolverTypeENS0_10SolverTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter13setSolverTypeENS0_10SolverTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
@@ -464,7 +464,7 @@ define noundef i32 @_ZNK2cv7optflow24RLOFOpticalFlowParameter13getSolverTypeEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter20setSupportRegionTypeENS0_17SupportRegionTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter20setSupportRegionTypeENS0_17SupportRegionTypeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   ret void
@@ -478,7 +478,7 @@ define noundef i32 @_ZNK2cv7optflow24RLOFOpticalFlowParameter20getSupportRegionT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter13setNormSigma0Ef(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((8, 12)) %0, float noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter13setNormSigma0Ef(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, float noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store float %1, ptr %3, align 4
   ret void
@@ -492,7 +492,7 @@ define noundef float @_ZNK2cv7optflow24RLOFOpticalFlowParameter13getNormSigma0Ev
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter13setNormSigma1Ef(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((12, 16)) %0, float noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter13setNormSigma1Ef(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, float noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store float %1, ptr %3, align 4
   ret void
@@ -506,7 +506,7 @@ define noundef float @_ZNK2cv7optflow24RLOFOpticalFlowParameter13getNormSigma1Ev
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter15setSmallWinSizeEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter15setSmallWinSizeEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 4
   ret void
@@ -520,7 +520,7 @@ define noundef i32 @_ZNK2cv7optflow24RLOFOpticalFlowParameter15getSmallWinSizeEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter15setLargeWinSizeEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter15setLargeWinSizeEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
@@ -534,7 +534,7 @@ define noundef i32 @_ZNK2cv7optflow24RLOFOpticalFlowParameter15getLargeWinSizeEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter29setCrossSegmentationThresholdEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((24, 28)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter29setCrossSegmentationThresholdEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %1, ptr %3, align 4
   ret void
@@ -548,7 +548,7 @@ define noundef i32 @_ZNK2cv7optflow24RLOFOpticalFlowParameter29getCrossSegmentat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter11setMaxLevelEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((28, 32)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter11setMaxLevelEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %1, ptr %3, align 4
   ret void
@@ -562,7 +562,7 @@ define noundef i32 @_ZNK2cv7optflow24RLOFOpticalFlowParameter11getMaxLevelEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter17setUseInitialFlowEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((32, 33)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter17setUseInitialFlowEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 %3, ptr %4, align 4
@@ -578,7 +578,7 @@ define noundef zeroext i1 @_ZNK2cv7optflow24RLOFOpticalFlowParameter17getUseInit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter23setUseIlluminationModelEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((33, 34)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter23setUseIlluminationModelEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 33
   store i8 %3, ptr %4, align 1
@@ -594,7 +594,7 @@ define noundef zeroext i1 @_ZNK2cv7optflow24RLOFOpticalFlowParameter23getUseIllu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter23setUseGlobalMotionPriorEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((34, 35)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter23setUseGlobalMotionPriorEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 34
   store i8 %3, ptr %4, align 2
@@ -610,7 +610,7 @@ define noundef zeroext i1 @_ZNK2cv7optflow24RLOFOpticalFlowParameter23getUseGlob
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter15setMaxIterationEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((36, 40)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter15setMaxIterationEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4
   ret void
@@ -624,7 +624,7 @@ define noundef i32 @_ZNK2cv7optflow24RLOFOpticalFlowParameter15getMaxIterationEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter16setMinEigenValueEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((40, 44)) %0, float noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter16setMinEigenValueEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, float noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store float %1, ptr %3, align 4
   ret void
@@ -638,7 +638,7 @@ define noundef float @_ZNK2cv7optflow24RLOFOpticalFlowParameter16getMinEigenValu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv7optflow24RLOFOpticalFlowParameter30setGlobalMotionRansacThresholdEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((44, 48)) %0, float noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN2cv7optflow24RLOFOpticalFlowParameter30setGlobalMotionRansacThresholdEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %0, float noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   store float %1, ptr %3, align 4
   ret void

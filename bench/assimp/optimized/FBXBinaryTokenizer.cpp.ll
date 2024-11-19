@@ -107,7 +107,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZN6Assimp3FBX5TokenC1EPKcS3_NS0_9TokenTypeEm = hidden unnamed_addr alias void (ptr, ptr, ptr, i32, i64), ptr @_ZN6Assimp3FBX5TokenC2EPKcS3_NS0_9TokenTypeEm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp3FBX5TokenC2EPKcS3_NS0_9TokenTypeEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 20), (24, 36)) %this, ptr noundef %sbegin, ptr noundef %send, i32 noundef %type, i64 noundef %offset) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp3FBX5TokenC2EPKcS3_NS0_9TokenTypeEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, ptr noundef %sbegin, ptr noundef %send, i32 noundef %type, i64 noundef %offset) unnamed_addr #0 align 2 {
 entry:
   store ptr %sbegin, ptr %this, align 8
   %send3 = getelementptr inbounds i8, ptr %this, i64 8

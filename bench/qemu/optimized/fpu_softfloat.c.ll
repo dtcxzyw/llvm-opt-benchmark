@@ -12882,7 +12882,7 @@ return:                                           ; preds = %lor.lhs.false.i.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local { i64, i16 } @floatx80_modrem(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, i1 noundef zeroext %mod, ptr noundef initializes((0, 8)) %quotient, ptr nocapture noundef %status) local_unnamed_addr #3 {
+define dso_local { i64, i16 } @floatx80_modrem(i64 %a.coerce0, i16 %a.coerce1, i64 %b.coerce0, i16 %b.coerce1, i1 noundef zeroext %mod, ptr noundef %quotient, ptr nocapture noundef %status) local_unnamed_addr #3 {
 entry:
   %pa = alloca %struct.FloatParts128, align 8
   %pb = alloca %struct.FloatParts128, align 8
@@ -31439,7 +31439,7 @@ return:                                           ; preds = %if.then, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @normalizeFloatx80Subnormal(i64 noundef %aSig, ptr nocapture noundef writeonly initializes((0, 4)) %zExpPtr, ptr nocapture noundef writeonly initializes((0, 8)) %zSigPtr) local_unnamed_addr #8 {
+define dso_local void @normalizeFloatx80Subnormal(i64 noundef %aSig, ptr nocapture noundef writeonly %zExpPtr, ptr nocapture noundef writeonly %zSigPtr) local_unnamed_addr #8 {
 entry:
   %0 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %aSig, i1 false)
   %cast.i = trunc nuw nsw i64 %0 to i32
@@ -34092,7 +34092,7 @@ if.end186:                                        ; preds = %land.end, %if.end11
 }
 
 ; Function Attrs: nounwind sspstrong memory(argmem: readwrite) uwtable
-define internal fastcc void @parts128_canonicalize(ptr nocapture noundef nonnull initializes((0, 1)) %p, ptr nocapture noundef %status, ptr nocapture noundef readonly %fmt) unnamed_addr #11 {
+define internal fastcc void @parts128_canonicalize(ptr nocapture noundef nonnull %p, ptr nocapture noundef %status, ptr nocapture noundef readonly %fmt) unnamed_addr #11 {
 entry:
   %exp = getelementptr inbounds i8, ptr %p, i64 4
   %0 = load i32, ptr %exp, align 4

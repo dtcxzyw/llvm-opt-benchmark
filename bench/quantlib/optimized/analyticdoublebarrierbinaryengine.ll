@@ -2820,7 +2820,7 @@ unreachable:                                      ; preds = %invoke.cont207, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33AnalyticDoubleBarrierBinaryEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr noundef nonnull align 8 dereferenceable(384) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib33AnalyticDoubleBarrierBinaryEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr noundef nonnull align 8 dereferenceable(384) %this, ptr nocapture noundef %process) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16

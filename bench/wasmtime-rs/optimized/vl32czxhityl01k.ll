@@ -60,7 +60,7 @@ define void @_ZN14cranelift_isle6parser5parse17hbc038cec3f7a6559E(ptr nocapture 
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14cranelift_isle6parser11IfLetOrExpr4Expr17hb011df575d39f30aE(ptr nocapture writeonly sret({ i64, [35 x i64] }) align 16 initializes((0, 8), (16, 144)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #1 {
+define hidden void @_ZN14cranelift_isle6parser11IfLetOrExpr4Expr17hb011df575d39f30aE(ptr nocapture writeonly sret({ i64, [35 x i64] }) align 16 %0, ptr nocapture readonly align 16 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull align 16 dereferenceable(128) %1, i64 128, i1 false)
   store i64 5, ptr %0, align 16

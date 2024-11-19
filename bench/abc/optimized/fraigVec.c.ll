@@ -133,14 +133,14 @@ define void @Fraig_NodeVecGrow(ptr nocapture noundef %0, i32 noundef %1) local_u
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_NodeVecShrink(ptr nocapture noundef writeonly initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #8 {
+define void @Fraig_NodeVecShrink(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_NodeVecClear(ptr nocapture noundef writeonly initializes((4, 8)) %0) local_unnamed_addr #8 {
+define void @Fraig_NodeVecClear(ptr nocapture noundef writeonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   ret void

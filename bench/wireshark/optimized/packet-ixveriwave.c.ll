@@ -3177,7 +3177,7 @@ declare signext i8 @tvb_get_gint8(ptr noundef, i32 noundef) local_unnamed_addr #
 declare ptr @proto_tree_add_uint_format(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 22, 41) i32 @decode_ht_sig(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 16, 35) %2, ptr nocapture noundef nonnull initializes((24, 28)) %3) unnamed_addr #0 {
+define internal fastcc range(i32 22, 41) i32 @decode_ht_sig(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 16, 35) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3267,7 +3267,7 @@ define internal fastcc range(i32 22, 41) i32 @decode_ht_sig(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 29, 45) i32 @decode_vht_sig(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 19, 35) %2, ptr nocapture noundef nonnull initializes((24, 25)) %3) unnamed_addr #0 {
+define internal fastcc range(i32 29, 45) i32 @decode_vht_sig(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 19, 35) %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4

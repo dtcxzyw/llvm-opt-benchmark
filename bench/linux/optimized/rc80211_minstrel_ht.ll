@@ -387,13 +387,13 @@ define internal noalias noundef ptr @minstrel_ht_alloc_sta(ptr nocapture readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @minstrel_ht_rate_init(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef initializes((0, 10824)) %4) #4 align 16 {
+define internal void @minstrel_ht_rate_init(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4) #4 align 16 {
   tail call fastcc void @minstrel_ht_update_caps(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @minstrel_ht_rate_update(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef initializes((0, 10824)) %4, i32 %5) #4 align 16 {
+define internal void @minstrel_ht_rate_update(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr noundef %3, ptr noundef %4, i32 %5) #4 align 16 {
   tail call fastcc void @minstrel_ht_update_caps(ptr noundef %0, ptr noundef %1, ptr noundef %3, ptr noundef %4)
   ret void
 }
@@ -1515,7 +1515,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @minstrel_ht_update_caps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef initializes((0, 10824)) %3) unnamed_addr #4 align 16 {
+define internal fastcc void @minstrel_ht_update_caps(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #4 align 16 {
   %5 = getelementptr inbounds i8, ptr %2, i64 236
   %6 = getelementptr inbounds i8, ptr %2, i64 241
   %7 = load i16, ptr %5, align 4

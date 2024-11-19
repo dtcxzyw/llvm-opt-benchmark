@@ -210,7 +210,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN8proxygen23getTraceFieldTypeStringB5cxx11ENS_14TraceFieldTypeE(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN8proxygen10TraceEventC2ENS_14TraceEventTypeEj(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 1), (4, 8), (12, 32), (40, 44), (48, 56)) %this, i32 noundef %type, i32 noundef %parentID) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen10TraceEventC2ENS_14TraceEventTypeEj(ptr noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %type, i32 noundef %parentID) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
   %type_ = getelementptr inbounds i8, ptr %this, i64 4
@@ -236,7 +236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen10TraceEvent5startERKNS_15TimeUtilGenericINSt6chrono3_V212steady_clockEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %tm) local_unnamed_addr #0 align 2 {
+define void @_ZN8proxygen10TraceEvent5startERKNS_15TimeUtilGenericINSt6chrono3_V212steady_clockEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %tm) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = or i8 %0, 1
@@ -251,7 +251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen10TraceEvent5startENSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %this, i64 %startTime.coerce) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen10TraceEvent5startENSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i64 %startTime.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = or i8 %0, 1
@@ -262,7 +262,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen10TraceEvent3endERKNS_15TimeUtilGenericINSt6chrono3_V212steady_clockEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(8) %tm) local_unnamed_addr #0 align 2 {
+define void @_ZN8proxygen10TraceEvent3endERKNS_15TimeUtilGenericINSt6chrono3_V212steady_clockEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(8) %tm) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = or i8 %0, 2
@@ -277,7 +277,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen10TraceEvent3endENSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((24, 32)) %this, i64 %endTime.coerce) local_unnamed_addr #3 align 2 {
+define void @_ZN8proxygen10TraceEvent3endENSt6chrono10time_pointINS1_3_V212steady_clockENS1_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i64 %endTime.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %1 = or i8 %0, 2

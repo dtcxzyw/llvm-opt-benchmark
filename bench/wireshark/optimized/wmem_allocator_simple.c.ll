@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.wmem_simple_free = private unnamed_addr constant [17 x i8] c"wmem_simple_free\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @wmem_simple_allocator_init(ptr nocapture noundef writeonly initializes((0, 48), (56, 64)) %0) local_unnamed_addr #0 {
+define hidden void @wmem_simple_allocator_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call noalias ptr @wmem_alloc(ptr noundef null, i64 noundef 16) #4
   store ptr @wmem_simple_alloc, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

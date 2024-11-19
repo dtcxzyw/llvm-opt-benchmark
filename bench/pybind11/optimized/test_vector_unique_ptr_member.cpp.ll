@@ -1221,7 +1221,7 @@ _ZN8pybind1118gil_scoped_acquire7dec_refEv.exit:  ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z23py_cast_VectorOwner_ptrPN14pybind11_tests24vector_unique_ptr_member11VectorOwnerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pybind11::object") align 8 initializes((0, 8)) %0, ptr noundef %1) #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z23py_cast_VectorOwner_ptrPN14pybind11_tests24vector_unique_ptr_member11VectorOwnerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pybind11::object") align 8 %0, ptr noundef %1) #1 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %3 = tail call { ptr, ptr } @_ZN8pybind116detail19type_caster_generic12src_and_typeEPKvRKSt9type_infoPS5_(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN14pybind11_tests24vector_unique_ptr_member11VectorOwnerE, ptr noundef null), !noalias !4
   %4 = extractvalue { ptr, ptr } %3, 0

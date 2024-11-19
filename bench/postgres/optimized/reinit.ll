@@ -821,7 +821,7 @@ declare i32 @FreeDir(ptr noundef) local_unnamed_addr #2
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @parse_filename_for_nontemp_relation(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   store i32 0, ptr %1, align 4

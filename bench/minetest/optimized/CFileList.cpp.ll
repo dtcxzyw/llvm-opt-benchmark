@@ -99,7 +99,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CFileListC2ERKNS_4core6stringIcEEbb(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 10)) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(32) %path, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CFileListC2ERKNS_4core6stringIcEEbb(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(32) %path, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %ignoreCase to i8
   %frombool1 = zext i1 %ignorePaths to i8
@@ -625,7 +625,7 @@ _ZN3irr4core6stringIcE7replaceEcc.exit:           ; preds = %for.inc.i.i, %vec.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CFileListC1ERKNS_4core6stringIcEEbb(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 10), (80, 100)) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CFileListC1ERKNS_4core6stringIcEEbb(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %path, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %ignoreCase to i8
   %frombool1 = zext i1 %ignorePaths to i8
@@ -1141,7 +1141,7 @@ _ZN3irr4core6stringIcE7replaceEcc.exit:           ; preds = %for.inc.i.i, %vec.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (64, 72)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !11
@@ -1293,7 +1293,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CFileListD1Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (64, 72)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CFileListD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull @_ZTTN3irr2io9CFileListE) #21
   ret void
@@ -1311,7 +1311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CFileListD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (64, 72)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CFileListD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull @_ZTTN3irr2io9CFileListE) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20

@@ -568,7 +568,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10collective4CommC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEiS7_(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 44)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i64 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10collective4CommC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEiS7_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i64 %3, i32 noundef %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
@@ -4852,7 +4852,7 @@ _ZNSt12__shared_ptrIN7xgboost10collective7ChannelELN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10collective9RabitCommC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEiS7_NS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 44)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i64 %3, i32 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef readonly byval(%"struct.xgboost::StringView") align 8 %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10collective9RabitCommC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNSt6chrono8durationIlSt5ratioILl1ELl1EEEEiS7_NS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i64 %3, i32 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef readonly byval(%"struct.xgboost::StringView") align 8 %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__shared_ptr", align 8
   %9 = alloca %"class.std::allocator", align 1
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7536,7 +7536,7 @@ _ZN7xgboost10collective6ResultD2Ev.exit:          ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost10collective9RabitCommD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost10collective9RabitCommD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.xgboost::ConsoleLogger", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
@@ -14762,7 +14762,7 @@ declare void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14defaul
 declare void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7xgboost10collective9RabitComm9BootstrapENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_9EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7xgboost10collective9RabitComm9BootstrapENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_9EEEEED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7xgboost10collective9RabitComm9BootstrapENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_9EEEEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val = load ptr, ptr %2, align 8
@@ -14843,7 +14843,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7xgboost10collective9RabitComm9BootstrapENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_9EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7xgboost10collective9RabitComm9BootstrapENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_9EEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN7xgboost10collective9RabitComm9BootstrapENSt6chrono8durationIlSt5ratioILl1ELl1EEEEiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_9EEEEEE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %2, align 8

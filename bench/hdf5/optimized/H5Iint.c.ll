@@ -3380,7 +3380,7 @@ H5I__iterate_cb.exit.thread36:                    ; preds = %H5I__iterate_cb.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5I_find_id(ptr noundef readnone %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5I_find_id(ptr noundef readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   store i64 -1, ptr %2, align 8
   %4 = sext i32 %1 to i64
   %5 = getelementptr inbounds [127 x ptr], ptr @H5I_type_info_array_g, i64 0, i64 %4

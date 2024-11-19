@@ -186,7 +186,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi16get_search_pathsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi16get_search_pathsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

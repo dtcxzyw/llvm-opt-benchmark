@@ -64,7 +64,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly31ThreadedRepeatingFunctionRunnerC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 41)) %this) unnamed_addr #3 align 2 {
+define void @_ZN5folly31ThreadedRepeatingFunctionRunnerC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 {
 entry:
   %stopCv_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(41) %this, i8 0, i64 41, i1 false)
@@ -677,7 +677,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEEvRS1_PT_DpOT0_"(ptr noundef initializes((0, 8)) %__p, ptr noundef nonnull align 16 dereferenceable(112) %__args) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt16allocator_traitsISaISt6threadEE9constructIS0_JZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESH_E3$_0EEEvRS1_PT_DpOT0_"(ptr noundef %__p, ptr noundef nonnull align 16 dereferenceable(112) %__args) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::unique_ptr", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
@@ -788,7 +788,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 declare void @_ZNSt6thread6_StateD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEED2Ev"(ptr noundef nonnull align 16 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEED2Ev"(ptr noundef nonnull align 16 dereferenceable(128) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEEE", i64 16), ptr %this, align 16, !tbaa !59
   %_M_func = getelementptr inbounds i8, ptr %this, i64 16
@@ -825,7 +825,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN5folly8FunctionI
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEED0Ev"(ptr noundef nonnull align 16 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEED0Ev"(ptr noundef nonnull align 16 dereferenceable(128) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly31ThreadedRepeatingFunctionRunner3addENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS3_8FunctionIDoFNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEvEEESG_E3$_0EEEEEE", i64 16), ptr %this, align 16, !tbaa !59
   %_M_func.i = getelementptr inbounds i8, ptr %this, i64 16

@@ -27,7 +27,7 @@ $_ZTIN3net20StrikeRegisterClientE = comdat any
 @_ZN3net25LocalStrikeRegisterClientC1EjjjPKhNS_14StrikeRegister11StartupTypeE = dso_local unnamed_addr alias void (ptr, i32, i32, i32, ptr, i32), ptr @_ZN3net25LocalStrikeRegisterClientC2EjjjPKhNS_14StrikeRegister11StartupTypeE
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net25LocalStrikeRegisterClientC2EjjjPKhNS_14StrikeRegister11StartupTypeE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, i32 noundef %max_entries, i32 noundef %current_time_external, i32 noundef %window_secs, ptr noundef %orbit, i32 noundef %startup) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net25LocalStrikeRegisterClientC2EjjjPKhNS_14StrikeRegister11StartupTypeE(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %max_entries, i32 noundef %current_time_external, i32 noundef %window_secs, ptr noundef %orbit, i32 noundef %startup) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i64 16), ptr %this, align 8
   %m_ = getelementptr inbounds i8, ptr %this, i64 8

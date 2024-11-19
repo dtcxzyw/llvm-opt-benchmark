@@ -143,7 +143,7 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE = comdat any
 @_ZN13DecodeAsModelD1Ev = unnamed_addr alias void (ptr), ptr @_ZN13DecodeAsModelD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12DecodeAsItemC2EPKcPKv(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 28), (32, 64)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12DecodeAsItemC2EPKcPKv(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
@@ -272,7 +272,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %.split.i, %2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12DecodeAsItem4initEPKcPKv(ptr noundef nonnull align 8 dereferenceable(120) initializes((8, 24)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12DecodeAsItem4initEPKcPKv(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -441,7 +441,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12DecodeAsItemC2EPK11decode_as_sPKv(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 28), (32, 64)) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12DecodeAsItemC2EPK11decode_as_sPKv(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
@@ -544,7 +544,7 @@ define void @_ZN12DecodeAsItemC2EPK11decode_as_sPKv(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12DecodeAsItemD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN12DecodeAsItemD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV12DecodeAsItem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
@@ -855,7 +855,7 @@ _ZNK7QString6toUIntEPbi.exit:                     ; preds = %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12DecodeAsItem18setDissectorHandleEP16dissector_handle(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((112, 120)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12DecodeAsItem18setDissectorHandleEP16dissector_handle(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 112
@@ -965,7 +965,7 @@ define void @_ZN13DecodeAsModelC2EP7QObjectP13_capture_file(ptr noundef nonnull 
 declare void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13DecodeAsModelD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13DecodeAsModelD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV13DecodeAsModel, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24

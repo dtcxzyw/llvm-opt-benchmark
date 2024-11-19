@@ -676,7 +676,7 @@ common.ret:                                       ; preds = %24, %1, %42
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h53b8e0cc83379e67E"(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
+define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h53b8e0cc83379e67E"(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17h2ca29b842482dcdcE(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e33baf514db35d21d9a13b5086b6aed0.22.llvm.3102058789855794170)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
@@ -722,7 +722,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12sl
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h96abe2907c9d7b9dE"(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
+define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$12slice_ranges17h96abe2907c9d7b9dE"(ptr noalias nocapture noundef writeonly sret({ { i64, i64 }, { i64, i64 } }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { i64, i64 } @_ZN4core5slice5index5range17h2ca29b842482dcdcE(i64 noundef %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e33baf514db35d21d9a13b5086b6aed0.22.llvm.3102058789855794170)
   %5 = extractvalue { i64, i64 } %4, 0
   %6 = extractvalue { i64, i64 } %4, 1
@@ -849,7 +849,7 @@ define internal fastcc void @_ZN5alloc3fmt6format17h7ead8f60e83381d7E(ptr noalia
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN9actix_web3web5block17hacc82c0cdc0677cdE(ptr noalias nocapture noundef writeonly sret({ ptr, [8 x i8], i8, [7 x i8] }) align 8 dereferenceable(24) initializes((0, 8), (16, 17)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define hidden void @_ZN9actix_web3web5block17hacc82c0cdc0677cdE(ptr noalias nocapture noundef writeonly sret({ ptr, [8 x i8], i8, [7 x i8] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = tail call noundef nonnull ptr @_ZN5tokio7runtime8blocking4pool14spawn_blocking17h32774b0e31b5e7ddE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e33baf514db35d21d9a13b5086b6aed0.24.llvm.3102058789855794170)
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1218,7 +1218,7 @@ define internal fastcc void @_ZN9actix_web8response8response12HttpResponse10from
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11actix_files7chunked16new_chunked_read17hb464edf6169a0bbbE(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, { [44 x i8], i8, [3 x i8] }, {} }) align 8 dereferenceable(72) initializes((0, 28), (68, 69)) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #3 {
+define hidden void @_ZN11actix_files7chunked16new_chunked_read17hb464edf6169a0bbbE(ptr noalias nocapture noundef writeonly sret({ i64, i64, i64, { [44 x i8], i8, [3 x i8] }, {} }) align 8 dereferenceable(72) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #3 {
   store i64 %1, ptr %0, align 8
   %.sroa.24.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.24.0..sroa_idx, align 8
@@ -1232,7 +1232,7 @@ define hidden void @_ZN11actix_files7chunked16new_chunked_read17hb464edf6169a0bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN11actix_files7chunked26chunked_read_file_callback17he5b4330027efc735E(ptr noalias nocapture noundef writeonly sret({ i64, i64, [6 x i32], i32, i8, [3 x i8] }) align 8 dereferenceable(48) initializes((0, 16), (40, 45)) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define void @_ZN11actix_files7chunked26chunked_read_file_callback17he5b4330027efc735E(ptr noalias nocapture noundef writeonly sret({ i64, i64, [6 x i32], i32, i8, [3 x i8] }) align 8 dereferenceable(48) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %1, ptr %5, align 8
   store i64 %2, ptr %0, align 8

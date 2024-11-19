@@ -560,7 +560,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513LocaleUtili
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7522SimpleLocaleKeyFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(156) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7522SimpleLocaleKeyFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(156) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7522SimpleLocaleKeyFactoryE, i64 16), ptr %this, align 8
   %_obj = getelementptr inbounds i8, ptr %this, i64 80

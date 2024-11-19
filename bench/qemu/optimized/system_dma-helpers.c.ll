@@ -51,7 +51,7 @@ entry:
 declare i32 @address_space_set(ptr noundef, i64 noundef, i8 noundef zeroext, i64 noundef, i32) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_sglist_init(ptr nocapture noundef writeonly initializes((0, 40)) %qsg, ptr noundef %dev, i32 noundef %alloc_hint, ptr noundef %as) local_unnamed_addr #0 {
+define dso_local void @qemu_sglist_init(ptr nocapture noundef writeonly %qsg, ptr noundef %dev, i32 noundef %alloc_hint, ptr noundef %as) local_unnamed_addr #0 {
 entry:
   %conv = sext i32 %alloc_hint to i64
   %call = tail call noalias ptr @g_malloc_n(i64 noundef %conv, i64 noundef 16) #11
@@ -120,7 +120,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare ptr @g_realloc_n(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_sglist_destroy(ptr nocapture noundef initializes((8, 24), (32, 40)) %qsg) local_unnamed_addr #0 {
+define dso_local void @qemu_sglist_destroy(ptr nocapture noundef %qsg) local_unnamed_addr #0 {
 entry:
   %dev = getelementptr inbounds i8, ptr %qsg, i64 24
   %0 = load ptr, ptr %dev, align 8

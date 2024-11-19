@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_condition_t_class = external global %struct.opal_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_ring_buffer_construct(ptr noundef initializes((16, 24)) %0) #0 {
+define internal void @opal_ring_buffer_construct(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -87,7 +87,7 @@ opal_obj_run_constructors.exit16:                 ; preds = %.lr.ph.i13, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_ring_buffer_destruct(ptr noundef initializes((116, 120)) %0) #0 {
+define internal void @opal_ring_buffer_destruct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

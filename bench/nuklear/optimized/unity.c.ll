@@ -262,7 +262,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_triangle_from_direction(ptr nocapture noundef writeonly initializes((0, 24)) %result, <2 x float> %r.coerce0, <2 x float> %r.coerce1, float noundef %pad_x, float noundef %pad_y, i32 noundef %direction) local_unnamed_addr #4 {
+define void @nk_triangle_from_direction(ptr nocapture noundef writeonly %result, <2 x float> %r.coerce0, <2 x float> %r.coerce1, float noundef %pad_x, float noundef %pad_y, i32 noundef %direction) local_unnamed_addr #4 {
 entry:
   %mul = fmul float %pad_x, 2.000000e+00
   %r.sroa.29.8.vec.extract = extractelement <2 x float> %r.coerce1, i64 0
@@ -1514,7 +1514,7 @@ nk_parse_hex.exit65:                              ; preds = %if.end36.i58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hex_rgba(ptr nocapture noundef writeonly initializes((0, 9)) %output, i32 %col.coerce) local_unnamed_addr #10 {
+define void @nk_color_hex_rgba(ptr nocapture noundef writeonly %output, i32 %col.coerce) local_unnamed_addr #10 {
 entry:
   %col.sroa.7.0.extract.shift = lshr i32 %col.coerce, 8
   %col.sroa.13.0.extract.shift = lshr i32 %col.coerce, 16
@@ -1591,7 +1591,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hex_rgb(ptr nocapture noundef writeonly initializes((0, 7)) %output, i32 %col.coerce) local_unnamed_addr #10 {
+define void @nk_color_hex_rgb(ptr nocapture noundef writeonly %output, i32 %col.coerce) local_unnamed_addr #10 {
 entry:
   %col.sroa.7.0.extract.shift = lshr i32 %col.coerce, 8
   %col.sroa.13.0.extract.shift = lshr i32 %col.coerce, 16
@@ -3203,7 +3203,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_f(ptr nocapture noundef writeonly initializes((0, 4)) %r, ptr nocapture noundef writeonly initializes((0, 4)) %g, ptr nocapture noundef writeonly initializes((0, 4)) %b, ptr nocapture noundef writeonly initializes((0, 4)) %a, i32 %in.coerce) local_unnamed_addr #10 {
+define void @nk_color_f(ptr nocapture noundef writeonly %r, ptr nocapture noundef writeonly %g, ptr nocapture noundef writeonly %b, ptr nocapture noundef writeonly %a, i32 %in.coerce) local_unnamed_addr #10 {
 entry:
   %in.sroa.0.0.extract.trunc = trunc i32 %in.coerce to i8
   %in.sroa.2.0.extract.shift = lshr i32 %in.coerce, 8
@@ -3228,7 +3228,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_fv(ptr nocapture noundef writeonly initializes((0, 16)) %c, i32 %in.coerce) local_unnamed_addr #10 {
+define void @nk_color_fv(ptr nocapture noundef writeonly %c, i32 %in.coerce) local_unnamed_addr #10 {
 entry:
   %arrayidx1 = getelementptr inbounds i8, ptr %c, i64 4
   %arrayidx2 = getelementptr inbounds i8, ptr %c, i64 8
@@ -3283,7 +3283,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_d(ptr nocapture noundef writeonly initializes((0, 8)) %r, ptr nocapture noundef writeonly initializes((0, 8)) %g, ptr nocapture noundef writeonly initializes((0, 8)) %b, ptr nocapture noundef writeonly initializes((0, 8)) %a, i32 %in.coerce) local_unnamed_addr #10 {
+define void @nk_color_d(ptr nocapture noundef writeonly %r, ptr nocapture noundef writeonly %g, ptr nocapture noundef writeonly %b, ptr nocapture noundef writeonly %a, i32 %in.coerce) local_unnamed_addr #10 {
 entry:
   %in.sroa.0.0.extract.trunc = trunc i32 %in.coerce to i8
   %in.sroa.2.0.extract.shift = lshr i32 %in.coerce, 8
@@ -3308,7 +3308,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_dv(ptr nocapture noundef writeonly initializes((0, 32)) %c, i32 %in.coerce) local_unnamed_addr #10 {
+define void @nk_color_dv(ptr nocapture noundef writeonly %c, i32 %in.coerce) local_unnamed_addr #10 {
 entry:
   %arrayidx1 = getelementptr inbounds i8, ptr %c, i64 8
   %arrayidx2 = getelementptr inbounds i8, ptr %c, i64 16
@@ -3336,7 +3336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsv_f(ptr nocapture noundef writeonly initializes((0, 4)) %out_h, ptr nocapture noundef writeonly initializes((0, 4)) %out_s, ptr nocapture noundef writeonly initializes((0, 4)) %out_v, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsv_f(ptr nocapture noundef writeonly %out_h, ptr nocapture noundef writeonly %out_s, ptr nocapture noundef writeonly %out_v, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %in.sroa.0.0.extract.trunc.i.i = trunc i32 %in.coerce to i8
   %in.sroa.2.0.extract.shift.i.i = lshr i32 %in.coerce, 8
@@ -3384,7 +3384,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsva_f(ptr nocapture noundef writeonly initializes((0, 4)) %out_h, ptr nocapture noundef writeonly initializes((0, 4)) %out_s, ptr nocapture noundef writeonly initializes((0, 4)) %out_v, ptr nocapture noundef writeonly initializes((0, 4)) %out_a, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsva_f(ptr nocapture noundef writeonly %out_h, ptr nocapture noundef writeonly %out_s, ptr nocapture noundef writeonly %out_v, ptr nocapture noundef writeonly %out_a, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %in.sroa.0.0.extract.trunc.i = trunc i32 %in.coerce to i8
   %in.sroa.2.0.extract.shift.i = lshr i32 %in.coerce, 8
@@ -3442,7 +3442,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsv_fv(ptr nocapture noundef writeonly initializes((0, 12)) %out, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsv_fv(ptr nocapture noundef writeonly %out, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %arrayidx1 = getelementptr inbounds i8, ptr %out, i64 4
   %arrayidx2 = getelementptr inbounds i8, ptr %out, i64 8
@@ -3492,7 +3492,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_colorf_hsva_f(ptr nocapture noundef writeonly initializes((0, 4)) %out_h, ptr nocapture noundef writeonly initializes((0, 4)) %out_s, ptr nocapture noundef writeonly initializes((0, 4)) %out_v, ptr nocapture noundef writeonly initializes((0, 4)) %out_a, <2 x float> %in.coerce0, <2 x float> %in.coerce1) local_unnamed_addr #4 {
+define void @nk_colorf_hsva_f(ptr nocapture noundef writeonly %out_h, ptr nocapture noundef writeonly %out_s, ptr nocapture noundef writeonly %out_v, ptr nocapture noundef writeonly %out_a, <2 x float> %in.coerce0, <2 x float> %in.coerce1) local_unnamed_addr #4 {
 entry:
   %in.sroa.0.4.vec.extract = extractelement <2 x float> %in.coerce0, i64 1
   %in.sroa.18.8.vec.extract = extractelement <2 x float> %in.coerce1, i64 0
@@ -3533,7 +3533,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_colorf_hsva_fv(ptr nocapture noundef writeonly initializes((0, 16)) %hsva, <2 x float> %in.coerce0, <2 x float> %in.coerce1) local_unnamed_addr #4 {
+define void @nk_colorf_hsva_fv(ptr nocapture noundef writeonly %hsva, <2 x float> %in.coerce0, <2 x float> %in.coerce1) local_unnamed_addr #4 {
 entry:
   %arrayidx1 = getelementptr inbounds i8, ptr %hsva, i64 4
   %arrayidx2 = getelementptr inbounds i8, ptr %hsva, i64 8
@@ -3577,7 +3577,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsva_fv(ptr nocapture noundef writeonly initializes((0, 16)) %out, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsva_fv(ptr nocapture noundef writeonly %out, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %arrayidx1 = getelementptr inbounds i8, ptr %out, i64 4
   %arrayidx2 = getelementptr inbounds i8, ptr %out, i64 8
@@ -3638,7 +3638,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsva_i(ptr nocapture noundef writeonly initializes((0, 4)) %out_h, ptr nocapture noundef writeonly initializes((0, 4)) %out_s, ptr nocapture noundef writeonly initializes((0, 4)) %out_v, ptr nocapture noundef writeonly initializes((0, 4)) %out_a, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsva_i(ptr nocapture noundef writeonly %out_h, ptr nocapture noundef writeonly %out_s, ptr nocapture noundef writeonly %out_v, ptr nocapture noundef writeonly %out_a, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %in.sroa.0.0.extract.trunc.i.i = trunc i32 %in.coerce to i8
   %in.sroa.2.0.extract.shift.i.i = lshr i32 %in.coerce, 8
@@ -3708,7 +3708,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsva_iv(ptr nocapture noundef writeonly initializes((0, 16)) %out, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsva_iv(ptr nocapture noundef writeonly %out, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %arrayidx1 = getelementptr inbounds i8, ptr %out, i64 4
   %arrayidx2 = getelementptr inbounds i8, ptr %out, i64 8
@@ -3781,7 +3781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsva_bv(ptr nocapture noundef writeonly initializes((0, 4)) %out, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsva_bv(ptr nocapture noundef writeonly %out, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %in.sroa.0.0.extract.trunc.i.i.i = trunc i32 %in.coerce to i8
   %in.sroa.2.0.extract.shift.i.i.i = lshr i32 %in.coerce, 8
@@ -3850,7 +3850,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsva_b(ptr nocapture noundef writeonly initializes((0, 1)) %h, ptr nocapture noundef writeonly initializes((0, 1)) %s, ptr nocapture noundef writeonly initializes((0, 1)) %v, ptr nocapture noundef writeonly initializes((0, 1)) %a, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsva_b(ptr nocapture noundef writeonly %h, ptr nocapture noundef writeonly %s, ptr nocapture noundef writeonly %v, ptr nocapture noundef writeonly %a, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %in.sroa.0.0.extract.trunc.i.i.i = trunc i32 %in.coerce to i8
   %in.sroa.2.0.extract.shift.i.i.i = lshr i32 %in.coerce, 8
@@ -3916,7 +3916,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsv_i(ptr nocapture noundef writeonly initializes((0, 4)) %out_h, ptr nocapture noundef writeonly initializes((0, 4)) %out_s, ptr nocapture noundef writeonly initializes((0, 4)) %out_v, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsv_i(ptr nocapture noundef writeonly %out_h, ptr nocapture noundef writeonly %out_s, ptr nocapture noundef writeonly %out_v, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %in.sroa.0.0.extract.trunc.i.i.i = trunc i32 %in.coerce to i8
   %in.sroa.2.0.extract.shift.i.i.i = lshr i32 %in.coerce, 8
@@ -3973,7 +3973,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsv_b(ptr nocapture noundef writeonly initializes((0, 1)) %out_h, ptr nocapture noundef writeonly initializes((0, 1)) %out_s, ptr nocapture noundef writeonly initializes((0, 1)) %out_v, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsv_b(ptr nocapture noundef writeonly %out_h, ptr nocapture noundef writeonly %out_s, ptr nocapture noundef writeonly %out_v, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %in.sroa.0.0.extract.trunc.i.i.i = trunc i32 %in.coerce to i8
   %in.sroa.2.0.extract.shift.i.i.i = lshr i32 %in.coerce, 8
@@ -4027,7 +4027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsv_iv(ptr nocapture noundef writeonly initializes((0, 12)) %out, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsv_iv(ptr nocapture noundef writeonly %out, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %arrayidx1 = getelementptr inbounds i8, ptr %out, i64 4
   %arrayidx2 = getelementptr inbounds i8, ptr %out, i64 8
@@ -4086,7 +4086,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_color_hsv_bv(ptr nocapture noundef writeonly initializes((0, 3)) %out, i32 %in.coerce) local_unnamed_addr #4 {
+define void @nk_color_hsv_bv(ptr nocapture noundef writeonly %out, i32 %in.coerce) local_unnamed_addr #4 {
 entry:
   %in.sroa.0.0.extract.trunc.i.i.i.i = trunc i32 %in.coerce to i8
   %in.sroa.2.0.extract.shift.i.i.i.i = lshr i32 %in.coerce, 8
@@ -15976,7 +15976,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbrp_setup_allow_out_of_mem(ptr nocapture noundef initializes((8, 12)) %context, i32 noundef %allow_out_of_mem) local_unnamed_addr #18 {
+define void @stbrp_setup_allow_out_of_mem(ptr nocapture noundef %context, i32 noundef %allow_out_of_mem) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq i32 %allow_out_of_mem, 0
   br i1 %tobool.not, label %if.else, label %if.end
@@ -16992,7 +16992,7 @@ return:                                           ; preds = %if.end269, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt_GetCodepointShape(ptr nocapture noundef readonly %info, i32 noundef %unicode_codepoint, ptr nocapture noundef writeonly initializes((0, 8)) %vertices) local_unnamed_addr #17 {
+define i32 @stbtt_GetCodepointShape(ptr nocapture noundef readonly %info, i32 noundef %unicode_codepoint, ptr nocapture noundef writeonly %vertices) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %unicode_codepoint)
   %call1 = tail call i32 @stbtt_GetGlyphShape(ptr noundef %info, i32 noundef %call, ptr noundef %vertices)
@@ -17000,7 +17000,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbtt_GetGlyphShape(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr nocapture noundef writeonly initializes((0, 8)) %pvertices) local_unnamed_addr #17 {
+define i32 @stbtt_GetGlyphShape(ptr nocapture noundef readonly %info, i32 noundef %glyph_index, ptr nocapture noundef writeonly %pvertices) local_unnamed_addr #17 {
 entry:
   %count_ctx.i = alloca %struct.stbtt__csctx, align 8
   %output_ctx.i = alloca %struct.stbtt__csctx, align 8
@@ -19646,7 +19646,7 @@ return:                                           ; preds = %for.inc.i, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetFontBoundingBox(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly initializes((0, 4)) %x0, ptr nocapture noundef writeonly initializes((0, 4)) %y0, ptr nocapture noundef writeonly initializes((0, 4)) %x1, ptr nocapture noundef writeonly initializes((0, 4)) %y1) local_unnamed_addr #26 {
+define void @stbtt_GetFontBoundingBox(ptr nocapture noundef readonly %info, ptr nocapture noundef writeonly %x0, ptr nocapture noundef writeonly %y0, ptr nocapture noundef writeonly %x1, ptr nocapture noundef writeonly %y1) local_unnamed_addr #26 {
 entry:
   %data = getelementptr inbounds i8, ptr %info, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -23157,7 +23157,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeCodepointBitmapSubpixelPrefilter(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %oversample_x, i32 noundef %oversample_y, ptr nocapture noundef writeonly initializes((0, 4)) %sub_x, ptr nocapture noundef writeonly initializes((0, 4)) %sub_y, i32 noundef %codepoint) local_unnamed_addr #17 {
+define void @stbtt_MakeCodepointBitmapSubpixelPrefilter(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %oversample_x, i32 noundef %oversample_y, ptr nocapture noundef writeonly %sub_x, ptr nocapture noundef writeonly %sub_y, i32 noundef %codepoint) local_unnamed_addr #17 {
 entry:
   %call = tail call i32 @stbtt_FindGlyphIndex(ptr noundef %info, i32 noundef %codepoint)
   %sub.neg.i = add i32 %out_w, 1
@@ -23213,7 +23213,7 @@ stbtt_MakeGlyphBitmapSubpixelPrefilter.exit:      ; preds = %stbtt__oversample_s
 }
 
 ; Function Attrs: nounwind uwtable
-define void @stbtt_MakeGlyphBitmapSubpixelPrefilter(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %prefilter_x, i32 noundef %prefilter_y, ptr nocapture noundef writeonly initializes((0, 4)) %sub_x, ptr nocapture noundef writeonly initializes((0, 4)) %sub_y, i32 noundef %glyph) local_unnamed_addr #17 {
+define void @stbtt_MakeGlyphBitmapSubpixelPrefilter(ptr nocapture noundef readonly %info, ptr noundef %output, i32 noundef %out_w, i32 noundef %out_h, i32 noundef %out_stride, float noundef %scale_x, float noundef %scale_y, float noundef %shift_x, float noundef %shift_y, i32 noundef %prefilter_x, i32 noundef %prefilter_y, ptr nocapture noundef writeonly %sub_x, ptr nocapture noundef writeonly %sub_y, i32 noundef %glyph) local_unnamed_addr #17 {
 entry:
   %sub.neg = add i32 %out_w, 1
   %sub1 = sub i32 %sub.neg, %prefilter_x
@@ -23292,7 +23292,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt_GetBakedQuad(ptr nocapture noundef readonly %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr nocapture noundef %xpos, ptr nocapture noundef readonly %ypos, ptr nocapture noundef writeonly initializes((0, 32)) %q, i32 noundef %opengl_fillrule) local_unnamed_addr #18 {
+define void @stbtt_GetBakedQuad(ptr nocapture noundef readonly %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr nocapture noundef %xpos, ptr nocapture noundef readonly %ypos, ptr nocapture noundef writeonly %q, i32 noundef %opengl_fillrule) local_unnamed_addr #18 {
 entry:
   %tobool.not = icmp eq i32 %opengl_fillrule, 0
   %cond = select i1 %tobool.not, float -5.000000e-01, float 0.000000e+00
@@ -23546,7 +23546,7 @@ if.end5:                                          ; preds = %if.then3, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbtt_PackSetSkipMissingCodepoints(ptr nocapture noundef writeonly initializes((32, 36)) %spc, i32 noundef %skip) local_unnamed_addr #10 {
+define void @stbtt_PackSetSkipMissingCodepoints(ptr nocapture noundef writeonly %spc, i32 noundef %skip) local_unnamed_addr #10 {
 entry:
   %skip_missing = getelementptr inbounds i8, ptr %spc, i64 32
   store i32 %skip, ptr %skip_missing, align 8
@@ -25577,7 +25577,7 @@ return:                                           ; preds = %for.end34, %if.end
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbtt_InitFont(ptr nocapture noundef initializes((8, 20), (64, 80)) %info, ptr noundef %data, i32 noundef %offset) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @stbtt_InitFont(ptr nocapture noundef %info, ptr noundef %data, i32 noundef %offset) local_unnamed_addr #8 {
 entry:
   %b.i = alloca %struct.stbtt__buf, align 8
   %topdict.i = alloca %struct.stbtt__buf, align 8
@@ -27248,7 +27248,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbtt_GetScaledFontVMetrics(ptr noundef %fontdata, i32 noundef %index, float noundef %size, ptr nocapture noundef writeonly initializes((0, 4)) %ascent, ptr nocapture noundef writeonly initializes((0, 4)) %descent, ptr nocapture noundef writeonly initializes((0, 4)) %lineGap) local_unnamed_addr #8 {
+define void @stbtt_GetScaledFontVMetrics(ptr noundef %fontdata, i32 noundef %index, float noundef %size, ptr nocapture noundef writeonly %ascent, ptr nocapture noundef writeonly %descent, ptr nocapture noundef writeonly %lineGap) local_unnamed_addr #8 {
 entry:
   %info = alloca %struct.stbtt_fontinfo, align 8
   %call = tail call i32 @stbtt_GetFontOffsetForIndex(ptr noundef %fontdata, i32 noundef %index)
@@ -27354,7 +27354,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr nocapture noundef %xpos, ptr nocapture noundef readonly %ypos, ptr nocapture noundef writeonly initializes((0, 32)) %q, i32 noundef %align_to_integer) local_unnamed_addr #18 {
+define void @stbtt_GetPackedQuad(ptr nocapture noundef readonly %chardata, i32 noundef %pw, i32 noundef %ph, i32 noundef %char_index, ptr nocapture noundef %xpos, ptr nocapture noundef readonly %ypos, ptr nocapture noundef writeonly %q, i32 noundef %align_to_integer) local_unnamed_addr #18 {
 entry:
   %idx.ext = sext i32 %char_index to i64
   %add.ptr = getelementptr inbounds %struct.stbtt_packedchar, ptr %chardata, i64 %idx.ext
@@ -29263,7 +29263,7 @@ return:                                           ; preds = %do.cond, %entry, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_font_config(ptr noalias nocapture writeonly sret(%struct.nk_font_config) align 8 initializes((0, 88)) %agg.result, float noundef %pixel_height) local_unnamed_addr #4 {
+define void @nk_font_config(ptr noalias nocapture writeonly sret(%struct.nk_font_config) align 8 %agg.result, float noundef %pixel_height) local_unnamed_addr #4 {
 entry:
   %size = getelementptr inbounds i8, ptr %agg.result, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %agg.result, i8 0, i64 88, i1 false)
@@ -34990,7 +34990,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_style_item_color(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 initializes((0, 4), (8, 12)) %agg.result, i32 %col.coerce) local_unnamed_addr #10 {
+define void @nk_style_item_color(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 %agg.result, i32 %col.coerce) local_unnamed_addr #10 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %data = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -34999,7 +34999,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_style_item_image(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 initializes((0, 4), (8, 32)) %agg.result, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img) local_unnamed_addr #18 {
+define void @nk_style_item_image(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 %agg.result, ptr nocapture noundef readonly byval(%struct.nk_image) align 8 %img) local_unnamed_addr #18 {
 entry:
   store i32 1, ptr %agg.result, align 8
   %data = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -35008,7 +35008,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_style_item_nine_slice(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture noundef readonly byval(%struct.nk_nine_slice) align 8 %slice) local_unnamed_addr #18 {
+define void @nk_style_item_nine_slice(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 %agg.result, ptr nocapture noundef readonly byval(%struct.nk_nine_slice) align 8 %slice) local_unnamed_addr #18 {
 entry:
   store i32 2, ptr %agg.result, align 8
   %data = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -35017,7 +35017,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_style_item_hide(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 initializes((0, 4), (8, 12)) %agg.result) local_unnamed_addr #10 {
+define void @nk_style_item_hide(ptr noalias nocapture writeonly sret(%struct.nk_style_item) align 8 %agg.result) local_unnamed_addr #10 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %data = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -35483,7 +35483,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_style_show_cursor(ptr nocapture noundef writeonly initializes((440, 444)) %ctx) local_unnamed_addr #10 {
+define void @nk_style_show_cursor(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #10 {
 entry:
   %cursor_visible = getelementptr inbounds i8, ptr %ctx, i64 440
   store i32 1, ptr %cursor_visible, align 8
@@ -35491,7 +35491,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_style_hide_cursor(ptr nocapture noundef writeonly initializes((440, 444)) %ctx) local_unnamed_addr #10 {
+define void @nk_style_hide_cursor(ptr nocapture noundef writeonly %ctx) local_unnamed_addr #10 {
 entry:
   %cursor_visible = getelementptr inbounds i8, ptr %ctx, i64 440
   store i32 0, ptr %cursor_visible, align 8
@@ -36579,7 +36579,7 @@ return:                                           ; preds = %entry, %while.end80
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @nk_free_window(ptr nocapture noundef nonnull %ctx, ptr noundef nonnull initializes((456, 472)) %win) unnamed_addr #34 {
+define internal fastcc void @nk_free_window(ptr nocapture noundef nonnull %ctx, ptr noundef nonnull %win) unnamed_addr #34 {
 entry:
   %tables = getelementptr inbounds i8, ptr %win, i64 440
   %0 = load ptr, ptr %tables, align 8
@@ -52809,7 +52809,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_subimage_ptr(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 initializes((0, 24)) %agg.result, ptr noundef %ptr, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %r.coerce0, <2 x float> %r.coerce1) local_unnamed_addr #4 {
+define void @nk_subimage_ptr(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 %agg.result, ptr noundef %ptr, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %r.coerce0, <2 x float> %r.coerce1) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %0, align 8
@@ -52838,7 +52838,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_subimage_id(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 initializes((0, 24)) %agg.result, i32 noundef %id, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %r.coerce0, <2 x float> %r.coerce1) local_unnamed_addr #4 {
+define void @nk_subimage_id(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 %agg.result, i32 noundef %id, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %r.coerce0, <2 x float> %r.coerce1) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   store i32 %id, ptr %agg.result, align 8
@@ -52866,7 +52866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_subimage_handle(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 initializes((0, 24)) %agg.result, ptr %handle.coerce, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %r.coerce0, <2 x float> %r.coerce1) local_unnamed_addr #4 {
+define void @nk_subimage_handle(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 %agg.result, ptr %handle.coerce, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %r.coerce0, <2 x float> %r.coerce1) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %0, align 8
@@ -52895,7 +52895,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_image_handle(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 initializes((0, 24)) %agg.result, ptr %handle.coerce) local_unnamed_addr #10 {
+define void @nk_image_handle(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 %agg.result, ptr %handle.coerce) local_unnamed_addr #10 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %0, align 8
@@ -52906,7 +52906,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_image_ptr(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 initializes((0, 24)) %agg.result, ptr noundef %ptr) local_unnamed_addr #10 {
+define void @nk_image_ptr(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 %agg.result, ptr noundef %ptr) local_unnamed_addr #10 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %0, align 8
@@ -52917,7 +52917,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_image_id(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 initializes((0, 24)) %agg.result, i32 noundef %id) local_unnamed_addr #10 {
+define void @nk_image_id(ptr noalias nocapture writeonly sret(%struct.nk_image) align 8 %agg.result, i32 noundef %id) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   store i32 %id, ptr %agg.result, align 8
@@ -52999,7 +52999,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_sub9slice_ptr(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 initializes((0, 32)) %agg.result, ptr noundef %ptr, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %rgn.coerce0, <2 x float> %rgn.coerce1, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #4 {
+define void @nk_sub9slice_ptr(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 %agg.result, ptr noundef %ptr, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %rgn.coerce0, <2 x float> %rgn.coerce1, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %0, align 8
@@ -53036,7 +53036,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_sub9slice_id(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 initializes((0, 32)) %agg.result, i32 noundef %id, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %rgn.coerce0, <2 x float> %rgn.coerce1, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #4 {
+define void @nk_sub9slice_id(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 %agg.result, i32 noundef %id, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %rgn.coerce0, <2 x float> %rgn.coerce1, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 24, i1 false)
   store i32 %id, ptr %agg.result, align 8
@@ -53072,7 +53072,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_sub9slice_handle(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 initializes((0, 32)) %agg.result, ptr %handle.coerce, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %rgn.coerce0, <2 x float> %rgn.coerce1, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #4 {
+define void @nk_sub9slice_handle(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 %agg.result, ptr %handle.coerce, i16 noundef zeroext %w, i16 noundef zeroext %h, <2 x float> %rgn.coerce0, <2 x float> %rgn.coerce1, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #4 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %0, align 8
@@ -53109,7 +53109,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_nine_slice_handle(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 initializes((0, 32)) %agg.result, ptr %handle.coerce, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #10 {
+define void @nk_nine_slice_handle(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 %agg.result, ptr %handle.coerce, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #10 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %0, align 8
@@ -53128,7 +53128,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_nine_slice_ptr(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 initializes((0, 32)) %agg.result, ptr noundef %ptr, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #10 {
+define void @nk_nine_slice_ptr(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 %agg.result, ptr noundef %ptr, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #10 {
 entry:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %0, align 8
@@ -53147,7 +53147,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @nk_nine_slice_id(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 initializes((0, 32)) %agg.result, i32 noundef %id, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #10 {
+define void @nk_nine_slice_id(ptr noalias nocapture writeonly sret(%struct.nk_nine_slice) align 8 %agg.result, i32 noundef %id, i16 noundef zeroext %l, i16 noundef zeroext %t, i16 noundef zeroext %r, i16 noundef zeroext %b) local_unnamed_addr #10 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 24, i1 false)
   store i32 %id, ptr %agg.result, align 8
@@ -58195,7 +58195,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @nk_textedit_delete(ptr noundef initializes((5378, 5380), (5382, 5384)) %state, i32 noundef %where, i32 noundef %len) local_unnamed_addr #19 {
+define void @nk_textedit_delete(ptr noundef %state, i32 noundef %where, i32 noundef %len) local_unnamed_addr #19 {
 entry:
   %unicode.i.i = alloca i32, align 4
   %undo.i = getelementptr inbounds i8, ptr %state, i64 192
@@ -60536,7 +60536,7 @@ return:                                           ; preds = %entry, %nk_str_init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @nk_textedit_select_all(ptr nocapture noundef initializes((172, 180)) %state) local_unnamed_addr #18 {
+define void @nk_textedit_select_all(ptr nocapture noundef %state) local_unnamed_addr #18 {
 entry:
   %select_start = getelementptr inbounds i8, ptr %state, i64 172
   store i32 0, ptr %select_start, align 4
@@ -74349,7 +74349,7 @@ return:                                           ; preds = %stbtt__buf_range.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @stbtt__dict_get_ints(ptr nocapture noundef nonnull initializes((8, 12)) %b, i32 noundef range(i32 17, 294) %key, i32 noundef range(i32 1, 3) %outcount, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #8 {
+define internal fastcc void @stbtt__dict_get_ints(ptr nocapture noundef nonnull %b, i32 noundef range(i32 17, 294) %key, i32 noundef range(i32 1, 3) %outcount, ptr nocapture noundef nonnull writeonly %out) unnamed_addr #8 {
 entry:
   %size.i.i = getelementptr inbounds i8, ptr %b, i64 12
   %0 = load i32, ptr %size.i.i, align 4

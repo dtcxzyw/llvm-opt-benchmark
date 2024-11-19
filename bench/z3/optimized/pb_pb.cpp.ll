@@ -119,7 +119,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2pb3pbcC2EjN3sat7literalERK7svectorISt4pairIjS2_EjEj(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 13), (16, 36), (40, 49), (52, 57), (60, 76)) %this, i32 noundef %id, i32 %lit.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %wlits, i32 noundef %k) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2pb3pbcC2EjN3sat7literalERK7svectorISt4pairIjS2_EjEj(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this, i32 noundef %id, i32 %lit.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %wlits, i32 noundef %k) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %wlits, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -209,7 +209,7 @@ for.end:                                          ; preds = %for.inc, %_ZNK6vect
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2pb3pbc14update_max_sumEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((72, 76)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2pb3pbc14update_max_sumEv(ptr nocapture noundef nonnull align 8 dereferenceable(76) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp16 = alloca %"class.std::allocator", align 1
@@ -619,7 +619,7 @@ return:                                           ; preds = %sw.bb, %sw.bb.us, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2pb3pbc11clear_watchERNS_16solver_interfaceE(ptr noundef nonnull align 8 dereferenceable(76) initializes((20, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) unnamed_addr #4 align 2 {
+define hidden void @_ZN2pb3pbc11clear_watchERNS_16solver_interfaceE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(8) %s) unnamed_addr #4 align 2 {
 entry:
   %m_watch.i = getelementptr inbounds i8, ptr %this, i64 20
   %.b = load i1, ptr @_ZN3satL12null_literalE.0, align 4

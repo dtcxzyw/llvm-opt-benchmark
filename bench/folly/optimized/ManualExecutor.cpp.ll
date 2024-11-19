@@ -310,14 +310,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly14ManualExecutorD1Ev(ptr noundef nonnull align 64 dereferenceable(304) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
+define void @_ZN5folly14ManualExecutorD1Ev(ptr noundef nonnull align 64 dereferenceable(304) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN5folly14ManualExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(304) %this, ptr noundef nonnull @_ZTTN5folly14ManualExecutorE) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly14ManualExecutorD0Ev(ptr noundef nonnull align 64 dereferenceable(304) initializes((0, 24)) %this) unnamed_addr #0 align 2 {
+define void @_ZN5folly14ManualExecutorD0Ev(ptr noundef nonnull align 64 dereferenceable(304) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN5folly14ManualExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(304) %this, ptr noundef nonnull @_ZTTN5folly14ManualExecutorE) #22
   tail call void @_ZdlPvSt11align_val_t(ptr noundef nonnull %this, i64 noundef 64) #23
@@ -572,7 +572,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N5folly14ManualExecutorD1Ev(ptr noundef initializes((-8, 16)) %this) unnamed_addr #4 align 2 {
+define void @_ZThn8_N5folly14ManualExecutorD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN5folly14ManualExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(304) %0, ptr noundef nonnull @_ZTTN5folly14ManualExecutorE) #22
@@ -580,7 +580,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N5folly14ManualExecutorD0Ev(ptr noundef initializes((-8, 16)) %this) unnamed_addr #4 align 2 {
+define void @_ZThn8_N5folly14ManualExecutorD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN5folly14ManualExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(304) %0, ptr noundef nonnull @_ZTTN5folly14ManualExecutorE) #22
@@ -613,7 +613,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N5folly14ManualExecutorD1Ev(ptr noundef initializes((-16, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZThn16_N5folly14ManualExecutorD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN5folly14ManualExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(304) %0, ptr noundef nonnull @_ZTTN5folly14ManualExecutorE) #22
@@ -621,7 +621,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N5folly14ManualExecutorD0Ev(ptr noundef initializes((-16, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZThn16_N5folly14ManualExecutorD0Ev(ptr noundef %this) unnamed_addr #4 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN5folly14ManualExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(304) %0, ptr noundef nonnull @_ZTTN5folly14ManualExecutorE) #22
@@ -630,7 +630,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly14ManualExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(304) initializes((0, 24)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14ManualExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(304) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator", align 16

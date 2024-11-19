@@ -952,7 +952,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet24RegisterMessageExtensio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf8internal12ExtensionSetC2EPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal12ExtensionSetC2EPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 0, ptr %3, align 8
@@ -2068,7 +2068,7 @@ define void @_ZN6google8protobuf8internal12ExtensionSet8SetInt32EihiPKNS0_15Fiel
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet17MaybeNewExtensionEiPKNS0_15FieldDescriptorEPPNS2_9ExtensionE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet17MaybeNewExtensionEiPKNS0_15FieldDescriptorEPPNS2_9ExtensionE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = tail call { ptr, i8 } @_ZN6google8protobuf8internal12ExtensionSet6InsertEi(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1)
   %6 = extractvalue { ptr, i8 } %5, 0
   %7 = extractvalue { ptr, i8 } %5, 1
@@ -10796,7 +10796,7 @@ define noundef zeroext i1 @_ZNK6google8protobuf8internal12ExtensionSet9Extension
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet24FindExtensionInfoFromTagEjPNS1_15ExtensionFinderEPiPNS1_13ExtensionInfoEPb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal12ExtensionSet24FindExtensionInfoFromTagEjPNS1_15ExtensionFinderEPiPNS1_13ExtensionInfoEPb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #8 align 2 {
   %7 = lshr i32 %1, 3
   store i32 %7, ptr %3, align 4
   %8 = and i32 %1, 7

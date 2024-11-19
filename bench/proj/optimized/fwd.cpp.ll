@@ -509,7 +509,7 @@ define internal fastcc void @_ZL12fwd_finalizeP8PJconstsR8PJ_COORD(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z8pj_fwd3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden void @_Z8pj_fwd3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.PJ_XYZ) align 8 %0, ptr nocapture noundef readonly byval(%struct.PJ_LPZ) align 8 %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %union.PJ_COORD, align 8
   %5 = alloca %union.PJ_COORD, align 8
   %6 = alloca %struct.PJ_XYZ, align 8

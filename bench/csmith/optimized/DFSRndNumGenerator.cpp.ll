@@ -80,7 +80,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18DFSRndNumGenerator11SearchStateC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 1), (4, 16)) %0, i32 noundef %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN18DFSRndNumGenerator11SearchStateC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #3 align 2 {
   store i8 0, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
@@ -92,7 +92,7 @@ define dso_local void @_ZN18DFSRndNumGenerator11SearchStateC2Ei(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN18DFSRndNumGenerator11SearchStateC2ERKS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 1), (4, 16)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN18DFSRndNumGenerator11SearchStateC2ERKS0_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) unnamed_addr #4 align 2 {
   %3 = load i8, ptr %1, align 4
   %4 = and i8 %3, 1
   store i8 %4, ptr %0, align 4
@@ -117,7 +117,7 @@ define dso_local void @_ZN18DFSRndNumGenerator11SearchStateD2Ev(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18DFSRndNumGenerator11SearchState15initSearchStateEbii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 1), (4, 12)) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN18DFSRndNumGenerator11SearchState15initSearchStateEbii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, i1 noundef zeroext %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -344,7 +344,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN18AbsRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18DFSRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18DFSRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18DFSRndNumGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -425,7 +425,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18DFSRndNumGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define dso_local void @_ZN18DFSRndNumGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN18DFSRndNumGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
@@ -1693,7 +1693,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18DFSRndNumGenerator11reset_stateEv(ptr noundef nonnull align 8 dereferenceable(96) initializes((44, 48)) %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN18DFSRndNumGenerator11reset_stateEv(ptr noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 44
   store i32 -1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8

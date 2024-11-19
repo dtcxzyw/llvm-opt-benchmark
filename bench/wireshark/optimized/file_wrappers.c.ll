@@ -366,7 +366,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @file_set_random_access(ptr nocapture noundef writeonly initializes((264, 272)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #9 {
+define hidden void @file_set_random_access(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %2, ptr %4, align 8
   ret void
@@ -2887,7 +2887,7 @@ define i32 @file_error(ptr nocapture noundef readonly %0, ptr noundef writeonly 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @file_clearerr(ptr nocapture noundef writeonly initializes((80, 84), (132, 144)) %0) local_unnamed_addr #9 {
+define hidden void @file_clearerr(ptr nocapture noundef writeonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 132
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 136
@@ -3153,7 +3153,7 @@ define hidden noundef i32 @gzwfile_write(ptr noundef %0, ptr noundef %1, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef initializes((24, 40)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4
   %4 = zext i32 %3 to i64

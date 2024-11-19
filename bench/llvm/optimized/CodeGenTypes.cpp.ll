@@ -97,7 +97,7 @@ $_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeESt10unique_ptrINS2_7CodeGen1
 @_ZN5clang7CodeGen12CodeGenTypesD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang7CodeGen12CodeGenTypesD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen12CodeGenTypesC2ERNS0_13CodeGenModuleE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 52), (56, 76), (80, 100)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen12CodeGenTypesC2ERNS0_13CodeGenModuleE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144

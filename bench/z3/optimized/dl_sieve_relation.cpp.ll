@@ -498,7 +498,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 28), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(104) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s, ptr noundef readonly %inner_columns, ptr noundef %inner) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog14sieve_relationC2ERNS_21sieve_relation_pluginERKNS_18relation_signatureEPKbPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(104) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %s, ptr noundef readonly %inner_columns, ptr noundef %inner) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1996,7 +1996,7 @@ dynamic_cast.end:                                 ; preds = %entry, %dynamic_cas
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog21sieve_relation_pluginC2ERNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 12), (16, 36)) %this, ptr noundef nonnull align 8 dereferenceable(200) %manager) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog21sieve_relation_pluginC2ERNS_16relation_managerE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(200) %manager) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %class.symbol, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
@@ -2063,7 +2063,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog21sieve_relation_plugin10initializeEi(ptr noundef nonnull align 8 dereferenceable(104) initializes((8, 12)) %this, i32 noundef %fid) unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog21sieve_relation_plugin10initializeEi(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %fid) unnamed_addr #3 align 2 {
 entry:
   %m_kind.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %fid, ptr %m_kind.i, align 8

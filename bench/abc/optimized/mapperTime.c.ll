@@ -361,7 +361,7 @@ define void @Map_TimePropagateRequiredPhase(ptr nocapture readnone %0, ptr nocap
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define float @Map_MatchComputeReqTimes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #2 {
+define float @Map_MatchComputeReqTimes(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [2 x %struct.Map_MatchStruct_t_], ptr %4, i64 0, i64 %5

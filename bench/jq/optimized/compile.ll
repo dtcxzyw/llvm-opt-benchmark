@@ -348,7 +348,7 @@ define { ptr, ptr } @gen_op_targetlater(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @inst_set_target(ptr nocapture writeonly initializes((32, 40)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr %3) local_unnamed_addr #7 {
+define void @inst_set_target(ptr nocapture writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %3, ptr %5, align 8
   ret void
@@ -5835,7 +5835,7 @@ block_join.exit:                                  ; preds = %.lr.ph, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @block_compile(ptr %0, ptr %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef %3, i64 %4, ptr %5) local_unnamed_addr #1 {
+define i32 @block_compile(ptr %0, ptr %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i64 %4, ptr %5) local_unnamed_addr #1 {
   %7 = alloca %struct.jv, align 8
   %8 = tail call ptr @jv_mem_alloc(i64 noundef 88) #17
   %9 = getelementptr inbounds i8, ptr %8, i64 64
@@ -5931,7 +5931,7 @@ declare ptr @jv_mem_calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 declare { i64, ptr } @jv_invalid() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @compile(ptr noundef initializes((56, 60)) %0, ptr %1, ptr %2, ptr noundef %3, i64 %4, ptr %5, ptr nocapture noundef nonnull %6) unnamed_addr #1 {
+define internal fastcc i32 @compile(ptr noundef %0, ptr %1, ptr %2, ptr noundef %3, i64 %4, ptr %5, ptr nocapture noundef nonnull %6) unnamed_addr #1 {
   %8 = alloca %struct.block, align 8
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8

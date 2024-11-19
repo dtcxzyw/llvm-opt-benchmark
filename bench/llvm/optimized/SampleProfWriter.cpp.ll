@@ -434,7 +434,7 @@ _ZN4llvm11SmallVectorINS_10sampleprof16SecHdrTableEntryELj8EED2Ev.exit: ; preds 
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10sampleprof30DefaultFunctionPruningStrategyC2ERNS0_16SampleProfileMapEm(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm10sampleprof30DefaultFunctionPruningStrategyC2ERNS0_16SampleProfileMapEm(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 noundef %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8910,7 +8910,7 @@ define dso_local void @_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16a
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase11writeHeaderERKNS0_16SampleProfileMapE(ptr noundef nonnull align 8 dereferenceable(576) initializes((440, 448)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 {
+define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase11writeHeaderERKNS0_16SampleProfileMapE(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -8980,7 +8980,7 @@ _ZN4llvm13encodeULEB128EmRNS_11raw_ostreamEj.exit: ; preds = %_ZN4llvm11raw_ostr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10sampleprof19SampleProfileWriter6createENS_9StringRefENS0_19SampleProfileFormatE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 initializes((0, 4)) %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm10sampleprof19SampleProfileWriter6createENS_9StringRefENS0_19SampleProfileFormatE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr %1, i64 %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
 _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EE5resetEPS1_.exit:
   %4 = alloca %"class.std::error_code", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
@@ -9031,7 +9031,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
 declare void @_ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE(ptr noundef nonnull align 8 dereferenceable(96), ptr, i64, ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10sampleprof19SampleProfileWriter6createERSt10unique_ptrINS_11raw_ostreamESt14default_deleteIS3_EENS0_19SampleProfileFormatE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm10sampleprof19SampleProfileWriter6createERSt10unique_ptrINS_11raw_ostreamESt14default_deleteIS3_EENS0_19SampleProfileFormatE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = load i8, ptr @_ZN4llvm10sampleprof15FunctionSamples11ProfileIsCSE, align 1
   %5 = trunc i8 %4 to i1
   br i1 %5, label %10, label %6

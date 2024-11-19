@@ -20496,7 +20496,7 @@ _ZNSt6vectorIN5Yosys5RTLIL8SigChunkESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 4), (8, 64)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111GliftWorker30get_corresponding_taint_signalEN5Yosys5RTLIL7SigSpecE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4

@@ -1293,7 +1293,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19FirewallRulesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(292) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
+define void @_ZN19FirewallRulesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(292) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19FirewallRulesDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV19FirewallRulesDialog, i64 528), ptr %2, align 8
@@ -2813,7 +2813,7 @@ _ZN7QStringD2Ev.exit9:                            ; preds = %27, %_ZN17QArrayDat
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19FirewallRulesDialog38on_productComboBox_currentIndexChangedEi(ptr noundef nonnull align 8 dereferenceable(292) initializes((176, 184)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19FirewallRulesDialog38on_productComboBox_currentIndexChangedEi(ptr noundef nonnull align 8 dereferenceable(292) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 176
   store i64 %3, ptr %4, align 8

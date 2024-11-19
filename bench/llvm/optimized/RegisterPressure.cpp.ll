@@ -228,7 +228,7 @@ _ZL19decreaseSetPressureRSt6vectorIjSaIjEERKN4llvm19MachineRegisterInfoENS3_8Reg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16IntervalPressure5resetEv(ptr noundef nonnull align 8 dereferenceable(328) initializes((312, 328)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16IntervalPressure5resetEv(ptr noundef nonnull align 8 dereferenceable(328) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %0, align 8
@@ -257,7 +257,7 @@ _ZNSt6vectorIjSaIjEE5clearEv.exit:                ; preds = %1, %6
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RegionPressure5resetEv(ptr noundef nonnull align 8 dereferenceable(328) initializes((312, 328)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14RegionPressure5resetEv(ptr noundef nonnull align 8 dereferenceable(328) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load ptr, ptr %0, align 8
@@ -460,7 +460,7 @@ define dso_local void @_ZN4llvm10LiveRegSet5clearEv(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18RegPressureTracker5resetEv(ptr noundef nonnull align 8 dereferenceable(352) initializes((32, 48)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18RegPressureTracker5resetEv(ptr noundef nonnull align 8 dereferenceable(352) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -534,7 +534,7 @@ _ZN4llvm16IntervalPressure5resetEv.exit:          ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18RegPressureTracker4initEPKNS_15MachineFunctionEPKNS_17RegisterClassInfoEPKNS_13LiveIntervalsEPKNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEEbb(ptr noundef nonnull align 8 dereferenceable(352) initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr %5, i1 noundef zeroext %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18RegPressureTracker4initEPKNS_15MachineFunctionEPKNS_17RegisterClassInfoEPKNS_13LiveIntervalsEPKNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEEbb(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr %5, i1 noundef zeroext %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca i32, align 4
   %10 = zext i1 %6 to i8
   %11 = zext i1 %7 to i8
@@ -2605,7 +2605,7 @@ _ZN4llvm15SmallVectorImplINS_16RegisterMaskPairEE5eraseEPKS1_.exit: ; preds = %4
 declare void @_ZN4llvm12MachineInstr23setRegisterDefReadUndefENS_8RegisterEb(ptr noundef nonnull align 8 dereferenceable(70), i32, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13PressureDiffs4initEj(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13PressureDiffs4initEj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -7083,7 +7083,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit14:                  ; preds = %_ZNSt6vectorIjSaIjE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26computeExcessPressureDeltaN4llvm8ArrayRefIjEES1_RNS_16RegPressureDeltaEPKNS_17RegisterClassInfoES1_(ptr nocapture readonly %0, i64 %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(12) initializes((0, 4)) %3, ptr noundef %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZL26computeExcessPressureDeltaN4llvm8ArrayRefIjEES1_RNS_16RegPressureDeltaEPKNS_17RegisterClassInfoES1_(ptr nocapture readonly %0, i64 %1, ptr nocapture readonly %2, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(12) %3, ptr noundef %4, ptr nocapture readonly %.0.val, i64 %.8.val) unnamed_addr #0 {
   store i32 0, ptr %3, align 2
   %6 = and i64 %1, 4294967295
   %.not16 = icmp eq i64 %6, 0

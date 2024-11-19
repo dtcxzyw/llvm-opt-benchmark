@@ -622,7 +622,7 @@ _ZN4llvm9PrintableD2Ev.exit23:                    ; preds = %_ZN4llvm9PrintableD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm39MachineBranchProbabilityInfoWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm39MachineBranchProbabilityInfoWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(29) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

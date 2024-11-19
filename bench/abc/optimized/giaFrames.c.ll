@@ -2764,7 +2764,7 @@ Abc_Clock.exit5:                                  ; preds = %14, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Gia_ManFraSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #6 {
+define void @Gia_ManFraSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %2, i8 0, i64 12, i1 false)
   store i32 32, ptr %0, align 4
@@ -2966,7 +2966,7 @@ Vec_VecFree.exit32:                               ; preds = %.critedge.i20, %55
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManFraSupports(ptr nocapture noundef initializes((16, 40)) %0) local_unnamed_addr #0 {
+define void @Gia_ManFraSupports(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = load i32, ptr %2, align 4
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21

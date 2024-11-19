@@ -1644,7 +1644,7 @@ define hidden noundef ptr @_ZN12Continuation30get_top_return_pc_post_barrierEP10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN12Continuation30set_cont_fastpath_thread_stateEP10JavaThread(ptr nocapture noundef initializes((1352, 1356)) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN12Continuation30set_cont_fastpath_thread_stateEP10JavaThread(ptr nocapture noundef %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1544
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0

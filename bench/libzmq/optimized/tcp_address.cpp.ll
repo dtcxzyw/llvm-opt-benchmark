@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3zmq18tcp_address_mask_tC1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq18tcp_address_mask_tC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq13tcp_address_tC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(57) initializes((0, 57)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq13tcp_address_tC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(57) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(57) %this, i8 0, i64 57, i1 false)
   ret void
@@ -37,7 +37,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq13tcp_address_tC2EPK8sockaddrj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(57) initializes((0, 57)) %this, ptr noundef readonly %sa_, i32 noundef %sa_len_) unnamed_addr #2 align 2 {
+define void @_ZN3zmq13tcp_address_tC2EPK8sockaddrj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(57) %this, ptr noundef readonly %sa_, i32 noundef %sa_len_) unnamed_addr #2 align 2 {
 entry:
   %_has_src_addr = getelementptr inbounds i8, ptr %this, i64 56
   store i8 0, ptr %_has_src_addr, align 4
@@ -449,7 +449,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq18tcp_address_mask_tC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq18tcp_address_mask_tC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   %_address_mask = getelementptr inbounds i8, ptr %this, i64 28
   store i32 -1, ptr %_address_mask, align 4

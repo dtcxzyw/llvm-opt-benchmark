@@ -2877,7 +2877,7 @@ _ZN4Luau18SubtypingReasoningD2Ev.exit:            ; preds = %74, %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL15mergeReasoningsERKNS_12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EEES7_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4LuauL15mergeReasoningsERKNS_12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8equal_toIS1_EEES7_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(88) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Luau::SubtypingReasoning", align 8
   %5 = alloca %"struct.Luau::SubtypingReasoning", align 8
   %6 = alloca %"struct.Luau::SubtypingReasoning", align 8
@@ -6099,7 +6099,7 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt16al
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau15SubtypingResult6negateERKS0_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau15SubtypingResult6negateERKS0_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 1
   %5 = xor i8 %4, 1
@@ -6204,7 +6204,7 @@ _ZNSt12_Vector_baseIN4Luau9TypeErrorESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau15SubtypingResult3allERKSt6vectorIS0_SaIS0_EE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau15SubtypingResult3allERKSt6vectorIS0_SaIS0_EE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %3, align 1
@@ -6360,7 +6360,7 @@ _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit:  ; preds = %_ZSt8_DestroyIPN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau15SubtypingResult3anyERKSt6vectorIS0_SaIS0_EE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau15SubtypingResult3anyERKSt6vectorIS0_SaIS0_EE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %3, align 1
@@ -6463,7 +6463,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare { ptr, i8 } @_ZN4Luau12Substitution10substituteEPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(472), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau9SubtypingC2ENS_7NotNullINS_12BuiltinTypesEEENS1_INS_9TypeArenaEEENS1_INS_10NormalizerEEENS1_INS_21InternalErrorReporterEEENS1_INS_5ScopeEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) initializes((0, 40), (48, 49), (60, 61), (68, 69), (72, 92), (96, 136), (144, 192)) %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9SubtypingC2ENS_7NotNullINS_12BuiltinTypesEEENS1_INS_9TypeArenaEEENS1_INS_10NormalizerEEENS1_INS_21InternalErrorReporterEEENS1_INS_5ScopeEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(200) %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -13244,7 +13244,7 @@ _ZNSt4pairISt6vectorIPKN4Luau4TypeESaIS4_EESt8optionalIPKNS1_11TypePackVarEEED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping5cacheERNS_20SubtypingEnvironmentENS_15SubtypingResultEPKNS_4TypeES6_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping5cacheERNS_20SubtypingEnvironmentENS_15SubtypingResultEPKNS_4TypeES6_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.std::pair", align 8
   store ptr %4, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
@@ -15100,7 +15100,7 @@ _ZNSt6vectorIN4Luau15SubtypingResultESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_12NegationTypeEPKNS_4TypeE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_12NegationTypeEPKNS_4TypeE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Luau::SubtypingResult", align 8
   %7 = alloca %"class.Luau::Variant", align 8
   %8 = alloca %"struct.Luau::SubtypingResult", align 8
@@ -18509,7 +18509,7 @@ _ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_9ClassTypeES
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_4TypeEPKNS_9ClassTypeES5_PKNS_9TableTypeE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_4TypeEPKNS_9ClassTypeES5_PKNS_9TableTypeE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca ptr, align 8
   %9 = alloca %"struct.Luau::SubtypingResult", align 8
   %10 = alloca %"struct.Luau::SubtypingResult", align 8
@@ -19818,7 +19818,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_9ClassTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_9ClassTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef zeroext i1 @_ZN4Luau10isSubclassEPKNS_9ClassTypeES2_(ptr noundef %3, ptr noundef %4)
   %7 = zext i1 %6 to i8
   store i8 %7, ptr %0, align 8
@@ -19861,7 +19861,7 @@ define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnviro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_13PrimitiveTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_13PrimitiveTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load i32, ptr %3, align 8
   %7 = load i32, ptr %4, align 8
   %8 = icmp eq i32 %6, %7
@@ -19906,7 +19906,7 @@ define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnviro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_13SingletonTypeEPKNS_13PrimitiveTypeE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_13SingletonTypeEPKNS_13PrimitiveTypeE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN4Luau3getINS_16BooleanSingletonEEEPKT_PKNS_13SingletonTypeE.exit.thread, label %_ZN4Luau6get_ifINS_15StringSingletonEJNS_16BooleanSingletonES1_EEEPKT_PKNS_7VariantIJDpT0_EEE.exit.i
 
@@ -20025,7 +20025,7 @@ _ZN4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8eq
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_13SingletonTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_13SingletonTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = load i32, ptr %3, align 8
   %7 = load i32, ptr %4, align 8
   %8 = icmp eq i32 %6, %7
@@ -21289,7 +21289,7 @@ _ZN4Luau15SubtypingResultC2EOS0_.exit:            ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentERKNS_8PropertyES5_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(176) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentERKNS_8PropertyES5_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(176) %3, ptr noundef nonnull align 8 dereferenceable(176) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.Luau::SubtypingResult", align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -23158,7 +23158,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_S4_ES5_IKS4_S4_ENS0_16Item
 declare noundef ptr @_ZN4Luau15lookupClassPropEPKNS_9ClassTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_12FunctionTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_12FunctionTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Luau::SubtypingResult", align 8
   %7 = alloca %"class.Luau::Variant", align 8
   %8 = alloca %"struct.Luau::SubtypingResult", align 8
@@ -23668,7 +23668,7 @@ _ZN4Luau18SubtypingReasoningD2Ev.exit:            ; preds = %_ZN4Luau6detail14De
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_13PrimitiveTypeEPKNS_9TableTypeE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_13PrimitiveTypeEPKNS_9TableTypeE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct._Guard, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.0", align 1
@@ -24072,7 +24072,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11Path
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4Luau8TypePath11PathBuilder8readPropENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_13SingletonTypeEPKNS_9TableTypeE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentEPKNS_13SingletonTypeEPKNS_9TableTypeE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %struct._Guard, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.0", align 1
@@ -25210,7 +25210,7 @@ declare noundef zeroext i1 @_ZNK4Luau8Property10isReadOnlyEv(ptr noundef nonnull
 declare noundef zeroext i1 @_ZNK4Luau8Property11isWriteOnlyEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentERKNS_19NormalizedClassTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentERKNS_19NormalizedClassTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Luau::SubtypingResult", align 8
   %7 = alloca %"struct.Luau::SubtypingResult", align 8
   %8 = alloca %"struct.Luau::SubtypingResult", align 8
@@ -26516,7 +26516,7 @@ _ZN4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8eq
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentERKNS_19NormalizedClassTypeERKNS_7TypeIdsE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(72) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentERKNS_19NormalizedClassTypeERKNS_7TypeIdsE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %3, ptr noundef nonnull align 8 dereferenceable(72) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Luau::SubtypingResult", align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   %.sroa.046.074 = load ptr, ptr %7, align 8
@@ -26943,7 +26943,7 @@ _ZN4Luau12DenseHashSetINS_18SubtypingReasoningENS_22SubtypingReasoningHashESt8eq
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentERKNS_20NormalizedStringTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentERKNS_20NormalizedStringTypeES5_(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = tail call noundef zeroext i1 @_ZN4Luau9isSubtypeERKNS_20NormalizedStringTypeES2_(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(56) %4)
   %7 = zext i1 %6 to i8
   store i8 %7, ptr %0, align 8
@@ -26986,7 +26986,7 @@ define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnviro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentERKNS_20NormalizedStringTypeERKNS_7TypeIdsE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 initializes((0, 3), (8, 56)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(72) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau9Subtyping15isCovariantWithERNS_20SubtypingEnvironmentERKNS_20NormalizedStringTypeERKNS_7TypeIdsE(ptr dead_on_unwind noalias writable sret(%"struct.Luau::SubtypingResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(72) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.Luau::SubtypingResult", align 8
   %7 = alloca %"struct.Luau::SubtypingResult", align 8
   %8 = tail call noundef zeroext i1 @_ZNK4Luau20NormalizedStringType7isNeverEv(ptr noundef nonnull align 8 dereferenceable(56) %3)

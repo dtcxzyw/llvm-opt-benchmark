@@ -2534,7 +2534,7 @@ define linkonce_odr hidden noundef ptr @_ZNK6casadi8Function3getINS_5ConicEEEPT_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi8conic_inB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 8), (16, 24)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi8conic_inB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .noexc:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #32
@@ -2977,7 +2977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit59: ; 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi9conic_outB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 8), (16, 24)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi9conic_outB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .noexc:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #32
@@ -16227,7 +16227,7 @@ define noundef range(i32 0, 2) i32 @_ZNK6casadi5Conic8init_memEPv(ptr noundef no
 declare noundef i32 @_ZNK6casadi13ProtoFunction8init_memEPv(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6casadi5Conic8set_workEPvRPPKdRPPdRPxRS6_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((64, 69), (72, 192)) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #8 align 2 {
+define void @_ZNK6casadi5Conic8set_workEPvRPPKdRPPdRPxRS6_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #8 align 2 {
   %7 = load ptr, ptr %2, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %1, i64 88
@@ -16306,7 +16306,7 @@ define void @_ZNK6casadi5Conic8set_workEPvRPPKdRPPdRPxRS6_(ptr nocapture nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi5ConicD2Ev(ptr noundef nonnull align 8 dereferenceable(1472) initializes((0, 8), (1304, 1312)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi5ConicD2Ev(ptr noundef nonnull align 8 dereferenceable(1472) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi5ConicE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1304
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi5ConicE, i64 952), ptr %2, align 8

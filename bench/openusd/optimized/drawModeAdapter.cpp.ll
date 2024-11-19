@@ -1312,7 +1312,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__6TfType10SetFactoryINS_28UsdImagingPrimAda
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingDrawModeAdapterC2Ev(ptr noundef nonnull align 8 dereferenceable(156) initializes((0, 32), (64, 72)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingDrawModeAdapterC2Ev(ptr noundef nonnull align 8 dereferenceable(156) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -4936,7 +4936,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath11AppendChildERKNS_7TfTokenE(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L30_GetSubsetMaterialTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, i8 noundef zeroext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L30_GetSubsetMaterialTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   switch i8 %1, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.sink.split [
     i8 1, label %3
     i8 2, label %13
@@ -17081,7 +17081,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValue10_HoldAsideD2Ev.exit5: ; preds = %
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayIfED1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingDrawModeAdapter13GetMaterialIdERKNS_7UsdPrimERKNS_7SdfPathENS_11UsdTimeCodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 4 %3, double %4) unnamed_addr #8 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingDrawModeAdapter13GetMaterialIdERKNS_7UsdPrimERKNS_7SdfPathENS_11UsdTimeCodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 4 %3, double %4) unnamed_addr #8 align 2 {
   store i64 0, ptr %0, align 4
   ret void
 }
@@ -25367,7 +25367,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix4d10GetInverseEPdd
 declare noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEEixEm(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSubsetTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, i8 noundef zeroext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L22_GetSubsetTokenForFaceENS_12_GLOBAL__N_18AxesMaskE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i8 noundef zeroext %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   switch i8 %1, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKS0_.exit.sink.split [
     i8 1, label %3
     i8 2, label %13

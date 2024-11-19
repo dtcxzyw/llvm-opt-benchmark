@@ -222,7 +222,7 @@ $_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable = comdat any
 @_ZN4llvm19AArch64CallLoweringC1ERKNS_21AArch64TargetLoweringE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm19AArch64CallLoweringC2ERKNS_21AArch64TargetLoweringE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm19AArch64CallLoweringC2ERKNS_21AArch64TargetLoweringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(408240) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19AArch64CallLoweringC2ERKNS_21AArch64TargetLoweringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(408240) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN4llvm19AArch64CallLoweringE, i64 16), ptr %0, align 8
@@ -5533,7 +5533,7 @@ define internal void @_ZN12_GLOBAL__N_128AArch64OutgoingValueAssignerD0Ev(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_128AArch64OutgoingValueAssigner9assignArgEjN4llvm3EVTENS1_3MVTES3_NS1_11CCValAssign7LocInfoERKNS1_12CallLowering7ArgInfoENS1_3ISD10ArgFlagsTyERNS1_7CCStateE(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((24, 32)) %0, i32 noundef %1, i16 %2, ptr nocapture readnone %3, i16 %4, i16 %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %7, ptr nocapture noundef readonly byval(%"struct.llvm::ISD::ArgFlagsTy") align 8 %8, ptr noundef nonnull align 8 dereferenceable(420) %9) unnamed_addr #1 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_128AArch64OutgoingValueAssigner9assignArgEjN4llvm3EVTENS1_3MVTES3_NS1_11CCValAssign7LocInfoERKNS1_12CallLowering7ArgInfoENS1_3ISD10ArgFlagsTyERNS1_7CCStateE(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i16 %2, ptr nocapture readnone %3, i16 %4, i16 %5, i32 noundef %6, ptr nocapture noundef nonnull readonly align 8 dereferenceable(164) %7, ptr nocapture noundef readonly byval(%"struct.llvm::ISD::ArgFlagsTy") align 8 %8, ptr noundef nonnull align 8 dereferenceable(420) %9) unnamed_addr #1 align 2 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %9, align 8
@@ -5644,7 +5644,7 @@ define internal void @_ZN12_GLOBAL__N_118OutgoingArgHandlerD0Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal i32 @_ZN12_GLOBAL__N_118OutgoingArgHandler15getStackAddressEmlRN4llvm18MachinePointerInfoENS1_3ISD10ArgFlagsTyE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %3, i64 %4, i64 %5) unnamed_addr #1 align 2 {
+define internal i32 @_ZN12_GLOBAL__N_118OutgoingArgHandler15getStackAddressEmlRN4llvm18MachinePointerInfoENS1_3ISD10ArgFlagsTyE(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) %3, i64 %4, i64 %5) unnamed_addr #1 align 2 {
   %7 = alloca %"class.llvm::DstOp", align 8
   %8 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %9 = alloca %"class.llvm::DstOp", align 8
@@ -6154,7 +6154,7 @@ define internal void @_ZN12_GLOBAL__N_116FormalArgHandlerD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal i32 @_ZN12_GLOBAL__N_118IncomingArgHandler15getStackAddressEmlRN4llvm18MachinePointerInfoENS1_3ISD10ArgFlagsTyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) initializes((0, 21)) %3, i64 %4, i64 %5) unnamed_addr #1 align 2 {
+define internal i32 @_ZN12_GLOBAL__N_118IncomingArgHandler15getStackAddressEmlRN4llvm18MachinePointerInfoENS1_3ISD10ArgFlagsTyE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %0, i64 noundef %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(21) %3, i64 %4, i64 %5) unnamed_addr #1 align 2 {
   %7 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %8 = alloca %"class.llvm::DstOp", align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -430,7 +430,7 @@ for.end:                                          ; preds = %if.end28, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z24InverseTransformPoint3x3R9btVector3RKS_RK11btTransform(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %in, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %tr) local_unnamed_addr #2 {
+define dso_local void @_Z24InverseTransformPoint3x3R9btVector3RKS_RK11btTransform(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %in, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %tr) local_unnamed_addr #2 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %tr, i64 16
   %arrayidx.i17 = getelementptr inbounds i8, ptr %tr, i64 32

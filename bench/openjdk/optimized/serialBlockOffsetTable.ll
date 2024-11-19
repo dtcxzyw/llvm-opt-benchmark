@@ -58,7 +58,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_10ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN22SerialBlockOffsetTableC1E9MemRegionm = hidden unnamed_addr alias void (ptr, ptr, i64, i64), ptr @_ZN22SerialBlockOffsetTableC2E9MemRegionm
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22SerialBlockOffsetTableC2E9MemRegionm(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 16)) %0, ptr %1, i64 %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN22SerialBlockOffsetTableC2E9MemRegionm(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr %1, i64 %2, i64 noundef %3) unnamed_addr #0 align 2 {
   %5 = alloca %class.ThreadCritical, align 1
   %6 = alloca %class.ReservedSpace, align 8
   store ptr %1, ptr %0, align 8

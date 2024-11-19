@@ -242,7 +242,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith14EqualitySolver19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %esi) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith14EqualitySolver19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(45) %esi) local_unnamed_addr #3 align 2 {
 entry:
   %d_notify = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %d_notify, ptr %esi, align 8
@@ -254,7 +254,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith14EqualitySolver10finishInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((48, 56)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith14EqualitySolver10finishInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_astate = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_astate, align 8
@@ -516,7 +516,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith14EqualitySolver20setCongruenceManagerEPNS2_6linear22ArithCongruenceManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((112, 120)) %this, ptr noundef %acm) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith14EqualitySolver20setCongruenceManagerEPNS2_6linear22ArithCongruenceManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this, ptr noundef %acm) local_unnamed_addr #7 align 2 {
 entry:
   %d_acm = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %acm, ptr %d_acm, align 8

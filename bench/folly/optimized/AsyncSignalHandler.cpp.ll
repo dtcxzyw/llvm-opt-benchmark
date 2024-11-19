@@ -75,7 +75,7 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly18AsyncSignalHandlerC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16), (24, 28), (32, 40)) %this, ptr noundef %eventBase) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18AsyncSignalHandlerC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %eventBase) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18AsyncSignalHandlerE, i64 16), ptr %this, align 8, !tbaa !7
   %eventBase_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -108,7 +108,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly18AsyncSignalHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18AsyncSignalHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18AsyncSignalHandlerE, i64 16), ptr %this, align 8, !tbaa !7
   %signalEvents_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -272,7 +272,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly18AsyncSignalHandler15attachEventBaseEPNS_9EventBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef %eventBase) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly18AsyncSignalHandler15attachEventBaseEPNS_9EventBaseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr noundef %eventBase) local_unnamed_addr #1 align 2 {
 entry:
   %eventBase_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %eventBase, ptr %eventBase_, align 8, !tbaa !10
@@ -280,7 +280,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly18AsyncSignalHandler15detachEventBaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((8, 16)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly18AsyncSignalHandler15detachEventBaseEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this) local_unnamed_addr #1 align 2 {
 entry:
   %eventBase_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %eventBase_, align 8, !tbaa !10

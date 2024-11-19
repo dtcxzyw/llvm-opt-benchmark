@@ -5142,7 +5142,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit33:  ; preds = %60
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN10test_utils5bench17ha9eb546e49bed1d2E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { { [2 x i32], i32, [1 x i32] }, i64, { { { i64, i32, [1 x i32] } } } } }) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @_ZN10test_utils5bench17ha9eb546e49bed1d2E(ptr noalias nocapture noundef writeonly sret({ { ptr, i64 }, { { [2 x i32], i32, [1 x i32] }, i64, { { { i64, i32, [1 x i32] } } } } }) align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { { [2 x i32], i32, [1 x i32] }, i64, { { { i64, i32, [1 x i32] } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4)
   call void @_ZN7profile10stop_watch9StopWatch5start17h6f84661d6bac0b93E(ptr noalias nocapture noundef nonnull sret({ { [2 x i32], i32, [1 x i32] }, i64, { { { i64, i32, [1 x i32] } } } }) align 8 dereferenceable(40) %4)

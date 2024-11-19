@@ -785,7 +785,7 @@ define noundef nonnull align 8 dereferenceable(160) ptr @_ZN5regex8builders6stri
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %1, align 8, !alias.scope !136, !nonnull !9, !align !12, !noundef !9
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !136, !noundef !9
@@ -819,7 +819,7 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h0968796024da860eE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5regex5regex5bytes12no_expansion17h120bd1bae5d630deE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN5regex5regex5bytes12no_expansion17h120bd1bae5d630deE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !147)
   %3 = load ptr, ptr %1, align 8, !alias.scope !147, !nonnull !9, !align !13, !noundef !9
   %4 = load i64, ptr %3, align 8, !range !17, !alias.scope !150, !noalias !147, !noundef !9
@@ -872,7 +872,7 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h120bd1bae5d630deE(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5regex5regex5bytes12no_expansion17h3ce9713693a687f3E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN5regex5regex5bytes12no_expansion17h3ce9713693a687f3E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !163, !nonnull !9, !noundef !9
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -907,7 +907,7 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h3ce9713693a687f3E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5regex5regex5bytes12no_expansion17h593c81f7f9168d00E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN5regex5regex5bytes12no_expansion17h593c81f7f9168d00E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %1, align 8, !range !17, !alias.scope !174, !noundef !9
   %4 = icmp eq i64 %3, -9223372036854775808
   br i1 %4, label %5, label %10
@@ -958,7 +958,7 @@ define hidden void @_ZN5regex5regex5bytes12no_expansion17h593c81f7f9168d00E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5regex5regex5bytes12no_expansion17hea174207b5007cb1E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN5regex5regex5bytes12no_expansion17hea174207b5007cb1E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !187)
   %3 = load ptr, ptr %1, align 8, !alias.scope !187, !nonnull !9, !align !13, !noundef !9
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -1011,7 +1011,7 @@ define void @"_ZN76_$LT$$RF$alloc..string..String$u20$as$u20$regex..regex..strin
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN76_$LT$$RF$alloc..string..String$u20$as$u20$regex..regex..string..Replacer$GT$12no_expansion17h207f3faef7dd1dffE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN76_$LT$$RF$alloc..string..String$u20$as$u20$regex..regex..string..Replacer$GT$12no_expansion17h207f3faef7dd1dffE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !211)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !213)
@@ -1065,7 +1065,7 @@ define void @"_ZN72_$LT$alloc..string..String$u20$as$u20$regex..regex..string..R
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN72_$LT$alloc..string..String$u20$as$u20$regex..regex..string..Replacer$GT$12no_expansion17h897d4f520076b26dE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN72_$LT$alloc..string..String$u20$as$u20$regex..regex..string..Replacer$GT$12no_expansion17h897d4f520076b26dE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !236)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !239)
   %3 = getelementptr inbounds i8, ptr %1, i64 8

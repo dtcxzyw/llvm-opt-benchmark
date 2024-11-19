@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18btSimpleBroadphaseC2EiP22btOverlappingPairCache(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (32, 40), (48, 57), (60, 64)) %this, i32 noundef %maxProxies, ptr noundef %overlappingPairCache) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18btSimpleBroadphaseC2EiP22btOverlappingPairCache(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %maxProxies, ptr noundef %overlappingPairCache) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18btSimpleBroadphase, i64 16), ptr %this, align 8
   %m_pairCache = getelementptr inbounds i8, ptr %this, i64 48
@@ -149,7 +149,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN28btHashedOverlappingPairCacheC1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18btSimpleBroadphaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18btSimpleBroadphaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18btSimpleBroadphase, i64 16), ptr %this, align 8
   %m_pHandlesRawPtr = getelementptr inbounds i8, ptr %this, i64 32
@@ -199,7 +199,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18btSimpleBroadphaseD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18btSimpleBroadphaseD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18btSimpleBroadphase, i64 16), ptr %this, align 8
   %m_pHandlesRawPtr.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -327,7 +327,7 @@ _ZN18btSimpleBroadphase10freeHandleEP23btSimpleBroadphaseProxy.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK18btSimpleBroadphase7getAabbEP17btBroadphaseProxyR9btVector3S3_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %proxy, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %aabbMax) unnamed_addr #8 align 2 {
+define dso_local void @_ZNK18btSimpleBroadphase7getAabbEP17btBroadphaseProxyR9btVector3S3_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %proxy, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %aabbMax) unnamed_addr #8 align 2 {
 entry:
   %m_aabbMin = getelementptr inbounds i8, ptr %proxy, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin, i64 16, i1 false)
@@ -340,7 +340,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN18btSimpleBroadphase7setAabbEP17btBroadphaseProxyRK9btVector3S4_P12btDispatcher(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly initializes((20, 52)) %proxy, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMax, ptr nocapture readnone %0) unnamed_addr #8 align 2 {
+define dso_local void @_ZN18btSimpleBroadphase7setAabbEP17btBroadphaseProxyRK9btVector3S4_P12btDispatcher(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef writeonly %proxy, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMin, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %aabbMax, ptr nocapture readnone %0) unnamed_addr #8 align 2 {
 entry:
   %m_aabbMin = getelementptr inbounds i8, ptr %proxy, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)

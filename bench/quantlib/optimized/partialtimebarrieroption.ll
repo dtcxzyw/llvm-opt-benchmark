@@ -1015,7 +1015,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24PartialTimeBarrierOptionC1ENS_7Barrier4TypeENS_14PartialBarrier5RangeEddNS_4DateERKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS7_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, i32 noundef %barrierType, i32 noundef %barrierRange, double noundef %barrier, double noundef %rebate, i64 %coverEventDate.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24PartialTimeBarrierOptionC1ENS_7Barrier4TypeENS_14PartialBarrier5RangeEddNS_4DateERKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS7_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(256) %this, i32 noundef %barrierType, i32 noundef %barrierRange, double noundef %barrier, double noundef %rebate, i64 %coverEventDate.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 256
@@ -1328,7 +1328,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24PartialTimeBarrierOption9argumentsC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 64)) %this, ptr noundef %vtt) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24PartialTimeBarrierOption9argumentsC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %vtt) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %retval.i = alloca %"class.QuantLib::Date", align 8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -1469,7 +1469,7 @@ _ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit: ; preds = %_ZN5boost10shared
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24PartialTimeBarrierOption9argumentsC1Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 64)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24PartialTimeBarrierOption9argumentsC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %retval.i = alloca %"class.QuantLib::Date", align 8
   %payoff.i = getelementptr inbounds nuw i8, ptr %this, i64 8

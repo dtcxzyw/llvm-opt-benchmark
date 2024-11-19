@@ -11758,7 +11758,7 @@ declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_15GraphC2EPN5Yosys5RTLIL6ModuleERKNS_9VizConfigE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 1), (4, 144)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_15GraphC2EPN5Yosys5RTLIL6ModuleERKNS_9VizConfigE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [75 x i32], align 4
   %5 = alloca %"class.std::allocator.10", align 1
   %6 = alloca [75 x i32], align 4

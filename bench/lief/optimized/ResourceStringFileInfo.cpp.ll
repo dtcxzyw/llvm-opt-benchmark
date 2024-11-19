@@ -1165,7 +1165,7 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPN4LIEF2PE12LangCodeItemESt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF2PE22ResourceStringFileInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF2PE22ResourceStringFileInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE22ResourceStringFileInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -1399,7 +1399,7 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN4LIEF2PE22ResourceStr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE22ResourceStringFileInfo4typeEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((8, 10)) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF2PE22ResourceStringFileInfo4typeEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %1, ptr %3, align 8
   ret void

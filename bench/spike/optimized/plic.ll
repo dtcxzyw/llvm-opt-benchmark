@@ -145,7 +145,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6plic_tC2EPK7simif_tj(ptr nocapture noundef nonnull align 8 dereferenceable(1204) initializes((0, 1204)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6plic_tC2EPK7simif_tj(ptr nocapture noundef nonnull align 8 dereferenceable(1204) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.547 = alloca <{ [2 x i8], [32 x i32], [32 x i32], [1024 x i8], [32 x i32] }>, align 2
   %.sroa.5 = alloca <{ [2 x i8], [32 x i32], [32 x i32], [1024 x i8], [32 x i32] }>, align 2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -792,7 +792,7 @@ _ZN6plic_t14context_updateEPK14plic_context_t.exit: ; preds = %_ZN6plic_t20conte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6plic_t13priority_readEmPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1204) %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN6plic_t13priority_readEmPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1204) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 align 2 {
   %4 = lshr i64 %1, 2
   %5 = trunc i64 %4 to i32
   %.not = icmp ne i32 %5, 0
@@ -841,7 +841,7 @@ define noundef zeroext i1 @_ZN6plic_t14priority_writeEmj(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN6plic_t12pending_readEmPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1204) %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN6plic_t12pending_readEmPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1204) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 align 2 {
   %4 = alloca %struct.plic_context_t, align 8
   %5 = lshr i64 %1, 2
   %6 = trunc i64 %5 to i32
@@ -884,7 +884,7 @@ define noundef zeroext i1 @_ZN6plic_t12pending_readEmPj(ptr nocapture noundef no
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6plic_t19context_enable_readEPK14plic_context_tmPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1204) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN6plic_t19context_enable_readEPK14plic_context_tmPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1204) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #7 align 2 {
   %5 = lshr i64 %2, 2
   %6 = trunc i64 %5 to i32
   %7 = getelementptr inbounds i8, ptr %0, i64 44

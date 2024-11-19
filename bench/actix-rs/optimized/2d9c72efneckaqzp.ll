@@ -167,7 +167,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN64_$LT$h2..proto..error..Initiator$u20$as$u20$core..fmt..Debug$GT$3fmt17h3e66b447e0ed6728E.33" = private unnamed_addr constant [3 x ptr] [ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.89, ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.90, ptr @anon.8d0a30fff3a28ad1d9bfda41ec53008c.91], align 8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN106_$LT$actix_http..payload..Payload$LT$S$GT$$u20$as$u20$core..convert..From$LT$h2..share..RecvStream$GT$$GT$4from17ha8590088d273a24eE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #0 {
+define hidden void @"_ZN106_$LT$actix_http..payload..Payload$LT$S$GT$$u20$as$u20$core..convert..From$LT$h2..share..RecvStream$GT$$GT$4from17ha8590088d273a24eE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { { { { ptr, { i32, i32 } } } } }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @_ZN10actix_http2h27Payload3new17he01297054758e31fE(ptr noalias nocapture noundef nonnull sret({ { { { ptr, { i32, i32 } } } } }) align 8 dereferenceable(16) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %1)
@@ -7297,7 +7297,7 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_ZN3awc6client6Client7he
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN103_$LT$awc..error..WsClientError$u20$as$u20$core..convert..From$LT$awc..client..error..InvalidUrl$GT$$GT$4from17hc254060f806d3e90E"(ptr noalias nocapture noundef writeonly sret({ i8, [71 x i8] }) align 8 dereferenceable(72) initializes((0, 1), (8, 11)) %0, i8 noundef %1, i8 %2) unnamed_addr #8 {
+define void @"_ZN103_$LT$awc..error..WsClientError$u20$as$u20$core..convert..From$LT$awc..client..error..InvalidUrl$GT$$GT$4from17hc254060f806d3e90E"(ptr noalias nocapture noundef writeonly sret({ i8, [71 x i8] }) align 8 dereferenceable(72) %0, i8 noundef %1, i8 %2) unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
@@ -7309,7 +7309,7 @@ define void @"_ZN103_$LT$awc..error..WsClientError$u20$as$u20$core..convert..Fro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN91_$LT$awc..error..WsClientError$u20$as$u20$core..convert..From$LT$http..error..Error$GT$$GT$4from17hc909c305e2099276E"(ptr noalias nocapture noundef writeonly sret({ i8, [71 x i8] }) align 8 dereferenceable(72) initializes((0, 1), (8, 11)) %0, i8 noundef %1, i8 %2) unnamed_addr #8 {
+define void @"_ZN91_$LT$awc..error..WsClientError$u20$as$u20$core..convert..From$LT$http..error..Error$GT$$GT$4from17hc909c305e2099276E"(ptr noalias nocapture noundef writeonly sret({ i8, [71 x i8] }) align 8 dereferenceable(72) %0, i8 noundef %1, i8 %2) unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 4, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 9
@@ -7327,7 +7327,7 @@ define noundef nonnull align 8 ptr @_ZN3awc7request13ClientRequest7get_uri17h240
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3awc7request13ClientRequest7address17hf0de75c8a2ad51bfE(ptr noalias nocapture noundef writeonly sret({ { [2 x i32], i32, [1 x i32] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(408) initializes((0, 408)) %0, ptr noalias nocapture noundef align 8 dereferenceable(408) initializes((272, 304)) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %2) unnamed_addr #9 {
+define void @_ZN3awc7request13ClientRequest7address17hf0de75c8a2ad51bfE(ptr noalias nocapture noundef writeonly sret({ { [2 x i32], i32, [1 x i32] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(408) %0, ptr noalias nocapture noundef align 8 dereferenceable(408) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %1, i64 272
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) %2, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, i64 408, i1 false)
@@ -7454,7 +7454,7 @@ define void @_ZN3awc7request13ClientRequest6cookie17hb81fa7b7fb620d36E(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3awc7request13ClientRequest13no_decompress17hf72a013bfe5cf454E(ptr noalias nocapture noundef writeonly sret({ { [2 x i32], i32, [1 x i32] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(408) initializes((0, 408)) %0, ptr noalias nocapture noundef align 8 dereferenceable(408) initializes((402, 403)) %1) unnamed_addr #9 {
+define void @_ZN3awc7request13ClientRequest13no_decompress17hf72a013bfe5cf454E(ptr noalias nocapture noundef writeonly sret({ { [2 x i32], i32, [1 x i32] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(408) %0, ptr noalias nocapture noundef align 8 dereferenceable(408) %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 402
   store i8 0, ptr %3, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(408) %1, i64 408, i1 false)
@@ -7462,7 +7462,7 @@ define void @_ZN3awc7request13ClientRequest13no_decompress17hf72a013bfe5cf454E(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3awc7request13ClientRequest7timeout17h3dc50b04d540ef04E(ptr noalias nocapture noundef writeonly sret({ { [2 x i32], i32, [1 x i32] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(408) initializes((0, 408)) %0, ptr noalias nocapture noundef align 8 dereferenceable(408) initializes((0, 12)) %1, i64 noundef %2, i32 noundef %3) unnamed_addr #9 {
+define void @_ZN3awc7request13ClientRequest7timeout17h3dc50b04d540ef04E(ptr noalias nocapture noundef writeonly sret({ { [2 x i32], i32, [1 x i32] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(408) %0, ptr noalias nocapture noundef align 8 dereferenceable(408) %1, i64 noundef %2, i32 noundef %3) unnamed_addr #9 {
   store i64 %2, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %3, ptr %5, align 8
@@ -8622,7 +8622,7 @@ define noundef zeroext i1 @"_ZN64_$LT$awc..request..ClientRequest$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3awc2ws17WebsocketsRequest7address17h4408280a0bd9c27eE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { [32 x i8], i8, [7 x i8] }, i64, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(464) initializes((0, 464)) %0, ptr noalias nocapture noundef align 8 dereferenceable(464) initializes((280, 312)) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %2) unnamed_addr #9 {
+define void @_ZN3awc2ws17WebsocketsRequest7address17h4408280a0bd9c27eE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { [32 x i8], i8, [7 x i8] }, i64, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(464) %0, ptr noalias nocapture noundef align 8 dereferenceable(464) %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %1, i64 280
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 4 dereferenceable(32) %2, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 8 dereferenceable(464) %1, i64 464, i1 false)
@@ -8731,7 +8731,7 @@ define void @_ZN3awc2ws17WebsocketsRequest6cookie17hb06873768a685234E(ptr noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3awc2ws17WebsocketsRequest14max_frame_size17h25a7d65b262f1884E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { [32 x i8], i8, [7 x i8] }, i64, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(464) initializes((0, 464)) %0, ptr noalias nocapture noundef align 8 dereferenceable(464) initializes((352, 360)) %1, i64 noundef %2) unnamed_addr #9 {
+define void @_ZN3awc2ws17WebsocketsRequest14max_frame_size17h25a7d65b262f1884E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { [32 x i8], i8, [7 x i8] }, i64, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(464) %0, ptr noalias nocapture noundef align 8 dereferenceable(464) %1, i64 noundef %2) unnamed_addr #9 {
   %4 = getelementptr inbounds i8, ptr %1, i64 352
   store i64 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 8 dereferenceable(464) %1, i64 464, i1 false)
@@ -8739,7 +8739,7 @@ define void @_ZN3awc2ws17WebsocketsRequest14max_frame_size17h25a7d65b262f1884E(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3awc2ws17WebsocketsRequest11server_mode17h6cfb11211f2bf1c9E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { [32 x i8], i8, [7 x i8] }, i64, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(464) initializes((0, 464)) %0, ptr noalias nocapture noundef align 8 dereferenceable(464) initializes((458, 459)) %1) unnamed_addr #9 {
+define void @_ZN3awc2ws17WebsocketsRequest11server_mode17h6cfb11211f2bf1c9E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { [32 x i8], i8, [7 x i8] }, i64, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }) align 8 dereferenceable(464) %0, ptr noalias nocapture noundef align 8 dereferenceable(464) %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %1, i64 458
   store i8 1, ptr %3, align 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 8 dereferenceable(464) %1, i64 464, i1 false)
@@ -8747,7 +8747,7 @@ define void @_ZN3awc2ws17WebsocketsRequest11server_mode17h6cfb11211f2bf1c9E(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3awc2ws17WebsocketsRequest7connect17h9dbdce6926a93abbE(ptr noalias nocapture noundef writeonly sret({ { { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { [32 x i8], i8, [7 x i8] }, i64, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }, [496 x i8], i8, [127 x i8] }) align 8 dereferenceable(1088) initializes((0, 464), (960, 961)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(464) %1) unnamed_addr #9 {
+define void @_ZN3awc2ws17WebsocketsRequest7connect17h9dbdce6926a93abbE(ptr noalias nocapture noundef writeonly sret({ { { i64, [2 x i64] }, { { { { ptr, ptr } }, {}, {} }, ptr, { [2 x i32], i32, [1 x i32] } }, { { i16, [15 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, { { { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64, i64, i64 } } } } }, i8, i8, [6 x i8] }, { i16, [15 x i16] }, { [32 x i8], i8, [7 x i8] }, i64, { ptr, [11 x i64] }, { i8, [1 x i8] }, i8, [5 x i8] }, [496 x i8], i8, [127 x i8] }) align 8 dereferenceable(1088) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(464) %1) unnamed_addr #9 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull align 8 dereferenceable(464) %1, i64 464, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 960
   store i8 0, ptr %3, align 8

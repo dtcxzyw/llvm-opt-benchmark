@@ -135,7 +135,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer14convex_closureC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 25), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(976) %_m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer14convex_closureC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(976) %_m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 25, i1 false)
   %m = getelementptr inbounds i8, ptr %this, i64 32
@@ -436,7 +436,7 @@ _ZN6vectorIS_I8rationalLb1EjELb1EjED2Ev.exit:     ; preds = %entry, %.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer14convex_closure5resetEj(ptr noundef nonnull align 8 dereferenceable(240) initializes((88, 92)) %this, i32 noundef %n_cols) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN6spacer14convex_closure5resetEj(ptr noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %n_cols) local_unnamed_addr #3 align 2 {
 entry:
   %m_dim = getelementptr inbounds i8, ptr %this, i64 88
   store i32 %n_cols, ptr %m_dim, align 8

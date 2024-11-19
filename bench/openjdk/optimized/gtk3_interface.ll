@@ -8186,7 +8186,7 @@ createWidgetPath.exit85:                          ; preds = %198, %195, %createW
 declare void @JNU_ThrowOutOfMemoryError(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias nonnull writable align 8 initializes((24, 32)) %0, ptr noundef %1, i32 noundef range(i32 0, 33) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @gtk3_get_color_for_flags(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 noundef range(i32 0, 33) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.GdkRGBA, align 8
   %6 = alloca %struct.GdkRGBA, align 8
   %7 = alloca %struct.GdkRGBA, align 8

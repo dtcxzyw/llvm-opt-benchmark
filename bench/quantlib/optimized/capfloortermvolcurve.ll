@@ -1293,7 +1293,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CapFloorTermVolCurveC2EjRKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EERKS5_INS_6HandleINS_5QuoteEEESaISD_EERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 12)) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CapFloorTermVolCurveC2EjRKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EERKS5_INS_6HandleINS_5QuoteEEESaISD_EERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.13", align 1
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -2921,7 +2921,7 @@ lpad:                                             ; preds = %lor.end.i.i, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CapFloorTermVolCurve11interpolateEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((232, 233), (240, 248)) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CapFloorTermVolCurve11interpolateEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::CubicInterpolation", align 8
   %ref.tmp2 = alloca %"class.__gnu_cxx::__normal_iterator.33", align 8
@@ -3123,7 +3123,7 @@ _ZNSt12_Vector_baseIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CapFloorTermVolCurveC1EjRKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EERKS5_INS_6HandleINS_5QuoteEEESaISD_EERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) initializes((272, 276), (280, 288)) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CapFloorTermVolCurveC1EjRKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EERKS5_INS_6HandleINS_5QuoteEEESaISD_EERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dc) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.std::allocator.13", align 1
   %0 = getelementptr inbounds i8, ptr %this, i64 256
@@ -3527,7 +3527,7 @@ ehcleanup32:                                      ; preds = %lpad2, %ehcleanup30
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CapFloorTermVolCurveC2ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EERKS8_INS_6HandleINS_5QuoteEEESaISG_EERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 12)) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %settlementDate, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CapFloorTermVolCurveC2ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EERKS8_INS_6HandleINS_5QuoteEEESaISG_EERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %settlementDate, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.13", align 1
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -3926,7 +3926,7 @@ ehcleanup32:                                      ; preds = %if.then.i.i.i87, %e
 declare void @_ZN8QuantLib31CapFloorTermVolatilityStructureC2ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(68), ptr noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CapFloorTermVolCurveC1ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EERKS8_INS_6HandleINS_5QuoteEEESaISG_EERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) initializes((272, 276), (280, 288)) %this, ptr noundef nonnull align 8 dereferenceable(8) %settlementDate, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CapFloorTermVolCurveC1ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EERKS8_INS_6HandleINS_5QuoteEEESaISG_EERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(8) %settlementDate, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.std::allocator.13", align 1
   %0 = getelementptr inbounds i8, ptr %this, i64 256
@@ -4330,7 +4330,7 @@ ehcleanup32:                                      ; preds = %lpad2, %ehcleanup30
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CapFloorTermVolCurveC2ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EERKS8_IdSaIdEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 12)) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %settlementDate, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CapFloorTermVolCurveC2ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EERKS8_IdSaIdEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, ptr noundef nonnull align 8 dereferenceable(8) %settlementDate, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.13", align 1
   %ref.tmp29 = alloca %"class.QuantLib::Handle", align 8
@@ -5073,7 +5073,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CapFloorTermVolCurveC1ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EERKS8_IdSaIdEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) initializes((272, 276), (280, 288)) %this, ptr noundef nonnull align 8 dereferenceable(8) %settlementDate, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CapFloorTermVolCurveC1ERKNS_4DateERKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS9_EERKS8_IdSaIdEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 8 dereferenceable(8) %settlementDate, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.std::allocator.13", align 1
   %ref.tmp27 = alloca %"class.QuantLib::Handle", align 8
@@ -5704,7 +5704,7 @@ ehcleanup53:                                      ; preds = %lpad2, %ehcleanup51
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CapFloorTermVolCurveC2EjRKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EERKS5_IdSaIdEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 12)) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CapFloorTermVolCurveC2EjRKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EERKS5_IdSaIdEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %vtt, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.13", align 1
   %ref.tmp29 = alloca %"class.QuantLib::Handle", align 8
@@ -6328,7 +6328,7 @@ ehcleanup53:                                      ; preds = %if.then.i.i.i107, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20CapFloorTermVolCurveC1EjRKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EERKS5_IdSaIdEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) initializes((272, 276), (280, 288)) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20CapFloorTermVolCurveC1EjRKNS_8CalendarENS_21BusinessDayConventionERKSt6vectorINS_6PeriodESaIS6_EERKS5_IdSaIdEERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(256) %this, i32 noundef %settlementDays, ptr noundef nonnull align 8 dereferenceable(16) %calendar, i32 noundef %bdc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vols, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.std::allocator.13", align 1
   %ref.tmp27 = alloca %"class.QuantLib::Handle", align 8

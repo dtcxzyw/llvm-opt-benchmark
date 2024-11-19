@@ -79,7 +79,7 @@ define internal range(i32 0, 2) i32 @_find_task_state(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @task_state_alter(ptr noundef initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @task_state_alter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48

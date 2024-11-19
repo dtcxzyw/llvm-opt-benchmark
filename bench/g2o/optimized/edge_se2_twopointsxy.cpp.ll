@@ -253,7 +253,7 @@ define void @_ZN3g2o18EdgeSE2TwoPointsXYC2Ev(ptr noundef nonnull align 16 derefe
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN3g2o18EdgeSE2TwoPointsXY12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(416) initializes((336, 368)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o18EdgeSE2TwoPointsXY12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(416) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -647,7 +647,7 @@ define noundef double @_ZN3g2o18EdgeSE2TwoPointsXY23initialEstimatePossibleERKSt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define noundef zeroext i1 @_ZN3g2o18EdgeSE2TwoPointsXY23setMeasurementFromStateEv(ptr nocapture noundef nonnull align 16 dereferenceable(416) initializes((176, 208)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3g2o18EdgeSE2TwoPointsXY23setMeasurementFromStateEv(ptr nocapture noundef nonnull align 16 dereferenceable(416) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8

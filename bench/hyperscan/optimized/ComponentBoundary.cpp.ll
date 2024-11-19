@@ -66,7 +66,7 @@ entry:
 declare void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue217ComponentBoundaryD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217ComponentBoundaryD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217ComponentBoundaryE, i64 16), ptr %this, align 8
   %m_last = getelementptr inbounds i8, ptr %this, i64 48
@@ -97,7 +97,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit3: ; preds = %_ZNSt6vectorIN3u
 declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue217ComponentBoundaryD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217ComponentBoundaryD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217ComponentBoundaryE, i64 16), ptr %this, align 8
   %m_last.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -129,7 +129,7 @@ _ZN3ue217ComponentBoundaryD2Ev.exit:              ; preds = %_ZNSt6vectorIN3ue21
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217ComponentBoundaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217ComponentBoundaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue29ComponentE, i64 16), ptr %this, align 8
   %pos_begin.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -304,7 +304,7 @@ lpad:                                             ; preds = %entry
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue217ComponentBoundary5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue217ComponentBoundary5firstEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_first = getelementptr inbounds i8, ptr %this, i64 24
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -358,7 +358,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EEC2ERKS3_.exit: ; preds = %for.body.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue217ComponentBoundary4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue217ComponentBoundary4lastEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_last = getelementptr inbounds i8, ptr %this, i64 48
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56

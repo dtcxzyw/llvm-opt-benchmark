@@ -3347,7 +3347,7 @@ _ZN12_GLOBAL__N_114LegacyLICMPassC2Ejjb.exit:     ; preds = %0
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21SinkAndHoistLICMFlagsC2EbRNS_4LoopERNS_9MemorySSAE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(17) initializes((0, 1), (4, 17)) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(325) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21SinkAndHoistLICMFlagsC2EbRNS_4LoopERNS_9MemorySSAE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(17) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(152) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(325) %3) unnamed_addr #0 align 2 {
   %5 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4llvm17SetLicmMssaOptCapE, i64 128), align 8
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @_ZN4llvm31SetLicmMssaNoAccForPromotionCapE, i64 128), align 8
   %7 = zext i1 %1 to i8
@@ -3450,7 +3450,7 @@ _ZN4llvm21SinkAndHoistLICMFlagsC2EjjbRNS_4LoopERNS_9MemorySSAE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm21SinkAndHoistLICMFlagsC2EjjbRNS_4LoopERNS_9MemorySSAE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(17) initializes((0, 1), (4, 17)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(325) %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm21SinkAndHoistLICMFlagsC2EjjbRNS_4LoopERNS_9MemorySSAE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(17) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(152) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(325) %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %3 to i8
   store i8 0, ptr %0, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -15040,7 +15040,7 @@ declare noundef ptr @_ZN4llvm11PoisonValue3getEPNS_4TypeE(ptr noundef) local_unn
 declare void @_ZN4llvm20LoadAndStorePromoter3runERKNS_15SmallVectorImplIPNS_11InstructionEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112LoopPromoterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112LoopPromoterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_112LoopPromoterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -21091,7 +21091,7 @@ declare noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo16isSingleThreadedEv(p
 declare void @_ZN4llvm20LoadAndStorePromoterC2ENS_8ArrayRefIPKNS_11InstructionEEERNS_10SSAUpdaterENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, ptr noundef nonnull align 8 dereferenceable(56), ptr, i64) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112LoopPromoterD0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112LoopPromoterD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_112LoopPromoterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8

@@ -197,7 +197,7 @@ define hidden void @png_zfree(ptr noundef %0, ptr noundef %1) #0 {
 declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_reset_crc(ptr noalias nocapture noundef writeonly initializes((492, 496)) %0) local_unnamed_addr #0 {
+define hidden void @png_reset_crc(ptr noalias nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #29
   %3 = trunc i64 %2 to i32
   %4 = getelementptr inbounds i8, ptr %0, i64 492
@@ -5809,7 +5809,7 @@ png_build_8bit_table.exit104:                     ; preds = %png_gamma_8bit_corr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef range(i32 0, 16) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @png_build_16bit_table(ptr noalias noundef %0, ptr nocapture noundef writeonly %1, i32 noundef range(i32 0, 16) %2, i32 noundef %3) unnamed_addr #0 {
   %5 = sub nsw i32 8, %2
   %6 = shl nuw nsw i32 1, %5
   %7 = sub nuw nsw i32 16, %2

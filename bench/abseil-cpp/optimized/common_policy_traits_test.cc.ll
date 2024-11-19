@@ -1712,7 +1712,7 @@ ehcleanup15:                                      ; preds = %ehcleanup14, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Test_construct_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Test_construct_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_14TestE, i64 16), ptr %this, align 8
   %transfer.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -1728,7 +1728,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Test_construct_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_119Test_construct_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_14TestE, i64 16), ptr %this, align 8
   %transfer.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -1889,7 +1889,7 @@ declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(1
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_14TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_14TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_14TestE, i64 16), ptr %this, align 8
   %transfer = getelementptr inbounds i8, ptr %this, i64 240
@@ -16001,7 +16001,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_117Test_destroy_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_117Test_destroy_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_14TestE, i64 16), ptr %this, align 8
   %transfer.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -16017,7 +16017,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_117Test_destroy_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_117Test_destroy_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_14TestE, i64 16), ptr %this, align 8
   %transfer.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -17148,7 +17148,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_117Test_element_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_117Test_element_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_14TestE, i64 16), ptr %this, align 8
   %transfer.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -17164,7 +17164,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_117Test_element_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_117Test_element_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_14TestE, i64 16), ptr %this, align 8
   %transfer.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -19260,7 +19260,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_126Test_without_transfer_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_126Test_without_transfer_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_14TestE, i64 16), ptr %this, align 8
   %transfer.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -19276,7 +19276,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_126Test_without_transfer_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_126Test_without_transfer_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_14TestE, i64 16), ptr %this, align 8
   %transfer.i.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -20377,7 +20377,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_123Test_with_transfer_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_123Test_with_transfer_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_14TestE, i64 16), ptr %this, align 8
   %transfer.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -20393,7 +20393,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_123Test_with_transfer_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_123Test_with_transfer_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_14TestE, i64 16), ptr %this, align 8
   %transfer.i.i = getelementptr inbounds i8, ptr %this, i64 240

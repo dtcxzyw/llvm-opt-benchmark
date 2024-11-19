@@ -316,7 +316,7 @@ define linkonce_odr hidden void @_ZN4llvm16BinaryByteStreamD2Ev(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object15WindowsResource21createWindowsResourceENS_15MemoryBufferRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object15WindowsResource21createWindowsResourceENS_15MemoryBufferRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
@@ -365,7 +365,7 @@ _ZNSt10unique_ptrIN4llvm6object15WindowsResourceESt14default_deleteIS2_EED2Ev.ex
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object15WindowsResource12getHeadEntryEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.3") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object15WindowsResource12getHeadEntryEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.3") align 8 %0, ptr noundef nonnull align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::BinaryStreamRef", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -489,7 +489,7 @@ define linkonce_odr hidden noundef i64 @_ZN4llvm16BinaryByteStream9getLengthEv(p
 declare { ptr, i64 } @_ZNK4llvm6object6Binary11getFileNameEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object16ResourceEntryRef6createENS_15BinaryStreamRefEPKNS0_15WindowsResourceE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.3") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object16ResourceEntryRef6createENS_15BinaryStreamRefEPKNS0_15WindowsResourceE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.3") align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::object::ResourceEntryRef", align 8
   %5 = alloca %"class.llvm::BinaryStreamRef", align 8
   %6 = alloca %"class.llvm::Error", align 8
@@ -4590,7 +4590,7 @@ _ZNSt10unique_ptrIN4llvm6object21WindowsResourceParser8TreeNodeESt14default_dele
 declare void @_ZN4llvm6object18ResourceSectionRef11getContentsERKNS0_24coff_resource_data_entryE(ptr dead_on_unwind writable sret(%"class.llvm::Expected.72") align 8, ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 1 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNodeC2Ej(ptr noundef nonnull align 8 dereferenceable(124) initializes((0, 1), (4, 8), (24, 28), (32, 40)) %0, i32 noundef %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNodeC2Ej(ptr noundef nonnull align 8 dereferenceable(124) %0, i32 noundef %1) unnamed_addr #8 align 2 {
   store i8 0, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
@@ -4618,7 +4618,7 @@ define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNodeC2Ej(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNodeC2Ettjjj(ptr noundef nonnull align 8 dereferenceable(124) initializes((0, 1), (8, 12), (24, 28), (32, 40)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNodeC2Ettjjj(ptr noundef nonnull align 8 dereferenceable(124) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) unnamed_addr #8 align 2 {
   store i8 1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %5, ptr %7, align 8
@@ -4654,7 +4654,7 @@ define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNodeC2Ettjjj(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNode16createStringNodeEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.28") align 8 initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNode16createStringNodeEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.28") align 8 %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #26
   tail call void @_ZN4llvm6object21WindowsResourceParser8TreeNodeC1Ej(ptr noundef nonnull align 8 dereferenceable(124) %3, i32 noundef %1) #25
   store ptr %3, ptr %0, align 8
@@ -4662,7 +4662,7 @@ define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNode16createSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNode12createIDNodeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.28") align 8 initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNode12createIDNodeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.28") align 8 %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #26
   tail call void @_ZN4llvm6object21WindowsResourceParser8TreeNodeC1Ej(ptr noundef nonnull align 8 dereferenceable(124) %2, i32 noundef 0) #25
   store ptr %2, ptr %0, align 8
@@ -4670,7 +4670,7 @@ define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNode12createID
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNode14createDataNodeEttjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.28") align 8 initializes((0, 8)) %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object21WindowsResourceParser8TreeNode14createDataNodeEttjjj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.28") align 8 %0, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 {
   %7 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #26
   tail call void @_ZN4llvm6object21WindowsResourceParser8TreeNodeC1Ettjjj(ptr noundef nonnull align 8 dereferenceable(124) %7, i16 noundef zeroext %1, i16 noundef zeroext %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #25
   store ptr %7, ptr %0, align 8
@@ -4737,7 +4737,7 @@ define dso_local noundef i32 @_ZNK4llvm6object21WindowsResourceParser8TreeNode11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriterC2ENS_4COFF12MachineTypesERKNS0_21WindowsResourceParserERNS_5ErrorE(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (16, 28), (32, 64), (68, 76), (88, 176)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(201) %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriterC2ENS_4COFF12MachineTypesERKNS0_21WindowsResourceParserERNS_5ErrorE(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(201) %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr.95", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   store ptr null, ptr %0, align 8
@@ -4820,7 +4820,7 @@ _ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter17performFileLayoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((56, 64), (68, 76)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter17performFileLayoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i64 100, ptr %2, align 8
   tail call void @_ZN4llvm6object25WindowsResourceCOFFWriter23performSectionOneLayoutEv(ptr noundef nonnull align 8 dereferenceable(176) %0)
@@ -4841,7 +4841,7 @@ define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter17performFileLa
 declare void @_ZN4llvm20WritableMemoryBuffer15getNewMemBufferEmRKNS_5TwineE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.95") align 8, i64 noundef, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter23performSectionOneLayoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((68, 76)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter23performSectionOneLayoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -4994,7 +4994,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %21, %_ZNSt6vectorIj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter23performSectionTwoLayoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((80, 88)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter23performSectionTwoLayoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
@@ -5129,7 +5129,7 @@ _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %19, %_ZNSt6vectorIj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter5writeEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.110") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) initializes((8, 16)) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object25WindowsResourceCOFFWriter5writeEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.110") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -6894,7 +6894,7 @@ _ZN4llvm18getMachineArchTypeINS_4COFF12MachineTypesEEENS_6Triple8ArchTypeET_.exi
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object24writeWindowsResourceCOFFENS_4COFF12MachineTypesERKNS0_21WindowsResourceParserEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.129") align 8 initializes((0, 8)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(201) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm6object24writeWindowsResourceCOFFENS_4COFF12MachineTypesERKNS0_21WindowsResourceParserEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.129") align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(201) %2, i32 noundef %3) local_unnamed_addr #0 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::object::WindowsResourceCOFFWriter", align 8

@@ -97,7 +97,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN15ShmemTHPSupportC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15ShmemTHPSupportC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23ExplicitHugePageSupportC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 1), (8, 25)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN23ExplicitHugePageSupportC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
@@ -436,7 +436,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10THPSupportC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 1), (4, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10THPSupportC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 1, ptr %2, align 4
@@ -460,7 +460,7 @@ define hidden noundef i64 @_ZNK10THPSupport8pagesizeEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10THPSupport7scan_osEv(ptr noundef nonnull align 8 dereferenceable(16) initializes((4, 16)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10THPSupport7scan_osEv(ptr noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca %class.LogStream, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -604,7 +604,7 @@ _Z24exact_unit_for_byte_sizem.exit:               ; preds = %.thread, %_Z23byte_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15ShmemTHPSupportC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ShmemTHPSupportC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 6, ptr %2, align 4
@@ -660,7 +660,7 @@ switch.edge:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ShmemTHPSupport7scan_osEv(ptr nocapture noundef nonnull align 4 dereferenceable(8) initializes((0, 1), (4, 8)) %0) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN15ShmemTHPSupport7scan_osEv(ptr nocapture noundef nonnull align 4 dereferenceable(8) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca %class.LogStream, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4

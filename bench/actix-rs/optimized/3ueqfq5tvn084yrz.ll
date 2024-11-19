@@ -704,7 +704,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapErr$LT$B$C$F$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h1d225bdd0aa045aeE"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef readnone align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(8) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapErr$LT$B$C$F$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h1d225bdd0aa045aeE"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readnone align 1 dereferenceable(1) %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(8) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   store i64 0, ptr %0, align 8
   ret void
 }
@@ -869,7 +869,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapErr$LT$B$C$F$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h64474293ff5dc728E"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(8) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapErr$LT$B$C$F$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17h64474293ff5dc728E"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(8) %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !118, !noalias !121, !noundef !13
   %6 = icmp eq i64 %5, 0
@@ -896,7 +896,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapErr$LT$B$C$F$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb4ab39834ecbac2cE"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapErr$LT$B$C$F$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hb4ab39834ecbac2cE"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(32) %1, ptr noalias nocapture noundef readnone align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, [3 x i64] }, align 8
   %5 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %.sroa.3 = alloca [3 x i64], align 8
@@ -1132,7 +1132,7 @@ define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapEr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapErr$LT$B$C$F$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hf60c74fa0cc924daE"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture readnone align 1 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @"_ZN126_$LT$actix_http..body..message_body..MessageBodyMapErr$LT$B$C$F$GT$$u20$as$u20$actix_http..body..message_body..MessageBody$GT$9poll_next17hf60c74fa0cc924daE"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture readnone align 1 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   store i64 0, ptr %0, align 8
   ret void
 }
@@ -1633,7 +1633,7 @@ define internal void @_ZN5bytes5bytes11static_drop17h7b0cc40933e82eb8E(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5bytes5bytes12static_clone17h5d85fa132ab860c5E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 {
+define internal void @_ZN5bytes5bytes12static_clone17h5d85fa132ab860c5E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i64, { ptr } }) align 8 dereferenceable(32) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1703,14 +1703,14 @@ define hidden { ptr, ptr } @"_ZN80_$LT$alloc..boxed..Box$LT$S$GT$$u20$as$u20$act
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN99_$LT$actix_service..boxed..ServiceWrapper$LT$S$GT$$u20$as$u20$actix_service..Service$LT$Req$GT$$GT$10poll_ready17he5df5212bea02d29E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture readonly align 8 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #7 {
+define internal void @"_ZN99_$LT$actix_service..boxed..ServiceWrapper$LT$S$GT$$u20$as$u20$actix_service..Service$LT$Req$GT$$GT$10poll_ready17he5df5212bea02d29E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture readonly align 8 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #7 {
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$7map_err17hc2a540eb45bdce22E.exit":
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false), !alias.scope !233, !noalias !236
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @"_ZN99_$LT$actix_service..boxed..ServiceWrapper$LT$S$GT$$u20$as$u20$actix_service..Service$LT$Req$GT$$GT$10poll_ready17hfcc5797ed8231b7bE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture readonly align 8 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #7 {
+define internal void @"_ZN99_$LT$actix_service..boxed..ServiceWrapper$LT$S$GT$$u20$as$u20$actix_service..Service$LT$Req$GT$$GT$10poll_ready17hfcc5797ed8231b7bE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture readonly align 8 %1, ptr noalias nocapture readnone align 8 %2) unnamed_addr #7 {
 "_ZN4core4task4poll45Poll$LT$core..result..Result$LT$T$C$E$GT$$GT$7map_err17hc2a540eb45bdce22E.exit":
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 16, i1 false), !alias.scope !238, !noalias !241
   ret void

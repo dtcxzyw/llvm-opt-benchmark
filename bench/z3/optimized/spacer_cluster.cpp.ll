@@ -178,7 +178,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer13lemma_clusterC2ERK7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pattern) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer13lemma_clusterC2ERK7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %pattern) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_manager.i = getelementptr inbounds i8, ptr %pattern, i64 8
   %0 = load ptr, ptr %m_manager.i, align 8
@@ -443,7 +443,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer13lemma_clusterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(148) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer13lemma_clusterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(148) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(148) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8
@@ -3384,7 +3384,7 @@ ehcleanup47:                                      ; preds = %lpad3.loopexit.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer20lemma_cluster_finderC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 4), (8, 25), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(976) %_m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer20lemma_cluster_finderC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(976) %_m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %watch.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %this, align 8

@@ -3216,7 +3216,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5cmsys20CommandLineArguments16PopulateVariableEPbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5cmsys20CommandLineArguments16PopulateVariableEPbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 {
   %4 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.10) #23
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %33, label %6
@@ -3274,7 +3274,7 @@ define dso_local void @_ZN5cmsys20CommandLineArguments16PopulateVariableEPbRKNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5cmsys20CommandLineArguments16PopulateVariableEPiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(45) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5cmsys20CommandLineArguments16PopulateVariableEPiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(45) %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
@@ -3288,7 +3288,7 @@ define dso_local void @_ZN5cmsys20CommandLineArguments16PopulateVariableEPiRKNSt
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5cmsys20CommandLineArguments16PopulateVariableEPdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(45) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5cmsys20CommandLineArguments16PopulateVariableEPdRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(45) %0, ptr nocapture noundef writeonly %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #5 align 2 {
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
   %5 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %2) #23

@@ -906,7 +906,7 @@ $_ZN8ImVectorI20ImGuiSettingsHandlerE7reserveEi = comdat any
 @_ZN11ImGuiWindowD1Ev = unnamed_addr alias void (ptr), ptr @_ZN11ImGuiWindowD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10ImGuiStyleC2Ev(ptr noundef nonnull align 4 dereferenceable(1096) initializes((0, 219), (220, 1096)) %this) unnamed_addr #0 align 2 {
+define void @_ZN10ImGuiStyleC2Ev(ptr noundef nonnull align 4 dereferenceable(1096) %this) unnamed_addr #0 align 2 {
 entry:
   %WindowPadding = getelementptr inbounds i8, ptr %this, i64 8
   %y.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -1269,7 +1269,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN7ImGuiIOC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(14568) initializes((0, 14568)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7ImGuiIOC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(14568) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %DisplaySize = getelementptr inbounds i8, ptr %this, i64 8
   %y.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -1744,7 +1744,7 @@ while.end:                                        ; preds = %_ZN7ImGuiIO17AddInp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 -128, 129) i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr nocapture noundef writeonly initializes((0, 4)) %out_char, ptr noundef readonly %in_text, ptr noundef readnone %in_text_end) local_unnamed_addr #6 {
+define noundef range(i32 -128, 129) i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr nocapture noundef writeonly %out_char, ptr noundef readonly %in_text, ptr noundef readnone %in_text_end) local_unnamed_addr #6 {
 entry:
   %0 = load i8, ptr %in_text, align 1
   %1 = lshr i8 %0, 3
@@ -1932,7 +1932,7 @@ _ZN8ImVectorI15ImGuiInputEventE5clearEv.exit:     ; preds = %entry, %_ZN5ImGui7M
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7ImGuiIO14ClearInputKeysEv(ptr noundef nonnull align 8 dereferenceable(14568) initializes((2896, 3562)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN7ImGuiIO14ClearInputKeysEv(ptr noundef nonnull align 8 dereferenceable(14568) %this) local_unnamed_addr #0 align 2 {
 entry:
   %KeysDown = getelementptr inbounds i8, ptr %this, i64 2896
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(666) %KeysDown, i8 0, i64 666, i1 false)
@@ -2296,7 +2296,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7ImGuiIO21SetAppAcceptingEventsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(14568) initializes((14545, 14546)) %this, i1 noundef zeroext %accepting_events) local_unnamed_addr #8 align 2 {
+define void @_ZN7ImGuiIO21SetAppAcceptingEventsEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(14568) %this, i1 noundef zeroext %accepting_events) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %accepting_events to i8
   %AppAcceptingEvents = getelementptr inbounds i8, ptr %this, i64 14545
@@ -3099,7 +3099,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z27ImTriangleBarycentricCoordsRK6ImVec2S1_S1_S1_RfS2_S2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %c, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %out_u, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %out_v, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %out_w) local_unnamed_addr #3 {
+define void @_Z27ImTriangleBarycentricCoordsRK6ImVec2S1_S1_S1_RfS2_S2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %a, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %b, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %c, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %p, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out_u, ptr nocapture noundef nonnull align 4 dereferenceable(4) %out_v, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out_w) local_unnamed_addr #3 {
 entry:
   %b.val = load float, ptr %b, align 4
   %0 = getelementptr inbounds i8, ptr %b, i64 4
@@ -4078,7 +4078,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z26ImFormatStringToTempBufferPPKcS1_S0_z(ptr nocapture noundef writeonly initializes((0, 8)) %out_buf, ptr noundef %out_buf_end, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #20 {
+define void @_Z26ImFormatStringToTempBufferPPKcS1_S0_z(ptr nocapture noundef writeonly %out_buf, ptr noundef %out_buf_end, ptr nocapture noundef readonly %fmt, ...) local_unnamed_addr #20 {
 entry:
   %args = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %args)
@@ -4088,7 +4088,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_Z27ImFormatStringToTempBufferVPPKcS1_S0_P13__va_list_tag(ptr nocapture noundef writeonly initializes((0, 8)) %out_buf, ptr noundef writeonly %out_buf_end, ptr nocapture noundef readonly %fmt, ptr noundef %args) local_unnamed_addr #20 {
+define void @_Z27ImFormatStringToTempBufferVPPKcS1_S0_P13__va_list_tag(ptr nocapture noundef writeonly %out_buf, ptr noundef writeonly %out_buf_end, ptr nocapture noundef readonly %fmt, ptr noundef %args) local_unnamed_addr #20 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %1 = load i8, ptr %fmt, align 1
@@ -5219,7 +5219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5ImGui20ColorConvertRGBtoHSVEfffRfS0_S0_(float noundef %r, float noundef %g, float noundef %b, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %out_h, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %out_s, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %out_v) local_unnamed_addr #8 {
+define void @_ZN5ImGui20ColorConvertRGBtoHSVEfffRfS0_S0_(float noundef %r, float noundef %g, float noundef %b, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out_h, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out_s, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out_v) local_unnamed_addr #8 {
 entry:
   %cmp = fcmp olt float %g, %b
   %g.addr.0 = select i1 %cmp, float %b, float %g
@@ -5250,7 +5250,7 @@ entry:
 declare float @llvm.fabs.f32(float) #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %h, float noundef %s, float noundef %v, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %out_r, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %out_g, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %out_b) local_unnamed_addr #24 {
+define void @_ZN5ImGui20ColorConvertHSVtoRGBEfffRfS0_S0_(float noundef %h, float noundef %s, float noundef %v, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out_r, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out_g, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %out_b) local_unnamed_addr #24 {
 entry:
   %cmp = fcmp oeq float %s, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end
@@ -6403,7 +6403,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15ImGuiTextFilterC2EPKc(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 1), (256, 276)) %this, ptr noundef readonly %default_filter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15ImGuiTextFilterC2EPKc(ptr noundef nonnull align 8 dereferenceable(276) %this, ptr noundef readonly %default_filter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %Filters = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %this, align 8
@@ -7255,7 +7255,7 @@ return:                                           ; preds = %entry, %for.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16ImGuiListClipperC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this) unnamed_addr #8 align 2 {
+define void @_ZN16ImGuiListClipperC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
   ret void
@@ -7437,7 +7437,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #33
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 28)) %this, i32 noundef %items_count, float noundef %items_height) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16ImGuiListClipper5BeginEif(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %items_count, float noundef %items_height) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.ImGuiListClipperData, align 8
   %0 = load ptr, ptr %this, align 8
@@ -11039,7 +11039,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui21GetAllocatorFunctionsEPPFPvmS0_EPPFvS0_S0_EPS0_(ptr nocapture noundef writeonly initializes((0, 8)) %p_alloc_func, ptr nocapture noundef writeonly initializes((0, 8)) %p_free_func, ptr nocapture noundef writeonly initializes((0, 8)) %p_user_data) local_unnamed_addr #36 {
+define void @_ZN5ImGui21GetAllocatorFunctionsEPPFPvmS0_EPPFvS0_S0_EPS0_(ptr nocapture noundef writeonly %p_alloc_func, ptr nocapture noundef writeonly %p_free_func, ptr nocapture noundef writeonly %p_user_data) local_unnamed_addr #36 {
 entry:
   %0 = load ptr, ptr @_ZL21GImAllocatorAllocFunc, align 8
   store ptr %0, ptr %p_alloc_func, align 8
@@ -15924,7 +15924,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11ImGuiWindowC2EP12ImGuiContextPKc(ptr noundef nonnull align 8 dereferenceable(1013) initializes((0, 1016)) %this, ptr noundef %ctx, ptr nocapture noundef readonly %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11ImGuiWindowC2EP12ImGuiContextPKc(ptr noundef nonnull align 8 dereferenceable(1013) %this, ptr noundef %ctx, ptr nocapture noundef readonly %name) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont12:
   %IDStack = getelementptr inbounds i8, ptr %this, i64 256
   %DrawListInst = getelementptr inbounds i8, ptr %this, i64 688
@@ -18032,7 +18032,7 @@ _ZN8ImVectorI14ImGuiGroupDataE5clearEv.exit:      ; preds = %_ZN8ImVectorIiE5cle
 declare void @_ZN5ImGui22TableGcCompactSettingsEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui31GcCompactTransientWindowBuffersEP11ImGuiWindow(ptr nocapture noundef initializes((1004, 1013)) %window) local_unnamed_addr #0 {
+define void @_ZN5ImGui31GcCompactTransientWindowBuffersEP11ImGuiWindow(ptr nocapture noundef %window) local_unnamed_addr #0 {
 entry:
   %MemoryCompacted = getelementptr inbounds i8, ptr %window, i64 1012
   store i8 1, ptr %MemoryCompacted, align 4
@@ -18307,7 +18307,7 @@ _ZN8ImVectorIfE5clearEv.exit97:                   ; preds = %_ZN8ImVectorIfE5cle
 declare void @_ZN10ImDrawList16_ClearFreeMemoryEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ImGui29GcAwakeTransientWindowBuffersEP11ImGuiWindow(ptr nocapture noundef initializes((1012, 1013)) %window) local_unnamed_addr #0 {
+define void @_ZN5ImGui29GcAwakeTransientWindowBuffersEP11ImGuiWindow(ptr nocapture noundef %window) local_unnamed_addr #0 {
 entry:
   %MemoryCompacted = getelementptr inbounds i8, ptr %window, i64 1012
   store i8 0, ptr %MemoryCompacted, align 4
@@ -43124,7 +43124,7 @@ _ZL21CalcWindowAutoFitSizeP11ImGuiWindowRK6ImVec2.exit: ; preds = %if.then.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZL22CalcWindowContentSizesP11ImGuiWindowP6ImVec2S2_(ptr nocapture noundef readonly %window, ptr nocapture noundef writeonly initializes((0, 8)) %content_size_current, ptr nocapture noundef writeonly initializes((0, 8)) %content_size_ideal) unnamed_addr #6 {
+define internal fastcc void @_ZL22CalcWindowContentSizesP11ImGuiWindowP6ImVec2S2_(ptr nocapture noundef readonly %window, ptr nocapture noundef writeonly %content_size_current, ptr nocapture noundef writeonly %content_size_ideal) unnamed_addr #6 {
 entry:
   %Collapsed = getelementptr inbounds i8, ptr %window, i64 193
   %0 = load i8, ptr %Collapsed, align 1
@@ -43657,7 +43657,7 @@ _Z10ImHashDataPKvmj.exit:                         ; preds = %while.body.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui30UpdateWindowParentAndRootLinksEP11ImGuiWindowiS1_(ptr noundef initializes((888, 896)) %window, i32 noundef %flags, ptr noundef %parent_window) local_unnamed_addr #41 {
+define void @_ZN5ImGui30UpdateWindowParentAndRootLinksEP11ImGuiWindowiS1_(ptr noundef %window, i32 noundef %flags, ptr noundef %parent_window) local_unnamed_addr #41 {
 entry:
   %ParentWindow = getelementptr inbounds i8, ptr %window, i64 888
   store ptr %parent_window, ptr %ParentWindow, align 8
@@ -43832,7 +43832,7 @@ return:                                           ; preds = %for.inc, %if.end4.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN15ImGuiStackSizes17SetToContextStateEP12ImGuiContext(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(18) initializes((0, 18)) %this, ptr nocapture noundef readonly %ctx) local_unnamed_addr #42 align 2 {
+define void @_ZN15ImGuiStackSizes17SetToContextStateEP12ImGuiContext(ptr nocapture noundef nonnull writeonly align 2 dereferenceable(18) %this, ptr nocapture noundef readonly %ctx) local_unnamed_addr #42 align 2 {
 entry:
   %CurrentWindow = getelementptr inbounds i8, ptr %ctx, i64 16392
   %0 = load ptr, ptr %CurrentWindow, align 8
@@ -44096,7 +44096,7 @@ declare void @_ZN10ImDrawList17_ResetForNewFrameEv(ptr noundef nonnull align 8 d
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5ImGui17SetWindowViewportEP11ImGuiWindowP14ImGuiViewportP(ptr nocapture noundef writeonly initializes((32, 40)) %window, ptr noundef %viewport) local_unnamed_addr #8 {
+define void @_ZN5ImGui17SetWindowViewportEP11ImGuiWindowP14ImGuiViewportP(ptr nocapture noundef writeonly %window, ptr noundef %viewport) local_unnamed_addr #8 {
 entry:
   %Viewport = getelementptr inbounds i8, ptr %window, i64 32
   store ptr %viewport, ptr %Viewport, align 8
@@ -46660,7 +46660,7 @@ if.end:                                           ; preds = %_ZL10LowerBoundR8Im
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5ImGui20SetWindowHitTestHoleEP11ImGuiWindowRK6ImVec2S4_(ptr nocapture noundef initializes((616, 624)) %window, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size) local_unnamed_addr #3 {
+define void @_ZN5ImGui20SetWindowHitTestHoleEP11ImGuiWindowRK6ImVec2S4_(ptr nocapture noundef %window, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %size) local_unnamed_addr #3 {
 entry:
   %0 = load float, ptr %size, align 4
   %conv.i = fptosi float %0 to i16
@@ -46694,7 +46694,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5ImGui43SetWindowHiddendAndSkipItemsForCurrentFrameEP11ImGuiWindow(ptr nocapture noundef writeonly initializes((195, 196), (197, 198), (228, 229)) %window) local_unnamed_addr #8 {
+define void @_ZN5ImGui43SetWindowHiddendAndSkipItemsForCurrentFrameEP11ImGuiWindow(ptr nocapture noundef writeonly %window) local_unnamed_addr #8 {
 entry:
   %SkipItems = getelementptr inbounds i8, ptr %window, i64 195
   store i8 1, ptr %SkipItems, align 1
@@ -47494,7 +47494,7 @@ _ZN5ImGuiL23NavUpdateAnyRequestFlagEv.exit:       ; preds = %cond.false, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui33NavMoveRequestResolveWithLastItemEP16ImGuiNavItemData(ptr nocapture noundef writeonly initializes((0, 36)) %result) local_unnamed_addr #40 {
+define void @_ZN5ImGui33NavMoveRequestResolveWithLastItemEP16ImGuiNavItemData(ptr nocapture noundef writeonly %result) local_unnamed_addr #40 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %NavMoveScoringItems = getelementptr inbounds i8, ptr %0, i64 19321
@@ -47973,7 +47973,7 @@ if.end13:                                         ; preds = %if.end, %land.lhs.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData(ptr nocapture noundef writeonly initializes((0, 36)) %result) unnamed_addr #46 {
+define internal fastcc void @_ZN5ImGuiL20NavApplyItemToResultEP16ImGuiNavItemData(ptr nocapture noundef writeonly %result) unnamed_addr #46 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %CurrentWindow = getelementptr inbounds i8, ptr %0, i64 16392
@@ -49395,7 +49395,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui22GetTypematicRepeatRateEiPfS0_(i32 noundef %flags, ptr nocapture noundef writeonly initializes((0, 4)) %repeat_delay, ptr nocapture noundef writeonly initializes((0, 4)) %repeat_rate) local_unnamed_addr #42 {
+define void @_ZN5ImGui22GetTypematicRepeatRateEiPfS0_(i32 noundef %flags, ptr nocapture noundef writeonly %repeat_delay, ptr nocapture noundef writeonly %repeat_rate) local_unnamed_addr #42 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %and = and i32 %flags, 14
@@ -53777,7 +53777,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5ImGui17SetScrollFromPosXEP11ImGuiWindowff(ptr nocapture noundef initializes((156, 160), (164, 168), (172, 176)) %window, float noundef %local_x, float noundef %center_x_ratio) local_unnamed_addr #6 {
+define void @_ZN5ImGui17SetScrollFromPosXEP11ImGuiWindowff(ptr nocapture noundef %window, float noundef %local_x, float noundef %center_x_ratio) local_unnamed_addr #6 {
 entry:
   %DecoOuterSizeX1 = getelementptr inbounds i8, ptr %window, i64 104
   %0 = load float, ptr %DecoOuterSizeX1, align 8
@@ -53800,7 +53800,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5ImGui17SetScrollFromPosYEP11ImGuiWindowff(ptr nocapture noundef initializes((160, 164), (168, 172), (176, 180)) %window, float noundef %local_y, float noundef %center_y_ratio) local_unnamed_addr #6 {
+define void @_ZN5ImGui17SetScrollFromPosYEP11ImGuiWindowff(ptr nocapture noundef %window, float noundef %local_y, float noundef %center_y_ratio) local_unnamed_addr #6 {
 entry:
   %DecoOuterSizeY1 = getelementptr inbounds i8, ptr %window, i64 108
   %0 = load float, ptr %DecoOuterSizeY1, align 4
@@ -53867,7 +53867,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5ImGui10SetScrollXEP11ImGuiWindowf(ptr nocapture noundef writeonly initializes((156, 160), (164, 168), (172, 176)) %window, float noundef %scroll_x) local_unnamed_addr #8 {
+define void @_ZN5ImGui10SetScrollXEP11ImGuiWindowf(ptr nocapture noundef writeonly %window, float noundef %scroll_x) local_unnamed_addr #8 {
 entry:
   %ScrollTarget = getelementptr inbounds i8, ptr %window, i64 156
   store float %scroll_x, ptr %ScrollTarget, align 4
@@ -53879,7 +53879,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5ImGui10SetScrollYEP11ImGuiWindowf(ptr nocapture noundef writeonly initializes((160, 164), (168, 172), (176, 180)) %window, float noundef %scroll_y) local_unnamed_addr #8 {
+define void @_ZN5ImGui10SetScrollYEP11ImGuiWindowf(ptr nocapture noundef writeonly %window, float noundef %scroll_y) local_unnamed_addr #8 {
 entry:
   %y = getelementptr inbounds i8, ptr %window, i64 160
   store float %scroll_y, ptr %y, align 4
@@ -56970,7 +56970,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5ImGui37NavMoveRequestResolveWithPastTreeNodeEP16ImGuiNavItemDataP20ImGuiNavTreeNodeData(ptr nocapture noundef writeonly initializes((0, 36)) %result, ptr nocapture noundef readonly %tree_node_data) local_unnamed_addr #40 {
+define void @_ZN5ImGui37NavMoveRequestResolveWithPastTreeNodeEP16ImGuiNavItemDataP20ImGuiNavTreeNodeData(ptr nocapture noundef writeonly %result, ptr nocapture noundef readonly %tree_node_data) local_unnamed_addr #40 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %NavMoveScoringItems = getelementptr inbounds i8, ptr %0, i64 19321
@@ -60948,7 +60948,7 @@ if.end6:                                          ; preds = %for.inc.i.i, %for.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL24InitOrLoadWindowSettingsP11ImGuiWindowP19ImGuiWindowSettings(ptr nocapture noundef initializes((40, 64), (222, 223), (288, 312)) %window, ptr noundef readonly %settings) unnamed_addr #46 {
+define internal fastcc void @_ZL24InitOrLoadWindowSettingsP11ImGuiWindowP19ImGuiWindowSettings(ptr nocapture noundef %window, ptr noundef readonly %settings) unnamed_addr #46 {
 entry:
   %0 = load ptr, ptr @GImGui, align 8
   %Data.i.i = getelementptr inbounds i8, ptr %0, i64 19168

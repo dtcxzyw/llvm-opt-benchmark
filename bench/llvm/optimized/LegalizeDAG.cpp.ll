@@ -28710,7 +28710,7 @@ declare noundef i32 @_ZNK4llvm3EVT28getExtendedVectorNumElementsEv(ptr noundef n
 declare { ptr, i32 } @_ZN4llvm12SelectionDAG11getRegisterEjNS_3EVTE(ptr noundef nonnull align 8 dereferenceable(904), i32 noundef, i16, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120SelectionDAGLegalize17getSignAsIntValueERNS_14FloatSignAsIntERKN4llvm5SDLocENS3_7SDValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull align 8 dereferenceable(145) initializes((0, 16)) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120SelectionDAGLegalize17getSignAsIntValueERNS_14FloatSignAsIntERKN4llvm5SDLocENS3_7SDValueE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull align 8 dereferenceable(145) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr %3, i32 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.llvm::MachinePointerInfo", align 8
   %7 = alloca %"class.llvm::SDValue", align 8
   %8 = alloca %"struct.llvm::EVT", align 8
@@ -32688,7 +32688,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 declare noundef ptr @_ZN4llvm11PointerType3getERNS_11LLVMContextEj(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120SelectionDAGLegalize13ExpandLibCallEN4llvm5RTLIB7LibcallEPNS1_6SDNodeEOSt6vectorINS1_18TargetLoweringBase12ArgListEntryESaIS8_EEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120SelectionDAGLegalize13ExpandLibCallEN4llvm5RTLIB7LibcallEPNS1_6SDNodeEOSt6vectorINS1_18TargetLoweringBase12ArgListEntryESaIS8_EEb(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2, ptr noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::SDLoc", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8

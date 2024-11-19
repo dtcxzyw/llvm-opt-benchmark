@@ -78,7 +78,7 @@ declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @stanag4607_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal i32 @stanag4607_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #5
   store i64 %8, ptr %5, align 8
@@ -126,7 +126,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @stanag4607_read_file(ptr nocapture %.96.val, ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca [37 x i8], align 16
   %8 = alloca [39 x i8], align 16

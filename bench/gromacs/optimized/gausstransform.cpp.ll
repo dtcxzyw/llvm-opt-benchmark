@@ -51,7 +51,7 @@ $_ZN3gmx16GaussTransform3D4ImplC2ERKS1_ = comdat any
 @_ZN3gmx16GaussTransform3DC1EOS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN3gmx16GaussTransform3DC2EOS0_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx19GaussianOn1DLattice4ImplC2Eif(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 16)) %0, i32 noundef %1, float noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19GaussianOn1DLattice4ImplC2Eif(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, float noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = fpext float %2 to double
@@ -725,7 +725,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx19GaussianOn1DLatticeC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 align 2 {
+define void @_ZN3gmx19GaussianOn1DLatticeC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -972,7 +972,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit35: ; preds = %_ZNSt6vectorIf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx10IntegerBoxC2ERKNS_11BasicVectorIiEES4_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #10 align 2 {
+define void @_ZN3gmx10IntegerBoxC2ERKNS_11BasicVectorIiEES4_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2) unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)
@@ -1101,7 +1101,7 @@ define { i64, i32 } @_ZNK3gmx30GaussianSpreadKernelParameters5Shape18latticeSpre
 declare double @llvm.ceil.f64(double) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx16GaussTransform3D4ImplC2ERKNS_7extentsIJLln1ELln1ELln1EEEERKNS_30GaussianSpreadKernelParameters5ShapeE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 36), (40, 64), (72, 112)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx16GaussTransform3D4ImplC2ERKNS_7extentsIJLln1ELln1ELln1EEEERKNS_30GaussianSpreadKernelParameters5ShapeE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i = alloca %"struct.gmx::detail::extents_analyse", align 8
   %.sroa.0.i.i.i = alloca { %"class.gmx::accessor_basic.6", %"class.gmx::layout_right::mapping" }, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -1684,7 +1684,7 @@ _ZSt4fillIN3gmx12ArrayRefIterIfEEdEvT_S3_RKT0_.exit: ; preds = %.lr.ph.i.i.i.pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx16GaussTransform3D4viewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::basic_mdspan.15") align 8 initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define void @_ZN3gmx16GaussTransform3D4viewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::basic_mdspan.15") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
@@ -1692,7 +1692,7 @@ define void @_ZN3gmx16GaussTransform3D4viewEv(ptr dead_on_unwind noalias nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define void @_ZNK3gmx16GaussTransform3D9constViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::basic_mdspan.31") align 8 initializes((8, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #15 align 2 {
+define void @_ZNK3gmx16GaussTransform3D9constViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.gmx::basic_mdspan.31") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #15 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
@@ -1999,7 +1999,7 @@ _ZN3gmx16GaussTransform3D4ImplaSERKS1_.exit:      ; preds = %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx16GaussTransform3DC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 align 2 {
+define void @_ZN3gmx16GaussTransform3DC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #10 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8

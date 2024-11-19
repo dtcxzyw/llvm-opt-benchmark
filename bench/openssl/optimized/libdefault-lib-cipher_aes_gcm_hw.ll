@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @vaes_gcm_setiv(ptr noundef initializes((248, 264), (296, 328), (624, 632)) %ctx, ptr noundef %iv, i64 noundef %ivlen) #0 {
+define internal range(i32 0, 2) i32 @vaes_gcm_setiv(ptr noundef %ctx, ptr noundef %iv, i64 noundef %ivlen) #0 {
 entry:
   %gcm = getelementptr inbounds i8, ptr %ctx, i64 248
   %len = getelementptr inbounds i8, ptr %ctx, i64 296

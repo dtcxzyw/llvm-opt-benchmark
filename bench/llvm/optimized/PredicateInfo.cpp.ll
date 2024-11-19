@@ -789,7 +789,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit10: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20PredicateInfoBuilder10addInfoForERNS_15SmallVectorImplIPNS_5ValueEEES3_PNS_13PredicateBaseE(ptr noundef nonnull align 8 dereferenceable(1632) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef initializes((8, 24)) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20PredicateInfoBuilder10addInfoForERNS_15SmallVectorImplIPNS_5ValueEEES3_PNS_13PredicateBaseE(ptr noundef nonnull align 8 dereferenceable(1632) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm20PredicateInfoBuilder20getOrCreateValueInfoEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1632) %0, ptr noundef %2)
   %6 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #19
   br i1 %6, label %7, label %19
@@ -4233,7 +4233,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueEjNS_12DenseMapInfoIS3_vEENS_6det
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13PredicateInfoC2ERNS_8FunctionERNS_13DominatorTreeERNS_15AssumptionCacheE(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(124) %2, ptr noundef nonnull align 8 dereferenceable(185) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13PredicateInfoC2ERNS_8FunctionERNS_13DominatorTreeERNS_15AssumptionCacheE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(124) %2, ptr noundef nonnull align 8 dereferenceable(185) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::PredicateInfoBuilder", align 8
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4579,7 +4579,7 @@ _ZN4llvm6iplistINS_13PredicateBaseEJEED2Ev.exit:  ; preds = %.lr.ph.i.i.i.i, %_Z
 declare void @_ZN4llvm8Function15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm13PredicateBase13getConstraintEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.234") align 8 initializes((16, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm13PredicateBase13getConstraintEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.234") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8
   %switch = icmp ult i32 %4, 2

@@ -791,7 +791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @SetIpoptProblemScaling(ptr nocapture noundef initializes((128, 136)) %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define noundef zeroext i1 @SetIpoptProblemScaling(ptr nocapture noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 128
   store double %1, ptr %5, align 8
   %.not = icmp eq ptr %2, null
@@ -872,7 +872,7 @@ define noundef zeroext i1 @SetIpoptProblemScaling(ptr nocapture noundef initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @SetIntermediateCallback(ptr nocapture noundef writeonly initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #6 {
+define noundef zeroext i1 @SetIntermediateCallback(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   ret i1 true

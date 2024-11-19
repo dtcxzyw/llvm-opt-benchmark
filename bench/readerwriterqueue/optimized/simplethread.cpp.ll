@@ -37,7 +37,7 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN12SimpleThread9ThreadRe
 @_ZN12SimpleThreadD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN12SimpleThreadD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %callbackObj, ptr noundef %callbackFunc) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12SimpleThread11startThreadEPvPFvS0_E(ptr nocapture noundef nonnull align 8 dereferenceable(8) %this, ptr noundef %callbackObj, ptr noundef %callbackFunc) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp = alloca %"class.std::thread", align 8

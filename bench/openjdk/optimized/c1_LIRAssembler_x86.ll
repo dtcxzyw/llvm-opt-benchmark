@@ -678,7 +678,7 @@ declare void @_ZN14MacroAssembler10as_AddressE14AddressLiteral(ptr dead_on_unwin
 declare void @_Z20report_unimplementedPKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13LIR_Assembler13as_Address_hiEP11LIR_Address(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 initializes((0, 21), (24, 44)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13LIR_Assembler13as_Address_hiEP11LIR_Address(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Address) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.Address, align 8
   call void @_ZN13LIR_Assembler10as_AddressEP11LIR_Address8Register(ptr dead_on_unwind nonnull writable sret(%class.Address) align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(96) %1, ptr noundef readonly %2, i32 10)
   %.sroa.01.0.copyload = load i32, ptr %4, align 8
@@ -1646,7 +1646,7 @@ define hidden noundef i32 @_ZN13LIR_Assembler18emit_deopt_handlerEv(ptr noundef 
 declare void @_ZN14MacroAssembler7pushptrE14AddressLiteral8Register(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13LIR_Assembler9return_opE7LIR_OprP19C1SafepointPollStub(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 %1, ptr noundef initializes((88, 96)) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13LIR_Assembler9return_opE7LIR_OprP19C1SafepointPollStub(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, i64 %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = and i64 %1, 1
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %6, label %_ZNK7LIR_Opr13is_float_kindEv.exit

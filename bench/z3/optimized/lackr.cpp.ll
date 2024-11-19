@@ -187,7 +187,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5lackrC2ER11ast_managerRK10params_refR11lackr_statsRK10ptr_vectorI4exprEP6solver(ptr noundef nonnull align 8 dereferenceable(297) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 4 dereferenceable(8) %st, ptr noundef nonnull align 8 dereferenceable(8) %formulas, ptr noundef %uffree_solver) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5lackrC2ER11ast_managerRK10params_refR11lackr_statsRK10ptr_vectorI4exprEP6solver(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull align 4 dereferenceable(8) %st, ptr noundef nonnull align 8 dereferenceable(8) %formulas, ptr noundef %uffree_solver) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p.i = alloca %struct.ackermannization_params, align 8
   %ref.tmp = alloca %class.params_ref, align 8

@@ -27,7 +27,7 @@ $_ZTV17AbstractAssembler = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17AbstractAssembler, i64 16), ptr %0, align 8
   %3 = icmp eq ptr %1, null
   br i1 %3, label %16, label %4
@@ -62,7 +62,7 @@ define hidden void @_ZN17AbstractAssemblerC2EP10CodeBuffer(ptr nocapture noundef
 declare void @_Z23report_vm_out_of_memoryPKcim11VMErrorTypeS0_z(ptr noundef, i32 noundef, i64 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17AbstractAssembler16set_code_sectionEP11CodeSection(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 16)) %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17AbstractAssembler16set_code_sectionEP11CodeSection(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -184,7 +184,7 @@ _ZN11CodeSection32maybe_expand_to_ensure_remainingEi.exit: ; preds = %3, %29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 16)) %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN17AbstractAssembler11end_a_constEP11CodeSection(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

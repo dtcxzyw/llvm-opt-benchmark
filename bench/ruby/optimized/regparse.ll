@@ -1460,7 +1460,7 @@ popular_quantifier_num.exit48.thread:             ; preds = %34, %33, %29, %28, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -2147483648, 1) i32 @onig_parse_make_tree(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((0, 80), (88, 184)) %4) local_unnamed_addr #5 {
+define dso_local range(i32 -2147483648, 1) i32 @onig_parse_make_tree(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #5 {
   %6 = alloca %struct.OnigToken, align 8
   %7 = alloca ptr, align 8
   %8 = getelementptr i8, ptr %3, i64 88
@@ -1570,7 +1570,7 @@ parse_regexp.exit:                                ; preds = %names_clear.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @onig_scan_env_set_error_string(ptr nocapture noundef writeonly initializes((56, 72)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #15 {
+define dso_local void @onig_scan_env_set_error_string(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #15 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1596,7 +1596,7 @@ define internal noundef i32 @i_free_name_entry(i64 noundef %0, i64 noundef %1, i
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @fetch_token(ptr noundef nonnull initializes((0, 4)) %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 {
+define internal fastcc i32 @fetch_token(ptr noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -3743,7 +3743,7 @@ get_name_end_code_point.exit:                     ; preds = %579, %581, %582, %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @parse_subexp(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 16) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 {
+define internal fastcc i32 @parse_subexp(ptr nocapture noundef writeonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 16) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 176
@@ -5083,7 +5083,7 @@ define internal void @onig_syntax_warn(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -216, 1) i32 @fetch_name(i32 noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #5 {
+define internal fastcc range(i32 -216, 1) i32 @fetch_name(i32 noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef nonnull writeonly %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #5 {
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %1, align 8
@@ -5802,7 +5802,7 @@ declare void @rb_compile_warn(ptr noundef, i32 noundef, ptr noundef, ...) local_
 declare ptr @rb_ruby_verbose_ptr() local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @parse_branch(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 16) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 {
+define internal fastcc i32 @parse_branch(ptr nocapture noundef nonnull writeonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 16) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 {
   %7 = alloca ptr, align 8
   store ptr null, ptr %0, align 8
   %8 = call fastcc i32 @parse_exp(ptr noundef %7, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5)
@@ -5914,7 +5914,7 @@ node_new_list.exit43:                             ; preds = %42, %45
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @parse_exp(ptr nocapture noundef nonnull initializes((0, 8)) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 16) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 {
+define internal fastcc i32 @parse_exp(ptr nocapture noundef nonnull %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 16) %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 {
   %7 = alloca [7 x i8], align 1
   %8 = alloca %struct.IApplyCaseFoldArg, align 8
   %9 = alloca [7 x i8], align 1
@@ -9902,7 +9902,7 @@ CC_DUP_WARN.exit234:                              ; preds = %305, %302, %297, %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @parse_char_class(ptr nocapture noundef nonnull initializes((0, 8)) %0, ptr nocapture noundef nonnull initializes((0, 8)) %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 {
+define internal fastcc i32 @parse_char_class(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr noundef %4, ptr noundef %5) unnamed_addr #5 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca %struct.CClassNode, align 8
@@ -12303,7 +12303,7 @@ propname2ctype.exit:                              ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @quantify_property_node(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef %2, i8 noundef signext range(i8 42, 51) %3) unnamed_addr #5 {
+define internal fastcc i32 @quantify_property_node(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i8 noundef signext range(i8 42, 51) %3) unnamed_addr #5 {
   %5 = tail call noalias noundef dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #25
   %6 = icmp eq ptr %5, null
   br i1 %6, label %node_new_cclass.exit.thread.i, label %7
@@ -12389,7 +12389,7 @@ quantify_node.exit:                               ; preds = %node_new_cclass.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @create_property_node(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc i32 @create_property_node(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #5 {
   %4 = tail call noalias noundef dereferenceable_or_null(56) ptr @malloc(i64 noundef 56) #25
   %5 = icmp eq ptr %4, null
   br i1 %5, label %node_new_cclass.exit.thread, label %6
@@ -12537,7 +12537,7 @@ node_new_list.exit:                               ; preds = %.lr.ph.split, %.lr.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @not_code_range_buf(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef nonnull initializes((0, 8)) %2, ptr nocapture noundef %3) unnamed_addr #5 {
+define internal fastcc i32 @not_code_range_buf(ptr nocapture noundef readonly %0, ptr noundef readonly %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef %3) unnamed_addr #5 {
   store ptr null, ptr %2, align 8
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %11
@@ -13496,7 +13496,7 @@ bbuf_free.exit67:                                 ; preds = %and_code_range_buf.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @or_code_range_buf(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef readonly %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull initializes((0, 8)) %5, ptr nocapture noundef %6) unnamed_addr #5 {
+define internal fastcc i32 @or_code_range_buf(ptr nocapture noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr noundef readonly %3, i32 noundef range(i32 0, 2) %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef %6) unnamed_addr #5 {
   store ptr null, ptr %5, align 8
   %8 = icmp eq ptr %1, null
   %9 = icmp eq ptr %3, null
@@ -13762,7 +13762,7 @@ bbuf_clone.exit:                                  ; preds = %123, %.lr.ph, %132,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @and_code_range_buf(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef nonnull initializes((0, 8)) %4, ptr nocapture noundef %5) unnamed_addr #5 {
+define internal fastcc i32 @and_code_range_buf(ptr noundef readonly %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef %5) unnamed_addr #5 {
   store ptr null, ptr %4, align 8
   %7 = icmp eq ptr %0, null
   br i1 %7, label %8, label %19
@@ -14035,7 +14035,7 @@ bbuf_clone.exit:                                  ; preds = %and_code_range1.exi
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @fetch_token_in_cc(ptr nocapture noundef nonnull initializes((0, 4)) %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 {
+define internal fastcc i32 @fetch_token_in_cc(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16

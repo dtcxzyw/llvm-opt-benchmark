@@ -417,7 +417,7 @@ define dso_local void @ata_ehi_push_desc(ptr noundef %0, ptr noundef %1, ...) #0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @ata_ehi_clear_desc(ptr nocapture noundef writeonly initializes((36, 37), (116, 120)) %0) #3 align 16 {
+define dso_local void @ata_ehi_clear_desc(ptr nocapture noundef writeonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 116
@@ -2478,7 +2478,7 @@ define dso_local void @ata_eh_thaw_port(ptr noundef %0) local_unnamed_addr #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_eh_qc_complete(ptr noundef initializes((24, 32)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_eh_qc_complete(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 148
@@ -2513,7 +2513,7 @@ define dso_local void @ata_eh_qc_complete(ptr noundef initializes((24, 32)) %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_eh_qc_retry(ptr noundef initializes((24, 32)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @ata_eh_qc_retry(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 180
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 0
@@ -2995,7 +2995,7 @@ define dso_local i32 @atapi_eh_tur(ptr noundef %0, ptr nocapture noundef writeon
 declare dso_local i32 @ata_exec_internal(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @atapi_eh_request_sense(ptr noundef %0, ptr noundef initializes((0, 96)) %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local i32 @atapi_eh_request_sense(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca %struct.ata_taskfile, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #18

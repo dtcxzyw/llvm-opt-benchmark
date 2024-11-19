@@ -300,7 +300,7 @@ $_ZTISt15_Sp_counted_ptrIPN5arrow2io19BufferedInputStreamELN9__gnu_cxx12_Lock_po
 @.str.6 = private unnamed_addr constant [21 x i8] c"Peek not implemented\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io20BufferedOutputStreamC2ESt10shared_ptrINS0_12OutputStreamEEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %raw, ptr noundef %pool) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io20BufferedOutputStreamC2ESt10shared_ptrINS0_12OutputStreamEEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %raw, ptr noundef %pool) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io8WritableE, i64 16), ptr %this, align 8
@@ -469,7 +469,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io20BufferedOutputStreamC1ESt10shared_ptrINS0_12OutputStreamEEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 44)) %this, ptr nocapture noundef %raw, ptr noundef %pool) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io20BufferedOutputStreamC1ESt10shared_ptrINS0_12OutputStreamEEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef %raw, ptr noundef %pool) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1182,7 +1182,7 @@ _ZNSt12__shared_ptrIN5arrow2io20BufferedOutputStreamELN9__gnu_cxx12_Lock_policyE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io20BufferedOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io20BufferedOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
@@ -1237,7 +1237,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io20BufferedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io20BufferedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20BufferedOutputStreamE, i64 24), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1307,7 +1307,7 @@ _ZN5arrow2io20BufferedOutputStreamD1Ev.exit:      ; preds = %invoke.cont.i.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io20BufferedOutputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io20BufferedOutputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io20BufferedOutputStreamE, i64 24), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2365,7 +2365,7 @@ _ZN5arrow2io20BufferedOutputStream4Impl5FlushEv.exit: ; preds = %.noexc.i, %if.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5arrow2io20BufferedOutputStream3rawEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow2io20BufferedOutputStream3rawEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %impl_, align 8
@@ -2401,7 +2401,7 @@ _ZNK5arrow2io20BufferedOutputStream4Impl3rawEv.exit: ; preds = %entry, %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io19BufferedInputStreamC2ESt10shared_ptrINS0_11InputStreamEEPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this, ptr noundef %vtt, ptr nocapture noundef %raw, ptr noundef %pool, i64 noundef %raw_total_bytes_bound) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io19BufferedInputStreamC2ESt10shared_ptrINS0_11InputStreamEEPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %vtt, ptr nocapture noundef %raw, ptr noundef %pool, i64 noundef %raw_total_bytes_bound) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -2615,7 +2615,7 @@ _ZN5arrow2io8internal22SharedExclusiveCheckerD2Ev.exit: ; preds = %entry, %_ZN9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io19BufferedInputStreamC1ESt10shared_ptrINS0_11InputStreamEEPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (32, 60)) %this, ptr nocapture noundef %raw, ptr noundef %pool, i64 noundef %raw_total_bytes_bound) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io19BufferedInputStreamC1ESt10shared_ptrINS0_11InputStreamEEPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef %raw, ptr noundef %pool, i64 noundef %raw_total_bytes_bound) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %1 = getelementptr inbounds i8, ptr %this, i64 40
@@ -2692,7 +2692,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io19BufferedInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io19BufferedInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
@@ -2830,7 +2830,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io19BufferedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define void @_ZN5arrow2io19BufferedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow2io19BufferedInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @_ZTTN5arrow2io19BufferedInputStreamE) #22
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -2852,7 +2852,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io19BufferedInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define void @_ZN5arrow2io19BufferedInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow2io19BufferedInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @_ZTTN5arrow2io19BufferedInputStreamE) #22
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -3661,7 +3661,7 @@ _ZNK5arrow2io19BufferedInputStream6closedEv.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define void @_ZN5arrow2io19BufferedInputStream6DetachEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.22") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
+define void @_ZN5arrow2io19BufferedInputStream6DetachEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.22") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
 entry:
   %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %impl_, align 8
@@ -3681,7 +3681,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5arrow2io19BufferedInputStream3rawEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.22") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow2io19BufferedInputStream3rawEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.22") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %impl_, align 8

@@ -511,7 +511,7 @@ _ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16FlatSmileSectionC1ERKNS_4DateEdRKNS_10DayCounterES3_dNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(88) initializes((88, 96), (104, 108), (112, 120)) %this, ptr noundef nonnull align 8 dereferenceable(8) %d, double noundef %vol, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, double noundef %atmLevel, i32 noundef %type, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16FlatSmileSectionC1ERKNS_4DateEdRKNS_10DayCounterES3_dNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(8) %d, double noundef %vol, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, double noundef %atmLevel, i32 noundef %type, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 88
@@ -706,7 +706,7 @@ lpad:                                             ; preds = %_ZN8QuantLib10DayCo
 declare void @_ZN8QuantLib12SmileSectionC2EdNS_10DayCounterENS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, double noundef, ptr noundef, i32 noundef, double noundef) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16FlatSmileSectionC1EddRKNS_10DayCounterEdNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(88) initializes((88, 96), (104, 108), (112, 120)) %this, double noundef %exerciseTime, double noundef %vol, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, double noundef %atmLevel, i32 noundef %type, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16FlatSmileSectionC1EddRKNS_10DayCounterEdNS_14VolatilityTypeEd(ptr noundef nonnull align 8 dereferenceable(88) %this, double noundef %exerciseTime, double noundef %vol, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dc, double noundef %atmLevel, i32 noundef %type, double noundef %shift) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 88

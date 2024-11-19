@@ -255,7 +255,7 @@ define internal noundef i32 @H5P__strcrt_char_encoding_enc(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5P__strcrt_char_encoding_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #3 {
+define internal noundef i32 @H5P__strcrt_char_encoding_dec(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) #3 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
   store ptr %4, ptr %0, align 8

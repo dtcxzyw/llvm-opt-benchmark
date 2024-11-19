@@ -359,7 +359,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9cassandra25CassandraCompactionFilterC2Ebi(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 45)) %this, i1 noundef zeroext %purge_ttl_on_expiration, i32 noundef %gc_grace_period_in_seconds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb9cassandra25CassandraCompactionFilterC2Ebi(ptr noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %purge_ttl_on_expiration, i32 noundef %gc_grace_period_in_seconds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i, i8 0, i64 24, i1 false)
@@ -1038,7 +1038,7 @@ declare noundef zeroext i1 @_ZNK7rocksdb9cassandra8RowValue5EmptyEv(ptr noundef 
 declare void @_ZNK7rocksdb9cassandra8RowValue9SerializeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb9cassandra32CassandraCompactionFilterFactoryC2Ebi(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 45)) %this, i1 noundef zeroext %purge_ttl_on_expiration, i32 noundef %gc_grace_period_in_seconds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb9cassandra32CassandraCompactionFilterFactoryC2Ebi(ptr noundef nonnull align 8 dereferenceable(48) %this, i1 noundef zeroext %purge_ttl_on_expiration, i32 noundef %gc_grace_period_in_seconds) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %options_.i.i.i, i8 0, i64 24, i1 false)

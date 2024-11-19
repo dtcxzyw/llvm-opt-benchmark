@@ -3068,7 +3068,7 @@ _ZN4core3ops8function6FnOnce9call_once17h64054f19c03024ddE.exit: ; preds = %15, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6uucore8features7entries11cstr2string17h38c85643f11f7a32E.llvm.3950917620001345818(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 {
+define hidden void @_ZN6uucore8features7entries11cstr2string17h38c85643f11f7a32E.llvm.3950917620001345818(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
@@ -4165,7 +4165,7 @@ _ZN5alloc6string6String8truncate17ha32b28e51c269527E.llvm.3950917620001345818.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN98_$LT$uucore..mods..error..UIoError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h5926d9147a37cb63E"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, ptr }) align 8 dereferenceable(32) initializes((0, 8), (24, 32)) %0, ptr noundef nonnull %1) unnamed_addr #10 {
+define void @"_ZN98_$LT$uucore..mods..error..UIoError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h5926d9147a37cb63E"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, ptr }) align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #10 {
   store i64 -9223372036854775808, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
@@ -4173,7 +4173,7 @@ define void @"_ZN98_$LT$uucore..mods..error..UIoError$u20$as$u20$core..convert..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define void @"_ZN102_$LT$uucore..mods..error..UIoError$u20$as$u20$core..convert..From$LT$nix..errno..consts..Errno$GT$$GT$4from17hc65656a6e8c5405bE"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, ptr }) align 8 dereferenceable(32) initializes((0, 8), (24, 32)) %0, i32 noundef %1) unnamed_addr #11 {
+define void @"_ZN102_$LT$uucore..mods..error..UIoError$u20$as$u20$core..convert..From$LT$nix..errno..consts..Errno$GT$$GT$4from17hc65656a6e8c5405bE"(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, ptr }) align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #11 {
   %3 = icmp ult i32 %1, 134
   tail call void @llvm.assume(i1 %3)
   %4 = zext nneg i32 %1 to i64

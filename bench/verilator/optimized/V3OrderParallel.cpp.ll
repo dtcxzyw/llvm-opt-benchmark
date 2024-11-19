@@ -1021,7 +1021,7 @@ define dso_local noundef zeroext i1 @_ZNK9MTaskEdge21mergeWouldCreateCycleEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9SiblingMCC2EP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 32), (40, 88)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9SiblingMCC2EP10LogicMTaskS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 24, i1 false)
   %4 = load i64, ptr @_ZZN14MergeCandidateC1EbE6serial, align 8
   %5 = add i64 %4, 2
@@ -1226,7 +1226,7 @@ _ZN6V3ListI9SiblingMCXadL_ZNS0_6bLinksEvEES0_E6unlinkEPKS0_.exit: ; preds = %17,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9MTaskEdgeC2EP7V3GraphP10LogicMTaskS3_i(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9MTaskEdgeC2EP7V3GraphP10LogicMTaskS3_i(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV11V3GraphEdge, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1359,7 +1359,7 @@ _ZNK10LogicMTask8stepCostEv.exit.i10:             ; preds = %49, %42
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9MTaskEdge18resetCriticalPathsEv(ptr noundef nonnull align 8 dereferenceable(192) initializes((136, 148)) %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN9MTaskEdge18resetCriticalPathsEv(ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48

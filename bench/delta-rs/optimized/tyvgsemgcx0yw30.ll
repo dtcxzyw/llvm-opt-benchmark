@@ -4826,7 +4826,7 @@ define internal noundef zeroext i1 @"_ZN98_$LT$aws_smithy_runtime_api..client..i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN22deltalake_catalog_glue15GlueDataCatalog8from_env17h7e9ab8494c939fe9E(ptr noalias nocapture noundef writeonly sret({ [7152 x i8], i8, [7 x i8] }) align 8 dereferenceable(7160) initializes((7152, 7153)) %0) unnamed_addr #4 {
+define void @_ZN22deltalake_catalog_glue15GlueDataCatalog8from_env17h7e9ab8494c939fe9E(ptr noalias nocapture noundef writeonly sret({ [7152 x i8], i8, [7 x i8] }) align 8 dereferenceable(7160) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 7152
   store i8 0, ptr %2, align 8
   ret void
@@ -4909,7 +4909,7 @@ define noundef zeroext i1 @"_ZN72_$LT$deltalake_catalog_glue..GlueError$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN112_$LT$deltalake_catalog_glue..GlueError$u20$as$u20$core..convert..From$LT$aws_sdk_glue..error_meta..Error$GT$$GT$4from17h564c8a1b8f1b33edE"(ptr noalias nocapture noundef writeonly sret({ i64, [18 x i64] }) align 8 dereferenceable(152) initializes((0, 152)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(152) %1) unnamed_addr #6 {
+define void @"_ZN112_$LT$deltalake_catalog_glue..GlueError$u20$as$u20$core..convert..From$LT$aws_sdk_glue..error_meta..Error$GT$$GT$4from17h564c8a1b8f1b33edE"(ptr noalias nocapture noundef writeonly sret({ i64, [18 x i64] }) align 8 dereferenceable(152) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(152) %1) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 152, i1 false)
   ret void
 }

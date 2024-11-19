@@ -567,7 +567,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl11CompactDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1375) initializes((0, 1375)) %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_756number4impl11CompactDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1375) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl11CompactDataE, i64 16), ptr %this, align 8
   %patterns = getelementptr inbounds i8, ptr %this, i64 8
@@ -749,7 +749,7 @@ declare ptr @ures_open_75(ptr noundef, ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120getResourceBundleKeyEPKc19UNumberCompactStyleN6icu_756number4impl11CompactTypeERNS3_10CharStringER10UErrorCode(ptr noundef %nsName, i32 noundef %compactStyle, i32 noundef %compactType, ptr noundef nonnull align 8 dereferenceable(60) initializes((56, 60)) %sb, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 {
+define internal fastcc void @_ZN12_GLOBAL__N_120getResourceBundleKeyEPKc19UNumberCompactStyleN6icu_756number4impl11CompactTypeERNS3_10CharStringER10UErrorCode(ptr noundef %nsName, i32 noundef %compactStyle, i32 noundef %compactType, ptr noundef nonnull align 8 dereferenceable(60) %sb, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   %agg.tmp2 = alloca %"class.icu_75::StringPiece", align 8
@@ -1180,7 +1180,7 @@ declare noundef signext i8 @_ZNK6icu_7513ResourceTable14getKeyAndValueEiRPKcRNS_
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl14CompactHandlerC2E19UNumberCompactStyleRKNS_6LocaleEPKcNS1_11CompactTypeEPKNS_11PluralRulesEPNS1_22MutablePatternModifierEbPKNS1_19MicroPropsGeneratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2065) initializes((0, 24)) %this, i32 noundef %compactStyle, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef %nsName, i32 noundef %compactType, ptr noundef %rules, ptr noundef %buildReference, i1 noundef zeroext %safe, ptr noundef %parent, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl14CompactHandlerC2E19UNumberCompactStyleRKNS_6LocaleEPKcNS1_11CompactTypeEPKNS_11PluralRulesEPNS1_22MutablePatternModifierEbPKNS1_19MicroPropsGeneratorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2065) %this, i32 noundef %compactStyle, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef %nsName, i32 noundef %compactType, ptr noundef %rules, ptr noundef %buildReference, i1 noundef zeroext %safe, ptr noundef %parent, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %safe to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14CompactHandlerE, i64 16), ptr %this, align 8
@@ -1646,7 +1646,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number4impl14CompactHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(2065) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl14CompactHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(2065) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl14CompactHandlerE, i64 16), ptr %this, align 8
   %precomputedModsLength = getelementptr inbounds i8, ptr %this, i64 232

@@ -1237,7 +1237,7 @@ declare dso_local ptr @rb_next(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @nh_notifier_info_init(ptr nocapture noundef initializes((16, 20)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @nh_notifier_info_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1411,7 +1411,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @nh_notifier_info_init(ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @nh_notifier_mpath_info_init(ptr nocapture noundef initializes((20, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @nh_notifier_mpath_info_init(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i16, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -4818,7 +4818,7 @@ __nh_valid_dump_req.exit.thread:                  ; preds = %17, %.thread, %80, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @nexthop_net_init(ptr noundef initializes((584, 600)) %0) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @nexthop_net_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 584
   store ptr null, ptr %2, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 88), align 8

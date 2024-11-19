@@ -556,7 +556,7 @@ declare noundef zeroext i1 @_ZNK18ConcurrentGCThread16should_terminateEv(ptr nou
 declare double @llvm.ceil.f64(double) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1ConcurrentMarkThread11run_serviceEv(ptr noundef nonnull align 8 dereferenceable(948) initializes((920, 928)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22G1ConcurrentMarkThread11run_serviceEv(ptr noundef nonnull align 8 dereferenceable(948) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.ThreadTotalCPUTimeClosure, align 8
   %3 = alloca %class.GCIdMark, align 4
   %4 = alloca %class.FormatBuffer, align 8

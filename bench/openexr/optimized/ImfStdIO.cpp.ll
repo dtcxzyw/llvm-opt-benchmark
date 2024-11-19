@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_211StdIFStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN7Imf_3_211StdIFStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_211StdIFStreamE, i64 16), ptr %this, align 8
   %_deleteStream = getelementptr inbounds i8, ptr %this, i64 48
@@ -388,7 +388,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_211StdISStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN7Imf_3_211StdISStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_211StdISStreamE, i64 16), ptr %this, align 8
   %_is = getelementptr inbounds i8, ptr %this, i64 40
@@ -574,7 +574,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_211StdOFStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN7Imf_3_211StdOFStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_211StdOFStreamE, i64 16), ptr %this, align 8
   %_deleteStream = getelementptr inbounds i8, ptr %this, i64 48
@@ -710,7 +710,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_211StdOSStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(416) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN7Imf_3_211StdOSStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_211StdOSStreamE, i64 16), ptr %this, align 8
   %_os = getelementptr inbounds i8, ptr %this, i64 40

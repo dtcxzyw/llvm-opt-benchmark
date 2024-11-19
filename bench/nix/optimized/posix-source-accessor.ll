@@ -695,7 +695,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix19PosixSourceAccessorC2EONSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix19PosixSourceAccessorC2EONSt10filesystem7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8

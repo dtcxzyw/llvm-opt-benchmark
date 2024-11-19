@@ -584,7 +584,7 @@ lv_obj_get_scroll_x.exit:                         ; preds = %51, %57
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_get_scroll_end(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define void @lv_obj_get_scroll_end(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lv_anim_get(ptr noundef %0, ptr noundef nonnull @scroll_x_anim) #5
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4

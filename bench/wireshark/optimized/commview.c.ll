@@ -234,7 +234,7 @@ define internal fastcc range(i32 0, 2) i32 @commview_ncf_read_header(ptr noundef
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @commview_ncf_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal i32 @commview_ncf_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #7
   store i64 %8, ptr %5, align 8
@@ -451,7 +451,7 @@ define internal fastcc range(i32 0, 2) i32 @commview_ncfx_read_header(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @commview_ncfx_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal i32 @commview_ncfx_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = tail call i64 @file_tell(ptr noundef %7) #7
   store i64 %8, ptr %5, align 8
@@ -1316,7 +1316,7 @@ define internal range(i32 -8, 1) i32 @commview_ncf_dump_can_write_encap(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @commview_ncf_dump_open(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #5 {
+define internal noundef i32 @commview_ncf_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @commview_ncf_dump, ptr %4, align 8
   ret i32 1
@@ -1753,7 +1753,7 @@ define internal range(i32 -8, 1) i32 @commview_ncfx_dump_can_write_encap(i32 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @commview_ncfx_dump_open(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #5 {
+define internal noundef i32 @commview_ncfx_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @commview_ncfx_dump, ptr %4, align 8
   ret i32 1

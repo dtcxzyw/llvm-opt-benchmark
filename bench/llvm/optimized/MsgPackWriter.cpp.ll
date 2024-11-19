@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm7msgpack6WriterC1ERNS_11raw_ostreamEb = unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN4llvm7msgpack6WriterC2ERNS_11raw_ostreamEb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm7msgpack6WriterC2ERNS_11raw_ostreamEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 12), (16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7msgpack6WriterC2ERNS_11raw_ostreamEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

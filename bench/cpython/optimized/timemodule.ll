@@ -1728,7 +1728,7 @@ declare i32 @_PyTime_localtime(i64 noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @PyArg_UnpackTuple(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @gettmarg(ptr nocapture noundef readonly %state, ptr noundef %args, ptr noundef nonnull initializes((0, 56)) %p, ptr noundef %format) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @gettmarg(ptr nocapture noundef readonly %state, ptr noundef %args, ptr noundef nonnull %p, ptr noundef %format) unnamed_addr #0 {
 entry:
   %y = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %p, i8 0, i64 56, i1 false)

@@ -899,7 +899,7 @@ declare ptr @systable_beginscan_ordered(ptr noundef, ptr noundef, ptr noundef, i
 declare ptr @systable_getnext_ordered(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 2, 4) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef nonnull %0, i32 noundef range(i32 2, 4) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8

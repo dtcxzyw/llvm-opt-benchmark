@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @alfg_buffer = internal unnamed_addr global %struct.opal_rng_buff_t zeroinitializer, align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @opal_srand(ptr nocapture noundef initializes((0, 516)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @opal_srand(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 508
   store i32 126, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 512

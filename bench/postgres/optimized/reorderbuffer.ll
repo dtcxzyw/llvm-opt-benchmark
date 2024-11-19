@@ -1211,7 +1211,7 @@ define dso_local i32 @ReorderBufferGetOldestXmin(ptr noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ReorderBufferSetRestartPoint(ptr nocapture noundef writeonly initializes((272, 280)) %0, i64 noundef %1) local_unnamed_addr #8 {
+define dso_local void @ReorderBufferSetRestartPoint(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   store i64 %1, ptr %3, align 8
   ret void
@@ -1553,7 +1553,7 @@ ReorderBufferTXNByXid.exit.thread:                ; preds = %13, %ReorderBufferT
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferReplay(ptr noundef nonnull initializes((32, 48), (64, 66), (72, 88)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i16 noundef zeroext %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferReplay(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i16 noundef zeroext %5, i64 noundef %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %2, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5999,7 +5999,7 @@ declare i32 @GetCurrentTransactionIdIfAny() local_unnamed_addr #1
 declare i32 @GetCurrentTransactionId() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ReorderBufferSaveTXNSnapshot(ptr nocapture noundef readonly %0, ptr noundef initializes((128, 132)) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @ReorderBufferSaveTXNSnapshot(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 128
   store i32 %3, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 46
@@ -7357,7 +7357,7 @@ declare zeroext i1 @TransactionIdDidCommit(i32 noundef) local_unnamed_addr #1
 declare void @heap_deform_tuple(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1, 4) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @fastgetattr(ptr noundef %0, i32 noundef range(i32 1, 4) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8

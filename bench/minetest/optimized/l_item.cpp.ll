@@ -2857,7 +2857,7 @@ declare i32 @lua_getmetatable(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare i32 @lua_rawequal(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12LuaItemStackC2ERK9ItemStack(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 12)) %this, ptr noundef nonnull align 8 dereferenceable(312) %item) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12LuaItemStackC2ERK9ItemStack(ptr noundef nonnull align 8 dereferenceable(328) %this, ptr noundef nonnull align 8 dereferenceable(312) %item) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %m_refcount.i = getelementptr inbounds i8, ptr %this, i64 8

@@ -87,7 +87,7 @@ $_ZTVN4llvm3pdb8RawErrorE = comdat any
 @_ZN4llvm3pdb26DbiModuleDescriptorBuilderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb26DbiModuleDescriptorBuilderD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilderC2ENS_9StringRefEjRNS_3msf10MSFBuilderE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 16)) %0, ptr %1, i64 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(152) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilderC2ENS_9StringRefEjRNS_3msf10MSFBuilderE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr %1, i64 %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(152) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator", align 1
   store ptr %4, ptr %0, align 8
@@ -273,14 +273,14 @@ define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder14setObjFileNameE
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder16setPdbFilePathNIEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder16setPdbFilePathNIEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder22setFirstSectionContribERKNS0_14SectionContribE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((196, 224)) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(28) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder22setFirstSectionContribERKNS0_14SectionContribE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(28) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %3, ptr noundef nonnull align 1 dereferenceable(28) %1, i64 28, i1 false)
   ret void

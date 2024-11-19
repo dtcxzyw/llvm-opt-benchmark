@@ -220,7 +220,7 @@ define { ptr, i64 } @_ZN17diesel_migrations21file_based_migrations19FileBasedMig
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17diesel_migrations21file_based_migrations31search_for_migrations_directory17h9802470dae7a9e43E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @_ZN17diesel_migrations21file_based_migrations31search_for_migrations_directory17h9802470dae7a9e43E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %.sroa.4 = alloca [3 x i64], align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   call void @_ZN20migrations_internals31search_for_migrations_directory17hf0fe2b2074585573E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -248,7 +248,7 @@ define void @_ZN17diesel_migrations21file_based_migrations31search_for_migration
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17diesel_migrations21file_based_migrations22migrations_directories17h105c39e33843c854E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @_ZN17diesel_migrations21file_based_migrations22migrations_directories17h105c39e33843c854E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { [8 x i8], i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @_ZN20migrations_internals22migrations_directories17h4a773d68bac68c75E(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [7 x i8] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -273,7 +273,7 @@ define void @_ZN17diesel_migrations21file_based_migrations22migrations_directori
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN17diesel_migrations21file_based_migrations23migrations_in_directory17h34d6bb96435033c5E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 17)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @_ZN17diesel_migrations21file_based_migrations23migrations_in_directory17h34d6bb96435033c5E(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { [8 x i8], i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !31
   call void @_ZN20migrations_internals22migrations_directories17h4a773d68bac68c75E(ptr noalias nocapture noundef nonnull sret({ [8 x i8], i8, [7 x i8] }) align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2), !noalias !35

@@ -662,7 +662,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK6icu_7520CompactDecimalFormat5parseERKNS_13UnicodeStringERNS_11FormattableER10UErrorCode(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %status) unnamed_addr #9 align 2 {
+define void @_ZNK6icu_7520CompactDecimalFormat5parseERKNS_13UnicodeStringERNS_11FormattableER10UErrorCode(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #9 align 2 {
 entry:
   store i32 16, ptr %status, align 4
   ret void

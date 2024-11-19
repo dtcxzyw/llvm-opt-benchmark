@@ -1297,7 +1297,7 @@ define hidden noundef float @_ZN2cv6xphoto19LearningBasedWBImpl21regressionTreeP
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv6xphoto19LearningBasedWBImpl17predictIlluminantESt6vectorINS_3VecIfLi2EEESaIS4_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec") align 4 %0, ptr nocapture noundef nonnull align 8 dereferenceable(460) initializes((40, 44)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv6xphoto19LearningBasedWBImpl17predictIlluminantESt6vectorINS_3VecIfLi2EEESaIS4_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec") align 4 %0, ptr nocapture noundef nonnull align 8 dereferenceable(460) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 .preheader223.lr.ph:
   %3 = alloca [4 x %"class.cv::Vec"], align 16
   %4 = alloca %"class.cv::Vec", align 4

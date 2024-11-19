@@ -533,7 +533,7 @@ if.end67:                                         ; preds = %if.then66, %if.end6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN2EA4StdC13UTF8WriteCharEPcDs(ptr noundef writeonly initializes((0, 1)) %p, i16 noundef zeroext %c) local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @_ZN2EA4StdC13UTF8WriteCharEPcDs(ptr noundef writeonly %p, i16 noundef zeroext %c) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ult i16 %c, 128
   %incdec.ptr = getelementptr inbounds i8, ptr %p, i64 1
@@ -584,7 +584,7 @@ if.end29:                                         ; preds = %if.then4, %if.else1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN2EA4StdC13UTF8WriteCharEPcDi(ptr noundef writeonly initializes((0, 1)) %p, i32 noundef zeroext %c) local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @_ZN2EA4StdC13UTF8WriteCharEPcDi(ptr noundef writeonly %p, i32 noundef zeroext %c) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ult i32 %c, 128
   br i1 %cmp, label %if.then, label %if.else
@@ -1320,7 +1320,7 @@ if.end18:                                         ; preds = %if.end18.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKcS2_cRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone %pTextEnd, i8 noundef signext %cDelimiter, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %pToken, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pTokenEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKcS2_cRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone %pTextEnd, i8 noundef signext %cDelimiter, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pToken, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pTokenEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #4 {
 entry:
   store ptr %pText, ptr %pToken, align 8
   %cmp48 = icmp ult ptr %pText, %pTextEnd
@@ -1512,7 +1512,7 @@ return:                                           ; preds = %for.end72, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKDsS2_DsRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone %pTextEnd, i16 noundef zeroext %cDelimiter, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %pToken, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pTokenEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKDsS2_DsRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone %pTextEnd, i16 noundef zeroext %cDelimiter, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pToken, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pTokenEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #4 {
 entry:
   store ptr %pText, ptr %pToken, align 8
   %cmp48 = icmp ult ptr %pText, %pTextEnd
@@ -1697,7 +1697,7 @@ return:                                           ; preds = %for.end72, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKDiS2_DiRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone %pTextEnd, i32 noundef zeroext %cDelimiter, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %pToken, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pTokenEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKDiS2_DiRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone %pTextEnd, i32 noundef zeroext %cDelimiter, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pToken, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pTokenEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #4 {
 entry:
   store ptr %pText, ptr %pToken, align 8
   %cmp51 = icmp ult ptr %pText, %pTextEnd

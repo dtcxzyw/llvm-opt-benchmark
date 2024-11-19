@@ -332,7 +332,7 @@ $_ZN4llvm15SmallVectorImplIhE10resizeImplILb0EEEvm = comdat any
 @__const._ZN12_GLOBAL__N_123ConstantFoldScalarCall1EN4llvm9StringRefEjPNS0_4TypeENS0_8ArrayRefIPNS0_8ConstantEEEPKNS0_17TargetLibraryInfoEPKNS0_8CallBaseE.SinVals = private unnamed_addr constant [4 x double] [double 0.000000e+00, double 1.000000e+00, double 0.000000e+00, double -1.000000e+00], align 16
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm26IsConstantOffsetFromGlobalEPNS_8ConstantERPNS_11GlobalValueERNS_5APIntERKNS_10DataLayoutEPPNS_18DSOLocalEquivalentE(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(512) %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm26IsConstantOffsetFromGlobalEPNS_8ConstantERPNS_11GlobalValueERNS_5APIntERKNS_10DataLayoutEPPNS_18DSOLocalEquivalentE(ptr noundef %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(512) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::APInt", align 8

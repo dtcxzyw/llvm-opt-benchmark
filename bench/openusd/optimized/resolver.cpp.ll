@@ -750,7 +750,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINSt7__cxx1112basic_stringIc
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10ArResolverC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10ArResolverC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 184) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__10ArResolverE, i64 16), ptr %0, align 8
   ret void
 }
@@ -1370,19 +1370,19 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10ArResolver14_EndCacheScopeEP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver21_CreateDefaultContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::ArResolverContext") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver21_CreateDefaultContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::ArResolverContext") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver29_CreateDefaultContextForAssetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::ArResolverContext") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #2 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver29_CreateDefaultContextForAssetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::ArResolverContext") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver24_CreateContextFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::ArResolverContext") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #2 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver24_CreateContextFromStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::ArResolverContext") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -1393,7 +1393,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10ArResolver15_RefreshContextE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver18_GetCurrentContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::ArResolverContext") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver18_GetCurrentContextEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::ArResolverContext") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -1407,7 +1407,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver13_GetExtensionER
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__14TfGetExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver13_GetAssetInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ArResolvedPathE(ptr dead_on_unwind noalias nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::ArAssetInfo") align 8 initializes((0, 112)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__10ArResolver13_GetAssetInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_14ArResolvedPathE(ptr dead_on_unwind noalias nonnull writable sret(%"class.pxrInternal_v0_24__pxrReserved__::ArAssetInfo") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1716,7 +1716,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_112_GetResolverEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__23ArGetAvailableResolversEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.50") align 8 initializes((0, 24)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__23ArGetAvailableResolversEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.50") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector.55", align 8
   %3 = alloca %"class.std::vector.55", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1958,7 +1958,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__6TfTypeESaIS1_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_GetAvailablePrimaryResolversERKSt6vectorINS0_13_ResolverInfoESaIS2_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_129_GetAvailablePrimaryResolversERKSt6vectorINS0_13_ResolverInfoESaIS2_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.55", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__6TfType13_FindByTypeidERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16) @_ZTIN32pxrInternal_v0_24__pxrReserved__17ArDefaultResolverE)
@@ -7702,7 +7702,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_113_ResolverInfoESa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((216, 224)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver6_CacheEESaIS9_EENS1_23cache_aligned_allocatorISB_EELNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %2) #15
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -8280,7 +8280,7 @@ _ZNSt12__shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_Dispatch
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolverD0Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((216, 224)) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolverD0Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 320) #35
   ret void
@@ -13643,7 +13643,7 @@ define internal void @_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorISt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver6_CacheEESaIS9_EENS1_23cache_aligned_allocatorISB_EELNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver6_CacheEESaIS9_EENS1_23cache_aligned_allocatorISB_EELNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver6_CacheEESaIS9_EENS1_23cache_aligned_allocatorISB_EELNS1_18ets_key_usage_typeE1EEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -13970,7 +13970,7 @@ _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementISt6vectorI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver6_CacheEESaIS9_EENS1_23cache_aligned_allocatorISB_EELNS1_18ets_key_usage_typeE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver6_CacheEESaIS9_EENS1_23cache_aligned_allocatorISB_EELNS1_18ets_key_usage_typeE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN3tbb6detail2d126enumerable_thread_specificISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver6_CacheEESaIS9_EENS1_23cache_aligned_allocatorISB_EELNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 104) #35
   ret void
@@ -14005,7 +14005,7 @@ define internal void @_ZN3tbb6detail2d113callback_leafINS1_20construct_by_defaul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN3tbb6detail2d113callback_leafINS1_20construct_by_defaultISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver6_CacheEESaISA_EEEEE9constructEPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) unnamed_addr #2 align 2 {
+define internal void @_ZN3tbb6detail2d113callback_leafINS1_20construct_by_defaultISt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver6_CacheEESaISA_EEEEE9constructEPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   ret void
 }
@@ -15399,7 +15399,7 @@ _ZNKSt9type_infoeqERKS_.exit.thread8:             ; preds = %9, %_ZNKSt9type_inf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver9_ResolverC2ERKNS0_13_ResolverInfoERKSt10shared_ptrINS_10ArResolverEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 25), (32, 112)) %0, ptr noundef nonnull align 8 dereferenceable(51) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver9_ResolverC2ERKNS0_13_ResolverInfoERKSt10shared_ptrINS_10ArResolverEE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(51) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
@@ -22594,7 +22594,7 @@ _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKNSt7__cxx1112ba
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplISt10shared_ptrINS_12_GLOBAL__N_120_DispatchingResolver6_CacheEENS_19TfDelegatedCountPtrINS0_8_CountedIS6_EEEENS0_15_RemoteTypeInfoIS6_EEE9_CopyInitERKNSt15aligned_storageILm8ELm8EE4typeERSG_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) #25 align 2 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplISt10shared_ptrINS_12_GLOBAL__N_120_DispatchingResolver6_CacheEENS_19TfDelegatedCountPtrINS0_8_CountedIS6_EEEENS0_15_RemoteTypeInfoIS6_EEE9_CopyInitERKNSt15aligned_storageILm8ELm8EE4typeERSG_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) #25 align 2 {
   %.val = load ptr, ptr %0, align 8
   store ptr %.val, ptr %1, align 8
   %.not.i.i = icmp eq ptr %.val, null
@@ -22705,7 +22705,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19TfDelegatedCountPtrINS_7VtValue8_CountedI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplISt10shared_ptrINS_12_GLOBAL__N_120_DispatchingResolver6_CacheEENS_19TfDelegatedCountPtrINS0_8_CountedIS6_EEEENS0_15_RemoteTypeInfoIS6_EEE5_MoveERNSt15aligned_storageILm8ELm8EE4typeESH_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) #26 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplISt10shared_ptrINS_12_GLOBAL__N_120_DispatchingResolver6_CacheEENS_19TfDelegatedCountPtrINS0_8_CountedIS6_EEEENS0_15_RemoteTypeInfoIS6_EEE5_MoveERNSt15aligned_storageILm8ELm8EE4typeESH_(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) #26 align 2 personality ptr @__gxx_personality_v0 {
 _ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplISt10shared_ptrINS_12_GLOBAL__N_120_DispatchingResolver6_CacheEENS_19TfDelegatedCountPtrINS0_8_CountedIS6_EEEENS0_15_RemoteTypeInfoIS6_EEE8_DestroyERNSt15aligned_storageILm8ELm8EE4typeE.exit:
   %.val.i = load ptr, ptr %0, align 8
   store ptr %.val.i, ptr %1, align 8
@@ -22962,7 +22962,7 @@ define internal noundef nonnull ptr @_ZN32pxrInternal_v0_24__pxrReserved__7VtVal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplISt10shared_ptrINS_12_GLOBAL__N_120_DispatchingResolver6_CacheEENS_19TfDelegatedCountPtrINS0_8_CountedIS6_EEEENS0_15_RemoteTypeInfoIS6_EEE20_GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue13_TypeInfoImplISt10shared_ptrINS_12_GLOBAL__N_120_DispatchingResolver6_CacheEENS_19TfDelegatedCountPtrINS0_8_CountedIS6_EEEENS0_15_RemoteTypeInfoIS6_EEE20_GetProxiedAsVtValueERKNSt15aligned_storageILm8ELm8EE4typeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %.val1 = load ptr, ptr %.val, align 8
   %3 = getelementptr i8, ptr %.val, i64 8

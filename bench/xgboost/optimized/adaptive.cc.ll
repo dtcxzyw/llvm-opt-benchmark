@@ -343,7 +343,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost3obj6detail18EncodeTreeLeafHostEPKNS_7ContextERKNS_7RegTreeERKSt6vectorIiSaIiEEPS8_ImSaImEEPSA_SF_(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef initializes((8, 16)) %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost3obj6detail18EncodeTreeLeafHostEPKNS_7ContextERKNS_7RegTreeERKSt6vectorIiSaIiEEPS8_ImSaImEEPSA_SF_(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::stack", align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

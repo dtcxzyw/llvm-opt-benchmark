@@ -50,7 +50,7 @@ $__clang_call_terminate = comdat any
 @_ZGVZN7rocksdb12_GLOBAL__N_113DetermineSeedEiE3gen = internal global i64 0, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16ShardedCacheBaseC2ERKNS_19ShardedCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 68)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16ShardedCacheBaseC2ERKNS_19ShardedCacheOptionsE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %opts) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ignore.i.i = alloca i64, align 8
   %val.i.i = alloca i64, align 8
@@ -427,7 +427,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK7rocksdb16ShardedCacheBase25GetSecondaryCacheCapacityERm(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %size) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb16ShardedCacheBase25GetSecondaryCacheCapacityERm(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %size) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %size, align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -437,7 +437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK7rocksdb16ShardedCacheBase28GetSecondaryCachePinnedUsageERm(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %size) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb16ShardedCacheBase28GetSecondaryCachePinnedUsageERm(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %size) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %size, align 8
   %state_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8

@@ -472,7 +472,7 @@ define internal void @usb_api_blocking_completion(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @usb_start_wait_urb(ptr noundef nonnull initializes((132, 136), (168, 176)) %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @usb_start_wait_urb(ptr noundef nonnull %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.api_context, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4) #12
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -4115,7 +4115,7 @@ define internal void @driver_set_config_work(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @cdc_parse_cdc_header(ptr nocapture noundef writeonly initializes((0, 120)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local i32 @cdc_parse_cdc_header(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = icmp sgt i32 %3, 0
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)

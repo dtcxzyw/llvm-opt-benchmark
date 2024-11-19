@@ -130,7 +130,7 @@ declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #2
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @destroy_pdus_in_cfg(ptr nocapture readnone %0, ptr nocapture noundef initializes((8, 12)) %1, ptr nocapture readnone %2) #0 {
+define internal void @destroy_pdus_in_cfg(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %5, ptr noundef nonnull @destroy_mate_pdus, ptr noundef null) #10
@@ -140,7 +140,7 @@ define internal void @destroy_pdus_in_cfg(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @destroy_gops_in_cfg(ptr nocapture readnone %0, ptr nocapture noundef initializes((8, 12)) %1, ptr nocapture readnone %2) #0 {
+define internal void @destroy_gops_in_cfg(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %5, ptr noundef nonnull @return_true, ptr noundef null) #10
@@ -164,7 +164,7 @@ define internal void @destroy_gops_in_cfg(ptr nocapture readnone %0, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @destroy_gogs_in_cfg(ptr nocapture readnone %0, ptr nocapture noundef initializes((16, 20)) %1, ptr nocapture readnone %2) #0 {
+define internal void @destroy_gogs_in_cfg(ptr nocapture readnone %0, ptr nocapture noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 @g_hash_table_foreach_remove(ptr noundef %5, ptr noundef nonnull @destroy_mate_gogs, ptr noundef null) #10

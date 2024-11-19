@@ -685,7 +685,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.build_backend = private unnamed_addr constant [4 x i32] [i32 9831, i32 9836, i32 2922, i32 9841], align 4
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @dasm_init(ptr nocapture noundef writeonly initializes((0, 8)) %ctx, i32 noundef %maxsection) local_unnamed_addr #0 {
+define dso_local void @dasm_init(ptr nocapture noundef writeonly %ctx, i32 noundef %maxsection) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %ctx, align 8
   %sub = add nsw i32 %maxsection, -1
@@ -1608,7 +1608,7 @@ return:                                           ; preds = %stop, %if.then397, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @dasm_link(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly initializes((0, 8)) %szp) local_unnamed_addr #6 {
+define dso_local i32 @dasm_link(ptr nocapture noundef readonly %ctx, ptr nocapture noundef writeonly %szp) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %ctx, align 8
   store i64 0, ptr %szp, align 8

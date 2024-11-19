@@ -576,7 +576,7 @@ define noundef ptr @fvalue_dup(ptr noundef %0) local_unnamed_addr #0 {
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define void @fvalue_init(ptr noundef initializes((0, 8)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @fvalue_init(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
   %4 = getelementptr [46 x ptr], ptr @type_list, i64 0, i64 %3
   %5 = load ptr, ptr %4, align 8

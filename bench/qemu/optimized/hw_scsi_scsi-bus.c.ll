@@ -472,7 +472,7 @@ if.end6:                                          ; preds = %if.then2, %if.end
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @scsi_req_parse_cdb(ptr nocapture noundef readonly %dev, ptr noundef initializes((32, 40)) %cmd, ptr noundef %buf, i64 noundef %buf_len) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @scsi_req_parse_cdb(ptr nocapture noundef readonly %dev, ptr noundef %cmd, ptr noundef %buf, i64 noundef %buf_len) local_unnamed_addr #0 {
 entry:
   %lba = getelementptr inbounds i8, ptr %cmd, i64 32
   store i64 -1, ptr %lba, align 8
@@ -855,7 +855,7 @@ declare void @qbus_init(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr 
 declare void @qbus_set_bus_hotplug_handler(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @scsi_req_retry(ptr nocapture noundef writeonly initializes((370, 371)) %req) local_unnamed_addr #3 {
+define dso_local void @scsi_req_retry(ptr nocapture noundef writeonly %req) local_unnamed_addr #3 {
 entry:
   %retry = getelementptr inbounds i8, ptr %req, i64 370
   store i8 1, ptr %retry, align 2
@@ -1926,7 +1926,7 @@ if.end17:                                         ; preds = %if.end15, %if.end
 declare i32 @scsi_cdb_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @scsi_req_xfer(ptr nocapture noundef writeonly initializes((24, 32)) %cmd, ptr nocapture noundef readonly %dev, ptr noundef %buf) unnamed_addr #0 {
+define internal fastcc void @scsi_req_xfer(ptr nocapture noundef writeonly %cmd, ptr nocapture noundef readonly %dev, ptr noundef %buf) unnamed_addr #0 {
 entry:
   %call = tail call i32 @scsi_cdb_xfer(ptr noundef %buf) #16
   %conv = zext i32 %call to i64
@@ -2974,7 +2974,7 @@ scsi_req_ref.exit:                                ; preds = %if.end37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @scsi_req_dequeue(ptr noundef initializes((370, 371)) %req) unnamed_addr #0 {
+define internal fastcc void @scsi_req_dequeue(ptr noundef %req) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %dev = getelementptr inbounds i8, ptr %req, i64 8

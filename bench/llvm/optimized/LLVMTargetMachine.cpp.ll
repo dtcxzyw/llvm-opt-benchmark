@@ -1213,7 +1213,7 @@ define dso_local void @_ZN4llvm17LLVMTargetMachineC2ERKNS_6TargetENS_9StringRefE
 declare void @_ZN4llvm13TargetMachineC2ERKNS_6TargetENS_9StringRefERKNS_6TripleES4_S4_RKNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(1232), ptr noundef nonnull align 8 dereferenceable(248), ptr, i64, ptr noundef nonnull align 8 dereferenceable(56), ptr noundef byval(%"class.llvm::StringRef") align 8, ptr noundef byval(%"class.llvm::StringRef") align 8, ptr noundef nonnull align 8 dereferenceable(360)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm17LLVMTargetMachine22getTargetTransformInfoERKNS_8FunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::TargetTransformInfo") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1232) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm17LLVMTargetMachine22getTargetTransformInfoERKNS_8FunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::TargetTransformInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1232) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::BasicTTIImpl", align 8
   call void @_ZN4llvm12BasicTTIImplC1EPKNS_13TargetMachineERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(136) %2) #17
   %5 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #19
@@ -1302,7 +1302,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_10MCStreamerESt14default_deleteIS2_EEED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17LLVMTargetMachine16createMCStreamerERNS_17raw_pwrite_streamEPS1_NS_15CodeGenFileTypeERNS_9MCContextE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1232) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(2432) %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17LLVMTargetMachine16createMCStreamerERNS_17raw_pwrite_streamEPS1_NS_15CodeGenFileTypeERNS_9MCContextE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1232) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(2432) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.std::unique_ptr.339", align 8

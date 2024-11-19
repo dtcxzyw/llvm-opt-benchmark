@@ -444,7 +444,7 @@ declare void @llvm.trap() #9
 declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18AnalyticH1HWEngine9Fj_HelperC2ERKNS_6HandleINS_11HestonModelEEERKN5boost10shared_ptrINS_9HullWhiteEEEdddm(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this, ptr noundef nonnull align 8 dereferenceable(16) %hestonModel, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hullWhiteModel, double noundef %rhoSr, double noundef %term, double %0, i64 noundef %j) unnamed_addr #1 align 2 {
+define void @_ZN8QuantLib18AnalyticH1HWEngine9Fj_HelperC2ERKNS_6HandleINS_11HestonModelEEERKN5boost10shared_ptrINS_9HullWhiteEEEdddm(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(16) %hestonModel, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hullWhiteModel, double noundef %rhoSr, double noundef %term, double %0, i64 noundef %j) unnamed_addr #1 align 2 {
 entry:
   store i64 %j, ptr %this, align 8, !tbaa !39
   %lambda_ = getelementptr inbounds nuw i8, ptr %this, i64 8

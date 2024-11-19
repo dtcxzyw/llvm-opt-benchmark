@@ -293,7 +293,7 @@ _ZNK6hermes2vm6detail13TransitionMap13getMemorySizeEv.exit: ; preds = %entry, %c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm20HiddenClassBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #1 {
+define hidden void @_ZN6hermes2vm20HiddenClassBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) local_unnamed_addr #1 {
 entry:
   %vtp_.i = getelementptr inbounds i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm11HiddenClass2vtE, ptr %vtp_.i, align 8
@@ -1523,7 +1523,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare void @_ZN6hermes2vm15DictPropertyMap5eraseEPS1_RNS0_7RuntimeENS1_11PropertyPosE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(9832), i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm11HiddenClass11addPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsE(ptr noalias nocapture writeonly sret(%"class.hermes::vm::CallResult.181") align 8 initializes((16, 17)) %agg.result, ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i16 %propertyFlags.coerce) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm11HiddenClass11addPropertyENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS0_13PropertyFlagsE(ptr noalias nocapture writeonly sret(%"class.hermes::vm::CallResult.181") align 8 %agg.result, ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 %name.coerce, i16 %propertyFlags.coerce) local_unnamed_addr #1 align 2 {
 entry:
   %lk.i.i.i.i.i = alloca %"class.std::lock_guard", align 8
   %ref.tmp46 = alloca %"class.hermes::vm::detail::Transition", align 4
@@ -3201,7 +3201,7 @@ if.end44:                                         ; preds = %for.inc.i, %for.inc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm11HiddenClass11reserveSlotENS0_6HandleIS1_EERNS0_7RuntimeE(ptr noalias nocapture writeonly sret(%"class.hermes::vm::CallResult.181") align 8 initializes((16, 17)) %agg.result, ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes2vm11HiddenClass11reserveSlotENS0_6HandleIS1_EERNS0_7RuntimeE(ptr noalias nocapture writeonly sret(%"class.hermes::vm::CallResult.181") align 8 %agg.result, ptr %selfHandle.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime) local_unnamed_addr #1 align 2 {
 entry:
   %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %selfHandle.coerce, align 8
   %and.i.i.i.i.i = and i64 %agg.tmp.sroa.0.0.copyload.i.i, 281474976710655

@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @gen_set_label(ptr noundef initializes((0, 1)) %l) local_unnamed_addr #0 {
+define dso_local void @gen_set_label(ptr noundef %l) local_unnamed_addr #0 {
 entry:
   store i8 1, ptr %l, align 8
   %0 = ptrtoint ptr %l to i64

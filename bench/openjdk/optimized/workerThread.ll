@@ -83,7 +83,7 @@ $_ZTV13WorkerThreads = comdat any
 @_ZN12WorkerThreadC1EPKcjP20WorkerTaskDispatcher = hidden unnamed_addr alias void (ptr, ptr, i32, ptr), ptr @_ZN12WorkerThreadC2EPKcjP20WorkerTaskDispatcher
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20WorkerTaskDispatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20WorkerTaskDispatcherC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile i32 0, ptr %2, align 8
@@ -97,7 +97,7 @@ define hidden void @_ZN20WorkerTaskDispatcherC2Ev(ptr noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20WorkerTaskDispatcher27coordinator_distribute_taskEP10WorkerTaskj(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20WorkerTaskDispatcher27coordinator_distribute_taskEP10WorkerTaskj(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store volatile i32 %2, ptr %4, align 4
@@ -149,7 +149,7 @@ declare void @_ZN8GCIdMarkC1Ej(ptr noundef nonnull align 4 dereferenceable(4), i
 declare void @_ZN8GCIdMarkD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13WorkerThreadsC2EPKcj(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 36), (40, 48)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN13WorkerThreadsC2EPKcj(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV13WorkerThreads, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -421,7 +421,7 @@ define hidden void @_ZN13WorkerThreads21clear_indirect_statesEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13WorkerThreads8run_taskEP10WorkerTask(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load i32, ptr %4, align 8

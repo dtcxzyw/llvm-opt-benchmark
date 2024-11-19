@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ASN1_PCTX_set_flags(ptr nocapture noundef writeonly initializes((0, 8)) %p, i64 noundef %flags) local_unnamed_addr #5 {
+define hidden void @ASN1_PCTX_set_flags(ptr nocapture noundef writeonly %p, i64 noundef %flags) local_unnamed_addr #5 {
 entry:
   store i64 %flags, ptr %p, align 8
   ret void
@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ASN1_PCTX_set_nm_flags(ptr nocapture noundef writeonly initializes((8, 16)) %p, i64 noundef %flags) local_unnamed_addr #5 {
+define hidden void @ASN1_PCTX_set_nm_flags(ptr nocapture noundef writeonly %p, i64 noundef %flags) local_unnamed_addr #5 {
 entry:
   %nm_flags = getelementptr inbounds i8, ptr %p, i64 8
   store i64 %flags, ptr %nm_flags, align 8
@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ASN1_PCTX_set_cert_flags(ptr nocapture noundef writeonly initializes((16, 24)) %p, i64 noundef %flags) local_unnamed_addr #5 {
+define hidden void @ASN1_PCTX_set_cert_flags(ptr nocapture noundef writeonly %p, i64 noundef %flags) local_unnamed_addr #5 {
 entry:
   %cert_flags = getelementptr inbounds i8, ptr %p, i64 16
   store i64 %flags, ptr %cert_flags, align 8
@@ -115,7 +115,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ASN1_PCTX_set_oid_flags(ptr nocapture noundef writeonly initializes((24, 32)) %p, i64 noundef %flags) local_unnamed_addr #5 {
+define hidden void @ASN1_PCTX_set_oid_flags(ptr nocapture noundef writeonly %p, i64 noundef %flags) local_unnamed_addr #5 {
 entry:
   %oid_flags = getelementptr inbounds i8, ptr %p, i64 24
   store i64 %flags, ptr %oid_flags, align 8
@@ -131,7 +131,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @ASN1_PCTX_set_str_flags(ptr nocapture noundef writeonly initializes((32, 40)) %p, i64 noundef %flags) local_unnamed_addr #5 {
+define hidden void @ASN1_PCTX_set_str_flags(ptr nocapture noundef writeonly %p, i64 noundef %flags) local_unnamed_addr #5 {
 entry:
   %str_flags = getelementptr inbounds i8, ptr %p, i64 32
   store i64 %flags, ptr %str_flags, align 8

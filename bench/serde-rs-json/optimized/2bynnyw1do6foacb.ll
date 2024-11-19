@@ -181,7 +181,7 @@ _ZN4core4char7methods15encode_utf8_raw17h0195287417066071E.exit: ; preds = %8, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417hc8b69ac6748c8011E"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) initializes((0, 1), (8, 24)) %0, i64 noundef %1) unnamed_addr #2 {
+define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_i6417hc8b69ac6748c8011E"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #2 {
   %.lobit = lshr i64 %1, 63
   store i8 2, ptr %0, align 8
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -192,7 +192,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_i12817h66050043824aacaaE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) initializes((0, 1), (8, 16)) %0, i128 noundef %1) unnamed_addr #3 {
+define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_i12817h66050043824aacaaE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, i128 noundef %1) unnamed_addr #3 {
   %3 = alloca { i64, [2 x i64] }, align 8
   %or.cond = icmp ult i128 %1, 18446744073709551616
   %4 = trunc i128 %1 to i64
@@ -234,7 +234,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_u12817hf42a47ad796a20eeE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) initializes((0, 1), (8, 16)) %0, i128 noundef %1) unnamed_addr #3 {
+define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_u12817hf42a47ad796a20eeE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, i128 noundef %1) unnamed_addr #3 {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = icmp ult i128 %1, 18446744073709551616
   br i1 %4, label %5, label %7
@@ -263,7 +263,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$15serialize_bytes17h25d89bf68553055dE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
+define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$15serialize_bytes17h25d89bf68553055dE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
   %.sroa.43 = alloca [31 x i8], align 1
   %4 = alloca { { i64, ptr }, i64 }, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -279,7 +279,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha8c3e653e77d090eE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1, i64 %2) unnamed_addr #3 {
+define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha8c3e653e77d090eE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, i64 noundef %1, i64 %2) unnamed_addr #3 {
   %switch = icmp eq i64 %1, 0
   %. = select i1 %switch, i64 0, i64 %2
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb83f000fce34cba8E"(i64 noundef %., i1 noundef zeroext false)
@@ -294,7 +294,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$15serialize_tuple17hf4a272f1ded16379E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #3 {
+define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$15serialize_tuple17hf4a272f1ded16379E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %3 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb83f000fce34cba8E"(i64 noundef %1, i1 noundef zeroext false), !noalias !31
   %4 = extractvalue { i64, ptr } %3, 0
@@ -308,7 +308,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$22serialize_tuple_struct17h9ca5b95b4bcdbf36E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
+define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$22serialize_tuple_struct17h9ca5b95b4bcdbf36E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %5 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb83f000fce34cba8E"(i64 noundef %3, i1 noundef zeroext false), !noalias !34
   %6 = extractvalue { i64, ptr } %5, 0
@@ -373,7 +373,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h63d4a3eff44ab4feE"(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 8), (24, 32), (40, 48)) %0, i64 noundef %1, i64 %2) unnamed_addr #2 {
+define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_map17h63d4a3eff44ab4feE"(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, i64 noundef %1, i64 %2) unnamed_addr #2 {
   store i64 -9223372036854775808, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %.sroa.5.0..sroa_idx, align 8
@@ -383,7 +383,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17hf2949332d7e1b992E"(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 8), (24, 32), (40, 48)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
+define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$16serialize_struct17hf2949332d7e1b992E"(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i64 noundef %3) unnamed_addr #2 {
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !41
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !41
@@ -393,7 +393,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17hb0c8365dc1652c0dE"(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 32), (40, 48)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i32 noundef %3, ptr noalias nocapture noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$24serialize_struct_variant17hb0c8365dc1652c0dE"(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2, i32 noundef %3, ptr noalias nocapture noundef nonnull readonly align 1 %4, i64 noundef %5, i64 noundef %6) unnamed_addr #3 personality ptr @rust_eh_personality {
   %8 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0c6cafb5da1ad993E"(i64 noundef %5, i1 noundef zeroext false), !noalias !44
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
@@ -413,7 +413,7 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN81_$LT$serde_json..value..ser..SerializeVec$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h5ac7afa5d6969404E"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 {
+define void @"_ZN81_$LT$serde_json..value..ser..SerializeVec$u20$as$u20$serde..ser..SerializeSeq$GT$3end17h5ac7afa5d6969404E"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 {
   %.sroa.4 = alloca [31 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.4)
   %.sroa.4.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.4, i64 7
@@ -426,7 +426,7 @@ define void @"_ZN81_$LT$serde_json..value..ser..SerializeVec$u20$as$u20$serde..s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @"_ZN83_$LT$serde_json..value..ser..SerializeVec$u20$as$u20$serde..ser..SerializeTuple$GT$3end17h30e42d082b9c04e1E"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
+define void @"_ZN83_$LT$serde_json..value..ser..SerializeVec$u20$as$u20$serde..ser..SerializeTuple$GT$3end17h30e42d082b9c04e1E"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
   %.sroa.4.i = alloca [31 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.4.i)
@@ -440,7 +440,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..SerializeVec$u20$as$u20$serde..s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @"_ZN89_$LT$serde_json..value..ser..SerializeVec$u20$as$u20$serde..ser..SerializeTupleStruct$GT$3end17hb10d523123aa456bE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
+define void @"_ZN89_$LT$serde_json..value..ser..SerializeVec$u20$as$u20$serde..ser..SerializeTupleStruct$GT$3end17hb10d523123aa456bE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #5 {
   %.sroa.4.i = alloca [31 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %.sroa.4.i)
@@ -617,7 +617,7 @@ define void @"_ZN99_$LT$serde_json..value..ser..SerializeTupleVariant$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$3end17h739952f46ddc4afbE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN81_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeMap$GT$3end17h739952f46ddc4afbE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.4 = alloca [31 x i8], align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -668,7 +668,7 @@ define noundef nonnull align 8 ptr @_ZN10serde_json5value3ser20key_must_be_a_str
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h65fe74866ebf205fE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, i1 noundef zeroext %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_bool17h65fe74866ebf205fE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, i1 noundef zeroext %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %anon.23a239e370bc73ecc2abaad27a737150.19.anon.23a239e370bc73ecc2abaad27a737150.18 = select i1 %1, ptr @anon.23a239e370bc73ecc2abaad27a737150.19, ptr @anon.23a239e370bc73ecc2abaad27a737150.18
   %. = select i1 %1, i64 4, i64 5
   %3 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0c6cafb5da1ad993E"(i64 noundef %., i1 noundef zeroext false), !noalias !102
@@ -1275,7 +1275,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_f3217h6fbd43327ee7218aE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, float noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_f3217h6fbd43327ee7218aE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, float noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { [24 x i8] }, align 1
   %5 = tail call float @llvm.fabs.f32(float %1)
@@ -1313,7 +1313,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_f6417hbc062e1770119edcE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, double noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_f6417hbc062e1770119edcE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, double noundef %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = alloca { [24 x i8] }, align 1
   %5 = tail call double @llvm.fabs.f64(double %1)
@@ -1351,7 +1351,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$15serialize_bytes17hb1cda1066fbe7ffdE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 {
+define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$15serialize_bytes17hb1cda1066fbe7ffdE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 {
   %4 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store i64 17, ptr %4, align 8
@@ -1364,7 +1364,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha08942750baa204dE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0) unnamed_addr #6 {
+define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_unit17ha08942750baa204dE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0) unnamed_addr #6 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store i64 17, ptr %2, align 8
@@ -1377,7 +1377,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$21serialize_unit_struct17h1fc3879a51521f84E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 {
+define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$21serialize_unit_struct17h1fc3879a51521f84E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #6 {
   %4 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   store i64 17, ptr %4, align 8
@@ -1390,7 +1390,7 @@ define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17h839596e7ddccc945E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0) unnamed_addr #6 {
+define void @"_ZN83_$LT$serde_json..value..ser..MapKeySerializer$u20$as$u20$serde..ser..Serializer$GT$14serialize_none17h839596e7ddccc945E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0) unnamed_addr #6 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   store i64 17, ptr %2, align 8
@@ -1473,7 +1473,7 @@ define noundef nonnull align 8 ptr @"_ZN83_$LT$serde_json..value..ser..MapKeySer
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h9d1eee83b5dd39d8E"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define void @"_ZN84_$LT$serde_json..value..ser..SerializeMap$u20$as$u20$serde..ser..SerializeStruct$GT$3end17h9d1eee83b5dd39d8E"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef align 8 dereferenceable(48) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %.sroa.4.i = alloca [31 x i8], align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !166)

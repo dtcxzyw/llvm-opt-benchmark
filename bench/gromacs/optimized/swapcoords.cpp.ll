@@ -378,7 +378,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx27createSwapCoordinatesModuleEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx27createSwapCoordinatesModuleEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN3gmx15SwapCoordinatesESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15SwapCoordinatesE, i64 16), ptr %1, align 8, !noalias !5
@@ -432,7 +432,7 @@ define linkonce_odr void @_ZN3gmx15SwapCoordinates37subscribeToPreProcessingNoti
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN10swap_groupC2ERKN3gmx12LocalAtomSetE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(236) initializes((0, 12), (16, 60), (64, 108), (232, 236)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #11 align 2 {
+define void @_ZN10swap_groupC2ERKN3gmx12LocalAtomSetE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(236) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #11 align 2 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -3733,7 +3733,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18copyIndicesToGroupPKiiP11t_swapGroupP9t_commrec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((8, 12)) %2, ptr nocapture noundef readonly %3) unnamed_addr #3 {
+define internal fastcc void @_ZL18copyIndicesToGroupPKiiP11t_swapGroupP9t_commrec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24

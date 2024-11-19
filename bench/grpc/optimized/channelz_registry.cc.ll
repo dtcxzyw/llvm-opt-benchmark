@@ -275,7 +275,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8channelz16ChannelzRegistry16InternalRegisterEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef initializes((24, 32)) %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8channelz16ChannelzRegistry16InternalRegisterEPNS0_8BaseNodeE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %node) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4absl12lts_202308025Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %this)
   %uuid_generator_ = getelementptr inbounds i8, ptr %this, i64 56

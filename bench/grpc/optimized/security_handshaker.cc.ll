@@ -1730,7 +1730,7 @@ if.end:                                           ; preds = %_ZNK9grpc_core11Unr
 declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshakerD2Ev(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshakerD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_118SecurityHandshakerE, i64 16), ptr %this, align 8
   %handshaker_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1866,7 +1866,7 @@ terminate.lpad:                                   ; preds = %invoke.cont12, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshakerD0Ev(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshakerD0Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshakerD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -2738,7 +2738,7 @@ _ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNode8SecurityEED2Ev.exit8: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_112_GLOBAL__N_135MakeChannelzSecurityFromAuthContextEP17grpc_auth_context(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef %auth_context) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_112_GLOBAL__N_135MakeChannelzSecurityFromAuthContextEP17grpc_auth_context(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %auth_context) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 invoke.cont1:
   %ref.tmp = alloca %"class.std::optional.120", align 8
   %it = alloca %struct.grpc_auth_property_iterator, align 8
@@ -3907,7 +3907,7 @@ declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_
 declare void @_Z18grpc_endpoint_readP13grpc_endpointP17grpc_slice_bufferP12grpc_closurebi(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker42OnHandshakeDataReceivedFromPeerFnSchedulerEPvN4absl12lts_202308026StatusE(ptr noundef initializes((400, 408)) %arg, ptr nocapture noundef readonly %error) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker42OnHandshakeDataReceivedFromPeerFnSchedulerEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture noundef readonly %error) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -3974,7 +3974,7 @@ declare void @grpc_slice_buffer_reset_and_unref(ptr noundef) local_unnamed_addr 
 declare void @_Z19grpc_endpoint_writeP13grpc_endpointP17grpc_slice_bufferP12grpc_closurePvi(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker36OnHandshakeDataSentToPeerFnSchedulerEPvN4absl12lts_202308026StatusE(ptr noundef initializes((368, 376)) %arg, ptr nocapture noundef readonly %error) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshaker36OnHandshakeDataSentToPeerFnSchedulerEPvN4absl12lts_202308026StatusE(ptr noundef %arg, ptr nocapture noundef readonly %error) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8

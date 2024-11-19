@@ -145,7 +145,7 @@ mbedtls_pk_error_from_psa.exit:                   ; preds = %1, %1, %1, %mbedtls
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -17536, 1) i32 @mbedtls_pk_psa_rsa_sign_ext(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef initializes((0, 8)) %6) local_unnamed_addr #1 {
+define hidden range(i32 -17536, 1) i32 @mbedtls_pk_psa_rsa_sign_ext(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = alloca %struct.psa_key_attributes_s, align 8
   %9 = alloca i32, align 4
   %10 = alloca %struct.mbedtls_pk_context, align 8
@@ -355,7 +355,7 @@ define internal i32 @rsa_decrypt_wrap(ptr noundef %0, ptr noundef %1, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa_encrypt_wrap(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
+define internal i32 @rsa_encrypt_wrap(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) #1 {
   %9 = tail call i64 @mbedtls_rsa_get_len(ptr noundef %0) #10
   store i64 %9, ptr %4, align 8
   %10 = icmp ugt i64 %9, %5
@@ -398,7 +398,7 @@ define internal void @rsa_free_wrap(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @rsa_debug(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 28), (32, 48)) %1) #5 {
+define internal void @rsa_debug(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 {
   store i32 1, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr @.str.5, ptr %3, align 8
@@ -498,7 +498,7 @@ define internal void @eckey_free_wrap(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @eckey_debug(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4), (8, 24)) %1) #5 {
+define internal void @eckey_debug(ptr noundef %0, ptr nocapture noundef writeonly %1) #5 {
   store i32 2, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr @.str.7, ptr %3, align 8

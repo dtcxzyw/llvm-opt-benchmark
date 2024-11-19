@@ -1490,7 +1490,7 @@ define internal noundef i32 @H5FS__sinfo_free_node_cb(ptr noundef %0, ptr nocapt
 declare i32 @H5SL_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5FS_get_sect_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #3 {
+define noundef i32 @H5FS_get_sect_count(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 264
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8

@@ -1019,7 +1019,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25SimpleRuleBasedPathFilter4TreeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (16, 20), (24, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25SimpleRuleBasedPathFilter4TreeC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %other) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, SimpleRuleBasedPathFilter::Tree>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, SimpleRuleBasedPathFilter::Tree>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %0 = load i32, ptr %other, align 8

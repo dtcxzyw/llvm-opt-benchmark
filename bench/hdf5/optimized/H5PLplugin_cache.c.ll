@@ -172,7 +172,7 @@ H5PL__expand_cache.exit:                          ; preds = %6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5PL__find_plugin_in_cache(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   store ptr null, ptr %2, align 8
   %4 = load i32, ptr @H5PL_num_plugins_g, align 4

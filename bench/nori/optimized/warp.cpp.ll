@@ -73,7 +73,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN4nori4Warp21squareToUniformSquareERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::TPoint") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4nori4Warp21squareToUniformSquareERKNS_6TPointIfLi2EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.nori::TPoint") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #3 align 2 {
   %3 = load i64, ptr %1, align 4
   store i64 %3, ptr %0, align 4
   ret void

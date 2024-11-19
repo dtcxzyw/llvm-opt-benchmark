@@ -1583,7 +1583,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_113ParseChildrenEN4absl12lts_202308024CordE(ptr noalias align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull %children) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_113ParseChildrenEN4absl12lts_202308024CordE(ptr noalias align 8 %agg.result, ptr noundef nonnull %children) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.std::basic_string_view", align 8
   %ref.tmp = alloca %"class.absl::lts_20230802::Status", align 8
@@ -2894,7 +2894,7 @@ delete.end:                                       ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9grpc_core8internal20StatusGetFromHeapPtrEm(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, i64 noundef %ptr) local_unnamed_addr #9 {
+define void @_ZN9grpc_core8internal20StatusGetFromHeapPtrEm(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 noundef %ptr) local_unnamed_addr #9 {
 entry:
   %cmp = icmp eq i64 %ptr, 0
   br i1 %cmp, label %if.then, label %if.else
@@ -2922,7 +2922,7 @@ return:                                           ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core8internal21StatusMoveFromHeapPtrEm(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, i64 noundef %ptr) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core8internal21StatusMoveFromHeapPtrEm(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 noundef %ptr) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %ptr, 0
   br i1 %cmp, label %return, label %_ZN4absl12lts_202308026StatusD2Ev.exit

@@ -105,7 +105,7 @@ define hidden noundef double @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc4e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution6cauchy6Cauchy3new17h4a497fe6db4b6279E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
+define void @_ZN6statrs12distribution6cauchy6Cauchy3new17h4a497fe6db4b6279E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
   %or.cond = fcmp uno double %1, %2
   %4 = fcmp ole double %2, 0.000000e+00
   %or.cond1 = or i1 %or.cond, %4
@@ -262,7 +262,7 @@ define noundef double @"_ZN106_$LT$statrs..distribution..cauchy..Cauchy$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution15fisher_snedecor14FisherSnedecor3new17h30ef806726d3113fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
+define void @_ZN6statrs12distribution15fisher_snedecor14FisherSnedecor3new17h30ef806726d3113fE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
   %or.cond = tail call i1 @llvm.is.fpclass.f64(double %1, i32 639)
   br i1 %or.cond, label %8, label %4
 
@@ -593,7 +593,7 @@ define noundef double @"_ZN123_$LT$statrs..distribution..fisher_snedecor..Fisher
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution9geometric9Geometric3new17h9fd95f9717640e3bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1) unnamed_addr #2 {
+define void @_ZN6statrs12distribution9geometric9Geometric3new17h9fd95f9717640e3bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1) unnamed_addr #2 {
   %3 = fcmp ole double %1, 0.000000e+00
   %4 = fcmp ogt double %1, 1.000000e+00
   %or.cond = or i1 %3, %4
@@ -873,7 +873,7 @@ define noundef double @"_ZN110_$LT$statrs..distribution..geometric..Geometric$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution17negative_binomial16NegativeBinomial3new17hf9a43b423c94c3ceE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 8)) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
+define void @_ZN6statrs12distribution17negative_binomial16NegativeBinomial3new17hf9a43b423c94c3ceE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #2 {
   %4 = fcmp uno double %2, 0.000000e+00
   br i1 %4, label %13, label %5
 
@@ -1275,7 +1275,7 @@ define noundef double @_ZN6statrs8function4beta7ln_beta17h82d301b62336438bE(doub
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6statrs8function4beta15checked_ln_beta17he680093e3756d6c1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #4 {
+define void @_ZN6statrs8function4beta15checked_ln_beta17he680093e3756d6c1E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #4 {
   %4 = fcmp ugt double %1, 0.000000e+00
   br i1 %4, label %5, label %7
 
@@ -1348,7 +1348,7 @@ define noundef double @_ZN6statrs8function4beta4beta17h85c22bb6a61a7ba5E(double 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6statrs8function4beta12checked_beta17h7f3e230b8660f9e3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 16)) %0, double noundef %1, double noundef %2) unnamed_addr #4 {
+define void @_ZN6statrs8function4beta12checked_beta17h7f3e230b8660f9e3E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2) unnamed_addr #4 {
   %4 = fcmp ugt double %1, 0.000000e+00
   br i1 %4, label %5, label %16
 
@@ -1443,7 +1443,7 @@ define noundef double @_ZN6statrs8function4beta8beta_inc17hdb112917ca1b2d54E(dou
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6statrs8function4beta16checked_beta_inc17ha124c1db6dbb4ee5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 16)) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #4 {
+define void @_ZN6statrs8function4beta16checked_beta_inc17ha124c1db6dbb4ee5E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #4 {
   %5 = alloca [40 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5)
   call void @_ZN6statrs8function4beta16checked_beta_reg17hc3be34898596ccaaE(ptr noalias nocapture noundef nonnull sret([40 x i8]) align 8 dereferenceable(40) %5, double noundef %1, double noundef %2, double noundef %3)
@@ -2017,7 +2017,7 @@ define noundef double @_ZN6statrs8function8logistic5logit17hac7411a972977cb7E(do
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs8function8logistic13checked_logit17hf191b7eb1d9a740cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 16)) %0, double noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define void @_ZN6statrs8function8logistic13checked_logit17hf191b7eb1d9a740cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = fcmp oge double %1, 0.000000e+00
   %4 = fcmp ole double %1, 1.000000e+00
   %.sroa.04.0.i = and i1 %3, %4

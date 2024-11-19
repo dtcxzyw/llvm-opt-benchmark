@@ -2312,7 +2312,7 @@ define dso_local void @_ZN5clang8comments5Lexer27skipLineStartingDecorationsEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8comments5Lexer18formTokenWithCharsERNS0_5TokenEPKcNS0_3tok9TokenKindE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8), (12, 16)) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang8comments5Lexer18formTokenWithCharsERNS0_5TokenEPKcNS0_3tok9TokenKindE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %2 to i64
@@ -3029,7 +3029,7 @@ _ZN5clang8comments5Lexer20lexVerbatimBlockBodyERNS0_5TokenE.exit: ; preds = %55,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenEENK3$_0clEv"(ptr nocapture %.0.val, ptr nocapture writeonly initializes((0, 8), (12, 16)) %.8.val) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN5clang8comments5Lexer14lexCommentTextERNS0_5TokenEENK3$_0clEv"(ptr nocapture %.0.val, ptr nocapture writeonly %.8.val) unnamed_addr #0 align 2 {
   %1 = getelementptr inbounds nuw i8, ptr %.0.val, i64 40
   %2 = load ptr, ptr %1, align 8
   %3 = load i8, ptr %2, align 1
@@ -3721,7 +3721,7 @@ switch.early.test:                                ; preds = %137
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8comments5Lexer13lexHTMLEndTagERNS0_5TokenE(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((62, 63)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8), (12, 16)) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang8comments5Lexer13lexHTMLEndTagERNS0_5TokenE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1
@@ -3929,7 +3929,7 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit:          ; preds = %_ZN5clang17Diagnost
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8comments5Lexer24setupAndLexVerbatimBlockERNS0_5TokenEPKccPKNS0_11CommandInfoE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %1, ptr noundef %2, i8 noundef signext %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8comments5Lexer24setupAndLexVerbatimBlockERNS0_5TokenEPKccPKNS0_11CommandInfoE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1, ptr noundef %2, i8 noundef signext %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseImE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -4019,7 +4019,7 @@ _ZN5clang8comments12_GLOBAL__N_111skipNewlineEPKcS3_.exit: ; preds = %47, %50
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang8comments5Lexer23setupAndLexVerbatimLineERNS0_5TokenEPKcPKNS0_11CommandInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((62, 63)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5clang8comments5Lexer23setupAndLexVerbatimLineERNS0_5TokenEPKcPKNS0_11CommandInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %1, ptr noundef %2, ptr nocapture noundef readonly %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = ptrtoint ptr %2 to i64
@@ -5039,7 +5039,7 @@ switch.lookup88:                                  ; preds = %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8comments5LexerC2ERN4llvm20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEERNS_17DiagnosticsEngineERKNS0_13CommandTraitsENS_14SourceLocationEPKcSE_b(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 48), (56, 63)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i32 %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8comments5LexerC2ERN4llvm20BumpPtrAllocatorImplINS2_15MallocAllocatorELm4096ELm4096ELm128EEERNS_17DiagnosticsEngineERKNS0_13CommandTraitsENS_14SourceLocationEPKcSE_b(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2, ptr noundef nonnull align 8 dereferenceable(64) %3, i32 %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 align 2 {
   %9 = zext i1 %7 to i8
   store ptr %1, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8

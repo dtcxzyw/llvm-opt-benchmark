@@ -54891,7 +54891,7 @@ _ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_va
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJbEE4callINS_4listENS0_9void_typeERZ30test_submodule_builtin_castersRNS_7module_EE4$_74EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJbEE4callINS_4listENS0_9void_typeERZ30test_submodule_builtin_castersRNS_7module_EE4$_74EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESB_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x %"class.std::reference_wrapper.1004"], align 8
   %4 = alloca %"class.pybind11::object", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2182)

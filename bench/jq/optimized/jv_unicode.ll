@@ -285,7 +285,7 @@ define range(i32 1, 5) i32 @jvp_utf8_encode_length(i32 noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef initializes((0, 1)) %1) local_unnamed_addr #3 {
+define i32 @jvp_utf8_encode(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp slt i32 %0, 128
   br i1 %3, label %4, label %7
 

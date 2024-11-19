@@ -358,7 +358,7 @@ Abc_NtkTimeSetArrival.exit:                       ; preds = %.lr.ph, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @Abc_ManTimeStart(ptr nocapture noundef initializes((264, 272)) %0) unnamed_addr #3 {
+define internal fastcc noundef ptr @Abc_ManTimeStart(ptr nocapture noundef %0) unnamed_addr #3 {
   %calloc = tail call dereferenceable_or_null(64) ptr @calloc(i64 1, i64 64)
   %2 = getelementptr inbounds i8, ptr %0, i64 264
   store ptr %calloc, ptr %2, align 8
@@ -4418,7 +4418,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %106
 declare ptr @Abc_NtkDfsReverse(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Abc_NtkStopReverseLevels(ptr nocapture noundef initializes((284, 288)) %0) local_unnamed_addr #7 {
+define void @Abc_NtkStopReverseLevels(ptr nocapture noundef %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8

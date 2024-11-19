@@ -149,7 +149,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_214TiledInputFile4DataC2Ei(ptr noundef nonnull align 8 dereferenceable(377) initializes((0, 40)) %this, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_214TiledInputFile4DataC2Ei(ptr noundef nonnull align 8 dereferenceable(377) %this, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Vec2", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
@@ -2429,7 +2429,7 @@ declare noundef nonnull align 4 dereferenceable(4) ptr @_ZN7Imf_3_26Header11comp
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_214TiledInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN7Imf_3_214TiledInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_214TiledInputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
@@ -6069,7 +6069,7 @@ declare void @_ZN13IlmThread_3_29Semaphore4postEv(ptr noundef nonnull align 8 de
 declare void @_ZN13IlmThread_3_24TaskC2EPNS_9TaskGroupE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_114TileBufferTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_114TileBufferTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114TileBufferTaskE, i64 16), ptr %this, align 8
   %_tileBuffer = getelementptr inbounds i8, ptr %this, i64 24
@@ -6091,7 +6091,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_114TileBufferTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_114TileBufferTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114TileBufferTaskE, i64 16), ptr %this, align 8
   %_tileBuffer.i = getelementptr inbounds i8, ptr %this, i64 24

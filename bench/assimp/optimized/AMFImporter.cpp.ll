@@ -390,7 +390,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11AMFImporter5ClearEv(ptr noundef nonnull align 8 dereferenceable(224) initializes((72, 80)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11AMFImporter5ClearEv(ptr noundef nonnull align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mNodeElement_Cur = getelementptr inbounds i8, ptr %this, i64 72
   store ptr null, ptr %mNodeElement_Cur, align 8
@@ -554,7 +554,7 @@ declare void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11AMFImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8), (72, 80)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11AMFImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11AMFImporterE, i64 16), ptr %this, align 8
   %mXmlParser = getelementptr inbounds i8, ptr %this, i64 104
@@ -687,7 +687,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11AMFImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8), (72, 80)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp11AMFImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11AMFImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #29
@@ -4781,7 +4781,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11AMFImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(224) initializes((72, 80)) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %pScene, ptr noundef %pIOHandler) unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp11AMFImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %pScene, ptr noundef %pIOHandler) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN6Assimp11AMFImporter5ClearEv(ptr noundef nonnull align 8 dereferenceable(224) %this)
   tail call void @_ZN6Assimp11AMFImporter9ParseFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %pIOHandler)

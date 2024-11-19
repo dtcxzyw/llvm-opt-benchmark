@@ -846,7 +846,7 @@ define internal i32 @virtcons_restore(ptr nocapture noundef readonly %0) #4 alig
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @init_vqs(ptr nocapture noundef initializes((144, 160)) %0) unnamed_addr #4 align 16 {
+define internal fastcc i32 @init_vqs(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 108
   %3 = load i32, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 112
@@ -2736,7 +2736,7 @@ define internal noundef range(i32 -22, 1) i32 @notifier_add_vio(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @notifier_del_vio(ptr nocapture noundef writeonly initializes((408, 412)) %0, i32 %1) #10 align 16 {
+define internal void @notifier_del_vio(ptr nocapture noundef writeonly %0, i32 %1) #10 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 408
   store i32 0, ptr %3, align 8
   ret void

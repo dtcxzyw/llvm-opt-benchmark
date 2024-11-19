@@ -273,7 +273,7 @@ $_ZTIN2cv8tinyxml28MemPoolTILi88EEE = comdat any
 @_ZN2cv8tinyxml210XMLPrinterC1EP8_IO_FILEbi = hidden unnamed_addr alias void (ptr, ptr, i1, i32), ptr @_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml27StrPairD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8tinyxml27StrPairD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 512
   %.not.i = icmp eq i32 %3, 0
@@ -297,7 +297,7 @@ _ZN2cv8tinyxml27StrPair5ResetEv.exit:             ; preds = %1, %4, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml27StrPair5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv8tinyxml27StrPair5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 512
   %.not = icmp eq i32 %3, 0
@@ -338,7 +338,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml27StrPair6SetStrEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml27StrPair6SetStrEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = load i32, ptr %0, align 8
   %5 = and i32 %4, 512
   %.not.i = icmp eq i32 %5, 0
@@ -873,7 +873,7 @@ _ZN2cv8tinyxml27StrPair18CollapseWhitespaceEv.exit: ; preds = %6, %96, %.loopexi
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil15GetCharacterRefEPKcPcPi(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #10 align 2 {
   %4 = alloca [7 x i64], align 16
   store i32 0, ptr %2, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 1
@@ -1097,7 +1097,7 @@ _ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi.exit: ; preds = %70, %91
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #11 align 2 {
+define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 align 2 {
   store i8 0, ptr %1, align 1
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, -17
@@ -1126,7 +1126,7 @@ define hidden noundef ptr @_ZN2cv8tinyxml27XMLUtil7ReadBOMEPKcPb(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN2cv8tinyxml27XMLUtil18ConvertUTF32ToUTF8EmPcPi(i64 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #11 align 2 {
   %4 = alloca [7 x i64], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %4, i8 0, i64 16, i1 false)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -2042,7 +2042,7 @@ define hidden noundef zeroext i1 @_ZNK2cv8tinyxml211XMLDocument6AcceptEPNS0_10XM
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8tinyxml27XMLNodeC2EPNS0_11XMLDocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 28), (32, 88)) %0, ptr noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN2cv8tinyxml27XMLNodeC2EPNS0_11XMLDocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #14 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -2056,7 +2056,7 @@ define hidden void @_ZN2cv8tinyxml27XMLNodeC2EPNS0_11XMLDocumentE(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml27XMLNodeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -2356,7 +2356,7 @@ define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode5ValueEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml27XMLNode8SetValueEPKcb(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((40, 48)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml27XMLNode8SetValueEPKcb(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 512
@@ -3599,7 +3599,7 @@ _ZN2cv8tinyxml27StrPairD2Ev.exit47:               ; preds = %_ZN2cv8tinyxml27XML
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8tinyxml211XMLDocument8SetErrorENS0_8XMLErrorEPKcS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) initializes((92, 96), (104, 120)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 align 2 {
+define hidden void @_ZN2cv8tinyxml211XMLDocument8SetErrorENS0_8XMLErrorEPKcS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 %1, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3904,7 +3904,7 @@ define hidden noundef zeroext i1 @_ZNK2cv8tinyxml27XMLText6AcceptEPNS0_10XMLVisi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8tinyxml210XMLCommentC2EPNS0_11XMLDocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 28), (32, 88)) %0, ptr noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLCommentC2EPNS0_11XMLDocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3918,13 +3918,13 @@ define hidden void @_ZN2cv8tinyxml210XMLCommentC2EPNS0_11XMLDocumentE(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml210XMLCommentD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLCommentD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml210XMLCommentD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLCommentD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
@@ -4147,7 +4147,7 @@ define hidden noundef zeroext i1 @_ZNK2cv8tinyxml210XMLComment6AcceptEPNS0_10XML
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8tinyxml214XMLDeclarationC2EPNS0_11XMLDocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 28), (32, 88)) %0, ptr noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN2cv8tinyxml214XMLDeclarationC2EPNS0_11XMLDocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4161,13 +4161,13 @@ define hidden void @_ZN2cv8tinyxml214XMLDeclarationC2EPNS0_11XMLDocumentE(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml214XMLDeclarationD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv8tinyxml214XMLDeclarationD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml214XMLDeclarationD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv8tinyxml214XMLDeclarationD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
@@ -4385,7 +4385,7 @@ define hidden noundef zeroext i1 @_ZNK2cv8tinyxml214XMLDeclaration6AcceptEPNS0_1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8tinyxml210XMLUnknownC2EPNS0_11XMLDocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 28), (32, 88)) %0, ptr noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLUnknownC2EPNS0_11XMLDocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4399,13 +4399,13 @@ define hidden void @_ZN2cv8tinyxml210XMLUnknownC2EPNS0_11XMLDocumentE(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml210XMLUnknownD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLUnknownD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml210XMLUnknownD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLUnknownD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN2cv8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
@@ -4745,7 +4745,7 @@ _ZN2cv8tinyxml27StrPair9ParseTextEPcPKci.exit:    ; preds = %11, %46, %_ZN2cv8ti
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml212XMLAttribute7SetNameEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((24, 32)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml212XMLAttribute7SetNameEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 512
@@ -4929,7 +4929,7 @@ define hidden noundef range(i32 0, 3) i32 @_ZNK2cv8tinyxml212XMLAttribute16Query
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((48, 56)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEPKc(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 512
@@ -4963,7 +4963,7 @@ _ZN2cv8tinyxml27StrPair6SetStrEPKci.exit:         ; preds = %2, %6, %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEi(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((48, 56)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEi(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str, i32 noundef %1) #24
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4999,7 +4999,7 @@ _ZN2cv8tinyxml27StrPair6SetStrEPKci.exit:         ; preds = %2, %8, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEj(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((48, 56)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEj(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.1, i32 noundef %1) #24
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5035,7 +5035,7 @@ _ZN2cv8tinyxml27StrPair6SetStrEPKci.exit:         ; preds = %2, %8, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEb(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((48, 56)) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   %4 = zext i1 %1 to i32
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str, i32 noundef %4) #24
@@ -5072,7 +5072,7 @@ _ZN2cv8tinyxml27StrPair6SetStrEPKci.exit:         ; preds = %2, %9, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEd(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((48, 56)) %0, double noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEd(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, double noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.3, double noundef %1) #24
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5108,7 +5108,7 @@ _ZN2cv8tinyxml27StrPair6SetStrEPKci.exit:         ; preds = %2, %8, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEf(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((48, 56)) %0, float noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml212XMLAttribute12SetAttributeEf(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   %4 = fpext float %1 to double
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.2, double noundef %4) #24
@@ -5145,7 +5145,7 @@ _ZN2cv8tinyxml27StrPair6SetStrEPKci.exit:         ; preds = %2, %9, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8tinyxml210XMLElementC2EPNS0_11XMLDocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 28), (32, 92), (96, 104)) %0, ptr noundef %1) unnamed_addr #14 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLElementC2EPNS0_11XMLDocumentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5163,7 +5163,7 @@ define hidden void @_ZN2cv8tinyxml210XMLElementC2EPNS0_11XMLDocumentE(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml210XMLElementD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8tinyxml210XMLElementD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml210XMLElementE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -5204,7 +5204,7 @@ define hidden void @_ZN2cv8tinyxml210XMLElementD2Ev(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml210XMLElementD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8tinyxml210XMLElementD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml210XMLElementE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -6844,7 +6844,7 @@ define hidden noundef zeroext i1 @_ZNK2cv8tinyxml210XMLElement6AcceptEPNS0_10XML
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv8tinyxml211XMLDocumentC2EbNS0_10WhitespaceE(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 8), (16, 28), (32, 90), (92, 100), (104, 136)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8tinyxml211XMLDocumentC2EbNS0_10WhitespaceE(ptr noundef nonnull align 8 dereferenceable(640) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7041,7 +7041,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi104EE5BlockELi10EED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml211XMLDocumentD2Ev(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8tinyxml211XMLDocumentD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN2cv8tinyxml211XMLDocumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -7348,7 +7348,7 @@ _ZN2cv8tinyxml28DynArrayIPNS0_8MemPoolTILi88EE5BlockELi10EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv8tinyxml211XMLDocumentD0Ev(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv8tinyxml211XMLDocumentD0Ev(ptr noundef nonnull align 8 dereferenceable(640) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN2cv8tinyxml211XMLDocumentD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %0) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
@@ -8252,7 +8252,7 @@ define hidden void @_ZNK2cv8tinyxml211XMLDocument10PrintErrorEv(ptr nocapture no
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 9)) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinterC2EP8_IO_FILEbi(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 .preheader:
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv8tinyxml210XMLPrinterE, i64 16), ptr %0, align 8
@@ -8725,7 +8725,7 @@ _ZN2cv8tinyxml28DynArrayIPKcLi10EE4PushES3_.exit: ; preds = %._ZN2cv8tinyxml28Dy
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter11SealElementEv(ptr noundef nonnull align 8 dereferenceable(312) initializes((8, 9)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter11SealElementEv(ptr noundef nonnull align 8 dereferenceable(312) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
   tail call void (ptr, ptr, ...) @_ZN2cv8tinyxml210XMLPrinter5PrintEPKcz(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull @.str.16)
@@ -9239,7 +9239,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter12CloseElementEb(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load i32, ptr %4, align 8
   %6 = add nsw i32 %5, -1
@@ -9273,7 +9273,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEPKcb(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEi(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEi(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str, i32 noundef %1) #24
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -9394,7 +9394,7 @@ _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEj(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEj(ptr noundef nonnull align 8 dereferenceable(312) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.1, i32 noundef %1) #24
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -9515,7 +9515,7 @@ _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEb(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEb(ptr noundef nonnull align 8 dereferenceable(312) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   %4 = zext i1 %1 to i32
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str, i32 noundef %4) #24
@@ -9637,7 +9637,7 @@ _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEf(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, float noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEf(ptr noundef nonnull align 8 dereferenceable(312) %0, float noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   %4 = fpext float %1 to double
   %5 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.2, double noundef %4) #24
@@ -9759,7 +9759,7 @@ _ZN2cv8tinyxml210XMLPrinter11PrintStringEPKcb.exit: ; preds = %.loopexit34.i, %.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEd(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, double noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8tinyxml210XMLPrinter8PushTextEd(ptr noundef nonnull align 8 dereferenceable(312) %0, double noundef %1) local_unnamed_addr #4 align 2 {
   %3 = alloca [200 x i8], align 16
   %4 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 200, ptr noundef nonnull @.str.3, double noundef %1) #24
   %5 = getelementptr inbounds i8, ptr %0, i64 128
@@ -9974,7 +9974,7 @@ define hidden void @_ZN2cv8tinyxml210XMLPrinter11PushUnknownEPKc(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter10VisitEnterERKNS0_11XMLDocumentE(ptr noundef nonnull align 8 dereferenceable(312) initializes((136, 137)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %1) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter10VisitEnterERKNS0_11XMLDocumentE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(640) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 89
   %4 = load i8, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 136
@@ -10057,7 +10057,7 @@ define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter9VisitExitERKNS0_10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter5VisitERKNS0_7XMLTextE(ptr noundef nonnull align 8 dereferenceable(312) initializes((132, 136)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(89) %1) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv8tinyxml210XMLPrinter5VisitERKNS0_7XMLTextE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr nocapture noundef nonnull align 8 dereferenceable(89) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = tail call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
   %5 = getelementptr inbounds i8, ptr %1, i64 88

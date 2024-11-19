@@ -950,7 +950,7 @@ define hidden noundef nonnull ptr @timelib_builtin_db() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @timelib_timezone_identifiers_list(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 {
+define hidden ptr @timelib_timezone_identifiers_list(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -1008,7 +1008,7 @@ seek_to_tz_position.exit:                         ; preds = %19, %22, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store i32 0, ptr %2, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1735,7 +1735,7 @@ define hidden void @timelib_tzinfo_dtor(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @integrate_posix_string(ptr nocapture noundef initializes((168, 176)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @integrate_posix_string(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @timelib_parse_posix_str(ptr noundef %3) #17
@@ -1975,7 +1975,7 @@ find_ttinfo_index.exit30:                         ; preds = %109, %83, %107
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_location(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly initializes((136, 160)) %1) unnamed_addr #0 {
+define internal fastcc void @read_location(ptr nocapture noundef nonnull %0, ptr nocapture noundef writeonly %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %.sroa.0.0.copyload = load i32, ptr %3, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4

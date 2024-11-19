@@ -138,7 +138,7 @@ _ZN5quote9to_tokens8ToTokens15to_token_stream17h9d7519a99caf1b42E.exit: ; preds 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN64_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h080859a649ad6849E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN64_$LT$alloc..boxed..Box$LT$T$GT$$u20$as$u20$syn..parse..Parse$GT$5parse17h080859a649ad6849E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [208 x i8], align 8
   %4 = alloca [208 x i8], align 8
   call void @"_ZN103_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemArgument$u20$as$u20$syn..parse..Parse$GT$5parse17h0c1ed6a97182fc10E"(ptr nonnull sret([208 x i8]) align 8 %4, ptr align 8 %1)

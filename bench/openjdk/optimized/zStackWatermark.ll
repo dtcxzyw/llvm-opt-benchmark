@@ -205,7 +205,7 @@ _ZN14ZUncoloredRoot7barrierIPFv8zaddressEEEvT_P15zaddress_unsafem.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN22ZOnStackNMethodClosureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN22ZOnStackNMethodClosureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV22ZOnStackNMethodClosure, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr @_ZN10BarrierSet12_barrier_setE, align 8

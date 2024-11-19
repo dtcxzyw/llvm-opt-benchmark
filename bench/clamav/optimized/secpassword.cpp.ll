@@ -71,7 +71,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIwED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11SecPassword3SetEPKw(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((24, 25)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
+define void @_ZN11SecPassword3SetEPKw(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -137,7 +137,7 @@ _ZN11SecPassword7ProcessEPKwmPwmb.exit:           ; preds = %27, %14, %_ZN11SecP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11SecPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(25) initializes((24, 25)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11SecPasswordD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -178,7 +178,7 @@ _ZNSt6vectorIwSaIwEED2Ev.exit:                    ; preds = %_ZN11SecPassword5Cl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define void @_ZN11SecPassword5CleanEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) initializes((24, 25)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN11SecPassword5CleanEv(ptr nocapture noundef nonnull align 8 dereferenceable(25) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8

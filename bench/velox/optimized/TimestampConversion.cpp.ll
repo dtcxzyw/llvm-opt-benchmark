@@ -652,7 +652,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc noundef zeroext i1 @_ZN8facebook5velox4util12_GLOBAL__N_118tryParseDateStringEPKcmRmRlNS2_9ParseModeE(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %pos, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %daysSinceEpoch, i32 noundef range(i32 0, 4) %mode) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @_ZN8facebook5velox4util12_GLOBAL__N_118tryParseDateStringEPKcmRmRlNS2_9ParseModeE(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pos, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %daysSinceEpoch, i32 noundef range(i32 0, 4) %mode) unnamed_addr #4 {
 entry:
   %day = alloca i32, align 4
   %month = alloca i32, align 4
@@ -1150,7 +1150,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @_ZN8facebook5velox4util12_GLOBAL__N_118tryParseTimeStringEPKcmRmRlb(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %pos, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @_ZN8facebook5velox4util12_GLOBAL__N_118tryParseTimeStringEPKcmRmRlb(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef nonnull align 8 dereferenceable(8) %pos, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %result, i1 noundef zeroext %strict) unnamed_addr #5 {
 entry:
   %min = alloca i32, align 4
   %sec = alloca i32, align 4

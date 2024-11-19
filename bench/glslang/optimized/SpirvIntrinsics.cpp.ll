@@ -2708,7 +2708,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN7glslang20TIntermConstantUnionESt6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK7glslang10TQualifier31getSpirvDecorateQualifierStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.anon, align 8
   %4 = alloca %class.anon.199, align 8
   %5 = alloca %class.anon.200, align 8
@@ -3901,7 +3901,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE8c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang11TPublicType12setSpirvTypeERKNS_17TSpirvInstructionEPKNS_7TVectorINS_19TSpirvTypeParameterEEE(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((0, 4)) %0, ptr noundef nonnull readonly align 8 dereferenceable(44) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang11TPublicType12setSpirvTypeERKNS_17TSpirvInstructionEPKNS_7TVectorINS_19TSpirvTypeParameterEEE(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull readonly align 8 dereferenceable(44) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

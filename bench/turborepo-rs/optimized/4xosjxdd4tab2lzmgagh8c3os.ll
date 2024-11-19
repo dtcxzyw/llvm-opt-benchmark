@@ -4076,7 +4076,7 @@ _RNvYNCNCNCNvNtCsjIaN6dkKMFO_12turborepo_ci7vendors11get_vendors0s2_00INtNtNtCs1
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @_RNSNvYNCNCNCNvNtCsjIaN6dkKMFO_12turborepo_ci7vendors11get_vendors0s3_00INtNtNtCs1LoaDTb72WA_4core3ops8function6FnOnceTINtNtCs5bX43Qaz88Y_6chrono8datetime8DateTimeNtNtNtB1X_6offset3utc3UtcEEE9call_once6vtableBe_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture readnone %1, ptr noalias nocapture readonly align 4 %2) unnamed_addr #3 personality ptr @rust_eh_personality {
+define internal void @_RNSNvYNCNCNCNvNtCsjIaN6dkKMFO_12turborepo_ci7vendors11get_vendors0s3_00INtNtNtCs1LoaDTb72WA_4core3ops8function6FnOnceTINtNtCs5bX43Qaz88Y_6chrono8datetime8DateTimeNtNtNtB1X_6offset3utc3UtcEEE9call_once6vtableBe_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr nocapture readnone %1, ptr noalias nocapture readonly align 4 %2) unnamed_addr #3 personality ptr @rust_eh_personality {
   store i64 0, ptr %0, align 8, !alias.scope !133
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !133
@@ -5313,7 +5313,7 @@ define internal void @_RNCNCNCNvNtCsjIaN6dkKMFO_12turborepo_ci7vendors11get_vend
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define internal void @_RNCNCNCNvNtCsjIaN6dkKMFO_12turborepo_ci7vendors11get_vendors0s3_00B9_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readnone align 4 %2) unnamed_addr #3 {
+define internal void @_RNCNCNCNvNtCsjIaN6dkKMFO_12turborepo_ci7vendors11get_vendors0s3_00B9_(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture nonnull readonly align 1 %1, ptr noalias nocapture readnone align 4 %2) unnamed_addr #3 {
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx, align 8

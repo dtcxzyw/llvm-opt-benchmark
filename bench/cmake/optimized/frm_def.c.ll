@@ -313,7 +313,7 @@ Associate_Fields.exit.thread:                     ; preds = %Associate_Fields.ex
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull initializes((24, 28), (64, 72)) %0, ptr noundef %1) unnamed_addr #5 {
+define internal fastcc range(i32 -4, 1) i32 @Connect_Fields(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

@@ -1309,7 +1309,7 @@ define hidden noundef zeroext i1 @_ZN25LateInlineMHCallGenerator20do_late_inline
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13CallGenerator24for_method_handle_inlineEP8JVMStateP8ciMethodS3_bRb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13CallGenerator24for_method_handle_inlineEP8JVMStateP8ciMethodS3_bRb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.stringStream, align 8
   %7 = alloca %class.stringStream, align 8
   %8 = alloca %class.stringStream, align 8

@@ -2536,7 +2536,7 @@ define internal void @_ZN12_GLOBAL__N_120RISCVMCInstrAnalysisD0Ev(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis10resetStateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((264, 272)) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_120RISCVMCInstrAnalysis10resetStateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i64 0, ptr %2, align 8
   ret void

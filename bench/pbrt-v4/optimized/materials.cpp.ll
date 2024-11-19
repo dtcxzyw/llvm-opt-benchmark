@@ -8154,7 +8154,7 @@ eh.resume:                                        ; preds = %lpad48, %lpad.i44, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt16MeasuredMaterialC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12FloatTextureEPNS_5ImageEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef readonly %displacement, ptr noundef %normalMap, ptr %alloc.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4pbrt16MeasuredMaterialC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12FloatTextureEPNS_5ImageEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr nocapture noundef readonly %displacement, ptr noundef %normalMap, ptr %alloc.coerce) unnamed_addr #3 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   %0 = load i64, ptr %displacement, align 8

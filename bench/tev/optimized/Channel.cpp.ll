@@ -1042,7 +1042,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev7Channel4tailERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::__1::basic_string") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev7Channel4tailERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__1::pair", align 8
   call void @_ZN3tev7Channel5splitERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::pair") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1054,7 +1054,7 @@ define dso_local void @_ZN3tev7Channel4tailERKNSt3__112basic_stringIcNS1_11char_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3tev7Channel4headERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::__1::basic_string") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3tev7Channel4headERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__1::pair", align 8
   call void @_ZN3tev7Channel5splitERKNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEE(ptr dead_on_unwind nonnull writable sret(%"struct.std::__1::pair") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)

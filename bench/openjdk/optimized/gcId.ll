@@ -120,7 +120,7 @@ _ZN4GCId20current_or_undefinedEv.exit.thread:     ; preds = %5, %2, %_ZN4GCId20c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8GCIdMarkC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN8GCIdMarkC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) unnamed_addr #6 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 912
@@ -136,7 +136,7 @@ define hidden void @_ZN8GCIdMarkC2Ev(ptr nocapture noundef nonnull writeonly ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN8GCIdMarkC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #6 align 2 {
+define hidden void @_ZN8GCIdMarkC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #6 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 912

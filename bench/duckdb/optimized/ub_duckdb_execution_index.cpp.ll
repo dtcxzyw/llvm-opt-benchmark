@@ -229,7 +229,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN6duckdb15FixedSizeBufferC1ERNS_12BlockManagerEmmRKNS_12BlockPointerE = unnamed_addr alias void (ptr, ptr, i64, i64, ptr), ptr @_ZN6duckdb15FixedSizeBufferC2ERNS_12BlockManagerEmmRKNS_12BlockPointerE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18FixedSizeAllocatorC2EmRNS_12BlockManagerE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 24), (48, 56)) %this, i64 noundef %segment_size, ptr noundef nonnull align 8 dereferenceable(120) %block_manager) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18FixedSizeAllocatorC2EmRNS_12BlockManagerE(ptr noundef nonnull align 8 dereferenceable(224) %this, i64 noundef %segment_size, ptr noundef nonnull align 8 dereferenceable(120) %block_manager) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3158,7 +3158,7 @@ _ZN6duckdb18FixedSizeAllocator3GetENS_12IndexPointerEb.exit56: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb18FixedSizeAllocator7GetInfoEv(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::FixedSizeAllocatorInfo") align 8 initializes((0, 128)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb18FixedSizeAllocator7GetInfoEv(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::FixedSizeAllocatorInfo") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer_ids.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %buffer_ids.i, i8 0, i64 120, i1 false)
@@ -4283,7 +4283,7 @@ unreachable:                                      ; preds = %invoke.cont6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18FixedSizeAllocator22InitSerializationToWALEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.duckdb::vector.86") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18FixedSizeAllocator22InitSerializationToWALEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.duckdb::vector.86") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(224) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -4484,7 +4484,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18FixedSizeAllocator4InitERKNS_22FixedSizeAllocatorInfoE(ptr noundef nonnull align 8 dereferenceable(224) initializes((16, 24), (48, 56)) %this, ptr noundef nonnull align 8 dereferenceable(128) %info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18FixedSizeAllocator4InitERKNS_22FixedSizeAllocatorInfoE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(128) %info) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %buffer_block_pointer = alloca %"struct.duckdb::BlockPointer", align 8
@@ -5483,7 +5483,7 @@ unreachable:                                      ; preds = %invoke.cont4
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0 align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb20PartialBlockForIndex5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((64, 72)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb20PartialBlockForIndex5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %block_handle = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %block_handle, align 8, !tbaa !3
@@ -5542,7 +5542,7 @@ _ZNSt12__shared_ptrIN6duckdb11BlockHandleELN9__gnu_cxx12_Lock_policyE2EE5resetEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb15FixedSizeBufferC2ERNS_12BlockManagerE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 26), (32, 44)) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb15FixedSizeBufferC2ERNS_12BlockManagerE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.duckdb::BufferHandle", align 8
   store ptr %block_manager, ptr %this, align 8, !tbaa !3
@@ -5589,7 +5589,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb12BufferHandl
 declare void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb15FixedSizeBufferC2ERNS_12BlockManagerEmmRKNS_12BlockPointerE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 26), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, i64 noundef %segment_count, i64 noundef %allocation_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %block_pointer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb15FixedSizeBufferC2ERNS_12BlockManagerEmmRKNS_12BlockPointerE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, i64 noundef %segment_count, i64 noundef %allocation_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %block_pointer) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr", align 16
   store ptr %block_manager, ptr %this, align 8, !tbaa !3

@@ -137,7 +137,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN4node9inspector8protocol11WorkerAgentC1ESt8weak_ptrINS0_13WorkerManagerEE = dso_local unnamed_addr alias void (ptr, ptr), ptr @_ZN4node9inspector8protocol11WorkerAgentC2ESt8weak_ptrINS0_13WorkerManagerEE
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define dso_local void @_ZN4node9inspector8protocol11WorkerAgentC2ESt8weak_ptrINS0_13WorkerManagerEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef readonly %manager) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector8protocol11WorkerAgentC2ESt8weak_ptrINS0_13WorkerManagerEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %manager) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol11WorkerAgentE, i64 16), ptr %this, align 8
   %frontend_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -175,7 +175,7 @@ _ZNSt8weak_ptrIN4node9inspector13WorkerManagerEEC2ERKS3_.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector8protocol11WorkerAgent4WireEPNS1_14UberDispatcherE(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 16)) %this, ptr noundef %dispatcher) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4node9inspector8protocol11WorkerAgent4WireEPNS1_14UberDispatcherE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %dispatcher) local_unnamed_addr #1 align 2 {
 entry:
   %ref.tmp10 = alloca %"class.std::shared_ptr.24", align 8
   %frontend_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2100,7 +2100,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_128AgentWorkerInspectorDelegateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_128AgentWorkerInspectorDelegateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_128AgentWorkerInspectorDelegateE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2181,7 +2181,7 @@ _ZNSt10shared_ptrIN4node9inspector8protocol11NodeWorkersEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_128AgentWorkerInspectorDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_128AgentWorkerInspectorDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_128AgentWorkerInspectorDelegateE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2285,7 +2285,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_130ParentInspectorSessionDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_130ParentInspectorSessionDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_130ParentInspectorSessionDelegateE, i64 16), ptr %this, align 8
   %workers_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -2371,7 +2371,7 @@ _ZNSt10shared_ptrIN4node9inspector8protocol11NodeWorkersEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_130ParentInspectorSessionDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @_ZN4node9inspector8protocol12_GLOBAL__N_130ParentInspectorSessionDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_130ParentInspectorSessionDelegateE, i64 16), ptr %this, align 8
   %workers_.i = getelementptr inbounds i8, ptr %this, i64 40

@@ -122,7 +122,7 @@ declare void @nstime_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @nstime_compare(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @malloc_mutex_prof_data_reset(ptr nocapture noundef readnone %tsdn, ptr noundef initializes((0, 64)) %mutex) local_unnamed_addr #0 {
+define hidden void @malloc_mutex_prof_data_reset(ptr nocapture noundef readnone %tsdn, ptr noundef %mutex) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex, i8 0, i64 64, i1 false)
   %max_wait_time.i = getelementptr inbounds i8, ptr %mutex, i64 8
@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @malloc_mutex_init(ptr noundef initializes((0, 64)) %mutex, ptr nocapture noundef readnone %name, i32 noundef %rank, i32 noundef %lock_order) local_unnamed_addr #0 {
+define hidden zeroext i1 @malloc_mutex_init(ptr noundef %mutex, ptr nocapture noundef readnone %name, i32 noundef %rank, i32 noundef %lock_order) local_unnamed_addr #0 {
 entry:
   %attr = alloca %union.pthread_mutexattr_t, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %mutex, i8 0, i64 64, i1 false)
@@ -219,7 +219,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @malloc_mutex_postfork_child(ptr nocapture noundef readnone %tsdn, ptr noundef initializes((0, 64)) %mutex) local_unnamed_addr #0 {
+define hidden void @malloc_mutex_postfork_child(ptr nocapture noundef readnone %tsdn, ptr noundef %mutex) local_unnamed_addr #0 {
 entry:
   %attr.i = alloca %union.pthread_mutexattr_t, align 4
   %rank = getelementptr inbounds i8, ptr %mutex, i64 8

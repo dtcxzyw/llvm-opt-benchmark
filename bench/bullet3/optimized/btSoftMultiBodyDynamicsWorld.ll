@@ -499,7 +499,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 declare void @_ZN24btMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(848)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN28btSoftMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(1025) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN28btSoftMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(1025) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28btSoftMultiBodyDynamicsWorld, i64 16), ptr %this, align 8
   %m_ownsSolver = getelementptr inbounds i8, ptr %this, i64 1024
@@ -648,7 +648,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN28btSoftMultiBodyDynamicsWorldD0Ev(ptr noundef nonnull align 8 dereferenceable(1025) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN28btSoftMultiBodyDynamicsWorldD0Ev(ptr noundef nonnull align 8 dereferenceable(1025) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN28btSoftMultiBodyDynamicsWorldD2Ev(ptr noundef nonnull align 8 dereferenceable(1025) %this) #13
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)

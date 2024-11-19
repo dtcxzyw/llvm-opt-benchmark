@@ -78,7 +78,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilderC2Ev(ptr noundef nonnull
 declare void @_ZN6asmjit9_abi_1_1011BaseEmitterC2ENS0_11EmitterTypeE(ptr noundef nonnull align 8 dereferenceable(144), i8 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(410) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(410) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_1011BaseBuilderE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = load ptr, ptr %2, align 8, !tbaa !10
@@ -185,7 +185,7 @@ declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter11reportErrorEjPKc(ptr nou
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder12newLabelNodeEPPNS0_9LabelNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull initializes((0, 8)) %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder12newLabelNodeEPPNS0_9LabelNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %1, align 8, !tbaa !14
@@ -307,7 +307,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder17registerLabelNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder12newAlignNodeEPPNS0_9AlignNodeENS0_9AlignModeEj(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder12newAlignNodeEPPNS0_9AlignNodeENS0_9AlignModeEj(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull writeonly %1, i8 noundef zeroext %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i64, align 8
   store ptr null, ptr %1, align 8, !tbaa !14
   %6 = getelementptr inbounds i8, ptr %0, i64 240
@@ -345,7 +345,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder12newAlignNodeEPP
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder16newEmbedDataNodeEPPNS0_13EmbedDataNodeENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, i8 noundef zeroext %2, ptr noundef readonly %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder16newEmbedDataNodeEPPNS0_13EmbedDataNodeENS0_6TypeIdEPKvmm(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull writeonly %1, i8 noundef zeroext %2, ptr noundef readonly %3, i64 noundef %4, i64 noundef %5) local_unnamed_addr #3 align 2 {
   %7 = alloca i64, align 8
   store ptr null, ptr %1, align 8, !tbaa !14
   %8 = getelementptr inbounds i8, ptr %0, i64 72
@@ -480,7 +480,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder16newEmbedDataNod
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder16newConstPoolNodeEPPNS0_13ConstPoolNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull initializes((0, 8)) %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder16newConstPoolNodeEPPNS0_13ConstPoolNodeE(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull %1) local_unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   store ptr null, ptr %1, align 8, !tbaa !14
@@ -566,7 +566,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder16newConstPoolNod
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder14newCommentNodeEPPNS0_11CommentNodeEPKcm(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder14newCommentNodeEPPNS0_11CommentNodeEPKcm(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = alloca i64, align 8
   store ptr null, ptr %1, align 8, !tbaa !14
   %6 = icmp eq ptr %2, null
@@ -696,7 +696,7 @@ define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1011BaseBuilder7addNodeE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1011BaseBuilder8addAfterEPNS0_8BaseNodeES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(410) %0, ptr noundef nonnull returned initializes((0, 16)) %1, ptr noundef nonnull %2) local_unnamed_addr #9 align 2 {
+define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1011BaseBuilder8addAfterEPNS0_8BaseNodeES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(410) %0, ptr noundef nonnull returned %1, ptr noundef nonnull %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !16
   store ptr %2, ptr %1, align 8, !tbaa !16
@@ -726,7 +726,7 @@ define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1011BaseBuilder8addAfter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1011BaseBuilder9addBeforeEPNS0_8BaseNodeES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(410) %0, ptr noundef nonnull returned initializes((0, 16)) %1, ptr noundef nonnull %2) local_unnamed_addr #9 align 2 {
+define dso_local noundef nonnull ptr @_ZN6asmjit9_abi_1_1011BaseBuilder9addBeforeEPNS0_8BaseNodeES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(410) %0, ptr noundef nonnull returned %1, ptr noundef nonnull %2) local_unnamed_addr #9 align 2 {
   %4 = load ptr, ptr %2, align 8, !tbaa !16
   store ptr %4, ptr %1, align 8, !tbaa !16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -925,7 +925,7 @@ define dso_local noundef ptr @_ZN6asmjit9_abi_1_1011BaseBuilder9setCursorEPNS0_8
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder13sectionNodeOfEPPNS0_11SectionNodeEj(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder13sectionNodeOfEPPNS0_11SectionNodeEj(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i64, align 8
   store ptr null, ptr %1, align 8, !tbaa !14
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1216,7 +1216,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilder18updateSectionLinksEv(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPNS0_9LabelNodeEj(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPNS0_9LabelNodeEj(ptr noundef nonnull align 8 dereferenceable(410) %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = alloca i64, align 8
   store ptr null, ptr %1, align 8, !tbaa !14
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1300,7 +1300,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11labelNodeOfEPPN
 declare noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilder8newLabelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.asmjit::_abi_1_10::Label") align 4 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(410) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilder8newLabelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.asmjit::_abi_1_10::Label") align 4 %0, ptr noundef nonnull align 8 dereferenceable(410) %1) unnamed_addr #3 align 2 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
   %4 = getelementptr inbounds i8, ptr %1, i64 48
@@ -1407,7 +1407,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_10L28BaseBuilder_newLabelI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilder13newNamedLabelEPKcmNS0_9LabelTypeEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.asmjit::_abi_1_10::Label") align 4 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(410) %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #3 align 2 {
+define dso_local void @_ZN6asmjit9_abi_1_1011BaseBuilder13newNamedLabelEPKcmNS0_9LabelTypeEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.asmjit::_abi_1_10::Label") align 4 %0, ptr noundef nonnull align 8 dereferenceable(410) %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #3 align 2 {
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #25
   %8 = getelementptr inbounds i8, ptr %1, i64 48
@@ -2894,7 +2894,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder7commentEPKcm(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS0_11BaseEmitterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(410) %0, ptr noundef initializes((96, 104)) %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1011BaseBuilder11serializeToEPNS0_11BaseEmitterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(410) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = alloca [6 x %"struct.asmjit::_abi_1_10::Operand_"], align 16
   %4 = alloca %"class.asmjit::_abi_1_10::Label", align 4
   %5 = alloca %"class.asmjit::_abi_1_10::Label", align 4
@@ -3334,7 +3334,7 @@ declare void @_ZN6asmjit9_abi_1_1013ZoneAllocator5resetEPNS0_4ZoneE(ptr noundef 
 declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter8onDetachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6asmjit9_abi_1_104PassC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #18 align 2 {
+define dso_local void @_ZN6asmjit9_abi_1_104PassC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #18 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6asmjit9_abi_1_104PassE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8, !tbaa !87

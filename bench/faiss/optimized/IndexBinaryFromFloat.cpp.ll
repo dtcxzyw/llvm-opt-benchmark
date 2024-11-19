@@ -338,7 +338,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit53: ; preds = %_ZNSt10uniq
 declare void @_ZNK5faiss11IndexBinary12range_searchElPKhiPNS_17RangeSearchResultEPKNS_16SearchParametersE(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss20IndexBinaryFromFloat5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((16, 24)) %0) unnamed_addr #1 align 2 {
+define void @_ZN5faiss20IndexBinaryFromFloat5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -402,7 +402,7 @@ define void @_ZN5faiss20IndexBinaryFromFloatC2EPNS_5IndexE(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss20IndexBinaryFromFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5faiss20IndexBinaryFromFloatD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss20IndexBinaryFromFloatE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load i8, ptr %2, align 8

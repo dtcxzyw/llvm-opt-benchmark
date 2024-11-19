@@ -1293,7 +1293,7 @@ Ssw_ObjChild1Fra.exit:                            ; preds = %Ssw_ObjChild0Fra.ex
 declare ptr @Aig_And(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Ssw_ManSweepBmcFilter(ptr noundef initializes((24, 32)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @Ssw_ManSweepBmcFilter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)

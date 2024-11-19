@@ -850,7 +850,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.729 = private unnamed_addr constant [47 x i8] c"expected some sort of expr_context, but got %R\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyAST_Fini(ptr noundef initializes((306616, 306617), (306620, 306624)) %interp) local_unnamed_addr #0 {
+define hidden void @_PyAST_Fini(ptr noundef %interp) local_unnamed_addr #0 {
 entry:
   %AST_type = getelementptr inbounds i8, ptr %interp, i64 306632
   %0 = load ptr, ptr %AST_type, align 8
@@ -12278,7 +12278,7 @@ declare i32 @PyModule_AddObjectRef(ptr noundef, ptr noundef, ptr noundef) local_
 declare i32 @PyModule_AddIntConstant(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @init_types(ptr noundef initializes((1112, 1120)) %state) #0 {
+define internal range(i32 -1, 1) i32 @init_types(ptr noundef %state) #0 {
 entry:
   %call.i = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.295) #6
   %__dict__.i = getelementptr inbounds i8, ptr %state, i64 1112

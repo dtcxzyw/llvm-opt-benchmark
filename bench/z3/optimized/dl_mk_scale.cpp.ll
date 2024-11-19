@@ -218,7 +218,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog8mk_scaleC2ERNS_7contextEj(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 13), (16, 40)) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx, i32 noundef %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog8mk_scaleC2ERNS_7contextEj(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx, i32 noundef %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_priority.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %priority, ptr %m_priority.i, align 8
@@ -410,7 +410,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog8mk_scaleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog8mk_scaleD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog8mk_scaleE, i64 16), ptr %this, align 8
   %m_cache = getelementptr inbounds i8, ptr %this, i64 88
@@ -563,7 +563,7 @@ _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %_ZN10ref_vectorI3ap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog8mk_scaleD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN7datalog8mk_scaleD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7datalog8mk_scaleD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
@@ -2981,7 +2981,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog8mk_scale13mk_constraintEjP3app(ptr noalias nocapture writeonly sret(%class.obj_ref.13) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %sigma_idx, ptr noundef %q) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog8mk_scale13mk_constraintEjP3app(ptr noalias nocapture writeonly sret(%class.obj_ref.13) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %sigma_idx, ptr noundef %q) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN7datalog8mk_scale9linearizeEjP4expr(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %sigma_idx, ptr noundef %q)
   %m = getelementptr inbounds i8, ptr %this, i64 24

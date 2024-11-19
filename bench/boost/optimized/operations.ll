@@ -11514,7 +11514,7 @@ _ZN5boost10filesystem5errorEiRKNS0_4pathEPNS_6system10error_codeEPKc.exit: ; pre
 declare i32 @truncate64(ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost10filesystem6detail5spaceERKNS0_4pathEPNS_6system10error_codeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.boost::filesystem::space_info") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost10filesystem6detail5spaceERKNS0_4pathEPNS_6system10error_codeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.boost::filesystem::space_info") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.statvfs, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -3952,7 +3952,7 @@ pax_header.exit:                                  ; preds = %55, %107, %117, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @header_gnutar(ptr noundef %0, ptr noundef initializes((80, 88)) %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @header_gnutar(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = tail call fastcc i32 @header_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %8 = icmp eq i32 %7, -30
@@ -4172,7 +4172,7 @@ gnu_sparse_old_read.exit:                         ; preds = %75, %93, %96
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @header_ustar(ptr noundef %0, ptr noundef initializes((32, 40)) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @header_ustar(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 24
   %6 = getelementptr inbounds i8, ptr %3, i64 345
   %7 = load i8, ptr %6, align 1
@@ -5201,7 +5201,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @header_common(ptr noundef %0, ptr noundef initializes((80, 88)) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @header_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 157
   %6 = load i8, ptr %5, align 1
   %.not = icmp eq i8 %6, 0

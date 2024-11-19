@@ -76,7 +76,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node16NodeMainInstanceC2EPKNS_12SnapshotDataEP9uv_loop_sPNS_20MultiIsolatePlatformERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESI_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 24)) %this, ptr noundef %snapshot_data, ptr noundef %event_loop, ptr noundef %platform, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exec_args) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node16NodeMainInstanceC2EPKNS_12SnapshotDataEP9uv_loop_sPNS_20MultiIsolatePlatformERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISE_EESI_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %snapshot_data, ptr noundef %event_loop, ptr noundef %platform, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %args, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %exec_args) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.node::IsolateSettings", align 8
   %ref.tmp18 = alloca %"class.std::unique_ptr.18", align 8
@@ -437,7 +437,7 @@ _ZNSt10unique_ptrIN4node11EnvironmentENS0_15FunctionDeleterIS1_XadL_ZNS0_15FreeE
 declare void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node16NodeMainInstance21CreateMainEnvironmentEPNS_8ExitCodeE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.76") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef writeonly initializes((0, 4)) %exit_code) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node16NodeMainInstance21CreateMainEnvironmentEPNS_8ExitCodeE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.76") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef writeonly %exit_code) local_unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %agg.tmp9 = alloca %"class.std::unique_ptr.367", align 8

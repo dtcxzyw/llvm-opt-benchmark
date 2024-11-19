@@ -4755,7 +4755,7 @@ do.end16:                                         ; preds = %do.body9, %if.then1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_gpu_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly initializes((0, 16)) %config) #0 {
+define internal void @virtio_gpu_get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, i32 noundef 30, ptr noundef nonnull @__func__.VIRTIO_GPU_BASE) #12
   %virtio_config = getelementptr inbounds i8, ptr %call.i, i64 552
@@ -4877,7 +4877,7 @@ return:                                           ; preds = %if.end6, %for.inc, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -22, 1) i32 @virtio_gpu_load(ptr noundef %f, ptr noundef initializes((3088, 3096)) %opaque, i64 %size, ptr nocapture readnone %field) #0 {
+define internal range(i32 -22, 1) i32 @virtio_gpu_load(ptr noundef %f, ptr noundef %opaque, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %hostmem = getelementptr inbounds i8, ptr %opaque, i64 3088
   store i64 0, ptr %hostmem, align 16

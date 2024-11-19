@@ -47,7 +47,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h75de809b05e6cd5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hbe84f43d2fcdb23eE.llvm.15076478346283199597"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #1 {
+define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hbe84f43d2fcdb23eE.llvm.15076478346283199597"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !12, !align !13, !noundef !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
@@ -168,7 +168,7 @@ define hidden void @_ZN4core9panicking13assert_failed17h2876d5be1fdb496fE(i8 nou
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN54_$LT$core..any..TypeId$u20$as$u20$core..hash..Hash$GT$4hash17h086cdc6b3d0bc797E.llvm.15076478346283199597"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) unnamed_addr #4 {
+define hidden void @"_ZN54_$LT$core..any..TypeId$u20$as$u20$core..hash..Hash$GT$4hash17h086cdc6b3d0bc797E.llvm.15076478346283199597"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !12
   store i64 %4, ptr %1, align 8, !alias.scope !22
@@ -377,7 +377,7 @@ define hidden noundef i64 @"_ZN65_$LT$http..extensions..IdHasher$u20$as$u20$core
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN65_$LT$http..extensions..IdHasher$u20$as$u20$core..hash..Hasher$GT$9write_u6417h5ccc3d5ddba0301aE.llvm.15076478346283199597"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) unnamed_addr #8 {
+define hidden void @"_ZN65_$LT$http..extensions..IdHasher$u20$as$u20$core..hash..Hasher$GT$9write_u6417h5ccc3d5ddba0301aE.llvm.15076478346283199597"(ptr noalias nocapture noundef writeonly align 8 dereferenceable(8) %0, i64 noundef %1) unnamed_addr #8 {
   store i64 %1, ptr %0, align 8
   ret void
 }

@@ -1412,7 +1412,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal5DType12getParameterEm(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this, i64 noundef %i) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal5DType12getParameterEm(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this, i64 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %d_params = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_params, align 8
@@ -1449,7 +1449,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal5DType13getParametersEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal5DType13getParametersEv(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_params = getelementptr inbounds i8, ptr %this, i64 32
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -5848,7 +5848,7 @@ declare noundef ptr @_ZN4cvc58internal11NodeManager9currentNMEv() local_unnamed_
 declare void @_ZN4cvc58internal11NodeManager12mkGroundTermERKNS0_8TypeNodeE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(3360), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal5DType8setTupleEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((57, 58)) %this) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN4cvc58internal5DType8setTupleEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_isTuple = getelementptr inbounds i8, ptr %this, i64 57
   store i8 1, ptr %d_isTuple, align 1
@@ -5856,7 +5856,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal5DType9setRecordEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((58, 59)) %this) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN4cvc58internal5DType9setRecordEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_isRecord = getelementptr inbounds i8, ptr %this, i64 58
   store i8 1, ptr %d_isRecord, align 2
@@ -12711,7 +12711,7 @@ return:                                           ; preds = %_ZN4cvc58internal12
 declare void @_ZNK4cvc58internal16DTypeConstructor17computeGroundTermENS0_8TypeNodeERSt6vectorIS2_SaIS2_EERSt3mapIS2_NS0_12NodeTemplateILb1EEESt4lessIS2_ESaISt4pairIKS2_S9_EEEb(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(264), ptr noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal5DType11getTypeNodeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal5DType11getTypeNodeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_self = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %d_self, align 8
@@ -13751,7 +13751,7 @@ eh.resume:                                        ; preds = %lpad6, %ehcleanup
 declare void @_ZN4cvc58internal13SkolemManager16mkSkolemFunctionENS0_11SkolemFunIdENS0_8TypeNodeENS0_12NodeTemplateILb1EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(152), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal5DType12getSygusTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal5DType12getSygusTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_sygusType = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %d_sygusType, align 8
@@ -13786,7 +13786,7 @@ _ZN4cvc58internal8TypeNodeC2ERKS1_.exit:          ; preds = %if.then.i.i, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal5DType15getSygusVarListEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal5DType15getSygusVarListEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(448) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_sygusBvl = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %d_sygusBvl, align 8

@@ -40,7 +40,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.b524e8eb8974857e663438d42e829098.30.llvm.6580822817679657170 = external hidden unnamed_addr constant <{ [44 x i8] }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hbe2b6afab03153f3E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, ptr, i64, i64 }) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17hbe2b6afab03153f3E"(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, ptr, i64, i64 }) align 8 dereferenceable(40) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17h55fa4084b90d8404E(i64 noundef %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.9e9bc4765699f9cbd8672f8335c8011a.1.llvm.3517319401672943229)

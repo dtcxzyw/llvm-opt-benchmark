@@ -1196,7 +1196,7 @@ define weak_odr noundef ptr @_ZN4llvm21SymbolTableListTraitsINS_11GlobalIFuncEJE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6ModuleC2ENS_9StringRefERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(857) initializes((0, 8)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6ModuleC2ENS_9StringRefERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(857) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator", align 1
@@ -1977,7 +1977,7 @@ declare noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRe
 declare void @_ZN4llvm8Function15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm6Module9createRNGENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.98") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm6Module9createRNGENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.98") align 8 %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallString", align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %3
   %7 = getelementptr inbounds i8, ptr %5, i64 24
@@ -3271,7 +3271,7 @@ define dso_local void @_ZN4llvm6Module28debug_compile_units_iterator14SkipNoDebu
 declare noundef i32 @_ZNK4llvm11NamedMDNode14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm6Module14global_objectsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.126") align 8 initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm6Module14global_objectsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.126") align 8 %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3301,7 +3301,7 @@ define dso_local void @_ZN4llvm6Module14global_objectsEv(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4llvm6Module14global_objectsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.139") align 8 initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZNK4llvm6Module14global_objectsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.139") align 8 %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3331,7 +3331,7 @@ define dso_local void @_ZNK4llvm6Module14global_objectsEv(ptr dead_on_unwind noa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm6Module13global_valuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.159") align 8 initializes((0, 128)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN4llvm6Module13global_valuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.159") align 8 %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3387,7 +3387,7 @@ define dso_local void @_ZN4llvm6Module13global_valuesEv(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZNK4llvm6Module13global_valuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.179") align 8 initializes((0, 128)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZNK4llvm6Module13global_valuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::iterator_range.179") align 8 %0, ptr noundef nonnull align 8 dereferenceable(857) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24

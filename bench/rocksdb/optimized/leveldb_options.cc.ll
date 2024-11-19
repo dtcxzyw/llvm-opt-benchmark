@@ -164,7 +164,7 @@ $_ZTVSt15_Sp_counted_ptrIPN7rocksdb12TableFactoryELN9__gnu_cxx12_Lock_policyE2EE
 @_ZN7rocksdb14LevelDBOptionsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb14LevelDBOptionsC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14LevelDBOptionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 11), (16, 44), (48, 69), (72, 80)) %this) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb14LevelDBOptionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN7rocksdb18BytewiseComparatorEv()
   store ptr %call, ptr %this, align 8

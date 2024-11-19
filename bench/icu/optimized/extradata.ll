@@ -37,7 +37,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_759ExtraDataC1ERNS_5NormsEa = dso_local unnamed_addr alias void (ptr, ptr, i8), ptr @_ZN6icu_759ExtraDataC2ERNS_5NormsEa
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6icu_759ExtraDataC2ERNS_5NormsEa(ptr noundef nonnull align 8 dereferenceable(888) initializes((0, 26)) %this, ptr noundef nonnull align 8 dereferenceable(424) %n, i8 noundef signext %fast) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6icu_759ExtraDataC2ERNS_5NormsEa(ptr noundef nonnull align 8 dereferenceable(888) %this, ptr noundef nonnull align 8 dereferenceable(424) %n, i8 noundef signext %fast) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %status.i37 = alloca i32, align 4
   %status.i28 = alloca i32, align 4

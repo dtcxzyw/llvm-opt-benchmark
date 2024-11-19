@@ -2884,7 +2884,7 @@ $_ZNK5clang6interp7Pointer7getTypeEv = comdat any
 @_ZN5clang6interp11EvalEmitterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang6interp11EvalEmitterD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp11EvalEmitterC2ERNS0_7ContextERNS0_7ProgramERNS0_5StateERNS0_11InterpStackE(ptr noundef nonnull align 8 dereferenceable(828) initializes((0, 28), (32, 52), (56, 61)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(328) %2, ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp11EvalEmitterC2ERNS0_7ContextERNS0_7ProgramERNS0_5StateERNS0_11InterpStackE(ptr noundef nonnull align 8 dereferenceable(828) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(328) %2, ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5clang6interp11EvalEmitterE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
@@ -2943,7 +2943,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @_ZN5clang6interp11InterpFrameC1ERNS0_11InterpStateEPKNS0_8FunctionEPS1_NS0_7CodePtrEj(ptr noundef nonnull align 8 dereferenceable(216), ptr noundef nonnull align 8 dereferenceable(280), ptr noundef, ptr noundef, ptr, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp11EvalEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(828) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp11EvalEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(828) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5clang6interp11EvalEmitterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 776
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 784
@@ -3190,7 +3190,7 @@ define dso_local void @_ZN5clang6interp11EvalEmitter7cleanupEv(ptr noundef nonnu
 declare void @_ZN5clang6interp11InterpState7cleanupEv(ptr noundef nonnull align 8 dereferenceable(280)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp11EvalEmitter13interpretExprEPKNS_4ExprEb(ptr dead_on_unwind noalias writable sret(%"class.clang::interp::EvaluationResult") align 8 initializes((0, 8), (80, 81)) %0, ptr noundef nonnull align 8 dereferenceable(828) initializes((584, 588), (760, 770)) %1, ptr noundef nonnull %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp11EvalEmitter13interpretExprEPKNS_4ExprEb(ptr dead_on_unwind noalias writable sret(%"class.clang::interp::EvaluationResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(828) %1, ptr noundef nonnull %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 584
   store i32 %5, ptr %6, align 8
@@ -3272,7 +3272,7 @@ _ZN5clang6interp16EvaluationResultC2EOS1_.exit:   ; preds = %28, %28, %35, %36, 
 declare i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp11EvalEmitter13interpretDeclEPKNS_7VarDeclEb(ptr dead_on_unwind noalias writable sret(%"class.clang::interp::EvaluationResult") align 8 initializes((0, 8), (80, 81)) %0, ptr noundef nonnull align 8 dereferenceable(828) initializes((592, 600), (760, 770)) %1, ptr noundef nonnull %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp11EvalEmitter13interpretDeclEPKNS_7VarDeclEb(ptr dead_on_unwind noalias writable sret(%"class.clang::interp::EvaluationResult") align 8 %0, ptr noundef nonnull align 8 dereferenceable(828) %1, ptr noundef nonnull %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca ptr, align 8
   %6 = zext i1 %3 to i8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 769
@@ -4433,7 +4433,7 @@ _ZN5clang7APValueD2Ev.exit:                       ; preds = %_ZN5clang7APValueD2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang6interp11EvalEmitter9emitLabelEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(828) initializes((820, 824)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN5clang6interp11EvalEmitter9emitLabelEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(828) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 820
   store i32 %1, ptr %3, align 4
   ret void

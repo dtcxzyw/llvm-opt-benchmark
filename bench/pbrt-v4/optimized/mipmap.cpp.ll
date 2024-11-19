@@ -2926,7 +2926,7 @@ _ZN4pbrt12StringPrintfIJRKNS_14FilterFunctionERKfEEENSt7__cxx1112basic_stringIcS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt6MIPMapC2ENS_5ImageEPKNS_13RGBColorSpaceENS_8WrapModeEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_19MIPMapFilterOptionsE(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 52)) %this, ptr nocapture noundef %image, ptr noundef %colorSpace, i32 noundef %wrapMode, ptr %alloc.coerce, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %options) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt6MIPMapC2ENS_5ImageEPKNS_13RGBColorSpaceENS_8WrapModeEN4pstd3pmr21polymorphic_allocatorISt4byteEERKNS_19MIPMapFilterOptionsE(ptr noundef nonnull align 8 dereferenceable(52) %this, ptr nocapture noundef %image, ptr noundef %colorSpace, i32 noundef %wrapMode, ptr %alloc.coerce, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %options) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.pstd::vector", align 8
   %agg.tmp = alloca %"class.pbrt::Image", align 8

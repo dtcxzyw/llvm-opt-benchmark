@@ -555,7 +555,7 @@ sub_2:                                            ; preds = %sub_1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @catapult_dct2000_seek_read(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @catapult_dct2000_seek_read(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -719,7 +719,7 @@ declare void @wtap_register_backwards_compatibility_lua_name(ptr noundef, i32 no
 declare i64 @file_tell(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9, ptr nocapture noundef nonnull initializes((0, 4)) %10, ptr nocapture noundef nonnull initializes((0, 4)) %11, ptr nocapture noundef nonnull writeonly %12, ptr nocapture noundef nonnull writeonly %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr nocapture noundef nonnull writeonly %17) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_line(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9, ptr nocapture noundef nonnull %10, ptr nocapture noundef nonnull %11, ptr nocapture noundef nonnull writeonly %12, ptr nocapture noundef nonnull writeonly %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr nocapture noundef nonnull writeonly %17) unnamed_addr #0 {
   %19 = alloca [3 x i8], align 1
   %20 = alloca i32, align 4
   %21 = alloca [17 x i8], align 16
@@ -1886,7 +1886,7 @@ define internal fastcc void @write_timestamp_string(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @process_parsed_line(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 8), (16, 28), (64, 68), (72, 76), (232, 240)) %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %9, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %12, i8 noundef zeroext %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr nocapture noundef nonnull readonly %17, i32 noundef %18, i32 noundef %19, ptr nocapture noundef writeonly %20, ptr nocapture noundef writeonly %21) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @process_parsed_line(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3, i64 noundef %4, ptr nocapture noundef readonly %5, i64 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef nonnull %9, i32 noundef %10, i32 noundef %11, ptr noundef nonnull %12, i8 noundef zeroext %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr nocapture noundef nonnull readonly %17, i32 noundef %18, i32 noundef %19, ptr nocapture noundef writeonly %20, ptr nocapture noundef writeonly %21) unnamed_addr #0 {
   store i32 0, ptr %2, align 8
   %23 = tail call ptr @wtap_block_create(i32 noundef 5) #17
   %24 = getelementptr inbounds i8, ptr %2, i64 232
@@ -2251,7 +2251,7 @@ define internal noundef range(i32 -8, 1) i32 @catapult_dct2000_dump_can_write_en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @catapult_dct2000_dump_open(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef i32 @catapult_dct2000_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @catapult_dct2000_dump, ptr %4, align 8
   ret i32 1

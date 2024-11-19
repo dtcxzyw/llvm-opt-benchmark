@@ -173,7 +173,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z21make_tric_corr_matrixiPA3_KfPA3_f(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((12, 16), (24, 32)) %2) local_unnamed_addr #6 {
+define void @_Z21make_tric_corr_matrixiPA3_KfPA3_f(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %0, 1
   br i1 %4, label %6, label %.thread
 

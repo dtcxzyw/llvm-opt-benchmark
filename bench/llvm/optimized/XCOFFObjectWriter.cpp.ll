@@ -86,7 +86,7 @@ $_ZN4llvm8DenseMapIPKNS_8MCSymbolEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapP
 @.str.25 = private unnamed_addr constant [5 x i8] c".f08\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23createXCOFFObjectWriterESt10unique_ptrINS_25MCXCOFFObjectTargetWriterESt14default_deleteIS1_EERNS_17raw_pwrite_streamE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm23createXCOFFObjectWriterESt10unique_ptrINS_25MCXCOFFObjectTargetWriterESt14default_deleteIS1_EERNS_17raw_pwrite_streamE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_117XCOFFObjectWriterESt14default_deleteIS1_EED2Ev.exit:
   %3 = alloca %"class.std::deque.35", align 8
   %4 = alloca %"class.std::deque.35", align 8
@@ -1074,7 +1074,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN4llvm18StringTableBuilderC1ENS0_4KindENS_5AlignE(ptr noundef nonnull align 8 dereferenceable(38), i32 noundef, i8) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117CsectSectionEntryC2EN4llvm9StringRefENS1_5XCOFF16SectionTypeFlagsEbSt5dequeIPS5_INS_12XCOFFSectionESaIS6_EESaIS9_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((0, 59), (64, 80)) %0, ptr nocapture readonly %1, i64 %2, i32 noundef range(i32 32, 2049) %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117CsectSectionEntryC2EN4llvm9StringRefENS1_5XCOFF16SectionTypeFlagsEbSt5dequeIPS5_INS_12XCOFFSectionESaIS6_EESaIS9_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %0, ptr nocapture readonly %1, i64 %2, i32 noundef range(i32 32, 2049) %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull readonly %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %4 to i8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_112SectionEntryE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1486,7 +1486,7 @@ _ZNSt5dequeIPS_IN12_GLOBAL__N_112XCOFFSectionESaIS1_EESaIS4_EEC2ERKS6_.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117XCOFFObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) initializes((0, 8), (1784, 1792), (1904, 1912)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117XCOFFObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.std::_Deque_iterator", align 8
   %3 = alloca %"struct.std::_Deque_iterator", align 8
   %4 = alloca %"struct.std::_Deque_iterator", align 8
@@ -2449,7 +2449,7 @@ _ZNSt10unique_ptrIN4llvm25MCXCOFFObjectTargetWriterESt14default_deleteIS1_EED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117XCOFFObjectWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(1976) initializes((0, 8), (1784, 1792), (1904, 1912)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117XCOFFObjectWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(1976) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_117XCOFFObjectWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %0) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1976) #23
   ret void
@@ -9506,7 +9506,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_112SectionEntry17advanceFileOffsetEmm(ptr nocapture noundef nonnull align 8 dereferenceable(58) initializes((32, 40)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define internal noundef i64 @_ZN12_GLOBAL__N_112SectionEntry17advanceFileOffsetEmm(ptr nocapture noundef nonnull align 8 dereferenceable(58) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9524,7 +9524,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_112SectionEntry17advanceFileOffsetE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117CsectSectionEntry5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((16, 52), (56, 58)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117CsectSectionEntry5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.std::_Deque_iterator", align 8
   %3 = alloca %"struct.std::_Deque_iterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -9625,7 +9625,7 @@ _ZNSt15_Deque_iteratorIPSt5dequeIN12_GLOBAL__N_112XCOFFSectionESaIS2_EERS5_PS5_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117CsectSectionEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117CsectSectionEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_117CsectSectionEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -9666,7 +9666,7 @@ _ZNSt5dequeIPS_IN12_GLOBAL__N_112XCOFFSectionESaIS1_EESaIS4_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117CsectSectionEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117CsectSectionEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_117CsectSectionEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -9708,7 +9708,7 @@ _ZN12_GLOBAL__N_117CsectSectionEntryD2Ev.exit:    ; preds = %1, %_ZNSt11_Deque_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_112SectionEntry5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) initializes((16, 52), (56, 58)) %0) unnamed_addr #10 align 2 {
+define internal void @_ZN12_GLOBAL__N_112SectionEntry5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 0, i64 36, i1 false)
@@ -9903,7 +9903,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull al
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121ExceptionSectionEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(113) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121ExceptionSectionEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121ExceptionSectionEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %.val = load ptr, ptr %2, align 8
@@ -9912,7 +9912,7 @@ define internal void @_ZN12_GLOBAL__N_121ExceptionSectionEntryD2Ev(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121ExceptionSectionEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121ExceptionSectionEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_121ExceptionSectionEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %.val.i = load ptr, ptr %2, align 8
@@ -9957,7 +9957,7 @@ _ZNSt8_Rb_treeIKN4llvm9StringRefESt4pairIS2_N12_GLOBAL__N_113ExceptionInfoEESt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120CInfoSymSectionEntry5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((16, 52), (56, 58)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120CInfoSymSectionEntry5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %2, i8 0, i64 36, i1 false)
@@ -9980,7 +9980,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112CInfoSymInfoESt14default_deleteIS1_EE5resetEP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120CInfoSymSectionEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120CInfoSymSectionEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120CInfoSymSectionEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -10000,7 +10000,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112CInfoSymInfoESt14default_deleteIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120CInfoSymSectionEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120CInfoSymSectionEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120CInfoSymSectionEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -10537,7 +10537,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_14MCSectionXCOFFEPN12_GLOBAL__N_112XCOF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117DwarfSectionEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117DwarfSectionEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_117DwarfSectionEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -10629,7 +10629,7 @@ declare noundef i64 @_ZN4llvm18StringTableBuilder3addENS_19CachedHashStringRefE(
 declare noundef i32 @_ZN4llvm12DenseMapInfoINS_9StringRefEvE12getHashValueES1_(ptr, i64) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_14MCSectionXCOFFEPN12_GLOBAL__N_112XCOFFSectionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_14MCSectionXCOFFEPN12_GLOBAL__N_112XCOFFSectionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -10779,7 +10779,7 @@ _ZN4llvm8DenseMapIPKNS_14MCSectionXCOFFEPN12_GLOBAL__N_112XCOFFSectionENS_12Dens
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i64 @_ZN12_GLOBAL__N_117DwarfSectionEntry17advanceFileOffsetEmm(ptr nocapture noundef nonnull align 8 dereferenceable(76) initializes((32, 40)) %0, i64 %1, i64 noundef %2) unnamed_addr #14 align 2 {
+define internal noundef i64 @_ZN12_GLOBAL__N_117DwarfSectionEntry17advanceFileOffsetEmm(ptr nocapture noundef nonnull align 8 dereferenceable(76) %0, i64 %1, i64 noundef %2) unnamed_addr #14 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %2, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -10790,7 +10790,7 @@ define internal noundef i64 @_ZN12_GLOBAL__N_117DwarfSectionEntry17advanceFileOf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117DwarfSectionEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117DwarfSectionEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_117DwarfSectionEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8

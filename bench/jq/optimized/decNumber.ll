@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.decNumberClassToString = private unnamed_addr constant [10 x ptr] [ptr @.str.13, ptr @.str.12, ptr @.str.11, ptr @.str.5, ptr @.str.9, ptr @.str.7, ptr @.str.6, ptr @.str.8, ptr @.str.4, ptr @.str.10], align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @decNumberFromInt32(ptr noundef returned initializes((0, 9), (10, 12)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef ptr @decNumberFromInt32(ptr noundef returned %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -122,7 +122,7 @@ decNumberFromUInt32.exit.thread:                  ; preds = %2, %30, %decNumberF
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @decNumberFromUInt32(ptr noundef returned initializes((0, 9), (10, 12)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef ptr @decNumberFromUInt32(ptr noundef returned %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -201,7 +201,7 @@ decGetDigits.exit:                                ; preds = %.lr.ph, %10, %.lr.p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @decNumberZero(ptr noundef returned writeonly initializes((0, 9), (10, 12)) %0) local_unnamed_addr #1 {
+define noundef ptr @decNumberZero(ptr noundef returned writeonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -9230,7 +9230,7 @@ decStatus.exit:                                   ; preds = %40, %38, %42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @decSetMaxValue(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @decSetMaxValue(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) unnamed_addr #0 {
   %3 = load i32, ptr %1, align 4
   store i32 %3, ptr %0, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 10
@@ -11417,7 +11417,7 @@ decStatus.exit:                                   ; preds = %22, %26, %28
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr nocapture noundef readonly %1, i8 noundef zeroext range(i8 0, 2) %2, i8 noundef zeroext range(i8 0, 2) %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @decTrim(ptr noundef returned %0, ptr nocapture noundef readonly %1, i8 noundef zeroext range(i8 0, 2) %2, i8 noundef zeroext range(i8 0, 2) %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   store i32 0, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 4
@@ -12234,7 +12234,7 @@ define internal fastcc i32 @decShiftToLeast(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @decNumberSameQuantum(ptr noundef returned writeonly initializes((0, 9), (10, 12)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #12 {
+define noundef ptr @decNumberSameQuantum(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #12 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i8, ptr %4, align 4
   %6 = zext i8 %5 to i32

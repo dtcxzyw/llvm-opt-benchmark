@@ -875,7 +875,7 @@ declare i32 @tvb_get_guint32(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare zeroext i8 @tvb_get_guint8(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decode_envelope(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc void @decode_envelope(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.298) #5

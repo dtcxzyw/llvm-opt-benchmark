@@ -387,7 +387,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6VlWideILm3EEcvPjEv(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top___024root(ptr noundef initializes((161, 162), (488, 492), (880, 888)) %0) local_unnamed_addr #2 {
+define dso_local void @_Z39Vmycpu_top___024root___nba_comb__TOP__0P20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 162
   %3 = load i8, ptr %2, align 2
   %4 = zext i8 %3 to i32
@@ -1898,7 +1898,7 @@ _ZNK12VlTriggerVecILm2EE3anyEv.exit:              ; preds = %3, %8
 declare void @_Z31Vmycpu_top___024root___eval_nbaP20Vmycpu_top___024root(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z27Vmycpu_top___024root___evalP20Vmycpu_top___024root(ptr noundef initializes((220, 221)) %0) local_unnamed_addr #4 {
+define dso_local void @_Z27Vmycpu_top___024root___evalP20Vmycpu_top___024root(ptr noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 220
   store i8 1, ptr %2, align 4
   br label %7

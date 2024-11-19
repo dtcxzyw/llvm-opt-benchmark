@@ -2309,7 +2309,7 @@ declare void @_ZN10CompileLog16code_cache_stateEv(ptr noundef nonnull align 8 de
 declare void @_ZN21ExceptionHandlerTable12add_subtableEiP13GrowableArrayIlES2_S2_(ptr noundef nonnull align 8 dereferenceable(17), i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11CompilationC2EP16AbstractCompilerP5ciEnvP8ciMethodiP10BufferBlobbP12DirectiveSet(ptr noundef nonnull align 8 dereferenceable(704) initializes((8, 60), (64, 76), (80, 105), (112, 128), (136, 144)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %7) unnamed_addr #1 align 2 {
+define hidden void @_ZN11CompilationC2EP16AbstractCompilerP5ciEnvP8ciMethodiP10BufferBlobbP12DirectiveSet(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i1 noundef zeroext %6, ptr noundef %7) unnamed_addr #1 align 2 {
   %9 = alloca %class.PhaseTraceTime, align 8
   %10 = alloca %class.CompilationMemoryStatisticMark, align 1
   %11 = zext i1 %6 to i8

@@ -7709,7 +7709,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb27ExternalSstFileIngestionJob3RunEv(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8944) initializes((8672, 8676)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb27ExternalSstFileIngestionJob3RunEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8944) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %level.addr.i = alloca i32, align 4
   %ref.tmp.i = alloca i64, align 8
@@ -8564,7 +8564,7 @@ return:                                           ; preds = %for.end25, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb27ExternalSstFileIngestionJob34AssignLevelAndSeqnoForIngestedFileEPNS_12SuperVersionEbNS_15CompactionStyleEmPNS_16IngestedFileInfoEPm(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8944) %this, ptr nocapture noundef readonly %sv, i1 noundef zeroext %force_global_seqno, i8 noundef signext %compaction_style, i64 noundef %last_seqno, ptr noundef %file_to_ingest, ptr nocapture noundef initializes((0, 8)) %assigned_seqno) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb27ExternalSstFileIngestionJob34AssignLevelAndSeqnoForIngestedFileEPNS_12SuperVersionEbNS_15CompactionStyleEmPNS_16IngestedFileInfoEPm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8944) %this, ptr nocapture noundef readonly %sv, i1 noundef zeroext %force_global_seqno, i8 noundef signext %compaction_style, i64 noundef %last_seqno, ptr noundef %file_to_ingest, ptr nocapture noundef %assigned_seqno) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %file_smallest_user_key.i83 = alloca %"class.rocksdb::Slice", align 8
   %file_largest_user_key.i84 = alloca %"class.rocksdb::Slice", align 8

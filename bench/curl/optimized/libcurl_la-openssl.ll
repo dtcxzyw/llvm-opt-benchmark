@@ -3398,7 +3398,7 @@ out:                                              ; preds = %entry, %if.end17, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %mem, i64 noundef %len, ptr nocapture noundef writeonly initializes((0, 4)) %curlcode) #0 {
+define internal range(i64 -1, 2147483648) i64 @ossl_send(ptr nocapture noundef readonly %cf, ptr noundef %data, ptr noundef %mem, i64 noundef %len, ptr nocapture noundef writeonly %curlcode) #0 {
 entry:
   %error_buffer = alloca [256 x i8], align 16
   %ctx = getelementptr inbounds i8, ptr %cf, i64 16
@@ -3627,7 +3627,7 @@ return:                                           ; preds = %entry, %if.then, %i
 declare i32 @SSL_CTX_use_certificate_chain_file(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @ossl_strerror(i64 noundef %error, ptr noundef nonnull initializes((0, 1)) %buf, i64 noundef range(i64 256, 1025) %size) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @ossl_strerror(i64 noundef %error, ptr noundef nonnull %buf, i64 noundef range(i64 256, 1025) %size) unnamed_addr #0 {
 entry:
   store i8 0, ptr %buf, align 1
   %call.i = tail call ptr @OpenSSL_version(i32 noundef 6) #13

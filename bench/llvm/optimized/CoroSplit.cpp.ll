@@ -798,7 +798,7 @@ _ZNK4llvm13IRBuilderBase6InsertINS_8CallInstEEEPT_S4_RKNS_5TwineE.exit: ; preds 
 declare noundef zeroext i1 @_ZNK4llvm19TargetTransformInfo19supportsTailCallForEPKNS_8CallBaseE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm13CoroSplitPassC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 33)) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm13CoroSplitPassC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14564,7 +14564,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE18uninitialized_copyIPKPNS_
 declare void @_ZN4llvm8Function13removeRetAttrENS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(136), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110CoroClonerC2ERN4llvm8FunctionERKNS1_5TwineERNS1_4coro5ShapeEPS2_PNS1_18AnyCoroSuspendInstERNS1_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 36), (40, 60)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(392) %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(8) %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110CoroClonerC2ERN4llvm8FunctionERKNS1_5TwineERNS1_4coro5ShapeEPS2_PNS1_18AnyCoroSuspendInstERNS1_19TargetTransformInfoE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr noundef nonnull align 8 dereferenceable(392) %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(8) %6) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %8, align 8

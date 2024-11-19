@@ -394,7 +394,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal13GenerateNamesINS0_20DefaultNameGeneratorENS0_5TypesIN12_GLOBAL__N_115IdentityFactoryEJNS4_19FunctorClassFactoryENS4_18StdFunctionFactoryEEEEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EEv(ptr noalias nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i = alloca %"class.testing::Message", align 8
   %ref.tmp.i.i3.i = alloca %"class.std::__cxx11::basic_string", align 8

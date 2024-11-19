@@ -166,7 +166,7 @@ $_ZTVN3irr14IEventReceiverE = comdat any
 @_ZN3irr5video16IdentityMaterialE = external global %"class.irr::video::SMaterial", align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene16CCameraSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_(ptr noundef nonnull align 8 dereferenceable(646) initializes((0, 8), (40, 41), (48, 148)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %lookat) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNodeC2EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_(ptr noundef nonnull align 8 dereferenceable(646) %this, ptr nocapture noundef readonly %vtt, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %lookat) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -407,7 +407,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode27recalculateProjectionMatrixEv(ptr nocapture noundef nonnull align 8 dereferenceable(646) initializes((232, 233), (496, 560)) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode27recalculateProjectionMatrixEv(ptr nocapture noundef nonnull align 8 dereferenceable(646) %this) local_unnamed_addr #3 align 2 {
 entry:
   %arrayidx.i = getelementptr inbounds i8, ptr %this, i64 496
   %Fovy = getelementptr inbounds i8, ptr %this, i64 284
@@ -678,7 +678,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene16CCameraSceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_(ptr noundef nonnull align 8 dereferenceable(646) initializes((0, 8), (40, 41), (48, 148), (648, 668)) %this, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %lookat) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNodeC1EPNS0_10ISceneNodeEPNS0_13ISceneManagerEiRKNS_4core8vector3dIfEESA_(ptr noundef nonnull align 8 dereferenceable(646) %this, ptr noundef %parent, ptr noundef %mgr, i32 noundef %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %position, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %lookat) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 648
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 656
@@ -892,7 +892,7 @@ if.end20:                                         ; preds = %if.then10, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode23setInputReceiverEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(646) initializes((644, 645)) %this, i1 noundef zeroext %enabled) unnamed_addr #5 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode23setInputReceiverEnabledEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(646) %this, i1 noundef zeroext %enabled) unnamed_addr #5 align 2 {
 entry:
   %frombool = zext i1 %enabled to i8
   %InputReceiverEnabled = getelementptr inbounds i8, ptr %this, i64 644
@@ -910,7 +910,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode19setProjectionMatrixERKNS_4core8CMatrix4IfEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(646) initializes((232, 233), (496, 560)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %projection, i1 noundef zeroext %isOrthogonal) unnamed_addr #7 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode19setProjectionMatrixERKNS_4core8CMatrix4IfEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(646) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %projection, i1 noundef zeroext %isOrthogonal) unnamed_addr #7 align 2 {
 entry:
   %frombool = zext i1 %isOrthogonal to i8
   %IsOrthogonal = getelementptr inbounds i8, ptr %this, i64 232
@@ -935,7 +935,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode21setViewMatrixAffectorERKNS_4core8CMatrix4IfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(646) initializes((580, 644)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %affector) unnamed_addr #7 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode21setViewMatrixAffectorERKNS_4core8CMatrix4IfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(646) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %affector) unnamed_addr #7 align 2 {
 entry:
   %Affector = getelementptr inbounds i8, ptr %this, i64 580
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %Affector, ptr noundef nonnull align 4 dereferenceable(64) %affector, i64 64, i1 false), !tbaa.struct !69
@@ -962,7 +962,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene16CCameraSceneNode9setTargetERKNS_4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(646) initializes((260, 272)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %pos) unnamed_addr #4 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode9setTargetERKNS_4core8vector3dIfEE(ptr noundef nonnull align 8 dereferenceable(646) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %pos) unnamed_addr #4 align 2 {
 entry:
   %Target = getelementptr inbounds i8, ptr %this, i64 260
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %Target, ptr noundef nonnull align 4 dereferenceable(12) %pos, i64 12, i1 false), !tbaa.struct !12
@@ -1122,7 +1122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode11setUpVectorERKNS_4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(646) initializes((272, 284)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %pos) unnamed_addr #7 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode11setUpVectorERKNS_4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(646) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %pos) unnamed_addr #7 align 2 {
 entry:
   %UpVector = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %UpVector, ptr noundef nonnull align 4 dereferenceable(12) %pos, i64 12, i1 false), !tbaa.struct !12
@@ -1169,7 +1169,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode12setNearValueEf(ptr nocapture noundef nonnull align 8 dereferenceable(646) initializes((232, 233), (292, 296), (496, 560), (564, 568)) %this, float noundef %f) unnamed_addr #3 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode12setNearValueEf(ptr nocapture noundef nonnull align 8 dereferenceable(646) %this, float noundef %f) unnamed_addr #3 align 2 {
 entry:
   %ZNear = getelementptr inbounds i8, ptr %this, i64 292
   store float %f, ptr %ZNear, align 4, !tbaa !56
@@ -1223,7 +1223,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode11setFarValueEf(ptr nocapture noundef nonnull align 8 dereferenceable(646) initializes((232, 233), (296, 300), (496, 560), (564, 568)) %this, float noundef %f) unnamed_addr #3 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode11setFarValueEf(ptr nocapture noundef nonnull align 8 dereferenceable(646) %this, float noundef %f) unnamed_addr #3 align 2 {
 entry:
   %ZFar = getelementptr inbounds i8, ptr %this, i64 296
   store float %f, ptr %ZFar, align 8, !tbaa !46
@@ -1277,7 +1277,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode14setAspectRatioEf(ptr nocapture noundef nonnull align 8 dereferenceable(646) initializes((232, 233), (288, 292), (496, 560)) %this, float noundef %f) unnamed_addr #3 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode14setAspectRatioEf(ptr nocapture noundef nonnull align 8 dereferenceable(646) %this, float noundef %f) unnamed_addr #3 align 2 {
 entry:
   %Aspect = getelementptr inbounds i8, ptr %this, i64 288
   store float %f, ptr %Aspect, align 8, !tbaa !55
@@ -1326,7 +1326,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode6setFOVEf(ptr nocapture noundef nonnull align 8 dereferenceable(646) initializes((232, 233), (284, 288), (496, 560)) %this, float noundef %f) unnamed_addr #3 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode6setFOVEf(ptr nocapture noundef nonnull align 8 dereferenceable(646) %this, float noundef %f) unnamed_addr #3 align 2 {
 entry:
   %Fovy = getelementptr inbounds i8, ptr %this, i64 284
   store float %f, ptr %Fovy, align 4, !tbaa !58
@@ -1982,7 +1982,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene16CCameraSceneNode21bindTargetAndRotationEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(646) initializes((645, 646)) %this, i1 noundef zeroext %bound) unnamed_addr #5 align 2 {
+define void @_ZN3irr5scene16CCameraSceneNode21bindTargetAndRotationEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(646) %this, i1 noundef zeroext %bound) unnamed_addr #5 align 2 {
 entry:
   %frombool = zext i1 %bound to i8
   %TargetAndRotationAreBound = getelementptr inbounds i8, ptr %this, i64 645

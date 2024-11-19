@@ -2605,7 +2605,7 @@ entry:
 declare void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory7strings13TheoryStringsD2Ev(ptr noundef nonnull align 8 dereferenceable(5832) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings13TheoryStringsD2Ev(ptr noundef nonnull align 8 dereferenceable(5832) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings13TheoryStringsE, i64 16), ptr %this, align 8
   %d_strat = getelementptr inbounds i8, ptr %this, i64 5704
@@ -2837,7 +2837,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit45: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory7strings13TheoryStringsD0Ev(ptr noundef nonnull align 8 dereferenceable(5832) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory7strings13TheoryStringsD0Ev(ptr noundef nonnull align 8 dereferenceable(5832) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory7strings13TheoryStringsD2Ev(ptr noundef nonnull align 8 dereferenceable(5832) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
@@ -2859,7 +2859,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13TheoryStrings19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(5832) %this, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %esi) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13TheoryStrings19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(5832) %this, ptr noundef nonnull align 8 dereferenceable(45) %esi) unnamed_addr #3 align 2 {
 entry:
   %d_notify = getelementptr inbounds i8, ptr %this, i64 448
   store ptr %d_notify, ptr %esi, align 8
@@ -3059,7 +3059,7 @@ declare void @_ZN4cvc58internal6theory15DecisionManager16registerStrategyENS2_10
 declare noundef ptr @_ZNK4cvc58internal6theory7strings10StringsFmf19getDecisionStrategyEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13TheoryStrings18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(5832) initializes((5800, 5816)) %this, ptr noundef %m, ptr noundef nonnull align 8 dereferenceable(48) %termSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13TheoryStrings18collectModelValuesEPNS1_11TheoryModelERKSt3setINS0_12NodeTemplateILb1EEESt4lessIS8_ESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(5832) %this, ptr noundef %m, ptr noundef nonnull align 8 dereferenceable(48) %termSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cleanup.done13:
   %repSet = alloca %"class.std::map.851", align 8
   %toProcess = alloca %"class.std::unordered_set.856", align 8

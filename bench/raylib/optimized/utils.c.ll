@@ -216,7 +216,7 @@ define void @MemFree(ptr nocapture noundef %0) local_unnamed_addr #10 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define ptr @LoadFileData(ptr noundef %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #1 {
+define ptr @LoadFileData(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   store i32 0, ptr %1, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %31, label %3

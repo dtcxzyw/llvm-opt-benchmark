@@ -401,7 +401,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14MeshModelState6createEiP9MeshModel(ptr noundef nonnull align 8 dereferenceable(436) initializes((0, 4), (8, 16)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14MeshModelState6createEiP9MeshModel(ptr noundef nonnull align 8 dereferenceable(436) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   store i32 %1, ptr %0, align 8

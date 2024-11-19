@@ -258,7 +258,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22JointStochasticProcessC2ESt6vectorIN5boost10shared_ptrINS_17StochasticProcessEEESaIS5_EEm(ptr noundef nonnull align 8 dereferenceable(272) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %l, i64 noundef %factors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22JointStochasticProcessC2ESt6vectorIN5boost10shared_ptrINS_17StochasticProcessEEESaIS5_EEm(ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef %l, i64 noundef %factors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -1640,7 +1640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22JointStochasticProcess5sliceERKNS_5ArrayEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x, i64 noundef %i) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22JointStochasticProcess5sliceERKNS_5ArrayEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x, i64 noundef %i) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vsize_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %vsize_, align 8, !tbaa !60
@@ -1681,7 +1681,7 @@ nrvo.skipdtor:                                    ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22JointStochasticProcess13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22JointStochasticProcess13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.QuantLib::Array", align 8
   %vtable = load ptr, ptr %this, align 8, !tbaa !28
@@ -1792,7 +1792,7 @@ _ZN8QuantLib5ArrayD2Ev.exit11:                    ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22JointStochasticProcess5driftEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22JointStochasticProcess5driftEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this, double noundef %t, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Array", align 8
   %ref.tmp6 = alloca %"class.QuantLib::Array", align 8
@@ -1977,7 +1977,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN8QuantLib5ArrayD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22JointStochasticProcess11expectationEdRKNS_5ArrayEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22JointStochasticProcess11expectationEdRKNS_5ArrayEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Array", align 8
   %ref.tmp6 = alloca %"class.QuantLib::Array", align 8
@@ -2258,7 +2258,7 @@ _ZN8QuantLib6MatrixD2Ev.exit11:                   ; preds = %_ZN8QuantLib6Matrix
 declare void @_ZN8QuantLib10pseudoSqrtERKNS_6MatrixENS_18SalvagingAlgorithm4TypeE(ptr dead_on_unwind writable sret(%"class.QuantLib::Matrix") align 8, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22JointStochasticProcess10covarianceEdRKNS_5ArrayEd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this, double noundef %t0, ptr noundef nonnull align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22JointStochasticProcess10covarianceEdRKNS_5ArrayEd(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this, double noundef %t0, ptr noundef nonnull align 8 dereferenceable(16) %x0, double noundef %dt) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Matrix", align 8
   %ref.tmp10 = alloca %"class.QuantLib::Array", align 8
@@ -2942,7 +2942,7 @@ _ZN8QuantLib6MatrixD2Ev.exit3:                    ; preds = %lpad, %_ZNKSt14defa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib22JointStochasticProcess5applyERKNS_5ArrayES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib22JointStochasticProcess5applyERKNS_5ArrayES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(272) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Array", align 8
   %ref.tmp6 = alloca %"class.QuantLib::Array", align 8

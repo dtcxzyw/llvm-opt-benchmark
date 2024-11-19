@@ -7389,7 +7389,7 @@ define internal fastcc void @prb_retire_current_block(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @prb_dispatch_next_block(ptr noundef initializes((16, 17)) %0, ptr nocapture noundef %1) unnamed_addr #2 align 16 {
+define internal fastcc ptr @prb_dispatch_next_block(ptr noundef %0, ptr nocapture noundef %1) unnamed_addr #2 align 16 {
   %3 = alloca %struct.timespec64, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !107
   %4 = load ptr, ptr %0, align 8
@@ -7832,7 +7832,7 @@ define internal fastcc void @skb_set_owner_r(ptr noundef nonnull %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_from_skb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 10)) %1) unnamed_addr #13 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @virtio_net_hdr_from_skb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #13 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(10) %1, i8 0, i64 10, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8

@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @OPENSSL_ia32cap_P = external local_unnamed_addr global [4 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_gcm128_init(ptr noundef initializes((0, 384)) %ctx, ptr noundef %key, ptr noundef %block) local_unnamed_addr #0 {
+define hidden void @CRYPTO_gcm128_init(ptr noundef %ctx, ptr noundef %key, ptr noundef %block) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(384) %ctx, i8 0, i64 376, i1 false)
   %block1 = getelementptr inbounds i8, ptr %ctx, i64 376
@@ -199,7 +199,7 @@ declare void @gcm_gmult_4bit(ptr noundef, ptr noundef) #4
 declare void @gcm_ghash_4bit(ptr noundef, ptr noundef, ptr noundef, i64 noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @CRYPTO_gcm128_setiv(ptr noundef initializes((0, 16), (48, 80), (368, 376)) %ctx, ptr noundef %key, ptr nocapture noundef readonly %iv, i64 noundef %len) local_unnamed_addr #0 {
+define hidden void @CRYPTO_gcm128_setiv(ptr noundef %ctx, ptr noundef %key, ptr nocapture noundef readonly %iv, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %gmult = getelementptr inbounds i8, ptr %ctx, i64 352
   %0 = load ptr, ptr %gmult, align 8

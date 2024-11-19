@@ -1524,7 +1524,7 @@ Py_DECREF.exit:                                   ; preds = %if.end, %if.then1.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @xibufferview_getbuf(ptr noundef %self, ptr nocapture noundef writeonly initializes((0, 80)) %view, i32 %flags) #4 {
+define internal noundef i32 @xibufferview_getbuf(ptr noundef %self, ptr nocapture noundef writeonly %view, i32 %flags) #4 {
 entry:
   %view1 = getelementptr inbounds i8, ptr %self, i64 16
   %0 = load ptr, ptr %view1, align 8

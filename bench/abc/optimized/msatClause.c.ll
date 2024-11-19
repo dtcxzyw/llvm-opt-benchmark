@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [6 x i8] c"%s%d \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define i32 @Msat_ClauseCreate(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call ptr @Msat_SolverReadAssignsArray(ptr noundef %0) #12
   store ptr null, ptr %3, align 8
   %6 = tail call i32 @Msat_IntVecReadSize(ptr noundef %1) #12
@@ -456,7 +456,7 @@ define void @Msat_ClauseSetMark(ptr nocapture noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Msat_ClauseSetNum(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @Msat_ClauseSetNum(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
   store i32 %1, ptr %0, align 4
   ret void
 }

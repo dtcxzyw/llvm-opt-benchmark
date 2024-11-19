@@ -869,7 +869,7 @@ define internal void @notification_fn(i64 %0, i32 %1, ptr nocapture readnone %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr noundef initializes((224, 228)) %2) #0 {
+define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %8, label %4
 
@@ -901,7 +901,7 @@ declare i32 @pthread_cond_destroy(ptr noundef) local_unnamed_addr #1
 declare i32 @PMIx_Notify_event(i32 noundef, ptr noundef, i8 noundef zeroext, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @opcbfunc(i32 noundef %0, ptr noundef initializes((224, 228)) %1) #0 {
+define internal void @opcbfunc(i32 noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 224
   store i32 %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 128

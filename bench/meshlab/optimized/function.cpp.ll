@@ -57,7 +57,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9pymeshlab8FunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0) unnamed_addr #3 align 2 {
+define void @_ZN9pymeshlab8FunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
   store ptr @_ZN10QArrayData11shared_nullE, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @_ZN10QArrayData11shared_nullE, ptr %2, align 8
@@ -78,7 +78,7 @@ define void @_ZN9pymeshlab8FunctionC2Ev(ptr noundef nonnull align 8 dereferencea
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9pymeshlab8FunctionC2E7QStringS1_S1_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9pymeshlab8FunctionC2E7QStringS1_S1_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %6 = load atomic i32, ptr %5 monotonic, align 4
@@ -177,7 +177,7 @@ declare void @_ZN9pymeshlab17FunctionParameterC1ERKS0_(ptr noundef nonnull align
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9pymeshlab8Function18pythonFunctionNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9pymeshlab8Function18pythonFunctionNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -194,7 +194,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9pymeshlab8Function19meshlabFunctionNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9pymeshlab8Function19meshlabFunctionNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -212,7 +212,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %2, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK9pymeshlab8Function11descriptionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9pymeshlab8Function11descriptionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -254,7 +254,7 @@ define noundef i32 @_ZNK9pymeshlab8Function16parametersNumberEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9pymeshlab8Function24pythonFunctionParametersEv(ptr dead_on_unwind noalias writable sret(%class.QStringList) align 8 initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9pymeshlab8Function24pythonFunctionParametersEv(ptr dead_on_unwind noalias writable sret(%class.QStringList) align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   store ptr @_ZN9QListData11shared_nullE, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24

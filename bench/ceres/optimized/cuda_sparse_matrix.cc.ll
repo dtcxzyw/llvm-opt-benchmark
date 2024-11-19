@@ -57,7 +57,7 @@ $_ZN5ceres8internal10CudaBufferIiE7ReserveEm = comdat any
 @_ZN5ceres8internal16CudaSparseMatrixD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal16CudaSparseMatrixD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal16CudaSparseMatrixC2EiONS0_10CudaBufferIiEES4_PNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 12), (16, 96)) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal16CudaSparseMatrixC2EiONS0_10CudaBufferIiEES4_PNS0_11ContextImplE(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load i64, ptr %6, align 8
   %8 = trunc i64 %7 to i32
@@ -644,7 +644,7 @@ _ZN6google12Check_EQImplI9cudaErrorS1_EEPNSt7__cxx1112basic_stringIcSt11char_tra
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal16CudaSparseMatrixC2EPNS0_11ContextImplERKNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 12), (16, 48)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal16CudaSparseMatrixC2EPNS0_11ContextImplERKNS0_25CompressedRowSparseMatrixE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %0, align 8

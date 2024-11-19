@@ -152,7 +152,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML15SingleDocParserC2ERNS_7ScannerERKNS_10DirectivesE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 4), (8, 24)) %this, ptr noundef nonnull align 8 dereferenceable(480) %scanner, ptr noundef nonnull align 1 %directives) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML15SingleDocParserC2ERNS_7ScannerERKNS_10DirectivesE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(480) %scanner, ptr noundef nonnull align 1 %directives) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %m_scanner = getelementptr inbounds i8, ptr %this, i64 8
@@ -991,7 +991,7 @@ unreachable:                                      ; preds = %invoke.cont13
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML15SingleDocParser15ParsePropertiesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmS7_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %tag, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %anchor, ptr noundef nonnull align 8 dereferenceable(32) %anchor_name) local_unnamed_addr #4 align 2 {
+define void @_ZN4YAML15SingleDocParser15ParsePropertiesERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmS7_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(32) %tag, ptr nocapture noundef nonnull align 8 dereferenceable(8) %anchor, ptr noundef nonnull align 8 dereferenceable(32) %anchor_name) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %tag) #18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %anchor_name) #18

@@ -519,7 +519,7 @@ declare void @_ZNSt8ios_base7failureB5cxx11D2Ev(ptr noundef nonnull align 8 dere
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost9iostreams6detail11gzip_header5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 16), (40, 48), (64, 68), (72, 96)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams6detail11gzip_header5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8, !tbaa !17
   %3 = load ptr, ptr %0, align 8, !tbaa !18
@@ -603,7 +603,7 @@ define void @_ZN5boost9iostreams6detail11gzip_footer7processEc(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost9iostreams6detail11gzip_footer5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN5boost9iostreams6detail11gzip_footer5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4, !tbaa !35
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4

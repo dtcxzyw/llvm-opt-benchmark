@@ -40,7 +40,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN10SampleListD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10SampleListD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10SampleListC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10SampleListC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   store i64 %1, ptr %4, align 8
@@ -247,14 +247,14 @@ define hidden noundef ptr @_ZNK10SampleList13last_resolvedEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10SampleList17set_last_resolvedEPK12ObjectSample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((48, 56)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10SampleList17set_last_resolvedEPK12ObjectSample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10SampleList4linkEP12ObjectSample(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10SampleList4linkEP12ObjectSample(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %4, align 8

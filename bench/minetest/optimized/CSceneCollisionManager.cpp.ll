@@ -36,7 +36,7 @@ $_ZTIN3irr5scene22ISceneCollisionManagerE = comdat any
 @_ZTIN3irr5scene22CSceneCollisionManagerE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr5scene22CSceneCollisionManagerE, ptr @_ZTIN3irr5scene22ISceneCollisionManagerE }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene22CSceneCollisionManagerC2EPNS0_13ISceneManagerEPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %smanager, ptr noundef %driver) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene22CSceneCollisionManagerC2EPNS0_13ISceneManagerEPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %vtt, ptr noundef %smanager, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -78,7 +78,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene22CSceneCollisionManagerC1EPNS0_13ISceneManagerEPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 44)) %this, ptr noundef %smanager, ptr noundef %driver) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene22CSceneCollisionManagerC1EPNS0_13ISceneManagerEPNS_5video12IVideoDriverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %smanager, ptr noundef %driver) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -110,7 +110,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene22CSceneCollisionManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #1 align 2 {
+define void @_ZN3irr5scene22CSceneCollisionManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -149,7 +149,7 @@ if.end:                                           ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene22CSceneCollisionManagerD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (24, 32)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr5scene22CSceneCollisionManagerD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -221,7 +221,7 @@ _ZN3irr5scene22CSceneCollisionManagerD1Ev.exit:   ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene22CSceneCollisionManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (24, 32)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr5scene22CSceneCollisionManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr5scene22CSceneCollisionManagerE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -298,7 +298,7 @@ _ZN3irr5scene22CSceneCollisionManagerD0Ev.exit:   ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene22CSceneCollisionManager27getRayFromScreenCoordinatesERKNS_4core8vector2dIiEEPKNS0_16ICameraSceneNodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::line3d") align 4 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, ptr noundef %camera) unnamed_addr #4 align 2 {
+define void @_ZN3irr5scene22CSceneCollisionManager27getRayFromScreenCoordinatesERKNS_4core8vector2dIiEEPKNS0_16ICameraSceneNodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.irr::core::line3d") align 4 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %pos, ptr noundef %camera) unnamed_addr #4 align 2 {
 entry:
   %Z.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %end.i = getelementptr inbounds i8, ptr %agg.result, i64 12

@@ -1035,7 +1035,7 @@ rb_transcoding_close.exit:                        ; preds = %43, %47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @rb_econv_convert(ptr noundef initializes((4, 8), (112, 168)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define dso_local noundef i32 @rb_econv_convert(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [1024 x i8], align 16
   %8 = alloca i64, align 8
   %9 = alloca [16 x i8], align 16
@@ -1638,7 +1638,7 @@ define dso_local ptr @rb_econv_encoding_to_insert_output(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, 1) i32 @rb_econv_insert_output(ptr nocapture noundef initializes((4, 8)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @rb_econv_insert_output(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 104

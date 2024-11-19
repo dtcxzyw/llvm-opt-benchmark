@@ -315,7 +315,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3smt5setupC2ERNS_7contextER10smt_params(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 33)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %c, ptr noundef nonnull align 8 dereferenceable(800) %params) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt5setupC2ERNS_7contextER10smt_params(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %this, ptr noundef nonnull align 8 dereferenceable(11616) %c, ptr noundef nonnull align 8 dereferenceable(800) %params) unnamed_addr #3 align 2 {
 entry:
   store ptr %c, ptr %this, align 8
   %m_manager = getelementptr inbounds i8, ptr %this, i64 8
@@ -332,7 +332,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt5setupclENS_11config_modeE(ptr noundef nonnull align 8 dereferenceable(33) initializes((32, 33)) %this, i32 noundef %cm) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt5setupclENS_11config_modeE(ptr noundef nonnull align 8 dereferenceable(33) %this, i32 noundef %cm) local_unnamed_addr #4 align 2 {
 entry:
   %m_already_configured = getelementptr inbounds i8, ptr %this, i64 32
   store i8 1, ptr %m_already_configured, align 8

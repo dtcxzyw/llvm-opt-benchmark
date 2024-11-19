@@ -15077,7 +15077,7 @@ define dso_local void @_ZN4llvm21DominatorTreeAnalysis3runERNS_8FunctionERNS_15A
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm24DominatorTreePrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm24DominatorTreePrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -15219,7 +15219,7 @@ define dso_local void @_ZN4llvm25DominatorTreeVerifierPass3runERNS_8FunctionERNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm24DominatorTreeWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 28)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm24DominatorTreeWrapperPassC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.359, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15321,7 +15321,7 @@ define internal noundef nonnull ptr @_ZL42initializeDominatorTreeWrapperPassPass
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm24DominatorTreeWrapperPass13runOnFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(160) initializes((136, 144), (152, 156)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm24DominatorTreeWrapperPass13runOnFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store ptr %1, ptr %4, align 8

@@ -3768,7 +3768,7 @@ declare i32 @guid_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @proto_tree_add_string_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef initializes((0, 48)) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @parse_CBaseStorageVariant(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %4, i8 0, i64 48, i1 false)
   %8 = load i32, ptr @ett_CBaseStorageVariant, align 4
@@ -4181,7 +4181,7 @@ define internal void @vvalue_strbuf_append_null(ptr nocapture readnone %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vvalue_tvb_get2(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 2)) %2) #0 {
+define internal noundef i32 @vvalue_tvb_get2(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %1) #10
   store i16 %4, ptr %2, align 2
   ret i32 2
@@ -4196,7 +4196,7 @@ define internal void @vvalue_strbuf_append_i2(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vvalue_tvb_get4(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal noundef i32 @vvalue_tvb_get4(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
   store i32 %4, ptr %2, align 4
   ret i32 4
@@ -4218,7 +4218,7 @@ define internal void @vvalue_strbuf_append_r4(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vvalue_tvb_get8(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #0 {
+define internal noundef i32 @vvalue_tvb_get8(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = tail call i64 @tvb_get_letoh64(ptr noundef %0, i32 noundef %1) #10
   store i64 %4, ptr %2, align 8
   ret i32 8
@@ -4239,7 +4239,7 @@ define internal void @vvalue_strbuf_append_i8(ptr noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vvalue_tvb_lpwstr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #0 {
+define internal i32 @vvalue_tvb_lpwstr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -4256,7 +4256,7 @@ define internal i32 @vvalue_tvb_lpwstr(ptr noundef %0, i32 noundef %1, ptr nocap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vvalue_tvb_lpwstr_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
+define internal i32 @vvalue_tvb_lpwstr_len(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca i32, align 4
   %6 = icmp eq i32 %2, 0
   %7 = tail call ptr @wmem_packet_scope() #10
@@ -4319,7 +4319,7 @@ define internal void @vvalue_strbuf_append_bool(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @vvalue_tvb_get1(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #0 {
+define internal noundef i32 @vvalue_tvb_get1(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %1) #10
   store i8 %4, ptr %2, align 1
   ret i32 1
@@ -4357,7 +4357,7 @@ define internal void @vvalue_strbuf_append_ui8(ptr noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vvalue_tvb_lpstr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #0 {
+define internal i32 @vvalue_tvb_lpstr(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -4372,7 +4372,7 @@ define internal i32 @vvalue_tvb_lpstr(ptr noundef %0, i32 noundef %1, ptr nocapt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @vvalue_tvb_blob(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 12)) %2) #0 {
+define internal i32 @vvalue_tvb_blob(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %1) #10
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 %4, ptr %5, align 8
@@ -4788,7 +4788,7 @@ parse_rType.exit:                                 ; preds = %7, %7, %7, %7, %7, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_CNodeRestriction(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef initializes((0, 4)) %5, ptr nocapture readnone %6, ...) unnamed_addr #0 {
+define internal noundef i32 @parse_CNodeRestriction(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr nocapture readnone %6, ...) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [1 x %struct.__va_list_tag], align 16
   %10 = alloca %struct.CRestriction, align 8
@@ -4912,7 +4912,7 @@ parse_relop.exit:                                 ; preds = %19, %22, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_CCoercionRestriction(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef initializes((0, 4)) %5, ptr nocapture readnone %6, ...) unnamed_addr #0 {
+define internal noundef i32 @parse_CCoercionRestriction(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr nocapture readnone %6, ...) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %9)
@@ -4985,7 +4985,7 @@ define internal noundef i32 @parse_CContentRestriction(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_CReuseWhere(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture readnone %5, ...) unnamed_addr #0 {
+define internal noundef i32 @parse_CReuseWhere(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5, ...) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %8)
@@ -5914,7 +5914,7 @@ define internal noundef i32 @parse_RowsBufferCol(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_VariantCol(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %4, i32 range(i32 -65535, 65536) %5, i32 noundef %6, ptr noundef nonnull initializes((0, 2)) %7, ptr nocapture readnone %8, ...) unnamed_addr #0 {
+define internal void @parse_VariantCol(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i64 noundef range(i64 0, 4294967296) %4, i32 range(i32 -65535, 65536) %5, i32 noundef %6, ptr noundef nonnull %7, ptr nocapture readnone %8, ...) unnamed_addr #0 {
   %10 = alloca %union.vt_single, align 8
   %11 = alloca ptr, align 8
   %12 = alloca [1 x %struct.__va_list_tag], align 16

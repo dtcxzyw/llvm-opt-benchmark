@@ -309,7 +309,7 @@ drange_str_to_gint32.exit.thread:                 ; preds = %19, %13, %94, %109,
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @drange_node_set_start_offset(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @drange_node_set_start_offset(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
   store i32 %1, ptr %0, align 4
   ret void
 }
@@ -321,7 +321,7 @@ define hidden void @drange_node_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @drange_node_set_length(ptr nocapture noundef writeonly initializes((4, 8), (12, 16)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @drange_node_set_length(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -330,7 +330,7 @@ define hidden void @drange_node_set_length(ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @drange_node_set_end_offset(ptr nocapture noundef writeonly initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden void @drange_node_set_end_offset(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -339,7 +339,7 @@ define hidden void @drange_node_set_end_offset(ptr nocapture noundef writeonly i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @drange_node_set_to_the_end(ptr nocapture noundef writeonly initializes((12, 16)) %0) local_unnamed_addr #3 {
+define hidden void @drange_node_set_to_the_end(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 3, ptr %2, align 4
   ret void

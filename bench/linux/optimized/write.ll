@@ -5835,7 +5835,7 @@ define internal void @nfs_writeback_result(ptr noundef %0, ptr noundef %1) #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs_initiate_write(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((66, 67)) %3, i32 noundef %4) #0 align 16 {
+define internal void @nfs_initiate_write(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
   %6 = and i32 %4, 24
   %7 = icmp eq i32 %6, 8
   %8 = icmp eq i32 %6, 16

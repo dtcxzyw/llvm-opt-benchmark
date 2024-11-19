@@ -507,7 +507,7 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #6
 declare i32 @isxdigit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cvtest8BaseTestC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cvtest8BaseTestC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6cvtest8BaseTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #36
@@ -559,7 +559,7 @@ define hidden noundef nonnull ptr @_ZN6cvtest2TS3ptrEv() local_unnamed_addr #7 a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cvtest8BaseTestD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cvtest8BaseTestD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6cvtest8BaseTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #36
@@ -579,7 +579,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cvtest8BaseTestD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cvtest8BaseTestD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6cvtest8BaseTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #36
@@ -1387,7 +1387,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr nou
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_(ptr noundef nonnull align 8 dereferenceable(8)) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cvtest10BadArgTestC2Ev(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cvtest10BadArgTestC2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6cvtest8BaseTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #36
@@ -1418,7 +1418,7 @@ _ZN6cvtest8BaseTestC2Ev.exit:                     ; preds = %1, %5, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cvtest10BadArgTestD2Ev(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cvtest10BadArgTestD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN6cvtest8BaseTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #36
@@ -1551,7 +1551,7 @@ switch.early.test:                                ; preds = %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6cvtest8TSParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 9), (16, 24)) %0) unnamed_addr #22 align 2 {
+define hidden void @_ZN6cvtest8TSParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #22 align 2 {
   store i64 -1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %2, align 8
@@ -1561,7 +1561,7 @@ define hidden void @_ZN6cvtest8TSParamsC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6cvtest8TestInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 12), (16, 36)) %0) unnamed_addr #22 align 2 {
+define hidden void @_ZN6cvtest8TestInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0) unnamed_addr #22 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -1573,7 +1573,7 @@ define hidden void @_ZN6cvtest8TestInfoC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cvtest2TSC2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 68), (72, 92)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cvtest2TSC2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN6cvtest2TSE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1604,7 +1604,7 @@ define hidden void @_ZN6cvtest2TSC2Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cvtest2TSD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cvtest2TSD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN6cvtest2TSE, i64 16), ptr %0, align 8
   br label %2
 
@@ -1679,7 +1679,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cvtest2TSD0Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define hidden void @_ZN6cvtest2TSD0Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN6cvtest2TSD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) #36
   tail call void @_ZdlPv(ptr noundef nonnull %0) #39
   ret void

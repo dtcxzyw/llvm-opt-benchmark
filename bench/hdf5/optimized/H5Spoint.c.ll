@@ -100,7 +100,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.45 = private unnamed_addr constant [24 x i8] c"can't release selection\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5S__point_copy(ptr nocapture noundef writeonly initializes((360, 368)) %0, ptr nocapture noundef readonly %1, i1 zeroext %2) #0 {
+define internal range(i32 -1, 1) i32 @H5S__point_copy(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i1 zeroext %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 360
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 56
@@ -1241,7 +1241,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_bounds(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5S__point_offset(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5S__point_offset(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   store i64 0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = load ptr, ptr %3, align 8
@@ -2024,7 +2024,7 @@ define internal range(i32 -1, 1) i32 @H5S__point_project_simple(ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5S__point_iter_init(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((552, 560)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5S__point_iter_init(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 544
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, 4098

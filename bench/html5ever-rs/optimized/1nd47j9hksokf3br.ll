@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.28dd728cb7565027754588209dbab502.18 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.28dd728cb7565027754588209dbab502.16, [8 x i8] c"\14\00\00\00\00\00\00\00", ptr @anon.28dd728cb7565027754588209dbab502.16, [8 x i8] c"\14\00\00\00\00\00\00\00", ptr @anon.28dd728cb7565027754588209dbab502.17, [8 x i8] c"\1E\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN78_$LT$html5ever..serialize..SerializeOpts$u20$as$u20$core..default..Default$GT$7default17h92b884102307175bE"(ptr noalias nocapture noundef writeonly sret({ { i64, [3 x i64] }, i8, i8, [6 x i8] }) align 8 dereferenceable(40) initializes((0, 16), (32, 34)) %0) unnamed_addr #0 {
+define void @"_ZN78_$LT$html5ever..serialize..SerializeOpts$u20$as$u20$core..default..Default$GT$7default17h92b884102307175bE"(ptr noalias nocapture noundef writeonly sret({ { i64, [3 x i64] }, i8, i8, [6 x i8] }) align 8 dereferenceable(40) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %2, align 8
   store i64 1, ptr %0, align 8

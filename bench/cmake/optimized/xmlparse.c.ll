@@ -5532,7 +5532,7 @@ handleUnknownEncoding.exit:                       ; preds = %8, %25, %27, %33, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 41) i32 @prologProcessor(ptr noundef initializes((520, 536)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 41) i32 @prologProcessor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -14458,7 +14458,7 @@ poolCopyString.exit.thread:                       ; preds = %63, %186, %.loopexi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 36) i32 @epilogProcessor(ptr noundef initializes((504, 512), (520, 536)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 36) i32 @epilogProcessor(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -16857,7 +16857,7 @@ define internal range(i32 0, 41) i32 @externalEntityInitProcessor2(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 41) i32 @externalEntityInitProcessor3(ptr noundef initializes((520, 536)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define internal range(i32 0, 41) i32 @externalEntityInitProcessor3(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = alloca ptr, align 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 520

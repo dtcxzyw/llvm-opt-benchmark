@@ -2923,14 +2923,14 @@ define internal noundef i32 @dissect_diameter_vendor_id(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dissect_diameter_subscription_id(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly initializes((40, 44)) %3) #2 {
+define internal noundef i32 @dissect_diameter_subscription_id(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #2 {
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   store i32 -1, ptr %5, align 8
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_diameter_subscription_id_type(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly initializes((40, 44)) %3) #0 {
+define internal noundef i32 @dissect_diameter_subscription_id_type(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #14
   %6 = getelementptr inbounds i8, ptr %3, i64 40
   store i32 %5, ptr %6, align 8
@@ -2962,14 +2962,14 @@ define internal noundef i32 @dissect_diameter_subscription_id_data(ptr noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @dissect_diameter_user_equipment_info(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly initializes((44, 48)) %3) #2 {
+define internal noundef i32 @dissect_diameter_user_equipment_info(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #2 {
   %5 = getelementptr inbounds i8, ptr %3, i64 44
   store i32 -1, ptr %5, align 4
   ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_diameter_user_equipment_info_type(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly initializes((44, 48)) %3) #0 {
+define internal noundef i32 @dissect_diameter_user_equipment_info_type(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #14
   %6 = getelementptr inbounds i8, ptr %3, i64 44
   store i32 %5, ptr %6, align 4
@@ -4556,7 +4556,7 @@ define internal ptr @utf8_avp(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @grouped_avp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef initializes((12, 16)) %3) #0 {
+define internal noalias noundef ptr @grouped_avp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %2) #14
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 28

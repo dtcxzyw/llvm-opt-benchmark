@@ -26,7 +26,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_readahead_ex
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_file_ra_state_init480, ptr @__UNIQUE_ID___addressable_page_cache_async_ra494, ptr @__UNIQUE_ID___addressable_page_cache_ra_unbounded482, ptr @__UNIQUE_ID___addressable_page_cache_sync_ra493, ptr @__UNIQUE_ID___addressable_readahead_expand495], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @file_ra_state_init(ptr nocapture noundef writeonly initializes((16, 20), (24, 32)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define dso_local void @file_ra_state_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call ptr @inode_to_bdi(ptr noundef %3) #6
   %5 = getelementptr inbounds i8, ptr %4, i64 48

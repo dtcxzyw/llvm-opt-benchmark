@@ -64,7 +64,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @cipher_hw_aes_xts_copyctx(ptr noundef initializes((0, 728)) %dst, ptr nocapture noundef readonly %src) #2 {
+define internal void @cipher_hw_aes_xts_copyctx(ptr noundef %dst, ptr nocapture noundef readonly %src) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(728) %dst, ptr noundef nonnull align 8 dereferenceable(728) %src, i64 728, i1 false)
   %ks1 = getelementptr inbounds i8, ptr %dst, i64 192

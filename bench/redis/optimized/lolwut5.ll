@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [4 x i8] c"txt\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @lwTranslatePixelsGroup(i32 noundef %byte, ptr nocapture noundef writeonly initializes((0, 3)) %output) local_unnamed_addr #0 {
+define dso_local void @lwTranslatePixelsGroup(i32 noundef %byte, ptr nocapture noundef writeonly %output) local_unnamed_addr #0 {
 entry:
   %add = add nsw i32 %byte, 10240
   %shr = lshr i32 %add, 12

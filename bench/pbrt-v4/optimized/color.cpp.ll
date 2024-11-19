@@ -1311,7 +1311,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write) uwtable
-define dso_local void @_ZN4pbrt18GammaColorEncodingC2Ef(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5124) initializes((0, 5124)) %this, float noundef %gamma) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4pbrt18GammaColorEncodingC2Ef(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5124) %this, float noundef %gamma) unnamed_addr #10 align 2 {
 entry:
   store float %gamma, ptr %this, align 4
   %applyLUT = getelementptr inbounds i8, ptr %this, i64 4

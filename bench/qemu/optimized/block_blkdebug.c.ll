@@ -1630,7 +1630,7 @@ declare zeroext i1 @qemu_opt_get_bool(ptr noundef, ptr noundef, i1 noundef zeroe
 declare void @qemu_mutex_unlock_impl(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -22, 1) i32 @blkdebug_parse_perm_list(ptr nocapture noundef initializes((0, 8)) %dest, ptr noundef %options, ptr noundef %prefix, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @blkdebug_parse_perm_list(ptr nocapture noundef %dest, ptr noundef %options, ptr noundef %prefix, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %subqdict = alloca ptr, align 8
   %perm_list = alloca ptr, align 8

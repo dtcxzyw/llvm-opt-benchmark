@@ -571,7 +571,7 @@ declare void @archive_entry_set_gname(ptr noundef, ptr noundef) local_unnamed_ad
 declare void @archive_entry_set_pathname(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -25, 1) i32 @archive_format_gnutar_header(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 512)) %1, ptr noundef %2, i32 noundef range(i32 48, 77) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -25, 1) i32 @archive_format_gnutar_header(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr noundef %2, i32 noundef range(i32 48, 77) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(512) %1, ptr noundef nonnull align 16 dereferenceable(512) @template_header, i64 512, i1 false)

@@ -2792,7 +2792,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEaSE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN7glslang13TParseContext20setPrecisionDefaultsEv(ptr nocapture noundef nonnull align 8 dereferenceable(30232) initializes((1376, 1472), (1904, 29552)) %0) local_unnamed_addr #1 align 2 {
+define void @_ZN7glslang13TParseContext20setPrecisionDefaultsEv(ptr nocapture noundef nonnull align 8 dereferenceable(30232) %0) local_unnamed_addr #1 align 2 {
 .preheader25:
   %1 = getelementptr inbounds i8, ptr %0, i64 1376
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %1, i8 0, i64 96, i1 false)
@@ -2865,7 +2865,7 @@ define void @_ZN7glslang13TParseContext20setPrecisionDefaultsEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TParseContextD2Ev(ptr noundef nonnull align 8 dereferenceable(30232) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TParseContextD2Ev(ptr noundef nonnull align 8 dereferenceable(30232) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 632) (i8, ptr @_ZTVN7glslang13TParseContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 30008
   %3 = load ptr, ptr %2, align 8
@@ -3050,7 +3050,7 @@ define noundef range(i32 0, 9247) i32 @_ZN7glslang13TParseContext23computeSample
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TParseContext9setLimitsERK16TBuiltInResource(ptr nocapture noundef nonnull align 8 dereferenceable(30232) initializes((1472, 1892), (30008, 30017)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(420) %1) unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TParseContext9setLimitsERK16TBuiltInResource(ptr nocapture noundef nonnull align 8 dereferenceable(30232) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(420) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1472
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(420) %3, ptr noundef nonnull align 4 dereferenceable(420) %1, i64 420, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -3135,7 +3135,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN7glslang13TParseContext18parseShaderStringsERNS_10TPpContextERNS_13TInputScannerEb(ptr noundef nonnull align 8 dereferenceable(30232) initializes((216, 224)) %0, ptr noundef nonnull align 8 dereferenceable(969) %1, ptr noundef nonnull align 8 dereferenceable(90) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7glslang13TParseContext18parseShaderStringsERNS_10TPpContextERNS_13TInputScannerEb(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(969) %1, ptr noundef nonnull align 8 dereferenceable(90) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %2, ptr %5, align 8
   tail call void @_ZN7glslang10TPpContext8setInputERNS_13TInputScannerEb(ptr noundef nonnull align 8 dereferenceable(969) %1, ptr noundef nonnull align 8 dereferenceable(90) %2, i1 noundef zeroext %3) #22
@@ -38537,7 +38537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang13TParseContext14arraySizeCheckERKNS_10TSourceLocEPNS_12TIntermTypedERNS_10TArraySizeEPKcb(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
+define void @_ZN7glslang13TParseContext14arraySizeCheckERKNS_10TSourceLocEPNS_12TIntermTypedERNS_10TArraySizeEPKcb(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %7, align 8
   %8 = load ptr, ptr %2, align 8

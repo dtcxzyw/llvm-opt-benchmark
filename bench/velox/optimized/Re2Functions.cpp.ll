@@ -39327,7 +39327,7 @@ declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116likePatternToRe2B5cxx11ENS0_10StringViewESt8optionalIcERb(ptr noalias nonnull align 8 %agg.result, i64 %pattern.coerce0, ptr %pattern.coerce1, i16 %escapeChar.coerce, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %validPattern) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox9functions12_GLOBAL__N_116likePatternToRe2B5cxx11ENS0_10StringViewESt8optionalIcERb(ptr noalias nonnull align 8 %agg.result, i64 %pattern.coerce0, ptr %pattern.coerce1, i16 %escapeChar.coerce, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %validPattern) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %pattern = alloca %"struct.facebook::velox::StringView", align 8
   %escapeChar.coerce.fr = freeze i16 %escapeChar.coerce

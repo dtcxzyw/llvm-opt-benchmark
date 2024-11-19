@@ -398,7 +398,7 @@ define hidden void @_ZNK8rawspeed10DngOpcodes17DeltaRowOrColBase6anchorEv(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed10DngOpcodesC2ERKNS_8RawImageENS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr nocapture noundef readonly byval(%"class.rawspeed::ByteStream") align 8 %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rawspeed::iRectangle2D", align 8
   %5 = alloca %"class.rawspeed::ByteStream", align 8
   %6 = alloca %"class.std::unique_ptr", align 8
@@ -1093,7 +1093,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8rawspeed10DngOpcodes3MapEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.rawspeed::Optional") align 8 initializes((16, 17)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed10DngOpcodes3MapEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.rawspeed::Optional") align 8 %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = add i32 %1, -1
   %4 = icmp ult i32 %3, 13
   br i1 %4, label %5, label %12

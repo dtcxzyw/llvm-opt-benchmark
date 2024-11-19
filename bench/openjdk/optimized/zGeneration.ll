@@ -660,7 +660,7 @@ declare void @_Z16ZStatUnitThreads15LogTargetHandleRK12ZStatSamplerRK19ZStatSamp
 declare void @_ZN12ZStatSamplerC1EPKcS1_PFv15LogTargetHandleRKS_RK19ZStatSamplerHistoryE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZGenerationC2E13ZGenerationIdP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6592) initializes((0, 9), (16, 40)) %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZGenerationC2E13ZGenerationIdP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6592) %0, i8 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV11ZGeneration, i64 16), ptr %0, align 64
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 %1, ptr %5, align 8
@@ -1585,7 +1585,7 @@ _ZN27ZRelocationSetSelectorGroupD2Ev.exit16:      ; preds = %_ZN18GrowableArrayC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11ZGeneration32relocation_set_parallel_iteratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ZRelocationSetIteratorImpl.23) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 64 dereferenceable(6592) %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN11ZGeneration32relocation_set_parallel_iteratorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.ZRelocationSetIteratorImpl.23) align 8 %0, ptr nocapture noundef nonnull readonly align 64 dereferenceable(6592) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 3104
   %4 = load ptr, ptr %3, align 32
   %5 = getelementptr inbounds i8, ptr %1, i64 3112
@@ -1737,14 +1737,14 @@ define hidden noundef ptr @_ZNK11ZGeneration8gc_timerEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11ZGeneration12set_gc_timerEP17ConcurrentGCTimer(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(6592) initializes((6584, 6592)) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN11ZGeneration12set_gc_timerEP17ConcurrentGCTimer(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(6592) %0, ptr noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 6584
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11ZGeneration14clear_gc_timerEv(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(6592) initializes((6584, 6592)) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN11ZGeneration14clear_gc_timerEv(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(6592) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 6584
   store ptr null, ptr %2, align 8
   ret void
@@ -1860,7 +1860,7 @@ define hidden void @_ZN11ZGeneration9set_phaseENS_5PhaseE(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZGeneration19at_collection_startEP17ConcurrentGCTimer(ptr noundef nonnull align 64 dereferenceable(6592) initializes((6584, 6592)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZGeneration19at_collection_startEP17ConcurrentGCTimer(ptr noundef nonnull align 64 dereferenceable(6592) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.ZPageAllocatorStats, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 6584
   store ptr %1, ptr %4, align 8
@@ -1938,7 +1938,7 @@ define hidden void @_ZN16ZYoungTypeSetterD2Ev(ptr nocapture nonnull readnone ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZGenerationYoungC2EP10ZPageTablePK16ZForwardingTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6720) initializes((0, 9), (16, 40)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN16ZGenerationYoungC2EP10ZPageTablePK16ZForwardingTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6720) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   tail call void @_ZN11ZGenerationC2E13ZGenerationIdP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6592) %0, i8 noundef zeroext 0, ptr noundef %1, ptr noundef %3)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV16ZGenerationYoung, i64 16), ptr %0, align 64
   %5 = getelementptr inbounds i8, ptr %0, i64 6592
@@ -3137,7 +3137,7 @@ declare void @_ZN9ZStatHeap11at_mark_endERK19ZPageAllocatorStats(ptr noundef non
 declare void @_ZN11JvmtiTagMap18set_needs_cleaningEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ZGenerationYoung14relocate_startEv(ptr noundef nonnull align 64 dereferenceable(6720) initializes((3216, 3220)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ZGenerationYoung14relocate_startEv(ptr noundef nonnull align 64 dereferenceable(6720) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.ZPageAllocatorStats, align 8
   tail call void @_ZN16ZGlobalsPointers25flip_young_relocate_startEv() #17
   %3 = tail call noundef ptr @_ZN11ZBarrierSet9assemblerEv() #17
@@ -3251,7 +3251,7 @@ define hidden noundef nonnull ptr @_ZN16ZGenerationYoung10jfr_tracerEv(ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ZGenerationOldC2EP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6720) initializes((0, 9), (16, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14ZGenerationOldC2EP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6720) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   tail call void @_ZN11ZGenerationC2E13ZGenerationIdP10ZPageTableP14ZPageAllocator(ptr noundef nonnull align 64 dereferenceable(6592) %0, i8 noundef zeroext 1, ptr noundef %1, ptr noundef %2)
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14ZGenerationOld, i64 16), ptr %0, align 64
   %4 = getelementptr inbounds i8, ptr %0, i64 6592

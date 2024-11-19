@@ -175,7 +175,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm29createAArch64SIMDInstrOptPassEv(
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_119AArch64SIMDInstrOptC2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 28), (32, 56), (72, 264)) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_119AArch64SIMDInstrOptC2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = alloca [14 x %"struct.(anonymous namespace)::AArch64SIMDInstrOpt::InstReplInfo"], align 8
@@ -568,7 +568,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119AArch64SIMDInstrOptD2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119AArch64SIMDInstrOptD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_119AArch64SIMDInstrOptE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load ptr, ptr %2, align 8
@@ -672,7 +672,7 @@ _ZN4llvm16TargetSchedModelD2Ev.exit:              ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119AArch64SIMDInstrOptD0Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_119AArch64SIMDInstrOptD0Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_119AArch64SIMDInstrOptD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) #15
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 480) #18
   ret void

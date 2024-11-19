@@ -173,7 +173,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer10model_nodeC2EPS0_PNS_3pobE(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 49)) %this, ptr noundef %parent, ptr noundef %pob) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6spacer10model_nodeC2EPS0_PNS_3pobE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %parent, ptr noundef %pob) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %pob, ptr %this, align 8
   %tobool.not.i.i = icmp ne ptr %pob, null
@@ -400,7 +400,7 @@ terminate.lpad:                                   ; preds = %if.then.i1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN6spacer10model_node8set_openEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((48, 49)) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6spacer10model_node8set_openEv(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_closed = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %m_closed, align 8

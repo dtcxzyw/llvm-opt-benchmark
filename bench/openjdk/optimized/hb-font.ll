@@ -194,19 +194,19 @@ $_ZN21hb_sanitize_context_t9_dispatchIN2OT8OffsetToINS1_7VarDataENS1_7IntTypeIjL
 @_hb_CrapPool = external global [80 x i64], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL30hb_font_get_font_h_extents_nilP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 48)) %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_ZL30hb_font_get_font_h_extents_nilP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL30hb_font_get_font_v_extents_nilP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 48)) %2, ptr nocapture readnone %3) #0 {
+define internal noundef i32 @_ZL30hb_font_get_font_v_extents_nilP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL29hb_font_get_nominal_glyph_nilP9hb_font_tPvjPjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture readnone %4) #0 {
+define internal noundef i32 @_ZL29hb_font_get_nominal_glyph_nilP9hb_font_tPvjPjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #0 {
   store i32 0, ptr %3, align 4
   ret i32 0
 }
@@ -294,7 +294,7 @@ _ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit:  ; preds = %34, %45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL31hb_font_get_variation_glyph_nilP9hb_font_tPvjjPjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @_ZL31hb_font_get_variation_glyph_nilP9hb_font_tPvjjPjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #0 {
   store i32 0, ptr %4, align 4
   ret i32 0
 }
@@ -544,14 +544,14 @@ _ZN9hb_font_t23parent_scale_y_distanceEi.exit:    ; preds = %50, %53, %57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL30hb_font_get_glyph_h_origin_nilP9hb_font_tPvjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @_ZL30hb_font_get_glyph_h_origin_nilP9hb_font_tPvjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #0 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
   ret i32 1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL30hb_font_get_glyph_v_origin_nilP9hb_font_tPvjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @_ZL30hb_font_get_glyph_v_origin_nilP9hb_font_tPvjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #0 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
   ret i32 0
@@ -568,13 +568,13 @@ define internal noundef i32 @_ZL31hb_font_get_glyph_v_kerning_nilP9hb_font_tPvjj
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL29hb_font_get_glyph_extents_nilP9hb_font_tPvjP18hb_glyph_extents_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly initializes((0, 16)) %3, ptr nocapture readnone %4) #0 {
+define internal noundef i32 @_ZL29hb_font_get_glyph_extents_nilP9hb_font_tPvjP18hb_glyph_extents_tS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, ptr nocapture noundef writeonly %3, ptr nocapture readnone %4) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL35hb_font_get_glyph_contour_point_nilP9hb_font_tPvjjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr nocapture readnone %6) #0 {
+define internal noundef i32 @_ZL35hb_font_get_glyph_contour_point_nilP9hb_font_tPvjjPiS2_S1_(ptr nocapture readnone %0, ptr nocapture readnone %1, i32 %2, i32 %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture readnone %6) #0 {
   store i32 0, ptr %5, align 4
   store i32 0, ptr %4, align 4
   ret i32 0
@@ -594,7 +594,7 @@ define internal noundef i32 @_ZL26hb_font_get_glyph_name_nilP9hb_font_tPvjPcjS1_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL31hb_font_get_glyph_from_name_nilP9hb_font_tPvPKciPjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @_ZL31hb_font_get_glyph_from_name_nilP9hb_font_tPvPKciPjS1_(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, i32 %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #0 {
   store i32 0, ptr %4, align 4
   ret i32 0
 }
@@ -1419,7 +1419,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL34hb_font_get_font_h_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef initializes((0, 48)) %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @_ZL34hb_font_get_font_h_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -1653,7 +1653,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL34hb_font_get_font_v_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef initializes((0, 48)) %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @_ZL34hb_font_get_font_v_extents_defaultP9hb_font_tPvP17hb_font_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, ptr nocapture readnone %3) #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -2196,7 +2196,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL35hb_font_get_variation_glyph_defaultP9hb_font_tPvjjPjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
+define internal noundef i32 @_ZL35hb_font_get_variation_glyph_defaultP9hb_font_tPvjjPjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture readnone %5) #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
@@ -3003,7 +3003,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL34hb_font_get_glyph_h_origin_defaultP9hb_font_tPvjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
+define internal noundef i32 @_ZL34hb_font_get_glyph_h_origin_defaultP9hb_font_tPvjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
@@ -3212,7 +3212,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL34hb_font_get_glyph_v_origin_defaultP9hb_font_tPvjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
+define internal noundef i32 @_ZL34hb_font_get_glyph_v_origin_defaultP9hb_font_tPvjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture readnone %5) #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
@@ -3767,7 +3767,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL33hb_font_get_glyph_extents_defaultP9hb_font_tPvjP18hb_glyph_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef initializes((0, 16)) %3, ptr nocapture readnone %4) #1 {
+define internal noundef i32 @_ZL33hb_font_get_glyph_extents_defaultP9hb_font_tPvjP18hb_glyph_extents_tS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, ptr noundef %3, ptr nocapture readnone %4) #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -4028,7 +4028,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL39hb_font_get_glyph_contour_point_defaultP9hb_font_tPvjjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef initializes((0, 4)) %5, ptr nocapture readnone %6) #1 {
+define internal noundef i32 @_ZL39hb_font_get_glyph_contour_point_defaultP9hb_font_tPvjjPiS2_S1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture readnone %6) #1 {
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   store i32 0, ptr %5, align 4
@@ -4395,7 +4395,7 @@ _ZL27_hb_font_funcs_set_preambleP15hb_font_funcs_tbPPvPPFvS1_E.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZL35hb_font_get_glyph_from_name_defaultP9hb_font_tPvPKciPjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr nocapture readnone %5) #1 {
+define internal noundef i32 @_ZL35hb_font_get_glyph_from_name_defaultP9hb_font_tPvPKciPjS1_(ptr nocapture noundef readonly %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture readnone %5) #1 {
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   store i32 0, ptr %4, align 4
@@ -4896,7 +4896,7 @@ tailrecurse:                                      ; preds = %11, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_h_extents(ptr noundef %0, ptr noundef initializes((0, 48)) %1) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_h_extents(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %1, i8 0, i64 48, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -4920,7 +4920,7 @@ _ZN9hb_font_t18get_font_h_extentsEP17hb_font_extents_t.exit: ; preds = %2, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_v_extents(ptr noundef %0, ptr noundef initializes((0, 48)) %1) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_v_extents(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %1, i8 0, i64 48, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8
@@ -4945,7 +4945,7 @@ _ZN9hb_font_t18get_font_v_extentsEP17hb_font_extents_t.exit: ; preds = %2, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_glyph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_glyph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %.not = icmp eq i32 %2, 0
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 144
@@ -4993,7 +4993,7 @@ _ZN9hb_font_t17get_nominal_glyphEjPjj.exit:       ; preds = %19, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_nominal_glyph(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_nominal_glyph(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   store i32 0, ptr %2, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -5042,7 +5042,7 @@ _ZN9hb_font_t18get_nominal_glyphsEjPKjjPjj.exit:  ; preds = %6, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_variation_glyph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_variation_glyph(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
@@ -5163,7 +5163,7 @@ _ZN9hb_font_t20get_glyph_v_advancesEjPKjjPij.exit: ; preds = %6, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_glyph_h_origin(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_glyph_h_origin(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 144
@@ -5189,7 +5189,7 @@ _ZN9hb_font_t18get_glyph_h_originEjPiS0_.exit:    ; preds = %4, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_glyph_v_origin(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_glyph_v_origin(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 144
@@ -5263,7 +5263,7 @@ _ZN9hb_font_t19get_glyph_v_kerningEjj.exit:       ; preds = %3, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_glyph_extents(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 16)) %2) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_glyph_extents(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8
@@ -5288,7 +5288,7 @@ _ZN9hb_font_t17get_glyph_extentsEjP18hb_glyph_extents_t.exit: ; preds = %3, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_glyph_contour_point(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3, ptr noundef initializes((0, 4)) %4) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_glyph_contour_point(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 144
@@ -5346,7 +5346,7 @@ _ZN9hb_font_t14get_glyph_nameEjPcj.exit:          ; preds = %6, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_glyph_from_name(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_glyph_from_name(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   store i32 0, ptr %3, align 4
   %5 = icmp eq i32 %2, -1
   br i1 %5, label %6, label %9
@@ -5453,7 +5453,7 @@ _ZN9hb_font_t11paint_glyphEjP16hb_paint_funcs_tPvjj.exit: ; preds = %6, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_get_extents_for_direction(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 48)) %2) local_unnamed_addr #1 {
+define hidden void @hb_font_get_extents_for_direction(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = and i32 %1, -2
   %5 = icmp eq i32 %4, 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -5530,7 +5530,7 @@ _ZN9hb_font_t25get_extents_for_directionE14hb_direction_tP17hb_font_extents_t.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_get_glyph_advance_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #1 {
+define hidden void @hb_font_get_glyph_advance_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
   %6 = and i32 %2, -2
@@ -5710,7 +5710,7 @@ _ZN9hb_font_t35subtract_glyph_origin_for_directionEj14hb_direction_tPiS1_.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_font_get_glyph_kerning_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #1 {
+define hidden void @hb_font_get_glyph_kerning_for_direction(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = and i32 %3, -2
   %8 = icmp eq i32 %7, 4
   %9 = getelementptr inbounds i8, ptr %0, i64 144
@@ -5766,7 +5766,7 @@ _ZN9hb_font_t31get_glyph_kerning_for_directionEjj14hb_direction_tPiS1_.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_glyph_extents_for_origin(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 16)) %3) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_glyph_extents_for_origin(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -5826,7 +5826,7 @@ _ZN9hb_font_t28get_glyph_extents_for_originEj14hb_direction_tP18hb_glyph_extents
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_font_get_glyph_contour_point_for_origin(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef initializes((0, 4)) %4, ptr noundef initializes((0, 4)) %5) local_unnamed_addr #1 {
+define hidden noundef i32 @hb_font_get_glyph_contour_point_for_origin(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   store i32 0, ptr %5, align 4

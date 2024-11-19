@@ -111,7 +111,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN26GeneratorExpressionContentC2EPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN26GeneratorExpressionContentC2EPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV26GeneratorExpressionContent, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -123,7 +123,7 @@ define dso_local void @_ZN26GeneratorExpressionContentC2EPKcm(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN26GeneratorExpressionContentD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN26GeneratorExpressionContentD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV26GeneratorExpressionContent, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -235,7 +235,7 @@ _ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN26GeneratorExpressionContentD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN26GeneratorExpressionContentD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN26GeneratorExpressionContentD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void

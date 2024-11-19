@@ -288,7 +288,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi3wip15QueueSourceBaseC2ERKNS_4util7variantIJNS3_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3wip15QueueSourceBaseC2ERKNS_4util7variantIJNS3_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN2cv4gapi3wip15QueueSourceBaseE, i64 16), ptr %0, align 8
@@ -1045,7 +1045,7 @@ _ZN2cv4util7variantIJNS_4UMatENS_4RMatESt10shared_ptrINS_4gapi3wip13IStreamSourc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv4gapi3wip15QueueSourceBase8descr_ofEv(ptr dead_on_unwind noalias writable sret(%"class.cv::util::variant") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 {
+define void @_ZNK2cv4gapi3wip15QueueSourceBase8descr_ofEv(ptr dead_on_unwind noalias writable sret(%"class.cv::util::variant") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %4, align 8
@@ -1059,7 +1059,7 @@ define void @_ZNK2cv4gapi3wip15QueueSourceBase8descr_ofEv(ptr dead_on_unwind noa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi3wip10QueueInputC2ERKSt6vectorINS_4util7variantIJNS4_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3wip10QueueInputC2ERKSt6vectorINS_4util7variantIJNS4_9monostateENS_8GMatDescENS_11GScalarDescENS_10GArrayDescENS_11GOpaqueDescENS_10GFrameDescEEEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %1, align 8
@@ -1457,7 +1457,7 @@ _ZN2cv7GRunArgD2Ev.exit:                          ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4gapi3wip10QueueInputcvSt6vectorINS_7GRunArgESaIS4_EEEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.22") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3wip10QueueInputcvSt6vectorINS_7GRunArgESaIS4_EEEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.22") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::__detail::_AllocNode", align 8
   %4 = alloca %"struct.cv::GRunArg", align 8
   %5 = alloca %"class.std::shared_ptr.40", align 8

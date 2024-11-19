@@ -366,7 +366,7 @@ define range(i32 -1, 1) i32 @ADIOI_cb_gather_name_array(ptr noundef %0, ptr noun
 declare i32 @PMPI_Keyval_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ADIOI_cb_copy_name_array(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #3 {
+define noundef i32 @ADIOI_cb_copy_name_array(ptr nocapture readnone %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #3 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %7
 

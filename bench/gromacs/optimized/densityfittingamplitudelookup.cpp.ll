@@ -42,7 +42,7 @@ $_ZTIN3gmx33DensityFittingAmplitudeLookupImplE = comdat any
 @_ZN3gmx29DensityFittingAmplitudeLookupC1EOS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN3gmx29DensityFittingAmplitudeLookupC2EOS0_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx29DensityFittingAmplitudeLookupC2ERKNS_29DensityFittingAmplitudeMethodE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx29DensityFittingAmplitudeLookupC2ERKNS_29DensityFittingAmplitudeMethodE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = load i32, ptr %1, align 4
   switch i32 %3, label %12 [
@@ -946,7 +946,7 @@ _ZNSt10unique_ptrIN3gmx33DensityFittingAmplitudeLookupImplESt14default_deleteIS1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx29DensityFittingAmplitudeLookupC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #7 align 2 {
+define void @_ZN3gmx29DensityFittingAmplitudeLookupC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #7 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8

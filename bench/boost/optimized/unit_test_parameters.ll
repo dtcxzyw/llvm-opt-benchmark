@@ -17875,7 +17875,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %1, %4, %.noexc.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEES9_RKT_(ptr noundef nonnull align 8 dereferenceable(235) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEES9_RKT_(ptr noundef nonnull align 8 dereferenceable(235) %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -18700,7 +18700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_IKbNSB_15default_value_tERSF_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEEEES9_RKT_(ptr noundef nonnull align 8 dereferenceable(235) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_IKbNSB_15default_value_tERSF_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEEEES9_RKT_(ptr noundef nonnull align 8 dereferenceable(235) %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -19277,7 +19277,7 @@ _ZN5boost3nfp3nil4instEv.exit.i.i.i.i7.i:         ; preds = %212, %210, %207
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost7runtime14enum_parameterINS_9unit_test13output_formatELNS0_11args_amountE0EEC2INS_3nfp23named_parameter_combineINS7_15named_parameterIKNS2_13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSD_EENS8_INS9_IKSt16initializer_listISt4pairISD_S3_EENSE_13enum_values_tERSM_EENS8_INS9_IKS3_NSE_15default_value_tERSQ_EENS8_INS9_ISD_NSE_9env_var_tESG_EENS9_ISD_NSE_13description_tESG_EEEEEEEEEEEESC_RKT_(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost7runtime14enum_parameterINS_9unit_test13output_formatELNS0_11args_amountE0EEC2INS_3nfp23named_parameter_combineINS7_15named_parameterIKNS2_13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSD_EENS8_INS9_IKSt16initializer_listISt4pairISD_S3_EENSE_13enum_values_tERSM_EENS8_INS9_IKS3_NSE_15default_value_tERSQ_EENS8_INS9_ISD_NSE_9env_var_tESG_EENS9_ISD_NSE_13description_tESG_EEEEEEEEEEEESC_RKT_(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr %.0.val, ptr %.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -20026,7 +20026,7 @@ _ZNSt6vectorIN5boost9unit_test13basic_cstringIKcEESaIS4_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_113description_tERS9_EEEES8_RKT_(ptr noundef nonnull align 8 dereferenceable(235) initializes((0, 8)) %0, ptr %.0.val, ptr %.8.val, ptr nocapture readonly %.0.val1, i8 %.8.val3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost7runtime6optionC2INS_3nfp15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_113description_tERS9_EEEES8_RKT_(ptr noundef nonnull align 8 dereferenceable(235) %0, ptr %.0.val, ptr %.8.val, ptr nocapture readonly %.0.val1, i8 %.8.val3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %3 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
@@ -33939,7 +33939,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost6detail17sp_counted_impl_pINS_7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5boost7runtime11basic_paramC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_ISA_NSB_12value_hint_tESD_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEEEES9_bbRKT_(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5boost7runtime11basic_paramC2INS_3nfp23named_parameter_combineINS3_15named_parameterIKNS_9unit_test13basic_cstringIKcEENS0_12_GLOBAL__N_16help_tERSA_EENS4_INS5_ISA_NSB_12value_hint_tESD_EENS4_INS5_ISA_NSB_9env_var_tESD_EENS5_ISA_NSB_13description_tESD_EEEEEEEEEES9_bbRKT_(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef nonnull readonly %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %7 = alloca %"class.boost::unit_test::basic_cstring", align 8

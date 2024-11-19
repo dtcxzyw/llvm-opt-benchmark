@@ -48,7 +48,7 @@ $_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE = comdat any
 @.str.15 = private unnamed_addr constant [6 x i8] c"-Rno-\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21ProcessWarningOptionsERNS_17DiagnosticsEngineERKNS_17DiagnosticOptionsEb(ptr noundef nonnull align 8 dereferenceable(1304) initializes((7, 10), (12, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang21ProcessWarningOptionsERNS_17DiagnosticsEngineERKNS_17DiagnosticOptionsEb(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %"class.std::allocator.9", align 1
   %5 = alloca %"class.std::allocator.9", align 1
   %6 = alloca %"class.llvm::SmallVector.23", align 8
@@ -845,7 +845,7 @@ declare noundef zeroext i1 @_ZN5clang17DiagnosticsEngine32setDiagnosticGroupWarn
 declare noundef zeroext i1 @_ZNK5clang13DiagnosticIDs21getDiagnosticsInGroupENS_4diag6FlavorEN4llvm9StringRefERNS3_15SmallVectorImplIjEE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr, i64, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22EmitUnknownDiagWarningRN5clang17DiagnosticsEngineENS_4diag6FlavorEN4llvm9StringRefES5_(ptr noundef nonnull align 8 dereferenceable(1304) initializes((368, 376)) %0, i32 noundef range(i32 0, 2) %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 {
+define internal fastcc void @_ZL22EmitUnknownDiagWarningRN5clang17DiagnosticsEngineENS_4diag6FlavorEN4llvm9StringRefES5_(ptr noundef nonnull align 8 dereferenceable(1304) %0, i32 noundef range(i32 0, 2) %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 {
   %7 = alloca %"class.std::allocator.9", align 1
   %8 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %9 = alloca %"class.std::allocator.9", align 1

@@ -2360,7 +2360,7 @@ define internal fastcc noundef ptr @_ZN5YosysL6log_idINS_5RTLIL6ModuleEEEPKcPT_S
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110BtorWorkerC2ERSoPN5Yosys5RTLIL6ModuleEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(1272) initializes((0, 56), (64, 88)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef nonnull %7, ptr noundef nonnull %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_110BtorWorkerC2ERSoPN5Yosys5RTLIL6ModuleEbbbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_(ptr noundef nonnull align 8 dereferenceable(1272) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef nonnull %7, ptr noundef nonnull %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca [75 x i32], align 4
   %11 = alloca %"class.std::allocator.5", align 1
   %12 = alloca [75 x i32], align 4
@@ -20455,7 +20455,7 @@ _ZN6json114JsonD2Ev.exit:                         ; preds = %5, %24, %37, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL12witness_pathINS_5RTLIL4WireEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEPT_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL12witness_pathINS_5RTLIL4WireEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEPT_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::vector", align 8

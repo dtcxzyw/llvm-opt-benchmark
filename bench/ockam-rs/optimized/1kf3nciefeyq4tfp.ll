@@ -15927,7 +15927,7 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker17rendezvous_update17h8c65e95e144db1c8E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [1320 x i8], i8, [7 x i8] }) align 8 dereferenceable(1344) initializes((0, 16), (1336, 1337)) %0, ptr noalias noundef readonly align 8 dereferenceable(344) %1, ptr noalias noundef align 8 dereferenceable(240) %2) unnamed_addr #5 {
+define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker17rendezvous_update17h8c65e95e144db1c8E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [1320 x i8], i8, [7 x i8] }) align 8 dereferenceable(1344) %0, ptr noalias noundef readonly align 8 dereferenceable(344) %1, ptr noalias noundef align 8 dereferenceable(240) %2) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -15937,7 +15937,7 @@ define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker16rendezvous_query17h0841471310a7b015E(ptr noalias nocapture noundef writeonly sret({ [222 x i64], ptr, ptr, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(1800) initializes((1776, 1792), (1793, 1794)) %0, ptr noalias noundef readonly align 8 dereferenceable(344) %1, ptr noalias noundef align 8 dereferenceable(240) %2) unnamed_addr #5 {
+define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker16rendezvous_query17h0841471310a7b015E(ptr noalias nocapture noundef writeonly sret({ [222 x i64], ptr, ptr, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(1800) %0, ptr noalias noundef readonly align 8 dereferenceable(344) %1, ptr noalias noundef align 8 dereferenceable(240) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1776
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1784
@@ -20930,7 +20930,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr90drop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker20rendezvous_reachable17ha487a01b2965f809E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [1808 x i8], i8, [7 x i8] }) align 8 dereferenceable(1832) initializes((0, 16), (1824, 1825)) %0, ptr noalias noundef align 8 dereferenceable(240) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 {
+define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker20rendezvous_reachable17ha487a01b2965f809E(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [1808 x i8], i8, [7 x i8] }) align 8 dereferenceable(1832) %0, ptr noalias noundef align 8 dereferenceable(240) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -20940,7 +20940,7 @@ define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker6create17ha95053ff9cf6df06E(ptr noalias nocapture noundef writeonly sret({ [8 x i64], { { { ptr, i64 }, i64, i64 } }, [4 x i64], { ptr, i64 }, { ptr, i64 }, [2 x i64], ptr, ptr, [4 x i8], i8, [1971 x i8] }) align 8 dereferenceable(2168) initializes((64, 96), (128, 160), (176, 192), (196, 197)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7) unnamed_addr #6 {
+define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker6create17ha95053ff9cf6df06E(ptr noalias nocapture noundef writeonly sret({ [8 x i64], { { { ptr, i64 }, i64, i64 } }, [4 x i64], { ptr, i64 }, { ptr, i64 }, [2 x i64], ptr, ptr, [4 x i8], i8, [1971 x i8] }) align 8 dereferenceable(2168) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1, ptr noalias noundef readonly align 8 dereferenceable(32) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 1 %6, i64 noundef %7) unnamed_addr #6 {
   %9 = getelementptr inbounds i8, ptr %0, i64 176
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 184
@@ -20961,7 +20961,7 @@ define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker6c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker13set_hole_open17h8b02ebd309b37af0E(ptr noalias nocapture noundef writeonly sret({ [153 x i64], ptr, ptr, [2 x i8], i8, [5 x i8] }) align 8 dereferenceable(1248) initializes((1224, 1240), (1242, 1243)) %0, ptr noalias noundef align 8 dereferenceable(344) %1, ptr noalias noundef readonly align 8 dereferenceable(240) %2) unnamed_addr #5 {
+define void @_ZN19ockam_transport_udp12hole_puncher6worker18UdpHolePunchWorker13set_hole_open17h8b02ebd309b37af0E(ptr noalias nocapture noundef writeonly sret({ [153 x i64], ptr, ptr, [2 x i8], i8, [5 x i8] }) align 8 dereferenceable(1248) %0, ptr noalias noundef align 8 dereferenceable(344) %1, ptr noalias noundef readonly align 8 dereferenceable(240) %2) unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1224
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1232

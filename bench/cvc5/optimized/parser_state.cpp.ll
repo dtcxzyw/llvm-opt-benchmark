@@ -243,7 +243,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc56parser11ParserStateC2EPNS0_19ParserStateCallbackEPNS_6SolverEPNS0_10SymManagerEb(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 42)) %this, ptr noundef %psc, ptr noundef %solver, ptr noundef nonnull %sm, i1 noundef zeroext %strictMode) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc56parser11ParserStateC2EPNS0_19ParserStateCallbackEPNS_6SolverEPNS0_10SymManagerEb(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %psc, ptr noundef %solver, ptr noundef nonnull %sm, i1 noundef zeroext %strictMode) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.cvc5::OptionInfo", align 8
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -461,7 +461,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4cvc56parser11ParserStateD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc56parser11ParserStateD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc56parser11ParserStateE, i64 16), ptr %this, align 8
   %d_commandQueue = getelementptr inbounds i8, ptr %this, i64 144
@@ -1711,7 +1711,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i.i132,
 declare void @_ZNK4cvc56Solver5mkVarERKNS_4SortERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE(ptr sret(%"class.cvc5::Term") align 8, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc56parser11ParserState13bindBoundVarsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SortEESaISB_EE(ptr noalias sret(%"class.std::vector.110") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sortedVarNames) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc56parser11ParserState13bindBoundVarsERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_4SortEESaISB_EE(ptr noalias sret(%"class.std::vector.110") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %sortedVarNames) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::Term", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -1838,7 +1838,7 @@ _ZNSt12_Vector_baseIN4cvc54TermESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc56parser11ParserState13bindBoundVarsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKNS_4SortE(ptr noalias sret(%"class.std::vector.110") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %names, ptr noundef nonnull align 8 dereferenceable(24) %type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc56parser11ParserState13bindBoundVarsESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERKNS_4SortE(ptr noalias sret(%"class.std::vector.110") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %this, ptr nocapture noundef readonly %names, ptr noundef nonnull align 8 dereferenceable(24) %type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::Term", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)

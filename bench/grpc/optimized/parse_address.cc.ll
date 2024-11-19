@@ -150,7 +150,7 @@ declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) l
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core20UnixSockaddrPopulateESt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_address(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %path.coerce0, ptr nocapture readonly %path.coerce1, ptr nocapture noundef writeonly initializes((0, 132)) %resolved_addr) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core20UnixSockaddrPopulateESt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_address(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %path.coerce0, ptr nocapture readonly %path.coerce1, ptr nocapture noundef writeonly %resolved_addr) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -367,7 +367,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core28UnixAbstractSockaddrPopulateESt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_address(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %path.coerce0, ptr nocapture readonly %path.coerce1, ptr nocapture noundef writeonly initializes((0, 132)) %resolved_addr) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core28UnixAbstractSockaddrPopulateESt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_address(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %path.coerce0, ptr nocapture readonly %path.coerce1, ptr nocapture noundef writeonly %resolved_addr) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -609,7 +609,7 @@ return:                                           ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core17VSockaddrPopulateESt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_address(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %path.coerce0, ptr %path.coerce1, ptr noundef initializes((0, 132)) %resolved_addr) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core17VSockaddrPopulateESt17basic_string_viewIcSt11char_traitsIcEEP21grpc_resolved_address(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 %path.coerce0, ptr %path.coerce1, ptr noundef %resolved_addr) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %s = alloca %"class.std::__cxx11::basic_string", align 8

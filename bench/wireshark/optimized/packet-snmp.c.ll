@@ -1415,7 +1415,7 @@ define hidden void @proto_register_snmp() local_unnamed_addr #0 {
 declare void @enterprises_base_custom(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @snmp_users_engine_id_set_cb(ptr nocapture noundef initializes((104, 108)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @snmp_users_engine_id_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %9, label %6
 
@@ -1436,7 +1436,7 @@ define internal void @snmp_users_engine_id_set_cb(ptr nocapture noundef initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @snmp_users_engine_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @snmp_users_engine_id_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1473,7 +1473,7 @@ define internal void @snmp_users_userName_set_cb(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @snmp_users_userName_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @snmp_users_userName_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %13, label %7
@@ -1501,7 +1501,7 @@ define internal void @snmp_users_userName_tostr_cb(ptr nocapture noundef readonl
 declare zeroext i1 @uat_fld_chk_enum(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @snmp_users_auth_model_set_cb(ptr nocapture noundef writeonly initializes((112, 116)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @snmp_users_auth_model_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds i8, ptr %0, i64 112
@@ -1602,7 +1602,7 @@ define internal void @snmp_users_authPassword_set_cb(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @snmp_users_authPassword_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @snmp_users_authPassword_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1629,7 +1629,7 @@ define internal void @snmp_users_authPassword_tostr_cb(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @snmp_users_priv_proto_set_cb(ptr nocapture noundef writeonly initializes((116, 120)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
+define internal void @snmp_users_priv_proto_set_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #11
   %8 = getelementptr inbounds i8, ptr %0, i64 116
@@ -1730,7 +1730,7 @@ define internal void @snmp_users_privPassword_set_cb(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @snmp_users_privPassword_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @snmp_users_privPassword_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -1759,7 +1759,7 @@ define internal void @snmp_users_privPassword_tostr_cb(ptr nocapture noundef rea
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @snmp_users_copy_cb(ptr noundef returned writeonly initializes((0, 12), (16, 20), (24, 36), (40, 52), (56, 76), (80, 92), (104, 108), (112, 120)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @snmp_users_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 112
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 112
@@ -1885,7 +1885,7 @@ define internal noundef ptr @snmp_users_copy_cb(ptr noundef returned writeonly i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @snmp_users_update_cb(ptr noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef zeroext i1 @snmp_users_update_cb(ptr noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = tail call ptr @g_string_new(ptr noundef nonnull @.str.472) #11
   store ptr null, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2043,7 +2043,7 @@ define internal void @specific_traps_enterprise_set_cb(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @specific_traps_enterprise_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @specific_traps_enterprise_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -2080,7 +2080,7 @@ define internal void @specific_traps_trap_set_cb(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @specific_traps_trap_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @specific_traps_trap_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.489, i32 noundef %7) #11
@@ -2103,7 +2103,7 @@ define internal void @specific_traps_desc_set_cb(ptr nocapture noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @specific_traps_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @specific_traps_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -2129,7 +2129,7 @@ define internal void @specific_traps_desc_tostr_cb(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @snmp_specific_trap_copy_cb(ptr noundef returned writeonly initializes((0, 12), (16, 24)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @snmp_specific_trap_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #11
   store ptr %5, ptr %0, align 8
@@ -4651,7 +4651,7 @@ declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @set_ue_keys(ptr nocapture noundef initializes((40, 52)) %0) unnamed_addr #0 {
+define internal fastcc void @set_ue_keys(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = zext i32 %3 to i64

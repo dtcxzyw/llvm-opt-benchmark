@@ -313,7 +313,7 @@ declare void @repo_format_commit_message(ptr noundef, ptr noundef, ptr noundef, 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @shortlog_init(ptr noundef initializes((0, 240)) %log) local_unnamed_addr #0 {
+define dso_local void @shortlog_init(ptr noundef %log) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %log, i8 0, i64 240, i1 false)
   %mailmap = getelementptr inbounds i8, ptr %log, i64 192

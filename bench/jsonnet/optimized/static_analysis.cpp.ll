@@ -257,7 +257,7 @@ _ZNSt3setIPKN7jsonnet8internal10IdentifierESt4lessIS4_ESaIS4_EED2Ev.exit2: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7jsonnet8internalL15static_analysisEPNS0_3ASTEbRKSt3setIPKNS0_10IdentifierESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<const jsonnet::internal::Identifier *, const jsonnet::internal::Identifier *, std::_Identity<const jsonnet::internal::Identifier *>, std::less<const jsonnet::internal::Identifier *>>::_Alloc_node", align 8
   %6 = alloca %"struct.std::_Rb_tree<const jsonnet::internal::Identifier *, const jsonnet::internal::Identifier *, std::_Identity<const jsonnet::internal::Identifier *>, std::less<const jsonnet::internal::Identifier *>>::_Alloc_node", align 8
   %7 = alloca %"struct.std::_Rb_tree<const jsonnet::internal::Identifier *, const jsonnet::internal::Identifier *, std::_Identity<const jsonnet::internal::Identifier *>, std::less<const jsonnet::internal::Identifier *>>::_Alloc_node", align 8

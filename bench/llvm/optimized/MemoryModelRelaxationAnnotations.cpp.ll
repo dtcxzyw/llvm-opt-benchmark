@@ -35,7 +35,7 @@ $_ZN4llvm9StringMapIbNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairIN
 @_ZN4llvm12MMRAMetadataC1EPNS_6MDNodeE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm12MMRAMetadataC2EPNS_6MDNodeE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MMRAMetadataC2ERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12MMRAMetadataC2ERKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, 536870912
@@ -53,7 +53,7 @@ _ZNK4llvm11Instruction11getMetadataEj.exit:       ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MMRAMetadataC2EPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 20)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12MMRAMetadataC2EPNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3

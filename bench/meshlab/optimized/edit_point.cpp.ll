@@ -13122,7 +13122,7 @@ define linkonce_odr void @_ZN18MLPerViewGLOptionsD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditPointPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef nonnull align 8 dereferenceable(1416) initializes((40, 41), (76, 80), (1400, 1416)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %2, ptr noundef %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15EditPointPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef nonnull align 8 dereferenceable(1416) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %2, ptr noundef %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load double, ptr %5, align 8
   %7 = fcmp ult double %6, 0.000000e+00
@@ -13470,7 +13470,7 @@ _ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit30:   ; preds = %_ZNSt6vectorIP8CVer
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N15EditPointPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef initializes((24, 25), (60, 64), (1384, 1400)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %2, ptr noundef %3) unnamed_addr #16 align 2 {
+define void @_ZThn16_N15EditPointPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %2, ptr noundef %3) unnamed_addr #16 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15EditPointPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(1416) %5, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1288) %2, ptr noundef %3)
   ret void
@@ -15205,7 +15205,7 @@ _ZNK5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEELin1ELi1ELb0EEE
 declare float @llvm.fabs.f32(float) #18
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditPointPlugin17mouseReleaseEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1416) initializes((40, 41)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef nonnull %3) unnamed_addr #10 align 2 {
+define void @_ZN15EditPointPlugin17mouseReleaseEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1416) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef nonnull %3) unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %5, align 8
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
@@ -15213,7 +15213,7 @@ define void @_ZN15EditPointPlugin17mouseReleaseEventEP11QMouseEventR9MeshModelP6
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N15EditPointPlugin17mouseReleaseEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef writeonly initializes((24, 25)) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef nonnull %3) unnamed_addr #16 align 2 {
+define void @_ZThn16_N15EditPointPlugin17mouseReleaseEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef writeonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef nonnull %3) unnamed_addr #16 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %5, align 8
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %3)

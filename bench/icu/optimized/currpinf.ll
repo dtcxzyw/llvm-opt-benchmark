@@ -56,7 +56,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CurrencyPluralInfoC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 36)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518CurrencyPluralInfoC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 16), ptr %this, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds i8, ptr %this, i64 8
@@ -220,7 +220,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CurrencyPluralInfoC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 36)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518CurrencyPluralInfoC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 16), ptr %this, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds i8, ptr %this, i64 8
@@ -277,7 +277,7 @@ lpad:                                             ; preds = %call21.i.noexc, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7518CurrencyPluralInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 36)) %this, ptr noundef nonnull align 8 dereferenceable(36) %info) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518CurrencyPluralInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(36) %info) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 16), ptr %this, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds i8, ptr %this, i64 8
@@ -670,7 +670,7 @@ declare noundef ptr @_ZNK6icu_7511PluralRules5cloneEv(ptr noundef nonnull align 
 declare noundef ptr @_ZNK6icu_756Locale5cloneEv(ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518CurrencyPluralInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518CurrencyPluralInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 16), ptr %this, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds i8, ptr %this, i64 8

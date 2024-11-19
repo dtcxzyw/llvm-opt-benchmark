@@ -201,7 +201,7 @@ define internal range(i64 0, 4294967296) i64 @read_classid(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @write_classid(ptr noundef initializes((200, 204)) %0, ptr nocapture readnone %1, i64 noundef %2) #2 align 16 {
+define internal noundef i32 @write_classid(ptr noundef %0, ptr nocapture readnone %1, i64 noundef %2) #2 align 16 {
   %4 = alloca %struct.update_classid_context, align 8
   %5 = alloca %struct.css_task_iter, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5) #9

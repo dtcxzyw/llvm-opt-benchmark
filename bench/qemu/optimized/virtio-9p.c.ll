@@ -365,7 +365,7 @@ virtio_9p_get_driver.exit:                        ; preds = %entry, %if.then3.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_9p_device_start_hw(ptr nocapture noundef initializes((48, 56)) %obj) #0 {
+define internal void @virtio_9p_device_start_hw(ptr nocapture noundef %obj) #0 {
 entry:
   %v9p1 = getelementptr inbounds i8, ptr %obj, i64 40
   %0 = load ptr, ptr %v9p1, align 8

@@ -1513,13 +1513,13 @@ declare void @llvm.assume(i1 noundef) #7
 declare dso_local void @perf_event_update_userpage(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @event_group_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 14)) %2) #8 align 16 {
+define internal noundef i64 @event_group_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(14) %2, ptr noundef nonnull align 1 dereferenceable(14) @.str.7, i64 14, i1 false)
   ret i64 13
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @event_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 13)) %2) #8 align 16 {
+define internal noundef i64 @event_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(13) %2, ptr noundef nonnull align 1 dereferenceable(13) @.str.9, i64 13, i1 false)
   ret i64 12
 }
@@ -1561,7 +1561,7 @@ define internal zeroext i16 @filter_requester_id_en_is_visible(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @filter_requester_id_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 11)) %2) #8 align 16 {
+define internal noundef i64 @filter_requester_id_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(11) @.str.13, i64 11, i1 false)
   ret i64 10
 }
@@ -1592,7 +1592,7 @@ define internal zeroext i16 @filter_domain_en_is_visible(ptr nocapture noundef r
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @filter_domain_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 11)) %2) #8 align 16 {
+define internal noundef i64 @filter_domain_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(11) @.str.15, i64 11, i1 false)
   ret i64 10
 }
@@ -1623,7 +1623,7 @@ define internal zeroext i16 @filter_pasid_en_is_visible(ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @filter_pasid_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 11)) %2) #8 align 16 {
+define internal noundef i64 @filter_pasid_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(11) @.str.17, i64 11, i1 false)
   ret i64 10
 }
@@ -1654,7 +1654,7 @@ define internal zeroext i16 @filter_ats_en_is_visible(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @filter_ats_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 11)) %2) #8 align 16 {
+define internal noundef i64 @filter_ats_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(11) @.str.19, i64 11, i1 false)
   ret i64 10
 }
@@ -1685,7 +1685,7 @@ define internal zeroext i16 @filter_page_table_en_is_visible(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @filter_page_table_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 11)) %2) #8 align 16 {
+define internal noundef i64 @filter_page_table_en_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(11) %2, ptr noundef nonnull align 1 dereferenceable(11) @.str.21, i64 11, i1 false)
   ret i64 10
 }
@@ -1716,7 +1716,7 @@ define internal zeroext i16 @filter_requester_id_is_visible(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @filter_requester_id_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 15)) %2) #8 align 16 {
+define internal noundef i64 @filter_requester_id_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(15) %2, ptr noundef nonnull align 1 dereferenceable(15) @.str.23, i64 15, i1 false)
   ret i64 14
 }
@@ -1747,7 +1747,7 @@ define internal zeroext i16 @filter_domain_is_visible(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @filter_domain_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 15)) %2) #8 align 16 {
+define internal noundef i64 @filter_domain_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(15) %2, ptr noundef nonnull align 1 dereferenceable(15) @.str.25, i64 15, i1 false)
   ret i64 14
 }
@@ -1778,7 +1778,7 @@ define internal zeroext i16 @filter_pasid_is_visible(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @filter_pasid_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 14)) %2) #8 align 16 {
+define internal noundef i64 @filter_pasid_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(14) %2, ptr noundef nonnull align 1 dereferenceable(14) @.str.27, i64 14, i1 false)
   ret i64 13
 }
@@ -1809,7 +1809,7 @@ define internal zeroext i16 @filter_ats_is_visible(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @filter_ats_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 15)) %2) #8 align 16 {
+define internal noundef i64 @filter_ats_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(15) %2, ptr noundef nonnull align 1 dereferenceable(15) @.str.29, i64 15, i1 false)
   ret i64 14
 }
@@ -1840,7 +1840,7 @@ define internal zeroext i16 @filter_page_table_is_visible(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i64 @filter_page_table_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly initializes((0, 15)) %2) #8 align 16 {
+define internal noundef i64 @filter_page_table_show(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture noundef writeonly %2) #8 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(15) %2, ptr noundef nonnull align 1 dereferenceable(15) @.str.31, i64 15, i1 false)
   ret i64 14
 }

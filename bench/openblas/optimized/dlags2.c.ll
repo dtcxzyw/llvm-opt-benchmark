@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly initializes((0, 8)) %7, ptr nocapture noundef writeonly initializes((0, 8)) %8, ptr nocapture noundef writeonly initializes((0, 8)) %9, ptr nocapture noundef writeonly initializes((0, 8)) %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
+define void @dlags2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, ptr noundef %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = alloca double, align 8
   %15 = alloca double, align 8
   %16 = alloca double, align 8

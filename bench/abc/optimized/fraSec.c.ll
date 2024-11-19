@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.4 = private unnamed_addr constant [61 x i8] c"The counter-example is invalid because of phase abstraction.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fra_SecSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 120)) %0) local_unnamed_addr #0 {
+define void @Fra_SecSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(120) %2, i8 0, i64 12, i1 false)
   store i32 1, ptr %0, align 4
@@ -122,7 +122,7 @@ declare ptr @Gia_ManToAig(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Fra_FraigSec(ptr noundef %0, ptr nocapture noundef initializes((108, 112)) %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
+define noundef i32 @Fra_FraigSec(ptr noundef %0, ptr nocapture noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8

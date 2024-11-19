@@ -325,7 +325,7 @@ _ZN3irr3gui11IGUIElement11setTabOrderEi.exit:     ; preds = %if.then11.i, %if.th
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIScrollBar15refreshControlsEv(ptr noundef nonnull align 8 dereferenceable(388) initializes((384, 388)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBar15refreshControlsEv(ptr noundef nonnull align 8 dereferenceable(388) %this) local_unnamed_addr #0 align 2 {
 entry:
   %CurrentIconColor = getelementptr inbounds i8, ptr %this, i64 384
   store i32 -1, ptr %CurrentIconColor, align 8, !tbaa !37
@@ -986,7 +986,7 @@ if.end216:                                        ; preds = %if.end216.sink.spli
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIScrollBarC1EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(388) initializes((392, 412)) %this, i1 noundef zeroext %horizontal, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef readonly byval(%"class.irr::core::rect") align 8 %rectangle, i1 noundef zeroext %noclip) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBarC1EbPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEEb(ptr noundef nonnull align 8 dereferenceable(388) %this, i1 noundef zeroext %horizontal, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, ptr nocapture noundef readonly byval(%"class.irr::core::rect") align 8 %rectangle, i1 noundef zeroext %noclip) unnamed_addr #0 align 2 {
 entry:
   %first.i = alloca ptr, align 8
   %closest.i = alloca ptr, align 8
@@ -1108,7 +1108,7 @@ _ZN3irr3gui11IGUIElement11setTabOrderEi.exit:     ; preds = %if.then11.i, %if.th
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceable(388) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceable(388) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -1174,7 +1174,7 @@ if.end16:                                         ; preds = %delete.notnull.i21,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(388) initializes((0, 8), (392, 400)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBarD1Ev(ptr noundef nonnull align 8 dereferenceable(388) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 392
@@ -1298,7 +1298,7 @@ _ZN3irr3gui13CGUIScrollBarD1Ev.exit:              ; preds = %delete.notnull.i21.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIScrollBarD0Ev(ptr noundef nonnull align 8 dereferenceable(388) initializes((0, 8), (392, 400)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBarD0Ev(ptr noundef nonnull align 8 dereferenceable(388) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui13CGUIScrollBarE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 392
@@ -2362,7 +2362,7 @@ for.body:                                         ; preds = %entry, %for.body
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr3gui13CGUIScrollBar6setPosEi(ptr nocapture noundef nonnull align 8 dereferenceable(388) initializes((348, 352)) %this, i32 noundef %pos) unnamed_addr #7 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBar6setPosEi(ptr nocapture noundef nonnull align 8 dereferenceable(388) %this, i32 noundef %pos) unnamed_addr #7 align 2 {
 entry:
   %Min = getelementptr inbounds i8, ptr %this, i64 360
   %0 = load i32, ptr %Min, align 8, !tbaa !77
@@ -2420,7 +2420,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui13CGUIScrollBar12setSmallStepEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(388) initializes((368, 372)) %this, i32 noundef %step) unnamed_addr #8 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBar12setSmallStepEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(388) %this, i32 noundef %step) unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp sgt i32 %step, 0
   %spec.select = select i1 %cmp, i32 %step, i32 10
@@ -2438,7 +2438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui13CGUIScrollBar12setLargeStepEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(388) initializes((372, 376)) %this, i32 noundef %step) unnamed_addr #8 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBar12setLargeStepEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(388) %this, i32 noundef %step) unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp sgt i32 %step, 0
   %spec.select = select i1 %cmp, i32 %step, i32 50
@@ -2456,7 +2456,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIScrollBar6setMaxEi(ptr noundef nonnull align 8 dereferenceable(388) initializes((364, 368)) %this, i32 noundef %max) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBar6setMaxEi(ptr noundef nonnull align 8 dereferenceable(388) %this, i32 noundef %max) unnamed_addr #0 align 2 {
 entry:
   %Max = getelementptr inbounds i8, ptr %this, i64 364
   store i32 %max, ptr %Max, align 4, !tbaa !79
@@ -2505,7 +2505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui13CGUIScrollBar6setMinEi(ptr noundef nonnull align 8 dereferenceable(388) initializes((360, 364)) %this, i32 noundef %min) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui13CGUIScrollBar6setMinEi(ptr noundef nonnull align 8 dereferenceable(388) %this, i32 noundef %min) unnamed_addr #0 align 2 {
 entry:
   %Min = getelementptr inbounds i8, ptr %this, i64 360
   store i32 %min, ptr %Min, align 8, !tbaa !77

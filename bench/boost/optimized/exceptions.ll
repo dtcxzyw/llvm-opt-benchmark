@@ -1289,7 +1289,7 @@ _ZN5boostlsINS_9exceptionENS_3log11v2_mt_posix23attribute_name_info_tagENS3_14at
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix9bad_allocC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix9bad_allocC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1359,7 +1359,7 @@ define void @_ZN5boost3log11v2_mt_posix9bad_allocC2EPKc(ptr noundef nonnull alig
 declare void @_ZNSt9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix9bad_allocC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix9bad_allocC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1417,7 +1417,7 @@ define void @_ZN5boost3log11v2_mt_posix9bad_allocC2ERKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5boost3log11v2_mt_posix9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix9bad_allocD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !14
@@ -1804,7 +1804,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1872,7 +1872,7 @@ _ZN5boost3log11v2_mt_posix9bad_allocC2EPKc.exit:  ; preds = %._crit_edge.i.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost3log11v2_mt_posix22capacity_limit_reachedC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5boost3log11v2_mt_posix9bad_allocE, i64 16), ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

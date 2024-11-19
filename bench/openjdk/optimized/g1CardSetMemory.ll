@@ -116,7 +116,7 @@ declare noundef i64 @_ZNK17FreeListAllocator10free_countEv(ptr noundef nonnull a
 declare noundef i32 @_ZNK16G1MonotonicArena12num_segmentsEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1CardSetMemoryManagerC2EP22G1CardSetConfigurationP24G1MonotonicArenaFreePool(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN22G1CardSetMemoryManagerC2EP22G1CardSetConfigurationP24G1MonotonicArenaFreePool(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -160,7 +160,7 @@ declare noundef ptr @_ZN22G1CardSetConfiguration24mem_object_type_name_strEj(i32
 declare noundef ptr @_ZN22G1CardSetConfiguration24mem_object_alloc_optionsEj(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1CardSetMemoryManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22G1CardSetMemoryManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   br label %3
@@ -187,7 +187,7 @@ define hidden void @_ZN22G1CardSetMemoryManagerD2Ev(ptr nocapture noundef nonnul
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1CardSetMemoryManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22G1CardSetMemoryManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV22G1CardSetMemoryManager, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   br label %3

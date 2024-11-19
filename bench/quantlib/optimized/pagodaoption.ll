@@ -1323,7 +1323,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12PagodaOptionC1ERKSt6vectorINS_4DateESaIS2_EEdd(ptr noundef nonnull align 8 dereferenceable(224) initializes((224, 232), (240, 244), (248, 256)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fixingDates, double noundef %roof, double noundef %fraction) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12PagodaOptionC1ERKSt6vectorINS_4DateESaIS2_EEdd(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %fixingDates, double noundef %roof, double noundef %fraction) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %ref.tmp3 = alloca %"class.boost::shared_ptr.17", align 8
@@ -1967,7 +1967,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib12PagodaOption9argumentsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12PagodaOption9argumentsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -1998,7 +1998,7 @@ invoke.cont5:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib12PagodaOption9argumentsC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12PagodaOption9argumentsC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %payoff.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %payoff.i, i8 0, i64 32, i1 false)

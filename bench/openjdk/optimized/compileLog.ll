@@ -127,7 +127,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompileLogD2Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompileLogD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10CompileLog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -165,7 +165,7 @@ declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CompileLogD0Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10CompileLogD0Ev(ptr noundef nonnull align 8 dereferenceable(440) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTV10CompileLog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -597,7 +597,7 @@ declare noundef ptr @_ZNK8ciSymbol22as_klass_external_nameEv(ptr noundef nonnull
 declare noundef ptr @_ZNK7ciKlass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(44)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10CompileLog16clear_identitiesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(440) initializes((424, 428)) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN10CompileLog16clear_identitiesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(440) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 424
   store i32 0, ptr %2, align 8
   ret void

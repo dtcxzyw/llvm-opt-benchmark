@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lexbor_str_res_alpha_character = internal unnamed_addr constant [256 x i64] [i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15, i64 10, i64 11, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 12, i64 13, i64 14, i64 15, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15, i64 10, i64 11, i64 12, i64 13, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255, i64 255], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @lxb_html_tokenizer_state_rcdata_before(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef returned %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
+define hidden noundef ptr @lxb_html_tokenizer_state_rcdata_before(ptr nocapture noundef %0, ptr noundef returned %1, ptr nocapture noundef readnone %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 236
   %5 = load i8, ptr %4, align 4
   %6 = and i8 %5, 1
@@ -40,7 +40,7 @@ define hidden noundef ptr @lxb_html_tokenizer_state_rcdata_before(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_rcdata(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_rcdata(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %1, ptr %4, align 8
   %.not143 = icmp eq ptr %1, %2
@@ -487,7 +487,7 @@ lxb_html_tokenizer_temp_append_data.exit111:      ; preds = %228
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @lxb_html_tokenizer_state_rcdata_less_than_sign(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef readonly %1, ptr nocapture readnone %2) #2 {
+define internal ptr @lxb_html_tokenizer_state_rcdata_less_than_sign(ptr nocapture noundef writeonly %0, ptr noundef readonly %1, ptr nocapture readnone %2) #2 {
   %4 = load i8, ptr %1, align 1
   %5 = icmp eq i8 %4, 47
   %spec.select = select i1 %5, ptr @lxb_html_tokenizer_state_rcdata_end_tag_open, ptr @lxb_html_tokenizer_state_rcdata
@@ -509,7 +509,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @lexbor_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @lxb_html_tokenizer_state_rcdata_end_tag_open(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
+define internal noundef ptr @lxb_html_tokenizer_state_rcdata_end_tag_open(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds [256 x i64], ptr @lexbor_str_res_alpha_character, i64 0, i64 %5
@@ -586,7 +586,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_rcdata_end_tag_name(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_rcdata_end_tag_name(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %1, ptr %5, align 8

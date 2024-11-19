@@ -2213,7 +2213,7 @@ declare dso_local void @_dev_info(ptr noundef, ptr noundef, ...) local_unnamed_a
 declare dso_local i32 @vprintk(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @phy_sfp_attach(ptr nocapture noundef initializes((1344, 1345)) %0, ptr noundef %1) #8 align 16 {
+define dso_local void @phy_sfp_attach(ptr nocapture noundef %0, ptr noundef %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1368
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2231,7 +2231,7 @@ define dso_local void @phy_sfp_attach(ptr nocapture noundef initializes((1344, 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @phy_sfp_detach(ptr nocapture noundef initializes((1344, 1345)) %0, ptr nocapture readnone %1) #8 align 16 {
+define dso_local void @phy_sfp_detach(ptr nocapture noundef %0, ptr nocapture readnone %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1368
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -2959,7 +2959,7 @@ define dso_local range(i32 0, -2147483648) i32 @genphy_config_eee_advert(ptr nou
 declare dso_local i32 @phy_modify_mmd_changed(ptr noundef, i32 noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @genphy_setup_forced(ptr noundef initializes((1028, 1036)) %0) #0 align 16 {
+define dso_local i32 @genphy_setup_forced(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1028
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 1032
@@ -2993,7 +2993,7 @@ define dso_local i32 @genphy_setup_forced(ptr noundef initializes((1028, 1036)) 
 declare dso_local i32 @phy_modify(ptr noundef, i32 noundef, i16 noundef zeroext, i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @genphy_read_master_slave(ptr nocapture noundef initializes((1036, 1037), (1038, 1039)) %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @genphy_read_master_slave(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1036
   store i8 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 1038
@@ -4746,7 +4746,7 @@ define dso_local i32 @phy_driver_register(ptr noundef %0, ptr noundef %1) #0 ali
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @phy_probe(ptr noundef initializes((832, 840)) %0) #0 align 16 {
+define internal i32 @phy_probe(ptr noundef %0) #0 align 16 {
   %2 = alloca [2 x i64], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8

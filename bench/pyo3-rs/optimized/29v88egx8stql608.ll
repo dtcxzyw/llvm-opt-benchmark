@@ -150,7 +150,7 @@ define align 8 ptr @_ZN17pyo3_build_config3get17h052ae7a41f81573aE() unnamed_add
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN17pyo3_build_config33resolve_cross_compile_config_path17h5d29680b480ba899E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0) unnamed_addr #0 {
+define hidden void @_ZN17pyo3_build_config33resolve_cross_compile_config_path17h5d29680b480ba899E(ptr nocapture writeonly sret([24 x i8]) align 8 %0) unnamed_addr #0 {
   %2 = alloca [24 x i8], align 8
   %3 = alloca [24 x i8], align 8
   %4 = alloca [24 x i8], align 8

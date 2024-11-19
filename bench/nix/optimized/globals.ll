@@ -18697,7 +18697,7 @@ declare i32 @getuid() local_unnamed_addr #3
 declare void @_ZN3nix19OptionalPathSettingC1EPNS_6ConfigERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEERKS9_SE_RKSt3setIS9_St4lessIS9_ESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef, ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix8Settings24getDefaultExtraPlatformsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix8Settings24getDefaultExtraPlatformsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr nocapture nonnull readnone align 8 %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %5 = alloca %struct.utsname, align 1

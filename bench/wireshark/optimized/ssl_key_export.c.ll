@@ -320,7 +320,7 @@ g_string_append_c_inline.exit18:                  ; preds = %42, %48
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @tls_export_dsb(ptr nocapture noundef initializes((36, 40)) %0) local_unnamed_addr #0 {
+define hidden void @tls_export_dsb(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   %3 = call ptr @ssl_export_sessions(ptr noundef nonnull %2)
   %4 = tail call ptr @wtap_block_create(i32 noundef 4) #3

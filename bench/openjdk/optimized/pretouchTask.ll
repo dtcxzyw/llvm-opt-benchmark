@@ -31,7 +31,7 @@ $_ZTV10WorkerTask = comdat any
 @_ZN12PretouchTaskC1EPKcPcS2_mm = hidden unnamed_addr alias void (ptr, ptr, ptr, ptr, i64, i64), ptr @_ZN12PretouchTaskC2EPKcPcS2_mm
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12PretouchTaskC2EPKcPcS2_mm(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 20)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN12PretouchTaskC2EPKcPcS2_mm(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8

@@ -153,7 +153,7 @@ $_ZTVN4llvm3pdb15BaseClassLayoutE = comdat any
 @_ZN4llvm3pdb15BaseClassLayoutC1ERKNS0_13UDTLayoutBaseEjbSt10unique_ptrINS0_22PDBSymbolTypeBaseClassESt14default_deleteIS6_EE = unnamed_addr alias void (ptr, ptr, i32, i1, ptr), ptr @_ZN4llvm3pdb15BaseClassLayoutC2ERKNS0_13UDTLayoutBaseEjbSt10unique_ptrINS0_22PDBSymbolTypeBaseClassESt14default_deleteIS6_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb14LayoutItemBaseC2EPKNS0_13UDTLayoutBaseEPKNS0_9PDBSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjb(ptr noundef nonnull align 8 dereferenceable(141) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb14LayoutItemBaseC2EPKNS0_13UDTLayoutBaseEPKNS0_9PDBSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjb(ptr noundef nonnull align 8 dereferenceable(141) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   %8 = zext i1 %6 to i8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm3pdb14LayoutItemBaseE, i64 16), ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -301,7 +301,7 @@ _ZNK4llvm9BitVector9find_lastEv.exit:             ; preds = %16, %1, %22
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb20DataMemberLayoutItemC2ERKNS0_13UDTLayoutBaseESt10unique_ptrINS0_13PDBSymbolDataESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb20DataMemberLayoutItemC2ERKNS0_13UDTLayoutBaseESt10unique_ptrINS0_13PDBSymbolDataESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.49", align 8
   %5 = alloca %"class.std::unique_ptr.41", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -446,7 +446,7 @@ _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit: ; pred
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb15VBPtrLayoutItemC2ERKNS0_13UDTLayoutBaseESt10unique_ptrINS0_20PDBSymbolTypeBuiltinESt14default_deleteIS6_EEjj(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb15VBPtrLayoutItemC2ERKNS0_13UDTLayoutBaseESt10unique_ptrINS0_20PDBSymbolTypeBuiltinESt14default_deleteIS6_EEjj(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = load ptr, ptr %2, align 8
@@ -494,7 +494,7 @@ define dso_local noundef nonnull align 8 dereferenceable(408) ptr @_ZNK4llvm3pdb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb16VTableLayoutItemC2ERKNS0_13UDTLayoutBaseESt10unique_ptrINS0_19PDBSymbolTypeVTableESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb16VTableLayoutItemC2ERKNS0_13UDTLayoutBaseESt10unique_ptrINS0_19PDBSymbolTypeVTableESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, ptr nocapture noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::unique_ptr.41", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -575,7 +575,7 @@ _ZNSt10unique_ptrIN4llvm3pdb20PDBSymbolTypePointerESt14default_deleteIS2_EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb13UDTLayoutBaseC2EPKS1_RKNS0_9PDBSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjb(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb13UDTLayoutBaseC2EPKS1_RKNS0_9PDBSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjb(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm3pdb14LayoutItemBaseC2EPKNS0_13UDTLayoutBaseEPKNS0_9PDBSymbolERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjjb(ptr noundef nonnull align 8 dereferenceable(141) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6)
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm3pdb13UDTLayoutBaseE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -2047,7 +2047,7 @@ _ZNK4llvm3pdb14LayoutItemBase11tailPaddingEv.exit15: ; preds = %51, %34, %57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11ClassLayoutC2ERKNS0_16PDBSymbolTypeUDTE(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11ClassLayoutC2ERKNS0_16PDBSymbolTypeUDTE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
 _ZN4llvm9BitVector15set_unused_bitsEb.exit.i:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2201,7 +2201,7 @@ _ZN4llvm9BitVector3setEjj.exit:                   ; preds = %.lr.ph, %._crit_edg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb11ClassLayoutC2ESt10unique_ptrINS0_16PDBSymbolTypeUDTESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 24)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb11ClassLayoutC2ESt10unique_ptrINS0_16PDBSymbolTypeUDTESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   tail call void @_ZN4llvm3pdb11ClassLayoutC2ERKNS0_16PDBSymbolTypeUDTE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 392
@@ -2252,7 +2252,7 @@ _ZNK4llvm9BitVector5countEv.exit:                 ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb15BaseClassLayoutC2ERKNS0_13UDTLayoutBaseEjbSt10unique_ptrINS0_22PDBSymbolTypeBaseClassESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(329) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb15BaseClassLayoutC2ERKNS0_13UDTLayoutBaseEjbSt10unique_ptrINS0_22PDBSymbolTypeBaseClassESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(329) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, i32 noundef %2, i1 noundef zeroext %3, ptr nocapture noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24

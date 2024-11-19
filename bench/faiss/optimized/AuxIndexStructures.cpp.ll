@@ -169,7 +169,7 @@ define void @_ZN5faiss17RangeSearchResultD0Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss17RangeSearchResultC2Emb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define void @_ZN5faiss17RangeSearchResultC2Emb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17RangeSearchResultE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
@@ -241,7 +241,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss17RangeSearchResultD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN5faiss17RangeSearchResultD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17RangeSearchResultE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -283,7 +283,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss10BufferListC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, i64 noundef %1) unnamed_addr #9 align 2 {
+define void @_ZN5faiss10BufferListC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i64 noundef %1) unnamed_addr #9 align 2 {
   store i64 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -582,7 +582,7 @@ _ZN5faiss10BufferList3addElf.exit:                ; preds = %3, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss24RangeSearchPartialResultC2EPNS_17RangeSearchResultE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noundef %1) unnamed_addr #15 align 2 {
+define void @_ZN5faiss24RangeSearchPartialResultC2EPNS_17RangeSearchResultE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %0, align 8

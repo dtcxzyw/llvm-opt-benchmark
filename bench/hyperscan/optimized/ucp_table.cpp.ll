@@ -179,7 +179,7 @@ $_ZZN5boost3icl16identity_elementIjE5valueEvE6_value = comdat any
 @_ZZN5boost3icl16identity_elementIjE5valueEvE6_value = linkonce_odr hidden local_unnamed_addr global i32 0, comdat, align 4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue27getUcpCEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue27getUcpCEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -246,7 +246,7 @@ _ZN5boost3icl12interval_setIjSt4lessNS0_15closed_intervalIjS2_EESaED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpCcEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpCcEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -291,7 +291,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpCfEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpCfEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -337,7 +337,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpCnEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpCnEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -383,7 +383,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpCoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpCoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -429,7 +429,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpCsEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpCsEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -461,7 +461,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue27getUcpLEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue27getUcpLEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -507,7 +507,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpL_andEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpL_andEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -553,7 +553,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpLlEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpLlEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -599,7 +599,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpLmEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpLmEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -645,7 +645,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpLoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpLoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -691,7 +691,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpLtEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpLtEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -737,7 +737,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpLuEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpLuEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -783,7 +783,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue27getUcpMEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue27getUcpMEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -829,7 +829,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpMcEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpMcEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -875,7 +875,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpMeEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpMeEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -921,7 +921,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpMnEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpMnEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -967,7 +967,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue27getUcpNEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue27getUcpNEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1013,7 +1013,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpNdEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpNdEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1059,7 +1059,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpNlEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpNlEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1105,7 +1105,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpNoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpNoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1151,7 +1151,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue27getUcpPEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue27getUcpPEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1197,7 +1197,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpPcEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpPcEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1243,7 +1243,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpPdEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpPdEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1289,7 +1289,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpPeEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpPeEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1335,7 +1335,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpPfEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpPfEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1381,7 +1381,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpPiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpPiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1427,7 +1427,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpPoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpPoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1473,7 +1473,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpPsEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpPsEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1519,7 +1519,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue27getUcpSEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue27getUcpSEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1565,7 +1565,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpScEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpScEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1611,7 +1611,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpSkEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpSkEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1657,7 +1657,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpSmEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpSmEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1703,7 +1703,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpSoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpSoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1749,7 +1749,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue29getUcpXanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29getUcpXanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1795,7 +1795,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue29getUcpXpsEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29getUcpXpsEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1841,7 +1841,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue29getUcpXspEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29getUcpXspEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1887,7 +1887,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue29getUcpXwdEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29getUcpXwdEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1933,7 +1933,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue27getUcpZEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue27getUcpZEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -1979,7 +1979,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpZlEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpZlEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2011,7 +2011,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpZpEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpZpEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2043,7 +2043,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpZsEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpZsEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2089,7 +2089,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpArabicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpArabicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2135,7 +2135,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpArmenianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpArmenianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2181,7 +2181,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpAvestanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpAvestanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2226,7 +2226,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpBalineseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpBalineseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2271,7 +2271,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpBamumEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpBamumEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2316,7 +2316,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215getUcpBassa_VahEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215getUcpBassa_VahEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2361,7 +2361,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpBatakEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpBatakEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2406,7 +2406,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpBengaliEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpBengaliEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2452,7 +2452,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpBopomofoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpBopomofoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2498,7 +2498,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpBrahmiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpBrahmiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2544,7 +2544,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpBrailleEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpBrailleEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2576,7 +2576,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpBugineseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpBugineseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2621,7 +2621,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpBuhidEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpBuhidEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2653,7 +2653,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue225getUcpCanadian_AboriginalEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue225getUcpCanadian_AboriginalEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2698,7 +2698,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpCarianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpCarianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2730,7 +2730,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue224getUcpCaucasian_AlbanianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue224getUcpCaucasian_AlbanianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2775,7 +2775,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpChakmaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpChakmaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2820,7 +2820,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue210getUcpChamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue210getUcpChamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2866,7 +2866,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpCherokeeEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpCherokeeEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2898,7 +2898,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpCommonEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpCommonEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2944,7 +2944,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpCopticEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpCopticEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -2990,7 +2990,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215getUcpCuneiformEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215getUcpCuneiformEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3036,7 +3036,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpCypriotEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpCypriotEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3082,7 +3082,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpCyrillicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpCyrillicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3128,7 +3128,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpDeseretEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpDeseretEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3160,7 +3160,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue216getUcpDevanagariEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue216getUcpDevanagariEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3206,7 +3206,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpDuployanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpDuployanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3252,7 +3252,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue226getUcpEgyptian_HieroglyphsEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue226getUcpEgyptian_HieroglyphsEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3284,7 +3284,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpElbasanEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpElbasanEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3316,7 +3316,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpEthiopicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpEthiopicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3362,7 +3362,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpGeorgianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpGeorgianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3408,7 +3408,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue216getUcpGlagoliticEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue216getUcpGlagoliticEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3453,7 +3453,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpGothicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpGothicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3485,7 +3485,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpGranthaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpGranthaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3531,7 +3531,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpGreekEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpGreekEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3577,7 +3577,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpGujaratiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpGujaratiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3623,7 +3623,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpGurmukhiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpGurmukhiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3669,7 +3669,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue29getUcpHanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29getUcpHanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3715,7 +3715,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpHangulEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpHangulEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3761,7 +3761,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpHanunooEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpHanunooEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3793,7 +3793,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpHebrewEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpHebrewEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3839,7 +3839,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpHiraganaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpHiraganaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3885,7 +3885,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue222getUcpImperial_AramaicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue222getUcpImperial_AramaicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3930,7 +3930,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215getUcpInheritedEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215getUcpInheritedEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3976,7 +3976,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue227getUcpInscriptional_PahlaviEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue227getUcpInscriptional_PahlaviEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4021,7 +4021,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue228getUcpInscriptional_ParthianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue228getUcpInscriptional_ParthianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4066,7 +4066,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpJavaneseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpJavaneseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4112,7 +4112,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpKaithiEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpKaithiEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4144,7 +4144,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpKannadaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpKannadaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4190,7 +4190,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpKatakanaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpKatakanaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4236,7 +4236,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpKayah_LiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpKayah_LiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4281,7 +4281,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue216getUcpKharoshthiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue216getUcpKharoshthiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4327,7 +4327,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpKhmerEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpKhmerEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4373,7 +4373,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpKhojkiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpKhojkiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4418,7 +4418,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215getUcpKhudawadiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215getUcpKhudawadiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4463,7 +4463,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue29getUcpLaoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29getUcpLaoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4509,7 +4509,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpLatinEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpLatinEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4555,7 +4555,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpLepchaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpLepchaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4601,7 +4601,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpLimbuEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpLimbuEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4647,7 +4647,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpLinear_AEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpLinear_AEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4693,7 +4693,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpLinear_BEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpLinear_BEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4739,7 +4739,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue210getUcpLisuEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue210getUcpLisuEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4771,7 +4771,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpLycianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpLycianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4803,7 +4803,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpLydianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpLydianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4848,7 +4848,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpMahajaniEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpMahajaniEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4880,7 +4880,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215getUcpMalayalamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215getUcpMalayalamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4926,7 +4926,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpMandaicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpMandaicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -4971,7 +4971,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue216getUcpManichaeanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue216getUcpManichaeanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5016,7 +5016,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue218getUcpMeetei_MayekEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue218getUcpMeetei_MayekEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5062,7 +5062,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue219getUcpMende_KikakuiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue219getUcpMende_KikakuiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5107,7 +5107,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue222getUcpMeroitic_CursiveEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue222getUcpMeroitic_CursiveEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5152,7 +5152,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue226getUcpMeroitic_HieroglyphsEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue226getUcpMeroitic_HieroglyphsEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5184,7 +5184,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue210getUcpMiaoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue210getUcpMiaoEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5230,7 +5230,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue210getUcpModiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue210getUcpModiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5275,7 +5275,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215getUcpMongolianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215getUcpMongolianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5321,7 +5321,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue29getUcpMroEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29getUcpMroEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5367,7 +5367,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpMyanmarEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpMyanmarEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5413,7 +5413,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215getUcpNabataeanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215getUcpNabataeanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5458,7 +5458,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217getUcpNew_Tai_LueEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217getUcpNew_Tai_LueEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5504,7 +5504,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue29getUcpNkoEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29getUcpNkoEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5536,7 +5536,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpOghamEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpOghamEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5568,7 +5568,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpOl_ChikiEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpOl_ChikiEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5600,7 +5600,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue216getUcpOld_ItalicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue216getUcpOld_ItalicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5632,7 +5632,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue223getUcpOld_North_ArabianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue223getUcpOld_North_ArabianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5664,7 +5664,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue216getUcpOld_PermicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue216getUcpOld_PermicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5696,7 +5696,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217getUcpOld_PersianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217getUcpOld_PersianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5741,7 +5741,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue223getUcpOld_South_ArabianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue223getUcpOld_South_ArabianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5773,7 +5773,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue216getUcpOld_TurkicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue216getUcpOld_TurkicEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5805,7 +5805,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpOriyaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpOriyaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5851,7 +5851,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpOsmanyaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpOsmanyaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5896,7 +5896,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue218getUcpPahawh_HmongEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue218getUcpPahawh_HmongEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5942,7 +5942,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215getUcpPalmyreneEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215getUcpPalmyreneEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5974,7 +5974,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217getUcpPau_Cin_HauEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217getUcpPau_Cin_HauEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6006,7 +6006,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpPhags_PaEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpPhags_PaEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6038,7 +6038,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue216getUcpPhoenicianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue216getUcpPhoenicianEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6083,7 +6083,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue221getUcpPsalter_PahlaviEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue221getUcpPsalter_PahlaviEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6129,7 +6129,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpRejangEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpRejangEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6174,7 +6174,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpRunicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpRunicEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6219,7 +6219,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215getUcpSamaritanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215getUcpSamaritanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6264,7 +6264,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue216getUcpSaurashtraEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue216getUcpSaurashtraEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6309,7 +6309,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpSharadaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpSharadaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6355,7 +6355,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpShavianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpShavianEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6387,7 +6387,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpSiddhamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpSiddhamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6432,7 +6432,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpSinhalaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpSinhalaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6478,7 +6478,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue218getUcpSora_SompengEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue218getUcpSora_SompengEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6523,7 +6523,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue215getUcpSundaneseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue215getUcpSundaneseEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6568,7 +6568,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue218getUcpSyloti_NagriEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue218getUcpSyloti_NagriEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6600,7 +6600,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpSyriacEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpSyriacEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6646,7 +6646,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpTagalogEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpTagalogEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6691,7 +6691,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpTagbanwaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpTagbanwaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6737,7 +6737,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpTai_LeEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpTai_LeEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6782,7 +6782,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpTai_ThamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpTai_ThamEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6828,7 +6828,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpTai_VietEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpTai_VietEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6873,7 +6873,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpTakriEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpTakriEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6918,7 +6918,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211getUcpTamilEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211getUcpTamilEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -6964,7 +6964,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpTeluguEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpTeluguEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -7010,7 +7010,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue212getUcpThaanaEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue212getUcpThaanaEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -7042,7 +7042,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue210getUcpThaiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue210getUcpThaiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -7087,7 +7087,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpTibetanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpTibetanEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -7133,7 +7133,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpTifinaghEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpTifinaghEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -7179,7 +7179,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue213getUcpTirhutaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue213getUcpTirhutaEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -7224,7 +7224,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214getUcpUgariticEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214getUcpUgariticEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -7269,7 +7269,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue29getUcpVaiEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue29getUcpVaiEv(ptr noalias nonnull sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -7301,7 +7301,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217getUcpWarang_CitiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217getUcpWarang_CitiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -7346,7 +7346,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue28getUcpYiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue28getUcpYiEv(ptr noalias sret(%"class.ue2::CodePointSet") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::icl::closed_interval", align 4
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8

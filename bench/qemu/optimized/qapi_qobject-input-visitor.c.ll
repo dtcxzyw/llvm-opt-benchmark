@@ -271,7 +271,7 @@ return:                                           ; preds = %qobject_input_get_o
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_str(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_str(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp eq ptr %call.i, null
@@ -356,7 +356,7 @@ return:                                           ; preds = %qobject_input_get_o
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_any(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_any(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp ne ptr %call.i, null
@@ -381,7 +381,7 @@ return:                                           ; preds = %qobject_input_get_o
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_null(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_null(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext true)
   %tobool1.not.i = icmp eq ptr %call.i, null
@@ -553,7 +553,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_type_str_keyval(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_type_str_keyval(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, ptr noundef %errp) #0 {
 entry:
   %call1 = tail call fastcc ptr @qobject_input_get_keyval(ptr noundef %v, ptr noundef %name, ptr noundef %errp)
   %call2 = tail call noalias ptr @g_strdup(ptr noundef %call1) #8
@@ -1149,7 +1149,7 @@ qobject_input_pop.exit:                           ; preds = %do.body.i, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef zeroext i1 @qobject_input_start_alternate(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 8)) %obj, i64 noundef %size, ptr noundef %errp) #0 {
+define internal noundef zeroext i1 @qobject_input_start_alternate(ptr nocapture noundef %v, ptr noundef %name, ptr nocapture noundef writeonly %obj, i64 noundef %size, ptr noundef %errp) #0 {
 entry:
   %call.i = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext false)
   %tobool1.not.i = icmp ne ptr %call.i, null
@@ -1182,7 +1182,7 @@ return:                                           ; preds = %qobject_type.exit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @qobject_input_optional(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly initializes((0, 1)) %present) #0 {
+define internal void @qobject_input_optional(ptr nocapture noundef readonly %v, ptr noundef %name, ptr nocapture noundef writeonly %present) #0 {
 entry:
   %call1 = tail call fastcc ptr @qobject_input_try_get_object(ptr noundef %v, ptr noundef %name, i1 noundef zeroext false)
   %tobool.not = icmp ne ptr %call1, null

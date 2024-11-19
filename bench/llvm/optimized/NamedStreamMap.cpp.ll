@@ -117,7 +117,7 @@ $_ZTVN4llvm3pdb8RawErrorE = comdat any
 @_ZN4llvm3pdb14NamedStreamMapC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb14NamedStreamMapC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb20NamedStreamMapTraitsC2ERNS0_14NamedStreamMapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb20NamedStreamMapTraitsC2ERNS0_14NamedStreamMapE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -1387,7 +1387,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %102, %_ZNK4llvm15Sp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm3pdb14NamedStreamMap7entriesEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::StringMap") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm3pdb14NamedStreamMap7entriesEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::StringMap") align 8 %0, ptr noundef nonnull align 8 dereferenceable(120) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::pdb::HashTableIterator", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)

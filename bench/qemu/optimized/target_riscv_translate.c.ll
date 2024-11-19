@@ -5049,7 +5049,7 @@ for.end21:                                        ; preds = %for.body12
 declare ptr @tcg_global_mem_new_i64(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_tr_init_disas_context(ptr nocapture noundef initializes((64, 96), (100, 120), (124, 126), (128, 163)) %dcbase, ptr noundef %cs) #2 {
+define internal void @riscv_tr_init_disas_context(ptr nocapture noundef %dcbase, ptr noundef %cs) #2 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %cs, ptr noundef nonnull @.str.1163, ptr noundef nonnull @.str.1164, i32 noundef 46, ptr noundef nonnull @__func__.RISCV_CPU) #13
   %0 = load ptr, ptr %dcbase, align 8
@@ -5194,7 +5194,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @riscv_tr_insn_start(ptr nocapture noundef initializes((168, 176)) %dcbase, ptr nocapture readnone %cpu) #2 {
+define internal void @riscv_tr_insn_start(ptr nocapture noundef %dcbase, ptr nocapture readnone %cpu) #2 {
 entry:
   %pc_next1 = getelementptr inbounds i8, ptr %dcbase, i64 16
   %0 = load i64, ptr %pc_next1, align 8
@@ -23388,7 +23388,7 @@ gen_logic_imm_fn.exit:                            ; preds = %get_gpr.exit.i, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_slliw(ptr nocapture noundef initializes((120, 124)) %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_slliw(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
 entry:
   %ol = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol, align 8
@@ -27279,7 +27279,7 @@ gen_set_gpri.exit:                                ; preds = %entry, %sw.epilog.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_addw(ptr nocapture noundef initializes((120, 124)) %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_addw(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
 entry:
   %ol = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol, align 8
@@ -27640,7 +27640,7 @@ return:                                           ; preds = %if.then5.i.i, %sw.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @trans_subw(ptr nocapture noundef initializes((120, 124)) %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @trans_subw(ptr nocapture noundef %ctx, ptr nocapture noundef nonnull readonly %a) unnamed_addr #2 {
 entry:
   %ol = getelementptr inbounds i8, ptr %ctx, i64 120
   store i32 1, ptr %ol, align 8
@@ -117645,7 +117645,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal fastcc void @decode_insn16_extract_cj(ptr nocapture noundef nonnull writeonly initializes((0, 4)) %a, i16 noundef zeroext %insn) unnamed_addr #8 {
+define internal fastcc void @decode_insn16_extract_cj(ptr nocapture noundef nonnull writeonly %a, i16 noundef zeroext %insn) unnamed_addr #8 {
 entry:
   %conv = zext i16 %insn to i32
   %shr.i = lshr i32 %conv, 3

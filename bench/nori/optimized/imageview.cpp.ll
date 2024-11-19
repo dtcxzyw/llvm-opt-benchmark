@@ -621,7 +621,7 @@ define hidden noundef float @_ZNK7nanogui9ImageView5scaleEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define hidden void @_ZN7nanogui9ImageView9set_scaleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) initializes((192, 196)) %0, float noundef %1) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN7nanogui9ImageView9set_scaleEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(272) %0, float noundef %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef float @log2f(float noundef %1) #20
   %4 = fmul float %3, 5.000000e+00
   %5 = getelementptr inbounds i8, ptr %0, i64 192
@@ -682,7 +682,7 @@ _ZN7nanogui5ArrayIfLm2EEC2Ef.exit.critedge:       ; preds = %1
 declare noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull align 8 dereferenceable(140)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui9ImageView5resetEv(ptr noundef nonnull align 8 dereferenceable(272) initializes((192, 196)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7nanogui9ImageView5resetEv(ptr noundef nonnull align 8 dereferenceable(272) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   store float 0.000000e+00, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 184

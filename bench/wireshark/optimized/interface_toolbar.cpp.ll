@@ -1859,7 +1859,7 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapI7QString16interfa
 declare void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16InterfaceToolbarD2Ev(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16InterfaceToolbarD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::_Rb_tree<int, std::pair<const int, FunnelTextDialog *>, std::_Select1st<std::pair<const int, FunnelTextDialog *>>, std::less<int>>::_Alloc_node", align 8
   %3 = alloca %class.QList, align 8
   %4 = alloca %class.QString, align 8

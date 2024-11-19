@@ -144,7 +144,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19ExchangeRateManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19ExchangeRateManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %0, align 8, !tbaa !3

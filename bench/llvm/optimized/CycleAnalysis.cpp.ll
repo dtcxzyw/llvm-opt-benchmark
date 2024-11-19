@@ -189,7 +189,7 @@ $_ZN4llvm8DenseMapIPNS_10BasicBlockEPNS_12GenericCycleINS_17GenericSSAContextINS
 @_ZN4llvm20CycleInfoWrapperPassC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm20CycleInfoWrapperPassC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13CycleAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::GenericCycleInfo") align 8 initializes((8, 28), (32, 52), (56, 80)) %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13CycleAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::GenericCycleInfo") align 8 %0, ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::GenericCycleInfoCompute", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %6, i8 0, i64 20, i1 false)
@@ -295,7 +295,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm12GenericCycleINS1_17GenericSSAContextINS1_8Fu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm20CycleInfoPrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm20CycleInfoPrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -977,7 +977,7 @@ define dso_local void @_ZN4llvm21CycleInfoVerifierPass3runERNS_8FunctionERNS_15A
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20CycleInfoWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 28), (32, 40), (48, 68), (72, 92), (96, 120)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20CycleInfoWrapperPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.150, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1075,7 +1075,7 @@ define internal noundef nonnull ptr @_ZL38initializeCycleInfoWrapperPassPassOnce
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm20CycleInfoWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK4llvm20CycleInfoWrapperPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(161) %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   ret void

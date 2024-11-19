@@ -2926,7 +2926,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit.thread: ; preds = %34, %41, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull initializes((0, 1)) %3) unnamed_addr #2 {
+define internal fastcc noundef float @_ZL19xdr_xtc_estimate_dtP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #2 {
   %5 = alloca float, align 4
   %6 = alloca i32, align 4
   store i8 0, ptr %3, align 1
@@ -3004,7 +3004,7 @@ _ZL23xtc_get_next_frame_timeP8_IO_FILEP3XDRiPb.exit: ; preds = %13, %22, %23, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) unnamed_addr #2 {
+define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca float, align 4
   store i8 0, ptr %3, align 1
@@ -3048,7 +3048,7 @@ define internal fastcc noundef float @_ZL26xtc_get_current_frame_timeP8_IO_FILEP
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_Z27xdr_xtc_get_last_frame_timeP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 1)) %3) local_unnamed_addr #2 {
+define noundef float @_Z27xdr_xtc_get_last_frame_timeP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   store i8 1, ptr %3, align 1
   %5 = tail call noundef i64 @_Z9gmx_ftellP8_IO_FILE(ptr noundef %0)
   %6 = icmp slt i64 %5, 0
@@ -3080,7 +3080,7 @@ define noundef float @_Z27xdr_xtc_get_last_frame_timeP8_IO_FILEP3XDRiPb(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z29xdr_xtc_get_last_frame_numberP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 1)) %3) local_unnamed_addr #2 {
+define noundef i32 @_Z29xdr_xtc_get_last_frame_numberP8_IO_FILEP3XDRiPb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca float, align 4
   store i8 1, ptr %3, align 1

@@ -144,7 +144,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16ObjectPropertiesC2Ev(ptr noundef nonnull align 8 dereferenceable(361) initializes((0, 96)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16ObjectPropertiesC2Ev(ptr noundef nonnull align 8 dereferenceable(361) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %ref.tmp16 = alloca i32, align 4
   %ref.tmp17 = alloca i32, align 4

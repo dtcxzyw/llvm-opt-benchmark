@@ -88,7 +88,7 @@ $_ZTIN3irr6CTimerE = comdat any
 @.str.5 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr14CIrrDeviceStubC2ERKNS_27SIrrlichtCreationParametersE(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 120), (128, 144), (184, 192)) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(112) %params) unnamed_addr #0 align 2 {
+define void @_ZN3irr14CIrrDeviceStubC2ERKNS_27SIrrlichtCreationParametersE(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(112) %params) unnamed_addr #0 align 2 {
 entry:
   %s = alloca %"class.irr::core::string", align 8
   store i64 0, ptr %this, align 8
@@ -479,7 +479,7 @@ return:                                           ; preds = %_ZN3irr4core6string
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr14CIrrDeviceStubD2Ev(ptr noundef nonnull align 8 dereferenceable(233) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr14CIrrDeviceStubD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -790,7 +790,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr14CIrrDeviceStub17createGUIAndSceneEv(ptr noundef nonnull align 8 dereferenceable(233) initializes((16, 32)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr14CIrrDeviceStub17createGUIAndSceneEv(ptr noundef nonnull align 8 dereferenceable(233) %this) local_unnamed_addr #0 align 2 {
 entry:
   %FileSystem = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %FileSystem, align 8, !tbaa !50
@@ -1014,7 +1014,7 @@ if.end23:                                         ; preds = %if.then18, %if.end1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr14CIrrDeviceStub16setEventReceiverEPNS_14IEventReceiverE(ptr nocapture noundef nonnull align 8 dereferenceable(233) initializes((48, 56)) %this, ptr noundef %receiver) unnamed_addr #0 align 2 {
+define void @_ZN3irr14CIrrDeviceStub16setEventReceiverEPNS_14IEventReceiverE(ptr nocapture noundef nonnull align 8 dereferenceable(233) %this, ptr noundef %receiver) unnamed_addr #0 align 2 {
 entry:
   %UserReceiver = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %receiver, ptr %UserReceiver, align 8, !tbaa !21
@@ -1208,7 +1208,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr14CIrrDeviceStub18setDoubleClickTimeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(233) initializes((88, 92)) %this, i32 noundef %timeMs) unnamed_addr #11 align 2 {
+define void @_ZN3irr14CIrrDeviceStub18setDoubleClickTimeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(233) %this, i32 noundef %timeMs) unnamed_addr #11 align 2 {
 entry:
   %MouseMultiClicks = getelementptr inbounds i8, ptr %this, i64 88
   store i32 %timeMs, ptr %MouseMultiClicks, align 8, !tbaa !59

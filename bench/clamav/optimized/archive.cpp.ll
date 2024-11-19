@@ -1369,7 +1369,7 @@ _ZN9CryptData13KDF3CacheItemD2Ev.exit:            ; preds = %.noexc2.i5
 declare void @_ZN4FileD2Ev(ptr noundef nonnull align 8 dereferenceable(8256)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7ArchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(57108) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define void @_ZN7ArchiveD2Ev(ptr noundef nonnull align 8 dereferenceable(57108) %0) unnamed_addr #8 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV7Archive, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 11048
   %3 = load i8, ptr %2, align 8
@@ -1495,7 +1495,7 @@ define void @_ZN7ArchiveD0Ev(ptr noundef nonnull align 8 dereferenceable(57108) 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Archive8CheckArcEb(ptr noundef nonnull align 8 dereferenceable(57108) initializes((48852, 48853), (48864, 48865)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN7Archive8CheckArcEb(ptr noundef nonnull align 8 dereferenceable(57108) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.uiMsgStore, align 8
   %4 = tail call noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108) %0, i1 noundef zeroext %1)
   br i1 %4, label %17, label %5
@@ -1540,7 +1540,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit:  ; preds = %10
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108) initializes((48852, 48853), (48864, 48865)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.uiMsgStore, align 8
   %4 = alloca %class.uiMsgStore, align 8
   %5 = alloca %class.uiMsgStore, align 8
@@ -2366,7 +2366,7 @@ define noundef i32 @_ZN7Archive14FullHeaderSizeEm(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7Archive4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(57108) initializes((13656, 13657)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN7Archive4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(57108) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 13656
   store i8 0, ptr %4, align 8
   %5 = tail call noundef zeroext i1 @_ZN4File4OpenEPKwj(ptr noundef nonnull align 8 dereferenceable(8256) %0, ptr noundef %1, i32 noundef %2)

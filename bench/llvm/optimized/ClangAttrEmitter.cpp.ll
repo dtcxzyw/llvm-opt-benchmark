@@ -2220,7 +2220,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit:    ; preds = %._crit_edge69, %148
 declare void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(232), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 {
+define internal fastcc void @_ZL21GetFlattenedSpellingsRKN4llvm6RecordE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #0 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
@@ -13881,7 +13881,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN4
 declare void @_ZNK4llvm6Record20getValueAsListOfDefsENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL14createArgumentRKN4llvm6RecordENS_9StringRefEPS1_(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -14988,7 +14988,7 @@ _ZNSt6vectorIPN4llvm6RecordESaIS2_EED2Ev.exit96:  ; preds = %_ZNSt6vectorIPN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120VariadicExprArgumentC2EN4llvm9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120VariadicExprArgumentC2EN4llvm9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -15214,7 +15214,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit15:               ; preds = %81, %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120VariadicExprArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120VariadicExprArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -18166,7 +18166,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17getParsedAttrListRKN4llvm12RecordKeeperEPSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_6RecordEESaISE_EEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::vector", align 8
@@ -48033,7 +48033,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAtt
 declare noundef ptr @_ZNK4llvm6Record21getValueAsOptionalDefENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_6RecordEN12_GLOBAL__N_127PragmaClangAttributeSupport22RuleOrAggregateRuleSetENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -48295,7 +48295,7 @@ _ZNKSt4lessIvEclIRKN4llvm9StringRefERKNSt7__cxx1112basic_stringIcSt11char_traits
 declare void @_ZNK4llvm5Twine3strB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(34)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, i8 %.0.val1) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcbEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, i8 %.0.val1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -48327,7 +48327,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA5_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
@@ -48349,7 +48349,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KclEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, i64 %.0.val1) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KclEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, i64 %.0.val1) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -48379,7 +48379,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_121DefaultSimpleArg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA4_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
@@ -48401,7 +48401,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114StringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114StringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
   %4 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.59, i64 4) #22
   %5 = extractvalue { ptr, i64 } %4, 0
@@ -48413,7 +48413,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114StringArgumentEJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_112TypeArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_112TypeArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -48451,7 +48451,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_112TypeArgumentEJRK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 1 dereferenceable(9) %2) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val, ptr noundef nonnull align 1 dereferenceable(9) %2) unnamed_addr #0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
@@ -48475,7 +48475,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116VariadicArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116VariadicArgumentEJRKN4llvm6RecordERNS2_9StringRefERA9_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48491,7 +48491,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116VariadicArgument
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_122VariadicStringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_122VariadicStringArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48515,7 +48515,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_122VariadicStringAr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicEnumArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicEnumArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -48661,7 +48661,7 @@ _ZN12_GLOBAL__N_120VariadicEnumArgumentC2ERKN4llvm6RecordENS1_9StringRefE.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicExprArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicExprArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48685,7 +48685,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120VariadicExprArgu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124VariadicParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124VariadicParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48709,7 +48709,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_124VariadicParamIdx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48733,7 +48733,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_131VariadicParamOrP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126VariadicIdentifierArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126VariadicIdentifierArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -48765,7 +48765,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_126VariadicIdentifi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115VersionArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115VersionArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #25
   %4 = tail call { ptr, i64 } @_ZNK4llvm6Record16getValueAsStringENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(192) %1, ptr nonnull @.str.59, i64 4) #22
   %5 = extractvalue { ptr, i64 } %4, 0
@@ -48777,7 +48777,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_115VersionArgumentE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_111WrappedAttrEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_111WrappedAttrEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
@@ -48807,7 +48807,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_111WrappedAttrEJRKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA15_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJRKN4llvm6RecordERNS2_9StringRefERA15_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #25
@@ -48829,7 +48829,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_114SimpleArgumentEJ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentEJRKN4llvm6RecordERNS2_9StringRefEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %.0.val, i64 %.8.val) unnamed_addr #0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #25
@@ -48853,7 +48853,7 @@ define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_130VariadicOMPInter
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115AlignedArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(90) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115AlignedArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(90) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -48863,7 +48863,7 @@ define internal void @_ZN12_GLOBAL__N_115AlignedArgumentD2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115AlignedArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(90) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115AlignedArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(90) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -54684,7 +54684,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit11:    ; preds = %56, %58, %59
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18ArgumentC2EN4llvm9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(90) initializes((0, 8)) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_18ArgumentC2EN4llvm9StringRefES2_(ptr noundef nonnull align 8 dereferenceable(90) %0, ptr %1, i64 %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
@@ -54755,7 +54755,7 @@ declare i32 @toupper(i32 noundef) local_unnamed_addr #11
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_18ArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(90) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_18ArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(90) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -54870,7 +54870,7 @@ declare void @llvm.trap() #14
 declare void @_ZNK4llvm6Record23getValueAsListOfStringsENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::vector.214") align 8, ptr noundef nonnull align 8 dereferenceable(192), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118uniqueEnumsInOrderERKSt6vectorIN4llvm9StringRefESaIS2_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_118uniqueEnumsInOrderERKSt6vectorIN4llvm9StringRefESaIS2_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr %.0.val, ptr readnone %.8.val) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.llvm::SmallDenseSet", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -55007,7 +55007,7 @@ _ZN4llvm13SmallDenseSetINS_9StringRefELj8ENS_12DenseMapInfoIS1_vEEED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112EnumArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(218) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112EnumArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(218) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_112EnumArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
@@ -55065,7 +55065,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit4: ; preds = %_ZNSt6vectorIN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112EnumArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(218) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112EnumArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(218) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_112EnumArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(218) %0) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 224) #26
   ret void
@@ -56880,7 +56880,7 @@ declare noundef i64 @_ZNK4llvm9StringRef5rfindES0_(ptr noundef nonnull align 8 d
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6assignEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112ExprArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112ExprArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_114SimpleArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -56893,7 +56893,7 @@ define internal void @_ZN12_GLOBAL__N_112ExprArgumentD2Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112ExprArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112ExprArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_114SimpleArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -58694,7 +58694,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114SimpleArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114SimpleArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_114SimpleArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -58707,7 +58707,7 @@ define internal void @_ZN12_GLOBAL__N_114SimpleArgumentD2Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114SimpleArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114SimpleArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_114SimpleArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -60665,7 +60665,7 @@ _ZN4llvm12StringSwitchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121DefaultSimpleArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121DefaultSimpleArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_114SimpleArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -60678,7 +60678,7 @@ define internal void @_ZN12_GLOBAL__N_121DefaultSimpleArgumentD2Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121DefaultSimpleArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121DefaultSimpleArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_114SimpleArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -60861,7 +60861,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %88, %90
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114StringArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(90) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114StringArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(90) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -60871,7 +60871,7 @@ define internal void @_ZN12_GLOBAL__N_114StringArgumentD2Ev(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114StringArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(90) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114StringArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(90) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -63064,7 +63064,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %40, %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112TypeArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112TypeArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_114SimpleArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -63077,7 +63077,7 @@ define internal void @_ZN12_GLOBAL__N_112TypeArgumentD2Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_112TypeArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_112TypeArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_114SimpleArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -64021,7 +64021,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %18, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef nonnull %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116VariadicArgumentC2ERKN4llvm6RecordENS1_9StringRefENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr %2, i64 %3, ptr noundef nonnull %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -64078,7 +64078,7 @@ _ZNK4llvm9StringRef3strB5cxx11Ev.exit:            ; preds = %17, %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116VariadicArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116VariadicArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -64097,7 +64097,7 @@ define internal void @_ZN12_GLOBAL__N_116VariadicArgumentD2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116VariadicArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116VariadicArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -67049,7 +67049,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122VariadicStringArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122VariadicStringArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -67068,7 +67068,7 @@ define internal void @_ZN12_GLOBAL__N_122VariadicStringArgumentD2Ev(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122VariadicStringArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122VariadicStringArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -67251,7 +67251,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120VariadicEnumArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(346) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120VariadicEnumArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(346) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_120VariadicEnumArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %3 = load ptr, ptr %2, align 8
@@ -67318,7 +67318,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EED2Ev.exit4: ; preds = %_ZNSt6vectorIN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120VariadicEnumArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(346) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120VariadicEnumArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(346) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_120VariadicEnumArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(346) %0) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 352) #26
   ret void
@@ -69255,7 +69255,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit16:               ; preds = %80, %82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120VariadicExprArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120VariadicExprArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -70274,7 +70274,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit17:               ; preds = %82, %84
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124VariadicParamIdxArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124VariadicParamIdxArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -70293,7 +70293,7 @@ define internal void @_ZN12_GLOBAL__N_124VariadicParamIdxArgumentD2Ev(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124VariadicParamIdxArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124VariadicParamIdxArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -70367,7 +70367,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -70386,46 +70386,7 @@ define internal void @_ZN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentD2Ev(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 224) #26
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126VariadicIdentifierArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
-  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126VariadicIdentifierArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_131VariadicParamOrParamIdxArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -70445,7 +70406,46 @@ define internal void @_ZN12_GLOBAL__N_126VariadicIdentifierArgumentD0Ev(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115VersionArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(90) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126VariadicIdentifierArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
+  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN12_GLOBAL__N_126VariadicIdentifierArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
+  store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
+  store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
+  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 224) #26
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal void @_ZN12_GLOBAL__N_115VersionArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(90) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -70455,7 +70455,7 @@ define internal void @_ZN12_GLOBAL__N_115VersionArgumentD2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115VersionArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(90) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115VersionArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(90) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_18ArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -71676,7 +71676,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %40, %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111WrappedAttrD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111WrappedAttrD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_114SimpleArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -71689,7 +71689,7 @@ define internal void @_ZN12_GLOBAL__N_111WrappedAttrD2Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_111WrappedAttrD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_111WrappedAttrD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_114SimpleArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -71981,7 +71981,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
@@ -72000,7 +72000,7 @@ define internal void @_ZN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentD2Ev(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_130VariadicOMPInteropInfoArgumentD0Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 216) (i8, ptr @_ZTVN12_GLOBAL__N_116VariadicArgumentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22

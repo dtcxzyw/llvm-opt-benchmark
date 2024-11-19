@@ -88,7 +88,7 @@ $_ZTV15ChangeSwitchPad = comdat any
 @_ZN9RelocatorC1ERK12methodHandleP17RelocatorListener = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN9RelocatorC2ERK12methodHandleP17RelocatorListener
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9RelocatorC2ERK12methodHandleP17RelocatorListener(ptr noundef nonnull align 8 dereferenceable(72) initializes((32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN9RelocatorC2ERK12methodHandleP17RelocatorListener(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.methodHandle, align 8
   %5 = alloca %class.methodHandle, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -235,7 +235,7 @@ define hidden noundef zeroext i1 @_ZN9Relocator17expand_code_arrayEi(ptr noundef
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9Relocator15insert_space_atEiiPhP10JavaThread(ptr dead_on_unwind noalias writable sret(%class.methodHandle) align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) initializes((56, 64)) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9Relocator15insert_space_atEiiPhP10JavaThread(ptr dead_on_unwind noalias writable sret(%class.methodHandle) align 8 %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %class.methodHandle, align 8
   %8 = alloca %class.methodHandle, align 8
   %9 = alloca %class.methodHandle, align 8

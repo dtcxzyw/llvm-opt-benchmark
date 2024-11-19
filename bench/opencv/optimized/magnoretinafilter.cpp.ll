@@ -366,7 +366,7 @@ _ZNSt8valarrayIfEaSERKf.exit42:                   ; preds = %.lr.ph.i.i38.prehea
 declare void @_ZN2cv11bioinspired17BasicRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11bioinspired17MagnoRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(324) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11bioinspired17MagnoRetinaFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(324) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired17MagnoRetinaFilterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
@@ -398,7 +398,7 @@ define hidden void @_ZN2cv11bioinspired17MagnoRetinaFilterD2Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv11bioinspired17MagnoRetinaFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(324) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11bioinspired17MagnoRetinaFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(324) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv11bioinspired17MagnoRetinaFilterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
@@ -652,7 +652,7 @@ _ZNSt8valarrayIfE6resizeEmf.exit66:               ; preds = %.lr.ph.i.i.i63.preh
 declare void @_ZN2cv11bioinspired17BasicRetinaFilter6resizeEjj(ptr noundef nonnull align 8 dereferenceable(168), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11bioinspired17MagnoRetinaFilter20setCoefficientsTableEffffff(ptr noundef nonnull align 8 dereferenceable(324) initializes((320, 324)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv11bioinspired17MagnoRetinaFilter20setCoefficientsTableEffffff(ptr noundef nonnull align 8 dereferenceable(324) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6) local_unnamed_addr #3 align 2 {
   %8 = fdiv float -1.000000e+00, %4
   %9 = tail call noundef float @expf(float noundef %8) #13
   %10 = getelementptr inbounds i8, ptr %0, i64 320

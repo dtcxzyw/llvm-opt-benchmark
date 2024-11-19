@@ -219,7 +219,7 @@ declare noundef i64 @_ZN2os20numa_get_leaf_groupsEPjm(ptr noundef, i64 noundef) 
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16MutableNUMASpaceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16MutableNUMASpaceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTV16MutableNUMASpace, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -297,7 +297,7 @@ _ZN16MutableNUMASpace9LGRPSpaceD2Ev.exit:         ; preds = %21, %25
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16MutableNUMASpaceD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16MutableNUMASpaceD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN16MutableNUMASpaceD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #11
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #11
   ret void
@@ -1333,7 +1333,7 @@ _ZN16MutableNUMASpace18current_chunk_sizeEi.exit97: ; preds = %211, %212
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef writeonly initializes((0, 16)) %5, ptr nocapture noundef writeonly initializes((0, 16)) %6) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN16MutableNUMASpace12select_tailsE9MemRegionS0_PS0_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #5 align 2 {
   %8 = icmp ult ptr %1, %3
   br i1 %8, label %9, label %41
 
@@ -2732,7 +2732,7 @@ _ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm.exit: ; preds = %.lr.ph
 declare void @_ZNK12MutableSpace8print_onEP12outputStream(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((32, 64)) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16MutableNUMASpace9LGRPSpace21accumulate_statisticsEm(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca [128 x ptr], align 16
   %4 = alloca [128 x i32], align 16
   %5 = getelementptr inbounds i8, ptr %0, i64 32

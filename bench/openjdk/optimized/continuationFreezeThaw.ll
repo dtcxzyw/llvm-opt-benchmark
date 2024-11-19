@@ -1319,7 +1319,7 @@ define hidden noundef zeroext i1 @_ZN10FreezeBase21freeze_fast_new_chunkEP17stac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase11freeze_slowEv(ptr noundef nonnull align 8 dereferenceable(80) initializes((48, 56)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN10FreezeBase11freeze_slowEv(ptr noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.HandleMark, align 8
   %3 = alloca %class.frame, align 8
   %4 = alloca %class.frame, align 8
@@ -1787,7 +1787,7 @@ declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10FreezeBase33freeze_start_frame_safepoint_stubE5frame(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.frame) align 8 initializes((0, 56)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, ptr noundef byval(%class.frame) align 8 %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10FreezeBase33freeze_start_frame_safepoint_stubE5frame(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.frame) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, ptr noundef byval(%class.frame) align 8 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.frame, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -3518,7 +3518,7 @@ _ZN19ContinuationWrapper11SafepointOpC2EP6ThreadRS_.exit: ; preds = %1, %_ZN10Ha
 declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8ThawBase36remove_top_compiled_frame_from_chunkEP17stackChunkOopDescRi(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8ThawBase36remove_top_compiled_frame_from_chunkEP17stackChunkOopDescRi(ptr nocapture nonnull readnone align 8 %0, ptr noundef %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #0 align 2 {
   %4 = ptrtoint ptr %1 to i64
   %5 = load i32, ptr @_ZN23InstanceStackChunkKlass16_offset_of_stackE, align 4
   %6 = sext i32 %5 to i64
@@ -3650,7 +3650,7 @@ define hidden void @_ZN8ThawBase15copy_from_chunkEPlS0_i(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN8ThawBase12patch_returnEPlb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef writeonly initializes((-8, 0)) %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN8ThawBase12patch_returnEPlb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef writeonly %1, i1 noundef zeroext %2) local_unnamed_addr #7 align 2 {
   %_ZN17ContinuationEntry10_return_pcE.val = load ptr, ptr @_ZN17ContinuationEntry10_return_pcE, align 8
   %_ZN12StubRoutines19_cont_returnBarrierE.val = load ptr, ptr @_ZN12StubRoutines19_cont_returnBarrierE, align 8
   %4 = select i1 %2, ptr %_ZN17ContinuationEntry10_return_pcE.val, ptr %_ZN12StubRoutines19_cont_returnBarrierE.val
@@ -3660,7 +3660,7 @@ define hidden void @_ZN8ThawBase12patch_returnEPlb(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN8ThawBase9thaw_slowEP17stackChunkOopDescb(ptr noundef nonnull align 8 dereferenceable(88) initializes((32, 44), (48, 88)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN8ThawBase9thaw_slowEP17stackChunkOopDescb(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.StackChunkFrameStream, align 8
   %5 = alloca %class.frame, align 8
   %6 = alloca %class.frame, align 8
@@ -4729,7 +4729,7 @@ _ZN8ThawBase18maybe_set_fastpathEPl.exit:         ; preds = %_ZN8ThawBase5patchE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ThawBase13finalize_thawER5framei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN8ThawBase13finalize_thawER5framei(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.frame, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8

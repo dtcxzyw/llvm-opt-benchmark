@@ -3028,7 +3028,7 @@ define internal void @guc_sanitize(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @guc_release(ptr noundef initializes((792, 800)) %0) #0 align 16 {
+define internal void @guc_release(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 792
   store ptr null, ptr %2, align 8
   tail call void @intel_engine_cleanup_common(ptr noundef %0) #20
@@ -3405,7 +3405,7 @@ define dso_local i32 @intel_guc_sched_disable_gucid_threshold_max(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_guc_submission_init_early(ptr noundef initializes((1104, 1108), (1464, 1480)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_guc_submission_init_early(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1464
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1468
@@ -8079,14 +8079,14 @@ declare dso_local ptr @gen12_emit_fini_breadcrumb_xcs(ptr noundef, ptr noundef) 
 declare dso_local i32 @gen12_emit_flush_xcs(ptr noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @guc_set_default_submission(ptr nocapture noundef writeonly initializes((928, 936)) %0) #14 align 16 {
+define internal void @guc_set_default_submission(ptr nocapture noundef writeonly %0) #14 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 928
   store ptr @guc_submit_request, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i64 @guc_engine_busyness(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 align 16 {
+define internal i64 @guc_engine_busyness(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = alloca %struct.intel_engine_guc_stats, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   %4 = getelementptr inbounds i8, ptr %0, i64 5376

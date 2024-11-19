@@ -551,7 +551,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog14check_relationC2ERNS_21check_relation_pluginERKNS_18relation_signatureEPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 28)) %this, ptr noundef nonnull align 8 dereferenceable(56) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sig, ptr noundef %r) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog14check_relationC2ERNS_21check_relation_pluginERKNS_18relation_signatureEPNS_13relation_baseE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(56) %p, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sig, ptr noundef %r) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog17tr_infrastructureINS_15relation_traitsEE13base_ancestorE, i64 16), ptr %this, align 8
   %m_plugin.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -698,7 +698,7 @@ _ZN7datalog17tr_infrastructureINS_15relation_traitsEE13base_ancestorD2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog14check_relationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog14check_relationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog14check_relationE, i64 16), ptr %this, align 8
   %m_relation = getelementptr inbounds i8, ptr %this, i64 40
@@ -779,7 +779,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog14check_relationD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN7datalog14check_relationD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7datalog14check_relationD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -3224,7 +3224,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7obj_refI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog21check_relation_pluginC2ERNS_16relation_managerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 12), (16, 36), (40, 56)) %this, ptr noundef nonnull align 8 dereferenceable(200) %rm) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog21check_relation_pluginC2ERNS_16relation_managerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(200) %rm) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %class.symbol, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %retval.i)
@@ -3903,7 +3903,7 @@ lpad3:                                            ; preds = %invoke.cont7, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog21check_relation_plugin10mk_projectERKNS_18relation_signatureEP4exprRK7svectorIjjE(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sig, ptr noundef %fml, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %removed_cols) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog21check_relation_plugin10mk_projectERKNS_18relation_signatureEP4exprRK7svectorIjjE(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %sig, ptr noundef %fml, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %removed_cols) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %bound = alloca %class.ptr_vector, align 8
   %names = alloca %class.svector.6, align 8
@@ -4870,7 +4870,7 @@ ehcleanup29:                                      ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog21check_relation_plugin7mk_joinERKNS_13relation_baseES3_RK7svectorIjjES7_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(28) %t1, ptr noundef nonnull align 8 dereferenceable(28) %t2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %cols1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %cols2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog21check_relation_plugin7mk_joinERKNS_13relation_baseES3_RK7svectorIjjES7_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(28) %t1, ptr noundef nonnull align 8 dereferenceable(28) %t2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %cols1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %cols2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fml2 = alloca %class.obj_ref, align 8
   %fml3 = alloca %class.obj_ref, align 8

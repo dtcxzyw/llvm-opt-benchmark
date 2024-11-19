@@ -471,7 +471,7 @@ define hidden void @_ZN2cv2ml10TreeParamsC2EiidbiibbRKNS_3MatE(ptr noundef nonnu
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv2ml6DTrees4NodeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv2ml6DTrees4NodeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   store double 0.000000e+00, ptr %0, align 8
@@ -481,7 +481,7 @@ define void @_ZN2cv2ml6DTrees4NodeC2Ev(ptr nocapture noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv2ml6DTrees5SplitC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 5), (8, 24)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv2ml6DTrees5SplitC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0) unnamed_addr #4 align 2 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %2, align 4
@@ -497,7 +497,7 @@ define void @_ZN2cv2ml6DTrees5SplitC2Ev(ptr nocapture noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv2ml10DTreesImpl8WorkDataC2ERKNS_3PtrINS0_9TrainDataEEE(ptr noundef nonnull align 8 dereferenceable(284) initializes((0, 280)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv2ml10DTreesImpl8WorkDataC2ERKNS_3PtrINS0_9TrainDataEEE(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.15", align 1
   %5 = alloca %"class.cv::Mat", align 8
@@ -1009,7 +1009,7 @@ define hidden void @_ZN2cv2ml10DTreesImplC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv2ml10DTreesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv2ml10DTreesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 520) (i8, ptr @_ZTVN2cv2ml10DTreesImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
@@ -1212,7 +1212,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit17:                  ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv2ml10DTreesImplD0Ev(ptr noundef nonnull align 8 dereferenceable(448) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN2cv2ml10DTreesImplD0Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN2cv2ml10DTreesImplD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %0) #23
   tail call void @_ZdlPv(ptr noundef nonnull %0) #25
   ret void
@@ -1222,7 +1222,7 @@ define hidden void @_ZN2cv2ml10DTreesImplD0Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv2ml10DTreesImpl5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(448) initializes((424, 425), (432, 440)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv2ml10DTreesImpl5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
@@ -2374,7 +2374,7 @@ define hidden void @_ZN2cv2ml10DTreesImpl14initCompVarIdxEv(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv2ml10DTreesImpl11endTrainingEv(ptr nocapture noundef nonnull align 8 dereferenceable(448) initializes((432, 440)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv2ml10DTreesImpl11endTrainingEv(ptr nocapture noundef nonnull align 8 dereferenceable(448) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 432
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 440
@@ -3425,7 +3425,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %387, %_ZNSt6vectorI
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv2ml10DTreesImpl10setDParamsERKNS0_10TreeParamsE(ptr noundef nonnull align 8 dereferenceable(448) initializes((8, 11)) %0, ptr noundef nonnull align 8 dereferenceable(124) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv2ml10DTreesImpl10setDParamsERKNS0_10TreeParamsE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(124) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef nonnull align 8 dereferenceable(124) %1, i64 3, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -11841,7 +11841,7 @@ define hidden void @_ZNK2cv2ml10DTreesImpl5writeERNS_11FileStorageE(ptr noundef 
 declare void @_ZNK2cv9Algorithm11writeFormatERNS_11FileStorageE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv2ml10DTreesImpl10readParamsERKNS_8FileNodeE(ptr noundef nonnull align 8 dereferenceable(448) initializes((424, 425)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv2ml10DTreesImpl10readParamsERKNS_8FileNodeE(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.cv::internal::VecReaderProxy.85", align 8
   %5 = alloca %"class.cv::FileNodeIterator", align 8

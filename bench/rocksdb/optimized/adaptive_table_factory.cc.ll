@@ -155,7 +155,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20AdaptiveTableFactoryC2ESt10shared_ptrINS_12TableFactoryEES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 96)) %this, ptr nocapture noundef readonly %table_factory_to_write, ptr nocapture noundef readonly %block_based_table_factory, ptr nocapture noundef readonly %plain_table_factory, ptr nocapture noundef readonly %cuckoo_table_factory) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20AdaptiveTableFactoryC2ESt10shared_ptrINS_12TableFactoryEES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef readonly %table_factory_to_write, ptr nocapture noundef readonly %block_based_table_factory, ptr nocapture noundef readonly %plain_table_factory, ptr nocapture noundef readonly %cuckoo_table_factory) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.rocksdb::PlainTableOptions", align 8
   %ref.tmp10 = alloca %"struct.rocksdb::BlockBasedTableOptions", align 8

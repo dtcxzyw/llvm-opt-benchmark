@@ -166,7 +166,7 @@ define noundef ptr @_Z15prefFromPrefPtrPv(ptr noundef %0) local_unnamed_addr #0 
 declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9PrefsItemC2EP11pref_moduleP10preferencePS_(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 56)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9PrefsItemC2EP11pref_moduleP10preferencePS_(ptr noundef nonnull align 8 dereferenceable(81) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -463,7 +463,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN9PrefsItemC2E7QStringPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((0, 81)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9PrefsItemC2E7QStringPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -496,7 +496,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %3, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9PrefsItemD2Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN9PrefsItemD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9PrefsItem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -573,7 +573,7 @@ define noundef zeroext i1 @_ZNK9PrefsItem13isPrefDefaultEv(ptr nocapture noundef
 declare i32 @prefs_pref_is_default(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9PrefsItem15getPrefTypeNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9PrefsItem15getPrefTypeNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -630,7 +630,7 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %16, %.split.i.i
 declare ptr @prefs_pref_type_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9PrefsItem13getModuleNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9PrefsItem13getModuleNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -687,7 +687,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %16, %7, %_ZN7QStrin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9PrefsItem14getModuleTitleEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9PrefsItem14getModuleTitleEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8
@@ -749,7 +749,7 @@ _ZN7QStringC2ERKS_.exit:                          ; preds = %19, %10, %_ZN7QStri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9PrefsItem10setChangedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) initializes((80, 81)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN9PrefsItem10setChangedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(81) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 %3, ptr %4, align 8
@@ -1709,7 +1709,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i151:   ; preds = %276
 declare void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10PrefsModelD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN10PrefsModelD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV10PrefsModel, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -2744,7 +2744,7 @@ _ZL17prefInsertPrefPtrPvP10preference.exit:       ; preds = %51, %47, %_ZN19Mode
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10PrefsModel12typeToStringEi(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10PrefsModel12typeToStringEi(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -5839,7 +5839,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr 
 declare void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18AdvancedPrefsModel20setShowChangedValuesEb(ptr noundef nonnull align 8 dereferenceable(44) initializes((40, 41)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN18AdvancedPrefsModel20setShowChangedValuesEb(ptr noundef nonnull align 8 dereferenceable(44) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 %3, ptr %4, align 8

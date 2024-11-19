@@ -339,7 +339,7 @@ declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_a
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Sto_ManMarkRoots(ptr nocapture noundef initializes((4, 8)) %0) local_unnamed_addr #10 {
+define void @Sto_ManMarkRoots(ptr nocapture noundef %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -365,7 +365,7 @@ define void @Sto_ManMarkRoots(ptr nocapture noundef initializes((4, 8)) %0) loca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Sto_ManMarkClausesA(ptr nocapture noundef initializes((12, 16)) %0) local_unnamed_addr #10 {
+define void @Sto_ManMarkClausesA(ptr nocapture noundef %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 16

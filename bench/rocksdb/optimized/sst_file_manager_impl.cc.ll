@@ -136,7 +136,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18SstFileManagerImplC2ERKSt10shared_ptrINS_11SystemClockEERKS1_INS_10FileSystemEERKS1_INS_6LoggerEEldm(ptr noundef nonnull align 8 dereferenceable(808) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %clock, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %fs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %logger, i64 noundef %rate_bytes_per_sec, double noundef %max_trash_db_ratio, i64 noundef %bytes_max_delete_chunk) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18SstFileManagerImplC2ERKSt10shared_ptrINS_11SystemClockEERKS1_INS_10FileSystemEERKS1_INS_6LoggerEEldm(ptr noundef nonnull align 8 dereferenceable(808) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %clock, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %fs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %logger, i64 noundef %rate_bytes_per_sec, double noundef %max_trash_db_ratio, i64 noundef %bytes_max_delete_chunk) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18SstFileManagerImplE, i64 16), ptr %this, align 8
   %clock_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -602,7 +602,7 @@ _ZNSt12__shared_ptrIN7rocksdb11SystemClockELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb18SstFileManagerImplD2Ev(ptr noundef nonnull align 8 dereferenceable(808) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18SstFileManagerImplD2Ev(ptr noundef nonnull align 8 dereferenceable(808) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb18SstFileManagerImplE, i64 16), ptr %this, align 8
   invoke void @_ZN7rocksdb18SstFileManagerImpl5CloseEv(ptr noundef nonnull align 8 dereferenceable(808) %this)
@@ -2197,7 +2197,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18SstFileManagerImpl15GetTrackedFilesB5cxx11Ev(ptr noalias sret(%"class.std::unordered_map") align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(808) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18SstFileManagerImpl15GetTrackedFilesB5cxx11Ev(ptr noalias sret(%"class.std::unordered_map") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(808) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %mu_ = getelementptr inbounds i8, ptr %this, i64 56

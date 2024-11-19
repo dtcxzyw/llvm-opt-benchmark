@@ -268,7 +268,7 @@ entry:
 declare void @_ZN4cvc58internal6theory11quantifiers15FirstOrderModelC2ERNS0_3EnvERNS2_16QuantifiersStateERNS2_19QuantifiersRegistryERNS2_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(656), ptr noundef nonnull align 8 dereferenceable(576), ptr noundef nonnull align 1, ptr noundef nonnull align 1, ptr noundef nonnull align 1) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmcD2Ev(ptr noundef nonnull align 8 dereferenceable(752) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmcD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmcE, i64 16), ptr %this, align 8
   %d_models = getelementptr inbounds i8, ptr %this, i64 656
@@ -469,7 +469,7 @@ _ZN4cvc58internal6theory11quantifiers7fmcheck9EntryTrieD2Ev.exit: ; preds = %_ZN
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmcD0Ev(ptr noundef nonnull align 8 dereferenceable(752) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmcD0Ev(ptr noundef nonnull align 8 dereferenceable(752) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers7fmcheck18FirstOrderModelFmcD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21

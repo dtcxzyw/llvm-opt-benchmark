@@ -101,7 +101,7 @@ $_ZN15FieldInfoReader15read_field_infoER9FieldInfo = comdat any
 @_ZN30JvmtiConstantPoolReconstituterC1EP13InstanceKlass = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN30JvmtiConstantPoolReconstituterC2EP13InstanceKlass
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30JvmtiConstantPoolReconstituterC2EP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(52) initializes((24, 52)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN30JvmtiConstantPoolReconstituterC2EP13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.constantPoolHandle, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)

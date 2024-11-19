@@ -548,7 +548,7 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 declare void @_ZN4llvm17RegisterClassInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(320)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115PostRASchedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115PostRASchedulerD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_115PostRASchedulerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN4llvm17RegisterClassInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %2) #20
@@ -557,7 +557,7 @@ define internal void @_ZN12_GLOBAL__N_115PostRASchedulerD2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115PostRASchedulerD0Ev(ptr noundef nonnull align 8 dereferenceable(384) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115PostRASchedulerD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_115PostRASchedulerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   tail call void @_ZN4llvm17RegisterClassInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %2) #20
@@ -2167,7 +2167,7 @@ define internal void @_ZN12_GLOBAL__N_120SchedulePostRATDList10exitRegionEv(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120SchedulePostRATDList12EmitScheduleEv(ptr nocapture noundef nonnull align 8 dereferenceable(2804) initializes((896, 904)) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120SchedulePostRATDList12EmitScheduleEv(ptr nocapture noundef nonnull align 8 dereferenceable(2804) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %4 = load i64, ptr %2, align 8
@@ -2566,7 +2566,7 @@ define internal void @_ZN12_GLOBAL__N_120SchedulePostRATDList11finishBlockEv(ptr
 declare void @_ZN4llvm17ScheduleDAGInstrs10fixupKillsERNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(2624), ptr noundef nonnull align 8 dereferenceable(288)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120SchedulePostRATDListD2Ev(ptr noundef nonnull align 8 dereferenceable(2804) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120SchedulePostRATDListD2Ev(ptr noundef nonnull align 8 dereferenceable(2804) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN12_GLOBAL__N_120SchedulePostRATDListE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2728
   %3 = load ptr, ptr %2, align 8
@@ -2717,7 +2717,7 @@ declare noundef ptr @_ZN4llvm30createAggressiveAntiDepBreakerERNS_15MachineFunct
 declare noundef ptr @_ZN4llvm28createCriticalAntiDepBreakerERNS_15MachineFunctionERKNS_17RegisterClassInfoE(ptr noundef nonnull align 8 dereferenceable(1041), ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120SchedulePostRATDListD0Ev(ptr noundef nonnull align 8 dereferenceable(2804) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120SchedulePostRATDListD0Ev(ptr noundef nonnull align 8 dereferenceable(2804) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_120SchedulePostRATDListD2Ev(ptr noundef nonnull align 8 dereferenceable(2804) %0) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 2808) #23
   ret void

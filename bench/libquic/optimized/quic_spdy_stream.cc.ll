@@ -177,7 +177,7 @@ declare void @_ZN3net14QuicHeaderListD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN3net18ReliableQuicStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(377)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net14QuicSpdyStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(664) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicSpdyStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(664) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net14QuicSpdyStreamE, i64 16), ptr %this, align 8
   %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
@@ -707,7 +707,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net14QuicSpdyStream21MarkTrailersDeliveredEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664) initializes((537, 538)) %this) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN3net14QuicSpdyStream21MarkTrailersDeliveredEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664) %this) local_unnamed_addr #8 align 2 {
 entry:
   %trailers_delivered_ = getelementptr inbounds i8, ptr %this, i64 537
   store i8 1, ptr %trailers_delivered_, align 1
@@ -749,7 +749,7 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
 declare void @_ZN3net14QuicHeaderList5ClearEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicSpdyStream11SetPriorityEh(ptr nocapture noundef nonnull align 8 dereferenceable(664) initializes((401, 402)) %this, i8 noundef zeroext %priority) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicSpdyStream11SetPriorityEh(ptr nocapture noundef nonnull align 8 dereferenceable(664) %this, i8 noundef zeroext %priority) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
   %0 = load ptr, ptr %spdy_session_, align 8
@@ -782,7 +782,7 @@ entry:
 declare void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE14AppendToStringEPS6_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicSpdyStream23OnStreamHeadersPriorityEh(ptr nocapture noundef nonnull align 8 dereferenceable(664) initializes((401, 402)) %this, i8 noundef zeroext %priority) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicSpdyStream23OnStreamHeadersPriorityEh(ptr nocapture noundef nonnull align 8 dereferenceable(664) %this, i8 noundef zeroext %priority) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   %spdy_session_.i = getelementptr inbounds i8, ptr %this, i64 384
   %0 = load ptr, ptr %spdy_session_.i, align 8
@@ -823,7 +823,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicSpdyStream24OnInitialHeadersCompleteEbm(ptr noundef nonnull align 8 dereferenceable(664) initializes((400, 401)) %this, i1 noundef zeroext %fin, i64 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicSpdyStream24OnInitialHeadersCompleteEbm(ptr noundef nonnull align 8 dereferenceable(664) %this, i1 noundef zeroext %fin, i64 %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.net::QuicStreamFrame", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
@@ -887,7 +887,7 @@ declare void @_ZN3net15QuicStreamFrameC1EjbmN4base16BasicStringPieceINSt7__cxx11
 declare void @_ZN3net15QuicStreamFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net14QuicSpdyStream24OnInitialHeadersCompleteEbmRKNS_14QuicHeaderListE(ptr noundef nonnull align 8 dereferenceable(664) initializes((400, 401)) %this, i1 noundef zeroext %fin, i64 %0, ptr noundef nonnull align 8 dereferenceable(96) %header_list) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net14QuicSpdyStream24OnInitialHeadersCompleteEbmRKNS_14QuicHeaderListE(ptr noundef nonnull align 8 dereferenceable(664) %this, i1 noundef zeroext %fin, i64 %0, ptr noundef nonnull align 8 dereferenceable(96) %header_list) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.net::QuicStreamFrame", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
@@ -1697,7 +1697,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net14QuicSpdyStream12ClearSessionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664) initializes((384, 392)) %this) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN3net14QuicSpdyStream12ClearSessionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(664) %this) local_unnamed_addr #8 align 2 {
 entry:
   %spdy_session_ = getelementptr inbounds i8, ptr %this, i64 384
   store ptr null, ptr %spdy_session_, align 8

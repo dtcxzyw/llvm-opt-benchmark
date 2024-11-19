@@ -2557,7 +2557,7 @@ define internal fastcc i32 @cuddMinHammingDistRecur(ptr noundef %0, ptr noundef 
 declare void @cuddHashTableQuit(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddClosestCube(ptr noundef initializes((448, 452)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
+define ptr @Cudd_bddClosestCube(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 448
   br label %6
 
@@ -3189,7 +3189,7 @@ separateCube.exit._crit_edge:                     ; preds = %separateCube.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @separateCube(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc ptr @separateCube(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -2
   %6 = inttoptr i64 %5 to ptr

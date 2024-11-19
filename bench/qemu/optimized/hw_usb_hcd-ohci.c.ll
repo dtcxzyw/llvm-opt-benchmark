@@ -645,7 +645,7 @@ trace_usb_ohci_stop.exit:                         ; preds = %entry, %land.lhs.tr
 declare void @timer_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @usb_ohci_init(ptr noundef initializes((480, 488), (10168, 10176)) %ohci, ptr noundef %dev, i32 noundef %num_ports, i64 noundef %localmem_base, ptr noundef %masterbus, i32 noundef %firstport, ptr noundef %as, ptr noundef %ohci_die_fn, ptr noundef %errp) local_unnamed_addr #0 {
+define dso_local void @usb_ohci_init(ptr noundef %ohci, ptr noundef %dev, i32 noundef %num_ports, i64 noundef %localmem_base, ptr noundef %masterbus, i32 noundef %firstport, ptr noundef %as, ptr noundef %ohci_die_fn, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %err = alloca ptr, align 8
@@ -1494,7 +1494,7 @@ if.end:                                           ; preds = %trace_usb_ohci_port
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ohci_async_complete_packet(ptr nocapture readnone %port, ptr noundef initializes((8332, 8333)) %packet) #0 {
+define internal void @ohci_async_complete_packet(ptr nocapture readnone %port, ptr noundef %packet) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)

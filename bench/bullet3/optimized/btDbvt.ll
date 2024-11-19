@@ -64,7 +64,7 @@ $_ZTI20btDbvtNodeEnumerator = comdat any
 @_ZN6btDbvtD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6btDbvtD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6btDbvtC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 28), (36, 44), (48, 57)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN6btDbvtC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 {
 entry:
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store i8 1, ptr %m_ownsMemory.i.i, align 8

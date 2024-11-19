@@ -180,7 +180,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue223ConstructLiteralVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue223ConstructLiteralVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 16), ptr %this, align 8
   %repeat_stack = getelementptr inbounds i8, ptr %this, i64 72
@@ -252,7 +252,7 @@ _ZN5boost14dynamic_bitsetImSaImEED2Ev.exit:       ; preds = %entry, %if.then.i.i
 declare void @_ZN3ue221ConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue223ConstructLiteralVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue223ConstructLiteralVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue223ConstructLiteralVisitorE, i64 16), ptr %this, align 8
   %repeat_stack.i = getelementptr inbounds i8, ptr %this, i64 72

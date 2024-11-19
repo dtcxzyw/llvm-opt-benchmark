@@ -544,7 +544,7 @@ return:                                           ; preds = %lor.lhs.false47, %i
 declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ASN1_INTEGER_set(ptr nocapture noundef initializes((4, 8)) %a, i64 noundef %v) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @ASN1_INTEGER_set(ptr nocapture noundef %a, i64 noundef %v) local_unnamed_addr #0 {
 entry:
   %buf = alloca [9 x i8], align 1
   %type = getelementptr inbounds i8, ptr %a, i64 4

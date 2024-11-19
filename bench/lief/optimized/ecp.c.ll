@@ -186,7 +186,7 @@ define hidden void @mbedtls_ecp_point_init(ptr noundef %0) local_unnamed_addr #6
 declare void @mbedtls_mpi_init(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_ecp_group_init(ptr noundef initializes((0, 4)) %0) local_unnamed_addr #6 {
+define hidden void @mbedtls_ecp_group_init(ptr noundef %0) local_unnamed_addr #6 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @mbedtls_mpi_init(ptr noundef nonnull %2) #19
@@ -210,7 +210,7 @@ define hidden void @mbedtls_ecp_group_init(ptr noundef initializes((0, 4)) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_ecp_keypair_init(ptr noundef initializes((0, 4)) %0) local_unnamed_addr #6 {
+define hidden void @mbedtls_ecp_keypair_init(ptr noundef %0) local_unnamed_addr #6 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @mbedtls_mpi_init(ptr noundef nonnull %2) #19

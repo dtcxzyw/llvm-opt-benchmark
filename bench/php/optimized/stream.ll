@@ -283,7 +283,7 @@ define internal i32 @phar_stream_flush(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @phar_stream_seek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) #0 {
+define internal i32 @phar_stream_seek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 40
@@ -2713,7 +2713,7 @@ declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare i32 @phar_open_from_filename(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @phar_dostat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 144)) %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
+define hidden void @phar_dostat(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   br i1 %3, label %.critedge, label %5
 

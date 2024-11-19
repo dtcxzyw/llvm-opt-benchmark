@@ -47,7 +47,7 @@ $_ZNSt6vectorIPN3re23RE2ESaIS2_EE16_M_shrink_to_fitEv = comdat any
 @_ZN3re211FilteredRE2C1EOS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN3re211FilteredRE2C2EOS0_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re211FilteredRE2C2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 25)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re211FilteredRE2C2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #14
@@ -86,7 +86,7 @@ declare void @_ZN3re213PrefilterTreeC1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re211FilteredRE2C2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 25)) %this, i32 noundef %min_atom_len) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re211FilteredRE2C2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %min_atom_len) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
   %call = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #14
@@ -200,7 +200,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re211FilteredRE2C2EOS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 25), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re211FilteredRE2C2EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8

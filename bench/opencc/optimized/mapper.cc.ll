@@ -41,7 +41,7 @@ $_ZTVN6marisa9ExceptionE = comdat any
 @_ZN6marisa8grimoire2io6MapperD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6marisa8grimoire2io6MapperD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6marisa8grimoire2io6MapperC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0) unnamed_addr #0 align 2 {
+define void @_ZN6marisa8grimoire2io6MapperC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 -1 to ptr), ptr %2, align 8
@@ -344,7 +344,7 @@ define void @_ZN6marisa8grimoire2io6Mapper4openEPKvm(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6marisa8grimoire2io6Mapper5open_EPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 8), (16, 24)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZN6marisa8grimoire2io6Mapper5open_EPKvm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %2, ptr %4, align 8

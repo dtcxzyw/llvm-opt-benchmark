@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm14RopePieceBTreeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm14RopePieceBTreeD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm22RopePieceBTreeIteratorC2EPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm22RopePieceBTreeIteratorC2EPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %.val.val.i.i16 = load i8, ptr %3, align 4
@@ -116,7 +116,7 @@ define dso_local void @_ZN4llvm22RopePieceBTreeIterator15MoveToNextPieceEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RopePieceBTreeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm14RopePieceBTreeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #8
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -133,7 +133,7 @@ define dso_local void @_ZN4llvm14RopePieceBTreeC2Ev(ptr nocapture noundef nonnul
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RopePieceBTreeC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm14RopePieceBTreeC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #1 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #8
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -958,7 +958,7 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit: ; preds = %.preheader, %.ou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11RewriteRope14MakeRopeStringEPKcS2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::RopePiece") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm11RewriteRope14MakeRopeStringEPKcS2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::RopePiece") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(20) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = ptrtoint ptr %3 to i64
   %6 = ptrtoint ptr %2 to i64
   %7 = sub i64 %5, %6

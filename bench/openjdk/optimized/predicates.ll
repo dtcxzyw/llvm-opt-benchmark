@@ -487,7 +487,7 @@ _ZN23RegularPredicateWithUCT12is_predicateEP4NodeN14Deoptimization11DeoptReasonE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ParsePredicateIteratorC2ERK10Predicates(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ParsePredicateIteratorC2ERK10Predicates(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #9
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4

@@ -137,7 +137,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory7strings13StringsEntailC2EPNS1_8RewriterERNS2_11ArithEntailERNS2_17SequencesRewriterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %r, ptr noundef nonnull align 8 dereferenceable(16) %aent, ptr noundef nonnull align 8 dereferenceable(88) %rewriter) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory7strings13StringsEntailC2EPNS1_8RewriterERNS2_11ArithEntailERNS2_17SequencesRewriterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %r, ptr noundef nonnull align 8 dereferenceable(16) %aent, ptr noundef nonnull align 8 dereferenceable(88) %rewriter) unnamed_addr #3 align 2 {
 entry:
   store ptr %r, ptr %this, align 8
   %d_arithEntail = getelementptr inbounds i8, ptr %this, i64 8
@@ -148,7 +148,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13StringsEntail24canConstantContainConcatENS0_12NodeTemplateILb1EEES5_RiS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %n, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %firstc, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %lastc) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13StringsEntail24canConstantContainConcatENS0_12NodeTemplateILb1EEES5_RiS6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %c, ptr nocapture noundef readonly %n, ptr nocapture noundef nonnull align 4 dereferenceable(4) %firstc, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %lastc) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -857,7 +857,7 @@ declare noundef zeroext i1 @_ZN4cvc58internal6theory7strings11ArithEntail5checkE
 declare noundef zeroext i1 @_ZN4cvc58internal6String7isDigitEj(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13StringsEntail22canConstantContainListENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EERiSA_(ptr nocapture noundef readonly %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %l, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %firstc, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %lastc) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings13StringsEntail22canConstantContainListENS0_12NodeTemplateILb1EEERSt6vectorIS5_SaIS5_EERiSA_(ptr nocapture noundef readonly %c, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %l, ptr nocapture noundef nonnull align 4 dereferenceable(4) %firstc, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %lastc) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
   %agg.tmp5 = alloca %"class.cvc5::internal::NodeTemplate.0", align 8

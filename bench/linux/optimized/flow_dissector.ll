@@ -186,7 +186,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [19 x ptr] [ptr @__UNIQUE_ID___addressable___get_hash_from_flowi6981, ptr @__UNIQUE_ID___addressable___skb_flow_dissect968, ptr @__UNIQUE_ID___addressable___skb_flow_get_ports944, ptr @__UNIQUE_ID___addressable___skb_get_hash977, ptr @__UNIQUE_ID___addressable___skb_get_hash_symmetric976, ptr @__UNIQUE_ID___addressable_flow_get_u32_dst972, ptr @__UNIQUE_ID___addressable_flow_get_u32_src971, ptr @__UNIQUE_ID___addressable_flow_hash_from_keys973, ptr @__UNIQUE_ID___addressable_flow_keys_basic_dissector983, ptr @__UNIQUE_ID___addressable_flow_keys_dissector982, ptr @__UNIQUE_ID___addressable_init_default_flow_dissectors985, ptr @__UNIQUE_ID___addressable_make_flow_keys_digest975, ptr @__UNIQUE_ID___addressable_skb_flow_dissect_ct947, ptr @__UNIQUE_ID___addressable_skb_flow_dissect_hash949, ptr @__UNIQUE_ID___addressable_skb_flow_dissect_meta946, ptr @__UNIQUE_ID___addressable_skb_flow_dissect_tunnel_info948, ptr @__UNIQUE_ID___addressable_skb_flow_dissector_init943, ptr @__UNIQUE_ID___addressable_skb_flow_get_icmp_tci945, ptr @__UNIQUE_ID___addressable_skb_get_hash_perturb978], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @skb_flow_dissector_init(ptr nocapture noundef writeonly initializes((0, 80)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local void @skb_flow_dissector_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %.loopexit.thread, label %5
@@ -3070,7 +3070,7 @@ thread-pre-split:                                 ; preds = %17, %23, %.loopexit
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @make_flow_keys_digest(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1) #4 align 16 {
+define dso_local void @make_flow_keys_digest(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #4 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i16, ptr %3, align 8
@@ -3263,7 +3263,7 @@ define dso_local void @__skb_get_hash(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc range(i32 1, 0) i32 @___skb_get_hash(ptr noundef %0, ptr noundef initializes((0, 80)) %1, ptr noundef %2) unnamed_addr #8 align 16 {
+define internal fastcc range(i32 1, 0) i32 @___skb_get_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #8 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %1, i8 0, i64 80, i1 false)
   %4 = tail call zeroext i1 @__skb_flow_dissect(ptr noundef null, ptr noundef %0, ptr noundef nonnull @flow_keys_dissector, ptr noundef %1, ptr noundef null, i16 noundef zeroext 0, i32 noundef 0, i32 noundef 0, i32 noundef 2)
   %5 = getelementptr inbounds i8, ptr %1, i64 2
@@ -3489,7 +3489,7 @@ define dso_local range(i32 0, 65596) i32 @skb_get_poff(ptr noundef %0) local_unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 1, 0) i32 @__get_hash_from_flowi6(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 80)) %1) #0 align 16 {
+define dso_local range(i32 1, 0) i32 @__get_hash_from_flowi6(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(80) %1, i8 0, i64 80, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 44
   %4 = getelementptr inbounds i8, ptr %0, i64 56

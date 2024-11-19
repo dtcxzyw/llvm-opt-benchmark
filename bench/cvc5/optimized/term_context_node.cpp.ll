@@ -70,7 +70,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal8TCtxNodeC2ENS0_12NodeTemplateILb1EEEPKNS0_11TermContextE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this, ptr nocapture noundef readonly %n, ptr noundef %tctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal8TCtxNodeC2ENS0_12NodeTemplateILb1EEEPKNS0_11TermContextE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %n, ptr noundef %tctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %n, align 8
   store ptr %0, ptr %this, align 8
@@ -156,7 +156,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal8TCtxNodeC2ENS0_12NodeTemplateILb1EEEjPKNS0_11TermContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %this, ptr nocapture noundef readonly %n, i32 noundef %val, ptr noundef %tctx) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal8TCtxNodeC2ENS0_12NodeTemplateILb1EEEjPKNS0_11TermContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %n, i32 noundef %val, ptr noundef %tctx) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %n, align 8
   store ptr %0, ptr %this, align 8
@@ -348,7 +348,7 @@ lpad4:                                            ; preds = %if.then13.i.i.i8, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal8TCtxNode7getNodeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal8TCtxNode7getNodeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %agg.result, align 8

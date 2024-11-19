@@ -2996,7 +2996,7 @@ declare i32 @getegid() local_unnamed_addr #2
 declare i32 @PMIx_server_setup_application(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @setupcbfunc(i32 %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((224, 240)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
+define internal void @setupcbfunc(i32 %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %16, label %7
 

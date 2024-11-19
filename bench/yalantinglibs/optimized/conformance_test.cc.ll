@@ -282,7 +282,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingC2ENS1_16ConformanceLevelEN11conformance10WireFormatES5_NS4_12TestCategoryERKNS0_7MessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this, i32 noundef %level, i32 noundef %input_format, i32 noundef %output_format, i32 noundef %test_category, ptr noundef nonnull align 8 dereferenceable(16) %prototype_message, ptr noundef nonnull align 8 dereferenceable(32) %test_name, ptr noundef nonnull align 8 dereferenceable(32) %input) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingC2ENS1_16ConformanceLevelEN11conformance10WireFormatES5_NS4_12TestCategoryERKNS0_7MessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESH_(ptr noundef nonnull align 8 dereferenceable(136) %this, i32 noundef %level, i32 noundef %input_format, i32 noundef %output_format, i32 noundef %test_category, ptr noundef nonnull align 8 dereferenceable(16) %prototype_message, ptr noundef nonnull align 8 dereferenceable(32) %test_name, ptr noundef nonnull align 8 dereferenceable(32) %input) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.google::protobuf::internal::LogMessage", align 8
   %ref.tmp20 = alloca %"class.google::protobuf::internal::LogFinisher", align 1
@@ -650,7 +650,7 @@ invoke.cont:                                      ; preds = %if.then.i, %_ZNKSt7
 declare void @_ZN11conformance18ConformanceRequestD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK6google8protobuf20ConformanceTestSuite25ConformanceRequestSetting14NewTestMessageEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK6google8protobuf20ConformanceTestSuite25ConformanceRequestSetting14NewTestMessageEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prototype_message_for_compare_ = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %prototype_message_for_compare_, align 8
@@ -4346,7 +4346,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN6google8protobuf20ConformanceTestSuite8RunSuiteEPNS0_21ConformanceTestRunnerEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS9_PN11conformance10FailureSetE(ptr noundef nonnull align 8 dereferenceable(400) initializes((8, 24)) %this, ptr noundef %runner, ptr noundef %output, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef %failure_list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN6google8protobuf20ConformanceTestSuite8RunSuiteEPNS0_21ConformanceTestRunnerEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS9_PN11conformance10FailureSetE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef %runner, ptr noundef %output, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef %failure_list) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.absl::SimpleAppender", align 8
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8

@@ -694,7 +694,7 @@ declare dso_local void @__drm_dev_dbg(ptr noundef, ptr noundef, i32 noundef, ptr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @intel_dsi_vbt_init(ptr noundef initializes((560, 562), (564, 568), (572, 586), (592, 596), (604, 608), (610, 618), (624, 626), (628, 632)) %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef zeroext i1 @intel_dsi_vbt_init(ptr noundef %0, i16 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 544
   %5 = load ptr, ptr %4, align 8

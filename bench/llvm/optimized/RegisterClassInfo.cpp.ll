@@ -127,7 +127,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17RegisterClassInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 12), (16, 32)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17RegisterClassInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -155,7 +155,7 @@ define dso_local void @_ZN4llvm17RegisterClassInfoC2Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17RegisterClassInfo20runOnMachineFunctionERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(320) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17RegisterClassInfo20runOnMachineFunctionERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::BitVector", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8

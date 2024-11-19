@@ -6112,7 +6112,7 @@ declare hidden void @BrotliCreateHqZopfliBackwardReferences(ptr noundef, i64 nou
 declare hidden void @BrotliCreateBackwardReferences(i64 noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @InitializeH5(ptr noundef %common, ptr noalias nocapture noundef writeonly initializes((0, 56)) %self) unnamed_addr #0 {
+define internal fastcc void @InitializeH5(ptr noundef %common, ptr noalias nocapture noundef writeonly %self) unnamed_addr #0 {
 entry:
   %common_ = getelementptr inbounds i8, ptr %self, i64 32
   store ptr %common, ptr %common_, align 8
@@ -6151,7 +6151,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @InitializeH6(ptr noundef %common, ptr noalias nocapture noundef writeonly initializes((0, 36), (40, 64)) %self) unnamed_addr #0 {
+define internal fastcc void @InitializeH6(ptr noundef %common, ptr noalias nocapture noundef writeonly %self) unnamed_addr #0 {
 entry:
   %common_ = getelementptr inbounds i8, ptr %self, i64 40
   store ptr %common, ptr %common_, align 8

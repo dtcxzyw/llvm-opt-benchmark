@@ -504,7 +504,7 @@ $_ZTIN6duckdb26TableScanGlobalSourceStateE = comdat any
 @_ZN6duckdb17PhysicalTableScanC1ENS_6vectorINS_11LogicalTypeELb1EEENS_13TableFunctionENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS6_ELb1EEES3_NS1_ImLb1EEESA_NS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEENS5_INS_14TableFilterSetES7_ISI_ELb1EEEmNS_17ExtraOperatorInfoE = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr), ptr @_ZN6duckdb17PhysicalTableScanC2ENS_6vectorINS_11LogicalTypeELb1EEENS_13TableFunctionENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS6_ELb1EEES3_NS1_ImLb1EEESA_NS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEENS5_INS_14TableFilterSetES7_ISI_ELb1EEEmNS_17ExtraOperatorInfoE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6duckdb22PhysicalColumnDataScanC2ENS_6vectorINS_11LogicalTypeELb1EEENS_20PhysicalOperatorTypeEmNS_10unique_ptrINS_20ColumnDataCollectionESt14default_deleteIS6_ELb1EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 9), (16, 144)) %this, ptr nocapture noundef %types, i8 noundef zeroext %op_type, i64 noundef %estimated_cardinality, ptr nocapture noundef %owned_collection_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb22PhysicalColumnDataScanC2ENS_6vectorINS_11LogicalTypeELb1EEENS_20PhysicalOperatorTypeEmNS_10unique_ptrINS_20ColumnDataCollectionESt14default_deleteIS6_ELb1EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %this, ptr nocapture noundef %types, i8 noundef zeroext %op_type, i64 noundef %estimated_cardinality, ptr nocapture noundef %owned_collection_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %types, i64 16
   %0 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i, align 8, !tbaa !3
@@ -569,7 +569,7 @@ _ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %if.then.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6duckdb22PhysicalColumnDataScan20GetGlobalSourceStateERNS_13ClientContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.26") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6duckdb22PhysicalColumnDataScan20GetGlobalSourceStateERNS_13ClientContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr.26") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb27PhysicalColumnDataScanStateESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #25, !noalias !47
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb27PhysicalColumnDataScanStateE, i64 16), ptr %call.i, align 8, !tbaa !39, !noalias !47
@@ -1347,7 +1347,7 @@ eh.resume:                                        ; preds = %if.then.i.i63, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i8 @_ZNK6duckdb17PhysicalDummyScan7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((24, 32)) %chunk, ptr nocapture nonnull readnone align 8 %input) unnamed_addr #6 align 2 {
+define noundef zeroext i8 @_ZNK6duckdb17PhysicalDummyScan7GetDataERNS_16ExecutionContextERNS_9DataChunkERNS_19OperatorSourceInputE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %context, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %chunk, ptr nocapture nonnull readnone align 8 %input) unnamed_addr #6 align 2 {
 entry:
   %count.i = getelementptr inbounds i8, ptr %chunk, i64 24
   store i64 1, ptr %count.i, align 8, !tbaa !77
@@ -3601,7 +3601,7 @@ _ZN6duckdb10unique_ptrINS_16PhysicalOperatorESt14default_deleteIS1_ELb1EE13Asser
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb17PhysicalTableScanC2ENS_6vectorINS_11LogicalTypeELb1EEENS_13TableFunctionENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS6_ELb1EEES3_NS1_ImLb1EEESA_NS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEENS5_INS_14TableFilterSetES7_ISI_ELb1EEEmNS_17ExtraOperatorInfoE(ptr noundef nonnull align 8 dereferenceable(632) initializes((0, 9), (16, 128)) %this, ptr nocapture noundef %types, ptr noundef nonnull %function_p, ptr nocapture noundef %bind_data_p, ptr nocapture noundef %returned_types_p, ptr nocapture noundef %column_ids_p, ptr nocapture noundef %projection_ids_p, ptr nocapture noundef %names_p, ptr nocapture noundef %table_filters_p, i64 noundef %estimated_cardinality, ptr nocapture noundef readonly %extra_info) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb17PhysicalTableScanC2ENS_6vectorINS_11LogicalTypeELb1EEENS_13TableFunctionENS_10unique_ptrINS_12FunctionDataESt14default_deleteIS6_ELb1EEES3_NS1_ImLb1EEESA_NS1_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEENS5_INS_14TableFilterSetES7_ISI_ELb1EEEmNS_17ExtraOperatorInfoE(ptr noundef nonnull align 8 dereferenceable(632) %this, ptr nocapture noundef %types, ptr noundef nonnull %function_p, ptr nocapture noundef %bind_data_p, ptr nocapture noundef %returned_types_p, ptr nocapture noundef %column_ids_p, ptr nocapture noundef %projection_ids_p, ptr nocapture noundef %names_p, ptr nocapture noundef %table_filters_p, i64 noundef %estimated_cardinality, ptr nocapture noundef readonly %extra_info) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit:
   %__dnew.i.i.i = alloca i64, align 8
   %_M_end_of_storage4.i.i.i.i.i = getelementptr inbounds i8, ptr %types, i64 16

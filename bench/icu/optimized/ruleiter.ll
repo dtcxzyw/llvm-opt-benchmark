@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7521RuleCharacterIteratorC1ERKNS_13UnicodeStringEPKNS_11SymbolTableERNS_13ParsePositionE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN6icu_7521RuleCharacterIteratorC2ERKNS_13UnicodeStringEPKNS_11SymbolTableERNS_13ParsePositionE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7521RuleCharacterIteratorC2ERKNS_13UnicodeStringEPKNS_11SymbolTableERNS_13ParsePositionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, ptr noundef nonnull align 8 dereferenceable(64) %theText, ptr noundef %theSym, ptr noundef nonnull align 8 dereferenceable(16) %thePos) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7521RuleCharacterIteratorC2ERKNS_13UnicodeStringEPKNS_11SymbolTableERNS_13ParsePositionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(64) %theText, ptr noundef %theSym, ptr noundef nonnull align 8 dereferenceable(16) %thePos) unnamed_addr #0 align 2 {
 entry:
   store ptr %theText, ptr %this, align 8
   %pos = getelementptr inbounds i8, ptr %this, i64 8
@@ -579,7 +579,7 @@ _ZN6icu_7521RuleCharacterIterator8_advanceEi.exit: ; preds = %if.then.i, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6icu_7521RuleCharacterIterator6getPosERNS0_3PosE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %p) local_unnamed_addr #6 align 2 {
+define void @_ZNK6icu_7521RuleCharacterIterator6getPosERNS0_3PosE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %p) local_unnamed_addr #6 align 2 {
 entry:
   %buf = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %buf, align 8
@@ -598,7 +598,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6icu_7521RuleCharacterIterator6setPosERKNS0_3PosE(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7521RuleCharacterIterator6setPosERKNS0_3PosE(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %p, align 8
   %buf2 = getelementptr inbounds i8, ptr %this, i64 24

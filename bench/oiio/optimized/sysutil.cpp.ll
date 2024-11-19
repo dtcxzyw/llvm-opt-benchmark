@@ -952,7 +952,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18OpenImageIO_v2_6_07Sysutil4TermC2EP8_IO_FILE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %this, ptr nocapture noundef %file) unnamed_addr #3 align 2 {
+define void @_ZN18OpenImageIO_v2_6_07Sysutil4TermC2EP8_IO_FILE(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %this, ptr nocapture noundef %file) unnamed_addr #3 align 2 {
 entry:
   store i8 1, ptr %this, align 1
   %call = tail call i32 @fileno(ptr noundef %file) #28
@@ -970,7 +970,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #1
 declare noundef i32 @fileno(ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_07Sysutil4TermC2ERKSo(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %this, ptr noundef nonnull readnone align 8 dereferenceable(8) %stream) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_07Sysutil4TermC2ERKSo(ptr nocapture noundef nonnull align 1 dereferenceable(1) %this, ptr noundef nonnull readnone align 8 dereferenceable(8) %stream) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %TERM = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

@@ -78,7 +78,7 @@ declare void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue217ComponentSequenceD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217ComponentSequenceD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %this, align 8
   %capture_name = getelementptr inbounds i8, ptr %this, i64 56
@@ -193,7 +193,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3ue29ComponentESt14default_deleteIS2_EESaIS5
 declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue217ComponentSequenceD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217ComponentSequenceD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue217ComponentSequenceE, i64 16), ptr %this, align 8
   %capture_name.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -261,7 +261,7 @@ _ZN3ue217ComponentSequenceD2Ev.exit:              ; preds = %invoke.cont.i.i, %i
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217ComponentSequenceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 52)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217ComponentSequenceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue29ComponentE, i64 16), ptr %this, align 8
   %pos_begin.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1153,7 +1153,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue217ComponentSequence5firstEv(ptr noalias sret(%"class.std::vector.30") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue217ComponentSequence5firstEv(ptr noalias sret(%"class.std::vector.30") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %subfirsts = alloca %"class.std::vector.30", align 8
   %ref.tmp = alloca %"class.std::vector.30", align 8
@@ -1316,7 +1316,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EED2Ev.exit13: ; preds = %do.end23, %if.t
 declare void @_ZN3ue215replaceEpsilonsERSt6vectorINS_12PositionInfoESaIS1_EERKS3_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue217ComponentSequence4lastEv(ptr noalias sret(%"class.std::vector.30") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK3ue217ComponentSequence4lastEv(ptr noalias sret(%"class.std::vector.30") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seen_flags.i = alloca %"class.std::set", align 8
   %out.i = alloca %"class.std::vector.30", align 8

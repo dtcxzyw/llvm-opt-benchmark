@@ -63,7 +63,7 @@ $_ZN4llvh8DenseMapIjN6hermes2vm8WeakRootINS2_11HiddenClassEEENS_12DenseMapInfoIj
 @_ZN6hermes2vm13RuntimeModuleD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6hermes2vm13RuntimeModuleD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm13RuntimeModuleC2ERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS0_18RuntimeModuleFlagsEN4llvh9StringRefEj(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 52), (56, 97)) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %domain.coerce, i8 %flags.coerce, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, i32 noundef %scriptID) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm13RuntimeModuleC2ERNS0_7RuntimeENS0_6HandleINS0_6DomainEEENS0_18RuntimeModuleFlagsEN4llvh9StringRefEj(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %domain.coerce, i8 %flags.coerce, ptr %sourceURL.coerce0, i64 %sourceURL.coerce1, i32 noundef %scriptID) unnamed_addr #0 align 2 {
 entry:
   %runtimeModule.addr.i = alloca ptr, align 8
   %ref.tmp.i.i = alloca %"class.std::allocator.5", align 1
@@ -632,7 +632,7 @@ return:                                           ; preds = %_ZNSt10lock_guardIS
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm13RuntimeModule21initializeMayAllocateEOSt10shared_ptrINS_3hbc20BCProviderFromBufferEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((80, 88)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %bytecode) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN6hermes2vm13RuntimeModule21initializeMayAllocateEOSt10shared_ptrINS_3hbc20BCProviderFromBufferEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %bytecode) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6hermes2vm13RuntimeModule38initializeWithoutCJSModulesMayAllocateEOSt10shared_ptrINS_3hbc20BCProviderFromBufferEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(16) %bytecode)
   %runtime_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -751,7 +751,7 @@ _ZNSt10lock_guardISt15recursive_mutexEC2ERS0_.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm13RuntimeModule38initializeWithoutCJSModulesMayAllocateEOSt10shared_ptrINS_3hbc20BCProviderFromBufferEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((80, 88)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %bytecode) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm13RuntimeModule38initializeWithoutCJSModulesMayAllocateEOSt10shared_ptrINS_3hbc20BCProviderFromBufferEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %bytecode) local_unnamed_addr #0 align 2 {
 entry:
   %bcProvider_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %bytecode, align 8

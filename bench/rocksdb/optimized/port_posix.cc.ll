@@ -338,7 +338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb4port7CondVarC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(56) initializes((48, 56)) %this, ptr noundef %mu) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb4port7CondVarC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %mu) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %mu_ = getelementptr inbounds i8, ptr %this, i64 48

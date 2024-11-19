@@ -268,7 +268,7 @@ declare ptr @dt_interpolation_new(i32 noundef) local_unnamed_addr #3
 declare void @dt_interpolation_resample_roi_1c(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 20)) %2, ptr nocapture noundef readonly %3) local_unnamed_addr #8 {
+define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #8 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false), !tbaa.struct !23
   store i32 0, ptr %2, align 4, !tbaa !25
   %5 = getelementptr inbounds i8, ptr %2, i64 4
@@ -277,7 +277,7 @@ define void @modify_roi_out(ptr nocapture noundef readnone %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 20)) %3) local_unnamed_addr #9 {
+define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #9 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %2, i64 20, i1 false), !tbaa.struct !23
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load float, ptr %5, align 4, !tbaa !28
@@ -339,7 +339,7 @@ define void @modify_roi_in(ptr nocapture noundef readnone %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @tiling_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 4), (8, 12), (16, 32)) %4) local_unnamed_addr #1 {
+define void @tiling_callback(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 16, !tbaa !29
   %8 = getelementptr inbounds i8, ptr %3, i64 8
@@ -24945,7 +24945,7 @@ define internal fastcc void @color_smoothing(ptr nocapture noundef %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #12 {
+define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #12 {
   %2 = tail call noalias dereferenceable_or_null(200) ptr @malloc(i64 noundef 200) #28
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !445
@@ -24969,7 +24969,7 @@ define void @cleanup_global(ptr nocapture noundef %0) local_unnamed_addr #13 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef initializes((216, 220)) %3) local_unnamed_addr #1 {
+define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 16, !tbaa !29
   %7 = getelementptr inbounds i8, ptr %2, i64 640
@@ -25136,7 +25136,7 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #3
 declare void @dt_control_log(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #14 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #14 {
   %4 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #28
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !29
@@ -25153,7 +25153,7 @@ define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @reload_defaults(ptr nocapture noundef initializes((492, 496), (676, 680)) %0) local_unnamed_addr #1 {
+define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 688
   %3 = load ptr, ptr %2, align 16, !tbaa !460
   %4 = getelementptr inbounds i8, ptr %0, i64 664
@@ -25459,7 +25459,7 @@ define void @gui_focus(ptr nocapture noundef readonly %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 72) #27
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

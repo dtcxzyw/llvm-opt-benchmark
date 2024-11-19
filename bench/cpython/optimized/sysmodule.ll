@@ -4427,7 +4427,7 @@ return:                                           ; preds = %if.end190, %if.end1
 declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PySys_Create(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr nocapture noundef readonly %tstate, ptr nocapture noundef writeonly %sysmod_p) local_unnamed_addr #0 {
+define hidden void @_PySys_Create(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr nocapture noundef readonly %tstate, ptr nocapture noundef writeonly %sysmod_p) local_unnamed_addr #0 {
 entry:
   %interp1 = getelementptr inbounds i8, ptr %tstate, i64 16
   %0 = load ptr, ptr %interp1, align 8

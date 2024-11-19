@@ -892,7 +892,7 @@ define linkonce_odr void @_ZN5Eigen8IOFormatD2Ev(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @tiny_setup(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, double noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, i32 noundef %13) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 2) i32 @tiny_setup(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, double noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, i32 noundef %13) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %15 = alloca %"struct.Eigen::internal::assign_op", align 1
   %16 = alloca %"struct.Eigen::internal::assign_op", align 1
   %17 = alloca %"struct.Eigen::internal::assign_op", align 1

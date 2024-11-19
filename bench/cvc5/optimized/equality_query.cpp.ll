@@ -251,7 +251,7 @@ declare noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull ali
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers13EqualityQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers13EqualityQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers13EqualityQueryE, i64 16), ptr %this, align 8
   %d_rep_score = getelementptr inbounds i8, ptr %this, i64 128
@@ -317,7 +317,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers13EqualityQueryD0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers13EqualityQueryD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers13EqualityQueryE, i64 16), ptr %this, align 8
   %d_rep_score.i = getelementptr inbounds i8, ptr %this, i64 128

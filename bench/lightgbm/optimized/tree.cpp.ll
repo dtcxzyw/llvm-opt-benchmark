@@ -3645,7 +3645,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM4TreeC2Eibb(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 12), (16, 160), (168, 505), (512, 536), (552, 648)) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM4TreeC2Eibb(ptr noundef nonnull align 8 dereferenceable(648) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i8, align 1
   %6 = zext i1 %2 to i8
   %7 = zext i1 %3 to i8
@@ -51648,7 +51648,7 @@ define void @_ZNK8LightGBM4Tree17NodeToIfElseByMapB5cxx11Eib(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM4TreeC2EPKcPm(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 8), (16, 160), (168, 504), (512, 536), (552, 648)) %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM4TreeC2EPKcPm(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -55326,7 +55326,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8LightGBM7CommonCL4AtofEPKcPd(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8LightGBM7CommonCL4AtofEPKcPd(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.33", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -56905,7 +56905,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8LightGBM6CommonL5SplitB5cxx11EPKcc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.33", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -57630,7 +57630,7 @@ declare ptr @__errno_location() local_unnamed_addr #25
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #26
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN18fast_double_parserL18parse_float_strtodEPKcPd(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN18fast_double_parserL18parse_float_strtodEPKcPd(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = load atomic i8, ptr @_ZGVZN18fast_double_parserL18parse_float_strtodEPKcPdE8c_locale acquire, align 8
   %5 = icmp eq i8 %4, 0

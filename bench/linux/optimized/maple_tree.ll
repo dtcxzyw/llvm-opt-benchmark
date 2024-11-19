@@ -726,7 +726,7 @@ define internal void @perf_trace_ma_write(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mas_walk(ptr nocapture noundef initializes((32, 48), (56, 62)) %0) #1 align 16 {
+define dso_local ptr @mas_walk(ptr nocapture noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5380,7 +5380,7 @@ define dso_local i32 @mas_preallocate(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @mas_wr_walk(ptr nocapture noundef initializes((32, 36)) %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef zeroext i1 @mas_wr_walk(ptr nocapture noundef %0) unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6908,7 +6908,7 @@ define dso_local ptr @mt_prev(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @mas_pause(ptr nocapture noundef writeonly initializes((24, 32), (56, 60)) %0) #6 align 16 {
+define dso_local void @mas_pause(ptr nocapture noundef writeonly %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 4, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -15036,7 +15036,7 @@ define internal fastcc void @mas_root_expand(ptr nocapture noundef %0, ptr nound
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @mas_store_b_node(ptr nocapture noundef %0, ptr nocapture noundef initializes((612, 616)) %1, i8 noundef zeroext %2) unnamed_addr #13 align 16 {
+define internal fastcc void @mas_store_b_node(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext %2) unnamed_addr #13 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load i32, ptr %5, align 8
@@ -15577,7 +15577,7 @@ define internal fastcc void @mas_mab_cp(ptr nocapture noundef readonly %0, i8 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @mas_spanning_rebalance(ptr nocapture noundef %0, ptr nocapture noundef initializes((16, 40)) %1, i8 noundef zeroext range(i8 1, 33) %2) unnamed_addr #1 align 16 {
+define internal fastcc void @mas_spanning_rebalance(ptr nocapture noundef %0, ptr nocapture noundef %1, i8 noundef zeroext range(i8 1, 33) %2) unnamed_addr #1 align 16 {
   %4 = alloca i8, align 1
   %5 = alloca %struct.ma_state, align 8
   %6 = alloca %struct.ma_state, align 8
@@ -20373,7 +20373,7 @@ mas_free.exit:                                    ; preds = %.preheader.split, %
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc range(i32 -256, 256) i32 @mab_calc_split(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2, i64 noundef %3) unnamed_addr #14 align 16 {
+define internal fastcc range(i32 -256, 256) i32 @mab_calc_split(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) unnamed_addr #14 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 608
   %6 = load i8, ptr %5, align 8
   %7 = zext i8 %6 to i32

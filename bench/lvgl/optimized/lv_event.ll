@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_global = external local_unnamed_addr global %struct._lv_global_t, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @lv_event_push(ptr noundef initializes((40, 48)) %0) local_unnamed_addr #0 {
+define void @lv_event_push(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 200), align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %2, ptr %3, align 8, !tbaa !19

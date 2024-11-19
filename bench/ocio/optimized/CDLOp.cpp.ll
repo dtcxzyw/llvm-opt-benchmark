@@ -874,7 +874,7 @@ declare void @_ZNK19OpenColorIO_v2_4dev9CDLOpData7inverseEv(ptr sret(%"class.std
 declare void @_ZN19OpenColorIO_v2_4dev10OpRcPtrVec9push_backERKSt10shared_ptrINS_2OpEE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_15CDLOpEJRSt10shared_ptrINS0_9CDLOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 16)) %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN19OpenColorIO_v2_4dev12_GLOBAL__N_15CDLOpEJRSt10shared_ptrINS0_9CDLOpDataEEEES3_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %__args.0.val, ptr %__args.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 8
   %call5.i.i.i5.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
@@ -2213,7 +2213,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_15CDLOpD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_15CDLOpD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev2OpE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2294,7 +2294,7 @@ _ZN19OpenColorIO_v2_4dev2OpD2Ev.exit:             ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_15CDLOpD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_15CDLOpD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev2OpE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3785,7 +3785,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_15CDLOp7cdlDataEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 16)) %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK19OpenColorIO_v2_4dev12_GLOBAL__N_15CDLOp7cdlDataEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr %this.8.val, ptr %this.16.val) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.not.i.i.i.i.i = icmp eq ptr %this.16.val, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZNK19OpenColorIO_v2_4dev2Op4dataEv.exit, label %if.then.i.i.i.i.i

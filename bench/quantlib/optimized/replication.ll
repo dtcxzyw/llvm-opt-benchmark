@@ -363,7 +363,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib18DigitalReplicationC2ENS_11Replication4TypeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %t, double noundef %gap) unnamed_addr #6 align 2 {
+define void @_ZN8QuantLib18DigitalReplicationC2ENS_11Replication4TypeEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %t, double noundef %gap) unnamed_addr #6 align 2 {
 entry:
   store double %gap, ptr %this, align 8, !tbaa !18
   %replicationType_ = getelementptr inbounds nuw i8, ptr %this, i64 8

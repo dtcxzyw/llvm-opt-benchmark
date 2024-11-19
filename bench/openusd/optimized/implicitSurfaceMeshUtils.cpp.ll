@@ -1734,7 +1734,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7GfVec3fESaIS1_EED2Ev.exit60: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__39UsdImagingGenerateSphereOrCubeTransformEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 initializes((0, 128)) %0, double noundef %1) local_unnamed_addr #8 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__39UsdImagingGenerateSphereOrCubeTransformEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, double noundef %1) local_unnamed_addr #8 {
   store double %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40

@@ -348,7 +348,7 @@ _ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE.exit21: ; preds = %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 initializes((0, 20)) %0, ptr noundef nonnull align 8 dereferenceable(289) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15CodeViewContext16addToStringTableENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(289) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair", align 8
   %6 = tail call noundef ptr @_ZN4llvm15CodeViewContext22getStringTableFragmentEv(ptr noundef nonnull align 8 dereferenceable(289) %1)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -1245,7 +1245,7 @@ define dso_local void @_ZN4llvm15CodeViewContext22emitFileChecksumOffsetERNS_16M
 declare void @_ZN4llvm10MCStreamer15emitSymbolValueEPKNS_8MCSymbolEjb(ptr noundef nonnull align 8 dereferenceable(288), ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15CodeViewContext22getFunctionLineEntriesEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(289) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15CodeViewContext22getFunctionLineEntriesEj(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(289) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = tail call { i64, i64 } @_ZN4llvm15CodeViewContext30getLineExtentIncludingInlineesEj(ptr noundef nonnull align 8 dereferenceable(289) %1, i32 noundef %2)
   %5 = extractvalue { i64, i64 } %4, 0

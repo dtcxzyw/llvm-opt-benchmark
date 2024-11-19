@@ -904,7 +904,7 @@ _ZN12blake2b_simd6Params11hash_length17h37c5f1da84766677E.exit: ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN80_$LT$uucore..features..sum..Blake2b$u20$as$u20$uucore..features..sum..Digest$GT$3new17he33d3700ff3cee87E"(ptr noalias nocapture noundef writeonly sret({ { [128 x i8], [8 x i64], i128, i8, i8, i8, i8, i8, [11 x i8] }, i64, [1 x i64] }) align 16 dereferenceable(240) initializes((0, 232)) %0) unnamed_addr #2 {
+define void @"_ZN80_$LT$uucore..features..sum..Blake2b$u20$as$u20$uucore..features..sum..Digest$GT$3new17he33d3700ff3cee87E"(ptr noalias nocapture noundef writeonly sret({ { [128 x i8], [8 x i64], i128, i8, i8, i8, i8, i8, [11 x i8] }, i64, [1 x i64] }) align 16 dereferenceable(240) %0) unnamed_addr #2 {
   %2 = alloca { [128 x i8], [8 x i64], i128, i8, i8, i8, i8, i8, [11 x i8] }, align 16
   %3 = alloca { [128 x i8], [16 x i8], [16 x i8], i64, i32, i8, i8, i8, i8, i8, i8, i8, i8, [4 x i8] }, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
@@ -1054,7 +1054,7 @@ define noundef i64 @"_ZN80_$LT$uucore..features..sum..Blake2b$u20$as$u20$uucore.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN79_$LT$uucore..features..sum..Blake3$u20$as$u20$uucore..features..sum..Digest$GT$3new17h8c4ae54134671b09E"(ptr noalias nocapture noundef writeonly sret({ { { [64 x i8], [8 x i32], i64, i8, i8, i8, i8, [4 x i8] }, [8 x i32], { [55 x { [32 x i8] }], i32 }, [1 x i32] } }) align 8 dereferenceable(1912) initializes((0, 1912)) %0) unnamed_addr #2 {
+define void @"_ZN79_$LT$uucore..features..sum..Blake3$u20$as$u20$uucore..features..sum..Digest$GT$3new17h8c4ae54134671b09E"(ptr noalias nocapture noundef writeonly sret({ { { [64 x i8], [8 x i32], i64, i8, i8, i8, i8, [4 x i8] }, [8 x i32], { [55 x { [32 x i8] }], i32 }, [1 x i32] } }) align 8 dereferenceable(1912) %0) unnamed_addr #2 {
   %2 = alloca { { [64 x i8], [8 x i32], i64, i8, i8, i8, i8, [4 x i8] }, [8 x i32], { [55 x { [32 x i8] }], i32 }, [1 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 1912, ptr nonnull %2)
   call void @_ZN6blake36Hasher3new17h0e083233f9b06416E(ptr noalias nocapture noundef nonnull sret({ { [64 x i8], [8 x i32], i64, i8, i8, i8, i8, [4 x i8] }, [8 x i32], { [55 x { [32 x i8] }], i32 }, [1 x i32] }) align 8 dereferenceable(1912) %2)
@@ -1920,7 +1920,7 @@ define void @"_ZN76_$LT$uucore..features..sum..BSD$u20$as$u20$uucore..features..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN76_$LT$uucore..features..sum..BSD$u20$as$u20$uucore..features..sum..Digest$GT$5reset17h94fd05c754108da4E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) initializes((0, 2)) %0) unnamed_addr #6 {
+define void @"_ZN76_$LT$uucore..features..sum..BSD$u20$as$u20$uucore..features..sum..Digest$GT$5reset17h94fd05c754108da4E"(ptr noalias nocapture noundef writeonly align 2 dereferenceable(2) %0) unnamed_addr #6 {
   store i16 0, ptr %0, align 2
   ret void
 }
@@ -2076,7 +2076,7 @@ define void @"_ZN77_$LT$uucore..features..sum..SYSV$u20$as$u20$uucore..features.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN77_$LT$uucore..features..sum..SYSV$u20$as$u20$uucore..features..sum..Digest$GT$5reset17h8f8443e708e57435E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #6 {
+define void @"_ZN77_$LT$uucore..features..sum..SYSV$u20$as$u20$uucore..features..sum..Digest$GT$5reset17h8f8443e708e57435E"(ptr noalias nocapture noundef writeonly align 4 dereferenceable(4) %0) unnamed_addr #6 {
   store i32 0, ptr %0, align 4
   ret void
 }
@@ -2087,7 +2087,7 @@ define noundef i64 @"_ZN77_$LT$uucore..features..sum..SYSV$u20$as$u20$uucore..fe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6uucore8features3sum12DigestWriter3new17hb5dd26492b8265eeE(ptr noalias nocapture noundef writeonly sret({ ptr, i8, i8, [6 x i8] }) align 8 dereferenceable(16) initializes((0, 10)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #6 {
+define void @_ZN6uucore8features3sum12DigestWriter3new17hb5dd26492b8265eeE(ptr noalias nocapture noundef writeonly sret({ ptr, i8, i8, [6 x i8] }) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #6 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = zext i1 %2 to i8
@@ -2119,7 +2119,7 @@ define noundef zeroext i1 @_ZN6uucore8features3sum12DigestWriter8finalize17h5e4e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN70_$LT$uucore..features..sum..DigestWriter$u20$as$u20$std..io..Write$GT$5write17h40e3eaaa1edb0ef3E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 {
+define void @"_ZN70_$LT$uucore..features..sum..DigestWriter$u20$as$u20$std..io..Write$GT$5write17h40e3eaaa1edb0ef3E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #2 {
   %5 = load ptr, ptr %1, align 8, !nonnull !9, !align !395, !noundef !9
   %6 = load ptr, ptr %5, align 8, !nonnull !9, !align !396, !noundef !9
   %7 = getelementptr inbounds i8, ptr %5, i64 8

@@ -588,7 +588,7 @@ define dso_local void @mtrr_overwrite_state(ptr nocapture noundef readnone %0, i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local zeroext i8 @mtrr_type_lookup(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #7 align 16 {
+define dso_local zeroext i8 @mtrr_type_lookup(i64 noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 align 16 {
   %4 = load i1, ptr @mtrr_state_set, align 4
   br i1 %4, label %5, label %113
 
@@ -1958,7 +1958,7 @@ define internal void @generic_set_mtrr(i32 noundef %0, i64 noundef %1, i64 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @generic_get_mtrr(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) #1 align 16 {
+define internal void @generic_get_mtrr(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #1 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #17, !srcloc !43
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !44
   %5 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !45

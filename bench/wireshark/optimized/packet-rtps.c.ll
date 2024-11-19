@@ -12237,7 +12237,7 @@ switch.lookup:                                    ; preds = %31
 declare noalias ptr @wmem_strdup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @rtps_prepare_encapsulated_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %5, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %7, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
+define internal fastcc noundef i32 @rtps_prepare_encapsulated_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %2, i32 noundef %3) #13
   %13 = load i32, ptr @hf_rtps_param_serialize_encap_kind, align 4

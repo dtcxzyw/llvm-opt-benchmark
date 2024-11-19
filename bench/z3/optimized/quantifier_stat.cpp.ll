@@ -51,7 +51,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN1q15quantifier_statC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) initializes((0, 48)) %this, i32 noundef %generation) unnamed_addr #3 align 2 {
+define hidden void @_ZN1q15quantifier_statC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(48) %this, i32 noundef %generation) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 4
   %m_depth = getelementptr inbounds i8, ptr %this, i64 4
@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN1q19quantifier_stat_genC2ER11ast_managerR6region(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 36), (40, 52)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(40) %r) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN1q19quantifier_stat_genC2ER11ast_managerR6region(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(40) %r) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_region = getelementptr inbounds i8, ptr %this, i64 8

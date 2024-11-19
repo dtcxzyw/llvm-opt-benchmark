@@ -6480,14 +6480,14 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN11ockam_vault7storage22secrets_repository_sql19SecretsSqlxDatabase6create17h4ae14b4979ee49deE(ptr noalias nocapture noundef writeonly sret({ [2712 x i8], i8, [7 x i8] }) align 8 dereferenceable(2720) initializes((2712, 2713)) %0) unnamed_addr #5 {
+define void @_ZN11ockam_vault7storage22secrets_repository_sql19SecretsSqlxDatabase6create17h4ae14b4979ee49deE(ptr noalias nocapture noundef writeonly sret({ [2712 x i8], i8, [7 x i8] }) align 8 dereferenceable(2720) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2712
   store i8 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN11ockam_vault7storage22secrets_repository_sql16SigningSecretRow14signing_secret17h129631ecb6d9d226E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 1), (8, 16)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11ockam_vault7storage22secrets_repository_sql16SigningSecretRow14signing_secret17h129631ecb6d9d226E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { ptr, i64 }, i64 } }, align 8
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { ptr, i64 }, i64 }, align 8
@@ -6650,7 +6650,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN11ockam_vault7storage22s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN11ockam_vault7storage22secrets_repository_sql16SigningSecretRow6handle17h27d6e1fe56da03bcE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN11ockam_vault7storage22secrets_repository_sql16SigningSecretRow6handle17h27d6e1fe56da03bcE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(72) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 40
@@ -6767,7 +6767,7 @@ define internal fastcc noundef nonnull align 8 ptr @"_ZN11ockam_vault7storage22s
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN11ockam_vault7storage22secrets_repository_sql15X25519SecretRow6handle17hfcbb1001bf9b0679E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN11ockam_vault7storage22secrets_repository_sql15X25519SecretRow6handle17hfcbb1001bf9b0679E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1119)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %1, align 8, !alias.scope !1119, !noalias !1122, !nonnull !4, !noundef !4

@@ -1104,7 +1104,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %16, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o17getFilesByPatternESt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1111basic_regexIcNS4_12regex_traitsIcEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, i64 %1, ptr %2, ptr noundef nonnull align 1 %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o17getFilesByPatternESt17basic_string_viewIcSt11char_traitsIcEERKNSt7__cxx1111basic_regexIcNS4_12regex_traitsIcEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, i64 %1, ptr %2, ptr noundef nonnull align 1 %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::basic_string_view", align 8

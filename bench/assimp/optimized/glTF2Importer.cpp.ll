@@ -22201,7 +22201,7 @@ unreachable:                                      ; preds = %invoke.cont62, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13glTF2Importer15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((152, 160)) %this, ptr noundef nonnull %pImp) unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp13glTF2Importer15SetupPropertiesEPKNS_8ImporterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this, ptr noundef nonnull %pImp) unnamed_addr #4 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6Assimp8Importer18GetPropertyPointerEPKcPv(ptr noundef nonnull align 8 dereferenceable(8) %pImp, ptr noundef nonnull @.str.54, ptr noundef null)
   %mSchemaDocumentProvider = getelementptr inbounds i8, ptr %this, i64 152
@@ -28570,7 +28570,7 @@ return:                                           ; preds = %if.end.i.i38, %_ZN9
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 16)) %val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5glTF212_GLOBAL__N_19MakeValueIdEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) %val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %val, i8 0, i64 16, i1 false)
   %flags.i.i = getelementptr inbounds i8, ptr %val, i64 14
@@ -28692,7 +28692,7 @@ for.end:                                          ; preds = %_ZN9rapidjson12Gene
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 16)) %val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(16) ptr @_ZN5glTF212_GLOBAL__N_113MakeValueCastIldEERN9rapidjson12GenericValueINS2_4UTF8IcEENS2_19MemoryPoolAllocatorINS2_12CrtAllocatorEEEEESA_RKSt6vectorIT0_SaISC_EERS8_(ptr noundef nonnull returned align 8 dereferenceable(16) %val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %r, ptr noundef nonnull align 8 dereferenceable(40) %al) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %val, i8 0, i64 16, i1 false)
   %flags.i.i = getelementptr inbounds i8, ptr %val, i64 14

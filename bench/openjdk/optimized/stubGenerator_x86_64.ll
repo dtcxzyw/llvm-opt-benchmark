@@ -355,7 +355,7 @@ $_ZTV9Assembler = comdat any
 @_ZN13StubGeneratorC1EP10CodeBufferN17StubCodeGenerator9StubsKindE = hidden unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN13StubGeneratorC2EP10CodeBufferN17StubCodeGenerator9StubsKindE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN13StubGenerator18generate_call_stubERPh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN13StubGenerator18generate_call_stubERPh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.Address, align 8
   %4 = alloca %class.Address, align 8
   %5 = alloca %class.Address, align 8

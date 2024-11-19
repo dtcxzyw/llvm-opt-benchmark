@@ -237,7 +237,7 @@ define dso_local void @rb_memory_view_fill_contiguous_strides(i64 noundef %0, i6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @rb_memory_view_init_as_byte_array(ptr nocapture noundef writeonly initializes((0, 25), (32, 104)) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @rb_memory_view_init_as_byte_array(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = zext i1 %4 to i8
   store i64 %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -579,7 +579,7 @@ switch.lookup165:                                 ; preds = %switch.hole_check16
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i64 -1, 9) i64 @get_format_size(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 1)) %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
+define internal fastcc range(i64 -1, 9) i64 @get_format_size(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
   store i8 0, ptr %1, align 1
   store i32 0, ptr %3, align 4
   store i64 1, ptr %4, align 8

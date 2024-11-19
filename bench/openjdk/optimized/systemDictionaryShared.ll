@@ -5579,7 +5579,7 @@ define hidden noundef i32 @_ZN22SystemDictionaryShared26hash_for_shared_dictiona
 declare noundef i64 @_ZNK14ArchiveBuilder13any_to_offsetEPh(ptr noundef nonnull align 8 dereferenceable(1080), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22SystemDictionaryShared35write_lambda_proxy_class_dictionaryEP26LambdaProxyClassDictionary(ptr noundef initializes((0, 32)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22SystemDictionaryShared35write_lambda_proxy_class_dictionaryEP26LambdaProxyClassDictionary(ptr noundef %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.CompactHashtableStats, align 4
   %3 = alloca %class.CompactHashtableWriter, align 8
   %4 = alloca %class.CopyLambdaProxyClassInfoToArchive, align 8
@@ -5644,7 +5644,7 @@ declare void @_ZN22CompactHashtableWriter4dumpEP22SimpleCompactHashtablePKc(ptr 
 declare void @_ZN22CompactHashtableWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22SystemDictionaryShared16write_dictionaryEP23RunTimeSharedDictionaryb(ptr noundef initializes((0, 32)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22SystemDictionaryShared16write_dictionaryEP23RunTimeSharedDictionaryb(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.anon.86, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %class.CompactHashtableStats, align 4

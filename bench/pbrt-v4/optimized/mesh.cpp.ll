@@ -521,7 +521,7 @@ $_ZTSSt6vectorIiSaIiEE = comdat any
 declare void @_ZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt12TriangleMeshC2ERKNS_9TransformEbSt6vectorIiSaIiEES4_INS_6Point3IfEESaIS8_EES4_INS_7Vector3IfEESaISC_EES4_INS_7Normal3IfEESaISG_EES4_INS_6Point2IfEESaISK_EES6_N4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(58) initializes((0, 56)) %this, ptr noundef nonnull align 4 dereferenceable(128) %renderFromObject, i1 noundef zeroext %reverseOrientation, ptr nocapture noundef readonly %indices, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %uv, ptr nocapture noundef readonly %faceIndices, i64 %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt12TriangleMeshC2ERKNS_9TransformEbSt6vectorIiSaIiEES4_INS_6Point3IfEESaIS8_EES4_INS_7Vector3IfEESaISC_EES4_INS_7Normal3IfEESaISG_EES4_INS_6Point2IfEESaISK_EES6_N4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(58) %this, ptr noundef nonnull align 4 dereferenceable(128) %renderFromObject, i1 noundef zeroext %reverseOrientation, ptr nocapture noundef readonly %indices, ptr nocapture noundef readonly %p, ptr nocapture noundef readonly %s, ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %uv, ptr nocapture noundef readonly %faceIndices, i64 %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i32, align 4
@@ -3696,7 +3696,7 @@ declare noundef i32 @_Z9ply_writeP6t_ply_d(ptr noundef, double noundef) local_un
 declare noundef i32 @_Z9ply_closeP6t_ply_(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17BilinearPatchMeshC2ERKNS_9TransformEbSt6vectorIiSaIiEES4_INS_6Point3IfEESaIS8_EES4_INS_7Normal3IfEESaISC_EES4_INS_6Point2IfEESaISG_EES6_PNS_19PiecewiseConstant2DEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 2), (4, 12), (16, 64)) %this, ptr noundef nonnull align 4 dereferenceable(128) %renderFromObject, i1 noundef zeroext %reverseOrientation, ptr nocapture noundef readonly %indices, ptr nocapture noundef readonly %P, ptr nocapture noundef readonly %N, ptr nocapture noundef readonly %UV, ptr nocapture noundef readonly %fIndices, ptr noundef %imageDist, i64 %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt17BilinearPatchMeshC2ERKNS_9TransformEbSt6vectorIiSaIiEES4_INS_6Point3IfEESaIS8_EES4_INS_7Normal3IfEESaISC_EES4_INS_6Point2IfEESaISG_EES6_PNS_19PiecewiseConstant2DEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 4 dereferenceable(128) %renderFromObject, i1 noundef zeroext %reverseOrientation, ptr nocapture noundef readonly %indices, ptr nocapture noundef readonly %P, ptr nocapture noundef readonly %N, ptr nocapture noundef readonly %UV, ptr nocapture noundef readonly %fIndices, ptr noundef %imageDist, i64 %alloc.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %va = alloca i64, align 8
   %vb = alloca i32, align 4
@@ -4907,7 +4907,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %if.then.i.i, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11TriQuadMesh7ReadPLYERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"struct.pbrt::TriQuadMesh") align 8 initializes((0, 144)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt11TriQuadMesh7ReadPLYERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"struct.pbrt::TriQuadMesh") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca ptr, align 8
   %nInstances = alloca i64, align 8

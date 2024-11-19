@@ -723,7 +723,7 @@ _ZN7svectorImjED2Ev.exit:                         ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14prime_iteratorC2EP15prime_generator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 4), (8, 17)) %this, ptr noundef %g) unnamed_addr #6 align 2 {
+define hidden void @_ZN14prime_iteratorC2EP15prime_generator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %this, ptr noundef %g) unnamed_addr #6 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %cmp = icmp eq ptr %g, null

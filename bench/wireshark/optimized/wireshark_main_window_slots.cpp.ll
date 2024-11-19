@@ -10560,7 +10560,7 @@ define void @_ZN19WiresharkMainWindow25interfaceSelectionChangedEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19WiresharkMainWindow26captureFilterSyntaxChangedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((489, 490)) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
+define void @_ZN19WiresharkMainWindow26captureFilterSyntaxChangedEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) %0, i1 noundef zeroext %1) local_unnamed_addr #12 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 489
   store i8 %3, ptr %4, align 1
@@ -10568,7 +10568,7 @@ define void @_ZN19WiresharkMainWindow26captureFilterSyntaxChangedEb(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow21startInterfaceCaptureEb7QString(ptr noundef nonnull align 8 dereferenceable(520) initializes((489, 490)) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19WiresharkMainWindow21startInterfaceCaptureEb7QString(ptr noundef nonnull align 8 dereferenceable(520) %0, i1 noundef zeroext %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
@@ -11439,7 +11439,7 @@ _ZN5QListIP14AccordionFrameED2Ev.exit18:          ; preds = %_ZN5QListIP14Accord
 declare void @_ZN14AccordionFrame12animatedShowEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow16showColumnEditorEi(ptr noundef nonnull align 8 dereferenceable(520) initializes((352, 360)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow16showColumnEditorEi(ptr noundef nonnull align 8 dereferenceable(520) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.QMetaObject::Connection", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = tail call noundef ptr @_ZN12QApplication11focusWidgetEv()
@@ -11468,7 +11468,7 @@ _ZN19WiresharkMainWindow16setPreviousFocusEv.exit: ; preds = %2, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19WiresharkMainWindow16setPreviousFocusEv(ptr noundef nonnull align 8 dereferenceable(520) initializes((352, 360)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN19WiresharkMainWindow16setPreviousFocusEv(ptr noundef nonnull align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.QMetaObject::Connection", align 8
   %3 = tail call noundef ptr @_ZN12QApplication11focusWidgetEv()
   %4 = getelementptr inbounds i8, ptr %0, i64 352
@@ -25851,7 +25851,7 @@ define void @_ZN19WiresharkMainWindow22connectHelpMenuActionsEv(ptr noundef nonn
 declare noundef ptr @_ZN12QApplication11focusWidgetEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19WiresharkMainWindow18resetPreviousFocusEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((352, 360)) %0) local_unnamed_addr #12 align 2 {
+define void @_ZN19WiresharkMainWindow18resetPreviousFocusEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   store ptr null, ptr %2, align 8
   ret void

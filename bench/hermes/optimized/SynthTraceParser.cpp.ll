@@ -10284,7 +10284,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook6hermes7tracing10SynthTrace6RecordESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef readonly %array) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZN8facebook6hermes7tracing12_GLOBAL__N_18getTraceEPN6hermes6parser9JSONArrayEmENK3$_0clES6_RNS1_10SynthTraceE"(ptr noalias nocapture nonnull align 8 %agg.result, ptr noundef readonly %array) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4.i.i = alloca %"class.std::allocator", align 1

@@ -1233,7 +1233,7 @@ declare i64 @rb_any_hash(i64 noundef) local_unnamed_addr #1
 declare void @rb_raise(i64 noundef, ptr noundef, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @wkmap_aset_replace(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i64 noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @wkmap_aset_replace(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i32 noundef %3) #0 {
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %._crit_edge
 

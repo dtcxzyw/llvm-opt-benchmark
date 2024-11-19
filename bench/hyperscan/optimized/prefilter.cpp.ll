@@ -927,7 +927,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119FindSequenceVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119FindSequenceVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %this, align 8
   %name = getelementptr inbounds i8, ptr %this, i64 8
@@ -955,7 +955,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119FindSequenceVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN3ue212_GLOBAL__N_119FindSequenceVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i64 16), ptr %this, align 8
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1114,7 +1114,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i64 16), ptr %this, align 8
   %countStack = getelementptr inbounds i8, ptr %this, i64 16
@@ -1154,7 +1154,7 @@ _ZNSt5stackImSt5dequeImSaImEEED2Ev.exit:          ; preds = %entry, %_ZNSt11_Deq
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3ue212_GLOBAL__N_119SafeReferentVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i64 16), ptr %this, align 8
   %countStack.i = getelementptr inbounds i8, ptr %this, i64 16

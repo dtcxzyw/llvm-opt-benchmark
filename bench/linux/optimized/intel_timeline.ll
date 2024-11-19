@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @intel_timeline_init.__wkey = internal global %struct.lock_class_key zeroinitializer, align 1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @intel_gt_init_timelines(ptr noundef initializes((3144, 3148)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_gt_init_timelines(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 3144
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 3152
@@ -446,7 +446,7 @@ define dso_local void @intel_timeline_exit(ptr noundef %0) local_unnamed_addr #2
 declare dso_local void @i915_syncmap_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @intel_timeline_get_seqno(ptr nocapture noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #2 align 16 {
+define dso_local noundef i32 @intel_timeline_get_seqno(ptr nocapture noundef %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 84
   %5 = load i8, ptr %4, align 4, !range !20, !noundef !21
   %6 = add nuw nsw i8 %5, 1
@@ -473,7 +473,7 @@ define dso_local noundef i32 @intel_timeline_get_seqno(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__intel_timeline_get_seqno(ptr nocapture noundef initializes((64, 72)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) unnamed_addr #2 align 16 {
+define internal fastcc void @__intel_timeline_get_seqno(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %4, 8

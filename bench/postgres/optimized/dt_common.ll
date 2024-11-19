@@ -183,7 +183,7 @@ define i32 @date2j(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @j2date(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #3 {
+define void @j2date(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = add i32 %0, 32044
   %6 = udiv i32 %5, 146097
   %.neg = mul i32 %6, 1073595727
@@ -1000,7 +1000,7 @@ abstime2tm.exit:                                  ; preds = %6, %7
 declare i64 @time(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @dt2time(double noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) local_unnamed_addr #3 {
+define void @dt2time(double noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #3 {
   %6 = fptosi double %0 to i64
   %7 = sdiv i64 %6, 3600000000
   %8 = trunc i64 %7 to i32
@@ -1027,7 +1027,7 @@ define void @dt2time(double noundef %0, ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @DecodeTime(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef initializes((8, 12)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @DecodeTime(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #4 {
   %5 = alloca ptr, align 8
   %6 = alloca [7 x i8], align 1
   store i32 7168, ptr %1, align 4
@@ -1136,7 +1136,7 @@ define range(i32 -1, 1) i32 @DecodeTime(ptr noundef %0, ptr nocapture noundef wr
 declare i32 @strtoint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ParseDateTime(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef initializes((0, 8)) %5) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @ParseDateTime(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef %5) local_unnamed_addr #4 {
   store ptr %0, ptr %5, align 8
   %7 = load i8, ptr %0, align 1
   %.not185311 = icmp eq i8 %7, 0
@@ -1669,7 +1669,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #10
 declare zeroext i8 @pg_tolower(i8 noundef zeroext) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @DecodeDateTime(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef initializes((0, 4)) %3, ptr noundef initializes((0, 12), (32, 36)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, i1 noundef zeroext %6) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @DecodeDateTime(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5, i1 noundef zeroext %6) local_unnamed_addr #4 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -3499,7 +3499,7 @@ DecodeSpecial.exit:                               ; preds = %78, %63
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 4) i32 @DecodeNumber(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef nonnull writeonly %6, i1 noundef zeroext %7) unnamed_addr #4 {
+define internal fastcc range(i32 -1, 4) i32 @DecodeNumber(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef nonnull writeonly %6, i1 noundef zeroext %7) unnamed_addr #4 {
   %9 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
   %10 = call i32 @strtoint(ptr noundef %1, ptr noundef nonnull %9, i32 noundef 10) #18

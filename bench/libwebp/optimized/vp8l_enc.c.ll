@@ -2973,7 +2973,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare i32 @WebPPictureHasTransparency(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @WriteImage(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc i32 @WriteImage(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca [21 x i8], align 16
   %5 = alloca [1 x i8], align 1
   %6 = tail call ptr @VP8LBitWriterFinish(ptr noundef nonnull %1) #8

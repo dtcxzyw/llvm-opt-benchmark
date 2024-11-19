@@ -4794,7 +4794,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit73:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt8optionalIN12_GLOBAL__N_15DeferEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(80) initializes((72, 73)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt8optionalIN12_GLOBAL__N_15DeferEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 0, ptr %4, align 8

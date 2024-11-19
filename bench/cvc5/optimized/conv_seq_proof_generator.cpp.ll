@@ -413,7 +413,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 declare void @_ZN4cvc58internal14ProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal22TConvSeqProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal22TConvSeqProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal22TConvSeqProofGeneratorE, i64 16), ptr %this, align 8
   %d_name = getelementptr inbounds i8, ptr %this, i64 152
@@ -435,7 +435,7 @@ _ZNSt6vectorIPN4cvc58internal14ProofGeneratorESaIS3_EED2Ev.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal22TConvSeqProofGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal22TConvSeqProofGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal22TConvSeqProofGeneratorE, i64 16), ptr %this, align 8
   %d_name.i = getelementptr inbounds i8, ptr %this, i64 152

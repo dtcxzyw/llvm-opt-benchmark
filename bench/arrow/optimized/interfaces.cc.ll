@@ -2579,7 +2579,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io11InputStream12ReadMetadataEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result.16") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io11InputStream12ReadMetadataEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result.16") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIKN5arrow16KeyValueMetadataEED2Ev.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
@@ -4438,7 +4438,7 @@ _ZNSt10shared_ptrIN5arrow2io11InputStreamEED2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
@@ -4514,7 +4514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -6598,7 +6598,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io16RandomAccessFile13ReadManyAsyncERKNS0_9IOContextERKSt6vectorINS0_9ReadRangeESaIS6_EE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(40) %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ranges) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16RandomAccessFile13ReadManyAsyncERKNS0_9IOContextERKSt6vectorINS0_9ReadRangeESaIS6_EE(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(40) %ctx, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %ranges) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Future.57", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -6955,7 +6955,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io16RandomAccessFile8WillNeedERKSt6vectorINS0_9ReadRangeESaIS3_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %ranges) unnamed_addr #7 align 2 {
+define void @_ZN5arrow2io16RandomAccessFile8WillNeedERKSt6vectorINS0_9ReadRangeESaIS3_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %ranges) unnamed_addr #7 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !132
   ret void
@@ -6991,7 +6991,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io8Writable5FlushEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
+define void @_ZN5arrow2io8Writable5FlushEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #7 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !135
   ret void
@@ -7926,7 +7926,7 @@ return:                                           ; preds = %if.end, %_ZN5arrow6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io8internal22SharedExclusiveCheckerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #7 align 2 {
+define void @_ZN5arrow2io8internal22SharedExclusiveCheckerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   ret void
@@ -10542,7 +10542,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_2io13FileInterface10CloseAsyncEvE3$_0EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_2io13FileInterface10CloseAsyncEvE3$_0EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_2io13FileInterface10CloseAsyncEvE3$_0EEEE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -10623,7 +10623,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_2io13FileInterface10CloseAsyncEvE3$_0EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_2io13FileInterface10CloseAsyncEvE3$_0EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_2io13FileInterface10CloseAsyncEvE3$_0EEEE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -11666,7 +11666,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -11707,7 +11707,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io13FileInterface10CloseAsyncEvE3$_0JENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -13203,7 +13203,7 @@ _ZNSt10shared_ptrIN5arrow10FutureImplEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEZNS_2io11InputStream17ReadMetadataAsyncERKNSE_9IOContextEE3$_0EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEZNS_2io11InputStream17ReadMetadataAsyncERKNSE_9IOContextEE3$_0EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEZNS_2io11InputStream17ReadMetadataAsyncERKNSE_9IOContextEE3$_0EEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -13212,7 +13212,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEZNS_2io11InputStream17ReadMetadataAsyncERKNSE_9IOContextEE3$_0EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEZNS_2io11InputStream17ReadMetadataAsyncERKNSE_9IOContextEE3$_0EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEZNS_2io11InputStream17ReadMetadataAsyncERKNSE_9IOContextEE3$_0EEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -13699,7 +13699,7 @@ _ZZN5arrow6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEE9SetResultENS_6ResultI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNSA_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNSA_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNSA_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -13740,7 +13740,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNSA_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNSA_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io11InputStream17ReadMetadataAsyncERKNSA_9IOContextEE3$_0JENS_6FutureISt10shared_ptrIKNS_16KeyValueMetadataEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -15132,7 +15132,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_6BufferEEEEZNS_2io16RandomAccessFile9ReadAsyncERKNSD_9IOContextEllE3$_0EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_6BufferEEEEZNS_2io16RandomAccessFile9ReadAsyncERKNSD_9IOContextEllE3$_0EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_6BufferEEEEZNS_2io16RandomAccessFile9ReadAsyncERKNSD_9IOContextEllE3$_0EEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -15141,7 +15141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_6BufferEEEEZNS_2io16RandomAccessFile9ReadAsyncERKNSD_9IOContextEllE3$_0EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_6BufferEEEEZNS_2io16RandomAccessFile9ReadAsyncERKNSD_9IOContextEllE3$_0EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_6BufferEEEEZNS_2io16RandomAccessFile9ReadAsyncERKNSD_9IOContextEllE3$_0EEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -15460,7 +15460,7 @@ _ZZN5arrow6FutureISt10shared_ptrINS_6BufferEEE9SetResultENS_6ResultIS3_EEENKUlPv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNSA_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNSA_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNSA_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -15501,7 +15501,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNSA_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNSA_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZNS_2io16RandomAccessFile9ReadAsyncERKNSA_9IOContextEllE3$_0JENS_6FutureISt10shared_ptrINS_6BufferEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16

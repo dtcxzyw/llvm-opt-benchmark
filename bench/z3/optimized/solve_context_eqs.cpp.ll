@@ -108,7 +108,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3euf17solve_context_eqsC2ERNS_9solve_eqsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 24), (32, 48), (56, 72), (80, 96), (104, 120), (128, 152)) %this, ptr noundef nonnull align 8 dereferenceable(200) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf17solve_context_eqsC2ERNS_9solve_eqsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %this, ptr noundef nonnull align 8 dereferenceable(200) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont13:
   %m2 = getelementptr inbounds i8, ptr %s, i64 8
   %0 = load ptr, ptr %m2, align 8
@@ -158,7 +158,7 @@ _ZN10bit_vectorD2Ev.exit:                         ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3euf17solve_context_eqs10is_safe_eqEP4expr(ptr noundef nonnull align 8 dereferenceable(152) initializes((32, 36), (56, 60), (80, 84), (104, 108)) %this, ptr noundef %e) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN3euf17solve_context_eqs10is_safe_eqEP4expr(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %e) local_unnamed_addr #5 align 2 {
 entry:
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_data.i.i, align 8
@@ -4583,7 +4583,7 @@ terminate.lpad:                                   ; preds = %if.then2.i9, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjE(ptr noundef nonnull align 8 dereferenceable(152) initializes((128, 132)) %this, ptr noundef %x, i32 noundef %i, ptr noundef %f, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %todo) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN3euf17solve_context_eqs11is_safe_varEP4exprjS2_RK7svectorISt5tupleIJbjS2_jEEjE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %x, i32 noundef %i, ptr noundef %f, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %todo) local_unnamed_addr #5 align 2 {
 entry:
   %m_contains_v = getelementptr inbounds i8, ptr %this, i64 120
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 136

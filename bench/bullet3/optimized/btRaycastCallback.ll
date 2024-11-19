@@ -120,7 +120,7 @@ $_ZTIN12btConvexCast10CastResultE = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %from, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %to, i32 noundef %flags) unnamed_addr #0 align 2 {
+define dso_local void @_ZN25btTriangleRaycastCallbackC2ERK9btVector3S2_j(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %from, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %to, i32 noundef %flags) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV25btTriangleRaycastCallback, i64 16), ptr %this, align 8
   %m_from = getelementptr inbounds i8, ptr %this, i64 8
@@ -330,7 +330,7 @@ if.end72:                                         ; preds = %if.end72.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN28btTriangleConvexcastCallbackC2EPK13btConvexShapeRK11btTransformS5_S5_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(220) initializes((0, 220)) %this, ptr noundef %convexShape, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %convexShapeFrom, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %convexShapeTo, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %triangleToWorld, float noundef %triangleCollisionMargin) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN28btTriangleConvexcastCallbackC2EPK13btConvexShapeRK11btTransformS5_S5_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(220) %this, ptr noundef %convexShape, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %convexShapeFrom, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %convexShapeTo, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %triangleToWorld, float noundef %triangleCollisionMargin) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont10:
   store ptr getelementptr inbounds (i8, ptr @_ZTV28btTriangleConvexcastCallback, i64 16), ptr %this, align 8
   %m_convexShapeFrom = getelementptr inbounds i8, ptr %this, i64 16

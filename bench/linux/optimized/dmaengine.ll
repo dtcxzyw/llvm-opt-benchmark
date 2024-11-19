@@ -1758,7 +1758,7 @@ dma_chan_put.exit:                                ; preds = %.preheader, %.threa
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @dma_async_device_channel_register(ptr noundef %0, ptr noundef initializes((72, 80)) %1) #1 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @dma_async_device_channel_register(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = tail call fastcc i32 @__dma_async_device_channel_register(ptr noundef %0, ptr noundef %1)
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %6, label %5
@@ -1773,7 +1773,7 @@ define dso_local range(i32 -2147483648, 1) i32 @dma_async_device_channel_registe
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__dma_async_device_channel_register(ptr noundef %0, ptr noundef initializes((72, 80)) %1) unnamed_addr #1 align 16 {
+define internal fastcc i32 @__dma_async_device_channel_register(ptr noundef %0, ptr noundef %1) unnamed_addr #1 align 16 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @__alloc_percpu(i64 noundef 16, i64 noundef 8) #14
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   store ptr %3, ptr %4, align 8
@@ -2540,7 +2540,7 @@ define dso_local ptr @dmaengine_get_unmap_data(ptr noundef %0, i32 noundef %1, i
 declare dso_local noalias ptr @mempool_alloc(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @dma_async_tx_descriptor_init(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) #6 align 16 {
+define dso_local void @dma_async_tx_descriptor_init(ptr nocapture noundef writeonly %0, ptr noundef %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void

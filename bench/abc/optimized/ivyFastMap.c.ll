@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Ivy_FastMapNodeArea.Supp1 = internal global [16 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FastMapPerform(ptr noundef initializes((200, 208)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Ivy_FastMapPerform(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
@@ -2928,7 +2928,7 @@ define internal fastcc range(i32 0, 2) i32 @Ivy_FastMapMerge(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FastMapReadSupp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) local_unnamed_addr #6 {
+define void @Ivy_FastMapReadSupp(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr i8, ptr %0, i64 200
   %.val = load ptr, ptr %4, align 8
   %.val7 = load i32, ptr %1, align 8
@@ -3804,7 +3804,7 @@ Ivy_FastMapNodeFaninCompact_int.exit.backedge:    ; preds = %Ivy_FastMapNodeFani
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FastMapNodePrepare(ptr noundef %0, ptr nocapture noundef %1, i32 %2, ptr nocapture noundef initializes((4, 8)) %3, ptr nocapture noundef initializes((4, 8)) %4) local_unnamed_addr #0 {
+define void @Ivy_FastMapNodePrepare(ptr noundef %0, ptr nocapture noundef %1, i32 %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 200
   %.val = load ptr, ptr %6, align 8
   %.val18 = load i32, ptr %1, align 8

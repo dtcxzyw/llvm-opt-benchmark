@@ -103,7 +103,7 @@ define <2 x float> @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf13GetNormalizedEf(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf") align 4 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1, float noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf13GetNormalizedEf(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1, float noundef %2) local_unnamed_addr #3 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, ptr noundef nonnull align 4 dereferenceable(32) %1, i64 32, i1 false)
   %4 = load float, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -303,7 +303,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf9GetLengthEv.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf12GetConjugateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf") align 4 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf12GetConjugateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load float, ptr %3, align 4
   %5 = load float, ptr %1, align 4
@@ -344,7 +344,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf12GetConjugateEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf10GetInverseEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf") align 4 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__11GfDualQuatf10GetInverseEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
   %3 = load float, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4

@@ -102,7 +102,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory20TrustRewriteResponseC2ENS1_13RewriteStatusENS0_12NodeTemplateILb1EEES5_PNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 4), (8, 12)) %this, i32 noundef %status, ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %nr, ptr noundef %pg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory20TrustRewriteResponseC2ENS1_13RewriteStatusENS0_12NodeTemplateILb1EEES5_PNS0_14ProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %status, ptr nocapture noundef readonly %n, ptr nocapture noundef readonly %nr, ptr noundef %pg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::TrustNode", align 8
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.0", align 8
@@ -795,7 +795,7 @@ ehcleanup10:                                      ; preds = %ehcleanup, %lpad3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory14TheoryRewriter18rewriteEqualityExtENS0_12NodeTemplateILb1EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %node) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory14TheoryRewriter18rewriteEqualityExtENS0_12NodeTemplateILb1EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %node) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %node, align 8
   store ptr %0, ptr %agg.result, align 8

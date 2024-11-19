@@ -399,7 +399,7 @@ declare void @error_exit(ptr noundef, ...) local_unnamed_addr #4
 declare void @global_context_add_decl(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef initializes((56, 64)) %1) local_unnamed_addr #0 {
+define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 24

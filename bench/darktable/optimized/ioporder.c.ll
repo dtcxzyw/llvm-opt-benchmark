@@ -219,7 +219,7 @@ declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #4
 declare ptr @dt_iop_order_string(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288), (416, 424), (476, 480)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #12
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6
@@ -421,7 +421,7 @@ declare void @dt_dev_pixelpipe_rebuild(ptr noundef) local_unnamed_addr #4
 declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @init_presets(ptr noundef initializes((472, 476)) %0) local_unnamed_addr #1 {
+define void @init_presets(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #9
   store i64 0, ptr %2, align 8, !tbaa !56
@@ -498,7 +498,7 @@ define noundef range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define ptr @get_params(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store i64 0, ptr %3, align 8, !tbaa !56

@@ -616,7 +616,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_tra
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK6casadi10SymbolicMX11reset_inputEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((24, 32)) %0) unnamed_addr #5 align 2 {
+define void @_ZNK6casadi10SymbolicMX11reset_inputEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %2, align 8
   ret void

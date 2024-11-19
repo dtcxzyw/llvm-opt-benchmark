@@ -1218,7 +1218,7 @@ _ZN13GrowableArrayI19ResolvedMethodEntryED2Ev.exit: ; preds = %_ZL33initialize_r
 declare noundef ptr @_ZN12MetaspaceObjnwEmP15ClassLoaderDatamNS_4TypeEP10JavaThread(i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ConstantPoolCache15record_gc_epochEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((32, 40)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ConstantPoolCache15record_gc_epochEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN9CodeCache8gc_epochEv() #12
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %2, ptr %3, align 8
@@ -1950,7 +1950,7 @@ define hidden void @_ZN17ConstantPoolCache25clear_archived_referencesEv(ptr noca
 declare void @_ZN10HeapShared10clear_rootEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17ConstantPoolCache23set_archived_referencesEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN17ConstantPoolCache23set_archived_referencesEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   store i32 %1, ptr %0, align 8
   ret void
 }

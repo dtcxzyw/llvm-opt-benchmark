@@ -1687,7 +1687,7 @@ define dso_local range(i32 -2147483648, 1) i32 @drm_dp_read_dpcd_caps(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @drm_dp_read_downstream_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((0, 16)) %2) #3 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @drm_dp_read_downstream_info(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) #3 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %4 = getelementptr i8, ptr %1, i64 5
   %5 = load i8, ptr %4, align 1
@@ -2703,7 +2703,7 @@ define dso_local range(i32 -2147483648, 128) i32 @drm_dp_read_sink_count(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @drm_dp_remote_aux_init(ptr noundef initializes((1088, 1096)) %0) #8 align 16 {
+define dso_local void @drm_dp_remote_aux_init(ptr noundef %0) #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1088
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1096

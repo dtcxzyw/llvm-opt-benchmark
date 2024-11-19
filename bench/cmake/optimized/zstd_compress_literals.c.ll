@@ -106,7 +106,7 @@ default.unreachable15:                            ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZSTD_compressLiterals(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr noundef initializes((0, 2064)) %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #2 {
+define dso_local i64 @ZSTD_compressLiterals(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10, i32 noundef %11) local_unnamed_addr #2 {
   %13 = alloca i32, align 4
   %14 = icmp ugt i64 %3, 1023
   %15 = select i1 %14, i64 4, i64 3

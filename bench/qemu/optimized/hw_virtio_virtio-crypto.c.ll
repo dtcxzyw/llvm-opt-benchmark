@@ -1977,7 +1977,7 @@ out:                                              ; preds = %if.end8, %if.then7
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -14, 1) i32 @virtio_crypto_cipher_session_helper(ptr noundef %vdev, ptr nocapture noundef initializes((0, 8), (25, 26)) %info, ptr nocapture noundef nonnull readonly %cipher_para, ptr noundef nonnull %iov, ptr nocapture noundef nonnull %out_num) unnamed_addr #0 {
+define internal fastcc range(i32 -14, 1) i32 @virtio_crypto_cipher_session_helper(ptr noundef %vdev, ptr nocapture noundef %info, ptr nocapture noundef nonnull readonly %cipher_para, ptr noundef nonnull %iov, ptr nocapture noundef nonnull %out_num) unnamed_addr #0 {
 entry:
   %num = alloca i32, align 4
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, i32 noundef 35, ptr noundef nonnull @__func__.VIRTIO_CRYPTO) #11

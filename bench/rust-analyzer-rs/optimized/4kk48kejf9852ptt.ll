@@ -6421,7 +6421,7 @@ define noundef zeroext i1 @"_ZN64_$LT$base_db..change..FileChange$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN7base_db6change10FileChange3new17h35862c353a6aa84bE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] } }) align 8 dereferenceable(72) initializes((0, 32), (48, 56)) %0) unnamed_addr #17 {
+define void @_ZN7base_db6change10FileChange3new17h35862c353a6aa84bE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { i64, [2 x i64] } }) align 8 dereferenceable(72) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 -9223372036854775808, ptr %2, align 8
   store i64 0, ptr %0, align 8

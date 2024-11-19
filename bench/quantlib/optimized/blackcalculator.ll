@@ -318,7 +318,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15BlackCalculatorC2ERKN5boost10shared_ptrINS_17StrikedTypePayoffEEEddd(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p, double noundef %forward, double noundef %stdDev, double noundef %discount) unnamed_addr #3 align 2 {
+define void @_ZN8QuantLib15BlackCalculatorC2ERKN5boost10shared_ptrINS_17StrikedTypePayoffEEEddd(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %p, double noundef %forward, double noundef %stdDev, double noundef %discount) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib15BlackCalculatorE, i64 16), ptr %this, align 8, !tbaa !14
   %0 = load ptr, ptr %p, align 8, !tbaa !18
@@ -1485,7 +1485,7 @@ unreachable:                                      ; preds = %invoke.cont272, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15BlackCalculatorC2ENS_6Option4TypeEdddd(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 48)) %this, i32 noundef %optionType, double noundef %strike, double noundef %forward, double noundef %stdDev, double noundef %discount) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15BlackCalculatorC2ENS_6Option4TypeEdddd(ptr noundef nonnull align 8 dereferenceable(152) %this, i32 noundef %optionType, double noundef %strike, double noundef %forward, double noundef %stdDev, double noundef %discount) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.boost::shared_ptr.18", align 8
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN8QuantLib15BlackCalculatorE, i64 16), ptr %this, align 8, !tbaa !14

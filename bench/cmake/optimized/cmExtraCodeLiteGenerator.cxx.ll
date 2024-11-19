@@ -281,7 +281,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24cmExtraCodeLiteGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(140) initializes((0, 40)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24cmExtraCodeLiteGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTV34cmExternalMakefileProjectGenerator, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1444,7 +1444,7 @@ declare void @_ZN11cmXMLWriter12StartElementERKNSt7__cxx1112basic_stringIcSt11ch
 declare noundef zeroext i1 @_ZNK17cmGlobalGenerator17GlobalSettingIsOnERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1778), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24cmExtraCodeLiteGenerator22CreateProjectsByTargetB5cxx11EP11cmXMLWriter(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(140) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24cmExtraCodeLiteGenerator22CreateProjectsByTargetB5cxx11EP11cmXMLWriter(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(140) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.cmXMLSafe, align 8
   %5 = alloca %class.cmXMLSafe, align 8
   %6 = alloca %class.cmXMLSafe, align 8
@@ -1799,7 +1799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24cmExtraCodeLiteGenerator27CreateProjectsByProjectMapsB5cxx11EP11cmXMLWriter(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(140) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24cmExtraCodeLiteGenerator27CreateProjectsByProjectMapsB5cxx11EP11cmXMLWriter(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(140) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.cmXMLSafe, align 8
   %5 = alloca %class.cmXMLSafe, align 8
   %6 = alloca %class.cmXMLSafe, align 8

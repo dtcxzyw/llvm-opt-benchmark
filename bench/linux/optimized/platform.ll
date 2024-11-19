@@ -1254,7 +1254,7 @@ define dso_local noundef range(i32 -12, 1) i32 @platform_device_add_data(ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @platform_device_add(ptr noundef initializes((112, 120)) %0) #1 align 16 {
+define dso_local i32 @platform_device_add(ptr noundef %0) #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load ptr, ptr %3, align 8
@@ -1659,7 +1659,7 @@ declare dso_local i32 @device_create_managed_software_node(ptr noundef, ptr noun
 declare dso_local void @set_primary_fwnode(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__platform_driver_register(ptr noundef initializes((56, 72)) %0, ptr noundef %1) #1 align 16 {
+define dso_local i32 @__platform_driver_register(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %4, align 8

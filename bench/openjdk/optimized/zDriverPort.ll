@@ -50,7 +50,7 @@ $_ZN9Semaphore25wait_with_safepoint_checkEP10JavaThread = comdat any
 @_ZN11ZDriverPortC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN11ZDriverPortC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14ZDriverRequestC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14ZDriverRequestC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) unnamed_addr #0 align 2 {
   store i32 11, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -60,7 +60,7 @@ define hidden void @_ZN14ZDriverRequestC2Ev(ptr nocapture noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14ZDriverRequestC2EN7GCCause5CauseEjj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN14ZDriverRequestC2EN7GCCause5CauseEjj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4
@@ -98,7 +98,7 @@ define hidden noundef i32 @_ZNK14ZDriverRequest12old_nworkersEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZDriverPortC2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 88)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN11ZDriverPortC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   tail call void @_ZN15PlatformMonitorC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) #9
   %2 = getelementptr inbounds i8, ptr %0, i64 88

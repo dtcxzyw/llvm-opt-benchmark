@@ -5790,7 +5790,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @updateNewNetworkNameManager(ptr nocapture noundef initializes((24, 32)) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #3 {
+define void @updateNewNetworkNameManager(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %0, i64 56
   %.val68 = load ptr, ptr %5, align 8
   %6 = getelementptr i8, ptr %.val68, i64 4
@@ -6466,7 +6466,7 @@ Abc_UtilStrsav.exit:                              ; preds = %45, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @LivenessToSafetyTransformationWithLTL(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef initializes((0, 4)) %7, ptr noundef readonly %8) local_unnamed_addr #3 {
+define noundef ptr @LivenessToSafetyTransformationWithLTL(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr noundef readonly %8) local_unnamed_addr #3 {
   %10 = getelementptr i8, ptr %2, i64 108
   %.val438 = load i32, ptr %10, align 4
   %11 = add nsw i32 %.val438, 1

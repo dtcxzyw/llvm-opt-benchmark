@@ -529,7 +529,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_759ParseDataC2EPKNS_23TransliterationRuleDataEPKNS_7UVectorEPKNS_9HashtableE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %d, ptr noundef %sets, ptr noundef %vNames) unnamed_addr #7 align 2 {
+define void @_ZN6icu_759ParseDataC2EPKNS_23TransliterationRuleDataEPKNS_7UVectorEPKNS_9HashtableE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %d, ptr noundef %sets, ptr noundef %vNames) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_759ParseDataE, i64 16), ptr %this, align 8
   %data = getelementptr inbounds i8, ptr %this, i64 8
@@ -604,7 +604,7 @@ if.end:                                           ; preds = %cond.true, %land.lh
 declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_759ParseData14parseReferenceERKNS_13UnicodeStringERNS_13ParsePositionEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i32 noundef %limit) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_759ParseData14parseReferenceERKNS_13UnicodeStringERNS_13ParsePositionEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr nocapture noundef nonnull align 8 dereferenceable(16) %pos, i32 noundef %limit) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %index.i = getelementptr inbounds i8, ptr %pos, i64 8
   %0 = load i32, ptr %index.i, align 8
@@ -789,7 +789,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758RuleHalfC2ERNS_20TransliteratorParserE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((8, 18), (72, 94), (96, 100), (104, 112)) %this, ptr noundef nonnull align 8 dereferenceable(498) %p) unnamed_addr #7 align 2 {
+define void @_ZN6icu_758RuleHalfC2ERNS_20TransliteratorParserE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(498) %p) unnamed_addr #7 align 2 {
 entry:
   %text = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %text, align 8
@@ -3414,7 +3414,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7520TransliteratorParser10parseRulesERKNS_13UnicodeStringE15UTransDirectionR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(498) initializes((108, 180)) %this, ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %theDirection, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7520TransliteratorParser10parseRulesERKNS_13UnicodeStringE15UTransDirectionR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(498) %this, ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef %theDirection, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp.i = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -4430,7 +4430,7 @@ entry:
 declare noundef ptr @_ZN6icu_7522TransliteratorIDParser17parseGlobalFilterERKNS_13UnicodeStringERiiS4_PS1_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7520TransliteratorParser11syntaxErrorE10UErrorCodeRKNS_13UnicodeStringEiRS1_(ptr noundef nonnull align 8 dereferenceable(498) initializes((108, 116)) %this, i32 noundef %parseErrorCode, ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef returned %pos, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN6icu_7520TransliteratorParser11syntaxErrorE10UErrorCodeRKNS_13UnicodeStringEiRS1_(ptr noundef nonnull align 8 dereferenceable(498) %this, i32 noundef %parseErrorCode, ptr noundef nonnull align 8 dereferenceable(64) %rule, i32 noundef returned %pos, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parseError = getelementptr inbounds i8, ptr %this, i64 108
   %offset = getelementptr inbounds i8, ptr %this, i64 112

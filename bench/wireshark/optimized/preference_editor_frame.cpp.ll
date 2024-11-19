@@ -1048,7 +1048,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN21PreferenceEditorFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
+define void @_ZN21PreferenceEditorFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21PreferenceEditorFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV21PreferenceEditorFrame, i64 456), ptr %2, align 8
@@ -1108,7 +1108,7 @@ define void @_ZThn16_N21PreferenceEditorFrameD0Ev(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21PreferenceEditorFrame14editPreferenceEP10preferenceP11pref_module(ptr noundef nonnull align 8 dereferenceable(120) initializes((64, 80)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21PreferenceEditorFrame14editPreferenceEP10preferenceP11pref_module(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
@@ -2133,7 +2133,7 @@ declare void @_ZN14SyntaxLineEdit14setSyntaxStateENS_11SyntaxStateE(ptr noundef 
 declare i32 @prefs_get_type(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21PreferenceEditorFrame22uintLineEditTextEditedERK7QString(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((80, 84)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21PreferenceEditorFrame22uintLineEditTextEditedERK7QString(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -2625,7 +2625,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %19, %_ZN17QArrayDat
 declare void @_ZN21PreferenceEditorFrame23showProtocolPreferencesE7QString(ptr noundef nonnull align 8 dereferenceable(120), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21PreferenceEditorFrame21on_buttonBox_rejectedEv(ptr noundef nonnull align 8 dereferenceable(120) initializes((64, 80)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN21PreferenceEditorFrame21on_buttonBox_rejectedEv(ptr noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)

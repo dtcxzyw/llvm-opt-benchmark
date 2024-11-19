@@ -298,7 +298,7 @@ return:                                           ; preds = %if.end76.i, %cond.f
 declare i32 @_PyUnicodeWriter_WriteStr(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_internal_render_format_spec(ptr nocapture noundef readonly %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr nocapture noundef nonnull initializes((0, 20), (24, 36), (40, 52)) %format, i8 noundef signext range(i8 0, 116) %default_type, i8 noundef signext range(i8 60, 63) %default_align) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_internal_render_format_spec(ptr nocapture noundef readonly %obj, ptr noundef %format_spec, i64 noundef %start, i64 noundef %end, ptr nocapture noundef nonnull %format, i8 noundef signext range(i8 0, 116) %default_type, i8 noundef signext range(i8 60, 63) %default_align) unnamed_addr #0 {
 entry:
   %pos = alloca i64, align 8
   store i64 %start, ptr %pos, align 8
@@ -2868,7 +2868,7 @@ return:                                           ; preds = %entry, %if.end7, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @calc_number_widths(ptr nocapture noundef nonnull initializes((0, 33), (40, 88)) %spec, i64 noundef range(i64 0, 3) %n_prefix, i32 noundef range(i32 0, 46) %sign_char, i64 noundef range(i64 0, 4) %n_start, i64 noundef %n_end, i64 noundef %n_remainder, i32 noundef %has_decimal, ptr nocapture noundef nonnull readonly %locale, ptr nocapture noundef nonnull readonly %format, ptr nocapture noundef nonnull %maxchar) unnamed_addr #0 {
+define internal fastcc i64 @calc_number_widths(ptr nocapture noundef nonnull %spec, i64 noundef range(i64 0, 3) %n_prefix, i32 noundef range(i32 0, 46) %sign_char, i64 noundef range(i64 0, 4) %n_start, i64 noundef %n_end, i64 noundef %n_remainder, i32 noundef %has_decimal, ptr nocapture noundef nonnull readonly %locale, ptr nocapture noundef nonnull readonly %format, ptr nocapture noundef nonnull %maxchar) unnamed_addr #0 {
 entry:
   %grouping_maxchar = alloca i32, align 4
   %tobool.not = icmp ne i32 %has_decimal, 0

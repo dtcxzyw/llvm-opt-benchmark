@@ -246,7 +246,7 @@ define zeroext i1 @"_ZN4core6result19Result$LT$T$C$E$GT$6map_or17h39a0e51ee303b8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h00e6fca9038a1118E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 10)) %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h00e6fca9038a1118E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8
@@ -279,14 +279,14 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h00e6fca9038a1118E"(
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h280d375f3b7508e9E"(ptr nocapture writeonly sret([48 x i8]) align 8 initializes((0, 48)) %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h280d375f3b7508e9E"(ptr nocapture writeonly sret([48 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   tail call void @"_ZN4core3ptr278drop_in_place$LT$$LT$core..result..Result$LT$pyo3_build_config..impl_..BuildFlags$C$core..convert..Infallible$GT$$u20$as$u20$pyo3_build_config..errors..Context$LT$pyo3_build_config..impl_..BuildFlags$GT$$GT$..context$LT$alloc..string..String$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hefb5e3c6c00aad93E"(ptr align 8 %2)
   ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 9)) %0, i8 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, i8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %.not = icmp eq i8 %1, 2
@@ -311,7 +311,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h417f759fb879b0acE"(
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h489a467448982248E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h489a467448982248E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   store i64 -9223372036854775808, ptr %0, align 8
@@ -320,7 +320,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h489a467448982248E"(
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha246876f5443c4d5E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 12)) %0, i64 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha246876f5443c4d5E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, i64 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [40 x i8], align 8
   %6 = and i64 %1, 1
@@ -349,7 +349,7 @@ define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17ha246876f5443c4d5E"(
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb2e39780ddb5ecc7E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 9)) %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hb2e39780ddb5ecc7E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca [40 x i8], align 8
   %5 = alloca [24 x i8], align 8
   %6 = alloca [40 x i8], align 8

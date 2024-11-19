@@ -42,7 +42,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_gnet_stats_f
 @llvm.compiler.used = appending global [11 x ptr] [ptr @__UNIQUE_ID___addressable_gnet_stats_add_basic563, ptr @__UNIQUE_ID___addressable_gnet_stats_add_queue569, ptr @__UNIQUE_ID___addressable_gnet_stats_basic_sync_init560, ptr @__UNIQUE_ID___addressable_gnet_stats_copy_app571, ptr @__UNIQUE_ID___addressable_gnet_stats_copy_basic564, ptr @__UNIQUE_ID___addressable_gnet_stats_copy_basic_hw565, ptr @__UNIQUE_ID___addressable_gnet_stats_copy_queue570, ptr @__UNIQUE_ID___addressable_gnet_stats_copy_rate_est568, ptr @__UNIQUE_ID___addressable_gnet_stats_finish_copy572, ptr @__UNIQUE_ID___addressable_gnet_stats_start_copy559, ptr @__UNIQUE_ID___addressable_gnet_stats_start_copy_compat558], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_start_copy_compat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef initializes((0, 96)) %5, i32 noundef %6) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_start_copy_compat(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef %5, i32 noundef %6) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(96) %5, i8 0, i64 96, i1 false)
   %8 = icmp eq i32 %1, 0
   br i1 %8, label %17, label %9
@@ -140,7 +140,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_start_copy(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef initializes((0, 96)) %3, i32 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -1, 1) i32 @gnet_stats_start_copy(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4) #0 align 16 {
   %6 = tail call i32 @gnet_stats_start_copy_compat(ptr noundef %0, i32 noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef %2, ptr noundef %3, i32 noundef %4), !range !5
   ret i32 %6
 }

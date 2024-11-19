@@ -184,7 +184,7 @@ return:                                           ; preds = %return.loopexit, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @lj_ctype_addname(ptr nocapture noundef %cts, ptr nocapture noundef initializes((10, 12)) %ct, i32 noundef %id) local_unnamed_addr #3 {
+define hidden void @lj_ctype_addname(ptr nocapture noundef %cts, ptr nocapture noundef %ct, i32 noundef %id) local_unnamed_addr #3 {
 entry:
   %name = getelementptr inbounds i8, ptr %ct, i64 16
   %0 = load i64, ptr %name, align 8

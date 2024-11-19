@@ -89,7 +89,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.69 = private unnamed_addr constant [24 x i8] c"thread dispatch failed\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @parse_command(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @parse_command(ptr noundef %0, ptr nocapture noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %1, align 8
   br label %6
 

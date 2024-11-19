@@ -110,7 +110,7 @@ define linkonce_odr hidden void @_ZN5zxing12ErrorHandlerD2Ev(ptr noundef nonnull
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing9GenericGFC2EiiiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(92) initializes((0, 12), (16, 92)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing9GenericGFC2EiiiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(92) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.zxing::ArrayRef", align 8
   %7 = alloca %"class.zxing::ArrayRef", align 8
   %8 = alloca %"class.zxing::ArrayRef", align 8
@@ -697,7 +697,7 @@ _ZN5zxing7Counted7releaseEv.exit:                 ; preds = %9, %4, %1
 declare void @_ZN5zxing13GenericGFPoly15getCoefficientsEv(ptr dead_on_unwind writable sret(%"class.zxing::ArrayRef") align 8, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5zxing9GenericGF7getZeroEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5zxing9GenericGF7getZeroEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -716,7 +716,7 @@ _ZN5zxing3RefINS_13GenericGFPolyEEC2ERKS2_.exit:  ; preds = %5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5zxing9GenericGF6getOneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5zxing9GenericGF6getOneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(92) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null

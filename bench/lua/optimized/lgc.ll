@@ -3121,7 +3121,7 @@ clearbykeys.exit173:                              ; preds = %for.inc17.i165, %cl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @atomic2gen(ptr noundef %L, ptr noundef initializes((101, 102), (136, 176)) %g) unnamed_addr #2 {
+define internal fastcc void @atomic2gen(ptr noundef %L, ptr noundef %g) unnamed_addr #2 {
 entry:
   %gray.i = getelementptr inbounds i8, ptr %g, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %gray.i, i8 0, i64 40, i1 false)

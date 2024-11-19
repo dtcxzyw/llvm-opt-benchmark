@@ -1574,14 +1574,14 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_8ConstantELb1EE9push_backES2_.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm13LazyCallGraph4Node15replaceFunctionERNS_8FunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm13LazyCallGraph4Node15replaceFunctionERNS_8FunctionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13LazyCallGraphC2ERNS_6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 dereferenceable(857) %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13LazyCallGraphC2ERNS_6ModuleENS_12function_refIFRNS_17TargetLibraryInfoERNS_8FunctionEEEE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull readonly align 8 dereferenceable(857) %1, ptr nocapture readonly %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::SmallVector.5", align 8
@@ -3411,7 +3411,7 @@ _ZN4llvm11SmallPtrSetIPKNS_13LazyCallGraph3SCCELj16EED2Ev.exit: ; preds = %127, 
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13LazyCallGraph6RefSCCC2ERS0_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(648) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13LazyCallGraph6RefSCCC2ERS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(648) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -20365,7 +20365,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_13LazyCallGraph4NodeEPNS2_3SCCENS_12Dens
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(104) ptr @_ZN4llvm13LazyCallGraph10insertIntoERNS_8FunctionERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(104) ptr @_ZN4llvm13LazyCallGraph10insertIntoERNS_8FunctionERPNS0_4NodeE(ptr noundef nonnull align 8 dereferenceable(648) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, 104
@@ -22711,7 +22711,7 @@ _ZN4llvm11SmallVectorIPNS_13LazyCallGraph4NodeELj16EED2Ev.exit: ; preds = %_ZNK4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm24LazyCallGraphPrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm24LazyCallGraphPrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -23536,7 +23536,7 @@ _ZN4llvm13LazyCallGraph26postorder_ref_scc_iterator28incrementUntilNonEmptyRefSC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm27LazyCallGraphDOTPrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm27LazyCallGraphDOTPrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

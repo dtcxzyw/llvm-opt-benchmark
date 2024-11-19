@@ -100,7 +100,7 @@ define hidden void @_ZN5ceres12LossFunctionD0Ev(ptr nocapture nonnull readnone a
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK5ceres11TrivialLoss8EvaluateEdPd(ptr nocapture nonnull readnone align 8 %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #3 align 2 {
+define hidden void @_ZNK5ceres11TrivialLoss8EvaluateEdPd(ptr nocapture nonnull readnone align 8 %0, double noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #3 align 2 {
   store double %1, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   store double 1.000000e+00, ptr %4, align 8
@@ -110,7 +110,7 @@ define hidden void @_ZNK5ceres11TrivialLoss8EvaluateEdPd(ptr nocapture nonnull r
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK5ceres9HuberLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK5ceres9HuberLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8
   %6 = fcmp ogt double %1, %5
@@ -155,7 +155,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #5
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK5ceres12SoftLOneLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK5ceres12SoftLOneLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8
   %6 = tail call double @llvm.fmuladd.f64(double %1, double %5, double 1.000000e+00)
@@ -182,7 +182,7 @@ define hidden void @_ZNK5ceres12SoftLOneLoss8EvaluateEdPd(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK5ceres10CauchyLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK5ceres10CauchyLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load double, ptr %4, align 8
   %6 = tail call double @llvm.fmuladd.f64(double %1, double %5, double 1.000000e+00)
@@ -209,7 +209,7 @@ define hidden void @_ZNK5ceres10CauchyLoss8EvaluateEdPd(ptr nocapture noundef no
 declare double @log(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK5ceres10ArctanLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK5ceres10ArctanLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, double noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #4 align 2 {
   %4 = fmul double %1, %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load double, ptr %5, align 8
@@ -238,7 +238,7 @@ define hidden void @_ZNK5ceres10ArctanLoss8EvaluateEdPd(ptr nocapture noundef no
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres12TolerantLossC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, double noundef %1, double noundef %2) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres12TolerantLossC2Edd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, double noundef %1, double noundef %2) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %5 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %6 = alloca %"struct.google::CheckOpString", align 8
@@ -380,7 +380,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6s
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @_ZNK5ceres12TolerantLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #4 align 2 {
+define hidden void @_ZNK5ceres12TolerantLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, double noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fsub double %1, %5
@@ -432,7 +432,7 @@ define hidden void @_ZNK5ceres12TolerantLoss8EvaluateEdPd(ptr nocapture noundef 
 declare double @cosh(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK5ceres9TukeyLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #10 align 2 {
+define hidden void @_ZNK5ceres9TukeyLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fcmp ugt double %1, %5
@@ -469,7 +469,7 @@ define hidden void @_ZNK5ceres9TukeyLoss8EvaluateEdPd(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres12ComposedLossC2EPKNS_12LossFunctionENS_9OwnershipES3_S4_(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres12ComposedLossC2EPKNS_12LossFunctionENS_9OwnershipES3_S4_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.google::LogMessageFatal", align 8
   %7 = alloca %"class.google::LogMessageFatal", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres12ComposedLossE, i64 16), ptr %0, align 8
@@ -677,7 +677,7 @@ _ZN5ceres12ComposedLossD2Ev.exit:                 ; preds = %_ZNSt10unique_ptrIK
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK5ceres12ComposedLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, double noundef %1, ptr nocapture noundef writeonly initializes((0, 24)) %2) unnamed_addr #7 align 2 {
+define hidden void @_ZNK5ceres12ComposedLoss8EvaluateEdPd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, double noundef %1, ptr nocapture noundef writeonly %2) unnamed_addr #7 align 2 {
   %4 = alloca [3 x double], align 16
   %5 = alloca [3 x double], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 16

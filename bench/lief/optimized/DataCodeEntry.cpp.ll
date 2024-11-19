@@ -138,21 +138,21 @@ define noundef i32 @_ZNK4LIEF5MachO13DataCodeEntry4typeEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO13DataCodeEntry6offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF5MachO13DataCodeEntry6offsetEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO13DataCodeEntry6lengthEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((12, 14)) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF5MachO13DataCodeEntry6lengthEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i16 noundef zeroext %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i16 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO13DataCodeEntry4typeENS1_5TYPESE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN4LIEF5MachO13DataCodeEntry4typeENS1_5TYPESE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void

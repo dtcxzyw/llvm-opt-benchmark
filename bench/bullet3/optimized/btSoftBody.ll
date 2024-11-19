@@ -1348,7 +1348,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6btDbvtC1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10btSoftBody12initDefaultsEv(ptr noundef nonnull align 8 dereferenceable(2064) initializes((8, 72), (272, 276), (416, 520), (524, 532), (556, 564), (588, 596), (616, 624), (648, 650), (652, 656), (720, 832), (880, 888), (1504, 1541)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10btSoftBody12initDefaultsEv(ptr noundef nonnull align 8 dereferenceable(2064) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_internalType = getelementptr inbounds i8, ptr %this, i64 272
   store i32 8, ptr %m_internalType, align 8
@@ -3616,7 +3616,7 @@ ehcleanup80:                                      ; preds = %ehcleanup79, %lpad4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10btSoftBody9setSolverENS_14eSolverPresets1_E(ptr noundef nonnull align 8 dereferenceable(2064) initializes((524, 532), (556, 564), (588, 596)) %this, i32 noundef %preset) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN10btSoftBody9setSolverENS_14eSolverPresets1_E(ptr noundef nonnull align 8 dereferenceable(2064) %this, i32 noundef %preset) local_unnamed_addr #4 align 2 {
 entry:
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 536
   %0 = load ptr, ptr %m_data.i.i, align 8
@@ -4364,7 +4364,7 @@ sw.epilog:                                        ; preds = %_ZN20btAlignedObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV10btSoftBody, i64 16), ptr %this, align 8
   %m_collisionShape = getelementptr inbounds i8, ptr %this, i64 200
@@ -5718,7 +5718,7 @@ delete.notnull11:                                 ; preds = %if.end
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10btSoftBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(2064) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10btSoftBodyD0Ev(ptr noundef nonnull align 8 dereferenceable(2064) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN10btSoftBodyD2Ev(ptr noundef nonnull align 8 dereferenceable(2064) %this) #40
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
@@ -12900,7 +12900,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN10btSoftBody7setMassEif(ptr nocapture noundef nonnull align 8 dereferenceable(2064) initializes((1540, 1541)) %this, i32 noundef %node, float noundef %mass) local_unnamed_addr #20 align 2 {
+define dso_local void @_ZN10btSoftBody7setMassEif(ptr nocapture noundef nonnull align 8 dereferenceable(2064) %this, i32 noundef %node, float noundef %mass) local_unnamed_addr #20 align 2 {
 entry:
   %cmp = fcmp ogt float %mass, 0.000000e+00
   %div = fdiv float 1.000000e+00, %mass
@@ -16052,7 +16052,7 @@ if.end:                                           ; preds = %if.then, %for.end
 declare void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 dereferenceable(372), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10btSoftBody7setPoseEbb(ptr noundef nonnull align 8 dereferenceable(2064) initializes((648, 650)) %this, i1 noundef zeroext %bvolume, i1 noundef zeroext %bframe) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN10btSoftBody7setPoseEbb(ptr noundef nonnull align 8 dereferenceable(2064) %this, i1 noundef zeroext %bvolume, i1 noundef zeroext %bframe) local_unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %bvolume to i8
   %frombool1 = zext i1 %bframe to i8
@@ -24690,7 +24690,7 @@ if.end131:                                        ; preds = %if.then124, %for.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN10btSoftBody7rayTestERK9btVector3S2_RNS_8sRayCastE(ptr noundef nonnull align 8 dereferenceable(2064) %this, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, ptr noundef nonnull align 4 dereferenceable(16) %rayTo, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 20)) %results) local_unnamed_addr #4 align 2 {
+define dso_local noundef zeroext i1 @_ZN10btSoftBody7rayTestERK9btVector3S2_RNS_8sRayCastE(ptr noundef nonnull align 8 dereferenceable(2064) %this, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, ptr noundef nonnull align 4 dereferenceable(16) %rayTo, ptr nocapture noundef nonnull align 8 dereferenceable(24) %results) local_unnamed_addr #4 align 2 {
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 1028
   %0 = load i32, ptr %m_size.i, align 4
@@ -28955,7 +28955,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10btSoftBody15RayFromToCasterC2ERK9btVector3S3_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((0, 60), (64, 76)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayFrom, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayTo, float noundef %mxt) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10btSoftBody15RayFromToCasterC2ERK9btVector3S3_f(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayFrom, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %rayTo, float noundef %mxt) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i64 16), ptr %this, align 8
   %m_rayFrom = getelementptr inbounds i8, ptr %this, i64 8
@@ -33082,7 +33082,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10btSoftBody16setGravityFactorEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) initializes((1828, 1832)) %this, float noundef %gravFactor) local_unnamed_addr #28 align 2 {
+define dso_local void @_ZN10btSoftBody16setGravityFactorEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, float noundef %gravFactor) local_unnamed_addr #28 align 2 {
 entry:
   %m_gravityFactor = getelementptr inbounds i8, ptr %this, i64 1828
   store float %gravFactor, ptr %m_gravityFactor, align 4
@@ -33090,7 +33090,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10btSoftBody18setCacheBarycenterEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) initializes((1832, 1833)) %this, i1 noundef zeroext %cacheBarycenter) local_unnamed_addr #28 align 2 {
+define dso_local void @_ZN10btSoftBody18setCacheBarycenterEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, i1 noundef zeroext %cacheBarycenter) local_unnamed_addr #28 align 2 {
 entry:
   %frombool = zext i1 %cacheBarycenter to i8
   %m_cacheBarycenter = getelementptr inbounds i8, ptr %this, i64 1832
@@ -35775,7 +35775,7 @@ if.end6:                                          ; preds = %if.then4, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10btSoftBody6CJoint7PrepareEfi(ptr nocapture noundef nonnull align 8 dereferenceable(244) initializes((112, 116), (180, 181)) %this, float noundef %dt, i32 noundef %iterations) unnamed_addr #3 align 2 {
+define dso_local void @_ZN10btSoftBody6CJoint7PrepareEfi(ptr nocapture noundef nonnull align 8 dereferenceable(244) %this, float noundef %dt, i32 noundef %iterations) unnamed_addr #3 align 2 {
 entry:
   %m_rigid.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_rigid.i.i, align 8
@@ -36404,7 +36404,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10btSoftBody12setMaxStressEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) initializes((620, 624)) %this, float noundef %maxStress) local_unnamed_addr #28 align 2 {
+define dso_local void @_ZN10btSoftBody12setMaxStressEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, float noundef %maxStress) local_unnamed_addr #28 align 2 {
 entry:
   %m_maxStress = getelementptr inbounds i8, ptr %this, i64 620
   store float %maxStress, ptr %m_maxStress, align 4
@@ -37971,7 +37971,7 @@ for.end:                                          ; preds = %invoke.cont29, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN10btSoftBody16setSelfCollisionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) initializes((1968, 1969)) %this, i1 noundef zeroext %useSelfCollision) local_unnamed_addr #28 align 2 {
+define dso_local void @_ZN10btSoftBody16setSelfCollisionEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, i1 noundef zeroext %useSelfCollision) local_unnamed_addr #28 align 2 {
 entry:
   %frombool = zext i1 %useSelfCollision to i8
   %m_useSelfCollision = getelementptr inbounds i8, ptr %this, i64 1968
@@ -39766,7 +39766,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN10btSoftBody15setWindVelocityERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) initializes((2008, 2024)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity) local_unnamed_addr #29 align 2 {
+define dso_local void @_ZN10btSoftBody15setWindVelocityERK9btVector3(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2064) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %velocity) local_unnamed_addr #29 align 2 {
 entry:
   %m_windVelocity = getelementptr inbounds i8, ptr %this, i64 2008
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_windVelocity, ptr noundef nonnull align 4 dereferenceable(16) %velocity, i64 16, i1 false)

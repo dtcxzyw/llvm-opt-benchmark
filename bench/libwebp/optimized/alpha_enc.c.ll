@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @WebPDispatchAlphaToGreen = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8EncInitAlpha(ptr noundef initializes((540, 556)) %0) local_unnamed_addr #0 {
+define hidden void @VP8EncInitAlpha(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @WebPInitAlphaProcessing() #5
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8

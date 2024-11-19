@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.XactLockTableWaitErrorCb = private unnamed_addr constant [8 x ptr] [ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @RelationInitLockInfo(ptr nocapture noundef initializes((76, 84)) %0) local_unnamed_addr #0 {
+define dso_local void @RelationInitLockInfo(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 76

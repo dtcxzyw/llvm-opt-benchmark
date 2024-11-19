@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN12ScopedMetricD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN12ScopedMetricD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12ScopedMetricC2EP6Metric(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN12ScopedMetricC2EP6Metric(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3

@@ -4757,7 +4757,7 @@ declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @erf_atm_guess_traffic_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull initializes((4, 7)) %2) unnamed_addr #1 {
+define internal fastcc void @erf_atm_guess_traffic_type(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i8 4, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 5
@@ -5232,7 +5232,7 @@ define internal fastcc ptr @dissect_relative_time(ptr noundef %0, i32 noundef %1
 declare i64 @tvb_get_letoh64(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @erf_ts_to_nstime(i64 noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 12)) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #6 {
+define internal fastcc void @erf_ts_to_nstime(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #6 {
   %4 = icmp ne i32 %2, 0
   %5 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
   %.0 = select i1 %4, i64 %5, i64 %0

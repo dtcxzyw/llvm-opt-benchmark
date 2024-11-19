@@ -75,7 +75,7 @@ $_ZTIN8QuantLib29LfmCovarianceParameterization10Var_HelperE = comdat any
 @_ZN8QuantLib29LfmCovarianceParameterization10Var_HelperC1EPKS0_mm = unnamed_addr alias void (ptr, ptr, i64, i64), ptr @_ZN8QuantLib29LfmCovarianceParameterization10Var_HelperC2EPKS0_mm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib29LfmCovarianceParameterization10Var_HelperC2EPKS0_mm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %param, i64 noundef %i, i64 noundef %j) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib29LfmCovarianceParameterization10Var_HelperC2EPKS0_mm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %param, i64 noundef %i, i64 noundef %j) unnamed_addr #0 align 2 {
 entry:
   store i64 %i, ptr %this, align 8, !tbaa !3
   %j_ = getelementptr inbounds nuw i8, ptr %this, i64 8

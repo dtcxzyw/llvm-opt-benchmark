@@ -3662,7 +3662,7 @@ _ZNK4llvm3rdf20PhysicalRegisterInfo12getRegMaskIdEPKj.exit: ; preds = %30, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf7RefNode9setRegRefENS0_11RegisterRefERNS0_13DataFlowGraphE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %0, i32 %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(736) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf7RefNode9setRegRefENS0_11RegisterRefERNS0_13DataFlowGraphE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(736) %3) local_unnamed_addr #0 align 2 {
   %5 = icmp eq i64 %2, -1
   br i1 %5, label %_ZN4llvm3rdf13DataFlowGraph4packENS0_11RegisterRefE.exit, label %6
 
@@ -3683,7 +3683,7 @@ _ZN4llvm3rdf13DataFlowGraph4packENS0_11RegisterRefE.exit: ; preds = %4, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3rdf7RefNode9setRegRefEPNS_14MachineOperandERNS0_13DataFlowGraphE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((24, 32)) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(736) %2) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm3rdf7RefNode9setRegRefEPNS_14MachineOperandERNS0_13DataFlowGraphE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(736) %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   ret void
@@ -3749,7 +3749,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit16: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3rdf7DefNode9linkToDefEjNS0_8NodeAddrIPS1_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 16)) %0, i32 noundef %1, ptr nocapture %2, i32 %3) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm3rdf7DefNode9linkToDefEjNS0_8NodeAddrIPS1_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture %2, i32 %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -3761,7 +3761,7 @@ define dso_local void @_ZN4llvm3rdf7DefNode9linkToDefEjNS0_8NodeAddrIPS1_EE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3rdf7UseNode9linkToDefEjNS0_8NodeAddrIPNS0_7DefNodeEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 16)) %0, i32 noundef %1, ptr nocapture %2, i32 %3) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm3rdf7UseNode9linkToDefEjNS0_8NodeAddrIPNS0_7DefNodeEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr nocapture %2, i32 %3) local_unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %3, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
@@ -4786,7 +4786,7 @@ _ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_20MachineDominatorTreeERKNS_24MachineDominanceFrontierE(ptr noundef nonnull align 8 dereferenceable(736) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull align 8 dereferenceable(1200) %4, ptr noundef nonnull align 8 dereferenceable(104) %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_20MachineDominatorTreeERKNS_24MachineDominanceFrontierE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull align 8 dereferenceable(1200) %4, ptr noundef nonnull align 8 dereferenceable(104) %5) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %7 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !23
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm3rdf17TargetOperandInfoE, i64 16), ptr %7, align 8, !noalias !23
@@ -4897,7 +4897,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_
 declare void @_ZN4llvm3rdf20PhysicalRegisterInfoC1ERKNS_18TargetRegisterInfoERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef nonnull align 8 dereferenceable(308), ptr noundef nonnull align 8 dereferenceable(1041)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_20MachineDominatorTreeERKNS_24MachineDominanceFrontierERKNS0_17TargetOperandInfoE(ptr noundef nonnull align 8 dereferenceable(736) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull align 8 dereferenceable(1200) %4, ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_15TargetInstrInfoERKNS_18TargetRegisterInfoERKNS_20MachineDominatorTreeERKNS_24MachineDominanceFrontierERKNS0_17TargetOperandInfoE(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull align 8 dereferenceable(308) %3, ptr noundef nonnull align 8 dereferenceable(1200) %4, ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %8, align 8
@@ -5000,7 +5000,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraphC2ERNS_15MachineFunctionERKNS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm3rdf13DataFlowGraph8DefStack8IteratorC2ERKS2_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm3rdf13DataFlowGraph8DefStack8IteratorC2ERKS2_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i1 noundef zeroext %2) unnamed_addr #9 align 2 {
   store ptr %1, ptr %0, align 8
   br i1 %2, label %6, label %4
 

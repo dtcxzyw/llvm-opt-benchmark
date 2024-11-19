@@ -1524,7 +1524,7 @@ return:                                           ; preds = %return.sink.split, 
 declare noundef zeroext i1 @_ZNK11ast_manager15is_unique_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6egraphC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf6egraphC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_to_merge = getelementptr inbounds i8, ptr %this, i64 8
@@ -6529,7 +6529,7 @@ for.end:                                          ; preds = %for.inc, %entry, %_
 declare noundef zeroext i1 @_ZNK3euf5enode9congruentEPS0_(ptr noundef nonnull align 8 dereferenceable(176), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6egraph21unmerge_justificationEPNS_5enodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(536) %this, ptr nocapture noundef initializes((72, 80), (104, 108), (112, 113), (120, 128)) %n1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf6egraph21unmerge_justificationEPNS_5enodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(536) %this, ptr nocapture noundef %n1) local_unnamed_addr #3 align 2 {
 entry:
   %m_target = getelementptr inbounds i8, ptr %n1, i64 72
   store ptr null, ptr %m_target, align 8
@@ -7047,7 +7047,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6egraph15push_congruenceEPNS_5enodeES2_b(ptr noundef nonnull align 8 dereferenceable(536) initializes((336, 337)) %this, ptr nocapture noundef readonly %n1, ptr nocapture noundef readonly %n2, i1 noundef zeroext %comm) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf6egraph15push_congruenceEPNS_5enodeES2_b(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr nocapture noundef readonly %n1, ptr nocapture noundef readonly %n2, i1 noundef zeroext %comm) local_unnamed_addr #3 align 2 {
 entry:
   %__args.addr.i = alloca ptr, align 8
   %__args.addr2.i = alloca ptr, align 8
@@ -7421,7 +7421,7 @@ while.end:                                        ; preds = %_ZN6vectorIPN3euf5e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3euf6egraph13begin_explainEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(536) initializes((336, 337)) %this) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN3euf6egraph13begin_explainEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(536) %this) local_unnamed_addr #11 align 2 {
 entry:
   %m_uses_congruence = getelementptr inbounds i8, ptr %this, i64 336
   store i8 0, ptr %m_uses_congruence, align 8

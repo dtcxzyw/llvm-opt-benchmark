@@ -1307,7 +1307,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef zeroext i16 @_ZNK8Settings6getU16ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN14GUIChatConsole9setCursorEbbff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(426) initializes((380, 388)) %this, i1 noundef zeroext %visible, i1 noundef zeroext %blinking, float noundef %blink_speed, float noundef %relative_height) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN14GUIChatConsole9setCursorEbbff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(426) %this, i1 noundef zeroext %visible, i1 noundef zeroext %blinking, float noundef %blink_speed, float noundef %relative_height) local_unnamed_addr #8 align 2 {
 entry:
   %brmerge.not = and i1 %visible, %blinking
   br i1 %brmerge.not, label %if.end9, label %if.end9.sink.split
@@ -1445,7 +1445,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN14GUIChatConsoleC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP11ChatBackendP6ClientP12IMenuManager(ptr noundef nonnull align 8 dereferenceable(426) initializes((432, 452)) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %backend, ptr noundef %client, ptr noundef %menumgr) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14GUIChatConsoleC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP11ChatBackendP6ClientP12IMenuManager(ptr noundef nonnull align 8 dereferenceable(426) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %backend, ptr noundef %client, ptr noundef %menumgr) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__dnew.i.i346 = alloca i64, align 8
   %__dnew.i.i223 = alloca i64, align 8
@@ -2076,7 +2076,7 @@ ehcleanup176:                                     ; preds = %ehcleanup170, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14GUIChatConsoleD2Ev(ptr noundef nonnull align 8 dereferenceable(426) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14GUIChatConsoleD2Ev(ptr noundef nonnull align 8 dereferenceable(426) %this, ptr noundef %vtt) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !14
@@ -2129,7 +2129,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14GUIChatConsoleD1Ev(ptr noundef nonnull align 8 dereferenceable(426) initializes((0, 8), (432, 440)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14GUIChatConsoleD1Ev(ptr noundef nonnull align 8 dereferenceable(426) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %this, align 8, !tbaa !14
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 432
@@ -2203,7 +2203,7 @@ _ZN14GUIChatConsoleD1Ev.exit:                     ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN14GUIChatConsoleD0Ev(ptr noundef nonnull align 8 dereferenceable(426) initializes((0, 8), (432, 440)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14GUIChatConsoleD0Ev(ptr noundef nonnull align 8 dereferenceable(426) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV14GUIChatConsole, i64 24), ptr %this, align 8, !tbaa !14
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 432
@@ -2282,7 +2282,7 @@ _ZN14GUIChatConsoleD0Ev.exit:                     ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14GUIChatConsole11openConsoleEf(ptr noundef nonnull align 8 dereferenceable(426) initializes((96, 112), (352, 353), (360, 368)) %this, float noundef %scale) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN14GUIChatConsole11openConsoleEf(ptr noundef nonnull align 8 dereferenceable(426) %this, float noundef %scale) local_unnamed_addr #6 align 2 {
 entry:
   %ts.i = alloca %struct.timespec, align 8
   %m_open = getelementptr inbounds i8, ptr %this, i64 352
@@ -2348,7 +2348,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14GUIChatConsole15reformatConsoleEv(ptr noundef nonnull align 8 dereferenceable(426) initializes((96, 112)) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN14GUIChatConsole15reformatConsoleEv(ptr noundef nonnull align 8 dereferenceable(426) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_screensize = getelementptr inbounds i8, ptr %this, i64 336
   %0 = load i32, ptr %m_screensize, align 8, !tbaa !114
@@ -2414,7 +2414,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14GUIChatConsole12closeConsoleEv(ptr noundef nonnull align 8 dereferenceable(426) initializes((352, 353)) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN14GUIChatConsole12closeConsoleEv(ptr noundef nonnull align 8 dereferenceable(426) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_open = getelementptr inbounds i8, ptr %this, i64 352
   store i8 0, ptr %m_open, align 8, !tbaa !49
@@ -2434,7 +2434,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14GUIChatConsole18closeConsoleAtOnceEv(ptr noundef nonnull align 8 dereferenceable(426) initializes((352, 353)) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN14GUIChatConsole18closeConsoleAtOnceEv(ptr noundef nonnull align 8 dereferenceable(426) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_open.i = getelementptr inbounds i8, ptr %this, i64 352
   store i8 0, ptr %m_open.i, align 8, !tbaa !49
@@ -2467,7 +2467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14GUIChatConsole26recalculateConsolePositionEv(ptr noundef nonnull align 8 dereferenceable(426) initializes((96, 112)) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN14GUIChatConsole26recalculateConsolePositionEv(ptr noundef nonnull align 8 dereferenceable(426) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_screensize = getelementptr inbounds i8, ptr %this, i64 336
   %0 = load i32, ptr %m_screensize, align 8, !tbaa !114
@@ -6228,7 +6228,7 @@ cleanup67:                                        ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14GUIChatConsole10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(426) initializes((160, 161), (352, 353)) %this, i1 noundef zeroext %visible) unnamed_addr #6 align 2 {
+define dso_local void @_ZN14GUIChatConsole10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(426) %this, i1 noundef zeroext %visible) unnamed_addr #6 align 2 {
 entry:
   %frombool = zext i1 %visible to i8
   %m_open = getelementptr inbounds i8, ptr %this, i64 352

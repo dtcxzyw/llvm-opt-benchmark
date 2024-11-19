@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [9 x i8] c"stowgs84\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8PJconsts(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((528, 532)) %2) local_unnamed_addr #0 {
+define hidden noundef range(i32 -1, 2) i32 @_Z12pj_datum_setP6pj_ctxP8ARG_listP8PJconsts(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca [100 x i8], align 16
   %5 = getelementptr inbounds i8, ptr %2, i64 528
   store i32 0, ptr %5, align 8

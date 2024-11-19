@@ -837,7 +837,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %17, %15, %_ZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm13DWARFGdbIndex9parseImplENS_13DataExtractorE(ptr noundef nonnull align 8 dereferenceable(126) initializes((0, 4)) %0, ptr noundef nonnull byval(%"class.llvm::DataExtractor") align 8 %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm13DWARFGdbIndex9parseImplENS_13DataExtractorE(ptr noundef nonnull align 8 dereferenceable(126) %0, ptr noundef nonnull byval(%"class.llvm::DataExtractor") align 8 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i64, align 8
   %4 = alloca %"struct.llvm::DWARFGdbIndex::AddressEntry", align 8
   %5 = alloca %"class.std::set", align 8
@@ -1322,7 +1322,7 @@ _ZNSt4pairIjN4llvm11SmallVectorIjLj0EEEEC2IiS2_TnNSt9enable_ifIXaaclsr5_PCCPE22_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13DWARFGdbIndex5parseENS_13DataExtractorE(ptr noundef nonnull align 8 dereferenceable(126) initializes((124, 125)) %0, ptr nocapture noundef readonly byval(%"class.llvm::DataExtractor") align 8 %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13DWARFGdbIndex5parseENS_13DataExtractorE(ptr noundef nonnull align 8 dereferenceable(126) %0, ptr nocapture noundef readonly byval(%"class.llvm::DataExtractor") align 8 %1) local_unnamed_addr #0 align 2 {
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
   %3 = icmp ne i64 %.sroa.2.0.copyload.i, 0

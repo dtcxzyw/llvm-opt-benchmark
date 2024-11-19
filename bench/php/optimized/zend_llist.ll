@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zend_llist_init(ptr nocapture noundef writeonly initializes((0, 41)) %0, i64 noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define void @zend_llist_init(ptr nocapture noundef writeonly %0, i64 noundef %1, ptr noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i64 %1, ptr %5, align 8
@@ -311,7 +311,7 @@ define void @zend_llist_remove_tail(ptr nocapture noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_llist_copy(ptr nocapture noundef initializes((0, 41)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define void @zend_llist_copy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 32

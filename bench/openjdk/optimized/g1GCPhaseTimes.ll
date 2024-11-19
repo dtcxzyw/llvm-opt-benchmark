@@ -571,7 +571,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN23G1EvacPhaseTimesTrackerD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN23G1EvacPhaseTimesTrackerD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14G1GCPhaseTimesC2EP10STWGCTimerj(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 4), (8, 24)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14G1GCPhaseTimesC2EP10STWGCTimerj(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 592
@@ -3410,7 +3410,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14G1GCPhaseTimes5resetEv(ptr noundef nonnull align 8 dereferenceable(872) initializes((384, 592)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14G1GCPhaseTimes5resetEv(ptr noundef nonnull align 8 dereferenceable(872) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 384
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %2, i8 0, i64 208, i1 false)
@@ -3479,7 +3479,7 @@ declare void @_ZN28ReferenceProcessorPhaseTimes5resetEv(ptr noundef nonnull alig
 declare void @_ZN18WeakProcessorTimes5resetEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14G1GCPhaseTimes21record_gc_pause_startEv(ptr noundef nonnull align 8 dereferenceable(872) initializes((8, 16), (384, 592)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14G1GCPhaseTimes21record_gc_pause_startEv(ptr noundef nonnull align 8 dereferenceable(872) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #18
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %3, align 8
@@ -3575,7 +3575,7 @@ define hidden noundef double @_ZN14G1GCPhaseTimes11worker_timeENS_11GCParPhasesE
 declare noundef double @_ZN15WorkerDataArrayIdE13uninitializedEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14G1GCPhaseTimes19record_gc_pause_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(872) initializes((16, 24)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14G1GCPhaseTimes19record_gc_pause_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(872) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #18
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
@@ -6041,7 +6041,7 @@ define hidden noundef ptr @_ZN14G1GCPhaseTimes10phase_nameENS_11GCParPhasesE(i32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30G1EvacPhaseWithTrimTimeTrackerC2EP20G1ParScanThreadStateR12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceES6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN30G1EvacPhaseWithTrimTimeTrackerC2EP20G1ParScanThreadStateR12TimeIntervalI30CompositeCounterRepresentation29CompositeElapsedCounterSourceES6_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #18
@@ -6117,7 +6117,7 @@ define hidden void @_ZN30G1EvacPhaseWithTrimTimeTrackerD2Ev(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30G1EvacPhaseWithTrimTimeTracker4stopEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((40, 41)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN30G1EvacPhaseWithTrimTimeTracker4stopEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #18
   %3 = extractvalue { i64, i64 } %2, 0
   %4 = extractvalue { i64, i64 } %2, 1
@@ -6166,7 +6166,7 @@ define hidden void @_ZN30G1EvacPhaseWithTrimTimeTracker4stopEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24G1GCParPhaseTimesTrackerC2EP14G1GCPhaseTimesNS0_11GCParPhasesEjb(ptr nocapture noundef nonnull align 8 dereferenceable(89) initializes((0, 28), (32, 44), (48, 67), (88, 89)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN24G1GCParPhaseTimesTrackerC2EP14G1GCPhaseTimesNS0_11GCParPhasesEjb(ptr nocapture noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %4 to i8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV24G1GCParPhaseTimesTracker, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -6210,7 +6210,7 @@ _ZN20EventGCPhaseParallelC2E14EventStartTime.exit: ; preds = %5, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24G1GCParPhaseTimesTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(89) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24G1GCParPhaseTimesTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV24G1GCParPhaseTimesTracker, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -6347,14 +6347,14 @@ _ZN20EventGCPhaseParallel6commitEjjPKc.exit:      ; preds = %_ZN8JfrEventI20Even
 declare noundef i32 @_ZN4GCId7currentEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24G1GCParPhaseTimesTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(89) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24G1GCParPhaseTimesTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(89) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN24G1GCParPhaseTimesTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %0) #18
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #18
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23G1EvacPhaseTimesTrackerC2EP14G1GCPhaseTimesP20G1ParScanThreadStateNS0_11GCParPhasesEj(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 28), (32, 44), (48, 67), (88, 89), (96, 152)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN23G1EvacPhaseTimesTrackerC2EP14G1GCPhaseTimesP20G1ParScanThreadStateNS0_11GCParPhasesEj(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV24G1GCParPhaseTimesTracker, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
@@ -6416,7 +6416,7 @@ _ZN24G1GCParPhaseTimesTrackerC2EP14G1GCPhaseTimesNS0_11GCParPhasesEjb.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23G1EvacPhaseTimesTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN23G1EvacPhaseTimesTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV23G1EvacPhaseTimesTracker, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -6566,7 +6566,7 @@ _ZN30G1EvacPhaseWithTrimTimeTrackerD2Ev.exit:     ; preds = %65, %69
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23G1EvacPhaseTimesTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN23G1EvacPhaseTimesTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN23G1EvacPhaseTimesTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #18
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #18
   ret void

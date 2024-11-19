@@ -589,7 +589,7 @@ define dso_local ptr @xfrm4_gro_udp_encap_rcv(ptr noundef %0, ptr noundef %1, pt
 declare dso_local ptr @skb_push(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @xfrm4_rcv(ptr noundef initializes((64, 80)) %0) #0 align 16 {
+define dso_local i32 @xfrm4_rcv(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 180

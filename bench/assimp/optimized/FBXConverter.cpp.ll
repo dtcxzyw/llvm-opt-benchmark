@@ -986,7 +986,7 @@ $_ZTISt15_Sp_counted_ptrIPSt6vectorIfSaIfEELN9__gnu_cxx12_Lock_policyE2EE = comd
 @_ZN6Assimp3FBX12FBXConverterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN6Assimp3FBX12FBXConverterD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverterC2EP7aiSceneRKNS0_8DocumentEb(ptr noundef nonnull align 8 dereferenceable(489) initializes((0, 4), (8, 176)) %this, ptr noundef %out, ptr noundef nonnull align 8 dereferenceable(336) %doc, i1 noundef zeroext %removeEmptyBones) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverterC2EP7aiSceneRKNS0_8DocumentEb(ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef %out, ptr noundef nonnull align 8 dereferenceable(336) %doc, i1 noundef zeroext %removeEmptyBones) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %removeEmptyBones to i8
   store i32 0, ptr %this, align 8
@@ -1252,7 +1252,7 @@ if.end45:                                         ; preds = %if.then44, %invoke.
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter17ConvertAnimationsEv(ptr noundef nonnull align 8 dereferenceable(489) initializes((440, 448)) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter17ConvertAnimationsEv(ptr noundef nonnull align 8 dereferenceable(489) %this) local_unnamed_addr #0 align 2 {
 entry:
   %doc = getelementptr inbounds i8, ptr %this, i64 480
   %0 = load ptr, ptr %doc, align 8
@@ -9894,7 +9894,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter17GetRotationMatrixENS0_5Model8RotOrderERK10aiVector3tIfER12aiMatrix4x4tIfE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %mode, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %rotation, ptr nocapture noundef nonnull align 4 dereferenceable(64) initializes((0, 64)) %out) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter17GetRotationMatrixENS0_5Model8RotOrderERK10aiVector3tIfER12aiMatrix4x4tIfE(ptr nocapture nonnull readnone align 8 %this, i32 noundef %mode, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %rotation, ptr nocapture noundef nonnull align 4 dereferenceable(64) %out) local_unnamed_addr #4 align 2 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %is_id.sroa.0 = alloca i8, align 1
@@ -11764,7 +11764,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit40:                  ; preds = %if.then51, %invoke.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter11ConvertLineERKNS0_12LineGeometryEP6aiNode(ptr noalias nocapture sret(%"class.std::vector.200") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef nonnull align 8 dereferenceable(168) %line, ptr noundef %root_node) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter11ConvertLineERKNS0_12LineGeometryEP6aiNode(ptr noalias nocapture sret(%"class.std::vector.200") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef nonnull align 8 dereferenceable(168) %line, ptr noundef %root_node) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -12110,7 +12110,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGe
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry18GetMaterialIndicesEv(ptr noundef nonnull align 8 dereferenceable(1000)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter24ConvertMeshMultiMaterialERKNS0_12MeshGeometryERKNS0_5ModelERK12aiMatrix4x4tIfEP6aiNodeSD_(ptr noalias nocapture sret(%"class.std::vector.200") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef nonnull align 8 dereferenceable(1000) %mesh, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %model, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %absolute_transform, ptr noundef %parent, ptr nocapture noundef readnone %root_node) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter24ConvertMeshMultiMaterialERKNS0_12MeshGeometryERKNS0_5ModelERK12aiMatrix4x4tIfEP6aiNodeSD_(ptr noalias nocapture sret(%"class.std::vector.200") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef nonnull align 8 dereferenceable(1000) %mesh, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %model, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %absolute_transform, ptr noundef %parent, ptr nocapture noundef readnone %root_node) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %had = alloca %"class.std::set", align 8
   %call = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry18GetMaterialIndicesEv(ptr noundef nonnull align 8 dereferenceable(1000) %mesh)
@@ -23019,7 +23019,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter14GetTexturePathEPKNS0_7TextureE(ptr noalias nocapture writeonly sret(%struct.aiString) align 4 initializes((0, 5)) %agg.result, ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef %tex) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter14GetTexturePathEPKNS0_7TextureE(ptr noalias nocapture writeonly sret(%struct.aiString) align 4 %agg.result, ptr noundef nonnull align 8 dereferenceable(489) %this, ptr noundef %tex) local_unnamed_addr #0 align 2 {
 entry:
   %media = alloca ptr, align 8
   store i32 0, ptr %agg.result, align 4
@@ -24590,7 +24590,7 @@ eh.resume:                                        ; preds = %lpad26, %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter24GetColorPropertyFactoredERKNS0_13PropertyTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_Rbb(ptr noalias nocapture writeonly sret(%struct.aiColor3D) align 4 initializes((0, 12)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(489) %this, ptr noundef nonnull align 8 dereferenceable(120) %props, ptr noundef nonnull align 8 dereferenceable(32) %colorName, ptr noundef nonnull align 8 dereferenceable(32) %factorName, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %useTemplate) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter24GetColorPropertyFactoredERKNS0_13PropertyTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_Rbb(ptr noalias nocapture writeonly sret(%struct.aiColor3D) align 4 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(489) %this, ptr noundef nonnull align 8 dereferenceable(120) %props, ptr noundef nonnull align 8 dereferenceable(32) %colorName, ptr noundef nonnull align 8 dereferenceable(32) %factorName, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %useTemplate) local_unnamed_addr #4 align 2 {
 entry:
   store i8 1, ptr %result, align 1
   %call.i = tail call noundef ptr @_ZNK6Assimp3FBX13PropertyTable3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %props, ptr noundef nonnull align 8 dereferenceable(32) %colorName)
@@ -24843,7 +24843,7 @@ lpad3:                                            ; preds = %if.end5.i20.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter16GetColorPropertyERKNS0_13PropertyTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbb(ptr noalias nocapture writeonly sret(%struct.aiColor3D) align 4 initializes((0, 12)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(489) %this, ptr noundef nonnull align 8 dereferenceable(120) %props, ptr noundef nonnull align 8 dereferenceable(32) %colorName, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %result, i1 noundef zeroext %useTemplate) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter16GetColorPropertyERKNS0_13PropertyTableERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERbb(ptr noalias nocapture writeonly sret(%struct.aiColor3D) align 4 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(489) %this, ptr noundef nonnull align 8 dereferenceable(120) %props, ptr noundef nonnull align 8 dereferenceable(32) %colorName, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %result, i1 noundef zeroext %useTemplate) local_unnamed_addr #4 align 2 {
 entry:
   store i8 1, ptr %result, align 1
   %call.i = tail call noundef ptr @_ZNK6Assimp3FBX13PropertyTable3GetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %props, ptr noundef nonnull align 8 dereferenceable(32) %colorName)
@@ -32482,7 +32482,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter23GetRotationKeyframeListERKSt6vectorIPKNS0_18AnimationCurveNodeESaIS5_EEll(ptr noalias nonnull sret(%"class.std::vector.463") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nodes, i64 noundef %start, i64 noundef %stop) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter23GetRotationKeyframeListERKSt6vectorIPKNS0_18AnimationCurveNodeESaIS5_EEll(ptr noalias nonnull sret(%"class.std::vector.463") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nodes, i64 noundef %start, i64 noundef %stop) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %mapto = alloca i32, align 4
@@ -33610,7 +33610,7 @@ _ZNSt12_Vector_baseISt5tupleIJSt10shared_ptrISt6vectorIlSaIlEEES1_IS2_IfSaIfEEEj
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter15GetKeyframeListERKSt6vectorIPKNS0_18AnimationCurveNodeESaIS5_EEll(ptr noalias nonnull sret(%"class.std::vector.463") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nodes, i64 noundef %start, i64 noundef %stop) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter15GetKeyframeListERKSt6vectorIPKNS0_18AnimationCurveNodeESaIS5_EEll(ptr noalias nonnull sret(%"class.std::vector.463") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %nodes, i64 noundef %start, i64 noundef %stop) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca ptr, align 8
   %mapto = alloca i32, align 4
@@ -35469,7 +35469,7 @@ declare double @llvm.floor.f64(double) #12
 declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter14GetKeyTimeListERKSt6vectorISt5tupleIJSt10shared_ptrIS2_IlSaIlEEES4_IS2_IfSaIfEEEjEESaISB_EE(ptr noalias nocapture sret(%"class.std::vector.443") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %inputs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter14GetKeyTimeListERKSt6vectorISt5tupleIJSt10shared_ptrIS2_IlSaIlEEES4_IS2_IfSaIfEEEjEESaISB_EE(ptr noalias nocapture sret(%"class.std::vector.443") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %inputs) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %next_pos = alloca %"class.std::vector.200", align 8
   %ref.tmp13 = alloca i32, align 4

@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [2 x ptr] [ptr @trace_i915_gem_object_create.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace539, ptr @trace_i915_gem_object_create.__UNIQUE_ID___addressable___SCK__tp_func_i915_gem_object_create538], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @i915_gem_object_init_memory_region(ptr noundef initializes((704, 712)) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @i915_gem_object_init_memory_region(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 704
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 192

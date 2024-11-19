@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [21 x i8] c"Verification failed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ivy_TruthDsd(i32 noundef %0, ptr noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ivy_TruthDsd(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1, i64 8

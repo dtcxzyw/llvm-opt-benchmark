@@ -182,7 +182,7 @@ cleanup:                                          ; preds = %for.body.epil, %cle
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @lua_setlevel(ptr nocapture noundef readonly %from, ptr nocapture noundef writeonly initializes((96, 98)) %to) local_unnamed_addr #5 {
+define dso_local void @lua_setlevel(ptr nocapture noundef readonly %from, ptr nocapture noundef writeonly %to) local_unnamed_addr #5 {
 entry:
   %nCcalls = getelementptr inbounds i8, ptr %from, i64 96
   %0 = load i16, ptr %nCcalls, align 8, !tbaa !22

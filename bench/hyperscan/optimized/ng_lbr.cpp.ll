@@ -2036,7 +2036,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L7fillNfaI8lbr_vermEEvP3NFAP10lbr_commonjRKNS_5depthES8_j10RepeatType(ptr noundef %nfa, ptr nocapture noundef writeonly initializes((0, 8)) %c, i32 noundef %report, ptr noundef nonnull align 4 dereferenceable(4) %repeatMin, ptr noundef nonnull align 4 dereferenceable(4) %repeatMax, i32 noundef %minPeriod, i32 noundef %rtype) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L7fillNfaI8lbr_vermEEvP3NFAP10lbr_commonjRKNS_5depthES8_j10RepeatType(ptr noundef %nfa, ptr nocapture noundef writeonly %c, i32 noundef %report, ptr noundef nonnull align 4 dereferenceable(4) %repeatMin, ptr noundef nonnull align 4 dereferenceable(4) %repeatMax, i32 noundef %minPeriod, i32 noundef %rtype) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %rsi = alloca %"struct.ue2::RepeatStateInfo", align 8
   call void @_ZN3ue215RepeatStateInfoC1E10RepeatTypeRKNS_5depthES4_j(ptr noundef nonnull align 8 dereferenceable(80) %rsi, i32 noundef %rtype, ptr noundef nonnull align 4 dereferenceable(4) %repeatMin, ptr noundef nonnull align 4 dereferenceable(4) %repeatMax, i32 noundef %minPeriod)

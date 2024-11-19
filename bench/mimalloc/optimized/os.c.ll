@@ -360,7 +360,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc(i64 noundef %size, ptr nocapture noundef writeonly initializes((0, 24)) %memid, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
+define hidden ptr @_mi_os_alloc(i64 noundef %size, ptr nocapture noundef writeonly %memid, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
 entry:
   %p.i = alloca ptr, align 8
   %os_is_large = alloca i8, align 1
@@ -482,7 +482,7 @@ return:                                           ; preds = %mi_os_prim_alloc.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly initializes((0, 24)) %memid, ptr nocapture readnone %tld_stats) local_unnamed_addr #1 {
+define hidden ptr @_mi_os_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly %memid, ptr nocapture readnone %tld_stats) local_unnamed_addr #1 {
 entry:
   %p.i75.i = alloca ptr, align 8
   %p.i63.i = alloca ptr, align 8
@@ -834,7 +834,7 @@ return:                                           ; preds = %mi_os_prim_alloc.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_aligned_at_offset(i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly initializes((0, 24)) %memid, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
+define hidden ptr @_mi_os_alloc_aligned_at_offset(i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly %memid, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #1 {
 entry:
   %needs_recommit.i = alloca i8, align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid, i8 0, i64 24, i1 false)
@@ -1388,7 +1388,7 @@ mi_os_protectx.exit:                              ; preds = %entry, %cond.end16.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %max_msecs, ptr noundef writeonly %pages_reserved, ptr noundef writeonly %psize, ptr nocapture noundef writeonly initializes((0, 24)) %memid) local_unnamed_addr #1 {
+define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %max_msecs, ptr noundef writeonly %pages_reserved, ptr noundef writeonly %psize, ptr nocapture noundef writeonly %memid) local_unnamed_addr #1 {
 entry:
   %is_zero = alloca i8, align 1
   %p = alloca ptr, align 8

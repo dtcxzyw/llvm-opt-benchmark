@@ -33,7 +33,7 @@ $_ZN4llvm15SmallVectorImplIPKNS_6MCExprEE10resizeImplILb0EEEvm = comdat any
 @.str.4 = private unnamed_addr constant [22 x i8] c"Segment selector size\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN4llvm11AddressPool8getIndexEPKNS_8MCSymbolEb(ptr noundef nonnull align 8 dereferenceable(40) initializes((24, 25)) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4llvm11AddressPool8getIndexEPKNS_8MCSymbolEb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair.0", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 1, ptr %5, align 8

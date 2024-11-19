@@ -354,7 +354,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16MetaIndexBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 12), (16, 24)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16MetaIndexBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i1.i.i.i = tail call noundef ptr @_ZN7rocksdb18BytewiseComparatorEv()
   store ptr %call.i1.i.i.i, ptr %this, align 8

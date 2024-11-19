@@ -459,7 +459,7 @@ $_ZNK3AAT4feat8sanitizeEP21hb_sanitize_context_t = comdat any
 @_ZN3AAT22hb_aat_apply_context_tD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3AAT22hb_aat_apply_context_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3AAT22hb_aat_apply_context_tC2EPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tP9hb_blob_t(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 4), (8, 44), (48, 81), (84, 102), (104, 112)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3AAT22hb_aat_apply_context_tC2EPK18hb_ot_shape_plan_tP9hb_font_tP11hb_buffer_tP9hb_blob_t(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
@@ -621,7 +621,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3AAT22hb_aat_apply_context_t14set_ankr_tableEPKNS_4ankrE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN3AAT22hb_aat_apply_context_t14set_ankr_tableEPKNS_4ankrE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr %1, ptr %3, align 8
   ret void

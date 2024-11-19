@@ -1610,7 +1610,7 @@ define hidden noundef double @_ZN2cv8PFSolver8getAlphaEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK2cv8PFSolver11getFunctionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv8PFSolver11getFunctionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 296
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -3043,7 +3043,7 @@ define hidden noundef double @_ZNK2cv18TrackingFunctionPF4calcEPKd(ptr noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv18TrackingFunctionPFC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv18TrackingFunctionPFC2ERKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(312) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv18TrackingFunctionPFE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #27
@@ -3152,7 +3152,7 @@ define hidden void @_ZNK2cv18TrackingFunctionPF13correctParamsEPd(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv6detail8tracking30TrackerContribSamplerAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv6detail8tracking30TrackerContribSamplerAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking30TrackerContribSamplerAlgorithmE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -3375,7 +3375,7 @@ define void @_ZNK2cv6detail8tracking30TrackerContribSamplerAlgorithm12getClassNa
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSC6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #17 align 2 {
+define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSC6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(24) %0) unnamed_addr #17 align 2 {
   store float 3.000000e+00, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 65, ptr %2, align 4
@@ -3391,7 +3391,7 @@ define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSC6ParamsC2Ev(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSCC2ERKNS2_6ParamsE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSCC2ERKNS2_6ParamsE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking30TrackerContribSamplerAlgorithmE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
@@ -3428,7 +3428,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSCD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSCD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking30TrackerContribSamplerAlgorithmE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -3444,7 +3444,7 @@ define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSCD0Ev(ptr noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv6detail8tracking24TrackerContribSamplerCSC12samplingImplERKNS_3MatENS_5Rect_IiEERSt6vectorIS3_SaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %2, i64 %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN2cv6detail8tracking24TrackerContribSamplerCSC12samplingImplERKNS_3MatENS_5Rect_IiEERSt6vectorIS3_SaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %2, i64 %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"class.std::vector", align 8
@@ -3833,7 +3833,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZNSt6vectorIN2cv3M
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSC11sampleImageERKNS_3MatEiiiiffi(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSC11sampleImageERKNS_3MatEiiiiffi(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, float noundef %7, float noundef %8, i32 noundef %9) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"class.cv::Mat", align 8
   %12 = alloca %"class.cv::Rect_", align 4
   %13 = getelementptr inbounds i8, ptr %2, i64 8
@@ -4061,7 +4061,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN2cv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSC7setModeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSC7setModeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %3, align 8
   ret void
@@ -4070,7 +4070,7 @@ define void @_ZN2cv6detail8tracking24TrackerContribSamplerCSC7setModeEi(ptr noca
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSEOS0_(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv6detail8tracking16TrackerSamplerCS6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #17 align 2 {
+define void @_ZN2cv6detail8tracking16TrackerSamplerCS6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0) unnamed_addr #17 align 2 {
   store float 0x3FEFAE1480000000, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 2.000000e+00, ptr %2, align 4
@@ -4078,7 +4078,7 @@ define void @_ZN2cv6detail8tracking16TrackerSamplerCS6ParamsC2Ev(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail8tracking16TrackerSamplerCSC2ERKNS2_6ParamsE(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail8tracking16TrackerSamplerCSC2ERKNS2_6ParamsE(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking30TrackerContribSamplerAlgorithmE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #27
@@ -4106,14 +4106,14 @@ define void @_ZN2cv6detail8tracking16TrackerSamplerCSC2ERKNS2_6ParamsE(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv6detail8tracking16TrackerSamplerCS7setModeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
+define void @_ZN2cv6detail8tracking16TrackerSamplerCS7setModeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(100) %0, i32 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv6detail8tracking16TrackerSamplerCSD2Ev(ptr noundef nonnull align 8 dereferenceable(100) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv6detail8tracking16TrackerSamplerCSD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking30TrackerContribSamplerAlgorithmE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
@@ -4129,7 +4129,7 @@ define void @_ZN2cv6detail8tracking16TrackerSamplerCSD0Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv6detail8tracking16TrackerSamplerCS12samplingImplERKNS_3MatENS_5Rect_IiEERSt6vectorIS3_SaIS3_EE(ptr noundef nonnull align 8 dereferenceable(100) initializes((52, 100)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %2, i64 %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN2cv6detail8tracking16TrackerSamplerCS12samplingImplERKNS_3MatENS_5Rect_IiEERSt6vectorIS3_SaIS3_EE(ptr noundef nonnull align 8 dereferenceable(100) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %2, i64 %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::vector", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 52
   store i64 %2, ptr %7, align 4
@@ -4309,7 +4309,7 @@ define { i64, i64 } @_ZN2cv6detail8tracking16TrackerSamplerCS14getTrackingROIEf(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail8tracking16TrackerSamplerCS18patchesRegularScanERKNS_3MatENS_5Rect_IiEENS_5Size_IiEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(100) initializes((84, 100)) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 %3, i64 %4, i64 %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail8tracking16TrackerSamplerCS18patchesRegularScanERKNS_3MatENS_5Rect_IiEENS_5Size_IiEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 %3, i64 %4, i64 %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::Mat", align 8
   %8 = alloca %"class.cv::Rect_", align 4
   %9 = alloca %"class.cv::Rect_", align 4
@@ -4789,7 +4789,7 @@ define { i64, i64 } @_ZNK2cv6detail8tracking16TrackerSamplerCS6getROIEv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv6detail8tracking16TrackerSamplerCS13setCheckedROIENS_5Rect_IiEE(ptr nocapture noundef nonnull align 8 dereferenceable(100) initializes((84, 100)) %0, i64 %1, i64 %2) local_unnamed_addr #14 align 2 {
+define void @_ZN2cv6detail8tracking16TrackerSamplerCS13setCheckedROIENS_5Rect_IiEE(ptr nocapture noundef nonnull align 8 dereferenceable(100) %0, i64 %1, i64 %2) local_unnamed_addr #14 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.5.0.extract.shift = lshr i64 %1, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
@@ -5023,7 +5023,7 @@ _ZN2cv4Mat_IdEaSEOS1_.exit:                       ; preds = %_ZNK2cv20MatCommaIn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail8tracking16TrackerSamplerPFC2ERKNS_3MatERKNS2_6ParamsE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(112) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail8tracking16TrackerSamplerPFC2ERKNS_3MatERKNS2_6ParamsE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(112) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::Ptr.0", align 8
   %5 = alloca %"class.cv::_InputArray", align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv6detail8tracking30TrackerContribSamplerAlgorithmE, i64 16), ptr %0, align 8

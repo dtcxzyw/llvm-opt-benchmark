@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN5arrow8internal12BitRunReaderC1EPKhll = unnamed_addr alias void (ptr, ptr, i64, i64), ptr @_ZN5arrow8internal12BitRunReaderC2EPKhll
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5arrow8internal12BitRunReaderC2EPKhll(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((0, 32)) %this, ptr noundef %bitmap, i64 noundef %start_offset, i64 noundef %length) unnamed_addr #0 align 2 {
+define void @_ZN5arrow8internal12BitRunReaderC2EPKhll(ptr nocapture noundef nonnull align 8 dereferenceable(33) %this, ptr noundef %bitmap, i64 noundef %start_offset, i64 noundef %length) unnamed_addr #0 align 2 {
 entry:
   %div = sdiv i64 %start_offset, 8
   %add.ptr = getelementptr inbounds i8, ptr %bitmap, i64 %div

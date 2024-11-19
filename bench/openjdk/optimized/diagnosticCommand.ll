@@ -2005,7 +2005,7 @@ define hidden void @_ZN4DCmd14register_dcmdsEv() local_unnamed_addr #0 align 2 {
 declare noundef i32 @_ZN11DCmdFactory20register_DCmdFactoryEPS_(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8HelpDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 17), (24, 91), (96, 147)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN8HelpDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -2294,7 +2294,7 @@ declare noundef ptr @_ZN19Abstract_VM_Version7vm_nameEv() local_unnamed_addr #1
 declare noundef ptr @_ZN19Abstract_VM_Version10vm_releaseEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16PrintVMFlagsDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 17), (24, 91)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN16PrintVMFlagsDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -2351,7 +2351,7 @@ declare void @_ZN7JVMFlag10printFlagsEP12outputStreambbb(ptr noundef, i1 noundef
 declare void @_ZN7JVMFlag13printSetFlagsEP12outputStream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13SetVMFlagDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 17), (24, 91), (104, 155)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN13SetVMFlagDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -2449,7 +2449,7 @@ define hidden void @_ZN17JVMTIDataDumpDCmd7executeE10DCmdSourceP10JavaThread(ptr
 declare void @_ZN11JvmtiExport14post_data_dumpEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18JVMTIAgentLoadDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 17), (24, 91), (104, 155)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN18JVMTIAgentLoadDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -2691,7 +2691,7 @@ declare void @_ZN9JavaCalls11call_staticEP9JavaValueP5KlassP6SymbolS5_P17JavaCal
 declare void @_ZN12outputStream9print_rawEPKcm(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12VMUptimeDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 17), (24, 91)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN12VMUptimeDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -3018,7 +3018,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %119, %121
 declare noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12HeapDumpDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 17), (24, 91), (104, 155), (160, 211), (224, 275), (280, 331)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN12HeapDumpDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -3211,7 +3211,7 @@ declare noundef i32 @_ZN10HeapDumper4dumpEPKcP12outputStreamibj(ptr noundef nonn
 declare void @_ZN10HeapDumperD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ClassHistogramDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 17), (24, 91), (96, 147)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN18ClassHistogramDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -3330,7 +3330,7 @@ define hidden void @_ZN18ClassHistogramDCmd7executeE10DCmdSourceP10JavaThread(pt
 declare void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ThreadDumpDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 17), (24, 91), (96, 147)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN14ThreadDumpDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -3435,7 +3435,7 @@ define hidden void @_ZN14ThreadDumpDCmd7executeE10DCmdSourceP10JavaThread(ptr no
 declare void @_ZN16VM_FindDeadlocksD1Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(1384) initializes((0, 17), (24, 91), (104, 155), (168, 219), (232, 283), (296, 347), (360, 411), (424, 475), (488, 539), (552, 603), (616, 667), (680, 731), (744, 795), (808, 859), (872, 923), (936, 987), (1000, 1051), (1064, 1115), (1128, 1179), (1192, 1243), (1256, 1307), (1320, 1371)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN18JMXStartRemoteDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(1384) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -4541,7 +4541,7 @@ declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17JMXStartLocalDCmdC2EP12outputStreamb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #7 align 2 {
+define hidden void @_ZN17JMXStartLocalDCmdC2EP12outputStreamb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #7 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -4740,7 +4740,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %44, %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13JMXStatusDCmdC2EP12outputStreamb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #7 align 2 {
+define hidden void @_ZN13JMXStatusDCmdC2EP12outputStreamb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #7 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -4872,7 +4872,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %57, %59
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN22VMDynamicLibrariesDCmdC2EP12outputStreamb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #7 align 2 {
+define hidden void @_ZN22VMDynamicLibrariesDCmdC2EP12outputStreamb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #7 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -4929,7 +4929,7 @@ define hidden void @_ZN13CodeCacheDCmd7executeE10DCmdSourceP10JavaThread(ptr noc
 declare void @_ZN9CodeCache12print_layoutEP12outputStream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PerfMapDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 17), (24, 91)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN11PerfMapDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -4975,7 +4975,7 @@ define hidden void @_ZN11PerfMapDCmd7executeE10DCmdSourceP10JavaThread(ptr nocap
 declare void @_ZN9CodeCache14write_perf_mapEPKc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21CodeHeapAnalyticsDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 17), (24, 91), (104, 155)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN21CodeHeapAnalyticsDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -5054,7 +5054,7 @@ declare void @_ZN10Exceptions6fthrowEP10JavaThreadPKciP6SymbolS3_z(ptr noundef, 
 declare void @_ZN13CompileBroker14print_heapinfoEP12outputStreamPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12EventLogDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 17), (24, 91), (104, 155)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN12EventLogDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -5267,7 +5267,7 @@ define hidden void @_ZN27CompilerDirectivesPrintDCmd7executeE10DCmdSourceP10Java
 declare void @_ZN15DirectivesStack5printEP12outputStream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25CompilerDirectivesAddDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 17), (24, 91)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN25CompilerDirectivesAddDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -5327,7 +5327,7 @@ define hidden void @_ZN27CompilerDirectivesClearDCmd7executeE10DCmdSourceP10Java
 declare void @_ZN15DirectivesStack5clearEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ClassHierarchyDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 17), (24, 91), (96, 147), (152, 203)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN18ClassHierarchyDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -5419,7 +5419,7 @@ define hidden void @_ZN18ClassHierarchyDCmd7executeE10DCmdSourceP10JavaThread(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ClassesDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 17), (24, 91)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ClassesDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -5470,7 +5470,7 @@ define hidden void @_ZN11ClassesDCmd7executeE10DCmdSourceP10JavaThread(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21DumpSharedArchiveDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 17), (24, 91), (104, 155)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN21DumpSharedArchiveDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -5812,7 +5812,7 @@ declare noundef ptr @_ZNK10JvmtiAgent4nameEv(ptr noundef nonnull align 8 derefer
 declare noundef ptr @_ZN2os19find_agent_functionEP10JvmtiAgentbPPKcm(ptr noundef, i1 noundef zeroext, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ThreadDumpToFileDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 17), (24, 91), (96, 147), (160, 211)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ThreadDumpToFileDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -6019,7 +6019,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %63, %65
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN30CompilationMemoryStatisticDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 17), (24, 91), (96, 147)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN30CompilationMemoryStatisticDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -6093,7 +6093,7 @@ define hidden void @_ZN30CompilationMemoryStatisticDCmd7executeE10DCmdSourceP10J
 declare void @_ZN26CompilationMemoryStatistic17print_all_by_sizeEP12outputStreambm(ptr noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13SystemMapDCmdC2EP12outputStreamb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #7 align 2 {
+define hidden void @_ZN13SystemMapDCmdC2EP12outputStreamb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #7 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -6114,7 +6114,7 @@ define hidden void @_ZN13SystemMapDCmd7executeE10DCmdSourceP10JavaThread(ptr noc
 declare void @_ZN13MemMapPrinter18print_all_mappingsEP12outputStream(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17SystemDumpMapDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 17), (24, 91)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN17SystemDumpMapDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8

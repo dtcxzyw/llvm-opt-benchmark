@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [10 x i8] c"%12zu%*p\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @mempool_init(ptr noundef initializes((72, 128)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @mempool_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = getelementptr inbounds i8, ptr %0, i64 80

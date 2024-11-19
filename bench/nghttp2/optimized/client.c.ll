@@ -875,7 +875,7 @@ declare ptr @nghttp2_strerror(i32 noundef) local_unnamed_addr #8
 declare void @nghttp2_session_callbacks_set_send_callback(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -902, 2147483648) i64 @send_callback(ptr nocapture readnone %session, ptr noundef %data, i64 noundef %length, i32 %flags, ptr nocapture noundef initializes((16, 20)) %user_data) #0 {
+define internal range(i64 -902, 2147483648) i64 @send_callback(ptr nocapture readnone %session, ptr noundef %data, i64 noundef %length, i32 %flags, ptr nocapture noundef %user_data) #0 {
 entry:
   %want_io = getelementptr inbounds i8, ptr %user_data, i64 16
   store i32 0, ptr %want_io, align 8
@@ -908,7 +908,7 @@ if.end12:                                         ; preds = %if.then, %if.then8,
 declare void @nghttp2_session_callbacks_set_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 -902, 2147483648) i64 @recv_callback(ptr nocapture readnone %session, ptr noundef %buf, i64 noundef %length, i32 %flags, ptr nocapture noundef initializes((16, 20)) %user_data) #0 {
+define internal range(i64 -902, 2147483648) i64 @recv_callback(ptr nocapture readnone %session, ptr noundef %buf, i64 noundef %length, i32 %flags, ptr nocapture noundef %user_data) #0 {
 entry:
   %want_io = getelementptr inbounds i8, ptr %user_data, i64 16
   store i32 0, ptr %want_io, align 8

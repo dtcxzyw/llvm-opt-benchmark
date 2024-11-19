@@ -2682,7 +2682,7 @@ declare i32 @H5F_set_sohm_nindexes(ptr noundef, i32 noundef) local_unnamed_addr 
 declare i32 @H5P_set(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @H5SM_reconstitute(ptr nocapture noundef writeonly initializes((0, 4), (8, 20), (24, 32)) %0, ptr noundef %1, i32 noundef %2, i64 %3) local_unnamed_addr #3 {
+define noundef i32 @H5SM_reconstitute(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i64 %3) local_unnamed_addr #3 {
   store i32 1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
@@ -3270,7 +3270,7 @@ declare ptr @H5B2_open(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr
 declare i32 @H5B2_find(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5SM__get_refcount_bt2_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) #5 {
+define internal noundef i32 @H5SM__get_refcount_bt2_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 32, i1 false)
   ret i32 0
 }
@@ -4320,7 +4320,7 @@ declare i32 @H5B2_remove(ptr noundef, ptr noundef, ptr noundef, ptr noundef) loc
 declare i32 @H5HF_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5SM__convert_btree_to_list(ptr noundef %0, ptr noundef initializes((32, 44)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5SM__convert_btree_to_list(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.H5SM_list_cache_ud_t, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load i64, ptr %4, align 8
@@ -4463,7 +4463,7 @@ declare i32 @H5O__msg_iterate_real(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare i32 @H5HF_op(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5SM__read_mesg_fh_cb(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((24, 32)) %2) #0 {
+define internal range(i32 -1, 1) i32 @H5SM__read_mesg_fh_cb(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = tail call noalias ptr @malloc(i64 noundef %1) #12
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %4, ptr %5, align 8

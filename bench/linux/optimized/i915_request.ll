@@ -2327,7 +2327,7 @@ declare dso_local ptr @dma_resv_iter_first(ptr noundef) local_unnamed_addr #5
 declare dso_local ptr @dma_resv_iter_next(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__i915_request_commit(ptr noundef initializes((476, 480), (496, 504)) %0) local_unnamed_addr #3 align 16 {
+define dso_local ptr @__i915_request_commit(ptr noundef %0) local_unnamed_addr #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 476
@@ -3516,7 +3516,7 @@ define dso_local noundef range(i32 -12, 1) i32 @i915_request_module_init() local
 declare dso_local ptr @kmem_cache_create(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @__i915_request_ctor(ptr noundef initializes((64, 68)) %0) #3 align 16 {
+define internal void @__i915_request_ctor(ptr noundef %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 304

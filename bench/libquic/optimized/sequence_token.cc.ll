@@ -161,7 +161,7 @@ cond.end:                                         ; preds = %_ZN4base12LazyInsta
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base38ScopedSetSequenceTokenForCurrentThreadC2ERKNS_13SequenceTokenE(ptr noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %sequence_token) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base38ScopedSetSequenceTokenForCurrentThreadC2ERKNS_13SequenceTokenE(ptr noundef nonnull align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %sequence_token) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %sequence_token, align 4
   store i32 %0, ptr %this, align 4

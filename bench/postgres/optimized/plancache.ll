@@ -809,7 +809,7 @@ define dso_local noundef ptr @CreateOneShotCachedPlan(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CompleteCachedPlan(ptr noundef initializes((88, 96), (120, 128)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+define dso_local void @CompleteCachedPlan(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -1071,7 +1071,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @DropCachedPlan(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #0 {
+define dso_local void @DropCachedPlan(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 146
   %3 = load i8, ptr %2, align 2
   %4 = trunc i8 %3 to i1

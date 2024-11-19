@@ -182,7 +182,7 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #4
 declare void @pack_time(i64 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @ext_sensors_data_unpack(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @ext_sensors_data_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = tail call noundef ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 32, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 131, ptr noundef nonnull @__func__.ext_sensors_alloc) #6
   store i64 -2, ptr %5, align 8

@@ -35,7 +35,7 @@ $_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESa
 @_ZN19OpenColorIO_v2_4dev16XmlElementWriterD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN19OpenColorIO_v2_4dev16XmlElementWriterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev12XmlFormatterC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 12)) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev12XmlFormatterC2ERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %stream) unnamed_addr #0 align 2 {
 entry:
   store ptr %stream, ptr %this, align 8
   %m_indentLevel = getelementptr inbounds i8, ptr %this, i64 8
@@ -477,7 +477,7 @@ declare void @_ZN19OpenColorIO_v2_4dev28ConvertSpecialCharToXmlTokenERKNSt7__cxx
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev14XmlScopeIndentC2ERNS_12XmlFormatterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(16) %formatter) unnamed_addr #2 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev14XmlScopeIndentC2ERNS_12XmlFormatterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(16) %formatter) unnamed_addr #2 align 2 {
 entry:
   store ptr %formatter, ptr %this, align 8
   %m_indentLevel.i = getelementptr inbounds i8, ptr %formatter, i64 8
@@ -499,7 +499,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16XmlElementWriterC2ERNS_12XmlFormatterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %formatter) unnamed_addr #0 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16XmlElementWriterC2ERNS_12XmlFormatterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %formatter) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16XmlElementWriterE, i64 16), ptr %this, align 8
   %m_formatter = getelementptr inbounds i8, ptr %this, i64 8

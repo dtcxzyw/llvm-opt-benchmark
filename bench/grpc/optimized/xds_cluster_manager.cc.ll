@@ -1816,7 +1816,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_125XdsClusterManagerLbConfigD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_125XdsClusterManagerLbConfigD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_125XdsClusterManagerLbConfigE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -1836,7 +1836,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core12_GLOB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_125XdsClusterManagerLbConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_125XdsClusterManagerLbConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_125XdsClusterManagerLbConfigE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -2464,7 +2464,7 @@ declare void @_ZN9grpc_core19LoadBalancingPolicyD2Ev(ptr noundef nonnull align 8
 declare void @_ZN9grpc_core19LoadBalancingPolicy6OrphanEv(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLbD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLbD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119XdsClusterManagerLbE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core33grpc_xds_cluster_manager_lb_traceE, i64 16) monotonic, align 8
@@ -2520,7 +2520,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLbD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLbD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119XdsClusterManagerLbE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core33grpc_xds_cluster_manager_lb_traceE, i64 16) monotonic, align 8
@@ -6577,7 +6577,7 @@ _ZN9grpc_core20InternallyRefCountedINS_12_GLOBAL__N_119XdsClusterManagerLb12Clus
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChildD2Ev(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChildD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChildE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core33grpc_xds_cluster_manager_lb_traceE, i64 16) monotonic, align 8
@@ -6700,7 +6700,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChildD0Ev(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChildD0Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChildD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -6872,7 +6872,7 @@ declare void @_Z32grpc_pollset_set_add_pollset_setP16grpc_pollset_setS0_(ptr nou
 declare void @_ZN9grpc_core11ChannelArgsC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChild6HelperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChild6HelperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChild6HelperE, i64 16), ptr %this, align 8
   %xds_cluster_manager_child_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -6917,7 +6917,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_119XdsClusterManagerLb12ClusterChil
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChild6HelperD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChild6HelperD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb12ClusterChild6HelperE, i64 16), ptr %this, align 8
   %xds_cluster_manager_child_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -8523,7 +8523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb13ClusterPickerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb13ClusterPickerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb13ClusterPickerE, i64 16), ptr %this, align 8
   %cluster_map_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -8544,7 +8544,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9grpc_core13RefCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb13ClusterPickerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb13ClusterPickerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_119XdsClusterManagerLb13ClusterPickerE, i64 16), ptr %this, align 8
   %cluster_map_.i = getelementptr inbounds i8, ptr %this, i64 16

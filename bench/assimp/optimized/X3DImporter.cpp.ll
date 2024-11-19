@@ -1185,7 +1185,7 @@ entry:
 declare void @_ZN6Assimp12BaseImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11X3DImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (96, 104)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11X3DImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11X3DImporterE, i64 16), ptr %this, align 8
   %mNodeElementCur.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -1240,7 +1240,7 @@ _ZNSt7__cxx114listIP18X3DNodeElementBaseSaIS2_EED2Ev.exit: ; preds = %entry, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11X3DImporter5ClearEv(ptr noundef nonnull align 8 dereferenceable(120) initializes((96, 104)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11X3DImporter5ClearEv(ptr noundef nonnull align 8 dereferenceable(120) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mNodeElementCur = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %mNodeElementCur, align 8
@@ -1308,7 +1308,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZN6Assimp12BaseImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(72)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11X3DImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (96, 104)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11X3DImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11X3DImporterE, i64 16), ptr %this, align 8
   %mNodeElementCur.i.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -2574,7 +2574,7 @@ return:                                           ; preds = %if.then, %if.end3
 declare void @_ZN6Assimp12BaseImporter12GetExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11X3DImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(120) initializes((96, 104), (112, 120)) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %pScene, ptr noundef %pIOHandler) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11X3DImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %pScene, ptr noundef %pIOHandler) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %stream = alloca %"class.std::shared_ptr", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

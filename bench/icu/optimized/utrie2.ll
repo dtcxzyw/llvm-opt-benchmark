@@ -1421,7 +1421,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @_ZN6icu_7528BackwardUTrie2StringIterator10previous16Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 28)) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i16 @_ZN6icu_7528BackwardUTrie2StringIterator10previous16Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %codePointStart = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %codePointStart, align 8
@@ -1534,7 +1534,7 @@ return:                                           ; preds = %do.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i16 @_ZN6icu_7527ForwardUTrie2StringIterator6next16Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16), (24, 28)) %this) local_unnamed_addr #8 align 2 {
+define noundef zeroext i16 @_ZN6icu_7527ForwardUTrie2StringIterator6next16Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #8 align 2 {
 entry:
   %codePointLimit = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %codePointLimit, align 8

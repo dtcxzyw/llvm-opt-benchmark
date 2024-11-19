@@ -801,7 +801,7 @@ define void @cleanup(ptr nocapture noundef readnone %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((344, 360)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #18
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   store ptr %2, ptr %3, align 8, !tbaa !54

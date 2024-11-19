@@ -307,7 +307,7 @@ _ZN14PreservedMarks7restoreEv.exit:               ; preds = %_ZN5StackI13Preserv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17PreservedMarksSet4initEj(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17PreservedMarksSet4initEj(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %0, align 8
   %4 = trunc i8 %3 to i1
   %5 = zext i32 %1 to i64

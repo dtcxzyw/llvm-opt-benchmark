@@ -399,7 +399,7 @@ define void @"_ZN85_$LT$open_ai..Role$u20$as$u20$core..convert..TryFrom$LT$alloc
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN7open_ai5Model7from_id17h6af74ce2a3cbf99cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @_ZN7open_ai5Model7from_id17h6af74ce2a3cbf99cE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca [48 x i8], align 8
   switch i64 %2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61dd1318caf3e9efE.exit36.thread" [
     i64 13, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h61dd1318caf3e9efE.exit"
@@ -628,7 +628,7 @@ define { i32, i32 } @_ZN7open_ai5Model17max_output_tokens17hab9f8bfd5606fcddE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7open_ai8complete17h2e68003b66d9db3dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([784 x i8]) align 8 dereferenceable(784) initializes((0, 244), (248, 296), (704, 705)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(232) %7, i64 %8, i32 noundef %9) unnamed_addr #4 {
+define void @_ZN7open_ai8complete17h2e68003b66d9db3dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([784 x i8]) align 8 dereferenceable(784) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(232) %7, i64 %8, i32 noundef %9) unnamed_addr #4 {
   %11 = getelementptr inbounds i8, ptr %0, i64 248
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 256
@@ -775,7 +775,7 @@ define void @_ZN7open_ai24adapt_response_to_stream17h576beda85e9a12b3E(ptr dead_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7open_ai17stream_completion17hd1ebfe9e03aeeea6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1352 x i8]) align 8 dereferenceable(1352) initializes((0, 244), (248, 296), (560, 561)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(232) %7, i64 %8, i32 noundef %9) unnamed_addr #4 {
+define void @_ZN7open_ai17stream_completion17hd1ebfe9e03aeeea6E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([1352 x i8]) align 8 dereferenceable(1352) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(232) %7, i64 %8, i32 noundef %9) unnamed_addr #4 {
   %11 = getelementptr inbounds i8, ptr %0, i64 248
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 256
@@ -799,7 +799,7 @@ define void @_ZN7open_ai17stream_completion17hd1ebfe9e03aeeea6E(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7open_ai29extract_tool_args_from_events17h71b312d60e5f37bbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([136 x i8]) align 8 dereferenceable(136) initializes((0, 40), (128, 129)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #4 {
+define void @_ZN7open_ai29extract_tool_args_from_events17h71b312d60e5f37bbE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([136 x i8]) align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(40) %3) unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %2, ptr %5, align 8
@@ -852,7 +852,7 @@ define void @"_ZN7open_ai1_65_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$open
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN7open_ai1_65_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$open_ai..Model$GT$9schema_id17h9c0f38e8896b8c7eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #5 {
+define void @"_ZN7open_ai1_65_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$open_ai..Model$GT$9schema_id17h9c0f38e8896b8c7eE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.dd0f4d921f484611a0298299f7a2e1ad.23, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1382,7 +1382,7 @@ define { i64, i64 } @"_ZN58_$LT$open_ai..Model$u20$as$u20$strum..IntoEnumIterato
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @"_ZN77_$LT$open_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h987c6f375878056cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #7 {
+define void @"_ZN77_$LT$open_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h987c6f375878056cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #7 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !160)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   %3 = load i64, ptr %1, align 8, !alias.scope !163, !noalias !160, !noundef !4
@@ -1464,7 +1464,7 @@ define void @"_ZN77_$LT$open_ai..ModelIter$u20$as$u20$core..iter..traits..iterat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN77_$LT$open_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9513d35768ea53f7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #4 {
+define void @"_ZN77_$LT$open_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h9513d35768ea53f7E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #4 {
   %3 = load i64, ptr %1, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -1481,7 +1481,7 @@ define void @"_ZN77_$LT$open_ai..ModelIter$u20$as$u20$core..iter..traits..iterat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN77_$LT$open_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h4030822c7d41239bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #4 {
+define void @"_ZN77_$LT$open_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h4030822c7d41239bE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = add i64 %4, %2
   %6 = add i64 %5, 1
@@ -1574,7 +1574,7 @@ define noundef range(i64 0, 9) i64 @"_ZN88_$LT$open_ai..ModelIter$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN92_$LT$open_ai..ModelIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h73e8d1d026cd9fadE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #4 {
+define void @"_ZN92_$LT$open_ai..ModelIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h73e8d1d026cd9fadE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = add i64 %4, 1

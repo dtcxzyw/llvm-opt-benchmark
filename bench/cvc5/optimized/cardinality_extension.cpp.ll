@@ -600,7 +600,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionC2EPS4_PNS_7context7ContextE(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 16)) %this, ptr noundef %cf, ptr noundef %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionC2EPS4_PNS_7context7ContextE(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %cf, ptr noundef %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionE, i64 16), ptr %this, align 8
   %d_cf = getelementptr inbounds i8, ptr %this, i64 8
@@ -1005,7 +1005,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionE, i64 16), ptr %this, align 8
   %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 504
@@ -1231,7 +1231,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionD0Ev(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionD0Ev(ptr noundef nonnull align 8 dereferenceable(576) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModel6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -10463,7 +10463,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_St6vectorIiSaIiEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(928) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtension9SortModelE, i64 16), ptr %this, align 8
   %d_regions = getelementptr inbounds i8, ptr %this, i64 240
@@ -10832,7 +10832,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIiSaIiEESt4lessIS3_ESaISt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModelD0Ev(ptr noundef nonnull align 8 dereferenceable(928) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModelD0Ev(ptr noundef nonnull align 8 dereferenceable(928) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory2uf20CardinalityExtension9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26
@@ -19213,7 +19213,7 @@ _ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_PNS1_6theory2uf20Cardinality
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(648) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2uf20CardinalityExtensionE, i64 16), ptr %this, align 8
   %d_rep_model = getelementptr inbounds i8, ptr %this, i64 72
@@ -19385,7 +19385,7 @@ _ZNSt3mapIN4cvc58internal8TypeNodeEPNS1_6theory2uf20CardinalityExtension9SortMod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtensionD0Ev(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory2uf20CardinalityExtensionD0Ev(ptr noundef nonnull align 8 dereferenceable(648) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory2uf20CardinalityExtensionD2Ev(ptr noundef nonnull align 8 dereferenceable(648) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26

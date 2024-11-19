@@ -258,7 +258,7 @@ define noundef range(i32 1, 0) i32 @_ZN4span7hygiene15SyntaxContextId8from_u3217
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN81_$LT$span..hygiene..SyntaxContextData$u20$as$u20$salsa..interned..InternValue$GT$8into_key17he4b75a400857862aE"(ptr noalias nocapture noundef writeonly sret({ i32, i32, i8, [3 x i8] }) align 4 dereferenceable(12) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %1) unnamed_addr #5 {
+define void @"_ZN81_$LT$span..hygiene..SyntaxContextData$u20$as$u20$salsa..interned..InternValue$GT$8into_key17he4b75a400857862aE"(ptr noalias nocapture noundef writeonly sret({ i32, i32, i8, [3 x i8] }) align 4 dereferenceable(12) %0, ptr noalias nocapture noundef readonly align 4 dereferenceable(20) %1) unnamed_addr #5 {
   %3 = load i32, ptr %1, align 4, !range !10, !noundef !9
   %4 = getelementptr inbounds i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4, !noundef !9
@@ -292,7 +292,7 @@ define noundef zeroext i1 @"_ZN69_$LT$span..hygiene..SyntaxContextData$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4span7hygiene17SyntaxContextData4root17hfab45935596d3e19E(ptr noalias nocapture noundef writeonly sret({ i32, i32, i32, i32, i8, [3 x i8] }) align 4 dereferenceable(20) initializes((0, 17)) %0) unnamed_addr #6 {
+define void @_ZN4span7hygiene17SyntaxContextData4root17hfab45935596d3e19E(ptr noalias nocapture noundef writeonly sret({ i32, i32, i32, i32, i8, [3 x i8] }) align 4 dereferenceable(20) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 16

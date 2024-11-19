@@ -1091,7 +1091,7 @@ define internal void @_ZNK12_GLOBAL__N_120IteratorRangeChecker10verifyNextERN5cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120IteratorRangeCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120IteratorRangeCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120IteratorRangeCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8
@@ -1169,7 +1169,7 @@ _ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_120IteratorRangeCheckerEKFvRNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120IteratorRangeCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120IteratorRangeCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_120IteratorRangeCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 160) #16
   ret void
@@ -1540,7 +1540,7 @@ declare void @_ZN5clang4ento8iterator15advancePositionEN4llvm18IntrusiveRefCntPt
 declare noundef ptr @_ZN5clang4ento8iterator19getIteratorPositionEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEENS0_4SValE(ptr noundef, ptr, i8) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValERNS4_14CheckerContextEPNS4_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr %1, i64 %2, ptr %3, i8 %4, ptr nocapture noundef nonnull align 8 dereferenceable(81) initializes((16, 17)) %5, ptr noundef nonnull %6) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120IteratorRangeChecker9reportBugEN4llvm9StringRefEN5clang4ento4SValERNS4_14CheckerContextEPNS4_12ExplodedNodeE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr %1, i64 %2, ptr %3, i8 %4, ptr nocapture noundef nonnull align 8 dereferenceable(81) %5, ptr noundef nonnull %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::unique_ptr.305", align 8
   %9 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %10 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8

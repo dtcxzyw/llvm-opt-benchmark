@@ -679,7 +679,7 @@ define dso_local void @__srcu_read_unlock(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @call_srcu(ptr noundef %0, ptr noundef initializes((8, 16)) %1, ptr noundef %2) #0 align 16 {
+define dso_local void @call_srcu(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %2, ptr %4, align 8
   %5 = tail call fastcc i64 @srcu_gp_start_if_needed(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true), !range !41

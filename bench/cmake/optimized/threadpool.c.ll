@@ -105,7 +105,7 @@ declare void @uv_mutex_destroy(ptr noundef) local_unnamed_addr #1
 declare void @uv_cond_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv__work_submit(ptr noundef %0, ptr noundef initializes((0, 24)) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @uv__work_submit(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   tail call void @uv_once(ptr noundef nonnull @once, ptr noundef nonnull @init_once) #9
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %6, align 8

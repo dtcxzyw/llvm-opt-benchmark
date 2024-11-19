@@ -3168,7 +3168,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyDict_GetItemRef(ptr nocapture noundef readonly %op, ptr noundef %key, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyDict_GetItemRef(ptr nocapture noundef readonly %op, ptr noundef %key, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %value = alloca ptr, align 8
   %0 = getelementptr i8, ptr %op, i64 8
@@ -4740,7 +4740,7 @@ return:                                           ; preds = %if.end, %_PyDict_Se
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @delitem_common(ptr nocapture noundef initializes((24, 32)) %mp, i64 noundef %hash, i64 noundef range(i64 -2, -3) %ix, ptr noundef %old_value, i64 noundef %new_version) unnamed_addr #0 {
+define internal fastcc void @delitem_common(ptr nocapture noundef %mp, i64 noundef %hash, i64 noundef range(i64 -2, -3) %ix, ptr noundef %old_value, i64 noundef %new_version) unnamed_addr #0 {
 entry:
   %ma_keys = getelementptr inbounds i8, ptr %mp, i64 32
   %0 = load ptr, ptr %ma_keys, align 8
@@ -11453,7 +11453,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 declare void @PyErr_FormatUnraisable(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyDict_GetItemStringRef(ptr nocapture noundef readonly %v, ptr noundef %key, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @PyDict_GetItemStringRef(ptr nocapture noundef readonly %v, ptr noundef %key, ptr nocapture noundef writeonly %result) local_unnamed_addr #0 {
 entry:
   %value.i = alloca ptr, align 8
   %call = tail call ptr @PyUnicode_FromString(ptr noundef %key) #18

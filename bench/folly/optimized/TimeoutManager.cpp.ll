@@ -105,7 +105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14TimeoutManagerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14TimeoutManagerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14TimeoutManagerE, i64 16), ptr %this, align 8, !tbaa !7
   %cobTimeouts_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1085,7 +1085,7 @@ while.end:                                        ; preds = %_ZN5boost9intrusive
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly14TimeoutManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14TimeoutManagerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly14TimeoutManagerE, i64 16), ptr %this, align 8, !tbaa !7
   %cobTimeouts_.i = getelementptr inbounds i8, ptr %this, i64 8

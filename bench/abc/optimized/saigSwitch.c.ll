@@ -527,7 +527,7 @@ define void @Aig_CManStop(ptr noundef %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Aig_CManRestart(ptr noundef initializes((12, 16), (32, 36)) %0) local_unnamed_addr #12 {
+define void @Aig_CManRestart(ptr noundef %0) local_unnamed_addr #12 {
   %2 = load i32, ptr %0, align 8
   %3 = add nsw i32 %2, 1
   %4 = getelementptr inbounds i8, ptr %0, i64 12

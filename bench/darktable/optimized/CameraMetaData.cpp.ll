@@ -106,7 +106,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN8rawspeed14CameraMetaDataC1EPKc = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN8rawspeed14CameraMetaDataC2EPKc
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed14CameraMetaDataC2EPKc(ptr noundef nonnull align 8 dereferenceable(96) initializes((8, 12), (16, 24)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed14CameraMetaDataC2EPKc(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pugi::xml_document", align 8
   %4 = alloca %"struct.pugi::xml_parse_result", align 8
   %5 = alloca %"class.pugi::xml_attribute", align 8

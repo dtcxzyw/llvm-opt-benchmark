@@ -68,7 +68,7 @@ define hidden noundef nonnull align 8 dereferenceable(16432) ptr @_ZN23JfrStackT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN23JfrStackTraceRepositoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16432) initializes((0, 16432)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN23JfrStackTraceRepositoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16432) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16432) %0, i8 0, i64 16432, i1 false)
   ret void
 }

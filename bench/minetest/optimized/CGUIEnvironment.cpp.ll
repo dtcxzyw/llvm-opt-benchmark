@@ -271,7 +271,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui15CGUIEnvironmentC2EPNS_2io11IFileSystemEPNS_5video12IVideoDriverEPNS_11IOSOperatorE(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %fs, ptr noundef %driver, ptr noundef %op) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui15CGUIEnvironmentC2EPNS_2io11IFileSystemEPNS_5video12IVideoDriverEPNS_11IOSOperatorE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr nocapture noundef readonly %vtt, ptr noundef %fs, ptr noundef %driver, ptr noundef %op) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -681,7 +681,7 @@ cleanup:                                          ; preds = %_ZN3irr3gui15CGUIEn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui15CGUIEnvironmentC1EPNS_2io11IFileSystemEPNS_5video12IVideoDriverEPNS_11IOSOperatorE(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8), (520, 540)) %this, ptr noundef %fs, ptr noundef %driver, ptr noundef %op) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui15CGUIEnvironmentC1EPNS_2io11IFileSystemEPNS_5video12IVideoDriverEPNS_11IOSOperatorE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef %fs, ptr noundef %driver, ptr noundef %op) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 520
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 528
@@ -889,7 +889,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui15CGUIEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 16)) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui15CGUIEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !11
@@ -1649,14 +1649,14 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui15CGUIEnvironmentD1Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui15CGUIEnvironmentD1Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui15CGUIEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull @_ZTTN3irr3gui15CGUIEnvironmentE) #23
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr3gui15CGUIEnvironmentD1Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZThn8_N3irr3gui15CGUIEnvironmentD1Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr3gui15CGUIEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @_ZTTN3irr3gui15CGUIEnvironmentE) #23
@@ -1675,7 +1675,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui15CGUIEnvironmentD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui15CGUIEnvironmentD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui15CGUIEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr noundef nonnull @_ZTTN3irr3gui15CGUIEnvironmentE) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -1686,7 +1686,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N3irr3gui15CGUIEnvironmentD0Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZThn8_N3irr3gui15CGUIEnvironmentD0Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN3irr3gui15CGUIEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef nonnull @_ZTTN3irr3gui15CGUIEnvironmentE) #23
@@ -3711,7 +3711,7 @@ return:                                           ; preds = %_ZN3irr4core5arrayI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui15CGUIEnvironment20updateHoveredElementENS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(520) initializes((440, 448)) %this, i64 %mousePos.coerce) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui15CGUIEnvironment20updateHoveredElementENS_4core8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(520) %this, i64 %mousePos.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %mousePos = alloca %"class.irr::core::vector2d", align 8
   %event = alloca %"struct.irr::SEvent", align 8
@@ -3979,7 +3979,7 @@ if.end133:                                        ; preds = %delete.notnull.i174
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui15CGUIEnvironment20setUserEventReceiverEPNS_14IEventReceiverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((464, 472)) %this, ptr noundef %evr) unnamed_addr #9 align 2 {
+define void @_ZN3irr3gui15CGUIEnvironment20setUserEventReceiverEPNS_14IEventReceiverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) %this, ptr noundef %evr) unnamed_addr #9 align 2 {
 entry:
   %UserReceiver = getelementptr inbounds i8, ptr %this, i64 464
   store ptr %evr, ptr %UserReceiver, align 8, !tbaa !74
@@ -5922,7 +5922,7 @@ cleanup:                                          ; preds = %if.end97, %if.end88
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui15CGUIEnvironment16setFocusBehaviorEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) initializes((480, 484)) %this, i32 noundef %flags) unnamed_addr #9 align 2 {
+define void @_ZN3irr3gui15CGUIEnvironment16setFocusBehaviorEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(520) %this, i32 noundef %flags) unnamed_addr #9 align 2 {
 entry:
   %FocusFlags = getelementptr inbounds i8, ptr %this, i64 480
   store i32 %flags, ptr %FocusFlags, align 8, !tbaa !76

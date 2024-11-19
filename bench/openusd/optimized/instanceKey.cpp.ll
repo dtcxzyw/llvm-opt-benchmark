@@ -151,13 +151,13 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__10PcpArcTypeE = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__14PcpInstanceKeyC1ERKNS_12PcpPrimIndexE = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__14PcpInstanceKeyC2ERKNS_12PcpPrimIndexE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpInstanceKeyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpInstanceKeyC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpInstanceKeyC2ERKNS_12PcpPrimIndexE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__14PcpInstanceKeyC2ERKNS_12PcpPrimIndexE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::Tf_HashState", align 8

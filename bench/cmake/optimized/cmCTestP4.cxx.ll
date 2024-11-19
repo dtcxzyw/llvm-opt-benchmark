@@ -435,7 +435,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 declare void @_ZN15cmCTestGlobalVCD2Ev(ptr noundef nonnull align 8 dereferenceable(784)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9cmCTestP4D2Ev(ptr noundef nonnull align 8 dereferenceable(880) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9cmCTestP4D2Ev(ptr noundef nonnull align 8 dereferenceable(880) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9cmCTestP4, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 856
   %3 = load ptr, ptr %2, align 8
@@ -512,7 +512,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9cmCTestP4D0Ev(ptr noundef nonnull align 8 dereferenceable(880) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN9cmCTestP4D0Ev(ptr noundef nonnull align 8 dereferenceable(880) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN9cmCTestP4D2Ev(ptr noundef nonnull align 8 dereferenceable(880) %0) #17
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void

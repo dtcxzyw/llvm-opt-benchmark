@@ -90,7 +90,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5eastl8Internal21shared_ptr_auto_mutexC2EPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5eastl8Internal21shared_ptr_auto_mutexC2EPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture readnone %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %attr.i.i.i = alloca %union.pthread_mutexattr_t, align 4
   %1 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZN5eastl8Internal15gSharedPtrMutexE, i64 40), align 8

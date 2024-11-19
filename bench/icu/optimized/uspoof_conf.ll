@@ -28,7 +28,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7521ConfusabledataBuilderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7521ConfusabledataBuilderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_759SPUStringC2ENS_12LocalPointerINS_13UnicodeStringEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr nocapture noundef %s) unnamed_addr #0 align 2 {
+define void @_ZN6icu_759SPUStringC2ENS_12LocalPointerINS_13UnicodeStringEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr nocapture noundef %s) unnamed_addr #0 align 2 {
 _ZN6icu_7512LocalPointerINS_13UnicodeStringEEaSEOS2_.exit:
   store ptr null, ptr %this, align 8
   %0 = load ptr, ptr %s, align 8
@@ -58,7 +58,7 @@ _ZN6icu_7512LocalPointerINS_13UnicodeStringEED2Ev.exit: ; preds = %entry, %delet
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513SPUStringPoolC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513SPUStringPoolC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fHash = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -414,7 +414,7 @@ declare void @_ZN6icu_757UVector12adoptElementEPvR10UErrorCode(ptr noundef nonnu
 declare ptr @uhash_put_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7521ConfusabledataBuilderC2EPNS_9SpoofImplER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) initializes((0, 84)) %this, ptr noundef %spImpl, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7521ConfusabledataBuilderC2EPNS_9SpoofImplER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %this, ptr noundef %spImpl, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %spImpl, ptr %this, align 8
   %fInput = getelementptr inbounds i8, ptr %this, i64 8

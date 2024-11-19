@@ -354,7 +354,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @bn_mul_comba8(ptr nocapture noundef writeonly initializes((0, 128)) %r, ptr nocapture noundef readonly %a, ptr noundef %b) local_unnamed_addr #1 {
+define hidden void @bn_mul_comba8(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %a, ptr noundef %b) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %0, ptr elementtype(i64) %b) #3, !srcloc !55
@@ -916,7 +916,7 @@ entry:
 }
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @bn_mul_comba4(ptr nocapture noundef writeonly initializes((0, 64)) %r, ptr nocapture noundef readonly %a, ptr noundef %b) local_unnamed_addr #1 {
+define hidden void @bn_mul_comba4(ptr nocapture noundef writeonly %r, ptr nocapture noundef readonly %a, ptr noundef %b) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %0, ptr elementtype(i64) %b) #3, !srcloc !183
@@ -1070,7 +1070,7 @@ entry:
 }
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @bn_sqr_comba8(ptr nocapture noundef writeonly initializes((0, 128)) %r, ptr noundef %a) local_unnamed_addr #1 {
+define hidden void @bn_sqr_comba8(ptr nocapture noundef writeonly %r, ptr noundef %a) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %0) #5, !srcloc !215
@@ -1513,7 +1513,7 @@ entry:
 }
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite) uwtable
-define hidden void @bn_sqr_comba4(ptr nocapture noundef writeonly initializes((0, 64)) %r, ptr noundef %a) local_unnamed_addr #1 {
+define hidden void @bn_sqr_comba4(ptr nocapture noundef writeonly %r, ptr noundef %a) local_unnamed_addr #1 {
 entry:
   %0 = load i64, ptr %a, align 8
   %1 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %0) #5, !srcloc !315

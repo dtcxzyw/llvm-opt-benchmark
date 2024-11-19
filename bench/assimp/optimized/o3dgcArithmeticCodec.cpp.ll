@@ -542,7 +542,7 @@ if.end15:                                         ; preds = %_ZN5o3dgc18Adaptive
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5o3dgc18Adaptive_Bit_Model6updateEv(ptr nocapture noundef nonnull align 4 dereferenceable(20) initializes((4, 12)) %this) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN5o3dgc18Adaptive_Bit_Model6updateEv(ptr nocapture noundef nonnull align 4 dereferenceable(20) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i32, ptr %this, align 4
   %bit_count = getelementptr inbounds i8, ptr %this, i64 16
@@ -1481,7 +1481,7 @@ if.end59:                                         ; preds = %if.then58, %if.end5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc16Arithmetic_CodecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 16), (36, 44)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN5o3dgc16Arithmetic_CodecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this) unnamed_addr #4 align 2 {
 entry:
   %buffer_size = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %buffer_size, align 4
@@ -1492,7 +1492,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5o3dgc16Arithmetic_CodecC2EjPh(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 16), (36, 44)) %this, i32 noundef %max_code_bytes, ptr noundef %user_buffer) unnamed_addr #5 align 2 {
+define hidden void @_ZN5o3dgc16Arithmetic_CodecC2EjPh(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %max_code_bytes, ptr noundef %user_buffer) unnamed_addr #5 align 2 {
 entry:
   %buffer_size = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %buffer_size, align 4
@@ -1954,7 +1954,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc16Static_Bit_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN5o3dgc16Static_Bit_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this) unnamed_addr #4 align 2 {
 entry:
   store i32 4096, ptr %this, align 4
   ret void
@@ -1980,7 +1980,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc18Adaptive_Bit_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 20)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN5o3dgc18Adaptive_Bit_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this) unnamed_addr #4 align 2 {
 entry:
   %bit_0_count.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 1, ptr %bit_0_count.i, align 4
@@ -1995,7 +1995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc18Adaptive_Bit_Model5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 20)) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN5o3dgc18Adaptive_Bit_Model5resetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %this) local_unnamed_addr #4 align 2 {
 entry:
   %bit_0_count = getelementptr inbounds i8, ptr %this, i64 12
   store i32 1, ptr %bit_0_count, align 4
@@ -2010,7 +2010,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc17Static_Data_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8), (16, 20)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN5o3dgc17Static_Data_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
   %data_symbols = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %data_symbols, align 8
@@ -2276,7 +2276,7 @@ if.end85:                                         ; preds = %if.end80
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5o3dgc19Adaptive_Data_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 8), (36, 40)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN5o3dgc19Adaptive_Data_ModelC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this) unnamed_addr #4 align 2 {
 entry:
   %data_symbols = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %data_symbols, align 4
@@ -2285,7 +2285,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5o3dgc19Adaptive_Data_ModelC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(52) initializes((0, 8), (36, 40)) %this, i32 noundef %number_of_symbols) unnamed_addr #5 align 2 {
+define hidden void @_ZN5o3dgc19Adaptive_Data_ModelC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this, i32 noundef %number_of_symbols) unnamed_addr #5 align 2 {
 entry:
   %data_symbols = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %data_symbols, align 4

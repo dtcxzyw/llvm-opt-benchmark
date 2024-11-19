@@ -546,7 +546,7 @@ define range(i32 -1, 1) i32 @H5AC_validate_cache_image_config(ptr noundef readon
 declare ptr @H5C_create(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5AC__check_if_write_permitted(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #4 {
+define internal noundef i32 @H5AC__check_if_write_permitted(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #4 {
   store i8 1, ptr %1, align 1
   ret i32 0
 }

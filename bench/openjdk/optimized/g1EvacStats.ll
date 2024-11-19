@@ -150,7 +150,7 @@ define hidden noundef i64 @_ZNK11G1EvacStats25compute_desired_plab_sizeEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN11G1EvacStatsC2EPKcmj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((0, 77), (80, 84), (88, 100), (104, 144)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
+define hidden void @_ZN11G1EvacStatsC2EPKcmj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16

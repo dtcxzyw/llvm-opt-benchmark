@@ -191,7 +191,7 @@ if.end35:                                         ; preds = %for.cond.i.i46, %_Z
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core29MakePluginAuthMetadataContextERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsE(ptr noalias nocapture writeonly sret(%struct.grpc_auth_metadata_context) align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %initial_metadata, ptr nocapture noundef readonly %args) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core29MakePluginAuthMetadataContextERKSt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEPKN21grpc_call_credentials22GetRequestMetadataArgsE(ptr noalias nocapture writeonly sret(%struct.grpc_auth_metadata_context) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %initial_metadata, ptr nocapture noundef readonly %args) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %fields = alloca %"struct.grpc_core::(anonymous namespace)::ServiceUrlAndMethod", align 8

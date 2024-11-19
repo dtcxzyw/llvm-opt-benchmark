@@ -216,7 +216,7 @@ _ZN6google8protobuf2io16CodedInputStream21RecomputeBufferLimitsEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((36, 37), (40, 44)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 44
@@ -499,7 +499,7 @@ _ZN6google8protobuf2io16CodedInputStream20ReadVarint32FallbackEj.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream34DecrementRecursionDepthAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream34DecrementRecursionDepthAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -549,7 +549,7 @@ declare void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr
 declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntireMessageConsumedAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntireMessageConsumedAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -615,7 +615,7 @@ define noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6google8protobuf2io16CodedInputStream18SetTotalBytesLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN6google8protobuf2io16CodedInputStream18SetTotalBytesLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1276,7 +1276,7 @@ _ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi.exit: ; preds = %19, %27
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16ReadVarint32SlowEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16ReadVarint32SlowEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 align 2 {
   %3 = tail call { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   %4 = extractvalue { i64, i8 } %3, 0
   %5 = extractvalue { i64, i8 } %3, 1
@@ -2268,7 +2268,7 @@ define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16ReadVarint6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf2io19EpsCopyOutputStream14EnableAliasingEb(ptr nocapture noundef nonnull align 8 dereferenceable(59) initializes((57, 58)) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define void @_ZN6google8protobuf2io19EpsCopyOutputStream14EnableAliasingEb(ptr nocapture noundef nonnull align 8 dereferenceable(59) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   br i1 %1, label %3, label %11
 
 3:                                                ; preds = %2
@@ -4274,7 +4274,7 @@ define void @_ZN6google8protobuf2io17CodedOutputStreamD2Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStringWithSizeToArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN6google8protobuf2io17CodedOutputStream26WriteStringWithSizeToArrayERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef writeonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #15
   %4 = trunc i64 %3 to i32
   %5 = icmp ult i32 %4, 128

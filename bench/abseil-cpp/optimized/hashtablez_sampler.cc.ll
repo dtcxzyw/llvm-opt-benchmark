@@ -124,7 +124,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl18container_internal14HashtablezInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(648) initializes((0, 24), (112, 124)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl18container_internal14HashtablezInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(648) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 24, i1 false)
   %create_time = getelementptr inbounds i8, ptr %this, i64 112
@@ -188,7 +188,7 @@ declare { i64, i32 } @_ZN4absl3NowEv() local_unnamed_addr #6
 declare noundef i32 @_ZN4absl13GetStackTraceEPPvii(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN4absl18container_internal10SampleSlowERNS0_13SamplingStateEm(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %next_sample, i64 noundef %inline_element_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZN4absl18container_internal10SampleSlowERNS0_13SamplingStateEm(ptr nocapture noundef nonnull align 8 dereferenceable(16) %next_sample, i64 noundef %inline_element_size) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %inline_element_size.addr = alloca i64, align 8
   %old_stride = alloca i64, align 8

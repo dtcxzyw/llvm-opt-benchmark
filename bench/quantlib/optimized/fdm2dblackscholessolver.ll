@@ -551,7 +551,7 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23Fdm2dBlackScholesSolverC2ENS_6HandleINS_30GeneralizedBlackScholesProcessEEES3_dNS_13FdmSolverDescERKNS_13FdmSchemeDescEbd(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 12), (16, 96)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %p1, ptr nocapture noundef %p2, double noundef %correlation, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, i1 noundef zeroext %localVol, double noundef %illegalLocalVolOverwrite) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23Fdm2dBlackScholesSolverC2ENS_6HandleINS_30GeneralizedBlackScholesProcessEEES3_dNS_13FdmSolverDescERKNS_13FdmSchemeDescEbd(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %p1, ptr nocapture noundef %p2, double noundef %correlation, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, i1 noundef zeroext %localVol, double noundef %illegalLocalVolOverwrite) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.3", align 8
   %ref.tmp21 = alloca %"class.boost::shared_ptr.3", align 8
@@ -1516,7 +1516,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_30GeneralizedBlackScholesProcessEE4L
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23Fdm2dBlackScholesSolverC1ENS_6HandleINS_30GeneralizedBlackScholesProcessEEES3_dNS_13FdmSolverDescERKNS_13FdmSchemeDescEbd(ptr noundef nonnull align 8 dereferenceable(208) initializes((224, 228), (232, 240)) %this, ptr nocapture noundef %p1, ptr nocapture noundef %p2, double noundef %correlation, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, i1 noundef zeroext %localVol, double noundef %illegalLocalVolOverwrite) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23Fdm2dBlackScholesSolverC1ENS_6HandleINS_30GeneralizedBlackScholesProcessEEES3_dNS_13FdmSolverDescERKNS_13FdmSchemeDescEbd(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef %p1, ptr nocapture noundef %p2, double noundef %correlation, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, i1 noundef zeroext %localVol, double noundef %illegalLocalVolOverwrite) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.boost::shared_ptr.3", align 8
   %ref.tmp16 = alloca %"class.boost::shared_ptr.3", align 8

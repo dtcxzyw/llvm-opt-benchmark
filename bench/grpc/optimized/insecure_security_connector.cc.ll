@@ -82,7 +82,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core31TestOnlyMakeInsecureAuthContextEv(ptr noalias sret(%"class.grpc_core::RefCountedPtr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core31TestOnlyMakeInsecureAuthContextEv(ptr noalias sret(%"class.grpc_core::RefCountedPtr") align 8 %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -114,7 +114,7 @@ _ZN9grpc_core12_GLOBAL__N_115MakeAuthContextEv.exit: ; preds = %invoke.cont2.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core32InsecureChannelSecurityConnector13CheckCallHostESt17basic_string_viewIcSt11char_traitsIcEEP17grpc_auth_context(ptr noalias nocapture writeonly sret(%"class.grpc_core::ArenaPromise") align 16 initializes((0, 8), (16, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 %.coerce0, ptr nocapture readnone %.coerce1, ptr nocapture readnone %0) unnamed_addr #4 align 2 {
+define void @_ZN9grpc_core32InsecureChannelSecurityConnector13CheckCallHostESt17basic_string_viewIcSt11char_traitsIcEEP17grpc_auth_context(ptr noalias nocapture writeonly sret(%"class.grpc_core::ArenaPromise") align 16 %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 %.coerce0, ptr nocapture readnone %.coerce1, ptr nocapture readnone %0) unnamed_addr #4 align 2 {
 entry:
   %arg.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %arg.i, align 16

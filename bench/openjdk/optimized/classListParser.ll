@@ -232,7 +232,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN15ClassListParserD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN15ClassListParserD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassListParserC2EPKcNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 12), (16, 40)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassListParserC2EPKcNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca [4097 x i8], align 16
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -694,7 +694,7 @@ define hidden void @_ZN15ClassListParser19clean_up_input_lineEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassListParser13parse_at_tagsEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(520) initializes((512, 520)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassListParser13parse_at_tagsEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 512
@@ -1000,7 +1000,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %127, %126, %132, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassListParser31parse_class_name_and_attributesEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(520) initializes((456, 464), (472, 480), (488, 489), (496, 504), (512, 520)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassListParser31parse_class_name_and_attributesEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(520) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN15ClassListParser30read_class_name_and_attributesEv(ptr noundef nonnull align 8 dereferenceable(520) %0)
   %3 = getelementptr inbounds i8, ptr %0, i64 504
   %4 = load i32, ptr %3, align 8
@@ -1273,7 +1273,7 @@ _ZN16SymbolHandleBaseILb1EED2Ev.exit:             ; preds = %139, %_ZN12Resource
 declare noundef zeroext i1 @_ZN11inputStream4nextEv(ptr noundef nonnull align 8 dereferenceable(320)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassListParser30read_class_name_and_attributesEv(ptr noundef nonnull align 8 dereferenceable(520) initializes((456, 464), (472, 480), (488, 489), (496, 504), (512, 520)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassListParser30read_class_name_and_attributesEv(ptr noundef nonnull align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   %4 = load ptr, ptr %3, align 8
@@ -2169,7 +2169,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN15ClassListParser22split_at_tag_from_lineEv(ptr noundef nonnull align 8 dereferenceable(520) initializes((512, 520)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN15ClassListParser22split_at_tag_from_lineEv(ptr noundef nonnull align 8 dereferenceable(520) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 512

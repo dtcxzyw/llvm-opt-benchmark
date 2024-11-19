@@ -2393,7 +2393,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @vfio_get_iommu_info(ptr nocapture noundef readonly %container, ptr nocapture noundef nonnull initializes((0, 8)) %info) unnamed_addr #0 {
+define internal fastcc i32 @vfio_get_iommu_info(ptr nocapture noundef readonly %container, ptr nocapture noundef nonnull %info) unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #20
   %fd = getelementptr inbounds i8, ptr %container, i64 8

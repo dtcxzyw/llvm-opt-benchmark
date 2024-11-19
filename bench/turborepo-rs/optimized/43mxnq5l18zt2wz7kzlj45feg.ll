@@ -507,7 +507,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4cols.llvm.408305762663316268
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row8truncate(ptr noalias nocapture noundef align 8 dereferenceable(32) initializes((24, 25)) %0, i16 noundef %1) unnamed_addr #4 {
+define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row8truncate(ptr noalias nocapture noundef align 8 dereferenceable(32) %0, i16 noundef %1) unnamed_addr #4 {
   %3 = zext i16 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
@@ -578,7 +578,7 @@ _RNvMs0_NtCs68wO5nsWeTG_5alloc3vecINtB5_3VecNtNtCs8mTrBI1stz4_15turborepo_vt1004
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4wrap(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) initializes((24, 25)) %0, i1 noundef zeroext %1) unnamed_addr #9 {
+define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1003rowNtB2_3Row4wrap(ptr noalias nocapture noundef writeonly align 8 dereferenceable(32) %0, i1 noundef zeroext %1) unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8

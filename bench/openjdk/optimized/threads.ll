@@ -4737,7 +4737,7 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
 declare void @_ZN7Monitor10notify_allEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZZN7Threads25change_thread_claim_tokenEvEN11ResetClaims9do_threadEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly initializes((416, 424)) %1) unnamed_addr #10 align 2 {
+define internal void @_ZZN7Threads25change_thread_claim_tokenEvEN11ResetClaims9do_threadEP6Thread(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef writeonly %1) unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 416
   store i64 0, ptr %3, align 8
   ret void

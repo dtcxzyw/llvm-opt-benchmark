@@ -22735,7 +22735,7 @@ ehcleanup:                                        ; preds = %lpad28, %lpad21, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L8pickImplENS_12bytecode_ptrI3NFAEES2_b(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull %dfa_impl, ptr nocapture noundef nonnull %nfa_impl, i1 noundef zeroext %fast_nfa) unnamed_addr #0 {
+define internal fastcc void @_ZN3ue2L8pickImplENS_12bytecode_ptrI3NFAEES2_b(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %dfa_impl, ptr nocapture noundef nonnull %nfa_impl, i1 noundef zeroext %fast_nfa) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %nfa_impl, align 8
   %type = getelementptr inbounds i8, ptr %0, i64 8
@@ -34031,7 +34031,7 @@ return:                                           ; preds = %nrvo.skipdtor102, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19setSuffixPropertiesER3NFARKNS_9suffix_idERKNS_13ReportManagerE(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(64) initializes((32, 40)) %n, ptr noundef nonnull align 8 dereferenceable(48) %suff, ptr noundef nonnull align 8 dereferenceable(505) %rm) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19setSuffixPropertiesER3NFARKNS_9suffix_idERKNS_13ReportManagerE(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(64) %n, ptr noundef nonnull align 8 dereferenceable(48) %suff, ptr noundef nonnull align 8 dereferenceable(505) %rm) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::set", align 8
   %call = tail call i32 @_ZN3ue212findMinWidthERKNS_9suffix_idE(ptr noundef nonnull align 8 dereferenceable(48) %suff)
@@ -40567,7 +40567,7 @@ unreachable:                                      ; preds = %lpad.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L11makeLeftNfaERKNS_13RoseBuildImplERNS_7left_idEbbRKSt3mapIS3_St3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS8_ESaIS8_EES9_IS3_ESaISt4pairIKS3_SC_EEERKNS_14CompileContextE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %left, i1 noundef zeroext %is_prefix, i1 noundef zeroext %is_transient, ptr noundef nonnull align 8 dereferenceable(48) %infixTriggers, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L11makeLeftNfaERKNS_13RoseBuildImplERNS_7left_idEbbRKSt3mapIS3_St3setINS_12_GLOBAL__N_111PredTopPairESt4lessIS8_ESaIS8_EES9_IS3_ESaISt4pairIKS3_SC_EEERKNS_14CompileContextE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(780) %tbi, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %left, i1 noundef zeroext %is_prefix, i1 noundef zeroext %is_transient, ptr noundef nonnull align 8 dereferenceable(48) %infixTriggers, ptr noundef nonnull align 8 dereferenceable(320) %cc) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %fixed_depth_tops = alloca %"class.std::map.315", align 8
   %triggers17 = alloca %"class.std::map.583", align 8

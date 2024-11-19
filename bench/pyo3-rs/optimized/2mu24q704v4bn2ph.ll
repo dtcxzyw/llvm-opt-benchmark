@@ -161,7 +161,7 @@ define noundef zeroext i1 @"_ZN77_$LT$pyo3_build_config..errors..ErrorReport$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN101_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h2eb1619e5ed8e45eE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define void @"_ZN101_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$4from17h2eb1619e5ed8e45eE"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %3, align 8
@@ -169,7 +169,7 @@ define void @"_ZN101_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..conve
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN87_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17hbcab36a20715cd6bE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 32)) %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
+define void @"_ZN87_$LT$pyo3_build_config..errors..Error$u20$as$u20$core..convert..From$LT$$RF$str$GT$$GT$4from17hbcab36a20715cd6bE"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 1 %1, i64 %2) unnamed_addr #1 {
   %4 = alloca [24 x i8], align 8
   call void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h1b3d88b5fcbb12dcE"(ptr nonnull sret([24 x i8]) align 8 %4, ptr align 1 %1, i64 %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i64 24, i1 false)

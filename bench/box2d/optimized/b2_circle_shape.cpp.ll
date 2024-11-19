@@ -181,7 +181,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #5
 declare float @sqrtf(float noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK13b2CircleShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 16)) %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %transform, i32 %childIndex) unnamed_addr #7 align 2 {
+define void @_ZNK13b2CircleShape11ComputeAABBEP6b2AABBRK11b2Transformi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %aabb, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %transform, i32 %childIndex) unnamed_addr #7 align 2 {
 entry:
   %q = getelementptr inbounds i8, ptr %transform, i64 8
   %m_p = getelementptr inbounds i8, ptr %this, i64 16
@@ -219,7 +219,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK13b2CircleShape11ComputeMassEP10b2MassDataf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 16)) %massData, float noundef %density) unnamed_addr #8 align 2 {
+define void @_ZNK13b2CircleShape11ComputeMassEP10b2MassDataf(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %massData, float noundef %density) unnamed_addr #8 align 2 {
 entry:
   %mul = fmul float %density, 0x400921FB60000000
   %m_radius = getelementptr inbounds i8, ptr %this, i64 12

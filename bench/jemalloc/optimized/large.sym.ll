@@ -1525,7 +1525,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @large_prof_info_get(ptr noundef %tsd, ptr noundef %edata, ptr noundef initializes((8, 16)) %prof_info, i1 noundef zeroext %reset_recent) local_unnamed_addr #0 {
+define hidden void @large_prof_info_get(ptr noundef %tsd, ptr noundef %edata, ptr noundef %prof_info, i1 noundef zeroext %reset_recent) local_unnamed_addr #0 {
 entry:
   %e_prof_tctx.i = getelementptr inbounds i8, ptr %edata, i64 80
   %0 = load atomic i64, ptr %e_prof_tctx.i acquire, align 8

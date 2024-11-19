@@ -786,7 +786,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev13ViewTransformELN9__gnu_cxx12_Lock_po
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev13ViewTransformC2ENS_18ReferenceSpaceTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, i32 noundef %referenceSpace) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev13ViewTransformC2ENS_18ReferenceSpaceTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, i32 noundef %referenceSpace) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #19
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(168) %call) #20
@@ -1448,7 +1448,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK19OpenColorIO_v2_4dev13ViewTransform12getTransformENS_22ViewTransformDirectionE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.6") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %dir) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK19OpenColorIO_v2_4dev13ViewTransform12getTransformENS_22ViewTransformDirectionE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, i32 noundef %dir) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %dir, label %sw.epilog [
     i32 0, label %sw.bb

@@ -375,7 +375,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18PostProcessingStepC2EjRKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull align 8 dereferenceable(240) initializes((0, 12), (16, 40)) %this, ptr nocapture noundef readonly %vtt, i32 noundef %_shader_id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18PostProcessingStepC2EjRKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, ptr nocapture noundef readonly %vtt, i32 noundef %_shader_id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -550,7 +550,7 @@ _ZN18PostProcessingStep17configureMaterialEv.exit: ; preds = %for.body.i, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN18PostProcessingStep17configureMaterialEv(ptr nocapture noundef nonnull align 8 dereferenceable(240) initializes((216, 217)) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN18PostProcessingStep17configureMaterialEv(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this) local_unnamed_addr #6 align 2 {
 entry:
   %material = getelementptr inbounds i8, ptr %this, i64 56
   %UseMipMaps = getelementptr inbounds i8, ptr %this, i64 232
@@ -591,7 +591,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18PostProcessingStepC1EjRKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull align 8 dereferenceable(240) initializes((0, 12), (16, 40)) %this, i32 noundef %_shader_id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18PostProcessingStepC1EjRKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull align 8 dereferenceable(240) %this, i32 noundef %_shader_id, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %_texture_map) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV18PostProcessingStep, i64 40), ptr %this, align 8, !tbaa !12
   %shader_id = getelementptr inbounds i8, ptr %this, i64 8
@@ -750,7 +750,7 @@ _ZN18PostProcessingStep17configureMaterialEv.exit: ; preds = %for.body.i, %invok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18PostProcessingStep15setRenderSourceEP12RenderSource(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) initializes((40, 48)) %this, ptr noundef %_source) unnamed_addr #7 align 2 {
+define dso_local void @_ZN18PostProcessingStep15setRenderSourceEP12RenderSource(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) %this, ptr noundef %_source) unnamed_addr #7 align 2 {
 entry:
   %source = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %_source, ptr %source, align 8, !tbaa !51
@@ -758,7 +758,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18PostProcessingStep15setRenderTargetEP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) initializes((48, 56)) %this, ptr noundef %_target) unnamed_addr #7 align 2 {
+define dso_local void @_ZN18PostProcessingStep15setRenderTargetEP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(240) %this, ptr noundef %_target) unnamed_addr #7 align 2 {
 entry:
   %target = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %_target, ptr %target, align 8, !tbaa !52
@@ -778,7 +778,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18PostProcessingStep3runER15PipelineContext(ptr noundef nonnull align 8 dereferenceable(240) initializes((184, 188)) %this, ptr noundef nonnull align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18PostProcessingStep3runER15PipelineContext(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef nonnull align 8 dereferenceable(47) %context) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %struct.ShaderInfo, align 8
   %target = getelementptr inbounds i8, ptr %this, i64 48

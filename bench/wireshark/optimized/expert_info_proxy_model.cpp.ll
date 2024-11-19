@@ -1686,7 +1686,7 @@ define noundef zeroext i1 @_ZNK20ExpertInfoProxyModel16filterAcceptsRowEiRK11QMo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20ExpertInfoProxyModel15setSeverityModeENS_12SeverityModeE(ptr noundef nonnull align 8 dereferenceable(72) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN20ExpertInfoProxyModel15setSeverityModeENS_12SeverityModeE(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   tail call void @_ZN18QAbstractItemModel17headerDataChangedEN2Qt11OrientationEii(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef 2, i32 noundef 0, i32 noundef 1)

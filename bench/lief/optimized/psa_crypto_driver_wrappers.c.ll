@@ -66,13 +66,13 @@ define hidden i32 @psa_driver_wrapper_verify_hash(ptr noundef %0, ptr noundef %1
 declare i32 @psa_verify_hash_builtin(ptr noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @psa_driver_wrapper_get_key_buffer_size_from_key_data(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #3 {
+define hidden noundef i32 @psa_driver_wrapper_get_key_buffer_size_from_key_data(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   store i64 0, ptr %3, align 8
   ret i32 -135
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @psa_driver_wrapper_get_key_buffer_size(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #3 {
+define hidden noundef i32 @psa_driver_wrapper_get_key_buffer_size(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   store i64 0, ptr %1, align 8
   ret i32 -135
 }

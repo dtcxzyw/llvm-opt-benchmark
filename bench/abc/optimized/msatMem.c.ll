@@ -238,7 +238,7 @@ define noundef ptr @Msat_MmFixedEntryFetch(ptr nocapture noundef %0) local_unnam
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Msat_MmFixedEntryRecycle(ptr nocapture noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #6 {
+define void @Msat_MmFixedEntryRecycle(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, -1

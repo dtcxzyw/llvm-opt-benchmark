@@ -57,7 +57,7 @@ return:                                           ; preds = %entry, %if.end
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SRP_user_pwd_set_gN(ptr nocapture noundef writeonly initializes((24, 40)) %vinfo, ptr noundef %g, ptr noundef %N) local_unnamed_addr #2 {
+define void @SRP_user_pwd_set_gN(ptr nocapture noundef writeonly %vinfo, ptr noundef %g, ptr noundef %N) local_unnamed_addr #2 {
 entry:
   %N1 = getelementptr inbounds i8, ptr %vinfo, i64 32
   store ptr %N, ptr %N1, align 8

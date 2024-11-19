@@ -1661,7 +1661,7 @@ return:                                           ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @get_next_record_identifier(ptr nocapture noundef %s, ptr nocapture noundef writeonly initializes((0, 8)) %record_identifier, i1 noundef zeroext %first) unnamed_addr #5 {
+define internal fastcc void @get_next_record_identifier(ptr nocapture noundef %s, ptr nocapture noundef writeonly %record_identifier, i1 noundef zeroext %first) unnamed_addr #5 {
 entry:
   br i1 %first, label %if.then, label %entry.if.end_crit_edge
 

@@ -138,7 +138,7 @@ define align 8 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h8963e71d406b17d9E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, i64 %2, ptr align 8 %3) unnamed_addr #0 {
+define void @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h8963e71d406b17d9E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1, i64 %2, ptr align 8 %3) unnamed_addr #0 {
   %5 = alloca [32 x i8], align 8
   call void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hec99de3199a48680E"(ptr nonnull sret([32 x i8]) align 8 %5, ptr align 8 %1, i64 %2, ptr align 8 %3)
   %6 = load i64, ptr %5, align 8
@@ -158,7 +158,7 @@ define void @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he6e3ee34012f7b96E"(ptr nocapture writeonly sret([1056 x i8]) align 8 initializes((0, 8)) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
+define void @"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17he6e3ee34012f7b96E"(ptr nocapture writeonly sret([1056 x i8]) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 {
   %4 = alloca [1056 x i8], align 8
   call void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h2d0b30bb4367cce8E"(ptr nonnull sret([1056 x i8]) align 8 %4, ptr align 8 %1, ptr align 8 %2)
   %5 = load i64, ptr %4, align 8

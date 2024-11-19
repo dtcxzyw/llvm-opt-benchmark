@@ -801,7 +801,7 @@ define hidden noundef zeroext i1 @"_ZN80_$LT$std..io..Write..write_fmt..Adapter$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN10rayon_core3job7JobFifo3new17h746e5d9f4804e007E(ptr noalias nocapture noundef writeonly sret({ { { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] }, {} } }) align 128 dereferenceable(256) initializes((0, 256)) %0) unnamed_addr #1 {
+define hidden void @_ZN10rayon_core3job7JobFifo3new17h746e5d9f4804e007E(ptr noalias nocapture noundef writeonly sret({ { { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] }, {} } }) align 128 dereferenceable(256) %0) unnamed_addr #1 {
   %2 = alloca { { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] }, {} }, align 128
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2)
   call void @"_ZN84_$LT$crossbeam_deque..deque..Injector$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h52bb435b99a0dd2fE"(ptr noalias nocapture noundef nonnull sret({ { { { i64 }, { ptr } }, [14 x i64] }, { { { i64 }, { ptr } }, [14 x i64] }, {} }) align 128 dereferenceable(256) %2)

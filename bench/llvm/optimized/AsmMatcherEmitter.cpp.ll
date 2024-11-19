@@ -38757,7 +38757,7 @@ declare void @_ZN4llvm13CodeGenTargetD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN4llvm20SubtargetFeatureInfo6getAllERKNS_12RecordKeeperE(ptr dead_on_unwind writable sret(%"class.std::vector.176") align 8, ptr noundef nonnull align 8 dereferenceable(232)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113MatchableInfo10initializeERKNS_14AsmMatcherInfoERN4llvm15SmallPtrSetImplIPNS4_6RecordEEERKNS_14AsmVariantInfoEb(ptr noundef nonnull align 8 dereferenceable(1026) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113MatchableInfo10initializeERKNS_14AsmMatcherInfoERN4llvm15SmallPtrSetImplIPNS4_6RecordEEERKNS_14AsmVariantInfoEb(ptr noundef nonnull align 8 dereferenceable(1026) %0, ptr noundef nonnull align 8 dereferenceable(320) %1, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(84) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"struct.(anonymous namespace)::MatchableInfo::AsmOperand", align 8

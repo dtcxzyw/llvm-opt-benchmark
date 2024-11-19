@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN20btPolarDecompositionC1Efj = dso_local unnamed_addr alias void (ptr, float, i32), ptr @_ZN20btPolarDecompositionC2Efj
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN20btPolarDecompositionC2Efj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %this, float noundef %tolerance, i32 noundef %maxIterations) unnamed_addr #0 align 2 {
+define dso_local void @_ZN20btPolarDecompositionC2Efj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %this, float noundef %tolerance, i32 noundef %maxIterations) unnamed_addr #0 align 2 {
 entry:
   store float %tolerance, ptr %this, align 4
   %m_maxIterations = getelementptr inbounds i8, ptr %this, i64 4
@@ -21,7 +21,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZNK20btPolarDecomposition9decomposeERK11btMatrix3x3RS0_S3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %a, ptr nocapture noundef nonnull align 4 dereferenceable(48) initializes((0, 48)) %u, ptr nocapture noundef nonnull align 4 dereferenceable(48) initializes((0, 48)) %h) local_unnamed_addr #1 align 2 {
+define dso_local noundef i32 @_ZNK20btPolarDecomposition9decomposeERK11btMatrix3x3RS0_S3_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %a, ptr nocapture noundef nonnull align 4 dereferenceable(48) %u, ptr nocapture noundef nonnull align 4 dereferenceable(48) %h) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %u, ptr noundef nonnull align 4 dereferenceable(48) %a, i64 16, i1 false)
   %arrayidx5.i = getelementptr inbounds i8, ptr %a, i64 16
@@ -533,7 +533,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_Z14polarDecomposeRK11btMatrix3x3RS_S2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %a, ptr nocapture noundef nonnull align 4 dereferenceable(48) initializes((0, 48)) %u, ptr nocapture noundef nonnull align 4 dereferenceable(48) initializes((0, 48)) %h) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local noundef i32 @_Z14polarDecomposeRK11btMatrix3x3RS_S2_(ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %a, ptr nocapture noundef nonnull align 4 dereferenceable(48) %u, ptr nocapture noundef nonnull align 4 dereferenceable(48) %h) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZ14polarDecomposeRK11btMatrix3x3RS_S2_E5polar acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0

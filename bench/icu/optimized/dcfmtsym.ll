@@ -568,7 +568,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7520DecimalFormatSymbolsC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) initializes((0, 8)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7520DecimalFormatSymbolsC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %invoke.cont
@@ -1317,7 +1317,7 @@ declare void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7520DecimalFormatSymbolsC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7520DecimalFormatSymbolsC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %invoke.cont
@@ -1426,7 +1426,7 @@ ehcleanup62:                                      ; preds = %arraydestroy.body57
 declare void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7520DecimalFormatSymbolsC2ERKNS_6LocaleERKNS_15NumberingSystemER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(86) %ns, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7520DecimalFormatSymbolsC2ERKNS_6LocaleERKNS_15NumberingSystemER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(2883) %this, ptr noundef nonnull align 8 dereferenceable(217) %loc, ptr noundef nonnull align 8 dereferenceable(86) %ns, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %invoke.cont
@@ -1533,7 +1533,7 @@ ehcleanup62:                                      ; preds = %arraydestroy.body57
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7520DecimalFormatSymbolsC2Ev(ptr noundef nonnull align 8 dereferenceable(2883) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7520DecimalFormatSymbolsC2Ev(ptr noundef nonnull align 8 dereferenceable(2883) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %invoke.cont
@@ -2097,7 +2097,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #9
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7520DecimalFormatSymbolsD2Ev(ptr noundef nonnull align 8 dereferenceable(2883) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7520DecimalFormatSymbolsD2Ev(ptr noundef nonnull align 8 dereferenceable(2883) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %arraydestroy.body
@@ -2147,7 +2147,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7520DecimalFormatSymbolsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(2883) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(2883) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7520DecimalFormatSymbolsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(2883) %this, ptr noundef nonnull align 8 dereferenceable(2883) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520DecimalFormatSymbolsE, i64 16), ptr %this, align 8
   br label %invoke.cont

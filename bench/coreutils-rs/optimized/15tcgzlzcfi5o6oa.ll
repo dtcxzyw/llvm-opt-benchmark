@@ -393,7 +393,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.4102373720893104329.ex
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN7uu_fold4fold28_$u7b$$u7b$closure$u7d$$u7d$17h7adc43e6682d1085E.llvm.4102373720893104329"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
+define hidden void @"_ZN7uu_fold4fold28_$u7b$$u7b$closure$u7d$$u7d$17h7adc43e6682d1085E.llvm.4102373720893104329"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #3 {
   %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hacbadea320006592E"(i64 noundef %2, i1 noundef zeroext false)
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
@@ -409,7 +409,7 @@ define hidden void @"_ZN7uu_fold4fold28_$u7b$$u7b$closure$u7d$$u7d$17h7adc43e668
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN7uu_fold18fold_file_bytewise28_$u7b$$u7b$closure$u7d$$u7d$17h24a1274f9b1bb3a6E.llvm.4102373720893104329"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #3 {
+define hidden void @"_ZN7uu_fold18fold_file_bytewise28_$u7b$$u7b$closure$u7d$$u7d$17h24a1274f9b1bb3a6E.llvm.4102373720893104329"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0) unnamed_addr #3 {
   %2 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hacbadea320006592E"(i64 noundef 19, i1 noundef zeroext false)
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
@@ -425,7 +425,7 @@ define hidden void @"_ZN7uu_fold18fold_file_bytewise28_$u7b$$u7b$closure$u7d$$u7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN7uu_fold9fold_file28_$u7b$$u7b$closure$u7d$$u7d$17h849d9a76d3bbe7c0E.llvm.4102373720893104329"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #3 {
+define hidden void @"_ZN7uu_fold9fold_file28_$u7b$$u7b$closure$u7d$$u7d$17h849d9a76d3bbe7c0E.llvm.4102373720893104329"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0) unnamed_addr #3 {
   %2 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hacbadea320006592E"(i64 noundef 19, i1 noundef zeroext false)
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1

@@ -6893,7 +6893,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal noundef i32 @_ZN4mold3elfL8get_viewINS0_11LOONGARCH32EEENS_12PluginStatusEPKvPS5_(ptr nocapture noundef readonly %handle, ptr nocapture noundef writeonly initializes((0, 8)) %view) #4 {
+define internal noundef i32 @_ZN4mold3elfL8get_viewINS0_11LOONGARCH32EEENS_12PluginStatusEPKvPS5_(ptr nocapture noundef readonly %handle, ptr nocapture noundef writeonly %view) #4 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #18

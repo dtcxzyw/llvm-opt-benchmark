@@ -344,7 +344,7 @@ declare void @_ZN15ProfileTreeView11itemUpdatedEv(ptr noundef nonnull align 8 de
 declare void @_ZN9QTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15ProfileTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 {
+define void @_ZN15ProfileTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15ProfileTreeView, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV15ProfileTreeView, i64 824), ptr %2, align 8

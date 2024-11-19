@@ -342,7 +342,7 @@ _ZN5faiss12AlignedTableIfLi32EEC2Em.exit:         ; preds = %_ZN5faiss12AlignedT
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss18IndexIVFPQFastScan13train_encoderElPKfPKl(ptr noundef nonnull align 8 dereferenceable(568) initializes((384, 385)) %0, i64 noundef %1, ptr noundef %2, ptr nocapture readnone %3) unnamed_addr #2 align 2 {
+define void @_ZN5faiss18IndexIVFPQFastScan13train_encoderElPKfPKl(ptr noundef nonnull align 8 dereferenceable(568) %0, i64 noundef %1, ptr noundef %2, ptr nocapture readnone %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 328

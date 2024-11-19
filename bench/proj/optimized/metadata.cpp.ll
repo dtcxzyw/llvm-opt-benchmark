@@ -481,7 +481,7 @@ define void @_ZN5osgeo4proj8metadata8CitationC2ERKS2_(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj8metadata8CitationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj8metadata8CitationD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata8CitationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -565,7 +565,7 @@ define hidden void @_ZN5osgeo4proj8metadata16GeographicExtentC2Ev(ptr noundef no
 declare void @_ZN5osgeo4proj4util11IComparableD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj8metadata16GeographicExtentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj8metadata16GeographicExtentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata16GeographicExtentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata16GeographicExtentE, i64 80), ptr %2, align 8
@@ -656,7 +656,7 @@ _ZN5osgeo4proj8metadata16GeographicExtentC2Ev.exit: ; preds = %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj8metadata21GeographicBoundingBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj8metadata21GeographicBoundingBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata21GeographicBoundingBoxE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata21GeographicBoundingBoxE, i64 80), ptr %2, align 8
@@ -1789,7 +1789,7 @@ define hidden void @_ZN5osgeo4proj8metadata14VerticalExtentC2EddRKN7dropbox6oxyg
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj8metadata14VerticalExtentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj8metadata14VerticalExtentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata14VerticalExtentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata14VerticalExtentE, i64 56), ptr %2, align 8
@@ -2263,7 +2263,7 @@ define hidden void @_ZN5osgeo4proj8metadata14TemporalExtentC2ERKNSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj8metadata14TemporalExtentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj8metadata14TemporalExtentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata14TemporalExtentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata14TemporalExtentE, i64 56), ptr %2, align 8
@@ -2619,7 +2619,7 @@ define void @_ZN5osgeo4proj8metadata6ExtentC2ERKS2_(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj8metadata6ExtentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj8metadata6ExtentD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata6ExtentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata6ExtentE, i64 56), ptr %2, align 8
@@ -6861,7 +6861,7 @@ define void @_ZN5osgeo4proj8metadata10IdentifierC2ERKS2_(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj8metadata10IdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (16, 32)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj8metadata10IdentifierD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata10IdentifierE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata10IdentifierE, i64 64), ptr %2, align 8
@@ -8524,7 +8524,7 @@ _ZNKSt14default_deleteIN5osgeo4proj8metadata18PositionalAccuracy7PrivateEEclEPS4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj8metadata18PositionalAccuracyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj8metadata18PositionalAccuracyD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8metadata18PositionalAccuracyE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8

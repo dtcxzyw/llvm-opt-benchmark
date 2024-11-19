@@ -293,7 +293,7 @@ $_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen3MapINS3_6M
 @_ZN5ceres8internal26LevenbergMarquardtStrategyD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal26LevenbergMarquardtStrategyD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal26LevenbergMarquardtStrategyC2ERKNS0_19TrustRegionStrategy7OptionsE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 57), (64, 108)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal26LevenbergMarquardtStrategyC2ERKNS0_19TrustRegionStrategy7OptionsE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::LogMessageFatal", align 8
   %4 = alloca %"struct.google::CheckOpString", align 8
   %5 = alloca double, align 8
@@ -1274,7 +1274,7 @@ _ZN6google12Check_GTImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 declare double @llvm.fmuladd.f64(double, double, double) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5ceres8internal26LevenbergMarquardtStrategy12StepRejectedEd(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((56, 57)) %0, double %1) unnamed_addr #7 align 2 {
+define hidden void @_ZN5ceres8internal26LevenbergMarquardtStrategy12StepRejectedEd(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, double %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load double, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48

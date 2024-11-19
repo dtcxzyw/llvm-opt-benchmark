@@ -1962,7 +1962,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core12experimenta
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core33XdsClusterSpecifierPluginRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core33XdsClusterSpecifierPluginRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name.i = alloca %"class.std::basic_string_view", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8

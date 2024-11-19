@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.cbs_st = type { ptr, i64 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @CBS_init(ptr nocapture noundef writeonly initializes((0, 16)) %cbs, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
+define hidden void @CBS_init(ptr nocapture noundef writeonly %cbs, ptr noundef %data, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   store ptr %data, ptr %cbs, align 8
   %len2 = getelementptr inbounds i8, ptr %cbs, i64 8
@@ -51,7 +51,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @CBS_stow(ptr nocapture noundef readonly %cbs, ptr nocapture noundef %out_ptr, ptr nocapture noundef writeonly initializes((0, 8)) %out_len) local_unnamed_addr #3 {
+define hidden range(i32 0, 2) i32 @CBS_stow(ptr nocapture noundef readonly %cbs, ptr nocapture noundef %out_ptr, ptr nocapture noundef writeonly %out_len) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %out_ptr, align 8
   tail call void @free(ptr noundef %0) #14

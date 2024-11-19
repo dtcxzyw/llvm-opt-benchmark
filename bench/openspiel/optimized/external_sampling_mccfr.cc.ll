@@ -940,7 +940,7 @@ _ZNSt12__shared_ptrIN10open_spiel13UniformPolicyELN9__gnu_cxx12_Lock_policyE2EED
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10algorithms27ExternalSamplingMCCFRSolverC2ESt10shared_ptrIKNS_4GameEES2_INS_6PolicyEESt10unique_ptrISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EESt14default_deleteISA_EENS0_11AverageTypeE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10algorithms27ExternalSamplingMCCFRSolverC2ESt10shared_ptrIKNS_4GameEES2_INS_6PolicyEESt10unique_ptrISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EESt14default_deleteISA_EENS0_11AverageTypeE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator.7", align 1
   %8 = load ptr, ptr %1, align 8

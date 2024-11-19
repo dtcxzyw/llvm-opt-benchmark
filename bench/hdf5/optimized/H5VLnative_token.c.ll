@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [38 x i8] c"can't convert address to object token\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5VL__native_token_cmp(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define noundef i32 @H5VL__native_token_cmp(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call i32 @memcmp(ptr noundef nonnull dereferenceable(16) %1, ptr noundef nonnull dereferenceable(16) %2, i64 noundef 16) #8
   store i32 %5, ptr %3, align 4
   ret i32 0

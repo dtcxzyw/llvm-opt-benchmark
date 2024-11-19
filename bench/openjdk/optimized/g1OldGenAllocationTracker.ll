@@ -23,13 +23,13 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_3ELS1_146ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @_ZN25G1OldGenAllocationTrackerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN25G1OldGenAllocationTrackerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN25G1OldGenAllocationTrackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN25G1OldGenAllocationTrackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN25G1OldGenAllocationTracker14reset_after_gcEm(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 16)) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN25G1OldGenAllocationTracker14reset_after_gcEm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8
   %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %4)

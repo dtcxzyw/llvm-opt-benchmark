@@ -15,7 +15,7 @@ $_ZNSt6vectorIiSaIiEE17_M_default_appendEm = comdat any
 @_ZN3gmx8internal16LocalAtomSetDataC1ENS_8ArrayRefIKlEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN3gmx8internal16LocalAtomSetDataC2ENS_8ArrayRefIKlEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8internal16LocalAtomSetDataC2ENS_8ArrayRefIKlEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr %1, ptr %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx8internal16LocalAtomSetDataC2ENS_8ArrayRefIKlEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr %1, ptr %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64

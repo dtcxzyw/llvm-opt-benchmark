@@ -156,7 +156,7 @@ $_ZTV18ShortLoopOptimizer = comdat any
 @_ZN20GlobalValueNumberingC1EP2IR = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN20GlobalValueNumberingC2EP2IR
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ValueMapC2Ev(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 4), (8, 32)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN8ValueMapC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i64, ptr @ValueMapInitialSize, align 8
@@ -196,7 +196,7 @@ _ZN13GrowableArrayIP13ValueMapEntryEC2EiiRKS1_.exit: ; preds = %.lr.ph.preheader
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8ValueMapC2EPS_(ptr noundef nonnull align 8 dereferenceable(52) initializes((0, 4), (8, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN8ValueMapC2EPS_(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr %0, align 8
@@ -1059,7 +1059,7 @@ define hidden void @_ZN8ValueMap8kill_allEv(ptr nocapture noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((0, 33)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10BlockBeginP9BlockList(ptr nocapture noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 align 2 {
   store ptr %2, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
@@ -1708,7 +1708,7 @@ define hidden void @_ZN20GlobalValueNumbering10substituteEP11Instruction(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN18ShortLoopOptimizer7processEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(69) initializes((16, 20), (40, 41)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN18ShortLoopOptimizer7processEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(69) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.LoopInvariantCodeMotion, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %4, align 8
@@ -2030,7 +2030,7 @@ _ZN23LoopInvariantCodeMotionC2EP18ShortLoopOptimizerP20GlobalValueNumberingP10Bl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20GlobalValueNumberingC2EP2IR(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 48)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN20GlobalValueNumberingC2EP2IR(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.ShortLoopOptimizer, align 8
   %4 = alloca %class.SubstitutionResolver, align 8
   store ptr getelementptr inbounds inrange(-16, 400) (i8, ptr @_ZTV20GlobalValueNumbering, i64 16), ptr %0, align 8

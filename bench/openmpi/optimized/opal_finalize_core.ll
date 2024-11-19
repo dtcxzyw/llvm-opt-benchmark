@@ -44,7 +44,7 @@ define internal void @opal_cleanup_fn_item_destruct(ptr nocapture readnone %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_finalize_domain_construct(ptr nocapture noundef writeonly initializes((64, 72)) %0) #1 {
+define internal void @opal_finalize_domain_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   ret void

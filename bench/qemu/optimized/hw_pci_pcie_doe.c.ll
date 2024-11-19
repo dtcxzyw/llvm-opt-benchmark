@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.extract32 = private unnamed_addr constant [39 x i8] c"uint32_t extract32(uint32_t, int, int)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pcie_doe_init(ptr noundef %dev, ptr nocapture noundef initializes((0, 10), (24, 52), (56, 64)) %doe_cap, i16 noundef zeroext %offset, ptr noundef %protocols, i1 noundef zeroext %intr, i16 noundef zeroext %vec) local_unnamed_addr #0 {
+define dso_local void @pcie_doe_init(ptr noundef %dev, ptr nocapture noundef %doe_cap, i16 noundef zeroext %offset, ptr noundef %protocols, i1 noundef zeroext %intr, i16 noundef zeroext %vec) local_unnamed_addr #0 {
 entry:
   %frombool = zext i1 %intr to i8
   tail call void @pcie_add_capability(ptr noundef %dev, i16 noundef zeroext 46, i8 noundef zeroext 1, i16 noundef zeroext %offset, i16 noundef zeroext 24) #9
@@ -617,7 +617,7 @@ sw.epilog:                                        ; preds = %deposit32.exit, %sw
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @pcie_doe_set_error(ptr nocapture noundef initializes((19, 20)) %doe_cap, i1 noundef zeroext %err) unnamed_addr #0 {
+define internal fastcc void @pcie_doe_set_error(ptr nocapture noundef %doe_cap, i1 noundef zeroext %err) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %err to i8
   %error = getelementptr inbounds i8, ptr %doe_cap, i64 19

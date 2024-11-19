@@ -80,7 +80,7 @@ $_ZZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC1EvE4args = comdat any
 @_ZN4node7tracing15NodeTraceWriterD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4node7tracing15NodeTraceWriterD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing15NodeTraceWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1409) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(32) %log_file_pattern) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node7tracing15NodeTraceWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1409) %this, ptr noundef nonnull align 8 dereferenceable(32) %log_file_pattern) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i64 16), ptr %this, align 8
   %tracing_loop_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -262,7 +262,7 @@ if.end4:                                          ; preds = %if.end4.critedge, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing15NodeTraceWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(1409) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node7tracing15NodeTraceWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(1409) %this) unnamed_addr #0 align 2 {
 entry:
   %req = alloca %struct.uv_fs_s, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i64 16), ptr %this, align 8
@@ -370,7 +370,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing15NodeTraceWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(1409) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node7tracing15NodeTraceWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(1409) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN4node7tracing15NodeTraceWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(1409) %this) #12
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15

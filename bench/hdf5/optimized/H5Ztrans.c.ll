@@ -8011,7 +8011,7 @@ H5Z__op_is_numbs.exit33.thread:                   ; preds = %H5Z__op_is_numbs.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5Z__parse_term(ptr noundef nonnull initializes((32, 36), (40, 56)) %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @H5Z__parse_term(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @H5Z__parse_factor(ptr noundef %0, ptr noundef %1)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   br label %5
@@ -8142,7 +8142,7 @@ define internal fastcc ptr @H5Z__parse_term(ptr noundef nonnull initializes((32,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull returned initializes((32, 36), (40, 56)) %0) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @H5Z__get_token(ptr noundef nonnull returned %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8388,7 +8388,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5Z__parse_factor(ptr noundef nonnull initializes((32, 36), (40, 56)) %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @H5Z__parse_factor(ptr noundef nonnull %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @H5Z__get_token(ptr noundef %0)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8

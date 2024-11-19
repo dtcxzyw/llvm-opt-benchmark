@@ -473,7 +473,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf8internal14GetCurrentTimeEPlPi(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 {
+define void @_ZN6google8protobuf8internal14GetCurrentTimeEPlPi(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = tail call i64 @time(ptr noundef null) #10
   store i64 %3, ptr %0, align 8
   store i32 0, ptr %1, align 4

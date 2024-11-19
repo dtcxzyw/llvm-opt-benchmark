@@ -887,7 +887,7 @@ declare dso_local ptr @__i915_gem_object_create_internal(ptr noundef, ptr nounde
 declare dso_local ptr @i915_vma_instance(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @pd_dummy_obj_get_pages(ptr nocapture noundef writeonly initializes((744, 752)) %0) #4 align 16 {
+define internal noundef i32 @pd_dummy_obj_get_pages(ptr nocapture noundef writeonly %0) #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 744
   store ptr inttoptr (i64 16 to ptr), ptr %2, align 8
   ret i32 0

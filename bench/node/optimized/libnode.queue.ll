@@ -738,7 +738,7 @@ return:                                           ; preds = %_ZNSt10shared_ptrIN
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9DataQueue6CreateESt8optionalImE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, i64 %capped.coerce0, i8 %capped.coerce1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9DataQueue6CreateESt8optionalImE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, i64 %capped.coerce0, i8 %capped.coerce1) local_unnamed_addr #3 align 2 {
 entry:
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #22, !noalias !13
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 8
@@ -1100,7 +1100,7 @@ _ZNSt10unique_ptrIN4node12_GLOBAL__N_114DataQueueEntryESt14default_deleteIS2_EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9DataQueue13CreateFdEntryEPNS_11EnvironmentEN2v85LocalINS3_5ValueEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %env, ptr %path.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9DataQueue13CreateFdEntryEPNS_11EnvironmentEN2v85LocalINS3_5ValueEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %env, ptr %path.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %req.i = alloca %struct.uv_fs_s, align 8
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %req.i)
@@ -10516,7 +10516,7 @@ _ZNSt10shared_ptrIN2v812BackingStoreEED2Ev.exit:  ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntryE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -10597,7 +10597,7 @@ _ZNSt10shared_ptrIN4node9DataQueueEED2Ev.exit:    ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntryE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -10807,7 +10807,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntry5sliceEmSt8optionalImE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %start, i64 %end.coerce0, i8 %end.coerce1) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntry5sliceEmSt8optionalImE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, i64 noundef %start, i64 %end.coerce0, i8 %end.coerce1) unnamed_addr #3 align 2 {
 entry:
   %sliced = alloca %"class.std::shared_ptr", align 8
   %data_queue_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -10936,7 +10936,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntry10get_readerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.313") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntry10get_readerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.313") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp2 = alloca %"class.std::shared_ptr.313", align 8
   %data_queue_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -11138,7 +11138,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
@@ -11255,7 +11255,7 @@ _ZNSt23enable_shared_from_thisIN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 16)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -11527,7 +11527,7 @@ _ZNSt10shared_ptrIN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplEED2Ev.exit: ;
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD1Ev(ptr nocapture noundef initializes((-8, 8)) %this) unnamed_addr #14 align 2 {
+define internal void @_ZThn8_N4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD1Ev(ptr nocapture noundef %this) unnamed_addr #14 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplE, i64 16), ptr %0, align 8
@@ -11644,7 +11644,7 @@ _ZN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD2Ev.exit: ; preds = %_ZNSt10s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn8_N4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD0Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #14 align 2 {
+define internal void @_ZThn8_N4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD0Ev(ptr noundef %this) unnamed_addr #14 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN4node12_GLOBAL__N_114DataQueueEntry10ReaderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #20
@@ -11910,7 +11910,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_113InMemoryEntry10get_readerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.313") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_113InMemoryEntry10get_readerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.313") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22, !noalias !178
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 8
@@ -12100,7 +12100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_110EmptyEntry5sliceEmSt8optionalImE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 noundef %start, i64 %maybeEnd.coerce0, i8 %maybeEnd.coerce1) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_110EmptyEntry5sliceEmSt8optionalImE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i64 noundef %start, i64 %maybeEnd.coerce0, i8 %maybeEnd.coerce1) unnamed_addr #3 align 2 {
 entry:
   %cmp.not = icmp eq i64 %start, 0
   br i1 %cmp.not, label %_ZNSt10unique_ptrIN4node12_GLOBAL__N_110EmptyEntryESt14default_deleteIS2_EED2Ev.exit, label %return
@@ -12129,7 +12129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node12_GLOBAL__N_110EmptyEntry10get_readerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.313") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_110EmptyEntry10get_readerEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.313") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 {
 entry:
   %call5.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22, !noalias !187
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 8

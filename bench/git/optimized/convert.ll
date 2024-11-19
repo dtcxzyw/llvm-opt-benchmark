@@ -499,7 +499,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare i32 @sigchain_pop(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @convert_attrs(ptr noundef %istate, ptr nocapture noundef initializes((12, 16)) %ca, ptr noundef %path) local_unnamed_addr #0 {
+define dso_local void @convert_attrs(ptr noundef %istate, ptr nocapture noundef %ca, ptr noundef %path) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @check, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -3247,7 +3247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @init_checkout_metadata(ptr nocapture noundef writeonly initializes((0, 80)) %meta, ptr noundef %refname, ptr noundef readonly %treeish, ptr noundef readonly %blob) local_unnamed_addr #9 {
+define dso_local void @init_checkout_metadata(ptr nocapture noundef writeonly %meta, ptr noundef %refname, ptr noundef readonly %treeish, ptr noundef readonly %blob) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %meta, i8 0, i64 80, i1 false)
   %tobool.not = icmp eq ptr %refname, null
@@ -3291,7 +3291,7 @@ if.end9:                                          ; preds = %if.then7, %if.end5
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @clone_checkout_metadata(ptr nocapture noundef writeonly initializes((0, 80)) %dst, ptr nocapture noundef readonly %src, ptr noundef readonly %blob) local_unnamed_addr #9 {
+define dso_local void @clone_checkout_metadata(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, ptr noundef readonly %blob) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %dst, ptr noundef nonnull align 8 dereferenceable(80) %src, i64 80, i1 false)
   %tobool.not = icmp eq ptr %blob, null

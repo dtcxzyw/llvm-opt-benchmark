@@ -283,7 +283,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormat21InitAsDefaultInstan
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers12NumberFormatC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers12NumberFormatC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %0, align 8
@@ -329,7 +329,7 @@ declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcS
 declare void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers12NumberFormatC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers12NumberFormatC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i64 16), ptr %0, align 8
@@ -2143,7 +2143,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDesc21InitAsDefaultIns
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr %0, align 8
@@ -2196,7 +2196,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIiEC1EPNS0_5ArenaE(ptr noundef n
 declare void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i64 16), ptr %0, align 8
@@ -3766,7 +3766,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZN4i18n12phon
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 72)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers13PhoneMetadataE, i64 16), ptr %0, align 8
@@ -3840,7 +3840,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers12NumberFormatEEC2ERKS5_.exit:
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -12903,7 +12903,7 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollection21InitAsDe
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %0, align 8
@@ -12981,7 +12981,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN4i18n12phonenumbers13PhoneMeta
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i64 16), ptr %0, align 8

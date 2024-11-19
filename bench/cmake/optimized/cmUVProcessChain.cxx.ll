@@ -379,14 +379,14 @@ _ZSt8_DestroyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11cha
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProcessChainBuilder14SetBuiltinLoopEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(96) initializes((88, 96)) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProcessChainBuilder14SetBuiltinLoopEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr null, ptr %2, align 8
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProcessChainBuilder15SetExternalLoopER9uv_loop_s(ptr noundef nonnull returned writeonly align 8 dereferenceable(96) initializes((88, 96)) %0, ptr noundef nonnull align 8 dereferenceable(848) %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProcessChainBuilder15SetExternalLoopER9uv_loop_s(ptr noundef nonnull returned writeonly align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(848) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8
   ret ptr %0
@@ -474,7 +474,7 @@ _ZN23cmUVProcessChainBuilder17SetExternalStreamENS_6StreamEi.exit: ; preds = %12
 declare noundef i32 @_Z9cm_filenoP8_IO_FILE(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProcessChainBuilder23SetMergedBuiltinStreamsEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(96) initializes((8, 12), (16, 20), (80, 81)) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(96) ptr @_ZN23cmUVProcessChainBuilder23SetMergedBuiltinStreamsEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -625,7 +625,7 @@ _ZN16cmUVProcessChain12InternalData6FinishEv.exit: ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7PrepareEPK23cmUVProcessChainBuilder(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN16cmUVProcessChain12InternalData7PrepareEPK23cmUVProcessChainBuilder(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x i32], align 4
   %4 = alloca [2 x i32], align 4
   %5 = alloca %"class.std::unique_ptr.23", align 8
@@ -1395,7 +1395,7 @@ declare noundef ptr @_ZNK2cm11uv_pipe_ptrcvP11uv_stream_sEv(ptr noundef nonnull 
 declare noundef i32 @_ZN2cm14uv_process_ptr5spawnER9uv_loop_sRK20uv_process_options_sPv(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(848), ptr noundef nonnull align 8 dereferenceable(80), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN16cmUVProcessChain12InternalData11ProcessData6FinishEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((60, 61)) %0) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN16cmUVProcessChain12InternalData11ProcessData6FinishEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 60
   store i8 1, ptr %2, align 4
   %3 = load ptr, ptr %0, align 8
@@ -1456,7 +1456,7 @@ _ZSt11make_uniqueIN16cmUVProcessChain12InternalDataEJEENSt8__detail9_MakeUniqIT_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN16cmUVProcessChainC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 align 2 {
+define dso_local void @_ZN16cmUVProcessChainC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8

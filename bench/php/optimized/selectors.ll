@@ -2401,7 +2401,7 @@ define internal fastcc noundef ptr @lxb_selectors_next(ptr nocapture noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @lxb_selectors_first_match(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #2 {
+define internal noundef i32 @lxb_selectors_first_match(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef writeonly %2) #2 {
   store i8 1, ptr %2, align 1
   ret i32 19
 }

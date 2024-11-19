@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.5 = private unnamed_addr constant [22 x i8] c"failed bus alloc: %d\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_gmch_bridge_setup(ptr noundef initializes((7816, 7824)) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_gmch_bridge_setup(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 -168

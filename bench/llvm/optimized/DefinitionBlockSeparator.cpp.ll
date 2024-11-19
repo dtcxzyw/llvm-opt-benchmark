@@ -78,7 +78,7 @@ $_ZN5clang6format11FormatStyle15RawStringFormatD2Ev = comdat any
 @switch.table._ZNK5clang6format11FormatToken7isOneOfINS_3tok13PPKeywordKindES4_JS4_S4_EEEbT_T0_DpT1_.9 = private unnamed_addr constant [19 x i16] [i16 1, i16 13, i16 13, i16 13, i16 13, i16 13, i16 7, i16 8, i16 9, i16 10, i16 11, i16 12, i16 13, i16 14, i16 15, i16 16, i16 17, i16 18, i16 19], align 2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6format24DefinitionBlockSeparator7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(3648) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6format24DefinitionBlockSeparator7analyzeERNS0_14TokenAnnotatorERN4llvm15SmallVectorImplIPNS0_13AnnotatedLineEEERNS0_16FormatTokenLexerE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4276) %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(3648) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::_Rb_tree<clang::tooling::Replacement, clang::tooling::Replacement, std::_Identity<clang::tooling::Replacement>, std::less<clang::tooling::Replacement>>::_Alloc_node", align 8
   %7 = alloca %"class.clang::tooling::Replacements", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 1800

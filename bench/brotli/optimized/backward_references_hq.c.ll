@@ -327,7 +327,7 @@ for.end:                                          ; preds = %if.end38, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @BrotliZopfliComputeShortestPath(ptr noundef %m, i64 noundef %num_bytes, i64 noundef %position, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr nocapture noundef readonly %literal_context_lut, ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %dist_cache, ptr nocapture noundef readonly %hasher, ptr nocapture noundef initializes((0, 4), (12, 16)) %nodes) local_unnamed_addr #3 {
+define hidden i64 @BrotliZopfliComputeShortestPath(ptr noundef %m, i64 noundef %num_bytes, i64 noundef %position, ptr noundef %ringbuffer, i64 noundef %ringbuffer_mask, ptr nocapture noundef readonly %literal_context_lut, ptr nocapture noundef readonly %params, ptr nocapture noundef readonly %dist_cache, ptr nocapture noundef readonly %hasher, ptr nocapture noundef %nodes) local_unnamed_addr #3 {
 entry:
   %__brotli_swap_tmp.i.i = alloca %struct.PosData, align 8
   %posdata.i = alloca %struct.PosData, align 8

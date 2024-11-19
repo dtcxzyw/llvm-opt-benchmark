@@ -1922,7 +1922,7 @@ eh.resume:                                        ; preds = %arraydestroy.done47
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18FdmMesherCompositeC2ERKSt6vectorIN5boost10shared_ptrINS_11Fdm1dMesherEEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mesher) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18FdmMesherCompositeC2ERKSt6vectorIN5boost10shared_ptrINS_11Fdm1dMesherEEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mesher) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEED2Ev.exit:
   %agg.tmp = alloca %"class.boost::shared_ptr", align 8
   call fastcc void @_ZN8QuantLib12_GLOBAL__N_120getLayoutFromMeshersERKSt6vectorIN5boost10shared_ptrINS_11Fdm1dMesherEEESaIS5_EE(ptr dead_on_unwind noalias writable align 8 %agg.tmp, ptr noundef nonnull align 8 dereferenceable(24) %mesher)
@@ -2012,7 +2012,7 @@ lpad2:                                            ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18FdmMesherCompositeC2ERKN5boost10shared_ptrINS_17FdmLinearOpLayoutEEERKSt6vectorINS2_INS_11Fdm1dMesherEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %layout, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mesher) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18FdmMesherCompositeC2ERKN5boost10shared_ptrINS_17FdmLinearOpLayoutEEERKSt6vectorINS2_INS_11Fdm1dMesherEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %layout, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mesher) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2577,7 +2577,7 @@ _ZNK5boost10shared_ptrIN8QuantLib11Fdm1dMesherEEptEv.exit: ; preds = %entry, %co
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib18FdmMesherComposite9locationsEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %direction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib18FdmMesherComposite9locationsEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i64 noundef %direction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__begin1 = alloca %"class.QuantLib::FdmLinearOpIterator", align 8
   %__end1 = alloca %"class.QuantLib::FdmLinearOpIterator", align 8

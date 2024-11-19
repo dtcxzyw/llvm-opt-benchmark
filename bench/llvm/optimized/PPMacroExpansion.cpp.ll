@@ -1700,7 +1700,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %3, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12Preprocessor21updateModuleMacroInfoEPKNS_14IdentifierInfoERNS0_15ModuleMacroInfoE(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 20)) %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang12Preprocessor21updateModuleMacroInfoEPKNS_14IdentifierInfoERNS0_15ModuleMacroInfoE(ptr noundef nonnull align 8 dereferenceable(3288) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::DenseMap.173", align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"class.llvm::SmallVector.176", align 8
@@ -10182,7 +10182,7 @@ define dso_local void @_ZN5clang12Preprocessor23processPathForFileMacroERN4llvm1
 declare void @_ZN5clang5Lexer9StringifyERN4llvm15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16ComputeDATE_TIMERN5clang14SourceLocationES1_RNS_12PreprocessorE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr noundef nonnull align 8 dereferenceable(3288) %2) unnamed_addr #1 {
+define internal fastcc void @_ZL16ComputeDATE_TIMERN5clang14SourceLocationES1_RNS_12PreprocessorE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(3288) %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.llvm::SmallString.577", align 8
   %6 = alloca %"class.llvm::raw_svector_ostream", align 8
@@ -19131,7 +19131,7 @@ define internal noundef i32 @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_8EEilS3_S4_"(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2) #1 align 2 {
+define internal noundef range(i32 0, 2) i32 @"_ZN4llvm12function_refIFiRN5clang5TokenERbEE11callback_fnIZNS1_12Preprocessor18ExpandBuiltinMacroES3_E3$_8EEilS3_S4_"(i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) #1 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::SmallVector.772", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

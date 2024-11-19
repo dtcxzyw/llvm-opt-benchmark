@@ -176,7 +176,7 @@ declare void @error_setg_errno_internal(ptr noundef, ptr noundef, i32 noundef, p
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @oss_init_out(ptr noundef initializes((168, 172)) %hw, ptr noundef %as, ptr noundef %drv_opaque) #0 {
+define internal range(i32 -1, 1) i32 @oss_init_out(ptr noundef %hw, ptr noundef %as, ptr noundef %drv_opaque) #0 {
 entry:
   %req = alloca %struct.oss_params, align 4
   %obt = alloca %struct.oss_params, align 4
@@ -796,7 +796,7 @@ if.end30:                                         ; preds = %if.end30.sink.split
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @oss_init_in(ptr noundef initializes((168, 172)) %hw, ptr noundef %as, ptr noundef %drv_opaque) #0 {
+define internal range(i32 -1, 1) i32 @oss_init_in(ptr noundef %hw, ptr noundef %as, ptr noundef %drv_opaque) #0 {
 entry:
   %req = alloca %struct.oss_params, align 4
   %obt = alloca %struct.oss_params, align 4

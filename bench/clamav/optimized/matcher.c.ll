@@ -966,7 +966,7 @@ define void @cli_targetinfo_init(ptr noundef %0) local_unnamed_addr #0 {
 declare void @cli_exe_info_init(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @cli_targetinfo(ptr noundef initializes((0, 8)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @cli_targetinfo(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 96
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 88

@@ -258,7 +258,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16PseudoRootFacadeC2ERKN5boost10shared_ptrINS_22CTSMMCapletCalibrationEEE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 56)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16PseudoRootFacadeC2ERKN5boost10shared_ptrINS_22CTSMMCapletCalibrationEEE(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %c) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.15", align 8
   %ref.tmp41 = alloca %"class.std::vector.20", align 8
@@ -1083,7 +1083,7 @@ _ZNSt6vectorIN8QuantLib6MatrixESaIS1_EED2Ev.exit19: ; preds = %invoke.cont.i12, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16PseudoRootFacadeC2ERKSt6vectorINS_6MatrixESaIS2_EERKS1_IdSaIdEES8_SA_(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 128)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %covariancePseudoRoots, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef %initialRates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %displacements) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16PseudoRootFacadeC2ERKSt6vectorINS_6MatrixESaIS2_EERKS1_IdSaIdEES8_SA_(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %covariancePseudoRoots, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef %initialRates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %displacements) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.15", align 8
   %ref.tmp9 = alloca %"class.std::vector.20", align 8

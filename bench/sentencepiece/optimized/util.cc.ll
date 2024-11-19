@@ -219,7 +219,7 @@ define void @_ZN13sentencepiece14SetMinLogLevelEi(i32 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10DecodeUTF8EPKcS2_Pm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #5 {
+define noundef range(i32 0, 1114112) i32 @_ZN13sentencepiece11string_util10DecodeUTF8EPKcS2_Pm(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #5 {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = sub i64 %4, %5
@@ -396,7 +396,7 @@ define noundef zeroext i1 @_ZN13sentencepiece11string_util19IsStructurallyValidE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef range(i64 1, 5) i64 @_ZN13sentencepiece11string_util10EncodeUTF8EjPc(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #7 {
+define noundef range(i64 1, 5) i64 @_ZN13sentencepiece11string_util10EncodeUTF8EjPc(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 {
   %3 = icmp ult i32 %0, 128
   br i1 %3, label %4, label %6
 
@@ -583,7 +583,7 @@ _ZN13sentencepiece11string_util10EncodeUTF8EjPc.exit: ; preds = %13, %17, %36, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece11string_util17UTF8ToUnicodeTextESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, i64 %1, ptr %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece11string_util17UTF8ToUnicodeTextESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, i64 %1, ptr %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 %1

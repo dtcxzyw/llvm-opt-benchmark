@@ -165,7 +165,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv3dnn14dnn4_v2024052116Image2BlobParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 73), (76, 120)) %0) unnamed_addr #3 align 2 {
+define void @_ZN2cv3dnn14dnn4_v2024052116Image2BlobParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
   store double 1.000000e+00, ptr %0, align 8, !alias.scope !4
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store double 1.000000e+00, ptr %2, align 8, !alias.scope !4

@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.70db8ad1f3fe451939a1068cbef86e8d.22 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbf78acb5066d0702E", [16 x i8] c"\18\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$9write_str17h6df651ed30efb638E", ptr @"_ZN58_$LT$alloc..string..String$u20$as$u20$core..fmt..Write$GT$10write_char17hc837ed62ef544522E", ptr @_ZN4core3fmt5Write9write_fmt17hd367f16807cb75e2E }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33ea7559a5f0f1a8E.llvm.13348757914254812529"(ptr noalias nocapture noundef writeonly sret({ i64, [40 x i64] }) align 8 dereferenceable(328) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h33ea7559a5f0f1a8E.llvm.13348757914254812529"(ptr noalias nocapture noundef writeonly sret({ i64, [40 x i64] }) align 8 dereferenceable(328) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %.sroa.4 = alloca [29 x i64], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %3 = load ptr, ptr %1, align 8, !alias.scope !4, !nonnull !7, !align !8, !noundef !7

@@ -464,7 +464,7 @@ define internal ptr @libpqrcv_get_conninfo(ptr nocapture noundef readonly %0) #1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @libpqrcv_get_senderinfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
+define internal void @libpqrcv_get_senderinfo(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #1 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = load ptr, ptr %0, align 8

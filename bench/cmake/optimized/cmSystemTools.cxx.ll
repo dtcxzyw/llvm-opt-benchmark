@@ -1460,7 +1460,7 @@ define linkonce_odr dso_local void @_ZN17cmSystemToolsArgVD2Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13cmSystemTools18HandleResponseFileEN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESD_(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr %1, ptr readnone %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13cmSystemTools18HandleResponseFileEN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESD_(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr %1, ptr readnone %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.cmMessageMetadata, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca [4 x %"struct.std::pair.114"], align 8
@@ -1809,7 +1809,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13cmSystemTools14ParseArgumentsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13cmSystemTools14ParseArgumentsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #31
@@ -2954,7 +2954,7 @@ declare noundef i32 @_ZN2cm12uv_timer_ptr5startEPFvP10uv_timer_sEmm(ptr noundef 
 declare void @_ZN15cmProcessOutputC1ENS_8EncodingEj(ptr noundef nonnull align 1 dereferenceable(1), i32 noundef, i32 noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN13cmSystemTools16RunSingleCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_SB_PiPKcNS_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSB_RS0_IcS5_EiPFvRKS6_ERb"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef range(i32 1, 3) %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN13cmSystemTools16RunSingleCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEPS6_SB_PiPKcNS_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSB_RS0_IcS5_EiPFvRKS6_ERb"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef range(i32 1, 3) %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %8) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %10 = icmp slt i32 %3, 0
   br i1 %10, label %11, label %12
 
@@ -5523,7 +5523,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 declare noundef zeroext i1 @_ZN5cmsys11SystemTools14IsSubDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13cmSystemTools9GetEnvVarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::optional") align 8 initializes((32, 33)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13cmSystemTools9GetEnvVarERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %4, align 8
@@ -5634,7 +5634,7 @@ define dso_local noundef zeroext i1 @_ZN13cmSystemTools8UnsetEnvEPKc(ptr nocaptu
 declare noundef i32 @unsetenv(ptr nocapture noundef readonly) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13cmSystemTools23GetEnvironmentVariablesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13cmSystemTools23GetEnvironmentVariablesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr @environ, align 8
   %3 = load ptr, ptr %2, align 8
@@ -6969,7 +6969,7 @@ define dso_local void @_ZN13cmSystemTools7EnvDiff17ApplyToCurrentEnvEPNSt7__cxx1
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13cmSystemTools22SaveRestoreEnvironmentC2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13cmSystemTools22SaveRestoreEnvironmentC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::vector", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !192)
@@ -13479,7 +13479,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN13cmSystemT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZ14cmUVStreamReadIZZN13cmSystemTools16RunSingleCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPS7_SC_PiPKcNS0_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSC_RS1_IcS6_EiPFvRKS7_ERbEUlSS_E_ZZNS0_16RunSingleCommandESB_SC_SC_SD_SF_SG_SL_SN_ENKSO_clESR_iSC_ST_iSX_SY_EUlvE_ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS12_EEP11uv_stream_sT_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeES1B_mS1D_"(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #4 align 2 {
+define internal void @"_ZZ14cmUVStreamReadIZZN13cmSystemTools16RunSingleCommandERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPS7_SC_PiPKcNS0_12OutputOptionENSt6chrono8durationIdSt5ratioILl1ELl1EEEEN15cmProcessOutput8EncodingEENK3$_1clERN2cm11uv_pipe_ptrEiSC_RS1_IcS6_EiPFvRKS7_ERbEUlSS_E_ZZNS0_16RunSingleCommandESB_SC_SC_SD_SF_SG_SL_SN_ENKSO_clESR_iSC_ST_iSX_SY_EUlvE_ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteIS12_EEP11uv_stream_sT_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeES1B_mS1D_"(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #4 align 2 {
   %.val = load ptr, ptr %0, align 8
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %.val, i64 noundef %1)
   %4 = load ptr, ptr %.val, align 8
@@ -14120,7 +14120,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZZN13cmSystemT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZ14cmUVStreamReadIZZN13cmSystemTools11WaitForLineEP9uv_loop_sP11uv_stream_sS4_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENSt6chrono8durationIdSt5ratioILl1ELl1EEEERSt6vectorIcS9_ESJ_ENK3$_0clES4_RZNS0_11WaitForLineES2_S4_S4_SB_SG_SJ_SJ_E8ReadDataEUlSI_E_ZZNS0_11WaitForLineES2_S4_S4_SB_SG_SJ_SJ_ENKSK_clES4_SM_EUlvE_ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISQ_EES4_T_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeESX_mSZ_"(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #4 align 2 {
+define internal void @"_ZZ14cmUVStreamReadIZZN13cmSystemTools11WaitForLineEP9uv_loop_sP11uv_stream_sS4_RNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENSt6chrono8durationIdSt5ratioILl1ELl1EEEERSt6vectorIcS9_ESJ_ENK3$_0clES4_RZNS0_11WaitForLineES2_S4_S4_SB_SG_SJ_SJ_E8ReadDataEUlSI_E_ZZNS0_11WaitForLineES2_S4_S4_SB_SG_SJ_SJ_ENKSK_clES4_SM_EUlvE_ESt10unique_ptrI20cmUVStreamReadHandleSt14default_deleteISQ_EES4_T_T0_ENUlP11uv_handle_smP8uv_buf_tE_8__invokeESX_mSZ_"(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #4 align 2 {
   %.val = load ptr, ptr %0, align 8
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %.val, i64 noundef %1)
   %4 = load ptr, ptr %.val, align 8

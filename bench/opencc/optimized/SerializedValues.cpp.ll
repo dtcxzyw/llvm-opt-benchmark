@@ -455,7 +455,7 @@ _ZNSt6vectorItSaItEED2Ev.exit19:                  ; preds = %._crit_edge31, %58
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6opencc16SerializedValues15ConstructBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorItSaItEEPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6opencc16SerializedValues15ConstructBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorItSaItEEPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.13", align 8
   %6 = alloca %"class.std::vector.13", align 8
   store i32 0, ptr %3, align 4

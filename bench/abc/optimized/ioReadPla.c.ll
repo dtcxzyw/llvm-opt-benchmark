@@ -1139,7 +1139,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Io_ReadPlaCubeSetdown(ptr nocapture noundef initializes((4, 8)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @Io_ReadPlaCubeSetdown(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %5, align 4
   %6 = icmp sgt i32 %2, 0

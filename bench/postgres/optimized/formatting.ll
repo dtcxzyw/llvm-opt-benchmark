@@ -1781,7 +1781,7 @@ define dso_local i64 @to_timestamp(ptr nocapture noundef readonly %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @do_to_timestamp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull initializes((0, 56)) %4, ptr nocapture noundef nonnull initializes((0, 4)) %5, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @do_to_timestamp(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4

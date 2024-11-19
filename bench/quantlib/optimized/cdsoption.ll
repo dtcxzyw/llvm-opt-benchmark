@@ -2449,7 +2449,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9CdsOptionC1ERKN5boost10shared_ptrINS_17CreditDefaultSwapEEERKNS2_INS_8ExerciseEEEb(ptr noundef nonnull align 8 dereferenceable(168) initializes((168, 176), (184, 188), (192, 200)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %exercise, i1 noundef zeroext %knocksOut) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9CdsOptionC1ERKN5boost10shared_ptrINS_17CreditDefaultSwapEEERKNS2_INS_8ExerciseEEEb(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %swap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %exercise, i1 noundef zeroext %knocksOut) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %agg.tmp3 = alloca %"class.boost::shared_ptr.17", align 8
@@ -3342,7 +3342,7 @@ _ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib9CdsOption12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(168) initializes((16, 40)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib9CdsOption12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %NPV_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -7470,7 +7470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9CdsOption7results5resetEv(ptr noundef nonnull align 8 dereferenceable(88) initializes((8, 32)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9CdsOption7results5resetEv(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.QuantLib::Date", align 8
   %errorEstimate.i = getelementptr inbounds nuw i8, ptr %this, i64 16

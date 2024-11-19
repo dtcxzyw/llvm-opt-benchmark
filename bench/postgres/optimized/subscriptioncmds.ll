@@ -630,7 +630,7 @@ declare i32 @GetUserId() local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_subscription_options(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 2, 49088) %2, ptr noundef nonnull initializes((0, 56)) %3) unnamed_addr #0 {
+define internal fastcc void @parse_subscription_options(ptr noundef %0, ptr noundef readonly %1, i32 noundef range(i32 2, 49088) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %5 = and i32 %2, 1
   %.not = icmp eq i32 %5, 0

@@ -327,7 +327,7 @@ define hidden void @_ZN4core9panicking13assert_failed17hf081ce9b4479f97bE(i8 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution9empirical9Empirical3new17h0f259ee655c0a445E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((0, 8), (24, 40), (48, 56)) %0) unnamed_addr #3 {
+define void @_ZN6statrs12distribution9empirical9Empirical3new17h0f259ee655c0a445E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0) unnamed_addr #3 {
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %0, i64 48
@@ -1594,7 +1594,7 @@ _ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E.exit: ; preds = %23
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs8generate16InfinitePeriodic3new17h715fc348c5424f9dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, i64 noundef %5) unnamed_addr #3 {
+define void @_ZN6statrs8generate16InfinitePeriodic3new17h715fc348c5424f9dE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, i64 noundef %5) unnamed_addr #3 {
   %7 = fdiv double %2, %1
   %8 = fmul double %7, %3
   %9 = sitofp i64 %5 to double
@@ -1614,7 +1614,7 @@ define void @_ZN6statrs8generate16InfinitePeriodic3new17h715fc348c5424f9dE(ptr d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs8generate16InfinitePeriodic7default17h934d243cc5c3087bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) initializes((0, 32)) %0, double noundef %1, double noundef %2) unnamed_addr #3 {
+define void @_ZN6statrs8generate16InfinitePeriodic7default17h934d243cc5c3087bE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([32 x i8]) align 8 dereferenceable(32) %0, double noundef %1, double noundef %2) unnamed_addr #3 {
   %4 = fdiv double %2, %1
   %5 = fmul double %4, 0.000000e+00
   %6 = fsub double 0.000000e+00, %5
@@ -1707,7 +1707,7 @@ define { i64, double } @"_ZN93_$LT$statrs..generate..InfinitePeriodic$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs8generate18InfiniteSinusoidal3new17hc7cddce23eb37937E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i64 noundef %6) unnamed_addr #3 {
+define void @_ZN6statrs8generate18InfiniteSinusoidal3new17hc7cddce23eb37937E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i64 noundef %6) unnamed_addr #3 {
   %8 = fdiv double %2, %1
   %9 = fmul double %8, 0x401921FB54442D18
   %10 = sitofp i64 %6 to double
@@ -1727,7 +1727,7 @@ define void @_ZN6statrs8generate18InfiniteSinusoidal3new17hc7cddce23eb37937E(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs8generate18InfiniteSinusoidal7default17h386c3a1d35d906dcE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #3 {
+define void @_ZN6statrs8generate18InfiniteSinusoidal7default17h386c3a1d35d906dcE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, double noundef %1, double noundef %2, double noundef %3) unnamed_addr #3 {
   %5 = fdiv double %2, %1
   %6 = fmul double %5, 0x401921FB54442D18
   %7 = fmul double %6, 0.000000e+00
@@ -1832,7 +1832,7 @@ define { i64, double } @"_ZN95_$LT$statrs..generate..InfiniteSinusoidal$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs8generate14InfiniteSquare3new17h44e3c42afc0123c4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((0, 56)) %0, i64 noundef %1, i64 noundef %2, double noundef %3, double noundef %4, i64 noundef %5) unnamed_addr #3 {
+define void @_ZN6statrs8generate14InfiniteSquare3new17h44e3c42afc0123c4E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0, i64 noundef %1, i64 noundef %2, double noundef %3, double noundef %4, i64 noundef %5) unnamed_addr #3 {
   %7 = add i64 %2, %1
   %8 = sitofp i64 %7 to double
   %9 = fdiv double 1.000000e+00, %8
@@ -1946,7 +1946,7 @@ define { i64, double } @"_ZN91_$LT$statrs..generate..InfiniteSquare$u20$as$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs8generate16InfiniteTriangle3new17h91ec4dbfb332ec85E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) initializes((0, 72)) %0, i64 noundef %1, i64 noundef %2, double noundef %3, double noundef %4, i64 noundef %5) unnamed_addr #3 {
+define void @_ZN6statrs8generate16InfiniteTriangle3new17h91ec4dbfb332ec85E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) %0, i64 noundef %1, i64 noundef %2, double noundef %3, double noundef %4, i64 noundef %5) unnamed_addr #3 {
   %7 = add i64 %2, %1
   %8 = sitofp i64 %7 to double
   %9 = fsub double %3, %4
@@ -2088,7 +2088,7 @@ define { i64, double } @"_ZN93_$LT$statrs..generate..InfiniteTriangle$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs8generate16InfiniteSawtooth3new17hf44333911ad35ca2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) initializes((0, 40)) %0, i64 noundef %1, double noundef %2, double noundef %3, i64 noundef %4) unnamed_addr #3 {
+define void @_ZN6statrs8generate16InfiniteSawtooth3new17hf44333911ad35ca2E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([40 x i8]) align 8 dereferenceable(40) %0, i64 noundef %1, double noundef %2, double noundef %3, i64 noundef %4) unnamed_addr #3 {
   %6 = fsub double %2, %3
   %7 = sitofp i64 %1 to double
   %8 = fdiv double 1.000000e+00, %7

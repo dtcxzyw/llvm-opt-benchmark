@@ -4198,7 +4198,7 @@ _ZSt9transformIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4absl16ParseCommandLineEiPPc(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.20") align 8 initializes((0, 24)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN4absl16ParseCommandLineEiPPc(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.20") align 8 %0, i32 noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

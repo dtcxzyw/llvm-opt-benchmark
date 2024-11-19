@@ -178,14 +178,14 @@ define hidden noundef i64 @_ZNK12elapsedTimer12active_ticksEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9TimeStamp9update_toEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN9TimeStamp9update_toEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %spec.select = tail call i64 @llvm.umax.i64(i64 %1, i64 1)
   store i64 %spec.select, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9TimeStamp6updateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9TimeStamp6updateEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN2os15elapsed_counterEv() #6
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %2, i64 1)
   store i64 %spec.select.i, ptr %0, align 8

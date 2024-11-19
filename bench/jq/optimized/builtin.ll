@@ -7702,7 +7702,7 @@ define internal fastcc { i64, ptr } @tm2jv(ptr nocapture noundef nonnull readonl
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr nocapture noundef nonnull initializes((0, 56)) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   %4 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
   %5 = extractvalue { i64, ptr } %4, 0

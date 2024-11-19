@@ -218,7 +218,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3seq6axiomsC2ER11th_rewriter(ptr noundef nonnull align 8 dereferenceable(656) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %r) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3seq6axiomsC2ER11th_rewriter(ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef nonnull align 8 dereferenceable(16) %r) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %class.symbol, align 8
   %call = tail call noundef nonnull align 8 dereferenceable(976) ptr @_ZNK11th_rewriter1mEv(ptr noundef nonnull align 8 dereferenceable(16) %r)
@@ -413,7 +413,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3seq6axioms6mk_subEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3seq6axioms6mk_subEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %a, align 8
@@ -483,7 +483,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3seq6axioms7mk_ge_eEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3seq6axioms7mk_ge_eEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %a, align 8
@@ -519,7 +519,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN7obj_refI4expr11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3seq6axioms7mk_le_eEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3seq6axioms7mk_le_eEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, ptr noundef %x, ptr noundef %y) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %a, align 8
@@ -555,7 +555,7 @@ nrvo.skipdtor:                                    ; preds = %_ZN7obj_refI4expr11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3seq6axioms9mk_seq_eqEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %a, ptr noundef %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3seq6axioms9mk_seq_eqEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %a, ptr noundef %b) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca ptr, align 8
   %ref.tmp = alloca %class.obj_ref, align 8
@@ -629,7 +629,7 @@ nrvo.skipdtor:                                    ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3seq6axioms11mk_eq_emptyEP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef nonnull %e) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3seq6axioms11mk_eq_emptyEP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef nonnull %e) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK4expr8get_sortEv(ptr noundef nonnull align 4 dereferenceable(16) %e)
   %m.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -1615,7 +1615,7 @@ _ZNKSt8functionIFvRK10ref_vectorI4expr11ast_managerEEEclES5_.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3seq6axioms6mk_lenEP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, ptr noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3seq6axioms6mk_lenEP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, ptr noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %a.addr.i = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %a.addr.i)
@@ -23125,7 +23125,7 @@ ehcleanup49:                                      ; preds = %lpad39, %lpad.i, %e
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3seq6axioms8is_digitEP4expr(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, ptr noundef %ch) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3seq6axioms8is_digitEP4expr(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, ptr noundef %ch) local_unnamed_addr #3 align 2 {
 entry:
   %a.addr.i.i = alloca ptr, align 8
   %ch.i = getelementptr inbounds i8, ptr %this, i64 48

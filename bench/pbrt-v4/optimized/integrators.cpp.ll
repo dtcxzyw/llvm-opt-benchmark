@@ -1853,7 +1853,7 @@ _ZN4pbrt12StringPrintfIJRKiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4pbrt10IntegratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10IntegratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt10IntegratorE, i64 16), ptr %this, align 8
   %infiniteLights = getelementptr inbounds i8, ptr %this, i64 40
@@ -46945,7 +46945,7 @@ _ZN4pbrt12StringPrintfIJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10Integrator6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6CameraENS_7SamplerENS_9PrimitiveESt6vectorINS_5LightESaISG_EEPKNS_13RGBColorSpaceEPKNS_7FileLocE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.353") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture noundef readonly %camera, ptr nocapture noundef readonly %sampler, ptr nocapture noundef readonly %aggregate, ptr noundef %lights, ptr noundef %colorSpace, ptr noundef %loc) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10Integrator6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6CameraENS_7SamplerENS_9PrimitiveESt6vectorINS_5LightESaISG_EEPKNS_13RGBColorSpaceEPKNS_7FileLocE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.353") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr nocapture noundef readonly %camera, ptr nocapture noundef readonly %sampler, ptr nocapture noundef readonly %aggregate, ptr noundef %lights, ptr noundef %colorSpace, ptr noundef %loc) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.169", align 8
   %agg.tmp = alloca %"class.pbrt::Camera", align 8
@@ -68365,7 +68365,7 @@ lpad:                                             ; preds = %invoke.cont10, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN4pbrt13ScratchBufferEvEZNS0_19ImageTileIntegrator6RenderEvE3$_1E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.pbrt::ScratchBuffer") align 64 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN4pbrt13ScratchBufferEvEZNS0_19ImageTileIntegrator6RenderEvE3$_1E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.pbrt::ScratchBuffer") align 64 %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 64, !alias.scope !898
   %allocSize.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -88240,7 +88240,7 @@ ehcleanup51:                                      ; preds = %lpad42, %ehcleanup3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN4pbrt13ScratchBufferEvEZNS0_13MLTIntegrator6RenderEvE3$_1E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.pbrt::ScratchBuffer") align 64 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN4pbrt13ScratchBufferEvEZNS0_13MLTIntegrator6RenderEvE3$_1E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.pbrt::ScratchBuffer") align 64 %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 64, !alias.scope !1012
   %allocSize.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -90772,7 +90772,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i11, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN4pbrt13ScratchBufferEvEZNS0_14SPPMIntegrator6RenderEvE3$_0E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.pbrt::ScratchBuffer") align 64 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN4pbrt13ScratchBufferEvEZNS0_14SPPMIntegrator6RenderEvE3$_0E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.pbrt::ScratchBuffer") align 64 %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 64, !alias.scope !1032
   %allocSize.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -94232,7 +94232,7 @@ lpad:                                             ; preds = %invoke.cont7, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN4pbrt13ScratchBufferEvEZNS0_14SPPMIntegrator6RenderEvE3$_5E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.pbrt::ScratchBuffer") align 64 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN4pbrt13ScratchBufferEvEZNS0_14SPPMIntegrator6RenderEvE3$_5E9_M_invokeERKSt9_Any_data"(ptr noalias sret(%"class.pbrt::ScratchBuffer") align 64 %agg.result, ptr nocapture nonnull readnone align 8 %__functor) #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %agg.result, align 64, !alias.scope !1067
   %allocSize.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8

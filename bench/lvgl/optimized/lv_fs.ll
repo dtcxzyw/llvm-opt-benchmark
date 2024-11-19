@@ -218,7 +218,7 @@ lv_fs_get_drv.exit.thread:                        ; preds = %16, %lv_fs_get_drv.
 declare ptr @lv_malloc_zeroed(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_fs_make_path_from_buffer(ptr nocapture noundef writeonly initializes((0, 3), (8, 20)) %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define void @lv_fs_make_path_from_buffer(ptr nocapture noundef writeonly %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   store i8 %1, ptr %0, align 8, !tbaa !13
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 58, ptr %5, align 1, !tbaa !13

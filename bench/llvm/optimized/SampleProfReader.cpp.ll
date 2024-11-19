@@ -1497,7 +1497,7 @@ _ZN4llvm4json5ValueC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.
 declare void @_ZN4llvm4json7OStream8arrayEndEv(ptr noundef nonnull align 8 dereferenceable(176)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, ptr } @_ZN4llvm10sampleprof23SampleProfileReaderText8readImplEv(ptr noundef nonnull align 8 dereferenceable(224) initializes((176, 177)) %0) unnamed_addr #0 align 2 {
+define dso_local { i32, ptr } @_ZN4llvm10sampleprof23SampleProfileReaderText8readImplEv(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::DiagnosticInfoSampleProfile", align 8
   %3 = alloca %"class.llvm::DiagnosticInfoSampleProfile", align 8
   %4 = alloca i64, align 8
@@ -3630,7 +3630,7 @@ _ZL9ParseHeadRKN4llvm9StringRefERS0_RmS4_.exit:   ; preds = %_ZNK4llvm9StringRef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readStringEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 initializes((0, 4), (8, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(296) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readStringEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(296) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DiagnosticInfoSampleProfile", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3715,7 +3715,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10sampleprof25SampleProfileReaderBinary19readStringFromTableEPm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.99") align 8 initializes((0, 4), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10sampleprof25SampleProfileReaderBinary19readStringFromTableEPm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.99") align 8 %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::ErrorOr.103", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 216
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -3789,7 +3789,7 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit.thread.i:    ; preds = %_ZNK4llvm7ErrorOrIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10sampleprof25SampleProfileReaderBinary20readContextFromTableEPm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.107") align 8 initializes((0, 4), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10sampleprof25SampleProfileReaderBinary20readContextFromTableEPm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.107") align 8 %0, ptr noundef nonnull align 8 dereferenceable(296) %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::ErrorOr.103", align 8
   call void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readNumberImEENS_7ErrorOrIT_EEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::ErrorOr.103") align 8 %4, ptr noundef nonnull align 8 dereferenceable(296) %1)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3980,7 +3980,7 @@ define linkonce_odr void @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10sampleprof25SampleProfileReaderBinary26readSampleContextFromTableEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.116") align 8 initializes((0, 4), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(296) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10sampleprof25SampleProfileReaderBinary26readSampleContextFromTableEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.116") align 8 %0, ptr noundef nonnull align 8 dereferenceable(296) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::MD5", align 4
   %4 = alloca %"struct.llvm::MD5::MD5Result", align 8
   %5 = alloca %"class.llvm::ErrorOr.103", align 8
@@ -4907,7 +4907,7 @@ _ZNKSt4lessIN4llvm10sampleprof10FunctionIdEEclERKS2_S5_.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileReaderBinary15readFuncProfileEPKhRNS0_16SampleProfileMapE(ptr noundef nonnull align 8 dereferenceable(296) initializes((200, 208)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
+define dso_local { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileReaderBinary15readFuncProfileEPKhRNS0_16SampleProfileMapE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::ErrorOr.103", align 8
   %5 = alloca %"class.llvm::ErrorOr.116", align 8
   %6 = alloca %"class.llvm::hash_code", align 8
@@ -5020,7 +5020,7 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileReaderBinary15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileReaderBinary8readImplEv(ptr noundef nonnull align 8 dereferenceable(296) initializes((176, 177)) %0) unnamed_addr #0 align 2 {
+define dso_local { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileReaderBinary8readImplEv(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #0 align 2 {
   %2 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL23ProfileIsFSDisciminator, i64 128), align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = and i8 %2, 1
@@ -5060,7 +5060,7 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileReaderBinary8r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase14readOneSectionEPKhmRKNS0_16SecHdrTableEntryE(ptr noundef nonnull align 8 dereferenceable(496) initializes((200, 216)) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #0 align 2 {
+define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase14readOneSectionEPKhmRKNS0_16SecHdrTableEntryE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -6939,7 +6939,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm10sampleprof32SampleProfileReaderE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase4readERKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS3_vEEEERNS0_16SampleProfileMapE(ptr noundef nonnull align 8 dereferenceable(496) initializes((200, 216)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 align 2 {
+define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase4readERKNS_8DenseSetINS_9StringRefENS_12DenseMapInfoIS3_vEEEERNS0_16SampleProfileMapE(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -8039,7 +8039,7 @@ _ZN4llvmeqINS_10sampleprof18SampleContextFrameEEEbNS_8ArrayRefIT_EES5_.exit: ; p
 declare { i32, ptr } @_ZN4llvm10sampleprof17ProfileSymbolList4readEPKhm(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase17decompressSectionEPKhmRS3_Rm(ptr noundef nonnull align 8 dereferenceable(496) initializes((200, 216)) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #0 align 2 {
+define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase17decompressSectionEPKhmRS3_Rm(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::ErrorOr.103", align 8
   %7 = alloca %"class.llvm::ErrorOr.103", align 8
   %8 = alloca i64, align 8
@@ -9623,7 +9623,7 @@ _ZNK4llvm7ErrorOrImE8getErrorEv.exit:             ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase10readHeaderEv(ptr noundef nonnull align 8 dereferenceable(496) initializes((200, 216)) %0) unnamed_addr #0 align 2 {
+define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileReaderExtBinaryBase10readHeaderEv(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::ErrorOr.103", align 8
   %3 = alloca %"class.llvm::ErrorOr.103", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -10445,7 +10445,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit41:               ; preds = %264, %266
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readHeaderEv(ptr noundef nonnull align 8 dereferenceable(296) initializes((200, 216)) %0) unnamed_addr #0 align 2 {
+define dso_local { i32, ptr } @_ZN4llvm10sampleprof25SampleProfileReaderBinary10readHeaderEv(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::ErrorOr.103", align 8
   %3 = alloca %"class.llvm::ErrorOr.103", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -10999,7 +10999,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit6:                ; preds = %33, %31, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10sampleprof22SampleProfileReaderGCC10readStringEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 initializes((0, 4), (8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(280) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10sampleprof22SampleProfileReaderGCC10readStringEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 200

@@ -1709,7 +1709,7 @@ Vec_IntFree.exit:                                 ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Kit_CoverToHop(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define ptr @Kit_CoverToHop(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = tail call ptr @Kit_SopFactor(ptr noundef %1, i32 noundef 0, i32 noundef %2, ptr noundef %3) #14

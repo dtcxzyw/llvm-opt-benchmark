@@ -3479,7 +3479,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #13
 declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @job_exit(ptr noundef initializes((180, 181)) %opaque) #0 {
+define internal void @job_exit(ptr noundef %opaque) #0 {
 glib_autoptr_cleanup_QemuLockable.exit:
   %0 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
   %1 = inttoptr i64 %0 to ptr

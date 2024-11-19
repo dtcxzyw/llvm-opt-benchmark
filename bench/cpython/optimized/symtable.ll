@@ -938,7 +938,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @switch.table.symtable_handle_comprehension = private unnamed_addr constant [3 x i32] [i32 1, i32 3, i32 2], align 4
 
 ; Function Attrs: nounwind uwtable
-define internal void @ste_dealloc(ptr noundef initializes((112, 120)) %ste) #0 {
+define internal void @ste_dealloc(ptr noundef %ste) #0 {
 entry:
   %ste_table = getelementptr inbounds i8, ptr %ste, i64 112
   store ptr null, ptr %ste_table, align 8
@@ -5157,7 +5157,7 @@ return:                                           ; preds = %sw.epilog, %if.then
 declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @symtable_exit_block(ptr nocapture noundef nonnull initializes((8, 16)) %st) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @symtable_exit_block(ptr nocapture noundef nonnull %st) unnamed_addr #0 {
 entry:
   %st_cur = getelementptr inbounds i8, ptr %st, i64 8
   store ptr null, ptr %st_cur, align 8

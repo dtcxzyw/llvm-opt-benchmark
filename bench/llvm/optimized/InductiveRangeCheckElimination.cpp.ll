@@ -1955,7 +1955,7 @@ declare noundef ptr @_ZN4llvm15ScalarEvolution12getMinusSCEVEPKNS_4SCEVES3_NS1_1
 declare noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1392), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL20IntersectSignedRangeRN4llvm15ScalarEvolutionERKSt8optionalIN12_GLOBAL__N_119InductiveRangeCheck5RangeEERKS5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.210") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #0 {
+define internal void @_ZL20IntersectSignedRangeRN4llvm15ScalarEvolutionERKSt8optionalIN12_GLOBAL__N_119InductiveRangeCheck5RangeEERKS5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.210") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #0 {
   %.val22 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %.val23 = load ptr, ptr %5, align 8
@@ -2013,7 +2013,7 @@ _ZNK12_GLOBAL__N_119InductiveRangeCheck5Range7isEmptyERN4llvm15ScalarEvolutionEb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL22IntersectUnsignedRangeRN4llvm15ScalarEvolutionERKSt8optionalIN12_GLOBAL__N_119InductiveRangeCheck5RangeEERKS5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.210") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #0 {
+define internal void @_ZL22IntersectUnsignedRangeRN4llvm15ScalarEvolutionERKSt8optionalIN12_GLOBAL__N_119InductiveRangeCheck5RangeEERKS5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.210") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1392) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3) unnamed_addr #0 {
   %.val22 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %.val23 = load ptr, ptr %5, align 8

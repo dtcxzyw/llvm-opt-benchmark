@@ -1121,7 +1121,7 @@ cleanup8:                                         ; preds = %for.inc, %for.body,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9AreaStore14setCacheParamsEbhm(ptr noundef nonnull align 8 dereferenceable(160) initializes((56, 58), (80, 88)) %this, i1 noundef zeroext %enabled, i8 noundef zeroext %block_radius, i64 noundef %limit) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9AreaStore14setCacheParamsEbhm(ptr noundef nonnull align 8 dereferenceable(160) %this, i1 noundef zeroext %enabled, i8 noundef zeroext %block_radius, i64 noundef %limit) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %enabled to i8
   %m_cache_enabled = getelementptr inbounds i8, ptr %this, i64 56

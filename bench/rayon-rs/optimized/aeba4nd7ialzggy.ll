@@ -335,7 +335,7 @@ define hidden void @_ZN3std3sys4unix5locks11futex_mutex5Mutex4lock17h2824c483f85
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 17)) %0, ptr noundef nonnull align 4 %1) unnamed_addr #1 {
+define hidden void @"_ZN3std4sync5mutex19MutexGuard$LT$T$GT$3new17hd1113d1d88291f80E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 4 %1) unnamed_addr #1 {
   %3 = load atomic i64, ptr @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17ha93a1baa6fc65cd0E monotonic, align 8
   %4 = and i64 %3, 9223372036854775807
   %5 = icmp eq i64 %4, 0
@@ -1357,7 +1357,7 @@ _ZN3std4sync6poison4Flag4done17h5bffa24fa61aa5e0E.llvm.4364434838112105284.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10rayon_core5sleep9IdleState10wake_fully17h605886b4e5c58020E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) initializes((8, 20)) %0) unnamed_addr #9 {
+define hidden void @_ZN10rayon_core5sleep9IdleState10wake_fully17h605886b4e5c58020E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1366,7 +1366,7 @@ define hidden void @_ZN10rayon_core5sleep9IdleState10wake_fully17h605886b4e5c580
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10rayon_core5sleep9IdleState11wake_partly17h7a9dde494bf6f5ccE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) initializes((8, 20)) %0) unnamed_addr #9 {
+define hidden void @_ZN10rayon_core5sleep9IdleState11wake_partly17h7a9dde494bf6f5ccE(ptr noalias nocapture noundef writeonly align 8 dereferenceable(24) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 32, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8

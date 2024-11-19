@@ -667,7 +667,7 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6cineon14IndustryHeaderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(1024) initializes((0, 3), (4, 1024)) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN6cineon14IndustryHeaderC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(1024) %this) unnamed_addr #6 align 2 {
 entry:
   store i8 -1, ptr %this, align 4
   %filmType.i = getelementptr inbounds i8, ptr %this, i64 1
@@ -690,7 +690,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cineon13GenericHeader5ResetEv(ptr noundef nonnull align 4 dereferenceable(1024) initializes((0, 8), (24, 32)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cineon13GenericHeader5ResetEv(ptr noundef nonnull align 4 dereferenceable(1024) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   store i32 -2144706601, ptr %this, align 4
@@ -760,7 +760,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare noundef ptr @_ZN18OpenImageIO_v2_6_07Strutil11safe_strcpyEPcNS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6cineon14IndustryHeader5ResetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(1024) initializes((0, 3), (4, 1024)) %this) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN6cineon14IndustryHeader5ResetEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(1024) %this) local_unnamed_addr #6 align 2 {
 entry:
   store i8 -1, ptr %this, align 4
   %filmType = getelementptr inbounds i8, ptr %this, i64 1
@@ -783,7 +783,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6cineon12ImageElementC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((2, 3), (12, 28)) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN6cineon12ImageElementC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %this) unnamed_addr #6 align 2 {
 entry:
   %lowData = getelementptr inbounds i8, ptr %this, i64 12
   store float 0x41F0000000000000, ptr %lowData, align 4
@@ -1495,7 +1495,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cineon6Header5ResetEv(ptr noundef nonnull align 4 dereferenceable(2048) initializes((0, 8), (24, 32)) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6cineon6Header5ResetEv(ptr noundef nonnull align 4 dereferenceable(2048) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)

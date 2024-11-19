@@ -456,7 +456,7 @@ _ZN4llvm4json7OStreamD2Ev.exit:                   ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6LoggerC2ESt10unique_ptrINS_11raw_ostreamESt14default_deleteIS2_EERKSt6vectorINS_10TensorSpecESaIS7_EERKS7_bSt8optionalIS7_E(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(80) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6LoggerC2ESt10unique_ptrINS_11raw_ostreamESt14default_deleteIS2_EERKSt6vectorINS_10TensorSpecESaIS7_EERKS7_bSt8optionalIS7_E(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(80) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::optional", align 8
   %8 = zext i1 %4 to i8
   %9 = load i64, ptr %1, align 8

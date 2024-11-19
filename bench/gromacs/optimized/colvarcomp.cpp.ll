@@ -1348,7 +1348,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZN6colvar3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6colvar3cvc14get_atom_listsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.0") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1648) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar3cvc14get_atom_listsEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.0") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1648) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 576
   %4 = load ptr, ptr %3, align 8
@@ -5366,7 +5366,7 @@ define noundef i32 @_ZN6colvar3cvc5setupEv(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6colvar3cvcD2Ev(ptr noundef nonnull align 8 dereferenceable(1648) initializes((0, 8), (320, 328)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6colvar3cvcD2Ev(ptr noundef nonnull align 8 dereferenceable(1648) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar3cvcE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6colvar3cvcE, i64 248), ptr %2, align 8

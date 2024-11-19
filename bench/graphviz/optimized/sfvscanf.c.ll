@@ -1736,7 +1736,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare double @strtod(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc nonnull ptr @setclass(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 256)) %1) unnamed_addr #4 {
+define internal fastcc nonnull ptr @setclass(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = load i8, ptr %0, align 1
   %5 = icmp ne i8 %4, 94

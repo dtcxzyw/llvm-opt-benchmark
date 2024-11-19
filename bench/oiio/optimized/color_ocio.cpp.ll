@@ -2607,7 +2607,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_011ColorConfigC2ENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef readonly %filename) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_011ColorConfigC2ENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr nocapture noundef readonly %filename) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   store ptr null, ptr %this, align 8
@@ -3557,7 +3557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18OpenImageIO_v2_6_011ColorConfig18getColorSpaceNamesB5cxx11Ev(ptr noalias nonnull sret(%"class.std::vector.6") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK18OpenImageIO_v2_6_011ColorConfig18getColorSpaceNamesB5cxx11Ev(ptr noalias nonnull sret(%"class.std::vector.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -3747,7 +3747,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK18OpenImageIO_v2_6_011ColorConfig8getRolesB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::vector.6") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK18OpenImageIO_v2_6_011ColorConfig8getRolesB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::vector.6") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
@@ -3766,7 +3766,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK18OpenImageIO_v2_6_011ColorConfig12getLookNamesB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::vector.6") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK18OpenImageIO_v2_6_011ColorConfig12getLookNamesB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::vector.6") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
@@ -3791,7 +3791,7 @@ declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07Strutil12istarts_withENS_17b
 declare noundef zeroext i1 @_ZN18OpenImageIO_v2_6_07Strutil10iends_withENS_17basic_string_viewIcSt11char_traitsIcEEES4_(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK18OpenImageIO_v2_6_011ColorConfig10getAliasesB5cxx11ENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noalias nocapture writeonly sret(%"class.std::vector.6") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %color_space) local_unnamed_addr #10 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_011ColorConfig10getAliasesB5cxx11ENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noalias nocapture writeonly sret(%"class.std::vector.6") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %color_space) local_unnamed_addr #10 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
@@ -3835,7 +3835,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK18OpenImageIO_v2_6_011ColorConfig21getColorSpaceDataTypeENS_17basic_string_viewIcSt11char_traitsIcEEEPi(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::TypeDesc") align 4 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %name, ptr nocapture noundef readnone %bits) local_unnamed_addr #10 align 2 {
+define void @_ZNK18OpenImageIO_v2_6_011ColorConfig21getColorSpaceDataTypeENS_17basic_string_viewIcSt11char_traitsIcEEEPi(ptr noalias nocapture writeonly sret(%"struct.OpenImageIO_v2_6_0::TypeDesc") align 4 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef readnone %name, ptr nocapture noundef readnone %bits) local_unnamed_addr #10 align 2 {
 entry:
   store i8 0, ptr %agg.result, align 4
   %aggregate.i = getelementptr inbounds i8, ptr %agg.result, i64 1
@@ -3862,7 +3862,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK18OpenImageIO_v2_6_011ColorConfig15getDisplayNamesB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::vector.6") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK18OpenImageIO_v2_6_011ColorConfig15getDisplayNamesB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::vector.6") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
@@ -3881,7 +3881,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK18OpenImageIO_v2_6_011ColorConfig12getViewNamesB5cxx11ENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noalias nocapture writeonly sret(%"class.std::vector.6") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef %display) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK18OpenImageIO_v2_6_011ColorConfig12getViewNamesB5cxx11ENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noalias nocapture writeonly sret(%"class.std::vector.6") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %this, ptr nocapture noundef %display) local_unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %m_len.i = getelementptr inbounds i8, ptr %display, i64 8
@@ -7612,7 +7612,7 @@ _ZNSt10shared_ptrIN18OpenImageIO_v2_6_014ColorProcessorEED2Ev.exit41: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK18OpenImageIO_v2_6_011ColorConfig21createMatrixTransformENS_11MatrixParamIfLi4EEEb(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readonly %M.coerce, i1 noundef zeroext %inverse) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK18OpenImageIO_v2_6_011ColorConfig21createMatrixTransformENS_11MatrixParamIfLi4EEEb(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readonly %M.coerce, i1 noundef zeroext %inverse) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #33
   store ptr getelementptr inbounds (i8, ptr @_ZTVN18OpenImageIO_v2_6_021ColorProcessor_MatrixE, i64 16), ptr %call, align 16

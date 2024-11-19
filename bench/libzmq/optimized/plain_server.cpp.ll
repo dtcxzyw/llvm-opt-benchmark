@@ -185,7 +185,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 declare void @_ZN3zmq16mechanism_base_tC2EPNS_14session_base_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1496), ptr noundef, ptr noundef nonnull align 8 dereferenceable(1336)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq14plain_server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1576) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 {
+define void @_ZN3zmq14plain_server_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1576) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 16
   %1 = load ptr, ptr %0, align 8
@@ -204,7 +204,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq14plain_server_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1576) initializes((0, 8), (80, 88)) %this) unnamed_addr #3 align 2 {
+define void @_ZN3zmq14plain_server_tD1Ev(ptr noundef nonnull align 8 dereferenceable(1576) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq14plain_server_tE0_NS_12zap_client_tE, i64 24), ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -236,7 +236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq14plain_server_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1576) initializes((0, 8), (80, 88)) %this) unnamed_addr #3 align 2 {
+define void @_ZN3zmq14plain_server_tD0Ev(ptr noundef nonnull align 8 dereferenceable(1576) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTCN3zmq14plain_server_tE0_NS_12zap_client_tE, i64 24), ptr %this, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80

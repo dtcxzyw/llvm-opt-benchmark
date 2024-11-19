@@ -644,7 +644,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7519CollationRuleParserC2EPKNS_13CollationDataER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) initializes((0, 76)) %this, ptr noundef %base, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7519CollationRuleParserC2EPKNS_13CollationDataER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(76) %this, ptr noundef %base, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN6icu_7511Normalizer214getNFDInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   store ptr %call, ptr %this, align 8

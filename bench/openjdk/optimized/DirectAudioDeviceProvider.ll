@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.6 = private unnamed_addr constant [79 x i8] c"(IIILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @getDirectAudioDeviceDescription(i32 noundef %0, ptr noundef initializes((0, 21), (209, 224), (410, 430), (611, 627)) %1) local_unnamed_addr #0 {
+define hidden noundef i32 @getDirectAudioDeviceDescription(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4

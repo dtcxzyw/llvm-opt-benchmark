@@ -520,7 +520,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @evutil_closesocket(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evconnlistener_free(ptr noundef initializes((16, 32)) %lev) local_unnamed_addr #0 {
+define dso_local void @evconnlistener_free(ptr noundef %lev) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %lev, i64 8
   %0 = load ptr, ptr %lock, align 8
@@ -694,7 +694,7 @@ do.end10:                                         ; preds = %do.end, %if.then6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evconnlistener_set_cb(ptr noundef initializes((32, 40)) %lev, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #0 {
+define dso_local void @evconnlistener_set_cb(ptr noundef %lev, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %lev, i64 8
   %0 = load ptr, ptr %lock, align 8
@@ -779,7 +779,7 @@ do.end19:                                         ; preds = %do.body6.i, %do.bod
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @evconnlistener_set_error_cb(ptr nocapture noundef initializes((24, 32)) %lev, ptr noundef %errorcb) local_unnamed_addr #0 {
+define dso_local void @evconnlistener_set_error_cb(ptr nocapture noundef %lev, ptr noundef %errorcb) local_unnamed_addr #0 {
 entry:
   %lock = getelementptr inbounds i8, ptr %lev, i64 8
   %0 = load ptr, ptr %lock, align 8

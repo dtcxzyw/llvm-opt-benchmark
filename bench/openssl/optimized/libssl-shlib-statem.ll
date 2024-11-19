@@ -165,7 +165,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_statem_clear(ptr nocapture noundef initializes((144, 148), (164, 168), (172, 176), (188, 192)) %s) local_unnamed_addr #2 {
+define void @ossl_statem_clear(ptr nocapture noundef %s) local_unnamed_addr #2 {
 entry:
   %statem = getelementptr inbounds i8, ptr %s, i64 144
   store i32 0, ptr %statem, align 8
@@ -197,7 +197,7 @@ ossl_statem_set_in_init.exit:                     ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_statem_set_in_init(ptr nocapture noundef initializes((172, 176)) %s, i32 noundef %init) local_unnamed_addr #2 {
+define void @ossl_statem_set_in_init(ptr nocapture noundef %s, i32 noundef %init) local_unnamed_addr #2 {
 entry:
   %in_init = getelementptr inbounds i8, ptr %s, i64 172
   store i32 %init, ptr %in_init, align 4
@@ -223,7 +223,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_statem_set_renegotiate(ptr nocapture noundef initializes((168, 176)) %s) local_unnamed_addr #2 {
+define void @ossl_statem_set_renegotiate(ptr nocapture noundef %s) local_unnamed_addr #2 {
 entry:
   %in_init.i = getelementptr inbounds i8, ptr %s, i64 172
   store i32 1, ptr %in_init.i, align 4
@@ -552,7 +552,7 @@ if.end47:                                         ; preds = %if.then.i37, %land.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_statem_set_hello_verify_done(ptr nocapture noundef initializes((144, 148), (164, 168), (172, 176)) %s) local_unnamed_addr #2 {
+define void @ossl_statem_set_hello_verify_done(ptr nocapture noundef %s) local_unnamed_addr #2 {
 entry:
   %statem = getelementptr inbounds i8, ptr %s, i64 144
   store i32 0, ptr %statem, align 8
@@ -1632,7 +1632,7 @@ return:                                           ; preds = %cond.false, %entry,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @statem_flush(ptr nocapture noundef initializes((96, 100)) %s) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @statem_flush(ptr nocapture noundef %s) local_unnamed_addr #2 {
 entry:
   %rwstate = getelementptr inbounds i8, ptr %s, i64 96
   store i32 2, ptr %rwstate, align 8

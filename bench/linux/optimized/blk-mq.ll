@@ -344,7 +344,7 @@ define internal noundef zeroext i1 @blk_mq_check_inflight(ptr noundef %0, ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_mq_in_flight_rw(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 16 {
+define dso_local void @blk_mq_in_flight_rw(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.mq_inflight, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #22
   store ptr %1, ptr %4, align 8
@@ -1056,7 +1056,7 @@ declare dso_local void @blk_mq_tag_wakeup_all(ptr noundef, i1 noundef zeroext) l
 declare dso_local ptr @xa_find_after(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @blk_rq_init(ptr noundef %0, ptr noundef initializes((8, 248)) %1) #0 align 16 {
+define dso_local void @blk_rq_init(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(248) %3, i8 0, i64 240, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 72
@@ -4138,7 +4138,7 @@ define internal fastcc void @blk_account_io_start(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @blk_add_rq_to_plug(ptr noundef nonnull %0, ptr noundef initializes((72, 80)) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @blk_add_rq_to_plug(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 18
   %5 = load i16, ptr %4, align 2
@@ -4749,7 +4749,7 @@ define dso_local zeroext i1 @blk_rq_is_poll(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i8 @blk_execute_rq(ptr noundef initializes((232, 248)) %0, i1 noundef zeroext %1) #0 align 16 {
+define dso_local zeroext i8 @blk_execute_rq(ptr noundef %0, i1 noundef zeroext %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.blk_rq_wait, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -8811,7 +8811,7 @@ define dso_local noundef range(i32 -12, 1) i32 @blk_rq_prep_clone(ptr nocapture 
 declare dso_local ptr @bio_alloc_clone(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local void @blk_steal_bios(ptr nocapture noundef %0, ptr nocapture noundef initializes((44, 48)) %1) #11 align 16 {
+define dso_local void @blk_steal_bios(ptr nocapture noundef %0, ptr nocapture noundef %1) #11 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -9684,7 +9684,7 @@ define dso_local ptr @blk_mq_alloc_disk_for_queue(ptr noundef %0, ptr noundef %1
 declare dso_local zeroext i1 @blk_get_queue(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr noundef %0, ptr noundef initializes((16, 24)) %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @blk_mq_init_allocated_queue(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i64, align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -11338,7 +11338,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @cleanup_srcu_struct(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @blk_mq_alloc_sq_tag_set(ptr noundef initializes((0, 168)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local i32 @blk_mq_alloc_sq_tag_set(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(168) %5, i8 0, i64 160, i1 false)
   store ptr %1, ptr %0, align 8

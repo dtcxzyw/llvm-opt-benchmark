@@ -1947,7 +1947,7 @@ define internal void @_ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN15WriteFileTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define internal void @_ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN15WriteFileTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTarget, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #16
@@ -1955,7 +1955,7 @@ define internal void @_ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN15WriteFileTargetD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define internal void @_ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEN15WriteFileTargetD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTarget, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #16

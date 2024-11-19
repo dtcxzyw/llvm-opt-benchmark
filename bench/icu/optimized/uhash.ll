@@ -512,7 +512,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @uhash_setResizePolicy_75(ptr nocapture noundef initializes((56, 72)) %hash, i32 noundef %policy) local_unnamed_addr #0 {
+define void @uhash_setResizePolicy_75(ptr nocapture noundef %hash, i32 noundef %policy) local_unnamed_addr #0 {
 entry:
   %status = alloca i32, align 4
   store i32 0, ptr %status, align 4

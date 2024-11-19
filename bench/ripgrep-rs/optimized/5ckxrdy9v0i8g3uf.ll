@@ -64,7 +64,7 @@ define internal fastcc void @"_ZN4core3ptr269drop_in_place$LT$core..result..Resu
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define internal fastcc void @"_ZN4core4cell4once17OnceCell$LT$T$GT$15get_or_try_init13outlined_call17h6b2a19886a270af2E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
+define internal fastcc void @"_ZN4core4cell4once17OnceCell$LT$T$GT$15get_or_try_init13outlined_call17h6b2a19886a270af2E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
   %3 = alloca { i64, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !20
   %4 = load i64, ptr %1, align 8, !range !19, !alias.scope !23, !noalias !26, !noundef !5

@@ -47,7 +47,7 @@ do.end5:                                          ; preds = %entry
 declare void @_ZN4absl16raw_log_internal6RawLogENS_11LogSeverityEPKciS3_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %this, ptr noundef %base) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImage4InitEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, ptr noundef %base) local_unnamed_addr #2 align 2 {
 entry:
   %dynsym_ = getelementptr inbounds i8, ptr %this, i64 8
   %dynstr_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -586,7 +586,7 @@ return:                                           ; preds = %for.inc, %_ZNK4absl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr noalias nocapture nonnull sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 initializes((32, 36), (40, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage5beginEv(ptr noalias nocapture nonnull sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #0 align 2 {
 entry:
   %index_.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i32 0, ptr %index_.i, align 8
@@ -597,7 +597,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr noalias nocapture writeonly sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 initializes((32, 36), (40, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZNK4absl18debugging_internal11ElfMemImage3endEv(ptr noalias nocapture writeonly sret(%"class.absl::debugging_internal::ElfMemImage::SymbolIterator") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %this) local_unnamed_addr #5 align 2 {
 entry:
   %hash_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %hash_.i, align 8
@@ -746,7 +746,7 @@ return:                                           ; preds = %for.inc, %if.then, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((32, 36), (40, 48)) %this, ptr noundef %image, i32 noundef %index) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4absl18debugging_internal11ElfMemImage14SymbolIteratorC2EPKvi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %image, i32 noundef %index) unnamed_addr #9 align 2 {
 entry:
   %index_ = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %index, ptr %index_, align 8

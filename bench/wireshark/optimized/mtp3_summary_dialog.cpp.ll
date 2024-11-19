@@ -567,7 +567,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17Mtp3SummaryDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
+define void @_ZN17Mtp3SummaryDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17Mtp3SummaryDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV17Mtp3SummaryDialog, i64 528), ptr %2, align 8
@@ -6077,7 +6077,7 @@ define void @register_tap_listener_qt_mtp3_summary() local_unnamed_addr #0 {
 declare ptr @register_tap_listener(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal void @_ZL18mtp3_summary_resetPv(ptr nocapture noundef writeonly initializes((0, 4800)) %0) #8 {
+define internal void @_ZL18mtp3_summary_resetPv(ptr nocapture noundef writeonly %0) #8 {
   store i64 0, ptr @_ZL13mtp3_num_used, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(4800) %0, i8 0, i64 4800, i1 false)
   ret void

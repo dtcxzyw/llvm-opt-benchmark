@@ -645,7 +645,7 @@ declare i32 @wolfSSL_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @server_test(ptr nocapture noundef initializes((16, 20)) %args) local_unnamed_addr #0 {
+define dso_local noundef ptr @server_test(ptr nocapture noundef %args) local_unnamed_addr #0 {
 entry:
   %fds.i.i = alloca %struct.fd_set, align 8
   %errfds.i.i = alloca %struct.fd_set, align 8
@@ -3950,7 +3950,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 declare i32 @wolfIO_Send(i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @build_addr(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
+define internal fastcc void @build_addr(ptr nocapture noundef nonnull writeonly %addr, ptr noundef %peer, i16 noundef zeroext %port) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %addr, i8 0, i64 16, i1 false)
   %cmp1.not = icmp eq ptr %peer, null

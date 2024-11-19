@@ -455,7 +455,7 @@ define dso_local void @nfs4_shutdown_slot_table(ptr noundef %0) local_unnamed_ad
 declare dso_local void @rpc_destroy_wait_queue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @nfs4_setup_slot_table(ptr noundef initializes((144, 148), (384, 388)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @nfs4_setup_slot_table(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 384
   store i32 -1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 144

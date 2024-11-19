@@ -88,7 +88,7 @@ sw.epilog:                                        ; preds = %sw.epilog.sink.spli
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15b2DistanceProxy3SetEPK6b2Vec2if(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((16, 32)) %this, ptr noundef %vertices, i32 noundef %count, float noundef %radius) local_unnamed_addr #2 align 2 {
+define void @_ZN15b2DistanceProxy3SetEPK6b2Vec2if(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %vertices, i32 noundef %count, float noundef %radius) local_unnamed_addr #2 align 2 {
 entry:
   %m_vertices = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %vertices, ptr %m_vertices, align 8
@@ -100,7 +100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9b2Simplex6Solve2Ev(ptr nocapture noundef nonnull align 4 dereferenceable(112) initializes((108, 112)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN9b2Simplex6Solve2Ev(ptr nocapture noundef nonnull align 4 dereferenceable(112) %this) local_unnamed_addr #3 align 2 {
 entry:
   %w = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %w, align 4
@@ -158,7 +158,7 @@ return:                                           ; preds = %if.end14, %if.then8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN9b2Simplex6Solve3Ev(ptr nocapture noundef nonnull align 4 dereferenceable(112) initializes((108, 112)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN9b2Simplex6Solve3Ev(ptr nocapture noundef nonnull align 4 dereferenceable(112) %this) local_unnamed_addr #3 align 2 {
 entry:
   %w = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load float, ptr %w, align 4
@@ -1224,7 +1224,7 @@ if.end54:                                         ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_Z11b2ShapeCastP17b2ShapeCastOutputPK16b2ShapeCastInput(ptr nocapture noundef writeonly initializes((0, 24)) %output, ptr nocapture noundef readonly %input) local_unnamed_addr #5 {
+define noundef zeroext i1 @_Z11b2ShapeCastP17b2ShapeCastOutputPK16b2ShapeCastInput(ptr nocapture noundef writeonly %output, ptr nocapture noundef readonly %input) local_unnamed_addr #5 {
 entry:
   %simplex = alloca %struct.b2Simplex, align 4
   %iterations = getelementptr inbounds i8, ptr %output, i64 20

@@ -148,7 +148,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15Sample_SoloMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(356) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15Sample_SoloMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15Sample_SoloMesh, i64 16), ptr %0, align 8
   invoke void @_ZN15Sample_SoloMesh7cleanupEv(ptr noundef nonnull align 8 dereferenceable(356) %0)
           to label %2 unwind label %3
@@ -218,7 +218,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN15Sample_SoloMeshD0Ev(ptr noundef nonnull align 8 dereferenceable(356) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15Sample_SoloMeshD0Ev(ptr noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15Sample_SoloMesh, i64 16), ptr %0, align 8
   invoke void @_ZN15Sample_SoloMesh7cleanupEv(ptr noundef nonnull align 8 dereferenceable(356) %0)
           to label %_ZN15Sample_SoloMeshD2Ev.exit unwind label %2

@@ -4114,7 +4114,7 @@ if.end14:                                         ; preds = %_ZNSt6vectorIPFvN4p
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt21PixelStatsAccumulatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt21PixelStatsAccumulatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr null, ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #22
@@ -5342,7 +5342,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt16StatsAccumulatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt16StatsAccumulatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr null, ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(584) ptr @_Znwm(i64 noundef 584) #22

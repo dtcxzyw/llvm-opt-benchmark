@@ -82,7 +82,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11cache_sim_tC2EmmmPKc(ptr noundef nonnull align 8 dereferenceable(153) initializes((0, 12), (24, 48)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11cache_sim_tC2EmmmPKc(ptr noundef nonnull align 8 dereferenceable(153) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds (i8, ptr @_ZTV11cache_sim_t, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -610,7 +610,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11cache_sim_tC2ERKS_(ptr noundef nonnull align 8 dereferenceable(153) initializes((0, 12), (24, 56)) %0, ptr noundef nonnull align 8 dereferenceable(153) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11cache_sim_tC2ERKS_(ptr noundef nonnull align 8 dereferenceable(153) %0, ptr noundef nonnull align 8 dereferenceable(153) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11cache_sim_t, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8
@@ -744,7 +744,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN11cache_sim_tD2Ev(ptr noundef nonnull align 8 dereferenceable(153) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11cache_sim_tD2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11cache_sim_t, i64 16), ptr %0, align 8
   invoke void @_ZN11cache_sim_t11print_statsEv(ptr noundef nonnull align 8 dereferenceable(153) %0)
           to label %2 unwind label %15
@@ -1299,7 +1299,7 @@ tailrecurse:                                      ; preds = %.split, %._crit_edg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14fa_cache_sim_tC2EmmPKc(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 12), (24, 48)) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14fa_cache_sim_tC2EmmPKc(ptr noundef nonnull align 8 dereferenceable(208) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN11cache_sim_tC2EmmmPKc(ptr noundef nonnull align 8 dereferenceable(153) %0, i64 noundef 1, i64 noundef %1, i64 noundef %2, ptr noundef %3)
   store ptr getelementptr inbounds (i8, ptr @_ZTV14fa_cache_sim_t, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 168

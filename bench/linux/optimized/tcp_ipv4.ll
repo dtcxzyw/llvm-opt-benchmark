@@ -1558,7 +1558,7 @@ declare dso_local void @sk_error_report(ptr noundef) local_unnamed_addr #2
 declare dso_local void @tcp_done(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define dso_local void @__tcp_v4_send_check(ptr nocapture noundef initializes((136, 140)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 16 {
+define dso_local void @__tcp_v4_send_check(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 178
@@ -1588,7 +1588,7 @@ define dso_local void @__tcp_v4_send_check(ptr nocapture noundef initializes((13
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define dso_local void @tcp_v4_send_check(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((136, 140)) %1) #5 align 16 {
+define dso_local void @tcp_v4_send_check(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 760
   %4 = load i32, ptr %3, align 8
   %5 = load i32, ptr %0, align 8
@@ -3294,7 +3294,7 @@ declare dso_local void @tcp_syn_ack_timeout(ptr noundef) #2
 declare dso_local i32 @cookie_v4_init_sequence(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @tcp_v4_route_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef initializes((0, 8), (56, 88)) %3) #0 align 16 {
+define internal ptr @tcp_v4_route_req(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 192
@@ -8523,7 +8523,7 @@ define internal void @tcp4_proc_exit_net(ptr nocapture noundef readonly %0) #0 a
 declare dso_local ptr @proc_create_net_data(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tcp4_seq_show(ptr noundef initializes((32, 40)) %0, ptr noundef %1) #0 align 16 {
+define internal noundef i32 @tcp4_seq_show(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8
@@ -8965,7 +8965,7 @@ declare dso_local i64 @_copy_from_user(ptr noundef, ptr noundef, i64 noundef) lo
 declare dso_local void @tcp_twsk_destructor(ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @tcp_sk_init(ptr noundef initializes((708, 716), (740, 744), (1108, 1110), (1124, 1152), (1156, 1164), (1188, 1189)) %0) #0 align 16 {
+define internal noundef i32 @tcp_sk_init(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   %3 = getelementptr inbounds i8, ptr %0, i64 1108
   store i8 2, ptr %3, align 4

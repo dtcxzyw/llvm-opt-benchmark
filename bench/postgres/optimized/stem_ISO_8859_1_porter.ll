@@ -104,7 +104,7 @@ target triple = "x86_64-pc-linux-gnu"
 @s_5_18 = internal constant [2 x i8] c"ou", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef initializes((20, 24)) %0) local_unnamed_addr #0 {
+define hidden range(i32 -2147483648, 2) i32 @porter_ISO_8859_1_stem(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 8

@@ -746,7 +746,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516CollationBuilderC2EPKNS_18CollationTailoringEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this, ptr noundef %b, i8 noundef signext %icu4xMode, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516CollationBuilderC2EPKNS_18CollationTailoringEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef %b, i8 noundef signext %icu4xMode, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516CollationBuilderE, i64 16), ptr %this, align 8
   %call = invoke noundef ptr @_ZN6icu_7511Normalizer214getNFDInstanceER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -936,14 +936,14 @@ declare void @_ZN6icu_7510UnicodeSetD1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZN6icu_7519CollationRuleParser4SinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516CollationBuilderC2EPKNS_18CollationTailoringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this, ptr noundef %b, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7516CollationBuilderC2EPKNS_18CollationTailoringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef %b, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_7516CollationBuilderC2EPKNS_18CollationTailoringEaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef %b, i8 noundef signext 0, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7516CollationBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7516CollationBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516CollationBuilderE, i64 16), ptr %this, align 8
   %dataBuilder = getelementptr inbounds i8, ptr %this, i64 72

@@ -67,7 +67,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__PRETTY_FUNCTION__.deposit32 = private unnamed_addr constant [49 x i8] c"uint32_t deposit32(uint32_t, int, int, uint32_t)\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ctucan_hardware_reset(ptr nocapture noundef initializes((0, 4), (8, 20), (88, 96), (108, 116), (120, 124), (8644, 8656)) %s) local_unnamed_addr #0 {
+define dso_local void @ctucan_hardware_reset(ptr nocapture noundef %s) local_unnamed_addr #0 {
 entry:
   %tx_status = getelementptr inbounds i8, ptr %s, i64 92
   store i32 34952, ptr %tx_status, align 4
@@ -1074,7 +1074,7 @@ return:                                           ; preds = %entry, %for.end, %i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -22, 1) i32 @ctucan_connect_to_bus(ptr noundef initializes((8664, 8672)) %s, ptr noundef %bus) local_unnamed_addr #0 {
+define dso_local range(i32 -22, 1) i32 @ctucan_connect_to_bus(ptr noundef %s, ptr noundef %bus) local_unnamed_addr #0 {
 entry:
   %bus_client = getelementptr inbounds i8, ptr %s, i64 8664
   store ptr @ctucan_bus_client_info, ptr %bus_client, align 8
@@ -1104,7 +1104,7 @@ entry:
 declare i32 @can_bus_remove_client(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @ctucan_init(ptr nocapture noundef initializes((0, 4), (8, 20), (88, 96), (108, 116), (120, 124), (8644, 8664)) %s, ptr noundef %irq) local_unnamed_addr #0 {
+define dso_local noundef i32 @ctucan_init(ptr nocapture noundef %s, ptr noundef %irq) local_unnamed_addr #0 {
 entry:
   %irq1 = getelementptr inbounds i8, ptr %s, i64 8656
   store ptr %irq, ptr %irq1, align 8

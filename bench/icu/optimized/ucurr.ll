@@ -3108,7 +3108,7 @@ return:                                           ; preds = %if.end12, %if.end67
 declare i32 @u_strToUpper_75(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsiPiS4_S4_(ptr nocapture noundef readonly %currencyNames, i32 noundef %total_currency_count, ptr nocapture noundef nonnull readonly %text, i32 noundef %textLen, ptr nocapture noundef %partialMatchLen, ptr nocapture noundef nonnull initializes((0, 4)) %maxMatchLen, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %maxMatchIndex) unnamed_addr #9 {
+define internal fastcc void @_ZL18searchCurrencyNamePK18CurrencyNameStructiPKDsiPiS4_S4_(ptr nocapture noundef readonly %currencyNames, i32 noundef %total_currency_count, ptr nocapture noundef nonnull readonly %text, i32 noundef %textLen, ptr nocapture noundef %partialMatchLen, ptr nocapture noundef nonnull %maxMatchLen, ptr nocapture noundef nonnull writeonly %maxMatchIndex) unnamed_addr #9 {
 entry:
   store i32 -1, ptr %maxMatchIndex, align 4
   store i32 0, ptr %maxMatchLen, align 4

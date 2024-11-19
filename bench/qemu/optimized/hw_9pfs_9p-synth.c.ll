@@ -440,7 +440,7 @@ if.end41:                                         ; preds = %if.end37, %v9fs_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_lstat(ptr nocapture readnone %fs_ctx, ptr nocapture noundef readonly %fs_path, ptr nocapture noundef writeonly initializes((0, 36), (40, 80), (88, 96), (104, 112)) %stbuf) #5 {
+define internal noundef i32 @synth_lstat(ptr nocapture readnone %fs_ctx, ptr nocapture noundef readonly %fs_path, ptr nocapture noundef writeonly %stbuf) #5 {
 entry:
   %data = getelementptr inbounds i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -571,7 +571,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @synth_opendir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs_path, ptr nocapture noundef writeonly initializes((0, 8)) %fs) #0 {
+define internal noundef i32 @synth_opendir(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs_path, ptr nocapture noundef writeonly %fs) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -588,7 +588,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @synth_open(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs_path, i32 %flags, ptr nocapture noundef writeonly initializes((0, 8)) %fs) #0 {
+define internal noundef i32 @synth_open(ptr nocapture readnone %ctx, ptr nocapture noundef readonly %fs_path, i32 %flags, ptr nocapture noundef writeonly %fs) #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %fs_path, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -886,7 +886,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_fstat(ptr nocapture readnone %fs_ctx, i32 %fid_type, ptr nocapture noundef readonly %fs, ptr nocapture noundef writeonly initializes((0, 36), (40, 80), (88, 96), (104, 112)) %stbuf) #5 {
+define internal noundef i32 @synth_fstat(ptr nocapture readnone %fs_ctx, i32 %fid_type, ptr nocapture noundef readonly %fs, ptr nocapture noundef writeonly %stbuf) #5 {
 entry:
   %0 = load ptr, ptr %fs, align 8
   %node = getelementptr inbounds i8, ptr %0, i64 8
@@ -947,7 +947,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @synth_statfs(ptr nocapture readnone %s, ptr nocapture readnone %fs_path, ptr nocapture noundef writeonly initializes((0, 24), (40, 48), (64, 72)) %stbuf) #9 {
+define internal noundef i32 @synth_statfs(ptr nocapture readnone %s, ptr nocapture readnone %fs_path, ptr nocapture noundef writeonly %stbuf) #9 {
 entry:
   store i64 43981, ptr %stbuf, align 8
   %f_bsize = getelementptr inbounds i8, ptr %stbuf, i64 8

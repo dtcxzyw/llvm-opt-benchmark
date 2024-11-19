@@ -2194,7 +2194,7 @@ declare dso_local ptr @gen3_emit_breadcrumb(ptr noundef, ptr noundef) #3
 declare dso_local ptr @gen5_emit_breadcrumb(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @i9xx_set_default_submission(ptr nocapture noundef writeonly initializes((928, 936)) %0) #7 align 16 {
+define internal void @i9xx_set_default_submission(ptr nocapture noundef writeonly %0) #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 928
   store ptr @i9xx_submit_request, ptr %2, align 8
   ret void
@@ -2466,7 +2466,7 @@ declare dso_local void @_raw_spin_lock_irq(ptr noundef) local_unnamed_addr #3 se
 declare dso_local void @_raw_spin_unlock_irq(ptr noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @ring_context_alloc(ptr nocapture noundef initializes((104, 120)) %0) #0 align 16 {
+define internal i32 @ring_context_alloc(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 512
@@ -3248,7 +3248,7 @@ declare dso_local i32 @gen2_emit_flush(ptr noundef, i32 noundef) #3
 declare dso_local i32 @hsw_emit_bb_start(ptr noundef, i64 noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @gen6_bsd_set_default_submission(ptr nocapture noundef writeonly initializes((928, 936)) %0) #7 align 16 {
+define internal void @gen6_bsd_set_default_submission(ptr nocapture noundef writeonly %0) #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 928
   store ptr @gen6_bsd_submit_request, ptr %2, align 8
   ret void

@@ -69,7 +69,7 @@ $_ZTVSt15_Sp_counted_ptrIPN7rocksdb24TransactionDBCondVarImplELN9__gnu_cxx12_Loc
 @_ZTVSt15_Sp_counted_ptrIPN7rocksdb24TransactionDBCondVarImplELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZNSt15_Sp_counted_ptrIPN7rocksdb24TransactionDBCondVarImplELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt15_Sp_counted_ptrIPN7rocksdb24TransactionDBCondVarImplELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt15_Sp_counted_ptrIPN7rocksdb24TransactionDBCondVarImplELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt15_Sp_counted_ptrIPN7rocksdb24TransactionDBCondVarImplELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt15_Sp_counted_ptrIPN7rocksdb24TransactionDBCondVarImplELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb29TransactionDBMutexFactoryImpl13AllocateMutexEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb29TransactionDBMutexFactoryImpl13AllocateMutexEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb22TransactionDBMutexImplE, i64 16), ptr %call, align 8
@@ -133,7 +133,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb29TransactionDBMutexFactoryImpl15AllocateCondVarEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.0") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb29TransactionDBMutexFactoryImpl15AllocateCondVarEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.0") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #11
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24TransactionDBCondVarImplE, i64 16), ptr %call, align 8
@@ -290,7 +290,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit9:           ; preds = %lpad, %if.else.i.i5
 declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24TransactionDBCondVarImpl7WaitForESt10shared_ptrINS_18TransactionDBMutexEEl(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %mutex, i64 noundef %timeout_time) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24TransactionDBCondVarImpl7WaitForESt10shared_ptrINS_18TransactionDBMutexEEl(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %mutex, i64 noundef %timeout_time) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__ts.i.i.i = alloca %struct.timespec, align 8
   %lock = alloca %"class.std::unique_lock", align 8

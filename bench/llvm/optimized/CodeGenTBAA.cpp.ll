@@ -101,7 +101,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZN5clang7CodeGen11CodeGenTBAAD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang7CodeGen11CodeGenTBAAD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang7CodeGen11CodeGenTBAAC2ERNS_10ASTContextERNS0_12CodeGenTypesERN4llvm6ModuleERKNS_14CodeGenOptionsERKNS_11LangOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 68), (72, 92), (96, 116), (120, 140), (144, 160)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 8 dereferenceable(857) %3, ptr noundef nonnull align 8 dereferenceable(2136) %4, ptr noundef nonnull align 8 dereferenceable(841) %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen11CodeGenTBAAC2ERNS_10ASTContextERNS0_12CodeGenTypesERN4llvm6ModuleERKNS_14CodeGenOptionsERKNS_11LangOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 8 dereferenceable(857) %3, ptr noundef nonnull align 8 dereferenceable(2136) %4, ptr noundef nonnull align 8 dereferenceable(841) %5) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -1527,7 +1527,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4TypeEPNS_6MDNodeENS_12DenseMapInfo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen11CodeGenTBAA13getAccessInfoENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 initializes((0, 4), (8, 40)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang7CodeGen11CodeGenTBAA13getAccessInfoENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1, i64 %2) local_unnamed_addr #1 align 2 {
   %4 = and i64 %2, -16
   %5 = inttoptr i64 %4 to ptr
   %6 = load ptr, ptr %5, align 16
@@ -1574,7 +1574,7 @@ declare noundef zeroext i1 @_ZNK5clang4Type16isIncompleteTypeEPPNS_9NamedDeclE(p
 declare i64 @_ZNK5clang10ASTContext18getTypeSizeInCharsENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23096), i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen11CodeGenTBAA22getVTablePtrAccessInfoEPN4llvm4TypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 initializes((0, 4), (8, 40)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang7CodeGen11CodeGenTBAA22getVTablePtrAccessInfoEPN4llvm4TypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %2) local_unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 288
@@ -3214,7 +3214,7 @@ declare noundef ptr @_ZN4llvm9MDBuilder19createTBAAAccessTagEPNS_6MDNodeES2_mmb(
 declare noundef ptr @_ZN4llvm9MDBuilder23createTBAAStructTagNodeEPNS_6MDNodeES2_mb(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang7CodeGen11CodeGenTBAA20mergeTBAAInfoForCastENS0_14TBAAAccessInfoES2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 initializes((0, 4), (8, 40)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %1, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %2, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen11CodeGenTBAA20mergeTBAAInfoForCastENS0_14TBAAAccessInfoES2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %1, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %2, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %3) local_unnamed_addr #0 align 2 {
   %5 = load i32, ptr %2, align 8
   %6 = icmp eq i32 %5, 1
   %7 = load i32, ptr %3, align 8
@@ -3237,7 +3237,7 @@ define dso_local void @_ZN5clang7CodeGen11CodeGenTBAA20mergeTBAAInfoForCastENS0_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang7CodeGen11CodeGenTBAA35mergeTBAAInfoForConditionalOperatorENS0_14TBAAAccessInfoES2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 initializes((0, 4), (8, 40)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %1, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %2, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen11CodeGenTBAA35mergeTBAAInfoForConditionalOperatorENS0_14TBAAAccessInfoES2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %1, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %2, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %3) local_unnamed_addr #0 align 2 {
   %5 = load i32, ptr %2, align 8
   %6 = load i32, ptr %3, align 8
   %7 = icmp eq i32 %5, %6
@@ -3350,7 +3350,7 @@ _ZNK5clang7CodeGen14TBAAAccessInfocvbEv.exit4.thread: ; preds = %_ZNK5clang7Code
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang7CodeGen11CodeGenTBAA30mergeTBAAInfoForMemoryTransferENS0_14TBAAAccessInfoES2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 initializes((0, 4), (8, 40)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %1, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %2, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen11CodeGenTBAA30mergeTBAAInfoForMemoryTransferENS0_14TBAAAccessInfoES2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(160) %1, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %2, ptr nocapture noundef readonly byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8 %3) local_unnamed_addr #0 align 2 {
   %5 = load i32, ptr %2, align 8
   %6 = load i32, ptr %3, align 8
   %7 = icmp eq i32 %5, %6

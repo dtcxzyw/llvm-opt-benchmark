@@ -130,7 +130,7 @@ _ZN5boost4urls7grammar12hexdig_valueEc.exit4:     ; preds = %switch.lookup, %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0, ptr %1, i64 %2, i64 noundef %3, i24 %4) unnamed_addr #2 align 2 {
+define void @_ZN5boost4urls11decode_viewC2ENS_4core17basic_string_viewIcEEmNS0_13encoding_optsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr %1, i64 %2, i64 noundef %3, i24 %4) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8, !tbaa !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %6, align 8, !tbaa !16
@@ -616,7 +616,7 @@ _ZNK5boost4urls11decode_view4backEv.exit:         ; preds = %14, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5boost4urls11decode_view4findEc(ptr dead_on_unwind noalias nocapture writable sret(%"class.boost::urls::decode_view::iterator") align 8 initializes((0, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1, i8 noundef signext %2) local_unnamed_addr #9 align 2 {
+define void @_ZNK5boost4urls11decode_view4findEc(ptr dead_on_unwind noalias nocapture writable sret(%"class.boost::urls::decode_view::iterator") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1, i8 noundef signext %2) local_unnamed_addr #9 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %4 = load ptr, ptr %1, align 8, !tbaa !13, !noalias !10
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24

@@ -1254,7 +1254,7 @@ define dso_local void @_ZN4Json6WriterD0Ev(ptr nocapture nonnull readnone align 
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Json10FastWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(43) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4Json10FastWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(43) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json10FastWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
@@ -1271,21 +1271,21 @@ define dso_local void @_ZN4Json10FastWriterC2Ev(ptr noundef nonnull align 8 dere
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Json10FastWriter23enableYAMLCompatibilityEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) initializes((40, 41)) %0) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4Json10FastWriter23enableYAMLCompatibilityEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Json10FastWriter20dropNullPlaceholdersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) initializes((41, 42)) %0) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4Json10FastWriter20dropNullPlaceholdersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 41
   store i8 1, ptr %2, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Json10FastWriter18omitEndingLineFeedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) initializes((42, 43)) %0) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4Json10FastWriter18omitEndingLineFeedEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(43) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 42
   store i8 1, ptr %2, align 2
   ret void
@@ -1655,7 +1655,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Json12StyledWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 32)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4Json12StyledWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json12StyledWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
@@ -3389,7 +3389,7 @@ declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr 
 declare ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Json18StyledStreamWriterC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4Json18StyledStreamWriterC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
@@ -3408,7 +3408,7 @@ define dso_local void @_ZN4Json18StyledStreamWriterC2ENSt7__cxx1112basic_stringI
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json18StyledStreamWriter5writeERSoRKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) initializes((24, 32)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Json18StyledStreamWriter5writeERSoRKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 104
@@ -4927,7 +4927,7 @@ define dso_local noundef zeroext i1 @_ZN4Json18StyledStreamWriter18hasCommentFor
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8), i8 noundef signext) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Json23BuiltStyledStreamWriterC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12CommentStyle4EnumES6_S6_S6_bbjNS_13PrecisionTypeE(ptr noundef nonnull align 8 dereferenceable(228) initializes((0, 40)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4Json23BuiltStyledStreamWriterC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12CommentStyle4EnumES6_S6_S6_bbjNS_13PrecisionTypeE(ptr noundef nonnull align 8 dereferenceable(228) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9) unnamed_addr #6 align 2 {
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %11, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json23BuiltStyledStreamWriterE, i64 16), ptr %0, align 8
@@ -4963,7 +4963,7 @@ define dso_local void @_ZN4Json23BuiltStyledStreamWriterC2ENSt7__cxx1112basic_st
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Json12StreamWriterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #7 align 2 {
+define dso_local void @_ZN4Json12StreamWriterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json12StreamWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -4971,7 +4971,7 @@ define dso_local void @_ZN4Json12StreamWriterC2Ev(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN4Json23BuiltStyledStreamWriter5writeERKNS_5ValueEPSo(ptr noundef nonnull align 8 dereferenceable(228) initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN4Json23BuiltStyledStreamWriter5writeERKNS_5ValueEPSo(ptr noundef nonnull align 8 dereferenceable(228) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 216
@@ -6595,7 +6595,7 @@ define dso_local void @_ZN4Json12StreamWriter7FactoryD0Ev(ptr nocapture nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Json19StreamWriterBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Json19StreamWriterBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json19StreamWriterBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 0)
@@ -6733,7 +6733,7 @@ define dso_local void @_ZN4Json19StreamWriterBuilder11setDefaultsEPNS_5ValueE(pt
 declare void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Json19StreamWriterBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4Json19StreamWriterBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json19StreamWriterBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #20
@@ -6741,7 +6741,7 @@ define dso_local void @_ZN4Json19StreamWriterBuilderD2Ev(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Json19StreamWriterBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4Json19StreamWriterBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4Json19StreamWriterBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %2) #20

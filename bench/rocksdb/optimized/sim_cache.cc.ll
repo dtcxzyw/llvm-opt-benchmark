@@ -1071,7 +1071,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImplD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImplD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12_GLOBAL__N_112SimCacheImplE, i64 16), ptr %this, align 8
   %cache_activity_logger_ = getelementptr inbounds i8, ptr %this, i64 112
@@ -1204,7 +1204,7 @@ _ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit:     ; preds = %_ZN7rocksdb12_GLOBA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImplD0Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImplD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImplD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -2186,7 +2186,7 @@ lpad:                                             ; preds = %invoke.cont42, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl20StartActivityLoggingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3EnvEm(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(32) %activity_log_file, ptr noundef %env, i64 noundef %max_logging_size) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7rocksdb12_GLOBAL__N_112SimCacheImpl20StartActivityLoggingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_3EnvEm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(32) %activity_log_file, ptr noundef %env, i64 noundef %max_logging_size) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %file_opts.i = alloca %"struct.rocksdb::FileOptions", align 8
   %ref.tmp.i = alloca %"class.rocksdb::IOStatus", align 8

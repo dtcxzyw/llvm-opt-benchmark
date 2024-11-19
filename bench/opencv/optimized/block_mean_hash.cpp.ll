@@ -677,7 +677,7 @@ _ZN12_GLOBAL__N_117BlockMeanHashImplD2Ev.exit:    ; preds = %5, %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117BlockMeanHashImplC2Ei(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_117BlockMeanHashImplC2Ei(ptr noundef nonnull align 8 dereferenceable(232) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.8", align 1
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_117BlockMeanHashImplE, i64 16), ptr %0, align 8

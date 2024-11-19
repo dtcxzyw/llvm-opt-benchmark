@@ -4188,7 +4188,7 @@ declare void @_ZN18MapSettingsManagerD1Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZN9ServerMapD2Ev(ptr noundef nonnull align 8 dereferenceable(560) initializes((0, 8)) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9ServerMapD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca ptr, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV9ServerMap, i64 16), ptr %this, align 8, !tbaa !15
@@ -4899,7 +4899,7 @@ _ZNSt6vectorISt10unique_ptrI8MapBlockSt14default_deleteIS1_EESaIS4_EE5clearEv.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9ServerMapD0Ev(ptr noundef nonnull align 8 dereferenceable(560) initializes((0, 8)) %this) unnamed_addr #11 align 2 {
+define dso_local void @_ZN9ServerMapD0Ev(ptr noundef nonnull align 8 dereferenceable(560) %this) unnamed_addr #11 align 2 {
 entry:
   tail call void @_ZN9ServerMapD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %this) #31
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32

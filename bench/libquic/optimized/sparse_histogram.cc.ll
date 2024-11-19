@@ -174,7 +174,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base15SparseHistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base15SparseHistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base15SparseHistogramE, i64 16), ptr %this, align 8
   %logged_samples_ = getelementptr inbounds i8, ptr %this, i64 104
@@ -215,7 +215,7 @@ _ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev.exit5: ;
 declare void @_ZN4base13HistogramBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(44)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base15SparseHistogramD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base15SparseHistogramD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base15SparseHistogramE, i64 16), ptr %this, align 8
   %logged_samples_.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -520,7 +520,7 @@ eh.resume:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK4base15SparseHistogram18SnapshotFinalDeltaEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) initializes((88, 89)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK4base15SparseHistogram18SnapshotFinalDeltaEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.13") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %final_delta_created_ = getelementptr inbounds i8, ptr %this, i64 88
   store i8 1, ptr %final_delta_created_, align 8

@@ -3416,7 +3416,7 @@ define internal noundef i32 @sky2_get_regs_len(ptr nocapture readnone %0) #12 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @sky2_get_regs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 8)) %1, ptr noundef %2) #2 align 16 {
+define internal void @sky2_get_regs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2304
   %5 = load ptr, ptr %4, align 64
   %6 = load ptr, ptr %5, align 8
@@ -3527,7 +3527,7 @@ define internal void @sky2_get_regs(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @sky2_get_wol(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 12)) %1) #13 align 16 {
+define internal void @sky2_get_wol(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #13 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = load ptr, ptr %3, align 64
   %5 = getelementptr inbounds i8, ptr %4, i64 432
@@ -3620,7 +3620,7 @@ define internal i32 @sky2_get_msglevel(ptr nocapture noundef readonly %0) #14 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @sky2_set_msglevel(ptr nocapture noundef writeonly initializes((2324, 2328)) %0, i32 noundef %1) #15 align 16 {
+define internal void @sky2_set_msglevel(ptr nocapture noundef writeonly %0, i32 noundef %1) #15 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2324
   store i32 %1, ptr %3, align 4
   ret void
@@ -3688,7 +3688,7 @@ define internal range(i32 256, 2049) i32 @sky2_get_eeprom_len(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -2147483648, 1) i32 @sky2_get_eeprom(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1, ptr noundef %2) #2 align 16 {
+define internal range(i32 -2147483648, 1) i32 @sky2_get_eeprom(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 2304
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 -1722438981, ptr %5, align 4
@@ -4079,7 +4079,7 @@ define internal noundef range(i32 -22, 1) i32 @sky2_set_coalesce(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @sky2_get_ringparam(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 8), (16, 24), (32, 36)) %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #16 align 16 {
+define internal void @sky2_get_ringparam(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, ptr nocapture readnone %3) #16 align 16 {
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 168, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -4172,7 +4172,7 @@ define internal i32 @sky2_set_ringparam(ptr noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @sky2_get_pauseparam(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((4, 8)) %1) #16 align 16 {
+define internal void @sky2_get_pauseparam(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #16 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2528
   %4 = load i32, ptr %3, align 32
   switch i32 %4, label %15 [
@@ -4214,7 +4214,7 @@ define internal void @sky2_get_pauseparam(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sky2_set_pauseparam(ptr noundef initializes((2528, 2532)) %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal noundef i32 @sky2_set_pauseparam(ptr noundef %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 1
@@ -4815,7 +4815,7 @@ define internal noundef range(i32 -95, 37) i32 @sky2_get_sset_count(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @sky2_get_link_ksettings(ptr nocapture noundef readonly %0, ptr noundef initializes((4, 12)) %1) #2 align 16 {
+define internal noundef i32 @sky2_get_link_ksettings(ptr nocapture noundef readonly %0, ptr noundef %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = load ptr, ptr %3, align 64
   %5 = getelementptr inbounds i8, ptr %4, i64 432
@@ -9554,7 +9554,7 @@ declare dso_local void @dev_close(ptr noundef) local_unnamed_addr #1
 declare dso_local void @netif_device_attach(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sky2_hw_up(ptr nocapture noundef initializes((66, 70), (74, 84)) %0) unnamed_addr #2 align 16 {
+define internal fastcc void @sky2_hw_up(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 16
@@ -10417,7 +10417,7 @@ thread-pre-split.thread:                          ; preds = %508, %523, %519, %t
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @sky2_alloc_rx_skbs(ptr nocapture noundef initializes((168, 170)) %0) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @sky2_alloc_rx_skbs(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -10644,7 +10644,7 @@ define internal fastcc ptr @sky2_rx_alloc(ptr nocapture noundef readonly %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef %0, ptr nocapture noundef initializes((8, 16)) %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 -5, 1) i32 @sky2_rx_map_skb(ptr noundef %0, ptr nocapture noundef %1, i32 noundef range(i32 0, 65536) %2) unnamed_addr #2 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 184
   %6 = getelementptr inbounds i8, ptr %4, i64 200
@@ -10907,7 +10907,7 @@ define internal fastcc void @sky2_ramset(ptr nocapture noundef readonly %0, i16 
 declare dso_local void @netdev_update_features(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @sky2_rx_start(ptr nocapture noundef initializes((160, 164)) %0) unnamed_addr #2 align 16 {
+define internal fastcc void @sky2_rx_start(ptr nocapture noundef %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 16
@@ -12461,7 +12461,7 @@ define internal void @sky2_tx_timeout(ptr noundef %0, i32 %1) #20 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @sky2_get_stats(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) #2 align 16 {
+define internal void @sky2_get_stats(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = load ptr, ptr %3, align 64
   %5 = getelementptr i8, ptr %0, i64 2320

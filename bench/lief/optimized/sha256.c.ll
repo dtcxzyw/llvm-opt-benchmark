@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [25 x i8] c"Buffer allocation failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_sha256_init(ptr nocapture noundef writeonly initializes((0, 108)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_sha256_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %0, i8 0, i64 108, i1 false)
   ret void
 }
@@ -40,7 +40,7 @@ define hidden void @mbedtls_sha256_free(ptr noundef %0) local_unnamed_addr #2 {
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @mbedtls_sha256_clone(ptr nocapture noundef writeonly initializes((0, 108)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define hidden void @mbedtls_sha256_clone(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(108) %0, ptr noundef nonnull align 4 dereferenceable(108) %1, i64 108, i1 false)
   ret void
 }
@@ -49,7 +49,7 @@ define hidden void @mbedtls_sha256_clone(ptr nocapture noundef writeonly initial
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mbedtls_sha256_starts(ptr nocapture noundef writeonly initializes((0, 40), (104, 108)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @mbedtls_sha256_starts(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
@@ -995,7 +995,7 @@ mbedtls_internal_sha256_process_many.exit:        ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 28)) %1) local_unnamed_addr #2 {
+define hidden noundef i32 @mbedtls_sha256_finish(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 63
   %5 = getelementptr inbounds i8, ptr %0, i64 40

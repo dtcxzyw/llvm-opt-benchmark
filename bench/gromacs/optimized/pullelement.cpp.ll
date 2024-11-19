@@ -1129,7 +1129,7 @@ define noundef nonnull ptr @_ZThn8_N3gmx11PullElement8clientIDB5cxx11Ev(ptr noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx11PullElementC2Eb7PbcTypePNS_19StatePropagatorDataEP6pull_tPK9t_commrecPKNS_7MDAtomsE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 17), (20, 24)) %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx11PullElementC2Eb7PbcTypePNS_19StatePropagatorDataEP6pull_tPK9t_commrecPKNS_7MDAtomsE(ptr noundef nonnull align 8 dereferenceable(96) %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::allocator", align 1
   %9 = zext i1 %1 to i8
   %10 = getelementptr inbounds i8, ptr %0, i64 8

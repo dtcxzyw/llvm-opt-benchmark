@@ -5560,7 +5560,7 @@ _ZN3spv10spirvbin_t12nextUnusedIdEj.exit:         ; preds = %_ZNK3spv10spirvbin_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv10spirvbin_t5remapEj(ptr noundef nonnull align 8 dereferenceable(473) initializes((464, 468)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3spv10spirvbin_t5remapEj(ptr noundef nonnull align 8 dereferenceable(473) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::function.79", align 8
   %4 = alloca %"class.std::function.82", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

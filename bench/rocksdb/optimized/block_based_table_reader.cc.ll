@@ -13452,7 +13452,7 @@ _ZNSt10unique_ptrIN7rocksdb14IndexBlockIter16GlobalSeqnoStateESt14default_delete
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb15BlockBasedTableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN7rocksdb15BlockBasedTableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15BlockBasedTableE, i64 16), ptr %this, align 8
   %rep_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -16857,7 +16857,7 @@ ehcleanup32:                                      ; preds = %_ZN7rocksdb6StatusD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15BlockBasedTable19ReadPropertiesBlockERKNS_11ReadOptionsEPNS_18FilePrefetchBufferEPNS_20InternalIteratorBaseINS_5SliceEEEm(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(154) %ro, ptr noundef %prefetch_buffer, ptr noundef %meta_iter, i64 noundef %largest_seqno) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15BlockBasedTable19ReadPropertiesBlockERKNS_11ReadOptionsEPNS_18FilePrefetchBufferEPNS_20InternalIteratorBaseINS_5SliceEEEm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(154) %ro, ptr noundef %prefetch_buffer, ptr noundef %meta_iter, i64 noundef %largest_seqno) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %msg_buf.i = alloca %"struct.std::array.573", align 1
   %ref.tmp16.i = alloca %"class.rocksdb::Slice", align 8
@@ -18652,7 +18652,7 @@ _ZNSt10shared_ptrIN7rocksdb14ObjectRegistryEED2Ev.exit: ; preds = %entry, %_ZN9_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15BlockBasedTable17ReadRangeDelBlockERKNS_11ReadOptionsEPNS_18FilePrefetchBufferEPNS_20InternalIteratorBaseINS_5SliceEEERKNS_21InternalKeyComparatorEPNS_23BlockCacheLookupContextE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef %prefetch_buffer, ptr noundef %meta_iter, ptr noundef nonnull align 8 dereferenceable(16) %internal_comparator, ptr noundef %lookup_context) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15BlockBasedTable17ReadRangeDelBlockERKNS_11ReadOptionsEPNS_18FilePrefetchBufferEPNS_20InternalIteratorBaseINS_5SliceEEERKNS_21InternalKeyComparatorEPNS_23BlockCacheLookupContextE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef %prefetch_buffer, ptr noundef %meta_iter, ptr noundef nonnull align 8 dereferenceable(16) %internal_comparator, ptr noundef %lookup_context) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__a.i = alloca %"class.std::allocator.649", align 1
   %range_del_handle = alloca %"class.rocksdb::BlockHandle", align 8
@@ -20855,7 +20855,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK7rocksdb15BlockBasedTable18GetTablePropertiesEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.46") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb15BlockBasedTable18GetTablePropertiesEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.46") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rep_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %rep_, align 8
@@ -21381,7 +21381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb15BlockBasedTable29PartitionedIndexIteratorStateC2EPKS0_PSt13unordered_mapImNS_13CachableEntryINS_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS7_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %table, ptr noundef %block_map) unnamed_addr #14 align 2 {
+define void @_ZN7rocksdb15BlockBasedTable29PartitionedIndexIteratorStateC2EPKS0_PSt13unordered_mapImNS_13CachableEntryINS_5BlockEEESt4hashImESt8equal_toImESaISt4pairIKmS7_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %table, ptr noundef %block_map) unnamed_addr #14 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15BlockBasedTable29PartitionedIndexIteratorStateE, i64 16), ptr %this, align 8
   %table_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -23392,7 +23392,7 @@ return:                                           ; preds = %if.then.i3, %if.the
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb15BlockBasedTable3GetERKNS_11ReadOptionsERKNS_5SliceEPNS_10GetContextEPKNS_14SliceTransformEb(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef %get_context, ptr noundef %prefix_extractor, i1 noundef zeroext %skip_filters) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15BlockBasedTable3GetERKNS_11ReadOptionsERKNS_5SliceEPNS_10GetContextEPKNS_14SliceTransformEb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef %get_context, ptr noundef %prefix_extractor, i1 noundef zeroext %skip_filters) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i524 = alloca %"class.std::unique_ptr", align 8
   %ref.tmp.i492 = alloca %"class.std::unique_ptr", align 8
@@ -26238,7 +26238,7 @@ _ZN7rocksdb6StatusD2Ev.exit138:                   ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15BlockBasedTable26VerifyChecksumInMetaBlocksERKNS_11ReadOptionsEPNS_20InternalIteratorBaseINS_5SliceEEE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef %index_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15BlockBasedTable26VerifyChecksumInMetaBlocksERKNS_11ReadOptionsEPNS_20InternalIteratorBaseINS_5SliceEEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef %index_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %handle = alloca %"class.rocksdb::BlockHandle", align 8
@@ -26812,7 +26812,7 @@ _ZN7rocksdb6StatusD2Ev.exit98:                    ; preds = %ehcleanup76, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15BlockBasedTable22VerifyChecksumInBlocksERKNS_11ReadOptionsEPNS_20InternalIteratorBaseINS_10IndexValueEEE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef %index_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15BlockBasedTable22VerifyChecksumInBlocksERKNS_11ReadOptionsEPNS_20InternalIteratorBaseINS_10IndexValueEEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(154) %read_options, ptr noundef %index_iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %prefetch_buffer = alloca %"class.rocksdb::FilePrefetchBuffer", align 8
   %ref.tmp = alloca %"class.std::function.297", align 8

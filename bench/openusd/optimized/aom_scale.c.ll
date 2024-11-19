@@ -578,7 +578,7 @@ define internal void @scale1d_2t1_ps(ptr nocapture noundef readonly %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @scale1d_2t1_i(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly initializes((0, 1)) %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
+define internal void @scale1d_2t1_i(ptr nocapture noundef readonly %0, i32 noundef %1, i32 %2, i32 %3, ptr noundef writeonly %4, i32 noundef %5, i32 %6, i32 noundef %7) unnamed_addr #3 {
   %9 = mul i32 %7, %5
   %10 = zext i32 %9 to i64
   %11 = getelementptr inbounds i8, ptr %4, i64 %10

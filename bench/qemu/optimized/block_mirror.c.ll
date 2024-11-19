@@ -2604,7 +2604,7 @@ if.end26:                                         ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @mirror_query(ptr nocapture noundef readonly %job, ptr nocapture noundef writeonly initializes((72, 73)) %info) #8 {
+define internal void @mirror_query(ptr nocapture noundef readonly %job, ptr nocapture noundef writeonly %info) #8 {
 entry:
   %u = getelementptr inbounds i8, ptr %info, i64 72
   %actively_synced2 = getelementptr inbounds i8, ptr %job, i64 600
@@ -3948,7 +3948,7 @@ trace_mirror_one_iteration.exit:                  ; preds = %while.end91, %land.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mirror_co_zero(ptr noundef initializes((74, 75)) %opaque) #0 {
+define internal void @mirror_co_zero(ptr noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %in_flight = getelementptr inbounds i8, ptr %0, i64 704
@@ -4013,7 +4013,7 @@ mirror_write_complete.exit:                       ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @mirror_co_discard(ptr noundef initializes((74, 75)) %opaque) #0 {
+define internal void @mirror_co_discard(ptr noundef %opaque) #0 {
 entry:
   %0 = load ptr, ptr %opaque, align 8
   %in_flight = getelementptr inbounds i8, ptr %0, i64 704

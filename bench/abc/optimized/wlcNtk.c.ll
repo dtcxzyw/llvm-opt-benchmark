@@ -146,7 +146,7 @@ define ptr @Wlc_ObjTypeName(ptr noundef readonly %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Wlc_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 104)) %0) local_unnamed_addr #1 {
+define void @Wlc_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 0, i64 16, i1 false)
   store i32 1000000000, ptr %0, align 8
@@ -887,7 +887,7 @@ Wlc_ObjAddFanins.exit:                            ; preds = %Wlc_ObjHasArray.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_ObjAddFanins(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
+define void @Wlc_ObjAddFanins(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %2, i64 4
   %.val15 = load i32, ptr %4, align 4
   %.val15.fr = freeze i32 %.val15
@@ -6760,7 +6760,7 @@ Abc_UtilStrsav.exit:                              ; preds = %2, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wlc_ObjCollectCopyFanins(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #3 {
+define void @Wlc_ObjCollectCopyFanins(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %0, i64 640
   %.val = load ptr, ptr %4, align 8
   %5 = sext i32 %1 to i64
@@ -7179,7 +7179,7 @@ Vec_IntGrow.exit.i46:                             ; preds = %171, %169
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Wlc_ObjDup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #3 {
+define i32 @Wlc_ObjDup(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %1, i64 640
   %.val20 = load ptr, ptr %5, align 8
   %6 = sext i32 %2 to i64
@@ -8852,7 +8852,7 @@ Abc_UtilStrsav.exit:                              ; preds = %Wlc_NtkCleanMarks.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @Wlc_NtkCountMarked(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef initializes((0, 4)) %3, ptr nocapture noundef initializes((0, 4)) %4) local_unnamed_addr #14 {
+define i32 @Wlc_NtkCountMarked(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) local_unnamed_addr #14 {
   store i32 0, ptr %4, align 4
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4

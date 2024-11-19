@@ -138,7 +138,7 @@ define void @"_ZN121_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17hba43ba269d4b54b6E"(ptr nocapture writeonly sret([48 x i8]) align 8 initializes((0, 48)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$as$u20$core..default..Default$GT$7default17hba43ba269d4b54b6E"(ptr nocapture writeonly sret([48 x i8]) align 8 %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = tail call { i64, i64 } @"_ZN73_$LT$std..hash..random..RandomState$u20$as$u20$core..default..Default$GT$7default17hdb293e1f20e788ebE"()
   tail call void @"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..default..Default$GT$7default17hf57d565c48ce3e01E"()
   %3 = extractvalue { i64, i64 } %2, 1
@@ -249,7 +249,7 @@ define align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd0f1c
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17hd01b5bcabf58a6edE"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 40)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$4iter17hd01b5bcabf58a6edE"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %.sroa.0 = alloca [32 x i8], align 8
   %3 = load ptr, ptr %1, align 8
   %4 = tail call ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17h6a49c2ebf0d8c65cE"(ptr %3, i64 0)

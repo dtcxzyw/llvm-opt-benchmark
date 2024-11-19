@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_ = hidden unnamed_addr alias void (ptr, ptr, i32, i32, i32, i32, i32), ptr @_ZN9LogTagSetC2EPFmPcmEN6LogTag4typeES4_S4_S4_S4_
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden void @_ZN9LogTagSetC2EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN9LogTagSetC2EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #0 align 2 {
   %8 = load ptr, ptr @_ZN9LogTagSet5_listE, align 8
   store ptr %8, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 40

@@ -327,7 +327,7 @@ ZSTD_customFree.exit21:                           ; preds = %25, %24, %3, %1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ZSTD_copyDCtx(ptr nocapture noundef writeonly initializes((0, 30232)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
+define dso_local void @ZSTD_copyDCtx(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(30232) %0, ptr noundef nonnull align 8 dereferenceable(30232) %1, i64 30232, i1 false)
   ret void
 }
@@ -3057,7 +3057,7 @@ ZSTD_DCtx_refPrefix_advanced.exit:                ; preds = %3, %13, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef initializes((30184, 30192), (30200, 30204), (30224, 30228), (30308, 30312)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDict(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 30224
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 30308
@@ -3149,7 +3149,7 @@ define dso_local range(i64 -60, 1) i64 @ZSTD_DCtx_reset(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 1, 6) i64 @ZSTD_initDStream(ptr nocapture noundef initializes((30184, 30192), (30200, 30204), (30224, 30228), (30308, 30312)) %0) local_unnamed_addr #0 {
+define dso_local range(i64 1, 6) i64 @ZSTD_initDStream(ptr nocapture noundef %0) local_unnamed_addr #0 {
 ZSTD_DCtx_refDDict.exit:
   %1 = getelementptr inbounds i8, ptr %0, i64 30224
   store i32 0, ptr %1, align 8
@@ -3443,7 +3443,7 @@ ZSTD_DDictHashSet_addDDict.exit.thread:           ; preds = %52, %._crit_edge.i1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDDict(ptr nocapture noundef initializes((30224, 30228), (30308, 30312)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDDict(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 30224
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 30308
@@ -3465,7 +3465,7 @@ define dso_local range(i64 -64, 6) i64 @ZSTD_initDStream_usingDDict(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i64 1, 6) i64 @ZSTD_resetDStream(ptr nocapture noundef initializes((30224, 30228), (30308, 30312)) %0) local_unnamed_addr #6 {
+define dso_local range(i64 1, 6) i64 @ZSTD_resetDStream(ptr nocapture noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 30224
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 30308

@@ -3191,7 +3191,7 @@ define void @pcp_rotate(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef initializes((0, 4)) %7) local_unnamed_addr #8 {
+define void @multilevel_spring_electrical_embedding(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr nocapture noundef %7) local_unnamed_addr #8 {
   %9 = alloca [2 x double], align 16
   %10 = alloca %struct.spring_electrical_control_struct, align 8
   %11 = alloca %struct.Multilevel_control, align 8

@@ -1732,7 +1732,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @nvme_clear_zone(ptr noundef %ns, ptr noundef nonnull initializes((64, 72)) %zone) unnamed_addr #0 {
+define internal fastcc void @nvme_clear_zone(ptr noundef %ns, ptr noundef nonnull %zone) unnamed_addr #0 {
 entry:
   %_now.i.i25 = alloca %struct.timeval, align 8
   %_now.i.i = alloca %struct.timeval, align 8

@@ -159,7 +159,7 @@ $_ZN4llvm15SmallVectorImplIN5clang5RISCV6PolicyEE6appendIPKS3_vEEvT_S8_ = comdat
 @_ZN5clang5RISCV12RVVIntrinsicC1EN4llvm9StringRefES3_S3_S3_S3_bbbNS0_12PolicySchemeEbbS3_RKSt6vectorIPNS0_7RVVTypeESaIS7_EERKS5_IlSaIlEEjNS0_6PolicyEb = unnamed_addr alias void (ptr, ptr, i64, ptr, i64, ptr, ptr, ptr, i1, i1, i1, i8, i1, i1, ptr, ptr, ptr, i32, i64, i1), ptr @_ZN5clang5RISCV12RVVIntrinsicC2EN4llvm9StringRefES3_S3_S3_S3_bbbNS0_12PolicySchemeEbbS3_RKSt6vectorIPNS0_7RVVTypeESaIS7_EERKS5_IlSaIlEEjNS0_6PolicyEb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang5RISCV8LMULTypeC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang5RISCV8LMULTypeC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 4
   ret void
 }
@@ -313,7 +313,7 @@ define dso_local void @_ZN5clang5RISCV8LMULType11MulLog2LMULEi(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang5RISCV7RVVTypeC2ENS0_9BasicTypeEiRKNS0_19PrototypeDescriptorE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 2)) %0, i8 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang5RISCV7RVVTypeC2ENS0_9BasicTypeEiRKNS0_19PrototypeDescriptorE(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %3) unnamed_addr #1 align 2 {
   store i8 %1, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 11, ptr %5, align 1
@@ -4382,7 +4382,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread154: ; preds = %_ZN4llvmeqENS_9S
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang5RISCV7RVVType12applyLog2EEWEj(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((1, 2), (16, 24)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang5RISCV7RVVType12applyLog2EEWEj(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4

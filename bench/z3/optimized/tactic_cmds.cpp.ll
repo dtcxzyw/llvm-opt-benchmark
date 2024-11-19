@@ -578,7 +578,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN10probe_infoC2ERK6symbolPKcP5probe(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, ptr noundef %d, ptr noundef %p) unnamed_addr #3 align 2 {
+define hidden void @_ZN10probe_infoC2ERK6symbolPKcP5probe(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %n, ptr noundef %d, ptr noundef %p) unnamed_addr #3 align 2 {
 entry:
   %0 = load i64, ptr %n, align 8
   store i64 %0, ptr %this, align 8

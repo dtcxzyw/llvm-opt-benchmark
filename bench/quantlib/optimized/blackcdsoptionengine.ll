@@ -2640,7 +2640,7 @@ _ZN5boost10shared_ptrIN8QuantLib10DayCounter4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib20BlackCdsOptionEngine13termStructureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Handle.37") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20BlackCdsOptionEngine13termStructureEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Handle.37") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %termStructure_ = getelementptr inbounds nuw i8, ptr %this, i64 432
   %0 = load ptr, ptr %termStructure_, align 8, !tbaa !82
@@ -2662,7 +2662,7 @@ _ZN8QuantLib6HandleINS_18YieldTermStructureEEC2ERKS2_.exit: ; preds = %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib20BlackCdsOptionEngine10volatilityEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Handle.39") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20BlackCdsOptionEngine10volatilityEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Handle.39") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %this) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %volatility_ = getelementptr inbounds nuw i8, ptr %this, i64 448
   %0 = load ptr, ptr %volatility_, align 8, !tbaa !83

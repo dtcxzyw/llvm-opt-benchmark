@@ -189,7 +189,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.133 = private unnamed_addr constant [8 x i8] c"dev/all\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @var_constructor(ptr noundef initializes((16, 168)) %0) #0 {
+define internal void @var_constructor(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %2, i8 0, i64 152, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -370,14 +370,14 @@ opal_obj_run_destructors.exit34:                  ; preds = %.lr.ph.i31, %49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @fv_constructor(ptr nocapture noundef writeonly initializes((40, 72)) %0) #1 {
+define internal void @fv_constructor(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @fv_destructor(ptr nocapture noundef initializes((56, 72)) %0) #2 {
+define internal void @fv_destructor(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -403,7 +403,7 @@ define internal void @fv_destructor(ptr nocapture noundef initializes((56, 72)) 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -2, 1) i32 @mca_base_var_generate_full_name4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @mca_base_var_generate_full_name4(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #3 {
   %6 = alloca [4 x ptr], align 16
   store ptr %0, ptr %6, align 16
   %7 = getelementptr inbounds i8, ptr %6, i64 8
@@ -4976,7 +4976,7 @@ sub_0:                                            ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -18, 1) i32 @var_set_initial(ptr nocapture noundef initializes((112, 116)) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -18, 1) i32 @var_set_initial(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null

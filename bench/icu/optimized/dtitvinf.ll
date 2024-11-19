@@ -550,7 +550,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516DateIntervalInfoC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516DateIntervalInfoC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516DateIntervalInfoE, i64 16), ptr %this, align 8
   %fFallbackIntervalPattern = getelementptr inbounds i8, ptr %this, i64 8
@@ -673,7 +673,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516DateIntervalInfoC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516DateIntervalInfoC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516DateIntervalInfoE, i64 16), ptr %this, align 8
   %fFallbackIntervalPattern = getelementptr inbounds i8, ptr %this, i64 8
@@ -1206,7 +1206,7 @@ return:                                           ; preds = %entry, %if.end9, %i
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516DateIntervalInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 18), (80, 88)) %this, ptr noundef nonnull align 8 dereferenceable(88) %dtitvinf) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516DateIntervalInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %dtitvinf) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %status.i = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516DateIntervalInfoE, i64 16), ptr %this, align 8
@@ -1706,7 +1706,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6icu_7516DateIntervalInfo16DateIntervalSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6icu_7516DateIntervalInfo16DateIntervalSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 16), ptr %this, align 8
   %nextCalendarType = getelementptr inbounds i8, ptr %this, i64 16
@@ -1719,7 +1719,7 @@ entry:
 declare void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6icu_7516DateIntervalInfo16DateIntervalSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN6icu_7516DateIntervalInfo16DateIntervalSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 16), ptr %this, align 8
   %nextCalendarType.i = getelementptr inbounds i8, ptr %this, i64 16

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [58 x i8] c"%ld bytes of buffered data lost during stream conversion!\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @php_stream_mode_sanitize_fdopen_fopencookie(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #0 {
+define hidden void @php_stream_mode_sanitize_fdopen_fopencookie(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 98
   %4 = load i8, ptr %3, align 1
   switch i8 %4, label %6 [

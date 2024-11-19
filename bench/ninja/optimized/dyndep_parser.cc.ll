@@ -91,7 +91,7 @@ $_ZTI6Parser = comdat any
 @_ZN12DyndepParserC1EP5StateP10FileReaderP10DyndepFile = dso_local unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN12DyndepParserC2EP5StateP10FileReaderP10DyndepFile
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12DyndepParserC2EP5StateP10FileReaderP10DyndepFile(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 56), (72, 88), (96, 100), (104, 112)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12DyndepParserC2EP5StateP10FileReaderP10DyndepFile(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16

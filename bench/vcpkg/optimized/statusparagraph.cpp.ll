@@ -1134,7 +1134,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5vcpkg20InstalledPackageView20feature_dependenciesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map.15") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5vcpkg20InstalledPackageView20feature_dependenciesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map.15") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.27", align 8
   %4 = alloca %"class.std::vector.27", align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1323,7 +1323,7 @@ _ZNSt6vectorIN5vcpkg11FeatureSpecESaIS1_EED2Ev.exit21: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg4Util4fmapIRKSt6vectorINS_11PackageSpecESaIS3_EERZNKS_20InstalledPackageView20feature_dependenciesB5cxx11EvE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISH_EEOSE_OSC_"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg4Util4fmapIRKSt6vectorINS_11PackageSpecESaIS3_EERZNKS_20InstalledPackageView20feature_dependenciesB5cxx11EvE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISH_EEOSE_OSC_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1507,7 +1507,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5vcpkg20InstalledPackageView12feature_listEv(ptr dead_on_unwind noalias nonnull writable sret(%"struct.vcpkg::InternalFeatureSet") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5vcpkg20InstalledPackageView12feature_listEv(ptr dead_on_unwind noalias nonnull writable sret(%"struct.vcpkg::InternalFeatureSet") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1609,7 +1609,7 @@ define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZNK5vcpkg20In
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5vcpkg20InstalledPackageView12dependenciesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.3") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5vcpkg20InstalledPackageView12dependenciesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %4 = alloca %"struct.__gnu_cxx::__ops::_Iter_pred", align 8
   %5 = alloca %class.anon.39, align 8
@@ -2192,7 +2192,7 @@ _ZNSt12_Vector_baseIN5vcpkg11PackageSpecESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5vcpkg20InstalledPackageView21all_status_paragraphsEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.40") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5vcpkg20InstalledPackageView21all_status_paragraphsEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.40") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

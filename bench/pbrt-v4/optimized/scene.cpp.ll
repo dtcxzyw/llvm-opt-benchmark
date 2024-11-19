@@ -1624,7 +1624,7 @@ _ZN4pbrt13InlinedVectorIPNS_15ParsedParameterELi8EN4pstd3pmr21polymorphic_alloca
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt17BasicSceneBuilderC2EPNS_10BasicSceneE(ptr noundef nonnull align 64 dereferenceable(3544) initializes((0, 9), (16, 28)) %this, ptr noundef %scene) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt17BasicSceneBuilderC2EPNS_10BasicSceneE(ptr noundef nonnull align 64 dereferenceable(3544) %this, ptr noundef %scene) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp18 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp19 = alloca %"class.std::allocator", align 1
@@ -5482,7 +5482,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10BasicScene10SetOptionsENS_11SceneEntityES1_NS_17CameraSceneEntityES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(1520) initializes((0, 32), (288, 296)) %this, ptr noundef %filter, ptr noundef %film, ptr noundef %camera, ptr noundef %sampler, ptr noundef %integ, ptr noundef %accel) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10BasicScene10SetOptionsENS_11SceneEntityES1_NS_17CameraSceneEntityES1_S1_S1_(ptr noundef nonnull align 8 dereferenceable(1520) %this, ptr noundef %filter, ptr noundef %film, ptr noundef %camera, ptr noundef %sampler, ptr noundef %integ, ptr noundef %accel) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fvoid.i30 = alloca %"class.std::_Bind.316", align 8
   %ref.tmp.i32 = alloca %"class.std::unique_lock", align 8
@@ -12229,7 +12229,7 @@ for.inc.i:                                        ; preds = %_ZN4pbrt12Transform
 declare void @_ZN4pbrt6LookAtENS_6Point3IfEES1_NS_7Vector3IfEE(ptr sret(%"class.pbrt::Transform") align 4, <2 x float>, float, <2 x float>, float, <2 x float>, float) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4pbrt17BasicSceneBuilder18ActiveTransformAllENS_7FileLocE(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(3544) initializes((1056, 1060)) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #14 align 2 {
+define dso_local void @_ZN4pbrt17BasicSceneBuilder18ActiveTransformAllENS_7FileLocE(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(3544) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #14 align 2 {
 entry:
   %activeTransformBits = getelementptr inbounds i8, ptr %this, i64 1056
   store i32 3, ptr %activeTransformBits, align 32
@@ -12237,7 +12237,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4pbrt17BasicSceneBuilder22ActiveTransformEndTimeENS_7FileLocE(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(3544) initializes((1056, 1060)) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #14 align 2 {
+define dso_local void @_ZN4pbrt17BasicSceneBuilder22ActiveTransformEndTimeENS_7FileLocE(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(3544) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #14 align 2 {
 entry:
   %activeTransformBits = getelementptr inbounds i8, ptr %this, i64 1056
   store i32 2, ptr %activeTransformBits, align 32
@@ -12245,7 +12245,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4pbrt17BasicSceneBuilder24ActiveTransformStartTimeENS_7FileLocE(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(3544) initializes((1056, 1060)) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #14 align 2 {
+define dso_local void @_ZN4pbrt17BasicSceneBuilder24ActiveTransformStartTimeENS_7FileLocE(ptr nocapture noundef nonnull writeonly align 64 dereferenceable(3544) %this, ptr nocapture noundef readnone byval(%"struct.pbrt::FileLoc") align 8 %loc) unnamed_addr #14 align 2 {
 entry:
   %activeTransformBits = getelementptr inbounds i8, ptr %this, i64 1056
   store i32 1, ptr %activeTransformBits, align 32
@@ -16988,7 +16988,7 @@ declare void @_ZN4pbrt9ErrorExitEPKNS_7FileLocEPKc(ptr noundef, ptr noundef) loc
 declare void @_ZN4pbrt4Film6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryEfRKNS_15CameraTransformENS_6FilterEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr sret(%"class.pbrt::Film") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(108), float noundef, ptr noundef nonnull align 4 dereferenceable(824), ptr noundef, ptr noundef, i64) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4pbrt10BasicScene10SetOptionsENS_11SceneEntityES1_NS_17CameraSceneEntityES1_S1_S1_EN3$_0D2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((120, 128)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt10BasicScene10SetOptionsENS_11SceneEntityES1_NS_17CameraSceneEntityES1_S1_S1_EN3$_0D2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nStored.le.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %nStored.le.i.i.i.i, align 8
@@ -17122,7 +17122,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZN4pbrt10BasicScene9AddMediumENS_22TransformedSceneEntityEEN3$_0D2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(848) initializes((120, 128)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt10BasicScene9AddMediumENS_22TransformedSceneEntityEEN3$_0D2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(848) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nStored.le.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %nStored.le.i.i.i.i.i, align 8
@@ -17874,7 +17874,7 @@ _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit5:     ; preds = %lpad, %if.then.i.i.
 declare void @_ZN4pbrt10Integrator6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryENS_6CameraENS_7SamplerENS_9PrimitiveESt6vectorINS_5LightESaISG_EEPKNS_13RGBColorSpaceEPKNS_7FileLocE(ptr sret(%"class.std::unique_ptr") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(108), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10BasicSceneC2Ev(ptr noundef nonnull align 8 dereferenceable(1520) initializes((0, 48), (112, 136), (144, 192), (256, 280), (296, 368), (376, 380), (384, 392)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10BasicSceneC2Ev(ptr noundef nonnull align 8 dereferenceable(1520) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.std::function", align 8
   %line.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -20072,7 +20072,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10BasicScene14CreateTexturesEv(ptr noalias sret(%"struct.pbrt::NamedTextures") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1520) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10BasicScene14CreateTexturesEv(ptr noalias sret(%"struct.pbrt::NamedTextures") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1520) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %renderFromTexture = alloca %"class.pbrt::Transform", align 4
   %texDict = alloca %"class.pbrt::TextureParameterDictionary", align 8
@@ -20807,7 +20807,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4pbrt12FloatTextu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEE(ptr noalias nocapture sret(%"class.std::vector.162") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1520) %this, ptr noundef nonnull align 8 dereferenceable(192) %textures, ptr noundef %shapeIndexToAreaLights) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10BasicScene12CreateLightsERKNS_13NamedTexturesEPSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEE(ptr noalias nocapture sret(%"class.std::vector.162") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1520) %this, ptr noundef nonnull align 8 dereferenceable(192) %textures, ptr noundef %shapeIndexToAreaLights) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i161 = alloca %struct._Guard, align 8
   %__guard.i = alloca %struct._Guard, align 8
@@ -24029,7 +24029,7 @@ ehcleanup127:                                     ; preds = %if.then.i.i.i168, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_2clERS16_INS_24AnimatedShapeSceneEntityESaIS1C_EE"(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shapes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4pbrt10BasicScene15CreateAggregateERKNS_13NamedTexturesERKSt3mapIiPN4pstd6vectorINS_5LightENS5_3pmr21polymorphic_allocatorIS7_EEEESt4lessIiESaISt4pairIKiSC_EEERKS4_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6MediumESD_ISR_ESaISF_IKSR_SS_EEERKS4_ISR_NS_8MaterialEST_SaISF_ISU_S10_EEERKSt6vectorIS10_SaIS10_EEENK3$_2clERS16_INS_24AnimatedShapeSceneEntityESaIS1C_EE"(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %shapes) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %shapes7 = alloca %"class.pstd::vector.237", align 8
   %alphaTex = alloca %"class.pbrt::FloatTexture", align 8
@@ -28914,7 +28914,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit10:          ; preds = %_ZNSt11unique_lockI
 declare void @_ZN4pbrt10ThreadPool12AddToJobListEPNS_11ParallelJobE(ptr sret(%"class.std::unique_lock") align 8, ptr noundef nonnull align 8 dereferenceable(128), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_0vEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(153) initializes((120, 128)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene10SetOptionsENS0_11SceneEntityES2_NS0_17CameraSceneEntityES2_S2_S2_E3$_0vEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(153) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nStored.le.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %nStored.le.i.i.i.i.i, align 8
@@ -30066,7 +30066,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit10:          ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0vEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(849) initializes((120, 128)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0vEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(849) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nStored.le.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 120
   store i64 0, ptr %nStored.le.i.i.i.i.i.i, align 8
@@ -32376,7 +32376,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit10:          ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(848) initializes((128, 136)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(848) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nStored.le.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store i64 0, ptr %nStored.le.i.i.i.i.i.i.i.i, align 8
@@ -32800,7 +32800,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit10:          ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(848) initializes((128, 136)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt5_BindIFZN4pbrt10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0S8_EED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(848) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nStored.le.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   store i64 0, ptr %nStored.le.i.i.i.i.i.i.i.i, align 8

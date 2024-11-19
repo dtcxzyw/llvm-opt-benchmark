@@ -161,7 +161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @ossl_rand_pool_detach(ptr nocapture noundef initializes((48, 56)) %pool) local_unnamed_addr #3 {
+define ptr @ossl_rand_pool_detach(ptr nocapture noundef %pool) local_unnamed_addr #3 {
 entry:
   %0 = load ptr, ptr %pool, align 8
   store ptr null, ptr %pool, align 8
@@ -171,7 +171,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_rand_pool_reattach(ptr nocapture noundef initializes((0, 8)) %pool, ptr noundef %buffer) local_unnamed_addr #0 {
+define void @ossl_rand_pool_reattach(ptr nocapture noundef %pool, ptr noundef %buffer) local_unnamed_addr #0 {
 entry:
   store ptr %buffer, ptr %pool, align 8
   %len = getelementptr inbounds i8, ptr %pool, i64 8

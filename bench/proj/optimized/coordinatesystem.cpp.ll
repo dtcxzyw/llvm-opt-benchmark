@@ -675,7 +675,7 @@ declare void @_ZN5osgeo4proj2io15IJSONExportableD2Ev(ptr noundef nonnull align 8
 declare void @_ZN5osgeo4proj6common16IdentifiedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs8MeridianD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs8MeridianD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs8MeridianE, i64 80), ptr %2, align 8
@@ -3370,7 +3370,7 @@ _ZSt10_ConstructIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs16CoordinateSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs16CoordinateSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
@@ -4121,7 +4121,7 @@ define hidden noundef zeroext i1 @_ZThn16_NK5osgeo4proj2cs16CoordinateSystem15_i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs11SphericalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs11SphericalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
@@ -5191,7 +5191,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSyste
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs13EllipsoidalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs13EllipsoidalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
@@ -8347,7 +8347,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs10VerticalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs10VerticalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
@@ -9243,7 +9243,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs11CartesianCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs11CartesianCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
@@ -13502,7 +13502,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs8AffineCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs8AffineCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
@@ -14958,7 +14958,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs9OrdinalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs9OrdinalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
@@ -15247,7 +15247,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2cs9OrdinalCSEED2Ev.exit: ; preds = %1, %20, %33, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs12ParametricCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs12ParametricCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
@@ -16275,7 +16275,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs10TemporalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs10TemporalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
@@ -16634,7 +16634,7 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2cs20CoordinateSystemAxisEEED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs18DateTimeTemporalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs18DateTimeTemporalCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
@@ -16906,7 +16906,7 @@ define hidden void @_ZNK5osgeo4proj2cs18DateTimeTemporalCS11getWKT2TypeB5cxx11Eb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs15TemporalCountCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs15TemporalCountCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8
@@ -17178,7 +17178,7 @@ define hidden void @_ZNK5osgeo4proj2cs15TemporalCountCS11getWKT2TypeB5cxx11Eb(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj2cs17TemporalMeasureCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (16, 32), (40, 48)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj2cs17TemporalMeasureCSD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2cs16CoordinateSystemE, i64 88), ptr %2, align 8

@@ -1239,7 +1239,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4wasi4WASIC2EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEP16uvwasi_options_s(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef readonly %env, ptr %object.coerce, ptr noundef initializes((72, 80)) %options) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4wasi4WASIC2EPNS_11EnvironmentEN2v85LocalINS4_6ObjectEEEP16uvwasi_options_s(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef readonly %env, ptr %object.coerce, ptr noundef %options) unnamed_addr #3 align 2 {
 entry:
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
@@ -1399,7 +1399,7 @@ declare void @abort() local_unnamed_addr #5
 declare ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4wasi4WASID2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (32, 40)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4wasi4WASID2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4wasi4WASIE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 32
@@ -1438,7 +1438,7 @@ declare void @uvwasi_destroy(ptr noundef) local_unnamed_addr #0
 declare void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4wasi4WASID0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (32, 40)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4wasi4WASID0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node4wasi4WASIE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 32

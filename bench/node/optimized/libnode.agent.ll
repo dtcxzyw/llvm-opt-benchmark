@@ -101,7 +101,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node7tracing5AgentC2Ev(ptr noundef nonnull align 8 dereferenceable(1312) initializes((856, 857), (860, 864)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node7tracing5AgentC2Ev(ptr noundef nonnull align 8 dereferenceable(1312) %this) unnamed_addr #3 align 2 {
 entry:
   %started_ = getelementptr inbounds i8, ptr %this, i64 856
   store i8 0, ptr %started_, align 8
@@ -832,7 +832,7 @@ _ZN4node7tracing5Agent20ScopedSuspendTracingD2Ev.exit: ; preds = %if.end.i31, %i
 declare i32 @uv_async_send(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node7tracing5Agent13DefaultHandleEv(ptr noalias nocapture writeonly sret(%"class.node::tracing::AgentWriterHandle") align 8 initializes((0, 12)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1312) %this) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN4node7tracing5Agent13DefaultHandleEv(ptr noalias nocapture writeonly sret(%"class.node::tracing::AgentWriterHandle") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1312) %this) local_unnamed_addr #6 align 2 {
 entry:
   store ptr %this, ptr %agg.result, align 8
   %id_.i = getelementptr inbounds i8, ptr %agg.result, i64 8

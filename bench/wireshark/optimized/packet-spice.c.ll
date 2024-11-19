@@ -3963,7 +3963,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare zeroext i16 @tvb_get_letohs(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3, i16 noundef zeroext %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @dissect_spice_data_header(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef range(i32 0, 2) %3, i16 noundef zeroext %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull writeonly %6, i32 noundef %7) unnamed_addr #0 {
   %9 = add i32 %7, 14
   %10 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %9) #4
   store i32 %10, ptr %6, align 4

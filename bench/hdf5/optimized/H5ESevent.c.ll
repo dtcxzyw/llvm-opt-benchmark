@@ -75,7 +75,7 @@ declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5ES__event_free(ptr noundef initializes((24, 32), (40, 56)) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5ES__event_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32

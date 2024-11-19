@@ -7088,7 +7088,7 @@ _ZN3pro5proxyIZN45ProxyInvocationTests_TestFunctionPointer_Test8TestBodyEvE10Tes
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_114GetTypeIndicesIJidEEESt6vectorISt10type_indexSaIS2_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.43") align 8 initializes((0, 24)) %0) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_114GetTypeIndicesIJidEEESt6vectorISt10type_indexSaIS2_EEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.43") align 8 %0) #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   store ptr %2, ptr %0, align 8
@@ -11367,7 +11367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN3pro7details25invocation_dispatcher_refIPNSt7__cxx114listIiSaIiEEEN12_GLOBAL__N_14spec6AppendIiE4__FTENS_5proxyINS8_9ContainerIiEEEEJiEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pro::proxy.34") align 8 initializes((0, 16)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3pro7details25invocation_dispatcher_refIPNSt7__cxx114listIiSaIiEEEN12_GLOBAL__N_14spec6AppendIiE4__FTENS_5proxyINS8_9ContainerIiEEEEJiEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pro::proxy.34") align 8 %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !333)
@@ -12397,7 +12397,7 @@ define linkonce_odr dso_local void @_ZN3pro7details25invocation_dispatcher_refIS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZN3pro7details25invocation_dispatcher_ptrISt10shared_ptrIiEN12_GLOBAL__N_14spec7GetWeakINS5_16SharedStringableEE4__FTENS_5proxyINS5_4WeakIS7_EEEEJEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pro::proxy.85") align 8 initializes((0, 24)) %0, ptr nocapture noundef readonly %1) #20 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3pro7details25invocation_dispatcher_ptrISt10shared_ptrIiEN12_GLOBAL__N_14spec7GetWeakINS5_16SharedStringableEE4__FTENS_5proxyINS5_4WeakIS7_EEEEJEEET1_PKSt4byteDpT2_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pro::proxy.85") align 8 %0, ptr nocapture noundef readonly %1) #20 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr i8, ptr %1, i64 8
   %.val1 = load ptr, ptr %3, align 8
@@ -12915,7 +12915,7 @@ define linkonce_odr dso_local void @_ZN3pro7details25invocation_dispatcher_refIP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN3pro7details26invocation_dispatcher_voidIN12_GLOBAL__N_14spec7GetWeakINS3_16SharedStringableEE4__FVENS_5proxyINS3_4WeakIS5_EEEEJEEET0_PKSt4byteDpT1_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pro::proxy.85") align 8 initializes((0, 24)) %0, ptr nocapture readnone %1) #21 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3pro7details26invocation_dispatcher_voidIN12_GLOBAL__N_14spec7GetWeakINS3_16SharedStringableEE4__FVENS_5proxyINS3_4WeakIS5_EEEEJEEET0_PKSt4byteDpT1_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pro::proxy.85") align 8 %0, ptr nocapture readnone %1) #21 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !475
   ret void
 }

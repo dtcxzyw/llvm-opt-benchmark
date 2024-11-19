@@ -30781,7 +30781,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__33SdfPredicateParamNamesAndDefau
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -30847,7 +30847,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_Ove
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -30993,7 +30993,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__33SdfPredicatePara
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_0E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISB_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_0E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISB_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %.val = load ptr, ptr %2, align 8
@@ -32364,7 +32364,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__19SdfPredi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_1ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_1ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -32430,7 +32430,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_Ove
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -32576,7 +32576,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__33SdfPredicatePara
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_1E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISB_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZN12_GLOBAL__N_120GetBasicPredicateLibEvE3$_1E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISB_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %.val = load ptr, ptr %2, align 8
@@ -34624,7 +34624,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -34690,7 +34690,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_Ove
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -34836,7 +34836,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__33SdfPredicatePara
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_0E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISA_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_0E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISA_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %.val = load ptr, ptr %2, align 8
@@ -35045,7 +35045,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFN32pxrInternal_v0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_1ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_1ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -35111,7 +35111,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_Ove
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_1ED0Ev"(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE19_OverloadBinderBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -35257,7 +35257,7 @@ _ZNSt16allocator_traitsISaIN32pxrInternal_v0_24__pxrReserved__33SdfPredicatePara
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_1E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISA_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNK32pxrInternal_v0_24__pxrReserved__19SdfPredicateLibraryIRKNS_7SdfPathEE15_OverloadBinderIZL10TestSearchvE3$_1E5_BindERKSt6vectorINS_22SdfPredicateExpression5FnArgESaISA_EE"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(41) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %.val = load ptr, ptr %2, align 8

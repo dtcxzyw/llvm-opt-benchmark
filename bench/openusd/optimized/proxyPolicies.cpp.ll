@@ -1048,13 +1048,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit11: ; preds = %81, %68, %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25SdfAttributeViewPredicateC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25SdfAttributeViewPredicateC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) unnamed_addr #3 align 2 {
   store i32 1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28SdfRelationshipViewPredicateC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28SdfRelationshipViewPredicateC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) unnamed_addr #3 align 2 {
   store i32 8, ptr %0, align 4
   ret void
 }

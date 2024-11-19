@@ -436,7 +436,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6Assimp11X3DExporter22Matrix_GlobalToCurrentERK6aiNode(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 initializes((0, 64)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1144) %pNode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6Assimp11X3DExporter22Matrix_GlobalToCurrentERK6aiNode(ptr noalias nocapture writeonly sret(%class.aiMatrix4x4t) align 4 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1144) %pNode) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %matr = alloca %"class.std::__cxx11::list", align 8
   %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %matr, i64 8
@@ -9021,7 +9021,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11X3DExporterC2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8), (24, 28), (32, 40)) %this, ptr noundef %pFileName, ptr noundef %pIOSystem, ptr noundef %pScene, ptr nocapture readnone %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11X3DExporterC2EPKcPNS_8IOSystemEPK7aiScenePKNS_16ExportPropertiesE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pFileName, ptr noundef %pIOSystem, ptr noundef %pScene, ptr nocapture readnone %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %attr_list.i108 = alloca %"class.std::__cxx11::list.10", align 8
   %attr_list.i = alloca %"class.std::__cxx11::list.10", align 8

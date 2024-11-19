@@ -2485,7 +2485,7 @@ define range(i32 -1, -2147483648) i32 @PGTYPESnumeric_cmp(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @PGTYPESnumeric_from_int(i32 noundef %0, ptr nocapture noundef initializes((16, 20)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPESnumeric_from_int(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
   %4 = lshr i64 %3, 49
   %5 = trunc nuw nsw i64 %4 to i32
@@ -2570,7 +2570,7 @@ PGTYPESnumeric_from_long.exit:                    ; preds = %36, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @PGTYPESnumeric_from_long(i64 noundef %0, ptr nocapture noundef initializes((16, 20)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPESnumeric_from_long(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = lshr i64 %0, 49
   %4 = trunc nuw nsw i64 %3 to i32
   %spec.select = and i32 %4, 16384
@@ -3037,7 +3037,7 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_to_decimal(ptr nocapture noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @PGTYPESnumeric_from_decimal(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 20), (32, 40)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @PGTYPESnumeric_from_decimal(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @free(ptr noundef %4) #14

@@ -727,7 +727,7 @@ return:                                           ; preds = %quorum_refresh_flag
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @quorum_child_perm(ptr nocapture noundef readonly %bs, ptr nocapture readnone %c, i32 %role, ptr nocapture readnone %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr nocapture noundef writeonly initializes((0, 8)) %nperm, ptr nocapture noundef writeonly initializes((0, 8)) %nshared) #3 {
+define internal void @quorum_child_perm(ptr nocapture noundef readonly %bs, ptr nocapture readnone %c, i32 %role, ptr nocapture readnone %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr nocapture noundef writeonly %nperm, ptr nocapture noundef writeonly %nshared) #3 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1403,7 +1403,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @read_quorum_children(ptr noundef initializes((96, 100)) %acb) #0 {
+define internal i32 @read_quorum_children(ptr noundef %acb) #0 {
 entry:
   %data = alloca %struct.QuorumCo, align 8
   %0 = load ptr, ptr %acb, align 8

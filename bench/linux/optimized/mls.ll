@@ -809,7 +809,7 @@ define dso_local i32 @mls_context_to_sid(ptr noundef %0, i8 noundef zeroext %1, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @mls_context_cpy(ptr noundef initializes((16, 20)) %0, ptr noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc i32 @mls_context_cpy(ptr noundef %0, ptr noundef %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1378,7 +1378,7 @@ define dso_local i32 @mls_compute_sid(ptr noundef %0, ptr noundef %1, ptr nounde
 declare dso_local ptr @policydb_rangetr_search(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @mls_context_cpy_low(ptr noundef initializes((16, 20)) %0, ptr noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc i32 @mls_context_cpy_low(ptr noundef %0, ptr noundef %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1408,7 +1408,7 @@ define internal fastcc i32 @mls_context_cpy_low(ptr noundef initializes((16, 20)
 }
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @mls_context_cpy_high(ptr noundef initializes((16, 20)) %0, ptr noundef %1) unnamed_addr #6 align 16 {
+define internal fastcc i32 @mls_context_cpy_high(ptr noundef %0, ptr noundef %1) unnamed_addr #6 align 16 {
   %3 = getelementptr i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16

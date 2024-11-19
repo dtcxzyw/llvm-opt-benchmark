@@ -55,7 +55,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7513OlsonTimeZone14constructEmptyEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((72, 78), (80, 106), (112, 136), (152, 160)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7513OlsonTimeZone14constructEmptyEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this) local_unnamed_addr #1 align 2 {
 entry:
   %canonicalID = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %canonicalID, align 8
@@ -539,7 +539,7 @@ ehcleanup232:                                     ; preds = %ehcleanup225, %lpad
 declare void @_ZN6icu_7513BasicTimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7513OlsonTimeZone20clearTransitionRulesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((160, 178), (184, 202), (208, 216)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513OlsonTimeZone20clearTransitionRulesEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %initialRule = getelementptr inbounds i8, ptr %this, i64 160
   %firstFinalTZTransition = getelementptr inbounds i8, ptr %this, i64 184
@@ -790,7 +790,7 @@ return:                                           ; preds = %entry, %cond.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513OlsonTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513OlsonTimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513OlsonTimeZoneE, i64 16), ptr %this, align 8
   invoke void @_ZN6icu_7513OlsonTimeZone21deleteTransitionRulesEv(ptr noundef nonnull align 8 dereferenceable(224) %this)

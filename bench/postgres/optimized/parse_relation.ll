@@ -2208,7 +2208,7 @@ list_length.exit:                                 ; preds = %5, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @addRTEPermissionInfo(ptr nocapture noundef %0, ptr nocapture noundef initializes((32, 36)) %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @addRTEPermissionInfo(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @palloc0(i64 noundef 56) #10
   store i32 94, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 8

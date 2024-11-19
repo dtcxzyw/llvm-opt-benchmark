@@ -631,7 +631,7 @@ define void @Aig_TableProfile(ptr nocapture noundef readonly %0) local_unnamed_a
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Aig_TableClear(ptr nocapture noundef initializes((168, 172)) %0) local_unnamed_addr #7 {
+define void @Aig_TableClear(ptr nocapture noundef %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

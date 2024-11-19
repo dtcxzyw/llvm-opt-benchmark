@@ -415,7 +415,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14HealthProducer13HealthCheckerC2ENS_17WeakRefCountedPtrIS0_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 48)) %this, ptr nocapture noundef %producer, i64 %health_check_service_name.coerce0, ptr %health_check_service_name.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14HealthProducer13HealthCheckerC2ENS_17WeakRefCountedPtrIS0_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef %producer, i64 %health_check_service_name.coerce0, ptr %health_check_service_name.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.4", align 8
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3552,7 +3552,7 @@ cleanup.action4:                                  ; preds = %lpad.body.thread5, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core13HealthWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13HealthWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13HealthWatcherE, i64 16), ptr %this, align 8

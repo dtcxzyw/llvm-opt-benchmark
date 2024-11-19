@@ -1639,7 +1639,7 @@ _ZNSt10shared_ptrIKN3nix13ValidPathInfoEED2Ev.exit: ; preds = %1, %20, %33, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix5Store11importPathsERNS_6SourceENS_13CheckSigsFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix5Store11importPathsERNS_6SourceENS_13CheckSigsFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator.16", align 1
   %6 = alloca [8 x i8], align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

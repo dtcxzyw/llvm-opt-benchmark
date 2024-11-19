@@ -8,13 +8,13 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.nghttp2_vec = type { ptr, i64 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_buf_init(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #0 {
+define dso_local void @nghttp2_buf_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -901, 1) i32 @nghttp2_buf_init2(ptr nocapture noundef initializes((0, 40)) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local range(i32 -901, 1) i32 @nghttp2_buf_init2(ptr nocapture noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %.not.i.not = icmp eq i64 %1, 0
@@ -125,7 +125,7 @@ declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @nghttp2_mem_realloc(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @nghttp2_buf_reset(ptr nocapture noundef initializes((16, 40)) %0) local_unnamed_addr #3 {
+define dso_local void @nghttp2_buf_reset(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %2, ptr %3, align 8
@@ -137,7 +137,7 @@ define dso_local void @nghttp2_buf_reset(ptr nocapture noundef initializes((16, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_buf_wrap_init(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @nghttp2_buf_wrap_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32

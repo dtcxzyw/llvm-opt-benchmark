@@ -429,7 +429,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115CGNVCUDARuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(840) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115CGNVCUDARuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(840) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN12_GLOBAL__N_115CGNVCUDARuntimeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %3 = load ptr, ptr %2, align 8
@@ -488,7 +488,7 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_115CGNVCUDARuntime10KernelInfoELj16EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115CGNVCUDARuntimeD0Ev(ptr noundef nonnull align 8 dereferenceable(840) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115CGNVCUDARuntimeD0Ev(ptr noundef nonnull align 8 dereferenceable(840) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_115CGNVCUDARuntimeD2Ev(ptr noundef nonnull align 8 dereferenceable(840) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 840) #20
   ret void

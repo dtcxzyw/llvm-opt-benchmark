@@ -938,7 +938,7 @@ _ZN5boost6locale28localization_backend_manager4implD2Ev.exit: ; preds = %_ZSt8_D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5boost6locale28localization_backend_managerC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6locale28localization_backend_managerC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !28
   store ptr null, ptr %1, align 8, !tbaa !28
   store ptr %3, ptr %0, align 8, !tbaa !23
@@ -955,7 +955,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost6locale28localiz
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5boost6locale28localization_backend_manager6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5boost6locale28localization_backend_manager6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !23
   %4 = tail call noundef ptr @_ZNK5boost6locale28localization_backend_manager4impl6createEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   store ptr %4, ptr %0, align 8, !tbaa !28

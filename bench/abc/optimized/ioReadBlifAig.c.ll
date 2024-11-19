@@ -2881,7 +2881,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_BlifCollectTokens(ptr nocapture noundef initializes((4, 8)) %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 {
+define internal fastcc void @Io_BlifCollectTokens(ptr nocapture noundef %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %4, align 4
   %5 = icmp ult ptr %1, %2

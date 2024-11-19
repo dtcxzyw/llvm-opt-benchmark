@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @initBlocklist(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #0 {
+define void @initBlocklist(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -62,7 +62,7 @@ define i32 @blockSize(ptr nocapture noundef readonly %0) local_unnamed_addr #2 {
 declare i32 @agnnodes(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @appendBlock(ptr nocapture noundef %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #5 {
+define void @appendBlock(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

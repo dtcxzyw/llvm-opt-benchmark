@@ -184,13 +184,13 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorISt10un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF3ELF11DataHandler7HandlerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #2 align 2 {
+define void @_ZN4LIEF3ELF11DataHandler7HandlerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF3ELF11DataHandler7HandleraSEOS2_(ptr noundef nonnull returned align 8 dereferenceable(48) initializes((8, 24), (40, 48)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_ZN4LIEF3ELF11DataHandler7HandleraSEOS2_(ptr noundef nonnull returned align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -258,7 +258,7 @@ _ZNSt6vectorISt10unique_ptrIN4LIEF3ELF11DataHandler4NodeESt14default_deleteIS4_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF3ELF11DataHandler7HandlerC2EOS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 {
+define void @_ZN4LIEF3ELF11DataHandler7HandlerC2EOS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -287,7 +287,7 @@ define void @_ZN4LIEF3ELF11DataHandler7HandlerC2EOS2_(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF3ELF11DataHandler7HandlerC2ESt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN4LIEF3ELF11DataHandler7HandlerC2ESt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -305,7 +305,7 @@ define void @_ZN4LIEF3ELF11DataHandler7HandlerC2ESt6vectorIhSaIhEE(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF3ELF11DataHandler7HandlerC2EOSt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
+define void @_ZN4LIEF3ELF11DataHandler7HandlerC2EOSt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

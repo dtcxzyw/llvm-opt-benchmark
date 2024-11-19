@@ -22763,7 +22763,7 @@ declare noundef i32 @_ZN4cvc58internal6theory9ArithMSum7isolateENS0_12NodeTempla
 declare noundef zeroext i1 @_ZN4cvc58internal4expr10hasSubtermENS0_12NodeTemplateILb0EEES3_b(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers17ArithInstantiator8mkVtsSumERKNS0_12NodeTemplateILb1EEES7_S7_(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %inf_coeff, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %delta_coeff) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers17ArithInstantiator8mkVtsSumERKNS0_12NodeTemplateILb1EEES7_S7_(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %inf_coeff, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %delta_coeff) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i94 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i95 = alloca %"class.cvc5::internal::NodeTemplate.343", align 8

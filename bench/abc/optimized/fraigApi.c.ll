@@ -233,56 +233,56 @@ define i32 @Fraig_ManReadInspects(ptr nocapture noundef readonly %0) local_unnam
 declare i32 @Msat_SolverReadInspects(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_ManSetFuncRed(ptr nocapture noundef writeonly initializes((88, 92)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Fraig_ManSetFuncRed(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_ManSetFeedBack(ptr nocapture noundef writeonly initializes((92, 96)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Fraig_ManSetFeedBack(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 92
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_ManSetDoSparse(ptr nocapture noundef writeonly initializes((100, 104)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Fraig_ManSetDoSparse(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 100
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_ManSetChoicing(ptr nocapture noundef writeonly initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Fraig_ManSetChoicing(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_ManSetTryProve(ptr nocapture noundef writeonly initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Fraig_ManSetTryProve(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 108
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_ManSetVerbose(ptr nocapture noundef writeonly initializes((112, 116)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Fraig_ManSetVerbose(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_ManSetOutputNames(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Fraig_ManSetOutputNames(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_ManSetInputNames(ptr nocapture noundef writeonly initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Fraig_ManSetInputNames(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret void
@@ -383,14 +383,14 @@ define ptr @Fraig_NodeReadPatternsDynamic(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_NodeSetData0(ptr nocapture noundef writeonly initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Fraig_NodeSetData0(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Fraig_NodeSetData1(ptr nocapture noundef writeonly initializes((128, 136)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Fraig_NodeSetData1(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr %1, ptr %3, align 8
   ret void
@@ -578,7 +578,7 @@ define ptr @Fraig_NodeMux(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Fraig_NodeSetChoice(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef initializes((80, 88)) %2) local_unnamed_addr #5 {
+define void @Fraig_NodeSetChoice(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 80

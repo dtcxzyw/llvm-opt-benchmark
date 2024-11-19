@@ -32,7 +32,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7517AnyTransliteratorC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7517AnyTransliteratorC2ERKS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7517ScriptRunIteratorC2ERKNS_11ReplaceableEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 16), (24, 28)) %this, ptr noundef nonnull align 8 dereferenceable(8) %theText, i32 noundef %myStart, i32 noundef %myLimit) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7517ScriptRunIteratorC2ERKNS_11ReplaceableEii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(8) %theText, i32 noundef %myStart, i32 noundef %myLimit) unnamed_addr #0 align 2 {
 entry:
   store ptr %theText, ptr %this, align 8
   %textStart = getelementptr inbounds i8, ptr %this, i64 8
@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_7517ScriptRunIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((16, 24)) %this) local_unnamed_addr #1 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_7517ScriptRunIterator4nextEv(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) local_unnamed_addr #1 align 2 {
 entry:
   %ec = alloca i32, align 4
   store i32 0, ptr %ec, align 4
@@ -270,7 +270,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7517AnyTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(164) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517AnyTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(164) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517AnyTransliteratorE, i64 16), ptr %this, align 8
   %cache = getelementptr inbounds i8, ptr %this, i64 88

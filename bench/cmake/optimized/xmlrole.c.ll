@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @KW_PCDATA = internal constant [7 x i8] c"PCDATA\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @XmlPrologStateInit(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #0 {
+define dso_local void @XmlPrologStateInit(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store ptr @prolog0, ptr %0, align 8
   ret void
 }

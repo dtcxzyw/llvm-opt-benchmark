@@ -325,7 +325,7 @@ define hidden void @_ZN2cv11bioinspired10RetinaImplC2ENS_5Size_IiEE(ptr noundef 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11bioinspired10RetinaImpl5_initENS_5Size_IiEEbibff(ptr noundef nonnull align 8 dereferenceable(112) initializes((104, 105)) %0, i64 %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, float noundef %5, float noundef %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11bioinspired10RetinaImpl5_initENS_5Size_IiEEbibff(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4, float noundef %5, float noundef %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::allocator", align 1
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
@@ -777,7 +777,7 @@ define hidden void @_ZN2cv11bioinspired10RetinaImpl18setColorSaturationEbf(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv11bioinspired10RetinaImpl13getParametersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::bioinspired::RetinaParameters") align 4 initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #9 align 2 {
+define hidden void @_ZN2cv11bioinspired10RetinaImpl13getParametersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::bioinspired::RetinaParameters") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %3, i64 64, i1 false)
   ret void
@@ -1291,7 +1291,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare noundef i32 @printf(ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11bioinspired10RetinaImpl26setupOPLandIPLParvoChannelEbbfffffff(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 10), (12, 40)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv11bioinspired10RetinaImpl26setupOPLandIPLParvoChannelEbbfffffff(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9) unnamed_addr #3 align 2 {
   %11 = zext i1 %1 to i8
   %12 = zext i1 %2 to i8
   %13 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1364,7 +1364,7 @@ define hidden void @_ZN2cv11bioinspired10RetinaImpl26setupOPLandIPLParvoChannelE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11bioinspired10RetinaImpl20setupIPLMagnoChannelEbfffffff(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((40, 41), (44, 72)) %0, i1 noundef zeroext %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv11bioinspired10RetinaImpl20setupIPLMagnoChannelEbfffffff(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, i1 noundef zeroext %1, float noundef %2, float noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, float noundef %8) unnamed_addr #3 align 2 {
   %10 = zext i1 %1 to i8
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = load ptr, ptr %11, align 8
@@ -1423,7 +1423,7 @@ declare void @_ZNK2cv8FileNodeixEPKc(ptr dead_on_unwind writable sret(%"class.cv
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv8FileNodeaSERKS0_(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11bioinspired10RetinaImpl5setupENS0_16RetinaParametersE(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 72)) %0, ptr nocapture noundef readonly byval(%"struct.cv::bioinspired::RetinaParameters") align 8 %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv11bioinspired10RetinaImpl5setupENS0_16RetinaParametersE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef readonly byval(%"struct.cv::bioinspired::RetinaParameters") align 8 %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   %4 = load i8, ptr %3, align 8
@@ -2675,7 +2675,7 @@ define internal fastcc noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvls
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv11bioinspired10RetinaImpl3runERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(112) initializes((104, 105)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv11bioinspired10RetinaImpl3runERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::_InputArray", align 8
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

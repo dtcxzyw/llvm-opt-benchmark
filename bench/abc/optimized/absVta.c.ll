@@ -1019,7 +1019,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Vta_ObjPreds(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %4) unnamed_addr #7 {
+define internal fastcc void @Vta_ObjPreds(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #7 {
   store ptr null, ptr %3, align 8
   store ptr null, ptr %4, align 8
   %.val25 = load i64, ptr %2, align 4

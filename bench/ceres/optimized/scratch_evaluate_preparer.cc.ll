@@ -22,7 +22,7 @@ $_ZNSt10unique_ptrIA_N5ceres8internal23ScratchEvaluatePreparerESt14default_delet
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal23ScratchEvaluatePreparer6CreateERKNS0_7ProgramEj(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal23ScratchEvaluatePreparer6CreateERKNS0_7ProgramEj(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i32 %2 to i64
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %5 = shl nuw nsw i64 %4, 3

@@ -55,7 +55,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core19MakeDirectoryReaderESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, i64 %filename.coerce0, ptr %filename.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core19MakeDirectoryReaderESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i64 %filename.coerce0, ptr %filename.coerce1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN9grpc_core19DirectoryReaderImplESt14default_deleteIS1_EED2Ev.exit:
   %filename = alloca %"class.std::basic_string_view", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.2", align 8

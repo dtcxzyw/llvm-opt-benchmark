@@ -55,7 +55,7 @@ $_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang13BaseSubobjectEmNS_12DenseMapInfoIS
 @_ZN5clang10VTTBuilderC1ERNS_10ASTContextEPKNS_13CXXRecordDeclEb = unnamed_addr alias void (ptr, ptr, ptr, i1), ptr @_ZN5clang10VTTBuilderC2ERNS_10ASTContextEPKNS_13CXXRecordDeclEb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang10VTTBuilderC2ERNS_10ASTContextEPKNS_13CXXRecordDeclEb(ptr noundef nonnull align 8 dereferenceable(2665) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang10VTTBuilderC2ERNS_10ASTContextEPKNS_13CXXRecordDeclEb(ptr noundef nonnull align 8 dereferenceable(2665) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %3 to i8
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [56 x i8] c"iter ---- %d ---, color_diff = %f, color_diff_sum = %f\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, double noundef %4, i32 noundef %5, ptr nocapture noundef writeonly initializes((0, 4)) %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
+define range(i32 -9, 1) i32 @node_distinct_coloring(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, double noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca i32, align 4

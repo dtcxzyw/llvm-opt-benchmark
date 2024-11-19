@@ -39,7 +39,7 @@ $_ZNK4llvm9ErrorInfoINS_17BinaryStreamErrorENS_13ErrorInfoBaseEE3isAEPKv = comda
 @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeENS_9StringRefE = unnamed_addr alias void (ptr, i32, ptr, i64), ptr @_ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeENS_9StringRefE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm17BinaryStreamErrorE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #5
@@ -61,7 +61,7 @@ _ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeENS_9StringRefE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %0, i32 noundef %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17BinaryStreamErrorC2ENS_17stream_error_codeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm17BinaryStreamErrorE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #5
@@ -92,7 +92,7 @@ switch.lookup:                                    ; preds = %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17BinaryStreamErrorC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17BinaryStreamErrorC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN4llvm17BinaryStreamErrorE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5

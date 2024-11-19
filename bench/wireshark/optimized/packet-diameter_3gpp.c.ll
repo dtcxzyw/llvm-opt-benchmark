@@ -2115,7 +2115,7 @@ define internal i32 @dissect_diameter_3gpp_rat_type(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_diameter_3gpp_ms_timezone(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((24, 32)) %3) #0 {
+define internal noundef i32 @dissect_diameter_3gpp_ms_timezone(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 0) #3
   %6 = and i8 %5, 8
   %.not = icmp eq i8 %6, 0
@@ -2581,7 +2581,7 @@ define internal i32 @dissect_diameter_3gpp_tmgi(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_diameter_3gpp_rai(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly initializes((24, 32)) %3) #0 {
+define internal i32 @dissect_diameter_3gpp_rai(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef writeonly %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0) #3
   %6 = icmp eq i32 %5, 12
   %7 = getelementptr inbounds i8, ptr %1, i64 408

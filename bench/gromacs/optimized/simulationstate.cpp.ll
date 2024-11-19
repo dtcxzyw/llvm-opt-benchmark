@@ -460,7 +460,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib15SimulationStateC2ERKSt6vectorIN3gmx11BasicVectorIfEESaIS4_EES8_S8_NS_3BoxENS_8TopologyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef byval(%"class.nblib::Box") align 8 %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib15SimulationStateC2ERKSt6vectorIN3gmx11BasicVectorIfEESaIS4_EES8_S8_NS_3BoxENS_8TopologyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef byval(%"class.nblib::Box") align 8 %4, ptr noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.nblib::Topology", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   store ptr null, ptr %0, align 8, !alias.scope !5
@@ -5874,7 +5874,7 @@ _ZNSt11_Tuple_implILm1EJN5nblib14ListedTypeDataINS0_11G96BondTypeEEENS1_INS0_13C
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib15SimulationState4ImplC2ERKSt6vectorIN3gmx11BasicVectorIfEESaIS5_EES9_S9_RKNS_3BoxENS_8TopologyE(ptr noundef nonnull align 8 dereferenceable(1216) initializes((0, 108)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 4 dereferenceable(36) %4, ptr noundef nonnull %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib15SimulationState4ImplC2ERKSt6vectorIN3gmx11BasicVectorIfEESaIS5_EES9_S9_RKNS_3BoxENS_8TopologyE(ptr noundef nonnull align 8 dereferenceable(1216) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 4 dereferenceable(36) %4, ptr noundef nonnull %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.189", align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7239,7 +7239,7 @@ define noundef nonnull align 8 dereferenceable(1104) ptr @_ZNK5nblib15Simulation
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5nblib15SimulationState4Impl3boxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.nblib::Box") align 4 initializes((0, 36)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1216) %1) local_unnamed_addr #15 align 2 {
+define void @_ZNK5nblib15SimulationState4Impl3boxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.nblib::Box") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1216) %1) local_unnamed_addr #15 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(36) %3, i64 36, i1 false)
   ret void
@@ -7270,7 +7270,7 @@ define noundef nonnull align 8 dereferenceable(1104) ptr @_ZNK5nblib15Simulation
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK5nblib15SimulationState3boxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.nblib::Box") align 4 initializes((0, 36)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #17 align 2 {
+define void @_ZNK5nblib15SimulationState3boxEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.nblib::Box") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #17 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, ptr noundef nonnull readonly align 8 dereferenceable(36) %4, i64 36, i1 false)

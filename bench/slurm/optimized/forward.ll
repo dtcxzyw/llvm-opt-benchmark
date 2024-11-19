@@ -162,7 +162,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @forward_init(ptr nocapture noundef writeonly initializes((0, 64)) %0) local_unnamed_addr #5 {
+define void @forward_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 42
   store i16 -2, ptr %2, align 2

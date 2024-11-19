@@ -16,7 +16,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.3 = private unnamed_addr constant [62 x i8] c"%d nodes, %d registers, average %d registers, used %zu bytes\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -12, 1) i32 @regcache_rbtree_init(ptr noundef initializes((568, 576)) %0) #0 align 16 {
+define internal range(i32 -12, 1) i32 @regcache_rbtree_init(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @kmalloc_caches, i64 32), align 16
   %3 = tail call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %2, i32 noundef 3264, i64 noundef 16) #9
   %4 = getelementptr inbounds i8, ptr %0, i64 568
@@ -638,7 +638,7 @@ define internal range(i32 -12, 1) i32 @regcache_rbtree_write(ptr noundef %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @regcache_rbtree_sync(ptr noundef initializes((184, 185)) %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @regcache_rbtree_sync(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   store i8 1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 568

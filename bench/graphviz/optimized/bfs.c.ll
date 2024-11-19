@@ -247,7 +247,7 @@ gv_calloc.exit:                                   ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @initQueue(ptr nocapture noundef initializes((12, 20)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @initQueue(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = load ptr, ptr %0, align 8
   store i32 %1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16

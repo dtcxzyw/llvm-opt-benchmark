@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6hermes2vm14OrderedHashMapC1ERNS0_7RuntimeENS0_6HandleINS0_16ArrayStorageBaseINS0_13HermesValue32EEEEE = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6hermes2vm14OrderedHashMapC2ERNS0_7RuntimeENS0_6HandleINS0_16ArrayStorageBaseINS0_13HermesValue32EEEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm21HashMapEntryBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes2vm21HashMapEntryBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) local_unnamed_addr #0 {
 entry:
   %vtp_.i = getelementptr inbounds i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm12HashMapEntry2vtE, ptr %vtp_.i, align 8
@@ -74,7 +74,7 @@ _ZN6hermes2vm7Runtime10makeAFixedINS0_12HashMapEntryELNS0_12HasFinalizerE0ELNS0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm23OrderedHashMapBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) initializes((216, 224)) %mb) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes2vm23OrderedHashMapBuildMetaEPKNS0_6GCCellERNS0_8Metadata7BuilderE(ptr noundef %cell, ptr noundef nonnull align 8 dereferenceable(224) %mb) local_unnamed_addr #0 {
 entry:
   %vtp_.i = getelementptr inbounds i8, ptr %mb, i64 216
   store ptr @_ZN6hermes2vm14OrderedHashMap2vtE, ptr %vtp_.i, align 8
@@ -88,7 +88,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes2vm14OrderedHashMapC2ERNS0_7RuntimeENS0_6HandleINS0_16ArrayStorageBaseINS0_13HermesValue32EEEEE(ptr noundef nonnull align 4 dereferenceable(24) initializes((4, 8)) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %hashTableStorage.coerce) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes2vm14OrderedHashMapC2ERNS0_7RuntimeENS0_6HandleINS0_16ArrayStorageBaseINS0_13HermesValue32EEEEE(ptr noundef nonnull align 4 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr nocapture readonly %hashTableStorage.coerce) unnamed_addr #0 align 2 {
 entry:
   %hashTable_ = getelementptr inbounds i8, ptr %this, i64 4
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %hashTableStorage.coerce, align 8

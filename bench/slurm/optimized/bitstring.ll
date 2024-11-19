@@ -1319,7 +1319,7 @@ define void @bit_rotate(ptr nocapture noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @bit_fmt(ptr noundef returned initializes((0, 1)) %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
+define noundef ptr @bit_fmt(ptr noundef returned %0, i32 noundef %1, ptr nocapture noundef readonly %2) #0 {
   store i8 0, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %invariant.gep43 = getelementptr i8, ptr %2, i64 16

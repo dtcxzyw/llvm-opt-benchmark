@@ -231,7 +231,7 @@ define hidden void @"_ZN80_$LT$string_cache..atom..Atom$LT$Static$GT$$u20$as$u20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer3new17h936a9f3ff498ab6aE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i32, i32 }, i64, { i32, [2 x i32] }, i32, { i32, [2 x i32] }, i32, i32, i8, i8, [2 x i8] }) align 8 dereferenceable(80) initializes((0, 8), (24, 28), (32, 44), (52, 60), (68, 78)) %0, i32 noundef %1) unnamed_addr #5 {
+define void @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer3new17h936a9f3ff498ab6aE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i32, i32 }, i64, { i32, [2 x i32] }, i32, { i32, [2 x i32] }, i32, i32, i8, i8, [2 x i8] }) align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 52
@@ -369,7 +369,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN8xml5ever9tokenizer8c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef i8 @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer11finish_none17hf616c69860fec7f6E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) initializes((56, 65)) %0) unnamed_addr #5 {
+define noundef i8 @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer11finish_none17hf616c69860fec7f6E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 0, ptr %2, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 64
@@ -378,7 +378,7 @@ define noundef i8 @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer11finish_non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef i8 @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer10finish_one17h337540909fda8e86E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) initializes((56, 65)) %0, i32 noundef %1) unnamed_addr #5 {
+define noundef i8 @_ZN8xml5ever9tokenizer8char_ref16CharRefTokenizer10finish_one17h337540909fda8e86E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(80) %0, i32 noundef %1) unnamed_addr #5 {
   %.sroa.05.0.insert.ext = zext i32 %1 to i64
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %.sroa.05.0.insert.ext, ptr %3, align 8

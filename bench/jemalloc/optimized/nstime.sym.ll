@@ -14,14 +14,14 @@ target triple = "x86_64-unknown-linux-gnu"
 @nstime_prof_update = hidden local_unnamed_addr constant ptr @nstime_prof_update_impl, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nstime_init(ptr nocapture noundef writeonly initializes((0, 8)) %time, i64 noundef %ns) local_unnamed_addr #0 {
+define hidden void @nstime_init(ptr nocapture noundef writeonly %time, i64 noundef %ns) local_unnamed_addr #0 {
 entry:
   store i64 %ns, ptr %time, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nstime_init2(ptr nocapture noundef writeonly initializes((0, 8)) %time, i64 noundef %sec, i64 noundef %nsec) local_unnamed_addr #0 {
+define hidden void @nstime_init2(ptr nocapture noundef writeonly %time, i64 noundef %sec, i64 noundef %nsec) local_unnamed_addr #0 {
 entry:
   %mul = mul i64 %sec, 1000000000
   %add = add i64 %mul, %nsec
@@ -61,7 +61,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @nstime_copy(ptr nocapture noundef writeonly initializes((0, 8)) %time, ptr nocapture noundef readonly %source) local_unnamed_addr #2 {
+define hidden void @nstime_copy(ptr nocapture noundef writeonly %time, ptr nocapture noundef readonly %source) local_unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %source, align 8
   store i64 %0, ptr %time, align 8
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @nstime_prof_update_impl(ptr nocapture noundef writeonly initializes((0, 8)) %time) #3 {
+define internal void @nstime_prof_update_impl(ptr nocapture noundef writeonly %time) #3 {
 entry:
   %ts.i3 = alloca %struct.timespec, align 8
   %ts.i = alloca %struct.timespec, align 8
@@ -230,7 +230,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nstime_init_update(ptr nocapture noundef writeonly initializes((0, 8)) %time) local_unnamed_addr #3 {
+define hidden void @nstime_init_update(ptr nocapture noundef writeonly %time) local_unnamed_addr #3 {
 nstime_update_impl.exit:
   %ts.i.i = alloca %struct.timespec, align 8
   store i64 0, ptr %time, align 8
@@ -247,7 +247,7 @@ nstime_update_impl.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @nstime_prof_init_update(ptr nocapture noundef writeonly initializes((0, 8)) %time) local_unnamed_addr #3 {
+define hidden void @nstime_prof_init_update(ptr nocapture noundef writeonly %time) local_unnamed_addr #3 {
 entry:
   %ts.i3.i = alloca %struct.timespec, align 8
   %ts.i.i = alloca %struct.timespec, align 8

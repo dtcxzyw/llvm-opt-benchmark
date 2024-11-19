@@ -1460,7 +1460,7 @@ define internal void @__cxx_global_var_init.11() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix15RegisterCommand14getCommandsForERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix15RegisterCommand14getCommandsForERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2459,7 +2459,7 @@ define void @_ZTv0_n40_N3nix15NixMultiCommand3runEv(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3nix12StoreCommandC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #8 align 2 {
+define void @_ZN3nix12StoreCommandC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1) unnamed_addr #8 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2481,7 +2481,7 @@ define void @_ZN3nix12StoreCommandC2Ev(ptr nocapture noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix12StoreCommand8getStoreEv(ptr dead_on_unwind noalias writable sret(%"class.nix::ref.92") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix12StoreCommand8getStoreEv(ptr dead_on_unwind noalias writable sret(%"class.nix::ref.92") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.nix::ref.92", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -3050,7 +3050,7 @@ define void @_ZTv0_n40_N3nix12StoreCommand3runEv(ptr noundef %0) unnamed_addr #6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix11CopyCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11CopyCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -4194,7 +4194,7 @@ _ZN3nix10SearchPathD2Ev.exit:                     ; preds = %_ZNSt16allocator_tr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3nix11EvalCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix11EvalCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32
@@ -5167,7 +5167,7 @@ _ZN3nix3refINS_9EvalStateEEC2ERKSt10shared_ptrIS1_E.exit: ; preds = %_ZNSt10shar
 declare noundef i32 @_ZN3nix15AbstractNixRepl9runSimpleENS_3refINS_9EvalStateEEERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_5ValueESt4lessISA_E19traceable_allocatorISt4pairIKSA_SC_EEE(ptr noundef, ptr noundef nonnull align 1) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix19MixOperateOnOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix19MixOperateOnOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.nix::Args::Flag", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -5281,7 +5281,7 @@ define void @_ZN3nix19MixOperateOnOptionsC2Ev(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix19MixOperateOnOptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(12) initializes((32, 36), (40, 48)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix19MixOperateOnOptionsC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.nix::Args::Flag", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
@@ -7614,7 +7614,7 @@ _ZN3nix3refINS_5StoreEED2Ev.exit:                 ; preds = %38, %56, %69, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10MixProfileC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (40, 41)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10MixProfileC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.nix::Args::Flag", align 8
   %5 = alloca %"class.std::allocator", align 1
@@ -8881,7 +8881,7 @@ _ZNSt6vectorIN3nix9StorePathESaIS1_EED2Ev.exit:   ; preds = %101, %_ZSt8_Destroy
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix17MixDefaultProfileC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (40, 41)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix17MixDefaultProfileC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN3nix10MixProfileC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %4)
@@ -9139,7 +9139,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix14MixEnvironmentC2Ev(ptr noundef nonnull align 8 dereferenceable(153) initializes((0, 8), (16, 20), (24, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix14MixEnvironmentC2Ev(ptr noundef nonnull align 8 dereferenceable(153) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
@@ -9726,7 +9726,7 @@ _ZNSt6vectorIPcSaIS0_EED2Ev.exit:                 ; preds = %.critedge, %211
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix14MixEnvironmentC1Ev(ptr noundef nonnull align 8 dereferenceable(153) initializes((176, 180), (184, 192)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix14MixEnvironmentC1Ev(ptr noundef nonnull align 8 dereferenceable(153) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1

@@ -2518,7 +2518,7 @@ declare void @llvm.assume(i1 noundef) #20
 declare dso_local ptr @strsep(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_initcall_start_cb(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) #7 align 16 {
+define internal void @trace_initcall_start_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) #7 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #34, !srcloc !76
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds i8, ptr %4, i64 1320

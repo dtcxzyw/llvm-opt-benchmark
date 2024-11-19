@@ -6042,7 +6042,7 @@ define { ptr, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$18spare_capacity_mut17he21f
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h57ef8fe4780f2c49E"(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 8 initializes((0, 8)) %0, ptr nocapture align 8 %1) unnamed_addr #5 {
+define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h57ef8fe4780f2c49E"(ptr nocapture writeonly sret({ i64, [9 x i64] }) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = icmp eq i64 %4, 0
@@ -6123,7 +6123,7 @@ define { i64, i64 } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17he421580bfe843de5E"(p
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hfff3fd3e24552561E"(ptr nocapture writeonly sret({ [16 x i8], i8, [31 x i8] }) align 16 initializes((16, 17)) %0, ptr nocapture align 8 %1) unnamed_addr #5 {
+define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hfff3fd3e24552561E"(ptr nocapture writeonly sret({ [16 x i8], i8, [31 x i8] }) align 16 %0, ptr nocapture align 8 %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = icmp eq i64 %4, 0
@@ -7310,7 +7310,7 @@ define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hf720701914f7f093E"(ptr alig
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h6dbd230f50daa06aE"(ptr nocapture writeonly sret({ { ptr, ptr, {} }, ptr, i64, i64 }) align 8 initializes((0, 40)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h6dbd230f50daa06aE"(ptr nocapture writeonly sret({ { ptr, ptr, {} }, ptr, i64, i64 }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = tail call { i64, i64 } @_ZN4core5slice5index5range17ha7c4edbe80ecde9aE(i64 %4, ptr nonnull align 8 @anon.eee755004c80eabff669b06c66b78e11.15)
@@ -7977,7 +7977,7 @@ define void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h6cac92fc5efddb07E"(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 initializes((0, 24)) %0) unnamed_addr #9 {
+define void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17h6cac92fc5efddb07E"(ptr nocapture writeonly sret({ { i64, ptr, {} }, i64 }) align 8 %0) unnamed_addr #9 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %2, align 8
@@ -7987,7 +7987,7 @@ define void @"_ZN67_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$core..default..Defau
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h145e53c476b648beE"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h145e53c476b648beE"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !3, !noundef !3
@@ -8005,7 +8005,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7108ada60688c5dfE"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h7108ada60688c5dfE"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !3, !noundef !3
@@ -8023,7 +8023,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha67367d33afee195E"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha67367d33afee195E"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !3, !noundef !3
@@ -8041,7 +8041,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha736999d5c209e0eE"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17ha736999d5c209e0eE"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !3, !noundef !3
@@ -8059,7 +8059,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc125db009ba47533E"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc125db009ba47533E"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !3, !noundef !3
@@ -8077,7 +8077,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd9c6d304fd40b7c1E"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hd9c6d304fd40b7c1E"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !3, !noundef !3
@@ -8095,7 +8095,7 @@ define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..trai
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hed3d690f6c9f67a6E"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
+define void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hed3d690f6c9f67a6E"(ptr nocapture writeonly sret({ ptr, ptr, i64, ptr, {}, { {} } }) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #10 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !3, !noundef !3

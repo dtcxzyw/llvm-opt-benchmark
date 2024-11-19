@@ -207,7 +207,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18ExtendedJarrowRuddC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18ExtendedJarrowRuddC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %add.i.i = add i64 %steps, 1
@@ -312,7 +312,7 @@ _ZNK5boost10shared_ptrIN8QuantLib19StochasticProcess1DEEptEv.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25ExtendedCoxRossRubinsteinC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25ExtendedCoxRossRubinsteinC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -966,7 +966,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_25ExtendedCoxRossRubinsteinEE9driftStepEd
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31ExtendedAdditiveEQPBinomialTreeC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31ExtendedAdditiveEQPBinomialTreeC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %add.i.i = add i64 %steps, 1
@@ -1219,7 +1219,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_31ExtendedAdditiveEQPBinomialTreeEE9drift
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18ExtendedTrigeorgisC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18ExtendedTrigeorgisC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1845,7 +1845,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_18ExtendedTrigeorgisEE9driftStepEd.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12ExtendedTianC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12ExtendedTianC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2533,7 +2533,7 @@ _ZNK8QuantLib20ExtendedBinomialTreeINS_12ExtendedTianEE9driftStepEd.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20ExtendedLeisenReimerC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double noundef %strike) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20ExtendedLeisenReimerC2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double noundef %strike) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3361,7 +3361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14ExtendedJoshi4C2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double noundef %strike) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14ExtendedJoshi4C2ERKN5boost10shared_ptrINS_19StochasticProcess1DEEEdmd(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %end, i64 noundef %steps, double noundef %strike) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

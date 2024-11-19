@@ -98,7 +98,7 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
 @_ZN3zmq11mechanism_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq11mechanism_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq11mechanism_tC2ERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1488) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(1336) %options_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq11mechanism_tC2ERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef nonnull align 8 dereferenceable(1336) %options_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq11mechanism_tE, i64 16), ptr %this, align 8
   %options = getelementptr inbounds i8, ptr %this, i64 8
@@ -1027,7 +1027,7 @@ _ZNSt6vectorIN3zmq18tcp_address_mask_tESaIS1_EED2Ev.exit: ; preds = %_ZNSt3setIj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1488) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq11mechanism_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1488) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq11mechanism_tE, i64 16), ptr %this, align 8
   %_owned.i = getelementptr inbounds i8, ptr %this, i64 1480
@@ -1098,7 +1098,7 @@ entry:
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq11mechanism_t19set_peer_routing_idEPKvm(ptr nocapture noundef nonnull align 8 dereferenceable(1488) initializes((1448, 1456)) %this, ptr nocapture noundef readonly %id_ptr_, i64 noundef %id_size_) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq11mechanism_t19set_peer_routing_idEPKvm(ptr nocapture noundef nonnull align 8 dereferenceable(1488) %this, ptr nocapture noundef readonly %id_ptr_, i64 noundef %id_size_) local_unnamed_addr #0 align 2 {
 entry:
   %_routing_id = getelementptr inbounds i8, ptr %this, i64 1440
   %_owned.i.i = getelementptr inbounds i8, ptr %this, i64 1456
@@ -1204,7 +1204,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN3zmq5msg_t9set_flagsEh(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq11mechanism_t11set_user_idEPKvm(ptr noundef nonnull align 8 dereferenceable(1488) initializes((1472, 1480)) %this, ptr noundef %user_id_, i64 noundef %size_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq11mechanism_t11set_user_idEPKvm(ptr noundef nonnull align 8 dereferenceable(1488) %this, ptr noundef %user_id_, i64 noundef %size_) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -1348,7 +1348,7 @@ do.end:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN3zmq11mechanism_t12add_propertyEPhmPKcPKvm(ptr nocapture noundef writeonly initializes((0, 1)) %ptr_, i64 noundef %ptr_capacity_, ptr nocapture noundef readonly %name_, ptr nocapture noundef readonly %value_, i64 noundef %value_len_) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZN3zmq11mechanism_t12add_propertyEPhmPKcPKvm(ptr nocapture noundef writeonly %ptr_, i64 noundef %ptr_capacity_, ptr nocapture noundef readonly %name_, ptr nocapture noundef readonly %value_, i64 noundef %value_len_) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %name_) #31
   %cmp.i = icmp ugt i64 %call.i, 255
@@ -1435,7 +1435,7 @@ _ZL8name_lenPKc.exit:                             ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK3zmq11mechanism_t20add_basic_propertiesEPhm(ptr noundef nonnull readonly align 8 dereferenceable(1488) %this, ptr noundef initializes((0, 1)) %ptr_, i64 noundef %ptr_capacity_) local_unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK3zmq11mechanism_t20add_basic_propertiesEPhm(ptr noundef nonnull readonly align 8 dereferenceable(1488) %this, ptr noundef %ptr_, i64 noundef %ptr_capacity_) local_unnamed_addr #0 align 2 {
 entry:
   %type = getelementptr inbounds i8, ptr %this, i64 316
   %0 = load i8, ptr %type, align 4

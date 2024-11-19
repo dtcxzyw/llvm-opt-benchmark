@@ -58,7 +58,7 @@ declare void @diffcore_std(ptr noundef) local_unnamed_addr #1
 declare i32 @diff_flush_patch_id(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @init_patch_ids(ptr noundef %r, ptr noundef initializes((0, 648)) %ids) local_unnamed_addr #0 {
+define dso_local noundef i32 @init_patch_ids(ptr noundef %r, ptr noundef %ids) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %ids, i8 0, i64 648, i1 false)
   %diffopts = getelementptr inbounds i8, ptr %ids, i64 48

@@ -357,7 +357,7 @@ _ZNSt8functionIFvlEEaSEOS1_.exit:                 ; preds = %_ZNSt8functionIFvlE
 declare i32 @uv_read_start(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14cmUVPipeBuffer7UVAllocEP11uv_handle_smP8uv_buf_t(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 16)) %2) #0 align 2 {
+define dso_local void @_ZN14cmUVPipeBuffer7UVAllocEP11uv_handle_smP8uv_buf_t(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef writeonly %2) #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   tail call void @_ZNSt6vectorIcSaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef %1)
@@ -1526,7 +1526,7 @@ _ZNSt8functionIFv7cmRangeIPKcEEED2Ev.exit50:      ; preds = %278, %_ZNSt8functio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12cmWorkerPool14ProcessResultT5resetEv(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 12)) %0) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN12cmWorkerPool14ProcessResultT5resetEv(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #2 align 2 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -2060,7 +2060,7 @@ _ZN19cmUVReadOnlyProcess11UVTryFinishEv.exit:     ; preds = %_ZNK12cmWorkerPool1
 declare noundef ptr @_ZNK2cm19uv_handle_ptr_base_I12uv_process_sE3getEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18cmWorkerPoolWorkerC2ER9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(848) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18cmWorkerPoolWorkerC2ER9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(848) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 40, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZN2cm19uv_handle_ptr_base_I10uv_async_sEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -2508,7 +2508,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13shrink_to_fitEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN20cmWorkerPoolInternalC2EP12cmWorkerPool(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN20cmWorkerPoolInternalC2EP12cmWorkerPool(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN2cm19uv_handle_ptr_base_I10uv_async_sEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -2897,7 +2897,7 @@ _ZNSt10unique_ptrI9uv_loop_sSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNSt6
 declare i32 @uv_loop_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN20cmWorkerPoolInternal7ProcessEv(ptr noundef nonnull align 8 dereferenceable(304) initializes((80, 82)) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN20cmWorkerPoolInternal7ProcessEv(ptr noundef nonnull align 8 dereferenceable(304) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 81
@@ -3734,7 +3734,7 @@ _ZNSt6vectorISt10unique_ptrI18cmWorkerPoolWorkerSt14default_deleteIS1_EESaIS4_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12cmWorkerPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12cmWorkerPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %2, align 8
@@ -3792,7 +3792,7 @@ define dso_local void @_ZN12cmWorkerPool14SetThreadCountEj(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN12cmWorkerPool7ProcessEPv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN12cmWorkerPool7ProcessEPv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8

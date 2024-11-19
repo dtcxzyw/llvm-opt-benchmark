@@ -2229,7 +2229,7 @@ declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noun
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @md_bitmap_start_sync(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2, i32 noundef %3) #0 align 16 {
+define dso_local range(i32 0, 2) i32 @md_bitmap_start_sync(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) #0 align 16 {
   %5 = icmp eq ptr %0, null
   store i64 0, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32

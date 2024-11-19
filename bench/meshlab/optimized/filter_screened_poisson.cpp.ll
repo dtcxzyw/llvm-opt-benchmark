@@ -1677,19 +1677,19 @@ define noundef double @_ZN10PolynomialILi0EE16BSplineComponentEi(i32 noundef %0)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10PolynomialILi0EE22BSplineComponentValuesEdPd(double noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #21 align 2 {
+define void @_ZN10PolynomialILi0EE22BSplineComponentValuesEdPd(double noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #21 align 2 {
   store double 1.000000e+00, ptr %1, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10PolynomialILi0EE20BinomialCoefficientsEPi(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #21 align 2 {
+define void @_ZN10PolynomialILi0EE20BinomialCoefficientsEPi(ptr nocapture noundef writeonly %0) local_unnamed_addr #21 align 2 {
   store i32 1, ptr %0, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @_ZN11PPolynomialILi0EE7BSplineEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.PPolynomial) align 8 initializes((0, 16)) %0, double noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11PPolynomialILi0EE7BSplineEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.PPolynomial) align 8 %0, double noundef %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 2, ptr %0, align 8
   %4 = tail call noalias noundef dereferenceable_or_null(32) ptr @calloc(i64 noundef 2, i64 noundef 16) #50
@@ -1709,7 +1709,7 @@ define void @_ZN11PPolynomialILi0EE7BSplineEd(ptr dead_on_unwind noalias nocaptu
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12TreeNodeDataC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) initializes((4, 5)) %0) unnamed_addr #21 align 2 {
+define void @_ZN12TreeNodeDataC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(5) %0) unnamed_addr #21 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %2, align 4
   ret void
@@ -2288,7 +2288,7 @@ define noundef i64 @_ZN10VertexData9EdgeIndexEPK7OctNodeI12TreeNodeDataEiiPi(ptr
 declare void @_ZN4Cube15FactorEdgeIndexEiRiS0_S0_(i32 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15SortedTreeNodesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0) unnamed_addr #21 align 2 {
+define void @_ZN15SortedTreeNodesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #21 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %2, align 8
@@ -2363,7 +2363,7 @@ define void @_ZN15SortedTreeNodesD2Ev(ptr nocapture noundef nonnull align 8 dere
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15SortedTreeNodes3setER7OctNodeI12TreeNodeDataEPSt6vectorIiSaIiEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15SortedTreeNodes3setER7OctNodeI12TreeNodeDataEPSt6vectorIiSaIiEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN15SortedTreeNodes3setER7OctNodeI12TreeNodeDataE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %2, null
   %.pre = load ptr, ptr %0, align 8
@@ -2501,7 +2501,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %20, %22, %24, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15SortedTreeNodes3setER7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #10 align 2 {
+define void @_ZN15SortedTreeNodes3setER7OctNodeI12TreeNodeDataE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #10 align 2 {
   %3 = tail call noundef i32 @_ZNK7OctNodeI12TreeNodeDataE8maxDepthEv(ptr noundef nonnull align 8 dereferenceable(32) %1)
   %4 = add nsw i32 %3, 1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5681,7 +5681,7 @@ declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef n
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN27FilterScreenedPoissonPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((80, 89)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN27FilterScreenedPoissonPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [1 x i32], align 4
   %3 = alloca %"class.std::__cxx11::list.155", align 8
   %4 = alloca %class.QString, align 8
@@ -5927,7 +5927,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #29
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN27FilterScreenedPoissonPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN27FilterScreenedPoissonPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -5976,7 +5976,7 @@ _ZN12FilterPluginD2Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN27FilterScreenedPoissonPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN27FilterScreenedPoissonPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT27FilterScreenedPoissonPlugin, i64 8), align 8
   store ptr %3, ptr %2, align 8
@@ -6026,7 +6026,7 @@ _ZN27FilterScreenedPoissonPluginD2Ev.exit:        ; preds = %.lr.ph.i.i.i3.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N27FilterScreenedPoissonPluginD1Ev(ptr noundef initializes((0, 8)) %0) unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N27FilterScreenedPoissonPluginD1Ev(ptr noundef %0) unnamed_addr #30 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT27FilterScreenedPoissonPlugin, i64 8), align 8
   store ptr %2, ptr %0, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT27FilterScreenedPoissonPlugin, i64 16), align 8
@@ -6130,7 +6130,7 @@ _ZN27FilterScreenedPoissonPluginD1Ev.exit:        ; preds = %.lr.ph.i.i.i3.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN27FilterScreenedPoissonPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN27FilterScreenedPoissonPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT27FilterScreenedPoissonPlugin, i64 8), align 8
   store ptr %3, ptr %2, align 8
@@ -6181,7 +6181,7 @@ _ZN27FilterScreenedPoissonPluginD1Ev.exit:        ; preds = %.lr.ph.i.i.i3.i.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N27FilterScreenedPoissonPluginD0Ev(ptr noundef initializes((0, 8)) %0) unnamed_addr #30 align 2 {
+define void @_ZThn16_N27FilterScreenedPoissonPluginD0Ev(ptr noundef %0) unnamed_addr #30 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN27FilterScreenedPoissonPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #25
   ret void
@@ -6198,14 +6198,14 @@ define void @_ZTv0_n24_N27FilterScreenedPoissonPluginD0Ev(ptr noundef %0) unname
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterScreenedPoissonPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterScreenedPoissonPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.14, i32 noundef 21)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK27FilterScreenedPoissonPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #31 align 2 {
+define void @_ZTv0_n40_NK27FilterScreenedPoissonPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.14, i32 noundef 21), !noalias !65
   store ptr %3, ptr %0, align 8, !alias.scope !65
@@ -6213,7 +6213,7 @@ define void @_ZTv0_n40_NK27FilterScreenedPoissonPlugin10pluginNameEv(ptr dead_on
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterScreenedPoissonPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterScreenedPoissonPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %7
 
@@ -6228,7 +6228,7 @@ define void @_ZNK27FilterScreenedPoissonPlugin10filterNameEi(ptr dead_on_unwind 
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK27FilterScreenedPoissonPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK27FilterScreenedPoissonPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %_ZNK27FilterScreenedPoissonPlugin10filterNameEi.exit
@@ -6244,7 +6244,7 @@ _ZNK27FilterScreenedPoissonPlugin10filterNameEi.exit: ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterScreenedPoissonPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterScreenedPoissonPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %7
 
@@ -6259,7 +6259,7 @@ define void @_ZNK27FilterScreenedPoissonPlugin16pythonFilterNameEi(ptr dead_on_u
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK27FilterScreenedPoissonPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK27FilterScreenedPoissonPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !71)
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %_ZNK27FilterScreenedPoissonPlugin16pythonFilterNameEi.exit
@@ -6275,7 +6275,7 @@ _ZNK27FilterScreenedPoissonPlugin16pythonFilterNameEi.exit: ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK27FilterScreenedPoissonPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK27FilterScreenedPoissonPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %7
 
@@ -6294,7 +6294,7 @@ define void @_ZNK27FilterScreenedPoissonPlugin10filterInfoEi(ptr dead_on_unwind 
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK27FilterScreenedPoissonPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
+define void @_ZThn16_NK27FilterScreenedPoissonPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #31 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %4 = icmp eq i32 %2, 0
   br i1 %4, label %5, label %7

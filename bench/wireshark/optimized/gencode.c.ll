@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.gen_arithmetic = private unnamed_addr constant [15 x i8] c"gen_arithmetic\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @dfw_gencode(ptr noundef initializes((32, 64)) %0) local_unnamed_addr #0 {
+define hidden void @dfw_gencode(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @g_ptr_array_new() #9
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %2, ptr %3, align 8
@@ -571,7 +571,7 @@ gen_exists.exit:                                  ; preds = %128, %97, %146, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @dfw_interesting_fields(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define hidden ptr @dfw_interesting_fields(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.hash_key_iterator, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8

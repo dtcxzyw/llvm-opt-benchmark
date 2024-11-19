@@ -158,7 +158,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsSpline_KeyFramesC2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsSpline_KeyFramesC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -211,7 +211,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESaIS1_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsSpline_KeyFramesC2ERKS0_PKNS_13TsKeyFrameMapE(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 136)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsSpline_KeyFramesC2ERKS0_PKNS_13TsKeyFrameMapE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load i64, ptr %1, align 8
   store i64 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2414,7 +2414,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMapD2Ev.exit: ; preds = %_ZSt8_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsSpline_KeyFrames16_GetTimeIntervalEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfInterval") align 8 initializes((0, 9), (16, 25)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, double noundef %2) local_unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsSpline_KeyFrames16_GetTimeIntervalEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfInterval") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, double noundef %2) local_unnamed_addr #3 align 2 {
   store double 0xFFF0000000000000, ptr %0, align 8, !alias.scope !15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %4, align 8, !alias.scope !15
@@ -6195,7 +6195,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag4AutoD2Ev.exit: ; preds = %127
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsSpline_KeyFrames16SetExtrapolationERKSt4pairINS_19TsExtrapolationTypeES2_E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TsSpline_KeyFrames16SetExtrapolationERKSt4pairINS_19TsExtrapolationTypeES2_E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) local_unnamed_addr #8 align 2 {
   %3 = load i32, ptr %1, align 4
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4

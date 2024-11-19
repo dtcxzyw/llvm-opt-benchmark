@@ -36,7 +36,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [36 x i8] c"(frag_off_units & ~IP_OFFMASK) == 0\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_tx_pkt_init(ptr nocapture noundef writeonly initializes((0, 8)) %pkt, i32 noundef %max_frags) local_unnamed_addr #0 {
+define dso_local void @net_tx_pkt_init(ptr nocapture noundef writeonly %pkt, i32 noundef %max_frags) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(65632) ptr @g_malloc0(i64 noundef 65632) #15
   %add = add i32 %max_frags, 3

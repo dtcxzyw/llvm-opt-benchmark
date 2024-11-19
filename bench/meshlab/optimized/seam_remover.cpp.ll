@@ -17484,7 +17484,7 @@ define linkonce_odr void @_ZNSt8_Rb_treeISt4pairIP8MeshFaceiES3_St9_IdentityIS3_
 declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z15InitializeStateSt10shared_ptrI9MeshGraphERK14AlgoParameters(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %2) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define void @_Z15InitializeStateSt10shared_ptrI9MeshGraphERK14AlgoParameters(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(89) %2) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::shared_ptr.306", align 8
   %5 = alloca %"class.std::vector.463", align 8
   %6 = alloca %"class.std::vector.468", align 8
@@ -73135,7 +73135,7 @@ define internal fastcc ptr @"_ZSt9remove_ifIN9__gnu_cxx17__normal_iteratorIPSt4p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16ExtractHalfEdgesRKSt6vectorISt10shared_ptrI9FaceGroupESaIS2_EERKN3vcg4Box2IdEEb(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext %2) unnamed_addr #11 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::Segment2", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not23 = icmp eq ptr %.0.val, %.8.val

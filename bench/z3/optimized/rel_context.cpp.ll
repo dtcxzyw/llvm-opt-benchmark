@@ -875,7 +875,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 declare void @_ZN7datalog16relation_managerD1Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog11rel_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog11rel_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11rel_contextE, i64 16), ptr %this, align 8
   %m_last_result_relation = getelementptr inbounds i8, ptr %this, i64 280
@@ -977,7 +977,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog11rel_contextD0Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN7datalog11rel_contextD0Ev(ptr noundef nonnull align 8 dereferenceable(432) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7datalog11rel_contextD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #23
@@ -3655,7 +3655,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog11rel_context9get_modelEv(ptr noalias sret(%class.ref.227) align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(432) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog11rel_context9get_modelEv(ptr noalias sret(%class.ref.227) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(432) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN3refI5modelEC2EPS0_.exit:
   %decls = alloca %class.obj_hashtable, align 8
   %fml = alloca %class.obj_ref, align 8
@@ -5222,7 +5222,7 @@ entry:
 declare noundef ptr @_ZNK7datalog16relation_manager16try_get_relationEP9func_decl(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK7datalog11rel_context15try_get_formulaEP9func_decl(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK7datalog11rel_context15try_get_formulaEP9func_decl(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(432) %this, ptr noundef %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %m, align 8

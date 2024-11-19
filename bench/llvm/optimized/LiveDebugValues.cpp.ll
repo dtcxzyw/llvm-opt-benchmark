@@ -625,7 +625,7 @@ declare noundef ptr @_ZN4llvm32makeInstrRefBasedLiveDebugValuesEv() local_unname
 declare noundef ptr @_ZN4llvm30makeVarLocBasedLiveDebugValuesEv() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115LiveDebugValuesD2Ev(ptr noundef nonnull align 8 dereferenceable(1280) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115LiveDebugValuesD2Ev(ptr noundef nonnull align 8 dereferenceable(1280) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_115LiveDebugValuesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 992
@@ -686,7 +686,7 @@ _ZNSt10unique_ptrIN4llvm21SharedLiveDebugValues7LDVImplESt14default_deleteIS2_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115LiveDebugValuesD0Ev(ptr noundef nonnull align 8 dereferenceable(1280) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115LiveDebugValuesD0Ev(ptr noundef nonnull align 8 dereferenceable(1280) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_115LiveDebugValuesD2Ev(ptr noundef nonnull align 8 dereferenceable(1280) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 1280) #17
   ret void
@@ -754,7 +754,7 @@ declare void @_ZN4llvm4Pass17dumpPassStructureEj(ptr noundef nonnull align 8 der
 declare noundef zeroext i1 @_ZN4llvm19MachineFunctionPass13runOnFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 1) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115LiveDebugValues20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1280) initializes((72, 80)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_115LiveDebugValues20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1280) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef zeroext i1 @_ZNK4llvm15MachineFunction16useDebugInstrRefEv(ptr noundef nonnull align 8 dereferenceable(1041) %1) #14
   %4 = load i8, ptr getelementptr inbounds (i8, ptr @_ZL16ForceInstrRefLDV, i64 128), align 8
   %5 = trunc i8 %4 to i1

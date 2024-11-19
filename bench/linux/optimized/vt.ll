@@ -2104,7 +2104,7 @@ declare dso_local void @tty_port_init(ptr noundef) local_unnamed_addr #1
 declare dso_local void @vc_SAK(ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @visual_init(ptr noundef initializes((416, 418), (792, 800)) %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @visual_init(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 472
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -5322,7 +5322,7 @@ define dso_local ptr @screen_pos(ptr noundef %0, i32 noundef %1, i1 noundef zero
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @getconsxy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly align 1 dereferenceable(2) initializes((0, 2)) %1) local_unnamed_addr #14 align 16 {
+define dso_local void @getconsxy(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly align 1 dereferenceable(2) %1) local_unnamed_addr #14 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 376
   %4 = load i32, ptr %3, align 8
   %5 = tail call i32 @llvm.umin.i32(i32 %4, i32 255)
@@ -5443,7 +5443,7 @@ define dso_local void @putconsxy(ptr noundef %0, ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc void @gotoxy(ptr nocapture noundef initializes((376, 380)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #14 align 16 {
+define internal fastcc void @gotoxy(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) unnamed_addr #14 align 16 {
   %4 = icmp slt i32 %1, 0
   br i1 %4, label %11, label %5
 
@@ -5524,7 +5524,7 @@ define dso_local zeroext i16 @vcs_scr_readw(ptr nocapture noundef readonly %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @vcs_scr_writew(ptr noundef %0, i16 noundef zeroext %1, ptr noundef initializes((0, 2)) %2) local_unnamed_addr #0 align 16 {
+define dso_local void @vcs_scr_writew(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   store i16 %1, ptr %2, align 2
   %4 = ptrtoint ptr %2 to i64
   %5 = getelementptr inbounds i8, ptr %0, i64 512
@@ -5866,7 +5866,7 @@ declare dso_local void @reset_vc(ptr noundef) local_unnamed_addr #1
 declare dso_local void @__init_waitqueue_head(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @reset_terminal(ptr noundef initializes((464, 472), (556, 560)) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @reset_terminal(ptr noundef %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 464
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 424
@@ -6786,7 +6786,7 @@ define internal void @vt_console_print(ptr nocapture readnone %0, ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal ptr @vt_console_device(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #17 align 16 {
+define internal ptr @vt_console_device(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #17 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 74
   %4 = load i16, ptr %3, align 2
   %5 = icmp eq i16 %4, 0
@@ -9758,7 +9758,7 @@ define internal fastcc void @cursor_report(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal fastcc void @gotoxay(ptr nocapture noundef nonnull initializes((376, 380)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #14 align 16 {
+define internal fastcc void @gotoxay(ptr nocapture noundef nonnull %0, i32 noundef %1, i32 noundef %2) unnamed_addr #14 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 680
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 8
@@ -10862,7 +10862,7 @@ define internal fastcc noundef i32 @vc_t416_color(ptr noundef nonnull %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @rgb_foreground(ptr nocapture noundef initializes((388, 392)) %0, ptr nocapture noundef readonly %1) #14 align 16 {
+define internal void @rgb_foreground(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #14 align 16 {
   %3 = load i8, ptr %1, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 1
   %5 = load i8, ptr %4, align 1

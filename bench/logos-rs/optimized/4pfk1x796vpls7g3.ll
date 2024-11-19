@@ -138,7 +138,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN53_$LT$T$u20$as$u20$alloc..alloc..WriteCloneIntoRaw$GT$20write_clone_into_raw17h6b70d1392ed7dc9eE"(ptr align 8 %0, ptr nocapture writeonly initializes((0, 40)) %1) unnamed_addr #2 {
+define void @"_ZN53_$LT$T$u20$as$u20$alloc..alloc..WriteCloneIntoRaw$GT$20write_clone_into_raw17h6b70d1392ed7dc9eE"(ptr align 8 %0, ptr nocapture writeonly %1) unnamed_addr #2 {
   %3 = alloca [40 x i8], align 8
   call void @"_ZN62_$LT$logos_codegen..mir..Mir$u20$as$u20$core..clone..Clone$GT$5clone17h623a5260b5c5cb70E"(ptr nonnull sret([40 x i8]) align 8 %3, ptr align 8 %0)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)

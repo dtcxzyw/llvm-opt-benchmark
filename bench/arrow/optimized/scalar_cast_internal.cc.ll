@@ -6566,7 +6566,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN5arrow7compute8internal24ResolveOutputFromOptionsEPNS0_13KernelContextERKSt6vectorINS_10TypeHolderESaIS5_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Result.81") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef readonly %ctx, ptr nocapture nonnull readnone align 8 %0) #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute8internal24ResolveOutputFromOptionsEPNS0_13KernelContextERKSt6vectorINS_10TypeHolderESaIS5_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Result.81") align 8 %agg.result, ptr nocapture noundef readonly %ctx, ptr nocapture nonnull readnone align 8 %0) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %state_.i = getelementptr inbounds i8, ptr %ctx, i64 8
   %1 = load ptr, ptr %state_.i, align 8

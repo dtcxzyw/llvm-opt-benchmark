@@ -58,7 +58,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof11PExprStreamC2ERSt6vectorINS1_5PExprESaIS4_EENS0_12NodeTemplateILb1EEES9_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr nocapture noundef readonly %tt, ptr nocapture noundef readonly %ff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof11PExprStreamC2ERSt6vectorINS1_5PExprESaIS4_EENS0_12NodeTemplateILb1EEES9_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %stream, ptr nocapture noundef readonly %tt, ptr nocapture noundef readonly %ff) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %stream, ptr %this, align 8
   %d_tt = getelementptr inbounds i8, ptr %this, i64 8

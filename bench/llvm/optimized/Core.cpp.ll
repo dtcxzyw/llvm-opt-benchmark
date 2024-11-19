@@ -663,7 +663,7 @@ define dso_local ptr @LLVMCreateStringAttribute(ptr noundef nonnull %0, ptr noun
 declare ptr @_ZN4llvm9Attribute3getERNS_11LLVMContextENS_9StringRefES3_(ptr noundef nonnull align 8 dereferenceable(8), ptr, i64, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMGetStringAttributeKind(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMGetStringAttributeKind(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::Attribute", align 8
   store ptr %0, ptr %3, align 8
   %4 = call { ptr, i64 } @_ZNK4llvm9Attribute15getKindAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #35
@@ -677,7 +677,7 @@ define dso_local ptr @LLVMGetStringAttributeKind(ptr noundef %0, ptr nocapture n
 declare { ptr, i64 } @_ZNK4llvm9Attribute15getKindAsStringEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMGetStringAttributeValue(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMGetStringAttributeValue(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::Attribute", align 8
   store ptr %0, ptr %3, align 8
   %4 = call { ptr, i64 } @_ZNK4llvm9Attribute16getValueAsStringEv(ptr noundef nonnull align 8 dereferenceable(8) %3) #35
@@ -863,7 +863,7 @@ define dso_local void @LLVMDisposeModule(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_ZN4llvm6ModuleD1Ev(ptr noundef nonnull align 8 dereferenceable(857)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMGetModuleIdentifier(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMGetModuleIdentifier(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   store i64 %4, ptr %1, align 8
@@ -902,7 +902,7 @@ define dso_local void @LLVMSetModuleIdentifier(ptr noundef %0, ptr noundef %1, i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMGetSourceFileName(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMGetSourceFileName(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   store i64 %4, ptr %1, align 8
@@ -1116,7 +1116,7 @@ define dso_local i32 @LLVMModuleFlagEntriesGetFlagBehavior(ptr nocapture noundef
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @LLVMModuleFlagEntriesGetKey(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #13 {
+define dso_local ptr @LLVMModuleFlagEntriesGetKey(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #13 {
   %4 = zext i32 %1 to i64
   %5 = getelementptr inbounds %struct.LLVMOpaqueModuleFlagEntry, ptr %0, i64 %4
   %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
@@ -1422,7 +1422,7 @@ _ZN4llvm6Module21appendModuleInlineAsmENS_9StringRefE.exit: ; preds = %3, %7, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMGetModuleInlineAsm(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMGetModuleInlineAsm(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   store i64 %4, ptr %1, align 8
@@ -1444,7 +1444,7 @@ define dso_local noundef ptr @LLVMGetInlineAsm(ptr noundef %0, ptr noundef %1, i
 declare noundef ptr @_ZN4llvm9InlineAsm3getEPNS_12FunctionTypeENS_9StringRefES3_bbNS0_10AsmDialectEb(ptr noundef, ptr, i64, ptr, i64, i1 noundef zeroext, i1 noundef zeroext, i32 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMGetInlineAsmAsmString(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMGetInlineAsmAsmString(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   store i64 %4, ptr %1, align 8
@@ -1453,7 +1453,7 @@ define dso_local noundef ptr @LLVMGetInlineAsmAsmString(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMGetInlineAsmConstraintString(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMGetInlineAsmConstraintString(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #35
   store i64 %4, ptr %1, align 8
@@ -2672,7 +2672,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMGetValueName2(ptr noundef nonnull %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMGetValueName2(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #35
   %4 = extractvalue { ptr, i64 } %3, 1
   store i64 %4, ptr %1, align 8
@@ -5462,7 +5462,7 @@ define dso_local ptr @LLVMValueAsMetadata(ptr noundef %0) local_unnamed_addr #0 
 declare noundef ptr @_ZN4llvm15ValueAsMetadata3getEPNS_5ValueE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMGetMDString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMGetMDString(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %0, align 8
   %.not = icmp eq i8 %3, 24
   br i1 %.not, label %4, label %14
@@ -5566,7 +5566,7 @@ define dso_local noundef ptr @LLVMGetOrInsertNamedMetadata(ptr noundef nonnull %
 declare noundef ptr @_ZN4llvm6Module24getOrInsertNamedMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMGetNamedMetadataName(ptr noundef nonnull %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMGetNamedMetadataName(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZNK4llvm11NamedMDNode7getNameEv(ptr noundef nonnull align 8 dereferenceable(64) %0) #35
   %4 = extractvalue { ptr, i64 } %3, 1
   store i64 %4, ptr %1, align 8
@@ -6681,7 +6681,7 @@ _ZNK4llvm11ConstantInt12getSExtValueEv.exit:      ; preds = %6, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @LLVMConstRealGetDouble(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local noundef double @LLVMConstRealGetDouble(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.llvm::APFloat", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6813,7 +6813,7 @@ define dso_local range(i32 0, 2) i32 @LLVMIsConstantString(ptr noundef nonnull %
 declare noundef zeroext i1 @_ZNK4llvm22ConstantDataSequential8isStringEj(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMGetAsString(ptr noundef nonnull %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMGetAsString(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZNK4llvm22ConstantDataSequential16getRawDataValuesEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #35
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
@@ -8629,7 +8629,7 @@ define dso_local noundef ptr @LLVMGetIntrinsicDeclaration(ptr noundef %0, i32 no
 declare noundef ptr @_ZN4llvm9Intrinsic14getDeclarationEPNS_6ModuleEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef, i32 noundef, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local ptr @LLVMIntrinsicGetName(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local ptr @LLVMIntrinsicGetName(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call { ptr, i64 } @_ZN4llvm9Intrinsic7getNameEj(i32 noundef %0) #35
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
@@ -8648,7 +8648,7 @@ define dso_local noundef ptr @LLVMIntrinsicGetType(ptr noundef nonnull %0, i32 n
 declare noundef ptr @_ZN4llvm9Intrinsic7getTypeERNS_11LLVMContextEjNS_8ArrayRefIPNS_4TypeEEE(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noalias ptr @LLVMIntrinsicCopyOverloadedName(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local noalias ptr @LLVMIntrinsicCopyOverloadedName(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4llvm9Intrinsic21getNameNoUnnamedTypesB5cxx11EjNS_8ArrayRefIPNS_4TypeEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, i32 noundef %0, ptr %1, i64 %2) #35
   %6 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %5) #35
@@ -8662,7 +8662,7 @@ define dso_local noalias ptr @LLVMIntrinsicCopyOverloadedName(i32 noundef %0, pt
 declare void @_ZN4llvm9Intrinsic21getNameNoUnnamedTypesB5cxx11EjNS_8ArrayRefIPNS_4TypeEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noalias ptr @LLVMIntrinsicCopyOverloadedName2(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define dso_local noalias ptr @LLVMIntrinsicCopyOverloadedName2(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZN4llvm9Intrinsic7getNameB5cxx11EjNS_8ArrayRefIPNS_4TypeEEEPNS_6ModuleEPNS_12FunctionTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, i32 noundef %1, ptr %2, i64 %3, ptr noundef %0, ptr noundef null) #35
   %7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #35
@@ -9437,7 +9437,7 @@ _ZN4llvm17OperandBundleDefTIPNS_5ValueEED2Ev.exit: ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @LLVMGetOperandBundleTag(ptr noundef nonnull %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @LLVMGetOperandBundleTag(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #35
   %4 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(56) %0) #35
   store i64 %4, ptr %1, align 8
@@ -11183,7 +11183,7 @@ define dso_local void @LLVMPositionBuilderBeforeInstrAndDbgRecords(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMPositionBuilderAtEnd(ptr nocapture noundef writeonly initializes((48, 66)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @LLVMPositionBuilderAtEnd(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -11202,7 +11202,7 @@ define dso_local ptr @LLVMGetInsertBlock(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMClearInsertionPosition(ptr nocapture noundef writeonly initializes((48, 66)) %0) local_unnamed_addr #2 {
+define dso_local void @LLVMClearInsertionPosition(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %2, i8 0, i64 18, i1 false)
   ret void
@@ -11530,7 +11530,7 @@ _ZNK4llvm13IRBuilderBase17AddMetadataToInstEPNS_11InstructionE.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LLVMBuilderSetDefaultFPMathTag(ptr nocapture noundef writeonly initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @LLVMBuilderSetDefaultFPMathTag(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8
   ret void
@@ -18934,7 +18934,7 @@ _ZN4llvm20getAtomicSyncScopeIDEPKNS_11InstructionE.exit: ; preds = %1, %.sink.sp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @LLVMSetAtomicSyncScopeID(ptr nocapture noundef initializes((72, 73)) %0, i32 noundef %1) local_unnamed_addr #25 {
+define dso_local void @LLVMSetAtomicSyncScopeID(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #25 {
   %3 = load i8, ptr %0, align 8
   switch i8 %3, label %4 [
     i8 61, label %_ZN4llvm20setAtomicSyncScopeIDEPNS_11InstructionEh.exit

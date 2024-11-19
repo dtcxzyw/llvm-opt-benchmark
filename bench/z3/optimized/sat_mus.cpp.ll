@@ -87,7 +87,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3sat3musC2ERNS_6solverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 25), (32, 44)) %this, ptr noundef nonnull align 8 dereferenceable(4408) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3sat3musC2ERNS_6solverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(4408) %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %s, ptr %this, align 8
   %m_core = getelementptr inbounds i8, ptr %this, i64 8
@@ -435,7 +435,7 @@ if.end:                                           ; preds = %_ZNK6vectorI5lboolL
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3sat3musclEv(ptr noundef nonnull align 8 dereferenceable(44) initializes((40, 44)) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN3sat3musclEv(ptr noundef nonnull align 8 dereferenceable(44) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_core_minimize_partial = getelementptr inbounds i8, ptr %0, i64 351

@@ -368,7 +368,7 @@ _ZN19G1HeapRegionSetBase15check_mt_safetyEv.exit: ; preds = %4, %1
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1HeapRegionSetBase12verify_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((32, 33)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1HeapRegionSetBase12verify_startEv(ptr nocapture noundef nonnull align 8 dereferenceable(33) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -395,7 +395,7 @@ _ZN19G1HeapRegionSetBase6verifyEv.exit:           ; preds = %1, %_ZN19G1HeapRegi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1HeapRegionSetBase10verify_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(33) initializes((32, 33)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1HeapRegionSetBase10verify_endEv(ptr nocapture noundef nonnull align 8 dereferenceable(33) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -438,7 +438,7 @@ declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19G1HeapRegionSetBaseC2EPKcP22G1HeapRegionSetChecker(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) initializes((0, 20), (24, 33)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN19G1HeapRegionSetBaseC2EPKcP22G1HeapRegionSetChecker(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(33) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV19G1HeapRegionSetBase, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -1105,7 +1105,7 @@ _ZN16G1FreeRegionList15decrease_lengthEj.exit:    ; preds = %_ZN19G1HeapRegionSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1FreeRegionList6verifyEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((32, 33)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1FreeRegionList6verifyEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1290,7 +1290,7 @@ define hidden void @_ZN16G1FreeRegionList11verify_listEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN16G1FreeRegionList5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((16, 20), (40, 64)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN16G1FreeRegionList5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1352,7 +1352,7 @@ define hidden void @_ZN16G1FreeRegionList8NodeInfo5clearEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1FreeRegionListC2EPKcP22G1HeapRegionSetChecker(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 20), (24, 33), (64, 72)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1FreeRegionListC2EPKcP22G1HeapRegionSetChecker(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1395,7 +1395,7 @@ define hidden void @_ZN16G1FreeRegionListC2EPKcP22G1HeapRegionSetChecker(ptr nou
 declare noundef zeroext i1 @_ZNK6G1NUMA10is_enabledEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1FreeRegionListD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1FreeRegionListD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV16G1FreeRegionList, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -1414,7 +1414,7 @@ define hidden void @_ZN16G1FreeRegionListD2Ev(ptr nocapture noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1FreeRegionList8NodeInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1FreeRegionList8NodeInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN6G1NUMA5_instE, align 8
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8

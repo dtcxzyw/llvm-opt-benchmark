@@ -134,7 +134,7 @@ _ZNK4llvm9MCAsmInfo14usesWindowsCFIEv.exit:       ; preds = %12, %4, %2
 declare noundef zeroext i1 @_ZNK4llvm15MachineFunction15needsFrameMovesEv(ptr noundef nonnull align 8 dereferenceable(1041)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i64 } @_ZNK4llvm19TargetFrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRNS_8RegisterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) unnamed_addr #3 align 2 {
+define dso_local { i64, i64 } @_ZNK4llvm19TargetFrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRNS_8RegisterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(21) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16

@@ -52,7 +52,7 @@ define i32 @Inter_ManCheckEquivalence(ptr noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Inter_ManFramesLatches(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define ptr @Inter_ManFramesLatches(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 148
   %.val = load i32, ptr %4, align 4
   %5 = getelementptr i8, ptr %0, i64 152

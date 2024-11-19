@@ -1132,7 +1132,7 @@ Amap_ObjChoice.exit:                              ; preds = %._crit_edge
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Amap_ManFindCut(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((4, 8)) %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Amap_ManFindCut(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %1, i64 12

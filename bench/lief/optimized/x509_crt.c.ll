@@ -2324,13 +2324,13 @@ define hidden range(i32 0, 2) i32 @mbedtls_x509_crt_is_revoked(ptr nocapture nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_crt_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef initializes((0, 4)) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_crt_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @mbedtls_x509_crt_profile_default, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6)
   ret i32 %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef initializes((0, 4)) %5, ptr noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr nocapture noundef %5, ptr noundef readonly %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca %struct.mbedtls_pk_context, align 8
   %11 = alloca [64 x i8], align 16
@@ -3421,19 +3421,19 @@ x509_crt_verify_chain.exit.thread12:              ; preds = %289, %x509_crt_veri
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_crt_verify_with_profile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef initializes((0, 4)) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_crt_verify_with_profile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = tail call fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret i32 %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_x509_crt_verify_restartable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef initializes((0, 4)) %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_x509_crt_verify_restartable(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef %5, ptr noundef %6, ptr noundef %7, ptr nocapture noundef readnone %8) local_unnamed_addr #0 {
   %10 = tail call fastcc i32 @x509_crt_verify_restartable_ca_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_x509_crt_init(ptr nocapture noundef writeonly initializes((0, 616)) %0) local_unnamed_addr #10 {
+define hidden void @mbedtls_x509_crt_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #10 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(616) %0, i8 0, i64 616, i1 false)
   ret void
 }

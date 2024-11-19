@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.xact_identify = private unnamed_addr constant [8 x ptr] [ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr null], align 8
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, ptr noundef initializes((0, 328)) %2) local_unnamed_addr #0 {
+define dso_local void @ParseCommitRecord(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %2, i8 0, i64 328, i1 false)
   %5 = load i64, ptr %1, align 8
@@ -195,7 +195,7 @@ declare i64 @strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, ptr noundef initializes((0, 288)) %2) local_unnamed_addr #0 {
+define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(288) %2, i8 0, i64 288, i1 false)
   %5 = load i64, ptr %1, align 8
@@ -325,7 +325,7 @@ define dso_local void @ParseAbortRecord(i8 noundef zeroext %0, ptr noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @ParsePrepareRecord(i8 noundef zeroext %0, ptr noundef %1, ptr noundef initializes((0, 328)) %2) local_unnamed_addr #4 {
+define dso_local void @ParsePrepareRecord(i8 noundef zeroext %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr i8, ptr %1, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %2, i8 0, i64 328, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 16

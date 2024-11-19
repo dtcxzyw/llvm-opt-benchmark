@@ -602,7 +602,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #2
 declare noalias ptr @g_malloc_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal range(i32 0, 2) i32 @netxray_read(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 40
@@ -1313,7 +1313,7 @@ wtap_encap_to_netxray_1_1_encap.exit:             ; preds = %3, %.preheader, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @netxray_dump_open_1_1(ptr noundef initializes((64, 80)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @netxray_dump_open_1_1(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @netxray_dump_1_1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1566,7 +1566,7 @@ wtap_encap_to_netxray_2_0_encap.exit:             ; preds = %3, %.preheader, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @netxray_dump_open_2_0(ptr noundef initializes((64, 80)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @netxray_dump_open_2_0(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @netxray_dump_2_0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72

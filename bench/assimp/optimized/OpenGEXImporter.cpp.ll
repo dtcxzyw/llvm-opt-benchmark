@@ -351,7 +351,7 @@ arraydestroy.done1:                               ; preds = %arraydestroy.body
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15VertexContainerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 192)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter15VertexContainerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %this, i8 0, i64 192, i1 false)
   ret void
@@ -418,7 +418,7 @@ _ZNSt6vectorI10aiVector3tIfESaIS1_EED2Ev.exit7:   ; preds = %_ZNSt6vectorI10aiVe
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter7RefInfoC2EP6aiNodeNS2_4TypeERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 12)) %this, ptr noundef %node, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(24) %names) unnamed_addr #7 align 2 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter7RefInfoC2EP6aiNodeNS2_4TypeERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %node, i32 noundef %type, ptr noundef nonnull align 8 dereferenceable(24) %names) unnamed_addr #7 align 2 {
 entry:
   store ptr %node, ptr %this, align 8
   %m_type = getelementptr inbounds i8, ptr %this, i64 8
@@ -3822,7 +3822,7 @@ eh.resume:                                        ; preds = %lpad7, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleMeshNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) initializes((616, 624)) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp7OpenGEX15OpenGEXImporter14handleMeshNodeEPN10ODDLParser7DDLNodeEP7aiScene(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef %node, ptr nocapture noundef readonly %pScene) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %propName = alloca %"class.std::__cxx11::basic_string", align 8
   %propKey = alloca %"class.std::__cxx11::basic_string", align 8

@@ -996,7 +996,7 @@ define void @_ZN14VrmlTranslator6Errors5ErrorEiiPKw(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14VrmlTranslator6Parser3GetEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((40, 48)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN14VrmlTranslator6Parser3GetEv(ptr nocapture noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -17961,7 +17961,7 @@ declare noundef i32 @_ZNK12QDomNodeList6lengthEv(ptr noundef nonnull align 8 der
 declare void @_ZNK12QDomNodeList4itemEi(ptr dead_on_unwind writable sret(%class.QDomNode) align 8, ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14VrmlTranslator6Parser5ParseEv(ptr noundef nonnull align 8 dereferenceable(208) initializes((40, 48)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14VrmlTranslator6Parser5ParseEv(ptr noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca [100 x i32], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -18039,7 +18039,7 @@ _ZN14VrmlTranslator6Parser6ExpectEi.exit:         ; preds = %15, %_ZN14VrmlTrans
 declare void @_ZN14VrmlTranslator5TokenC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14VrmlTranslator6ParserC2EPNS_7ScannerE(ptr noundef nonnull align 8 dereferenceable(208) initializes((72, 76), (80, 88)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14VrmlTranslator6ParserC2EPNS_7ScannerE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -18333,7 +18333,7 @@ _ZNSt3mapI7QStringS0_St4lessIS0_ESaISt4pairIKS0_S0_EEED2Ev.exit: ; preds = %_ZNS
 declare void @_ZN14VrmlTranslator5TokenD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN14VrmlTranslator6ErrorsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0) unnamed_addr #11 align 2 {
+define void @_ZN14VrmlTranslator6ErrorsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #11 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8

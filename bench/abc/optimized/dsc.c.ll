@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [67 x i8] c"DSC ERROR: Final DSC node found, but differs from target function.\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dsc_and_group(ptr nocapture noundef initializes((160, 161)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define void @dsc_and_group(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef readonly %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 160
   %9 = getelementptr inbounds i8, ptr %1, i64 160
   %10 = getelementptr inbounds i8, ptr %3, i64 160
@@ -437,7 +437,7 @@ Abc_TtCofactor1.exit:                             ; preds = %._crit_edge.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @dsc_xor_group(ptr nocapture noundef initializes((160, 161)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @dsc_xor_group(ptr nocapture noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 92
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = getelementptr inbounds i8, ptr %2, i64 92
@@ -852,7 +852,7 @@ define void @Dsc_free_pool(ptr noundef %0) local_unnamed_addr #4 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @Dsc_Decompose(ptr noundef readonly %0, i32 noundef %1, ptr noundef initializes((0, 2)) %2, ptr noundef %3) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @Dsc_Decompose(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = alloca [16 x %struct.Dsc_node_t_], align 16
   %6 = alloca [16 x ptr], align 16
   %7 = alloca [16 x ptr], align 16

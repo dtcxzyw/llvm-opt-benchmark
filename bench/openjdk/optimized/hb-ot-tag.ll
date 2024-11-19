@@ -171,7 +171,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.203 = private unnamed_addr constant [4 x i8] c"zza\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @hb_ot_tags_from_script(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden void @hb_ot_tags_from_script(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [2 x i32], align 4
   store i32 2, ptr %4, align 4

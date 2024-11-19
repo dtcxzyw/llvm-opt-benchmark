@@ -5139,7 +5139,7 @@ declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef n
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21ExtraMeshFilterPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(124) initializes((128, 137)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21ExtraMeshFilterPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(124) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [37 x i32], align 4
   %3 = alloca %"class.std::__cxx11::list.19", align 8
   %4 = alloca %class.QString, align 8
@@ -5436,14 +5436,14 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK21ExtraMeshFilterPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(124) %1) unnamed_addr #10 align 2 {
+define void @_ZNK21ExtraMeshFilterPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(124) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.9, i32 noundef 13)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK21ExtraMeshFilterPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define void @_ZTv0_n40_NK21ExtraMeshFilterPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.9, i32 noundef 13), !noalias !15
   store ptr %3, ptr %0, align 8, !alias.scope !15
@@ -32935,7 +32935,7 @@ declare ptr @_ZN12MeshDocument11rasterBeginEv(ptr noundef nonnull align 8 derefe
 declare ptr @_ZN12MeshDocument9rasterEndEv(ptr noundef nonnull align 8 dereferenceable(192)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21ExtraMeshFilterPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.218") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture nonnull readnone align 4 %5, ptr noundef %6) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21ExtraMeshFilterPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.218") align 8 %0, ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture nonnull readnone align 4 %5, ptr noundef %6) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.vcg::Color4", align 4
   %9 = alloca float, align 4
   %10 = alloca float, align 4
@@ -72235,7 +72235,7 @@ _ZN3vcg3tri14SelectionStackI6CMeshOED2Ev.exit:    ; preds = %_ZNSt6vectorIN3vcg3
 declare void @_ZN12FilterPlugin17wrongActionCalledEPK7QAction(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N21ExtraMeshFilterPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.218") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %5, ptr noundef %6) unnamed_addr #14 align 2 {
+define void @_ZThn16_N21ExtraMeshFilterPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind noalias writable sret(%"class.std::map.218") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nocapture noundef nonnull readnone align 4 dereferenceable(4) %5, ptr noundef %6) unnamed_addr #14 align 2 {
   %8 = getelementptr inbounds i8, ptr %1, i64 -16
   tail call void @_ZN21ExtraMeshFilterPlugin11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE(ptr dead_on_unwind writable sret(%"class.std::map.218") align 8 %0, ptr noundef nonnull align 8 dereferenceable(124) %8, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(192) %4, ptr nonnull align 4 poison, ptr noundef %6)
   ret void

@@ -151,7 +151,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11mpn_manager3subEPKjjS1_jPjS2_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef readonly %a, i32 noundef %lnga, ptr nocapture noundef readonly %b, i32 noundef %lngb, ptr nocapture noundef writeonly %c, ptr nocapture noundef writeonly initializes((0, 4)) %pborrow) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK11mpn_manager3subEPKjjS1_jPjS2_(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %this, ptr nocapture noundef readonly %a, i32 noundef %lnga, ptr nocapture noundef readonly %b, i32 noundef %lngb, ptr nocapture noundef writeonly %c, ptr nocapture noundef writeonly %pborrow) local_unnamed_addr #5 align 2 {
 entry:
   %cond = tail call i32 @llvm.umax.i32(i32 %lnga, i32 %lngb)
   store i32 0, ptr %pborrow, align 4

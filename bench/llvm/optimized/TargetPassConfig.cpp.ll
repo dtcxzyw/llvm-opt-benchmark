@@ -1062,7 +1062,7 @@ define internal noundef nonnull ptr @_ZL34initializeTargetPassConfigPassOnceRN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16TargetPassConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(134) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16TargetPassConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(134) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 456) (i8, ptr @_ZTVN4llvm16TargetPassConfigE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -1656,7 +1656,7 @@ _ZNK4llvm5Twine6concatERKS0_.exit:                ; preds = %11, %16, %19, %20
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22getCGPassBuilderOptionEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::CGPassBuilderOption") align 8 initializes((1, 2), (3, 26), (28, 48), (52, 53)) %0) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm22getCGPassBuilderOptionEv(ptr dead_on_unwind noalias writable sret(%"struct.llvm::CGPassBuilderOption") align 8 %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -2419,7 +2419,7 @@ _ZN4llvm5ErrorD2Ev.exit134:                       ; preds = %139
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16TargetPassConfigC2ERNS_17LLVMTargetMachineERNS_6legacy15PassManagerBaseE(ptr nocapture noundef nonnull align 8 dereferenceable(134) initializes((0, 28), (32, 108), (112, 134)) %0, ptr noundef nonnull align 8 dereferenceable(1232) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16TargetPassConfigC2ERNS_17LLVMTargetMachineERNS_6legacy15PassManagerBaseE(ptr nocapture noundef nonnull align 8 dereferenceable(134) %0, ptr noundef nonnull align 8 dereferenceable(1232) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2636,7 +2636,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm17LLVMTargetMachine16createPassCon
 }
 
 ; Function Attrs: mustprogress noreturn nounwind uwtable
-define dso_local void @_ZN4llvm16TargetPassConfigC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(134) initializes((0, 28), (32, 108), (120, 134)) %0) unnamed_addr #10 align 2 {
+define dso_local void @_ZN4llvm16TargetPassConfigC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(134) %0) unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2781,7 +2781,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm16TargetPassConfig6setOptERbb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(134) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, i1 noundef zeroext %2) local_unnamed_addr #11 align 2 {
+define dso_local void @_ZN4llvm16TargetPassConfig6setOptERbb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(134) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, i1 noundef zeroext %2) local_unnamed_addr #11 align 2 {
   %4 = zext i1 %2 to i8
   store i8 %4, ptr %1, align 1
   ret void
@@ -4846,7 +4846,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16TargetPassConfig16addMachinePassesEv(ptr noundef nonnull align 8 dereferenceable(134) initializes((106, 107)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16TargetPassConfig16addMachinePassesEv(ptr noundef nonnull align 8 dereferenceable(134) %0) unnamed_addr #0 align 2 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10267,7 +10267,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16TargetPassConfig17isGISelCSEEnab
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16TargetPassConfig12getCSEConfigEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.229") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm16TargetPassConfig12getCSEConfigEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.229") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28, !noalias !183
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm13CSEConfigBaseE, i64 16), ptr %3, align 8, !noalias !183

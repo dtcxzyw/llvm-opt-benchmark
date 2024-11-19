@@ -30,7 +30,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13AsyncResourceC2EPN2v87IsolateENS1_5LocalINS1_6ObjectEEEPKcd(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %this, ptr noundef nonnull %isolate, ptr %resource.coerce, ptr noundef %name, double noundef %trigger_async_id) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node13AsyncResourceC2EPN2v87IsolateENS1_5LocalINS1_6ObjectEEEPKcd(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %isolate, ptr %resource.coerce, ptr noundef %name, double noundef %trigger_async_id) unnamed_addr #3 align 2 {
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
@@ -120,7 +120,7 @@ declare void @abort() local_unnamed_addr #4
 declare { double, double } @_ZN4node13EmitAsyncInitEPN2v87IsolateENS0_5LocalINS0_6ObjectEEEPKcd(ptr noundef, ptr, ptr noundef, double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13AsyncResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node13AsyncResourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
   %env_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -147,7 +147,7 @@ _ZN2v814PersistentBaseINS_6ObjectEE5ResetEv.exit: ; preds = %entry, %if.end.i
 declare void @_ZN4node16EmitAsyncDestroyEPNS_11EnvironmentENS_13async_contextE(ptr noundef, double, double) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13AsyncResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node13AsyncResourceD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13AsyncResourceE, i64 16), ptr %this, align 8
   %env_.i = getelementptr inbounds i8, ptr %this, i64 8

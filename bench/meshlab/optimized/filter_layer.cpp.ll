@@ -1616,7 +1616,7 @@ declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef n
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17FilterLayerPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((80, 89)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17FilterLayerPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [13 x i32], align 4
   %3 = alloca %"class.std::__cxx11::list.19", align 8
   %4 = alloca %class.QString, align 8
@@ -1856,14 +1856,14 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17FilterLayerPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
+define void @_ZNK17FilterLayerPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.9, i32 noundef 11)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK17FilterLayerPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define void @_ZTv0_n40_NK17FilterLayerPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.9, i32 noundef 11), !noalias !15
   store ptr %3, ptr %0, align 8, !alias.scope !15
@@ -1871,7 +1871,7 @@ define void @_ZTv0_n40_NK17FilterLayerPlugin10pluginNameEv(ptr dead_on_unwind no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17FilterLayerPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK17FilterLayerPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2) unnamed_addr #10 align 2 {
   switch i32 %2, label %30 [
     i32 1, label %4
     i32 2, label %6
@@ -1947,13 +1947,13 @@ define void @_ZNK17FilterLayerPlugin10filterNameEi(ptr dead_on_unwind noalias no
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK17FilterLayerPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK17FilterLayerPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
   tail call void @_ZNK17FilterLayerPlugin10filterNameEi(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr nonnull align 8 poison, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17FilterLayerPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK17FilterLayerPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2) unnamed_addr #10 align 2 {
   switch i32 %2, label %30 [
     i32 1, label %4
     i32 2, label %6
@@ -2029,13 +2029,13 @@ define void @_ZNK17FilterLayerPlugin16pythonFilterNameEi(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK17FilterLayerPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK17FilterLayerPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
   tail call void @_ZNK17FilterLayerPlugin16pythonFilterNameEi(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr nonnull align 8 poison, i32 noundef %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK17FilterLayerPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK17FilterLayerPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 noundef %2) unnamed_addr #10 align 2 {
   switch i32 %2, label %30 [
     i32 1, label %4
     i32 2, label %6
@@ -2115,7 +2115,7 @@ define void @_ZNK17FilterLayerPlugin10filterInfoEi(ptr dead_on_unwind noalias no
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK17FilterLayerPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK17FilterLayerPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
   tail call void @_ZNK17FilterLayerPlugin10filterInfoEi(ptr dead_on_unwind writable sret(%class.QString) align 8 %0, ptr nonnull align 8 poison, i32 noundef %2)
   ret void
 }

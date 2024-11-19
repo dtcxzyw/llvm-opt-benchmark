@@ -144,7 +144,7 @@ $_ZTI13b3OpenCLArrayI9b3Vector3E = comdat any
 @_ZN24b3GpuJacobiContactSolverD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN24b3GpuJacobiContactSolverD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24b3GpuJacobiContactSolverC2EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, i32 %pairCapacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24b3GpuJacobiContactSolverC2EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, i32 %pairCapacity) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %pErrNum = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV24b3GpuJacobiContactSolver, i64 16), ptr %this, align 8
@@ -354,7 +354,7 @@ declare void @_ZN14b3PrefixScanCLC1EP11_cl_contextP13_cl_device_idP17_cl_command
 declare void @_ZN8b3FillCLC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV24b3GpuJacobiContactSolver, i64 16), ptr %this, align 8
   %0 = load ptr, ptr @__clewReleaseKernel, align 8
@@ -615,7 +615,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24b3GpuJacobiContactSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN24b3GpuJacobiContactSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN24b3GpuJacobiContactSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
@@ -998,7 +998,7 @@ entry:
 declare float @llvm.fmuladd.f32(float, float, float) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_Z14setConstraint4RK9b3Vector3S1_S1_fRK11b3Matrix3x3S1_S1_S1_fS4_P10b3Contact4fffffP16b3GpuConstraint4(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVelA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVelA, float noundef %invMassA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %invInertiaA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVelB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVelB, float noundef %invMassB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %invInertiaB, ptr nocapture noundef readonly %src, float noundef %dt, float noundef %positionDrift, float noundef %positionConstraintCoeff, float noundef %countA, float noundef %countB, ptr nocapture noundef writeonly initializes((0, 16), (128, 152), (160, 168)) %dstC) local_unnamed_addr #8 {
+define dso_local void @_Z14setConstraint4RK9b3Vector3S1_S1_fRK11b3Matrix3x3S1_S1_S1_fS4_P10b3Contact4fffffP16b3GpuConstraint4(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVelA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVelA, float noundef %invMassA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %invInertiaA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVelB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVelB, float noundef %invMassB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %invInertiaB, ptr nocapture noundef readonly %src, float noundef %dt, float noundef %positionDrift, float noundef %positionConstraintCoeff, float noundef %countA, float noundef %countB, ptr nocapture noundef writeonly %dstC) local_unnamed_addr #8 {
 entry:
   %tangent = alloca [2 x %class.b3Vector3], align 16
   %m_bodyAPtrAndSignBit = getelementptr inbounds i8, ptr %src, i64 88

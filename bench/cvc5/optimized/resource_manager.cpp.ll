@@ -236,7 +236,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal14WallClockTimer3setEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, i64 noundef %millis) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal14WallClockTimer3setEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i64 noundef %millis) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq i64 %millis, 0
   br i1 %cmp, label %if.end, label %if.else
@@ -635,7 +635,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal15ResourceManagerC2ERNS0_18StatisticsRegistryERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(3288) initializes((0, 9), (16, 88)) %this, ptr noundef nonnull align 8 dereferenceable(72) %stats, ptr noundef nonnull align 8 dereferenceable(392) %options) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal15ResourceManagerC2ERNS0_18StatisticsRegistryERKNS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(3288) %this, ptr noundef nonnull align 8 dereferenceable(72) %stats, ptr noundef nonnull align 8 dereferenceable(392) %options) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %weight = alloca i64, align 8
@@ -1384,7 +1384,7 @@ _ZN4cvc58internal13HistogramStatINS0_6theory11InferenceIdEElsES3_.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal15ResourceManager9beginCallEv(ptr nocapture noundef nonnull align 8 dereferenceable(3288) initializes((48, 56)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal15ResourceManager9beginCallEv(ptr nocapture noundef nonnull align 8 dereferenceable(3288) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_perCallTimer.i = getelementptr inbounds i8, ptr %this, i64 16
   %d_limit.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -1468,7 +1468,7 @@ if.end22:                                         ; preds = %if.then10, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal15ResourceManager7refreshEv(ptr nocapture noundef nonnull align 8 dereferenceable(3288) initializes((48, 56)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal15ResourceManager7refreshEv(ptr nocapture noundef nonnull align 8 dereferenceable(3288) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_perCallTimer = getelementptr inbounds i8, ptr %this, i64 16
   %d_limit.i.i = getelementptr inbounds i8, ptr %this, i64 24

@@ -24,7 +24,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.16 = private unnamed_addr constant [6 x i8] c"%4ldP\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 268435458, 268435457) i32 @Curl_pgrsDone(ptr noundef initializes((2744, 2752), (2800, 2824)) %data) local_unnamed_addr #0 {
+define hidden range(i32 268435458, 268435457) i32 @Curl_pgrsDone(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %progress = getelementptr inbounds i8, ptr %data, i64 2744
   store i64 0, ptr %progress, align 8
@@ -62,7 +62,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 268435458, 268435457) i32 @Curl_pgrsUpdate(ptr noundef initializes((2800, 2824)) %data) local_unnamed_addr #0 {
+define hidden range(i32 268435458, 268435457) i32 @Curl_pgrsUpdate(ptr noundef %data) local_unnamed_addr #0 {
 entry:
   %max5.i = alloca [6 x [10 x i8]], align 16
   %time_left.i = alloca [10 x i8], align 1
@@ -587,7 +587,7 @@ return:                                           ; preds = %progress_calc.exit,
 declare i32 @curl_mfprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Curl_pgrsResetTransferSizes(ptr nocapture noundef initializes((2752, 2768)) %data) local_unnamed_addr #2 {
+define hidden void @Curl_pgrsResetTransferSizes(ptr nocapture noundef %data) local_unnamed_addr #2 {
 entry:
   %size_dl.i = getelementptr inbounds i8, ptr %data, i64 2752
   %flags.i = getelementptr inbounds i8, ptr %data, i64 2796
@@ -601,7 +601,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Curl_pgrsSetDownloadSize(ptr nocapture noundef initializes((2752, 2760)) %data, i64 noundef %size) local_unnamed_addr #2 {
+define hidden void @Curl_pgrsSetDownloadSize(ptr nocapture noundef %data, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %cmp = icmp sgt i64 %size, -1
   %size_dl = getelementptr inbounds i8, ptr %data, i64 2752
@@ -627,7 +627,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @Curl_pgrsSetUploadSize(ptr nocapture noundef initializes((2760, 2768)) %data, i64 noundef %size) local_unnamed_addr #2 {
+define hidden void @Curl_pgrsSetUploadSize(ptr nocapture noundef %data, i64 noundef %size) local_unnamed_addr #2 {
 entry:
   %cmp = icmp sgt i64 %size, -1
   %size_ul = getelementptr inbounds i8, ptr %data, i64 2760
@@ -777,7 +777,7 @@ entry:
 declare { i64, i32 } @Curl_now() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_pgrsStartNow(ptr nocapture noundef initializes((2880, 2892), (3136, 3140)) %data) local_unnamed_addr #0 {
+define hidden void @Curl_pgrsStartNow(ptr nocapture noundef %data) local_unnamed_addr #0 {
 entry:
   %speeder_c = getelementptr inbounds i8, ptr %data, i64 3136
   store i32 0, ptr %speeder_c, align 8
@@ -950,7 +950,7 @@ return:                                           ; preds = %if.end9, %entry
 declare i64 @Curl_timediff_ceil(i64, i32, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @Curl_pgrsSetDownloadCounter(ptr nocapture noundef writeonly initializes((2768, 2776)) %data, i64 noundef %size) local_unnamed_addr #4 {
+define hidden noundef i32 @Curl_pgrsSetDownloadCounter(ptr nocapture noundef writeonly %data, i64 noundef %size) local_unnamed_addr #4 {
 entry:
   %downloaded = getelementptr inbounds i8, ptr %data, i64 2768
   store i64 %size, ptr %downloaded, align 8
@@ -960,7 +960,7 @@ entry:
 declare i64 @Curl_timediff(i64, i32, i64, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_pgrsSetUploadCounter(ptr nocapture noundef writeonly initializes((2776, 2784)) %data, i64 noundef %size) local_unnamed_addr #4 {
+define hidden void @Curl_pgrsSetUploadCounter(ptr nocapture noundef writeonly %data, i64 noundef %size) local_unnamed_addr #4 {
 entry:
   %uploaded = getelementptr inbounds i8, ptr %data, i64 2776
   store i64 %size, ptr %uploaded, align 8

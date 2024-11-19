@@ -49,7 +49,7 @@ $_ZNSt6vectorINSt7__cxx1112basic_stringItN4base20string16_char_traitsESaItEEESaI
 @.str.2 = private unnamed_addr constant [16 x i8] c"vector::reserve\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base11SplitStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %separators.coerce0, i64 %separators.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base11SplitStringENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %separators.coerce0, i64 %separators.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %piece.i9.i4 = alloca %"class.base::BasicStringPiece", align 8
   %retval.i.i5 = alloca %"class.base::BasicStringPiece", align 8
@@ -445,7 +445,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef signext i8 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base11SplitStringENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES6_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias sret(%"class.std::vector.1") align 8 initializes((0, 24)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %separators.coerce0, i64 %separators.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base11SplitStringENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES6_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias sret(%"class.std::vector.1") align 8 %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %separators.coerce0, i64 %separators.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %piece.i9.i4 = alloca %"class.base::BasicStringPiece.0", align 8
   %retval.i.i5 = alloca %"class.base::BasicStringPiece.0", align 8
@@ -838,7 +838,7 @@ declare noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_2
 declare noundef zeroext i16 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEixEm(ptr noundef nonnull align 8 dereferenceable(16), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base16SplitStringPieceENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias nocapture sret(%"class.std::vector.6") align 8 initializes((0, 24)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %separators.coerce0, i64 %separators.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base16SplitStringPieceENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias nocapture sret(%"class.std::vector.6") align 8 %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %separators.coerce0, i64 %separators.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i.i4 = alloca %"class.base::BasicStringPiece", align 8
   %piece.i.i5 = alloca %"class.base::BasicStringPiece", align 8
@@ -1326,7 +1326,7 @@ return:                                           ; preds = %_ZN4base12_GLOBAL__
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base16SplitStringPieceENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES6_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias nocapture sret(%"class.std::vector.11") align 8 initializes((0, 24)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %separators.coerce0, i64 %separators.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base16SplitStringPieceENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES6_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias nocapture sret(%"class.std::vector.11") align 8 %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %separators.coerce0, i64 %separators.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i.i4 = alloca %"class.base::BasicStringPiece.0", align 8
   %piece.i.i5 = alloca %"class.base::BasicStringPiece.0", align 8
@@ -2362,7 +2362,7 @@ _ZN4base12_GLOBAL__N_123SplitStringUsingSubstrTINSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base27SplitStringPieceUsingSubstrENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES6_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias nocapture sret(%"class.std::vector.11") align 8 initializes((0, 24)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %delimiter.coerce0, i64 %delimiter.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base27SplitStringPieceUsingSubstrENS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES6_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias nocapture sret(%"class.std::vector.11") align 8 %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %delimiter.coerce0, i64 %delimiter.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS0_20string16_char_traitsESaItEEEEESaIS7_EE5clearEv.exit.i:
   %retval.i.i = alloca %"class.base::BasicStringPiece.0", align 8
   %input.i = alloca %"class.base::BasicStringPiece.0", align 8
@@ -2568,7 +2568,7 @@ nrvo.skipdtor:                                    ; preds = %call15.i.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base27SplitStringPieceUsingSubstrENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias nocapture sret(%"class.std::vector.6") align 8 initializes((0, 24)) %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %delimiter.coerce0, i64 %delimiter.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base27SplitStringPieceUsingSubstrENS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES7_NS_18WhitespaceHandlingENS_11SplitResultE(ptr noalias nocapture sret(%"class.std::vector.6") align 8 %agg.result, ptr %input.coerce0, i64 %input.coerce1, ptr %delimiter.coerce0, i64 %delimiter.coerce1, i32 noundef %whitespace, i32 noundef %result_type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIS8_EE5clearEv.exit.i:
   %retval.i.i = alloca %"class.base::BasicStringPiece", align 8
   %input.i = alloca %"class.base::BasicStringPiece", align 8

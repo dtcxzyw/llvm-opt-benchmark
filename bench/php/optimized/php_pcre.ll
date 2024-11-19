@@ -4666,7 +4666,7 @@ declare void @zend_wrong_parameters_count_error(i32 noundef, i32 noundef) local_
 declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @preg_replace_func_impl(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef readonly %6, i64 noundef %7, i64 noundef %8) unnamed_addr #0 {
+define internal fastcc i64 @preg_replace_func_impl(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef readonly %6, i64 noundef %7, i64 noundef %8) unnamed_addr #0 {
   %10 = alloca i64, align 8
   %11 = alloca %struct._zval_struct, align 8
   store i64 0, ptr %10, align 8
@@ -5375,7 +5375,7 @@ define hidden void @zif_preg_split(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_pcre_split_impl(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 12)) %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
+define void @php_pcre_split_impl(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._zval_struct, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = trunc i64 %4 to i32
@@ -6249,7 +6249,7 @@ define hidden void @zif_preg_grep(ptr noundef %0, ptr nocapture noundef writeonl
 }
 
 ; Function Attrs: nounwind uwtable
-define void @php_pcre_grep_impl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 12)) %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @php_pcre_grep_impl(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = and i64 %3, 1
   %.not120 = icmp eq i64 %5, 0
   %6 = getelementptr inbounds i8, ptr %0, i64 12
@@ -6797,7 +6797,7 @@ _pcre2_config_str.exit15:                         ; preds = %_pcre2_config_str.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @zm_globals_ctor_pcre(ptr noundef initializes((73, 74)) %0) #0 {
+define internal void @zm_globals_ctor_pcre(ptr noundef %0) #0 {
   %2 = load ptr, ptr @sapi_module, align 8
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(4) @.str.93) #26
   %4 = icmp eq i32 %3, 0

@@ -356,7 +356,7 @@ declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @wsp_reset_hash(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1, ptr nocapture readnone %2) #6 {
+define internal void @wsp_reset_hash(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #6 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 0, ptr %4, align 8
   ret void

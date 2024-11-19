@@ -670,7 +670,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sequencer_init_config(ptr noundef initializes((80, 84)) %opts) local_unnamed_addr #0 {
+define dso_local void @sequencer_init_config(ptr noundef %opts) local_unnamed_addr #0 {
 entry:
   %default_msg_cleanup = getelementptr inbounds i8, ptr %opts, i64 80
   store i32 1, ptr %default_msg_cleanup, align 8
@@ -2640,7 +2640,7 @@ return:                                           ; preds = %if.then, %if.then, 
 declare i64 @strspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @todo_list_parse_insn_buffer(ptr noundef %r, ptr noundef %buf, ptr nocapture noundef initializes((32, 36), (40, 44), (48, 52)) %todo_list) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @todo_list_parse_insn_buffer(ptr noundef %r, ptr noundef %buf, ptr nocapture noundef %todo_list) local_unnamed_addr #0 {
 entry:
   %commit_oid.i = alloca %struct.object_id, align 4
   %0 = load ptr, ptr @rebase_path_done.ret, align 8
@@ -6904,7 +6904,7 @@ return:                                           ; preds = %if.end17, %land.lhs
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_populate_todo(ptr noundef %r, ptr noundef nonnull initializes((8, 16)) %todo_list, ptr nocapture noundef readonly %opts) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_populate_todo(ptr noundef %r, ptr noundef nonnull %todo_list, ptr nocapture noundef readonly %opts) unnamed_addr #0 {
 entry:
   %done = alloca %struct.todo_list, align 8
   %opts.val26 = load i32, ptr %opts, align 8
@@ -20427,7 +20427,7 @@ return:                                           ; preds = %if.end19, %entry, %
 declare i32 @commit_tree(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @lookup_label(ptr noundef %r, ptr noundef %label, i32 noundef %len, ptr noundef nonnull initializes((8, 16)) %buf) unnamed_addr #0 {
+define internal fastcc ptr @lookup_label(ptr noundef %r, ptr noundef %label, i32 noundef %len, ptr noundef nonnull %buf) unnamed_addr #0 {
 entry:
   %oid = alloca %struct.object_id, align 4
   %len2.i = getelementptr inbounds i8, ptr %buf, i64 8

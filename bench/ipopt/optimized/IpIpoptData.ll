@@ -91,7 +91,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt9IpoptDataC2ENS_8SmartPtrINS_19IpoptAdditionalDataEEE(ptr noundef nonnull align 8 dereferenceable(2232) initializes((0, 12), (16, 48), (56, 64)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt9IpoptDataC2ENS_8SmartPtrINS_19IpoptAdditionalDataEEE(ptr noundef nonnull align 8 dereferenceable(2232) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt9IpoptDataE, i64 16), ptr %0, align 8
@@ -737,7 +737,7 @@ define linkonce_odr void @_ZN5Ipopt16TimingStatisticsD2Ev(ptr noundef nonnull al
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt9IpoptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2232) initializes((0, 8), (216, 224)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt9IpoptDataD2Ev(ptr noundef nonnull align 8 dereferenceable(2232) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt9IpoptDataE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 2192
   %3 = load ptr, ptr %2, align 8
@@ -5064,7 +5064,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit3: ; preds = %37, %40, %45
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt9IpoptData16AcceptTrialPointEv(ptr nocapture noundef nonnull align 8 dereferenceable(2232) initializes((48, 49), (64, 65)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN5Ipopt9IpoptData16AcceptTrialPointEv(ptr nocapture noundef nonnull align 8 dereferenceable(2232) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %2, align 8

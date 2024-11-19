@@ -954,7 +954,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i: ; preds = %45, %_ZN3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14deltalake_test4read16test_read_tables17h133bf4114c5c7033E(ptr noalias nocapture noundef writeonly sret({ ptr, [8 x i8], i8, [2455 x i8] }) align 8 dereferenceable(2472) initializes((0, 8), (16, 17)) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
+define void @_ZN14deltalake_test4read16test_read_tables17h133bf4114c5c7033E(ptr noalias nocapture noundef writeonly sret({ ptr, [8 x i8], i8, [2455 x i8] }) align 8 dereferenceable(2472) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %3, align 8
@@ -962,7 +962,7 @@ define void @_ZN14deltalake_test4read16test_read_tables17h133bf4114c5c7033E(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14deltalake_test4read16read_table_paths17hfb5c34404426736cE(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64 }, { ptr, i64 }, [24 x i8], i8, [2487 x i8] }) align 8 dereferenceable(2552) initializes((0, 40), (64, 65)) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #8 {
+define void @_ZN14deltalake_test4read16read_table_paths17hfb5c34404426736cE(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64 }, { ptr, i64 }, [24 x i8], i8, [2487 x i8] }) align 8 dereferenceable(2552) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -978,7 +978,7 @@ define void @_ZN14deltalake_test4read16read_table_paths17hfb5c34404426736cE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14deltalake_test4read17read_simple_table17ha1e9fa442bbe3645E(ptr noalias nocapture noundef writeonly sret({ ptr, i8, [2439 x i8] }) align 8 dereferenceable(2448) initializes((0, 9)) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
+define void @_ZN14deltalake_test4read17read_simple_table17ha1e9fa442bbe3645E(ptr noalias nocapture noundef writeonly sret({ ptr, i8, [2439 x i8] }) align 8 dereferenceable(2448) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
@@ -986,7 +986,7 @@ define void @_ZN14deltalake_test4read17read_simple_table17ha1e9fa442bbe3645E(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14deltalake_test4read30read_simple_table_with_version17hfb831a260edbd25eE(ptr noalias nocapture noundef writeonly sret({ ptr, i8, [2439 x i8] }) align 8 dereferenceable(2448) initializes((0, 9)) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
+define void @_ZN14deltalake_test4read30read_simple_table_with_version17hfb831a260edbd25eE(ptr noalias nocapture noundef writeonly sret({ ptr, i8, [2439 x i8] }) align 8 dereferenceable(2448) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
@@ -994,7 +994,7 @@ define void @_ZN14deltalake_test4read30read_simple_table_with_version17hfb831a26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14deltalake_test4read11read_golden17hf397ef95036c377aE(ptr noalias nocapture noundef writeonly sret({ ptr, [2432 x i8], i8, [7 x i8] }) align 8 dereferenceable(2448) initializes((0, 8), (2440, 2441)) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
+define void @_ZN14deltalake_test4read11read_golden17hf397ef95036c377aE(ptr noalias nocapture noundef writeonly sret({ ptr, [2432 x i8], i8, [7 x i8] }) align 8 dereferenceable(2448) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2440
   store i8 0, ptr %3, align 8
@@ -1002,7 +1002,7 @@ define void @_ZN14deltalake_test4read11read_golden17hf397ef95036c377aE(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14deltalake_test4read12verify_store17h3f1b81963e33efe8E(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64 }, [72 x i8], i8, [7 x i8] }) align 8 dereferenceable(104) initializes((0, 24), (96, 97)) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #8 {
+define void @_ZN14deltalake_test4read12verify_store17h3f1b81963e33efe8E(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64 }, [72 x i8], i8, [7 x i8] }) align 8 dereferenceable(104) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -1014,7 +1014,7 @@ define void @_ZN14deltalake_test4read12verify_store17h3f1b81963e33efe8E(ptr noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN14deltalake_test4read18read_encoded_table17h02d5bbd34b405ddfE(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64 }, [2448 x i8], i8, [7 x i8] }) align 8 dereferenceable(2480) initializes((0, 24), (2472, 2473)) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #8 {
+define void @_ZN14deltalake_test4read18read_encoded_table17h02d5bbd34b405ddfE(ptr noalias nocapture noundef writeonly sret({ ptr, { ptr, i64 }, [2448 x i8], i8, [7 x i8] }) align 8 dereferenceable(2480) %0, ptr noalias noundef readonly align 8 dereferenceable(120) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8

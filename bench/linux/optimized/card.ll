@@ -166,7 +166,7 @@ declare dso_local i32 @dev_set_name(ptr noundef, ptr noundef, ...) local_unnamed
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pnp_add_card(ptr noundef initializes((96, 104), (688, 696)) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @pnp_add_card(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 688
@@ -457,7 +457,7 @@ define dso_local void @pnp_remove_card(ptr noundef %0) local_unnamed_addr #0 ali
 declare dso_local void @device_unregister(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @pnp_remove_card_device(ptr noundef initializes((816, 824)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @pnp_remove_card_device(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @pnp_lock) #8
   %2 = getelementptr inbounds i8, ptr %0, i64 816
   store ptr null, ptr %2, align 8
@@ -476,7 +476,7 @@ define dso_local void @pnp_remove_card_device(ptr noundef initializes((816, 824)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pnp_add_card_device(ptr noundef %0, ptr noundef initializes((64, 72), (832, 840)) %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @pnp_add_card_device(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 832
@@ -612,7 +612,7 @@ define dso_local void @pnp_release_card_device(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal void @card_remove(ptr nocapture noundef writeonly initializes((832, 840)) %0) #3 align 16 {
+define internal void @card_remove(ptr nocapture noundef writeonly %0) #3 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 832
   store ptr null, ptr %2, align 8
   ret void
@@ -659,7 +659,7 @@ define internal void @card_remove_first(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @pnp_register_card_driver(ptr noundef initializes((72, 92), (96, 112), (120, 136)) %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pnp_register_card_driver(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72

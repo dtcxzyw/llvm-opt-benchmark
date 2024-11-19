@@ -1987,7 +1987,7 @@ $_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11
 @.str.1720 = private unnamed_addr constant [4 x i8] c"all\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN5clang7targets13PPCTargetInfo20handleTargetFeaturesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERNS_17DiagnosticsEngineE(ptr nocapture noundef nonnull align 8 dereferenceable(600) initializes((528, 532)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN5clang7targets13PPCTargetInfo20handleTargetFeaturesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERNS_17DiagnosticsEngineE(ptr nocapture noundef nonnull align 8 dereferenceable(600) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 528
   store i32 0, ptr %4, align 8
   %5 = load ptr, ptr %1, align 8

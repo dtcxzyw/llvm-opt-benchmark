@@ -515,7 +515,7 @@ declare dso_local i64 @ktime_get_real_seconds() local_unnamed_addr #1
 declare dso_local i32 @mod_timer(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @key_set_expiry(ptr nocapture noundef initializes((88, 96)) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @key_set_expiry(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 %1, ptr %3, align 8
   %4 = icmp eq i64 %1, 9223372036854775807

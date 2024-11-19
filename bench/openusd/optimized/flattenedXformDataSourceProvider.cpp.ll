@@ -4006,7 +4006,7 @@ define linkonce_odr noundef ptr @_ZNSt15_Sp_counted_ptrIPN32pxrInternal_v0_24__p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_MatrixCombinerDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_MatrixCombinerDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_MatrixCombinerDataSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -4161,14 +4161,14 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24HdTypedSampledDataSourceI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_MatrixCombinerDataSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_MatrixCombinerDataSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_MatrixCombinerDataSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 168) #23
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_MatrixCombinerDataSource8GetValueEf(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, float noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_MatrixCombinerDataSource8GetValueEf(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::VtValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, float noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 32
@@ -4350,7 +4350,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit33:                  ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_MatrixCombinerDataSource13GetTypedValueEf(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, float noundef %2) unnamed_addr #0 align 2 {
+define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_MatrixCombinerDataSource13GetTypedValueEf(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %1, float noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", align 8
   %6 = fcmp oeq float %2, 0.000000e+00

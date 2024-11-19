@@ -1595,7 +1595,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08BmpInput5closeEv(ptr noundef nonnull align 8 dereferenceable(472) initializes((184, 196)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08BmpInput5closeEv(ptr noundef nonnull align 8 dereferenceable(472) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_padded_scanline_size.i = getelementptr inbounds i8, ptr %this, i64 184
   store i64 0, ptr %m_padded_scanline_size.i, align 8

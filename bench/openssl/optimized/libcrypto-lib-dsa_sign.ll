@@ -369,7 +369,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_dsa_sign_int(i32 %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly initializes((0, 4)) %siglen, ptr noundef %dsa, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_dsa_sign_int(i32 %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %dsa, i32 noundef %nonce_type, ptr noundef %digestname, ptr noundef %libctx, ptr noundef %propq) local_unnamed_addr #0 {
 entry:
   %sig.addr = alloca ptr, align 8
   store ptr %sig, ptr %sig.addr, align 8
@@ -429,7 +429,7 @@ declare ptr @DSA_get_default_method() local_unnamed_addr #1
 declare ptr @ossl_dsa_do_sign_int(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @DSA_sign(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly initializes((0, 4)) %siglen, ptr noundef %dsa) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @DSA_sign(i32 noundef %type, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr nocapture noundef writeonly %siglen, ptr noundef %dsa) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @ossl_dsa_sign_int(i32 poison, ptr noundef %dgst, i32 noundef %dlen, ptr noundef %sig, ptr noundef %siglen, ptr noundef %dsa, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   ret i32 %call

@@ -14730,7 +14730,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22cmCTestCoverageHandler18FindUncoveredFilesB5cxx11EP31cmCTestCoverageHandlerContainer(ptr dead_on_unwind noalias writable sret(%"class.std::set.47") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(576) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22cmCTestCoverageHandler18FindUncoveredFilesB5cxx11EP31cmCTestCoverageHandlerContainer(ptr dead_on_unwind noalias writable sret(%"class.std::set.47") align 8 %0, ptr noundef nonnull align 8 dereferenceable(576) %1, ptr noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cmsys::Glob", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21808,7 +21808,7 @@ declare noundef zeroext i1 @_ZN5cmsys11SystemTools14FileIsFullPathERKNSt7__cxx11
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEd(ptr noundef nonnull align 8 dereferenceable(8), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN22cmCTestCoverageHandler10GetNextIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmRi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN22cmCTestCoverageHandler10GetNextIntERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERmRi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #3 align 2 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load i64, ptr %2, align 8
   %7 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i8 noundef signext 44, i64 noundef %6) #20

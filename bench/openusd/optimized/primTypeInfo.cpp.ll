@@ -48,7 +48,7 @@ $_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC1EONS0_7_TypeIdE = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC2EONS0_7_TypeIdE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC2EONS0_7_TypeIdE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 40)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15UsdPrimTypeInfoC2EONS0_7_TypeIdE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfType", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfType", align 8
   %5 = load i64, ptr %1, align 8

@@ -905,7 +905,7 @@ for.end:                                          ; preds = %for.body
 declare void @_sodium_fe25519_frombytes(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind ssp willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe25519_mul(ptr nocapture noundef nonnull writeonly initializes((0, 40)) %h, ptr nocapture noundef nonnull readonly %f, ptr nocapture noundef nonnull readonly %g) unnamed_addr #2 {
+define internal fastcc void @fe25519_mul(ptr nocapture noundef nonnull writeonly %h, ptr nocapture noundef nonnull readonly %f, ptr nocapture noundef nonnull readonly %g) unnamed_addr #2 {
 entry:
   %0 = load i64, ptr %f, align 8
   %conv = zext i64 %0 to i128

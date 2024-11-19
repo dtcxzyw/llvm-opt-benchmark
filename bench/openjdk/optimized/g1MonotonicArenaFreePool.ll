@@ -35,13 +35,13 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_158ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = 
 @_ZN24G1MonotonicArenaFreePoolD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN24G1MonotonicArenaFreePoolD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN27G1MonotonicArenaMemoryStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN27G1MonotonicArenaMemoryStatsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN27G1MonotonicArenaMemoryStats5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27G1MonotonicArenaMemoryStats5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   ret void
 }
@@ -307,7 +307,7 @@ define hidden noundef zeroext i1 @_ZN24G1MonotonicArenaFreePool23G1ReturnMemoryP
 declare void @_ZN16G1MonotonicArena7Segment14delete_segmentEPS0_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24G1MonotonicArenaFreePoolC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN24G1MonotonicArenaFreePoolC2Ej(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = zext i32 %1 to i64
   %4 = mul nuw nsw i64 %3, 24
@@ -370,7 +370,7 @@ define hidden void @_ZN24G1MonotonicArenaFreePoolD2Ev(ptr nocapture noundef nonn
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden void @_ZNK24G1MonotonicArenaFreePool12memory_sizesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.G1MonotonicArenaMemoryStats) align 8 initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK24G1MonotonicArenaFreePool12memory_sizesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.G1MonotonicArenaMemoryStats) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   %3 = load i32, ptr %1, align 8
   %.not = icmp eq i32 %3, 0

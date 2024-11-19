@@ -205,7 +205,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto10HKDFConfigC2EOS1_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 12), (16, 48)) %this, ptr noundef nonnull align 8 dereferenceable(96) %other) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto10HKDFConfigC2EOS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %other) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto10HKDFConfigE, i64 16), ptr %this, align 8
   %mode = getelementptr inbounds i8, ptr %this, i64 8
@@ -480,7 +480,7 @@ _ZNSt10shared_ptrIN4node6crypto13KeyObjectDataEED2Ev.exit: ; preds = %entry, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 1, 258) i16 @_ZN4node6crypto10HKDFTraits12EncodeOutputEPNS_11EnvironmentERKNS0_10HKDFConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr noundef %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %params, ptr noundef nonnull %out, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 1, 258) i16 @_ZN4node6crypto10HKDFTraits12EncodeOutputEPNS_11EnvironmentERKNS0_10HKDFConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr noundef %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(96) %params, ptr noundef nonnull %out, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call ptr @_ZN4node6crypto10ByteSource13ToArrayBufferEPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(24) %out, ptr noundef %env) #18
   store ptr %call, ptr %result, align 8
@@ -495,7 +495,7 @@ declare ptr @_ZN4node6crypto10ByteSource13ToArrayBufferEPNS_11EnvironmentE(ptr n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 258) i16 @_ZN4node6crypto10HKDFTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_10HKDFConfigE(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr noundef initializes((8, 12)) %params) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6crypto10HKDFTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_10HKDFConfigE(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr noundef %params) local_unnamed_addr #3 align 2 {
 entry:
   %hash = alloca %"class.node::Utf8Value", align 8
   %ref.tmp94 = alloca ptr, align 8

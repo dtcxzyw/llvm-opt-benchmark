@@ -961,7 +961,7 @@ return:                                           ; preds = %for.inc, %if.end, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Assimp13DefaultLoggerC2ENS_6Logger11LogSeverityE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2104) initializes((0, 12), (16, 42), (2096, 2104)) %this, i32 noundef %severity) unnamed_addr #12 align 2 {
+define void @_ZN6Assimp13DefaultLoggerC2ENS_6Logger11LogSeverityE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2104) %this, i32 noundef %severity) unnamed_addr #12 align 2 {
 entry:
   %m_Severity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %severity, ptr %m_Severity.i, align 8
@@ -974,7 +974,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Assimp13DefaultLoggerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2104) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13DefaultLoggerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2104) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp13DefaultLoggerE, i64 16), ptr %this, align 8
   %m_StreamArray = getelementptr inbounds i8, ptr %this, i64 16

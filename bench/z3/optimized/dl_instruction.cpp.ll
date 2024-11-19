@@ -637,7 +637,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog17execution_contextC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(3556) %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog17execution_contextC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(3556) %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %context, ptr %this, align 8
   %m_registers = getelementptr inbounds i8, ptr %this, i64 8
@@ -911,7 +911,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog17execution_context15reset_timelimitEv(ptr nocapture noundef nonnull align 8 dereferenceable(108) initializes((48, 52)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog17execution_context15reset_timelimitEv(ptr nocapture noundef nonnull align 8 dereferenceable(108) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_stopwatch = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_stopwatch, align 8
@@ -1282,7 +1282,7 @@ _ZN6vectorISt4pairIjjELb0EjED2Ev.exit:            ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog17execution_context13set_timelimitEj(ptr nocapture noundef nonnull align 8 dereferenceable(108) initializes((48, 52)) %this, i32 noundef %time_in_ms) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog17execution_context13set_timelimitEj(ptr nocapture noundef nonnull align 8 dereferenceable(108) %this, i32 noundef %time_in_ms) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_timelimit_ms = getelementptr inbounds i8, ptr %this, i64 48
   store i32 %time_in_ms, ptr %m_timelimit_ms, align 8
@@ -1456,7 +1456,7 @@ entry:
 declare void @_ZN10statistics6updateEPKcj(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog11instructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog11instructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog11instructionE, i64 16), ptr %this, align 8
   %m_fn_cache = getelementptr inbounds i8, ptr %this, i64 48

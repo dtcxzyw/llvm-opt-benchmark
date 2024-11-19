@@ -19183,7 +19183,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb18RegexpBaseBindDataC2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 15), (16, 32)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18RegexpBaseBindDataC2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb18RegexpBaseBindDataE, i64 16), ptr %this, align 8, !tbaa !51
   %options = getelementptr inbounds i8, ptr %this, i64 8
@@ -19215,7 +19215,7 @@ entry:
 declare void @_ZN6duckdb12FunctionDataD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6duckdb18RegexpBaseBindDataC2EN10duckdb_re23RE27OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 32)) %this, ptr nocapture noundef readonly byval(%"class.duckdb_re2::RE2::Options") align 8 %options, ptr noundef %constant_string_p, i1 noundef zeroext %constant_pattern) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18RegexpBaseBindDataC2EN10duckdb_re23RE27OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr nocapture noundef readonly byval(%"class.duckdb_re2::RE2::Options") align 8 %options, ptr noundef %constant_string_p, i1 noundef zeroext %constant_pattern) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb18RegexpBaseBindDataE, i64 16), ptr %this, align 8, !tbaa !51
   %options2 = getelementptr inbounds i8, ptr %this, i64 8
@@ -19362,7 +19362,7 @@ cleanup:                                          ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb21RegexpMatchesBindDataC2EN10duckdb_re23RE27OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 32)) %this, ptr noundef byval(%"class.duckdb_re2::RE2::Options") align 8 %options, ptr noundef %constant_string_p, i1 noundef zeroext %constant_pattern) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21RegexpMatchesBindDataC2EN10duckdb_re23RE27OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr noundef byval(%"class.duckdb_re2::RE2::Options") align 8 %options, ptr noundef %constant_string_p, i1 noundef zeroext %constant_pattern) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.duckdb_re2::StringPiece", align 8
   %agg.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -19688,7 +19688,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6duckdb21RegexpMatchesBindDataC2EN10duckdb_re23RE27OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS9_S9_b(ptr noundef nonnull align 8 dereferenceable(137) initializes((8, 32)) %this, ptr nocapture noundef readonly byval(%"class.duckdb_re2::RE2::Options") align 8 %options, ptr noundef %constant_string_p, i1 noundef zeroext %constant_pattern, ptr noundef %range_min_p, ptr noundef %range_max_p, i1 noundef zeroext %range_success) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21RegexpMatchesBindDataC2EN10duckdb_re23RE27OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS9_S9_b(ptr noundef nonnull align 8 dereferenceable(137) %this, ptr nocapture noundef readonly byval(%"class.duckdb_re2::RE2::Options") align 8 %options, ptr noundef %constant_string_p, i1 noundef zeroext %constant_pattern, ptr noundef %range_min_p, ptr noundef %range_max_p, i1 noundef zeroext %range_success) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
@@ -20439,7 +20439,7 @@ _ZN6duckdb10unique_ptrINS_10ExpressionESt14default_deleteIS1_ELb1EE13AssertNotNu
 declare noundef zeroext i1 @_ZN6duckdb11regexp_util23TryParseConstantPatternERNS_13ClientContextERNS_10ExpressionERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(592), ptr noundef nonnull align 8 dereferenceable(80), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb21RegexpReplaceBindDataC2Ev(ptr noundef nonnull align 8 dereferenceable(66) initializes((8, 15), (16, 32)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21RegexpReplaceBindDataC2Ev(ptr noundef nonnull align 8 dereferenceable(66) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 1, ptr %options.i, align 8, !tbaa !283
@@ -20470,7 +20470,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6duckdb21RegexpReplaceBindDataC2EN10duckdb_re23RE27OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull align 8 dereferenceable(66) initializes((8, 32)) %this, ptr nocapture noundef readonly byval(%"class.duckdb_re2::RE2::Options") align 8 %options, ptr noundef %constant_string_p, i1 noundef zeroext %constant_pattern, i1 noundef zeroext %global_replace) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21RegexpReplaceBindDataC2EN10duckdb_re23RE27OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbb(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr nocapture noundef readonly byval(%"class.duckdb_re2::RE2::Options") align 8 %options, ptr noundef %constant_string_p, i1 noundef zeroext %constant_pattern, i1 noundef zeroext %global_replace) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr inbounds i8, ptr %agg.tmp3, i64 16
@@ -20707,7 +20707,7 @@ _ZNK6duckdb18RegexpBaseBindData6EqualsERKNS_12FunctionDataE.exit: ; preds = %lan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6duckdb21RegexpExtractBindDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((8, 15), (16, 32)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21RegexpExtractBindDataC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %options.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 1, ptr %options.i, align 8, !tbaa !283
@@ -20744,7 +20744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN6duckdb21RegexpExtractBindDataC2EN10duckdb_re23RE27OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS9_(ptr noundef nonnull align 8 dereferenceable(120) initializes((8, 32)) %this, ptr nocapture noundef readonly byval(%"class.duckdb_re2::RE2::Options") align 8 %options, ptr noundef %constant_string_p, i1 noundef zeroext %constant_pattern, ptr noundef %group_string_p) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb21RegexpExtractBindDataC2EN10duckdb_re23RE27OptionsENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbS9_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef readonly byval(%"class.duckdb_re2::RE2::Options") align 8 %options, ptr noundef %constant_string_p, i1 noundef zeroext %constant_pattern, ptr noundef %group_string_p) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = getelementptr inbounds i8, ptr %agg.tmp2, i64 16
@@ -49338,7 +49338,7 @@ _ZN6duckdb21RegexpMatchesBindDataD2Ev.exit:       ; preds = %if.then.i.i.i.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb18RegexpBaseBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18RegexpBaseBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb18RegexpBaseBindDataE, i64 16), ptr %this, align 8, !tbaa !51
   %constant_string = getelementptr inbounds i8, ptr %this, i64 32

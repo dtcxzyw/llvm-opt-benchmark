@@ -463,7 +463,7 @@ define hidden { ptr, i64 } @_ZN5alloc5alloc6Global10alloc_impl17hb4f01ccf52c1821
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he5e56fdb2d78e2bcE.llvm.615390217181591537"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] } }) align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #5 {
+define hidden void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he5e56fdb2d78e2bcE.llvm.615390217181591537"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, { i8, [39 x i8] }, i8, i8, i8, [5 x i8] } }) align 8 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #5 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }
@@ -628,7 +628,7 @@ define hidden noundef ptr @_ZN9hashbrown3raw5alloc5inner8do_alloc17he32763a4db59
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3vfs6loader5Entry20rs_files_recursively17haf6ac5a26dc22c79E(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @_ZN3vfs6loader5Entry20rs_files_recursively17haf6ac5a26dc22c79E(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   call fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias nocapture noundef align 8 dereferenceable(72) %3, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 @anon.03d4d6624ad8c3e886c61ce7493920aa.9, i64 noundef 1)
@@ -638,7 +638,7 @@ define void @_ZN3vfs6loader5Entry20rs_files_recursively17haf6ac5a26dc22c79E(ptr 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3vfs6loader5Entry19local_cargo_package17h4497e989faf4f6f4E(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @_ZN3vfs6loader5Entry19local_cargo_package17h4497e989faf4f6f4E(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   call fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias nocapture noundef align 8 dereferenceable(72) %3, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 @anon.03d4d6624ad8c3e886c61ce7493920aa.11, i64 noundef 2)
@@ -648,7 +648,7 @@ define void @_ZN3vfs6loader5Entry19local_cargo_package17h4497e989faf4f6f4E(ptr n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN3vfs6loader5Entry24cargo_package_dependency17h26066b7e80ae2ee1E(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
+define void @_ZN3vfs6loader5Entry24cargo_package_dependency17h26066b7e80ae2ee1E(ptr noalias nocapture noundef writeonly sret({ i64, [8 x i64] }) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #1 {
   %3 = alloca { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %3)
   call fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias nocapture noundef align 8 dereferenceable(72) %3, ptr noalias nocapture noundef align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 8 @anon.03d4d6624ad8c3e886c61ce7493920aa.15, i64 noundef 4)

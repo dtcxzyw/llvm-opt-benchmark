@@ -975,7 +975,7 @@ for.end:                                          ; preds = %_ZNSt6vectorIN9grpc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN31grpc_composite_call_credentialsC2EN9grpc_core13RefCountedPtrI21grpc_call_credentialsEES3_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 20), (24, 48)) %this, ptr nocapture noundef %creds1, ptr nocapture noundef %creds2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN31grpc_composite_call_credentialsC2EN9grpc_core13RefCountedPtrI21grpc_call_credentialsEES3_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef %creds1, ptr nocapture noundef %creds2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.grpc_core::UniqueTypeName", align 8
   %ref.tmp7 = alloca %"class.grpc_core::UniqueTypeName", align 8
@@ -3206,7 +3206,7 @@ entry:
 declare void @abort() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9grpc_core20arena_promise_detail17AllocatedCallableIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_14promise_detail12BasicSeqIterINSB_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorISI_SaISI_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataES9_PKNSH_22GetRequestMetadataArgsEE3$_0S9_EEEEE8PollOnceEPNS0_7ArgTypeE"(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll") align 8 initializes((0, 1)) %agg.result, ptr nocapture noundef readonly %arg) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9grpc_core20arena_promise_detail17AllocatedCallableIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEENS_14promise_detail12BasicSeqIterINSB_16TrySeqIterTraitsIN9__gnu_cxx17__normal_iteratorIPNS_13RefCountedPtrI21grpc_call_credentialsEESt6vectorISI_SaISI_EEEEZN31grpc_composite_call_credentials18GetRequestMetadataES9_PKNSH_22GetRequestMetadataArgsEE3$_0S9_EEEEE8PollOnceEPNS0_7ArgTypeE"(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll") align 8 %agg.result, ptr nocapture noundef readonly %arg) #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.grpc_core::Poll", align 8
   %0 = load ptr, ptr %arg, align 8

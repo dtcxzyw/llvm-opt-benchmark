@@ -84,13 +84,13 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6casadi12SharedObjectC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN6casadi12SharedObjectC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #3 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6casadi12SharedObjectC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
+define void @_ZN6casadi12SharedObjectC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %.not.i = icmp eq ptr %3, null
@@ -249,7 +249,7 @@ _ZN6casadi12SharedObject8count_upEv.exit:         ; preds = %_ZN6casadi12SharedO
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6casadi12SharedObject6assignEPNS_20SharedObjectInternalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN6casadi12SharedObject6assignEPNS_20SharedObjectInternalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -861,7 +861,7 @@ define noundef i64 @_ZNK6casadi12SharedObject8__hash__Ev(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi7WeakRefC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi7WeakRefC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1118,7 +1118,7 @@ define noundef ptr @_ZN6casadi7WeakRefptEv(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi7WeakRefC2ENS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi7WeakRefC2ENS_12SharedObjectE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = invoke noundef ptr @_ZNK6casadi12SharedObjectptEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %1)
           to label %.noexc unwind label %23
@@ -1176,7 +1176,7 @@ _ZN6casadi12SharedObject3ownEPNS_20SharedObjectInternalE.exit: ; preds = %19, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi7WeakRefC2EPNS_20SharedObjectInternalE(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi7WeakRefC2EPNS_20SharedObjectInternalE(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
           to label %4 unwind label %23

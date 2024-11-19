@@ -676,7 +676,7 @@ declare void @llvm.trap() #9
 declare void @_ZN8QuantLib10Observable15notifyObserversEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15CalibratedModelC2Em(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, i64 noundef %nArguments) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15CalibratedModelC2Em(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef readonly %vtt, i64 noundef %nArguments) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !14
@@ -936,7 +936,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15CalibratedModelC1Em(ptr noundef nonnull align 8 dereferenceable(76) initializes((96, 100), (104, 112)) %this, i64 noundef %nArguments) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15CalibratedModelC1Em(ptr noundef nonnull align 8 dereferenceable(76) %this, i64 noundef %nArguments) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 80
   %1 = getelementptr inbounds i8, ptr %this, i64 96
@@ -4736,7 +4736,7 @@ unreachable:                                      ; preds = %invoke.cont66, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14ShortRateModelC2Em(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt, i64 noundef %nArguments) unnamed_addr #1 align 2 {
+define void @_ZN8QuantLib14ShortRateModelC2Em(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr nocapture noundef readonly %vtt, i64 noundef %nArguments) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   tail call void @_ZN8QuantLib15CalibratedModelC2Em(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull %0, i64 noundef %nArguments)

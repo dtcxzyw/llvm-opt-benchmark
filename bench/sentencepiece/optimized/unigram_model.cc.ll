@@ -369,7 +369,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13sentencepiece7unigram7LatticeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) initializes((0, 152)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece7unigram7LatticeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(152) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece7unigram7LatticeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96
@@ -435,7 +435,7 @@ _ZNSt12_Vector_baseISt6vectorIPN13sentencepiece7unigram7Lattice4NodeESaIS5_EESaI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13sentencepiece7unigram7LatticeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (96, 104)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece7unigram7LatticeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece7unigram7LatticeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram7Lattice4NodeEEE, i64 16), ptr %2, align 8
@@ -5563,7 +5563,7 @@ _ZNSt10_HashtableIPKN13sentencepiece7unigram12_GLOBAL__N_110HypothesisESt4pairIK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8
@@ -7304,7 +7304,7 @@ _ZN5Darts15DoubleArrayImplIvvivE5clearEv.exit:    ; preds = %_ZNK5Darts7Details1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN13sentencepiece7unigram5ModelC2ERKNS_10ModelProtoE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13sentencepiece7unigram5ModelC2ERKNS_10ModelProtoE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.84", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece14ModelInterfaceE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7586,7 +7586,7 @@ declare void @_ZN13sentencepiece14ModelInterface16InitializePiecesEv(ptr noundef
 declare void @_ZN13sentencepiece14ModelInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(152)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13sentencepiece7unigram5ModelD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN13sentencepiece7unigram5ModelD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece7unigram5ModelE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
@@ -12015,7 +12015,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPSt4pairISt6vectorIPN13sentencepiece7unigram
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN13sentencepiece5model8FreeListINS_7unigram12_GLOBAL__N_110HypothesisEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %2, align 8

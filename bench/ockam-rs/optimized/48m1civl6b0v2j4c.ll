@@ -113,7 +113,7 @@ define internal noundef i128 @_ZN12tracing_core8callsite8Callsite15private_type_
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17hb0442522d6f9329aE.llvm.16095487977111887712"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 17)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
+define hidden void @"_ZN3std4sync6rwlock15RwLock$LT$T$GT$5write17hb0442522d6f9329aE.llvm.16095487977111887712"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 %1) unnamed_addr #1 {
   %3 = cmpxchg weak ptr %1, i32 0, i32 1073741823 acquire monotonic, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %3, 1
   br i1 %.sroa.18.0.in.i, label %5, label %4
@@ -2144,14 +2144,14 @@ define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_sec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels6create17h2327a6ee75eeb71fE(ptr noalias nocapture noundef writeonly sret({ [2720 x i8], i8, [7 x i8] }) align 8 dereferenceable(2728) initializes((2720, 2721)) %0) unnamed_addr #5 {
+define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels6create17h2327a6ee75eeb71fE(ptr noalias nocapture noundef writeonly sret({ [2720 x i8], i8, [7 x i8] }) align 8 dereferenceable(2728) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2720
   store i8 0, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels27import_static_x25519_secret17heb7f7d1189616a74E(ptr noalias nocapture noundef writeonly sret({ { [32 x i8] }, [104 x i8], ptr, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(152) initializes((0, 32), (136, 144), (145, 146)) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef readonly align 1 dereferenceable(32) %2) unnamed_addr #6 {
+define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels27import_static_x25519_secret17heb7f7d1189616a74E(ptr noalias nocapture noundef writeonly sret({ { [32 x i8] }, [104 x i8], ptr, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(152) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef readonly align 1 dereferenceable(32) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   store ptr %1, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 1 dereferenceable(32) %2, i64 32, i1 false)
@@ -2652,7 +2652,7 @@ _ZN3std9panicking9panicking17hfd7edc4736053a04E.llvm.9153531805506995525.exit.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels31number_of_static_x25519_secrets17h14c98a63f2d4c6d8E(ptr noalias nocapture noundef writeonly sret({ ptr, [16 x i8], i8, [7 x i8] }) align 8 dereferenceable(32) initializes((0, 8), (24, 25)) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #5 {
+define void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels31number_of_static_x25519_secrets17h14c98a63f2d4c6d8E(ptr noalias nocapture noundef writeonly sret({ ptr, [16 x i8], i8, [7 x i8] }) align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %3, align 8
@@ -3188,7 +3188,7 @@ define hidden void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels22generate_buffer_handle17hec75c4033756e493E.llvm.16095487977111887712(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 } } }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #2 {
+define hidden void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels22generate_buffer_handle17hec75c4033756e493E.llvm.16095487977111887712(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 } } }) align 8 dereferenceable(24) %0) unnamed_addr #2 {
   %2 = alloca { { { ptr, i64 }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels22generate_random_handle17ha92a828670422974E.llvm.16095487977111887712(ptr noalias nocapture noundef nonnull sret({ { { ptr, i64 }, i64 } }) align 8 dereferenceable(24) %2)
@@ -4140,7 +4140,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17h6bf1135d6eae1b97E.exit.i: ; p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels15get_aead_secret17h4f0892f1a8e0938aE(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i8, [7 x i8] }) align 8 dereferenceable(24) initializes((0, 17)) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
+define hidden void @_ZN11ockam_vault8software25vault_for_secure_channels25vault_for_secure_channels30SoftwareVaultForSecureChannels15get_aead_secret17h4f0892f1a8e0938aE(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, i8, [7 x i8] }) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(40) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8

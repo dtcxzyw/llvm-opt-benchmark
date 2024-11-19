@@ -1882,7 +1882,7 @@ return:                                           ; preds = %invoke.cont, %if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers27TypedFloatConstantGeneratorC2EPKcS2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this, ptr noundef %double_prefix, ptr noundef %single_prefix, ptr noundef %nan_number, ptr noundef %pos_inf_number, ptr noundef %neg_inf_number) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers27TypedFloatConstantGeneratorC2EPKcS2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %double_prefix, ptr noundef %single_prefix, ptr noundef %nan_number, ptr noundef %pos_inf_number, ptr noundef %neg_inf_number) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::allocator", align 1
@@ -2291,7 +2291,7 @@ _ZNK11flatbuffers27TypedFloatConstantGenerator7MakeNaNERKNSt7__cxx1112basic_stri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11flatbuffers28SimpleFloatConstantGeneratorC2EPKcS2_S2_(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this, ptr noundef %nan_number, ptr noundef %pos_inf_number, ptr noundef %neg_inf_number) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11flatbuffers28SimpleFloatConstantGeneratorC2EPKcS2_S2_(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %nan_number, ptr noundef %pos_inf_number, ptr noundef %neg_inf_number) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::allocator", align 1

@@ -305,7 +305,7 @@ define dso_local i32 @sata_scr_write_flush(ptr noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ata_tf_to_fis(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 20)) %3) #4 align 16 {
+define dso_local void @ata_tf_to_fis(ptr nocapture noundef readonly %0, i8 noundef zeroext %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #4 align 16 {
   store i8 39, ptr %3, align 1
   %5 = and i8 %1, 15
   %6 = icmp eq i32 %2, 0
@@ -391,7 +391,7 @@ define dso_local void @ata_tf_to_fis(ptr nocapture noundef readonly %0, i8 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @ata_tf_from_fis(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((11, 22)) %1) #4 align 16 {
+define dso_local void @ata_tf_from_fis(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2
   %4 = load i8, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %1, i64 21

@@ -8016,7 +8016,7 @@ _ZNKSt4lessIN3nix9StorePathEEclERKS1_S4_.exit:    ; preds = %_ZNSt11char_traitsI
 declare void @_ZNK3nix14StoreDirConfig14parseStorePathESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind writable sret(%"class.nix::StorePath") align 8, ptr noundef nonnull align 8 dereferenceable(344), i64, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL23parseDerivedPathMapNodeB5cxx11ERKNS_14StoreDirConfigERNS_12_GLOBAL__N_116StringViewStreamENS_22DerivationATermVersionE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL23parseDerivedPathMapNodeB5cxx11ERKNS_14StoreDirConfigERNS_12_GLOBAL__N_116StringViewStreamENS_22DerivationATermVersionE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::set", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.nix::BackedStringView", align 8
@@ -8402,7 +8402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @_ZNK3nix14StoreDirConfig17parseStorePathSetERKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EE(ptr dead_on_unwind writable sret(%"class.std::set.132") align 8, ptr noundef nonnull align 8 dereferenceable(344), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3nixL12parseStringsB5cxx11ERNS_12_GLOBAL__N_116StringViewStreamEb(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3nixL12parseStringsB5cxx11ERNS_12_GLOBAL__N_116StringViewStreamEb(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i1 noundef zeroext %2) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.nix::BackedStringView", align 8
@@ -12576,7 +12576,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix18staticOutputHashesB5cxx11ERNS_5StoreERKNS_10DerivationE(ptr dead_on_unwind noalias writable sret(%"class.std::map.330") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(320) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix18staticOutputHashesB5cxx11ERNS_5StoreERKNS_10DerivationE(ptr dead_on_unwind noalias writable sret(%"class.std::map.330") align 8 %0, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(320) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.nix::DrvHash", align 8
   call void @_ZN3nix20hashDerivationModuloERNS_5StoreERKNS_10DerivationEb(ptr dead_on_unwind nonnull writable sret(%"struct.nix::DrvHash") align 8 %4, ptr noundef nonnull align 8 dereferenceable(264) %1, ptr noundef nonnull align 8 dereferenceable(320) %2, i1 noundef zeroext true)
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -12638,7 +12638,7 @@ _ZN3nix7DrvHashD2Ev.exit:                         ; preds = %_ZNSt3mapINSt7__cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3nix15BasicDerivation11outputNamesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(272) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3nix15BasicDerivation11outputNamesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(272) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
@@ -12691,7 +12691,7 @@ define void @_ZNK3nix15BasicDerivation11outputNamesB5cxx11Ev(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3nix15BasicDerivation18outputsAndOptPathsB5cxx11ERKNS_14StoreDirConfigE(ptr dead_on_unwind noalias writable sret(%"class.std::map.349") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(272) %1, ptr noundef nonnull align 8 dereferenceable(344) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3nix15BasicDerivation18outputsAndOptPathsB5cxx11ERKNS_14StoreDirConfigE(ptr dead_on_unwind noalias writable sret(%"class.std::map.349") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(272) %1, ptr noundef nonnull align 8 dereferenceable(344) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::pair.358", align 8
   %5 = alloca %"struct.std::pair.360", align 8
   %6 = alloca %"class.std::optional", align 8

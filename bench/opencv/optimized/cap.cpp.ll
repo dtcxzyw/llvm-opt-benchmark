@@ -242,7 +242,7 @@ define void @_ZNK2cv14DefaultDeleterI13CvVideoWriterEclEPS1_(ptr nocapture nound
 declare void @cvReleaseVideoWriter(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv12VideoCaptureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv12VideoCaptureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv12VideoCaptureE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %2, i8 0, i64 33, i1 false)
@@ -250,7 +250,7 @@ define void @_ZN2cv12VideoCaptureC2Ev(ptr nocapture noundef nonnull writeonly al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv12VideoCaptureC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 41)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv12VideoCaptureC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv12VideoCaptureE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -489,7 +489,7 @@ _ZNSt10shared_ptrI9CvCaptureED2Ev.exit:           ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv12VideoCaptureC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 41)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv12VideoCaptureC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv12VideoCaptureE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -544,7 +544,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv12VideoCaptureC2Eii(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 41)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv12VideoCaptureC2Eii(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::utils::trace::details::Region", align 8
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv12VideoCaptureE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -599,7 +599,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %11, %14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv12VideoCaptureC2EiiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(41) initializes((0, 41)) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv12VideoCaptureC2EiiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv12VideoCaptureE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -654,7 +654,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv12VideoCaptureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv12VideoCaptureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::utils::trace::details::Region", align 8
   store ptr getelementptr inbounds inrange(-16, 120) (i8, ptr @_ZTVN2cv12VideoCaptureE, i64 16), ptr %0, align 8
   invoke void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv12VideoCaptureD1EvE25__cv_trace_location_fn100)
@@ -4935,7 +4935,7 @@ define void @_ZNK2cv12VideoCapture14getBackendNameB5cxx11Ev(ptr dead_on_unwind n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv12VideoCapture7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((24, 32)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv12VideoCapture7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv12VideoCapture7releaseEvE25__cv_trace_location_fn387)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -5531,7 +5531,7 @@ define noundef zeroext i1 @_ZN2cv12VideoCapture7waitAnyERKSt6vectorIS0_SaIS0_EER
 declare noundef zeroext i1 @_ZN2cv24VideoCapture_V4L_waitAnyERKSt6vectorINS_12VideoCaptureESaIS1_EERS0_IiSaIiEEl(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv11VideoWriterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv11VideoWriterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv11VideoWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -5539,7 +5539,7 @@ define void @_ZN2cv11VideoWriterC2Ev(ptr nocapture noundef nonnull writeonly ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11VideoWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEidNS_5Size_IiEEb(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, double noundef %3, i64 %4, i1 noundef zeroext %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11VideoWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEidNS_5Size_IiEEb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, double noundef %3, i64 %4, i1 noundef zeroext %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cv::Size_", align 8
   %8 = alloca %"class.std::vector", align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv11VideoWriterE, i64 16), ptr %0, align 8
@@ -5765,7 +5765,7 @@ _ZNSt10shared_ptrI13CvVideoWriterED2Ev.exit:      ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11VideoWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiidNS_5Size_IiEEb(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, double noundef %4, i64 %5, i1 noundef zeroext %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11VideoWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiidNS_5Size_IiEEb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, double noundef %4, i64 %5, i1 noundef zeroext %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::Size_", align 8
   %9 = alloca %"class.std::vector", align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv11VideoWriterE, i64 16), ptr %0, align 8
@@ -5876,7 +5876,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %16, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11VideoWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEidRKNS_5Size_IiEERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11VideoWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEidRKNS_5Size_IiEERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, double noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv11VideoWriterE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
@@ -5902,7 +5902,7 @@ define noundef zeroext i1 @_ZN2cv11VideoWriter4openERKNSt7__cxx1112basic_stringI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11VideoWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiidRKNS_5Size_IiEERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, double noundef %4, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11VideoWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiidRKNS_5Size_IiEERKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, double noundef %4, ptr noundef nonnull align 4 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(24) %6) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv11VideoWriterE, i64 16), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
@@ -7820,7 +7820,7 @@ _ZN2cv21VideoWriterParametersD2Ev.exit242:        ; preds = %809, %807, %55
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv11VideoWriter7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((24, 32)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11VideoWriter7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -7902,7 +7902,7 @@ _ZN2cv3PtrINS_12IVideoWriterEE7releaseEv.exit:    ; preds = %1, %21, %34, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv11VideoWriterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (24, 32)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv11VideoWriterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv11VideoWriterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8

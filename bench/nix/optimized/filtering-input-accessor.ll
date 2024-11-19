@@ -1148,7 +1148,7 @@ _ZN3nix22FilteringInputAccessor10maybeLstatERKNS_9CanonPathE.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix22FilteringInputAccessor13readDirectoryB5cxx11ERKNS_9CanonPathE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix22FilteringInputAccessor13readDirectoryB5cxx11ERKNS_9CanonPathE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::optional<nix::SourceAccessor::Type>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::optional<nix::SourceAccessor::Type>>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %5 = alloca %"class.std::map", align 8
   %6 = alloca %"class.nix::CanonPath", align 8
@@ -1341,7 +1341,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n64_N3nix22FilteringInputAccessor13readDirectoryB5cxx11ERKNS_9CanonPathE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #6 align 2 {
+define void @_ZTv0_n64_N3nix22FilteringInputAccessor13readDirectoryB5cxx11ERKNS_9CanonPathE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #6 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 -64
   %6 = load i64, ptr %5, align 8

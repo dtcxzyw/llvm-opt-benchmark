@@ -39,7 +39,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_auth_domain_
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_auth_domain_find2640, ptr @__UNIQUE_ID___addressable_auth_domain_lookup2635, ptr @__UNIQUE_ID___addressable_auth_domain_put2634, ptr @__UNIQUE_ID___addressable_svc_auth_flavor2633, ptr @__UNIQUE_ID___addressable_svc_auth_register2628, ptr @__UNIQUE_ID___addressable_svc_auth_unregister2632, ptr @__UNIQUE_ID___addressable_svc_authenticate2626, ptr @__UNIQUE_ID___addressable_svc_set_client2627], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @svc_authenticate(ptr noundef initializes((11328, 11332)) %0) #0 align 16 {
+define dso_local i32 @svc_authenticate(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11328
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 496
@@ -96,7 +96,7 @@ define dso_local i32 @svc_authenticate(ptr noundef initializes((11328, 11332)) %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @svc_set_client(ptr noundef initializes((11368, 11376)) %0) #0 align 16 {
+define dso_local i32 @svc_set_client(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11368
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 344

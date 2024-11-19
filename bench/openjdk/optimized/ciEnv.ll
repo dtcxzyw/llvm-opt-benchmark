@@ -796,7 +796,7 @@ declare void @_ZN15ciObjectFactory14remove_symbolsEv(ptr noundef nonnull align 8
 declare void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN5ciEnv17cache_jvmti_stateEv(ptr nocapture noundef nonnull align 8 dereferenceable(1265) initializes((152, 166)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN5ciEnv17cache_jvmti_stateEv(ptr nocapture noundef nonnull align 8 dereferenceable(1265) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr @UseSystemMemoryBarrier, align 1
@@ -1013,7 +1013,7 @@ define hidden noundef zeroext i1 @_ZNK5ciEnv19jvmti_state_changedEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZN5ciEnv18cache_dtrace_flagsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1265) initializes((166, 168)) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN5ciEnv18cache_dtrace_flagsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1265) %0) local_unnamed_addr #5 align 2 {
   %2 = load i8, ptr @DTraceMethodProbes, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 166
   %4 = and i8 %2, 1
@@ -6436,7 +6436,7 @@ _ZN5ciEnv23record_call_site_methodEP6ThreadP6Method.exit: ; preds = %41, %_ZN5ci
 declare noundef ptr @_ZNK17ConstantPoolCache20appendix_if_resolvedEP19ResolvedMethodEntry(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ciEnv23find_dynamic_call_sitesEv(ptr noundef nonnull align 8 dereferenceable(1265) initializes((224, 240)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5ciEnv23find_dynamic_call_sitesEv(ptr noundef nonnull align 8 dereferenceable(1265) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.constantPoolHandle, align 8
   %3 = alloca %class.ClassHierarchyIterator, align 8
   %4 = alloca %class.constantPoolHandle, align 8
@@ -7001,7 +7001,7 @@ declare void @_ZN7Compile16dump_inline_dataEP12outputStream(ptr noundef nonnull 
 declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ciEnv23dump_replay_data_helperEP12outputStream(ptr noundef nonnull align 8 dereferenceable(1265) initializes((224, 240)) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5ciEnv23dump_replay_data_helperEP12outputStream(ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef nonnull %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 800
@@ -7110,7 +7110,7 @@ declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 derefe
 declare void @_ZN15ciInstanceKlass25dump_replay_instanceKlassEP12outputStreamP13InstanceKlass(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ciEnv23dump_replay_data_unsafeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(1265) initializes((224, 240)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5ciEnv23dump_replay_data_unsafeEP12outputStream(ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1092
@@ -7199,7 +7199,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ciEnv16dump_replay_dataEP12outputStream(ptr noundef nonnull align 8 dereferenceable(1265) initializes((224, 240)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5ciEnv16dump_replay_dataEP12outputStream(ptr noundef nonnull align 8 dereferenceable(1265) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1092

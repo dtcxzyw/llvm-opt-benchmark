@@ -78,7 +78,7 @@ declare i32 @lv_pct(i32 noundef) local_unnamed_addr #2
 declare void @lv_obj_set_scroll_dir(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_tileview_set_tile(ptr noundef initializes((64, 72)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_tileview_set_tile(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @lv_obj_get_x(ptr noundef %1) #4
   %5 = tail call i32 @lv_obj_get_y(ptr noundef %1) #4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64

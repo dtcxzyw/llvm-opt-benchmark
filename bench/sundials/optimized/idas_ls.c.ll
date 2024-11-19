@@ -1248,7 +1248,7 @@ idaLs_AccessLMem.exit.thread:                     ; preds = %47, %49, %17, %12, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @idaLsInitializeCounters(ptr nocapture noundef writeonly initializes((128, 192)) %0) local_unnamed_addr #4 {
+define noundef i32 @idaLsInitializeCounters(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   ret i32 0

@@ -3793,7 +3793,7 @@ declare void @bwlzh_compress_no_lz77(ptr noundef, i32 noundef, ptr noundef, ptr 
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @base_compress(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 3)) %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
+define internal fastcc void @base_compress(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca [16385 x i32], align 16
   %6 = alloca [16385 x i32], align 16
   %7 = alloca [16385 x i32], align 16
@@ -4658,7 +4658,7 @@ define noundef i32 @Ptngc_unpack_array_xtc3(ptr noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @decompress_base_block(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc void @decompress_base_block(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = alloca [16385 x i32], align 16
   %5 = alloca [16385 x i32], align 16
   %6 = alloca [16385 x i32], align 16

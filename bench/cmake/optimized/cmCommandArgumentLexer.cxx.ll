@@ -2244,7 +2244,7 @@ define dso_local noundef ptr @_Z28cmCommandArgument_yyget_textPv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z29cmCommandArgument_yyset_extraP29cmCommandArgumentParserHelperPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #12 {
+define dso_local void @_Z29cmCommandArgument_yyset_extraP29cmCommandArgumentParserHelperPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -2300,14 +2300,14 @@ define dso_local void @_Z30cmCommandArgument_yyset_columniPv(i32 noundef %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z26cmCommandArgument_yyset_inP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #12 {
+define dso_local void @_Z26cmCommandArgument_yyset_inP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z27cmCommandArgument_yyset_outP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #12 {
+define dso_local void @_Z27cmCommandArgument_yyset_outP8_IO_FILEPv(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -2321,7 +2321,7 @@ define dso_local noundef i32 @_Z29cmCommandArgument_yyget_debugPv(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z29cmCommandArgument_yyset_debugiPv(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #12 {
+define dso_local void @_Z29cmCommandArgument_yyset_debugiPv(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -2530,7 +2530,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z30cmCommandArgument_SetupEscapesPvb(ptr nocapture noundef writeonly initializes((76, 80)) %0, i1 noundef zeroext %1) local_unnamed_addr #12 {
+define dso_local void @_Z30cmCommandArgument_SetupEscapesPvb(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #12 {
   %spec.select = select i1 %1, i32 5, i32 3
   %3 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 %spec.select, ptr %3, align 4

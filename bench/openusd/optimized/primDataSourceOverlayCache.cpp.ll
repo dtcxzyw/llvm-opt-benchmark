@@ -338,7 +338,7 @@ $_ZTIN3tbb6detail2d113function_taskIN32pxrInternal_v0_24__pxrReserved__14WorkDis
 @_ZN32pxrInternal_v0_24__pxrReserved__28HdPrimDataSourceOverlayCache24_HdPrimDataSourceOverlayC1ESt10shared_ptrINS_21HdContainerDataSourceEES4_St8weak_ptrIKS0_E = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__28HdPrimDataSourceOverlayCache24_HdPrimDataSourceOverlayC2ESt10shared_ptrINS_21HdContainerDataSourceEES4_St8weak_ptrIKS0_E
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdPrimDataSourceOverlayCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdPrimDataSourceOverlayCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__28HdPrimDataSourceOverlayCacheE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1730,7 +1730,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %_ZN32pxrInter
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdPrimDataSourceOverlayCache24_HdPrimDataSourceOverlay21UpdateInputDataSourceESt10shared_ptrINS_21HdContainerDataSourceEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((8, 16)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdPrimDataSourceOverlayCache24_HdPrimDataSourceOverlay21UpdateInputDataSourceESt10shared_ptrINS_21HdContainerDataSourceEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -4160,7 +4160,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__13TfSmallVectorINS_19HdDataSourceLocatorELj
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdPrimDataSourceOverlayCache24_HdPrimDataSourceOverlayC2ESt10shared_ptrINS_21HdContainerDataSourceEES4_St8weak_ptrIKS0_E(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 56), (64, 68), (72, 80)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28HdPrimDataSourceOverlayCache24_HdPrimDataSourceOverlayC2ESt10shared_ptrINS_21HdContainerDataSourceEES4_St8weak_ptrIKS0_E(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__28HdPrimDataSourceOverlayCache24_HdPrimDataSourceOverlayE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %1, align 8

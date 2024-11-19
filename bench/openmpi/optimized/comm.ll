@@ -132,7 +132,7 @@ define i32 @ompi_comm_set(ptr nocapture noundef writeonly %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_set_nb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr nocapture noundef writeonly initializes((0, 8)) %11) local_unnamed_addr #0 {
+define i32 @ompi_comm_set_nb(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr nocapture noundef writeonly %11) local_unnamed_addr #0 {
   %13 = alloca ptr, align 8
   %14 = and i32 %10, 2
   %.not = icmp eq i32 %14, 0
@@ -564,7 +564,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare i32 @ompi_group_incl(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ompi_comm_idup_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc i32 @ompi_comm_idup_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca [1 x ptr], align 8
   store ptr @ompi_mpi_comm_null, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 224
@@ -999,7 +999,7 @@ opal_pointer_array_get_item.exit.thread:          ; preds = %121, %opal_pointer_
 declare i32 @ompi_attr_copy_all(i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @ompi_comm_group(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #3 {
+define noundef i32 @ompi_comm_group(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2716,13 +2716,13 @@ ompi_comm_set.exit:                               ; preds = %40
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_dup(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define i32 @ompi_comm_dup(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @ompi_comm_dup_with_info(ptr noundef %0, ptr noundef null, ptr noundef %1)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_dup_with_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define i32 @ompi_comm_dup_with_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
@@ -2990,7 +2990,7 @@ declare void @ompi_comm_assert_subscribe(ptr noundef, i32 noundef) local_unnamed
 declare i32 @opal_infosubscribe_change_info(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_idup(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
+define i32 @ompi_comm_idup(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 256
@@ -3000,7 +3000,7 @@ define i32 @ompi_comm_idup(ptr noundef %0, ptr nocapture noundef writeonly initi
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_idup_with_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define i32 @ompi_comm_idup_with_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 256
@@ -3010,7 +3010,7 @@ define i32 @ompi_comm_idup_with_info(ptr noundef %0, ptr noundef %1, ptr nocaptu
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_create_group(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #0 {
+define i32 @ompi_comm_create_group(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -3248,7 +3248,7 @@ opal_obj_run_destructors.exit42:                  ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_comm_create_from_group(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define i32 @ompi_comm_create_from_group(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
@@ -3449,7 +3449,7 @@ ompi_attr_hash_init.exit:                         ; preds = %opal_obj_new.exit.t
 declare i32 @ompi_attr_set_int(i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_intercomm_create(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
+define i32 @ompi_intercomm_create(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -4021,7 +4021,7 @@ declare zeroext i1 @ompi_group_overlap(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @ompi_group_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_intercomm_create_from_groups(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly initializes((0, 8)) %7) local_unnamed_addr #0 {
+define i32 @ompi_intercomm_create_from_groups(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8

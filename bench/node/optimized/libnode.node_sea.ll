@@ -477,7 +477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node3sea28FindSingleExecutableResourceEv(ptr noalias nocapture writeonly sret(%"struct.node::sea::SeaResource") align 8 initializes((0, 64)) %agg.result) local_unnamed_addr #4 {
+define dso_local void @_ZN4node3sea28FindSingleExecutableResourceEv(ptr noalias nocapture writeonly sret(%"struct.node::sea::SeaResource") align 8 %agg.result) local_unnamed_addr #4 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4node3sea28FindSingleExecutableResourceEvE12sea_resource acquire, align 8
   %guard.uninitialized = icmp eq i8 %0, 0
@@ -2840,7 +2840,7 @@ _ZL22postject_find_resourcePKcPmPK16postject_options.exit: ; preds = %for.inc.i,
 declare i32 @dl_iterate_phdr(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZL34postject__dl_iterate_phdr_callbackP12dl_phdr_infomPv(ptr nocapture noundef readonly %info, i64 %size, ptr nocapture noundef writeonly initializes((0, 64)) %data) #9 {
+define internal noundef i32 @_ZL34postject__dl_iterate_phdr_callbackP12dl_phdr_infomPv(ptr nocapture noundef readonly %info, i64 %size, ptr nocapture noundef writeonly %data) #9 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %data, ptr noundef nonnull align 8 dereferenceable(64) %info, i64 64, i1 false)
   ret i32 1

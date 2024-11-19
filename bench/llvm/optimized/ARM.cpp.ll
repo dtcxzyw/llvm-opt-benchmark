@@ -5491,7 +5491,7 @@ $_ZTVN5clang7targets16DarwinTargetInfoINS0_15ARMleTargetInfoEEE = comdat any
 @_ZN5clang7targets24RenderScript32TargetInfoC1ERKN4llvm6TripleERKNS_13TargetOptionsE = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5clang7targets24RenderScript32TargetInfoC2ERKN4llvm6TripleERKNS_13TargetOptionsE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang7targets13ARMTargetInfo11setABIAAPCSEv(ptr noundef nonnull align 8 dereferenceable(624) initializes((16, 18), (21, 22), (23, 24), (31, 32), (62, 64), (88, 96), (188, 192)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5clang7targets13ARMTargetInfo11setABIAAPCSEv(ptr noundef nonnull align 8 dereferenceable(624) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 612
   %3 = load i32, ptr %2, align 4
   %4 = or i32 %3, 128
@@ -5576,7 +5576,7 @@ declare noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase6BFloatEv() local_unna
 declare void @_ZN5clang10TargetInfo15resetDataLayoutEN4llvm9StringRefEPKc(ptr noundef nonnull align 8 dereferenceable(489), ptr, i64, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang7targets13ARMTargetInfo10setABIAPCSEb(ptr noundef nonnull align 8 dereferenceable(624) initializes((16, 18), (21, 22), (23, 24), (31, 32), (62, 64), (88, 96), (152, 156), (188, 192)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5clang7targets13ARMTargetInfo10setABIAPCSEb(ptr noundef nonnull align 8 dereferenceable(624) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 612
   %4 = load i32, ptr %3, align 4
   %5 = and i32 %4, -129
@@ -5709,7 +5709,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef i32 @_ZN4llvm3ARM9parseArchENS_9StringRefE(ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang7targets13ARMTargetInfo11setArchInfoEN4llvm3ARM8ArchKindE(ptr nocapture noundef nonnull align 8 dereferenceable(624) initializes((560, 592), (600, 612)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5clang7targets13ARMTargetInfo11setArchInfoEN4llvm3ARM8ArchKindE(ptr nocapture noundef nonnull align 8 dereferenceable(624) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 600
   store i32 %1, ptr %3, align 8
   %4 = tail call { ptr, i64 } @_ZN4llvm3ARM10getSubArchENS0_8ArchKindE(i32 noundef %1) #24
@@ -5839,7 +5839,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5clang7targets13ARMTargetInfo9setAtomicEv(ptr nocapture noundef nonnull align 8 dereferenceable(624) initializes((286, 287)) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5clang7targets13ARMTargetInfo9setAtomicEv(ptr nocapture noundef nonnull align 8 dereferenceable(624) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 596
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 1
@@ -7068,7 +7068,7 @@ declare noundef zeroext i1 @_ZN4llvm3ARM20getExtensionFeaturesEmRSt6vectorINS_9S
 declare noundef zeroext i1 @_ZNK5clang10TargetInfo14initFeatureMapERN4llvm9StringMapIbNS1_15MallocAllocatorEEERNS_17DiagnosticsEngineENS1_9StringRefERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISF_EE(ptr noundef nonnull align 8 dereferenceable(489), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(1304), ptr, i64, ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN5clang7targets13ARMTargetInfo20handleTargetFeaturesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(624) initializes((279, 282)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN5clang7targets13ARMTargetInfo20handleTargetFeaturesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(624) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(1304) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::DiagnosticBuilder", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1

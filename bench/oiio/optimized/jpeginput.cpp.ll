@@ -1006,7 +1006,7 @@ return:                                           ; preds = %if.end, %land.rhs, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08JpgInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecERKS9_(ptr noundef nonnull align 8 dereferenceable(1296) initializes((220, 221)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) %newspec, ptr noundef nonnull align 8 dereferenceable(160) %config) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08JpgInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecERKS9_(ptr noundef nonnull align 8 dereferenceable(1296) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) %newspec, ptr noundef nonnull align 8 dereferenceable(160) %config) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp2 = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4

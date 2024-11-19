@@ -51,7 +51,7 @@ declare void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull al
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl12ParsedNumber5clearEv(ptr noundef nonnull align 8 dereferenceable(216) initializes((8, 9), (72, 80)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_758numparse4impl12ParsedNumber5clearEv(ptr noundef nonnull align 8 dereferenceable(216) %this) local_unnamed_addr #0 align 2 {
 entry:
   %bogus = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %bogus, align 8
@@ -77,7 +77,7 @@ declare void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull al
 declare void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758numparse4impl12ParsedNumber16setCharsConsumedERKNS_13StringSegmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((72, 76)) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_758numparse4impl12ParsedNumber16setCharsConsumedERKNS_13StringSegmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(17) %segment) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK6icu_7513StringSegment9getOffsetEv(ptr noundef nonnull align 8 dereferenceable(17) %segment)
   %charEnd = getelementptr inbounds i8, ptr %this, i64 72

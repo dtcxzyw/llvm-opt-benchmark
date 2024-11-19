@@ -26,7 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZTVZN6hermes26createSimpleStackPromotionEvE8ThisPass = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr @_ZZN6hermes26createSimpleStackPromotionEvEN8ThisPassD2Ev, ptr @_ZZN6hermes26createSimpleStackPromotionEvEN8ThisPassD0Ev, ptr @_ZZN6hermes26createSimpleStackPromotionEvEN8ThisPass11runOnModuleEPNS_6ModuleE] }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes26createSimpleStackPromotionEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
+define hidden void @_ZN6hermes26createSimpleStackPromotionEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIZN6hermes26createSimpleStackPromotionEvE8ThisPassSt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #8, !noalias !4
   %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8

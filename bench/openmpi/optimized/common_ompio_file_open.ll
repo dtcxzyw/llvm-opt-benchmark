@@ -60,7 +60,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef initializes((40, 48), (264, 272)) %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define i32 @mca_common_ompio_file_open(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca [4097 x i8], align 16
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 264
@@ -918,7 +918,7 @@ define i32 @mca_common_ompio_file_get_size(ptr noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @mca_common_ompio_file_get_position(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #5 {
+define noundef i32 @mca_common_ompio_file_get_position(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 240
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 0

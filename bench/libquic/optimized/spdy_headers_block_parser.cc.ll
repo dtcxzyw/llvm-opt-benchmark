@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net22SpdyHeadersBlockParserD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net22SpdyHeadersBlockParserD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParserC2ENS_16SpdyMajorVersionEPNS_27SpdyHeadersHandlerInterfaceE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 12), (16, 36), (40, 48)) %this, i32 noundef %spdy_version, ptr noundef %handler) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22SpdyHeadersBlockParserC2ENS_16SpdyMajorVersionEPNS_27SpdyHeadersHandlerInterfaceE(ptr noundef nonnull align 8 dereferenceable(108) %this, i32 noundef %spdy_version, ptr noundef %handler) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i64 16), ptr %this, align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -90,7 +90,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN3net23SpdyPinnableBufferPieceD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParserD2Ev(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3net22SpdyHeadersBlockParserD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i64 16), ptr %this, align 8
   %key_ = getelementptr inbounds i8, ptr %this, i64 72
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22SpdyHeadersBlockParserD0Ev(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3net22SpdyHeadersBlockParserD0Ev(ptr noundef nonnull align 8 dereferenceable(108) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22SpdyHeadersBlockParserE, i64 16), ptr %this, align 8
   %key_.i = getelementptr inbounds i8, ptr %this, i64 72

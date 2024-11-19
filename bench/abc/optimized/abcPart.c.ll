@@ -348,7 +348,7 @@ Vec_PtrGrow.exit:                                 ; preds = %Vec_PtrGrow.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Supp_ManRecycle(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) local_unnamed_addr #2 {
+define void @Supp_ManRecycle(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
   %6 = sdiv i32 %2, %5
@@ -4138,7 +4138,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkConvertCos(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #2 {
+define void @Abc_NtkConvertCos(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 4

@@ -289,7 +289,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN25cmInstallFileSetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN25cmInstallFileSetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV25cmInstallFileSetGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
@@ -303,7 +303,7 @@ define dso_local void @_ZN25cmInstallFileSetGeneratorD2Ev(ptr noundef nonnull al
 declare void @_ZN18cmInstallGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN25cmInstallFileSetGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN25cmInstallFileSetGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV25cmInstallFileSetGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
@@ -318,7 +318,7 @@ define dso_local void @_ZN25cmInstallFileSetGeneratorD0Ev(ptr noundef nonnull al
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN25cmInstallFileSetGenerator7ComputeEP16cmLocalGenerator(ptr noundef nonnull align 8 dereferenceable(296) initializes((232, 240)) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN25cmInstallFileSetGenerator7ComputeEP16cmLocalGenerator(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 200
@@ -525,7 +525,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK25cmInstallFileSetGenerator20CalculateFilesPerDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::map.204") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK25cmInstallFileSetGenerator20CalculateFilesPerDirERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::map.204") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(296) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.209", align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = alloca %"class.std::vector.209", align 8

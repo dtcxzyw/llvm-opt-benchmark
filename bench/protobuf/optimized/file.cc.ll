@@ -1229,7 +1229,7 @@ declare noundef zeroext i1 @_ZN6google8protobuf8compiler19IsKnownFeatureProtoESt
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8compiler3cpp13FileGeneratorC2EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(752) initializes((0, 64)) %this, ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(206) %options) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8compiler3cpp13FileGeneratorC2EPKNS0_14FileDescriptorERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef %file, ptr noundef nonnull align 8 dereferenceable(206) %options) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"struct.std::pair.675", align 8
   %msgs = alloca %"class.std::vector.32", align 8
@@ -19424,7 +19424,7 @@ return:                                           ; preds = %if.then.i.i.i.i, %i
 declare void @_ZN6google8protobuf8compiler3cpp13EnumGenerator40GenerateGetEnumDescriptorSpecializationsEPNS0_2io7PrinterE(ptr noundef nonnull align 8 dereferenceable(240), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6google8protobuf8compiler3cpp13FileGenerator26MessagesInTopologicalOrderEv(ptr noalias nocapture sret(%"class.std::vector.32") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6google8protobuf8compiler3cpp13FileGenerator26MessagesInTopologicalOrderEv(ptr noalias nocapture sret(%"class.std::vector.32") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(752) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %message_generators_ = getelementptr inbounds i8, ptr %this, i64 632

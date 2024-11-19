@@ -99,7 +99,7 @@ define internal i32 @drbg_init() #0 section ".init.text" align 16 {
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: cold fn_ret_thunk_extern inlinehint mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @drbg_fill_array(ptr nocapture noundef writeonly initializes((0, 28), (72, 76), (80, 84), (88, 94), (216, 224), (384, 400), (408, 416)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 section ".init.text" align 16 {
+define internal fastcc void @drbg_fill_array(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #3 section ".init.text" align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @.str, i64 6, i1 false)
   %5 = icmp eq i32 %2, 0

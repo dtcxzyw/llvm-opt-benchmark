@@ -1658,7 +1658,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv6dynafu9WarpFieldC2Eiiiff(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 44)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, float noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv6dynafu9WarpFieldC2Eiiiff(ptr noundef nonnull align 8 dereferenceable(208) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, float noundef %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.10", align 1
   store i32 %2, ptr %0, align 8
@@ -2224,7 +2224,7 @@ define hidden noundef zeroext i1 @_ZN2cv6dynafu5PtCmpENS_7Point3_IfEES2_(<2 x fl
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define hidden void @_ZNK2cv6dynafu9WarpField12getNodeIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv6dynafu9WarpField12getNodeIndexEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -4324,7 +4324,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit47:                  ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv6dynafu9WarpField14subsampleIndexERNS_3MatERNS_5flann12GenericIndexIN7cvflann9L2_SimpleIfEEEERNS_10AutoBufferIbLm1032EEEfNS_3PtrIS9_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1048) %4, float noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv6dynafu9WarpField14subsampleIndexERNS_3MatERNS_5flann12GenericIndexIN7cvflann9L2_SimpleIfEEEERNS_10AutoBufferIbLm1032EEEfNS_3PtrIS9_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1048) %4, float noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.cv::Matx", align 4
   %9 = alloca %"class.cvflann::Matrix", align 8
   %10 = alloca %"class.cvflann::Matrix.56", align 8

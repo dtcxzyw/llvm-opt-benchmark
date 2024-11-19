@@ -252,7 +252,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorC2EPKNS0_15FieldDescriptorEiPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 52)) %this, ptr noundef %descriptor, i32 noundef %messageBitIndex, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorC2EPKNS0_15FieldDescriptorEiPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %descriptor, i32 noundef %messageBitIndex, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %descriptor_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1098,7 +1098,7 @@ _ZN4absl12lts_2023080218container_internal12raw_hash_mapINS1_17FlatHashMapPolicy
 declare void @_ZN6google8protobuf8compiler4java27ImmutableFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1142,7 +1142,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2797,7 +2797,7 @@ entry:
 declare noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler4java39ImmutableMessageOneofFieldLiteGeneratorC2EPKNS0_15FieldDescriptorEiPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 52)) %this, ptr noundef %descriptor, i32 noundef %messageBitIndex, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java39ImmutableMessageOneofFieldLiteGeneratorC2EPKNS0_15FieldDescriptorEiPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %descriptor, i32 noundef %messageBitIndex, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %descriptor_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2866,7 +2866,7 @@ declare noundef ptr @_ZNK6google8protobuf8compiler4java7Context21GetOneofGenerat
 declare void @_ZN6google8protobuf8compiler4java23SetCommonOneofVariablesEPKNS0_15FieldDescriptorEPKNS2_18OneofGeneratorInfoEPN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEENSt7__cxx1112basic_stringIcSE_SaIcEEENSA_18container_internal10StringHashENSK_8StringEqESaISt4pairIKSF_SJ_EEEE(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler4java39ImmutableMessageOneofFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java39ImmutableMessageOneofFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2910,7 +2910,7 @@ _ZN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorD2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler4java39ImmutableMessageOneofFieldLiteGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java39ImmutableMessageOneofFieldLiteGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java34ImmutableMessageFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3855,7 +3855,7 @@ lpad72:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler4java42RepeatedImmutableMessageFieldLiteGeneratorC2EPKNS0_15FieldDescriptorEiPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 48)) %this, ptr noundef %descriptor, i32 noundef %messageBitIndex, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java42RepeatedImmutableMessageFieldLiteGeneratorC2EPKNS0_15FieldDescriptorEiPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %descriptor, i32 noundef %messageBitIndex, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java42RepeatedImmutableMessageFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %descriptor_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -3892,7 +3892,7 @@ lpad2:                                            ; preds = %invoke.cont4, %invo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler4java42RepeatedImmutableMessageFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java42RepeatedImmutableMessageFieldLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java42RepeatedImmutableMessageFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3936,7 +3936,7 @@ _ZN4absl12lts_2023080213flat_hash_mapISt17basic_string_viewIcSt11char_traitsIcEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler4java42RepeatedImmutableMessageFieldLiteGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java42RepeatedImmutableMessageFieldLiteGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java42RepeatedImmutableMessageFieldLiteGeneratorE, i64 16), ptr %this, align 8
   %variables_.i = getelementptr inbounds i8, ptr %this, i64 16

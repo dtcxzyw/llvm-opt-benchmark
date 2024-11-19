@@ -518,7 +518,7 @@ php_set_attribute_id.exit:                        ; preds = %17, %11, %8, %dom_e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @dom_element_schema_type_info_read(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((8, 12)) %1) local_unnamed_addr #4 {
+define hidden noundef i32 @dom_element_schema_type_info_read(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 1, ptr %3, align 8
   ret i32 0

@@ -1271,7 +1271,7 @@ cabd_free_decomp.exit:                            ; preds = %10, %.thread, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull initializes((0, 8), (16, 24), (32, 96)) %2, i64 noundef range(i64 -9223372036854775808, 9223372036854775788) %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc i32 @cabd_read_headers(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i64 noundef range(i64 -9223372036854775808, 9223372036854775788) %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca [64 x i8], align 16
   store ptr null, ptr %2, align 8

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @PPMD7_kExpEscape = internal unnamed_addr constant [16 x i8] c"\19\0E\09\07\05\05\04\04\04\03\03\03\02\02\02\02", align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal void @Ppmd7_Construct(ptr nocapture noundef writeonly initializes((64, 72)) %0) #0 {
+define internal void @Ppmd7_Construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 146
@@ -139,7 +139,7 @@ define internal range(i32 0, 2) i32 @Ppmd7_Alloc(ptr nocapture noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @Ppmd7_Free(ptr nocapture noundef initializes((52, 56)) %0) #1 {
+define internal void @Ppmd7_Free(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #13
@@ -150,7 +150,7 @@ define internal void @Ppmd7_Free(ptr nocapture noundef initializes((52, 56)) %0)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @Ppmd7_Init(ptr nocapture noundef initializes((0, 28), (32, 40), (44, 52), (56, 60), (72, 104), (276, 428)) %0, i32 noundef %1) #2 {
+define internal void @Ppmd7_Init(ptr nocapture noundef %0, i32 noundef %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4
   tail call fastcc void @RestartModel(ptr noundef %0)
@@ -164,7 +164,7 @@ define internal void @Ppmd7_Init(ptr nocapture noundef initializes((0, 28), (32,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @Ppmd7z_RangeDec_CreateVTable(ptr nocapture noundef writeonly initializes((0, 24)) %0) #3 {
+define internal void @Ppmd7z_RangeDec_CreateVTable(ptr nocapture noundef writeonly %0) #3 {
   store ptr @Range_GetThreshold, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @Range_Decode_7z, ptr %2, align 8
@@ -174,7 +174,7 @@ define internal void @Ppmd7z_RangeDec_CreateVTable(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @PpmdRAR_RangeDec_CreateVTable(ptr nocapture noundef writeonly initializes((0, 24)) %0) #3 {
+define internal void @PpmdRAR_RangeDec_CreateVTable(ptr nocapture noundef writeonly %0) #3 {
   store ptr @Range_GetThreshold, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @Range_Decode_RAR, ptr %2, align 8
@@ -230,7 +230,7 @@ Ppmd_RangeDec_Init.exit:                          ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @PpmdRAR_RangeDec_Init(ptr nocapture noundef initializes((24, 28), (32, 40)) %0) #4 {
+define internal range(i32 0, 2) i32 @PpmdRAR_RangeDec_Init(ptr nocapture noundef %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -849,7 +849,7 @@ Ppmd7_MakeEscFreq.exit:                           ; preds = %303, %304
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @Ppmd7z_RangeEnc_Init(ptr nocapture noundef writeonly initializes((0, 13), (16, 24)) %0) #3 {
+define internal void @Ppmd7z_RangeEnc_Init(ptr nocapture noundef writeonly %0) #3 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
@@ -1974,7 +1974,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @RestartModel(ptr nocapture noundef initializes((0, 28), (32, 36), (44, 52), (56, 60), (72, 104), (276, 428)) %0) unnamed_addr #2 {
+define internal fastcc void @RestartModel(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 276
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(152) %2, i8 0, i64 152, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 64

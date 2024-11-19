@@ -8413,7 +8413,7 @@ _ZN7QStringD2Ev.exit16:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17CaptureFilterEditD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17CaptureFilterEditD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17CaptureFilterEdit, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV17CaptureFilterEdit, i64 464), ptr %2, align 8
@@ -8873,7 +8873,7 @@ declare void @_ZNK7QString3argERKS_i5QChar(ptr dead_on_unwind writable sret(%cla
 declare void @_ZN9QLineEdit18setPlaceholderTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN17CaptureFilterEdit17getSelectedFilterEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 initializes((0, 25)) %0) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17CaptureFilterEdit17getSelectedFilterEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 %0) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7QStringD2Ev.exit:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %0, i8 0, i64 25, i1 false)
   ret void

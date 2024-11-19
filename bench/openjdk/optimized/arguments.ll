@@ -701,7 +701,7 @@ declare ptr @strcat(ptr noalias noundef returned, ptr noalias nocapture noundef 
 declare noundef ptr @_ZN2os14path_separatorEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PathStringC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN10PathStringC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 
@@ -737,7 +737,7 @@ define hidden void @_ZN10PathStringD2Ev(ptr nocapture noundef nonnull align 8 de
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ModulePatchPathC2EPKcS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ModulePatchPathC2EPKcS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #30
   %5 = add i64 %4, 1
   %6 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef %5, i8 noundef zeroext 9, i32 noundef 0) #31
@@ -805,7 +805,7 @@ _ZN10PathStringD2Ev.exit:                         ; preds = %7, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14SystemPropertyC2EPKcS1_bb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) initializes((0, 26)) %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN14SystemPropertyC2EPKcS1_bb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(26) %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = icmp eq ptr %2, null
   br i1 %6, label %7, label %8
 

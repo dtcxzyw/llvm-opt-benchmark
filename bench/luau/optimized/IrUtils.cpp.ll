@@ -188,7 +188,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr nocapture noundef nonnull align 4 dereferenceable(43) initializes((0, 1)) %1) local_unnamed_addr #2 {
+define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_6IrInstE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr nocapture noundef nonnull align 4 dereferenceable(43) %1) local_unnamed_addr #2 {
   store i8 0, ptr %1, align 4
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %.sroa.06.0.copyload = load i32, ptr %3, align 4
@@ -784,7 +784,7 @@ define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionEjj(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr nocapture noundef nonnull align 4 dereferenceable(32) initializes((0, 1)) %1) local_unnamed_addr #2 {
+define dso_local void @_ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr nocapture noundef nonnull align 4 dereferenceable(32) %1) local_unnamed_addr #2 {
   store i8 4, ptr %1, align 4
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
@@ -1761,7 +1761,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7CodeGen17isBlockTermi
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr nocapture noundef nonnull align 4 dereferenceable(43) initializes((0, 1)) %1, i32 %2) local_unnamed_addr #2 {
+define dso_local void @_ZN4Luau7CodeGen10substituteERNS0_10IrFunctionERNS0_6IrInstENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(616) %0, ptr nocapture noundef nonnull align 4 dereferenceable(43) %1, i32 %2) local_unnamed_addr #2 {
   store i8 115, ptr %1, align 4
   %4 = and i32 %2, 15
   switch i32 %4, label %_ZN4Luau7CodeGen6addUseERNS0_10IrFunctionENS0_4IrOpE.exit [
@@ -4337,7 +4337,7 @@ _ZN4Luau7CodeGen4killERNS0_10IrFunctionERNS0_7IrBlockE.exit: ; preds = %33, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen19getSortedBlockOrderERNS0_10IrFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.30") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen19getSortedBlockOrderERNS0_10IrFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.30") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(616) %1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8

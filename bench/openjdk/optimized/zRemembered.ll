@@ -155,7 +155,7 @@ $_ZTV29ZRememberedScanMarkFollowTask = comdat any
 @_ZN11ZRemembered8FoundOldC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN11ZRemembered8FoundOldC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ZRememberedC2EP10ZPageTablePK16ZForwardingTableP14ZPageAllocator(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ZRememberedC2EP10ZPageTablePK16ZForwardingTableP14ZPageAllocator(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8

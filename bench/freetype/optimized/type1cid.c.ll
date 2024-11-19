@@ -118,7 +118,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.68 = private unnamed_addr constant [9 x i8] c"FontName\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @cid_driver_init(ptr nocapture noundef initializes((56, 61), (64, 100)) %0) #0 {
+define internal noundef i32 @cid_driver_init(ptr nocapture noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -187,7 +187,7 @@ define internal ptr @cid_get_interface(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cid_face_init(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #2 {
+define internal i32 @cid_face_init(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #2 {
   %6 = alloca ptr, align 8
   %7 = alloca [266 x i8], align 16
   %8 = alloca %struct.T1_TokenRec_, align 8
@@ -1820,14 +1820,14 @@ define internal ptr @cid_get_postscript_name(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @cid_ps_get_font_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 56)) %1) #0 {
+define internal noundef i32 @cid_ps_get_font_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @cid_ps_get_font_extra(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1) #0 {
+define internal noundef i32 @cid_ps_get_font_extra(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   %4 = load i16, ptr %3, align 8
   store i16 %4, ptr %1, align 2
@@ -1886,7 +1886,7 @@ define internal noundef i32 @cid_get_is_cid(ptr nocapture readnone %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @cid_get_cid_from_glyph_index(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #2 {
+define internal i32 @cid_get_cid_from_glyph_index(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #2 {
   %4 = tail call fastcc i32 @cid_compute_fd_and_offsets(ptr noundef %0, i32 noundef %1, ptr noundef null, ptr noundef null, ptr noundef null)
   %.not = icmp eq i32 %4, 0
   %. = select i1 %.not, i32 %1, i32 0
@@ -2194,7 +2194,7 @@ define internal fastcc i32 @cid_hex_to_binary(ptr noundef %0, i64 noundef %1, i6
 declare hidden void @FT_Stream_OpenMemory(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cid_read_subrs(ptr nocapture noundef initializes((600, 608)) %0) unnamed_addr #2 {
+define internal fastcc i32 @cid_read_subrs(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = alloca i32, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8

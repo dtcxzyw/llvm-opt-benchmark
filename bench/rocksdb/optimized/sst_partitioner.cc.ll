@@ -365,7 +365,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb32SstPartitionerFixedPrefixFactoryC2Em(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, i64 noundef %len) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb32SstPartitionerFixedPrefixFactoryC2Em(ptr noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %len) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1
@@ -467,7 +467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb32SstPartitionerFixedPrefixFactory17CreatePartitionerERKNS_14SstPartitioner7ContextE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb32SstPartitionerFixedPrefixFactory17CreatePartitionerERKNS_14SstPartitioner7ContextE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #24
   %len_ = getelementptr inbounds i8, ptr %this, i64 32

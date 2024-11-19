@@ -1238,7 +1238,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformDataC2EPN2v87IsolateEP9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 76), (80, 104)) %this, ptr noundef %isolate, ptr noundef %loop) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformDataC2EPN2v87IsolateEP9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(576) %this, ptr noundef %isolate, ptr noundef %loop) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
@@ -2126,7 +2126,7 @@ _ZN4node22PerIsolatePlatformData26PostNonNestableDelayedTaskESt10unique_ptrIN2v8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformDataD2Ev(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 16)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformDataD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node22PerIsolatePlatformDataE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
@@ -2391,7 +2391,7 @@ _ZNSt5queueISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESt5dequeI
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N4node22PerIsolatePlatformDataD1Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #11 align 2 {
+define dso_local void @_ZThn8_N4node22PerIsolatePlatformDataD1Ev(ptr noundef %this) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN4node22PerIsolatePlatformDataD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) #24
@@ -2399,7 +2399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node22PerIsolatePlatformDataD0Ev(ptr noundef nonnull align 8 dereferenceable(576) initializes((0, 16)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node22PerIsolatePlatformDataD0Ev(ptr noundef nonnull align 8 dereferenceable(576) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node22PerIsolatePlatformDataD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
@@ -2410,7 +2410,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_ZThn8_N4node22PerIsolatePlatformDataD0Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #11 align 2 {
+define dso_local void @_ZThn8_N4node22PerIsolatePlatformDataD0Ev(ptr noundef %this) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN4node22PerIsolatePlatformDataD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %0) #24
@@ -2836,7 +2836,7 @@ if.end14:                                         ; preds = %for.body, %if.then8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node12NodePlatformC2EiPN2v817TracingControllerEPNS1_13PageAllocatorE(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %this, i32 noundef %thread_pool_size, ptr noundef %tracing_controller, ptr noundef %page_allocator) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node12NodePlatformC2EiPN2v817TracingControllerEPNS1_13PageAllocatorE(ptr noundef nonnull align 8 dereferenceable(137) %this, i32 noundef %thread_pool_size, ptr noundef %tracing_controller, ptr noundef %page_allocator) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12NodePlatformE, i64 16), ptr %this, align 8
   %per_isolate_mutex_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2979,7 +2979,7 @@ _ZNSt10shared_ptrIN4node23WorkerThreadsTaskRunnerEED2Ev.exit: ; preds = %if.end8
 declare void @_ZN4node20SetTracingControllerEPN2v817TracingControllerE(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node12NodePlatformD2Ev(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node12NodePlatformD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12NodePlatformE, i64 16), ptr %this, align 8
   tail call void @_ZN4node12NodePlatform8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(137) %this)
@@ -3181,7 +3181,7 @@ return:                                           ; preds = %entry, %_ZNSt13unor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node12NodePlatformD0Ev(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node12NodePlatformD0Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node12NodePlatformD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27

@@ -3577,7 +3577,7 @@ declare i32 @pmix_tool_init_info() local_unnamed_addr #2
 declare ptr @PMIx_Data_type_string(i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @job_data(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef initializes((500, 504)) %3) #1 {
+define internal void @job_data(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   store i32 1, ptr %6, align 4
@@ -3850,7 +3850,7 @@ define internal void @notification_fn(i64 %0, i32 %1, ptr nocapture readnone %2,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @evhandler_reg_callbk(i32 noundef %0, i64 %1, ptr noundef initializes((0, 4)) %2) #1 {
+define internal void @evhandler_reg_callbk(i32 noundef %0, i64 %1, ptr noundef %2) #1 {
   fence acquire
   store i32 %0, ptr %2, align 8
   fence release
@@ -7930,7 +7930,7 @@ pmix_obj_new_tma.exit388:                         ; preds = %.lr.ph.i.i385, %633
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMIx_Resolve_peers(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #1 {
+define i32 @PMIx_Resolve_peers(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca [2 x %struct.pmix_info], align 16
   %6 = alloca %struct.pmix_proc, align 4
   %7 = alloca ptr, align 8
@@ -8281,7 +8281,7 @@ declare void @PMIx_Proc_free(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define i32 @PMIx_Resolve_nodes(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #1 {
+define i32 @PMIx_Resolve_nodes(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca %struct.pmix_proc, align 4
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

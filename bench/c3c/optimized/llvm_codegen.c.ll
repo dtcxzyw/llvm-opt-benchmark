@@ -2538,7 +2538,7 @@ gencontext_destroy.exit:                          ; preds = %90, %95
 declare void @gencontext_end_module(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @llvm_add_global_decl(ptr noundef %0, ptr noundef initializes((32, 40)) %1) local_unnamed_addr #0 {
+define dso_local void @llvm_add_global_decl(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

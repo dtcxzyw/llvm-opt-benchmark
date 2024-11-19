@@ -2128,7 +2128,7 @@ spl_fixedarray_object_has_dimension_helper.exit:  ; preds = %31, %27, %21, %.cri
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @spl_fixedarray_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @spl_fixedarray_object_count_elements(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -8
   %5 = load ptr, ptr %4, align 8
@@ -2332,7 +2332,7 @@ define internal ptr @spl_fixedarray_object_get_properties_for(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @spl_fixedarray_object_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @spl_fixedarray_object_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -32
   %5 = tail call ptr @zend_std_get_properties(ptr noundef %0) #12
   %6 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -2738,7 +2738,7 @@ spl_fixedarray_object_read_dimension_helper.exit: ; preds = %1, %15, %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @spl_fixedarray_it_get_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #8 {
+define internal void @spl_fixedarray_it_get_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %1, align 8
@@ -2757,7 +2757,7 @@ define internal void @spl_fixedarray_it_move_forward(ptr nocapture noundef %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @spl_fixedarray_it_rewind(ptr nocapture noundef writeonly initializes((88, 96)) %0) #9 {
+define internal void @spl_fixedarray_it_rewind(ptr nocapture noundef writeonly %0) #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 0, ptr %2, align 8
   ret void

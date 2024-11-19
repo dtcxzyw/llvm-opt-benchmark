@@ -796,7 +796,7 @@ define hidden void @resetXShmAttachFailed() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define hidden void @TryInitMITShm(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.XShmSegmentInfo, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

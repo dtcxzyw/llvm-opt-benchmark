@@ -770,7 +770,7 @@ define i32 @ompi_info_get_nthkey(ptr noundef %0, i32 noundef %1, ptr noundef %2)
 declare i32 @opal_info_get_nthkey(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @ompi_info_get_nkeys(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 {
+define noundef i32 @ompi_info_get_nkeys(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load volatile i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32

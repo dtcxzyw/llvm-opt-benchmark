@@ -101,7 +101,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_9GfRange2dENS_29CameraUtilConformWindowPolicyEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRange2d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2, double noundef %3) local_unnamed_addr #3 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_9GfRange2dENS_29CameraUtilConformWindowPolicyEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRange2d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2, double noundef %3) local_unnamed_addr #3 {
   %5 = icmp eq i32 %2, 4
   br i1 %5, label %6, label %7
 
@@ -176,7 +176,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L27_ResolveConformWindowPolicyERKNS_7GfVec2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_7GfVec4dENS_29CameraUtilConformWindowPolicyEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2, double noundef %3) local_unnamed_addr #3 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_7GfVec4dENS_29CameraUtilConformWindowPolicyEd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2, double noundef %3) local_unnamed_addr #3 {
   %5 = icmp eq i32 %2, 4
   br i1 %5, label %6, label %7
 
@@ -251,7 +251,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_9GfRange2d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_10GfMatrix4dENS_29CameraUtilConformWindowPolicyEd(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 initializes((0, 128)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef %2, double noundef %3) local_unnamed_addr #3 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25CameraUtilConformedWindowERKNS_10GfMatrix4dENS_29CameraUtilConformWindowPolicyEd(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1, i32 noundef %2, double noundef %3) local_unnamed_addr #3 {
   %5 = icmp eq i32 %2, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 128, i1 false)
   br i1 %5, label %39, label %6

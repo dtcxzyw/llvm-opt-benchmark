@@ -926,7 +926,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3nix3PidC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 5), (8, 12)) %0) unnamed_addr #4 align 2 {
+define void @_ZN3nix3PidC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0) unnamed_addr #4 align 2 {
   store i32 -1, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %2, align 4
@@ -936,7 +936,7 @@ define void @_ZN3nix3PidC2Ev(ptr nocapture noundef nonnull writeonly align 4 der
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3nix3PidC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 5), (8, 12)) %0, i32 noundef %1) unnamed_addr #4 align 2 {
+define void @_ZN3nix3PidC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, i32 noundef %1) unnamed_addr #4 align 2 {
   store i32 %1, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %3, align 4
@@ -1725,7 +1725,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3nix3Pid13setSeparatePGEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((4, 5)) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define void @_ZN3nix3Pid13setSeparatePGEb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %3, ptr %4, align 4
@@ -1733,7 +1733,7 @@ define void @_ZN3nix3Pid13setSeparatePGEb(ptr nocapture noundef nonnull writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3nix3Pid13setKillSignalEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
+define void @_ZN3nix3Pid13setKillSignalEi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %0, i32 noundef %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 4
   ret void
@@ -2759,7 +2759,7 @@ _ZNSt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10runProgramB5cxx11EONS_10RunOptionsE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(234) initializes((224, 232)) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10runProgramB5cxx11EONS_10RunOptionsE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(234) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"struct.nix::StringSink", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3nix10StringSinkE, i64 16), ptr %4, align 8

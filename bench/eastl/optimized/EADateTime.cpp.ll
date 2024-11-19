@@ -210,7 +210,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA4StdC18DateTimeParametersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(44) initializes((0, 44)) %this) unnamed_addr #5 align 2 {
+define dso_local void @_ZN2EA4StdC18DateTimeParametersC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(44) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %this, i8 -1, i64 44, i1 false)
   ret void
@@ -1008,7 +1008,7 @@ if.end48:                                         ; preds = %if.then46, %sw.epil
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA4StdC8DateTime10SetSecondsEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 8)) %this, i64 noundef %nSeconds) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN2EA4StdC8DateTime10SetSecondsEl(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i64 noundef %nSeconds) local_unnamed_addr #5 align 2 {
 entry:
   store i64 %nSeconds, ptr %this, align 8
   ret void
@@ -1028,7 +1028,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA4StdC8DateTime15SetMillisecondsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, i64 noundef %milliseconds) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN2EA4StdC8DateTime15SetMillisecondsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i64 noundef %milliseconds) local_unnamed_addr #5 align 2 {
 entry:
   %div = udiv i64 %milliseconds, 1000
   store i64 %div, ptr %this, align 8
@@ -1069,7 +1069,7 @@ declare void @_ZN2EA4StdC8int128_tC1Ei(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN2EA4StdC8int128_tC1Ej(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN2EA4StdC8DateTime14SetNanosecondsERKNS0_8int128_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %this, ptr noundef nonnull align 8 dereferenceable(16) %nanoseconds) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA4StdC8DateTime14SetNanosecondsERKNS0_8int128_tE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr noundef nonnull align 8 dereferenceable(16) %nanoseconds) local_unnamed_addr #0 align 2 {
 entry:
   %seconds = alloca %"class.EA::StdC::int128_t", align 8
   %ref.tmp = alloca %"class.EA::StdC::int128_t", align 8
@@ -1279,7 +1279,7 @@ entry:
 declare noundef ptr @_ZN2EA4StdC7StrncpyEPcPKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA4StdC12DateTimeToTmERKNS0_8DateTimeER2tm(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 36)) %time) local_unnamed_addr #8 {
+define dso_local void @_ZN2EA4StdC12DateTimeToTmERKNS0_8DateTimeER2tm(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %time) local_unnamed_addr #8 {
 entry:
   %0 = load i64, ptr %dateTime, align 8
   %rem80.i = srem i64 %0, 60
@@ -1379,7 +1379,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA4StdC18DateTimeToFileTimeERKNS0_8DateTimeER9_FILETIME(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %time) local_unnamed_addr #8 {
+define dso_local void @_ZN2EA4StdC18DateTimeToFileTimeERKNS0_8DateTimeER9_FILETIME(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %time) local_unnamed_addr #8 {
 entry:
   %0 = load i64, ptr %dateTime, align 8
   %div.i.i = sdiv i64 %0, 86400
@@ -1452,7 +1452,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA4StdC20DateTimeToSystemTimeERKNS0_8DateTimeER11_SYSTEMTIME(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(16) initializes((0, 16)) %time) local_unnamed_addr #8 {
+define dso_local void @_ZN2EA4StdC20DateTimeToSystemTimeERKNS0_8DateTimeER11_SYSTEMTIME(ptr noundef nonnull align 8 dereferenceable(12) %dateTime, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(16) %time) local_unnamed_addr #8 {
 entry:
   %0 = load i64, ptr %dateTime, align 8
   %div.i = sdiv i64 %0, 86400
@@ -1510,14 +1510,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA4StdC18FileTimeToDateTimeERK9_FILETIMERNS0_8DateTimeE(ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %time, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 16)) %dateTime) local_unnamed_addr #5 {
+define dso_local void @_ZN2EA4StdC18FileTimeToDateTimeERK9_FILETIMERNS0_8DateTimeE(ptr nocapture noundef nonnull readnone align 4 dereferenceable(8) %time, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %dateTime) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %dateTime, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA4StdC20SystemTimeToDateTimeERK11_SYSTEMTIMERNS0_8DateTimeE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(16) %time, ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %dateTime) local_unnamed_addr #8 {
+define dso_local void @_ZN2EA4StdC20SystemTimeToDateTimeERK11_SYSTEMTIMERNS0_8DateTimeE(ptr nocapture noundef nonnull readonly align 2 dereferenceable(16) %time, ptr noundef nonnull align 8 dereferenceable(12) %dateTime) local_unnamed_addr #8 {
 entry:
   %ref.tmp = alloca %"class.EA::StdC::DateTime", align 8
   %0 = load i16, ptr %time, align 2
@@ -1561,7 +1561,7 @@ declare noundef i32 @gettimeofday(ptr nocapture noundef, ptr nocapture noundef) 
 declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC17TimevalDifferenceEPK7timevalS3_PS1_(ptr nocapture noundef readonly %pTVA, ptr nocapture noundef readonly %pTVB, ptr nocapture noundef writeonly initializes((0, 16)) %pTVResult) local_unnamed_addr #14 {
+define dso_local noundef range(i32 -1, 2) i32 @_ZN2EA4StdC17TimevalDifferenceEPK7timevalS3_PS1_(ptr nocapture noundef readonly %pTVA, ptr nocapture noundef readonly %pTVB, ptr nocapture noundef writeonly %pTVResult) local_unnamed_addr #14 {
 entry:
   %tva.sroa.0.0.copyload = load i64, ptr %pTVA, align 8
   %tva.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %pTVA, i64 8

@@ -940,7 +940,7 @@ define dso_local ptr @nfs_get_client(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nfs_mark_client_ready(ptr nocapture noundef writeonly initializes((8, 12)) %0, i32 noundef %1) #0 align 16 {
+define dso_local void @nfs_mark_client_ready(ptr nocapture noundef writeonly %0, i32 noundef %1) #0 align 16 {
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !26
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -952,7 +952,7 @@ define dso_local void @nfs_mark_client_ready(ptr nocapture noundef writeonly ini
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nfs_init_timeout_values(ptr nocapture noundef writeonly initializes((0, 8), (24, 28)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local void @nfs_init_timeout_values(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = mul i32 %2, 1000
   %6 = sdiv i32 %5, 10
   %7 = sext i32 %6 to i64
@@ -1221,7 +1221,7 @@ define dso_local i32 @nfs_create_rpc_client(ptr noundef %0, ptr nocapture nounde
 declare dso_local ptr @rpc_create(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @nfs_init_server_rpcclient(ptr noundef initializes((40, 48)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
+define dso_local i32 @nfs_init_server_rpcclient(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 216
   %6 = load ptr, ptr %5, align 8
@@ -1813,7 +1813,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @nfs_server_copy_userdata(ptr nocapture noundef writeonly initializes((84, 88), (92, 100), (104, 108), (120, 122), (128, 144), (148, 152), (228, 280)) %0, ptr nocapture noundef readonly %1) #6 align 16 {
+define dso_local void @nfs_server_copy_userdata(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 84
@@ -1861,7 +1861,7 @@ define dso_local void @nfs_server_copy_userdata(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nfs_server_insert_lists(ptr noundef initializes((8, 24)) %0) #0 align 16 {
+define dso_local void @nfs_server_insert_lists(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 792
   %4 = load ptr, ptr %3, align 8

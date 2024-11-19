@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4ncnn20DataReaderFromMemoryC1ERKS0_ = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN4ncnn20DataReaderFromMemoryC2ERKS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn10DataReaderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN4ncnn10DataReaderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4ncnn10DataReaderE, i64 16), ptr %0, align 8
   ret void
 }
@@ -61,7 +61,7 @@ define hidden noundef i64 @_ZNK4ncnn10DataReader9referenceEmPPKv(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn19DataReaderFromStdioC2EP8_IO_FILE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn19DataReaderFromStdioC2EP8_IO_FILE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4ncnn19DataReaderFromStdioE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -76,7 +76,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn19DataReaderFromStdioD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN4ncnn19DataReaderFromStdioD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4ncnn19DataReaderFromStdioE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -92,7 +92,7 @@ define hidden void @_ZN4ncnn19DataReaderFromStdioD2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn19DataReaderFromStdioD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN4ncnn19DataReaderFromStdioD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4ncnn19DataReaderFromStdioE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -109,7 +109,7 @@ _ZN4ncnn19DataReaderFromStdioD2Ev.exit:           ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn19DataReaderFromStdioC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN4ncnn19DataReaderFromStdioC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4ncnn19DataReaderFromStdioE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -145,7 +145,7 @@ define hidden noundef i64 @_ZNK4ncnn19DataReaderFromStdio4readEPvm(ptr nocapture
 declare noundef i64 @fread(ptr nocapture noundef, i64 noundef, i64 noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4ncnn20DataReaderFromMemoryC2ERPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4ncnn20DataReaderFromMemoryC2ERPKh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4ncnn20DataReaderFromMemoryE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #13
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -155,7 +155,7 @@ define hidden void @_ZN4ncnn20DataReaderFromMemoryC2ERPKh(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn20DataReaderFromMemoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN4ncnn20DataReaderFromMemoryD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4ncnn20DataReaderFromMemoryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -171,7 +171,7 @@ define hidden void @_ZN4ncnn20DataReaderFromMemoryD2Ev(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4ncnn20DataReaderFromMemoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN4ncnn20DataReaderFromMemoryD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4ncnn20DataReaderFromMemoryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -188,7 +188,7 @@ _ZN4ncnn20DataReaderFromMemoryD2Ev.exit:          ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4ncnn20DataReaderFromMemoryC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN4ncnn20DataReaderFromMemoryC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4ncnn20DataReaderFromMemoryE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -261,7 +261,7 @@ define hidden noundef i64 @_ZNK4ncnn20DataReaderFromMemory4readEPvm(ptr nocaptur
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i64 @_ZNK4ncnn20DataReaderFromMemory9referenceEmPPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef returned %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) unnamed_addr #10 align 2 {
+define hidden noundef i64 @_ZNK4ncnn20DataReaderFromMemory9referenceEmPPKv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef returned %1, ptr nocapture noundef writeonly %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

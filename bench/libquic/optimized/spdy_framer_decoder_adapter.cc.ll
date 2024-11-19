@@ -66,7 +66,7 @@ $_ZTIN3net23NestedSpdyFramerDecoderE = comdat any
 @_ZN3net24SpdyFramerDecoderAdapterD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net24SpdyFramerDecoderAdapterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net24SpdyFramerDecoderAdapterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net24SpdyFramerDecoderAdapterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i64 16), ptr %this, align 8
   %visitor_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -75,7 +75,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net24SpdyFramerDecoderAdapterD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net24SpdyFramerDecoderAdapterD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net24SpdyFramerDecoderAdapterE, i64 16), ptr %this, align 8
   ret void
@@ -92,7 +92,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net24SpdyFramerDecoderAdapter11set_visitorEPNS_26SpdyFramerVisitorInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((8, 16)) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net24SpdyFramerDecoderAdapter11set_visitorEPNS_26SpdyFramerVisitorInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr noundef %visitor) unnamed_addr #0 align 2 {
 entry:
   %visitor_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %visitor, ptr %visitor_, align 8
@@ -100,7 +100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net24SpdyFramerDecoderAdapter17set_debug_visitorEPNS_31SpdyFramerDebugVisitorInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((16, 24)) %this, ptr noundef %debug_visitor) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net24SpdyFramerDecoderAdapter17set_debug_visitorEPNS_31SpdyFramerDebugVisitorInterfaceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr noundef %debug_visitor) unnamed_addr #0 align 2 {
 entry:
   %debug_visitor_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %debug_visitor, ptr %debug_visitor_, align 8
@@ -108,7 +108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net24SpdyFramerDecoderAdapter30set_process_single_input_frameEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((24, 25)) %this, i1 noundef zeroext %v) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net24SpdyFramerDecoderAdapter30set_process_single_input_frameEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, i1 noundef zeroext %v) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %v to i8
   %process_single_input_frame_ = getelementptr inbounds i8, ptr %this, i64 24

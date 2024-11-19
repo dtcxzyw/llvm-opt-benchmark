@@ -830,7 +830,7 @@ declare void @trace2_region_enter_fl(ptr noundef, i32 noundef, ptr noundef, ptr 
 declare void @begin_odb_transaction() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @update_one(ptr noundef %it, ptr nocapture noundef readonly %cache, i32 noundef %entries, ptr nocapture noundef readonly %base, i32 noundef range(i32 -2147483647, -2147483648) %baselen, ptr nocapture noundef nonnull initializes((0, 4)) %skip_count, i32 noundef %flags) unnamed_addr #0 {
+define internal fastcc i32 @update_one(ptr noundef %it, ptr nocapture noundef readonly %cache, i32 noundef %entries, ptr nocapture noundef readonly %base, i32 noundef range(i32 -2147483647, -2147483648) %baselen, ptr nocapture noundef nonnull %skip_count, i32 noundef %flags) unnamed_addr #0 {
 entry:
   %buffer = alloca %struct.strbuf, align 8
   %subskip = alloca i32, align 4
@@ -1851,7 +1851,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @prime_cache_tree_rec(ptr noundef %r, ptr nocapture noundef initializes((4, 40)) %it, ptr nocapture noundef readonly %tree, ptr noundef nonnull %tree_path) unnamed_addr #0 {
+define internal fastcc void @prime_cache_tree_rec(ptr noundef %r, ptr nocapture noundef %it, ptr nocapture noundef readonly %tree, ptr noundef nonnull %tree_path) unnamed_addr #0 {
 entry:
   %desc = alloca %struct.tree_desc, align 8
   %entry1 = alloca %struct.name_entry, align 8

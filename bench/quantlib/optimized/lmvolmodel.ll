@@ -153,7 +153,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #0
 declare void @llvm.trap() #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17LmVolatilityModelC2Emm(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 16)) %this, i64 noundef %size, i64 noundef %nArguments) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17LmVolatilityModelC2Emm(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %size, i64 noundef %nArguments) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN8QuantLib17LmVolatilityModelE, i64 16), ptr %this, align 8, !tbaa !3
   %size_ = getelementptr inbounds nuw i8, ptr %this, i64 8

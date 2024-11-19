@@ -3653,7 +3653,7 @@ declare zeroext i1 @IsPreferredType(i8 noundef signext, i32 noundef) local_unnam
 declare void @systable_endscan(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @GetOperatorFromWellKnownStrategy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
+define dso_local void @GetOperatorFromWellKnownStrategy(i32 noundef %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = load i16, ptr %3, align 2

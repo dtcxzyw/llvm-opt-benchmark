@@ -1072,7 +1072,7 @@ if.end56:                                         ; preds = %if.then52, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @console_show_cursor(ptr noundef initializes((288, 292)) %s, i32 noundef range(i32 0, 2) %show) unnamed_addr #0 {
+define internal fastcc void @console_show_cursor(ptr noundef %s, i32 noundef range(i32 0, 2) %show) unnamed_addr #0 {
 entry:
   %t_attrib = alloca %struct.TextAttributes, align 2
   %x1 = getelementptr inbounds i8, ptr %s, i64 248
@@ -1275,7 +1275,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vc_chr_parse(ptr noundef %opts, ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %backend, ptr nocapture readnone %errp) #0 {
+define internal void @vc_chr_parse(ptr noundef %opts, ptr nocapture noundef writeonly %backend, ptr nocapture readnone %errp) #0 {
 entry:
   store i32 16, ptr %backend, align 8
   %call = tail call noalias dereferenceable_or_null(72) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 72) #13
@@ -1346,7 +1346,7 @@ if.end25:                                         ; preds = %if.then23, %if.end1
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @vc_chr_open(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture noundef writeonly initializes((0, 1)) %be_opened, ptr nocapture readnone %errp) #0 {
+define internal void @vc_chr_open(ptr noundef %chr, ptr nocapture noundef readonly %backend, ptr nocapture noundef writeonly %be_opened, ptr nocapture readnone %errp) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %u = getelementptr inbounds i8, ptr %backend, i64 8

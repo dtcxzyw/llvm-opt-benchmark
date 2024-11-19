@@ -486,7 +486,7 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix17FunctionCallTraceC2ERKNS_3PosE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (56, 57)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix17FunctionCallTraceC2ERKNS_3PosE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::io::detail::put_holder", align 8
   %4 = alloca %"struct.boost::io::detail::put_holder", align 8
   %5 = alloca %"class.boost::basic_format", align 8

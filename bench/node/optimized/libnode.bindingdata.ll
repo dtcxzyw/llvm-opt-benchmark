@@ -340,7 +340,7 @@ _ZN4node5Realm14GetBindingDataINS_4quic11BindingDataEEEPT_v.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node4quic11BindingDatacv10ngtcp2_memEv(ptr noalias nocapture writeonly sret(%struct.ngtcp2_mem) align 8 initializes((0, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(992) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node4quic11BindingDatacv10ngtcp2_memEv(ptr noalias nocapture writeonly sret(%struct.ngtcp2_mem) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(992) %this) local_unnamed_addr #4 align 2 {
 entry:
   store ptr %this, ptr %agg.result, align 8, !alias.scope !6
   %malloc.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -355,7 +355,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4node4quic11BindingDatacv11nghttp3_memEv(ptr noalias nocapture writeonly sret(%struct.nghttp3_mem) align 8 initializes((0, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(992) %this) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4node4quic11BindingDatacv11nghttp3_memEv(ptr noalias nocapture writeonly sret(%struct.nghttp3_mem) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(992) %this) local_unnamed_addr #4 align 2 {
 entry:
   store ptr %this, ptr %agg.result, align 8
   %malloc = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -12239,7 +12239,7 @@ declare ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEE(ptr nou
 declare noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic19NgTcp2CallbackScopeC2EPNS_11EnvironmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %env) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic19NgTcp2CallbackScopeC2EPNS_11EnvironmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %env) unnamed_addr #3 align 2 {
 entry:
   store ptr %env, ptr %this, align 8
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
@@ -12366,7 +12366,7 @@ _ZN4node4quic11BindingData3GetEPNS_11EnvironmentE.exit: ; preds = %_ZNK4node17Ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic20NgHttp3CallbackScopeC2EPNS_11EnvironmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %env) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic20NgHttp3CallbackScopeC2EPNS_11EnvironmentE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %env) unnamed_addr #3 align 2 {
 entry:
   store ptr %env, ptr %this, align 8
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
@@ -12493,7 +12493,7 @@ _ZN4node4quic11BindingData3GetEPNS_11EnvironmentE.exit: ; preds = %_ZNK4node17Ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %this, ptr noundef %env) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic17CallbackScopeBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %env) unnamed_addr #3 align 2 {
 entry:
   store ptr %env, ptr %this, align 8
   %context_scope = getelementptr inbounds i8, ptr %this, i64 8

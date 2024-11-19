@@ -1760,7 +1760,7 @@ declare i64 @_ZNK19QStyledItemDelegate8sizeHintERK20QStyleOptionViewItemRK11QMod
 declare void @_ZN8QPainter11drawPolygonEPK6QPointiN2Qt8FillRuleE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN21RelatedPacketDelegate15setCurrentFrameEj(ptr noundef nonnull align 8 dereferenceable(36) initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN21RelatedPacketDelegate15setCurrentFrameEj(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"class.QtPrivate::QForeachContainer", align 8
@@ -2369,7 +2369,7 @@ _ZN5QHashIi16ft_framenum_typeED2Ev.exit:          ; preds = %40, %54, %_ZN9QtPri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN21RelatedPacketDelegate15setConversationEP12conversation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define void @_ZN21RelatedPacketDelegate15setConversationEP12conversation(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void

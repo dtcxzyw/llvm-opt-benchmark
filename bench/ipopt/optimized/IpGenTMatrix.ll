@@ -91,7 +91,7 @@ $_ZTVN5Ipopt7SubjectE = comdat any
 @_ZN5Ipopt15GenTMatrixSpaceC1EiiiPKiS2_ = unnamed_addr alias void (ptr, i32, i32, i32, ptr, ptr), ptr @_ZN5Ipopt15GenTMatrixSpaceC2EiiiPKiS2_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt10GenTMatrixC2EPKNS_15GenTMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(89) initializes((0, 12), (16, 48)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt10GenTMatrixC2EPKNS_15GenTMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -238,7 +238,7 @@ _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit:  ; preds = %1, %5, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt10GenTMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(89) initializes((0, 8), (16, 24)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt10GenTMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt10GenTMatrixE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt10GenTMatrixE, i64 128), ptr %2, align 8
@@ -334,7 +334,7 @@ define void @_ZThn16_N5Ipopt10GenTMatrixD0Ev(ptr noundef %0) unnamed_addr #4 ali
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt10GenTMatrix9SetValuesEPKd(ptr noundef nonnull align 8 dereferenceable(89) initializes((88, 89)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt10GenTMatrix9SetValuesEPKd(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 20
@@ -948,7 +948,7 @@ define void @_ZNK5Ipopt10GenTMatrix15PrintImplOffsetERKNS_10JournalistENS_13EJou
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt15GenTMatrixSpaceC2EiiiPKiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt15GenTMatrixSpaceC2EiiiPKiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 12

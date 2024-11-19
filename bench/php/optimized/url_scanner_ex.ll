@@ -5285,7 +5285,7 @@ define internal fastcc void @handle_arg(ptr noundef %0, ptr noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @handle_val(ptr noundef initializes((40, 48)) %0, ptr noundef %1, ptr noundef %2, i8 noundef signext range(i8 0, 2) %3, i8 noundef signext range(i8 32, 40) %4) unnamed_addr #0 {
+define internal fastcc void @handle_val(ptr noundef %0, ptr noundef %1, ptr noundef %2, i8 noundef signext range(i8 0, 2) %3, i8 noundef signext range(i8 32, 40) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = zext nneg i8 %3 to i64
   %8 = getelementptr inbounds i8, ptr %1, i64 %7

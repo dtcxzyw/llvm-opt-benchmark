@@ -105,7 +105,7 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperIPvE8metaTypeE = comdat any
 @_ZN25DissectorTablesProxyModelC1EP7QObject = unnamed_addr alias void (ptr, ptr), ptr @_ZN25DissectorTablesProxyModelC2EP7QObject
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN19DissectorTablesItemC2E7QStringS0_PS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19DissectorTablesItemC2E7QStringS0_PS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -153,7 +153,7 @@ _ZN7QStringC2ERKS_.exit3:                         ; preds = %_ZN7QStringC2ERKS_.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19DissectorTablesItemD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN19DissectorTablesItemD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19DissectorTablesItem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -421,7 +421,7 @@ _ZN7QStringD2Ev.exit27:                           ; preds = %50, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17IntegerTablesItemD2Ev(ptr noundef nonnull align 8 dereferenceable(92) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN17IntegerTablesItemD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19DissectorTablesItem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -1177,7 +1177,7 @@ _ZN7QStringD2Ev.exit97:                           ; preds = %175, %_ZN17QArrayDa
 declare void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN20DissectorTablesModelD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN20DissectorTablesModelD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV20DissectorTablesModel, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -2771,7 +2771,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN7QStringaSERKS_(ptr 
 declare void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN25DissectorTablesProxyModel12adjustHeaderERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(88) initializes((48, 64)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN25DissectorTablesProxyModel12adjustHeaderERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8

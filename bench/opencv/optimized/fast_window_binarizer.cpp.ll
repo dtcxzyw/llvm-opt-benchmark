@@ -201,7 +201,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #2
 declare void @_ZN5zxing24GlobalHistogramBinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(121)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing19FastWindowBinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN5zxing19FastWindowBinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5zxing19FastWindowBinarizerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8
@@ -305,7 +305,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_8B
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing19FastWindowBinarizerD0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN5zxing19FastWindowBinarizerD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN5zxing19FastWindowBinarizerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #10
   tail call void @_ZdlPv(ptr noundef nonnull %0) #12
   ret void
@@ -918,7 +918,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj(ptr nocapture noundef nonnull readonly align 8 dereferenceable(184) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4
   %6 = sext i32 %5 to i64

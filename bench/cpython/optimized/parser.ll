@@ -172,7 +172,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.150 = private unnamed_addr constant [59 x i8] c"trailing comma not allowed without surrounding parentheses\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_PyPegen_parse(ptr noundef initializes((40, 60)) %p) local_unnamed_addr #0 {
+define hidden ptr @_PyPegen_parse(ptr noundef %p) local_unnamed_addr #0 {
 entry:
   %keywords = getelementptr inbounds i8, ptr %p, i64 40
   store ptr @reserved_keywords, ptr %keywords, align 8

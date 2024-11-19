@@ -104,7 +104,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @switch.table._Z23gmx_read_next_tng_frameP18gmx_tng_trajectoryP10t_trxframePli = private unnamed_addr constant [3 x i64] [i64 24, i64 12, i64 24], align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z12gmx_tng_openRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectory(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef signext %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z12gmx_tng_openRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectory(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef signext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -2664,7 +2664,7 @@ declare i32 @tng_num_frames_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @tng_util_time_of_frame_get(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef signext %1, ptr noundef readonly %2, ptr nocapture noundef initializes((0, 8)) %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %6, ptr noundef %7) local_unnamed_addr #0 {
+define void @_Z23gmx_prepare_tng_writingRKNSt10filesystem7__cxx114pathEcPP18gmx_tng_trajectoryS6_iPK10gmx_mtop_tN3gmx8ArrayRefIKiEEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 noundef signext %1, ptr noundef readonly %2, ptr nocapture noundef %3, i32 noundef %4, ptr noundef %5, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca i64, align 8
@@ -3032,7 +3032,7 @@ declare i32 @tng_atom_name_of_particle_nr_get(ptr noundef, i64 noundef, ptr noun
 declare i32 @tng_atom_type_of_particle_nr_get(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z23gmx_read_next_tng_frameP18gmx_tng_trajectoryP10t_trxframePli(ptr nocapture noundef %0, ptr nocapture noundef initializes((12, 13), (24, 25), (32, 33), (44, 45), (56, 57), (64, 65), (80, 81), (96, 97), (112, 113)) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z23gmx_read_next_tng_frameP18gmx_tng_trajectoryP10t_trxframePli(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8

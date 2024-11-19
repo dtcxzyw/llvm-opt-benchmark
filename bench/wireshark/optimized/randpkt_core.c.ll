@@ -372,7 +372,7 @@ declare void @cfile_close_failure_message(ptr noundef, i32 noundef, ptr noundef)
 declare void @g_rand_free(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @randpkt_example_init(ptr nocapture noundef initializes((56, 72)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
+define hidden range(i32 0, 3) i32 @randpkt_example_init(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = alloca i32, align 4
   %6 = alloca ptr, align 8
   %7 = alloca %struct.wtap_dump_params, align 8
@@ -513,7 +513,7 @@ declare i32 @g_random_int_range(i32 noundef, i32 noundef) local_unnamed_addr #7
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden void @randpkt_example_list(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #3 {
+define hidden void @randpkt_example_list(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %3 = tail call noalias dereferenceable_or_null(192) ptr @g_malloc0_n(i64 noundef 24, i64 noundef 8) #12
   store ptr %3, ptr %0, align 8
   %4 = tail call noalias dereferenceable_or_null(192) ptr @g_malloc0_n(i64 noundef 24, i64 noundef 8) #12

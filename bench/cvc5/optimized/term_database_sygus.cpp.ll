@@ -1476,7 +1476,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_PNS1_6theory11qua
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus10finishInitEPNS2_27QuantifiersInferenceManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1040) initializes((24, 32)) %this, ptr noundef %qim) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11TermDbSygus10finishInitEPNS2_27QuantifiersInferenceManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1040) %this, ptr noundef %qim) local_unnamed_addr #7 align 2 {
 entry:
   %d_qim = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %qim, ptr %d_qim, align 8

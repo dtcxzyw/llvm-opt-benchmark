@@ -8410,7 +8410,7 @@ _ZN10BigIntegerD2Ev.exit211:                      ; preds = %_ZN10BigIntegerD2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5RTLIL9const_posERKNS0_5ConstES3_bbi(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::Const") align 8 initializes((0, 4), (8, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5RTLIL9const_posERKNS0_5ConstES3_bbi(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::Const") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %7 = load i32, ptr %1, align 8
   store i32 %7, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8

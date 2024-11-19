@@ -1788,7 +1788,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9CdsHelper15initializeDatesEv(ptr noundef nonnull align 8 dereferenceable(488) initializes((472, 480)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9CdsHelper15initializeDatesEv(ptr noundef nonnull align 8 dereferenceable(488) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i7 = alloca %"class.QuantLib::Date", align 8
   %retval.i = alloca %"class.QuantLib::Date", align 8
@@ -6280,7 +6280,7 @@ eh.resume:                                        ; preds = %lpad8, %lpad
 declare i64 @_ZNK8QuantLib8Calendar7advanceERKNS_4DateEiNS_8TimeUnitENS_21BusinessDayConventionEb(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(8), i32 noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16UpfrontCdsHelper15initializeDatesEv(ptr noundef nonnull align 8 dereferenceable(512) initializes((472, 480)) %this) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib16UpfrontCdsHelper15initializeDatesEv(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN8QuantLib9CdsHelper15initializeDatesEv(ptr noundef nonnull align 8 dereferenceable(488) %this)
   %calendar_.i = getelementptr inbounds nuw i8, ptr %this, i64 200

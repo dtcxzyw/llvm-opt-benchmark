@@ -2102,7 +2102,7 @@ define hidden noundef i32 @_ZN8JvmtiEnv21GetClassLoaderClassesEP8_jobjectPiPPP7_
 declare noundef i32 @_ZN21JvmtiGetLoadedClasses21getClassLoaderClassesEP8JvmtiEnvP8_jobjectPiPPP7_jclass(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv17IsModifiableClassEP7oopDescPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv17IsModifiableClassEP7oopDescPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN18VM_RedefineClasses19is_modifiable_classEP7oopDesc(ptr noundef %1) #18
   %5 = zext i1 %4 to i8
   store i8 %5, ptr %2, align 1
@@ -3001,7 +3001,7 @@ declare void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull a
 declare void @_ZN9JavaCalls12call_specialEP9JavaValue6HandleP5KlassP6SymbolS6_S2_P10JavaThread(ptr noundef, ptr, ptr noundef, ptr noundef, ptr noundef, ptr, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv8GetPhaseEP10jvmtiPhase(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv8GetPhaseEP10jvmtiPhase(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @_ZN12JvmtiEnvBase5phaseEv(ptr noundef nonnull align 8 dereferenceable(460) %0) #18
   store i32 %3, ptr %1, align 4
   ret i32 0
@@ -3018,14 +3018,14 @@ define hidden noundef i32 @_ZN8JvmtiEnv18DisposeEnvironmentEv(ptr noundef nonnul
 declare void @_ZN12JvmtiEnvBase7disposeEv(ptr noundef nonnull align 8 dereferenceable(460)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv26SetEnvironmentLocalStorageEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(460) initializes((32, 40)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv26SetEnvironmentLocalStorageEPKv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(460) %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv26GetEnvironmentLocalStorageEPPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv26GetEnvironmentLocalStorageEPPv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8
@@ -3033,7 +3033,7 @@ define hidden noundef i32 @_ZN8JvmtiEnv26GetEnvironmentLocalStorageEPPv(ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv16GetVersionNumberEPi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv16GetVersionNumberEPi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 align 2 {
   store i32 806879232, ptr %1, align 4
   ret i32 0
 }
@@ -3119,7 +3119,7 @@ define hidden noundef range(i32 0, 104) i32 @_ZN8JvmtiEnv14SetVerboseFlagE16jvmt
 declare void @_ZN16LogConfiguration16configure_stdoutEN8LogLevel4typeEiz(i32 noundef, i32 noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv18GetJLocationFormatEP20jvmtiJlocationFormat(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #5 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv18GetJLocationFormatEP20jvmtiJlocationFormat(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #5 align 2 {
   store i32 1, ptr %1, align 4
   ret i32 0
 }
@@ -3161,7 +3161,7 @@ define hidden noundef i32 @_ZN8JvmtiEnv14GetThreadStateEP8_jobjectPi(ptr nocaptu
 declare noundef i32 @_ZN12JvmtiEnvBase27get_thread_or_vthread_stateEP7oopDescP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv16GetCurrentThreadEPP8_jobject(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv16GetCurrentThreadEPP8_jobject(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 dereferenceable(1800) %4) #18
@@ -3181,7 +3181,7 @@ _ZN12JvmtiEnvBase25get_vthread_or_thread_oopEP10JavaThread.exit: ; preds = %2, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv13GetAllThreadsEPiPPP8_jobject(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv13GetAllThreadsEPiPPP8_jobject(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.HandleMark, align 8
   %5 = alloca %class.ThreadsListEnumerator, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -5515,7 +5515,7 @@ _ZN12JvmtiEnvBase10deallocateEPh.exit:            ; preds = %119, %123
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv26GetCurrentContendedMonitorEP8_jobjectPS1_(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv26GetCurrentContendedMonitorEP8_jobjectPS1_(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.GetCurrentContendedMonitorClosure, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -5677,7 +5677,7 @@ declare void @_ZN16JvmtiAgentThreadC1EP8JvmtiEnvPFvP9_jvmtiEnvP7JNIEnv_PvEPKv(pt
 declare void @_ZN10JavaThread21start_internal_daemonEPS_S0_6Handle14ThreadPriority(ptr noundef, ptr noundef, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv18GetTopThreadGroupsEPiPPP8_jobject(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv18GetTopThreadGroupsEPiPPP8_jobject(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.HandleMark, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8
@@ -6036,7 +6036,7 @@ define hidden noundef i32 @_ZN8JvmtiEnv13GetStackTraceEP8_jobjectiiP14jvmtiFrame
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv17GetAllStackTracesEiPP14jvmtiStackInfoPi(ptr noundef nonnull align 8 dereferenceable(460) %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv17GetAllStackTracesEiPP14jvmtiStackInfoPi(ptr noundef nonnull align 8 dereferenceable(460) %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.VM_GetAllStackTraces, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
@@ -10219,7 +10219,7 @@ _ZN12ConstantPool10SymbolHashD2Ev.exit11:         ; preds = %._crit_edge.i.i.i9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv11IsInterfaceEP7oopDescPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv11IsInterfaceEP7oopDescPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %5 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %4) #18
   %6 = icmp eq ptr %5, null
@@ -10246,7 +10246,7 @@ define hidden noundef i32 @_ZN8JvmtiEnv11IsInterfaceEP7oopDescPh(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv12IsArrayClassEP7oopDescPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv12IsArrayClassEP7oopDescPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %5 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %4) #18
   %6 = icmp eq ptr %5, null
@@ -10597,7 +10597,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %67, %69
 declare noundef ptr @_ZNK15fieldDescriptor17generic_signatureEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv22GetFieldDeclaringClassEP15fieldDescriptorPP7_jclass(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv22GetFieldDeclaringClassEP15fieldDescriptorPP7_jclass(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
@@ -10610,7 +10610,7 @@ define hidden noundef i32 @_ZN8JvmtiEnv22GetFieldDeclaringClassEP15fieldDescript
 declare noundef ptr @_ZN12JvmtiEnvBase22get_jni_class_non_nullEP5Klass(ptr noundef nonnull align 8 dereferenceable(460), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv17GetFieldModifiersEP15fieldDescriptorPi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv17GetFieldModifiersEP15fieldDescriptorPi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i = load i32, ptr %4, align 4
   store i32 %.sroa.0.0.copyload.i.i, ptr %2, align 4
@@ -10618,7 +10618,7 @@ define hidden noundef i32 @_ZN8JvmtiEnv17GetFieldModifiersEP15fieldDescriptorPi(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv16IsFieldSyntheticEP15fieldDescriptorPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #6 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv16IsFieldSyntheticEP15fieldDescriptorPh(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 12
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %4, align 4
   %5 = lshr i32 %.sroa.0.0.copyload.i.i.i, 12
@@ -11572,7 +11572,7 @@ define hidden noundef i32 @_ZN8JvmtiEnv19SetJNIFunctionTableEPK19JNINativeInterf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv19GetJNIFunctionTableEPP19JNINativeInterface_(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv19GetJNIFunctionTableEPP19JNINativeInterface_(ptr noundef nonnull align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN12JvmtiEnvBase11jvmtiMallocEl(ptr noundef nonnull align 8 dereferenceable(460) %0, i64 noundef 1880) #18
   store ptr %3, ptr %1, align 8
   %4 = icmp eq ptr %3, null
@@ -11795,7 +11795,7 @@ define hidden noundef i32 @_ZN8JvmtiEnv12GetTimerInfoEP14jvmtiTimerInfo(ptr noca
 declare void @_ZN2os18javaTimeNanos_infoEP14jvmtiTimerInfo(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv7GetTimeEPl(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv7GetTimeEPl(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #18
   store i64 %3, ptr %1, align 8
   ret i32 0
@@ -11804,7 +11804,7 @@ define hidden noundef i32 @_ZN8JvmtiEnv7GetTimeEPl(ptr nocapture noundef nonnull
 declare noundef i64 @_ZN2os13javaTimeNanosEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN8JvmtiEnv22GetAvailableProcessorsEPi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN8JvmtiEnv22GetAvailableProcessorsEPi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef i32 @_ZN2os22active_processor_countEv() #18
   store i32 %3, ptr %1, align 4
   ret i32 0
@@ -11829,7 +11829,7 @@ define hidden noundef range(i32 0, 104) i32 @_ZN8JvmtiEnv23SetHeapSamplingInterv
 declare void @_ZN17ThreadHeapSampler21set_sampling_intervalEi(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv19GetSystemPropertiesEPiPPPc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef initializes((0, 4)) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, 111) i32 @_ZN8JvmtiEnv19GetSystemPropertiesEPiPPPc(ptr nocapture noundef nonnull readnone align 8 dereferenceable(460) %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN9Arguments18_system_propertiesE, align 8
   %5 = tail call noundef i32 @_ZN9Arguments27PropertyList_readable_countEP14SystemProperty(ptr noundef %4) #18
   store i32 %5, ptr %1, align 4

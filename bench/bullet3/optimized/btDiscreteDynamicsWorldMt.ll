@@ -147,7 +147,7 @@ if.end:                                           ; preds = %if.end.lr.ph, %if.e
 declare noundef zeroext i1 @_ZN11btSpinMutex7tryLockEv(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btConstraintSolverPoolMt4initEPP18btConstraintSolveri(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((40, 44)) %this, ptr nocapture noundef readonly %solvers, i32 noundef %numSolvers) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN24btConstraintSolverPoolMt4initEPP18btConstraintSolveri(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef readonly %solvers, i32 noundef %numSolvers) local_unnamed_addr #0 align 2 {
 entry:
   %m_solverType = getelementptr inbounds i8, ptr %this, i64 40
   store i32 1, ptr %m_solverType, align 8
@@ -270,7 +270,7 @@ if.end:                                           ; preds = %_ZN20btAlignedObjec
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btConstraintSolverPoolMtC2Ei(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8), (12, 20), (24, 33)) %this, i32 noundef %numSolvers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btConstraintSolverPoolMtC2Ei(ptr noundef nonnull align 8 dereferenceable(44) %this, i32 noundef %numSolvers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   %solvers = alloca %class.btAlignedObjectArray.0, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24btConstraintSolverPoolMt, i64 16), ptr %this, align 8
@@ -521,7 +521,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btConstraintSolverPoolMtC2EPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8), (12, 20), (24, 33), (40, 44)) %this, ptr nocapture noundef readonly %solvers, i32 noundef %numSolvers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btConstraintSolverPoolMtC2EPP18btConstraintSolveri(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr nocapture noundef readonly %solvers, i32 noundef %numSolvers) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTV24btConstraintSolverPoolMt, i64 16), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -547,7 +547,7 @@ lpad2:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24btConstraintSolverPoolMtD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btConstraintSolverPoolMtD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV24btConstraintSolverPoolMt, i64 16), ptr %this, align 8
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -628,7 +628,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24btConstraintSolverPoolMtD0Ev(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btConstraintSolverPoolMtD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV24btConstraintSolverPoolMt, i64 16), ptr %this, align 8
   %m_size.i.i = getelementptr inbounds i8, ptr %this, i64 12

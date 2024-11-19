@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [43 x i8] c"Ivy_ManRewritePre(): The check has failed.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Ivy_ManRewritePre(ptr noundef initializes((200, 208)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Ivy_ManRewritePre(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8

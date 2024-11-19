@@ -992,7 +992,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @fileio_dealloc(ptr noundef initializes((21, 22)) %self) #1 {
+define internal void @fileio_dealloc(ptr noundef %self) #1 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8

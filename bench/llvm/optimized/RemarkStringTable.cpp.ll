@@ -34,7 +34,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Star
 @_ZN4llvm7remarks11StringTableC1ERKNS0_17ParsedStringTableE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm7remarks11StringTableC2ERKNS0_17ParsedStringTableE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks11StringTableC2ERKNS0_17ParsedStringTableE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks11StringTableC2ERKNS0_17ParsedStringTableE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::pair.10", align 8
   %4 = alloca %"class.llvm::Expected", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -138,7 +138,7 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:       ; preds = %_ZN4llvm7remarks11S
 declare void @_ZNK4llvm7remarks17ParsedStringTableixEm(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8, ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7remarks11StringTable3addENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 initializes((0, 4), (8, 24)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7remarks11StringTable3addENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.10", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %7 = load i32, ptr %6, align 4
@@ -613,7 +613,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %39, %41, %42
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm7remarks11StringTable9serializeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.26") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm7remarks11StringTable9serializeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.26") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %4 = load i32, ptr %3, align 4
   %.not.i.i.i.i = icmp eq i32 %4, 0

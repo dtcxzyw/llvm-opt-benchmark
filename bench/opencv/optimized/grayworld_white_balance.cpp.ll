@@ -107,7 +107,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif(ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef readonly %3, i32 noundef %4, float noundef %5) local_unnamed_addr #0 {
+define hidden void @_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif(ptr nocapture noundef nonnull align 4 dereferenceable(4) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef readonly %3, i32 noundef %4, float noundef %5) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
   store i32 0, ptr %0, align 4
@@ -169,7 +169,7 @@ define hidden void @_ZN2cv6xphoto20calculateChannelSumsERjS1_S1_Phif(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef readonly %3, i32 noundef %4, float noundef %5) local_unnamed_addr #0 {
+define hidden void @_ZN2cv6xphoto20calculateChannelSumsERmS1_S1_Ptif(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef readonly %3, i32 noundef %4, float noundef %5) local_unnamed_addr #0 {
   store i64 0, ptr %2, align 8
   store i64 0, ptr %1, align 8
   store i64 0, ptr %0, align 8

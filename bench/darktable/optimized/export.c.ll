@@ -730,7 +730,7 @@ declare void @gtk_menu_shell_append(ptr noundef, ptr noundef) local_unnamed_addr
 declare i64 @gtk_menu_shell_get_type() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(712) ptr @malloc(i64 noundef 712) #21
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %2, ptr %3, align 8, !tbaa !6

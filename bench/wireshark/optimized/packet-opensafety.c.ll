@@ -996,7 +996,7 @@ define internal range(i32 0, 2) i32 @dissect_opensafety_pn_io(ptr noundef %0, pt
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @opensafety_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #0 {
+define internal noundef i32 @opensafety_conversation_packet(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #0 {
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
   %8 = getelementptr inbounds i8, ptr %1, i64 408
@@ -1044,7 +1044,7 @@ define internal noundef i32 @opensafety_conversation_packet(ptr noundef initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @opensafety_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #0 {
+define internal noundef i32 @opensafety_endpoint_packet(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture readnone %2, ptr nocapture noundef readonly %3, i32 noundef %4) #0 {
   %6 = alloca i16, align 2
   %7 = alloca i16, align 2
   %8 = getelementptr inbounds i8, ptr %1, i64 408
@@ -2198,7 +2198,7 @@ declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @tvb_raw_offset(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_opensafety_message(ptr noundef initializes((24, 26), (28, 32), (44, 50)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
+define internal fastcc void @dissect_opensafety_message(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i8 noundef zeroext %5, i8 noundef zeroext %6) unnamed_addr #0 {
   %8 = alloca i8, align 1
   %9 = alloca ptr, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 44
@@ -5025,7 +5025,7 @@ declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare ptr @proto_tree_add_boolean(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @opensafety_packet_sendreceiv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly initializes((28, 32)) %4, i16 noundef zeroext range(i16 0, 1276) %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i16 noundef zeroext %8, i16 noundef zeroext %9, i16 noundef zeroext %10) unnamed_addr #0 {
+define internal fastcc void @opensafety_packet_sendreceiv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef writeonly %4, i16 noundef zeroext range(i16 0, 1276) %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i16 noundef zeroext %8, i16 noundef zeroext %9, i16 noundef zeroext %10) unnamed_addr #0 {
   %12 = getelementptr inbounds i8, ptr %4, i64 30
   store i16 %7, ptr %12, align 2
   %.not.i = icmp eq i16 %10, 0

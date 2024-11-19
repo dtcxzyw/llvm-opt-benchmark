@@ -270,7 +270,7 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvvEEEEEEE = comdat any
 @_ZN4pbrt11DisplayItem18ImageChannelBufferC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_ = dso_local unnamed_addr alias void (ptr, ptr, i32, ptr), ptr @_ZN4pbrt11DisplayItem18ImageChannelBufferC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10IPCChannelC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(76) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(32) %hostname) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10IPCChannelC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(76) %this, ptr noundef nonnull align 8 dereferenceable(32) %hostname) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp14 = alloca %"class.std::allocator", align 1
@@ -982,7 +982,7 @@ return:                                           ; preds = %if.end4, %if.then, 
 declare i64 @send(i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11DisplayItemC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point2IiEESt6vectorIS6_SaIS6_EESt8functionIFvNS_7Bounds2IiEEN4pstd4spanINSI_IfEEEEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(32) %baseTitle, i64 %resolution.coerce, ptr noundef %channelNames, ptr noundef %getTileValues) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt11DisplayItemC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6Point2IiEESt6vectorIS6_SaIS6_EESt8functionIFvNS_7Bounds2IiEEN4pstd4spanINSI_IfEEEEEE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(32) %baseTitle, i64 %resolution.coerce, ptr noundef %channelNames, ptr noundef %getTileValues) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca i32, align 4
@@ -1419,7 +1419,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt11DisplayItem18ImageChannelBufferC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 56)) %this, ptr noundef nonnull align 8 dereferenceable(32) %channelName, i32 noundef %nTiles, ptr noundef nonnull align 8 dereferenceable(32) %title) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt11DisplayItem18ImageChannelBufferC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS9_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %channelName, i32 noundef %nTiles, ptr noundef nonnull align 8 dereferenceable(32) %title) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %zeroHash = alloca i64, align 8
   %tileBoundsOffset = getelementptr inbounds i8, ptr %this, i64 24
@@ -1663,7 +1663,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4pbrt11DisplayItem18ImageChannelBuffer13SetTileBoundsEiiii(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((56, 60)) %this, i32 noundef %x, i32 noundef %y, i32 noundef %width, i32 noundef %height) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN4pbrt11DisplayItem18ImageChannelBuffer13SetTileBoundsEiiii(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %x, i32 noundef %y, i32 noundef %width, i32 noundef %height) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tileBoundsOffset = getelementptr inbounds i8, ptr %this, i64 24

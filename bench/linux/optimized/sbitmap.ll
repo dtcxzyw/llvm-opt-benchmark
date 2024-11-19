@@ -1246,7 +1246,7 @@ define dso_local i32 @sbitmap_queue_get_shallow(ptr noundef %0, i32 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @sbitmap_queue_min_shallow_depth(ptr noundef initializes((52, 56)) %0, i32 noundef %1) #3 align 16 {
+define dso_local void @sbitmap_queue_min_shallow_depth(ptr noundef %0, i32 noundef %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 52
   store i32 %1, ptr %3, align 4
   %4 = load i32, ptr %0, align 8

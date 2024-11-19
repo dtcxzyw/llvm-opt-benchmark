@@ -104,7 +104,7 @@ define internal noundef ptr @H5VL_pass_through_info_copy(ptr noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5VL_pass_through_info_cmp(ptr noundef initializes((0, 4)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
+define internal noundef i32 @H5VL_pass_through_info_cmp(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) #0 {
   store i32 0, ptr %0, align 4
   %4 = load i64, ptr %1, align 8
   %5 = load i64, ptr %2, align 8
@@ -148,7 +148,7 @@ define internal noundef i32 @H5VL_pass_through_info_free(ptr nocapture noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5VL_pass_through_info_to_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5VL_pass_through_info_to_str(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 -1, ptr %3, align 4
@@ -181,7 +181,7 @@ define internal noundef i32 @H5VL_pass_through_info_to_str(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5VL_pass_through_str_to_info(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5VL_pass_through_str_to_info(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store ptr null, ptr %4, align 8
@@ -228,7 +228,7 @@ define internal ptr @H5VL_pass_through_get_object(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @H5VL_pass_through_get_wrap_ctx(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5VL_pass_through_get_wrap_ctx(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
   %4 = load i64, ptr %0, align 8
   store i64 %4, ptr %3, align 8

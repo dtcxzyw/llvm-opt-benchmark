@@ -503,7 +503,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #9
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib13FdmSchemeDescC2ENS0_13FdmSchemeTypeEdd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 4), (8, 24)) %this, i32 noundef %aType, double noundef %aTheta, double noundef %aMu) unnamed_addr #10 align 2 {
+define void @_ZN8QuantLib13FdmSchemeDescC2ENS0_13FdmSchemeTypeEdd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %aType, double noundef %aTheta, double noundef %aMu) unnamed_addr #10 align 2 {
 entry:
   store i32 %aType, ptr %this, align 8, !tbaa !18
   %theta = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -584,7 +584,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17FdmBackwardSolverC2EN5boost10shared_ptrINS_20FdmLinearOpCompositeEEESt6vectorINS2_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaIS9_EERKNS2_INS_25FdmStepConditionCompositeEEERKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 40)) %this, ptr nocapture noundef %map, ptr nocapture noundef %bcSet, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %condition, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17FdmBackwardSolverC2EN5boost10shared_ptrINS_20FdmLinearOpCompositeEEESt6vectorINS2_INS_17BoundaryConditionINS_11FdmLinearOpEEEEESaIS9_EERKNS2_INS_25FdmStepConditionCompositeEEERKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef %map, ptr nocapture noundef %bcSet, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %condition, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::list", align 8
   %ref.tmp3 = alloca %"class.std::__cxx11::list.26", align 8

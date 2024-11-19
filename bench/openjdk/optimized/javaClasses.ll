@@ -1105,7 +1105,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %105, %103, %.loopex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11JavaClasses12get_injectedEP6SymbolPi(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11JavaClasses12get_injectedEP6SymbolPi(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %1, align 4
   %3 = tail call noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef %0) #19
   switch i32 %3, label %5 [
@@ -1203,7 +1203,7 @@ define hidden noundef ptr @_ZN11JavaClasses12get_injectedEP6SymbolPi(ptr noundef
 declare noundef i32 @_ZN9vmSymbols8find_sidEPK6Symbol(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11JavaClasses14compute_offsetERiP13InstanceKlassP6SymbolS4_b(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11JavaClasses14compute_offsetERiP13InstanceKlassP6SymbolS4_b(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.fieldDescriptor, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %7, i8 0, i64 22, i1 false)
@@ -1341,7 +1341,7 @@ declare noundef zeroext i1 @_ZNK13InstanceKlass16find_local_fieldEP6SymbolS1_P15
 declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11JavaClasses14compute_offsetERiP13InstanceKlassPKcP6Symbolb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11JavaClasses14compute_offsetERiP13InstanceKlassPKcP6Symbolb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #20
   %8 = trunc i64 %7 to i32
@@ -2351,7 +2351,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %17, %19
 declare noundef ptr @_ZNK6Symbol22as_klass_external_nameEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16java_lang_String17as_unicode_stringEP7oopDescRiP10JavaThread(ptr noundef %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16java_lang_String17as_unicode_stringEP7oopDescRiP10JavaThread(ptr noundef %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %5 = sext i32 %4 to i64
   %6 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
@@ -2460,7 +2460,7 @@ _ZN16java_lang_String25as_unicode_string_or_nullEP7oopDescRi.exit.thread: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16java_lang_String25as_unicode_string_or_nullEP7oopDescRi(ptr noundef %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16java_lang_String25as_unicode_string_or_nullEP7oopDescRi(ptr noundef %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %4 = sext i32 %3 to i64
   %5 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
@@ -3230,7 +3230,7 @@ _ZN16java_lang_String14as_utf8_stringEP7oopDescRi.exit: ; preds = %.thread.i, %.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescRi(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDescRi(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %4 = sext i32 %3 to i64
   %5 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
@@ -3316,7 +3316,7 @@ _ZN16java_lang_String6lengthEP7oopDescP16typeArrayOopDesc.exit.thread: ; preds =
 declare noundef ptr @_ZN7UNICODE7as_utf8ItEEPcPKT_Ri(ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16java_lang_String19as_utf8_string_fullEP7oopDescPciRi(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16java_lang_String19as_utf8_string_fullEP7oopDescPciRi(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #0 align 2 {
   %5 = load i32, ptr @_ZN16java_lang_String13_value_offsetE, align 4
   %6 = sext i32 %5 to i64
   %7 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm286790EP7oopDescLNS_11BarrierTypeE3EE13_load_at_funcE, align 8
@@ -7132,7 +7132,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %38, %19, %15, %9
 declare void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN16java_lang_Thread21async_get_stack_traceEP7oopDescP10JavaThreadEN20GetStackTraceClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZZN16java_lang_Thread21async_get_stack_traceEP7oopDescP10JavaThreadEN20GetStackTraceClosureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVZN16java_lang_Thread21async_get_stack_traceEP7oopDescP10JavaThreadE20GetStackTraceClosure, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -11529,7 +11529,7 @@ define hidden void @_ZN27java_lang_StackTraceElement14set_lineNumberEP7oopDesci(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27java_lang_StackTraceElement20decode_file_and_lineE6HandleP13InstanceKlassiRK12methodHandleiRP6SymbolRP7oopDescRiP10JavaThread(ptr readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, i32 noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27java_lang_StackTraceElement20decode_file_and_lineE6HandleP13InstanceKlassiRK12methodHandleiRP6SymbolRP7oopDescRiP10JavaThread(ptr readonly %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %3, i32 noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %7, ptr noundef %8) local_unnamed_addr #0 align 2 {
   %10 = getelementptr inbounds i8, ptr %1, i64 224
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 64
@@ -11606,7 +11606,7 @@ _ZN9Backtrace15get_line_numberEP6Methodi.exit:    ; preds = %33, %37
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN27java_lang_StackTraceElement6decodeERK12methodHandleiRP6SymbolRiP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN27java_lang_StackTraceElement6decodeERK12methodHandleiRP6SymbolRiP10JavaThread(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.HandleMark, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 800
   %8 = load ptr, ptr %7, align 8
@@ -22134,7 +22134,7 @@ _ZNK10JavaThread20vthread_continuationEv.exit.thread: ; preds = %42, %38, %_ZNK1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZN16java_lang_Thread21async_get_stack_traceEP7oopDescP10JavaThreadEN20GetStackTraceClosureD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZZN16java_lang_Thread21async_get_stack_traceEP7oopDescP10JavaThreadEN20GetStackTraceClosureD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVZN16java_lang_Thread21async_get_stack_traceEP7oopDescP10JavaThreadE20GetStackTraceClosure, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8

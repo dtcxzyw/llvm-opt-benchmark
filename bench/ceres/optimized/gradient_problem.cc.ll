@@ -52,7 +52,7 @@ $_ZTIN5ceres17EuclideanManifoldILin1EEE = comdat any
 @_ZN5ceres15GradientProblemC1EPNS_18FirstOrderFunctionEPNS_8ManifoldE = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN5ceres15GradientProblemC2EPNS_18FirstOrderFunctionEPNS_8ManifoldE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres15GradientProblemC2EPNS_18FirstOrderFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres15GradientProblemC2EPNS_18FirstOrderFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
@@ -151,7 +151,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6s
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres15GradientProblemC2EPNS_18FirstOrderFunctionEPNS_8ManifoldE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres15GradientProblemC2EPNS_18FirstOrderFunctionEPNS_8ManifoldE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %5 = alloca %"struct.google::CheckOpString", align 8
   %6 = alloca %"class.google::LogMessageFatal", align 8

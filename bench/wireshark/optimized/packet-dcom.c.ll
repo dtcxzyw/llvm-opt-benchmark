@@ -2244,7 +2244,7 @@ define i32 @dissect_dcom_indexed_LPWSTR(ptr noundef %0, i32 noundef %1, ptr noun
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, ptr nocapture noundef nonnull initializes((0, 4)) %5) unnamed_addr #1 {
+define internal fastcc i32 @dcom_tvb_get_nwstringz0(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, ptr nocapture noundef nonnull %5) unnamed_addr #1 {
   store i32 1, ptr %5, align 4
   %7 = tail call i32 @llvm.usub.sat.i32(i32 %2, i32 1)
   %.not = icmp eq i32 %4, 0

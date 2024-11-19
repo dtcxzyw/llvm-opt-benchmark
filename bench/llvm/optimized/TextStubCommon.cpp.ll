@@ -1302,7 +1302,7 @@ define dso_local void @_ZN4llvm4yaml12ScalarTraitsINS_5MachO12ArchitectureEvE6ou
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i64 } @_ZN4llvm4yaml12ScalarTraitsINS_5MachO12ArchitectureEvE5inputENS_9StringRefEPvRS3_(ptr %0, i64 %1, ptr nocapture noundef readnone %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i64 } @_ZN4llvm4yaml12ScalarTraitsINS_5MachO12ArchitectureEvE5inputENS_9StringRefEPvRS3_(ptr %0, i64 %1, ptr nocapture noundef readnone %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef zeroext i8 @_ZN4llvm5MachO23getArchitectureFromNameENS_9StringRefE(ptr %0, i64 %1) #11
   store i8 %5, ptr %3, align 1
   ret { ptr, i64 } zeroinitializer
@@ -1543,7 +1543,7 @@ define dso_local void @_ZN4llvm4yaml12ScalarTraitsISt4pairINS_5MachO6TargetENSt7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i64 } @_ZN4llvm4yaml12ScalarTraitsISt4pairINS_5MachO6TargetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvE5inputENS_9StringRefEPvRSB_(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef readnone %2, ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %3) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, i64 } @_ZN4llvm4yaml12ScalarTraitsISt4pairINS_5MachO6TargetENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvE5inputENS_9StringRefEPvRSB_(ptr nocapture readnone %0, i64 %1, ptr nocapture noundef readnone %2, ptr noundef nonnull align 8 dereferenceable(56) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::pair.11", align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 24, i1 false)

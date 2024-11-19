@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7514ResourceBundleC1ERKNS_13UnicodeStringER10UErrorCode = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN6icu_7514ResourceBundleC2ERKNS_13UnicodeStringER10UErrorCode
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514ResourceBundleC2ERKNS_13UnicodeStringERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(64) %path, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %error) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514ResourceBundleC2ERKNS_13UnicodeStringERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(64) %path, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %error) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514ResourceBundleE, i64 16), ptr %this, align 8
   %fLocale = getelementptr inbounds i8, ptr %this, i64 16
@@ -109,7 +109,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514ResourceBundleC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(64) %path, ptr noundef nonnull align 4 dereferenceable(4) %error) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7514ResourceBundleC2ERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(64) %path, ptr noundef nonnull align 4 dereferenceable(4) %error) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514ResourceBundleE, i64 16), ptr %this, align 8
   %fLocale = getelementptr inbounds i8, ptr %this, i64 16

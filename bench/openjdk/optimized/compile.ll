@@ -467,7 +467,7 @@ _ZN5Arena12AmallocWordsEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %1
 declare void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, -2147483648) i32 @_ZN7Compile25intrinsic_insertion_indexEP8ciMethodbRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2316) %0, ptr noundef readnone %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #0 align 2 {
+define hidden noundef range(i32 0, -2147483648) i32 @_ZN7Compile25intrinsic_insertion_indexEP8ciMethodbRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2316) %0, ptr noundef readnone %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 392
   store i8 0, ptr %3, align 1
   %6 = load i32, ptr %5, align 8
@@ -3564,7 +3564,7 @@ _ZN16Unique_Node_List6memberEP4Node.exit.thread:  ; preds = %16, %_ZN16Unique_No
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14CompileWrapperC2EP7Compile(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN14CompileWrapperC2EP7Compile(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 352
   %4 = load ptr, ptr %3, align 8
@@ -3620,7 +3620,7 @@ define hidden void @_ZN14CompileWrapperC2EP7Compile(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7Compile13set_clone_mapEP4Dict(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2316) initializes((872, 880)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Compile13set_clone_mapEP4Dict(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2316) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 872
   store ptr %1, ptr %3, align 8
   ret void
@@ -4992,7 +4992,7 @@ declare noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 derefer
 declare noundef zeroext i1 @_ZN8ciMethod18ensure_method_dataEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Compile4InitEb(ptr noundef nonnull align 8 dereferenceable(2316) initializes((48, 56), (88, 100), (104, 112), (116, 120), (123, 128), (132, 137), (140, 261), (264, 274), (279, 280), (284, 288), (592, 596), (736, 776), (784, 800), (2136, 2144), (2152, 2168)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7Compile4InitEb(ptr noundef nonnull align 8 dereferenceable(2316) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
 _ZN7Compile19set_cached_top_nodeEP4Node.exit:
   %2 = zext i1 %1 to i8
   %3 = getelementptr inbounds i8, ptr %0, i64 273
@@ -5911,7 +5911,7 @@ _ZN16ResourceMarkImplD2Ev.exit:                   ; preds = %10, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Compile22initialize_stress_seedEPK12DirectiveSet(ptr nocapture noundef nonnull align 8 dereferenceable(2316) initializes((288, 292)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7Compile22initialize_stress_seedEPK12DirectiveSet(ptr nocapture noundef nonnull align 8 dereferenceable(2316) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = tail call noundef zeroext i1 @_ZN7JVMFlag10is_defaultE12JVMFlagsEnum(i32 noundef 159) #18
   br i1 %4, label %10, label %5
@@ -6998,7 +6998,7 @@ declare void @_ZN5ciEnv16dump_replay_dataEi(ptr noundef nonnull align 8 derefere
 declare void @_ZN5ciEnv16dump_inline_dataEi(ptr noundef nonnull align 8 dereferenceable(1265), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Compile25set_allowed_deopt_reasonsEv(ptr nocapture noundef nonnull align 8 dereferenceable(2316) initializes((2312, 2316)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7Compile25set_allowed_deopt_reasonsEv(ptr nocapture noundef nonnull align 8 dereferenceable(2316) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2312
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -8515,7 +8515,7 @@ declare void @_ZN24DebugInformationRecorderC1EP11OopRecorder(ptr noundef nonnull
 declare noundef zeroext i1 @_ZNK8ciMethod20needs_clinit_barrierEv(ptr noundef nonnull align 8 dereferenceable(160)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Compile9AliasType4InitEiPK7TypePtr(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 4), (8, 33), (36, 40)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7Compile9AliasType4InitEiPK7TypePtr(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -11294,7 +11294,7 @@ _ZN7Compile12print_methodE17CompilerPhaseTypeiP4Node.exit: ; preds = %97, %_ZN8J
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7Compile24inline_incrementally_oneEv(ptr nocapture noundef nonnull align 8 dereferenceable(2316) initializes((120, 121), (122, 123)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7Compile24inline_incrementally_oneEv(ptr nocapture noundef nonnull align 8 dereferenceable(2316) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.EventCompilerPhase, align 8
   %3 = alloca %"class.Compile::TracePhase", align 8
   %4 = load i8, ptr @CITime, align 1
@@ -11549,7 +11549,7 @@ _ZN7Compile10TracePhaseD2Ev.exit:                 ; preds = %.loopexit20, %141, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7Compile20inline_incrementallyER12PhaseIterGVN(ptr nocapture noundef nonnull align 8 dereferenceable(2316) initializes((121, 122)) %0, ptr noundef nonnull align 8 dereferenceable(2416) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN7Compile20inline_incrementallyER12PhaseIterGVN(ptr nocapture noundef nonnull align 8 dereferenceable(2316) %0, ptr noundef nonnull align 8 dereferenceable(2416) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.EventCompilerPhase, align 8
   %4 = alloca %"class.Compile::TracePhase", align 8
   %5 = alloca %"class.Compile::TracePhase", align 8

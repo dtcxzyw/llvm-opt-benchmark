@@ -669,7 +669,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23AnalyticPTDHestonEngine9Fj_HelperC2ERKNS_6HandleINS_33PiecewiseTimeDependentHestonModelEEEddm(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(16) %model, double noundef %term, double noundef %strike, i64 noundef %j) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23AnalyticPTDHestonEngine9Fj_HelperC2ERKNS_6HandleINS_33PiecewiseTimeDependentHestonModelEEEddm(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(16) %model, double noundef %term, double noundef %strike, i64 noundef %j) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp55 = alloca %"class.QuantLib::InterestRate", align 8
   %ref.tmp73 = alloca %"class.QuantLib::InterestRate", align 8

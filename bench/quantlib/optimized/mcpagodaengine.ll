@@ -37,7 +37,7 @@ $_ZTIN8QuantLib10PathPricerINS_9MultiPathEdEE = comdat any
 @_ZN8QuantLib21PagodaMultiPathPricerC1Eddd = unnamed_addr alias void (ptr, double, double, double), ptr @_ZN8QuantLib21PagodaMultiPathPricerC2Eddd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib21PagodaMultiPathPricerC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, double noundef %roof, double noundef %fraction, double noundef %discount) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib21PagodaMultiPathPricerC2Eddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, double noundef %roof, double noundef %fraction, double noundef %discount) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib21PagodaMultiPathPricerE, i64 16), ptr %this, align 8, !tbaa !3
   %discount_ = getelementptr inbounds nuw i8, ptr %this, i64 8

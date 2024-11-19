@@ -27221,7 +27221,7 @@ _ZN6duckdb10unique_ptrINS_13LogicalFilterESt14default_deleteIS1_ELb1EE13AssertNo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb6Binder10CreatePlanERNS_15BoundSelectNodeE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.827") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(473) %statement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb6Binder10CreatePlanERNS_15BoundSelectNodeE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::unique_ptr.827") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(752) %this, ptr noundef nonnull align 8 dereferenceable(473) %statement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i870 = alloca %"struct.duckdb::LogicalType", align 8
   %agg.tmp.i832 = alloca %"class.duckdb::vector.325", align 8

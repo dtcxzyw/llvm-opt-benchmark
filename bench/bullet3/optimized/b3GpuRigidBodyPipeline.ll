@@ -353,7 +353,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22b3GpuRigidBodyPipelineC2EP11_cl_contextP13_cl_device_idP17_cl_command_queueP16b3GpuNarrowPhaseP24b3GpuBroadphaseInterfaceP22b3DynamicBvhBroadphaseRK8b3Config(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %q, ptr noundef %narrowphase, ptr noundef %broadphaseSap, ptr noundef %broadphaseDbvt, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %config) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22b3GpuRigidBodyPipelineC2EP11_cl_contextP13_cl_device_idP17_cl_command_queueP16b3GpuNarrowPhaseP24b3GpuBroadphaseInterfaceP22b3DynamicBvhBroadphaseRK8b3Config(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %q, ptr noundef %narrowphase, ptr noundef %broadphaseSap, ptr noundef %broadphaseDbvt, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %config) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %errNum = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV22b3GpuRigidBodyPipeline, i64 16), ptr %this, align 8
@@ -635,7 +635,7 @@ declare void @_ZN21b3GpuPgsContactSolverC1EP11_cl_contextP13_cl_device_idP17_cl_
 declare void @_ZN12b3GpuRaycastC1EP11_cl_contextP13_cl_device_idP17_cl_command_queue(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22b3GpuRigidBodyPipelineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22b3GpuRigidBodyPipelineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV22b3GpuRigidBodyPipeline, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 8
@@ -918,7 +918,7 @@ _ZN20b3AlignedObjectArrayI9b3SapAabbED2Ev.exit:   ; preds = %_ZN20b3AlignedObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN22b3GpuRigidBodyPipelineD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN22b3GpuRigidBodyPipelineD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN22b3GpuRigidBodyPipelineD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21

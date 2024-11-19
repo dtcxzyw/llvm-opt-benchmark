@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @zend_empty_string = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @php_json_scanner_init(ptr nocapture noundef writeonly initializes((0, 8), (16, 24), (76, 84)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden void @php_json_scanner_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21,7 +21,7 @@ define hidden void @php_json_scanner_init(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 16), (64, 68)) %0) local_unnamed_addr #1 {
+define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 1, ptr %3, align 8

@@ -2447,7 +2447,7 @@ define noalias noundef ptr @ptvcursor_new(ptr noundef %0, ptr noundef %1, ptr no
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ptvcursor_free(ptr nocapture noundef initializes((8, 16), (17, 18)) %0) local_unnamed_addr #0 {
+define void @ptvcursor_free(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 17
@@ -2495,7 +2495,7 @@ define ptr @ptvcursor_tree(ptr noundef readonly %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ptvcursor_set_tree(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @ptvcursor_set_tree(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -19930,7 +19930,7 @@ define internal fastcc ptr @hf_try_val_to_str(i32 noundef %0, ptr nocapture noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @hfinfo_char_value_format_display(i32 noundef %0, ptr noundef writeonly initializes((5, 7)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @hfinfo_char_value_format_display(i32 noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %1, i64 6
   store i8 0, ptr %4, align 1
   %5 = getelementptr i8, ptr %1, i64 5
@@ -20038,7 +20038,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare i32 @fvalue_get_sinteger(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hfinfo_numeric_value_format(ptr nocapture noundef readonly %0, ptr noundef nonnull initializes((79, 80)) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @hfinfo_numeric_value_format(ptr nocapture noundef readonly %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = and i32 %5, 255
@@ -20073,7 +20073,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hfinfo_number_value_format_display(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef nonnull initializes((79, 80)) %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @hfinfo_number_value_format_display(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 79
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
@@ -20305,7 +20305,7 @@ display_to_port_type.exit:                        ; preds = %83, %switch.lookup8
 declare i64 @fvalue_get_sinteger64(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @hfinfo_number_value_format_display64(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef nonnull initializes((79, 80)) %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @hfinfo_number_value_format_display64(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef nonnull %2, i64 noundef %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %2, i64 79
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
@@ -24975,7 +24975,7 @@ proto_heuristic_dissector_foreach.exit:           ; preds = %5, %.preheader
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @heur_reenable_cb(ptr nocapture noundef initializes((40, 44)) %0, ptr nocapture readnone %1) #14 {
+define internal void @heur_reenable_cb(ptr nocapture noundef %0, ptr nocapture readnone %1) #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 1

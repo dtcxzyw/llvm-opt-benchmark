@@ -1464,7 +1464,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_8UsdStageEE10_RemoveRefEPKNS_
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__16HdSceneIndexBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingStageSceneIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(960) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingStageSceneIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(960) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr", align 8
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__25UsdImagingStageSceneIndexE, i64 16), ptr %0, align 8
   store ptr null, ptr %2, align 8
@@ -5995,7 +5995,7 @@ define double @_ZNK32pxrInternal_v0_24__pxrReserved__25UsdImagingStageSceneIndex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingStageSceneIndex13_StageGlobals7SetTimeENS_11UsdTimeCodeEPNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE(ptr nocapture noundef nonnull align 8 dereferenceable(680) initializes((672, 680)) %0, double %1, ptr noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25UsdImagingStageSceneIndex13_StageGlobals7SetTimeENS_11UsdTimeCodeEPNS_13TfSmallVectorINS_20HdSceneIndexObserver16DirtiedPrimEntryELj16EEE(ptr nocapture noundef nonnull align 8 dereferenceable(680) %0, double %1, ptr noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TraceKey", align 8
   %6 = load atomic i32, ptr @_ZN32pxrInternal_v0_24__pxrReserved__14TraceCollector10_isEnabledE acquire, align 4

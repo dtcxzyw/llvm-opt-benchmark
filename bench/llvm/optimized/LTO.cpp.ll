@@ -5292,7 +5292,7 @@ define dso_local noundef nonnull align 8 dereferenceable(64) ptr @_ZN4llvm3lto9I
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3lto3LTO15RegularLTOStateC2EjRKNS0_6ConfigE(ptr noundef nonnull align 8 dereferenceable(137) initializes((8, 12), (16, 24)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(1368) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3lto3LTO15RegularLTOStateC2EjRKNS0_6ConfigE(ptr noundef nonnull align 8 dereferenceable(137) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(1368) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5386,7 +5386,7 @@ _ZNSt10unique_ptrIN4llvm3lto24LTOLLVMDiagnosticHandlerESt14default_deleteIS2_EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3lto3LTO12ThinLTOStateC2ESt8functionIFSt10unique_ptrINS0_15ThinBackendProcESt14default_deleteIS5_EERKNS0_6ConfigERNS_18ModuleSummaryIndexERNS_8DenseMapINS_9StringRefENSE_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSH_EEEENSI_ISF_vEENSL_ISF_SN_EEEES3_IFNS_8ExpectedIS4_INS_16CachedFileStreamES6_IST_EEEEjRKNS_5TwineEEES3_IFNSS_IS11_EEjSF_SZ_EEEE(ptr noundef nonnull align 8 dereferenceable(632) initializes((0, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3lto3LTO12ThinLTOStateC2ESt8functionIFSt10unique_ptrINS0_15ThinBackendProcESt14default_deleteIS5_EERKNS0_6ConfigERNS_18ModuleSummaryIndexERNS_8DenseMapINS_9StringRefENSE_ImPNS_18GlobalValueSummaryENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImSH_EEEENSI_ISF_vEENSL_ISF_SN_EEEES3_IFNS_8ExpectedIS4_INS_16CachedFileStreamES6_IST_EEEEjRKNS_5TwineEEES3_IFNSS_IS11_EEjSF_SZ_EEEE(ptr noundef nonnull align 8 dereferenceable(632) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::function.364", align 8
   %4 = alloca %"class.std::function.384", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5542,7 +5542,7 @@ _ZNSt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3lto26createInProcessThinBackendENS_18ThreadPoolStrategyESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.364") align 8 initializes((0, 32)) %0, i64 %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm3lto26createInProcessThinBackendENS_18ThreadPoolStrategyESt8functionIFvRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.364") align 8 %0, i64 %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %class.anon.704, align 8
   %7 = zext i1 %3 to i8
   %8 = zext i1 %4 to i8
@@ -10077,7 +10077,7 @@ declare noundef i64 @_ZN4llvm11GlobalValue7getGUIDENS_9StringRefE(ptr, i64) loca
 declare void @_ZN4llvm11GlobalValue19getGlobalIdentifierB5cxx11ENS_9StringRefENS0_12LinkageTypesES1_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i64, i32 noundef, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm3lto3LTO11getMaxTasksEv(ptr noundef nonnull align 8 dereferenceable(2224) initializes((2176, 2177)) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK4llvm3lto3LTO11getMaxTasksEv(ptr noundef nonnull align 8 dereferenceable(2224) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2176
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2112
@@ -10731,7 +10731,7 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_14ToolOutputFileESt14default_deleteIS2_EEED2
 declare void @_ZN4llvm31computeDeadSymbolsWithConstPropERNS_18ModuleSummaryIndexERKNS_8DenseSetImNS_12DenseMapInfoImvEEEENS_12function_refIFNS_14PrevailingTypeEmEEEb(ptr noundef nonnull align 8 dereferenceable(488), ptr noundef nonnull align 8 dereferenceable(24), ptr, i64, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3lto14setupStatsFileENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.650") align 8 initializes((0, 8)) %0, ptr %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm3lto14setupStatsFileENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.650") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 {
   %4 = alloca %"class.std::error_code", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = icmp eq i64 %2, 0
@@ -13336,7 +13336,7 @@ declare { i32, ptr } @_ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5perm
 declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3lto29createWriteIndexesThinBackendENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_bPNS_14raw_fd_ostreamESt8functionIFvRKS6_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.364") align 8 initializes((0, 32)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm3lto29createWriteIndexesThinBackendENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_S6_bPNS_14raw_fd_ostreamESt8functionIFvRKS6_EE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function.364") align 8 %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %class.anon.708, align 8
   %9 = zext i1 %4 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1) #28
@@ -14346,7 +14346,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_8DenseSetINS_9ValueInfoENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3lto23generateModulesOrderingENS_8ArrayRefIPNS_13BitcodeModuleEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.770") align 8 initializes((0, 24)) %0, ptr %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm3lto23generateModulesOrderingENS_8ArrayRefIPNS_13BitcodeModuleEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.770") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::ArrayRef.775", align 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -22936,7 +22936,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrIN4
 declare void @_ZN4llvm13StdThreadPoolC1ENS_18ThreadPoolStrategyE(ptr noundef nonnull align 8 dereferenceable(360), i64) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120InProcessThinBackendD2Ev(ptr noundef nonnull align 8 dereferenceable(601) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120InProcessThinBackendD2Ev(ptr noundef nonnull align 8 dereferenceable(601) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120InProcessThinBackendE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %3 = load i8, ptr %2, align 8
@@ -23012,7 +23012,7 @@ _ZN4llvm3lto15ThinBackendProcD2Ev.exit:           ; preds = %_ZNSt8functionIFN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120InProcessThinBackendD0Ev(ptr noundef nonnull align 8 dereferenceable(601) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120InProcessThinBackendD0Ev(ptr noundef nonnull align 8 dereferenceable(601) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_120InProcessThinBackendD2Ev(ptr noundef nonnull align 8 dereferenceable(601) %0) #28
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 608) #31
   ret void
@@ -23255,7 +23255,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZNSt13shared_futur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120InProcessThinBackend4waitEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(601) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120InProcessThinBackend4waitEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(601) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   tail call void @_ZN4llvm13StdThreadPool4waitEv(ptr noundef nonnull align 8 dereferenceable(360) %3) #28
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 552
@@ -26303,7 +26303,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE18uninitialized_copyIKccEEvPT_S5_PT0_PNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN4llvm3lto15ThinBackendProcESt14default_deleteIS3_EERKNS2_6ConfigERNS1_18ModuleSummaryIndexERNS1_8DenseMapINS1_9StringRefENSC_ImPNS1_18GlobalValueSummaryENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImSF_EEEENSG_ISD_vEENSJ_ISD_SL_EEEESt8functionIFNS1_8ExpectedIS0_INS1_16CachedFileStreamES4_ISS_EEEEjRKNS1_5TwineEEESQ_IFNSR_IS10_EEjSD_SY_EEEZNS2_29createWriteIndexesThinBackendENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1A_S1A_bPNS1_14raw_fd_ostreamESQ_IFvRKS1A_EEE3$_0E9_M_invokeERKSt9_Any_dataS9_SB_SP_OS10_OS13_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.756") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(1368) %2, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr nocapture noundef nonnull align 8 dereferenceable(32) %6) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFSt10unique_ptrIN4llvm3lto15ThinBackendProcESt14default_deleteIS3_EERKNS2_6ConfigERNS1_18ModuleSummaryIndexERNS1_8DenseMapINS1_9StringRefENSC_ImPNS1_18GlobalValueSummaryENS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImSF_EEEENSG_ISD_vEENSJ_ISD_SL_EEEESt8functionIFNS1_8ExpectedIS0_INS1_16CachedFileStreamES4_ISS_EEEEjRKNS1_5TwineEEESQ_IFNSR_IS10_EEjSD_SY_EEEZNS2_29createWriteIndexesThinBackendENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES1A_S1A_bPNS1_14raw_fd_ostreamESQ_IFvRKS1A_EEE3$_0E9_M_invokeERKSt9_Any_dataS9_SB_SP_OS10_OS13_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.756") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(1368) %2, ptr noundef nonnull align 8 dereferenceable(488) %3, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr nocapture noundef nonnull align 8 dereferenceable(32) %5, ptr nocapture noundef nonnull align 8 dereferenceable(32) %6) #0 align 2 {
   %8 = alloca %"class.std::function.384", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -26571,7 +26571,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt10unique_ptrIN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123WriteIndexesThinBackendD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_123WriteIndexesThinBackendD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_123WriteIndexesThinBackendE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
@@ -26595,7 +26595,7 @@ _ZN4llvm3lto15ThinBackendProcD2Ev.exit:           ; preds = %1, %7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123WriteIndexesThinBackendD0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_123WriteIndexesThinBackendD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_123WriteIndexesThinBackendE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #28
@@ -26738,7 +26738,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %_ZN4llvm5ErrorD2Ev.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_123WriteIndexesThinBackend4waitEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #20 align 2 {
+define internal void @_ZN12_GLOBAL__N_123WriteIndexesThinBackend4waitEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #20 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void

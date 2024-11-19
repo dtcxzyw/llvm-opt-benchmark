@@ -637,7 +637,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly4hash12SpookyHashV24InitEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(297) initializes((192, 208), (288, 297)) %this, i64 noundef %seed1, i64 noundef %seed2) local_unnamed_addr #4 align 2 {
+define void @_ZN5folly4hash12SpookyHashV24InitEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(297) %this, i64 noundef %seed1, i64 noundef %seed2) local_unnamed_addr #4 align 2 {
 entry:
   %m_length = getelementptr inbounds i8, ptr %this, i64 288
   store i64 0, ptr %m_length, align 8, !tbaa !17
@@ -1066,7 +1066,7 @@ cleanup:                                          ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5folly4hash12SpookyHashV25FinalEPmS2_(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr nocapture noundef initializes((0, 8)) %hash1, ptr nocapture noundef initializes((0, 8)) %hash2) local_unnamed_addr #0 align 2 {
+define void @_ZNK5folly4hash12SpookyHashV25FinalEPmS2_(ptr noundef nonnull align 8 dereferenceable(297) %this, ptr nocapture noundef %hash1, ptr nocapture noundef %hash2) local_unnamed_addr #0 align 2 {
 entry:
   %buf = alloca [24 x i64], align 16
   %m_length = getelementptr inbounds i8, ptr %this, i64 288

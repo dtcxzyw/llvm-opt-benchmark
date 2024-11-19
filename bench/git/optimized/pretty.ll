@@ -366,7 +366,7 @@ if.end30:                                         ; preds = %if.then28, %if.end2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @save_user_format(ptr nocapture noundef initializes((332, 336)) %rev, ptr noundef %cp, i32 noundef %is_tformat) unnamed_addr #1 {
+define internal fastcc void @save_user_format(ptr nocapture noundef %rev, ptr noundef %cp, i32 noundef %is_tformat) unnamed_addr #1 {
 entry:
   %0 = load ptr, ptr @user_format, align 8
   tail call void @free(ptr noundef %0) #18
@@ -2643,7 +2643,7 @@ return:                                           ; preds = %for.inc, %land.lhs.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @expand_string_arg(ptr noundef returned initializes((8, 16)) %sb, ptr noundef %argval, i64 noundef %arglen) unnamed_addr #1 {
+define internal fastcc noundef ptr @expand_string_arg(ptr noundef returned %sb, ptr noundef %argval, i64 noundef %arglen) unnamed_addr #1 {
 entry:
   %format = alloca ptr, align 8
   %call = tail call ptr @xstrndup(ptr noundef %argval, i64 noundef %arglen) #18

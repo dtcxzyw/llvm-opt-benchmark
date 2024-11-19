@@ -147,7 +147,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_cirrus_vga_register_types, ptr null }]
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @cirrus_post_load(ptr noundef initializes((1106, 1108), (70588, 70592), (70596, 70600)) %opaque, i32 %version_id) #0 {
+define internal noundef i32 @cirrus_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %cirrus_shadow_gr0 = getelementptr inbounds i8, ptr %opaque, i64 70584
   %0 = load i8, ptr %cirrus_shadow_gr0, align 8
@@ -402,7 +402,7 @@ if.end:                                           ; preds = %if.then.i10, %do.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @cirrus_get_offsets(ptr nocapture noundef readonly %s1, ptr nocapture noundef writeonly initializes((0, 4)) %pline_offset, ptr nocapture noundef writeonly initializes((0, 4)) %pstart_addr, ptr nocapture noundef writeonly initializes((0, 4)) %pline_compare) #2 {
+define internal void @cirrus_get_offsets(ptr nocapture noundef readonly %s1, ptr nocapture noundef writeonly %pline_offset, ptr nocapture noundef writeonly %pstart_addr, ptr nocapture noundef writeonly %pline_compare) #2 {
 entry:
   %arrayidx = getelementptr i8, ptr %s1, i64 1408
   %0 = load i8, ptr %arrayidx, align 1
@@ -458,7 +458,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal void @cirrus_get_resolution(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly initializes((0, 4)) %pwidth, ptr nocapture noundef writeonly initializes((0, 4)) %pheight) #2 {
+define internal void @cirrus_get_resolution(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %pwidth, ptr nocapture noundef writeonly %pheight) #2 {
 entry:
   %arrayidx = getelementptr i8, ptr %s, i64 1390
   %0 = load i8, ptr %arrayidx, align 1
@@ -3639,7 +3639,7 @@ return:                                           ; preds = %if.end.i243, %lor.r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @cirrus_bitblt_fgcol(ptr nocapture noundef initializes((70676, 70680)) %s) unnamed_addr #2 {
+define internal fastcc void @cirrus_bitblt_fgcol(ptr nocapture noundef %s) unnamed_addr #2 {
 entry:
   %cirrus_blt_pixelwidth = getelementptr inbounds i8, ptr %s, i64 70656
   %0 = load i32, ptr %cirrus_blt_pixelwidth, align 16
@@ -3699,7 +3699,7 @@ sw.epilog:                                        ; preds = %entry, %sw.bb24, %s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @cirrus_bitblt_bgcol(ptr nocapture noundef initializes((70680, 70684)) %s) unnamed_addr #2 {
+define internal fastcc void @cirrus_bitblt_bgcol(ptr nocapture noundef %s) unnamed_addr #2 {
 entry:
   %cirrus_blt_pixelwidth = getelementptr inbounds i8, ptr %s, i64 70656
   %0 = load i32, ptr %cirrus_blt_pixelwidth, align 16

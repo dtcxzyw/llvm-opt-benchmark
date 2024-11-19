@@ -1565,7 +1565,7 @@ declare ptr @luaL_checklstring(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare ptr @strbuf_new(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_next_token(ptr nocapture noundef nonnull %json, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %token) unnamed_addr #0 {
+define internal fastcc void @json_next_token(ptr nocapture noundef nonnull %json, ptr nocapture noundef nonnull writeonly %token) unnamed_addr #0 {
 entry:
   %endptr.i = alloca ptr, align 8
   %digit.sroa.0.i66.i.i = alloca i32, align 16
@@ -2521,7 +2521,7 @@ cleanup32:                                        ; preds = %if.end27, %if.end25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @json_next_number_token(ptr nocapture noundef nonnull %json, ptr nocapture noundef nonnull writeonly initializes((0, 4), (16, 24)) %token) unnamed_addr #0 {
+define internal fastcc void @json_next_number_token(ptr nocapture noundef nonnull %json, ptr nocapture noundef nonnull writeonly %token) unnamed_addr #0 {
 entry:
   %endptr = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %endptr) #12

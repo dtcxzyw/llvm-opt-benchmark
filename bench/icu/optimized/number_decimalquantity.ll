@@ -569,7 +569,7 @@ entry:
 declare void @llvm.trap() #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantityC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(66) initializes((0, 9), (12, 22), (24, 56), (64, 66)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl15DecimalQuantityC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(66) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
   %bogus = getelementptr inbounds i8, ptr %this, i64 8
@@ -586,7 +586,7 @@ invoke.cont:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv(ptr nocapture noundef nonnull align 8 dereferenceable(66) initializes((12, 20), (21, 22), (24, 36), (44, 48)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl15DecimalQuantity12setBcdToZeroEv(ptr nocapture noundef nonnull align 8 dereferenceable(66) %this) local_unnamed_addr #1 align 2 {
 entry:
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes, align 8
@@ -619,7 +619,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantityD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(66) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl15DecimalQuantityD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(66) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
   %usingBytes = getelementptr inbounds i8, ptr %this, i64 64
@@ -661,7 +661,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantityC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(66) initializes((0, 9), (36, 48), (64, 66)) %this, ptr noundef nonnull readonly align 8 dereferenceable(66) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number4impl15DecimalQuantityC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull readonly align 8 dereferenceable(66) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
   %bogus = getelementptr inbounds i8, ptr %this, i64 8
@@ -780,7 +780,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantityC2EOS2_(ptr noundef nonnull align 8 dereferenceable(66) initializes((0, 9), (36, 48), (64, 66)) %this, ptr noundef nonnull align 8 dereferenceable(66) %src) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number4impl15DecimalQuantityC2EOS2_(ptr noundef nonnull align 8 dereferenceable(66) %this, ptr noundef nonnull align 8 dereferenceable(66) %src) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl15DecimalQuantityE, i64 16), ptr %this, align 8
   %bogus = getelementptr inbounds i8, ptr %this, i64 8
@@ -910,7 +910,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantity11copyBcdFromERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(66) initializes((12, 20), (21, 22), (24, 36), (44, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %other) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl15DecimalQuantity11copyBcdFromERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(66) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %other) local_unnamed_addr #1 align 2 {
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
@@ -1011,7 +1011,7 @@ if.end:                                           ; preds = %if.else, %_ZN6icu_7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantity14copyFieldsFromERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(66) initializes((8, 9), (12, 22), (24, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %other) local_unnamed_addr #12 align 2 {
+define void @_ZN6icu_756number4impl15DecimalQuantity14copyFieldsFromERKS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(66) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %other) local_unnamed_addr #12 align 2 {
 entry:
   %bogus = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i8, ptr %bogus, align 8
@@ -1058,7 +1058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantity11moveBcdFromERS2_(ptr nocapture noundef nonnull align 8 dereferenceable(66) initializes((12, 20), (21, 22), (24, 36), (44, 48)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(66) %other) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl15DecimalQuantity11moveBcdFromERS2_(ptr nocapture noundef nonnull align 8 dereferenceable(66) %this, ptr nocapture noundef nonnull align 8 dereferenceable(66) %other) local_unnamed_addr #1 align 2 {
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
@@ -1116,7 +1116,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantity5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(66) initializes((12, 22), (24, 48)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl15DecimalQuantity5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(66) %this) local_unnamed_addr #1 align 2 {
 entry:
   %lReqPos = getelementptr inbounds i8, ptr %this, i64 36
   store i32 0, ptr %lReqPos, align 4
@@ -1165,7 +1165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantity14setMinFractionEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(66) initializes((40, 44)) %this, i32 noundef %minFrac) local_unnamed_addr #10 align 2 {
+define void @_ZN6icu_756number4impl15DecimalQuantity14setMinFractionEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(66) %this, i32 noundef %minFrac) local_unnamed_addr #10 align 2 {
 entry:
   %sub = sub nsw i32 0, %minFrac
   %rReqPos = getelementptr inbounds i8, ptr %this, i64 40
@@ -1807,7 +1807,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity9setToLongEl(ptr noundef nonnull returned align 8 dereferenceable(66) initializes((12, 22), (24, 36), (44, 48)) %this, i64 noundef %n) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity9setToLongEl(ptr noundef nonnull returned align 8 dereferenceable(66) %this, i64 noundef %n) local_unnamed_addr #1 align 2 {
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
@@ -2259,7 +2259,7 @@ entry:
 declare void @_ZN6icu_756number4impl6DecNum10multiplyByERKS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(92), ptr noundef nonnull align 8 dereferenceable(92), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDecNumERKNS1_6DecNumER10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(66) initializes((12, 22), (24, 36), (44, 48)) %this, ptr noundef nonnull align 8 dereferenceable(92) %decnum, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDecNumERKNS1_6DecNumER10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(66) %this, ptr noundef nonnull align 8 dereferenceable(92) %decnum, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
@@ -3191,7 +3191,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity8setToIntEi(ptr noundef nonnull returned align 8 dereferenceable(66) initializes((12, 22), (24, 36), (44, 48)) %this, i32 noundef %n) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity8setToIntEi(ptr noundef nonnull returned align 8 dereferenceable(66) %this, i32 noundef %n) local_unnamed_addr #1 align 2 {
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
@@ -3668,7 +3668,7 @@ if.end:                                           ; preds = %for.body, %_ZN6icu_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull returned align 8 dereferenceable(66) initializes((12, 22), (24, 36), (44, 48)) %this, double noundef %n) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity11setToDoubleEd(ptr noundef nonnull returned align 8 dereferenceable(66) %this, double noundef %n) local_unnamed_addr #1 align 2 {
 entry:
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i8, ptr %usingBytes.i, align 8
@@ -3738,7 +3738,7 @@ if.end27:                                         ; preds = %if.then16, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantity16_setToDoubleFastEd(ptr nocapture noundef nonnull align 8 dereferenceable(66) initializes((21, 22), (24, 36)) %this, double noundef %n) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl15DecimalQuantity16_setToDoubleFastEd(ptr nocapture noundef nonnull align 8 dereferenceable(66) %this, double noundef %n) local_unnamed_addr #1 align 2 {
 entry:
   %buffer.i = alloca [18 x i8], align 16
   %sign.i = alloca i8, align 1
@@ -3885,7 +3885,7 @@ if.end34:                                         ; preds = %if.then32, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv(ptr nocapture noundef nonnull align 8 dereferenceable(66) initializes((12, 20), (21, 22), (44, 48)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756number4impl15DecimalQuantity23convertToAccurateDoubleEv(ptr nocapture noundef nonnull align 8 dereferenceable(66) %this) local_unnamed_addr #1 align 2 {
 entry:
   %buffer = alloca [18 x i8], align 16
   %sign = alloca i8, align 1
@@ -4042,7 +4042,7 @@ if.end:                                           ; preds = %for.body, %for.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(66) initializes((12, 22), (24, 36), (44, 48)) %this, ptr %n.coerce0, i32 %n.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantity14setToDecNumberENS_11StringPieceER10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(66) %this, ptr %n.coerce0, i32 %n.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %decnum = alloca %"class.icu_75::number::impl::DecNum", align 8
   %usingBytes.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -4717,7 +4717,7 @@ return:                                           ; preds = %return.loopexit31, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number4impl15DecimalQuantity18toScientificStringEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_756number4impl15DecimalQuantity18toScientificStringEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i50 = alloca i16, align 2
   %srcChar.addr.i47 = alloca i16, align 2
@@ -6662,7 +6662,7 @@ if.end14:                                         ; preds = %if.else, %_ZN6icu_7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number4impl15DecimalQuantity13toPlainStringEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_756number4impl15DecimalQuantity13toPlainStringEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i19 = alloca i16, align 2
   %srcChar.addr.i15 = alloca i16, align 2
@@ -6877,7 +6877,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc55, %if.end4
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString6appendEi(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_756number4impl15DecimalQuantity16toExponentStringEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_756number4impl15DecimalQuantity16toExponentStringEv(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(66) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i40 = alloca i16, align 2
   %srcChar.addr.i16 = alloca i16, align 2

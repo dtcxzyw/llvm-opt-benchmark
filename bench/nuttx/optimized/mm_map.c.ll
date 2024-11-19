@@ -45,7 +45,7 @@ define void @mm_map_unlock() local_unnamed_addr #0 {
 declare i32 @nxrmutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @mm_map_initialize(ptr noundef initializes((0, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define void @mm_map_initialize(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %4 = tail call i32 @nxrmutex_init(ptr noundef nonnull %3) #6

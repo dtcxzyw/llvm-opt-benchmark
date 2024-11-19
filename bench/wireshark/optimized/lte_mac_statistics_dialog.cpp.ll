@@ -1104,7 +1104,7 @@ declare void @_ZN15WiresharkDialog17setWindowSubtitleERK7QString(ptr noundef non
 declare void @_ZN19GeometryStateDialog12loadGeometryEiiRK7QString(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN22LteMacStatisticsDialog16clearCommonStatsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(329) initializes((288, 328)) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN22LteMacStatisticsDialog16clearCommonStatsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(329) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   ret void
@@ -1441,7 +1441,7 @@ define void @_ZN22LteMacStatisticsDialog13filterUpdatedE7QString(ptr noundef non
 declare void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(224)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN22LteMacStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(329) initializes((0, 8), (16, 24)) %0) unnamed_addr #1 align 2 {
+define void @_ZN22LteMacStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(329) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV22LteMacStatisticsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV22LteMacStatisticsDialog, i64 560), ptr %2, align 8
@@ -4217,7 +4217,7 @@ _ZN7QStringD2Ev.exit80:                           ; preds = %270, %_ZN17QArrayDa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22LteMacStatisticsDialog16filterExpressionEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(329) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22LteMacStatisticsDialog16filterExpressionEv(ptr dead_on_unwind noalias writable sret(%class.QString) align 8 %0, ptr noundef nonnull align 8 dereferenceable(329) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QList.15, align 8
   %4 = alloca %class.QList.15, align 8
   %5 = alloca %class.QString, align 8

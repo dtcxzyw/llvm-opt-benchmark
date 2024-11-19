@@ -91,7 +91,7 @@ $_ZNSt10_HashtableIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_
 @_ZN3net15SpdyHeaderBlockD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net15SpdyHeaderBlockD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net15SpdyHeaderBlock16StringPieceProxyC2EP15linked_hash_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_NS3_15StringPieceHashEEPNS0_7StorageESt14_List_iteratorISt4pairISB_SB_EESB_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %this, ptr noundef %block, ptr noundef %storage, ptr %lookup_result.coerce, ptr %key.coerce0, i64 %key.coerce1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net15SpdyHeaderBlock16StringPieceProxyC2EP15linked_hash_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESB_NS3_15StringPieceHashEEPNS0_7StorageESt14_List_iteratorISt4pairISB_SB_EESB_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this, ptr noundef %block, ptr noundef %storage, ptr %lookup_result.coerce, ptr %key.coerce0, i64 %key.coerce1) unnamed_addr #0 align 2 {
 entry:
   store ptr %block, ptr %this, align 8
   %storage_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -111,7 +111,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net15SpdyHeaderBlock16StringPieceProxyC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 41)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((40, 41)) %other) unnamed_addr #2 align 2 {
+define dso_local void @_ZN3net15SpdyHeaderBlock16StringPieceProxyC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this, ptr nocapture noundef nonnull align 8 dereferenceable(41) %other) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8
@@ -134,7 +134,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(41) ptr @_ZN3net15SpdyHeaderBlock16StringPieceProxyaSEOS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(41) initializes((0, 41)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((40, 41)) %other) local_unnamed_addr #2 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(41) ptr @_ZN3net15SpdyHeaderBlock16StringPieceProxyaSEOS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(41) %this, ptr nocapture noundef nonnull align 8 dereferenceable(41) %other) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %other, align 8
   store ptr %0, ptr %this, align 8
@@ -389,7 +389,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net15SpdyHeaderBlockC2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((32, 40)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net15SpdyHeaderBlockC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %0, align 8
@@ -412,7 +412,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net15SpdyHeaderBlockC2EOS0_(ptr noundef nonnull align 8 dereferenceable(88) initializes((32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(88) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net15SpdyHeaderBlockC2EOS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   store i64 0, ptr %0, align 8
@@ -631,7 +631,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK3net15SpdyHeaderBlock5CloneEv(ptr noalias sret(%"class.net::SpdyHeaderBlock") align 8 initializes((32, 40)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK3net15SpdyHeaderBlock5CloneEv(ptr noalias sret(%"class.net::SpdyHeaderBlock") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(88) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 0, ptr %0, align 8
@@ -1202,7 +1202,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net15SpdyHeaderBlockixEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noalias nocapture writeonly sret(%"class.net::SpdyHeaderBlock::StringPieceProxy") align 8 initializes((0, 41)) %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr %key.coerce0, i64 %key.coerce1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN3net15SpdyHeaderBlockixEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noalias nocapture writeonly sret(%"class.net::SpdyHeaderBlock::StringPieceProxy") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(88) %this, ptr %key.coerce0, i64 %key.coerce1) local_unnamed_addr #6 align 2 {
 entry:
   %retval.i = alloca %"class.base::BasicStringPiece", align 8
   %s.i = alloca %"class.base::BasicStringPiece", align 8

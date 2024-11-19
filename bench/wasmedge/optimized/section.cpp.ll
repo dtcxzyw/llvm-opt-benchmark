@@ -1293,7 +1293,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = linkonce_odr constant [16 x i8] zeroinitializer, comdat, align 8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13CustomSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(72) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13CustomSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(72) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.368", align 8
   %5 = alloca %"class.cxx20::unexpected", align 4
   %6 = alloca %"class.WasmEdge::ErrCode", align 4
@@ -1572,7 +1572,7 @@ _ZN5cxx208expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8WasmEdg
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11TypeSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11TypeSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"class.cxx20::expected.190", align 4
@@ -2002,7 +2002,7 @@ _ZNSt6vectorIN8WasmEdge3AST7SubTypeESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit21.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13ImportSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13ImportSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -2221,7 +2221,7 @@ _ZNSt6vectorIN8WasmEdge3AST10ImportDescESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST15FunctionSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST15FunctionSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"struct.spdlog::source_loc", align 8
@@ -2454,7 +2454,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit.i.i.i.i:       ; preds = %70, %68, %66, %64
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST12TableSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST12TableSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -2674,7 +2674,7 @@ _ZNSt6vectorIN8WasmEdge3AST12TableSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13MemorySectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13MemorySectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -2883,7 +2883,7 @@ _ZNSt6vectorIN8WasmEdge3AST10MemoryTypeESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13GlobalSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13GlobalSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -3103,7 +3103,7 @@ _ZNSt6vectorIN8WasmEdge3AST13GlobalSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13ExportSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST13ExportSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -3320,7 +3320,7 @@ _ZNSt6vectorIN8WasmEdge3AST10ExportDescESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST12StartSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST12StartSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.190", align 4
   %5 = alloca %"class.WasmEdge::ErrCode", align 4
   %6 = alloca %"class.cxx20::expected.190", align 4
@@ -3444,7 +3444,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST12StartSectionE(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST14ElementSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST14ElementSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -3660,7 +3660,7 @@ _ZNSt6vectorIN8WasmEdge3AST14ElementSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11CodeSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11CodeSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -3876,7 +3876,7 @@ _ZNSt6vectorIN8WasmEdge3AST11CodeSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11DataSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST11DataSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -4096,7 +4096,7 @@ _ZNSt6vectorIN8WasmEdge3AST11DataSegmentESaIS2_EE6resizeEm.exit.i.i.i.i: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST16DataCountSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST16DataCountSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.190", align 4
   %5 = alloca %"class.WasmEdge::ErrCode", align 4
   %6 = alloca %"class.cxx20::expected.190", align 4
@@ -4220,7 +4220,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST16DataCountSectionE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST10TagSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST10TagSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -5441,7 +5441,7 @@ _ZN5cxx206detail25expected_move_assign_baseISt4pairISt6vectorIhSaIhEES5_EN8WasmE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST17CoreModuleSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(728) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST17CoreModuleSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(728) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"class.cxx20::expected.104", align 8
@@ -5866,7 +5866,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit53.i.i:              ; preds = %138, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component12AliasSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component12AliasSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -6098,7 +6098,7 @@ _ZNSt6vectorIN8WasmEdge3AST9Component5AliasESaIS3_EE6resizeEm.exit.i.i.i.i: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component19CoreInstanceSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component19CoreInstanceSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -6279,7 +6279,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component19CoreIns
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component15CoreTypeSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component15CoreTypeSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -6499,7 +6499,7 @@ _ZNSt6vectorISt7variantIJN8WasmEdge3AST12FunctionTypeENS2_9Component10ModuleType
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component11TypeSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component11TypeSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %class.anon.735, align 1
   %6 = alloca %"class.cxx20::expected.190", align 4
@@ -6738,7 +6738,7 @@ _ZNSt6vectorISt7variantIJS0_IJN8WasmEdge3AST9Component11PrimValTypeENS3_6RecordE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component12StartSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(56) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component12StartSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.190", align 4
   %5 = alloca %"class.cxx20::unexpected", align 4
   %6 = alloca %"class.WasmEdge::ErrCode", align 4
@@ -6851,7 +6851,7 @@ define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component12StartSe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component12CanonSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component12CanonSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -7107,7 +7107,7 @@ _ZNSt6vectorISt7variantIJN8WasmEdge3AST9Component4LiftENS3_5LowerENS3_11Resource
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component13ImportSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component13ImportSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -7323,7 +7323,7 @@ _ZNSt6vectorIN8WasmEdge3AST9Component6ImportESaIS3_EE6resizeEm.exit.i.i.i.i: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component13ExportSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component13ExportSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4
@@ -7539,7 +7539,7 @@ _ZNSt6vectorIN8WasmEdge3AST9Component6ExportESaIS3_EE6resizeEm.exit.i.i.i.i: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component15InstanceSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSectionERNS_3AST9Component15InstanceSectionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"class.cxx20::expected.190", align 4
   %6 = alloca %"class.cxx20::unexpected", align 4

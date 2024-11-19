@@ -764,7 +764,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @return_io_pending(ptr noundef initializes((48, 56)) %io) local_unnamed_addr #0 {
+define dso_local void @return_io_pending(ptr noundef %io) local_unnamed_addr #0 {
 entry:
   %u = alloca i64, align 8
   %thread = getelementptr inbounds i8, ptr %io, i64 8
@@ -806,7 +806,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 declare void @perror(ptr nocapture noundef readonly) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @sidethread_conn_close(ptr nocapture noundef initializes((20, 24)) %c) local_unnamed_addr #0 {
+define dso_local void @sidethread_conn_close(ptr nocapture noundef %c) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 32), align 8
   %cmp = icmp sgt i32 %0, 1
@@ -868,7 +868,7 @@ entry:
 declare ptr @do_item_get(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @item_get_locked(ptr noundef %key, i64 noundef %nkey, ptr noundef %t, i1 noundef zeroext %do_update, ptr nocapture noundef initializes((0, 4)) %hv) local_unnamed_addr #0 {
+define dso_local ptr @item_get_locked(ptr noundef %key, i64 noundef %nkey, ptr noundef %t, i1 noundef zeroext %do_update, ptr nocapture noundef %hv) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @hash, align 8
   %call = tail call i32 %0(ptr noundef %key, i64 noundef %nkey) #15
@@ -1149,7 +1149,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @threadlocal_stats_aggregate(ptr noundef initializes((0, 6448)) %stats) local_unnamed_addr #0 {
+define dso_local void @threadlocal_stats_aggregate(ptr noundef %stats) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6448) %stats, i8 0, i64 6448, i1 false)
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @settings, i64 92), align 4
@@ -1464,7 +1464,7 @@ for.end289:                                       ; preds = %for.end266, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @slab_stats_aggregate(ptr nocapture noundef readonly %stats, ptr nocapture noundef writeonly initializes((0, 64)) %out) local_unnamed_addr #7 {
+define dso_local void @slab_stats_aggregate(ptr nocapture noundef readonly %stats, ptr nocapture noundef writeonly %out) local_unnamed_addr #7 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %out, i8 0, i64 64, i1 false)
   %slab_stats = getelementptr inbounds i8, ptr %stats, i64 280
@@ -1877,7 +1877,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @worker_libevent(ptr nocapture noundef initializes((6912, 6928)) %arg) #0 {
+define internal noalias noundef ptr @worker_libevent(ptr nocapture noundef %arg) #0 {
 entry:
   %call = tail call ptr @logger_create() #15
   %l = getelementptr inbounds i8, ptr %arg, i64 6912

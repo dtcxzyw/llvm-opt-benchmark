@@ -468,7 +468,7 @@ $_ZN4llvh8DenseMapIPN6hermes12UniqueStringEPNS1_6ESTree14IdentifierNodeENS_12Den
 @_ZN6hermes6parser6detail12JSParserImplC1ERNS_7ContextEjNS0_10ParserPassE = hidden unnamed_addr alias void (ptr, ptr, i32, i32), ptr @_ZN6hermes6parser6detail12JSParserImplC2ERNS_7ContextEjNS0_10ParserPassE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser6detail12JSParserImplC2ERNS_7ContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(2752) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(656) %context, ptr nocapture noundef %input) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes6parser6detail12JSParserImplC2ERNS_7ContextESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS7_EE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef nonnull align 8 dereferenceable(656) %context, ptr nocapture noundef %input) unnamed_addr #0 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr", align 8
   store ptr %context, ptr %this, align 8
@@ -525,7 +525,7 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 declare void @_ZN6hermes6parser7JSLexerC1ESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS4_EERNS_18SourceErrorManagerERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableEbb(ptr noundef nonnull align 8 dereferenceable(1128), ptr noundef, ptr noundef nonnull align 8 dereferenceable(464), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser6detail12JSParserImpl21initializeIdentifiersEv(ptr noundef nonnull align 8 dereferenceable(2752) initializes((1208, 1776)) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes6parser6detail12JSParserImpl21initializeIdentifiersEv(ptr noundef nonnull align 8 dereferenceable(2752) %this) local_unnamed_addr #0 align 2 {
 entry:
   %strTab_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %strTab_.i, align 8
@@ -846,7 +846,7 @@ for.end:                                          ; preds = %_ZN4llvh9StringRefC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser6detail12JSParserImplC2ERNS_7ContextEjNS0_10ParserPassE(ptr noundef nonnull align 8 dereferenceable(2752) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(656) %context, i32 noundef %bufferId, i32 noundef %pass) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes6parser6detail12JSParserImplC2ERNS_7ContextEjNS0_10ParserPassE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr noundef nonnull align 8 dereferenceable(656) %context, i32 noundef %bufferId, i32 noundef %pass) unnamed_addr #0 align 2 {
 entry:
   store ptr %context, ptr %this, align 8
   %sm_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -29806,7 +29806,7 @@ return:                                           ; preds = %entry, %_ZN6hermes6
 declare noundef zeroext i1 @_ZN6hermes6parser7JSLexer24isCurrentTokenADirectiveEv(ptr noundef nonnull align 8 dereferenceable(1128)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl14preParseBufferERNS_7ContextEjRb(ptr noundef nonnull align 8 dereferenceable(656) %context, i32 noundef %bufferId, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %useStaticBuiltinDetected) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl14preParseBufferERNS_7ContextEjRb(ptr noundef nonnull align 8 dereferenceable(656) %context, i32 noundef %bufferId, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %useStaticBuiltinDetected) local_unnamed_addr #0 align 2 {
 entry:
   %parser = alloca %"class.hermes::parser::detail::JSParserImpl", align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #18
@@ -29970,7 +29970,7 @@ _ZN6hermes15AllocationScopeD2Ev.exit:             ; preds = %_ZN4llvh23SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl17parseLazyFunctionENS_6ESTree8NodeKindEbbN4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) initializes((160, 168)) %this, i32 noundef %kind, i1 noundef zeroext %paramYield, i1 noundef zeroext %paramAwait, ptr %start.coerce) local_unnamed_addr #0 align 2 {
+define hidden { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl17parseLazyFunctionENS_6ESTree8NodeKindEbbN4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef %kind, i1 noundef zeroext %paramYield, i1 noundef zeroext %paramAwait, ptr %start.coerce) local_unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %paramYield to i8
   %frombool1 = zext i1 %paramAwait to i8

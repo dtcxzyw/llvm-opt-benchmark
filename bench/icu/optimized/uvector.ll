@@ -33,7 +33,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_757UVectorC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_757UVectorC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757UVectorE, i64 16), ptr %this, align 8
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -72,7 +72,7 @@ _ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %d, ptr noundef %c, i32 noundef %initialCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d, ptr noundef %c, i32 noundef %initialCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757UVectorE, i64 16), ptr %this, align 8
   %count = getelementptr inbounds i8, ptr %this, i64 8
@@ -120,7 +120,7 @@ if.end12:                                         ; preds = %entry, %if.else, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_757UVectorC2EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, i32 noundef %initialCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_757UVectorC2EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %initialCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757UVectorE, i64 16), ptr %this, align 8
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -164,7 +164,7 @@ _ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %d, ptr noundef %c, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d, ptr noundef %c, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757UVectorE, i64 16), ptr %this, align 8
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -215,7 +215,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #2
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_757UVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_757UVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757UVectorE, i64 16), ptr %this, align 8
   %deleter.i = getelementptr inbounds i8, ptr %this, i64 24

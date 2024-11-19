@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN11StringDedup10StorageUseC1EP10OopStorage = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN11StringDedup10StorageUseC2EP10OopStorage
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN11StringDedup10StorageUseC2EP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11StringDedup10StorageUseC2EP10OopStorage(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store volatile i64 0, ptr %3, align 8

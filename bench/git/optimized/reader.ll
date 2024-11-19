@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 1) i32 @init_reader(ptr nocapture noundef initializes((0, 136)) %r, ptr nocapture noundef readonly %source, ptr noundef %name) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @init_reader(ptr nocapture noundef %r, ptr nocapture noundef readonly %source, ptr noundef %name) local_unnamed_addr #0 {
 entry:
   %footer = alloca %struct.reftable_block, align 8
   %header = alloca %struct.reftable_block, align 8
@@ -1353,7 +1353,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @reftable_table_from_reader(ptr nocapture noundef writeonly initializes((0, 16)) %tab, ptr noundef %reader) local_unnamed_addr #6 {
+define dso_local void @reftable_table_from_reader(ptr nocapture noundef writeonly %tab, ptr noundef %reader) local_unnamed_addr #6 {
 entry:
   store ptr @reader_vtable, ptr %tab, align 8
   %table_arg = getelementptr inbounds i8, ptr %tab, i64 8

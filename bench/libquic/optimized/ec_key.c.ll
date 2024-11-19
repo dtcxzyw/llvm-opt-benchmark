@@ -482,7 +482,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EC_KEY_set_enc_flags(ptr nocapture noundef writeonly initializes((24, 28)) %key, i32 noundef %flags) local_unnamed_addr #5 {
+define hidden void @EC_KEY_set_enc_flags(ptr nocapture noundef writeonly %key, i32 noundef %flags) local_unnamed_addr #5 {
 entry:
   %enc_flag = getelementptr inbounds i8, ptr %key, i64 24
   store i32 %flags, ptr %enc_flag, align 8
@@ -498,7 +498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @EC_KEY_set_conv_form(ptr nocapture noundef writeonly initializes((28, 32)) %key, i32 noundef %cform) local_unnamed_addr #5 {
+define hidden void @EC_KEY_set_conv_form(ptr nocapture noundef writeonly %key, i32 noundef %cform) local_unnamed_addr #5 {
 entry:
   %conv_form = getelementptr inbounds i8, ptr %key, i64 28
   store i32 %cform, ptr %conv_form, align 4

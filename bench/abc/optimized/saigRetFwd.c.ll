@@ -319,7 +319,7 @@ declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #4
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
+define ptr @Saig_ManRetimeForwardOne(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #3 {
   tail call void @Saig_ManMarkAutonomous(ptr noundef %0)
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #13
   store i32 0, ptr %1, align 4

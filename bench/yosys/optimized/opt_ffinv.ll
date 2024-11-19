@@ -824,7 +824,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNK5Yosys5RTLIL6Design16selected_modulesEv(ptr dead_on_unwind writable sret(%"class.std::vector.3") align 8, ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114OptFfInvWorkerC2EPN5Yosys5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 4), (8, 16)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114OptFfInvWorkerC2EPN5Yosys5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Yosys::hashlib::pool.168", align 8
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4

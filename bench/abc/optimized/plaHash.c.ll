@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [3 x i8] c" }\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Pla_ManHashCubes(ptr nocapture noundef initializes((60, 64)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Pla_ManHashCubes(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 0, ptr %4, align 4
@@ -699,7 +699,7 @@ define void @Pla_ManHashCubes2(ptr nocapture noundef readonly %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Vec_IntCopySkip(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
+define void @Vec_IntCopySkip(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %0, i64 4

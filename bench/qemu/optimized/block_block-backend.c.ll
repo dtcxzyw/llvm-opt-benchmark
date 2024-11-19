@@ -265,7 +265,7 @@ do.end:                                           ; preds = %entry
 declare noalias ptr @g_malloc0_n(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @blk_set_enable_write_cache(ptr nocapture noundef writeonly initializes((280, 281)) %blk, i1 noundef zeroext %wce) local_unnamed_addr #4 {
+define dso_local void @blk_set_enable_write_cache(ptr nocapture noundef writeonly %blk, i1 noundef zeroext %wce) local_unnamed_addr #4 {
 entry:
   %frombool = zext i1 %wce to i8
   %enable_write_cache = getelementptr inbounds i8, ptr %blk, i64 280
@@ -2571,7 +2571,7 @@ if.end4:                                          ; preds = %if.then1, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @blk_set_allow_write_beyond_eof(ptr nocapture noundef writeonly initializes((826, 827)) %blk, i1 noundef zeroext %allow) local_unnamed_addr #4 {
+define dso_local void @blk_set_allow_write_beyond_eof(ptr nocapture noundef writeonly %blk, i1 noundef zeroext %allow) local_unnamed_addr #4 {
 entry:
   %frombool = zext i1 %allow to i8
   %allow_write_beyond_eof = getelementptr inbounds i8, ptr %blk, i64 826
@@ -2580,7 +2580,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @blk_set_allow_aio_context_change(ptr nocapture noundef writeonly initializes((825, 826)) %blk, i1 noundef zeroext %allow) local_unnamed_addr #4 {
+define dso_local void @blk_set_allow_aio_context_change(ptr nocapture noundef writeonly %blk, i1 noundef zeroext %allow) local_unnamed_addr #4 {
 entry:
   %frombool = zext i1 %allow to i8
   %allow_aio_context_change = getelementptr inbounds i8, ptr %blk, i64 825
@@ -3381,7 +3381,7 @@ return:                                           ; preds = %entry, %blk_bs.exit
 declare i64 @bdrv_nb_sectors(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @blk_co_get_geometry(ptr nocapture noundef readonly %blk, ptr nocapture noundef writeonly initializes((0, 8)) %nb_sectors_ptr) #0 {
+define dso_local void @blk_co_get_geometry(ptr nocapture noundef readonly %blk, ptr nocapture noundef writeonly %nb_sectors_ptr) #0 {
 entry:
   %root.i.i = getelementptr inbounds i8, ptr %blk, i64 16
   %0 = load ptr, ptr %root.i.i, align 8
@@ -3411,7 +3411,7 @@ blk_co_nb_sectors.exit:                           ; preds = %blk_bs.exit.thread.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @blk_get_geometry(ptr nocapture noundef readonly %blk, ptr nocapture noundef writeonly initializes((0, 8)) %nb_sectors_ptr) #0 {
+define dso_local void @blk_get_geometry(ptr nocapture noundef readonly %blk, ptr nocapture noundef writeonly %nb_sectors_ptr) #0 {
 entry:
   %root.i.i = getelementptr inbounds i8, ptr %blk, i64 16
   %0 = load ptr, ptr %root.i.i, align 8
@@ -3789,7 +3789,7 @@ blk_aio_prwv.exit:                                ; preds = %blk_aio_get.exit.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_ioctl_entry(ptr noundef initializes((64, 68)) %opaque) #0 {
+define internal void @blk_aio_ioctl_entry(ptr noundef %opaque) #0 {
 entry:
   %rwco1 = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %rwco1, align 8
@@ -3871,7 +3871,7 @@ blk_aio_prwv.exit:                                ; preds = %blk_aio_get.exit.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_pdiscard_entry(ptr noundef initializes((64, 68)) %opaque) #0 {
+define internal void @blk_aio_pdiscard_entry(ptr noundef %opaque) #0 {
 entry:
   %rwco1 = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %rwco1, align 8
@@ -4025,7 +4025,7 @@ blk_aio_prwv.exit:                                ; preds = %blk_aio_get.exit.i,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_flush_entry(ptr noundef initializes((64, 68)) %opaque) #0 {
+define internal void @blk_aio_flush_entry(ptr noundef %opaque) #0 {
 entry:
   %rwco1 = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %rwco1, align 8
@@ -4221,7 +4221,7 @@ if.end:                                           ; preds = %if.then, %blk_aio_g
 declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_zone_report_entry(ptr noundef initializes((64, 68)) %opaque) #0 {
+define internal void @blk_aio_zone_report_entry(ptr noundef %opaque) #0 {
 entry:
   %rwco1 = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %rwco1, align 8
@@ -4339,7 +4339,7 @@ if.end:                                           ; preds = %if.then, %blk_aio_g
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_zone_mgmt_entry(ptr noundef initializes((64, 68)) %opaque) #0 {
+define internal void @blk_aio_zone_mgmt_entry(ptr noundef %opaque) #0 {
 entry:
   %rwco1 = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %rwco1, align 8
@@ -4426,7 +4426,7 @@ if.end:                                           ; preds = %if.then, %blk_aio_g
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @blk_aio_zone_append_entry(ptr noundef initializes((64, 68)) %opaque) #0 {
+define internal void @blk_aio_zone_append_entry(ptr noundef %opaque) #0 {
 entry:
   %rwco1 = getelementptr inbounds i8, ptr %opaque, i64 40
   %0 = load ptr, ptr %rwco1, align 8

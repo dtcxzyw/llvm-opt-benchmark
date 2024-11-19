@@ -1244,7 +1244,7 @@ _ZNSt8_Rb_treeI7QStringSt4pairIKS0_15UniformVariableESt10_Select1stIS4_ESt4lessI
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22MeshShaderRenderPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((104, 113)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22MeshShaderRenderPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112
@@ -1362,14 +1362,14 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK22MeshShaderRenderPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1) unnamed_addr #10 align 2 {
+define void @_ZNK22MeshShaderRenderPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 9)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK22MeshShaderRenderPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define void @_ZTv0_n40_NK22MeshShaderRenderPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 9), !noalias !14
   store ptr %3, ptr %0, align 8, !alias.scope !14
@@ -1377,7 +1377,7 @@ define void @_ZTv0_n40_NK22MeshShaderRenderPlugin10pluginNameEv(ptr dead_on_unwi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22MeshShaderRenderPlugin7actionsEv(ptr dead_on_unwind noalias writable sret(%class.QList) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22MeshShaderRenderPlugin7actionsEv(ptr dead_on_unwind noalias writable sret(%class.QList) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -1432,7 +1432,7 @@ _ZN5QListIP7QActionEC2ERKS2_.exit:                ; preds = %_ZN9QtPrivate8RefCo
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N22MeshShaderRenderPlugin7actionsEv(ptr dead_on_unwind noalias writable sret(%class.QList) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N22MeshShaderRenderPlugin7actionsEv(ptr dead_on_unwind noalias writable sret(%class.QList) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8, !noalias !17

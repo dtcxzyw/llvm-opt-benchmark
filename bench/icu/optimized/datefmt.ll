@@ -78,7 +78,7 @@ $_ZTVN6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEEE = comdat any
 @_ZN6icu_7510DateFormatD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7510DateFormatD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518DateFmtBestPatternD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518DateFmtBestPatternD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518DateFmtBestPatternE, i64 16), ptr %this, align 8
   %fPattern = getelementptr inbounds i8, ptr %this, i64 24
@@ -105,14 +105,14 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noalias noundef ptr @_ZNK6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEE12createObjectEPKvR10UErrorCode(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %status) unnamed_addr #2 align 2 {
+define noalias noundef ptr @_ZNK6icu_7514LocaleCacheKeyINS_18DateFmtBestPatternEE12createObjectEPKvR10UErrorCode(ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) unnamed_addr #2 align 2 {
 entry:
   store i32 16, ptr %status, align 4
   ret ptr null
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7521DateFmtBestPatternKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7521DateFmtBestPatternKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521DateFmtBestPatternKeyE, i64 16), ptr %this, align 8
   %fSkeleton = getelementptr inbounds i8, ptr %this, i64 240
@@ -294,7 +294,7 @@ if.end28:                                         ; preds = %if.end24, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7510DateFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7510DateFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510DateFormatE, i64 16), ptr %this, align 8
   %fCalendar = getelementptr inbounds i8, ptr %this, i64 328

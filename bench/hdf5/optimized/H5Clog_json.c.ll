@@ -71,7 +71,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5C__json_write_remove_entry_log_msg = private unnamed_addr constant [37 x i8] c"H5C__json_write_remove_entry_log_msg\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__log_json_set_up(ptr nocapture noundef writeonly initializes((8, 24)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C__log_json_set_up(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @H5C_json_log_class_g, ptr %4, align 8
   %5 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #8

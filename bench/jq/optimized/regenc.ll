@@ -965,7 +965,7 @@ define range(i32 0, 2) i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @onigenc_ascii_mbc_case_fold(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) local_unnamed_addr #12 {
+define noundef i32 @onigenc_ascii_mbc_case_fold(i32 noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readnone %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #12 {
   %5 = load ptr, ptr %1, align 8
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
@@ -998,7 +998,7 @@ define noundef range(i32 -400, 2) i32 @onigenc_single_byte_code_to_mbclen(i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @onigenc_single_byte_code_to_mbc(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #13 {
+define noundef i32 @onigenc_single_byte_code_to_mbc(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #13 {
   %3 = trunc i32 %0 to i8
   store i8 %3, ptr %1, align 1
   ret i32 1

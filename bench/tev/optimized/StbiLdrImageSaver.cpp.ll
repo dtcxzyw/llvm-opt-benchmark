@@ -997,7 +997,7 @@ define dso_local range(i32 0, 2) i32 @stbi_write_tga(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z21stbiw__linear_to_rgbePhPf(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
+define dso_local void @_Z21stbiw__linear_to_rgbePhPf(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #4 {
   %3 = load float, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   %5 = load float, ptr %4, align 4

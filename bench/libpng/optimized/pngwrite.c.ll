@@ -986,7 +986,7 @@ declare void @png_benign_error(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @png_write_IEND(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @png_convert_from_struct_tm(ptr nocapture noundef writeonly initializes((0, 7)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
+define void @png_convert_from_struct_tm(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = trunc i32 %4 to i16
@@ -1021,7 +1021,7 @@ define void @png_convert_from_struct_tm(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_convert_from_time_t(ptr nocapture noundef writeonly initializes((0, 7)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @png_convert_from_time_t(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   store i64 %1, ptr %3, align 8
   %4 = call ptr @gmtime(ptr noundef nonnull %3) #15

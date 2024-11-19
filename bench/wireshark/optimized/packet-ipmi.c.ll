@@ -2356,7 +2356,7 @@ declare noalias ptr @wmem_list_new(ptr noundef) local_unnamed_addr #1
 declare void @conversation_add_proto_data(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @get_len_binary(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture readnone %2, i32 %3, i32 noundef %4, i32 %5) #8 {
+define internal void @get_len_binary(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, i32 %3, i32 noundef %4, i32 %5) #8 {
   %7 = mul i32 %4, 3
   store i32 %7, ptr %0, align 4
   store i32 %4, ptr %1, align 4
@@ -2577,7 +2577,7 @@ default.unreachable:                              ; preds = %._crit_edge
 declare i32 @tvb_get_letoh24(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @get_len_8bit_ascii(ptr nocapture noundef initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
+define internal void @get_len_8bit_ascii(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 %5) #0 {
   store i32 %4, ptr %1, align 4
   store i32 0, ptr %0, align 4
   %.not = icmp eq i32 %4, 0
@@ -2636,7 +2636,7 @@ define internal void @parse_8bit_ascii(ptr noundef writeonly %0, ptr noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @get_len_unicode(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture readnone %2, i32 %3, i32 noundef %4, i32 noundef %5) #8 {
+define internal void @get_len_unicode(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2, i32 %3, i32 noundef %4, i32 noundef %5) #8 {
   %.not = icmp eq i32 %5, 0
   %.sink.v = select i1 %.not, i32 6, i32 3
   %.sink = mul i32 %4, %.sink.v

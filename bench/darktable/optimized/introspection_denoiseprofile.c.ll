@@ -887,7 +887,7 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly initializes((0, 12), (16, 32)) %4) local_unnamed_addr #8 {
+define void @tiling_callback(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #8 {
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 16, !tbaa !86
   %8 = getelementptr inbounds i8, ptr %7, i64 56
@@ -3666,7 +3666,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #12 {
+define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #12 {
   %2 = tail call noalias dereferenceable_or_null(68) ptr @malloc(i64 noundef 68) #27
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !201
@@ -3999,7 +3999,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #15 {
+define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #15 {
   %4 = tail call noalias dereferenceable_or_null(304) ptr @malloc(i64 noundef 304) #27
   %5 = getelementptr inbounds i8, ptr %0, i64 688
   %6 = load ptr, ptr %5, align 16, !tbaa !187
@@ -4560,7 +4560,7 @@ define void @gui_reset(ptr nocapture noundef readonly %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 2304) #21
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

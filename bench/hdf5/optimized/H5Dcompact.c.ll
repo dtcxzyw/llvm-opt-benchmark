@@ -200,7 +200,7 @@ define internal noundef zeroext i1 @H5D__compact_is_space_alloc(ptr nocapture re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__compact_io_init(ptr nocapture noundef initializes((168, 172)) %0, ptr nocapture noundef initializes((192, 200)) %1) #2 {
+define internal noundef i32 @H5D__compact_io_init(ptr nocapture noundef %0, ptr nocapture noundef %1) #2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8

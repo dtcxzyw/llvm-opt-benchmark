@@ -1386,7 +1386,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb3Env13GetFi
 declare void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb15ForwardIteratorD2Ev(ptr noundef nonnull align 16 dereferenceable(2800) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15ForwardIteratorD2Ev(ptr noundef nonnull align 16 dereferenceable(2800) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb15ForwardIteratorE, i64 16), ptr %this, align 16
   invoke void @_ZN7rocksdb15ForwardIterator7CleanupEb(ptr noundef nonnull align 16 dereferenceable(2800) %this, i1 noundef zeroext true)
@@ -6647,7 +6647,7 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPPN7rocksdb20InternalIteratorBaseI
 }
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb15ForwardIterator13UpdateCurrentEv(ptr nocapture noundef nonnull align 16 dereferenceable(2800) initializes((360, 369), (409, 410)) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15ForwardIterator13UpdateCurrentEv(ptr nocapture noundef nonnull align 16 dereferenceable(2800) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i24 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp.i = alloca %"class.rocksdb::Slice", align 8
@@ -7914,7 +7914,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15ForwardIterator11GetPropertyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS6_(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(2800) %this, ptr noundef nonnull %prop_name, ptr noundef %prop) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb15ForwardIterator11GetPropertyENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS6_(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 16 dereferenceable(2800) %this, ptr noundef nonnull %prop_name, ptr noundef %prop) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %prop_name, ptr noundef nonnull @.str) #23
@@ -8094,7 +8094,7 @@ eh.resume:                                        ; preds = %lpad1, %lpad.body
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb15ForwardIterator17SetPinnedItersMgrEPNS_22PinnedIteratorsManagerE(ptr nocapture noundef nonnull align 16 dereferenceable(2800) initializes((496, 504)) %this, ptr noundef %pinned_iters_mgr) unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb15ForwardIterator17SetPinnedItersMgrEPNS_22PinnedIteratorsManagerE(ptr nocapture noundef nonnull align 16 dereferenceable(2800) %this, ptr noundef %pinned_iters_mgr) unnamed_addr #3 align 2 {
 entry:
   %pinned_iters_mgr_ = getelementptr inbounds i8, ptr %this, i64 496
   store ptr %pinned_iters_mgr, ptr %pinned_iters_mgr_, align 16

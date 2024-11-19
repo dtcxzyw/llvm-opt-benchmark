@@ -1197,7 +1197,7 @@ declare i32 @H5O_loc_copy_shallow(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @H5G_name_copy(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @H5T_update_shared(ptr nocapture noundef initializes((0, 4), (8, 20), (24, 28), (32, 40)) %0) local_unnamed_addr #2 {
+define noundef i32 @H5T_update_shared(ptr nocapture noundef %0) local_unnamed_addr #2 {
   store i32 2, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8

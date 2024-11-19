@@ -605,7 +605,7 @@ define dso_local i32 @GetAuthenticatedUserId() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @GetUserIdAndSecContext(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #9 {
+define dso_local void @GetUserIdAndSecContext(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @CurrentUserId, align 4
   store i32 %3, ptr %0, align 4
   %4 = load i32, ptr @SecurityRestrictionContext, align 4
@@ -645,7 +645,7 @@ define dso_local zeroext i1 @InNoForceRLSOperation() local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @GetUserIdAndContext(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #9 {
+define dso_local void @GetUserIdAndContext(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
   %3 = load i32, ptr @CurrentUserId, align 4
   store i32 %3, ptr %0, align 4
   %4 = load i32, ptr @SecurityRestrictionContext, align 4
@@ -987,7 +987,7 @@ declare i64 @add_size(i64 noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @SerializeClientConnectionInfo(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #12 {
+define dso_local void @SerializeClientConnectionInfo(i64 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @MyClientConnectionInfo, i64 8), align 8
   %4 = load ptr, ptr @MyClientConnectionInfo, align 8
   %.not = icmp eq ptr %4, null

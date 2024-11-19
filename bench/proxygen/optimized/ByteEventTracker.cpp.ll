@@ -113,7 +113,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen16ByteEventTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16ByteEventTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen16ByteEventTrackerE, i64 16), ptr %this, align 8
   %m_header.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -280,7 +280,7 @@ _ZN5boost9intrusive9list_implINS0_8mhtraitsIN8proxygen9ByteEventENS0_16list_memb
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8proxygen16ByteEventTracker17processByteEventsESt10shared_ptrIS0_Em(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 16)) %this, ptr nocapture noundef readonly %self, i64 noundef %bytesWritten) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN8proxygen16ByteEventTracker17processByteEventsESt10shared_ptrIS0_Em(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %self, i64 noundef %bytesWritten) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp55 = alloca %"class.google::LogMessage", align 8
   %bytesWritten_9 = getelementptr inbounds i8, ptr %this, i64 8

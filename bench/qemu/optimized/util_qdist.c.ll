@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.9 = private unnamed_addr constant [8 x i8] c",%.*f%s\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdist_init(ptr nocapture noundef writeonly initializes((0, 24)) %dist) local_unnamed_addr #0 {
+define dso_local void @qdist_init(ptr nocapture noundef writeonly %dist) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #11
   store ptr %call, ptr %dist, align 8
@@ -187,7 +187,7 @@ qdist_add.exit:                                   ; preds = %if.then5.i, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qdist_bin__internal(ptr nocapture noundef initializes((0, 24)) %to, ptr nocapture noundef readonly %from, i64 noundef %n) local_unnamed_addr #0 {
+define dso_local void @qdist_bin__internal(ptr nocapture noundef %to, ptr nocapture noundef readonly %from, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %e.i49 = alloca %struct.qdist_entry, align 8
   %e.i = alloca %struct.qdist_entry, align 8

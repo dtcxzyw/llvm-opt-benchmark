@@ -818,7 +818,7 @@ declare dso_local void @put_pi_state(ptr noundef) local_unnamed_addr #0
 declare dso_local i32 @rt_mutex_start_proxy_lock(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @requeue_pi_wake_futex(ptr noundef initializes((72, 96)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #6 align 16 {
+define internal fastcc void @requeue_pi_wake_futex(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #6 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(24) %4, ptr noundef align 8 dereferenceable(24) %1, i64 24, i1 false)
   tail call void @__futex_unqueue(ptr noundef %0) #10

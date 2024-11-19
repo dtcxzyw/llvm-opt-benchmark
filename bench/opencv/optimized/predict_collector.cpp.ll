@@ -97,7 +97,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN2cv4face17StandardCollectorC1Ed = unnamed_addr alias void (ptr, double), ptr @_ZN2cv4face17StandardCollectorC2Ed
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv4face17StandardCollectorC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 20), (24, 56)) %0, double noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4face17StandardCollectorC2Ed(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, double noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN2cv4face17StandardCollectorE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store double %1, ptr %3, align 8
@@ -113,7 +113,7 @@ define void @_ZN2cv4face17StandardCollectorC2Ed(ptr nocapture noundef nonnull wr
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4face17StandardCollector4initEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((16, 20), (24, 32)) %0, i64 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4face17StandardCollector4initEm(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 -1, ptr %3, align 8
   %.sroa.21.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
@@ -607,7 +607,7 @@ define internal noundef zeroext i1 @_ZN2cv4faceL8pairLessERKSt4pairIidES4_(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK2cv4face17StandardCollector13getResultsMapEv(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK2cv4face17StandardCollector13getResultsMapEv(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8

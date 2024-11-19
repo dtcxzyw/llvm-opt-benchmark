@@ -115,7 +115,7 @@ $_ZGVZN13RelocIterator14metadata_relocEvE5proto = comdat any
 @_ZN10CodeBufferD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN10CodeBufferD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CodeBufferC2EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) initializes((8, 74), (76, 80), (96, 162), (164, 168), (184, 250), (252, 256)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN10CodeBufferC2EP8CodeBlob(ptr noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 76
   store i32 0, ptr %4, align 4
@@ -400,7 +400,7 @@ define hidden noundef i32 @_ZNK11CodeSection9alignmentEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CodeBuffer8set_blobEP10BufferBlob(ptr nocapture noundef nonnull align 8 dereferenceable(448) initializes((280, 288)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CodeBuffer8set_blobEP10BufferBlob(ptr nocapture noundef nonnull align 8 dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %1, ptr %3, align 8
   %.not = icmp eq ptr %1, null
@@ -466,7 +466,7 @@ _ZNK11CodeSection9alignmentEv.exit:               ; preds = %4, %15, %20
 declare noundef ptr @_ZN10BufferBlob6createEPKcj(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11CodeSection15initialize_locsEi(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((32, 56), (64, 65)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11CodeSection15initialize_locsEi(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -855,7 +855,7 @@ declare void @_ZN5ArenaD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unn
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10CodeBuffer23initialize_oop_recorderEP11OopRecorder(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((304, 312)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10CodeBuffer23initialize_oop_recorderEP11OopRecorder(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   store ptr %1, ptr %3, align 8
   ret void
@@ -3744,7 +3744,7 @@ _ZN10CodeBuffer9free_blobEv.exit:                 ; preds = %34, %32, %_ZN10Code
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10CodeBuffer19take_over_code_fromEPS_(ptr nocapture noundef nonnull align 8 dereferenceable(448) initializes((280, 288)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10CodeBuffer19take_over_code_fromEPS_(ptr nocapture noundef nonnull align 8 dereferenceable(448) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 280
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 280

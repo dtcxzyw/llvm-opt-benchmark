@@ -904,7 +904,7 @@ _ZN5faiss18TransformedVectorsD2Ev.exit:           ; preds = %58, %60
 declare void @_ZNK5faiss5Index6assignElPKfPll(ptr noundef nonnull align 8 dereferenceable(36), i64 noundef, ptr noundef, ptr noundef, i64 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss17IndexPreTransform5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(73) initializes((16, 24)) %0) unnamed_addr #1 align 2 {
+define void @_ZN5faiss17IndexPreTransform5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(73) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -917,7 +917,7 @@ define void @_ZN5faiss17IndexPreTransform5resetEv(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN5faiss17IndexPreTransform10remove_idsERKNS_10IDSelectorE(ptr nocapture noundef nonnull align 8 dereferenceable(73) initializes((16, 24)) %0, ptr noundef nonnull align 1 %1) unnamed_addr #1 align 2 {
+define noundef i64 @_ZN5faiss17IndexPreTransform10remove_idsERKNS_10IDSelectorE(ptr nocapture noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 1 %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1671,7 +1671,7 @@ define void @_ZNK5faiss17IndexPreTransform26check_compatible_for_mergeERKNS_5Ind
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss17IndexPreTransformC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((0, 12), (16, 26), (28, 36), (40, 73)) %0) unnamed_addr #3 align 2 {
+define void @_ZN5faiss17IndexPreTransformC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1691,7 +1691,7 @@ define void @_ZN5faiss17IndexPreTransformC2Ev(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5faiss17IndexPreTransformC2EPNS_5IndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) initializes((0, 12), (16, 26), (28, 36), (40, 73)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define void @_ZN5faiss17IndexPreTransformC2EPNS_5IndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(73) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 28
@@ -1726,7 +1726,7 @@ define void @_ZN5faiss17IndexPreTransformC2EPNS_5IndexE(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss17IndexPreTransformC2EPNS_15VectorTransformEPNS_5IndexE(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 12), (16, 26), (28, 36), (40, 73)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss17IndexPreTransformC2EPNS_15VectorTransformEPNS_5IndexE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 28
@@ -2036,7 +2036,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #10
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss17IndexPreTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss17IndexPreTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss17IndexPreTransformE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load i8, ptr %2, align 8
@@ -2411,7 +2411,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_128PreTransformDistanceComp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128PreTransformDistanceComputerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128PreTransformDistanceComputerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_128PreTransformDistanceComputerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -2442,7 +2442,7 @@ _ZNSt10unique_ptrIN5faiss16DistanceComputerESt14default_deleteIS1_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_128PreTransformDistanceComputerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5faiss12_GLOBAL__N_128PreTransformDistanceComputerD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_128PreTransformDistanceComputerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8

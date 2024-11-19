@@ -1372,7 +1372,7 @@ declare void @_ZN5Moves6RewindEii(ptr noundef nonnull align 8 dereferenceable(39
 declare noundef double @_Z16ThreadMemoryUsedv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z14SolveSameBoardP10ThreadDataRK4dealP12futureTricksi(ptr noundef initializes((0, 16), (4940, 4944)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(96) %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #3 {
+define noundef i32 @_Z14SolveSameBoardP10ThreadDataRK4dealP12futureTricksi(ptr noundef %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(96) %1, ptr nocapture noundef writeonly %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = add nsw i32 %6, 3
@@ -1449,7 +1449,7 @@ define noundef i32 @_Z14SolveSameBoardP10ThreadDataRK4dealP12futureTricksi(ptr n
 declare void @_ZN5Moves6ReinitEii(ptr noundef nonnull align 8 dereferenceable(39992), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z17AnalyseLaterBoardP10ThreadDataiPK8moveTypeiiP12futureTricks(ptr noundef initializes((0, 16), (1604, 1605), (4940, 4944)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #3 {
+define noundef i32 @_Z17AnalyseLaterBoardP10ThreadDataiPK8moveTypeiiP12futureTricks(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #3 {
   %7 = alloca [4 x i16], align 2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8

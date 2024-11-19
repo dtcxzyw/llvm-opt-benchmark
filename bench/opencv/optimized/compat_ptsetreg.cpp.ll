@@ -103,7 +103,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9CvLevMarqC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((0, 180), (184, 209), (212, 216)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9CvLevMarqC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 184
@@ -200,7 +200,7 @@ _ZNSt10shared_ptrI5CvMatED2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9CvLevMarqC2Eii14CvTermCriteriab(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 160)) %0, i32 noundef %1, i32 noundef %2, i64 %3, double %4, i1 noundef zeroext %5) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9CvLevMarqC2Eii14CvTermCriteriab(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i64 %3, double %4, i1 noundef zeroext %5) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %0, i8 0, i64 160, i1 false)
   invoke void @_ZN9CvLevMarq4initEii14CvTermCriteriab(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1, i32 noundef %2, i64 %3, double %4, i1 noundef zeroext %5)
           to label %7 unwind label %8
@@ -351,7 +351,7 @@ define void @_ZN9CvLevMarq4initEii14CvTermCriteriab(ptr noundef nonnull align 8 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9CvLevMarq5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((0, 8), (16, 24), (32, 40), (48, 56), (64, 72), (80, 88), (96, 104), (112, 120), (128, 136), (144, 152)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9CvLevMarq5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -1125,7 +1125,7 @@ _ZN2cv3PtrI5CvMatE7releaseEv.exit63:              ; preds = %_ZN2cv3PtrI5CvMatE7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9CvLevMarqD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((0, 8), (16, 24), (32, 40), (48, 56), (64, 72), (80, 88), (96, 104), (112, 120), (128, 136), (144, 152)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9CvLevMarqD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_ZN9CvLevMarq5clearEv(ptr noundef nonnull align 8 dereferenceable(216) %0)
           to label %2 unwind label %363
 
@@ -1897,7 +1897,7 @@ declare ptr @cvCreateMat(i32 noundef, i32 noundef, i32 noundef) local_unnamed_ad
 declare void @cvSet(ptr noundef, ptr noundef byval(%struct.CvScalar) align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN9CvLevMarq6updateERPK5CvMatRPS0_S5_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN9CvLevMarq6updateERPK5CvMatRPS0_S5_(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

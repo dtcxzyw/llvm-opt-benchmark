@@ -12346,7 +12346,7 @@ define noundef nonnull align 8 dereferenceable(1196) ptr @_ZN6CMeshOaSES_(ptr no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6CMeshO4trBBEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.vcg::Box3") align 4 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6CMeshO4trBBEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.vcg::Box3") align 4 %0, ptr noundef nonnull align 8 dereferenceable(1196) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store float 1.000000e+00, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store float -1.000000e+00, ptr %3, align 4

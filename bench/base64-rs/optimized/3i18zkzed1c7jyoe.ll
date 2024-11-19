@@ -1250,13 +1250,13 @@ define noundef nonnull align 1 dereferenceable(3) ptr @"_ZN90_$LT$base64..engine
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6base646engine15general_purpose12encode_table17hb7f7d1fc469c4239E(ptr noalias nocapture noundef writeonly sret([64 x i8]) align 1 dereferenceable(64) initializes((0, 64)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(64) %1) unnamed_addr #3 {
+define void @_ZN6base646engine15general_purpose12encode_table17hb7f7d1fc469c4239E(ptr noalias nocapture noundef writeonly sret([64 x i8]) align 1 dereferenceable(64) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(64) %1) unnamed_addr #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %0, ptr noundef nonnull align 1 dereferenceable(64) %1, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define void @_ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174E(ptr noalias nocapture noundef writeonly sret([256 x i8]) align 1 dereferenceable(256) initializes((0, 256)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(64) %1) unnamed_addr #4 {
+define void @_ZN6base646engine15general_purpose12decode_table17h6ca45a74b044c174E(ptr noalias nocapture noundef writeonly sret([256 x i8]) align 1 dereferenceable(256) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(64) %1) unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %0, i8 -1, i64 256, i1 false)
   br label %4
 

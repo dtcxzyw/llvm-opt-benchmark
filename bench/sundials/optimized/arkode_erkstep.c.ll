@@ -580,7 +580,7 @@ erkStep_AccessStepMem.exit.thread:                ; preds = %12, %7, %28, %63, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -38, 1) i32 @erkStep_TakeStep(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define range(i32 -38, 1) i32 @erkStep_TakeStep(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
   store i32 0, ptr %2, align 4
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6

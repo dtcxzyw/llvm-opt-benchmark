@@ -625,7 +625,7 @@ define void @"_ZN112_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN105_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemVarargsSep$u20$as$u20$syn..parse..Parse$GT$5parse17h4e699e8fb9288c95E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN105_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemVarargsSep$u20$as$u20$syn..parse..Parse$GT$5parse17h4e699e8fb9288c95E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   call void @"_ZN54_$LT$syn..token..Star$u20$as$u20$syn..parse..Parse$GT$5parse17h364a2de3fcb3107bE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr align 8 %1)
   %4 = load i64, ptr %3, align 8
@@ -654,7 +654,7 @@ define void @"_ZN114_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN102_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemVarargs$u20$as$u20$syn..parse..Parse$GT$5parse17h389670b9a902f233E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 32)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN102_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemVarargs$u20$as$u20$syn..parse..Parse$GT$5parse17h389670b9a902f233E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   %.sroa.323 = alloca [12 x i8], align 4
   %4 = alloca [32 x i8], align 8
@@ -708,7 +708,7 @@ define void @"_ZN111_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN101_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemKwargs$u20$as$u20$syn..parse..Parse$GT$5parse17h891c51375a7ff2afE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 25)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN101_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemKwargs$u20$as$u20$syn..parse..Parse$GT$5parse17h891c51375a7ff2afE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [24 x i8], align 8
   %5 = alloca [24 x i8], align 8
@@ -788,7 +788,7 @@ define void @"_ZN110_$LT$pyo3_macros_backend..pyfunction..signature..SignatureIt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN105_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemPosargsSep$u20$as$u20$syn..parse..Parse$GT$5parse17he97a7b5a59c877eaE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 12)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN105_$LT$pyo3_macros_backend..pyfunction..signature..SignatureItemPosargsSep$u20$as$u20$syn..parse..Parse$GT$5parse17he97a7b5a59c877eaE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = alloca [24 x i8], align 8
   call void @"_ZN55_$LT$syn..token..Slash$u20$as$u20$syn..parse..Parse$GT$5parse17h7c1f4b3efa39b7ccE"(ptr nonnull sret([24 x i8]) align 8 %3, ptr align 8 %1)
   %4 = load i64, ptr %3, align 8
@@ -2778,7 +2778,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature17FunctionSign
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature13SignatureItem8Argument17h5515d77327ae064eE(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 4), (8, 16)) %0, ptr align 8 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature13SignatureItem8Argument17h5515d77327ae064eE(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i32 0, ptr %0, align 8
@@ -2786,7 +2786,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature13SignatureIte
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature13SignatureItem10PosargsSep17h8d29111189b04c2dE(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 8)) %0, i32 %1) unnamed_addr #2 {
+define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature13SignatureItem10PosargsSep17h8d29111189b04c2dE(ptr nocapture writeonly sret([40 x i8]) align 8 %0, i32 %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   store i32 1, ptr %0, align 8
@@ -2794,7 +2794,7 @@ define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature13SignatureIte
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature13SignatureItem6Kwargs17h241410cae62a38acE(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 4), (8, 40)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
+define hidden void @_ZN19pyo3_macros_backend10pyfunction9signature13SignatureItem6Kwargs17h241410cae62a38acE(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i32 4, ptr %0, align 8

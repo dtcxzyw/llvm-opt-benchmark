@@ -999,7 +999,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #2
 declare i64 @FSE_readNCount_bmi2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef nonnull writeonly initializes((0, 12), (16, 40)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 {
+define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, i64 noundef %2) unnamed_addr #4 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %5, label %6
 
@@ -1145,7 +1145,7 @@ define internal fastcc range(i64 1, 0) i64 @BIT_initDStream(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @FSE_initDState(ptr nocapture noundef nonnull writeonly initializes((0, 16)) %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #5 {
+define internal fastcc void @FSE_initDState(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef nonnull %1, ptr noundef %2) unnamed_addr #5 {
   %4 = load i16, ptr %2, align 2
   %5 = zext i16 %4 to i32
   %6 = load i64, ptr %1, align 8

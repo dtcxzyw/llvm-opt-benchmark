@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_hash_type_methods_ptr = internal constant %struct.pmix_hash_type_methods_t { ptr @pmix_hash_destruct_elt_ptr, ptr @pmix_hash_hash_elt_ptr }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_hash_table_construct(ptr nocapture noundef writeonly initializes((128, 184)) %0) #0 {
+define internal void @pmix_hash_table_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   ret void
@@ -252,7 +252,7 @@ define noundef i32 @pmix_hash_table_remove_all(ptr nocapture noundef %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint32(ptr nocapture noundef initializes((176, 184)) %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint32(ptr nocapture noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 176
@@ -477,7 +477,7 @@ pmix_tma_free.exit:                               ; preds = %57, %54, %pmix_tma_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_uint32(ptr nocapture noundef initializes((176, 184)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_uint32(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 176
@@ -580,7 +580,7 @@ pmix_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint64(ptr nocapture noundef initializes((176, 184)) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 -46, 1) i32 @pmix_hash_table_get_value_uint64(ptr nocapture noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 176
@@ -693,7 +693,7 @@ define range(i32 -29, 1) i32 @pmix_hash_table_set_value_uint64(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_uint64(ptr nocapture noundef initializes((176, 184)) %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_uint64(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 176
@@ -795,7 +795,7 @@ pmix_hash_table_remove_elt_at.exit:               ; preds = %.loopexit.i, %19
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_get_value_ptr(ptr nocapture noundef initializes((176, 184)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
+define range(i32 -46, 1) i32 @pmix_hash_table_get_value_ptr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 176
@@ -976,7 +976,7 @@ pmix_tma_malloc.exit:                             ; preds = %21, %23
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_ptr(ptr nocapture noundef initializes((176, 184)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
+define range(i32 -46, 1) i32 @pmix_hash_table_remove_value_ptr(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 176
@@ -1390,7 +1390,7 @@ define internal i64 @pmix_hash_hash_elt_uint64(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @pmix_hash_destruct_elt_ptr(ptr nocapture noundef initializes((16, 24)) %0) #1 {
+define internal void @pmix_hash_destruct_elt_ptr(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %3, align 8

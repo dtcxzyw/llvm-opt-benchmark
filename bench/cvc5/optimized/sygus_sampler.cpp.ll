@@ -791,7 +791,7 @@ _ZNSt13unordered_mapIN4cvc58internal8TypeNodeESt6vectorINS1_12NodeTemplateILb1EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12SygusSampler10initializeENS0_8TypeNodeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EEjb(ptr noundef nonnull align 8 dereferenceable(800) initializes((24, 32), (256, 257), (576, 577)) %this, ptr nocapture readnone %tn, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vars, i32 noundef %nsamples, i1 noundef zeroext %unique_type_ids) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12SygusSampler10initializeENS0_8TypeNodeERKSt6vectorINS0_12NodeTemplateILb1EEESaIS7_EEjb(ptr noundef nonnull align 8 dereferenceable(800) %this, ptr nocapture readnone %tn, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %vars, i32 noundef %nsamples, i1 noundef zeroext %unique_type_ids) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i269 = alloca %"class.std::tuple.726", align 8
   %ref.tmp10.i270 = alloca %"class.std::tuple.721", align 1
@@ -3141,7 +3141,7 @@ _ZNSt8_Rb_treeIN4cvc58internal8TypeNodeESt4pairIKS2_jESt10_Select1stIS5_ESt4less
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers12SygusSampler15initializeSygusENS0_8TypeNodeEj(ptr noundef nonnull align 8 dereferenceable(800) initializes((576, 577)) %this, ptr nocapture noundef readonly %ftn, i32 noundef %nsamples) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers12SygusSampler15initializeSygusENS0_8TypeNodeEj(ptr noundef nonnull align 8 dereferenceable(800) %this, ptr nocapture noundef readonly %ftn, i32 noundef %nsamples) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__z.i942 = alloca %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, unsigned int>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, unsigned int>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Auto_node", align 8
   %__z.i913 = alloca %"struct.std::_Rb_tree<cvc5::internal::NodeTemplate<true>, std::pair<const cvc5::internal::NodeTemplate<true>, unsigned int>, std::_Select1st<std::pair<const cvc5::internal::NodeTemplate<true>, unsigned int>>, std::less<cvc5::internal::NodeTemplate<true>>>::_Auto_node", align 8

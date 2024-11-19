@@ -233,7 +233,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7compute16FunctionRegistryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute16FunctionRegistryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #18
   %name_to_function_.i = getelementptr inbounds i8, ptr %call, i64 48
@@ -264,7 +264,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow7compute16FunctionRegistryC2EPNS1_20FunctionRegistryImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef %impl) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7compute16FunctionRegistryC2EPNS1_20FunctionRegistryImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef %impl) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5arrow7compute16FunctionRegistry20FunctionRegistryImplESt14default_deleteIS3_EE5resetEPS3_.exit:
   store ptr %impl, ptr %this, align 8
   ret void

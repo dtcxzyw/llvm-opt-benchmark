@@ -103,7 +103,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZN5clang21CXX20ModulesGeneratorC1ERNS_12PreprocessorERNS_19InMemoryModuleCacheEN4llvm9StringRefEb = unnamed_addr alias void (ptr, ptr, ptr, ptr, i64, i1), ptr @_ZN5clang21CXX20ModulesGeneratorC2ERNS_12PreprocessorERNS_19InMemoryModuleCacheEN4llvm9StringRefEb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12PCHGeneratorC2ERNS_12PreprocessorERNS_19InMemoryModuleCacheEN4llvm9StringRefES6_St10shared_ptrINS_9PCHBufferEENS5_8ArrayRefIS7_INS_19ModuleFileExtensionEEEEbbbbb(ptr noundef nonnull align 8 dereferenceable(3610) initializes((0, 9), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull align 1 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, ptr nocapture noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12PCHGeneratorC2ERNS_12PreprocessorERNS_19InMemoryModuleCacheEN4llvm9StringRefES6_St10shared_ptrINS_9PCHBufferEENS5_8ArrayRefIS7_INS_19ModuleFileExtensionEEEEbbbbb(ptr noundef nonnull align 8 dereferenceable(3610) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull align 1 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, ptr nocapture noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %7, i1 noundef zeroext %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, i1 noundef zeroext %12) unnamed_addr #0 align 2 {
   %14 = alloca %"class.std::allocator", align 1
   %15 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %16 = alloca %"class.std::allocator", align 1
@@ -204,7 +204,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN5clang9ASTWriterC1ERN4llvm15BitstreamWriterERNS1_15SmallVectorImplIcEERNS_19InMemoryModuleCacheENS1_8ArrayRefISt10shared_ptrINS_19ModuleFileExtensionEEEEbbb(ptr noundef nonnull align 8 dereferenceable(3340), ptr noundef nonnull align 8 dereferenceable(152), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 1, ptr, i64, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang12PCHGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(3610) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang12PCHGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(3610) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN5clang12PCHGeneratorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   tail call void @_ZN5clang9ASTWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(3340) %2) #13
@@ -641,7 +641,7 @@ define dso_local void @_ZN5clang12PCHGenerator6anchorEv(ptr nocapture nonnull re
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang21CXX20ModulesGeneratorC2ERNS_12PreprocessorERNS_19InMemoryModuleCacheEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(3610) initializes((0, 9), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull align 1 %2, ptr %3, i64 %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang21CXX20ModulesGeneratorC2ERNS_12PreprocessorERNS_19InMemoryModuleCacheEN4llvm9StringRefEb(ptr noundef nonnull align 8 dereferenceable(3610) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1, ptr noundef nonnull align 1 %2, ptr %3, i64 %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.std::shared_ptr", align 8
   %9 = alloca %"class.llvm::ArrayRef", align 8

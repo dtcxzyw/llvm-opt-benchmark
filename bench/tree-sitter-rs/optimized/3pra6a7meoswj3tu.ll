@@ -10586,7 +10586,7 @@ define hidden { ptr, i8 } @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17heffa43
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7bcf4a0838b2ed23E.llvm.10932140880789976298"(ptr noalias nocapture noundef writeonly sret({ [10 x i32], i32, [3 x i32] }) align 8 dereferenceable(56) initializes((0, 1), (40, 44)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #5 {
+define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7bcf4a0838b2ed23E.llvm.10932140880789976298"(ptr noalias nocapture noundef writeonly sret({ [10 x i32], i32, [3 x i32] }) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(56) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8, !range !1296, !noundef !4
   %5 = icmp eq i32 %4, 2
@@ -10607,7 +10607,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h7bcf4a0838b2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17haed2ad3c0de85667E.llvm.10932140880789976298"(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #5 {
+define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17haed2ad3c0de85667E.llvm.10932140880789976298"(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 8 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #5 {
   %3 = load i64, ptr %1, align 8, !range !142, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808
   br i1 %4, label %6, label %5
@@ -12641,7 +12641,7 @@ define void @_ZN15tree_sitter_cli9highlight5Theme4load17h9d897a7bd4e29366E(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN15tree_sitter_cli9highlight5Theme13default_style17h70c4ed39cc3068e5E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i8, i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } } }) align 8 dereferenceable(40) initializes((0, 8), (24, 33), (36, 37)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #8 {
+define void @_ZN15tree_sitter_cli9highlight5Theme13default_style17h70c4ed39cc3068e5E(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i8, i8, i8, i8, i8, i8, i8, i8, { i8, [3 x i8] }, { i8, [3 x i8] } } }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.11.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %3, align 8
@@ -34778,7 +34778,7 @@ _ZN15tree_sitter_cli9test_tags17get_tag_positions17h3ae5624b1cf30253E.exit: ; pr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN15tree_sitter_cli9test_tags17get_tag_positions17h3ae5624b1cf30253E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(280) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 {
+define void @_ZN15tree_sitter_cli9test_tags17get_tag_positions17h3ae5624b1cf30253E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(16) %1, ptr noalias noundef readonly align 8 dereferenceable(280) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4) unnamed_addr #1 {
   %6 = alloca { i64, [6 x i64] }, align 8
   %.sroa.3 = alloca [176 x i8], align 8
   %7 = alloca { { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, ptr, i64 }, {} }, ptr }, align 8

@@ -187,7 +187,7 @@ declare ptr @memset(ptr noundef writeonly, i32 noundef, i64 noundef) #5
 declare hidden i32 @lj_vm_errno() #0
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_ir_growtop(ptr nocapture noundef initializes((32, 40)) %J) local_unnamed_addr #6 {
+define hidden void @lj_ir_growtop(ptr nocapture noundef %J) local_unnamed_addr #6 {
 entry:
   %irbuf = getelementptr inbounds i8, ptr %J, i64 328
   %irbotlim = getelementptr inbounds i8, ptr %J, i64 340
@@ -339,7 +339,7 @@ lj_ir_nextins.exit:                               ; preds = %entry.lj_ir_nextins
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_ir_call(ptr noundef initializes((184, 190)) %J, i32 noundef %id, ...) local_unnamed_addr #6 {
+define hidden i32 @lj_ir_call(ptr noundef %J, i32 noundef %id, ...) local_unnamed_addr #6 {
 entry:
   %argp = alloca [1 x %struct.__va_list_tag], align 16
   %idxprom = zext i32 %id to i64
@@ -452,7 +452,7 @@ if.end26:                                         ; preds = %if.then25, %while.e
 declare hidden i32 @lj_opt_fold(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @lj_ir_ggfload(ptr noundef initializes((184, 190)) %J, i32 noundef %t, i64 noundef %ofs) local_unnamed_addr #6 {
+define hidden i32 @lj_ir_ggfload(ptr noundef %J, i32 noundef %t, i64 noundef %ofs) local_unnamed_addr #6 {
 entry:
   %shr = lshr i64 %ofs, 2
   %0 = trunc i32 %t to i16
@@ -1542,7 +1542,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lj_ir_growbot(ptr nocapture noundef initializes((32, 40)) %J) unnamed_addr #6 {
+define internal fastcc void @lj_ir_growbot(ptr nocapture noundef %J) unnamed_addr #6 {
 entry:
   %irbuf = getelementptr inbounds i8, ptr %J, i64 328
   %0 = load ptr, ptr %irbuf, align 8

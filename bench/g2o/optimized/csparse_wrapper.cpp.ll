@@ -21,7 +21,7 @@ $_ZN5Eigen12DenseStorageIiLin1ELin1ELi1ELi0EE6resizeElll = comdat any
 @_ZN3g2o7csparse7CSparseD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3g2o7csparse7CSparseD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3g2o7csparse7CSparseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o7csparse7CSparseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %2 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #18, !noalias !4
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 80
@@ -160,7 +160,7 @@ declare ptr @cs_di_amd(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @cs_di_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3g2o7csparse7CSparse10sparseViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::csparse::CSparse::SparseView") align 8 initializes((0, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN3g2o7csparse7CSparse10sparseViewEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::csparse::CSparse::SparseView") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 44
@@ -186,7 +186,7 @@ define void @_ZN3g2o7csparse7CSparse10sparseViewEv(ptr dead_on_unwind noalias no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3g2o7csparse7CSparse6factorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::csparse::CSparse::FactorView") align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
+define void @_ZN3g2o7csparse7CSparse6factorEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.g2o::csparse::CSparse::FactorView") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8

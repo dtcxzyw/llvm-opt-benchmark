@@ -240,7 +240,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @parse_netscreen_packet(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8), (232, 240)) %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @parse_netscreen_packet(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef nonnull %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

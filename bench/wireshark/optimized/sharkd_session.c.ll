@@ -7621,7 +7621,7 @@ define internal void @sharkd_session_process_tap_rtp_cb(ptr nocapture noundef re
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @sharkd_rtp_match_init(ptr noundef initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #3 {
+define internal fastcc range(i32 0, 2) i32 @sharkd_rtp_match_init(ptr noundef %0, ptr noundef %1) unnamed_addr #3 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
@@ -10402,7 +10402,7 @@ declare i32 @sharkd_set_modified_block(ptr noundef, ptr noundef) local_unnamed_a
 declare i32 @prefs_set_pref(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sharkd_session_process_dumpconf_mod_cb(ptr noundef %0, ptr noundef initializes((0, 8)) %1) #3 {
+define internal noundef i32 @sharkd_session_process_dumpconf_mod_cb(ptr noundef %0, ptr noundef %1) #3 {
   store ptr %0, ptr %1, align 8
   %3 = tail call i32 @prefs_pref_foreach(ptr noundef %0, ptr noundef nonnull @sharkd_session_process_dumpconf_cb, ptr noundef nonnull %1) #18
   ret i32 0

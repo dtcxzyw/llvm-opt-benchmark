@@ -98,7 +98,7 @@ define hidden noundef zeroext i8 @_ZN7Vec3fToIhE7extractEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN7Vec3fToIN2cv3VecIhLi3EEEE7extractEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec.0") align 1 initializes((0, 3)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN7Vec3fToIN2cv3VecIhLi3EEEE7extractEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec.0") align 1 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1) local_unnamed_addr #1 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %0, i8 0, i64 3, i1 false), !alias.scope !4
   br label %3
@@ -164,7 +164,7 @@ _ZN2cvdvIfLi3EEENS_3VecIT_XT0_EEERKS3_i.exit:     ; preds = %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7Vec3fToIN2cv3VecIhLi3EEEE4makeEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec") align 4 initializes((0, 12)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Vec3fToIN2cv3VecIhLi3EEEE4makeEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = load float, ptr %1, align 4
   %5 = sitofp i32 %2 to float
   %6 = fmul float %4, %5

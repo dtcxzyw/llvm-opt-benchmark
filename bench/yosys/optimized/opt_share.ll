@@ -25796,7 +25796,7 @@ _ZNSt8_Rb_treeIN12_GLOBAL__N_19OpMuxConnES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_19OpMuxConnESaIS1_EEC2ERKS3_(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt6vectorIN12_GLOBAL__N_19OpMuxConnESaIS1_EEC2ERKS3_(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %.val9 = load ptr, ptr %3, align 8
@@ -34284,7 +34284,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr nounde
 declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_110ExtSigSpecaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((0, 16), (32, 40)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(136) ptr @_ZN12_GLOBAL__N_110ExtSigSpecaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 16, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 16

@@ -135,7 +135,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.parse_charstrings.notdef_glyph = private unnamed_addr constant [5 x i8] c"\8B\F7\E1\0D\0E", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @T1_Driver_Init(ptr nocapture noundef initializes((56, 61), (64, 100)) %0) #0 {
+define internal noundef i32 @T1_Driver_Init(ptr nocapture noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -204,7 +204,7 @@ define internal ptr @Get_Interface(ptr nocapture readnone %0, ptr noundef %1) #2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @T1_Face_Init(ptr nocapture readnone %0, ptr noundef initializes((0, 8), (776, 792)) %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #2 {
+define internal i32 @T1_Face_Init(ptr nocapture readnone %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #2 {
   %6 = alloca %struct.FT_Data_, align 8
   %7 = alloca i8, align 1
   %8 = alloca %struct.T1_DecoderRec_, align 8
@@ -2416,7 +2416,7 @@ define internal i32 @T1_Load_Glyph(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @Get_Kerning(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 16)) %3) #4 {
+define internal noundef i32 @Get_Kerning(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #4 {
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 792
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -2940,14 +2940,14 @@ declare hidden i32 @ft_mem_strcpyn(ptr noundef, ptr noundef, i64 noundef) local_
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @t1_ps_get_font_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 56)) %1) #0 {
+define internal noundef i32 @t1_ps_get_font_info(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %3, i64 56, i1 false)
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @t1_ps_get_font_extra(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1) #0 {
+define internal noundef i32 @t1_ps_get_font_extra(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load i16, ptr %3, align 8
   store i16 %4, ptr %1, align 2
@@ -2960,7 +2960,7 @@ define internal noundef i32 @t1_ps_has_glyph_names(ptr nocapture readnone %0) #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @t1_ps_get_font_private(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 224)) %1) #0 {
+define internal noundef i32 @t1_ps_get_font_private(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(224) %3, i64 224, i1 false)
   ret i32 0
@@ -5049,7 +5049,7 @@ define internal void @T1_Done_Blend(ptr nocapture noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @mm_weights_unmap(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @mm_weights_unmap(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull writeonly %1, i32 noundef %2) unnamed_addr #0 {
   switch i32 %2, label %49 [
     i32 1, label %4
     i32 2, label %7
@@ -5478,7 +5478,7 @@ define internal range(i32 -1, 2) i32 @compare_kern_pairs(ptr nocapture noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @T1_Parse_Glyph(ptr noundef initializes((2744, 2792)) %0, i32 noundef %1) #2 {
+define internal i32 @T1_Parse_Glyph(ptr noundef %0, i32 noundef %1) #2 {
   %3 = alloca %struct.FT_Data_, align 8
   %4 = alloca i8, align 1
   %5 = call fastcc i32 @T1_Parse_Glyph_And_Get_Char_String(ptr noundef %0, i32 noundef %1, ptr noundef %3, ptr noundef %4)
@@ -5509,7 +5509,7 @@ define internal i32 @T1_Parse_Glyph(ptr noundef initializes((2744, 2792)) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @T1_Parse_Glyph_And_Get_Char_String(ptr noundef initializes((2744, 2792)) %0, i32 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #2 {
+define internal fastcc i32 @T1_Parse_Glyph_And_Get_Char_String(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #2 {
   %5 = alloca %struct.PS_Decoder_, align 8
   %6 = alloca %struct.CFF_SubFontRec_, align 8
   %7 = alloca %struct.FT_Incremental_MetricsRec_, align 8
@@ -5681,7 +5681,7 @@ declare hidden ptr @FT_Get_Module_Interface(ptr noundef, ptr noundef) local_unna
 declare hidden i32 @FT_CMap_New(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @parse_dict(ptr noundef %0, ptr noundef nonnull initializes((0, 8), (16, 28)) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc i32 @parse_dict(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %3) unnamed_addr #2 {
   %5 = alloca ptr, align 8
   store ptr %2, ptr %1, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 %3
@@ -8236,7 +8236,7 @@ define internal void @parse_weight_vector(ptr noundef %0, ptr noundef %1) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_buildchar(ptr nocapture noundef writeonly initializes((864, 868)) %0, ptr noundef %1) #2 {
+define internal void @parse_buildchar(ptr nocapture noundef writeonly %0, ptr noundef %1) #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 %4(ptr noundef %1, i32 noundef 0, ptr noundef null, i32 noundef 0) #16

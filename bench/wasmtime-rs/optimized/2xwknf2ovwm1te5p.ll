@@ -23,7 +23,7 @@ define align 2 ptr @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h22cf8c9690a45db9E"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 initializes((0, 1)) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h22cf8c9690a45db9E"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %4)
   %5 = tail call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hffd7697688181f2bE"(ptr align 8 %1, ptr nonnull align 8 %2)
@@ -42,7 +42,7 @@ define void @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$clos
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h27bbcd64dcfc001dE"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 initializes((0, 1)) %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h27bbcd64dcfc001dE"(ptr nocapture writeonly sret({ i8, [15 x i8] }) align 8 %0, ptr align 8 %1, ptr align 8 %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %4)
   %5 = tail call zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17h56cf55ccce5a1359E"(ptr align 8 %1, ptr nonnull align 8 %2)

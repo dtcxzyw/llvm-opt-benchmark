@@ -174,13 +174,13 @@ $_ZTISt23_Sp_counted_ptr_inplaceISt6vectorINSt10filesystem7__cxx114pathESaIS3_EE
 @.str.41 = private unnamed_addr constant [98 x i8] c"If you haven't made a spelling error, either use the macro you defined, or don't define the macro\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 9) i32 @_Z13cpp_open_fileRKNSt10filesystem7__cxx114pathEPP7gmx_cppPPc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 9) i32 @_Z13cpp_open_fileRKNSt10filesystem7__cxx114pathEPP7gmx_cppPPc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc noundef i32 @_ZL13cpp_open_fileRKNSt10filesystem7__cxx114pathEPP7gmx_cppPPcPSt10shared_ptrISt6vectorI8t_defineSaISB_EEEPS9_ISA_IS1_SaIS1_EEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null)
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 9) i32 @_ZL13cpp_open_fileRKNSt10filesystem7__cxx114pathEPP7gmx_cppPPcPSt10shared_ptrISt6vectorI8t_defineSaISB_EEEPS9_ISA_IS1_SaIS1_EEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef range(i32 0, 9) i32 @_ZL13cpp_open_fileRKNSt10filesystem7__cxx114pathEPP7gmx_cppPPcPSt10shared_ptrISt6vectorI8t_defineSaISB_EEEPS9_ISA_IS1_SaIS1_EEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef writeonly %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"struct.std::__detail::_AllocNode", align 8

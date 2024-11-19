@@ -765,7 +765,7 @@ cleanup:                                          ; preds = %if.end, %fail, %if.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @qcrypto_block_luks_create(ptr noundef initializes((16, 24)) %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture noundef readonly %initfunc, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) #1 {
+define internal range(i32 -1, 1) i32 @qcrypto_block_luks_create(ptr noundef %block, ptr nocapture noundef readonly %options, ptr noundef %optprefix, ptr nocapture noundef readonly %initfunc, ptr nocapture noundef readonly %writefunc, ptr noundef %opaque, ptr noundef %errp) #1 {
 entry:
   %uuid.i = alloca %struct.QemuUUID, align 4
   %local_err = alloca ptr, align 8
@@ -1573,7 +1573,7 @@ sw.epilog:                                        ; preds = %qcrypto_block_luks_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @qcrypto_block_luks_get_info(ptr nocapture noundef readonly %block, ptr nocapture noundef initializes((8, 20), (28, 56)) %info, ptr nocapture readnone %errp) #1 {
+define internal noundef i32 @qcrypto_block_luks_get_info(ptr nocapture noundef readonly %block, ptr nocapture noundef %info, ptr nocapture readnone %errp) #1 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %block, i64 16
   %0 = load ptr, ptr %opaque, align 8

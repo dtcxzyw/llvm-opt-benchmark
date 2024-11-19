@@ -5970,7 +5970,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5array6solver9apply_mapEP3appjPKP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(536) %this, ptr nocapture noundef readonly %map, i32 noundef %n, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5array6solver9apply_mapEP3appjPKP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(536) %this, ptr nocapture noundef readonly %map, i32 noundef %n, ptr noundef %args) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %m, align 8

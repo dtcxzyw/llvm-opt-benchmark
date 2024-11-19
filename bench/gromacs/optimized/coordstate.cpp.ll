@@ -716,7 +716,7 @@ _ZN3gmx16GromacsExceptionD2Ev.exit:               ; preds = %1, %20, %33, %_ZNSt
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx10CoordState18restoreFromHistoryERKNS_19AwhBiasStateHistoryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((36, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #9 align 2 {
+define void @_ZN3gmx10CoordState18restoreFromHistoryERKNS_19AwhBiasStateHistoryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #9 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %3, ptr %4, align 4
@@ -724,7 +724,7 @@ define void @_ZN3gmx10CoordState18restoreFromHistoryERKNS_19AwhBiasStateHistoryE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx10CoordState31setUmbrellaGridpointToGridpointEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((36, 40)) %0) local_unnamed_addr #9 align 2 {
+define void @_ZN3gmx10CoordState31setUmbrellaGridpointToGridpointEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 36

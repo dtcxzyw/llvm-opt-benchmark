@@ -42,7 +42,7 @@ entry:
 declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12AsyncTimeoutC2EPNS_14TimeoutManagerE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8), (128, 156), (168, 192)) %this, ptr noundef %timeoutManager) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12AsyncTimeoutC2EPNS_14TimeoutManagerE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %timeoutManager) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12AsyncTimeoutE, i64 16), ptr %this, align 8, !tbaa !7
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -192,7 +192,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12AsyncTimeoutC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8), (128, 156), (168, 192)) %this, ptr noundef %eventBase) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12AsyncTimeoutC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %eventBase) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12AsyncTimeoutE, i64 16), ptr %this, align 8, !tbaa !7
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -233,7 +233,7 @@ if.end:                                           ; preds = %if.then, %invoke.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12AsyncTimeoutC2EPNS_14TimeoutManagerENS1_12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8), (128, 156), (168, 192)) %this, ptr noundef %timeoutManager, i32 noundef %internal) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12AsyncTimeoutC2EPNS_14TimeoutManagerENS1_12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %timeoutManager, i32 noundef %internal) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12AsyncTimeoutE, i64 16), ptr %this, align 8, !tbaa !7
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -270,7 +270,7 @@ lpad:                                             ; preds = %invoke.cont4, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12AsyncTimeoutC2EPNS_9EventBaseENS_14TimeoutManager12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8), (128, 156), (168, 192)) %this, ptr noundef %eventBase, i32 noundef %internal) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12AsyncTimeoutC2EPNS_9EventBaseENS_14TimeoutManager12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %eventBase, i32 noundef %internal) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12AsyncTimeoutE, i64 16), ptr %this, align 8, !tbaa !7
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -307,7 +307,7 @@ lpad:                                             ; preds = %invoke.cont4, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12AsyncTimeoutC2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8), (128, 156), (168, 192)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12AsyncTimeoutC2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12AsyncTimeoutE, i64 16), ptr %this, align 8, !tbaa !7
   %event_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -335,7 +335,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly12AsyncTimeoutD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12AsyncTimeoutD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12AsyncTimeoutE, i64 16), ptr %this, align 8, !tbaa !7
   %evcb_flags.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -566,7 +566,7 @@ if.end:                                           ; preds = %if.then7.i.i.i.i, %
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly12AsyncTimeout15scheduleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEOSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((176, 184)) %this, i64 %timeout.coerce, ptr nocapture noundef nonnull align 8 dereferenceable(16) %rctx) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly12AsyncTimeout15scheduleTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEEOSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 8 dereferenceable(192) %this, i64 %timeout.coerce, ptr nocapture noundef nonnull align 8 dereferenceable(16) %rctx) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %context_ = getelementptr inbounds i8, ptr %this, i64 176
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -688,7 +688,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly12AsyncTimeout22scheduleTimeoutHighResENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEOSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((176, 184)) %this, i64 %timeout.coerce, ptr nocapture noundef nonnull align 8 dereferenceable(16) %rctx) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly12AsyncTimeout22scheduleTimeoutHighResENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEOSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 8 dereferenceable(192) %this, i64 %timeout.coerce, ptr nocapture noundef nonnull align 8 dereferenceable(16) %rctx) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %context_ = getelementptr inbounds i8, ptr %this, i64 176
   %_M_refcount3.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -754,7 +754,7 @@ _ZNSt10shared_ptrIN5folly14RequestContextEEaSEOS2_.exit: ; preds = %if.then7.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5folly12AsyncTimeout15scheduleTimeoutEjOSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((176, 184)) %this, i32 noundef %milliseconds, ptr nocapture noundef nonnull align 8 dereferenceable(16) %rctx) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5folly12AsyncTimeout15scheduleTimeoutEjOSt10shared_ptrINS_14RequestContextEE(ptr noundef nonnull align 8 dereferenceable(192) %this, i32 noundef %milliseconds, ptr nocapture noundef nonnull align 8 dereferenceable(16) %rctx) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %context_.i = getelementptr inbounds i8, ptr %this, i64 176
   %_M_refcount3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 184
@@ -831,7 +831,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12AsyncTimeout20attachTimeoutManagerEPNS_14TimeoutManagerENS1_12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(192) initializes((168, 176)) %this, ptr noundef %timeoutManager, i32 noundef %internal) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly12AsyncTimeout20attachTimeoutManagerEPNS_14TimeoutManagerENS1_12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %timeoutManager, i32 noundef %internal) local_unnamed_addr #1 align 2 {
 entry:
   %timeoutManager_ = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %timeoutManager, ptr %timeoutManager_, align 8, !tbaa !10
@@ -843,7 +843,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12AsyncTimeout15attachEventBaseEPNS_9EventBaseENS_14TimeoutManager12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(192) initializes((168, 176)) %this, ptr noundef %eventBase, i32 noundef %internal) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly12AsyncTimeout15attachEventBaseEPNS_9EventBaseENS_14TimeoutManager12InternalEnumE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %eventBase, i32 noundef %internal) local_unnamed_addr #1 align 2 {
 entry:
   %timeoutManager_.i = getelementptr inbounds i8, ptr %this, i64 168
   store ptr %eventBase, ptr %timeoutManager_.i, align 8, !tbaa !10

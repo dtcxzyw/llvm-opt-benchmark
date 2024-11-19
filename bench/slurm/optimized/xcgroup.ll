@@ -64,7 +64,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.40 = private unnamed_addr constant [37 x i8] c"%s: unable to instantiate %ps cgroup\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @xcgroup_ns_create(ptr noundef initializes((8, 32)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @xcgroup_ns_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.xcgroup_t, align 8

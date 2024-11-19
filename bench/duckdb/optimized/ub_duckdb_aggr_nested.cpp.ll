@@ -860,7 +860,7 @@ $_ZTIN6duckdb22VariableReturnBindDataE = comdat any
 @_ZN6duckdb12ListBindDataD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6duckdb12ListBindDataD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12ListBindDataC2ERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(24) %stype_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12ListBindDataC2ERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(24) %stype_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca %"struct.duckdb::LogicalType", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12ListBindDataE, i64 16), ptr %this, align 8, !tbaa !3
@@ -969,7 +969,7 @@ _ZNSt12_Vector_baseIN6duckdb20ListSegmentFunctionsESaIS1_EED2Ev.exit: ; preds = 
 declare void @_ZN6duckdb12FunctionDataD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb12ListBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12ListBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb12ListBindDataE, i64 16), ptr %this, align 8, !tbaa !3
   %child_functions.i = getelementptr inbounds i8, ptr %this, i64 56

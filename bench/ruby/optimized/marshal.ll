@@ -4281,7 +4281,7 @@ declare i64 @rb_path_to_class(i64 noundef) local_unnamed_addr #1
 declare i64 @rb_check_string_type(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @clear_load_arg(ptr nocapture noundef initializes((16, 40)) %0) unnamed_addr #0 {
+define internal fastcc void @clear_load_arg(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @ruby_xfree(ptr noundef %3) #21
@@ -4343,7 +4343,7 @@ define internal void @mark_load_arg(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @free_load_arg(ptr nocapture noundef initializes((16, 40)) %0) #0 {
+define internal void @free_load_arg(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @ruby_xfree(ptr noundef %3) #21

@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN7Imf_3_23ZipD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7Imf_3_23ZipD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_23ZipC2Emi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, i64 noundef %maxRawSize, i32 noundef %level) unnamed_addr #0 align 2 {
+define hidden void @_ZN7Imf_3_23ZipC2Emi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, i64 noundef %maxRawSize, i32 noundef %level) unnamed_addr #0 align 2 {
 entry:
   store i64 %maxRawSize, ptr %this, align 8
   %_tmpBuffer = getelementptr inbounds i8, ptr %this, i64 8
@@ -34,7 +34,7 @@ entry:
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_23ZipC2Emmi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, i64 noundef %maxScanLineSize, i64 noundef %numScanLines, i32 noundef %level) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_23ZipC2Emmi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, i64 noundef %maxScanLineSize, i64 noundef %numScanLines, i32 noundef %level) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_zipLevel = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)

@@ -2940,7 +2940,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit101:                 ; preds = %lpad, %if.then.i.i.
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_128GetInclusionMaskAndOutSchemaERKSt10shared_ptrINS_6SchemaEERKSt6vectorIiSaIiEEPS7_IbSaIbEEPS4_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %full_schema, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %included_indices, ptr noundef initializes((16, 28)) %inclusion_mask, ptr nocapture noundef %out_schema) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_128GetInclusionMaskAndOutSchemaERKSt10shared_ptrINS_6SchemaEERKSt6vectorIiSaIiEEPS7_IbSaIbEEPS4_(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %full_schema, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %included_indices, ptr noundef %inclusion_mask, ptr nocapture noundef %out_schema) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %included_fields = alloca %"class.std::vector.321", align 8
   %i = alloca i32, align 4
@@ -20541,7 +20541,7 @@ _ZNSt12__shared_ptrIN5arrow2io8internal14ReadRangeCacheELN9__gnu_cxx12_Lock_poli
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc32WholeIpcFileRecordBatchGenerator16ReadDictionariesEPNS0_25RecordBatchFileReaderImplESt6vectorISt10shared_ptrINS0_7MessageEESaIS7_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef %state, ptr nocapture noundef readonly %dictionary_messages) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc32WholeIpcFileRecordBatchGenerator16ReadDictionariesEPNS0_25RecordBatchFileReaderImplESt6vectorISt10shared_ptrINS0_7MessageEESaIS7_EE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef %state, ptr nocapture noundef readonly %dictionary_messages) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %context = alloca %"struct.arrow::ipc::(anonymous namespace)::IpcReadContext", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -21635,14 +21635,14 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad5, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow3ipc8Listener5OnEOSEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define void @_ZN5arrow3ipc8Listener5OnEOSEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !301
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow3ipc8Listener15OnSchemaDecodedESt10shared_ptrINS_6SchemaEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %schema) unnamed_addr #5 align 2 {
+define void @_ZN5arrow3ipc8Listener15OnSchemaDecodedESt10shared_ptrINS_6SchemaEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture readnone %schema) unnamed_addr #5 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !304
   ret void
@@ -21858,7 +21858,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc13StreamDecoderC2ESt10shared_ptrINS0_8ListenerEENS0_14IpcReadOptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull %listener, ptr noundef nonnull %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc13StreamDecoderC2ESt10shared_ptrINS0_8ListenerEENS0_14IpcReadOptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull %listener, ptr noundef nonnull %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.193", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow3ipc13StreamDecoderE, i64 16), ptr %this, align 8
@@ -22094,7 +22094,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i.i8, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow3ipc13StreamDecoderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define void @_ZN5arrow3ipc13StreamDecoderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow3ipc13StreamDecoderE, i64 16), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -23678,7 +23678,7 @@ _ZNSt12__shared_ptrIN5arrow3ipc8ListenerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5arrow3ipc13StreamDecoder6schemaEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow3ipc13StreamDecoder6schemaEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %impl_, align 8
@@ -23724,7 +23724,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK5arrow3ipc13StreamDecoder5statsEv(ptr noalias nocapture writeonly sret(%"struct.arrow::ipc::ReadStats") align 8 initializes((0, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
+define void @_ZNK5arrow3ipc13StreamDecoder5statsEv(ptr noalias nocapture writeonly sret(%"struct.arrow::ipc::ReadStats") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #8 align 2 {
 entry:
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %impl_, align 8
@@ -29482,7 +29482,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit1593:                ; preds = %ehcleanup381, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_124ReadSparseTensorMetadataERKNS_6BufferEPSt10shared_ptrINS_8DataTypeEEPSt6vectorIlSaIlEEPS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEPlPNS_18SparseTensorFormat4typeEPPKN3org6apache5arrow7flatbuf12SparseTensorEPPKNST_6BufferE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %metadata, ptr noundef nonnull %out_type, ptr noundef nonnull %out_shape, ptr noundef nonnull %out_dim_names, ptr noundef nonnull %out_non_zero_length, ptr noundef nonnull %out_format_id, ptr nocapture noundef nonnull writeonly %out_fb_sparse_tensor, ptr nocapture noundef nonnull writeonly %out_buffer) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_124ReadSparseTensorMetadataERKNS_6BufferEPSt10shared_ptrINS_8DataTypeEEPSt6vectorIlSaIlEEPS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISI_EEPlPNS_18SparseTensorFormat4typeEPPKN3org6apache5arrow7flatbuf12SparseTensorEPPKNST_6BufferE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %metadata, ptr noundef nonnull %out_type, ptr noundef nonnull %out_shape, ptr noundef nonnull %out_dim_names, ptr noundef nonnull %out_non_zero_length, ptr noundef nonnull %out_format_id, ptr nocapture noundef nonnull writeonly %out_fb_sparse_tensor, ptr nocapture noundef nonnull writeonly %out_buffer) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %verifier.i.i = alloca %"class.arrow_vendored_private::flatbuffers::Verifier", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -29949,7 +29949,7 @@ _ZNSt12__shared_ptrIN5arrow14SparseCOOIndexELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_134MakeSparseTensorWithSparseCOOIndexERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEERKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS2_INS_14SparseCOOIndexEElRKS2_INS_6BufferEE(ptr noalias align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_134MakeSparseTensorWithSparseCOOIndexERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEERKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS2_INS_14SparseCOOIndexEElRKS2_INS_6BufferEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.675", align 8
   call void @_ZN5arrow16SparseTensorImplINS_14SparseCOOIndexEE4MakeERKSt10shared_ptrIS1_ERKS3_INS_8DataTypeEERKS3_INS_6BufferEERKSt6vectorIlSaIlEERKSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr nonnull sret(%"class.arrow::Result.675") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names)
@@ -30570,7 +30570,7 @@ _ZNSt12__shared_ptrIN5arrow14SparseCSRIndexELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_134MakeSparseTensorWithSparseCSRIndexERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEERKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS2_INS_14SparseCSRIndexEElRKS2_INS_6BufferEE(ptr noalias align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_134MakeSparseTensorWithSparseCSRIndexERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEERKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS2_INS_14SparseCSRIndexEElRKS2_INS_6BufferEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.691", align 8
   call void @_ZN5arrow16SparseTensorImplINS_14SparseCSRIndexEE4MakeERKSt10shared_ptrIS1_ERKS3_INS_8DataTypeEERKS3_INS_6BufferEERKSt6vectorIlSaIlEERKSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr nonnull sret(%"class.arrow::Result.691") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names)
@@ -31163,7 +31163,7 @@ _ZNSt12__shared_ptrIN5arrow14SparseCSCIndexELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_134MakeSparseTensorWithSparseCSCIndexERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEERKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS2_INS_14SparseCSCIndexEElRKS2_INS_6BufferEE(ptr noalias align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_134MakeSparseTensorWithSparseCSCIndexERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEERKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS2_INS_14SparseCSCIndexEElRKS2_INS_6BufferEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.707", align 8
   call void @_ZN5arrow16SparseTensorImplINS_14SparseCSCIndexEE4MakeERKSt10shared_ptrIS1_ERKS3_INS_8DataTypeEERKS3_INS_6BufferEERKSt6vectorIlSaIlEERKSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr nonnull sret(%"class.arrow::Result.707") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names)
@@ -31543,7 +31543,7 @@ _ZNSt12__shared_ptrIN5arrow14SparseCSFIndexELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_134MakeSparseTensorWithSparseCSFIndexERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEERKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS2_INS_14SparseCSFIndexEERKS2_INS_6BufferEE(ptr noalias align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_134MakeSparseTensorWithSparseCSFIndexERKSt10shared_ptrINS_8DataTypeEERKSt6vectorIlSaIlEERKS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISH_EERKS2_INS_14SparseCSFIndexEERKS2_INS_6BufferEE(ptr noalias align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %data) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Result.724", align 8
   call void @_ZN5arrow16SparseTensorImplINS_14SparseCSFIndexEE4MakeERKSt10shared_ptrIS1_ERKS3_INS_8DataTypeEERKS3_INS_6BufferEERKSt6vectorIlSaIlEERKSF_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISP_EE(ptr nonnull sret(%"class.arrow::Result.724") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %sparse_index, ptr noundef nonnull align 8 dereferenceable(16) %type, ptr noundef nonnull align 8 dereferenceable(16) %data, ptr noundef nonnull align 8 dereferenceable(24) %shape, ptr noundef nonnull align 8 dereferenceable(24) %dim_names)
@@ -41037,7 +41037,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %_ZN5arrow6ResultISt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5arrow3ipc8internal26IoRecordedRandomAccessFile7GetSizeEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result.76") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #9 align 2 {
+define void @_ZN5arrow3ipc8internal26IoRecordedRandomAccessFile7GetSizeEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result.76") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #9 align 2 {
 entry:
   %file_size_ = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %agg.result, align 8
@@ -41343,7 +41343,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow3ipc8internal26IoRecordedRandomAccessFile5CloseEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 65)) %this) unnamed_addr #5 align 2 {
+define void @_ZN5arrow3ipc8internal26IoRecordedRandomAccessFile5CloseEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this) unnamed_addr #5 align 2 {
 entry:
   %closed_ = getelementptr inbounds i8, ptr %this, i64 64
   store i8 1, ptr %closed_, align 8
@@ -41352,7 +41352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZTv0_n32_N5arrow3ipc8internal26IoRecordedRandomAccessFile5CloseEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef %this) unnamed_addr #10 align 2 {
+define void @_ZTv0_n32_N5arrow3ipc8internal26IoRecordedRandomAccessFile5CloseEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef %this) unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -32
@@ -41366,21 +41366,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow3ipc8internal26IoRecordedRandomAccessFile5AbortEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
+define void @_ZN5arrow3ipc8internal26IoRecordedRandomAccessFile5AbortEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #5 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !733
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZTv0_n48_N5arrow3ipc8internal26IoRecordedRandomAccessFile5AbortEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture readonly %this) unnamed_addr #5 align 2 {
+define void @_ZTv0_n48_N5arrow3ipc8internal26IoRecordedRandomAccessFile5AbortEv(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture readonly %this) unnamed_addr #5 align 2 {
 entry:
   store ptr null, ptr %agg.result, align 8, !alias.scope !736
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow3ipc8internal26IoRecordedRandomAccessFile4TellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result.76") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #9 align 2 {
+define void @_ZNK5arrow3ipc8internal26IoRecordedRandomAccessFile4TellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result.76") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %this) unnamed_addr #9 align 2 {
 entry:
   %position_ = getelementptr inbounds i8, ptr %this, i64 56
   store ptr null, ptr %agg.result, align 8
@@ -41391,7 +41391,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZTv0_n56_NK5arrow3ipc8internal26IoRecordedRandomAccessFile4TellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result.76") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef readonly %this) unnamed_addr #10 align 2 {
+define void @_ZTv0_n56_NK5arrow3ipc8internal26IoRecordedRandomAccessFile4TellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result.76") align 8 %agg.result, ptr nocapture noundef readonly %this) unnamed_addr #10 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -56
@@ -41429,7 +41429,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow3ipc8internal26IoRecordedRandomAccessFile4SeekEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((56, 64)) %this, i64 noundef %position) unnamed_addr #5 align 2 {
+define void @_ZN5arrow3ipc8internal26IoRecordedRandomAccessFile4SeekEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this, i64 noundef %position) unnamed_addr #5 align 2 {
 entry:
   %position_ = getelementptr inbounds i8, ptr %this, i64 56
   store i64 %position, ptr %position_, align 8
@@ -41438,7 +41438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @_ZThn8_N5arrow3ipc8internal26IoRecordedRandomAccessFile4SeekEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef writeonly initializes((48, 56)) %this, i64 noundef %position) unnamed_addr #13 align 2 {
+define void @_ZThn8_N5arrow3ipc8internal26IoRecordedRandomAccessFile4SeekEl(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef writeonly %this, i64 noundef %position) unnamed_addr #13 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !747)
   %position_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -43713,7 +43713,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_126GetCompressionExperimentalEPKN3org6apache5arrow7flatbuf7MessageEPNS_11Compression4typeE(ptr noalias nonnull align 8 %agg.result, ptr noundef %message, ptr nocapture noundef nonnull initializes((0, 4)) %out) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_126GetCompressionExperimentalEPKN3org6apache5arrow7flatbuf7MessageEPNS_11Compression4typeE(ptr noalias nonnull align 8 %agg.result, ptr noundef %message, ptr nocapture noundef nonnull %out) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %metadata = alloca %"class.std::shared_ptr.20", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -56128,7 +56128,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %_ZNSt6vectorISt10sh
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader5VisitERKNS_14BinaryViewTypeE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader5VisitERKNS_14BinaryViewTypeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %ref.tmp5.i = alloca %"class.arrow::Status", align 8
@@ -56662,7 +56662,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader5VisitERKNS_9UnionTypeE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader5VisitERKNS_9UnionTypeE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(120) %type) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp32 = alloca %"class.arrow::Status", align 8
@@ -57140,7 +57140,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader10LoadCommonENS_4Type4typeE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %type_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader10LoadCommonENS_4Type4typeE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %type_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp21 = alloca %"class.arrow::Status", align 8
@@ -59150,7 +59150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader10LoadBinaryENS_4Type4typeE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %type_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader10LoadBinaryENS_4Type4typeE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %type_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp16 = alloca %"class.arrow::Status", align 8
@@ -59436,7 +59436,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader12LoadChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS6_EE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %child_fields) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_111ArrayLoader12LoadChildrenERKSt6vectorISt10shared_ptrINS_5FieldEESaIS6_EE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %child_fields) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp14 = alloca %"class.arrow::Status", align 8
   %out_8 = getelementptr inbounds i8, ptr %this, i64 112
@@ -61933,7 +61933,7 @@ cond.end:                                         ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSB_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISL_EEE3$_0iEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSB_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISL_EEE3$_0iEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSB_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISL_EEE3$_0iEEEE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 56
@@ -62014,7 +62014,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSB_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISL_EEE3$_0iEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSB_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISL_EEE3$_0iEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureINS0_5EmptyEEEZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSB_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISL_EEE3$_0iEEEE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 56
@@ -63041,7 +63041,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSA_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISK_EEE3$_0JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSA_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISK_EEE3$_0JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSA_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISK_EEE3$_0JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -63082,7 +63082,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSA_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISK_EEE3$_0JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSA_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISK_EEE3$_0JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIRZNS_3ipc12_GLOBAL__N_117DecompressBuffersENS_11Compression4typeERKNSA_14IpcReadOptionsEPSt6vectorISt10shared_ptrINS_9ArrayDataEESaISK_EEE3$_0JRiENS_6FutureINS0_5EmptyEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -63783,7 +63783,7 @@ lpad.body:                                        ; preds = %lpad4.i, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119UnpackSchemaMessageEPKvRKNS0_14IpcReadOptionsEPNS0_14DictionaryMemoEPSt10shared_ptrINS_6SchemaEESC_PSt6vectorIbSaIbEEPb(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8)) %agg.result, ptr noundef %opaque_schema, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %options, ptr noundef %dictionary_memo, ptr noundef %schema, ptr nocapture noundef %out_schema, ptr noundef %field_inclusion_mask, ptr nocapture noundef writeonly %swap_endian) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_119UnpackSchemaMessageEPKvRKNS0_14IpcReadOptionsEPNS0_14DictionaryMemoEPSt10shared_ptrINS_6SchemaEESC_PSt6vectorIbSaIbEEPb(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef %opaque_schema, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %options, ptr noundef %dictionary_memo, ptr noundef %schema, ptr nocapture noundef %out_schema, ptr noundef %field_inclusion_mask, ptr nocapture noundef writeonly %swap_endian) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %ref.tmp = alloca %"class.arrow::Status", align 8
   %ref.tmp8 = alloca %"class.arrow::Status", align 8
@@ -87582,7 +87582,7 @@ ehcleanup:                                        ; preds = %lpad12, %_ZNSt10uni
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_114ReadDictionaryERKNS_6BufferERKNS1_14IpcReadContextEPNS1_14DictionaryKindEPNS_2io16RandomAccessFileE(ptr noalias nonnull align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %metadata, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %context, ptr nocapture noundef nonnull writeonly %kind, ptr noundef %file) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow3ipc12_GLOBAL__N_114ReadDictionaryERKNS_6BufferERKNS1_14IpcReadContextEPNS1_14DictionaryKindEPNS_2io16RandomAccessFileE(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %metadata, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %context, ptr nocapture noundef nonnull writeonly %kind, ptr noundef %file) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %verifier.i.i = alloca %"class.arrow_vendored_private::flatbuffers::Verifier", align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -112396,7 +112396,7 @@ _ZNSt10shared_ptrIN5arrow10FutureImplEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISP_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISP_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISP_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -112405,7 +112405,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISP_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISP_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncERKSt10shared_ptrINS_2io16RandomAccessFileEElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISP_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -113082,7 +113082,7 @@ if.end8.sink.split.i.i.i.i.i22:                   ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISM_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISM_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISM_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -113091,7 +113091,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISM_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISM_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc21RecordBatchFileReader9OpenAsyncEPNS_2io16RandomAccessFileElRKNSE_14IpcReadOptionsEE3$_0NSA_17PassthruOnFailureISM_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -117731,7 +117731,7 @@ if.end8.sink.split.i.i.i.i.i22:                   ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaISF_EEE20WrapResultOnComplete8CallbackINSI_14ThenOnCompleteIZNSC_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSI_17PassthruOnFailureISN_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaISF_EEE20WrapResultOnComplete8CallbackINSI_14ThenOnCompleteIZNSC_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSI_17PassthruOnFailureISN_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaISF_EEE20WrapResultOnComplete8CallbackINSI_14ThenOnCompleteIZNSC_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSI_17PassthruOnFailureISN_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -117740,7 +117740,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaISF_EEE20WrapResultOnComplete8CallbackINSI_14ThenOnCompleteIZNSC_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSI_17PassthruOnFailureISN_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaISF_EEE20WrapResultOnComplete8CallbackINSI_14ThenOnCompleteIZNSC_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSI_17PassthruOnFailureISN_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt6vectorINS_6ResultISt10shared_ptrINS_3ipc7MessageEEEESaISF_EEE20WrapResultOnComplete8CallbackINSI_14ThenOnCompleteIZNSC_32WholeIpcFileRecordBatchGeneratorclEvE3$_0NSI_17PassthruOnFailureISN_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -120021,7 +120021,7 @@ if.end8.sink.split.i.i.i.i.i.i:                   ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NSA_17PassthruOnFailureISG_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NSA_17PassthruOnFailureISG_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NSA_17PassthruOnFailureISG_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -120030,7 +120030,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NSA_17PassthruOnFailureISG_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NSA_17PassthruOnFailureISG_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvE3$_1NSA_17PassthruOnFailureISG_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -120698,7 +120698,7 @@ if.end8.sink.split.i.i.i.i.i22:                   ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NSD_17PassthruOnFailureISI_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NSD_17PassthruOnFailureISI_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NSD_17PassthruOnFailureISI_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -120707,7 +120707,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NSD_17PassthruOnFailureISI_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NSD_17PassthruOnFailureISI_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_2NSD_17PassthruOnFailureISI_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -122817,7 +122817,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_11RecordBatchEEEEZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS9_INSD_7MessageEEEUlvE_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_11RecordBatchEEEEZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS9_INSD_7MessageEEEUlvE_EEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_11RecordBatchEEEEZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS9_INSD_7MessageEEEUlvE_EEEE", i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -122900,7 +122900,7 @@ if.end8.sink.split.i.i.i.i.i.i.i.i.i:             ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_11RecordBatchEEEEZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS9_INSD_7MessageEEEUlvE_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_11RecordBatchEEEEZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS9_INSD_7MessageEEEUlvE_EEED0Ev"(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvvEE6FnImplISt5_BindIFNS_6detail14ContinueFutureENS_6FutureISt10shared_ptrINS_11RecordBatchEEEEZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKS9_INSD_7MessageEEEUlvE_EEEE", i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -123159,7 +123159,7 @@ lpad.body.i.i.i.i:                                ; preds = %lpad.i.i.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINSA_7MessageEEEUlvE_JENS_6FutureISD_INS_11RecordBatchEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINSA_7MessageEEEUlvE_JENS_6FutureISD_INS_11RecordBatchEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINSA_7MessageEEEUlvE_JENS_6FutureISD_INS_11RecordBatchEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -123200,7 +123200,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINSA_7MessageEEEUlvE_JENS_6FutureISD_INS_11RecordBatchEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINSA_7MessageEEEUlvE_JENS_6FutureISD_INS_11RecordBatchEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_6StatusEEE6FnImplIZNS0_8Executor6SubmitIZZNS_3ipc32WholeIpcFileRecordBatchGeneratorclEvENK3$_2clERKSt10shared_ptrINSA_7MessageEEEUlvE_JENS_6FutureISD_INS_11RecordBatchEEEEEENS_6ResultIT1_EENS0_9TaskHintsENS_9StopTokenEOT_DpOT0_E3$_0EE", i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -123579,7 +123579,7 @@ if.end8.sink.split.i.i.i.i.i22:                   ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NSD_17PassthruOnFailureISI_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NSD_17PassthruOnFailureISI_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NSD_17PassthruOnFailureISI_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -123588,7 +123588,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NSD_17PassthruOnFailureISI_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NSD_17PassthruOnFailureISI_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureISt10shared_ptrINS_3ipc7MessageEEE20WrapResultOnComplete8CallbackINSD_14ThenOnCompleteIZNSA_32WholeIpcFileRecordBatchGeneratorclEvE3$_3NSD_17PassthruOnFailureISI_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -124129,7 +124129,7 @@ if.end8.sink.split.i.i.i.i.i22:                   ; preds = %_ZN9__gnu_cxx27__ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNSE_8internal9FileBlockEE3$_0NSA_17PassthruOnFailureISK_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNSE_8internal9FileBlockEE3$_0NSA_17PassthruOnFailureISK_EEEEEEED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNSE_8internal9FileBlockEE3$_0NSA_17PassthruOnFailureISK_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -124138,7 +124138,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNSE_8internal9FileBlockEE3$_0NSA_17PassthruOnFailureISK_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define internal void @"_ZN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNSE_8internal9FileBlockEE3$_0NSA_17PassthruOnFailureISK_EEEEEEED0Ev"(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN5arrow8internal6FnOnceIFvRKNS_10FutureImplEEE6FnImplINS_6FutureINS0_5EmptyEE20WrapResultOnComplete8CallbackINSA_14ThenOnCompleteIZNS_3ipc32WholeIpcFileRecordBatchGenerator9ReadBlockERKNSE_8internal9FileBlockEE3$_0NSA_17PassthruOnFailureISK_EEEEEEEE", i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 8

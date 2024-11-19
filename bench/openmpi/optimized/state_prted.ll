@@ -2359,7 +2359,7 @@ declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @PMIx_server_deregister_nspace(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @opcbfunc(i32 noundef %0, ptr noundef initializes((212, 216)) %1) #0 {
+define internal void @opcbfunc(i32 noundef %0, ptr noundef %1) #0 {
   fence release
   %3 = tail call i32 @prte_pmix_convert_status(i32 noundef %0) #9
   %4 = getelementptr inbounds i8, ptr %1, i64 212

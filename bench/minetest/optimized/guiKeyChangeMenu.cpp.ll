@@ -3485,7 +3485,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN12GUIModalMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(384), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16GUIKeyChangeMenuC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(440) initializes((440, 460)) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, ptr noundef %tsrc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16GUIKeyChangeMenuC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerP20ISimpleTextureSource(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef %menumgr, ptr noundef %tsrc) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 440
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4
@@ -3526,7 +3526,7 @@ _ZNSt6vectorIP11key_settingSaIS1_EED2Ev.exit:     ; preds = %if.then.i.i.i, %lpa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16GUIKeyChangeMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16GUIKeyChangeMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef %vtt) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !4
@@ -3675,7 +3675,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16GUIKeyChangeMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN16GUIKeyChangeMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(440) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN16GUIKeyChangeMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef nonnull @_ZTT16GUIKeyChangeMenu) #23
   ret void
@@ -3693,7 +3693,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16GUIKeyChangeMenuD0Ev(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define dso_local void @_ZN16GUIKeyChangeMenuD0Ev(ptr noundef nonnull align 8 dereferenceable(440) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN16GUIKeyChangeMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %this, ptr noundef nonnull @_ZTT16GUIKeyChangeMenu) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22

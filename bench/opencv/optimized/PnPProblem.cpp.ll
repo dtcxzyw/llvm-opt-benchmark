@@ -71,7 +71,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10PnPProblemC2EPKd(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10PnPProblemC2EPKd(ptr noundef nonnull align 8 dereferenceable(392) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::MatExpr", align 8
   %4 = alloca %"class.cv::MatExpr", align 8
   %5 = alloca %"class.cv::MatExpr", align 8
@@ -252,7 +252,7 @@ define linkonce_odr hidden void @_ZN2cv7MatExprD2Ev(ptr noundef nonnull align 8 
 declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PnPProblemD2Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN10PnPProblemD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10PnPProblem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
@@ -266,7 +266,7 @@ define hidden void @_ZN10PnPProblemD2Ev(ptr noundef nonnull align 8 dereferencea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10PnPProblemD0Ev(ptr noundef nonnull align 8 dereferenceable(392) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN10PnPProblemD0Ev(ptr noundef nonnull align 8 dereferenceable(392) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV10PnPProblem, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %2) #19
@@ -947,7 +947,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit36:               ; preds = %32
 declare noundef zeroext i1 @_ZN2cv14solvePnPRansacERKNS_11_InputArrayES2_S2_S2_RKNS_12_OutputArrayES5_bifdS5_i(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext, i32 noundef, float noundef, double noundef, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN10PnPProblem13verify_pointsEP4Mesh(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.0") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN10PnPProblem13verify_pointsEP4Mesh(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.0") align 8 %0, ptr noundef nonnull align 8 dereferenceable(392) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cv::Point3_", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 8

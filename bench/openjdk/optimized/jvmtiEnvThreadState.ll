@@ -273,7 +273,7 @@ _ZN17GrowableArrayViewIiE9remove_atEi.exit:       ; preds = %17, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14JvmtiFramePopsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN14JvmtiFramePopsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 23) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
@@ -424,7 +424,7 @@ define hidden noundef ptr @_ZN19JvmtiEnvThreadState35get_agent_thread_local_stor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19JvmtiEnvThreadState35set_agent_thread_local_storage_dataEPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((56, 64)) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN19JvmtiEnvThreadState35set_agent_thread_local_storage_dataEPv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %3, align 8
   ret void

@@ -288,7 +288,7 @@ define dso_local noundef i64 @__blkg_prfill_u64(ptr noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @blkg_conf_init(ptr nocapture noundef writeonly initializes((0, 32)) %0, ptr noundef %1) #4 align 16 {
+define dso_local void @blkg_conf_init(ptr nocapture noundef writeonly %0, ptr noundef %1) #4 align 16 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)

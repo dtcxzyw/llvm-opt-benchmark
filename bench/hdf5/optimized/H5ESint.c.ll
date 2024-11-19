@@ -547,7 +547,7 @@ define internal range(i32 0, 2) i32 @H5ES__get_requests_cb(ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5ES__wait(ptr noundef %0, i64 noundef %1, ptr noundef initializes((0, 8)) %2, ptr noundef initializes((0, 1)) %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5ES__wait(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.H5ES_wait_ctx_t, align 8
   store i64 0, ptr %2, align 8
   store i8 0, ptr %3, align 1
@@ -698,7 +698,7 @@ define internal range(i32 -1, 2) i32 @H5ES__wait_cb(ptr noundef %0, ptr nocaptur
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5ES__cancel(ptr noundef %0, ptr noundef initializes((0, 8)) %1, ptr noundef initializes((0, 1)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5ES__cancel(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5ES_cancel_ctx_t, align 8
   store i64 0, ptr %1, align 8
   store i8 0, ptr %2, align 1

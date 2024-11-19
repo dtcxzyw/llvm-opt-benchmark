@@ -315,7 +315,7 @@ declare void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 d
 declare void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CompilerEvent16CompilationEvent4postER16EventCompilationi12CompilerTypeP6Methodibbiim(ptr noundef nonnull align 8 dereferenceable(72) initializes((20, 44), (48, 72)) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, i64 noundef %9) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13CompilerEvent16CompilationEvent4postER16EventCompilationi12CompilerTypeP6Methodibbiim(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i32 noundef %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i32 noundef %7, i32 noundef %8, i64 noundef %9) local_unnamed_addr #0 align 2 {
   %11 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %11, align 4
   %12 = zext i8 %2 to i64
@@ -399,7 +399,7 @@ _ZL6commitI16EventCompilationEvRT_.exit:          ; preds = %_ZN20ThreadInVMfrom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CompilerEvent23CompilationFailureEvent4postER23EventCompilationFailureiPKc(ptr noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13CompilerEvent23CompilationFailureEvent4postER23EventCompilationFailureiPKc(ptr noundef nonnull align 8 dereferenceable(36) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -493,7 +493,7 @@ _ZN8JfrEventI23EventCompilationFailureE11write_eventEv.exit: ; preds = %9, %39, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CompilerEvent10PhaseEvent4postER18EventCompilerPhaseRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEiii(ptr noundef nonnull align 8 dereferenceable(38) initializes((0, 8), (24, 38)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13CompilerEvent10PhaseEvent4postER18EventCompilerPhaseRK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceEiii(ptr noundef nonnull align 8 dereferenceable(38) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load i8, ptr @_ZN7JfrTime11_ft_enabledE, align 1
   %7 = trunc i8 %6 to i1
   %8 = getelementptr inbounds i8, ptr %1, i64 8
@@ -610,7 +610,7 @@ _ZN8JfrEventI18EventCompilerPhaseE11write_eventEv.exit: ; preds = %_ZN8JfrEventI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInliningiP6MethodRK21JfrStructCalleeMethodbPKci(ptr noundef nonnull align 8 dereferenceable(76) initializes((20, 57), (64, 76)) %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInliningiP6MethodRK21JfrStructCalleeMethodbPKci(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
@@ -683,7 +683,7 @@ _ZL6commitI21EventCompilerInliningEvRT_.exit:     ; preds = %_ZN20ThreadInVMfrom
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInliningiP6MethodS4_bPKci(ptr noundef nonnull align 8 dereferenceable(76) initializes((20, 57), (64, 76)) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInliningiP6MethodS4_bPKci(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %struct.JfrStructCalleeMethod, align 8
   %9 = tail call noundef ptr @_ZNK6Method10klass_nameEv(ptr noundef nonnull align 8 dereferenceable(88) %3) #11
   %10 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %9) #11
@@ -720,7 +720,7 @@ define hidden void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInlinin
 declare noundef ptr @_ZNK6Method10klass_nameEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInliningiP6MethodP8ciMethodbPKci(ptr noundef nonnull align 8 dereferenceable(76) initializes((20, 57), (64, 76)) %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInliningiP6MethodP8ciMethodbPKci(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %struct.JfrStructCalleeMethod, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 40
   %10 = load ptr, ptr %9, align 8

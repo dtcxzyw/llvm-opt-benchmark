@@ -1741,7 +1741,7 @@ lpad2:                                            ; preds = %_ZN14core_hashtable
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7checkerC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt7checkerC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(11616) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %c, ptr %this, align 8
   %m_manager = getelementptr inbounds i8, ptr %this, i64 8

@@ -99,7 +99,7 @@ $_ZTIN3irr5scene11IMeshLoaderE = comdat any
 @.str.27 = private unnamed_addr constant [6 x i8] c"%0.6f\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene18CB3DMeshFileLoaderC2EPNS0_13ISceneManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(223) initializes((0, 33), (40, 65), (72, 97), (104, 129), (136, 161), (168, 193), (200, 223)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef readnone %smgr) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene18CB3DMeshFileLoaderC2EPNS0_13ISceneManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(223) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef readnone %smgr) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -150,7 +150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene18CB3DMeshFileLoaderC1EPNS0_13ISceneManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(223) initializes((0, 33), (40, 65), (72, 97), (104, 129), (136, 161), (168, 193), (200, 223), (224, 244)) %this, ptr nocapture noundef readnone %smgr) unnamed_addr #1 align 2 {
+define void @_ZN3irr5scene18CB3DMeshFileLoaderC1EPNS0_13ISceneManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(223) %this, ptr nocapture noundef readnone %smgr) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 224
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -346,7 +346,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 declare void @_ZN3irr5scene12CSkinnedMeshC1Ev(ptr noundef nonnull align 8 dereferenceable(186)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene18CB3DMeshFileLoader4loadEv(ptr noundef nonnull align 8 dereferenceable(223) initializes((16, 33), (220, 222)) %this) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene18CB3DMeshFileLoader4loadEv(ptr noundef nonnull align 8 dereferenceable(223) %this) local_unnamed_addr #2 align 2 {
 entry:
   %header = alloca %"struct.irr::scene::SB3dChunkHeader", align 4
   %fileVersion = alloca i32, align 4
@@ -3335,7 +3335,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr5scene18CB3DMeshFileLoader13readChunkMESHEPNS0_12ISkinnedMesh6SJointE(ptr noundef nonnull align 8 dereferenceable(223) initializes((220, 222)) %this, ptr nocapture noundef readonly %inJoint) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN3irr5scene18CB3DMeshFileLoader13readChunkMESHEPNS0_12ISkinnedMesh6SJointE(ptr noundef nonnull align 8 dereferenceable(223) %this, ptr nocapture noundef readonly %inJoint) local_unnamed_addr #7 align 2 {
 entry:
   %brushID = alloca i32, align 4
   %header = alloca %"struct.irr::scene::SB3dChunkHeader", align 4

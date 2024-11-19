@@ -91,7 +91,7 @@ $_ZN4llvm15SmallVectorImplISt4pairIjPNS_8MCSymbolEEEaSERKS5_ = comdat any
 @_ZN4llvm19AArch64FunctionInfoC1ERKNS_8FunctionEPKNS_16AArch64SubtargetE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN4llvm19AArch64FunctionInfoC2ERKNS_8FunctionEPKNS_16AArch64SubtargetE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm4yaml19AArch64FunctionInfoC2ERKNS_19AArch64FunctionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 10)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2032) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm4yaml19AArch64FunctionInfoC2ERKNS_19AArch64FunctionInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2032) %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm4yaml19AArch64FunctionInfoE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 105
@@ -137,7 +137,7 @@ define dso_local void @_ZN4llvm19AArch64FunctionInfo24initializeBaseYamlFieldsER
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19AArch64FunctionInfoC2ERKNS_8FunctionEPKNS_16AArch64SubtargetE(ptr noundef nonnull align 8 dereferenceable(2032) initializes((0, 21), (24, 49), (52, 91), (92, 105), (106, 107)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm19AArch64FunctionInfoC2ERKNS_8FunctionEPKNS_16AArch64SubtargetE(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nocapture noundef readonly %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.llvm::Attribute", align 8
   %5 = alloca %"class.llvm::Attribute", align 8
   %6 = alloca %"class.llvm::Attribute", align 8

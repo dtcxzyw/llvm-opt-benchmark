@@ -356,7 +356,7 @@ $_ZTI13b3OpenCLArrayI6b3AabbE = comdat any
 @_ZN16b3GpuNarrowPhaseD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN16b3GpuNarrowPhaseD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16b3GpuNarrowPhaseC2EP11_cl_contextP13_cl_device_idP17_cl_command_queueRK8b3Config(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 16), (20, 28), (32, 56)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %config) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16b3GpuNarrowPhaseC2EP11_cl_contextP13_cl_device_idP17_cl_command_queueRK8b3Config(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, ptr nocapture noundef nonnull readonly align 4 dereferenceable(48) %config) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp36 = alloca %struct.b3InertiaData, align 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16b3GpuNarrowPhase, i64 16), ptr %this, align 8
@@ -1666,7 +1666,7 @@ if.end7:                                          ; preds = %_ZN20b3AlignedObjec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16b3GpuNarrowPhaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16b3GpuNarrowPhaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16b3GpuNarrowPhase, i64 16), ptr %this, align 8
   %m_data = getelementptr inbounds i8, ptr %this, i64 8
@@ -2686,7 +2686,7 @@ _ZN20b3AlignedObjectArrayI22b3ConvexPolyhedronDataED2Ev.exit: ; preds = %_ZN20b3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16b3GpuNarrowPhaseD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN16b3GpuNarrowPhaseD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN16b3GpuNarrowPhaseD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -8237,7 +8237,7 @@ if.end:                                           ; preds = %if.then4.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16b3GpuNarrowPhase5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((24, 28)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN16b3GpuNarrowPhase5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
   %m_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_data, align 8

@@ -201,7 +201,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9unit_test6output22plain_report_formatter20results_report_startERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((8, 17)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost9unit_test6output22plain_report_formatter20results_report_startERSo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

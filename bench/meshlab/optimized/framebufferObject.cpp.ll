@@ -86,7 +86,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #5
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17FramebufferObjectC2Ev(ptr noundef nonnull align 4 dereferenceable(8) initializes((0, 4)) %0) unnamed_addr #7 align 2 {
+define void @_ZN17FramebufferObjectC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %0) unnamed_addr #7 align 2 {
   store i32 0, ptr %0, align 4
   %2 = load ptr, ptr @__glewGenFramebuffersEXT, align 8
   tail call void %2(i32 noundef 1, ptr noundef nonnull %0)

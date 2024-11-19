@@ -1281,7 +1281,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN3gmx24TrajectoryAnalysisModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15HbondD2Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15HbondD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx15analysismodules12_GLOBAL__N_15HbondE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 512
   %3 = load ptr, ptr %2, align 8
@@ -1605,7 +1605,7 @@ _ZN3gmx15analysismodules12_GLOBAL__N_16t_infoD2Ev.exit35: ; preds = %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15HbondD0Ev(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_15HbondD0Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #6 align 2 {
   tail call void @_ZN3gmx15analysismodules12_GLOBAL__N_15HbondD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) #26
   tail call void @_ZdlPv(ptr noundef nonnull %0) #29
   ret void
@@ -12179,7 +12179,7 @@ _ZNSt10shared_ptrIN3gmx8internal30AnalysisNeighborhoodSearchImplEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond16prepareFrameDataERKSt6vectorINS1_5HBondESaIS4_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %1, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK3gmx15analysismodules12_GLOBAL__N_15Hbond16prepareFrameDataERKSt6vectorINS1_5HBondESaIS4_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(520) %1, ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.gmx::analysismodules::(anonymous namespace)::HBond", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.not21 = icmp eq ptr %.0.val, %.8.val
@@ -13980,7 +13980,7 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_16t_infoC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3gmx15analysismodules12_GLOBAL__N_16t_infoC2ERKS2_(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %.val10.i = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %.val11.i = load ptr, ptr %3, align 8

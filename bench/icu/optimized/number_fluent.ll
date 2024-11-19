@@ -2819,7 +2819,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number26UnlocalizedNumberFormatterC2EOS1_(ptr noundef nonnull align 8 dereferenceable(473) initializes((4, 16)) %this, ptr noundef nonnull align 8 dereferenceable(473) %src) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number26UnlocalizedNumberFormatterC2EOS1_(ptr noundef nonnull align 8 dereferenceable(473) %this, ptr noundef nonnull align 8 dereferenceable(473) %src) unnamed_addr #0 align 2 {
 entry:
   %notation.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %notation2.i.i.i = getelementptr inbounds i8, ptr %src, i64 4
@@ -2858,7 +2858,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number26UnlocalizedNumberFormatterC2EONS0_23NumberFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(473) initializes((4, 16)) %this, ptr noundef nonnull align 8 dereferenceable(472) %src) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number26UnlocalizedNumberFormatterC2EONS0_23NumberFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(473) %this, ptr noundef nonnull align 8 dereferenceable(472) %src) unnamed_addr #0 align 2 {
 entry:
   %notation.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %notation2.i.i = getelementptr inbounds i8, ptr %src, i64 4
@@ -2897,7 +2897,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(473) initializes((4, 16)) %this, ptr noundef nonnull align 8 dereferenceable(473) %other) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(473) %this, ptr noundef nonnull align 8 dereferenceable(473) %other) local_unnamed_addr #1 align 2 {
 entry:
   %notation.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %notation2.i.i = getelementptr inbounds i8, ptr %other, i64 4
@@ -2936,7 +2936,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(473) initializes((4, 16)) %this, ptr noundef nonnull align 8 dereferenceable(473) %src) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(473) ptr @_ZN6icu_756number26UnlocalizedNumberFormatteraSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(473) %this, ptr noundef nonnull align 8 dereferenceable(473) %src) local_unnamed_addr #0 align 2 {
 entry:
   %notation.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %notation2.i.i = getelementptr inbounds i8, ptr %src, i64 4
@@ -3297,14 +3297,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number24LocalizedNumberFormatterC2EOS1_(ptr noundef nonnull align 8 dereferenceable(496) initializes((4, 16)) %this, ptr noundef nonnull align 8 dereferenceable(496) %src) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number24LocalizedNumberFormatterC2EOS1_(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull align 8 dereferenceable(496) %src) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_756number24LocalizedNumberFormatterC2EONS0_23NumberFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull align 8 dereferenceable(472) %src) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number24LocalizedNumberFormatterC2EONS0_23NumberFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(496) initializes((4, 16)) %this, ptr noundef nonnull align 8 dereferenceable(472) %src) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number24LocalizedNumberFormatterC2EONS0_23NumberFormatterSettingsIS1_EE(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr noundef nonnull align 8 dereferenceable(472) %src) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 delete.end.i:
   %notation.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %notation2.i.i = getelementptr inbounds i8, ptr %src, i64 4
@@ -3509,7 +3509,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(496) ptr @_ZN6icu_756number24LocalizedNumberFormatteraSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(496) initializes((4, 16)) %this, ptr noundef nonnull align 8 dereferenceable(496) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(496) ptr @_ZN6icu_756number24LocalizedNumberFormatteraSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(496) %this, ptr noundef nonnull align 8 dereferenceable(496) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %notation.i.i = getelementptr inbounds i8, ptr %this, i64 4
   %notation2.i.i = getelementptr inbounds i8, ptr %src, i64 4

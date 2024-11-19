@@ -462,7 +462,7 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__25SdfAbstractDataTypedValueINS_7TfTokenE
 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipC1EONS0_8PropertyE = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipC2EONS0_8PropertyE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_IntializeForTypedSchemaERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7VtArrayINS_7TfTokenEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition24_IntializeForTypedSchemaERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathERKNS_7VtArrayINS_7TfTokenEEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -3436,7 +3436,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefini
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9Attribute16GetTypeNameTokenEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9Attribute16GetTypeNameTokenEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfAbstractDataTypedValue.268", align 8
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4090,7 +4090,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit11: ; preds = %64, %69
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry29MakeMultipleApplyNameInstanceERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr dead_on_unwind writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition31_CreateComposedPropertyIfNeededERKNS_7TfTokenERKNS0_13_LayerAndPathES6_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfHandle") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition31_CreateComposedPropertyIfNeededERKNS_7TfTokenERKNS0_13_LayerAndPathES6_(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfHandle") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticHelper", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca [2 x %"class.pxrInternal_v0_24__pxrReserved__::TfToken"], align 8
@@ -9765,7 +9765,7 @@ declare void @_ZNK32pxrInternal_v0_24__pxrReserved__8SdfLayer10ListFieldsERKNS_7
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributeC2ERKNS0_8PropertyE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributeC2ERKNS0_8PropertyE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   %4 = and i64 %3, 7
@@ -9797,7 +9797,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyC2ERKS1_.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributeC2EONS0_8PropertyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #9 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributeC2EONS0_8PropertyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store i64 0, ptr %1, align 8
@@ -9811,7 +9811,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition9AttributeC
 declare ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13SdfSchemaBase8FindTypeERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(1160), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipC2ERKNS0_8PropertyE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipC2ERKNS0_8PropertyE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   %4 = and i64 %3, 7
@@ -9843,7 +9843,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyC2ERKS1_.exit: 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipC2EONS0_8PropertyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #9 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition12RelationshipC2EONS0_8PropertyE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #9 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store i64 0, ptr %1, align 8

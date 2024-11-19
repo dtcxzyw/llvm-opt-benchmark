@@ -619,7 +619,7 @@ declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare void @curl_free(ptr noundef) #4
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr noundef %chlg, ptr nocapture noundef initializes((48, 53)) %digest) local_unnamed_addr #2 {
+define hidden range(i32 0, 62) i32 @Curl_auth_decode_digest_http_message(ptr noundef %chlg, ptr nocapture noundef %digest) local_unnamed_addr #2 {
 entry:
   %chlg.addr = alloca ptr, align 8
   %value = alloca [256 x i8], align 16
@@ -981,7 +981,7 @@ return:                                           ; preds = %if.else155, %if.the
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_auth_digest_cleanup(ptr nocapture noundef initializes((48, 53)) %digest) local_unnamed_addr #2 {
+define hidden void @Curl_auth_digest_cleanup(ptr nocapture noundef %digest) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr @Curl_cfree, align 8
   %1 = load ptr, ptr %digest, align 8

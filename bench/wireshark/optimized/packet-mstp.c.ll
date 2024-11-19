@@ -571,7 +571,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_mstp_wtap(ptr noundef %0, ptr noundef initializes((112, 160), (208, 256)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_mstp_wtap(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 136
   %6 = load i32, ptr @mstp_address_type, align 4
   %7 = tail call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef 3, i32 noundef 1) #4
@@ -633,7 +633,7 @@ declare ptr @register_dissector_table(ptr noundef, ptr noundef, i32 noundef, i32
 declare i32 @address_type_dissector_register(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mstp_to_str(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 2)) %1, i32 %2) #0 {
+define internal noundef i32 @mstp_to_str(ptr nocapture noundef readonly %0, ptr noundef %1, i32 %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 1
   store i8 48, ptr %1, align 1
   %5 = getelementptr i8, ptr %1, i64 2

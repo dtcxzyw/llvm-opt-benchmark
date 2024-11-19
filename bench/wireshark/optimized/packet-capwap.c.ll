@@ -2076,7 +2076,7 @@ declare ptr @proto_tree_add_item(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @proto_item_add_subtree(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 1, 5) i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %2) unnamed_addr #0 {
+define internal fastcc range(i32 1, 5) i32 @dissect_capwap_preamble(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = load i32, ptr @hf_capwap_preamble, align 4
   %5 = tail call ptr @proto_tree_add_item(ptr noundef %1, i32 noundef %4, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #2
   %6 = load i32, ptr @ett_capwap_preamble, align 4
@@ -2107,7 +2107,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 5) %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %4, ptr nocapture noundef nonnull initializes((0, 1)) %5, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %7, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %8, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %9) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1020) i32 @dissect_capwap_header(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 1, 5) %2, ptr noundef %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull writeonly %8, ptr nocapture noundef nonnull writeonly %9) unnamed_addr #0 {
   %11 = shl nuw nsw i32 %2, 3
   %12 = tail call zeroext i8 @tvb_get_bits8(ptr noundef %0, i32 noundef %11, i32 noundef 5) #2
   %13 = zext i8 %12 to i32

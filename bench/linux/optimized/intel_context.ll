@@ -1365,7 +1365,7 @@ define dso_local ptr @intel_context_get_active_request(ptr noundef %0) local_unn
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #1 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local void @intel_context_bind_parent_child(ptr noundef initializes((717, 718)) %0, ptr noundef %1) local_unnamed_addr #8 align 16 {
+define dso_local void @intel_context_bind_parent_child(ptr noundef %0, ptr noundef %1) local_unnamed_addr #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 672
   %4 = getelementptr inbounds i8, ptr %0, i64 716
   %5 = load i8, ptr %4, align 4

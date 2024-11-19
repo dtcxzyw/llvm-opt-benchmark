@@ -1036,7 +1036,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4dmlc2io14InputSplitBase4InitEPNS0_10FileSystemEPKcmb(ptr noundef nonnull align 8 dereferenceable(200) initializes((8, 16)) %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4dmlc2io14InputSplitBase4InitEPNS0_10FileSystemEPKcmb(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.dmlc::LogMessageFatal", align 1
@@ -2061,7 +2061,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4dmlc2io14InputSplitBase14ResetPartitionEjj(ptr noundef nonnull align 8 dereferenceable(200) initializes((40, 64)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4dmlc2io14InputSplitBase14ResetPartitionEjj(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = alloca %"class.dmlc::LogMessageFatal", align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2515,7 +2515,7 @@ define void @_ZN4dmlc2io14InputSplitBase11BeforeFirstEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4dmlc2io14InputSplitBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4dmlc2io14InputSplitBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 128) (i8, ptr @_ZTVN4dmlc2io14InputSplitBaseE, i64 16), ptr %0, align 8, !tbaa !47
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !63
@@ -2743,7 +2743,7 @@ define void @_ZN4dmlc2io14InputSplitBase8StripEndENSt7__cxx1112basic_stringIcSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4dmlc2io14InputSplitBase13ConvertToURIsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.13") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4dmlc2io14InputSplitBase13ConvertToURIsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.13") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

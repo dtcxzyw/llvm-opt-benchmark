@@ -2813,7 +2813,7 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_10AsyncHooks13SerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS4_IXntsr3std13is_arithmeticIS5_EE5valueEvE4typeELSF_0EEES5_v(ptr noalias sret(%"struct.node::AsyncHooks::SerializeInfo") align 8 initializes((0, 56)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_10AsyncHooks13SerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS4_IXntsr3std13is_arithmeticIS5_EE5valueEvE4typeELSF_0EEES5_v(ptr noalias sret(%"struct.node::AsyncHooks::SerializeInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %result.i3 = alloca i64, align 8
@@ -3460,7 +3460,7 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_11performance16PerformanceState13SerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEES6_v(ptr noalias sret(%"struct.node::performance::PerformanceState::SerializeInfo") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_11performance16PerformanceState13SerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS5_IXntsr3std13is_arithmeticIS6_EE5valueEvE4typeELSG_0EEES6_v(ptr noalias sret(%"struct.node::performance::PerformanceState::SerializeInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %result.i2 = alloca i64, align 8
@@ -3585,7 +3585,7 @@ _ZNK4node26BlobSerializerDeserializer5DebugIJRmEEEvPKcDpOT_.exit: ; preds = %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_24IsolateDataSerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS3_IXntsr3std13is_arithmeticIS4_EE5valueEvE4typeELSE_0EEES4_v(ptr noalias sret(%"struct.node::IsolateDataSerializeInfo") align 8 initializes((0, 48)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_24IsolateDataSerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS3_IXntsr3std13is_arithmeticIS4_EE5valueEvE4typeELSE_0EEES4_v(ptr noalias sret(%"struct.node::IsolateDataSerializeInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ss.i = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %ref.tmp = alloca %"class.std::vector.21", align 8
@@ -4001,7 +4001,7 @@ return:                                           ; preds = %_ZN4node14BlobSeria
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_18RealmSerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS3_IXntsr3std13is_arithmeticIS4_EE5valueEvE4typeELSE_0EEES4_v(ptr noalias nocapture writeonly sret(%"struct.node::RealmSerializeInfo") align 8 initializes((0, 80)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_18RealmSerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS3_IXntsr3std13is_arithmeticIS4_EE5valueEvE4typeELSE_0EEES4_v(ptr noalias nocapture writeonly sret(%"struct.node::RealmSerializeInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
   %result.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::vector.15", align 8
@@ -4538,7 +4538,7 @@ return:                                           ; preds = %_ZN4node14BlobSeria
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_16EnvSerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS3_IXntsr3std13is_arithmeticIS4_EE5valueEvE4typeELSE_0EEES4_v(ptr noalias sret(%"struct.node::EnvSerializeInfo") align 8 initializes((0, 200)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node20SnapshotDeserializer4ReadINS_16EnvSerializeInfoETnPNSt9enable_ifIXntsr3std7is_sameIT_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE5valueEvE4typeELPv0ETnPNS3_IXntsr3std13is_arithmeticIS4_EE5valueEvE4typeELSE_0EEES4_v(ptr noalias sret(%"struct.node::EnvSerializeInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #3 align 2 {
 entry:
   %result.i4 = alloca i64, align 8
   %result.i3 = alloca i64, align 8
@@ -5459,7 +5459,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4node12SnapshotData17AsEmbedderWrapperEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.33") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4node12SnapshotData17AsEmbedderWrapperEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.33") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(416) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
   tail call void @_ZN4node20EmbedderSnapshotDataC1EPKNS_12SnapshotDataEb(ptr noundef nonnull align 8 dereferenceable(9) %call, ptr noundef nonnull %this, i1 noundef zeroext false) #23
@@ -6321,7 +6321,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13GetOctalTableB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::vector.15") align 8 initializes((0, 8), (16, 24)) %agg.result) local_unnamed_addr #3 {
+define dso_local void @_ZN4node13GetOctalTableB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::vector.15") align 8 %agg.result) local_unnamed_addr #3 {
 entry:
   %ref.tmp1 = alloca %"class.std::__cxx11::basic_string", align 8
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(8192) ptr @_Znwm(i64 noundef 8192) #26
@@ -9595,7 +9595,7 @@ return:                                           ; preds = %do.end5, %_ZN2v814P
 declare i16 @_ZN2v86Object3SetENS_5LocalINS_7ContextEEENS1_INS_5ValueEEES5_(ptr noundef nonnull align 1 dereferenceable(1), ptr, ptr, ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node10mksnapshot11BindingData23PrepareForSerializationEN2v85LocalINS2_7ContextEEEPNS2_15SnapshotCreatorE(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((96, 104)) %this, ptr %context.coerce, ptr noundef %creator) unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node10mksnapshot11BindingData23PrepareForSerializationEN2v85LocalINS2_7ContextEEEPNS2_15SnapshotCreatorE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr %context.coerce, ptr noundef %creator) unnamed_addr #3 align 2 {
 entry:
   %type_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %type_.i, align 8

@@ -585,7 +585,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.405 = private unnamed_addr constant [10 x i8] c"S-%d-%04d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @init_mbx_header(ptr nocapture noundef writeonly initializes((0, 6)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @init_mbx_header(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %1, i32 noundef %2) #7
   store i16 %4, ptr %0, align 2
   %5 = add i32 %2, 2

@@ -397,7 +397,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN5vcpkg21PathsPortFileProviderC1ERKNS_18ReadOnlyFilesystemERKNS_11RegistrySetEOSt10unique_ptrINS_20IFullOverlayProviderESt14default_deleteIS8_EE = dso_local unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5vcpkg21PathsPortFileProviderC2ERKNS_18ReadOnlyFilesystemERKNS_11RegistrySetEOSt10unique_ptrINS_20IFullOverlayProviderESt14default_deleteIS8_EE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5vcpkg19MapPortFileProviderC2ERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5vcpkg19MapPortFileProviderC2ERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_28SourceControlFileAndLocationESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(56) %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg19MapPortFileProviderE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -466,7 +466,7 @@ define dso_local void @_ZNK5vcpkg19MapPortFileProvider16get_control_fileERKNSt7_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK5vcpkg19MapPortFileProvider22load_all_control_filesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK5vcpkg19MapPortFileProvider22load_all_control_filesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -631,7 +631,7 @@ _ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EED2Ev.exit.i: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg21PathsPortFileProviderC2ERKNS_18ReadOnlyFilesystemERKNS_11RegistrySetEOSt10unique_ptrINS_20IFullOverlayProviderESt14default_deleteIS8_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg21PathsPortFileProviderC2ERKNS_18ReadOnlyFilesystemERKNS_11RegistrySetEOSt10unique_ptrINS_20IFullOverlayProviderESt14default_deleteIS8_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
@@ -698,7 +698,7 @@ _ZNSt10unique_ptrIN5vcpkg17IBaselineProviderESt14default_deleteIS1_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg22make_baseline_providerERKNS_11RegistrySetE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.11") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg22make_baseline_providerERKNS_11RegistrySetE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.11") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5vcpkg12_GLOBAL__N_120BaselineProviderImplESt14default_deleteIS2_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20, !noalias !29
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg12_GLOBAL__N_120BaselineProviderImplE, i64 16), ptr %2, align 8, !noalias !29
@@ -721,7 +721,7 @@ _ZNSt10unique_ptrIN5vcpkg12_GLOBAL__N_120BaselineProviderImplESt14default_delete
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg32make_versioned_portfile_providerERKNS_18ReadOnlyFilesystemERKNS_11RegistrySetE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.19") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg32make_versioned_portfile_providerERKNS_18ReadOnlyFilesystemERKNS_11RegistrySetE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.19") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplESt14default_deleteIS2_EED2Ev.exit:
   %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #20, !noalias !32
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplE, i64 16), ptr %3, align 8, !noalias !32
@@ -4785,7 +4785,7 @@ _ZN5vcpkg9ExpectedTINS_7VersionENS_15LocalizedStringEEC2ERKS3_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5vcpkg12_GLOBAL__N_120BaselineProviderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5vcpkg12_GLOBAL__N_120BaselineProviderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg12_GLOBAL__N_120BaselineProviderImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4805,7 +4805,7 @@ _ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9Expected
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5vcpkg12_GLOBAL__N_120BaselineProviderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5vcpkg12_GLOBAL__N_120BaselineProviderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg12_GLOBAL__N_120BaselineProviderImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5405,7 +5405,7 @@ _ZN5vcpkg9ExpectedTINS_4SpanIKNS_7VersionEEENS_15LocalizedStringEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = getelementptr inbounds i8, ptr %0, i64 96
@@ -5465,7 +5465,7 @@ _ZNSt13unordered_mapIN5vcpkg11VersionSpecENS0_9ExpectedTINS0_28SourceControlFile
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   %3 = getelementptr inbounds i8, ptr %0, i64 96
@@ -9290,7 +9290,7 @@ _ZNK5vcpkg9ExpectedTINS_28SourceControlFileAndLocationENS_15LocalizedStringEE24u
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5vcpkg12_GLOBAL__N_119OverlayProviderImplC2ERKNS_18ReadOnlyFilesystemERKNS_4PathENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %3, i64 %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5vcpkg12_GLOBAL__N_119OverlayProviderImplC2ERKNS_18ReadOnlyFilesystemERKNS_4PathENS_4SpanIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %3, i64 %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.vcpkg::LocalizedString", align 8
   %7 = alloca %"struct.vcpkg::StringView", align 8
   %8 = alloca %"struct.vcpkg::Path", align 8
@@ -9571,7 +9571,7 @@ _ZNSt12_Vector_baseIN5vcpkg4PathESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5vcpkg12_GLOBAL__N_119OverlayProviderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5vcpkg12_GLOBAL__N_119OverlayProviderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg12_GLOBAL__N_119OverlayProviderImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -9619,7 +9619,7 @@ _ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev.exit:      ; preds = %_ZSt8_DestroyIPN5vc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5vcpkg12_GLOBAL__N_119OverlayProviderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5vcpkg12_GLOBAL__N_119OverlayProviderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg12_GLOBAL__N_119OverlayProviderImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -11857,7 +11857,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5vcpkg12_GLOBAL__N_120ManifestProviderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5vcpkg12_GLOBAL__N_120ManifestProviderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg12_GLOBAL__N_120ManifestProviderImplE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = getelementptr inbounds i8, ptr %0, i64 136
@@ -11923,7 +11923,7 @@ _ZN5vcpkg12_GLOBAL__N_119OverlayProviderImplD2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5vcpkg12_GLOBAL__N_120ManifestProviderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN5vcpkg12_GLOBAL__N_120ManifestProviderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5vcpkg12_GLOBAL__N_120ManifestProviderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) #18
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void

@@ -1012,7 +1012,7 @@ eh.resume:                                        ; preds = %ehcleanup12, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4bags13BagEnumeratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4bags13BagEnumeratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory4bags13BagEnumeratorE, i64 16), ptr %this, align 8
   %d_element = getelementptr inbounds i8, ptr %this, i64 40
@@ -1117,7 +1117,7 @@ _ZN4cvc58internal6theory18TypeEnumeratorBaseINS1_4bags13BagEnumeratorEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4bags13BagEnumeratorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory4bags13BagEnumeratorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory4bags13BagEnumeratorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19
@@ -1128,7 +1128,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4bags13BagEnumeratordeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4bags13BagEnumeratordeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %d_currentBag6 = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_currentBag6, align 8

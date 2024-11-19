@@ -174,7 +174,7 @@ trace_virtio_serial_send_control_event.exit:      ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef i32 @virtio_serial_close(ptr nocapture noundef initializes((249, 251)) %port) local_unnamed_addr #0 {
+define dso_local noundef i32 @virtio_serial_close(ptr nocapture noundef %port) local_unnamed_addr #0 {
 entry:
   %host_connected = getelementptr inbounds i8, ptr %port, i64 249
   store i8 0, ptr %host_connected, align 1
@@ -1362,7 +1362,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @get_config(ptr noundef %vdev, ptr nocapture noundef writeonly initializes((0, 8)) %config_data) #0 {
+define internal void @get_config(ptr noundef %vdev, ptr nocapture noundef writeonly %config_data) #0 {
 entry:
   %call.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %vdev, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.15, i32 noundef 225, ptr noundef nonnull @__func__.VIRTIO_SERIAL) #12
   store i16 0, ptr %config_data, align 1

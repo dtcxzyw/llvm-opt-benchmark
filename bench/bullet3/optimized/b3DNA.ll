@@ -68,7 +68,7 @@ $_ZN20b3AlignedObjectArrayI12b3HashStringE7reserveEi = comdat any
 @_ZN6bParse4bDNAD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6bParse4bDNAD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6bParse4bDNAC2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(420) initializes((4, 12), (16, 25), (36, 44), (48, 57), (68, 76), (80, 89), (100, 108), (112, 121), (132, 140), (144, 153), (164, 172), (176, 185), (196, 204), (208, 217), (228, 236), (240, 249), (260, 268), (272, 281), (292, 300), (304, 313), (324, 332), (336, 345), (356, 364), (368, 377), (388, 396), (400, 409), (416, 420)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6bParse4bDNAC2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(420) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont11:
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %m_ownsMemory.i.i, align 8

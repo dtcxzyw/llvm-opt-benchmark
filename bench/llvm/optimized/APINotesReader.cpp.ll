@@ -6485,7 +6485,7 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit63: ; preds = %_ZN4llvm8Expected
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReaderC2EPN4llvm12MemoryBufferENS2_12VersionTupleERb(ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, i64 %2, i64 %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReaderC2EPN4llvm12MemoryBufferENS2_12VersionTupleERb(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, i64 %2, i64 %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %class.anon, align 1
@@ -7303,7 +7303,7 @@ _ZNSt10unique_ptrIN5clang9api_notes14APINotesReader14ImplementationESt14default_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader6CreateESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS4_EENS3_12VersionTupleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.154") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, i64 %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader6CreateESt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS4_EENS3_12VersionTupleE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.154") align 8 %0, ptr nocapture noundef %1, i64 %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = alloca i8, align 1
   store i8 0, ptr %5, align 1
   %6 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19

@@ -540,7 +540,7 @@ declare i32 @opal_convertor_pack(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare i32 @opal_convertor_prepare_for_send(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -30, 1) i32 @mca_pml_base_bsend_request_alloc(ptr noundef initializes((512, 520)) %0) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @mca_pml_base_bsend_request_alloc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @opal_uses_threads, align 1
   %3 = trunc i8 %2 to i1
   br i1 %3, label %4, label %6

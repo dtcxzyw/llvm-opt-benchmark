@@ -206,7 +206,7 @@ _ZN5clang4ento18CallDescriptionMapIbED2Ev.exit:   ; preds = %_ZSt8_DestroyIPSt4p
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento14errno_modeling13getErrnoValueEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.14") align 8 initializes((16, 17)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local void @_ZN5clang4ento14errno_modeling13getErrnoValueEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.14") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_111ErrnoRegionEE8GDMIndexEvE5Index) #15
   %.not.i.i = icmp eq ptr %4, null
@@ -434,7 +434,7 @@ _ZNK5clang4ento12ProgramState3setIN12_GLOBAL__N_110ErrnoStateEEEN4llvm18Intrusiv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento14errno_modeling11getErrnoLocEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.424") align 8 initializes((16, 17)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local void @_ZN5clang4ento14errno_modeling11getErrnoLocEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.424") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_111ErrnoRegionEE8GDMIndexEvE5Index) #15
   %.not.i.i = icmp eq ptr %4, null

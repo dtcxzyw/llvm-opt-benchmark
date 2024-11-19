@@ -252,7 +252,7 @@ define internal void @moddes(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_buffer_construct(ptr nocapture noundef writeonly initializes((120, 121), (128, 168)) %0) #1 {
+define internal void @pmix_buffer_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
@@ -276,7 +276,7 @@ define internal void @pmix_buffer_destruct(ptr nocapture noundef readonly %0) #2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_bfrop_type_info_construct(ptr nocapture noundef writeonly initializes((128, 168)) %0) #1 {
+define internal void @pmix_bfrop_type_info_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2, i8 0, i64 40, i1 false)
   ret void
@@ -298,7 +298,7 @@ define internal void @pmix_bfrop_type_info_destruct(ptr nocapture noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @kvcon(ptr nocapture noundef writeonly initializes((144, 160)) %0) #1 {
+define internal void @kvcon(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -384,7 +384,7 @@ declare void @abort() local_unnamed_addr #8
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pmix_bfrops_base_tma_value_destruct(ptr nocapture noundef nonnull initializes((2, 8), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @pmix_bfrops_base_tma_value_destruct(ptr nocapture noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i16, ptr %0, align 8
   switch i16 %3, label %pmix_tma_free.exit [
     i16 3, label %4

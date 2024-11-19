@@ -772,7 +772,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1EPKcNS0_12_Immortal
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__38UsdObjectCollectionExpressionEvaluatorC2ERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_17SdfPathExpressionE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__38UsdObjectCollectionExpressionEvaluatorC2ERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_17SdfPathExpressionE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(104) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1452,7 +1452,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__22Sdf_PathNodeHandleImplINS_8Sdf_PoolINS_15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__38UsdObjectCollectionExpressionEvaluator23MakeIncrementalSearcherEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpressionEval<pxrInternal_v0_24__pxrReserved__::UsdObject>::IncrementalSearcher") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__38UsdObjectCollectionExpressionEvaluator23MakeIncrementalSearcherEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpressionEval<pxrInternal_v0_24__pxrReserved__::UsdObject>::IncrementalSearcher") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -1558,7 +1558,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8UsdSta
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__39UsdComputeIncludedObjectsFromCollectionERKNS_29Usd_CollectionMembershipQueryINS_38UsdObjectCollectionExpressionEvaluatorEEERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_22Usd_PrimFlagsPredicateE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(17) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__39UsdComputeIncludedObjectsFromCollectionERKNS_29Usd_CollectionMembershipQueryINS_38UsdObjectCollectionExpressionEvaluatorEEERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_22Usd_PrimFlagsPredicateE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(17) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7366,7 +7366,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__9UsdObjectES1_St9_IdentityIS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__37UsdComputeIncludedPathsFromCollectionERKNS_29Usd_CollectionMembershipQueryINS_38UsdObjectCollectionExpressionEvaluatorEEERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_22Usd_PrimFlagsPredicateE(ptr dead_on_unwind noalias writable sret(%"class.std::set.142") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(17) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__37UsdComputeIncludedPathsFromCollectionERKNS_29Usd_CollectionMembershipQueryINS_38UsdObjectCollectionExpressionEvaluatorEEERKNS_9TfWeakPtrINS_8UsdStageEEERKNS_22Usd_PrimFlagsPredicateE(ptr dead_on_unwind noalias writable sret(%"class.std::set.142") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(17) %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7525,7 +7525,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit8: ; preds = %_ZNSt3setIN3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33Usd_CollectionMembershipQueryBaseC2EOSt13unordered_mapINS_7SdfPathENS_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEOSt3setIS2_St4lessIS2_ESaIS2_EERKS3_(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33Usd_CollectionMembershipQueryBaseC2EOSt13unordered_mapINS_7SdfPathENS_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEOSt3setIS2_St4lessIS2_ESaIS2_EERKS3_(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load i64, ptr %3, align 8
   store i64 %5, ptr %0, align 8
   %6 = and i64 %5, 7
@@ -7735,7 +7735,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %.body, %98
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33Usd_CollectionMembershipQueryBaseC2EOSt13unordered_mapINS_7SdfPathENS_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEOSt3setIS2_St4lessIS2_ESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(113) initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33Usd_CollectionMembershipQueryBaseC2EOSt13unordered_mapINS_7SdfPathENS_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEOSt3setIS2_St4lessIS2_ESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit:
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   store ptr null, ptr %3, align 8
@@ -11565,7 +11565,7 @@ declare noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS_7SdfPathENS_7TfTokenENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEENK3$_2clERSt6vectorIZNS_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapESC_E10StackEntrySaISF_EE"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 72)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS_7SdfPathENS_7TfTokenENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEENK3$_2clERSt6vectorIZNS_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapESC_E10StackEntrySaISF_EE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
@@ -23130,7 +23130,7 @@ _ZSt12__relocate_aIPZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS_7SdfPathENS_7TfTokenENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEEN10StackEntryC2EOS1_ZNS_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapESC_E4Rule(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 80)) %0, ptr nocapture noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS_7SdfPathENS_7TfTokenENS1_4HashESt8equal_toIS1_ESaISt4pairIKS1_S2_EEEEN10StackEntryC2EOS1_ZNS_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapESC_E4Rule(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr nocapture noundef nonnull align 4 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPathExpression", align 8
   %6 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::Tf_DiagnosticLiteHelper", align 8

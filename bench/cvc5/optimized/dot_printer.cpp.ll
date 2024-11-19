@@ -909,7 +909,7 @@ _ZNSt8_Rb_treeIPKN4cvc58internal9ProofNodeESt4pairIKS4_mESt10_Select1stIS7_ESt4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal5proof10DotPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(592) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof10DotPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof10DotPrinterE, i64 16), ptr %this, align 8
   %d_subgraphsStr = getelementptr inbounds i8, ptr %this, i64 568
@@ -982,7 +982,7 @@ _ZNSt3mapIPKN4cvc58internal9ProofNodeEmSt4lessIS4_ESaISt4pairIKS4_mEEED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal5proof10DotPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(592) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal5proof10DotPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal5proof10DotPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20

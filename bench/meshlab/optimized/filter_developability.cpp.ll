@@ -1409,7 +1409,7 @@ declare void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef n
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN26FilterDevelopabilityPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((80, 89)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN26FilterDevelopabilityPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca [1 x i32], align 4
   %3 = alloca %"class.std::__cxx11::list.19", align 8
   %4 = alloca %class.QString, align 8
@@ -1652,7 +1652,7 @@ declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN26FilterDevelopabilityPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN26FilterDevelopabilityPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -1701,7 +1701,7 @@ _ZN12FilterPluginD2Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN26FilterDevelopabilityPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN26FilterDevelopabilityPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT26FilterDevelopabilityPlugin, i64 8), align 8
   store ptr %3, ptr %2, align 8
@@ -1751,7 +1751,7 @@ _ZN26FilterDevelopabilityPluginD2Ev.exit:         ; preds = %.lr.ph.i.i.i3.i.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N26FilterDevelopabilityPluginD1Ev(ptr noundef initializes((0, 8)) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N26FilterDevelopabilityPluginD1Ev(ptr noundef %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT26FilterDevelopabilityPlugin, i64 8), align 8
   store ptr %2, ptr %0, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT26FilterDevelopabilityPlugin, i64 16), align 8
@@ -1855,7 +1855,7 @@ _ZN26FilterDevelopabilityPluginD1Ev.exit:         ; preds = %.lr.ph.i.i.i3.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN26FilterDevelopabilityPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN26FilterDevelopabilityPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT26FilterDevelopabilityPlugin, i64 8), align 8
   store ptr %3, ptr %2, align 8
@@ -1906,7 +1906,7 @@ _ZN26FilterDevelopabilityPluginD1Ev.exit:         ; preds = %.lr.ph.i.i.i3.i.i.i
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N26FilterDevelopabilityPluginD0Ev(ptr noundef initializes((0, 8)) %0) unnamed_addr #13 align 2 {
+define void @_ZThn16_N26FilterDevelopabilityPluginD0Ev(ptr noundef %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN26FilterDevelopabilityPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %2) #27
   ret void
@@ -1923,14 +1923,14 @@ define void @_ZTv0_n24_N26FilterDevelopabilityPluginD0Ev(ptr noundef %0) unnamed
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK26FilterDevelopabilityPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
+define void @_ZNK26FilterDevelopabilityPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 20)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK26FilterDevelopabilityPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define void @_ZTv0_n40_NK26FilterDevelopabilityPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 20), !noalias !14
   store ptr %3, ptr %0, align 8, !alias.scope !14
@@ -1938,7 +1938,7 @@ define void @_ZTv0_n40_NK26FilterDevelopabilityPlugin10pluginNameEv(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK26FilterDevelopabilityPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK26FilterDevelopabilityPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -1953,7 +1953,7 @@ define void @_ZNK26FilterDevelopabilityPlugin10filterNameEi(ptr dead_on_unwind n
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK26FilterDevelopabilityPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK26FilterDevelopabilityPlugin10filterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %_ZNK26FilterDevelopabilityPlugin10filterNameEi.exit
@@ -1969,7 +1969,7 @@ _ZNK26FilterDevelopabilityPlugin10filterNameEi.exit: ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK26FilterDevelopabilityPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK26FilterDevelopabilityPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -1984,7 +1984,7 @@ define void @_ZNK26FilterDevelopabilityPlugin16pythonFilterNameEi(ptr dead_on_un
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK26FilterDevelopabilityPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK26FilterDevelopabilityPlugin16pythonFilterNameEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %_ZNK26FilterDevelopabilityPlugin16pythonFilterNameEi.exit
@@ -2000,7 +2000,7 @@ _ZNK26FilterDevelopabilityPlugin16pythonFilterNameEi.exit: ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK26FilterDevelopabilityPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
+define void @_ZNK26FilterDevelopabilityPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(80) %1, i32 noundef %2) unnamed_addr #10 align 2 {
   %cond = icmp eq i32 %2, 0
   br i1 %cond, label %4, label %6
 
@@ -2019,7 +2019,7 @@ define void @_ZNK26FilterDevelopabilityPlugin10filterInfoEi(ptr dead_on_unwind n
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK26FilterDevelopabilityPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK26FilterDevelopabilityPlugin10filterInfoEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readnone %1, i32 noundef %2) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %cond.i = icmp eq i32 %2, 0
   br i1 %cond.i, label %4, label %6

@@ -1286,7 +1286,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Mpm_ManDeriveCuts(ptr noundef initializes((72, 76)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define noundef i32 @Mpm_ManDeriveCuts(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 11424
   %.val137 = load ptr, ptr %4, align 8
@@ -3574,7 +3574,7 @@ Abc_Clock.exit56:                                 ; preds = %363, %370
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define void @Mpm_ManPerform(ptr noundef initializes((3272, 3280)) %0) local_unnamed_addr #2 {
+define void @Mpm_ManPerform(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 48

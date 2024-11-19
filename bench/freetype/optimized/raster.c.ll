@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ft_raster1_renderer_class = hidden local_unnamed_addr constant %struct.FT_Renderer_Class_ { %struct.FT_Module_Class_ { i64 2, i64 128, ptr @.str, i64 65536, i64 131072, ptr null, ptr @ft_raster1_init, ptr null, ptr null }, i32 1869968492, ptr @ft_raster1_render, ptr @ft_raster1_transform, ptr @ft_raster1_get_cbox, ptr @ft_raster1_set_mode, ptr @ft_standard_raster }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_black_new(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal i32 @ft_black_new(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i32, align 4
   %4 = call ptr @ft_mem_alloc(ptr noundef %0, i64 noundef 8, ptr noundef nonnull %3) #10
   %5 = load i32, ptr %3, align 4
@@ -373,7 +373,7 @@ define internal range(i32 0, 7) i32 @ft_raster1_transform(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ft_raster1_get_cbox(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 32)) %2) #0 {
+define internal void @ft_raster1_get_cbox(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 144
   %5 = load i32, ptr %4, align 8
@@ -411,7 +411,7 @@ declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_un
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Render_Glyph(ptr noundef nonnull initializes((0, 20), (24, 61), (80, 98), (100, 120), (208, 240)) %0) unnamed_addr #0 {
+define internal fastcc i32 @Render_Glyph(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca [2048 x i64], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %2, ptr %3, align 8
@@ -485,7 +485,7 @@ define internal fastcc i32 @Render_Glyph(ptr noundef nonnull initializes((0, 20)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @Vertical_Sweep_Init(ptr nocapture noundef initializes((200, 208)) %0, i32 noundef %1, i32 %2) #4 {
+define internal void @Vertical_Sweep_Init(ptr nocapture noundef %0, i32 noundef %1, i32 %2) #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 184
@@ -668,7 +668,7 @@ define internal void @Vertical_Sweep_Step(ptr nocapture noundef %0) #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull initializes((40, 60), (80, 98), (100, 120)) %0, i8 noundef signext range(i8 0, 2) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @Render_Single_Pass(ptr noundef nonnull %0, i8 noundef signext range(i8 0, 2) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -3218,7 +3218,7 @@ define internal fastcc signext range(i8 0, 2) i8 @Bezier_Up(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @Split_Cubic(ptr nocapture noundef initializes((64, 112)) %0) #4 {
+define internal void @Split_Cubic(ptr nocapture noundef %0) #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 96

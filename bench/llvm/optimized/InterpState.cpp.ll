@@ -74,7 +74,7 @@ $_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE = comda
 @_ZN5clang6interp11InterpStateD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang6interp11InterpStateD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6interp11InterpStateC2ERNS0_5StateERNS0_7ProgramERNS0_11InterpStackERNS0_7ContextEPNS0_12SourceMapperE(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 9), (16, 68), (72, 88)) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(328) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6interp11InterpStateC2ERNS0_5StateERNS0_7ProgramERNS0_11InterpStackERNS0_7ContextEPNS0_12SourceMapperE(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 8 dereferenceable(328) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16

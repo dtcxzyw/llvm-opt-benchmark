@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.cmsGetProfileInfoUTF8 = private unnamed_addr constant [4 x i32] [i32 1684370275, i32 1684893284, i32 1684890724, i32 1668313716], align 4
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @_cmsReadMediaWhitePoint(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden noundef i32 @_cmsReadMediaWhitePoint(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @cmsReadTag(ptr noundef %1, i32 noundef 2004119668) #4
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.sink.split, label %5

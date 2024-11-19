@@ -1157,7 +1157,7 @@ _ZNSt12__shared_ptrIN5arrow2io22CompressedOutputStreamELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io22CompressedOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io22CompressedOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
@@ -1212,7 +1212,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io22CompressedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io22CompressedOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io22CompressedOutputStreamE, i64 24), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1285,7 +1285,7 @@ _ZN5arrow2io22CompressedOutputStreamD1Ev.exit:    ; preds = %invoke.cont.i.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io22CompressedOutputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8), (16, 24)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io22CompressedOutputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io22CompressedOutputStreamE, i64 24), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2486,7 +2486,7 @@ ehcleanup:                                        ; preds = %lpad8.body, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5arrow2io22CompressedOutputStream3rawEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.4") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow2io22CompressedOutputStream3rawEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.4") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %impl_, align 8
@@ -3185,7 +3185,7 @@ _ZNSt12__shared_ptrIN5arrow2io21CompressedInputStreamELN9__gnu_cxx12_Lock_policy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io21CompressedInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io21CompressedInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8
@@ -3323,7 +3323,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io21CompressedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN5arrow2io21CompressedInputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN5arrow2io21CompressedInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @_ZTTN5arrow2io21CompressedInputStreamE) #22
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -3345,7 +3345,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io21CompressedInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN5arrow2io21CompressedInputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN5arrow2io21CompressedInputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @_ZTTN5arrow2io21CompressedInputStreamE) #22
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -3463,7 +3463,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZNK5arrow2io21CompressedInputStream6DoTellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result.13") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
+define void @_ZNK5arrow2io21CompressedInputStream6DoTellEv(ptr noalias nocapture writeonly sret(%"class.arrow::Result.13") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #12 align 2 {
 entry:
   %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %impl_, align 8
@@ -3929,7 +3929,7 @@ cleanup43:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZNK5arrow2io21CompressedInputStream3rawEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.36") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow2io21CompressedInputStream3rawEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.36") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %impl_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %impl_, align 8

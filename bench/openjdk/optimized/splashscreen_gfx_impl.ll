@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @quantizeColors.scale = internal unnamed_addr constant [3 x i32] [i32 8, i32 4, i32 6], align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden void @initDither(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @initDither(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 4
   %4 = add nsw i32 %1, -1
   %5 = getelementptr inbounds i8, ptr %0, i64 4
@@ -56,7 +56,7 @@ define hidden void @initDither(ptr nocapture noundef writeonly initializes((0, 4
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i32 @quantizeColors(i32 noundef %0, ptr nocapture noundef initializes((0, 12)) %1) local_unnamed_addr #1 {
+define hidden i32 @quantizeColors(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 2, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 4
@@ -968,7 +968,7 @@ define internal fastcc i32 @getRGBA(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @initRect(ptr nocapture noundef writeonly initializes((0, 44)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #5 {
+define hidden void @initRect(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #5 {
   %10 = getelementptr inbounds i8, ptr %8, i64 32
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1250,7 +1250,7 @@ fillLine.exit.loopexit.us:                        ; preds = %21
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @initFormat(ptr nocapture noundef initializes((0, 16), (32, 44), (48, 56), (60, 64)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden void @initFormat(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 2, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 48

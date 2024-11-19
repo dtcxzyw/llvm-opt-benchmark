@@ -64,7 +64,7 @@ $__clang_call_terminate = comdat any
 @.str.53 = private unnamed_addr constant [45 x i8] c"removeVertex: Too many polygons %d (max:%d).\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z15rcBuildPolyMeshP9rcContextRK12rcContourSetiR10rcPolyMesh(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((56, 96)) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z15rcBuildPolyMeshP9rcContextRK12rcContourSetiR10rcPolyMesh(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1, i32 noundef %2, ptr nocapture noundef nonnull align 8 dereferenceable(96) %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %6 = icmp eq ptr %5, null
   %7 = icmp ne ptr %0, null
@@ -5071,7 +5071,7 @@ _ZN13rcScopedTimerD2Ev.exit:                      ; preds = %379, %_ZN14rcScoped
 declare float @llvm.floor.f32(float) #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z14rcCopyPolyMeshP9rcContextRK10rcPolyMeshRS1_(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((40, 96)) %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z14rcCopyPolyMeshP9rcContextRK10rcPolyMeshRS1_(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, ptr nocapture noundef nonnull align 8 dereferenceable(96) %2) local_unnamed_addr #0 {
   %4 = tail call noundef ptr @_Z21rcAssertFailGetCustomv()
   %5 = icmp eq ptr %4, null
   %6 = icmp ne ptr %0, null

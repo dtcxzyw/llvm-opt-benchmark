@@ -282,7 +282,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @BUF_MEM_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @TXT_DB_get_by_index(ptr nocapture noundef initializes((32, 40)) %db, i32 noundef %idx, ptr noundef %value) local_unnamed_addr #0 {
+define ptr @TXT_DB_get_by_index(ptr nocapture noundef %db, i32 noundef %idx, ptr noundef %value) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %db, align 8
   %cmp.not = icmp slt i32 %idx, %0

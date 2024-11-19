@@ -773,7 +773,7 @@ common.ret572:                                    ; preds = %5, %6, %340, %319, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @macro_parse(ptr nocapture noundef initializes((48, 56)) %0) local_unnamed_addr #0 {
+define hidden void @macro_parse(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = tail call ptr @g_ptr_array_new() #6
   %4 = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 0, i32 noundef 4) #6

@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7515RangeDescriptorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7515RangeDescriptorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7514RBBISetBuilderC2EPNS_15RBBIRuleBuilderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(53) initializes((0, 48), (52, 53)) %this, ptr noundef %rb) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7514RBBISetBuilderC2EPNS_15RBBIRuleBuilderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(53) %this, ptr noundef %rb) unnamed_addr #0 align 2 {
 entry:
   store ptr %rb, ptr %this, align 8
   %fStatus = getelementptr inbounds i8, ptr %rb, i64 16
@@ -861,7 +861,7 @@ eh.resume:                                        ; preds = %lpad10, %lpad
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7514RBBISetBuilder9buildTrieEv(ptr nocapture noundef nonnull align 8 dereferenceable(53) initializes((24, 32)) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7514RBBISetBuilder9buildTrieEv(ptr nocapture noundef nonnull align 8 dereferenceable(53) %this) local_unnamed_addr #6 align 2 {
 entry:
   %fStatus = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fStatus, align 8
@@ -1079,7 +1079,7 @@ for.end:                                          ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515RangeDescriptorC2ERKS0_R10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 14), (16, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RangeDescriptorC2ERKS0_R10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %other, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -1161,7 +1161,7 @@ for.end:                                          ; preds = %for.body, %if.end14
 declare void @_ZN6icu_757UVectorC1ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515RangeDescriptorC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 14), (16, 32)) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RangeDescriptorC2ER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fIncludesSets = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %this, i8 0, i64 14, i1 false)

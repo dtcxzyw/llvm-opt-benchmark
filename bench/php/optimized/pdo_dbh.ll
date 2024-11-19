@@ -7623,7 +7623,7 @@ define internal ptr @dbh_method_get(ptr noundef %0, ptr noundef %1, ptr noundef 
 declare i32 @zend_objects_not_comparable(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dbh_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @dbh_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 -8
   %.val = load ptr, ptr %4, align 8
   %5 = tail call ptr @zend_get_gc_buffer_create() #11

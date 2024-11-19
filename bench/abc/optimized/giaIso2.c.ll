@@ -2688,7 +2688,7 @@ Vec_IntPush.exit83:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_Iso2ManCollectOrder(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef initializes((4, 8)) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define void @Gia_Iso2ManCollectOrder(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %7, align 4
   %8 = icmp sgt i32 %2, 0
@@ -3088,7 +3088,7 @@ define range(i32 0, 2) i32 @Gia_Iso2ManCheckIsoPair(ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Gia_Iso2ManCheckIsoClassOneSkip(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((4, 8)) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Gia_Iso2ManCheckIsoClassOneSkip(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = getelementptr i8, ptr %1, i64 8
   %.val26 = load ptr, ptr %9, align 8
@@ -3690,7 +3690,7 @@ Vec_WecGrow.exit12:                               ; preds = %.Vec_WecGrow.exit12
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #11
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_Iso2ManCheckIsoClassOne(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef initializes((4, 8)) %7) local_unnamed_addr #0 {
+define void @Gia_Iso2ManCheckIsoClassOne(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = getelementptr inbounds i8, ptr %7, i64 4
   store i32 0, ptr %10, align 4

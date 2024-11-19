@@ -842,7 +842,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_8TypeNodeEESt
 declare void @_ZN4cvc58internal13preprocessing17PreprocessingPassD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13preprocessing6passes9FunDefFmfD2Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal13preprocessing6passes9FunDefFmfD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal13preprocessing6passes9FunDefFmfE, i64 16), ptr %this, align 8
   %d_fmfRecFunctionsDefined = getelementptr inbounds i8, ptr %this, i64 160
@@ -1007,7 +1007,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal13preprocessing6passes9FunDefFmfD0Ev(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal13preprocessing6passes9FunDefFmfD0Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal13preprocessing6passes9FunDefFmfD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24

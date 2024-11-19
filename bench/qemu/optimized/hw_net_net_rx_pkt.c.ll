@@ -141,7 +141,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.74 = private unnamed_addr constant [65 x i8] c"net_rx_pkt_l4_csum_fix_csum L4 Checksum: Offset: %u, value 0x%X\0A\00", align 1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @net_rx_pkt_init(ptr nocapture noundef writeonly initializes((0, 8)) %pkt) local_unnamed_addr #0 {
+define dso_local void @net_rx_pkt_init(ptr nocapture noundef writeonly %pkt) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(248) ptr @g_malloc0(i64 noundef 248) #10
   %vec = getelementptr inbounds i8, ptr %call, i64 32

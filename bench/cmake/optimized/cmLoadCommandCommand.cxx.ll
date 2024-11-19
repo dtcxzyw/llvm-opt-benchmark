@@ -1852,7 +1852,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmLoadedCommandD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmLoadedCommandD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %.val = load ptr, ptr %2, align 8
@@ -1932,7 +1932,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit: ; preds = %1, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmLoadedCommandD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmLoadedCommandD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %2, align 8
@@ -2420,7 +2420,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_117LoadedCommandImplEED2Ev.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_115cmLoadedCommand5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.266") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmLoadedCommand5CloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.266") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32, !noalias !79
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %3, i8 0, i64 32, i1 false), !noalias !79
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmLoadedCommandE, i64 16), ptr %3, align 8, !noalias !79
@@ -2699,7 +2699,7 @@ define internal void @_ZL15cmFreeArgumentsiPPc(i32 noundef %0, ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL15cmSetClientDataPvS_(ptr nocapture noundef writeonly initializes((88, 96)) %0, ptr noundef %1) #18 {
+define internal void @_ZL15cmSetClientDataPvS_(ptr nocapture noundef writeonly %0, ptr noundef %1) #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8
   ret void

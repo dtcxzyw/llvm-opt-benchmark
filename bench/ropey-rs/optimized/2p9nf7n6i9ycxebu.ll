@@ -307,7 +307,7 @@ define hidden void @"_ZN4core3ptr86drop_in_place$LT$$RF$$RF$$u5b$alloc..sync..Ar
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h5e8264817a2f3afdE.llvm.1041312438752767756(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core4iter6traits8iterator8Iterator3zip17h5e8264817a2f3afdE.llvm.1041312438752767756(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %4) unnamed_addr #5 personality ptr @rust_eh_personality {
   %6 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %6)
   %7 = ptrtoint ptr %2 to i64
@@ -598,7 +598,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5ropey4tree13node_children12NodeChildren3new17h04ef8e24ec4a6d1aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([968 x i8]) align 8 dereferenceable(968) initializes((960, 961)) %0) unnamed_addr #6 {
+define hidden void @_ZN5ropey4tree13node_children12NodeChildren3new17h04ef8e24ec4a6d1aE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([968 x i8]) align 8 dereferenceable(968) %0) unnamed_addr #6 {
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 960
   store i8 0, ptr %.sroa.5.0..sroa_idx, align 8
   ret void

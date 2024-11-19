@@ -921,7 +921,7 @@ entry:
 declare noundef ptr @_ZN6icu_756Locale19getAvailableLocalesERi(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7513BreakIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(479) initializes((0, 9), (165, 166), (322, 323)) %this) unnamed_addr #11 align 2 {
+define void @_ZN6icu_7513BreakIteratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(479) %this) unnamed_addr #11 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513BreakIteratorE, i64 16), ptr %this, align 8
   %requestLocale = getelementptr inbounds i8, ptr %this, i64 322
@@ -934,7 +934,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7513BreakIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(479) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(479) %other) unnamed_addr #12 align 2 {
+define void @_ZN6icu_7513BreakIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(479) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(479) %other) unnamed_addr #12 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513BreakIteratorE, i64 16), ptr %this, align 8
   %actualLocale = getelementptr inbounds i8, ptr %this, i64 8
@@ -1595,7 +1595,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513BreakIteratorC2ERKNS_6LocaleES3_(ptr noundef nonnull align 8 dereferenceable(479) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %valid, ptr noundef nonnull align 8 dereferenceable(217) %actual) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513BreakIteratorC2ERKNS_6LocaleES3_(ptr noundef nonnull align 8 dereferenceable(479) %this, ptr noundef nonnull align 8 dereferenceable(217) %valid, ptr noundef nonnull align 8 dereferenceable(217) %actual) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %locBased = alloca %"class.icu_75::LocaleBased", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513BreakIteratorE, i64 16), ptr %this, align 8

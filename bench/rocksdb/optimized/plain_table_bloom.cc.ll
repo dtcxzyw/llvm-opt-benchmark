@@ -46,7 +46,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb17PlainTableBloomV1C2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %this, i32 noundef %num_probes) unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb17PlainTableBloomV1C2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %num_probes) unnamed_addr #2 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %kNumBlocks = getelementptr inbounds i8, ptr %this, i64 4
@@ -59,7 +59,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb17PlainTableBloomV110SetRawDataEPcjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %this, ptr noundef %raw_data, i32 noundef %total_bits, i32 noundef %num_blocks) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb17PlainTableBloomV110SetRawDataEPcjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %raw_data, i32 noundef %total_bits, i32 noundef %num_blocks) local_unnamed_addr #2 align 2 {
 entry:
   %data_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %raw_data, ptr %data_, align 8
@@ -70,7 +70,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17PlainTableBloomV112SetTotalBitsEPNS_9AllocatorEjjmPNS_6LoggerE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %this, ptr noundef %allocator, i32 noundef %total_bits, i32 noundef %locality, i64 noundef %huge_page_tlb_size, ptr noundef %logger) local_unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb17PlainTableBloomV112SetTotalBitsEPNS_9AllocatorEjjmPNS_6LoggerE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %allocator, i32 noundef %total_bits, i32 noundef %locality, i64 noundef %huge_page_tlb_size, ptr noundef %logger) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.not = icmp eq i32 %locality, 0
   br i1 %cmp.not, label %cond.false, label %cond.true

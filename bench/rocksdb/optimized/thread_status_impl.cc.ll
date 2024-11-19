@@ -502,7 +502,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12ThreadStatus28InterpretOperationPropertiesB5cxx11ENS0_13OperationTypeEPKm(ptr noalias sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, i32 noundef %op_type, ptr nocapture noundef readonly %op_properties) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb12ThreadStatus28InterpretOperationPropertiesB5cxx11ENS0_13OperationTypeEPKm(ptr noalias sret(%"class.std::map") align 8 %agg.result, i32 noundef %op_type, ptr nocapture noundef readonly %op_properties) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.std::pair.3", align 8
   %ref.tmp4 = alloca i64, align 8

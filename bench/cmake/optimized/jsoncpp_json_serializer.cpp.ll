@@ -213,7 +213,7 @@ $_ZTIZN3dap10Serializer9serializeINS_3anyEEEbRKSt6vectorIT_SaIS4_EEEUlPS0_E_ = c
 @_ZN3dap4json17JsonCppSerializerD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3dap4json17JsonCppSerializerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3dap4json19JsonCppDeserializerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3dap4json19JsonCppDeserializerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i64 16), ptr %0, align 8
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
   invoke void @_ZN3dap4json19JsonCppDeserializer5parseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.Json::Value") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -314,7 +314,7 @@ _ZNSt10unique_ptrIN4Json10CharReaderESt14default_deleteIS1_EED2Ev.exit11: ; pred
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3dap4json19JsonCppDeserializerC2EPKN4Json5ValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3dap4json19JsonCppDeserializerC2EPKN4Json5ValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -324,7 +324,7 @@ define dso_local void @_ZN3dap4json19JsonCppDeserializerC2EPKN4Json5ValueE(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3dap4json19JsonCppDeserializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3dap4json19JsonCppDeserializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
@@ -350,7 +350,7 @@ define dso_local void @_ZN3dap4json19JsonCppDeserializerD2Ev(ptr nocapture nound
 declare void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3dap4json19JsonCppDeserializerD0Ev(ptr noundef nonnull align 8 dereferenceable(17) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3dap4json19JsonCppDeserializerD0Ev(ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap4json19JsonCppDeserializerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
@@ -1772,7 +1772,7 @@ declare void @abort() local_unnamed_addr #7
 declare void @_ZN4Json17CharReaderBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3dap4json17JsonCppSerializerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3dap4json17JsonCppSerializerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap4json17JsonCppSerializerE, i64 16), ptr %0, align 8
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
   invoke void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef 0)
@@ -1795,7 +1795,7 @@ define dso_local void @_ZN3dap4json17JsonCppSerializerC2Ev(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3dap4json17JsonCppSerializerC2EPN4Json5ValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) initializes((0, 18)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3dap4json17JsonCppSerializerC2EPN4Json5ValueE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap4json17JsonCppSerializerE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -1807,7 +1807,7 @@ define dso_local void @_ZN3dap4json17JsonCppSerializerC2EPN4Json5ValueE(ptr noca
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3dap4json17JsonCppSerializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(18) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3dap4json17JsonCppSerializerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(18) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap4json17JsonCppSerializerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
@@ -1830,7 +1830,7 @@ define dso_local void @_ZN3dap4json17JsonCppSerializerD2Ev(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3dap4json17JsonCppSerializerD0Ev(ptr noundef nonnull align 8 dereferenceable(18) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN3dap4json17JsonCppSerializerD0Ev(ptr noundef nonnull align 8 dereferenceable(18) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3dap4json17JsonCppSerializerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8
@@ -2245,7 +2245,7 @@ define internal void @_ZZN3dap4json17JsonCppSerializer6objectERKSt8functionIFbPN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3dap4json17JsonCppSerializer6removeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) initializes((17, 18)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3dap4json17JsonCppSerializer6removeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 17
   store i8 1, ptr %2, align 1
   ret void

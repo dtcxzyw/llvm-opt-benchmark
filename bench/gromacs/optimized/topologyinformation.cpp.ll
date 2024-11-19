@@ -110,7 +110,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @_ZN3gmx19TopologyInformationD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx19TopologyInformationD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx19TopologyInformationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 9), (16, 33), (40, 128)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19TopologyInformationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
@@ -904,7 +904,7 @@ declare void @_Z21gmx_mtop_global_atomsRK10gmx_mtop_t(ptr dead_on_unwind writabl
 declare void @_Z9init_atomP7t_atoms(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx19TopologyInformation9copyAtomsEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.10") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3gmx19TopologyInformation9copyAtomsEv(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.10") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.t_atoms, align 8
   %.val = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8

@@ -3837,7 +3837,7 @@ define dso_local void @rb_enc_set_default_external(i64 noundef %0) local_unnamed
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @enc_set_default_encoding(ptr noundef initializes((8, 16)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @enc_set_default_encoding(ptr noundef %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = load ptr, ptr @ruby_single_main_ractor, align 8

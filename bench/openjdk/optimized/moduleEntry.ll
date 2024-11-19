@@ -748,7 +748,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE89ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11ModuleEntry11set_is_openEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((63, 64)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN11ModuleEntry11set_is_openEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 63
   store i8 %3, ptr %4, align 1
@@ -949,7 +949,7 @@ _ZN13GrowableArrayIP11ModuleEntryED2Ev.exit:      ; preds = %5, %9
 declare void @_ZN6AnyObjdlEPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ModuleEntryC2E6HandlebP6SymbolS2_S2_P15ClassLoaderData(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 65)) %0, ptr %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 2 {
+define hidden void @_ZN11ModuleEntryC2E6HandlebP6SymbolS2_S2_P15ClassLoaderData(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 align 2 {
   %8 = alloca %class.OopHandle, align 8
   %9 = zext i1 %2 to i8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1359,7 +1359,7 @@ define hidden noundef ptr @_ZN11ModuleEntry26create_boot_unnamed_moduleEP15Class
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16ModuleEntryTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) initializes((0, 876)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN16ModuleEntryTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(880) %0) unnamed_addr #6 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(876) %0, i8 0, i64 876, i1 false)
   ret void
 }
@@ -1582,7 +1582,7 @@ _ZN17ResourceHashtableI16SymbolHandleBaseILb0EEP11ModuleEntryLj109ELN6AnyObj15al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11ModuleEntry15set_loader_dataEP15ClassLoaderData(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN11ModuleEntry15set_loader_dataEP15ClassLoaderData(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -2178,7 +2178,7 @@ _ZN11ModuleEntry20write_growable_arrayEP13GrowableArrayIPS_E.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11ModuleEntry30update_oops_in_archived_moduleEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 8), (68, 72)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN11ModuleEntry30update_oops_in_archived_moduleEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 %1, ptr %3, align 4
   store ptr null, ptr %0, align 8
@@ -2186,7 +2186,7 @@ define hidden void @_ZN11ModuleEntry30update_oops_in_archived_moduleEi(ptr nocap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ModuleEntry17load_from_archiveEP15ClassLoaderData(ptr noundef nonnull align 8 dereferenceable(80) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11ModuleEntry17load_from_archiveEP15ClassLoaderData(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2198,7 +2198,7 @@ define hidden void @_ZN11ModuleEntry17load_from_archiveEP15ClassLoaderData(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11ModuleEntry21restore_archived_oopsEP15ClassLoaderData(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11ModuleEntry21restore_archived_oopsEP15ClassLoaderData(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.OopHandle, align 8
   %4 = alloca %class.LogStream, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)

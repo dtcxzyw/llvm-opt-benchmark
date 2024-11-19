@@ -297,7 +297,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6etableC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 9), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf6etableC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_commutativity = getelementptr inbounds i8, ptr %this, i64 8

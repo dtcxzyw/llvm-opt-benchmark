@@ -4600,7 +4600,7 @@ return:                                           ; preds = %_ZN3ue2L15addAnchor
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L16findMaskLiteralsERKSt6vectorINS_9CharReachESaIS1_EEPS0_INS_11ue2_literalESaIS6_EEPjSA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mask, ptr nocapture noundef nonnull %lit, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %minBound, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %length) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L16findMaskLiteralsERKSt6vectorINS_9CharReachESaIS1_EEPS0_INS_11ue2_literalESaIS6_EEPjSA_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %mask, ptr nocapture noundef nonnull %lit, ptr nocapture noundef nonnull writeonly %minBound, ptr nocapture noundef nonnull writeonly %length) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %c.i = alloca i8, align 1
   %nocase.i = alloca i8, align 1

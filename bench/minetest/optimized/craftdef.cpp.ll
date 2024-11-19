@@ -1374,7 +1374,7 @@ ehcleanup25:                                      ; preds = %lpad21, %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN21CraftDefinitionShapedC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKSt6vectorIS5_SaIS5_EERK17CraftReplacements(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %output_, i32 noundef %width_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %recipe_, ptr noundef nonnull align 8 dereferenceable(24) %replacements_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN21CraftDefinitionShapedC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjRKSt6vectorIS5_SaIS5_EERK17CraftReplacements(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %output_, i32 noundef %width_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %recipe_, ptr noundef nonnull align 8 dereferenceable(24) %replacements_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV21CraftDefinitionShaped, i64 16), ptr %this, align 8, !tbaa !11
@@ -2212,7 +2212,7 @@ return:                                           ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17craftGetItemNamesB5cxx11RKSt6vectorI9ItemStackSaIS0_EEP8IGameDef(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %items) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17craftGetItemNamesB5cxx11RKSt6vectorI9ItemStackSaIS0_EEP8IGameDef(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %items) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -2505,7 +2505,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17craftGetItemNamesRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEP8IGameDef(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %itemstrings, ptr noundef %gamedef) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17craftGetItemNamesRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEP8IGameDef(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %itemstrings, ptr noundef %gamedef) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -3022,7 +3022,7 @@ _ZN11CraftOutputC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK21CraftDefinitionShaped8getInputERK11CraftOutputP8IGameDef(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.CraftInput) align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, ptr nocapture nonnull readnone align 8 %output, ptr noundef %gamedef) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK21CraftDefinitionShaped8getInputERK11CraftOutputP8IGameDef(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.CraftInput) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(136) %this, ptr nocapture nonnull readnone align 8 %output, ptr noundef %gamedef) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   %width = getelementptr inbounds i8, ptr %this, i64 48
@@ -3143,7 +3143,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL13craftGetItemsRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEP8IGameDef(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %items, ptr noundef %gamedef) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL13craftGetItemsRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEP8IGameDef(ptr dead_on_unwind noalias nonnull writable align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %items, ptr noundef %gamedef) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4823,7 +4823,7 @@ ehcleanup23:                                      ; preds = %lpad19, %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24CraftDefinitionShapelessC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EERK17CraftReplacements(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %output_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %recipe_, ptr noundef nonnull align 8 dereferenceable(24) %replacements_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24CraftDefinitionShapelessC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS5_SaIS5_EERK17CraftReplacements(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %output_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %recipe_, ptr noundef nonnull align 8 dereferenceable(24) %replacements_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV24CraftDefinitionShapeless, i64 16), ptr %this, align 8, !tbaa !11
@@ -6909,7 +6909,7 @@ _ZN11CraftOutputC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEf.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK24CraftDefinitionShapeless8getInputERK11CraftOutputP8IGameDef(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.CraftInput) align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr nocapture nonnull readnone align 8 %output, ptr noundef %gamedef) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK24CraftDefinitionShapeless8getInputERK11CraftOutputP8IGameDef(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.CraftInput) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this, ptr nocapture nonnull readnone align 8 %output, ptr noundef %gamedef) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp) #26
@@ -7473,7 +7473,7 @@ ehcleanup26:                                      ; preds = %ehcleanup24, %lpad,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN25CraftDefinitionToolRepairC2Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 8), (12, 20)) %this, float noundef %additional_wear_) unnamed_addr #9 align 2 {
+define dso_local void @_ZN25CraftDefinitionToolRepairC2Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, float noundef %additional_wear_) unnamed_addr #9 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV25CraftDefinitionToolRepair, i64 16), ptr %this, align 8, !tbaa !11
   %additional_wear = getelementptr inbounds i8, ptr %this, i64 16
@@ -8770,7 +8770,7 @@ lpad.body:                                        ; preds = %lpad, %if.then.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN22CraftDefinitionCookingC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_fRK17CraftReplacements(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %output_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %recipe_, float noundef %cooktime_, ptr noundef nonnull align 8 dereferenceable(24) %replacements_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN22CraftDefinitionCookingC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_fRK17CraftReplacements(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %output_, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %recipe_, float noundef %cooktime_, ptr noundef nonnull align 8 dereferenceable(24) %replacements_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i18 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
@@ -9967,7 +9967,7 @@ ehcleanup24:                                      ; preds = %ehcleanup, %lpad, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19CraftDefinitionFuelC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfRK17CraftReplacements(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %recipe_, float noundef %burntime_, ptr noundef nonnull align 8 dereferenceable(24) %replacements_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN19CraftDefinitionFuelC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfRK17CraftReplacements(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %recipe_, float noundef %burntime_, ptr noundef nonnull align 8 dereferenceable(24) %replacements_) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV19CraftDefinitionFuel, i64 16), ptr %this, align 8, !tbaa !11

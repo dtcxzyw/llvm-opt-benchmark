@@ -30,7 +30,7 @@ $__clang_call_terminate = comdat any
 @_ZN3zmq6trie_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq6trie_tD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq6trie_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 5), (6, 10)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq6trie_tC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %_min = getelementptr inbounds i8, ptr %this, i64 4

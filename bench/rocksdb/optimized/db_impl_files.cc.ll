@@ -474,7 +474,7 @@ entry:
 declare noundef i64 @_ZNK7rocksdb10VersionSet23GetObsoleteSstFilesSizeEv(ptr noundef nonnull align 8 dereferenceable(752)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl20DisableFileDeletionsEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl20DisableFileDeletionsEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state_.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %state_.i, align 8
@@ -547,7 +547,7 @@ _ZN7rocksdb6StatusD2Ev.exit10:                    ; preds = %lpad, %lpad2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl28DisableFileDeletionsWithLockEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl28DisableFileDeletionsWithLockEv(ptr noalias nocapture writeonly sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 1856
   tail call void @_ZNK7rocksdb4port5Mutex10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(60) %mutex_)
@@ -7603,7 +7603,7 @@ _ZNSt6vectorISt4pairIiN7rocksdb11InternalKeyEESaIS3_EED2Ev.exit: ; preds = %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb6DBImpl9SetupDBIdEbPNS0_15RecoveryContextE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, i1 noundef zeroext %read_only, ptr noundef %recovery_ctx) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb6DBImpl9SetupDBIdEbPNS0_15RecoveryContextE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(6660) %this, i1 noundef zeroext %read_only, ptr noundef %recovery_ctx) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %db_id_in_file = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8

@@ -167,7 +167,7 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZN4LIEF8FunctionaSERKS
 declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN4LIEF6SymbolaSERKS0_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF8FunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 72
@@ -480,14 +480,14 @@ define noundef i64 @_ZNK4LIEF8Function7addressEv(ptr nocapture noundef nonnull r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF8Function7addressEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((40, 48)) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF8Function7addressEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF8Function5flagsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF8Function5flagsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 80
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 64

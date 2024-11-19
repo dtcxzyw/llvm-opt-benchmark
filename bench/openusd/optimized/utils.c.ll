@@ -60,7 +60,7 @@ define hidden noundef i64 @avifNTOH64(i64 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @avifArrayCreate(ptr nocapture noundef writeonly initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @avifArrayCreate(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = tail call i32 @llvm.umax.i32(i32 %1, i32 1)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %4, ptr %5, align 8
@@ -169,7 +169,7 @@ define hidden void @avifArrayPop(ptr nocapture noundef %0) local_unnamed_addr #6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @avifArrayDestroy(ptr nocapture noundef initializes((8, 24)) %0) local_unnamed_addr #2 {
+define hidden void @avifArrayDestroy(ptr nocapture noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %3

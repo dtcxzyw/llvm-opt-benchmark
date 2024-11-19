@@ -1363,7 +1363,7 @@ define dso_local i32 @mmu_interval_notifier_insert(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -75, 1) i32 @__mmu_interval_notifier_insert(ptr noundef initializes((48, 64)) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -75, 1) i32 @__mmu_interval_notifier_insert(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 48

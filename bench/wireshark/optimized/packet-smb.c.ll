@@ -5210,7 +5210,7 @@ define internal fastcc noundef i32 @dissect_dfs_referral_entry_v3(ptr noundef %0
 declare void @proto_item_set_len(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_STANDARD_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_STANDARD_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %43, label %9
@@ -5272,7 +5272,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_STANDARD_INFO(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_INTERNAL_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_INTERNAL_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %15, label %9
@@ -5294,7 +5294,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_INTERNAL_INFO(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qsfi_SMB_FILE_POSITION_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qsfi_SMB_FILE_POSITION_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %15, label %9
@@ -5316,7 +5316,7 @@ define hidden noundef i32 @dissect_qsfi_SMB_FILE_POSITION_INFO(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qsfi_SMB_FILE_MODE_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qsfi_SMB_FILE_MODE_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 4
   br i1 %8, label %15, label %9
@@ -5338,7 +5338,7 @@ define hidden noundef i32 @dissect_qsfi_SMB_FILE_MODE_INFO(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_ALIGNMENT_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_ALIGNMENT_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 4
   br i1 %8, label %15, label %9
@@ -5360,7 +5360,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_ALIGNMENT_INFO(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_EA_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_EA_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 4
   br i1 %8, label %15, label %9
@@ -5382,7 +5382,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_EA_INFO(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qsfi_SMB_FILE_ALLOCATION_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qsfi_SMB_FILE_ALLOCATION_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %15, label %9
@@ -5404,7 +5404,7 @@ define hidden noundef i32 @dissect_qsfi_SMB_FILE_ALLOCATION_INFO(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qsfi_SMB_FILE_ENDOFFILE_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qsfi_SMB_FILE_ENDOFFILE_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %15, label %9
@@ -5426,7 +5426,7 @@ define hidden noundef i32 @dissect_qsfi_SMB_FILE_ENDOFFILE_INFO(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden i32 @dissect_qfi_SMB_FILE_NAME_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = load i16, ptr %4, align 2
   %10 = icmp ult i16 %9, 4
@@ -5639,7 +5639,7 @@ get_unicode_or_ascii_string.exit:                 ; preds = %52, %59
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_COMPRESSION_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_COMPRESSION_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 8
   br i1 %8, label %50, label %9
@@ -5711,7 +5711,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_COMPRESSION_INFO(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5) local_unnamed_addr #0 {
   %7 = tail call fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   %8 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %8, 0
@@ -5776,7 +5776,7 @@ define hidden i32 @dissect_qfi_SMB_FILE_NETWORK_OPEN_INFO(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_smb_standard_8byte_timestamps(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %31, label %8
@@ -5835,7 +5835,7 @@ define internal fastcc noundef i32 @dissect_file_ext_attr(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_qfi_SMB_FILE_ATTRIBUTE_TAG_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_qfi_SMB_FILE_ATTRIBUTE_TAG_INFO(ptr noundef %0, ptr nocapture readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp ult i16 %7, 4
   br i1 %8, label %22, label %9
@@ -5867,7 +5867,7 @@ define hidden noundef i32 @dissect_qfi_SMB_FILE_ATTRIBUTE_TAG_INFO(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @dissect_sfi_SMB_FILE_PIPE_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden noundef i32 @dissect_sfi_SMB_FILE_PIPE_INFO(ptr noundef %0, ptr nocapture noundef readnone %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load i16, ptr %4, align 2
   %8 = icmp eq i16 %7, 0
   br i1 %8, label %15, label %9
@@ -23651,7 +23651,7 @@ declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loc
 declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_qsfi_SMB_INFO_STANDARD(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 4
   br i1 %7, label %61, label %8
@@ -23841,7 +23841,7 @@ define internal fastcc i32 @dissect_4_2_16_2(ptr noundef %0, ptr noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %95, label %8
@@ -23980,7 +23980,7 @@ define internal fastcc i32 @dissect_4_2_16_12(ptr noundef %0, ptr noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, i32 %.24.val) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_4_2_16_13(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, i32 %.24.val) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp eq i16 %6, 0
   br i1 %7, label %get_unicode_or_ascii_string.exit.thread, label %8
@@ -24225,7 +24225,7 @@ define internal fastcc noundef i32 @dissect_qspi_unix_acl(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_qspi_unix_info2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = load i16, ptr %3, align 2
   %7 = icmp ult i16 %6, 8
   br i1 %7, label %117, label %8
@@ -27246,7 +27246,7 @@ declare ptr @proto_tree_add_bytes_format(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @tvb_format_text(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = load i16, ptr %2, align 2
   %6 = icmp ult i16 %5, 4
   br i1 %6, label %59, label %7
@@ -27332,7 +27332,7 @@ define internal fastcc noundef i32 @dissect_qfi_SMB_INFO_QUERY_EA_SIZE(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_4_2_16_3(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, i32 %.24.val) unnamed_addr #0 {
+define internal fastcc i32 @dissect_4_2_16_3(ptr noundef nonnull %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3, i32 %.24.val) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   store i32 0, ptr %5, align 4
@@ -27522,7 +27522,7 @@ define internal fastcc i32 @dissect_search_find_request(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_search_resume_key(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = load i32, ptr @ett_smb_search_resume_key, align 4
   %8 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 21, i32 noundef %7, ptr noundef null, ptr noundef nonnull @.str.1163) #15
   %9 = load i16, ptr %3, align 2

@@ -1758,7 +1758,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare noalias ptr @strdup(ptr nocapture noundef readonly) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cl_engine_settings_apply(ptr noundef initializes((20, 32), (40, 44), (48, 96), (1024, 1036), (1040, 1080)) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
+define range(i32 0, 21) i32 @cl_engine_settings_apply(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %3, ptr %4, align 4
@@ -3406,42 +3406,42 @@ define range(i32 0, 129) i32 @cli_bitset_test(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_pre_cache(ptr nocapture noundef writeonly initializes((288, 296)) %0, ptr noundef %1) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_pre_cache(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_file_inspection(ptr nocapture noundef writeonly initializes((280, 288)) %0, ptr noundef %1) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_file_inspection(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_pre_scan(ptr nocapture noundef writeonly initializes((296, 304)) %0, ptr noundef %1) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_pre_scan(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 296
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_post_scan(ptr nocapture noundef writeonly initializes((304, 312)) %0, ptr noundef %1) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_post_scan(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_virus_found(ptr nocapture noundef writeonly initializes((312, 320)) %0, ptr noundef %1) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_virus_found(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_sigload(ptr nocapture noundef writeonly initializes((320, 336)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_sigload(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #18 {
   %4 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr %1, ptr %4, align 8
   %.not = icmp eq ptr %1, null
@@ -3452,7 +3452,7 @@ define void @cl_engine_set_clcb_sigload(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_sigload_progress(ptr nocapture noundef writeonly initializes((368, 384)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_sigload_progress(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #18 {
   %4 = getelementptr inbounds i8, ptr %0, i64 368
   store ptr %1, ptr %4, align 8
   %.not = icmp eq ptr %1, null
@@ -3463,7 +3463,7 @@ define void @cl_engine_set_clcb_sigload_progress(ptr nocapture noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_engine_compile_progress(ptr nocapture noundef writeonly initializes((384, 400)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_engine_compile_progress(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #18 {
   %4 = getelementptr inbounds i8, ptr %0, i64 384
   store ptr %1, ptr %4, align 8
   %.not = icmp eq ptr %1, null
@@ -3474,7 +3474,7 @@ define void @cl_engine_set_clcb_engine_compile_progress(ptr nocapture noundef wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_engine_free_progress(ptr nocapture noundef writeonly initializes((400, 416)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_engine_free_progress(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #18 {
   %4 = getelementptr inbounds i8, ptr %0, i64 400
   store ptr %1, ptr %4, align 8
   %.not = icmp eq ptr %1, null
@@ -3485,28 +3485,28 @@ define void @cl_engine_set_clcb_engine_free_progress(ptr nocapture noundef write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_hash(ptr nocapture noundef writeonly initializes((336, 344)) %0, ptr noundef %1) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_hash(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_meta(ptr nocapture noundef writeonly initializes((344, 352)) %0, ptr noundef %1) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_meta(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 344
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_file_props(ptr nocapture noundef writeonly initializes((360, 368)) %0, ptr noundef %1) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_file_props(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @cl_engine_set_clcb_vba(ptr nocapture noundef writeonly initializes((352, 360)) %0, ptr noundef %1) local_unnamed_addr #18 {
+define void @cl_engine_set_clcb_vba(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #18 {
   %3 = getelementptr inbounds i8, ptr %0, i64 352
   store ptr %1, ptr %3, align 8
   ret void

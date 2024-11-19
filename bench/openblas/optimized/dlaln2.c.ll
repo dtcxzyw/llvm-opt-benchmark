@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [13 x i8] c"Safe minimum\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @dlaln2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture noundef readonly %11, ptr nocapture noundef readonly %12, ptr noundef %13, ptr nocapture noundef readonly %14, ptr nocapture noundef initializes((0, 8)) %15, ptr nocapture noundef %16, ptr nocapture noundef writeonly initializes((0, 4)) %17) local_unnamed_addr #0 {
+define void @dlaln2_(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef readonly %5, ptr nocapture noundef readonly %6, ptr nocapture noundef readonly %7, ptr nocapture noundef readonly %8, ptr nocapture noundef readonly %9, ptr nocapture noundef readonly %10, ptr nocapture noundef readonly %11, ptr nocapture noundef readonly %12, ptr noundef %13, ptr nocapture noundef readonly %14, ptr nocapture noundef %15, ptr nocapture noundef %16, ptr nocapture noundef writeonly %17) local_unnamed_addr #0 {
   %19 = alloca double, align 8
   %20 = alloca double, align 8
   %21 = alloca double, align 8

@@ -462,7 +462,7 @@ define internal fastcc range(i32 0, 8011) i32 @_verify_syms(ptr noundef nonnull 
 declare i32 @dlclose(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 8011) i32 @plugin_load_from_file(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 8011) i32 @plugin_load_from_file(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   store ptr null, ptr %0, align 8
   %3 = tail call ptr @dlerror() #10
   %4 = tail call ptr @dlopen(ptr noundef %1, i32 noundef 1) #10

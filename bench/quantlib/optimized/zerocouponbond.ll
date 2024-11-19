@@ -1036,7 +1036,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14ZeroCouponBondC1EjRKNS_8CalendarEdRKNS_4DateENS_21BusinessDayConventionEdS6_(ptr noundef nonnull align 8 dereferenceable(248) initializes((248, 256), (264, 268), (272, 280)) %this, i32 noundef %settlementDays, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, double noundef %faceAmount, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, i32 noundef %paymentConvention, double noundef %redemption, ptr noundef nonnull align 8 dereferenceable(8) %issueDate) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14ZeroCouponBondC1EjRKNS_8CalendarEdRKNS_4DateENS_21BusinessDayConventionEdS6_(ptr noundef nonnull align 8 dereferenceable(248) %this, i32 noundef %settlementDays, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %calendar, double noundef %faceAmount, ptr noundef nonnull align 8 dereferenceable(8) %maturityDate, i32 noundef %paymentConvention, double noundef %redemption, ptr noundef nonnull align 8 dereferenceable(8) %issueDate) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.QuantLib::Calendar", align 8
   %ref.tmp = alloca %"class.std::vector.23", align 8

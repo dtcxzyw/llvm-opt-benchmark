@@ -291,7 +291,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt17theory_array_bapaC2ERNS_17theory_array_fullE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(608) %th) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt17theory_array_bapaC2ERNS_17theory_array_fullE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(608) %th) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 272)
   tail call void @_ZN3smt17theory_array_bapa3impC2ERNS_17theory_array_fullE(ptr noundef nonnull align 8 dereferenceable(268) %call, ptr noundef nonnull align 8 dereferenceable(608) %th)

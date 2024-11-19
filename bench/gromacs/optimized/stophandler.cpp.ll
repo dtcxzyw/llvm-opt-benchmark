@@ -113,7 +113,7 @@ $_ZTISt23_Sp_counted_ptr_inplaceIN3gmx17StopConditionTimeESaIvELN9__gnu_cxx12_Lo
 @_ZN3gmx17StopConditionTimeC1Eifi = unnamed_addr alias void (ptr, i32, float, i32), ptr @_ZN3gmx17StopConditionTimeC2Eifi
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx11StopHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalEEEbSt6vectorISt8functionIFNS_10StopSignalEvEESaISA_EEb(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 33)) %0, ptr %1, i1 noundef zeroext %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define void @_ZN3gmx11StopHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalEEEbSt6vectorISt8functionIFNS_10StopSignalEvEESaISA_EEb(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr %1, i1 noundef zeroext %2, ptr nocapture noundef %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = zext i1 %4 to i8
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -143,7 +143,7 @@ define void @_ZN3gmx11StopHandlerC2ENS_6compat8not_nullIPNS_16SimulationSignalEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx19StopConditionSignalC2Eibi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 5), (8, 16)) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define void @_ZN3gmx19StopConditionSignalC2Eibi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #1 align 2 {
   %5 = zext i1 %2 to i8
   store i32 0, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -236,7 +236,7 @@ declare noundef ptr @_Z19gmx_get_signal_namev() local_unnamed_addr #3
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx17StopConditionTimeC2Eifi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 1), (4, 17)) %0, i32 noundef %1, float noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
+define void @_ZN3gmx17StopConditionTimeC2Eifi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, i32 noundef %1, float noundef %2, i32 noundef %3) unnamed_addr #1 align 2 {
   store i8 0, ptr %0, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store float %2, ptr %5, align 4

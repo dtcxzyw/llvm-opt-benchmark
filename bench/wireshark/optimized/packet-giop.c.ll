@@ -867,7 +867,7 @@ define range(i32 0, 2) i32 @is_big_endian(ptr nocapture noundef readonly %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr nocapture noundef writeonly initializes((0, 4)) %6) local_unnamed_addr #0 {
+define noundef i32 @get_CDR_encap_info(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6) local_unnamed_addr #0 {
   %.promoted.i = load i32, ptr %2, align 4
   %8 = add i32 %.promoted.i, %4
   %9 = and i32 %8, 3
@@ -2301,7 +2301,7 @@ define void @get_CDR_object(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @get_CDR_octet_seq(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @get_CDR_octet_seq(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = load i32, ptr %3, align 4
   tail call void @tvb_ensure_bytes_exist(ptr noundef %1, i32 noundef %6, i32 noundef %4) #14
   %7 = add i32 %4, 1
@@ -2406,7 +2406,7 @@ get_CDR_string.exit:                              ; preds = %11, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @get_CDR_string(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @get_CDR_string(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %.promoted.i = load i32, ptr %2, align 4
   %6 = add i32 %.promoted.i, %4
   %7 = and i32 %6, 3
@@ -2541,7 +2541,7 @@ define zeroext i16 @get_CDR_ushort(ptr noundef %0, ptr nocapture noundef %1, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -255, 256) i32 @get_CDR_wchar(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define range(i32 -255, 256) i32 @get_CDR_wchar(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 5
   %7 = load i8, ptr %6, align 1
@@ -2605,7 +2605,7 @@ make_printable_string.exit:                       ; preds = %25
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 401) i32 @get_CDR_wstring(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
+define range(i32 0, 401) i32 @get_CDR_wstring(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %.promoted.i = load i32, ptr %3, align 4
   %8 = add i32 %.promoted.i, %5
@@ -3902,7 +3902,7 @@ define internal fastcc void @dissect_tk_abstract_interface_params(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %6) unnamed_addr #0 {
+define internal fastcc void @dissect_typecode_string_param(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %.promoted.i.i = load i32, ptr %2, align 4
   %8 = add i32 %.promoted.i.i, %4
   %9 = and i32 %8, 3
@@ -4716,7 +4716,7 @@ get_CDR_string.exit167:                           ; preds = %184, %186
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_giop_request_1_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull initializes((12, 16)) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
+define internal fastcc void @dissect_giop_request_1_2(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #0 {
   %6 = alloca %struct.giop_object_key, align 8
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

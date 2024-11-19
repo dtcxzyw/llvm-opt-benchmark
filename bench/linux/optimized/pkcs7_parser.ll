@@ -301,7 +301,7 @@ define dso_local noundef range(i32 -61, 1) i32 @pkcs7_get_content_data(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @pkcs7_note_OID(ptr nocapture noundef initializes((48, 52)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @pkcs7_note_OID(ptr nocapture noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca [50 x i8], align 16
   %7 = tail call i32 @look_up_OID(ptr noundef %3, i64 noundef %4) #12
   %8 = getelementptr inbounds i8, ptr %0, i64 48
@@ -906,7 +906,7 @@ define dso_local noundef range(i32 -74, 1) i32 @pkcs7_sig_note_set_of_authattrs(
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @pkcs7_sig_note_serial(ptr nocapture noundef writeonly initializes((64, 76)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #8 align 16 {
+define dso_local noundef i32 @pkcs7_sig_note_serial(ptr nocapture noundef writeonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #8 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %3, ptr %6, align 8
   %7 = trunc i64 %4 to i32
@@ -916,7 +916,7 @@ define dso_local noundef i32 @pkcs7_sig_note_serial(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @pkcs7_sig_note_issuer(ptr nocapture noundef writeonly initializes((76, 88)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #8 align 16 {
+define dso_local noundef i32 @pkcs7_sig_note_issuer(ptr nocapture noundef writeonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #8 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %3, ptr %6, align 8
   %7 = trunc i64 %4 to i32
@@ -926,7 +926,7 @@ define dso_local noundef i32 @pkcs7_sig_note_issuer(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @pkcs7_sig_note_skid(ptr nocapture noundef writeonly initializes((88, 100)) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #8 align 16 {
+define dso_local noundef i32 @pkcs7_sig_note_skid(ptr nocapture noundef writeonly %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #8 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %3, ptr %6, align 8
   %7 = trunc i64 %4 to i32

@@ -2382,7 +2382,7 @@ define internal noundef i32 @crypto_algapi_init() #15 section ".init.text" align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @crypto_destroy_instance(ptr noundef initializes((408, 416)) %0) #0 align 16 {
+define internal void @crypto_destroy_instance(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 408
   store i64 68719476704, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 416

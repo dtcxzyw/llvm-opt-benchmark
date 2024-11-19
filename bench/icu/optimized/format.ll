@@ -89,7 +89,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_756FormatC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(322) initializes((0, 9), (165, 166)) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_756FormatC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(322) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756FormatE, i64 16), ptr %this, align 8
   %actualLocale = getelementptr inbounds i8, ptr %this, i64 8
@@ -117,7 +117,7 @@ entry:
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(322) initializes((0, 8)) %this, ptr noundef nonnull readonly align 8 dereferenceable(322) %that) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756FormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(322) %this, ptr noundef nonnull readonly align 8 dereferenceable(322) %that) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756FormatE, i64 16), ptr %this, align 8
   %cmp.not.i = icmp eq ptr %this, %that
@@ -292,7 +292,7 @@ _ZNKSt9type_infoeqERKS_.exit:                     ; preds = %entry, %if.end.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756Format11syntaxErrorERKNS_13UnicodeStringEiR11UParseError(ptr noundef nonnull align 8 dereferenceable(64) %pattern, i32 noundef %pos, ptr noundef nonnull align 4 dereferenceable(72) initializes((0, 8)) %parseError) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756Format11syntaxErrorERKNS_13UnicodeStringEiR11UParseError(ptr noundef nonnull align 8 dereferenceable(64) %pattern, i32 noundef %pos, ptr noundef nonnull align 4 dereferenceable(72) %parseError) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %offset = getelementptr inbounds i8, ptr %parseError, i64 4
   store i32 %pos, ptr %offset, align 4

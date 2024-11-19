@@ -1065,7 +1065,7 @@ _ZN4llvmL10scopedTAGsENS_5dwarf3TagE.exit:        ; preds = %8, %_ZNK4llvm8DWARF
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, ptr } @_ZN4llvm16DWARFTypePrinter27appendUnqualifiedNameBeforeENS_8DWARFDieEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((8, 9)) %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local { ptr, ptr } @_ZN4llvm16DWARFTypePrinter27appendUnqualifiedNameBeforeENS_8DWARFDieEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %class.anon.78, align 1
@@ -4342,7 +4342,7 @@ _ZN4llvm11SmallVectorIPKcLj2EED2Ev.exit:          ; preds = %32, %252, %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DWARFTypePrinter25appendSubroutineNameAfterENS_8DWARFDieES1_bbb(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((9, 10)) %0, ptr %1, ptr %2, ptr %3, ptr %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16DWARFTypePrinter25appendSubroutineNameAfterENS_8DWARFDieES1_bbb(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr %1, ptr %2, ptr %3, ptr %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7) local_unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::DWARFDie", align 8
   %10 = alloca %"class.llvm::DWARFDie", align 8
   %11 = alloca %"class.llvm::DWARFDie", align 8
@@ -5093,7 +5093,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %_ZNK4llvm8DWARFDie6
 declare { ptr, ptr } @_ZNK4llvm8DWARFDie9getParentEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DWARFTypePrinter21appendUnqualifiedNameENS_8DWARFDieEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((8, 9)) %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16DWARFTypePrinter21appendUnqualifiedNameENS_8DWARFDieEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr %1, ptr %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call { ptr, ptr } @_ZN4llvm16DWARFTypePrinter27appendUnqualifiedNameBeforeENS_8DWARFDieEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr %1, ptr %2, ptr noundef %3)
   %6 = extractvalue { ptr, ptr } %5, 0
   %7 = extractvalue { ptr, ptr } %5, 1
@@ -5318,7 +5318,7 @@ _ZNSt8__detail18__to_chars_10_implImEEvPcjT_.exit: ; preds = %43, %51
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DWARFTypePrinter22decomposeConstVolatileERNS_8DWARFDieES2_S2_S2_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16DWARFTypePrinter22decomposeConstVolatileERNS_8DWARFDieES2_S2_S2_(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::DWARFDie", align 8
   %7 = alloca %"class.llvm::DWARFDie", align 8
   %8 = alloca %"class.llvm::DWARFDie", align 8

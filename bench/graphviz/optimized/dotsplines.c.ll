@@ -6892,7 +6892,7 @@ define internal fastcc void @makeSimpleFlat(ptr nocapture readonly %.16.val, dou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @makeFlatEnd(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef nonnull initializes((0, 32), (48, 52)) %5, i1 noundef zeroext %6) unnamed_addr #1 {
+define internal fastcc void @makeFlatEnd(ptr noundef %0, ptr nocapture noundef nonnull readonly %1, ptr noundef nonnull %2, ptr nocapture noundef readonly %3, ptr noundef %4, ptr noundef nonnull %5, i1 noundef zeroext %6) unnamed_addr #1 {
   %8 = alloca %struct.boxf, align 8
   %9 = getelementptr i8, ptr %3, i64 16
   %.val = load ptr, ptr %9, align 8
@@ -7339,7 +7339,7 @@ declare void @dot_cleanup(ptr noundef) local_unnamed_addr #3
 declare i32 @agclose(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @maximal_bbox(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 32)) %0, ptr noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture readonly %.16.val, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #17 {
+define internal fastcc void @maximal_bbox(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef readonly %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture readonly %.16.val, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #17 {
   %6 = getelementptr inbounds i8, ptr %.16.val, i64 32
   %7 = load double, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %.16.val, i64 104

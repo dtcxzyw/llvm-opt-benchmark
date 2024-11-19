@@ -1813,7 +1813,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %64, %67
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8superres13convertToTypeERKNS_4cuda6GpuMatEiRS2_S5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::cuda::GpuMat") align 8 initializes((0, 12), (16, 64)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8superres13convertToTypeERKNS_4cuda6GpuMatEiRS2_S5_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::cuda::GpuMat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::_InputArray", align 8
   %7 = alloca %"class.cv::_OutputArray", align 8
   %8 = alloca %"class.cv::_InputArray", align 8

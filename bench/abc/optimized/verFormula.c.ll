@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.14 = private unnamed_addr constant [48 x i8] c"Ver_FormulaReduction(): Unknown operation (%c)\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Ver_FormulaParser(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef initializes((4, 8)) %3, ptr nocapture noundef initializes((4, 8)) %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
+define ptr @Ver_FormulaParser(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
 sub_0:
   %6 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %6, align 4

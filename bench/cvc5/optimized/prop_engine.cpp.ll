@@ -1226,7 +1226,7 @@ entry:
 declare void @_ZN4cvc58internal4prop15SatProofManager22registerSatAssumptionsERKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(1128), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal4prop10PropEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop10PropEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 cond.true:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop10PropEngineE, i64 16), ptr %this, align 8
   %d_cnfStream = getelementptr inbounds i8, ptr %this, i64 80
@@ -1382,7 +1382,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal4prop10PropEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal4prop10PropEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4cvc58internal4prop10PropEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -3472,7 +3472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal4prop10PropEngine16getPropDecisionsEv(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(424) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal4prop10PropEngine16getPropDecisionsEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(424) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %miniDecisions = alloca %"class.std::vector.557", align 8
   %d = alloca %"class.cvc5::internal::prop::SatLiteral", align 8

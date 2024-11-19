@@ -64,7 +64,7 @@ define dso_local noundef ptr @virtio_gpu_fence_alloc(ptr noundef %0, i64 noundef
 declare dso_local void @dma_fence_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @virtio_gpu_fence_emit(ptr noundef %0, ptr nocapture noundef initializes((8, 16)) %1, ptr noundef initializes((40, 48), (72, 80)) %2) local_unnamed_addr #0 align 16 {
+define dso_local void @virtio_gpu_fence_emit(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 62112
   %5 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %4) #10
   %6 = getelementptr inbounds i8, ptr %0, i64 62080

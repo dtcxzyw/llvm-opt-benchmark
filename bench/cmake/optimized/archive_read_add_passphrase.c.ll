@@ -83,7 +83,7 @@ define dso_local range(i32 -30, 1) i32 @archive_read_set_passphrase_callback(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @__archive_read_reset_passphrase(ptr nocapture noundef writeonly initializes((2112, 2116)) %0) local_unnamed_addr #2 {
+define dso_local void @__archive_read_reset_passphrase(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2112
   store i32 -1, ptr %2, align 8
   ret void

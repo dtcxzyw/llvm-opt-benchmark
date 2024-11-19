@@ -841,7 +841,7 @@ cond.end:                                         ; preds = %entry, %lor.rhs, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7517GregorianCalendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) initializes((653, 654)) %this, i32 noundef %bestField, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef i32 @_ZN6icu_7517GregorianCalendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %bestField, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %fInvertGregorian = getelementptr inbounds i8, ptr %this, i64 653
   store i8 0, ptr %fInvertGregorian, align 1
@@ -940,7 +940,7 @@ return:                                           ; preds = %if.end22, %land.lhs
 declare noundef i32 @_ZN6icu_758Calendar22handleComputeJulianDayE19UCalendarDateFieldsR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6icu_7517GregorianCalendar23handleComputeMonthStartEiia(ptr nocapture noundef nonnull align 8 dereferenceable(654) initializes((652, 653)) %this, i32 noundef %eyear, i32 noundef %month, i8 signext %0) unnamed_addr #1 align 2 {
+define noundef i32 @_ZNK6icu_7517GregorianCalendar23handleComputeMonthStartEiia(ptr nocapture noundef nonnull align 8 dereferenceable(654) %this, i32 noundef %eyear, i32 noundef %month, i8 signext %0) unnamed_addr #1 align 2 {
 entry:
   %month.addr = alloca i32, align 4
   store i32 %month, ptr %month.addr, align 4
@@ -1410,7 +1410,7 @@ entry:
 declare void @_ZN6icu_758Calendar8completeER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6icu_7517GregorianCalendar22computeJulianDayOfYearEaiRa(i8 noundef signext %isGregorian, i32 noundef %year, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %isLeap) local_unnamed_addr #1 align 2 {
+define noundef double @_ZN6icu_7517GregorianCalendar22computeJulianDayOfYearEaiRa(i8 noundef signext %isGregorian, i32 noundef %year, ptr nocapture noundef nonnull align 1 dereferenceable(1) %isLeap) local_unnamed_addr #1 align 2 {
 entry:
   %0 = and i32 %year, 3
   %cmp = icmp eq i32 %0, 0

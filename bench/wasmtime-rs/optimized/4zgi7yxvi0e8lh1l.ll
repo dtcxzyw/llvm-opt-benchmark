@@ -35,7 +35,7 @@ define zeroext i1 @"_ZN14cranelift_isle18StableSet$LT$T$GT$6insert17h223b2f473c3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h448b58dd7987b86dE"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
+define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h448b58dd7987b86dE"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c51738dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.0)
   %3 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb615a5bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.812074b8740c0d57f90d4a8f66f127bc.1, i64 70, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.3)
@@ -50,7 +50,7 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h448b58dd7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h9e5e5c2681d2f505E"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
+define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h9e5e5c2681d2f505E"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c51738dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.0)
   %3 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb615a5bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.812074b8740c0d57f90d4a8f66f127bc.1, i64 70, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.3)
@@ -65,7 +65,7 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17h9e5e5c268
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hc6c72189f38a9c32E"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
+define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hc6c72189f38a9c32E"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c51738dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.0)
   %3 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb615a5bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.812074b8740c0d57f90d4a8f66f127bc.1, i64 70, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.3)
@@ -80,7 +80,7 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hc6c72189f
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hd3df3dd5e801f645E"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 initializes((0, 48)) %0) unnamed_addr #0 {
+define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hd3df3dd5e801f645E"(ptr nocapture writeonly sret({ { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }) align 8 %0) unnamed_addr #0 {
   %2 = alloca { i64, [2 x i64] }, align 8
   call void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h0e8514830c51738dE"(ptr nonnull sret({ i64, [2 x i64] }) align 8 %2, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.0)
   %3 = call { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h45a9f7d1cb615a5bE"(ptr nonnull align 8 %2, ptr nonnull align 1 @anon.812074b8740c0d57f90d4a8f66f127bc.1, i64 70, ptr nonnull align 8 @anon.812074b8740c0d57f90d4a8f66f127bc.3)
@@ -95,7 +95,7 @@ define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$3new17hd3df3dd5e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$5entry17hcd7af0961c3fbd3dE"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 initializes((0, 40)) %0, ptr align 8 %1, i64 %2, i64 %3) unnamed_addr #0 {
+define hidden void @"_ZN14cranelift_isle22StableMap$LT$K$C$V$GT$5entry17hcd7af0961c3fbd3dE"(ptr nocapture writeonly sret({ i64, [4 x i64] }) align 8 %0, ptr align 8 %1, i64 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca { i64, [4 x i64] }, align 8
   call void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$GT$11rustc_entry17h2cb8cf1b2262c157E"(ptr nonnull sret({ i64, [4 x i64] }) align 8 %5, ptr align 8 %1, i64 %2, i64 %3)
   %6 = load i64, ptr %5, align 8, !range !3, !noundef !4

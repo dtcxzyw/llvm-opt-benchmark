@@ -102,7 +102,7 @@ define internal noundef i32 @unwind_debug_cmdline(ptr nocapture readnone %0) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unwind_module_init(ptr nocapture noundef writeonly initializes((824, 828), (832, 848)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local void @unwind_module_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = lshr i64 %2, 2
   %7 = and i64 %2, 3
   %8 = urem i64 %4, 6
@@ -1699,7 +1699,7 @@ declare i64 @llvm.read_register.i64(metadata) #9
 declare void @llvm.write_register.i64(metadata, i64) #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__unwind_start(ptr noundef initializes((0, 112)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
+define dso_local void @__unwind_start(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #1 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %5, align 8

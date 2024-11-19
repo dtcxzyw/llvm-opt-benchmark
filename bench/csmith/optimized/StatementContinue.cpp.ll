@@ -174,7 +174,7 @@ define dso_local void @_ZN17StatementContinueC2ERKS_(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17StatementContinueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN17StatementContinueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
@@ -197,7 +197,7 @@ define dso_local void @_ZN17StatementContinueD2Ev(ptr noundef nonnull align 8 de
 declare void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17StatementContinueD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #6 align 2 {
+define dso_local void @_ZN17StatementContinueD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17StatementContinue, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8

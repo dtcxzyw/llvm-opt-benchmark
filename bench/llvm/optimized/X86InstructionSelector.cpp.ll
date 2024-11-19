@@ -1388,7 +1388,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 declare void @_ZN4llvm20GIMatchTableExecutor12MatcherStateC1Ej(ptr noundef nonnull align 8 dereferenceable(168), i32 noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122X86InstructionSelectorD2Ev(ptr noundef nonnull align 8 dereferenceable(1400) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122X86InstructionSelectorD2Ev(ptr noundef nonnull align 8 dereferenceable(1400) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_122X86InstructionSelectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
@@ -1414,7 +1414,7 @@ _ZN4llvm20GIMatchTableExecutor10ExecInfoTyINS_6BitsetILj145EEEMN12_GLOBAL__N_122
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122X86InstructionSelectorD0Ev(ptr noundef nonnull align 8 dereferenceable(1400) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122X86InstructionSelectorD0Ev(ptr noundef nonnull align 8 dereferenceable(1400) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN12_GLOBAL__N_122X86InstructionSelectorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %3 = load i32, ptr %2, align 8
@@ -1441,7 +1441,7 @@ _ZN12_GLOBAL__N_122X86InstructionSelectorD2Ev.exit: ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122X86InstructionSelector30setupGeneratedPerFunctionStateERN4llvm15MachineFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(1400) initializes((144, 168)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122X86InstructionSelector30setupGeneratedPerFunctionStateERN4llvm15MachineFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(1400) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 455

@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [10 x i8] c"constants\00", align 1
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @luaK_semerror(ptr noundef initializes((16, 20)) %ls, ptr noundef %msg) local_unnamed_addr #0 {
+define hidden void @luaK_semerror(ptr noundef %ls, ptr noundef %msg) local_unnamed_addr #0 {
 entry:
   %t = getelementptr inbounds i8, ptr %ls, i64 16
   store i32 0, ptr %t, align 8
@@ -288,7 +288,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i32 @luaK_getlabel(ptr nocapture noundef initializes((36, 40)) %fs) local_unnamed_addr #5 {
+define hidden i32 @luaK_getlabel(ptr nocapture noundef %fs) local_unnamed_addr #5 {
 entry:
   %pc = getelementptr inbounds i8, ptr %fs, i64 32
   %0 = load i32, ptr %pc, align 8
@@ -435,7 +435,7 @@ while.end:                                        ; preds = %if.end, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @luaK_patchtohere(ptr nocapture noundef initializes((36, 40)) %fs, i32 noundef %list) local_unnamed_addr #4 {
+define hidden void @luaK_patchtohere(ptr nocapture noundef %fs, i32 noundef %list) local_unnamed_addr #4 {
 entry:
   %pc.i = getelementptr inbounds i8, ptr %fs, i64 32
   %0 = load i32, ptr %pc.i, align 8

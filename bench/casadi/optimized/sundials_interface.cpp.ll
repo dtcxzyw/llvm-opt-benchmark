@@ -619,7 +619,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 declare void @_ZN6casadi10IntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1905)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi17SundialsInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(2120) initializes((0, 8), (1520, 1528)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi17SundialsInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(2120) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi17SundialsInterfaceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi17SundialsInterfaceE, i64 1000), ptr %2, align 8
@@ -6809,7 +6809,7 @@ declare noundef i64 @_ZNK6casadi8Function7nnz_outEx(ptr noundef nonnull align 8 
 declare void @_ZN6casadi16FunctionInternal8alloc_iwEmb(ptr noundef nonnull align 8 dereferenceable(1304), i64 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi17SundialsInterface8set_workEPvRPPKdRPPdRPxRS6_(ptr noundef nonnull align 8 dereferenceable(2120) %0, ptr nocapture noundef writeonly initializes((200, 224), (256, 264), (488, 504)) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi17SundialsInterface8set_workEPvRPPKdRPPdRPxRS6_(ptr noundef nonnull align 8 dereferenceable(2120) %0, ptr nocapture noundef writeonly %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.0", align 1
   %9 = load ptr, ptr %5, align 8
@@ -7303,7 +7303,7 @@ declare ptr @N_VNew_Serial(i64 noundef) local_unnamed_addr #0
 declare noundef i64 @_ZNK6casadi6Linsol8checkoutEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK6casadi17SundialsInterface11reset_statsEPNS_14SundialsMemoryE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2120) %0, ptr nocapture noundef writeonly initializes((264, 488)) %1) local_unnamed_addr #10 align 2 {
+define void @_ZNK6casadi17SundialsInterface11reset_statsEPNS_14SundialsMemoryE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2120) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 264
   %4 = getelementptr inbounds i8, ptr %1, i64 300
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
@@ -7338,7 +7338,7 @@ define void @_ZNK6casadi17SundialsInterface11reset_statsEPNS_14SundialsMemoryE(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi17SundialsInterface5resetEPNS_16IntegratorMemoryEPKdS4_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2120) %0, ptr nocapture noundef initializes((264, 488)) %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #3 align 2 {
+define void @_ZNK6casadi17SundialsInterface5resetEPNS_16IntegratorMemoryEPKdS4_S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(2120) %0, ptr nocapture noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 264
   %7 = getelementptr inbounds i8, ptr %1, i64 300
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 32, i1 false)
@@ -7493,7 +7493,7 @@ _ZN6casadi11casadi_copyIdEEvPKT_xPS1_.exit31:     ; preds = %.lr.ph.i24, %_ZN6ca
 declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6casadi17SundialsInterface12save_offsetsEPNS_14SundialsMemoryE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2120) %0, ptr nocapture noundef initializes((440, 488)) %1) local_unnamed_addr #11 align 2 {
+define void @_ZNK6casadi17SundialsInterface12save_offsetsEPNS_14SundialsMemoryE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(2120) %0, ptr nocapture noundef %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 352
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 440
@@ -7705,7 +7705,7 @@ _ZN6casadi11casadi_axpyIdEEvxT_PKS1_PS1_.exit23:  ; preds = %.lr.ph.i18, %_ZN6ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6casadi14SundialsMemoryC2Ev(ptr noundef nonnull align 8 dereferenceable(524) initializes((8, 12), (16, 24)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi14SundialsMemoryC2Ev(ptr noundef nonnull align 8 dereferenceable(524) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

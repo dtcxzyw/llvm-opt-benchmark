@@ -655,7 +655,7 @@ declare void @_ZN4llvm11parallelForEmmNS_12function_refIFvmEEE(i64 noundef, i64 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb16GSIStreamBuilderC2ERNS_3msf10MSFBuilderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 12), (16, 108)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16GSIStreamBuilderC2ERNS_3msf10MSFBuilderE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #1 align 2 {
   store i32 65535, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 65535, ptr %3, align 4
@@ -884,7 +884,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb16GSIStreamBuilder30calculateGlobalsH
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb16GSIStreamBuilder17finalizeMsfLayoutEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16GSIStreamBuilder17finalizeMsfLayoutEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(112) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::Expected", align 8
   %4 = alloca %"class.llvm::Expected", align 8
   %5 = alloca %"class.llvm::Expected", align 8
@@ -1121,7 +1121,7 @@ _ZN4llvm8ExpectedIjED2Ev.exit22:                  ; preds = %126, %_ZNKSt14defau
 declare void @_ZN4llvm3msf10MSFBuilder9addStreamEj(ptr dead_on_unwind writable sret(%"class.llvm::Expected") align 8, ptr noundef nonnull align 8 dereferenceable(152), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb16GSIStreamBuilder16addPublicSymbolsEOSt6vectorINS0_10BulkPublicESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((48, 56)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16GSIStreamBuilder16addPublicSymbolsEOSt6vectorINS0_10BulkPublicESaIS3_EE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca %"class.llvm::parallel::TaskGroup", align 8
   %4 = alloca %class.anon.32, align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40

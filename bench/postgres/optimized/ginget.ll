@@ -2640,7 +2640,7 @@ declare void @UnlockReleaseBuffer(i32 noundef) local_unnamed_addr #1
 declare ptr @palloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @scanGetCandidate(ptr nocapture noundef readonly %0, ptr noundef nonnull initializes((8, 14)) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @scanGetCandidate(ptr nocapture noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i16 -1, ptr %3, align 2
   %4 = getelementptr inbounds i8, ptr %1, i64 10

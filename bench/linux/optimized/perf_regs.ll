@@ -89,7 +89,7 @@ define dso_local range(i64 1, 3) i64 @perf_reg_abi(ptr nocapture noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: read)
-define dso_local void @perf_get_regs_user(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 16 {
+define dso_local void @perf_get_regs_user(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 16 {
   %3 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @nmi_user_regs) #6, !srcloc !9
   %4 = inttoptr i64 %3 to ptr
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !10

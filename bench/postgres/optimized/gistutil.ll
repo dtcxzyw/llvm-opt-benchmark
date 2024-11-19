@@ -194,7 +194,7 @@ define dso_local zeroext i1 @gistfitpage(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @gistextractpage(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local ptr @gistextractpage(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 12
   %.val = load i16, ptr %3, align 4
   %4 = icmp ult i16 %.val, 25
@@ -264,7 +264,7 @@ declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @gistfillitupvec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define dso_local ptr @gistfillitupvec(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   %4 = icmp sgt i32 %1, 0
   br i1 %4, label %.lr.ph, label %._crit_edge.thread
@@ -560,7 +560,7 @@ index_getattr.exit.us:                            ; preds = %gistdentryinit.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc i64 @index_getattr(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   store i8 0, ptr %3, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 6
   %6 = load i16, ptr %5, align 2
@@ -659,7 +659,7 @@ fetch_att.exit:                                   ; preds = %40, %34, %31, %28, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gistdentryinit(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 27)) %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+define dso_local void @gistdentryinit(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, i16 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = zext i1 %7 to i8
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = getelementptr inbounds i8, ptr %2, i64 16
@@ -924,7 +924,7 @@ gistCompressValues.exit:                          ; preds = %57, %._crit_edge.i,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @gistMakeUnionKey(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, ptr nocapture noundef writeonly initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 1)) %7) local_unnamed_addr #0 {
+define dso_local void @gistMakeUnionKey(ptr noundef %0, i32 noundef %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, ptr nocapture noundef readonly %4, i1 noundef zeroext %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca %union.anon, align 8
   %10 = alloca i32, align 4
   store i32 2, ptr %9, align 8

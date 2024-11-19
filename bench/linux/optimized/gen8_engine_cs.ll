@@ -1172,7 +1172,7 @@ define dso_local i32 @gen8_emit_bb_start(ptr noundef %0, i64 noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local noundef ptr @gen8_emit_fini_breadcrumb_xcs(ptr nocapture noundef initializes((468, 476)) %0, ptr noundef initializes((0, 24)) %1) local_unnamed_addr #4 align 16 {
+define dso_local noundef ptr @gen8_emit_fini_breadcrumb_xcs(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
@@ -1286,7 +1286,7 @@ define dso_local noundef ptr @gen8_emit_fini_breadcrumb_xcs(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local noundef ptr @gen8_emit_fini_breadcrumb_rcs(ptr nocapture noundef initializes((468, 476)) %0, ptr noundef initializes((0, 56)) %1) local_unnamed_addr #4 align 16 {
+define dso_local noundef ptr @gen8_emit_fini_breadcrumb_rcs(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %3, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %1, align 4
@@ -1411,7 +1411,7 @@ define dso_local noundef ptr @gen8_emit_fini_breadcrumb_rcs(ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local noundef ptr @gen11_emit_fini_breadcrumb_rcs(ptr nocapture noundef initializes((468, 476)) %0, ptr noundef initializes((0, 56)) %1) local_unnamed_addr #4 align 16 {
+define dso_local noundef ptr @gen11_emit_fini_breadcrumb_rcs(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(24) %3, i8 0, i64 12, i1 false)
   store i32 2046820356, ptr %1, align 4
@@ -1536,7 +1536,7 @@ define dso_local noundef ptr @gen11_emit_fini_breadcrumb_rcs(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local noundef ptr @gen12_emit_fini_breadcrumb_xcs(ptr nocapture noundef initializes((468, 476)) %0, ptr noundef initializes((0, 40)) %1) local_unnamed_addr #4 align 16 {
+define dso_local noundef ptr @gen12_emit_fini_breadcrumb_xcs(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr i8, ptr %1, i64 4
   store i32 318767106, ptr %1, align 4
   %4 = getelementptr i8, ptr %1, i64 8
@@ -1710,7 +1710,7 @@ define dso_local noundef ptr @gen12_emit_fini_breadcrumb_xcs(ptr nocapture nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn
-define dso_local noundef ptr @gen12_emit_fini_breadcrumb_rcs(ptr nocapture noundef initializes((468, 476)) %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local noundef ptr @gen12_emit_fini_breadcrumb_rcs(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80

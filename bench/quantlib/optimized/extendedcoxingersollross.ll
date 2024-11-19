@@ -1263,7 +1263,7 @@ _ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit: ; preds = %entry, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24ExtendedCoxIngersollRossC1ERKNS_6HandleINS_18YieldTermStructureEEEddddb(ptr noundef nonnull align 8 dereferenceable(192) initializes((192, 200), (208, 212), (216, 224)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %termStructure, double noundef %theta, double noundef %k, double noundef %sigma, double noundef %x0, i1 noundef zeroext %withFellerConstraint) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24ExtendedCoxIngersollRossC1ERKNS_6HandleINS_18YieldTermStructureEEEddddb(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %termStructure, double noundef %theta, double noundef %k, double noundef %sigma, double noundef %x0, i1 noundef zeroext %withFellerConstraint) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::NoConstraint", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 192

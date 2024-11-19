@@ -56,7 +56,7 @@ $_ZTIN6icu_757UMemoryE = comdat any
 @_ZN6icu_7515RBBIRuleScannerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7515RBBIRuleScannerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515RBBIRuleScannerC2EPNS_15RBBIRuleBuilderE(ptr noundef nonnull align 8 dereferenceable(3192) initializes((0, 8), (40, 45), (48, 58)) %this, ptr noundef %rb) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RBBIRuleScannerC2EPNS_15RBBIRuleBuilderE(ptr noundef nonnull align 8 dereferenceable(3192) %this, ptr noundef %rb) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeSet", align 8
   %ref.tmp6 = alloca %"class.icu_75::UnicodeString", align 8
@@ -425,7 +425,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515RBBIRuleScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(3192) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RBBIRuleScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(3192) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515RBBIRuleScannerE, i64 16), ptr %this, align 8
   %fSymbolTable = getelementptr inbounds i8, ptr %this, i64 1136
@@ -2999,7 +2999,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #1
 declare ptr @uhash_put_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515RBBIRuleScanner10stripRulesERKNS_13UnicodeStringE(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %rules) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515RBBIRuleScanner10stripRulesERKNS_13UnicodeStringE(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %rules) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -3210,7 +3210,7 @@ return:                                           ; preds = %if.then6.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515RBBIRuleScanner8nextCharERNS0_12RBBIRuleCharE(ptr noundef nonnull align 8 dereferenceable(3192) initializes((16, 20)) %this, ptr nocapture noundef nonnull align 4 dereferenceable(5) initializes((0, 5)) %c) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7515RBBIRuleScanner8nextCharERNS0_12RBBIRuleCharE(ptr noundef nonnull align 8 dereferenceable(3192) %this, ptr nocapture noundef nonnull align 4 dereferenceable(5) %c) local_unnamed_addr #0 align 2 {
 entry:
   %fNextIndex = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i32, ptr %fNextIndex, align 4

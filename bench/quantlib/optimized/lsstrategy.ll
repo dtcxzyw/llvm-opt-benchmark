@@ -73,7 +73,7 @@ $_ZTIN8QuantLib16ExerciseStrategyINS_10CurveStateEEE = comdat any
 @_ZN8QuantLib33LongstaffSchwartzExerciseStrategyC1ENS_5CloneINS_22MarketModelBasisSystemEEESt6vectorIS4_IdSaIdEESaIS6_EERKNS_20EvolutionDescriptionERKS4_ImSaImEENS1_INS_24MarketModelExerciseValueEEESH_ = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, ptr), ptr @_ZN8QuantLib33LongstaffSchwartzExerciseStrategyC2ENS_5CloneINS_22MarketModelBasisSystemEEESt6vectorIS4_IdSaIdEESaIS6_EERKNS_20EvolutionDescriptionERKS4_ImSaImEENS1_INS_24MarketModelExerciseValueEEESH_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategyC2ENS_5CloneINS_22MarketModelBasisSystemEEESt6vectorIS4_IdSaIdEESaIS6_EERKNS_20EvolutionDescriptionERKS4_ImSaImEENS1_INS_24MarketModelExerciseValueEEESH_(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 80)) %this, ptr nocapture noundef %basisSystem, ptr nocapture noundef %basisCoefficients, ptr noundef nonnull align 8 dereferenceable(128) %evolution, ptr noundef nonnull align 8 dereferenceable(24) %numeraires, ptr nocapture noundef %exercise, ptr nocapture noundef %control) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategyC2ENS_5CloneINS_22MarketModelBasisSystemEEESt6vectorIS4_IdSaIdEESaIS6_EERKNS_20EvolutionDescriptionERKS4_ImSaImEENS1_INS_24MarketModelExerciseValueEEESH_(ptr noundef nonnull align 8 dereferenceable(312) %this, ptr nocapture noundef %basisSystem, ptr nocapture noundef %basisCoefficients, ptr noundef nonnull align 8 dereferenceable(128) %evolution, ptr noundef nonnull align 8 dereferenceable(24) %numeraires, ptr nocapture noundef %exercise, ptr nocapture noundef %control) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::valarray", align 8
   %ref.tmp28 = alloca %"class.std::valarray", align 8
@@ -1551,7 +1551,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit: ; preds = %invoke.cont, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy13exerciseTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.16") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy13exerciseTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.16") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %exerciseTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -1597,7 +1597,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy13relevantTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.16") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib33LongstaffSchwartzExerciseStrategy13relevantTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.16") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %relevantTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 136
@@ -1643,7 +1643,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategy5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) initializes((80, 104)) %this) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategy5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #0 align 2 {
 entry:
   %exercise_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %exercise_, align 8, !tbaa !10
@@ -1769,7 +1769,7 @@ _ZSt13inner_productIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPd
 declare noundef double @_ZNK8QuantLib21MarketModelDiscounter14numeraireBondsERKNS_10CurveStateEm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(64), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategy8nextStepERKNS_10CurveStateE(ptr nocapture noundef nonnull align 8 dereferenceable(312) initializes((88, 96)) %this, ptr noundef nonnull align 8 dereferenceable(64) %currentState) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib33LongstaffSchwartzExerciseStrategy8nextStepERKNS_10CurveStateE(ptr nocapture noundef nonnull align 8 dereferenceable(312) %this, ptr noundef nonnull align 8 dereferenceable(64) %currentState) unnamed_addr #0 align 2 {
 entry:
   %newPrincipal_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load double, ptr %newPrincipal_, align 8, !tbaa !84

@@ -3398,13 +3398,13 @@ define hidden noundef nonnull align 8 ptr @"_ZN50_$LT$T$u20$as$u20$core..convert
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h8bab4c3f338a790dE"(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 }, i8, [7 x i8] }, [155 x i64], { ptr, { { { ptr, i64 }, i64 }, i8, [7 x i8] } }, ptr, {}, {}, [3 x i8], i8, [4 x i8] }) align 8 dereferenceable(1328) initializes((0, 1328)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1328) %1) unnamed_addr #6 {
+define hidden void @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h8bab4c3f338a790dE"(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 }, i8, [7 x i8] }, [155 x i64], { ptr, { { { ptr, i64 }, i64 }, i8, [7 x i8] } }, ptr, {}, {}, [3 x i8], i8, [4 x i8] }) align 8 dereferenceable(1328) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1328) %1) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1328) %0, ptr noundef nonnull align 8 dereferenceable(1328) %1, i64 1328, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17hb130ae3c87277d41E"(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 }, i8, [7 x i8] }, [215 x i64], ptr, { { ptr, { [60 x i16], i16, [15 x i16] } } }, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(1928) initializes((0, 1928)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1928) %1) unnamed_addr #6 {
+define hidden void @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17hb130ae3c87277d41E"(ptr noalias nocapture noundef writeonly sret({ { { { ptr, i64 }, i64 }, i8, [7 x i8] }, [215 x i64], ptr, { { ptr, { [60 x i16], i16, [15 x i16] } } }, [1 x i8], i8, [6 x i8] }) align 8 dereferenceable(1928) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(1928) %1) unnamed_addr #6 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1928) %0, ptr noundef nonnull align 8 dereferenceable(1928) %1, i64 1928, i1 false)
   ret void
 }

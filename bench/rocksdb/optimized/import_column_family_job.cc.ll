@@ -416,7 +416,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb21ImportColumnFamilyJob7PrepareEmPNS_12SuperVersionE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(664) %this, i64 noundef %next_file_number, ptr noundef %sv) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb21ImportColumnFamilyJob7PrepareEmPNS_12SuperVersionE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(664) %this, i64 noundef %next_file_number, ptr noundef %sv) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parsed.i77 = alloca %"struct.rocksdb::ParsedInternalKey", align 8
   %ref.tmp.i78 = alloca %"class.rocksdb::Status", align 8

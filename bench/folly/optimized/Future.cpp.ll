@@ -2056,7 +2056,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare void @_ZN5folly7futures6detail13UniqueDeleterclEPNS1_16DeferredExecutorE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7futures4waitESt10unique_ptrINS_6fibers5BatonESt14default_deleteIS3_EE(ptr dead_on_unwind noalias writable sret(%"class.folly::SemiFuture") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef %baton) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7futures4waitESt10unique_ptrINS_6fibers5BatonESt14default_deleteIS3_EE(ptr dead_on_unwind noalias writable sret(%"class.folly::SemiFuture") align 8 %agg.result, ptr nocapture noundef %baton) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %promise = alloca %"class.folly::Promise", align 8
   %agg.tmp = alloca %"class.folly::Promise", align 8
@@ -2343,7 +2343,7 @@ _ZN5folly7PromiseINS_4UnitEE8setValueIS1_EENSt9enable_ifIXsr3std7is_sameIS1_T_EE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10unique_ptrINS_6fibers5BatonESt14default_deleteIS5_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10unique_ptrINS_6fibers5BatonESt14default_deleteIS5_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly7futures12_GLOBAL__N_112FutureWaiterISt10unique_ptrINS_6fibers5BatonESt14default_deleteIS5_EEEE, i64 16), ptr %this, align 8, !tbaa !17
   %baton_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -2394,7 +2394,7 @@ _ZN5folly7PromiseINS_4UnitEED2Ev.exit:            ; preds = %.noexc.i, %_ZNSt10u
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10unique_ptrINS_6fibers5BatonESt14default_deleteIS5_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10unique_ptrINS_6fibers5BatonESt14default_deleteIS5_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly7futures12_GLOBAL__N_112FutureWaiterISt10unique_ptrINS_6fibers5BatonESt14default_deleteIS5_EEEE, i64 16), ptr %this, align 8, !tbaa !17
   %baton_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2877,7 +2877,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7futures4waitESt10shared_ptrINS_6fibers5BatonEE(ptr dead_on_unwind noalias writable sret(%"class.folly::SemiFuture") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef %baton) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7futures4waitESt10shared_ptrINS_6fibers5BatonEE(ptr dead_on_unwind noalias writable sret(%"class.folly::SemiFuture") align 8 %agg.result, ptr nocapture noundef %baton) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %promise = alloca %"class.folly::Promise", align 8
   %agg.tmp = alloca %"class.folly::Promise", align 8
@@ -3073,7 +3073,7 @@ _ZN5folly7PromiseINS_4UnitEE8setValueIS1_EENSt9enable_ifIXsr3std7is_sameIS1_T_EE
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10shared_ptrINS_6fibers5BatonEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10shared_ptrINS_6fibers5BatonEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly7futures12_GLOBAL__N_112FutureWaiterISt10shared_ptrINS_6fibers5BatonEEEE, i64 16), ptr %this, align 8, !tbaa !17
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -3163,7 +3163,7 @@ _ZN5folly7PromiseINS_4UnitEED2Ev.exit:            ; preds = %.noexc.i, %_ZNSt12_
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10shared_ptrINS_6fibers5BatonEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5folly7futures12_GLOBAL__N_112FutureWaiterISt10shared_ptrINS_6fibers5BatonEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly7futures12_GLOBAL__N_112FutureWaiterISt10shared_ptrINS_6fibers5BatonEEEE, i64 16), ptr %this, align 8, !tbaa !17
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 32

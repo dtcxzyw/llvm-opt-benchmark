@@ -275,7 +275,7 @@ gimme_edge.exit68:                                ; preds = %98, %._crit_edge.i6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @gimme_tour(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef initializes((0, 4)) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @gimme_tour(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.Edge, align 8
   %6 = alloca %struct.Edge, align 8
   %7 = tail call i32 @geqo_randint(ptr noundef %0, i32 noundef %3, i32 noundef 1) #9

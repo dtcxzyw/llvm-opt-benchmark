@@ -425,7 +425,7 @@ _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_trait
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14ArgumentParser8Instance4BindERb(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14ArgumentParser8Instance4BindERb(ptr nocapture noundef nonnull align 8 dereferenceable(97) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt8functionIFN14ArgumentParser8ContinueESt17basic_string_viewIcSt11char_traitsIcEEEEC2EOS7_.exit.i.i:
   %2 = alloca %"class.std::function.23", align 8
   store i8 1, ptr %1, align 1

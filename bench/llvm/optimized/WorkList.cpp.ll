@@ -86,7 +86,7 @@ define dso_local void @_ZN5clang4ento8WorkListD0Ev(ptr nocapture nonnull readnon
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento8WorkList7makeDFSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento8WorkList7makeDFSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_13DFSESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(672) ptr @_Znwm(i64 noundef 672) #16, !noalias !4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(672) %1, i8 0, i64 672, i1 false), !noalias !4
@@ -99,7 +99,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_13DFSESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento8WorkList7makeBFSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento8WorkList7makeBFSEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_13BFSESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #16, !noalias !7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false), !noalias !7
@@ -134,7 +134,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_13BFSESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento8WorkList23makeBFSBlockDFSContentsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento8WorkList23makeBFSBlockDFSContentsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_119BFSBlockDFSContentsESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(752) ptr @_Znwm(i64 noundef 752) #16, !noalias !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(752) %1, i8 0, i64 752, i1 false), !noalias !10
@@ -172,7 +172,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119BFSBlockDFSContentsESt14default_deleteIS1_EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento8WorkList19makeUnexploredFirstEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento8WorkList19makeUnexploredFirstEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_120UnexploredFirstStackESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(1352) ptr @_Znwm(i64 noundef 1352) #16, !noalias !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1352) %1, i8 0, i64 1352, i1 false), !noalias !13
@@ -190,7 +190,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_120UnexploredFirstStackESt14default_deleteIS1_EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento8WorkList32makeUnexploredFirstPriorityQueueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento8WorkList32makeUnexploredFirstPriorityQueueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_128UnexploredFirstPriorityQueueESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16, !noalias !16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %1, i8 0, i64 80, i1 false), !noalias !16
@@ -204,7 +204,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_128UnexploredFirstPriorityQueueESt14default_dele
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento8WorkList40makeUnexploredFirstPriorityLocationQueueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento8WorkList40makeUnexploredFirstPriorityLocationQueueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_136UnexploredFirstPriorityLocationQueueESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16, !noalias !19
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %1, i8 0, i64 80, i1 false), !noalias !19
@@ -226,7 +226,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_13DFSD2Ev(ptr noundef nonnull align 8 dereferenceable(672) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_13DFSD2Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_13DFSE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(656) %2) #17
@@ -244,7 +244,7 @@ _ZN4llvm11SmallVectorIN5clang4ento12WorkListUnitELj20EED2Ev.exit: ; preds = %1, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_13DFSD0Ev(ptr noundef nonnull align 8 dereferenceable(672) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_13DFSD0Ev(ptr noundef nonnull align 8 dereferenceable(672) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_13DFSE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(656) %2) #17
@@ -278,7 +278,7 @@ define internal void @_ZN12_GLOBAL__N_13DFS7enqueueERKN5clang4ento12WorkListUnit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_13DFS7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(672) %1) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_13DFS7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 %0, ptr noundef nonnull align 8 dereferenceable(672) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -359,7 +359,7 @@ declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnul
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_13BFSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_13BFSD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_13BFSE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -400,7 +400,7 @@ _ZNSt5dequeIN5clang4ento12WorkListUnitESaIS2_EED2Ev.exit: ; preds = %1, %_ZNSt11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_13BFSD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_13BFSD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_13BFSE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -478,7 +478,7 @@ _ZNSt5dequeIN5clang4ento12WorkListUnitESaIS2_EE9push_backERKS2_.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_13BFS7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_13BFS7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
@@ -717,7 +717,7 @@ _ZSt4copyIPPN5clang4ento12WorkListUnitES4_ET0_T_S6_S5_.exit: ; preds = %32, %31,
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119BFSBlockDFSContentsD2Ev(ptr noundef nonnull align 8 dereferenceable(752) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_119BFSBlockDFSContentsD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_119BFSBlockDFSContentsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(656) %2) #17
@@ -770,7 +770,7 @@ _ZNSt5dequeIN5clang4ento12WorkListUnitESaIS2_EED2Ev.exit: ; preds = %_ZN4llvm11S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119BFSBlockDFSContentsD0Ev(ptr noundef nonnull align 8 dereferenceable(752) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_119BFSBlockDFSContentsD0Ev(ptr noundef nonnull align 8 dereferenceable(752) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_119BFSBlockDFSContentsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(656) %2) #17
@@ -880,7 +880,7 @@ _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119BFSBlockDFSContents7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(752) %1) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_119BFSBlockDFSContents7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 %0, ptr noundef nonnull align 8 dereferenceable(752) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   br i1 %4, label %12, label %5
@@ -1018,7 +1018,7 @@ _ZNSt5dequeIN5clang4ento12WorkListUnitESaIS2_EE17_M_push_front_auxIJRKS2_EEEvDpO
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120UnexploredFirstStackD2Ev(ptr noundef nonnull align 8 dereferenceable(1352) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_120UnexploredFirstStackD2Ev(ptr noundef nonnull align 8 dereferenceable(1352) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120UnexploredFirstStackE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %3 = load ptr, ptr %2, align 8
@@ -1055,7 +1055,7 @@ _ZN4llvm11SmallVectorIN5clang4ento12WorkListUnitELj20EED2Ev.exit1: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120UnexploredFirstStackD0Ev(ptr noundef nonnull align 8 dereferenceable(1352) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_120UnexploredFirstStackD0Ev(ptr noundef nonnull align 8 dereferenceable(1352) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120UnexploredFirstStackE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %3 = load ptr, ptr %2, align 8
@@ -1180,7 +1180,7 @@ _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120UnexploredFirstStack7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(1352) %1) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_120UnexploredFirstStack7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1352) %1) unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = tail call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 672
@@ -1695,7 +1695,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjPKN5clang17StackFrameContextEENS_6d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128UnexploredFirstPriorityQueueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_128UnexploredFirstPriorityQueueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_128UnexploredFirstPriorityQueueE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -1723,7 +1723,7 @@ _ZN4llvm13PriorityQueueISt4pairIN5clang4ento12WorkListUnitES1_IimEESt6vectorIS6_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128UnexploredFirstPriorityQueueD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_128UnexploredFirstPriorityQueueD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_128UnexploredFirstPriorityQueueE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -1822,7 +1822,7 @@ _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_128UnexploredFirstPriorityQueue7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_128UnexploredFirstPriorityQueue7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 1
   %4 = alloca %"struct.std::pair.84", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -2632,7 +2632,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIN5clang4ento12WorkLi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_136UnexploredFirstPriorityLocationQueueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_136UnexploredFirstPriorityLocationQueueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_136UnexploredFirstPriorityLocationQueueE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -2660,7 +2660,7 @@ _ZN4llvm13PriorityQueueISt4pairIN5clang4ento12WorkListUnitES1_IimEESt6vectorIS6_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_136UnexploredFirstPriorityLocationQueueD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_136UnexploredFirstPriorityLocationQueueD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_136UnexploredFirstPriorityLocationQueueE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -2810,7 +2810,7 @@ _ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_136UnexploredFirstPriorityLocationQueue7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_136UnexploredFirstPriorityLocationQueue7dequeueEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::ento::WorkListUnit") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"struct.__gnu_cxx::__ops::_Iter_comp_iter", align 1
   %4 = alloca %"struct.std::pair.84", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48

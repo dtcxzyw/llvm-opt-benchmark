@@ -1298,7 +1298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly15AsyncPipeReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 8), (176, 192)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15AsyncPipeReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.i.i = alloca %"struct.folly::NetworkSocket", align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 16), ptr %this, align 8, !tbaa !36

@@ -102,7 +102,7 @@ avifRWDataRealloc.exit:                           ; preds = %7, %15, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @avifRWDataFree(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
+define hidden void @avifRWDataFree(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @avifFree(ptr noundef %2) #5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

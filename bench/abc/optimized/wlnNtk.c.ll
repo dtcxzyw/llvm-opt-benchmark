@@ -1949,7 +1949,7 @@ Wln_ObjFanin.exit:                                ; preds = %32, %35
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Wln_NtkTransferNames(ptr nocapture noundef initializes((152, 160)) %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
+define void @Wln_NtkTransferNames(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 152
@@ -3149,7 +3149,7 @@ Vec_IntFree.exit:                                 ; preds = %.preheader, %98
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @Wln_NtkStaticFanoutStop(ptr nocapture noundef initializes((248, 256), (264, 272)) %0) local_unnamed_addr #8 {
+define void @Wln_NtkStaticFanoutStop(ptr nocapture noundef %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8

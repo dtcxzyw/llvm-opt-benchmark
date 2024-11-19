@@ -125,7 +125,7 @@ _ZNSt12_Vector_baseISt4pairIPKcmESaIS3_EED2Ev.exit: ; preds = %invoke.cont, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_07ustring8TableRepC2ENS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %this, ptr nocapture noundef readonly %strref, i64 noundef %hash) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_07ustring8TableRepC2ENS_17basic_string_viewIcSt11char_traitsIcEEEm(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr nocapture noundef readonly %strref, i64 noundef %hash) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 %hash, ptr %this, align 8
   %str = getelementptr inbounds i8, ptr %this, i64 8

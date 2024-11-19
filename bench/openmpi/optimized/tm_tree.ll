@@ -182,7 +182,7 @@ define internal fastcc void @free_constraint_tree(ptr noundef %0) unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @tm_set_node(ptr nocapture noundef writeonly initializes((8, 60)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, double noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define hidden void @tm_set_node(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, double noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #3 {
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 40

@@ -1329,7 +1329,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZNK8QuantLib23MonteCarloCatBondEngine3npvEbNS_4DateES1_RdS2_S2_(ptr noundef nonnull align 8 dereferenceable(338) %this, i1 noundef zeroext %includeSettlementDateFlows, i64 %settlementDate.coerce, i64 %npvDate.coerce, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %lossProbability, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %exhaustionProbability, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %expectedLoss) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef double @_ZNK8QuantLib23MonteCarloCatBondEngine3npvEbNS_4DateES1_RdS2_S2_(ptr noundef nonnull align 8 dereferenceable(338) %this, i1 noundef zeroext %includeSettlementDateFlows, i64 %settlementDate.coerce, i64 %npvDate.coerce, ptr nocapture noundef nonnull align 8 dereferenceable(8) %lossProbability, ptr nocapture noundef nonnull align 8 dereferenceable(8) %exhaustionProbability, ptr nocapture noundef nonnull align 8 dereferenceable(8) %expectedLoss) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %npvDate = alloca %"class.QuantLib::Date", align 8

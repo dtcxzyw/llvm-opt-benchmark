@@ -24691,7 +24691,7 @@ _ZN5Yosys8ezSatPtrD2Ev.exit:                      ; preds = %_ZNSt3setIPN5Yosys5
 declare void @_ZN5Yosys5RTLIL7SigSpecC1ERKSt6vectorINS0_6SigBitESaIS3_EE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116PerformReductionC2ERN5Yosys6SigMapERSt3mapINS1_5RTLIL6SigBitESt4pairIPNS5_4CellESt3setIS6_St4lessIS6_ESaIS6_EEESC_SaIS7_IKS6_SF_EEERSA_IS7_IS6_S6_ESB_ISL_ESaISL_EERSt6vectorIS6_SD_Ei(ptr noundef nonnull align 8 dereferenceable(676) initializes((0, 72)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, i32 noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116PerformReductionC2ERN5Yosys6SigMapERSt3mapINS1_5RTLIL6SigBitESt4pairIPNS5_4CellESt3setIS6_St4lessIS6_ESaIS6_EEESC_SaIS7_IKS6_SF_EEERSA_IS7_IS6_S6_ESB_ISL_ESaISL_EERSt6vectorIS6_SD_Ei(ptr noundef nonnull align 8 dereferenceable(676) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4, i32 noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::vector.8", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   %9 = alloca %"class.std::set.198", align 8

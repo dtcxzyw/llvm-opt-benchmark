@@ -3931,7 +3931,7 @@ declare i32 @bit_set_count(ptr noundef) local_unnamed_addr #1
 declare i32 @bit_super_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef initializes((8, 10)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_eval_nodes_serial(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
@@ -4656,7 +4656,7 @@ define void @eval_nodes_cpus_to_use(ptr nocapture noundef %0, i32 noundef %1, i6
 declare zeroext i16 @job_mgr_determine_cpus_per_core(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @eval_nodes_select_cores(ptr noundef initializes((8, 10)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @eval_nodes_select_cores(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

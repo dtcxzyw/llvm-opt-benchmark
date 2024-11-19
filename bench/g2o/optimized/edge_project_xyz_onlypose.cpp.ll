@@ -427,7 +427,7 @@ define void @_ZN3g2o25EdgeSE3ProjectXYZOnlyPose14linearizeOplusEv(ptr nocapture 
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK3g2o25EdgeSE3ProjectXYZOnlyPose11cam_projectERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix") align 16 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(328) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o25EdgeSE3ProjectXYZOnlyPose11cam_projectERKN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.Eigen::Matrix") align 16 %0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(328) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = load double, ptr %2, align 8, !noalias !26
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load double, ptr %5, align 8, !noalias !26
@@ -452,7 +452,7 @@ define void @_ZNK3g2o25EdgeSE3ProjectXYZOnlyPose11cam_projectERKN5Eigen6MatrixId
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3g2o25EdgeSE3ProjectXYZOnlyPose12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(328) initializes((224, 240)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o25EdgeSE3ProjectXYZOnlyPose12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(328) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8

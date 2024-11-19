@@ -296,7 +296,7 @@ nghttp2_session_client_new3.exit:                 ; preds = %4, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @session_new(ptr nocapture noundef nonnull initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc i32 @session_new(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #1 {
   %7 = icmp eq ptr %5, null
   br i1 %7, label %8, label %10
 
@@ -2851,7 +2851,7 @@ session_sched_get_next_outbound_item.exit:        ; preds = %29, %34, %20, %24, 
 declare void @nghttp2_outbound_queue_pop(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @nghttp2_session_mem_send(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #1 {
+define dso_local i64 @nghttp2_session_mem_send(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   store ptr null, ptr %1, align 8
   %3 = tail call fastcc i64 @nghttp2_session_mem_send_internal(ptr noundef %0, ptr noundef nonnull %1, i32 noundef 1)
   %4 = icmp slt i64 %3, 1
@@ -12558,7 +12558,7 @@ declare void @nghttp2_frame_pack_frame_hd(ptr noundef, ptr noundef) local_unname
 declare i32 @nghttp2_frame_add_pad(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @session_reschedule_stream(ptr noundef %0, ptr noundef initializes((160, 168)) %1) unnamed_addr #1 {
+define internal fastcc void @session_reschedule_stream(ptr noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %4, align 8
@@ -13592,7 +13592,7 @@ define dso_local i64 @nghttp2_session_get_hd_deflate_dynamic_table_size(ptr noun
 declare i64 @nghttp2_hd_deflate_get_dynamic_table_size(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @nghttp2_session_set_user_data(ptr nocapture noundef writeonly initializes((2568, 2576)) %0, ptr noundef %1) local_unnamed_addr #9 {
+define dso_local void @nghttp2_session_set_user_data(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = getelementptr inbounds i8, ptr %0, i64 2568
   store ptr %1, ptr %3, align 8
   ret void

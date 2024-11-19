@@ -129,7 +129,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN22cranelift_codegen_meta9gen_types12emit_vectors28_$u7b$$u7b$closure$u7d$$u7d$17h2d6551b63c654a64E"(ptr nocapture writeonly sret({ { i8, [1 x i8] }, [6 x i8], i64 }) align 8 initializes((0, 2), (8, 16)) %0, ptr nocapture readnone align 1 %1, i1 zeroext %2, i8 %3) unnamed_addr #2 {
+define hidden void @"_ZN22cranelift_codegen_meta9gen_types12emit_vectors28_$u7b$$u7b$closure$u7d$$u7d$17h2d6551b63c654a64E"(ptr nocapture writeonly sret({ { i8, [1 x i8] }, [6 x i8], i64 }) align 8 %0, ptr nocapture readnone align 1 %1, i1 zeroext %2, i8 %3) unnamed_addr #2 {
   %5 = alloca { i8, [23 x i8] }, align 8
   call void @"_ZN139_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..LaneType$GT$$GT$4from17h99ffb43714b49f97E"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %5, i1 zeroext %2, i8 %3)
   %6 = call i64 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType8membytes17h0574a8fc75a099b2E(ptr nonnull align 8 %5)
@@ -143,7 +143,7 @@ define hidden void @"_ZN22cranelift_codegen_meta9gen_types12emit_vectors28_$u7b$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors28_$u7b$$u7b$closure$u7d$$u7d$17h004428e533bce9cbE"(ptr nocapture writeonly sret({ { i8, [1 x i8] }, [6 x i8], i64 }) align 8 initializes((0, 2), (8, 16)) %0, ptr nocapture readnone align 1 %1, i1 zeroext %2, i8 %3) unnamed_addr #2 {
+define hidden void @"_ZN22cranelift_codegen_meta9gen_types20emit_dynamic_vectors28_$u7b$$u7b$closure$u7d$$u7d$17h004428e533bce9cbE"(ptr nocapture writeonly sret({ { i8, [1 x i8] }, [6 x i8], i64 }) align 8 %0, ptr nocapture readnone align 1 %1, i1 zeroext %2, i8 %3) unnamed_addr #2 {
   %5 = alloca { i8, [23 x i8] }, align 8
   call void @"_ZN139_$LT$cranelift_codegen_meta..cdsl..types..ValueType$u20$as$u20$core..convert..From$LT$cranelift_codegen_meta..cdsl..types..LaneType$GT$$GT$4from17h99ffb43714b49f97E"(ptr nonnull sret({ i8, [23 x i8] }) align 8 %5, i1 zeroext %2, i8 %3)
   %6 = call i64 @_ZN22cranelift_codegen_meta4cdsl5types9ValueType8membytes17h0574a8fc75a099b2E(ptr nonnull align 8 %5)

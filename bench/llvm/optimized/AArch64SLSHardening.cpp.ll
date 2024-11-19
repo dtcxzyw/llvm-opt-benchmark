@@ -266,7 +266,7 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_119AArch64SLSHardening11getPassNa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef zeroext i1 @_ZN4llvm17ThunkInserterPassIJN12_GLOBAL__N_120SLSHardeningInserterEEE16doInitializationERNS_6ModuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) initializes((56, 324)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #5 align 2 {
+define internal noundef zeroext i1 @_ZN4llvm17ThunkInserterPassIJN12_GLOBAL__N_120SLSHardeningInserterEEE16doInitializationERNS_6ModuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %3, i8 0, i64 268, i1 false)
   ret i1 false

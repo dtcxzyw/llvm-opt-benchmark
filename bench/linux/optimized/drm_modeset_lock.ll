@@ -246,7 +246,7 @@ drm_modeset_lock.exit:                            ; preds = %45, %53, %60, %64
 declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_modeset_acquire_init(ptr noundef initializes((0, 64)) %0, i32 noundef %1) #0 align 16 {
+define dso_local void @drm_modeset_acquire_init(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(64) %3, i8 0, i64 56, i1 false)
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #7, !srcloc !9
@@ -342,7 +342,7 @@ define dso_local i32 @drm_modeset_lock_all_ctx(ptr noundef %0, ptr noundef %1) #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_modeset_backoff(ptr noundef initializes((32, 36)) %0) #0 align 16 {
+define dso_local i32 @drm_modeset_backoff(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8

@@ -491,7 +491,7 @@ Vec_IntPush.exit:
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Mio_SopDeriveFromArray(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef initializes((4, 8)) %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Mio_SopDeriveFromArray(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %0, i64 4
@@ -1421,7 +1421,7 @@ Vec_StrPush.exit67:                               ; preds = %402, %Vec_StrGrow.e
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Mio_LibDeriveSop(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
+define ptr @Mio_LibDeriveSop(i32 noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 8

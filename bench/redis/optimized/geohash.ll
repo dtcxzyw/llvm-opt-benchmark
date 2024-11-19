@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @geohashGetCoordRange(ptr nocapture noundef writeonly initializes((0, 16)) %long_range, ptr nocapture noundef writeonly initializes((0, 16)) %lat_range) local_unnamed_addr #0 {
+define dso_local void @geohashGetCoordRange(ptr nocapture noundef writeonly %long_range, ptr nocapture noundef writeonly %lat_range) local_unnamed_addr #0 {
 entry:
   %max = getelementptr inbounds i8, ptr %long_range, i64 8
   store double 1.800000e+02, ptr %max, align 8
@@ -585,7 +585,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @geohashNeighbors(ptr nocapture noundef readonly %hash, ptr nocapture noundef initializes((0, 128)) %neighbors) local_unnamed_addr #1 {
+define dso_local void @geohashNeighbors(ptr nocapture noundef readonly %hash, ptr nocapture noundef %neighbors) local_unnamed_addr #1 {
 entry:
   %east = getelementptr inbounds i8, ptr %neighbors, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %east, ptr noundef nonnull align 8 dereferenceable(16) %hash, i64 16, i1 false)

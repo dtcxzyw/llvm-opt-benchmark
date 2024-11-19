@@ -3913,7 +3913,7 @@ declare void @prefs_register_bool_preference(ptr noundef, ptr noundef, ptr nound
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @lbmr_tag_copy_cb(ptr noundef returned writeonly initializes((0, 28), (32, 68)) %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
+define internal noundef ptr @lbmr_tag_copy_cb(ptr noundef returned writeonly %0, ptr nocapture noundef readonly %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #7
   store ptr %5, ptr %0, align 8
@@ -5461,7 +5461,7 @@ define internal void @lbmr_tag_name_set_cb(ptr nocapture noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_name_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
@@ -5498,7 +5498,7 @@ define internal void @lbmr_tag_mc_incoming_udp_port_set_cb(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_mc_incoming_udp_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_mc_incoming_udp_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %7) #7
@@ -5535,7 +5535,7 @@ define internal noundef zeroext i1 @lbmr_tag_mc_incoming_address_chk_cb(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_mc_incoming_address_set_cb(ptr nocapture noundef initializes((24, 28)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_mc_incoming_address_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = alloca i32, align 4
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #7
@@ -5552,7 +5552,7 @@ define internal void @lbmr_tag_mc_incoming_address_set_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_mc_incoming_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_mc_incoming_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5588,7 +5588,7 @@ define internal void @lbmr_tag_mc_outgoing_udp_port_set_cb(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_mc_outgoing_udp_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_mc_outgoing_udp_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %7) #7
@@ -5625,7 +5625,7 @@ define internal noundef zeroext i1 @lbmr_tag_mc_outgoing_address_chk_cb(ptr noca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_mc_outgoing_address_set_cb(ptr nocapture noundef initializes((40, 44)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_mc_outgoing_address_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = alloca i32, align 4
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #7
@@ -5642,7 +5642,7 @@ define internal void @lbmr_tag_mc_outgoing_address_set_cb(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_mc_outgoing_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_mc_outgoing_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -5678,7 +5678,7 @@ define internal void @lbmr_tag_uc_port_low_set_cb(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_uc_port_low_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_uc_port_low_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %7) #7
@@ -5700,7 +5700,7 @@ define internal void @lbmr_tag_uc_port_high_set_cb(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_uc_port_high_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_uc_port_high_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %7) #7
@@ -5722,7 +5722,7 @@ define internal void @lbmr_tag_uc_dest_port_set_cb(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_uc_dest_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_uc_dest_port_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 52
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.849, i32 noundef %7) #7
@@ -5749,7 +5749,7 @@ define internal noundef zeroext i1 @lbmr_tag_uc_address_chk_cb(ptr nocapture rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_uc_address_set_cb(ptr nocapture noundef initializes((64, 68)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_uc_address_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = alloca i32, align 4
   %7 = zext i32 %2 to i64
   %8 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %7) #7
@@ -5766,7 +5766,7 @@ define internal void @lbmr_tag_uc_address_set_cb(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @lbmr_tag_uc_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @lbmr_tag_uc_address_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null

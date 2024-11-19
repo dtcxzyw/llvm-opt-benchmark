@@ -1308,7 +1308,7 @@ declare ptr @object_class_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noun
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @find_and_check_chardev(ptr nocapture noundef nonnull initializes((0, 8)) %chr, ptr noundef %chr_name, ptr noundef %errp) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @find_and_check_chardev(ptr nocapture noundef nonnull %chr, ptr noundef %chr_name, ptr noundef %errp) unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_chr_find(ptr noundef %chr_name) #16
   store ptr %call, ptr %chr, align 8
@@ -1571,7 +1571,7 @@ declare i32 @connection_key_hash(ptr noundef) #1
 declare i32 @connection_key_equal(ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @colo_compare_iothread(ptr noundef initializes((209464, 209472)) %s) unnamed_addr #0 {
+define internal fastcc void @colo_compare_iothread(ptr noundef %s) unnamed_addr #0 {
 entry:
   %iothread = getelementptr inbounds i8, ptr %s, i64 209456
   %0 = load ptr, ptr %iothread, align 8

@@ -242,7 +242,7 @@ declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #3
 declare void @pthread_exit(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Wla_ManConcurrentBmc3(ptr noundef initializes((72, 80)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define void @Wla_ManConcurrentBmc3(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(8) ptr @calloc(i64 noundef 1, i64 noundef 8) #14
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %4, ptr %5, align 8

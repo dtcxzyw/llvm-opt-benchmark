@@ -109,7 +109,7 @@ declare void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 derefe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF5MachO14SegmentCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF5MachO14SegmentCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF5MachO14SegmentCommandE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
@@ -1205,7 +1205,7 @@ define noundef i32 @_ZNK4LIEF5MachO14SegmentCommand5flagsEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF5MachO14SegmentCommand8sectionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO14SegmentCommand8sectionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 168
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1217,7 +1217,7 @@ define void @_ZN4LIEF5MachO14SegmentCommand8sectionsEv(ptr dead_on_unwind noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF5MachO14SegmentCommand8sectionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.63") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4LIEF5MachO14SegmentCommand8sectionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.63") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 168
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1229,7 +1229,7 @@ define void @_ZNK4LIEF5MachO14SegmentCommand8sectionsEv(ptr dead_on_unwind noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN4LIEF5MachO14SegmentCommand11relocationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.64") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO14SegmentCommand11relocationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.64") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 192
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1241,7 +1241,7 @@ define void @_ZN4LIEF5MachO14SegmentCommand11relocationsEv(ptr dead_on_unwind no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK4LIEF5MachO14SegmentCommand11relocationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.66") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK4LIEF5MachO14SegmentCommand11relocationsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.LIEF::ref_iterator.66") align 8 %0, ptr noundef nonnull align 8 dereferenceable(216) %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 192
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1260,56 +1260,56 @@ define void @_ZN4LIEF5MachO14SegmentCommand4nameERKNSt7__cxx1112basic_stringIcSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14SegmentCommand15virtual_addressEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((88, 96)) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO14SegmentCommand15virtual_addressEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14SegmentCommand12virtual_sizeEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((96, 104)) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO14SegmentCommand12virtual_sizeEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14SegmentCommand9file_sizeEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((112, 120)) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO14SegmentCommand9file_sizeEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14SegmentCommand11file_offsetEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((104, 112)) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO14SegmentCommand11file_offsetEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0, i64 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14SegmentCommand14max_protectionEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((120, 124)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO14SegmentCommand14max_protectionEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14SegmentCommand15init_protectionEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((124, 128)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO14SegmentCommand15init_protectionEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 124
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14SegmentCommand17numberof_sectionsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((128, 132)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO14SegmentCommand17numberof_sectionsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO14SegmentCommand5flagsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((132, 136)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define void @_ZN4LIEF5MachO14SegmentCommand5flagsEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 132
   store i32 %1, ptr %3, align 4
   ret void
@@ -1399,7 +1399,7 @@ _ZNSt8functionIFvRSt6vectorIhSaIhEEEED2Ev.exit6:  ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF5MachO14SegmentCommand19remove_all_sectionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((128, 132)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF5MachO14SegmentCommand19remove_all_sectionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(216) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 168
@@ -2453,7 +2453,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #14
 declare void @_ZN4LIEF5MachO7SectionC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef nonnull align 8 dereferenceable(192)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5MachO14SegmentCommand7contentES2_E3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((8, 24)) %1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFvRSt6vectorIhSaIhEEEZN4LIEF5MachO14SegmentCommand7contentES2_E3$_0E9_M_invokeERKSt9_Any_dataS3_"(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(24) %1) #4 align 2 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8

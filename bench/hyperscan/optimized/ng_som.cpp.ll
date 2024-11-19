@@ -37442,7 +37442,7 @@ _ZNSt6vectorIS_IN3ue29CharReachESaIS1_EESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L9as_cr_seqERKNS_11ue2_literalE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %s) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L9as_cr_seqERKNS_11ue2_literalE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %s) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(64) %s) #24

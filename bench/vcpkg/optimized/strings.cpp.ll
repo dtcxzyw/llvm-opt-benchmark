@@ -1753,7 +1753,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings5splitB5cxx11ENS_10StringViewEc(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, i8 noundef signext %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg7Strings5splitB5cxx11ENS_10StringViewEc(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr %1, i64 %2, i8 noundef signext %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2067,7 +2067,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings16split_keep_emptyB5cxx11ENS_10StringViewEc(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, i8 noundef signext %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg7Strings16split_keep_emptyB5cxx11ENS_10StringViewEc(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr %1, i64 %2, i8 noundef signext %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2254,7 +2254,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings11split_pathsB5cxx11ENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5vcpkg7Strings11split_pathsB5cxx11ENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 {
   tail call void @_ZN5vcpkg7Strings5splitB5cxx11ENS_10StringViewEc(ptr dead_on_unwind writable sret(%"class.std::vector") align 8 %0, ptr %1, i64 %2, i8 noundef signext 58)
   ret void
 }
@@ -2295,7 +2295,7 @@ _ZSt13find_first_ofIPKcS1_ET_S2_S2_T0_S3_.exit:   ; preds = %._crit_edge.i, %10,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings17find_all_enclosedENS_10StringViewES1_S1_(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.14") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"struct.vcpkg::StringView") align 8 %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg7Strings17find_all_enclosedENS_10StringViewES1_S1_(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.14") align 8 %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"struct.vcpkg::StringView") align 8 %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %1, i64 %2
   %8 = getelementptr inbounds i8, ptr %3, i64 %4
@@ -3735,7 +3735,7 @@ define dso_local noundef i64 @_ZN5vcpkg7Strings18byte_edit_distanceENS_10StringV
 declare noundef zeroext i1 @_ZN5vcpkgeqENS_10StringViewES0_(ptr, i64, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings5strtoIiEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.27") align 4 initializes((0, 1), (4, 5)) %0, ptr %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5vcpkg7Strings5strtoIiEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.27") align 4 %0, ptr %1, i64 %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.vcpkg::Optional.30", align 8
   call void @_ZN5vcpkg7Strings5strtoIlEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.30") align 8 %4, ptr %1, i64 %2)
   %5 = load i8, ptr %4, align 8
@@ -3767,7 +3767,7 @@ define dso_local void @_ZN5vcpkg7Strings5strtoIiEENS_8OptionalIT_EENS_10StringVi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings5strtoIlEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.30") align 8 initializes((0, 1), (8, 9)) %0, ptr %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5vcpkg7Strings5strtoIlEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.30") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca ptr, align 8
@@ -3837,7 +3837,7 @@ _ZN5vcpkg10ParserBase13is_whitespaceEDi.exit:     ; preds = %9
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings5strtoIjEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.33") align 4 initializes((0, 1), (4, 5)) %0, ptr %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5vcpkg7Strings5strtoIjEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.33") align 4 %0, ptr %1, i64 %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.vcpkg::Optional.36", align 8
   call void @_ZN5vcpkg7Strings5strtoImEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind nonnull writable sret(%"struct.vcpkg::Optional.36") align 8 %4, ptr %1, i64 %2)
   %5 = load i8, ptr %4, align 8
@@ -3868,7 +3868,7 @@ define dso_local void @_ZN5vcpkg7Strings5strtoIjEENS_8OptionalIT_EENS_10StringVi
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings5strtoImEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.36") align 8 initializes((0, 1), (8, 9)) %0, ptr %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5vcpkg7Strings5strtoImEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.36") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca ptr, align 8
@@ -3950,7 +3950,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings5strtoIxEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.39") align 8 initializes((0, 1), (8, 9)) %0, ptr %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5vcpkg7Strings5strtoIxEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.39") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca ptr, align 8
@@ -4023,7 +4023,7 @@ _ZN5vcpkg10ParserBase13is_whitespaceEDi.exit:     ; preds = %9
 declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings5strtoIyEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.42") align 8 initializes((0, 1), (8, 9)) %0, ptr %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5vcpkg7Strings5strtoIyEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.42") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca ptr, align 8
@@ -4096,7 +4096,7 @@ _ZN5vcpkg10ParserBase13is_whitespaceEDi.exit:     ; preds = %9
 declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings5strtoIdEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.45") align 8 initializes((0, 1), (8, 9)) %0, ptr %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5vcpkg7Strings5strtoIdEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.vcpkg::Optional.45") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.vcpkg::StringView", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca ptr, align 8
@@ -4395,7 +4395,7 @@ _ZNK5vcpkg7Strings14LinesCollector2CBclENS_10StringViewE.exit19: ; preds = %52, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg7Strings14LinesCollector7extractB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5vcpkg7Strings14LinesCollector7extractB5cxx11Ev(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5vcpkg7Strings11LinesStream6on_endINS0_14LinesCollector2CBEEEvT_(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nonnull %1)
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8

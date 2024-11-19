@@ -296,7 +296,7 @@ declare i32 @Extra_FileReaderGetCurPosition(ptr noundef) local_unnamed_addr #1
 declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Io_ReadEqnStrCutAt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef initializes((4, 8)) %3) unnamed_addr #0 {
+define internal fastcc void @Io_ReadEqnStrCutAt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 0, 2) %2, ptr nocapture noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = tail call ptr @strtok(ptr noundef %0, ptr noundef %1) #9

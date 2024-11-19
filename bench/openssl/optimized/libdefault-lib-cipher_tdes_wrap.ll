@@ -15,7 +15,7 @@ declare i32 @ossl_tdes_einit(ptr noundef, ptr noundef, i64 noundef, ptr noundef,
 declare i32 @ossl_tdes_dinit(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @tdes_wrap_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly initializes((0, 8)) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #1 {
+define internal range(i32 0, 2) i32 @tdes_wrap_cipher(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   %icv.i.i = alloca [8 x i8], align 1
   %iv.i8.i = alloca [8 x i8], align 1
@@ -217,7 +217,7 @@ entry:
 declare void @ossl_tdes_freectx(ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @tdes_wrap_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly initializes((0, 8)) %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #1 {
+define internal range(i32 0, 2) i32 @tdes_wrap_update(ptr noundef %vctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize, ptr noundef %in, i64 noundef %inl) #1 {
 entry:
   store i64 0, ptr %outl, align 8
   %cmp = icmp eq i64 %inl, 0

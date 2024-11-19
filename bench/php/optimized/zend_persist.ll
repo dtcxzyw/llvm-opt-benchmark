@@ -3333,7 +3333,7 @@ declare ptr @zend_shared_alloc_get_xlat_entry(ptr noundef) local_unnamed_addr #1
 declare ptr @zend_shared_memdup_put(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_hash_persist(ptr nocapture noundef initializes((36, 40), (48, 56)) %0) unnamed_addr #2 {
+define internal fastcc void @zend_hash_persist(ptr nocapture noundef %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = or i32 %3, 16
@@ -5124,7 +5124,7 @@ define hidden ptr @zend_persist_warnings(i32 noundef %0, ptr noundef %1) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @zend_accel_script_persist(ptr noundef initializes((416, 424)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden ptr @zend_accel_script_persist(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 368), align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 416
   store ptr %3, ptr %4, align 8

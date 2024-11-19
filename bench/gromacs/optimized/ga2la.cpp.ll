@@ -14,7 +14,7 @@ $_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE17_M_defa
 @_ZN11gmx_ga2la_tC1Eii = unnamed_addr alias void (ptr, i32, i32), ptr @_ZN11gmx_ga2la_tC2Eii
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11gmx_ga2la_tC2Eii(ptr noundef nonnull align 8 dereferenceable(41) initializes((40, 41)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11gmx_ga2la_tC2Eii(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = icmp slt i32 %1, 1025
   %6 = mul nsw i32 %2, 9

@@ -1030,7 +1030,7 @@ declare void @_ZN8WasmEdge6Loader6Loader14loadExpressionERNS_3AST10ExpressionESt
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSegmentERNS_3AST13GlobalSegmentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 1), (4, 8)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSegmentERNS_3AST13GlobalSegmentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(36) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"class.cxx20::expected", align 4
@@ -2030,7 +2030,7 @@ declare void @_ZN8WasmEdge6Loader6Loader11loadValTypeENS_11ASTNodeAttrEb(ptr dea
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8WasmEdge6Loader6Loader11loadSegmentERNS_3AST11DataSegmentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(56) initializes((24, 25), (28, 32)) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8WasmEdge6Loader6Loader11loadSegmentERNS_3AST11DataSegmentE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.51", align 4
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca %"class.cxx20::expected.51", align 4

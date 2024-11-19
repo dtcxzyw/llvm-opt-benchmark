@@ -429,7 +429,7 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4Luau15BytecodeBuilde
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau15BytecodeBuilderC2EPNS_15BytecodeEncoderE(ptr noundef nonnull align 8 dereferenceable(840) initializes((0, 185), (192, 220), (224, 240), (248, 404), (408, 436), (440, 444), (448, 608), (616, 664)) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau15BytecodeBuilderC2EPNS_15BytecodeEncoderE(ptr noundef nonnull align 8 dereferenceable(840) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 -1, ptr %3, align 8
@@ -2486,7 +2486,7 @@ _ZN4LuauL11writeVarIntERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.ex
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau15BytecodeBuilder15setMainFunctionEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(840) initializes((28, 32)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4Luau15BytecodeBuilder15setMainFunctionEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(840) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 %1, ptr %3, align 4
   ret void
@@ -4475,7 +4475,7 @@ define dso_local void @_ZN4Luau15BytecodeBuilder27setDebugFunctionLineDefinedEi(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau15BytecodeBuilder12setDebugLineEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(840) initializes((440, 444)) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4Luau15BytecodeBuilder12setDebugLineEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(840) %0, i32 noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   store i32 %1, ptr %3, align 8
   ret void
@@ -5764,7 +5764,7 @@ define dso_local noundef range(i32 -1073741824, 0) i32 @_ZN4Luau15BytecodeBuilde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef range(i32 0, 4) i32 @_ZN4Luau15BytecodeBuilder17decomposeImportIdEjRiS1_S1_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #9 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN4Luau15BytecodeBuilder17decomposeImportIdEjRiS1_S1_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #9 align 2 {
   %5 = lshr i32 %0, 30
   %.not = icmp ult i32 %0, 1073741824
   %6 = lshr i32 %0, 20

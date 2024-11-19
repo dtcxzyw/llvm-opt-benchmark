@@ -227,7 +227,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN7rocksdb10GhostCacheC2ESt10shared_ptrINS_5CacheEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %sim_cache) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb10GhostCacheC2ESt10shared_ptrINS_5CacheEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %sim_cache) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %sim_cache, align 8
   store ptr %0, ptr %this, align 8
@@ -303,7 +303,7 @@ return:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN7rocksdb14CacheSimulatorC2EOSt10unique_ptrINS_10GhostCacheESt14default_deleteIS2_EESt10shared_ptrINS_5CacheEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 40), (48, 52), (56, 64)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %ghost_cache, ptr nocapture noundef readonly %sim_cache) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14CacheSimulatorC2EOSt10unique_ptrINS_10GhostCacheESt14default_deleteIS2_EESt10shared_ptrINS_5CacheEE(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %ghost_cache, ptr nocapture noundef readonly %sim_cache) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb14CacheSimulatorE, i64 16), ptr %this, align 8
   %miss_ratio_stats_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -707,7 +707,7 @@ return:                                           ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25PrioritizedCacheSimulator12AccessKVPairERKNS_5SliceEmNS_5Cache8PriorityERKNS_21BlockCacheTraceRecordEbbPbS9_b(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %value_size, i32 noundef %priority, ptr nocapture noundef nonnull readonly align 8 dereferenceable(185) %access, i1 noundef zeroext %no_insert, i1 noundef zeroext %is_user_access, ptr nocapture noundef initializes((0, 1)) %is_cache_miss, ptr nocapture noundef initializes((0, 1)) %admitted, i1 noundef zeroext %update_metrics) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25PrioritizedCacheSimulator12AccessKVPairERKNS_5SliceEmNS_5Cache8PriorityERKNS_21BlockCacheTraceRecordEbbPbS9_b(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(16) %key, i64 noundef %value_size, i32 noundef %priority, ptr nocapture noundef nonnull readonly align 8 dereferenceable(185) %access, i1 noundef zeroext %no_insert, i1 noundef zeroext %is_user_access, ptr nocapture noundef %is_cache_miss, ptr nocapture noundef %admitted, i1 noundef zeroext %update_metrics) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.rocksdb::Status", align 8
   %ref.tmp.i = alloca %"class.rocksdb::Slice", align 8
@@ -1391,7 +1391,7 @@ if.end:                                           ; preds = %if.then, %_ZNKSt4le
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24BlockCacheTraceSimulatorC2EmjRKSt6vectorINS_18CacheConfigurationESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 12), (16, 40)) %this, i64 noundef %warmup_seconds, i32 noundef %downsample_ratio, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cache_configurations) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24BlockCacheTraceSimulatorC2EmjRKSt6vectorINS_18CacheConfigurationESaIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %this, i64 noundef %warmup_seconds, i32 noundef %downsample_ratio, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %cache_configurations) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 %warmup_seconds, ptr %this, align 8
   %downsample_ratio_ = getelementptr inbounds i8, ptr %this, i64 8

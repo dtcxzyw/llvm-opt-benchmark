@@ -1101,7 +1101,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14MargrabeOptionC1EiiRKN5boost10shared_ptrINS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(224) initializes((224, 232), (240, 244), (248, 256)) %this, i32 noundef %Q1, i32 noundef %Q2, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14MargrabeOptionC1EiiRKN5boost10shared_ptrINS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(224) %this, i32 noundef %Q1, i32 noundef %Q2, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 224

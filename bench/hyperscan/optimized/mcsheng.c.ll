@@ -7704,7 +7704,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng8_expandState(ptr nocapture noundef readnone %nfa, ptr nocapture noundef writeonly initializes((0, 1)) %dest, ptr nocapture noundef readonly %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #4 {
+define hidden noundef signext i8 @nfaExecMcSheng8_expandState(ptr nocapture noundef readnone %nfa, ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %src, align 1
   store i8 %0, ptr %dest, align 1
@@ -7724,7 +7724,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecMcSheng16_expandState(ptr nocapture noundef readnone %nfa, ptr nocapture noundef writeonly initializes((0, 2)) %dest, ptr nocapture noundef readonly %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #4 {
+define hidden noundef signext i8 @nfaExecMcSheng16_expandState(ptr nocapture noundef readnone %nfa, ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #4 {
 entry:
   %0 = load i16, ptr %src, align 1
   store i16 %0, ptr %dest, align 2

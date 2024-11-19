@@ -17,7 +17,7 @@ define hidden void @VP8EncDspCostInitSSE2() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @SetResidualCoeffs_SSE2(ptr noundef %0, ptr nocapture noundef writeonly initializes((4, 16)) %1) #1 {
+define internal void @SetResidualCoeffs_SSE2(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 {
   %3 = load <8 x i16>, ptr %0, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load <8 x i16>, ptr %4, align 1

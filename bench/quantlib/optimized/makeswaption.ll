@@ -526,7 +526,7 @@ declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(p
 declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12MakeSwaptionC2EN5boost10shared_ptrINS_9SwapIndexEEERKNS_6PeriodEd(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 52)) %this, ptr nocapture noundef %swapIndex, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %optionTenor, double noundef %strike) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12MakeSwaptionC2EN5boost10shared_ptrINS_9SwapIndexEEERKNS_6PeriodEd(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %swapIndex, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %optionTenor, double noundef %strike) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"class.QuantLib::Date", align 8
   %0 = load ptr, ptr %swapIndex, align 8, !tbaa !39
@@ -685,7 +685,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12MakeSwaptionC2EN5boost10shared_ptrINS_9SwapIndexEEERKNS_4DateEd(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 52), (56, 64)) %this, ptr nocapture noundef %swapIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fixingDate, double noundef %strike) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12MakeSwaptionC2EN5boost10shared_ptrINS_9SwapIndexEEERKNS_4DateEd(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef %swapIndex, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %fixingDate, double noundef %strike) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %swapIndex, align 8, !tbaa !39
   store ptr %0, ptr %this, align 8, !tbaa !39
@@ -4769,7 +4769,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption18withSettlementTypeENS_10Settlement4TypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((16, 20)) %this, i32 noundef %delivery) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption18withSettlementTypeENS_10Settlement4TypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) %this, i32 noundef %delivery) local_unnamed_addr #14 align 2 {
 entry:
   %delivery_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %delivery, ptr %delivery_, align 8, !tbaa !129
@@ -4777,7 +4777,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption20withSettlementMethodENS_10Settlement6MethodE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((20, 24)) %this, i32 noundef %settlementMethod) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption20withSettlementMethodENS_10Settlement6MethodE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) %this, i32 noundef %settlementMethod) local_unnamed_addr #14 align 2 {
 entry:
   %settlementMethod_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %settlementMethod, ptr %settlementMethod_, align 4, !tbaa !130
@@ -4785,7 +4785,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption20withOptionConventionENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((48, 52)) %this, i32 noundef %bdc) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption20withOptionConventionENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) %this, i32 noundef %bdc) local_unnamed_addr #14 align 2 {
 entry:
   %optionConvention_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %bdc, ptr %optionConvention_, align 8, !tbaa !41
@@ -4793,7 +4793,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption16withExerciseDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((64, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %date) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption16withExerciseDateERKNS_4DateE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %date) local_unnamed_addr #15 align 2 {
 entry:
   %exerciseDate_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load i64, ptr %date, align 8, !tbaa !30
@@ -4802,7 +4802,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption18withUnderlyingTypeENS_4Swap4TypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((96, 100)) %this, i32 noundef %type) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption18withUnderlyingTypeENS_4Swap4TypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) %this, i32 noundef %type) local_unnamed_addr #14 align 2 {
 entry:
   %underlyingType_ = getelementptr inbounds nuw i8, ptr %this, i64 96
   store i32 %type, ptr %underlyingType_, align 8, !tbaa !58
@@ -4810,7 +4810,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption17withPricingEngineERKN5boost10shared_ptrINS_13PricingEngineEEE(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((120, 128)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %engine) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption17withPricingEngineERKN5boost10shared_ptrINS_13PricingEngineEEE(ptr noundef nonnull returned align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %engine) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %engine_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   %0 = load ptr, ptr %engine, align 8, !tbaa !107
@@ -4870,7 +4870,7 @@ _ZN5boost10shared_ptrIN8QuantLib13PricingEngineEEaSERKS3_.exit: ; preds = %_ZN5b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption11withNominalEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((104, 112)) %this, double noundef %n) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption11withNominalEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) %this, double noundef %n) local_unnamed_addr #14 align 2 {
 entry:
   %nominal_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   store double %n, ptr %nominal_, align 8, !tbaa !59
@@ -4878,7 +4878,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption18withIndexedCouponsERKN5boost8optionalIbEE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((112, 114)) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %b) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption18withIndexedCouponsERKN5boost8optionalIbEE(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %b) local_unnamed_addr #15 align 2 {
 entry:
   %useIndexedCoupons_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i16, ptr %b, align 1
@@ -4887,7 +4887,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption16withAtParCouponsEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) initializes((112, 114)) %this, i1 noundef zeroext %b) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN8QuantLib12MakeSwaption16withAtParCouponsEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(136) %this, i1 noundef zeroext %b) local_unnamed_addr #14 align 2 {
 entry:
   %lnot = xor i1 %b, true
   %storedv2 = zext i1 %lnot to i8

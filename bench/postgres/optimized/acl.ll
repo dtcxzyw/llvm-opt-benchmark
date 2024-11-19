@@ -7668,7 +7668,7 @@ define dso_local i32 @select_best_admin(i32 noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @select_best_grantor(i32 noundef %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
+define dso_local void @select_best_grantor(i32 noundef %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = shl i64 %1, 32
   %8 = icmp eq i32 %0, %3
   br i1 %8, label %.thread.sink.split, label %9

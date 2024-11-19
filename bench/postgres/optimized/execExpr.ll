@@ -8269,7 +8269,7 @@ ExecReadyExpr.exit:                               ; preds = %238, %ExprEvalPushS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64.val, ptr nocapture noundef nonnull initializes((28, 29)) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @ExecComputeSlotInfo(ptr readonly %.64.val, ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca i8, align 1
   store i8 0, ptr %2, align 1
   %3 = load i64, ptr %0, align 8
@@ -8908,7 +8908,7 @@ declare void @ExecReadyInterpretedExpr(ptr noundef) local_unnamed_addr #2
 declare void @check_stack_depth() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecInitWholeRowVar(ptr nocapture noundef nonnull writeonly initializes((0, 8), (24, 34), (40, 56)) %0, ptr noundef %1, ptr readonly %.64.val) unnamed_addr #0 {
+define internal fastcc void @ExecInitWholeRowVar(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, ptr readonly %.64.val) unnamed_addr #0 {
   store i64 10, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8

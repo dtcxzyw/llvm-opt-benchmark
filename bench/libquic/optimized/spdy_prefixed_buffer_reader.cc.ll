@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3net24SpdyPrefixedBufferReaderC1EPKcmS2_m = dso_local unnamed_addr alias void (ptr, ptr, i64, ptr, i64), ptr @_ZN3net24SpdyPrefixedBufferReaderC2EPKcmS2_m
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net24SpdyPrefixedBufferReaderC2EPKcmS2_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef %prefix, i64 noundef %prefix_length, ptr noundef %suffix, i64 noundef %suffix_length) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net24SpdyPrefixedBufferReaderC2EPKcmS2_m(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %prefix, i64 noundef %prefix_length, ptr noundef %suffix, i64 noundef %suffix_length) unnamed_addr #0 align 2 {
 entry:
   store ptr %prefix, ptr %this, align 8
   %suffix_ = getelementptr inbounds i8, ptr %this, i64 8

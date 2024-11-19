@@ -12924,7 +12924,7 @@ declare i32 @H5CX_get_dt_conv_cb(ptr noundef) local_unnamed_addr #2
 declare i64 @H5CX_get_dxpl() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5T_convert_with_ctx(ptr noundef initializes((72, 76)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5T_convert_with_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 48

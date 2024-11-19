@@ -2521,7 +2521,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN15EditAlignPlugin9startEditER12MeshDocumentP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef nonnull align 8 dereferenceable(1056) initializes((664, 680), (1048, 1056)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN15EditAlignPlugin9startEditER12MeshDocumentP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef nonnull align 8 dereferenceable(1056) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca %class.QCursor, align 8
   %7 = alloca %class.QPixmap, align 8
@@ -3065,7 +3065,7 @@ declare void @_ZN7QWidget4showEv(ptr noundef nonnull align 8 dereferenceable(48)
 declare void @_ZN15EditAlignPlugin17suspendEditToggleEv(ptr noundef nonnull align 8 dereferenceable(1056)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define noundef zeroext i1 @_ZThn16_N15EditAlignPlugin9startEditER12MeshDocumentP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef initializes((648, 664), (1032, 1040)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #13 align 2 {
+define noundef zeroext i1 @_ZThn16_N15EditAlignPlugin9startEditER12MeshDocumentP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #13 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   %6 = tail call noundef zeroext i1 @_ZN15EditAlignPlugin9startEditER12MeshDocumentP6GLAreaP26MLSceneGLSharedDataContext(ptr noundef nonnull align 8 dereferenceable(1056) %5, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef %2, ptr noundef %3)
   ret i1 %6
@@ -3297,7 +3297,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEESt10_Select1stI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditAlignPlugin8decorateER9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(1056) initializes((664, 672)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1, ptr noundef %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15EditAlignPlugin8decorateER9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(1056) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1, ptr noundef %2) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.MLRenderingData, align 8
   %5 = alloca %struct.MLPerViewGLOptions, align 8
   %6 = alloca %class.MLRenderingData, align 8
@@ -4389,7 +4389,7 @@ declare void @glPopMatrix() local_unnamed_addr #0
 declare void @glPopAttrib() local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N15EditAlignPlugin8decorateER9MeshModelP6GLArea(ptr noundef initializes((648, 656)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1, ptr noundef %2) unnamed_addr #13 align 2 {
+define void @_ZThn16_N15EditAlignPlugin8decorateER9MeshModelP6GLArea(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1, ptr noundef %2) unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15EditAlignPlugin8decorateER9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(1056) %4, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2)
   ret void
@@ -18010,7 +18010,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %11, %_ZN9QtPrivate8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditAlignPlugin15setAlignParamMMEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) initializes((920, 924), (936, 944), (952, 956), (960, 968), (976, 992), (1024, 1028)) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15EditAlignPlugin15setAlignParamMMEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 920
@@ -18102,7 +18102,7 @@ _ZN7QStringD2Ev.exit9:                            ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditAlignPlugin14setAlignParamMEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) initializes((920, 924), (936, 944), (952, 956), (960, 968), (976, 992), (1024, 1028)) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15EditAlignPlugin14setAlignParamMEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1056) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 920

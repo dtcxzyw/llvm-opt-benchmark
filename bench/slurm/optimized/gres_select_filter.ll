@@ -56,7 +56,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._set_job_bits2 = private unnamed_addr constant [15 x i8] c"_set_job_bits2\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @gres_select_filter_remove_unusable(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i32 noundef %8, i16 noundef zeroext %9, i16 noundef zeroext %10, i1 noundef zeroext %11, ptr nocapture noundef initializes((0, 2)) %12, ptr nocapture noundef initializes((0, 2)) %13) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @gres_select_filter_remove_unusable(ptr noundef %0, i64 noundef %1, i16 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef %4, i16 noundef zeroext %5, i16 noundef zeroext %6, i16 noundef zeroext %7, i32 noundef %8, i16 noundef zeroext %9, i16 noundef zeroext %10, i1 noundef zeroext %11, ptr nocapture noundef %12, ptr nocapture noundef %13) local_unnamed_addr #0 {
   %15 = alloca ptr, align 8
   store ptr null, ptr %15, align 8
   store i16 0, ptr %12, align 2

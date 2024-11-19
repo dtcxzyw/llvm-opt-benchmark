@@ -183,7 +183,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef no
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3vas2ot13ObjectTrackerC2EPNS1_4ImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot13ObjectTrackerC2EPNS1_4ImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -855,7 +855,7 @@ _ZNSt6vectorIN3vas2ot9DetectionESaIS2_EED2Ev.exit73: ; preds = %219, %_ZNSt6vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3vas2ot13ObjectTracker4ImplC2ERKNS2_14InitParametersE(ptr noundef nonnull align 8 dereferenceable(53) initializes((0, 53)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot13ObjectTracker4ImplC2ERKNS2_14InitParametersE(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(32) %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.vas::ot::Tracker::InitParameters", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1325,7 +1325,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEb(ptr noundef no
 declare noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3vas2ot13ObjectTracker7BuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 13), (24, 28), (32, 40)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3vas2ot13ObjectTracker7BuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 -1, ptr %2, align 4

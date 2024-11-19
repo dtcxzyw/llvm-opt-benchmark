@@ -343,7 +343,7 @@ _Z10adjustDistff.exit:                            ; preds = %if.end.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z18setPitchYawRollRadRN3irr4core8CMatrix4IfEENS0_8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) initializes((0, 12), (16, 28), (32, 44)) %m, <2 x float> %rot.coerce0, float %rot.coerce1) local_unnamed_addr #6 {
+define dso_local void @_Z18setPitchYawRollRadRN3irr4core8CMatrix4IfEENS0_8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(64) %m, <2 x float> %rot.coerce0, float %rot.coerce1) local_unnamed_addr #6 {
 entry:
   %conv = fpext float %rot.coerce1 to double
   %rot.sroa.0.0.vec.extract = extractelement <2 x float> %rot.coerce0, i64 0

@@ -2124,7 +2124,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11phantom_ttt15PhantomTTTState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.19") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11phantom_ttt15PhantomTTTState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.19") align 8 %0, ptr noundef nonnull align 8 dereferenceable(288) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -4655,7 +4655,7 @@ _ZNSt23enable_shared_from_thisIN10open_spiel4GameEED2Ev.exit: ; preds = %_ZN10op
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11phantom_ttt14PhantomTTTGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.27") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11phantom_ttt14PhantomTTTGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.27") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(308) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 300

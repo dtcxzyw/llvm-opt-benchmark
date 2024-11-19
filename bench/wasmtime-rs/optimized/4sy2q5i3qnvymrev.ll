@@ -132,7 +132,7 @@ define hidden noundef range(i64 0, -1) i64 @"_ZN4core3ptr7mut_ptr31_$LT$impl$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN14wasmtime_fiber4unix10FiberStack3new17hb265b6db89da91a8E(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) initializes((0, 1), (8, 16)) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden void @_ZN14wasmtime_fiber4unix10FiberStack3new17hb265b6db89da91a8E(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #1 {
   %3 = tail call noundef i64 @sysconf(i32 noundef 30)
   %4 = icmp eq i64 %1, 0
   %5 = add i64 %1, -1
@@ -196,7 +196,7 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack3new17hb265b6db89da91a8E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14wasmtime_fiber4unix10FiberStack14from_raw_parts17hb8c6dcf8a5ea6d90E(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) initializes((0, 2), (8, 24)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 {
+define hidden void @_ZN14wasmtime_fiber4unix10FiberStack14from_raw_parts17hb8c6dcf8a5ea6d90E(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   store i8 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1
@@ -209,7 +209,7 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack14from_raw_parts17hb8c6d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14wasmtime_fiber4unix10FiberStack11from_custom17h4b0e019e3311d732E(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) initializes((0, 1), (8, 24)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
+define hidden void @_ZN14wasmtime_fiber4unix10FiberStack11from_custom17h4b0e019e3311d732E(ptr noalias nocapture noundef writeonly sret({ i8, [23 x i8] }) align 8 dereferenceable(24) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #2 {
   store i8 1, ptr %0, align 8
   %.sroa.41.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %.sroa.41.0..sroa_idx, align 8

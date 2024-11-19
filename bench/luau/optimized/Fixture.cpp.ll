@@ -2334,13 +2334,13 @@ define dso_local void @_ZThn8_N4Luau16TestFileResolver17resolveModuleInfoERKNSt7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4Luau16TestFileResolver9getModuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #8 align 2 {
+define dso_local void @_ZNK4Luau16TestFileResolver9getModuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #8 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZThn8_NK4Luau16TestFileResolver9getModuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr nocapture readnone %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #8 align 2 {
+define dso_local void @_ZThn8_NK4Luau16TestFileResolver9getModuleERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture readnone %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #8 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !7
   ret void
 }
@@ -3023,7 +3023,7 @@ define dso_local noundef nonnull align 8 dereferenceable(136) ptr @_ZNK4Luau18Te
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7FixtureC2Ebb(ptr noundef nonnull align 8 dereferenceable(2232) initializes((0, 9), (16, 32)) %0, i1 noundef zeroext %1, i1 zeroext %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7FixtureC2Ebb(ptr noundef nonnull align 8 dereferenceable(2232) %0, i1 noundef zeroext %1, i1 zeroext %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::function.196", align 8
   %5 = alloca %"struct.Luau::FrontendOptions", align 8
   %6 = zext i1 %1 to i8
@@ -7072,7 +7072,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail13ResultBuilderD2Ev(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture15matchParseErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St8optionalINS2_8LocationEEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture15matchParseErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St8optionalINS2_8LocationEEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture15matchParseErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St8optionalINS2_8LocationEEE3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -7571,7 +7571,7 @@ _ZN7doctest6detail13ResultBuilder13binary_assertILi4EmmEEbRKT0_RKT1_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture21matchParseErrorPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture21matchParseErrorPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture21matchParseErrorPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -8856,7 +8856,7 @@ define dso_local noundef ptr @_ZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -9614,7 +9614,7 @@ _ZN7doctest8toStringISt8optionalIPKN4Luau4TypeEETnNS_6detail5types9enable_ifIXnt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKSt10shared_ptrINS2_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKSt10shared_ptrINS2_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKSt10shared_ptrINS2_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -9992,7 +9992,7 @@ define dso_local noundef ptr @_ZN4Luau7Fixture21requireTypeAtPositionENS_8Positi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture21requireTypeAtPositionENS2_8PositionEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture21requireTypeAtPositionENS2_8PositionEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture21requireTypeAtPositionENS2_8PositionEE3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -12626,7 +12626,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRbEcvNS0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED2Ev"(ptr noundef nonnull align 8 dereferenceable(10) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -12733,7 +12733,7 @@ _ZNSt10shared_ptrIN4Luau6ModuleEED2Ev.exit:       ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau15BuiltinsFixtureC2Ebb(ptr noundef nonnull align 8 dereferenceable(2232) initializes((0, 9), (16, 32)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau15BuiltinsFixtureC2Ebb(ptr noundef nonnull align 8 dereferenceable(2232) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4Luau7FixtureC2Ebb(ptr noundef nonnull align 8 dereferenceable(2232) %0, i1 noundef zeroext %1, i1 zeroext poison)
   %4 = getelementptr inbounds i8, ptr %0, i64 416
   %5 = getelementptr inbounds i8, ptr %0, i64 992
@@ -22504,7 +22504,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture15matchParseErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St8optionalINS2_8LocationEEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture15matchParseErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St8optionalINS2_8LocationEEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture15matchParseErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St8optionalINS2_8LocationEEE3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -22918,7 +22918,7 @@ declare noundef zeroext i1 @_ZNK4Luau8LocationeqERKS0_(ptr noundef nonnull align
 declare void @_ZN4Luau8toStringB5cxx11ERKNS_8LocationEib(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 4 dereferenceable(16), i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture21matchParseErrorPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture21matchParseErrorPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture21matchParseErrorPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_E3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -23238,7 +23238,7 @@ declare void @_ZN7doctest8toStringEDn(ptr dead_on_unwind writable sret(%"class.d
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPKv(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -23407,7 +23407,7 @@ _ZN7doctest8toStringIA48_cTnNS_6detail5types9enable_ifIXntsr6detail5types7is_enu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKSt10shared_ptrINS2_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKSt10shared_ptrINS2_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture11requireTypeERKSt10shared_ptrINS2_5ScopeEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -23522,7 +23522,7 @@ _ZN7doctest8toStringIA23_cTnNS_6detail5types9enable_ifIXntsr6detail5types7is_enu
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4LuaulsERSoPKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture21requireTypeAtPositionENS2_8PositionEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture21requireTypeAtPositionENS2_8PositionEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture21requireTypeAtPositionENS2_8PositionEE3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8
@@ -24013,7 +24013,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7doctest6detail12ContextScopeIZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(10) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @"_ZTVN7doctest6detail12ContextScopeIZN4Luau7Fixture14loadDefinitionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EE", i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i8, ptr %2, align 8

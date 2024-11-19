@@ -31,7 +31,7 @@ define noundef i32 @mca_sharedfp_individual_component_init_query(i1 noundef zero
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @mca_sharedfp_individual_component_file_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define noundef ptr @mca_sharedfp_individual_component_file_query(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   store i32 0, ptr %1, align 4

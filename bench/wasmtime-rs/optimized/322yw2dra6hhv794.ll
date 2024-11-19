@@ -162,7 +162,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h48fa2ec28aba1a87E.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a48f454f634e324E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 initializes((0, 8)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN96_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9a48f454f634e324E"(ptr nocapture writeonly sret({ i64, [3 x i64] }) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h041b5f64ede552a9E"(ptr align 8 %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6

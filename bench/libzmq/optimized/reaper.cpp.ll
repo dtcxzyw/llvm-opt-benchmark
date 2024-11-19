@@ -381,7 +381,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq8reaper_t12process_stopEv(ptr noundef nonnull align 8 dereferenceable(240) initializes((228, 229)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3zmq8reaper_t12process_stopEv(ptr noundef nonnull align 8 dereferenceable(240) %this) unnamed_addr #0 align 2 {
 entry:
   %_terminating = getelementptr inbounds i8, ptr %this, i64 228
   store i8 1, ptr %_terminating, align 4

@@ -93,7 +93,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base11trace_event24AllocationContextTrackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 60)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base11trace_event24AllocationContextTrackerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseIN4base11trace_event24AllocationContextTracker16PseudoStackFrameESaIS3_EE11_M_allocateEm.exit.i:
   %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8

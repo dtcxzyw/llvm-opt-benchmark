@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local void @riscv_raise_exception(ptr noundef initializes((-9448, -9444)) %env, i32 noundef %exception, i64 noundef %pc) local_unnamed_addr #0 {
+define dso_local void @riscv_raise_exception(ptr noundef %env, i32 noundef %exception, i64 noundef %pc) local_unnamed_addr #0 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %env, i64 -10176
   %exception_index = getelementptr i8, ptr %env, i64 -9448
@@ -17,7 +17,7 @@ entry:
 declare void @cpu_loop_exit_restore(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define dso_local void @helper_raise_exception(ptr noundef initializes((-9448, -9444)) %env, i32 noundef %exception) local_unnamed_addr #0 {
+define dso_local void @helper_raise_exception(ptr noundef %env, i32 noundef %exception) local_unnamed_addr #0 {
 entry:
   tail call void @riscv_raise_exception(ptr noundef %env, i32 noundef %exception, i64 noundef 0) #8
   unreachable

@@ -122,7 +122,7 @@ define internal noundef i32 @mca_pml_v_component_register() #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noalias noundef ptr @mca_pml_v_component_init(ptr nocapture noundef writeonly initializes((0, 4)) %0, i1 zeroext %1, i1 zeroext %2) #1 {
+define internal noalias noundef ptr @mca_pml_v_component_init(ptr nocapture noundef writeonly %0, i1 zeroext %1, i1 zeroext %2) #1 {
   store i32 -1, ptr %0, align 4
   ret ptr null
 }

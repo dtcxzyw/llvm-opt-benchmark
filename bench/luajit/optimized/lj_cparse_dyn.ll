@@ -137,7 +137,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare hidden i32 @lj_vm_cpcall(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @cpcparser(ptr nocapture noundef readonly %L, ptr nocapture readnone %dummy, ptr noundef initializes((0, 4), (40, 72), (104, 112), (120, 121), (127, 128)) %ud) #1 {
+define internal noalias noundef ptr @cpcparser(ptr nocapture noundef readonly %L, ptr nocapture readnone %dummy, ptr noundef %ud) #1 {
 entry:
   %decl.i13 = alloca %struct.CPDecl, align 8
   %k.i.i = alloca %struct.CPValue, align 4
@@ -807,7 +807,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cp_next(ptr noundef initializes((40, 48)) %cp) unnamed_addr #1 {
+define internal fastcc i32 @cp_next(ptr noundef %cp) unnamed_addr #1 {
 entry:
   %o.i.i = alloca %union.TValue, align 8
   %sb.i = getelementptr inbounds i8, ptr %cp, i64 40
@@ -3000,7 +3000,7 @@ entry:
 declare hidden void @lj_err_argtype(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 1015809) i32 @cp_decl_spec(ptr noundef %cp, ptr noundef nonnull initializes((0, 8), (12, 40), (44, 52), (74, 76)) %decl, i32 noundef range(i32 0, 524289) %scl) unnamed_addr #1 {
+define internal fastcc range(i32 0, 1015809) i32 @cp_decl_spec(ptr noundef %cp, ptr noundef nonnull %decl, i32 noundef range(i32 0, 524289) %scl) unnamed_addr #1 {
 entry:
   %k.i = alloca %struct.CPValue, align 4
   %ct.i = alloca ptr, align 8
@@ -4938,7 +4938,7 @@ sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb1, %sw
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cp_decl_struct(ptr noundef initializes((40, 48), (112, 116)) %cp, ptr nocapture noundef nonnull %sdecl, i32 noundef range(i32 268435456, 276824065) %sinfo) unnamed_addr #1 {
+define internal fastcc i32 @cp_decl_struct(ptr noundef %cp, ptr nocapture noundef nonnull %sdecl, i32 noundef range(i32 268435456, 276824065) %sinfo) unnamed_addr #1 {
 entry:
   %sz.i = alloca i32, align 4
   %k.i = alloca %struct.CPValue, align 4
@@ -7535,7 +7535,7 @@ declare hidden i32 @lj_ctype_info_raw(ptr noundef, i32 noundef, ptr noundef) loc
 declare hidden ptr @lj_ctype_getfieldq(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @cp_struct_name(ptr noundef initializes((40, 48), (112, 116)) %cp, ptr nocapture noundef nonnull %sdecl, i32 noundef range(i32 268435456, 1342177282) %info) unnamed_addr #1 {
+define internal fastcc i32 @cp_struct_name(ptr noundef %cp, ptr nocapture noundef nonnull %sdecl, i32 noundef range(i32 268435456, 1342177282) %info) unnamed_addr #1 {
 entry:
   %ct = alloca ptr, align 8
   %tmask = getelementptr inbounds i8, ptr %cp, i64 112

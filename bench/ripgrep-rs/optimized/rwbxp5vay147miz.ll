@@ -322,7 +322,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN12grep_printer9hyperl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12grep_printer9hyperlink15HyperlinkFormat5empty17hb2336fbddd899be7E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i8, [7 x i8] }) align 8 dereferenceable(32) initializes((0, 25)) %0) unnamed_addr #3 {
+define void @_ZN12grep_printer9hyperlink15HyperlinkFormat5empty17hb2336fbddd899be7E(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 }, i8, [7 x i8] }) align 8 dereferenceable(32) %0) unnamed_addr #3 {
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8
@@ -1079,7 +1079,7 @@ define noundef zeroext i1 @"_ZN79_$LT$grep_printer..hyperlink..HyperlinkFormat$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12grep_printer9hyperlink20HyperlinkEnvironment3new17hf2570e53371d060aE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i64, [2 x i64] } }) align 8 dereferenceable(48) initializes((0, 8), (24, 32)) %0) unnamed_addr #3 {
+define void @_ZN12grep_printer9hyperlink20HyperlinkEnvironment3new17hf2570e53371d060aE(ptr noalias nocapture noundef writeonly sret({ { i64, [2 x i64] }, { i64, [2 x i64] } }) align 8 dereferenceable(48) %0) unnamed_addr #3 {
   store i64 -9223372036854775808, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 -9223372036854775808, ptr %2, align 8
@@ -2170,7 +2170,7 @@ define noundef zeroext i1 @"_ZN68_$LT$grep_printer..hyperlink..Part$u20$as$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN12grep_printer9hyperlink6Values3new17h1e032da9e8859c98E(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] }, ptr }) align 8 dereferenceable(40) initializes((0, 8), (16, 24), (32, 40)) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
+define void @_ZN12grep_printer9hyperlink6Values3new17h1e032da9e8859c98E(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] }, ptr }) align 8 dereferenceable(40) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   store i64 0, ptr %0, align 8
@@ -2180,7 +2180,7 @@ define void @_ZN12grep_printer9hyperlink6Values3new17h1e032da9e8859c98E(ptr noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12grep_printer9hyperlink6Values4line17ha681e86045e26690E(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] }, ptr }) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) initializes((0, 16)) %1, i64 noundef %2, i64 %3) unnamed_addr #4 {
+define void @_ZN12grep_printer9hyperlink6Values4line17ha681e86045e26690E(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] }, ptr }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1, i64 noundef %2, i64 %3) unnamed_addr #4 {
   store i64 %2, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %3, ptr %5, align 8
@@ -2189,7 +2189,7 @@ define void @_ZN12grep_printer9hyperlink6Values4line17ha681e86045e26690E(ptr noa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN12grep_printer9hyperlink6Values6column17heab78f3813109456E(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] }, ptr }) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) initializes((16, 32)) %1, i64 noundef %2, i64 %3) unnamed_addr #4 {
+define void @_ZN12grep_printer9hyperlink6Values6column17heab78f3813109456E(ptr noalias nocapture noundef writeonly sret({ { i64, [1 x i64] }, { i64, [1 x i64] }, ptr }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(40) %1, i64 noundef %2, i64 %3) unnamed_addr #4 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   store i64 %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 24

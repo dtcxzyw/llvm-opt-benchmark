@@ -2395,7 +2395,7 @@ if.end59:                                         ; preds = %for.end56, %if.end
 declare ptr @aiTextureTypeToString(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStringRKS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(1028) initializes((0, 4)) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1028) %in) unnamed_addr #4 {
+define internal fastcc void @_ZN6Assimp16AssxmlFileWriterL11ConvertNameER8aiStringRKS1_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(1028) %out, ptr nocapture noundef nonnull readonly align 4 dereferenceable(1028) %in) unnamed_addr #4 {
 entry:
   store i32 0, ptr %out, align 4
   %0 = load i32, ptr %in, align 4

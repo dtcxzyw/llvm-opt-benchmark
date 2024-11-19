@@ -582,7 +582,7 @@ declare void @_ZN16GCPolicyCountersC1EPKcii(ptr noundef nonnull align 8 derefere
 declare void @_ZN15GCMemoryManagerC1EPKc(ptr noundef nonnull align 8 dereferenceable(191), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10SerialHeap25initialize_serviceabilityEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((168, 192)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN10SerialHeap25initialize_serviceabilityEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 216, i8 noundef zeroext 9, i32 noundef 0) #16
@@ -640,7 +640,7 @@ declare void @_ZN21TenuredGenerationPoolC1EP17TenuredGenerationPKcb(ptr noundef 
 declare void @_ZN15GCMemoryManager8add_poolEP10MemoryPool(ptr noundef nonnull align 8 dereferenceable(191), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10SerialHeap15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN10SerialHeap15memory_managersEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendERKS1_.exit5:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -662,7 +662,7 @@ _ZN26GrowableArrayWithAllocatorIP15GCMemoryManager13GrowableArrayIS1_EE6appendER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10SerialHeap12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.1) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN10SerialHeap12memory_poolsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GrowableArray.1) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) unnamed_addr #0 align 2 {
 _ZN26GrowableArrayWithAllocatorIP10MemoryPool13GrowableArrayIS1_EE6appendERKS1_.exit9:
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 3, i32 noundef 8) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -979,7 +979,7 @@ declare void @_ZN12SerialFullGC10initializeEv() local_unnamed_addr #1
 declare void @_ZN19ScavengableNMethods10initializeEP17BoolObjectClosure(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK10SerialHeap17get_pre_gc_valuesEv(ptr dead_on_unwind noalias writable sret(%class.PreGenGCValues) align 8 initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK10SerialHeap17get_pre_gc_valuesEv(ptr dead_on_unwind noalias writable sret(%class.PreGenGCValues) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(192) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %4, align 8
@@ -1886,7 +1886,7 @@ declare void @_ZN13CollectedHeap20print_heap_before_gcEv(ptr noundef nonnull ali
 declare void @_ZN19DerivedPointerTable5clearEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10SerialHeap10save_marksEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((120, 136)) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN10SerialHeap10save_marksEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 688

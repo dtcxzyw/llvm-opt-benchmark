@@ -54,7 +54,7 @@ $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateESt6vectorIS3_
 @_ZN8QuantLib10TimeBasketC1ERKSt6vectorINS_4DateESaIS2_EERKS1_IdSaIdEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8QuantLib10TimeBasketC2ERKSt6vectorINS_4DateESaIS2_EERKS1_IdSaIdEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib10TimeBasketC2ERKSt6vectorINS_4DateESaIS2_EERKS1_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %values) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib10TimeBasketC2ERKSt6vectorINS_4DateESaIS2_EERKS1_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %dates, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %values) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

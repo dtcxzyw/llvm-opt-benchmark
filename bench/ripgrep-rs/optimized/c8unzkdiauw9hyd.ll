@@ -5655,7 +5655,7 @@ define noundef i64 @_ZN6ignore9overrides8Override14num_whitelists17h14f601fc8d56
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6ignore9overrides15OverrideBuilder5build17hd273536241a3986bE(ptr noalias nocapture noundef writeonly sret({ i64, [12 x i64] }) align 8 dereferenceable(104) initializes((0, 64)) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #0 {
+define void @_ZN6ignore9overrides15OverrideBuilder5build17hd273536241a3986bE(ptr noalias nocapture noundef writeonly sret({ i64, [12 x i64] }) align 8 dereferenceable(104) %0, ptr noalias noundef readonly align 8 dereferenceable(80) %1) unnamed_addr #0 {
   %3 = alloca { i64, [12 x i64] }, align 8
   %.sroa.7 = alloca [7 x i64], align 8
   %.sroa.0.sroa.6 = alloca [40 x i8], align 8
@@ -5690,7 +5690,7 @@ define void @_ZN6ignore9overrides15OverrideBuilder5build17hd273536241a3986bE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6ignore9overrides15OverrideBuilder3add17h639b07ef60c81e31E(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
+define void @_ZN6ignore9overrides15OverrideBuilder3add17h639b07ef60c81e31E(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(80) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 {
   %.sroa.312 = alloca [5 x i64], align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = alloca { i64, [6 x i64] }, align 8
@@ -5726,7 +5726,7 @@ define void @_ZN6ignore9overrides15OverrideBuilder3add17h639b07ef60c81e31E(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6ignore9overrides15OverrideBuilder16case_insensitive17h99331b97eeb0bc2aE(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) initializes((0, 16)) %0, ptr noalias noundef align 8 dereferenceable(80) initializes((72, 73)) %1, i1 noundef zeroext %2) unnamed_addr #20 {
+define void @_ZN6ignore9overrides15OverrideBuilder16case_insensitive17h99331b97eeb0bc2aE(ptr noalias nocapture noundef writeonly sret({ i64, [6 x i64] }) align 8 dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(80) %1, i1 noundef zeroext %2) unnamed_addr #20 {
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = zext i1 %2 to i8
   store i8 %5, ptr %4, align 8, !alias.scope !1260, !noalias !1263

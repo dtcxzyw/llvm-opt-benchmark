@@ -30,7 +30,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h09a78ea15c6ad454E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h09a78ea15c6ad454E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h97469e391ef61855E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -38,7 +38,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h09a78ea15c6ad45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h11d61709e1bf7eb7E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h11d61709e1bf7eb7E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17he4b3a5e1f610e940E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -46,7 +46,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h11d61709e1bf7eb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h19d0b45b5bc33f3fE(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h19d0b45b5bc33f3fE(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h57d73b4df564e9f7E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -54,7 +54,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h19d0b45b5bc33f3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h230b13fbd24f8135E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h230b13fbd24f8135E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h2efee12f275954c4E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -62,7 +62,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h230b13fbd24f813
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h2e558e067be8cc54E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h2e558e067be8cc54E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h2f2f848f68e39cc3E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -70,7 +70,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h2e558e067be8cc5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h459ed4c95f08ef67E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h459ed4c95f08ef67E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hf19500e7f18ac05aE.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -78,7 +78,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h459ed4c95f08ef6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h5491c262a7f7b0a5E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h5491c262a7f7b0a5E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hbce44b8310b4e5dfE.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -86,7 +86,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h5491c262a7f7b0a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h585b9790e27e89c7E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h585b9790e27e89c7E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h48d772f07f506301E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -94,7 +94,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h585b9790e27e89c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h5ae14ad3cb7f0181E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h5ae14ad3cb7f0181E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h446ad840d4ff6a58E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -102,7 +102,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h5ae14ad3cb7f018
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h633167133ecfc726E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h633167133ecfc726E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h8628c4cb64094ba2E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -110,7 +110,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h633167133ecfc72
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h748e67ff51805802E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h748e67ff51805802E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h8159a3a79116d016E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -118,7 +118,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h748e67ff5180580
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h86d89ef26a1d849eE(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h86d89ef26a1d849eE(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h5f24e8bd00e899e5E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -126,7 +126,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h86d89ef26a1d849
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h9447ee58bd355dacE(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h9447ee58bd355dacE(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hbdb55616ff74aaa0E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -134,7 +134,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17h9447ee58bd355da
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17ha39b1a6a399fdfe6E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17ha39b1a6a399fdfe6E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h7b3a73190d560501E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -142,7 +142,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17ha39b1a6a399fdfe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17hc8234e071482e499E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17hc8234e071482e499E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hc3a014a66dcf5257E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -150,7 +150,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17hc8234e071482e49
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17hd23fd1baada10582E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17hd23fd1baada10582E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17h274307201dce04f2E.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -158,7 +158,7 @@ define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17hd23fd1baada1058
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17hec0dd93e3b042168E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define hidden void @_ZN15crossbeam_epoch8deferred8Deferred3new17hec0dd93e3b042168E(ptr noalias nocapture noundef writeonly sret({ ptr, { [3 x i64] }, {} }) align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   store ptr @_ZN15crossbeam_epoch8deferred8Deferred3new4call17hf7c94b297daf8beeE.llvm.16532191985037651265, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

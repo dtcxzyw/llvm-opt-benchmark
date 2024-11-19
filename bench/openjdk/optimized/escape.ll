@@ -115,7 +115,7 @@ $_ZN26GrowableArrayWithAllocatorIP7PhiNode13GrowableArrayIS1_EE9expand_toEi = co
 @_ZN15ConnectionGraphC1EP7CompileP12PhaseIterGVNi = hidden unnamed_addr alias void (ptr, ptr, ptr, i32), ptr @_ZN15ConnectionGraphC2EP7CompileP12PhaseIterGVNi
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ConnectionGraphC2EP7CompileP12PhaseIterGVNi(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 48)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ConnectionGraphC2EP7CompileP12PhaseIterGVNi(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 296
   %6 = getelementptr inbounds i8, ptr %1, i64 23
   %7 = load i8, ptr %6, align 1
@@ -5426,7 +5426,7 @@ _ZN15ConnectionGraph17not_global_escapeEP4Node.exit.thread: ; preds = %144, %130
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ConnectionGraph18split_unique_typesER13GrowableArrayIP4NodeERS0_IP13ArrayCopyNodeERS0_IP12MergeMemNodeER16Unique_Node_List(ptr noundef nonnull align 8 dereferenceable(232) initializes((136, 140), (144, 148), (176, 180)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ConnectionGraph18split_unique_typesER13GrowableArrayIP4NodeERS0_IP13ArrayCopyNodeERS0_IP12MergeMemNodeER16Unique_Node_List(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(68) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %class.GrowableArray.40, align 8
   %7 = alloca %class.VectorSet, align 8
   %8 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 2, i32 noundef 8) #12
@@ -20032,7 +20032,7 @@ _ZN15ConnectionGraph20record_for_optimizerEP4Node.exit: ; preds = %_ZN9VectorSet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15ConnectionGraph16create_split_phiEP7PhiNodeiR13GrowableArrayIS1_ERb(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN15ConnectionGraph16create_split_phiEP7PhiNodeiR13GrowableArrayIS1_ERb(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 104

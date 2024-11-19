@@ -7973,7 +7973,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z17test_async_clientRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z17test_async_clientRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(704) ptr @_Znwm(i64 noundef 704) #45
   store ptr @_Z17test_async_clientRN7cinatra16coro_http_clientE.resume, ptr %call, align 8
@@ -8397,7 +8397,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZNSt15__exception_
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z21test_async_ssl_clientRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z21test_async_ssl_clientRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #45
   store ptr @_Z21test_async_ssl_clientRN7cinatra16coro_http_clientE.resume, ptr %call, align 8
@@ -8414,7 +8414,7 @@ AfterCoroEnd:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z14test_websocketRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z14test_websocketRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(416) ptr @_Znwm(i64 noundef 416) #45
   store ptr @_Z14test_websocketRN7cinatra16coro_http_clientE.resume, ptr %call, align 8
@@ -8431,7 +8431,7 @@ AfterCoroEnd:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z12upload_filesRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z12upload_filesRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(552) ptr @_Znwm(i64 noundef 552) #45
   store ptr @_Z12upload_filesRN7cinatra16coro_http_clientE.resume, ptr %call, align 8
@@ -9694,7 +9694,7 @@ AfterCoroEnd:                                     ; preds = %if.then.i15, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z14download_filesRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z14download_filesRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #45
   store ptr @_Z14download_filesRN7cinatra16coro_http_clientE.resume, ptr %call, align 8
@@ -9832,7 +9832,7 @@ AfterCoroEnd:                                     ; preds = %if.then.i19, %if.el
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z21ranges_download_filesRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z21ranges_download_filesRN7cinatra16coro_http_clientE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4152) %client) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(224) ptr @_Znwm(i64 noundef 224) #45
   store ptr @_Z21ranges_download_filesRN7cinatra16coro_http_clientE.resume, ptr %call, align 8
@@ -98747,7 +98747,7 @@ if.end:                                           ; preds = %_ZNSt8__detail16_Ha
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS4_18coro_http_responseEEZ21test_coro_http_servervE3$_1E9_M_invokeERKSt9_Any_dataS6_S8_"(ptr noalias nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr noundef nonnull align 8 dereferenceable(33) %__args, ptr noundef nonnull align 8 dereferenceable(168) %__args1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS4_18coro_http_responseEEZ21test_coro_http_servervE3$_1E9_M_invokeERKSt9_Any_dataS6_S8_"(ptr noalias nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr noundef nonnull align 8 dereferenceable(33) %__args, ptr noundef nonnull align 8 dereferenceable(168) %__args1) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1099)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1102)
@@ -99599,7 +99599,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_St8funct
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS4_18coro_http_responseEEZ21test_coro_http_servervE3$_2E9_M_invokeERKSt9_Any_dataS6_S8_"(ptr noalias nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr noundef nonnull align 8 dereferenceable(33) %__args, ptr noundef nonnull align 8 dereferenceable(168) %__args1) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFN12async_simple4coro4LazyIvEERN7cinatra17coro_http_requestERNS4_18coro_http_responseEEZ21test_coro_http_servervE3$_2E9_M_invokeERKSt9_Any_dataS6_S8_"(ptr noalias nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr noundef nonnull align 8 dereferenceable(33) %__args, ptr noundef nonnull align 8 dereferenceable(168) %__args1) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1124)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1127)
@@ -101842,7 +101842,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt10error_codeED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12async_simple4coro6detail12ViaCoroutine6createEPNS_8ExecutorE.resume(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (48, 56)) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12async_simple4coro6detail12ViaCoroutine6createEPNS_8ExecutorE.resume(ptr noundef nonnull align 8 dereferenceable(64) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 CoroSave28:
   %agg.tmp.i = alloca %"class.std::function.247", align 8
   %ref.tmp8.reload.addr = getelementptr inbounds i8, ptr %0, i64 48
@@ -114533,7 +114533,7 @@ unreachable337:                                   ; preds = %entry.destroy
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_Z21test_async_ssl_clientRN7cinatra16coro_http_clientE.resume(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_Z21test_async_ssl_clientRN7cinatra16coro_http_clientE.resume(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) #4 personality ptr @__gxx_personality_v0 {
 CoroSave32:
   %__promise.reload.addr = getelementptr inbounds i8, ptr %0, i64 16
   store ptr null, ptr %0, align 8

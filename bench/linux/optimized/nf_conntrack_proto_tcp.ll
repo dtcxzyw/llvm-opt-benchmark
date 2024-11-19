@@ -1791,7 +1791,7 @@ define internal fastcc void @nf_tcp_handle_invalid(ptr noundef %0, i32 noundef r
 declare dso_local zeroext i1 @nf_ct_kill_acct(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @nf_conntrack_tcp_init_net(ptr nocapture noundef writeonly initializes((2460, 2520)) %0) local_unnamed_addr #8 align 16 {
+define dso_local void @nf_conntrack_tcp_init_net(ptr nocapture noundef writeonly %0) local_unnamed_addr #8 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2460
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(56) %2, ptr noundef nonnull align 16 dereferenceable(56) @tcp_timeouts, i64 56, i1 false)
   store i32 120000, ptr %2, align 4

@@ -553,7 +553,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ssw_ManCleanup(ptr nocapture noundef initializes((256, 264)) %0) local_unnamed_addr #0 {
+define void @Ssw_ManCleanup(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null

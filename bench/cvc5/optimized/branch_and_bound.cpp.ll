@@ -223,7 +223,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith14BranchAndBound21branchIntegerVariableENS0_12NodeTemplateILb0EEENS0_8RationalE(ptr noalias sret(%"class.std::vector.307") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %var, ptr noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith14BranchAndBound21branchIntegerVariableENS0_12NodeTemplateILb0EEENS0_8RationalE(ptr noalias sret(%"class.std::vector.307") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef readonly %var, ptr noundef %value) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i2829 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i2830 = alloca %"class.cvc5::internal::NodeTemplate", align 8

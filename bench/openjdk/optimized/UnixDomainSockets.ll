@@ -60,7 +60,7 @@ define hidden ptr @sockaddrToUnixAddressBytes(ptr noundef %0, ptr noundef %1, i3
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @unixSocketAddressToSockaddr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 110)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
+define hidden range(i32 -1, 1) i32 @unixSocketAddressToSockaddr(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(110) %5, i8 0, i64 108, i1 false)
   store i16 1, ptr %2, align 2

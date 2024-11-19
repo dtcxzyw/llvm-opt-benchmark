@@ -468,7 +468,7 @@ _ZN4cvc57context3CDOIbED2Ev.exit:                 ; preds = %entry
 declare void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2ff18TheoryFiniteFieldsD2Ev(ptr noundef nonnull align 8 dereferenceable(776) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2ff18TheoryFiniteFieldsD2Ev(ptr noundef nonnull align 8 dereferenceable(776) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2ff18TheoryFiniteFieldsE, i64 16), ptr %this, align 8
   %d_stats = getelementptr inbounds i8, ptr %this, i64 768
@@ -504,7 +504,7 @@ _ZN4cvc58internal6theory11TheoryStateD2Ev.exit:   ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2ff18TheoryFiniteFieldsD0Ev(ptr noundef nonnull align 8 dereferenceable(776) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2ff18TheoryFiniteFieldsD0Ev(ptr noundef nonnull align 8 dereferenceable(776) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2ff18TheoryFiniteFieldsE, i64 16), ptr %this, align 8
   %d_stats.i = getelementptr inbounds i8, ptr %this, i64 768
@@ -557,7 +557,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2ff18TheoryFiniteFields19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %esi) unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory2ff18TheoryFiniteFields19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(776) %this, ptr noundef nonnull align 8 dereferenceable(45) %esi) unnamed_addr #4 align 2 {
 entry:
   %d_eqNotify = getelementptr inbounds i8, ptr %this, i64 752
   store ptr %d_eqNotify, ptr %esi, align 8

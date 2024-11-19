@@ -322,7 +322,7 @@ define void @_ZN5boost13serialization18extended_type_infoD2Ev(ptr nocapture nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5boost13serialization18extended_type_infoC2EjPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #5 align 2 {
+define void @_ZN5boost13serialization18extended_type_infoC2EjPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN5boost13serialization18extended_type_infoE, i64 16), ptr %0, align 8, !tbaa !29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !31

@@ -389,7 +389,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererC2ERSt10shared_ptrIKNS_11Lut3DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererC2ERSt10shared_ptrIKNS_11Lut3DOpDataEE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %lut) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererE, i64 16), ptr %this, align 8
   %m_optLut = getelementptr inbounds i8, ptr %this, i64 8
@@ -464,7 +464,7 @@ declare void @_ZN19OpenColorIO_v2_4dev19applyTetrahedralAVXEPKfiS1_Pfi(ptr nound
 declare void @_ZN19OpenColorIO_v2_4dev20applyTetrahedralAVX2EPKfiS1_Pfi(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124Lut3DTetrahedralRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124Lut3DTetrahedralRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererE, i64 16), ptr %this, align 8
   %m_optLut.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -484,7 +484,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererD2Ev.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124Lut3DTetrahedralRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_124Lut3DTetrahedralRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererE, i64 16), ptr %this, align 8
   %m_optLut.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -813,7 +813,7 @@ declare void @_ZNK19OpenColorIO_v2_4dev5OpCPU18getDynamicPropertyENS_19DynamicPr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererE, i64 16), ptr %this, align 8
   %m_optLut = getelementptr inbounds i8, ptr %this, i64 8
@@ -923,7 +923,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut3DRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut3DRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererE, i64 16), ptr %this, align 8
   %m_optLut.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -943,7 +943,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererD2Ev.exit: ; preds = %e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut3DRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_113Lut3DRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_117BaseLut3DRendererE, i64 16), ptr %this, align 8
   %m_optLut.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1216,7 +1216,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTreeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTreeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTreeE, i64 16), ptr %this, align 8
   %m_levelScales = getelementptr inbounds i8, ptr %this, i64 104
@@ -1310,7 +1310,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9treeLevelESa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (24, 32)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRendererE, i64 16), ptr %this, align 8
   %m_grvec = getelementptr inbounds i8, ptr %this, i64 152
@@ -1329,7 +1329,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8), (24, 32)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRendererD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRendererE, i64 16), ptr %this, align 8
   %m_grvec.i = getelementptr inbounds i8, ptr %this, i64 152
@@ -4332,7 +4332,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTree10initializeEP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTreeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #9 align 2 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTreeD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #9 align 2 {
 entry:
   tail call void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116InvLut3DRenderer9RangeTreeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #30

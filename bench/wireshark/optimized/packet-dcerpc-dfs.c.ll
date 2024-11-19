@@ -3359,14 +3359,14 @@ define internal i32 @netdfs_dissect_element_dfs_UnknownStruct_unknown2_(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @netdfs_dissect_dfs_GetManagerVersion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @netdfs_dissect_dfs_GetManagerVersion_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.311, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_GetManagerVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_GetManagerVersion_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.311, ptr %7, align 8
   %8 = load i32, ptr @hf_netdfs_dfs_GetManagerVersion_version, align 4
@@ -3376,7 +3376,7 @@ define internal i32 @netdfs_dissect_dfs_GetManagerVersion_response(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_Add_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_Add_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.312, ptr %7, align 8
   %8 = load i32, ptr @hf_netdfs_dfs_Add_path, align 4
@@ -3398,7 +3398,7 @@ define internal i32 @netdfs_dissect_dfs_Add_request(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_Add_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_Add_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.312, ptr %8, align 8
@@ -3420,7 +3420,7 @@ define internal i32 @netdfs_dissect_dfs_Add_response(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_Remove_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_Remove_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.313, ptr %7, align 8
   %8 = load i32, ptr @hf_netdfs_dfs_Remove_dfs_entry_path, align 4
@@ -3436,7 +3436,7 @@ define internal i32 @netdfs_dissect_dfs_Remove_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_Remove_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_Remove_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.313, ptr %8, align 8
@@ -3458,7 +3458,7 @@ define internal i32 @netdfs_dissect_dfs_Remove_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_SetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_SetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.314, ptr %8, align 8
@@ -3485,7 +3485,7 @@ define internal i32 @netdfs_dissect_dfs_SetInfo_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_SetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_SetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.314, ptr %8, align 8
@@ -3507,7 +3507,7 @@ define internal i32 @netdfs_dissect_dfs_SetInfo_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_GetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_GetInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.315, ptr %8, align 8
@@ -3531,7 +3531,7 @@ define internal i32 @netdfs_dissect_dfs_GetInfo_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_GetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_GetInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.315, ptr %8, align 8
@@ -3556,7 +3556,7 @@ define internal i32 @netdfs_dissect_dfs_GetInfo_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_Enum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_Enum_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.316, ptr %7, align 8
   %8 = load i32, ptr @hf_netdfs_dfs_Enum_level, align 4
@@ -3575,7 +3575,7 @@ define internal i32 @netdfs_dissect_dfs_Enum_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_Enum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_Enum_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.316, ptr %8, align 8
@@ -3603,14 +3603,14 @@ define internal i32 @netdfs_dissect_dfs_Enum_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @netdfs_dissect_dfs_Rename_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @netdfs_dissect_dfs_Rename_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.317, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_Rename_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_Rename_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.317, ptr %8, align 8
@@ -3632,14 +3632,14 @@ define internal i32 @netdfs_dissect_dfs_Rename_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @netdfs_dissect_dfs_Move_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @netdfs_dissect_dfs_Move_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.318, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_Move_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_Move_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.318, ptr %8, align 8
@@ -3661,14 +3661,14 @@ define internal i32 @netdfs_dissect_dfs_Move_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @netdfs_dissect_dfs_ManagerGetConfigInfo_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @netdfs_dissect_dfs_ManagerGetConfigInfo_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.319, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_ManagerGetConfigInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_ManagerGetConfigInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.319, ptr %8, align 8
@@ -3690,14 +3690,14 @@ define internal i32 @netdfs_dissect_dfs_ManagerGetConfigInfo_response(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @netdfs_dissect_dfs_ManagerSendSiteInfo_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @netdfs_dissect_dfs_ManagerSendSiteInfo_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.320, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_ManagerSendSiteInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_ManagerSendSiteInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.320, ptr %8, align 8
@@ -3719,7 +3719,7 @@ define internal i32 @netdfs_dissect_dfs_ManagerSendSiteInfo_response(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_AddFtRoot_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_AddFtRoot_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -3783,7 +3783,7 @@ define internal i32 @netdfs_dissect_dfs_AddFtRoot_request(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_AddFtRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_AddFtRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.321, ptr %8, align 8
@@ -3808,7 +3808,7 @@ define internal i32 @netdfs_dissect_dfs_AddFtRoot_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_RemoveFtRoot_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_RemoveFtRoot_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -3853,7 +3853,7 @@ define internal i32 @netdfs_dissect_dfs_RemoveFtRoot_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_RemoveFtRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_RemoveFtRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.322, ptr %8, align 8
@@ -3878,7 +3878,7 @@ define internal i32 @netdfs_dissect_dfs_RemoveFtRoot_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_AddStdRoot_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_AddStdRoot_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -3912,7 +3912,7 @@ define internal i32 @netdfs_dissect_dfs_AddStdRoot_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_AddStdRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_AddStdRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.323, ptr %8, align 8
@@ -3934,7 +3934,7 @@ define internal i32 @netdfs_dissect_dfs_AddStdRoot_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_RemoveStdRoot_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_RemoveStdRoot_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 80
@@ -3960,7 +3960,7 @@ define internal i32 @netdfs_dissect_dfs_RemoveStdRoot_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_RemoveStdRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_RemoveStdRoot_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.324, ptr %8, align 8
@@ -3982,7 +3982,7 @@ define internal i32 @netdfs_dissect_dfs_RemoveStdRoot_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_ManagerInitialize_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_ManagerInitialize_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.325, ptr %7, align 8
   %8 = load i32, ptr @hf_netdfs_dfs_ManagerInitialize_servername, align 4
@@ -3995,7 +3995,7 @@ define internal i32 @netdfs_dissect_dfs_ManagerInitialize_request(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_ManagerInitialize_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_ManagerInitialize_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.325, ptr %8, align 8
@@ -4017,7 +4017,7 @@ define internal i32 @netdfs_dissect_dfs_ManagerInitialize_response(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_AddStdRootForced_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_AddStdRootForced_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -4056,7 +4056,7 @@ define internal i32 @netdfs_dissect_dfs_AddStdRootForced_request(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_AddStdRootForced_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_AddStdRootForced_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.326, ptr %8, align 8
@@ -4078,14 +4078,14 @@ define internal i32 @netdfs_dissect_dfs_AddStdRootForced_response(ptr noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @netdfs_dissect_dfs_GetDcAddress_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @netdfs_dissect_dfs_GetDcAddress_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.327, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_GetDcAddress_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_GetDcAddress_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.327, ptr %8, align 8
@@ -4107,14 +4107,14 @@ define internal i32 @netdfs_dissect_dfs_GetDcAddress_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @netdfs_dissect_dfs_SetDcAddress_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @netdfs_dissect_dfs_SetDcAddress_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.328, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_SetDcAddress_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_SetDcAddress_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.328, ptr %8, align 8
@@ -4136,7 +4136,7 @@ define internal i32 @netdfs_dissect_dfs_SetDcAddress_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_FlushFtTable_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_FlushFtTable_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds i8, ptr %4, i64 80
@@ -4159,7 +4159,7 @@ define internal i32 @netdfs_dissect_dfs_FlushFtTable_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_FlushFtTable_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_FlushFtTable_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.329, ptr %8, align 8
@@ -4181,14 +4181,14 @@ define internal i32 @netdfs_dissect_dfs_FlushFtTable_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @netdfs_dissect_dfs_Add2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @netdfs_dissect_dfs_Add2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.330, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_Add2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_Add2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.330, ptr %8, align 8
@@ -4210,14 +4210,14 @@ define internal i32 @netdfs_dissect_dfs_Add2_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @netdfs_dissect_dfs_Remove2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @netdfs_dissect_dfs_Remove2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.331, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_Remove2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_Remove2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.331, ptr %8, align 8
@@ -4239,7 +4239,7 @@ define internal i32 @netdfs_dissect_dfs_Remove2_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_EnumEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_EnumEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.332, ptr %8, align 8
@@ -4266,7 +4266,7 @@ define internal i32 @netdfs_dissect_dfs_EnumEx_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_EnumEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_EnumEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.332, ptr %8, align 8
@@ -4294,14 +4294,14 @@ define internal i32 @netdfs_dissect_dfs_EnumEx_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @netdfs_dissect_dfs_SetInfo2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @netdfs_dissect_dfs_SetInfo2_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.333, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @netdfs_dissect_dfs_SetInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @netdfs_dissect_dfs_SetInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.333, ptr %8, align 8

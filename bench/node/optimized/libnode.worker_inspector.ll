@@ -84,7 +84,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZN4node9inspector24WorkerManagerEventHandleD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4node9inspector24WorkerManagerEventHandleD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector21ParentInspectorHandleC2EmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_16MainThreadHandleEEbS9_(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(32) %url, ptr nocapture noundef readonly %parent_thread, i1 noundef zeroext %wait_for_connect, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4node9inspector21ParentInspectorHandleC2EmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_16MainThreadHandleEEbS9_(ptr noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %id, ptr noundef nonnull align 8 dereferenceable(32) %url, ptr nocapture noundef readonly %parent_thread, i1 noundef zeroext %wait_for_connect, ptr noundef nonnull align 8 dereferenceable(32) %name) unnamed_addr #0 align 2 {
 entry:
   store i64 %id, ptr %this, align 8
   %url_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1473,7 +1473,7 @@ _ZNSt10shared_ptrIN4node9inspector13WorkerManagerEED2Ev.exit: ; preds = %_ZN4nod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_120WorkerStartedRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(97) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_120WorkerStartedRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120WorkerStartedRequestE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -1558,7 +1558,7 @@ _ZN4node9inspector10WorkerInfoD2Ev.exit:          ; preds = %entry, %_ZN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_120WorkerStartedRequestD0Ev(ptr noundef nonnull align 8 dereferenceable(97) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_120WorkerStartedRequestD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_120WorkerStartedRequestE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88

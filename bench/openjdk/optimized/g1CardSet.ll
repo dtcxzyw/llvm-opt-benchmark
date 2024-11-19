@@ -442,7 +442,7 @@ $_ZTV26G1CardSetContainersClosureIN9G1CardSet11CardClosureE23G1ContainerCardsClo
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1CardSetConfigurationC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 44), (48, 56)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN22G1CardSetConfigurationC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #1 align 2 {
   %2 = load i32, ptr @_ZN12G1HeapRegion17LogCardsPerRegionE, align 4
   %3 = load i32, ptr @_ZN18G1CardSetContainer22LogCardsPerRegionLimitE, align 4
   %spec.select.i = tail call noundef i32 @llvm.usub.sat.i32(i32 %2, i32 %3)
@@ -463,7 +463,7 @@ define hidden void @_ZN22G1CardSetConfigurationC2Ev(ptr nocapture noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1CardSetConfigurationC2Ejjdjdjj(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 44), (48, 56)) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, double noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 align 2 {
+define hidden void @_ZN22G1CardSetConfigurationC2Ejjdjdjj(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i32 noundef %4, double noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #1 align 2 {
   %9 = alloca %class.GCLogPreciousHandle, align 8
   store i32 %1, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 4
@@ -600,7 +600,7 @@ define hidden void @_ZN22G1CardSetConfigurationC2Ejjdjdjj(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1CardSetConfigurationC2Ejdjdjj(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 44), (48, 56)) %0, i32 noundef %1, double noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #1 align 2 {
+define hidden void @_ZN22G1CardSetConfigurationC2Ejdjdjj(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, double noundef %2, i32 noundef %3, double noundef %4, i32 noundef %5, i32 noundef %6) unnamed_addr #1 align 2 {
   %8 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %5, i1 true)
   %9 = zext i32 %5 to i64
   %10 = zext i32 %1 to i64
@@ -621,7 +621,7 @@ define hidden void @_ZN22G1CardSetConfigurationC2Ejdjdjj(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22G1CardSetConfiguration27init_card_set_alloc_optionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((48, 56)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN22G1CardSetConfiguration27init_card_set_alloc_optionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #1 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 128, i8 noundef zeroext 5, i32 noundef 0) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %2, ptr %3, align 8
@@ -787,7 +787,7 @@ define hidden noundef ptr @_ZN22G1CardSetConfiguration24mem_object_type_name_str
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21G1CardSetCoarsenStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((0, 112)) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN21G1CardSetCoarsenStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0) local_unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   ret void
 }
@@ -893,7 +893,7 @@ define hidden void @_ZN21G1CardSetCoarsenStats8print_onEP12outputStream(ptr noca
 declare void @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef range(i64 0, 4294967296) i64 @_ZN24G1CardSetHashTableConfig8get_hashERK23G1CardSetHashTableValuePb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #7 align 2 {
+define hidden noundef range(i64 0, 4294967296) i64 @_ZN24G1CardSetHashTableConfig8get_hashERK23G1CardSetHashTableValuePb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #7 align 2 {
   store i8 0, ptr %1, align 1
   %3 = load i32, ptr %0, align 8
   %4 = zext i32 %3 to i64
@@ -916,7 +916,7 @@ define hidden void @_ZN24G1CardSetHashTableConfig9free_nodeEPvS0_RK23G1CardSetHa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9G1CardSetC2EP22G1CardSetConfigurationP22G1CardSetMemoryManager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN9G1CardSetC2EP22G1CardSetConfigurationP22G1CardSetMemoryManager(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9G1CardSet, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -982,7 +982,7 @@ _ZN18G1CardSetHashTableC2EP22G1CardSetMemoryManagerm.exit: ; preds = %3, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9G1CardSetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN9G1CardSetD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9G1CardSet, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -1006,7 +1006,7 @@ define hidden void @_ZN9G1CardSetD2Ev(ptr nocapture noundef nonnull align 8 dere
 declare void @_ZN22G1CardSetMemoryManager5flushEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9G1CardSetD0Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN9G1CardSetD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV9G1CardSet, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -2695,7 +2695,7 @@ _ZNK19ConcurrentHashTableI24G1CardSetHashTableConfigL8MEMFLAGS6EE10get_bucketEm.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_ZNK9G1CardSet10split_cardEmRjS0_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #9 align 2 {
+define hidden void @_ZNK9G1CardSet10split_cardEmRjS0_(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #9 align 2 {
   %5 = load i32, ptr @_ZN9G1CardSet17_split_card_shiftE, align 4
   %6 = zext nneg i32 %5 to i64
   %7 = lshr i64 %1, %6
@@ -3702,7 +3702,7 @@ define hidden noundef i64 @_ZN9G1CardSet14num_containersEv(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN9G1CardSet13coarsen_statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.G1CardSetCoarsenStats) align 8 initializes((0, 112)) %0) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN9G1CardSet13coarsen_statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.G1CardSetCoarsenStats) align 8 %0) local_unnamed_addr #10 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) @_ZN9G1CardSet14_coarsen_statsE, i64 112, i1 false)
   ret void
 }
@@ -3827,7 +3827,7 @@ define hidden noundef i64 @_ZN9G1CardSet15static_mem_sizeEv() local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9G1CardSet5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((32, 40)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN9G1CardSet5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   tail call void @_ZN18G1CardSetHashTable5resetEv(ptr noundef nonnull align 8 dereferenceable(168) %3)

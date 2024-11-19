@@ -1437,67 +1437,67 @@ define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$cor
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h0c6fe183129e0805E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 56)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h0c6fe183129e0805E"(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h12d4c1d1d818d8ccE"(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 64)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h12d4c1d1d818d8ccE"(ptr nocapture writeonly sret([64 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h1dc9f956bd1db6f9E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h1dc9f956bd1db6f9E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h28e73b33a2b93f9eE"(ptr nocapture writeonly sret([112 x i8]) align 8 initializes((0, 112)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h28e73b33a2b93f9eE"(ptr nocapture writeonly sret([112 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h4f4214e33d092dd3E"(ptr nocapture writeonly sret([112 x i8]) align 8 initializes((0, 112)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h4f4214e33d092dd3E"(ptr nocapture writeonly sret([112 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull align 8 dereferenceable(112) %2, i64 112, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h51e53e596c84d7c2E"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h51e53e596c84d7c2E"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h7ec039a5dc5ffaa5E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 56)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h7ec039a5dc5ffaa5E"(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h82bfc41aa53a075dE"(ptr nocapture writeonly sret([32 x i8]) align 8 initializes((0, 32)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17h82bfc41aa53a075dE"(ptr nocapture writeonly sret([32 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17hbe651859a4723270E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 56)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17hbe651859a4723270E"(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17hd6104637650d5201E"(ptr nocapture writeonly sret([56 x i8]) align 8 initializes((0, 56)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17hd6104637650d5201E"(ptr nocapture writeonly sret([56 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %2, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17hee5de483411eff54E"(ptr nocapture writeonly sret([64 x i8]) align 8 initializes((0, 64)) %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
+define void @"_ZN102_$LT$syn..punctuated..Punctuated$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter28_$u7b$$u7b$closure$u7d$$u7d$17hee5de483411eff54E"(ptr nocapture writeonly sret([64 x i8]) align 8 %0, ptr nocapture readnone align 1 %1, ptr nocapture readonly align 8 %2) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %2, i64 64, i1 false)
   ret void
 }
@@ -5894,7 +5894,7 @@ define align 8 ptr @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5first17hb2dd8e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h07cef3a0f81ea09dE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h07cef3a0f81ea09dE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -5920,7 +5920,7 @@ define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h07cef3a0f81ea
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h32a90aa18393c594E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$5pairs17h32a90aa18393c594E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -6004,7 +6004,7 @@ define { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hba
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3syn10punctuated4Pair3End17h1c9dcaa084b2b3eeE(ptr nocapture writeonly sret([16 x i8]) align 8 initializes((0, 16)) %0, ptr align 8 %1) unnamed_addr #3 {
+define void @_ZN3syn10punctuated4Pair3End17h1c9dcaa084b2b3eeE(ptr nocapture writeonly sret([16 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -6012,7 +6012,7 @@ define void @_ZN3syn10punctuated4Pair3End17h1c9dcaa084b2b3eeE(ptr nocapture writ
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN3syn10punctuated4Pair3End17h4a2725e2fdaac7a7E(ptr nocapture writeonly sret([16 x i8]) align 8 initializes((0, 16)) %0, ptr align 8 %1) unnamed_addr #3 {
+define void @_ZN3syn10punctuated4Pair3End17h4a2725e2fdaac7a7E(ptr nocapture writeonly sret([16 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -9221,49 +9221,49 @@ define void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hfe817e077287b458E
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h028fb1883a4986f4E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
+define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h028fb1883a4986f4E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h134b052be1830a85E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
+define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h134b052be1830a85E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h24e2c5d3b50d8ef4E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
+define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h24e2c5d3b50d8ef4E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h66c0f4207501bee5E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
+define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h66c0f4207501bee5E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h7555fcc5666e0e48E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
+define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h7555fcc5666e0e48E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h8079ea4f8879f122E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
+define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h8079ea4f8879f122E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h97c8011bf086f5e7E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
+define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17h97c8011bf086f5e7E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17hffbb55632f5c103eE(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 16)) %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
+define void @_ZN4core4iter6traits8iterator8Iterator9size_hint17hffbb55632f5c103eE(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readnone align 8 %1) unnamed_addr #3 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -9377,19 +9377,19 @@ define { ptr, ptr } @"_ZN57_$LT$I$u20$as$u20$syn..punctuated..IterTrait$LT$T$GT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2c88e8df7ec5f6cbE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2c88e8df7ec5f6cbE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb5843aa0460656f4E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
+define void @"_ZN63_$LT$I$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hb5843aa0460656f4E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0eed5ff494d170b4E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h0eed5ff494d170b4E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9404,7 +9404,7 @@ define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h123edccc1bb11684E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h123edccc1bb11684E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9419,7 +9419,7 @@ define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h39c9875e62614f9fE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h39c9875e62614f9fE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9434,7 +9434,7 @@ define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4f27ce92cc357477E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4f27ce92cc357477E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9449,7 +9449,7 @@ define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h753b89c77df299f1E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h753b89c77df299f1E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9464,7 +9464,7 @@ define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$cor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha129812b2b068febE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
+define void @"_ZN80_$LT$syn..punctuated..PrivateIter$LT$T$C$P$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha129812b2b068febE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #4 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9512,7 +9512,7 @@ define align 8 ptr @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..i
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2fa50dee4e73dd10E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define void @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2fa50dee4e73dd10E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9529,7 +9529,7 @@ define void @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..tr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3e3cfc9d96eaca69E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define void @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3e3cfc9d96eaca69E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9546,7 +9546,7 @@ define void @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..tr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf90e6c8c0d96bb2bE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define void @"_ZN89_$LT$syn..punctuated..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf90e6c8c0d96bb2bE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9596,7 +9596,7 @@ define align 8 ptr @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0924390f1ac61a18E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define void @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0924390f1ac61a18E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9613,7 +9613,7 @@ define void @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2bea687f760d1afcE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define void @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2bea687f760d1afcE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9630,7 +9630,7 @@ define void @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h49eb7689065db043E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
+define void @"_ZN92_$LT$syn..punctuated..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h49eb7689065db043E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture readonly align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -9689,7 +9689,7 @@ define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h40ff69280c67a515E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h40ff69280c67a515E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc4801cbbff67424eE(ptr align 8 %1)
   %4 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hc4801cbbff67424eE(ptr align 8 %1)
   store i64 %3, ptr %0, align 8
@@ -9701,7 +9701,7 @@ define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h540ea7c1947e7a5aE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h540ea7c1947e7a5aE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfdf742b64efa67e3E(ptr align 8 %1)
   %4 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hfdf742b64efa67e3E(ptr align 8 %1)
   store i64 %3, ptr %0, align 8
@@ -9713,7 +9713,7 @@ define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h99b09ba9dd6df42bE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h99b09ba9dd6df42bE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h250015231e8872d5E(ptr align 8 %1)
   %4 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h250015231e8872d5E(ptr align 8 %1)
   store i64 %3, ptr %0, align 8
@@ -9725,7 +9725,7 @@ define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd11dedf5f0de3addE"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd11dedf5f0de3addE"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h945b716f3801c7b4E(ptr align 8 %1)
   %4 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h945b716f3801c7b4E(ptr align 8 %1)
   store i64 %3, ptr %0, align 8
@@ -9737,7 +9737,7 @@ define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda4a61854855b317E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hda4a61854855b317E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hac34abe8a6fda7dcE(ptr align 8 %1)
   %4 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17hac34abe8a6fda7dcE(ptr align 8 %1)
   store i64 %3, ptr %0, align 8
@@ -9749,7 +9749,7 @@ define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfa78b5c72449c405E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 24)) %0, ptr align 8 %1) unnamed_addr #0 {
+define void @"_ZN93_$LT$syn..punctuated..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfa78b5c72449c405E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8e9a05e3e8b0da03E(ptr align 8 %1)
   %4 = tail call i64 @_ZN4core4iter6traits10exact_size17ExactSizeIterator3len17h8e9a05e3e8b0da03E(ptr align 8 %1)
   store i64 %3, ptr %0, align 8
@@ -9807,7 +9807,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8172dce03234ff00E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
+define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h8172dce03234ff00E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8
@@ -9827,7 +9827,7 @@ define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..ite
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h95f2c6dba6cb7d12E"(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 8)) %0, ptr nocapture align 8 %1) unnamed_addr #2 {
+define void @"_ZN94_$LT$syn..punctuated..Pairs$LT$T$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h95f2c6dba6cb7d12E"(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr nocapture align 8 %1) unnamed_addr #2 {
   %3 = alloca [16 x i8], align 8
   %4 = load ptr, ptr %1, align 8
   store ptr null, ptr %1, align 8

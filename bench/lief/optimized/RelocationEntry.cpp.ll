@@ -677,7 +677,7 @@ define void @_ZN4LIEF2PE15RelocationEntryC2EtNS0_6Header13MACHINE_TYPESE(ptr nou
 declare void @_ZN4LIEF10RelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(17)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF2PE15RelocationEntry4dataEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((18, 24)) %0, i16 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define void @_ZN4LIEF2PE15RelocationEntry4dataEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i16 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = and i16 %1, 4095
   %4 = getelementptr inbounds i8, ptr %0, i64 18
   store i16 %3, ptr %4, align 2

@@ -111,7 +111,7 @@ $_ZTIN3irr2io9IFileListE = comdat any
 @.str.13 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr2io17CArchiveLoaderZIPC2EPNS0_11IFileSystemE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %fs) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io17CArchiveLoaderZIPC2EPNS0_11IFileSystemE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %vtt, ptr noundef %fs) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -136,7 +136,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr2io17CArchiveLoaderZIPC1EPNS0_11IFileSystemE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 36)) %this, ptr noundef %fs) unnamed_addr #1 align 2 {
+define void @_ZN3irr2io17CArchiveLoaderZIPC1EPNS0_11IFileSystemE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %fs) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -436,7 +436,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CZipReaderC1EPNS0_11IFileSystemEPNS0_9IReadFileEbbb(ptr noundef nonnull align 8 dereferenceable(57) initializes((64, 72), (104, 124)) %this, ptr noundef %fs, ptr noundef %file, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths, i1 noundef zeroext %isGZip) unnamed_addr #2 align 2 {
+define void @_ZN3irr2io10CZipReaderC1EPNS0_11IFileSystemEPNS0_9IReadFileEbbb(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr noundef %fs, ptr noundef %file, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths, i1 noundef zeroext %isGZip) unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::string", align 8
   %frombool2 = zext i1 %isGZip to i8
@@ -573,7 +573,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CZipReaderC2EPNS0_11IFileSystemEPNS0_9IReadFileEbbb(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 49), (56, 57)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %fs, ptr noundef %file, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths, i1 noundef zeroext %isGZip) unnamed_addr #2 align 2 {
+define void @_ZN3irr2io10CZipReaderC2EPNS0_11IFileSystemEPNS0_9IReadFileEbbb(ptr noundef nonnull align 8 dereferenceable(57) %this, ptr nocapture noundef readonly %vtt, ptr noundef %fs, ptr noundef %file, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths, i1 noundef zeroext %isGZip) unnamed_addr #2 align 2 {
 entry:
   %frombool2 = zext i1 %isGZip to i8
   %0 = load ptr, ptr %vtt, align 8
@@ -1749,7 +1749,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i141, %
 declare void @_ZN3irr2io9CFileListC2ERKNS_4core6stringIcEEbb(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext, i1 noundef zeroext) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CZipReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 {
+define void @_ZN3irr2io10CZipReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(57) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -1812,7 +1812,7 @@ _ZN3irr4core5arrayINS_2io13SZipFileEntryEED2Ev.exit: ; preds = %if.then.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CZipReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8), (64, 72), (104, 112), (128, 136)) %this) unnamed_addr #2 align 2 {
+define void @_ZN3irr2io10CZipReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CZipReaderE, i64 40), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2103,7 +2103,7 @@ _ZN3irr2io10CZipReaderD1Ev.exit:                  ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io10CZipReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8), (64, 72), (104, 112), (128, 136)) %this) unnamed_addr #2 align 2 {
+define void @_ZN3irr2io10CZipReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io10CZipReaderE, i64 40), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 64

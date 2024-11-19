@@ -1295,7 +1295,7 @@ define internal void @__cxx_global_var_init.5() #0 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix16InstallableFlake18getActualAttrPathsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(296) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix16InstallableFlake18getActualAttrPathsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(296) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = getelementptr inbounds i8, ptr %1, i64 160
@@ -1873,7 +1873,7 @@ declare i32 @_ZNK3nix5Value12determinePosENS_6PosIdxE(ptr noundef nonnull align 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix16InstallableFlakeC2EPNS_17SourceExprCommandENS_3refINS_9EvalStateEEEONS_8FlakeRefESt17basic_string_viewIcSt11char_traitsIcEENS_19ExtendedOutputsSpecENSt7__cxx114listINSD_12basic_stringIcSA_SaIcEEESaISH_EEESJ_RKNS_5flake9LockFlagsE(ptr noundef nonnull align 8 dereferenceable(296) initializes((0, 24)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(136) %3, i64 %4, ptr %5, ptr noundef %6, ptr noundef readonly %7, ptr noundef readonly %8, ptr noundef nonnull align 8 dereferenceable(200) %9) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix16InstallableFlakeC2EPNS_17SourceExprCommandENS_3refINS_9EvalStateEEEONS_8FlakeRefESt17basic_string_viewIcSt11char_traitsIcEENS_19ExtendedOutputsSpecENSt7__cxx114listINSD_12basic_stringIcSA_SaIcEEESaISH_EEESJ_RKNS_5flake9LockFlagsE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(136) %3, i64 %4, ptr %5, ptr noundef %6, ptr noundef readonly %7, ptr noundef readonly %8, ptr noundef nonnull align 8 dereferenceable(200) %9) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %12 = alloca %"class.std::allocator", align 1
   %13 = alloca %"class.std::__cxx11::basic_string", align 8

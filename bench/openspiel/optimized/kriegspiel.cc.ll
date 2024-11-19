@@ -2495,7 +2495,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %49, %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel10kriegspiel16GetUmpireMessageERKNS_5chess10ChessBoardERKNS1_4MoveE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.open_spiel::kriegspiel::KriegspielUmpireMessage") align 4 initializes((0, 1), (4, 10), (12, 21), (24, 28)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel10kriegspiel16GetUmpireMessageERKNS_5chess10ChessBoardERKNS1_4MoveE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.open_spiel::kriegspiel::KriegspielUmpireMessage") align 4 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, ptr noundef nonnull align 4 dereferenceable(12) %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca i8, align 1
   %5 = alloca %"class.std::function.9", align 8
   %6 = alloca %"class.open_spiel::chess::ChessBoard", align 8

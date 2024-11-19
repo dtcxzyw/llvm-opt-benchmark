@@ -48,7 +48,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN18ZObjArrayAllocatorC1EP5KlassmibP6Thread = hidden unnamed_addr alias void (ptr, ptr, i64, i32, i1, ptr), ptr @_ZN18ZObjArrayAllocatorC2EP5KlassmibP6Thread
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN18ZObjArrayAllocatorC2EP5KlassmibP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 37)) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN18ZObjArrayAllocatorC2EP5KlassmibP6Thread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %4 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %5, ptr %8, align 8

@@ -2817,7 +2817,7 @@ _ZN5boost10shared_ptrIN8QuantLib17InterestRateIndexEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14SabrVolSurfaceC1ERKN5boost10shared_ptrINS_17InterestRateIndexEEENS_6HandleINS_16BlackAtmVolCurveEEERKSt6vectorINS_6PeriodESaISB_EESA_IdSaIdEESA_ISA_INS7_INS_5QuoteEEESaISJ_EESaISL_EE(ptr noundef nonnull align 8 dereferenceable(256) initializes((256, 264), (272, 276), (280, 288)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef %atmCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef %atmRateSpreads, ptr nocapture noundef %volSpreads) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14SabrVolSurfaceC1ERKN5boost10shared_ptrINS_17InterestRateIndexEEENS_6HandleINS_16BlackAtmVolCurveEEERKSt6vectorINS_6PeriodESaISB_EESA_IdSaIdEESA_ISA_INS7_INS_5QuoteEEESaISJ_EESaISL_EE(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, ptr nocapture noundef %atmCurve, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef %atmRateSpreads, ptr nocapture noundef %volSpreads) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.27", align 8
   %ref.tmp = alloca %"class.QuantLib::DayCounter", align 8

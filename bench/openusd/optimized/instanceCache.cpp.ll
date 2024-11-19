@@ -468,7 +468,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15TfGetEnvSettingIbEERKT_RNS_12TfEnvSetting
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 1), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5743,7 +5743,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__14TfStringPrintfB5cxx11EPKcz(
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCache16GetAllPrototypesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.66") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCache16GetAllPrototypesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.66") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(432) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load i64, ptr %3, align 8
@@ -6406,7 +6406,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit30: ; preds = %179, %181, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCache38GetPrimsInPrototypesUsingPrimIndexPathERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.66") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(432) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCache38GetPrimsInPrototypesUsingPrimIndexPathERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.66") align 8 %0, ptr noundef nonnull align 8 dereferenceable(432) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCache27_PrototypeUsesPrimIndexPathERKNS_7SdfPathEPSt6vectorIS1_SaIS1_EE(ptr noundef nonnull align 8 dereferenceable(432) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, ptr noundef nonnull %0)
           to label %7 unwind label %5
@@ -6422,7 +6422,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCache38GetPrims
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCache44GetPrototypesUsingPrimIndexPathOrDescendentsERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.126") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(432) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCache44GetPrototypesUsingPrimIndexPathOrDescendentsERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.126") align 8 %0, ptr noundef nonnull align 8 dereferenceable(432) %1, ptr noundef nonnull align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -6838,7 +6838,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L21_FindEntryForAncestorISt3mapINS_7SdfPath
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCache28GetMostAncestralInstancePathERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(432) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__17Usd_InstanceCache28GetMostAncestralInstancePathERKNS_7SdfPathE(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 8 dereferenceable(432) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfGet", align 1
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", align 4

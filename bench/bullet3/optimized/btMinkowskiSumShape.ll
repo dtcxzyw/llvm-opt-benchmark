@@ -304,7 +304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK19btMinkowskiSumShape21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %inertia) unnamed_addr #2 align 2 {
+define dso_local void @_ZNK19btMinkowskiSumShape21calculateLocalInertiaEfR9btVector3(ptr noundef nonnull align 8 dereferenceable(216) %this, float noundef %mass, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %inertia) unnamed_addr #2 align 2 {
 entry:
   %identity = alloca %class.btTransform, align 4
   %aabbMin = alloca %class.btVector3, align 4

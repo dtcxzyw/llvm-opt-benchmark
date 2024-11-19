@@ -628,7 +628,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 {
   %3 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_16Tf_TokenRegistryEE9_instanceE seq_cst, align 8
   %.0.i.i.i = inttoptr i64 %3 to ptr
   %.not.i.i = icmp eq i64 %3, 0
@@ -646,7 +646,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry12_GetInstanceEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_16Tf_TokenRegistryEE9_instanceE seq_cst, align 8
   %.0.i.i.i = inttoptr i64 %3 to ptr
   %.not.i.i = icmp eq i64 %3, 0
@@ -664,7 +664,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry12_GetInstanceEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12_ImmortalTagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12_ImmortalTagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 %2) unnamed_addr #0 align 2 {
   %4 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_16Tf_TokenRegistryEE9_instanceE seq_cst, align 8
   %.0.i.i.i = inttoptr i64 %4 to ptr
   %.not.i.i = icmp eq i64 %4, 0
@@ -682,7 +682,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry12_GetInstanceEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2EPKcNS0_12_ImmortalTagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1, i32 %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenC2EPKcNS0_12_ImmortalTagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1, i32 %2) unnamed_addr #0 align 2 {
   %4 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_16Tf_TokenRegistryEE9_instanceE seq_cst, align 8
   %.0.i.i.i = inttoptr i64 %4 to ptr
   %.not.i.i = icmp eq i64 %4, 0
@@ -700,7 +700,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__16Tf_TokenRegistry12_GetInstanceEv.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__7TfToken4FindERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__11TfSingletonINS_16Tf_TokenRegistryEE9_instanceE seq_cst, align 8
   %.0.i.i.i = inttoptr i64 %3 to ptr
@@ -832,7 +832,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfToTokenVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__15TfToTokenVectorERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8

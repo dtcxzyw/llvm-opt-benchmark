@@ -13830,7 +13830,7 @@ define hidden void @_ZN10actix_http4date11DateService9with_date17h5a6181ef2273b2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10actix_http4date11DateService9with_date17hc2aa47ceff3c4017E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef writeonly align 1 dereferenceable(37) initializes((6, 35)) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden void @_ZN10actix_http4date11DateService9with_date17hc2aa47ceff3c4017E(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0, ptr noalias nocapture noundef writeonly align 1 dereferenceable(37) %1) unnamed_addr #5 personality ptr @rust_eh_personality {
   %3 = load ptr, ptr %0, align 8, !nonnull !12, !noundef !12
   %4 = getelementptr inbounds i8, ptr %1, i64 6
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -13839,7 +13839,7 @@ define hidden void @_ZN10actix_http4date11DateService9with_date17hc2aa47ceff3c40
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN71_$LT$actix_http..h1..codec..Codec$u20$as$u20$core..default..Default$GT$7default17ha9b3e20d44832a88E"(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] }) align 8 dereferenceable(64) initializes((0, 8), (16, 17), (24, 33), (48, 59)) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @"_ZN71_$LT$actix_http..h1..codec..Codec$u20$as$u20$core..default..Default$GT$7default17ha9b3e20d44832a88E"(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] }) align 8 dereferenceable(64) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = tail call noundef nonnull ptr @"_ZN76_$LT$actix_http..config..ServiceConfig$u20$as$u20$core..default..Default$GT$7default17h4c4d80a0d24f4134E"()
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1448)
   %3 = getelementptr inbounds i8, ptr %2, i64 56
@@ -13877,7 +13877,7 @@ define noundef zeroext i1 @"_ZN65_$LT$actix_http..h1..codec..Codec$u20$as$u20$co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10actix_http2h15codec5Codec3new17h8370accc4b76638cE(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] }) align 8 dereferenceable(64) initializes((0, 8), (16, 17), (24, 33), (48, 59)) %0, ptr noundef nonnull %1) unnamed_addr #6 personality ptr @rust_eh_personality {
+define void @_ZN10actix_http2h15codec5Codec3new17h8370accc4b76638cE(ptr noalias nocapture noundef writeonly sret({ { { i64, [1 x i64] }, { { i8, [15 x i8] } }, {} }, { i8, [15 x i8] }, ptr, i8, i8, { {} }, i8, [5 x i8] }) align 8 dereferenceable(64) %0, ptr noundef nonnull %1) unnamed_addr #6 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load i32, ptr %3, align 8, !range !1451, !noundef !12
   %.not = icmp eq i32 %4, 1000000001
@@ -15053,7 +15053,7 @@ define noundef zeroext i1 @"_ZN81_$LT$actix_http..h1..codec.._..InternalBitFlags
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN89_$LT$actix_http..h1..codec.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hd18d80727adc6102E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
+define void @"_ZN89_$LT$actix_http..h1..codec.._..InternalBitFlags$u20$as$u20$core..str..traits..FromStr$GT$8from_str17hd18d80727adc6102E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZN8bitflags6parser8from_str17h1c8aa9fcd3bfbeafE(ptr noalias nocapture noundef nonnull sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %4, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
@@ -15135,7 +15135,7 @@ define noundef zeroext i1 @"_ZN82_$LT$actix_http..h1..codec.._..InternalBitFlags
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN104_$LT$actix_http..h1..codec.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc7c316c91b548557E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #9 {
+define void @"_ZN104_$LT$actix_http..h1..codec.._..InternalBitFlags$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17hc7c316c91b548557E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #9 {
   store ptr @anon.e9f42dff1fd369047582a93c3ee51670.209, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 3, ptr %.sroa.4.0..sroa_idx, align 8
@@ -15195,7 +15195,7 @@ define noundef zeroext i1 @"_ZN10actix_http2h15codec1_78_$LT$impl$u20$core..fmt.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN10actix_http2h15codec1_100_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$actix_http..h1..codec..Flags$GT$9into_iter17h3165b8e1c858c675E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 26), (32, 33)) %0, i8 noundef %1) unnamed_addr #9 {
+define void @"_ZN10actix_http2h15codec1_100_$LT$impl$u20$core..iter..traits..collect..IntoIterator$u20$for$u20$actix_http..h1..codec..Flags$GT$9into_iter17h3165b8e1c858c675E"(ptr noalias nocapture noundef writeonly sret({ { { ptr, i64 }, i64, i8, i8, [6 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(40) %0, i8 noundef %1) unnamed_addr #9 {
   store ptr @anon.e9f42dff1fd369047582a93c3ee51670.209, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 3, ptr %.sroa.4.0..sroa_idx, align 8

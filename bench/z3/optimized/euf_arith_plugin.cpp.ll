@@ -77,7 +77,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf12arith_pluginC2ERNS_6egraphE(ptr noundef nonnull align 8 dereferenceable(904) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(536) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3euf12arith_pluginC2ERNS_6egraphE(ptr noundef nonnull align 8 dereferenceable(904) %this, ptr noundef nonnull align 8 dereferenceable(536) %g) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i.i36 = alloca { i64, i64 }, align 8
   %ref.tmp.i.i37 = alloca %"class.std::function", align 8

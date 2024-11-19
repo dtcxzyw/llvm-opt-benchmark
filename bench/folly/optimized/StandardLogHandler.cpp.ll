@@ -153,7 +153,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN5folly18StandardLogHandlerC2ENS_16LogHandlerConfigESt10shared_ptrINS_12LogFormatterEES2_INS_9LogWriterEENS_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 48), (80, 81)) %this, ptr noundef %config, ptr nocapture noundef %formatter, ptr nocapture noundef %writer, i32 noundef %syncLevel) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18StandardLogHandlerC2ENS_16LogHandlerConfigESt10shared_ptrINS_12LogFormatterEES2_INS_9LogWriterEENS_8LogLevelE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %config, ptr nocapture noundef %formatter, ptr nocapture noundef %writer, i32 noundef %syncLevel) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18StandardLogHandlerE, i64 16), ptr %this, align 8, !tbaa !23
   %level_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -307,7 +307,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly18StandardLogHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18StandardLogHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly18StandardLogHandlerE, i64 16), ptr %this, align 8, !tbaa !23
   %config_ = getelementptr inbounds i8, ptr %this, i64 48

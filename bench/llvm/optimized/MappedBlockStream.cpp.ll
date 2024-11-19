@@ -114,7 +114,7 @@ $_ZTVN4llvm18BinaryStreamWriterE = comdat any
 @_ZN4llvm3msf25WritableMappedBlockStreamC1EjRKNS0_15MSFStreamLayoutENS_23WritableBinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE = unnamed_addr alias void (ptr, i32, ptr, ptr, ptr), ptr @_ZN4llvm3msf25WritableMappedBlockStreamC2EjRKNS0_15MSFStreamLayoutENS_23WritableBinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3msf17MappedBlockStreamC2EjRKNS0_15MSFStreamLayoutENS_15BinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 12), (16, 20), (24, 48)) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(96) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3msf17MappedBlockStreamC2EjRKNS0_15MSFStreamLayoutENS_15BinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(96) %4) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4llvm3msf17MappedBlockStreamE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8
@@ -903,7 +903,7 @@ _ZN4llvm3msf15MSFStreamLayoutD2Ev.exit:           ; preds = %_ZN4llvm15BinaryStr
 declare void @_ZN4llvm3msf18getFpmStreamLayoutERKNS0_9MSFLayoutEbb(ptr dead_on_unwind writable sret(%"class.llvm::msf::MSFStreamLayout") align 8, ptr noundef nonnull align 8 dereferenceable(136), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3msf17MappedBlockStream9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3msf17MappedBlockStream9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %4) unnamed_addr #0 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.std::vector.27", align 8
@@ -1427,7 +1427,7 @@ _ZN4llvm5ErrorD2Ev.exit26.thread:                 ; preds = %.lr.ph, %50, %48, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3msf17MappedBlockStream9readBytesEmNS_15MutableArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %2, ptr nocapture writeonly %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3msf17MappedBlockStream9readBytesEmNS_15MutableArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %2, ptr nocapture writeonly %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::ArrayRef.26", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8
@@ -1511,7 +1511,7 @@ _ZN4llvm5ErrorD2Ev.exit27:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3msf17MappedBlockStream26readLongestContiguousChunkEmRNS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3msf17MappedBlockStream26readLongestContiguousChunkEmRNS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::ArrayRef.26", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %6 = load ptr, ptr %1, align 8, !noalias !37
@@ -1857,7 +1857,7 @@ _ZN4llvm16DenseMapIteratorIjSt6vectorINS_15MutableArrayRefIhEESaIS3_EENS_12Dense
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3msf25WritableMappedBlockStreamC2EjRKNS0_15MSFStreamLayoutENS_23WritableBinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(96) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3msf25WritableMappedBlockStreamC2EjRKNS0_15MSFStreamLayoutENS_23WritableBinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(96) %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::BinaryStreamRef", align 8
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm3msf25WritableMappedBlockStreamE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1973,7 +1973,7 @@ _ZN4llvm23WritableBinaryStreamRefC2ERKS0_.exit:   ; preds = %_ZN4llvm15BinaryStr
 declare void @_ZNK4llvm23WritableBinaryStreamRefcvNS_15BinaryStreamRefEEv(ptr dead_on_unwind writable sret(%"class.llvm::BinaryStreamRef") align 8, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3msf25WritableMappedBlockStream12createStreamEjRKNS0_15MSFStreamLayoutENS_23WritableBinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.46") align 8 initializes((0, 8)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(96) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3msf25WritableMappedBlockStream12createStreamEjRKNS0_15MSFStreamLayoutENS_23WritableBinaryStreamRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.46") align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(96) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::WritableBinaryStreamRef", align 8
   %7 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #15, !noalias !44
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6), !noalias !44
@@ -2932,14 +2932,14 @@ _ZN4llvm23WritableBinaryStreamRefD2Ev.exit:       ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3msf25WritableMappedBlockStream9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3msf25WritableMappedBlockStream9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 noundef %2, i64 noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %4) unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZN4llvm3msf17MappedBlockStream9readBytesEmmRNS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 noundef %2, i64 noundef %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3msf25WritableMappedBlockStream26readLongestContiguousChunkEmRNS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3msf25WritableMappedBlockStream26readLongestContiguousChunkEmRNS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @_ZN4llvm3msf17MappedBlockStream26readLongestContiguousChunkEmRNS_8ArrayRefIhEE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %5, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   ret void
@@ -2954,7 +2954,7 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZN4llvm3msf25WritableMap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3msf25WritableMappedBlockStream10writeBytesEmNS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 noundef %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3msf25WritableMappedBlockStream10writeBytesEmNS_8ArrayRefIhEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(184) %1, i64 noundef %2, ptr %3, i64 %4) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !54)
   %6 = load ptr, ptr %1, align 8, !noalias !54
   %7 = getelementptr inbounds i8, ptr %6, i64 48
@@ -4684,7 +4684,7 @@ _ZNSt6vectorIN4llvm15MutableArrayRefIhEESaIS2_EED2Ev.exit: ; preds = %.lr.ph, %4
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121MappedBlockStreamImplIN4llvm3msf25WritableMappedBlockStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121MappedBlockStreamImplIN4llvm3msf25WritableMappedBlockStreamEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm3msf25WritableMappedBlockStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
@@ -4766,7 +4766,7 @@ _ZN4llvm3msf25WritableMappedBlockStreamD2Ev.exit: ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121MappedBlockStreamImplIN4llvm3msf25WritableMappedBlockStreamEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_121MappedBlockStreamImplIN4llvm3msf25WritableMappedBlockStreamEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN4llvm3msf25WritableMappedBlockStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8

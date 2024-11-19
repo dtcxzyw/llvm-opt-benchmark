@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [4 x i8] c"raw\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_nwrite(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_nwrite(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -53,7 +53,7 @@ define dso_local noundef i32 @Curl_nwrite(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @Curl_write(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #0 {
+define dso_local noundef i32 @Curl_write(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %.not = icmp eq i32 %1, -1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 32
@@ -279,7 +279,7 @@ Curl_cwriter_write.exit:                          ; preds = %.thread, %80, %78
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 28) i32 @do_init_stack(ptr noundef initializes((328, 336)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 28) i32 @do_init_stack(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 328
   %3 = load ptr, ptr @Curl_ccalloc, align 8
   %4 = tail call ptr %3(i64 noundef 1, i64 noundef 24) #9
@@ -991,7 +991,7 @@ define dso_local void @Curl_cwriter_def_close(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_cwriter_create(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @Curl_cwriter_create(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @Curl_ccalloc, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 40
   %7 = load i64, ptr %6, align 8
@@ -1173,7 +1173,7 @@ Curl_cwriter_free.exit:                           ; preds = %6
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_read(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef initializes((0, 8)) %4) local_unnamed_addr #0 {
+define dso_local i32 @Curl_read(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   store i32 56, ptr %6, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 32

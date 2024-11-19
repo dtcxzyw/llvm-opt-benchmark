@@ -292,7 +292,7 @@ VP8LHistogramStoreRefs.exit:                      ; preds = %VP8LRefsCursorNext.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @VP8LHistogramInit(ptr nocapture noundef initializes((3240, 3244)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define hidden void @VP8LHistogramInit(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 3240
   store i32 %1, ptr %4, align 8
   %.not = icmp eq i32 %2, 0
@@ -552,7 +552,7 @@ BitsEntropyRefine.exit:                           ; preds = %7, %10, %18
 declare void @VP8LBitsEntropyUnrefined(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden float @VP8LHistogramEstimateBits(ptr noundef initializes((3264, 3265)) %0) local_unnamed_addr #1 {
+define hidden float @VP8LHistogramEstimateBits(ptr noundef %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 3240
   %4 = load i32, ptr %3, align 8
@@ -592,7 +592,7 @@ define hidden float @VP8LHistogramEstimateBits(ptr noundef initializes((3264, 32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc float @PopulationCost(ptr noundef %0, i32 noundef range(i32 -2147483368, -2147483648) %1, ptr noundef writeonly %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) unnamed_addr #1 {
+define internal fastcc float @PopulationCost(ptr noundef %0, i32 noundef range(i32 -2147483368, -2147483648) %1, ptr noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #1 {
   %5 = alloca %struct.VP8LBitEntropy, align 4
   %6 = alloca %struct.VP8LStreaks, align 4
   %7 = load ptr, ptr @VP8LGetEntropyUnrefined, align 8

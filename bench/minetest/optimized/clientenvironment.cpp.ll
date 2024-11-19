@@ -582,7 +582,7 @@ declare void @_ZN11EnvironmentC2EP8IGameDef(ptr noundef nonnull align 8 derefere
 declare void @_ZN6client15ActiveObjectMgrD1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17ClientEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17ClientEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ClientEnvironment, i64 16), ptr %this, align 8, !tbaa !12
   %m_ao_manager = getelementptr inbounds i8, ptr %this, i64 152
@@ -975,7 +975,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17ClientEnvironmentD0Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define dso_local void @_ZN17ClientEnvironmentD0Ev(ptr noundef nonnull align 8 dereferenceable(464) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN17ClientEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %this) #33
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31
@@ -4364,7 +4364,7 @@ declare i16 @_ZNK14Pointabilities11matchPlayerERKSt13unordered_mapINSt7__cxx1112
 declare i16 @_ZNK14Pointabilities11matchObjectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapIS5_iSt4hashIS5_ESt8equal_toIS5_ESaISt4pairIS6_iEEE(ptr noundef nonnull align 8 dereferenceable(224), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN17ClientEnvironment15updateFrameTimeEb(ptr nocapture noundef nonnull align 8 dereferenceable(464) initializes((448, 456)) %this, i1 noundef zeroext %is_paused) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN17ClientEnvironment15updateFrameTimeEb(ptr nocapture noundef nonnull align 8 dereferenceable(464) %this, i1 noundef zeroext %is_paused) local_unnamed_addr #6 align 2 {
 entry:
   %ts.i14 = alloca %struct.timespec, align 8
   %ts.i = alloca %struct.timespec, align 8

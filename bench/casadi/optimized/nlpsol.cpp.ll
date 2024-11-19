@@ -8909,7 +8909,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi15PluginInterfaceINS_6NlpsolEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi9nlpsol_inB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 8), (16, 24)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi9nlpsol_inB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .noexc:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #31
@@ -9232,7 +9232,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit39: ; 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi10nlpsol_outB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 8), (16, 24)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi10nlpsol_outB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 .noexc:
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #31
@@ -9508,7 +9508,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi17nlpsol_default_inEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.23") align 8 initializes((0, 24)) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi17nlpsol_default_inEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.23") align 8 %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #31
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 64
@@ -9745,7 +9745,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
 declare void @_ZN6casadi14OracleFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1520)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi6NlpsolD2Ev(ptr noundef nonnull align 8 dereferenceable(1928) initializes((0, 8), (1520, 1528)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi6NlpsolD2Ev(ptr noundef nonnull align 8 dereferenceable(1928) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi6NlpsolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi6NlpsolE, i64 960), ptr %2, align 8
@@ -16917,7 +16917,7 @@ declare noundef zeroext i1 @_ZNK6casadi8Sparsity9is_vectorEv(ptr noundef nonnull
 declare void @_ZNK6casadi8Sparsity3dimB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi6Nlpsol15set_nlpsol_probEv(ptr noundef nonnull align 8 dereferenceable(1928) initializes((1528, 1552), (1584, 1592), (1624, 1632)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN6casadi6Nlpsol15set_nlpsol_probEv(ptr noundef nonnull align 8 dereferenceable(1928) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1640
   %3 = load i64, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1528
@@ -21531,7 +21531,7 @@ _ZN6casadi11casadi_fillIdEEvPT_xS1_.exit105:      ; preds = %.lr.ph.i101.prehead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6casadi6Nlpsol8set_workEPvRPPKdRPPdRPxRS6_(ptr noundef nonnull align 8 dereferenceable(1928) %0, ptr nocapture noundef initializes((112, 152), (160, 272), (360, 361), (364, 368)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #15 align 2 {
+define void @_ZNK6casadi6Nlpsol8set_workEPvRPPKdRPPdRPxRS6_(ptr noundef nonnull align 8 dereferenceable(1928) %0, ptr nocapture noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #15 align 2 {
   %7 = getelementptr inbounds i8, ptr %1, i64 360
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 364

@@ -1360,7 +1360,7 @@ declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #5
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc noundef ptr @textify_hooks(ptr noundef returned writeonly initializes((0, 1)) %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #7 align 16 {
+define internal fastcc noundef ptr @textify_hooks(ptr noundef returned writeonly %0, i32 noundef %1, i8 noundef zeroext %2) unnamed_addr #7 align 16 {
   %4 = icmp eq i8 %2, 3
   %5 = select i1 %4, ptr @textify_hooks.arp_names, ptr @textify_hooks.inetbr_names
   store i8 0, ptr %0, align 1
@@ -2165,7 +2165,7 @@ define dso_local noalias ptr @xt_counters_alloc(i32 noundef %0) #0 align 16 {
 declare dso_local noalias ptr @vzalloc(i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr noundef initializes((56, 64)) %2, ptr nocapture noundef writeonly %3) #0 align 16 {
+define dso_local ptr @xt_replace_table(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = load i32, ptr @nr_cpu_ids, align 4
   %6 = shl i32 %5, 3
   %7 = zext i32 %6 to i64

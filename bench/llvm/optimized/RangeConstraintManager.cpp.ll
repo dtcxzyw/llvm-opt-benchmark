@@ -6154,7 +6154,7 @@ define dso_local void @_ZNK5clang4ento8RangeSet4dumpEv(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento28CreateRangeConstraintManagerERNS0_19ProgramStateManagerEPNS0_10ExprEngineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local void @_ZN5clang4ento28CreateRangeConstraintManagerERNS0_19ProgramStateManagerEPNS0_10ExprEngineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(288) %1, ptr noundef %2) local_unnamed_addr #1 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_122RangeConstraintManagerESt14default_deleteIS1_EED2Ev.exit:
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 240
   %4 = load ptr, ptr %3, align 8
@@ -6187,7 +6187,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_122RangeConstraintManagerESt14default_deleteIS1_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento16getConstraintMapEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::ImmutableMap") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
+define dso_local void @_ZN5clang4ento16getConstraintMapEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::ImmutableMap") align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #1 {
   %3 = alloca %"class.llvm::ImutAVLTreeInOrderIterator", align 8
   %4 = alloca %"class.llvm::ImmutableMap<(anonymous namespace)::EquivalenceClass, clang::ento::RangeSet>::iterator", align 8
   %5 = alloca %"class.llvm::ImmutableMap<(anonymous namespace)::EquivalenceClass, clang::ento::RangeSet>::iterator", align 8
@@ -9344,7 +9344,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSB_EEEEjSB_SD_SG_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassEN5clang4ento8RangeSetEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSB_EEEEjSB_SD_SG_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -9996,7 +9996,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoISB_EEEEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSH_EEEEjSH_SJ_SM_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIPKN5clang4ento7SymExprENS_17ImutContainerInfoISB_EEEEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSH_EEEEjSH_SJ_SM_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -12519,7 +12519,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE18uninitialized_moveIPmS3_EEvT_S4_T0_.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122RangeConstraintManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN12_GLOBAL__N_122RangeConstraintManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_122RangeConstraintManagerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZN4llvm14FoldingSetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
@@ -12531,7 +12531,7 @@ define internal void @_ZN12_GLOBAL__N_122RangeConstraintManagerD2Ev(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122RangeConstraintManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN12_GLOBAL__N_122RangeConstraintManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 200) (i8, ptr @_ZTVN12_GLOBAL__N_122RangeConstraintManagerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @_ZN4llvm14FoldingSetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #22
@@ -19162,7 +19162,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_116EquivalenceClassEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -23467,7 +23467,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_17ImutContainerInfoIN12_GLOBAL__N_116EquivalenceClassEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS8_EEEEjS8_SA_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -24969,7 +24969,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS5_NS_17ImutContainerInfoIS5_EEEEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSC_EEEEjSC_SE_SH_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_116EquivalenceClassENS_12ImmutableSetIS5_NS_17ImutContainerInfoIS5_EEEEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSC_EEEEjSC_SE_SH_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -32842,7 +32842,7 @@ _ZNK5clang4ento10APSIntType5applyERN4llvm6APSIntE.exit: ; preds = %_ZNK4llvm6APS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((16, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nonnull %.0.val, ptr %.8.val, i64 range(i64 0, 1099511627776) %2) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121SymbolicRangeInferrer7convertERKN5clang4ento5RangeENS2_10APSIntTypeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nonnull %.0.val, ptr %.8.val, i64 range(i64 0, 1099511627776) %2) unnamed_addr #1 align 2 {
   %4 = alloca %"class.clang::ento::APSIntType", align 8
   %5 = alloca %"class.llvm::APSInt", align 8
   %6 = alloca %"class.clang::ento::APSIntType", align 8

@@ -11527,7 +11527,7 @@ define internal i32 @dissect_gsm_map_MaxMC_Bearers(i1 noundef zeroext %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_map_sm_T_imsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_gsm_map_sm_T_imsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16
@@ -11554,7 +11554,7 @@ define internal i32 @dissect_gsm_map_sm_T_imsi(i1 noundef zeroext %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_map_sm_T_lmsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_gsm_map_sm_T_lmsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -11611,7 +11611,7 @@ dissect_gsm_map_LMSI.exit:                        ; preds = %dissect_gsm_map_LMS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_map_sm_T_serviceCentreAddressDA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_gsm_map_sm_T_serviceCentreAddressDA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16
@@ -11901,7 +11901,7 @@ define internal i32 @dissect_gsm_map_sm_T_msisdn(i1 noundef zeroext %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_map_sm_T_serviceCentreAddressOA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_gsm_map_sm_T_serviceCentreAddressOA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16
@@ -16923,7 +16923,7 @@ define internal i32 @dissect_gsm_old_SM_RP_OAold(i1 zeroext %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_old_T_imsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_gsm_old_T_imsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16
@@ -16950,7 +16950,7 @@ define internal i32 @dissect_gsm_old_T_imsi(i1 noundef zeroext %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_old_T_lmsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_gsm_old_T_lmsi(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr null, ptr %8, align 8
@@ -17007,7 +17007,7 @@ dissect_gsm_map_LMSI.exit:                        ; preds = %dissect_gsm_map_LMS
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_old_T_serviceCentreAddressDA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_gsm_old_T_serviceCentreAddressDA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16
@@ -17070,7 +17070,7 @@ define internal i32 @dissect_gsm_old_T_noSM_RP_DA(i1 noundef zeroext %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_old_T_msisdn(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_gsm_old_T_msisdn(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16
@@ -17096,7 +17096,7 @@ define internal i32 @dissect_gsm_old_T_msisdn(i1 noundef zeroext %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_gsm_old_T_serviceCentreAddressOA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((48, 56)) %3, ptr noundef %4, i32 noundef %5) #0 {
+define internal i32 @dissect_gsm_old_T_serviceCentreAddressOA(i1 noundef zeroext %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %3, i64 48
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16

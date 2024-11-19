@@ -691,7 +691,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #9
 declare void @_ZN6icu_7517StringTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7516BytesTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516BytesTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7516BytesTrieBuilderE, i64 16), ptr %this, align 8
   %strings = getelementptr inbounds i8, ptr %this, i64 16
@@ -1221,7 +1221,7 @@ declare noundef signext i8 @_ZN6icu_75eqERKNS_11StringPieceES2_(ptr noundef nonn
 declare void @_ZN6icu_7517StringTrieBuilder5buildE22UStringTrieBuildOptioniR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder5clearEv(ptr noundef nonnull returned align 8 dereferenceable(56) initializes((36, 40), (52, 56)) %this) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6icu_7516BytesTrieBuilder5clearEv(ptr noundef nonnull returned align 8 dereferenceable(56) %this) local_unnamed_addr #10 align 2 {
 entry:
   %strings = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %strings, align 8
@@ -1528,7 +1528,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7516BytesTrieBuilder17BTLinearMatchNodeC2EPKciPNS_17StringTrieBuilder4NodeE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 17), (20, 28), (32, 48)) %this, ptr noundef %bytes, i32 noundef %len, ptr noundef %nextNode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7516BytesTrieBuilder17BTLinearMatchNodeC2EPKciPNS_17StringTrieBuilder4NodeE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef %bytes, i32 noundef %len, ptr noundef %nextNode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp.i.i = icmp eq ptr %nextNode, null
   br i1 %cmp.i.i, label %_ZN6icu_7517StringTrieBuilder15LinearMatchNodeC2EiPNS0_4NodeE.exit, label %cond.false.i.i
@@ -2344,7 +2344,7 @@ return:                                           ; preds = %_ZN6icu_7516BytesTr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef range(i32 1, 6) i32 @_ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc(i32 noundef %i, ptr nocapture noundef writeonly initializes((0, 1)) %intBytes) local_unnamed_addr #12 align 2 {
+define noundef range(i32 1, 6) i32 @_ZN6icu_7516BytesTrieBuilder19internalEncodeDeltaEiPc(i32 noundef %i, ptr nocapture noundef writeonly %intBytes) local_unnamed_addr #12 align 2 {
 entry:
   %cmp = icmp slt i32 %i, 192
   br i1 %cmp, label %if.then, label %if.end

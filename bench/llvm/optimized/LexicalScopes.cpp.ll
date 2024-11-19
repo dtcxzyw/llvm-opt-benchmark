@@ -84,7 +84,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZSt19piecewise_construct = linkonce_odr constant %"struct.std::piecewise_construct_t" zeroinitializer, comdat, align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13LexicalScopes5resetEv(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8), (224, 232)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13LexicalScopes5resetEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr null, ptr %2, align 8
@@ -316,7 +316,7 @@ _ZNSt10unique_ptrIN4llvm11SmallPtrSetIPKNS0_17MachineBasicBlockELj4EEESt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13LexicalScopes10initializeERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8), (224, 232)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13LexicalScopes10initializeERKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::SmallVector.116", align 8
   %4 = alloca %"class.llvm::DenseMap.121", align 8
   tail call void @_ZN4llvm13LexicalScopes5resetEv(ptr noundef nonnull align 8 dereferenceable(256) %0)

@@ -2777,7 +2777,7 @@ define dso_local ptr @make_pathkeys_for_sortclauses(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @make_pathkeys_for_sortclauses_extended(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly initializes((0, 1)) %4) local_unnamed_addr #0 {
+define dso_local ptr @make_pathkeys_for_sortclauses_extended(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i16, align 2
@@ -2909,7 +2909,7 @@ declare ptr @get_sortgroupclause_expr(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @list_delete_nth_cell(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @initialize_mergeclause_eclasses(ptr noundef %0, ptr nocapture noundef initializes((152, 168)) %1) local_unnamed_addr #0 {
+define dso_local void @initialize_mergeclause_eclasses(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 8

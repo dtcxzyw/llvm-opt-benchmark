@@ -226,7 +226,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214SlotCacheEntryC2ERKNS_8NGHolderERKNS_9CharReachEjbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) initializes((0, 45), (48, 52)) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix_in, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %escapes_in, i32 noundef %parent_in, i1 noundef zeroext %is_reset_in, i32 noundef %slot_in) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214SlotCacheEntryC2ERKNS_8NGHolderERKNS_9CharReachEjbj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(52) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix_in, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %escapes_in, i32 noundef %parent_in, i1 noundef zeroext %is_reset_in, i32 noundef %slot_in) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit:
   %ref.tmp = alloca %"class.std::unique_ptr.2", align 8
   %frombool = zext i1 %is_reset_in to i8
@@ -401,7 +401,7 @@ _ZN3ue214SlotCacheEntryD2Ev.exit6:                ; preds = %invoke.cont, %_ZNKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue214SomSlotManagerC2Eh(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 4), (8, 96)) %this, i8 noundef zeroext %p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue214SomSlotManagerC2Eh(ptr noundef nonnull align 8 dereferenceable(104) %this, i8 noundef zeroext %p) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 0, ptr %this, align 8
   %cache = getelementptr inbounds i8, ptr %this, i64 8
@@ -655,7 +655,7 @@ return:                                           ; preds = %do.end10, %do.end8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3ue214SomSlotManager22getInitialResetSomSlotERKNS_8NGHolderES3_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEEjPb(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %region_map, i32 noundef %last_sent_region, ptr nocapture noundef writeonly initializes((0, 1)) %prefix_already_implemented) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN3ue214SomSlotManager22getInitialResetSomSlotERKNS_8NGHolderES3_RKSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS1_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEjSt4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_jEEEjPb(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(136) %prefix, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr noundef nonnull align 8 dereferenceable(56) %region_map, i32 noundef %last_sent_region, ptr nocapture noundef writeonly %prefix_already_implemented) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %last_sent_region.addr = alloca i32, align 4
@@ -1843,7 +1843,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3ue214SomSlotManager13rollbackSomToEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 4)) %this, i32 noundef %num) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN3ue214SomSlotManager13rollbackSomToEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %this, i32 noundef %num) local_unnamed_addr #7 align 2 {
 entry:
   store i32 %num, ptr %this, align 8
   ret void

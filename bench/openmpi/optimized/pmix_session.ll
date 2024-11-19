@@ -307,7 +307,7 @@ declare void @pmix_class_initialize(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_cond_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @myinfocbfunc(i32 noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef initializes((0, 4)) %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal void @myinfocbfunc(i32 noundef %0, ptr nocapture readnone %1, i64 %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   store i32 %0, ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 128
   %8 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %7) #9

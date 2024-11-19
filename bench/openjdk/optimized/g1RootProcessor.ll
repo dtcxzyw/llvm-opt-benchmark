@@ -359,7 +359,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN15G1RootProcessorC1EP15G1CollectedHeapj = hidden unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN15G1RootProcessorC2EP15G1CollectedHeapj
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15G1RootProcessorC2EP15G1CollectedHeapj(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15G1RootProcessorC2EP15G1CollectedHeapj(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN12SubTasksDoneC1Ej(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 3) #10

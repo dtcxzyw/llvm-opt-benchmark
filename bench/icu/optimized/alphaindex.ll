@@ -59,7 +59,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7515AlphabeticIndex6BucketD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7515AlphabeticIndex6BucketD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7510BucketListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7510BucketListD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510BucketListE, i64 16), ptr %this, align 8
   %bucketList_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -111,7 +111,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515AlphabeticIndex14ImmutableIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7515AlphabeticIndex14ImmutableIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndex14ImmutableIndexE, i64 16), ptr %this, align 8
   %buckets_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -240,7 +240,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515AlphabeticIndexC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 36), (40, 90), (144, 154), (208, 218), (272, 282), (336, 346)) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515AlphabeticIndexC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndexE, i64 16), ptr %this, align 8
   %inputList_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -475,7 +475,7 @@ if.end73:                                         ; preds = %if.then65, %if.end4
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515AlphabeticIndexC2EPNS_17RuleBasedCollatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 36), (40, 90), (144, 154), (208, 218), (272, 282), (336, 346)) %this, ptr noundef %collator, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515AlphabeticIndexC2EPNS_17RuleBasedCollatorER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef %collator, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndexE, i64 16), ptr %this, align 8
   %inputList_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -533,7 +533,7 @@ lpad10:                                           ; preds = %invoke.cont9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515AlphabeticIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7515AlphabeticIndexD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndexE, i64 16), ptr %this, align 8
   %collator_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -3102,7 +3102,7 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_ii(ptr noundef nonnull align 8 de
 declare noundef i32 @_ZNK6icu_7517RuleBasedCollator7compareERKNS_13UnicodeStringES3_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515AlphabeticIndex9separatedERKNS_13UnicodeStringE(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %item) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515AlphabeticIndex9separatedERKNS_13UnicodeStringE(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %item) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %srcChar.addr.i = alloca i16, align 2
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
@@ -3296,7 +3296,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7515AlphabeticIndex27internalResetBucketIteratorEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((16, 20), (24, 32)) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN6icu_7515AlphabeticIndex27internalResetBucketIteratorEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) %this) local_unnamed_addr #6 align 2 {
 entry:
   %labelsIterIndex_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 -1, ptr %labelsIterIndex_, align 8
@@ -4395,7 +4395,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(400) ptr @_ZN6icu_7515AlphabeticIndex19resetRecordIteratorEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(400) initializes((20, 24)) %this) unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(400) ptr @_ZN6icu_7515AlphabeticIndex19resetRecordIteratorEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(400) %this) unnamed_addr #6 align 2 {
 entry:
   %itemsIterIndex_ = getelementptr inbounds i8, ptr %this, i64 20
   store i32 -1, ptr %itemsIterIndex_, align 4
@@ -4403,7 +4403,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515AlphabeticIndex6BucketC2ERKNS_13UnicodeStringES4_25UAlphabeticIndexLabelType(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %label, ptr noundef nonnull align 8 dereferenceable(64) %lowerBoundary, i32 noundef %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515AlphabeticIndex6BucketC2ERKNS_13UnicodeStringES4_25UAlphabeticIndexLabelType(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(64) %label, ptr noundef nonnull align 8 dereferenceable(64) %lowerBoundary, i32 noundef %type) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndex6BucketE, i64 16), ptr %this, align 8
   %label_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4444,7 +4444,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515AlphabeticIndex6BucketD2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7515AlphabeticIndex6BucketD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515AlphabeticIndex6BucketE, i64 16), ptr %this, align 8
   %records_ = getelementptr inbounds i8, ptr %this, i64 160

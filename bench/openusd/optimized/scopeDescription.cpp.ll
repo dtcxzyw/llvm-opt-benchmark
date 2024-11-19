@@ -79,7 +79,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @_ZN32pxrInternal_v0_24__pxrReserved__34Tf_ScopeDescriptionStackReportLockD1Ev = unnamed_addr alias void (ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__34Tf_ScopeDescriptionStackReportLockD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TfScopeDescriptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TfCallContextE(ptr noundef nonnull align 8 dereferenceable(104) initializes((32, 33), (40, 88)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TfScopeDescriptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_13TfCallContextE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -278,7 +278,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__18TfScopeDescriptionC2EPKcRKNS_13TfCallContextE(ptr noundef nonnull align 8 dereferenceable(104) initializes((32, 33), (40, 88)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__18TfScopeDescriptionC2EPKcRKNS_13TfCallContextE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(33) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -652,14 +652,14 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSESt9nullop
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33TfGetCurrentScopeDescriptionStackB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0) local_unnamed_addr #0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33TfGetCurrentScopeDescriptionStackB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #0 {
   %2 = tail call i64 @_ZN32pxrInternal_v0_24__pxrReserved__19ArchGetMainThreadIdEv()
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetScopeDescriptionStackB5cxx11ENSt6thread2idE(ptr dead_on_unwind noalias writable align 8 %0, i64 %2)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetScopeDescriptionStackB5cxx11ENSt6thread2idE(ptr dead_on_unwind noalias writable align 8 initializes((0, 24)) %0, i64 %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetScopeDescriptionStackB5cxx11ENSt6thread2idE(ptr dead_on_unwind noalias writable align 8 %0, i64 %1) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_111GetRegistryEvE11theRegistry acquire, align 8
@@ -954,7 +954,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_StackRegistry9StackLockD2E
 declare i64 @_ZN32pxrInternal_v0_24__pxrReserved__19ArchGetMainThreadIdEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__36TfGetThisThreadScopeDescriptionStackB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__36TfGetThisThreadScopeDescriptionStackB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = tail call i64 @pthread_self() #23
   tail call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__L25_GetScopeDescriptionStackB5cxx11ENSt6thread2idE(ptr dead_on_unwind noalias writable align 8 %0, i64 %2)
   ret void

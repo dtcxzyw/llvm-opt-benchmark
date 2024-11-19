@@ -63,7 +63,7 @@ define dso_local void @onig_region_clear(ptr nocapture noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define dso_local range(i32 -5, 1) i32 @onig_region_resize(ptr nocapture noundef initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local range(i32 -5, 1) i32 @onig_region_resize(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 4)
@@ -187,7 +187,7 @@ define dso_local range(i32 -30, 1) i32 @onig_region_set(ptr nocapture noundef %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @onig_region_init(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #6 {
+define dso_local void @onig_region_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -15336,7 +15336,7 @@ define dso_local noundef i32 @onig_number_of_capture_histories(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @onig_copy_encoding(ptr nocapture noundef writeonly initializes((0, 136)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #14 {
+define dso_local void @onig_copy_encoding(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #14 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 136, i1 false)
   ret void
 }

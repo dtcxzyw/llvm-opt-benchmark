@@ -328,7 +328,7 @@ define hidden i64 @timelib_date_to_int(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @timelib_decimal_hour_to_hms(double noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #8 {
+define hidden void @timelib_decimal_hour_to_hms(double noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #8 {
   %5 = fcmp olt double %0, 0.000000e+00
   %6 = tail call double @llvm.fabs.f64(double %0)
   %.0 = select i1 %5, double %6, double %0
@@ -363,7 +363,7 @@ declare double @llvm.fabs.f64(double) #9
 declare double @llvm.floor.f64(double) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @timelib_hms_to_decimal_hour(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #10 {
+define hidden void @timelib_hms_to_decimal_hour(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #10 {
   %5 = icmp sgt i32 %0, -1
   %6 = sitofp i32 %1 to double
   %7 = fdiv double %6, 6.000000e+01
@@ -390,7 +390,7 @@ define hidden void @timelib_hms_to_decimal_hour(i32 noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @timelib_hmsf_to_decimal_hour(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4) local_unnamed_addr #10 {
+define hidden void @timelib_hmsf_to_decimal_hour(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #10 {
   %6 = icmp sgt i32 %0, -1
   %7 = sitofp i32 %1 to double
   %8 = fdiv double %7, 6.000000e+01

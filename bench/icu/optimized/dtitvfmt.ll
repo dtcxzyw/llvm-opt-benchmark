@@ -575,7 +575,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7521FormattedDateIntervalC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #8 align 2 {
+define void @_ZN6icu_7521FormattedDateIntervalC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521FormattedDateIntervalE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 8
@@ -592,7 +592,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7521FormattedDateIntervalD2Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7521FormattedDateIntervalD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7521FormattedDateIntervalE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 8
@@ -625,7 +625,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_7521FormattedDateIntervalaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(20) initializes((16, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_7521FormattedDateIntervalaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
 entry:
   %fData = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
@@ -1466,7 +1466,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 8 dereferenceable(217)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518DateIntervalFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(1900) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7518DateIntervalFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(1900) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518DateIntervalFormatE, i64 16), ptr %this, align 8
   %fInfo = getelementptr inbounds i8, ptr %this, i64 328

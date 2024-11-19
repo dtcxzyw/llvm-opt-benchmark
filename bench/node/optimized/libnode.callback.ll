@@ -87,7 +87,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13CallbackScopeC2EPN2v87IsolateENS1_5LocalINS1_6ObjectEEENS_13async_contextE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr noundef nonnull %isolate, ptr %object.coerce, double %async_context.coerce0, double %async_context.coerce1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node13CallbackScopeC2EPN2v87IsolateENS1_5LocalINS1_6ObjectEEENS_13async_contextE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull %isolate, ptr %object.coerce, double %async_context.coerce0, double %async_context.coerce1) unnamed_addr #3 align 2 {
 entry:
   %asyncContext.i = alloca %"struct.node::async_context", align 8
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
@@ -154,7 +154,7 @@ _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %entry, %_ZN4no
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node13CallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS_13async_contextE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr noundef %env, ptr %object.coerce, double %asyncContext.coerce0, double %asyncContext.coerce1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node13CallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS_13async_contextE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %env, ptr %object.coerce, double %asyncContext.coerce0, double %asyncContext.coerce1) unnamed_addr #3 align 2 {
 entry:
   %asyncContext = alloca %"struct.node::async_context", align 8
   store double %asyncContext.coerce0, ptr %asyncContext, align 8
@@ -220,7 +220,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 declare void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node21InternalCallbackScopeC2EPNS_9AsyncWrapEi(ptr nocapture noundef nonnull align 8 dereferenceable(37) initializes((0, 37)) %this, ptr nocapture noundef readonly %async_wrap, i32 noundef %flags) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node21InternalCallbackScopeC2EPNS_9AsyncWrapEi(ptr nocapture noundef nonnull align 8 dereferenceable(37) %this, ptr nocapture noundef readonly %async_wrap, i32 noundef %flags) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.node::async_context", align 8
   %realm_.i = getelementptr inbounds i8, ptr %async_wrap, i64 16
@@ -260,7 +260,7 @@ _ZNK4node10BaseObject6objectEv.exit:              ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node21InternalCallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS_13async_contextEi(ptr nocapture noundef nonnull align 8 dereferenceable(37) initializes((0, 37)) %this, ptr noundef %env, ptr %object.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %asyncContext, i32 noundef %flags) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node21InternalCallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS_13async_contextEi(ptr nocapture noundef nonnull align 8 dereferenceable(37) %this, ptr noundef %env, ptr %object.coerce, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %asyncContext, i32 noundef %flags) unnamed_addr #3 align 2 {
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   %handle_scope = alloca %"class.v8::HandleScope", align 8

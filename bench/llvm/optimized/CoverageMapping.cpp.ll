@@ -7257,7 +7257,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %._crit_edge, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefISt10unique_ptrINS0_21CoverageMappingReaderESt14default_deleteIS4_EEEERNS_22IndexedInstrProfReaderE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.243") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(484) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8coverage15CoverageMapping4loadENS_8ArrayRefISt10unique_ptrINS0_21CoverageMappingReaderESt14default_deleteIS4_EEEERNS_22IndexedInstrProfReaderE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.243") align 8 %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(484) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Error", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #26
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %6, i8 0, i64 96, i1 false)
@@ -8991,7 +8991,7 @@ _ZN4llvm11SmallStringILj16EED2Ev.exit:            ; preds = %4, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm8coverage15CoverageMapping20getUniqueSourceFilesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.356") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm8coverage15CoverageMapping20getUniqueSourceFilesEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.356") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) local_unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !noalias !277
@@ -10020,7 +10020,7 @@ _ZNSt6vectorIN4llvm8coverage13CountedRegionESaIS2_EED2Ev.exit: ; preds = %_ZNSt6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_114SegmentBuilder13buildSegmentsEN4llvm15MutableArrayRefINS1_8coverage13CountedRegionEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair.395", align 8
   %.sroa.0.i.i.i.i.i.i.i.i = alloca { %"struct.llvm::coverage::Counter", %"struct.llvm::coverage::Counter", %"class.std::variant", i32, i32 }, align 8
   %.sroa.5.i.i.i.i.i.i.i.i = alloca <{ i64, i64, i8, i8, [6 x i8] }>, align 8
@@ -11882,7 +11882,7 @@ _ZNSt6vectorIN4llvm8coverage13CountedRegionESaIS2_EED2Ev.exit: ; preds = %_ZNSt6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm8coverage17LineCoverageStatsC2ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_j(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 10), (12, 40)) %0, ptr %1, i64 %2, ptr noundef %3, i32 noundef %4) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm8coverage17LineCoverageStatsC2ENS_8ArrayRefIPKNS0_15CoverageSegmentEEES5_j(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr %1, i64 %2, ptr noundef %3, i32 noundef %4) unnamed_addr #6 align 2 {
   store i64 0, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %6, align 8

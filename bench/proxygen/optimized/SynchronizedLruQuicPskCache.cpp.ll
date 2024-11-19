@@ -283,7 +283,7 @@ $_ZZN5folly3f146detail8F14ChunkIjE6setTagEmmE30__folly_detail_safe_assert_arg_0 
 @_ZN8proxygen27SynchronizedLruQuicPskCacheC1Em = unnamed_addr alias void (ptr, i64), ptr @_ZN8proxygen27SynchronizedLruQuicPskCacheC2Em
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen27SynchronizedLruQuicPskCacheC2Em(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this, i64 noundef %mapMax) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen27SynchronizedLruQuicPskCacheC2Em(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %mapMax) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.folly::EvictingCacheMap", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8proxygen27SynchronizedLruQuicPskCacheE, i64 16), ptr %this, align 8

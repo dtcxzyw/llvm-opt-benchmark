@@ -321,7 +321,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @llvm.trap() #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingToneLinearFwdOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingToneLinearFwdOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -402,7 +402,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPUD2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingToneLinearFwdOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingToneLinearFwdOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -809,7 +809,7 @@ eh.resume:                                        ; preds = %lpad6, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUC2ERSt10shared_ptrIKNS_17GradingToneOpDataEE(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 28)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUC2ERSt10shared_ptrIKNS_17GradingToneOpDataEE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %gt) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9 = alloca %"class.std::shared_ptr.8", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUE, i64 16), ptr %this, align 8
@@ -1094,7 +1094,7 @@ if.end:                                           ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1175,7 +1175,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUD2Ev.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneFwdOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1426,7 +1426,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImplELN9__
 declare void @_ZNK19OpenColorIO_v2_4dev30DynamicPropertyGradingToneImpl18createEditableCopyEv(ptr sret(%"class.std::shared_ptr.8") align 8, ptr noundef nonnull align 8 dereferenceable(1208)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2598,7 +2598,7 @@ declare noundef float @_ZN19OpenColorIO_v2_4dev15GetChannelValueERKNS_13GradingR
 declare float @llvm.fmuladd.f32(float, float, float) #18
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112ComputeHSFwdINS0_6float3EEEvNS_11RGBMChannelEPfffffffffRT_(ptr nocapture noundef writeonly initializes((0, 12)) %out, float noundef %x0, float noundef %x1, float noundef %x2, float noundef %y0, float noundef %y1, float noundef %y2, float noundef %m0, float noundef %m2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %t) unnamed_addr #17 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112ComputeHSFwdINS0_6float3EEEvNS_11RGBMChannelEPfffffffffRT_(ptr nocapture noundef writeonly %out, float noundef %x0, float noundef %x1, float noundef %x2, float noundef %y0, float noundef %y1, float noundef %y2, float noundef %m0, float noundef %m2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %t) unnamed_addr #17 {
 entry:
   %res.sroa.7.0.t.sroa_idx = getelementptr inbounds i8, ptr %t, i64 4
   %res.sroa.13.0.t.sroa_idx = getelementptr inbounds i8, ptr %t, i64 8
@@ -2730,7 +2730,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112ComputeHSRevINS0_6float3EEEvNS_11RGBMChannelEPfffffffffRT_(ptr nocapture noundef writeonly initializes((0, 12)) %out, float noundef %x0, float noundef %x1, float noundef %x2, float noundef %y0, float noundef %y1, float noundef %y2, float noundef %m0, float noundef %m2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %t) unnamed_addr #19 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_112ComputeHSRevINS0_6float3EEEvNS_11RGBMChannelEPfffffffffRT_(ptr nocapture noundef writeonly %out, float noundef %x0, float noundef %x1, float noundef %x2, float noundef %y0, float noundef %y1, float noundef %y2, float noundef %m0, float noundef %m2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %t) unnamed_addr #19 {
 entry:
   %res.sroa.7.0.t.sroa_idx = getelementptr inbounds i8, ptr %t, i64 4
   %res.sroa.13.0.t.sroa_idx = getelementptr inbounds i8, ptr %t, i64 8
@@ -2991,7 +2991,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingToneLinearRevOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingToneLinearRevOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3072,7 +3072,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPUD2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingToneLinearRevOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_125GradingToneLinearRevOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3372,7 +3372,7 @@ for.end:                                          ; preds = %for.body, %if.end4,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPUD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3453,7 +3453,7 @@ _ZN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUD2Ev.exit: ; preds = %en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_119GradingToneRevOpCPUD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev12_GLOBAL__N_116GradingToneOpCPUE, i64 16), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16

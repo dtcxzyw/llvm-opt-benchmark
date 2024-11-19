@@ -164,7 +164,7 @@ $_ZGVZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEvE7NoneLoc = comdat
 @_ZTVN12_GLOBAL__N_19ASTViewerE = internal unnamed_addr constant { [23 x ptr] } { [23 x ptr] [ptr null, ptr null, ptr @_ZN12_GLOBAL__N_19ASTViewerD2Ev, ptr @_ZN12_GLOBAL__N_19ASTViewerD0Ev, ptr @_ZN12_GLOBAL__N_19ASTViewer10InitializeERN5clang10ASTContextE, ptr @_ZN12_GLOBAL__N_19ASTViewer18HandleTopLevelDeclEN5clang12DeclGroupRefE, ptr @_ZN5clang11ASTConsumer30HandleInlineFunctionDefinitionEPNS_12FunctionDeclE, ptr @_ZN5clang11ASTConsumer21HandleInterestingDeclENS_12DeclGroupRefE, ptr @_ZN5clang11ASTConsumer21HandleTranslationUnitERNS_10ASTContextE, ptr @_ZN5clang11ASTConsumer23HandleTagDeclDefinitionEPNS_7TagDeclE, ptr @_ZN5clang11ASTConsumer31HandleTagDeclRequiredDefinitionEPKNS_7TagDeclE, ptr @_ZN5clang11ASTConsumer38HandleCXXImplicitFunctionInstantiationEPNS_12FunctionDeclE, ptr @_ZN5clang11ASTConsumer33HandleTopLevelDeclInObjCContainerENS_12DeclGroupRefE, ptr @_ZN5clang11ASTConsumer24HandleImplicitImportDeclEPNS_10ImportDeclE, ptr @_ZN5clang11ASTConsumer27CompleteTentativeDefinitionEPNS_7VarDeclE, ptr @_ZN5clang11ASTConsumer27CompleteExternalDeclarationEPNS_14DeclaratorDeclE, ptr @_ZN5clang11ASTConsumer22AssignInheritanceModelEPNS_13CXXRecordDeclE, ptr @_ZN5clang11ASTConsumer37HandleCXXStaticMemberVarInstantiationEPNS_7VarDeclE, ptr @_ZN5clang11ASTConsumer12HandleVTableEPNS_13CXXRecordDeclE, ptr @_ZN5clang11ASTConsumer22GetASTMutationListenerEv, ptr @_ZN5clang11ASTConsumer29GetASTDeserializationListenerEv, ptr @_ZN5clang11ASTConsumer10PrintStatsEv, ptr @_ZN5clang11ASTConsumer22shouldSkipFunctionBodyEPNS_4DeclE] }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang16CreateASTPrinterESt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS2_EENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang16CreateASTPrinterESt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS2_EENS1_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17, !noalias !4
@@ -215,7 +215,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_110ASTPrinterESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15CreateASTDumperESt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS2_EENS1_9StringRefEbbbbNS_19ASTDumpOutputFormatE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef %1, ptr %2, i64 %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang15CreateASTDumperESt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS2_EENS1_9StringRefEbbbbNS_19ASTDumpOutputFormatE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef %1, ptr %2, i64 %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %11 = alloca %"class.std::allocator", align 1
   %12 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #17, !noalias !7
@@ -270,7 +270,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_110ASTPrinterESt14default_deleteIS1_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang23CreateASTDeclNodeListerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang23CreateASTDeclNodeListerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_117ASTDeclNodeListerESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !10
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -284,7 +284,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_117ASTDeclNodeListerESt14default_deleteIS1_EED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15CreateASTViewerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang15CreateASTViewerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0) local_unnamed_addr #0 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_19ASTViewerESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #17, !noalias !13
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %1, i8 0, i64 16, i1 false), !noalias !13
@@ -310,7 +310,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_110ASTPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(74) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_110ASTPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(74) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_110ASTPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
@@ -332,7 +332,7 @@ _ZNSt10unique_ptrIN4llvm11raw_ostreamESt14default_deleteIS1_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_110ASTPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(74) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_110ASTPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(74) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTVN12_GLOBAL__N_110ASTPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
@@ -83058,7 +83058,7 @@ define internal void @_ZN12_GLOBAL__N_19ASTViewerD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN12_GLOBAL__N_19ASTViewer10InitializeERN5clang10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #13 align 2 {
+define internal void @_ZN12_GLOBAL__N_19ASTViewer10InitializeERN5clang10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void

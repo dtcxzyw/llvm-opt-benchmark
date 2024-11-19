@@ -3488,7 +3488,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15AbcdAtmVolCurve11interpolateEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) initializes((336, 344)) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15AbcdAtmVolCurve11interpolateEv(ptr nocapture noundef nonnull align 8 dereferenceable(352) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.30", align 8
   %ref.tmp2 = alloca %"class.__gnu_cxx::__normal_iterator.37", align 8
@@ -3752,7 +3752,7 @@ _ZNSt12_Vector_baseIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15AbcdAtmVolCurveC1EjRKNS_8CalendarERKSt6vectorINS_6PeriodESaIS5_EERKS4_INS_6HandleINS_5QuoteEEESaISC_EES4_IbSaIbEENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(352) initializes((352, 360), (368, 372), (376, 384)) %this, i32 noundef %settlDays, ptr noundef nonnull align 8 dereferenceable(16) %cal, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volsHandles, ptr nocapture noundef %inclusionInInterpolationFlag, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15AbcdAtmVolCurveC1EjRKNS_8CalendarERKSt6vectorINS_6PeriodESaIS5_EERKS4_INS_6HandleINS_5QuoteEEESaISC_EES4_IbSaIbEENS_21BusinessDayConventionERKNS_10DayCounterE(ptr noundef nonnull align 8 dereferenceable(352) %this, i32 noundef %settlDays, ptr noundef nonnull align 8 dereferenceable(16) %cal, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %optionTenors, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %volsHandles, ptr nocapture noundef %inclusionInInterpolationFlag, i32 noundef %bdc, ptr noundef nonnull align 8 dereferenceable(16) %dc) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.13", align 1
   %0 = getelementptr inbounds i8, ptr %this, i64 352

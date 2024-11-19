@@ -1233,7 +1233,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @base_stats_get(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef writeonly initializes((0, 8)) %allocated, ptr nocapture noundef writeonly initializes((0, 8)) %resident, ptr nocapture noundef writeonly initializes((0, 8)) %mapped, ptr nocapture noundef writeonly initializes((0, 8)) %n_thp) local_unnamed_addr #1 {
+define hidden void @base_stats_get(ptr noundef %tsdn, ptr noundef %base, ptr nocapture noundef writeonly %allocated, ptr nocapture noundef writeonly %resident, ptr nocapture noundef writeonly %mapped, ptr nocapture noundef writeonly %n_thp) local_unnamed_addr #1 {
 entry:
   %lock.i.i = getelementptr inbounds i8, ptr %base, i64 96
   %call.i.i = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %lock.i.i) #9

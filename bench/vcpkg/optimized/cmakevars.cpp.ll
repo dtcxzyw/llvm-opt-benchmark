@@ -422,7 +422,7 @@ _ZNR5vcpkg8OptionalIRKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_trai
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg9CMakeVars31make_triplet_cmake_var_providerERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(400) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg9CMakeVars31make_triplet_cmake_var_providerERKNS_10VcpkgPathsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderESt14default_deleteIS3_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(184) ptr @_Znwm(i64 noundef 184) #19, !noalias !5
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderE, i64 16), ptr %2, align 8, !noalias !5
@@ -491,7 +491,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @_ZNSt10_HashtableIN5vcpkg7TripletESt4pairIKS1_St13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaIS2_IKSA_SA_EEEESaISJ_ENSt8__detail10_Select1stESD_IS1_ESB_IS1_ENSL_18_Mod_range_hashingENSL_20_Default_ranged_hashENSL_20_Prime_rehash_policyENSL_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %2) #20
@@ -569,7 +569,7 @@ _ZNSt13unordered_mapIN5vcpkg11PackageSpecES_INSt7__cxx1112basic_stringIcSt11char
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #8 align 2 {
+define internal void @_ZN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #8 align 2 {
   tail call void @_ZN5vcpkg9CMakeVars12_GLOBAL__N_123TripletCMakeVarProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void

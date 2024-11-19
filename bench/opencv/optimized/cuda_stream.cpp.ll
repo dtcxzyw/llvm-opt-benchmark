@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN2cv4cuda5EventC1ENS1_11CreateFlagsE = unnamed_addr alias void (ptr, i32), ptr @_ZN2cv4cuda5EventC2ENS1_11CreateFlagsE
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda6StreamC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4cuda6StreamC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   invoke fastcc void @_ZL13throw_no_cudav() #6
           to label %2 unwind label %3
@@ -149,7 +149,7 @@ define internal fastcc void @_ZL13throw_no_cudav() unnamed_addr #0 personality p
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda6StreamC2ERKNS_3PtrINS0_6GpuMat9AllocatorEEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4cuda6StreamC2ERKNS_3PtrINS0_6GpuMat9AllocatorEEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   invoke fastcc void @_ZL13throw_no_cudav() #6
           to label %3 unwind label %4
@@ -238,7 +238,7 @@ _ZN2cv3PtrINS_4cuda6Stream4ImplEED2Ev.exit:       ; preds = %4, %24, %37, %_ZNSt
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda6StreamC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i64 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4cuda6StreamC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i64 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   invoke fastcc void @_ZL13throw_no_cudav() #6
           to label %3 unwind label %4
@@ -385,7 +385,7 @@ define void @_ZN2cv4cuda19setBufferPoolConfigEimi(i32 noundef %0, i64 noundef %1
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda10BufferPoolC2ERNS0_6StreamE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4cuda10BufferPoolC2ERNS0_6StreamE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   invoke fastcc void @_ZL13throw_no_cudav() #6
           to label %3 unwind label %4
@@ -480,7 +480,7 @@ define void @_ZN2cv4cuda10BufferPool9getBufferEiii(ptr dead_on_unwind noalias no
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define void @_ZN2cv4cuda5EventC2ENS1_11CreateFlagsE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i32 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4cuda5EventC2ENS1_11CreateFlagsE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   invoke fastcc void @_ZL13throw_no_cudav() #6
           to label %3 unwind label %4

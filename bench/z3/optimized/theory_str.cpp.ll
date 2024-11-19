@@ -3175,7 +3175,7 @@ _ZN10scoped_ptrI11expr_solverED2Ev.exit:          ; preds = %_ZN10scoped_ptrI15b
 declare void @_ZN3smt6theoryD2Ev(ptr noundef nonnull align 8 dereferenceable(53)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt10theory_strD2Ev(ptr noundef nonnull align 8 dereferenceable(1800) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt10theory_strD2Ev(ptr noundef nonnull align 8 dereferenceable(1800) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt10theory_strE, i64 16), ptr %this, align 8
   %m_trail_stack = getelementptr inbounds i8, ptr %this, i64 1352
@@ -5492,7 +5492,7 @@ return:                                           ; preds = %entry, %_ZN10ref_ve
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt10theory_strD0Ev(ptr noundef nonnull align 8 dereferenceable(1800) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN3smt10theory_strD0Ev(ptr noundef nonnull align 8 dereferenceable(1800) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN3smt10theory_strD2Ev(ptr noundef nonnull align 8 dereferenceable(1800) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -125311,7 +125311,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZNK6symbol3strB5cxx11Ev(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt10theory_str10init_modelERNS_15model_generatorE(ptr nocapture noundef nonnull align 8 dereferenceable(1800) initializes((256, 264)) %this, ptr noundef nonnull align 8 dereferenceable(104) %mg) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt10theory_str10init_modelERNS_15model_generatorE(ptr nocapture noundef nonnull align 8 dereferenceable(1800) %this, ptr noundef nonnull align 8 dereferenceable(104) %mg) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 224)
   %m.i = getelementptr inbounds i8, ptr %this, i64 24

@@ -560,7 +560,7 @@ define noundef zeroext i1 @_ZNK4LIEF3DEX6Method10is_virtualEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF3DEX6Method11set_virtualEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) initializes((64, 65)) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
+define void @_ZN4LIEF3DEX6Method11set_virtualEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(176) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 %3, ptr %4, align 8
@@ -577,7 +577,7 @@ define noundef zeroext i1 @_ZNK4LIEF3DEX6Method3hasENS0_12ACCESS_FLAGSE(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF3DEX6Method12access_flagsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.8") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF3DEX6Method12access_flagsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.8") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1169,7 +1169,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZSt3decRS
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF3DEX6MethodD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF3DEX6MethodD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF3DEX6MethodE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 136

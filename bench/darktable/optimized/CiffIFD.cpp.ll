@@ -493,7 +493,7 @@ define hidden void @_ZN8rawspeed7CiffIFD3addESt10unique_ptrINS_9CiffEntryESt14de
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed7CiffIFDC2EPS0_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 32), (40, 44), (48, 56)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed7CiffIFDC2EPS0_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8, !tbaa !55
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -740,7 +740,7 @@ define linkonce_odr hidden void @_ZNSt6vectorISt10unique_ptrIKN8rawspeed7CiffIFD
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8rawspeed7CiffIFDC2EPS0_NS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 32), (40, 44), (48, 56)) %0, ptr noundef %1, ptr nocapture noundef byval(%"class.rawspeed::ByteStream") align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8rawspeed7CiffIFDC2EPS0_NS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr nocapture noundef byval(%"class.rawspeed::ByteStream") align 8 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.rawspeed::ByteStream", align 8
   %5 = alloca %"class.rawspeed::NORangesSet", align 8
   %6 = alloca %"class.rawspeed::ByteStream", align 8
@@ -1107,13 +1107,13 @@ define linkonce_odr hidden void @_ZNSt10unique_ptrIKN8rawspeed7CiffIFDESt14defau
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite) uwtable
-define hidden void @_ZNK8rawspeed7CiffIFD14getIFDsWithTagENS_7CiffTagE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.36") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
+define hidden void @_ZNK8rawspeed7CiffIFD14getIFDsWithTagENS_7CiffTagE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.36") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
   tail call fastcc void @"_ZNK8rawspeed7CiffIFD16getIFDsWithTagIfIZNKS0_14getIFDsWithTagENS_7CiffTagEE3$_0EESt6vectorIPKS0_SaIS6_EES2_RKT_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) #34
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal fastcc void @"_ZNK8rawspeed7CiffIFD16getIFDsWithTagIfIZNKS0_14getIFDsWithTagENS_7CiffTagEE3$_0EESt6vectorIPKS0_SaIS6_EES2_RKT_"(ptr dead_on_unwind noalias writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK8rawspeed7CiffIFD16getIFDsWithTagIfIZNKS0_14getIFDsWithTagENS_7CiffTagEE3$_0EESt6vectorIPKS0_SaIS6_EES2_RKT_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.36", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %1, i64 48
@@ -1229,7 +1229,7 @@ define internal fastcc void @"_ZNK8rawspeed7CiffIFD16getIFDsWithTagIfIZNKS0_14ge
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite) uwtable
-define hidden void @_ZNK8rawspeed7CiffIFD19getIFDsWithTagWhereENS_7CiffTagEj(ptr dead_on_unwind noalias writable sret(%"class.std::vector.36") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZNK8rawspeed7CiffIFD19getIFDsWithTagWhereENS_7CiffTagEj(ptr dead_on_unwind noalias writable sret(%"class.std::vector.36") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = alloca i32, align 4
   %6 = alloca %class.anon.41, align 8
   store i32 %3, ptr %5, align 4, !tbaa !95
@@ -1241,7 +1241,7 @@ define hidden void @_ZNK8rawspeed7CiffIFD19getIFDsWithTagWhereENS_7CiffTagEj(ptr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal fastcc void @"_ZNK8rawspeed7CiffIFD16getIFDsWithTagIfIZNKS0_19getIFDsWithTagWhereENS_7CiffTagEjE3$_0EESt6vectorIPKS0_SaIS6_EES2_RKT_"(ptr dead_on_unwind noalias writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK8rawspeed7CiffIFD16getIFDsWithTagIfIZNKS0_19getIFDsWithTagWhereENS_7CiffTagEjE3$_0EESt6vectorIPKS0_SaIS6_EES2_RKT_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.36", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 48
@@ -1370,7 +1370,7 @@ define internal fastcc void @"_ZNK8rawspeed7CiffIFD16getIFDsWithTagIfIZNKS0_19ge
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite) uwtable
-define hidden void @_ZNK8rawspeed7CiffIFD19getIFDsWithTagWhereENS_7CiffTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.36") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #8 align 2 {
+define hidden void @_ZNK8rawspeed7CiffIFD19getIFDsWithTagWhereENS_7CiffTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.36") align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) local_unnamed_addr #8 align 2 {
   %5 = alloca %class.anon.42, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #29
   store ptr %3, ptr %5, align 8, !tbaa !34
@@ -1380,7 +1380,7 @@ define hidden void @_ZNK8rawspeed7CiffIFD19getIFDsWithTagWhereENS_7CiffTagERKNSt
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(read, argmem: readwrite) uwtable
-define internal fastcc void @"_ZNK8rawspeed7CiffIFD16getIFDsWithTagIfIZNKS0_19getIFDsWithTagWhereENS_7CiffTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EESt6vectorIPKS0_SaISE_EES2_RKT_"(ptr dead_on_unwind noalias writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNK8rawspeed7CiffIFD16getIFDsWithTagIfIZNKS0_19getIFDsWithTagWhereENS_7CiffTagERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EESt6vectorIPKS0_SaISE_EES2_RKT_"(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.36", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %1, i64 48

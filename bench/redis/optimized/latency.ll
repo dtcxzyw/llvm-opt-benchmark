@@ -300,7 +300,7 @@ declare i32 @dictDelete(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @dictReleaseIterator(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @analyzeLatencyForEvent(ptr noundef %event, ptr nocapture noundef initializes((0, 32)) %ls) local_unnamed_addr #2 {
+define dso_local void @analyzeLatencyForEvent(ptr noundef %event, ptr nocapture noundef %ls) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5360), align 8
   %call = tail call ptr @dictFetchValue(ptr noundef %0, ptr noundef %event) #14

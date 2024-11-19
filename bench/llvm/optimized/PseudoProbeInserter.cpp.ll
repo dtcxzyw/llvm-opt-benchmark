@@ -214,7 +214,7 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_119PseudoProbeInserter11getPassNa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119PseudoProbeInserter16doInitializationERN4llvm6ModuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((56, 57)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_119PseudoProbeInserter16doInitializationERN4llvm6ModuleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZNK4llvm6Module16getNamedMetadataENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(857) %1, ptr nonnull @.str.3, i64 22) #12
   %4 = icmp ne ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -239,7 +239,7 @@ declare void @_ZN4llvm4Pass18preparePassManagerERNS_7PMStackE(ptr noundef nonnul
 declare noundef i32 @_ZNK4llvm12FunctionPass27getPotentialPassManagerTypeEv(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_119PseudoProbeInserter16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_119PseudoProbeInserter16getAnalysisUsageERN4llvm13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   tail call void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) #12

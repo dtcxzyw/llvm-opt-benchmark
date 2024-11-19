@@ -266,7 +266,7 @@ declare i32 @H5E_clear_stack() local_unnamed_addr #1
 declare i32 @H5P_isa_class(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__family_get_default_config(ptr nocapture noundef nonnull initializes((0, 8)) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__family_get_default_config(ptr nocapture noundef nonnull %0) unnamed_addr #0 {
   store i64 104857600, ptr %0, align 8
   %2 = load i64, ptr @H5P_LST_FILE_ACCESS_ID_g, align 8
   %3 = tail call ptr @H5I_object(i64 noundef %2) #13
@@ -481,7 +481,7 @@ define internal noundef i64 @H5FD__family_sb_size(ptr nocapture readnone %0) #4 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5FD__family_sb_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 9)) %1, ptr nocapture noundef writeonly %2) #5 {
+define internal noundef i32 @H5FD__family_sb_encode(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #5 {
   store i64 7596835238254429006, ptr %1, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store i8 0, ptr %4, align 1

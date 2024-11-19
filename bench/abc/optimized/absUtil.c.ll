@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Gia_Obj_t_ = type <{ i64, i32 }>
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Abs_ParSetDefaults(ptr nocapture noundef writeonly initializes((0, 136)) %0) local_unnamed_addr #0 {
+define void @Abs_ParSetDefaults(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   store i32 4, ptr %2, align 8

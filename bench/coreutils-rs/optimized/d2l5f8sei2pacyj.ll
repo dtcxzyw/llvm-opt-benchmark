@@ -606,7 +606,7 @@ define internal fastcc void @"_ZN4core6option15Option$LT$T$GT$6map_or17hf678a624
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5679966457536db1E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h5679966457536db1E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = alloca { { i64, [2 x i64] }, i8, [7 x i8] }, align 8
   %5 = alloca [1 x { ptr, ptr }], align 8
@@ -982,7 +982,7 @@ default.unreachable37:                            ; preds = %27
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN9uu_numfmt10parse_unit17hd72c4fd38b10302eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 9)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZN9uu_numfmt10parse_unit17hd72c4fd38b10302eE(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   switch i64 %2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h18b1feba431eafedE.exit39.thread" [
     i64 4, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h18b1feba431eafedE.exit"
     i64 2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h18b1feba431eafedE.exit27"

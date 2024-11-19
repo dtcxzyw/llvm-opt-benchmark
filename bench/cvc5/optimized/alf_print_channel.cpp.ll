@@ -118,7 +118,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal5proof18AlfPrintChannelOutC2ERSoRKNS0_10LetBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(472) %lbind, ptr noundef nonnull align 8 dereferenceable(32) %tprefix) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal5proof18AlfPrintChannelOutC2ERSoRKNS0_10LetBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(472) %lbind, ptr noundef nonnull align 8 dereferenceable(32) %tprefix) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof18AlfPrintChannelOutE, i64 16), ptr %this, align 8
   %d_out = getelementptr inbounds i8, ptr %this, i64 8
@@ -1134,7 +1134,7 @@ declare void @_ZN4cvc58internal7options7ioutils19applyOutputLanguageERSt8ios_bas
 declare noundef ptr @_ZN4cvc58internal7Printer10getPrinterERSo(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal5proof18AlfPrintChannelPreC2ERNS0_10LetBindingE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(472) %lbind) unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal5proof18AlfPrintChannelPreC2ERNS0_10LetBindingE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(472) %lbind) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof18AlfPrintChannelPreE, i64 16), ptr %this, align 8
   %d_lbind = getelementptr inbounds i8, ptr %this, i64 8

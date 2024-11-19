@@ -216,7 +216,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.H5S__fill_in_new_space = private unnamed_addr constant [5 x i32] [i32 1, i32 2, i32 5, i32 4, i32 1], align 4
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5S__hyper_copy(ptr nocapture noundef initializes((360, 368)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 {
+define internal range(i32 -1, 1) i32 @H5S__hyper_copy(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 {
   %4 = tail call noalias ptr @H5FL_reg_malloc(ptr noundef nonnull @H5_H5S_hyper_sel_t_reg_free_list) #15
   %5 = getelementptr inbounds i8, ptr %0, i64 360
   store ptr %4, ptr %5, align 8
@@ -304,7 +304,7 @@ H5S__hyper_copy_span.exit:                        ; preds = %27, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5S__hyper_release(ptr nocapture noundef initializes((352, 360)) %0) #0 {
+define internal range(i32 -1, 1) i32 @H5S__hyper_release(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 360
@@ -2834,7 +2834,7 @@ define internal range(i32 -1, 1) i32 @H5S__hyper_bounds(ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5S__hyper_offset(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5S__hyper_offset(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca [32 x i64], align 16
   store i64 0, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -4661,7 +4661,7 @@ H5S__hyper_project_simple_higher.exit:            ; preds = %._crit_edge82.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5S__hyper_iter_init(ptr nocapture noundef readonly %0, ptr noundef initializes((1064, 1068)) %1) #0 {
+define internal range(i32 -1, 1) i32 @H5S__hyper_iter_init(ptr nocapture noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca [32 x %struct.H5S_hyper_dim_t], align 16
   %4 = getelementptr inbounds i8, ptr %1, i64 552
   %5 = getelementptr inbounds i8, ptr %1, i64 1064
@@ -15421,7 +15421,7 @@ define internal fastcc void @H5S__hyper_adjust_s_helper(ptr nocapture noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5S__fill_in_new_space(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %4, ptr nocapture noundef nonnull initializes((0, 1)) %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5S__fill_in_new_space(ptr noundef %0, i32 noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8

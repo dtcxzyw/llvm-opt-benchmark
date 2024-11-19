@@ -2255,7 +2255,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17cmTargetInternalsC2Ev(ptr noundef nonnull align 8 dereferenceable(1896) initializes((16, 80)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17cmTargetInternalsC2Ev(ptr noundef nonnull align 8 dereferenceable(1896) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.(anonymous namespace)::FileSetEntries", align 8
   %3 = alloca %"struct.(anonymous namespace)::FileSetEntries", align 8
   %4 = alloca %"struct.(anonymous namespace)::FileSetEntries", align 8
@@ -7405,7 +7405,7 @@ _ZNKSt14default_deleteI17cmTargetInternalsEclEPS0_.exit: ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN8cmTargetC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 align 2 {
+define dso_local void @_ZN8cmTargetC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #8 align 2 {
   %3 = load i64, ptr %1, align 8
   store i64 %3, ptr %0, align 8
   store ptr null, ptr %1, align 8
@@ -22316,7 +22316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK8cmTarget18GetAllFileSetNamesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.118") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK8cmTarget18GetAllFileSetNamesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.118") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 608
@@ -22368,7 +22368,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK8cmTarget23GetAllInterfaceFileSetsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.118") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK8cmTarget23GetAllInterfaceFileSetsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::vector.118") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1664

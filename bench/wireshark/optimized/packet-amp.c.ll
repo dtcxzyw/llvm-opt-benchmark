@@ -536,7 +536,7 @@ define hidden void @dissect_amp_as_subtree(ptr noundef %0, ptr noundef %1, ptr n
 declare ptr @proto_tree_add_subtree(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cbor_info(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc void @cbor_info(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %5, align 8

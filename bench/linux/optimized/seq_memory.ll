@@ -466,7 +466,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3
 declare dso_local i32 @__wake_up(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -512, 1) i32 @snd_seq_event_dup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i32 noundef %3, ptr nocapture noundef readnone %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -512, 1) i32 @snd_seq_event_dup(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2, i32 noundef %3, ptr nocapture noundef readnone %4, ptr noundef %5) local_unnamed_addr #0 align 16 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12

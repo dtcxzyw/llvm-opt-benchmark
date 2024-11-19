@@ -180,7 +180,7 @@ define noundef ptr @_Z17enumValueToString17LJCombinationRule(i32 noundef %0) loc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16nbnxn_atomdata_t22resizeCoordinateBufferEii(ptr noundef nonnull align 8 dereferenceable(464) initializes((216, 220)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16nbnxn_atomdata_t22resizeCoordinateBufferEii(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 216
   store i32 %1, ptr %4, align 8
   %5 = icmp eq i32 %2, 0
@@ -897,7 +897,7 @@ _ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEED2Ev.exit
 declare void @_ZN3gmx23AlignedAllocationPolicy4freeEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN23nbnxn_atomdata_output_tC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) initializes((0, 4), (8, 36), (40, 68), (72, 100), (104, 144)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #13 align 2 {
+define void @_ZN23nbnxn_atomdata_output_tC2EOS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %0, ptr nocapture noundef nonnull align 8 dereferenceable(144) %1) unnamed_addr #13 align 2 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1621,7 +1621,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16nbnxn_atomdata_t9SimdMasksC2EN5Nbnxm10KernelTypeE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 96)) %0, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16nbnxn_atomdata_t9SimdMasksC2EN5Nbnxm10KernelTypeE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %0, i8 0, i64 96, i1 false)
@@ -2015,7 +2015,7 @@ _ZNSt12_Vector_baseIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE13_M_deal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16nbnxn_atomdata_t6ParamsC2EN3gmx13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 4)) %0, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16nbnxn_atomdata_t6ParamsC2EN3gmx13PinningPolicyE(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.gmx::Allocator", align 4
   %4 = alloca %"class.gmx::HostAllocationPolicy", align 4
   %5 = alloca %"class.gmx::Allocator", align 4
@@ -5181,7 +5181,7 @@ _ZNSt12_Vector_baseIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE13_M_dealloc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z28nbnxn_atomdata_copy_shiftvecbN3gmx8ArrayRefINS_11BasicVectorIfEEEEP16nbnxn_atomdata_t(i1 noundef zeroext %0, ptr %1, ptr %2, ptr nocapture noundef initializes((232, 233)) %3) local_unnamed_addr #20 {
+define void @_Z28nbnxn_atomdata_copy_shiftvecbN3gmx8ArrayRefINS_11BasicVectorIfEEEEP16nbnxn_atomdata_t(i1 noundef zeroext %0, ptr %1, ptr %2, ptr nocapture noundef %3) local_unnamed_addr #20 {
   %5 = zext i1 %0 to i8
   %6 = getelementptr inbounds i8, ptr %3, i64 232
   store i8 %5, ptr %6, align 8

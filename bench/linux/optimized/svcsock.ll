@@ -1667,7 +1667,7 @@ define internal i32 @svc_tcp_recvfrom(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -107, -2147483648) i32 @svc_tcp_sendto(ptr noundef initializes((408, 416)) %0) #0 align 16 {
+define internal range(i32 -107, -2147483648) i32 @svc_tcp_sendto(ptr noundef %0) #0 align 16 {
   %2 = alloca %struct.msghdr, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8

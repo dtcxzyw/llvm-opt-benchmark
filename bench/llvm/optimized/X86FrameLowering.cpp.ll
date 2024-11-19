@@ -205,7 +205,7 @@ $_ZN4llvm8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEE4growEj
 @_ZN4llvm16X86FrameLoweringC1ERKNS_12X86SubtargetENS_10MaybeAlignE = unnamed_addr alias void (ptr, ptr, i16), ptr @_ZN4llvm16X86FrameLoweringC2ERKNS_12X86SubtargetENS_10MaybeAlignE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm16X86FrameLoweringC2ERKNS_12X86SubtargetENS_10MaybeAlignE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) initializes((0, 14), (16, 21), (24, 55), (56, 60)) %0, ptr noundef nonnull align 8 dereferenceable(409248) %1, i16 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16X86FrameLoweringC2ERKNS_12X86SubtargetENS_10MaybeAlignE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(409248) %1, i16 %2) unnamed_addr #0 align 2 {
   %.sroa.011.0.extract.trunc = trunc i16 %2 to i8
   %4 = and i16 %2, 256
   %.not = icmp eq i16 %4, 0
@@ -17998,7 +17998,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %67, %_ZN4llvm10MIMe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i64 } @_ZNK4llvm16X86FrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRNS_8RegisterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) unnamed_addr #2 align 2 {
+define dso_local { i64, i64 } @_ZNK4llvm16X86FrameLowering22getFrameIndexReferenceERKNS_15MachineFunctionEiRNS_8RegisterE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = icmp slt i32 %2, 0
@@ -18184,7 +18184,7 @@ _ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local { i64, i64 } @_ZNK4llvm16X86FrameLowering24getFrameIndexReferenceSPERKNS_15MachineFunctionEiRNS_8RegisterEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3, i32 noundef %4) local_unnamed_addr #7 align 2 {
+define dso_local { i64, i64 } @_ZNK4llvm16X86FrameLowering24getFrameIndexReferenceSPERKNS_15MachineFunctionEiRNS_8RegisterEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, i32 noundef %4) local_unnamed_addr #7 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -25263,7 +25263,7 @@ define dso_local noundef i32 @_ZNK4llvm16X86FrameLowering25getWinEHParentFrameOf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm16X86FrameLowering35processFunctionBeforeFrameFinalizedERNS_15MachineFunctionEPNS_12RegScavengerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, ptr nocapture noundef nonnull align 8 dereferenceable(1041) initializes((343, 344)) %1, ptr nocapture readnone %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZNK4llvm16X86FrameLowering35processFunctionBeforeFrameFinalizedERNS_15MachineFunctionEPNS_12RegScavengerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %0, ptr nocapture noundef nonnull align 8 dereferenceable(1041) %1, ptr nocapture readnone %2) unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 343
   store i8 0, ptr %4, align 1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8

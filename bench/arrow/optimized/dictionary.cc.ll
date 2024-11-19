@@ -213,7 +213,7 @@ $_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKlSt6vectorISt10sha
 @_ZN5arrow3ipc14DictionaryMemoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5arrow3ipc14DictionaryMemoD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc21DictionaryFieldMapperC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc21DictionaryFieldMapperC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %call, i64 48
@@ -234,7 +234,7 @@ entry:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow3ipc21DictionaryFieldMapperC2ERKNS_6SchemaE(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %schema) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow3ipc21DictionaryFieldMapperC2ERKNS_6SchemaE(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %schema) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::ipc::internal::FieldPosition", align 8
   %ref.tmp.i = alloca %"class.arrow::ipc::internal::FieldPosition", align 8

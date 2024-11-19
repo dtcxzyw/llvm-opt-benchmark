@@ -7771,7 +7771,7 @@ _ZNSt6vectorIN5cmsys17RegularExpressionESaIS1_EE12emplace_backIJRKNSt7__cxx1112b
 declare void @_ZNK21cmCTestGenericHandler14GetMultiOptionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::vector.11") align 8, ptr noundef nonnull align 8 dereferenceable(284), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18cmCTestTestHandler16UseIncludeRegExpEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4416) initializes((520, 521)) %0) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN18cmCTestTestHandler16UseIncludeRegExpEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4416) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 520
   store i8 1, ptr %2, align 8
   ret void
@@ -7785,7 +7785,7 @@ define dso_local void @_ZN18cmCTestTestHandler16SetIncludeRegExpERKNSt7__cxx1112
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN18cmCTestTestHandler16UseExcludeRegExpEv(ptr nocapture noundef nonnull align 8 dereferenceable(4416) initializes((521, 523)) %0) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN18cmCTestTestHandler16UseExcludeRegExpEv(ptr nocapture noundef nonnull align 8 dereferenceable(4416) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 521
   store i8 1, ptr %2, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 520
@@ -21956,7 +21956,7 @@ declare noundef zeroext i1 @_ZN5cmsys11SystemTools10FileExistsEPKc(ptr noundef) 
 declare noundef zeroext i1 @_ZN10cmMakefile12ReadListFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(3520), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK18cmCTestTestHandler16ReadTestListFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(4416) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK18cmCTestTestHandler16ReadTestListFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%"class.std::set") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(4416) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::basic_ifstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -22158,7 +22158,7 @@ declare void @_ZN17cmGlobalGeneratorD1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZN5cmakeD1Ev(ptr noundef nonnull align 8 dereferenceable(2216)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_113GetNextNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiRmS9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %3) unnamed_addr #3 {
+define internal fastcc noundef range(i32 0, 2) i32 @_ZN12_GLOBAL__N_113GetNextNumberERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERiRmS9_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = load i64, ptr %2, align 8

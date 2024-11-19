@@ -4249,7 +4249,7 @@ _ZNSt10unique_ptrIN6duckdb14BaseStatisticsESt14default_deleteIS1_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb20StatisticsPropagator19PropagateStatisticsERNS_12LogicalLimitEPNS_10unique_ptrINS_15LogicalOperatorESt14default_deleteIS4_ELb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(136) %limit, ptr nocapture noundef readnone %node_ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb20StatisticsPropagator19PropagateStatisticsERNS_12LogicalLimitEPNS_10unique_ptrINS_15LogicalOperatorESt14default_deleteIS4_ELb1EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(136) %limit, ptr nocapture noundef readnone %node_ptr) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.ensured = alloca %"class.duckdb::unique_ptr", align 8
   %children = getelementptr inbounds i8, ptr %limit, i64 16

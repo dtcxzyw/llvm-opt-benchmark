@@ -4921,7 +4921,7 @@ declare void @_ZN2cv6detail17check_failed_autoEiRKNS0_12CheckContextE(i32 nounde
 declare void @_ZN2cv6detail17check_failed_autoEiiRKNS0_12CheckContextE(i32 noundef, i32 noundef, ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv3dnn14dnn4_v2024052112_GLOBAL__N_114parseBlobShapeERKN12opencv_caffe9BlobShapeE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 8

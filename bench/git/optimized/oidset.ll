@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [30 x i8] c"strbuf_setlen() beyond buffer\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @oidset_init(ptr nocapture noundef initializes((0, 40)) %set, i64 noundef %initial_size) local_unnamed_addr #0 {
+define dso_local void @oidset_init(ptr nocapture noundef %set, i64 noundef %initial_size) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %set, i8 0, i64 40, i1 false)
   %tobool.not = icmp eq i64 %initial_size, 0
@@ -657,7 +657,7 @@ return:                                           ; preds = %if.then.i12, %land.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @oidset_clear(ptr nocapture noundef initializes((0, 16)) %set) local_unnamed_addr #4 {
+define dso_local void @oidset_clear(ptr nocapture noundef %set) local_unnamed_addr #4 {
 entry:
   %flags.i = getelementptr inbounds i8, ptr %set, i64 16
   %0 = load ptr, ptr %flags.i, align 8

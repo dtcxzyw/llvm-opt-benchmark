@@ -119,7 +119,7 @@ entry:
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow25MakeNewlineBoundaryFinderEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow25MakeNewlineBoundaryFinderEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN5arrow12_GLOBAL__N_121NewlineBoundaryFinderEED2Ev.exit:
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #18, !noalias !4
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
@@ -216,7 +216,7 @@ _ZNSt10shared_ptrIN5arrow14BoundaryFinderEED2Ev.exit: ; preds = %entry, %_ZN9__g
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN5arrow7ChunkerC2ESt10shared_ptrINS_14BoundaryFinderEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %delimiter) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7ChunkerC2ESt10shared_ptrINS_14BoundaryFinderEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %delimiter) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %delimiter, align 8
   store ptr %0, ptr %this, align 8
@@ -248,7 +248,7 @@ _ZNSt10shared_ptrIN5arrow14BoundaryFinderEEC2ERKS2_.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7Chunker7ProcessESt10shared_ptrINS_6BufferEEPS3_S4_(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %block, ptr nocapture noundef %whole, ptr nocapture noundef %partial) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7Chunker7ProcessESt10shared_ptrINS_6BufferEEPS3_S4_(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %block, ptr nocapture noundef %whole, ptr nocapture noundef %partial) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %last_pos = alloca i64, align 8
   %ref.tmp = alloca %"class.arrow::Status", align 8
@@ -1849,7 +1849,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow7Chunker11ProcessSkipESt10shared_ptrINS_6BufferEES3_bPlPS3_(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %partial, ptr noundef %block, i1 noundef zeroext %final, ptr nocapture noundef %count, ptr nocapture noundef %rest) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow7Chunker11ProcessSkipESt10shared_ptrINS_6BufferEES3_bPlPS3_(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %partial, ptr noundef %block, i1 noundef zeroext %final, ptr nocapture noundef %count, ptr nocapture noundef %rest) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5arrow6StatusD2Ev.exit:
   %pos = alloca i64, align 8
   %num_found = alloca i64, align 8

@@ -39,7 +39,7 @@ define hidden range(i32 0, 2) i32 @tm_intCIV_isInitialized(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden void @tm_intCIV_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 40)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden void @tm_intCIV_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %4, align 4

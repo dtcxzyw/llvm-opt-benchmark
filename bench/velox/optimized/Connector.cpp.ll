@@ -1623,7 +1623,7 @@ return:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9connector12ColumnHandle13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9connector12ColumnHandle13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
@@ -1675,14 +1675,14 @@ declare noundef nonnull align 8 dereferenceable(40) ptr @_ZNR5folly7dynamicixENS
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly7dynamicaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox9connector12ColumnHandle9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox9connector12ColumnHandle9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN8facebook5velox9connector12ColumnHandle13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"struct.folly::dynamic") align 8 %agg.result, i64 12, ptr nonnull @.str.4)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox9connector20ConnectorTableHandle13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox9connector20ConnectorTableHandle13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, i64 %name.coerce0, ptr %name.coerce1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::allocator", align 1
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
@@ -1761,7 +1761,7 @@ ehcleanup17:                                      ; preds = %lpad, %lpad.i, %lpa
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox9connector20ConnectorTableHandle9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox9connector20ConnectorTableHandle9serializeEv(ptr noalias sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNK8facebook5velox9connector20ConnectorTableHandle13serializeBaseESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"struct.folly::dynamic") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, i64 20, ptr nonnull @.str.6)
   ret void

@@ -52,7 +52,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv4gapi3wip6onevpl20VPPPreprocDispatcher13is_applicableERKNS_10MediaFrameE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::util::optional") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #3 align 2 {
+define void @_ZN2cv4gapi3wip6onevpl20VPPPreprocDispatcher13is_applicableERKNS_10MediaFrameE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::util::optional") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #3 align 2 {
   store i64 0, ptr %0, align 8
   ret void
 }

@@ -132,7 +132,7 @@ $_ZTIN12btConvexCast10CastResultE = comdat any
 @_ZN23btConvexConvexAlgorithmD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN23btConvexConvexAlgorithmD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23btConvexConvexAlgorithm10CreateFuncC2EP30btConvexPenetrationDepthSolver(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 9), (16, 32)) %this, ptr noundef %pdSolver) unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btConvexConvexAlgorithm10CreateFuncC2EP30btConvexPenetrationDepthSolver(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %pdSolver) unnamed_addr #0 align 2 {
 entry:
   %m_swapped.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %m_swapped.i, align 8
@@ -242,7 +242,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 declare void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23btConvexConvexAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btConvexConvexAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV23btConvexConvexAlgorithm, i64 16), ptr %this, align 8
   %m_ownManifold = getelementptr inbounds i8, ptr %this, i64 88
@@ -350,7 +350,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23btConvexConvexAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(116) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN23btConvexConvexAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN23btConvexConvexAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -358,7 +358,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN23btConvexConvexAlgorithm19setLowLevelOfDetailEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) initializes((104, 105)) %this, i1 noundef zeroext %useLowLevel) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN23btConvexConvexAlgorithm19setLowLevelOfDetailEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(116) %this, i1 noundef zeroext %useLowLevel) local_unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %useLowLevel to i8
   %m_lowLevelOfDetail = getelementptr inbounds i8, ptr %this, i64 104
@@ -367,7 +367,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN23btConvexConvexAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr nocapture noundef readonly %body0Wrap, ptr nocapture noundef readonly %body1Wrap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %dispatchInfo, ptr noundef initializes((8, 16)) %resultOut) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23btConvexConvexAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult(ptr noundef nonnull align 8 dereferenceable(116) %this, ptr nocapture noundef readonly %body0Wrap, ptr nocapture noundef readonly %body1Wrap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %dispatchInfo, ptr noundef %resultOut) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %normalOnB = alloca %class.btVector3, align 4
   %pointOnBWorld = alloca %class.btVector3, align 4
@@ -2966,7 +2966,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN23btConvexConvexAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResultEN21btWithoutMarginResult15addContactPointERK9btVector3SB_f(ptr nocapture noundef nonnull align 8 dereferenceable(45) initializes((16, 32), (40, 44)) %this, ptr noundef nonnull align 4 dereferenceable(16) %normalOnBInWorld, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pointInWorldOrg, float noundef %depthOrg) unnamed_addr #9 align 2 {
+define internal void @_ZZN23btConvexConvexAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResultEN21btWithoutMarginResult15addContactPointERK9btVector3SB_f(ptr nocapture noundef nonnull align 8 dereferenceable(45) %this, ptr noundef nonnull align 4 dereferenceable(16) %normalOnBInWorld, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pointInWorldOrg, float noundef %depthOrg) unnamed_addr #9 align 2 {
 entry:
   %adjustedPointB = alloca %class.btVector3, align 8
   %m_reportedDistance = getelementptr inbounds i8, ptr %this, i64 40

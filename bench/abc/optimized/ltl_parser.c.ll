@@ -1889,7 +1889,7 @@ tailrecurse.backedge:                             ; preds = %10, %tailrecurse, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @setAIGNodePtrOfGloballyNode(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #11 {
+define void @setAIGNodePtrOfGloballyNode(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void

@@ -202,7 +202,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Optio
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9google_ai23stream_generate_content17hf3919c9440d968feE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([672 x i8]) align 8 dereferenceable(672) initializes((0, 188), (192, 240), (448, 449)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(176) %7, i64 %8, i32 noundef %9) unnamed_addr #2 {
+define void @_ZN9google_ai23stream_generate_content17hf3919c9440d968feE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([672 x i8]) align 8 dereferenceable(672) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(176) %7, i64 %8, i32 noundef %9) unnamed_addr #2 {
   %11 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 200
@@ -226,7 +226,7 @@ define void @_ZN9google_ai23stream_generate_content17hf3919c9440d968feE(ptr dead
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9google_ai12count_tokens17hcd79e70a6c85b796E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([392 x i8]) align 8 dereferenceable(392) initializes((0, 36), (40, 88), (168, 169)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %7, i64 %8, i32 noundef %9) unnamed_addr #2 {
+define void @_ZN9google_ai12count_tokens17hcd79e70a6c85b796E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([392 x i8]) align 8 dereferenceable(392) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(56) %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %7, i64 %8, i32 noundef %9) unnamed_addr #2 {
   %11 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 48
@@ -853,7 +853,7 @@ define void @"_ZN9google_ai1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$go
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN9google_ai1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$google_ai..Model$GT$9schema_id17h9c3772f488e24368E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #4 {
+define void @"_ZN9google_ai1_67_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$google_ai..Model$GT$9schema_id17h9c3772f488e24368E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.b18fad0c55fffb1a80b539602e1e54e2.30, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1266,7 +1266,7 @@ define { i64, i64 } @"_ZN60_$LT$google_ai..Model$u20$as$u20$strum..IntoEnumItera
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @"_ZN79_$LT$google_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h843083fbe4f4dbbfE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #6 {
+define void @"_ZN79_$LT$google_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h843083fbe4f4dbbfE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #6 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %3 = load i64, ptr %1, align 8, !alias.scope !92, !noalias !89, !noundef !4
@@ -1319,7 +1319,7 @@ define void @"_ZN79_$LT$google_ai..ModelIter$u20$as$u20$core..iter..traits..iter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN79_$LT$google_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h40a32b38a3ffe77cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 {
+define void @"_ZN79_$LT$google_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h40a32b38a3ffe77cE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 {
   %3 = load i64, ptr %1, align 8, !noundef !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -1336,7 +1336,7 @@ define void @"_ZN79_$LT$google_ai..ModelIter$u20$as$u20$core..iter..traits..iter
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN79_$LT$google_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h5a1428ee381ddcd9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #2 {
+define void @"_ZN79_$LT$google_ai..ModelIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17h5a1428ee381ddcd9E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = add i64 %4, %2
   %6 = add i64 %5, 1
@@ -1400,7 +1400,7 @@ define noundef range(i64 0, 4) i64 @"_ZN90_$LT$google_ai..ModelIter$u20$as$u20$c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN94_$LT$google_ai..ModelIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0676685272a3dae0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #2 {
+define void @"_ZN94_$LT$google_ai..ModelIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h0676685272a3dae0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([56 x i8]) align 8 dereferenceable(56) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = add i64 %4, 1

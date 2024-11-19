@@ -609,7 +609,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @dt_gui_presets_add_generic(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #11 {
+define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #11 {
   %2 = tail call noalias dereferenceable_or_null(4) ptr @malloc(i64 noundef 4) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !51
@@ -630,7 +630,7 @@ define void @cleanup_global(ptr nocapture noundef %0) local_unnamed_addr #12 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #1 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #23
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !18
@@ -1300,7 +1300,7 @@ define internal fastcc void @apply_auto_black(ptr noundef %0) unnamed_addr #1 {
 declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 184) #22
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

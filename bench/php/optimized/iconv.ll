@@ -213,7 +213,7 @@ define hidden void @zm_info_miconv(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_iconv(ptr nocapture noundef writeonly initializes((0, 24)) %0) #2 {
+define internal void @zm_globals_ctor_iconv(ptr nocapture noundef writeonly %0) #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -267,7 +267,7 @@ declare void @php_info_print_table_end() local_unnamed_addr #3
 declare void @display_ini_entries(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 7) i32 @php_iconv_string(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 7) i32 @php_iconv_string(ptr noundef %0, i64 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -700,7 +700,7 @@ declare void @llvm.assume(i1 noundef) #5
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @_php_iconv_strlen(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 7) i32 @_php_iconv_strlen(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [8 x i8], align 1
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
@@ -1428,7 +1428,7 @@ get_internal_encoding.exit:                       ; preds = %22, %24
 declare void @zend_argument_value_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 10) i32 @_php_iconv_strpos(ptr nocapture noundef nonnull writeonly initializes((0, 8)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
+define internal fastcc range(i32 0, 10) i32 @_php_iconv_strpos(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #0 {
   %9 = alloca [4 x i8], align 1
   %10 = alloca ptr, align 8
   %11 = alloca i64, align 8
@@ -5277,7 +5277,7 @@ declare i32 @php_stream_filter_register_factory(ptr noundef, ptr noundef) local_
 declare ptr @strpbrk(ptr noundef, ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 7) i32 @php_iconv_stream_filter_ctor(ptr nocapture noundef initializes((16, 32)) %0, ptr nocapture noundef nonnull readonly %1, i64 noundef range(i64 0, 64) %2, ptr nocapture noundef nonnull readonly %3, i64 noundef range(i64 0, 64) %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 7) i32 @php_iconv_stream_filter_ctor(ptr nocapture noundef %0, ptr nocapture noundef nonnull readonly %1, i64 noundef range(i64 0, 64) %2, ptr nocapture noundef nonnull readonly %3, i64 noundef range(i64 0, 64) %4, i32 noundef range(i32 0, 256) %5) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   %7 = add nuw nsw i64 %2, 1
   %8 = getelementptr inbounds i8, ptr %0, i64 16

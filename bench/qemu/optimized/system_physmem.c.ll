@@ -344,7 +344,7 @@ if.end51:                                         ; preds = %if.end24, %for.end,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @address_space_get_iotlb_entry(ptr noalias nocapture writeonly sret(%struct.IOMMUTLBEntry) align 8 initializes((0, 36)) %agg.result, ptr noundef %as, i64 noundef %addr, i1 noundef zeroext %is_write, i32 %attrs.coerce) local_unnamed_addr #0 {
+define dso_local void @address_space_get_iotlb_entry(ptr noalias nocapture writeonly sret(%struct.IOMMUTLBEntry) align 8 %agg.result, ptr noundef %as, i64 noundef %addr, i1 noundef zeroext %is_write, i32 %attrs.coerce) local_unnamed_addr #0 {
 entry:
   %as.addr = alloca ptr, align 8
   %xlat = alloca i64, align 8
@@ -594,7 +594,7 @@ declare void @g_free(ptr noundef) #3
 declare ptr @g_array_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_iommu_init_notifier_list(ptr nocapture noundef writeonly initializes((768, 776)) %cpu) local_unnamed_addr #0 {
+define dso_local void @tcg_iommu_init_notifier_list(ptr nocapture noundef writeonly %cpu) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @g_array_new(i32 noundef 0, i32 noundef 1, i32 noundef 8) #28
   %iommu_notifiers = getelementptr inbounds i8, ptr %cpu, i64 768
@@ -3999,7 +3999,7 @@ return:                                           ; preds = %if.end19, %if.then,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -3, -4) i32 @file_ram_open(ptr noundef %path, ptr noundef %region_name, i1 noundef zeroext %readonly, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %created) unnamed_addr #0 {
+define internal fastcc range(i32 -3, -4) i32 @file_ram_open(ptr noundef %path, ptr noundef %region_name, i1 noundef zeroext %readonly, ptr nocapture noundef nonnull writeonly %created) unnamed_addr #0 {
 entry:
   %file_stat = alloca %struct.stat, align 8
   store i8 0, ptr %created, align 1

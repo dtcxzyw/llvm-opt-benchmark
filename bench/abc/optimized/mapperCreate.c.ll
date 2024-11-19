@@ -143,49 +143,49 @@ define float @Map_ManReadRequiredGlo(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetOutputNames(ptr nocapture noundef writeonly initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetOutputNames(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetAreaRecovery(ptr nocapture noundef writeonly initializes((108, 112)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetAreaRecovery(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 108
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetDelayTarget(ptr nocapture noundef writeonly initializes((144, 148)) %0, float noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetDelayTarget(ptr nocapture noundef writeonly %0, float noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   store float %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetInputArrivals(ptr nocapture noundef writeonly initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetInputArrivals(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetOutputRequireds(ptr nocapture noundef writeonly initializes((96, 104)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetOutputRequireds(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetObeyFanoutLimits(ptr nocapture noundef writeonly initializes((140, 144)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetObeyFanoutLimits(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 140
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetNumIterations(ptr nocapture noundef writeonly initializes((136, 140)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetNumIterations(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 %1, ptr %3, align 8
   ret void
@@ -199,49 +199,49 @@ define i32 @Map_ManReadFanoutViolations(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetFanoutViolations(ptr nocapture noundef writeonly initializes((1828, 1832)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetFanoutViolations(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1828
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetChoiceNodeNum(ptr nocapture noundef writeonly initializes((1808, 1812)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetChoiceNodeNum(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1808
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetChoiceNum(ptr nocapture noundef writeonly initializes((1812, 1816)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetChoiceNum(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1812
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetVerbose(ptr nocapture noundef writeonly initializes((112, 116)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetVerbose(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetSwitching(ptr nocapture noundef writeonly initializes((152, 156)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetSwitching(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetSkipFanout(ptr nocapture noundef writeonly initializes((156, 160)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @Map_ManSetSkipFanout(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_ManSetUseProfile(ptr nocapture noundef writeonly initializes((160, 164)) %0) local_unnamed_addr #4 {
+define void @Map_ManSetUseProfile(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 1, ptr %2, align 8
   ret void
@@ -321,21 +321,21 @@ define void @Map_NodeSetData(ptr nocapture noundef writeonly %0, i32 noundef %1,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_NodeSetNextE(ptr nocapture noundef writeonly initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Map_NodeSetNextE(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_NodeSetRepr(ptr nocapture noundef writeonly initializes((88, 96)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @Map_NodeSetRepr(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Map_NodeSetSwitching(ptr nocapture noundef writeonly initializes((56, 60)) %0, float noundef %1) local_unnamed_addr #4 {
+define void @Map_NodeSetSwitching(ptr nocapture noundef writeonly %0, float noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store float %1, ptr %3, align 8
   ret void
@@ -1170,7 +1170,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 declare void @Extra_MmFixedStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Map_ManCreateNodeDelays(ptr nocapture noundef initializes((72, 80)) %0, i32 noundef %1) local_unnamed_addr #10 {
+define void @Map_ManCreateNodeDelays(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -1640,7 +1640,7 @@ define noundef ptr @Map_NodeBuf(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @Map_NodeSetChoice(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef initializes((80, 88)) %2) local_unnamed_addr #13 {
+define void @Map_NodeSetChoice(ptr nocapture noundef readnone %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %1, i64 80
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 80

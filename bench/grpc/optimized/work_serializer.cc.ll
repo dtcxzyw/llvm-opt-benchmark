@@ -1845,7 +1845,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit16:      ; preds = %cleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14WorkSerializerC2ESt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr nocapture noundef %event_engine) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14WorkSerializerC2ESt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr nocapture noundef %event_engine) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noundef zeroext i1 @_ZN9grpc_core19IsExperimentEnabledEm(i64 noundef 37)
   br i1 %call.i, label %_ZNSt10unique_ptrIN9grpc_core14WorkSerializer25DispatchingWorkSerializerENS0_16OrphanableDeleteEED2Ev.exit, label %_ZNSt10unique_ptrIN9grpc_core14WorkSerializer20LegacyWorkSerializerENS0_16OrphanableDeleteEED2Ev.exit

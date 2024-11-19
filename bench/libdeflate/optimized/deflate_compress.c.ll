@@ -6958,7 +6958,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @deflate_flush_block(ptr noundef initializes((6060, 6064)) %c, ptr nocapture noundef %os, ptr noundef %block_begin, i32 noundef %block_length, ptr noundef readonly %sequences, i1 noundef zeroext %is_final_block) unnamed_addr #9 {
+define internal fastcc void @deflate_flush_block(ptr noundef %c, ptr nocapture noundef %os, ptr noundef %block_begin, i32 noundef %block_length, ptr noundef readonly %sequences, i1 noundef zeroext %is_final_block) unnamed_addr #9 {
 entry:
   %idx.ext = zext i32 %block_length to i64
   %0 = load i64, ptr %os, align 8
@@ -8456,7 +8456,7 @@ return:                                           ; preds = %gen_codewords.exit,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @deflate_precompute_huffman_header(ptr noundef initializes((6060, 6064)) %c) unnamed_addr #11 {
+define internal fastcc void @deflate_precompute_huffman_header(ptr noundef %c) unnamed_addr #11 {
 entry:
   %o = getelementptr inbounds i8, ptr %c, i64 4608
   %num_litlen_syms = getelementptr inbounds i8, ptr %c, i64 6060
@@ -8720,7 +8720,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @deflate_optimize_and_flush_block(ptr noundef initializes((40, 1320)) %c, ptr nocapture noundef %os, ptr noundef %block_begin, i32 noundef %block_length, ptr nocapture noundef readonly %cache_ptr, i1 noundef zeroext %is_first_block, i1 noundef zeroext %is_final_block, ptr nocapture noundef nonnull writeonly %used_only_literals) unnamed_addr #9 {
+define internal fastcc void @deflate_optimize_and_flush_block(ptr noundef %c, ptr nocapture noundef %os, ptr noundef %block_begin, i32 noundef %block_length, ptr nocapture noundef readonly %cache_ptr, i1 noundef zeroext %is_first_block, i1 noundef zeroext %is_final_block, ptr nocapture noundef nonnull writeonly %used_only_literals) unnamed_addr #9 {
 entry:
   %seq_ = alloca %struct.deflate_sequence, align 4
   %max_optim_passes = getelementptr inbounds i8, ptr %c, i64 9011684

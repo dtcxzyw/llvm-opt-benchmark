@@ -1670,7 +1670,7 @@ define range(i32 -22, 1) i32 @CVodeSensInit(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cvSensAllocVectors(ptr noundef nonnull initializes((712, 720)) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cvSensAllocVectors(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 140
   %4 = load i32, ptr %3, align 4
   %5 = tail call ptr @N_VCloneVectorArray(i32 noundef %4, ptr noundef %1) #13
@@ -14166,7 +14166,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, double noundef %2, double noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %6) unnamed_addr #0 {
+define internal fastcc range(i32 -54, 6) i32 @cvDoErrorTest(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, double noundef %2, double noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %0, i64 1128
   %9 = load double, ptr %8, align 8
   %10 = fmul double %3, %9
@@ -15466,7 +15466,7 @@ define internal fastcc void @cvRescale(ptr nocapture noundef nonnull %0) unnamed
 declare void @N_VConst(double noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cvRestore(ptr nocapture noundef nonnull initializes((984, 992)) %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc void @cvRestore(ptr nocapture noundef nonnull %0, double noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 984
   store double %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 912

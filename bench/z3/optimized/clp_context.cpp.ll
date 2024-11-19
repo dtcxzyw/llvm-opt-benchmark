@@ -391,7 +391,7 @@ eh.resume:                                        ; preds = %ehcleanup24, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog3clpD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog3clpD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog3clpE, i64 16), ptr %this, align 8
   %m_imp = getelementptr inbounds i8, ptr %this, i64 48
@@ -431,7 +431,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog3clpD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog3clpD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog3clpE, i64 16), ptr %this, align 8
   %m_imp.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -796,7 +796,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn uwtable
-define hidden void @_ZN7datalog3clp10get_answerEv(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #10 align 2 {
+define hidden void @_ZN7datalog3clp10get_answerEv(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %this) unnamed_addr #10 align 2 {
 entry:
   %m_imp = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_imp, align 8

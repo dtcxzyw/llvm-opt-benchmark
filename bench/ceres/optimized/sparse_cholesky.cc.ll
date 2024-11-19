@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5ceres8internal21RefinedSparseCholeskyD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5ceres8internal21RefinedSparseCholeskyD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal14SparseCholesky6CreateERKNS0_12LinearSolver7OptionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal14SparseCholesky6CreateERKNS0_12LinearSolver7OptionsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.google::LogMessageFatal", align 8
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca %"class.std::unique_ptr", align 8
@@ -275,7 +275,7 @@ define hidden noundef i32 @_ZN5ceres8internal14SparseCholesky14FactorAndSolveEPN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5ceres8internal21RefinedSparseCholeskyC2ESt10unique_ptrINS0_14SparseCholeskyESt14default_deleteIS3_EES2_INS0_22SparseIterativeRefinerES4_IS7_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #6 align 2 {
+define hidden void @_ZN5ceres8internal21RefinedSparseCholeskyC2ESt10unique_ptrINS0_14SparseCholeskyESt14default_deleteIS3_EES2_INS0_22SparseIterativeRefinerES4_IS7_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr nocapture noundef %1, ptr nocapture noundef %2) unnamed_addr #6 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5ceres8internal21RefinedSparseCholeskyE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %1, align 8
@@ -371,7 +371,7 @@ define hidden noundef i32 @_ZNK5ceres8internal21RefinedSparseCholesky11StorageTy
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN5ceres8internal21RefinedSparseCholesky9FactorizeEPNS0_25CompressedRowSparseMatrixEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((24, 32)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN5ceres8internal21RefinedSparseCholesky9FactorizeEPNS0_25CompressedRowSparseMatrixEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

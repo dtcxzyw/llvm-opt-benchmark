@@ -3225,7 +3225,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #2
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z9call_echoRN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS_15io_context_poolEEEi(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(3352) %client_pool, i32 noundef %cnt) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z9call_echoRN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS_15io_context_poolEEEi(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3352) %client_pool, i32 noundef %cnt) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #38
   store ptr @_Z9call_echoRN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS_15io_context_poolEEEi.resume, ptr %call, align 8
@@ -3294,7 +3294,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZNSt15__exception_
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z11qps_watcherRN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS_15io_context_poolEEE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(3352) %clients) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z11qps_watcherRN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS_15io_context_poolEEE(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(3352) %clients) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #38
   store ptr @_Z11qps_watcherRN7coro_io11client_poolIN8coro_rpc15coro_rpc_clientENS_15io_context_poolEEE.resume, ptr %call, align 8
@@ -69578,7 +69578,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt10error_codeED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12async_simple4coro6detail12ViaCoroutine6createEPNS_8ExecutorE.resume(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (48, 56)) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12async_simple4coro6detail12ViaCoroutine6createEPNS_8ExecutorE.resume(ptr noundef nonnull align 8 dereferenceable(64) %0) #3 align 2 personality ptr @__gxx_personality_v0 {
 CoroSave28:
   %agg.tmp.i = alloca %"class.std::function.292", align 8
   %ref.tmp8.reload.addr = getelementptr inbounds i8, ptr %0, i64 48

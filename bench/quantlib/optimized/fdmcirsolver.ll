@@ -557,7 +557,7 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12FdmCIRSolverC2ENS_6HandleINS_23CoxIngersollRossProcessEEENS1_INS_30GeneralizedBlackScholesProcessEEENS_13FdmSolverDescERKNS_13FdmSchemeDescEdd(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 12), (16, 88)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, double noundef %rho, double noundef %strike) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12FdmCIRSolverC2ENS_6HandleINS_23CoxIngersollRossProcessEEENS1_INS_30GeneralizedBlackScholesProcessEEENS_13FdmSolverDescERKNS_13FdmSchemeDescEdd(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, double noundef %rho, double noundef %strike) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp20 = alloca %"class.boost::shared_ptr", align 8
@@ -1564,7 +1564,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_30GeneralizedBlackScholesProcessEE4L
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib12FdmCIRSolverC1ENS_6HandleINS_23CoxIngersollRossProcessEEENS1_INS_30GeneralizedBlackScholesProcessEEENS_13FdmSolverDescERKNS_13FdmSchemeDescEdd(ptr noundef nonnull align 8 dereferenceable(200) initializes((216, 220), (224, 232)) %this, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, double noundef %rho, double noundef %strike) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib12FdmCIRSolverC1ENS_6HandleINS_23CoxIngersollRossProcessEEENS1_INS_30GeneralizedBlackScholesProcessEEENS_13FdmSolverDescERKNS_13FdmSchemeDescEdd(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef %cirProcess, ptr nocapture noundef %bsProcess, ptr nocapture noundef readonly %solverDesc, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc, double noundef %rho, double noundef %strike) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp15 = alloca %"class.boost::shared_ptr", align 8

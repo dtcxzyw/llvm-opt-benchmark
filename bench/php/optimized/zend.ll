@@ -3051,7 +3051,7 @@ zend_error_va_list.exit:                          ; preds = %9, %15, %22, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_filename_lineno(i32 noundef %0, ptr nocapture noundef nonnull initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #0 {
+define internal fastcc void @get_filename_lineno(i32 noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   switch i32 %0, label %16 [
     i32 16, label %4
     i32 32, label %4

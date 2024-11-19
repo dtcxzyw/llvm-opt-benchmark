@@ -93,7 +93,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7528DataBuilderCollationIteratorC2ERNS_20CollationDataBuilderE(ptr noundef nonnull align 8 dereferenceable(828) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(640) %b) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7528DataBuilderCollationIteratorC2ERNS_20CollationDataBuilderE(ptr noundef nonnull align 8 dereferenceable(828) %this, ptr noundef nonnull align 8 dereferenceable(640) %b) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builderData = getelementptr inbounds i8, ptr %this, i64 400
   %trie.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -188,7 +188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) initializes((408, 432)) %this, ptr noundef nonnull align 8 dereferenceable(64) %str, i32 noundef %start, ptr nocapture noundef writeonly %ces, i32 noundef %cesLength) local_unnamed_addr #5 align 2 {
+define noundef i32 @_ZN6icu_7528DataBuilderCollationIterator8fetchCEsERKNS_13UnicodeStringEiPli(ptr noundef nonnull align 8 dereferenceable(828) %this, ptr noundef nonnull align 8 dereferenceable(64) %str, i32 noundef %start, ptr nocapture noundef writeonly %ces, i32 noundef %cesLength) local_unnamed_addr #5 align 2 {
 entry:
   %errorCode = alloca i32, align 4
   %builder = getelementptr inbounds i8, ptr %this, i64 392
@@ -1367,7 +1367,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7520CollationDataBuilderC2EaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 8)) %this, i8 noundef signext %icu4xMode, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7520CollationDataBuilderC2EaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(640) %this, i8 noundef signext %icu4xMode, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520CollationDataBuilderE, i64 16), ptr %this, align 8
   %call = invoke noundef ptr @_ZN6icu_7518Normalizer2Factory10getNFCImplER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -1548,7 +1548,7 @@ declare void @_ZN6icu_759UVector64D1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZN6icu_759UVector32D1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7520CollationDataBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(640) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7520CollationDataBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7520CollationDataBuilderE, i64 16), ptr %this, align 8
   %trie = getelementptr inbounds i8, ptr %this, i64 32

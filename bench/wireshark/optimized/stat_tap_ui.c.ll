@@ -257,7 +257,7 @@ define void @stat_tap_iterate_tables(ptr noundef %0, ptr noundef %1) local_unnam
 declare zeroext i1 @wmem_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @stat_tap_get_filter(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define void @stat_tap_get_filter(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #11

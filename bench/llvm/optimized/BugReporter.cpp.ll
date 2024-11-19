@@ -3109,7 +3109,7 @@ define dso_local noundef nonnull align 8 dereferenceable(288) ptr @_ZNK5clang4en
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento11BugReporterC2ERNS0_15BugReporterDataE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento11BugReporterC2ERNS0_15BugReporterDataE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11BugReporterE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -3135,7 +3135,7 @@ define dso_local void @_ZN5clang4ento11BugReporterC2ERNS0_15BugReporterDataE(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento11BugReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento11BugReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5clang4ento11BugReporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -4789,7 +4789,7 @@ _ZN4llvm11SmallVectorIPN5clang4ento9BugReportELj10EED2Ev.exit: ; preds = %_ZNK4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento24PathSensitiveBugReporter23generatePathDiagnosticsEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEERNS3_IPNS0_22PathSensitiveBugReportEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.732") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr readonly %2, i64 %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento24PathSensitiveBugReporter23generatePathDiagnosticsEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEERNS3_IPNS0_22PathSensitiveBugReportEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.732") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr readonly %2, i64 %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %.sroa.8222.i = alloca [28 x i8], align 4
@@ -9497,7 +9497,7 @@ declare void @_ZN5clang19AnalysisDeclContext15getFunctionNameB5cxx11EPKNS_4DeclE
 declare void @_ZN5clang4ento22PathDiagnosticConsumer20HandlePathDiagnosticESt10unique_ptrINS0_14PathDiagnosticESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento11BugReporter32generateDiagnosticForConsumerMapEPNS0_9BugReportEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEENS5_IS3_EE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.732") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1, ptr noundef %2, ptr readonly %3, i64 %4, ptr nocapture noundef readnone byval(%"class.llvm::ArrayRef.845") align 8 %5) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento11BugReporter32generateDiagnosticForConsumerMapEPNS0_9BugReportEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEENS5_IS3_EE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.732") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %1, ptr noundef %2, ptr readonly %3, i64 %4, ptr nocapture noundef readnone byval(%"class.llvm::ArrayRef.845") align 8 %5) unnamed_addr #3 align 2 {
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.llvm::StringRef", align 8
@@ -9695,7 +9695,7 @@ _ZNSt10unique_ptrIN5clang4ento14PathDiagnosticESt14default_deleteIS2_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento24PathSensitiveBugReporter32generateDiagnosticForConsumerMapEPNS0_9BugReportEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEENS5_IS3_EE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.732") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.845") align 8 %5) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento24PathSensitiveBugReporter32generateDiagnosticForConsumerMapEPNS0_9BugReportEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEENS5_IS3_EE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr.732") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %2, ptr %3, i64 %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef.845") align 8 %5) unnamed_addr #3 align 2 {
   %7 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %8 = alloca %"class.llvm::SmallString.1526", align 8
   %9 = alloca %"class.llvm::raw_svector_ostream", align 8
@@ -10822,7 +10822,7 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 declare void @_ZN4llvm14FoldingSetBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL27generateVisitorsDiagnosticsPN5clang4ento22PathSensitiveBugReportEPKNS0_12ExplodedNodeERNS0_18BugReporterContextE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #3 {
+define internal fastcc void @_ZL27generateVisitorsDiagnosticsPN5clang4ento22PathSensitiveBugReportEPKNS0_12ExplodedNodeERNS0_18BugReporterContextE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #3 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
@@ -11762,7 +11762,7 @@ _ZN4llvm11SmallVectorISt10unique_ptrIN5clang4ento18BugReporterVisitorESt14defaul
 declare noundef i32 @_ZN5clang4ento18Z3CrosscheckOracle20interpretQueryResultERKNS0_19Z3CrosscheckVisitor8Z3ResultE(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 4 dereferenceable(12)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121PathDiagnosticBuilderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_121PathDiagnosticBuilderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_121PathDiagnosticBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -15190,7 +15190,7 @@ declare noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef
 declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121PathDiagnosticBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_121PathDiagnosticBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN12_GLOBAL__N_121PathDiagnosticBuilderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -24677,7 +24677,7 @@ _ZNSt10shared_ptrIN5clang4ento24PathDiagnosticEventPieceEEC2ISaIvEJRNS1_22PathDi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_121PathDiagnosticBuilder18ExecutionContinuesERN4llvm18raw_string_ostreamERKNS_23PathDiagnosticConstructE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(56) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %3) unnamed_addr #3 align 2 {
   %5 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %7 = load ptr, ptr %6, align 8

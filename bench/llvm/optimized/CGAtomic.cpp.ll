@@ -2546,7 +2546,7 @@ declare noundef i64 @_ZNK5clang10ASTContext6toBitsENS_9CharUnitsE(ptr noundef no
 declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction14EmitScalarExprEPKNS_4ExprEb(ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13EmitValToTempRN5clang7CodeGen15CodeGenFunctionEPNS_4ExprE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13EmitValToTempRN5clang7CodeGen15CodeGenFunctionEPNS_4ExprE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %"class.clang::CodeGen::RawAddress", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -2635,7 +2635,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction17EmitStoreOfScalarEPN4llvm5Valu
 declare noundef zeroext i1 @_ZNK5clang4Type14isFloatingTypeEv(ptr noundef nonnull align 16 dereferenceable(24)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110AtomicInfoC2ERN5clang7CodeGen15CodeGenFunctionERNS2_6LValueE(ptr noundef nonnull align 8 dereferenceable(232) initializes((0, 61), (72, 96), (104, 120), (128, 144), (148, 156), (160, 192), (200, 218), (220, 232)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110AtomicInfoC2ERN5clang7CodeGen15CodeGenFunctionERNS2_6LValueE(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull align 8 dereferenceable(136) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %.sroa.9 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
@@ -3038,7 +3038,7 @@ _ZNK5clang4Type6castAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %176, %183
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo25convertToAtomicIntPointerEN5clang7CodeGen7AddressE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo25convertToAtomicIntPointerEN5clang7CodeGen7AddressE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = alloca %"class.clang::CodeGen::Address", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5402,7 +5402,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo17materializeRValueEN5clang7CodeGen6RValueE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::RValue") align 8 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo17materializeRValueEN5clang7CodeGen6RValueE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::RValue") align 8 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %5 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %6 = alloca %"class.clang::CodeGen::Address", align 8
@@ -5682,7 +5682,7 @@ _ZNK12_GLOBAL__N_110AtomicInfo24getScalarRValValueOrNullEN5clang7CodeGen6RValueE
 declare void @_ZN5clang7CodeGen13CodeGenModule27DecorateInstructionWithTBAAEPN4llvm11InstructionENS0_14TBAAAccessInfoE(ptr noundef nonnull align 8 dereferenceable(3600), ptr noundef, ptr noundef byval(%"struct.clang::CodeGen::TBAAAccessInfo") align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction25EmitAtomicCompareExchangeENS0_6LValueENS0_6RValueES3_NS_14SourceLocationEN4llvm14AtomicOrderingES6_bNS0_12AggValueSlotE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.933") align 8 initializes((0, 64)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::RValue") align 8 %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::RValue") align 8 %4, i32 %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr nocapture noundef readnone byval(%"class.clang::CodeGen::AggValueSlot") align 8 %9) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction25EmitAtomicCompareExchangeENS0_6LValueENS0_6RValueES3_NS_14SourceLocationEN4llvm14AtomicOrderingES6_bNS0_12AggValueSlotE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::pair.933") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef nonnull byval(%"class.clang::CodeGen::LValue") align 8 %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::RValue") align 8 %3, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::RValue") align 8 %4, i32 %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8, ptr nocapture noundef readnone byval(%"class.clang::CodeGen::AggValueSlot") align 8 %9) local_unnamed_addr #0 align 2 {
   %.sroa.4.i13.i = alloca [23 x i8], align 1
   %.sroa.4.i.i = alloca [23 x i8], align 1
   %11 = alloca %"class.clang::CodeGen::Address", align 8
@@ -6531,7 +6531,7 @@ _ZNK5clang7CodeGen7Address14emitRawPointerERNS0_15CodeGenFunctionE.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo12projectValueEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 4), (8, 56), (64, 80), (84, 136)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_110AtomicInfo12projectValueEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.clang::CodeGen::TBAAAccessInfo", align 8
   %4 = alloca %"class.llvm::TypeSize", align 8
   %.sroa.11 = alloca [23 x i8], align 1

@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__func__.gcm_tls_cipher = private unnamed_addr constant [15 x i8] c"gcm_tls_cipher\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_gcm_initctx(ptr noundef %provctx, ptr nocapture noundef initializes((0, 4), (8, 32), (40, 48), (232, 248)) %ctx, i64 noundef %keybits, ptr noundef %hw) local_unnamed_addr #0 {
+define void @ossl_gcm_initctx(ptr noundef %provctx, ptr nocapture noundef %ctx, i64 noundef %keybits, ptr noundef %hw) local_unnamed_addr #0 {
 entry:
   %pad = getelementptr inbounds i8, ptr %ctx, i64 84
   %bf.load = load i8, ptr %pad, align 4

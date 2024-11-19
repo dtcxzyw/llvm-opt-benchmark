@@ -1809,7 +1809,7 @@ define internal void @tpd_led_update(ptr nocapture noundef readonly %0) #3 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @tpd_led_set(ptr noundef initializes((408, 412)) %0, i32 noundef %1) #3 align 16 {
+define internal void @tpd_led_set(ptr noundef %0, i32 noundef %1) #3 align 16 {
   %3 = icmp ne i32 %1, 0
   %4 = zext i1 %3 to i32
   %5 = getelementptr i8, ptr %0, i64 408

@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [27 x i8] c" the fanins of node %d...\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ObjCollectFanins(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
+define void @Nwk_ObjCollectFanins(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -102,7 +102,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ObjCollectFanouts(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
+define void @Nwk_ObjCollectFanouts(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 72

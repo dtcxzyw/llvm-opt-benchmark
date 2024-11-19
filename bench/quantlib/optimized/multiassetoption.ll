@@ -1050,7 +1050,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16MultiAssetOptionC1ERKN5boost10shared_ptrINS_6PayoffEEERKNS2_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(184) initializes((184, 192), (200, 204), (208, 216)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16MultiAssetOptionC1ERKN5boost10shared_ptrINS_6PayoffEEERKNS2_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %agg.tmp2 = alloca %"class.boost::shared_ptr.17", align 8
@@ -2320,7 +2320,7 @@ unreachable:                                      ; preds = %invoke.cont15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK8QuantLib16MultiAssetOption12setupExpiredEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) initializes((16, 24), (136, 184)) %this) unnamed_addr #12 align 2 {
+define void @_ZNK8QuantLib16MultiAssetOption12setupExpiredEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(184) %this) unnamed_addr #12 align 2 {
 entry:
   %delta_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %NPV_ = getelementptr inbounds nuw i8, ptr %this, i64 16

@@ -1079,7 +1079,7 @@ _ZN17LowMemoryDetector10is_enabledEP10MemoryPool.exit._crit_edge: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10SensorInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 9), (16, 64)) %0) unnamed_addr #6 align 2 {
+define hidden void @_ZN10SensorInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8

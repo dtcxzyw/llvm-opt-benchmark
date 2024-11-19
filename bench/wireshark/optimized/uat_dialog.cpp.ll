@@ -1691,7 +1691,7 @@ declare noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noun
 declare void @_ZN19StockIconToolButton12setStockIconE7QString(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9UatDialog6setUatEP8epan_uat(ptr noundef nonnull align 8 dereferenceable(112) initializes((104, 112)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9UatDialog6setUatEP8epan_uat(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca { i64, i64 }, align 8
@@ -2400,7 +2400,7 @@ declare void @_ZN17QAbstractItemView15setCurrentIndexERK11QModelIndex(ptr nounde
 declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9UatDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8), (16, 24)) %0) unnamed_addr #3 align 2 {
+define void @_ZN9UatDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9UatDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV9UatDialog, i64 488), ptr %2, align 8

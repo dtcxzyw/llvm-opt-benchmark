@@ -590,7 +590,7 @@ define i32 @tdefl_create_comp_flags_from_zip_params(i32 noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @tdefl_init(ptr noundef initializes((0, 32), (36, 48), (84, 100), (112, 132)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+define noundef i32 @tdefl_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -7065,7 +7065,7 @@ define i64 @tdefl_compress_mem_to_mem(ptr noundef %0, i64 noundef %1, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 8)) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #7 {
+define ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #7 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
@@ -7535,7 +7535,7 @@ mz_crc32.exit99:                                  ; preds = %.lr.ph42.i78, %.pre
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @tdefl_write_image_to_png_file_in_memory(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef initializes((0, 8)) %4) local_unnamed_addr #7 {
+define ptr @tdefl_write_image_to_png_file_in_memory(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #7 {
   %6 = tail call ptr @tdefl_write_image_to_png_file_in_memory_ex(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 6, i32 noundef 0)
   ret ptr %6
 }
@@ -7553,7 +7553,7 @@ define void @tdefl_compressor_free(ptr nocapture noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef initializes((0, 8)) %2, i32 noundef %3) local_unnamed_addr #7 {
+define noundef ptr @tinfl_decompress_mem_to_heap(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca %struct.tinfl_decompressor_tag, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -13087,7 +13087,7 @@ mz_zip_writer_init_v2.exit:                       ; preds = %2, %12, %18, %40, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init_heap_v2(ptr noundef initializes((80, 96)) %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_init_heap_v2(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @mz_zip_heap_write_func, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 88
@@ -13331,7 +13331,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_end_internal(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init_heap(ptr noundef initializes((80, 96)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_init_heap(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @mz_zip_heap_write_func, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -13467,13 +13467,13 @@ mz_zip_writer_init_heap_v2.exit:                  ; preds = %12, %40, %18, %42, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init_file(ptr noundef initializes((80, 96)) %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_init_file(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = tail call i32 @mz_zip_writer_init_file_v2(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef 0)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init_file_v2(ptr noundef initializes((80, 96)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_init_file_v2(ptr noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #7 {
   %5 = alloca [4096 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @mz_zip_file_write_func, ptr %6, align 8
@@ -13603,7 +13603,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_end(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @mz_zip_writer_init_cfile(ptr noundef initializes((80, 96)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @mz_zip_writer_init_cfile(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr @mz_zip_file_write_func, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
@@ -14695,7 +14695,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %325
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mz_zip_time_t_to_dos_time(i64 noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 2)) %2) unnamed_addr #7 {
+define internal fastcc void @mz_zip_time_t_to_dos_time(i64 noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #7 {
   %4 = alloca i64, align 8
   store i64 %0, ptr %4, align 8
   %5 = call ptr @localtime(ptr noundef nonnull %4) #30
@@ -14772,7 +14772,7 @@ define internal fastcc range(i32 0, 2) i32 @mz_zip_writer_write_zeros(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef nonnull initializes((0, 4)) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #24 {
+define internal fastcc i32 @mz_zip_writer_create_zip64_extra_data(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #24 {
   store i8 1, ptr %0, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1

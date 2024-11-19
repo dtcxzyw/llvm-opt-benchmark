@@ -115,7 +115,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global.annotations = appending global [1 x { ptr, ptr, ptr, i32, ptr }] [{ ptr, ptr, ptr, i32, ptr } { ptr @qemu_get_buffer, ptr @.str.63, ptr @.str.64, i32 38, ptr null }], section "llvm.metadata"
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_bool(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 1)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_bool(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %call = tail call i32 @qemu_get_byte(ptr noundef %f) #6
   %tobool = icmp ne i32 %call, 0
@@ -135,7 +135,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_int8(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 1)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_int8(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %call.i.i = tail call i32 @qemu_get_byte(ptr noundef %f) #6
   %conv.i.i = trunc i32 %call.i.i to i8
@@ -153,7 +153,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_int16(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 2)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_int16(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %call.i.i = tail call i32 @qemu_get_be16(ptr noundef %f) #6
   %conv.i.i = trunc i32 %call.i.i to i16
@@ -171,7 +171,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_int32(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 4)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_int32(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %call.i.i = tail call i32 @qemu_get_be32(ptr noundef %f) #6
   store i32 %call.i.i, ptr %pv, align 4
@@ -234,7 +234,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_int64(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 8)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_int64(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %call.i.i = tail call i64 @qemu_get_be64(ptr noundef %f) #6
   store i64 %call.i.i, ptr %pv, align 8
@@ -250,7 +250,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_uint8(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 1)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_uint8(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %call.i = tail call i32 @qemu_get_byte(ptr noundef %f) #6
   %conv.i = trunc i32 %call.i to i8
@@ -268,7 +268,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_uint16(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 2)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_uint16(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %call.i = tail call i32 @qemu_get_be16(ptr noundef %f) #6
   %conv.i = trunc i32 %call.i to i16
@@ -286,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_uint32(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 4)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_uint32(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %call.i = tail call i32 @qemu_get_be32(ptr noundef %f) #6
   store i32 %call.i, ptr %pv, align 4
@@ -326,7 +326,7 @@ return:                                           ; preds = %if.end, %if.then1, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_uint64(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 8)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_uint64(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %call.i = tail call i64 @qemu_get_be64(ptr noundef %f) #6
   store i64 %call.i, ptr %pv, align 8
@@ -455,7 +455,7 @@ return:                                           ; preds = %if.end, %if.then5, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @get_cpudouble(ptr noundef %f, ptr nocapture noundef writeonly initializes((0, 8)) %pv, i64 %size, ptr nocapture readnone %field) #0 {
+define internal noundef i32 @get_cpudouble(ptr noundef %f, ptr nocapture noundef writeonly %pv, i64 %size, ptr nocapture readnone %field) #0 {
 entry:
   %upper = getelementptr inbounds i8, ptr %pv, i64 4
   %call.i = tail call i32 @qemu_get_be32(ptr noundef %f) #6

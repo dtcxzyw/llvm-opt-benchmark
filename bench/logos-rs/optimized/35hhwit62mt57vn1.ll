@@ -124,7 +124,7 @@ define hidden void @_ZN13logos_codegen5error6Errors6render17he0dd74f8ab851cceE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN13logos_codegen5error5Error4span17h5479e1ec8596d306E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 20)) %0, ptr %1, i64 %2, i32 %3) unnamed_addr #1 {
+define void @_ZN13logos_codegen5error5Error4span17h5479e1ec8596d306E(ptr nocapture writeonly sret([24 x i8]) align 8 %0, ptr %1, i64 %2, i32 %3) unnamed_addr #1 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8

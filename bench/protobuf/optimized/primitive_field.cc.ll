@@ -483,7 +483,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare void @_ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseC2EPKNS0_15FieldDescriptorERKNS2_7OptionsEPNS2_18MessageSCCAnalyzerE(ptr noundef nonnull align 8 dereferenceable(85), ptr noundef, ptr noundef nonnull align 8 dereferenceable(206), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_117SingularPrimitiveD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_117SingularPrimitiveD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i64 16), ptr %this, align 8
   %variables_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -526,7 +526,7 @@ _ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseD2Ev.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_117SingularPrimitiveD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_117SingularPrimitiveD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i64 16), ptr %this, align 8
   %variables_.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -6333,7 +6333,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv
 declare noundef ptr @_ZN4absl12lts_2023080216numbers_internal15FastIntToBufferEmPc(i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitiveD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitiveD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i64 16), ptr %this, align 8
   %variables_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -6376,7 +6376,7 @@ _ZN6google8protobuf8compiler3cpp18FieldGeneratorBaseD2Ev.exit: ; preds = %entry,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitiveD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6google8protobuf8compiler3cpp12_GLOBAL__N_117RepeatedPrimitiveD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler3cpp18FieldGeneratorBaseE, i64 16), ptr %this, align 8
   %variables_.i.i = getelementptr inbounds i8, ptr %this, i64 32

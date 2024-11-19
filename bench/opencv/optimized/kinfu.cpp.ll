@@ -151,7 +151,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv5kinfu6Params20setInitialVolumePoseENS_4MatxIfLi3ELi3EEENS_3VecIfLi3EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(252) initializes((124, 188)) %0, ptr nocapture noundef readonly byval(%"class.cv::Matx.0") align 8 %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv5kinfu6Params20setInitialVolumePoseENS_4MatxIfLi3ELi3EEENS_3VecIfLi3EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(252) %0, ptr nocapture noundef readonly byval(%"class.cv::Matx.0") align 8 %1, ptr nocapture noundef readonly %2) local_unnamed_addr #3 align 2 {
   %4 = load float, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 4
   %6 = load float, ptr %5, align 4
@@ -210,7 +210,7 @@ define void @_ZN2cv5kinfu6Params20setInitialVolumePoseENS_4MatxIfLi3ELi3EEENS_3V
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv5kinfu6Params20setInitialVolumePoseENS_4MatxIfLi4ELi4EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(252) initializes((124, 188)) %0, ptr nocapture noundef readonly byval(%"class.cv::Matx.3") align 8 %1) local_unnamed_addr #3 align 2 {
+define void @_ZN2cv5kinfu6Params20setInitialVolumePoseENS_4MatxIfLi4ELi4EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(252) %0, ptr nocapture noundef readonly byval(%"class.cv::Matx.3") align 8 %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 124
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
   ret void
@@ -577,7 +577,7 @@ _ZNSt10shared_ptrIN2cv5kinfu6ParamsEED2Ev.exit:   ; preds = %1, %20, %33, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5kinfu6Params14hashTSDFParamsEb(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5kinfu6Params14hashTSDFParamsEb(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::Ptr", align 8
   %4 = alloca %"struct.cv::Ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -945,7 +945,7 @@ _ZN2cv3PtrINS_5kinfu6ParamsEED2Ev.exit:           ; preds = %88, %6, %_ZNSt16_Sp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv5kinfu6Params17coloredTSDFParamsEb(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv5kinfu6Params17coloredTSDFParamsEb(ptr dead_on_unwind noalias writable sret(%"struct.cv::Ptr") align 8 %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.cv::Ptr", align 8
   %4 = alloca %"struct.cv::Ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

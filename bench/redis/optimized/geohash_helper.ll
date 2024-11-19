@@ -124,7 +124,7 @@ return:                                           ; preds = %entry, %cond.end14
 declare double @cos(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.GeoHashRadius) align 8 %agg.result, ptr nocapture noundef initializes((32, 64)) %shape) local_unnamed_addr #3 {
+define dso_local void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.GeoHashRadius) align 8 %agg.result, ptr nocapture noundef %shape) local_unnamed_addr #3 {
 entry:
   %long_range = alloca %struct.GeoHashRange, align 8
   %lat_range = alloca %struct.GeoHashRange, align 8
@@ -509,7 +509,7 @@ declare double @sin(double noundef) local_unnamed_addr #2
 declare double @asin(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadius(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr nocapture noundef writeonly initializes((0, 8)) %distance) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadius(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr nocapture noundef writeonly %distance) local_unnamed_addr #8 {
 entry:
   %mul.i.i = fmul double %x1, 0x3F91DF46A2529D39
   %mul.i8.i = fmul double %x2, 0x3F91DF46A2529D39
@@ -553,7 +553,7 @@ geohashGetDistance.exit:                          ; preds = %if.then.i, %if.end.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr nocapture noundef writeonly initializes((0, 8)) %distance) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %x1, double noundef %y1, double noundef %x2, double noundef %y2, double noundef %radius, ptr nocapture noundef writeonly %distance) local_unnamed_addr #8 {
 entry:
   %mul.i.i.i = fmul double %x1, 0x3F91DF46A2529D39
   %mul.i8.i.i = fmul double %x2, 0x3F91DF46A2529D39

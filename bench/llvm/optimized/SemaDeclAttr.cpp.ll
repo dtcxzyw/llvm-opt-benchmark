@@ -13606,7 +13606,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %423, %426, %429
 declare noundef zeroext i1 @_ZNK4llvm9StringRef12getAsIntegerEjRNS_5APIntE(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16parseModeAttrArgRN5clang4SemaEN4llvm9StringRefERjRbS5_RNS_13FloatModeKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %4, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %6) unnamed_addr #1 {
+define internal fastcc void @_ZL16parseModeAttrArgRN5clang4SemaEN4llvm9StringRefERjRbS5_RNS_13FloatModeKindE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr nocapture readonly %1, i64 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6) unnamed_addr #1 {
   store i8 1, ptr %4, align 1
   store i8 0, ptr %5, align 1
   store i32 0, ptr %6, align 4
@@ -50248,7 +50248,7 @@ declare void @_ZN5clang14DeprecatedAttrC1ERNS_10ASTContextERKNS_19AttributeCommo
 declare void @_ZN5clang14DestructorAttrC1ERNS_10ASTContextERKNS_19AttributeCommonInfoEi(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL26checkFunctionConditionAttrRN5clang4SemaEPNS_4DeclERKNS_10ParsedAttrERPNS_4ExprERN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %4) unnamed_addr #1 {
+define internal fastcc noundef zeroext i1 @_ZL26checkFunctionConditionAttrRN5clang4SemaEPNS_4DeclERKNS_10ParsedAttrERPNS_4ExprERN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(72) %2, ptr nocapture noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull align 8 dereferenceable(16) %4) unnamed_addr #1 {
   %6 = alloca %"class.llvm::SmallVector.1540", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %8 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8

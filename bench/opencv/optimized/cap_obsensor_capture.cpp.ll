@@ -158,7 +158,7 @@ _ZN2cv3PtrINS_21VideoCapture_obsensorEED2Ev.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv21VideoCapture_obsensorC2Ei(ptr noundef nonnull align 8 dereferenceable(652) initializes((0, 9), (16, 80)) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv21VideoCapture_obsensorC2Ei(ptr noundef nonnull align 8 dereferenceable(652) %0, i32 noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"struct.cv::obsensor::StreamProfile", align 4
   %5 = alloca %"class.std::function", align 8
@@ -849,7 +849,7 @@ declare void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 declare void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv21VideoCapture_obsensorD2Ev(ptr noundef nonnull align 8 dereferenceable(652) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv21VideoCapture_obsensorD2Ev(ptr noundef nonnull align 8 dereferenceable(652) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv21VideoCapture_obsensorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -1095,7 +1095,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv21VideoCapture_obsensorD0Ev(ptr noundef nonnull align 8 dereferenceable(652) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv21VideoCapture_obsensorD0Ev(ptr noundef nonnull align 8 dereferenceable(652) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN2cv21VideoCapture_obsensorD2Ev(ptr noundef nonnull align 8 dereferenceable(652) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #18
   ret void

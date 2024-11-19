@@ -99,7 +99,7 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN92_$LT$ockam_transport_ble..driver..packet..PacketBuffer$u20$as$u20$core..default..Default$GT$7default17h2d2e6ab0c4e0fcc5E"(ptr noalias nocapture noundef writeonly sret({ [1024 x i8], i64, i64, i64 }) align 8 dereferenceable(1048) initializes((0, 1048)) %0) unnamed_addr #2 {
+define void @"_ZN92_$LT$ockam_transport_ble..driver..packet..PacketBuffer$u20$as$u20$core..default..Default$GT$7default17h2d2e6ab0c4e0fcc5E"(ptr noalias nocapture noundef writeonly sret({ [1024 x i8], i64, i64, i64 }) align 8 dereferenceable(1048) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1024
   store i64 18, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %0, i8 0, i64 1024, i1 false)
@@ -116,7 +116,7 @@ define noundef i64 @_ZN19ockam_transport_ble6driver6packet12PacketBuffer10packet
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer5reset17h8c24119263ef02d1E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(1048) initializes((0, 1048)) %0) unnamed_addr #2 {
+define void @_ZN19ockam_transport_ble6driver6packet12PacketBuffer5reset17h8c24119263ef02d1E(ptr noalias nocapture noundef writeonly align 8 dereferenceable(1048) %0) unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1024) %0, i8 0, i64 1024, i1 false)
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 1024
   store i64 18, ptr %.sroa.4.0..sroa_idx, align 8

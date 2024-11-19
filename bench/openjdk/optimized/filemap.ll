@@ -521,7 +521,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN19SharedDataRelocator6do_bitEm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define hidden void @_ZN11FileMapInfoC2EPKcb(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 3), (4, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN11FileMapInfoC2EPKcb(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #1 align 2 {
   %4 = zext i1 %2 to i8
   store i8 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1
@@ -851,7 +851,7 @@ declare noundef ptr @_ZN2os6mallocEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) l
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13FileMapHeader8populateEP11FileMapInfommmmm(ptr noundef nonnull align 8 dereferenceable(792) initializes((0, 4), (8, 24), (376, 388), (404, 405), (408, 416), (420, 423), (444, 704), (745, 747)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13FileMapHeader8populateEP11FileMapInfommmmm(ptr noundef nonnull align 8 dereferenceable(792) %0, ptr nocapture noundef readonly %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 align 2 {
   %8 = trunc i64 %3 to i32
   %9 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %8, ptr %9, align 4
@@ -1030,7 +1030,7 @@ declare noundef zeroext i1 @_ZN9CDSConfig15is_dumping_heapEv() local_unnamed_add
 declare noundef i32 @_ZN14CompressedOops4modeEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18get_header_versionILi256EEvRAT__c(ptr noundef nonnull align 1 dereferenceable(256) initializes((0, 256)) %0) unnamed_addr #0 {
+define internal fastcc void @_ZL18get_header_versionILi256EEvRAT__c(ptr noundef nonnull align 1 dereferenceable(256) %0) unnamed_addr #0 {
   %2 = tail call noundef ptr @_ZN19Abstract_VM_Version23internal_vm_info_stringEv() #25
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #26
   %4 = trunc i64 %3 to i32
@@ -1312,7 +1312,7 @@ define hidden void @_ZN13FileMapRegion5printEP12outputStreami(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 1), (24, 32)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20SharedClassPathEntry20init_as_non_existentEPKcP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   store i8 3, ptr %0, align 8
   %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #26
   %5 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
@@ -1348,7 +1348,7 @@ _ZN20SharedClassPathEntry8set_nameEPKcP10JavaThread.exit: ; preds = %_ZN15Metada
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20SharedClassPathEntry8set_nameEPKcP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((24, 32)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20SharedClassPathEntry8set_nameEPKcP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #26
   %5 = load ptr, ptr @_ZN15ClassLoaderData27_the_null_class_loader_dataE, align 8
   %6 = trunc i64 %4 to i32
@@ -1383,7 +1383,7 @@ _ZN15MetadataFactory9new_arrayIcEEP5ArrayIT_EP15ClassLoaderDataiP10JavaThread.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20SharedClassPathEntry4initEbbP14ClassPathEntryP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((2, 3), (8, 32)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20SharedClassPathEntry4initEbbP14ClassPathEntryP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %struct.stat, align 8
   %7 = zext i1 %2 to i8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1517,7 +1517,7 @@ declare void @_ZN15MetaspaceShared27unrecoverable_loading_errorEPKc(ptr noundef)
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias nocapture noundef readonly) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20SharedClassPathEntry9copy_fromEPS_P15ClassLoaderDataP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 3), (8, 32)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20SharedClassPathEntry9copy_fromEPS_P15ClassLoaderDataP10JavaThread(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load i8, ptr %1, align 8
   store i8 %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 1
@@ -4205,7 +4205,7 @@ _ZNK20SharedClassPathEntry4nameEv.exit:           ; preds = %30, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN11FileMapInfo33get_base_archive_name_from_headerEPKcPPc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN11FileMapInfo33get_base_archive_name_from_headerEPKcPPc(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.FileHeaderHelper, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
   store i8 0, ptr %4, align 4
@@ -5008,7 +5008,7 @@ declare void @_ZN15MetaspaceShared13writing_errorEPKc(ptr noundef) local_unnamed
 declare noundef i64 @_ZN15MetaspaceShared21core_region_alignmentEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11FileMapInfo12write_headerEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11FileMapInfo12write_headerEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -5131,7 +5131,7 @@ define hidden noundef i64 @_ZNK13FileMapRegion12used_alignedEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13FileMapRegion4initEimmbbi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 24), (32, 48), (80, 88)) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN13FileMapRegion4initEimmbbi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6) local_unnamed_addr #13 align 2 {
   %8 = icmp eq i32 %1, 3
   %9 = zext i1 %8 to i32
   %10 = getelementptr inbounds i8, ptr %0, i64 12
@@ -5159,7 +5159,7 @@ define hidden void @_ZN13FileMapRegion4initEimmbbi(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13FileMapRegion11init_oopmapEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((48, 64)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN13FileMapRegion11init_oopmapEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -5168,7 +5168,7 @@ define hidden void @_ZN13FileMapRegion11init_oopmapEmm(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13FileMapRegion11init_ptrmapEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((64, 80)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN13FileMapRegion11init_ptrmapEmm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -5207,7 +5207,7 @@ define hidden noundef zeroext i1 @_ZNK13FileMapRegion16check_region_crcEPc(ptr n
 declare noundef i32 @_ZN11ClassLoader5crc32EiPKci(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11FileMapInfo11bitmap_viewEib(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.BitMapView) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11FileMapInfo11bitmap_viewEib(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.BitMapView) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 24
@@ -5386,7 +5386,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE14ELS1_129ELS1_0ELS1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11FileMapInfo11oopmap_viewEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.BitMapView) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11FileMapInfo11oopmap_viewEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.BitMapView) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8, !noalias !28
@@ -5423,7 +5423,7 @@ _ZN11FileMapInfo11bitmap_viewEib.exit:            ; preds = %3, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11FileMapInfo11ptrmap_viewEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.BitMapView) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11FileMapInfo11ptrmap_viewEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.BitMapView) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8, !noalias !31
@@ -8037,7 +8037,7 @@ define hidden void @_ZNK11FileMapInfo5printEP12outputStream(ptr nocapture nounde
 declare void @_ZN20DynamicArchiveHeader5printEP12outputStream(ptr noundef nonnull align 8 dereferenceable(812), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13FileMapHeader13set_as_offsetEPcPm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(792) %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13FileMapHeader13set_as_offsetEPcPm(ptr nocapture noundef nonnull readnone align 8 dereferenceable(792) %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr @_ZN14ArchiveBuilder8_currentE, align 8
   %5 = tail call noundef i64 @_ZNK14ArchiveBuilder13any_to_offsetEPh(ptr noundef nonnull align 8 dereferenceable(1080) %4, ptr noundef %1) #25
   store i64 %5, ptr %2, align 8

@@ -907,7 +907,7 @@ declare void @bn_sqr_comba4(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @bn_sqr_comba8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @bn_sqr_normal(ptr noundef initializes((0, 8)) %r, ptr noundef %a, i32 noundef range(i32 0, -2147483648) %n, ptr noundef %tmp) unnamed_addr #0 {
+define internal fastcc void @bn_sqr_normal(ptr noundef %r, ptr noundef %a, i32 noundef range(i32 0, -2147483648) %n, ptr noundef %tmp) unnamed_addr #0 {
 entry:
   %mul = shl nuw nsw i32 %n, 1
   %0 = zext nneg i32 %mul to i64

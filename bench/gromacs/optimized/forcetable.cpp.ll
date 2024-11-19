@@ -1002,7 +1002,7 @@ declare float @erfcf(float noundef) local_unnamed_addr #6
 declare double @cbrt(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11t_tabledataC2Eiidb(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i1 noundef zeroext %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11t_tabledataC2Eiidb(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2, double noundef %3, i1 noundef zeroext %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i32 %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %6, align 4
@@ -4669,7 +4669,7 @@ declare noundef zeroext i1 @_Z14gmx_within_tolddd(double noundef, double noundef
 declare double @erfc(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z17make_bonded_tableP8_IO_FILEPKci(ptr dead_on_unwind noalias writable sret(%struct.bondedtable_t) align 8 initializes((8, 32)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z17make_bonded_tableP8_IO_FILEPKci(ptr dead_on_unwind noalias writable sret(%struct.bondedtable_t) align 8 %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.t_tabledata, align 8
   %6 = alloca %"class.std::vector.37", align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5386,7 +5386,7 @@ _ZNSt10unique_ptrI12t_forcetableSt14default_deleteIS0_EED2Ev.exit27: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN12t_forcetableC2E16TableInteraction11TableFormat(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 20), (24, 56)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #18 align 2 {
+define void @_ZN12t_forcetableC2E16TableInteraction11TableFormat(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #18 align 2 {
   store i32 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4

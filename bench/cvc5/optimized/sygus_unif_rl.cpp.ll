@@ -527,7 +527,7 @@ entry:
 declare void @_ZN4cvc58internal6theory11quantifiers9SygusUnifC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(193), ptr noundef nonnull align 8 dereferenceable(576)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRlD2Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRlD2Ev(ptr noundef nonnull align 8 dereferenceable(680) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRlE, i64 16), ptr %this, align 8
   %d_cond_enums = getelementptr inbounds i8, ptr %this, i64 656
@@ -922,7 +922,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_Id
 declare void @_ZN4cvc58internal6theory11quantifiers9SygusUnifD2Ev(ptr noundef nonnull align 8 dereferenceable(193)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRlD0Ev(ptr noundef nonnull align 8 dereferenceable(680) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRlD0Ev(ptr noundef nonnull align 8 dereferenceable(680) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRlD2Ev(ptr noundef nonnull align 8 dereferenceable(680) %this) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -11391,7 +11391,7 @@ lpad:                                             ; preds = %if.then.i121, %invo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo10initializeENS0_12NodeTemplateILb1EEEPS3_PNS2_17SygusUnifStrategyEj(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8), (232, 244)) %this, ptr nocapture noundef readonly %cond_enum, ptr noundef %unif, ptr noundef %strategy, i32 noundef %strategy_index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo10initializeENS0_12NodeTemplateILb1EEEPS3_PNS2_17SygusUnifStrategyEj(ptr noundef nonnull align 8 dereferenceable(424) %this, ptr nocapture noundef readonly %cond_enum, ptr noundef %unif, ptr noundef %strategy, i32 noundef %strategy_index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp3 = alloca i8, align 1
@@ -12022,7 +12022,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit11: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparator10initializeEPS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((112, 120)) %this, ptr noundef %dt) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparator10initializeEPS4_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %this, ptr noundef %dt) local_unnamed_addr #11 align 2 {
 entry:
   %d_dt = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %dt, ptr %d_dt, align 8

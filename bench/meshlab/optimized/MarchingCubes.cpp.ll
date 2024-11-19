@@ -23,7 +23,7 @@ define noundef range(i32 0, 4) i32 @_ZN6Square20AntipodalCornerIndexEi(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Square17FactorCornerIndexEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #1 align 2 {
+define void @_ZN6Square17FactorCornerIndexEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = and i32 %0, 1
   store i32 %4, ptr %1, align 4
   %5 = lshr i32 %0, 1
@@ -91,7 +91,7 @@ define void @_ZN6Square15FactorEdgeIndexEiRiS0_(i32 noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Square11EdgeCornersEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #1 align 2 {
+define void @_ZN6Square11EdgeCornersEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   switch i32 %0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread [
     i32 0, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12
     i32 2, label %_ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread12
@@ -190,7 +190,7 @@ define noundef i32 @_ZN4Cube11CornerIndexEiii(i32 noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4Cube17FactorCornerIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #1 align 2 {
+define void @_ZN4Cube17FactorCornerIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #1 align 2 {
   %5 = and i32 %0, 1
   store i32 %5, ptr %1, align 4
   %6 = lshr i32 %0, 1
@@ -212,7 +212,7 @@ define noundef i32 @_ZN4Cube9EdgeIndexEiii(i32 noundef %0, i32 noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4Cube15FactorEdgeIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #1 align 2 {
+define void @_ZN4Cube15FactorEdgeIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #1 align 2 {
   %5 = ashr i32 %0, 2
   store i32 %5, ptr %1, align 4
   %6 = and i32 %0, 1
@@ -262,7 +262,7 @@ define noundef i32 @_ZN4Cube9FaceIndexEii(i32 noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4Cube15FactorFaceIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #1 align 2 {
+define void @_ZN4Cube15FactorFaceIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #1 align 2 {
   store i32 0, ptr %3, align 4
   store i32 0, ptr %2, align 4
   store i32 0, ptr %1, align 4
@@ -304,7 +304,7 @@ define void @_ZN4Cube15FactorFaceIndexEiRiS0_S0_(i32 noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4Cube15FactorFaceIndexEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #1 align 2 {
+define void @_ZN4Cube15FactorFaceIndexEiRiS0_(i32 noundef %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #1 align 2 {
   %4 = ashr i32 %0, 1
   store i32 %4, ptr %1, align 4
   %5 = and i32 %0, 1

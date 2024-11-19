@@ -1210,7 +1210,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit191:           ; preds = %633, %.outer, %609,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZL17decompose_unicodePK31hb_ot_shape_normalize_context_tjPjS2_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) #0 {
+define internal noundef zeroext i1 @_ZL17decompose_unicodePK31hb_ot_shape_normalize_context_tjPjS2_(ptr nocapture noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   store i32 %1, ptr %2, align 4
@@ -1225,7 +1225,7 @@ define internal noundef zeroext i1 @_ZL17decompose_unicodePK31hb_ot_shape_normal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef zeroext i1 @_ZL15compose_unicodePK31hb_ot_shape_normalize_context_tjjPj(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3) #0 {
+define internal noundef zeroext i1 @_ZL15compose_unicodePK31hb_ot_shape_normalize_context_tjjPj(ptr nocapture noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   store i32 0, ptr %3, align 4
@@ -1837,7 +1837,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL23compare_combining_classPK15hb
 declare void @_ZN11hb_buffer_t18merge_out_clustersEjj(ptr noundef nonnull align 8 dereferenceable(220), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_info_tP11hb_buffer_t(ptr nocapture noundef initializes((16, 18)) %0, ptr nocapture noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZL32_hb_glyph_info_set_unicode_propsP15hb_glyph_info_tP11hb_buffer_t(ptr nocapture noundef %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %0, align 4

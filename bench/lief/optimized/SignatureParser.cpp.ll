@@ -11061,7 +11061,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IPKcvEET_S8_RKS3_.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF2PE15SignatureParser21parse_ms_counter_signERNS_12BinaryStreamE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.tl::expected.323") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF2PE15SignatureParser21parse_ms_counter_signERNS_12BinaryStreamE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.tl::expected.323") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca i64, align 8

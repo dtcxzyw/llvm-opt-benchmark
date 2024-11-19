@@ -222,7 +222,7 @@ x509_csr_get_version.exit.thread.thread:          ; preds = %31, %x509_csr_get_v
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_x509_csr_init(ptr nocapture noundef writeonly initializes((0, 224)) %0) local_unnamed_addr #2 {
+define hidden void @mbedtls_x509_csr_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %0, i8 0, i64 224, i1 false)
   ret void
 }

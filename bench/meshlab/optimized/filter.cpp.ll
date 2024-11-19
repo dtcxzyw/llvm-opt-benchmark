@@ -455,7 +455,7 @@ define void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) 
 declare void @_ZN17RichParameterListC1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6FilterC2EPK12FilterPluginPK7QActionRK17RichParameterList(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #10 align 2 {
+define void @_ZN6FilterC2EPK12FilterPluginPK7QActionRK17RichParameterList(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #10 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8

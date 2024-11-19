@@ -1345,7 +1345,7 @@ define noundef zeroext i1 @_ZNK17gmx_reverse_top_t21doListedForcesSortingEv(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17gmx_reverse_top_t4ImplC2ERK10gmx_mtop_tbRK17ReverseTopOptions(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 5), (8, 36), (40, 65), (72, 120), (128, 152)) %0, ptr noundef nonnull align 8 dereferenceable(768) %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17gmx_reverse_top_t4ImplC2ERK10gmx_mtop_tbRK17ReverseTopOptions(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(768) %1, i1 noundef zeroext %2, ptr nocapture noundef nonnull readonly align 1 dereferenceable(3) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %struct.t_atoms, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %0, ptr noundef nonnull align 1 dereferenceable(3) %3, i64 3, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 3

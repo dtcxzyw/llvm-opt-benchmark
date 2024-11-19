@@ -190,7 +190,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8saliency14ObjectnessBINGC2Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8saliency14ObjectnessBINGC2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
@@ -308,7 +308,7 @@ declare void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96)) un
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8saliency14ObjectnessBING13setColorSpaceEi(ptr noundef nonnull align 8 dereferenceable(464) initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8saliency14ObjectnessBING13setColorSpaceEi(ptr noundef nonnull align 8 dereferenceable(464) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -596,7 +596,7 @@ declare void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv8saliency14ObjectnessBINGD2Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8saliency14ObjectnessBINGD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32
@@ -648,7 +648,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIfSaIfE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv8saliency14ObjectnessBINGD1Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv8saliency14ObjectnessBINGD1Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN2cv8saliency14ObjectnessBINGD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull @_ZTTN2cv8saliency14ObjectnessBINGE) #25
   %2 = getelementptr inbounds i8, ptr %0, i64 464
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency14ObjectnessBINGE, i64 48)) #25
@@ -670,7 +670,7 @@ define void @_ZTv0_n24_N2cv8saliency14ObjectnessBINGD1Ev(ptr noundef %0) unnamed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv8saliency14ObjectnessBINGD0Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN2cv8saliency14ObjectnessBINGD0Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #4 align 2 {
   tail call void @_ZN2cv8saliency14ObjectnessBINGD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr noundef nonnull @_ZTTN2cv8saliency14ObjectnessBINGE) #25
   %2 = getelementptr inbounds i8, ptr %0, i64 464
   tail call void @_ZN2cv8saliency8SaliencyD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull getelementptr inbounds (i8, ptr @_ZTTN2cv8saliency14ObjectnessBINGE, i64 48)) #25
@@ -5680,7 +5680,7 @@ declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 
 declare void @_ZN2cv11FileStorageD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8saliency14ObjectnessBING19getobjectnessValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.3") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8saliency14ObjectnessBING19getobjectnessValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.3") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(464) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 440
   %4 = getelementptr inbounds i8, ptr %1, i64 448
   %5 = load ptr, ptr %4, align 8

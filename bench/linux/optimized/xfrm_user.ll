@@ -1034,7 +1034,7 @@ define internal range(i32 -2147483648, 1) i32 @xfrm_send_acquire(ptr nocapture n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @xfrm_compile_policy(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) #2 align 16 {
+define internal ptr @xfrm_compile_policy(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) #2 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr i8, ptr %2, i64 168
@@ -2292,7 +2292,7 @@ declare dso_local void @skb_trim(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare dso_local ptr @nla_reserve(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @copy_to_user_state_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 224)) %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc i32 @copy_to_user_state_extra(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -3114,7 +3114,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @validate_tmpl(i32 noundef 
 declare dso_local ptr @xfrm_policy_alloc(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc void @copy_templates(ptr nocapture noundef nonnull writeonly initializes((372, 373)) %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 -33554435, 33554430) %2) unnamed_addr #9 align 16 {
+define internal fastcc void @copy_templates(ptr nocapture noundef nonnull writeonly %0, ptr nocapture noundef readonly %1, i32 noundef range(i32 -33554435, 33554430) %2) unnamed_addr #9 align 16 {
   %4 = trunc i32 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 372
   store i8 %4, ptr %5, align 4

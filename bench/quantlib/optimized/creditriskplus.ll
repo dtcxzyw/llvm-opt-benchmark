@@ -62,7 +62,7 @@ $_ZNSt8_Rb_treeImSt4pairIKmdESt10_Select1stIS2_ESt4lessIvESaIS2_EE29_M_get_inser
 @_ZN8QuantLib14CreditRiskPlusC1ESt6vectorIdSaIdEES3_S1_ImSaImEES3_NS_6MatrixEd = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, ptr, double), ptr @_ZN8QuantLib14CreditRiskPlusC2ESt6vectorIdSaIdEES3_S1_ImSaImEES3_NS_6MatrixEd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14CreditRiskPlusC2ESt6vectorIdSaIdEES3_S1_ImSaImEES3_NS_6MatrixEd(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 128), (136, 264)) %this, ptr nocapture noundef %exposure, ptr nocapture noundef %defaultProbability, ptr nocapture noundef %sector, ptr nocapture noundef %relativeDefaultVariance, ptr nocapture noundef %correlation, double noundef %unit) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14CreditRiskPlusC2ESt6vectorIdSaIdEES3_S1_ImSaImEES3_NS_6MatrixEd(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr nocapture noundef %exposure, ptr nocapture noundef %defaultProbability, ptr nocapture noundef %sector, ptr nocapture noundef %relativeDefaultVariance, ptr nocapture noundef %correlation, double noundef %unit) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

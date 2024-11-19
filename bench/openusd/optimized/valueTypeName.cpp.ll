@@ -58,7 +58,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__18SdfTupleDimen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 {
   %2 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ValueTypePrivate16GetEmptyTypeNameEv()
   store ptr %2, ptr %0, align 8
   ret void
@@ -67,13 +67,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC2Ev(ptr noc
 declare noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__20Sdf_ValueTypePrivate16GetEmptyTypeNameEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC2EPKNS_17Sdf_ValueTypeImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16SdfValueTypeNameC2EPKNS_17Sdf_ValueTypeImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName10GetAsTokenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName10GetAsTokenEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::TfToken") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i64, ptr %4, align 8
@@ -198,7 +198,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName13GetDimensionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.pxrInternal_v0_24__pxrReserved__::SdfTupleDimensions") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName13GetDimensionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.pxrInternal_v0_24__pxrReserved__::SdfTupleDimensions") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #6 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -362,7 +362,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName18GetAliasesAsTokensEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__16SdfValueTypeName18GetAliasesAsTokensEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 104

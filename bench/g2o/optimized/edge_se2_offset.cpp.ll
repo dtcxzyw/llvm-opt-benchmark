@@ -988,7 +988,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define void @_ZN3g2o13EdgeSE2Offset12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(464) initializes((280, 304)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o13EdgeSE2Offset12computeErrorEv(ptr nocapture noundef nonnull align 16 dereferenceable(464) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 16

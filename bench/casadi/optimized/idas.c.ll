@@ -11281,7 +11281,7 @@ declare void @N_VAddConst(ptr noundef, double noundef, ptr noundef) local_unname
 declare void @N_VInv(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @IDARestore(ptr nocapture noundef nonnull initializes((1184, 1192)) %0, double noundef %1) unnamed_addr #0 {
+define internal fastcc void @IDARestore(ptr nocapture noundef nonnull %0, double noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1184
   store double %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1144
@@ -11493,7 +11493,7 @@ define internal fastcc void @IDARestore(ptr nocapture noundef nonnull initialize
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 21) i32 @IDAHandleNFlag(ptr nocapture noundef nonnull initializes((1152, 1156)) %0, i32 noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 21) i32 @IDAHandleNFlag(ptr nocapture noundef nonnull %0, i32 noundef %1, double noundef %2, double noundef %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %0, i64 1152
   store i32 1, ptr %9, align 8
   %.not = icmp eq i32 %1, 7

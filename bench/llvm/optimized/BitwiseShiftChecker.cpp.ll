@@ -2597,7 +2597,7 @@ _ZN12_GLOBAL__N_121BitwiseShiftValidatorD2Ev.exit: ; preds = %663, %_ZN12_GLOBAL
 declare void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_121BitwiseShiftValidator20checkOperandNegativeENS_11OperandSideE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_121BitwiseShiftValidator20checkOperandNegativeENS_11OperandSideE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(48) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::raw_string_ostream", align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3018,7 +3018,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare void @_ZNK5clang8QualType11getAsStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_121BitwiseShiftValidator15createBugReportEN4llvm9StringRefES2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_121BitwiseShiftValidator15createBugReportEN4llvm9StringRefES2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr %2, i64 %3, ptr %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %9 = load ptr, ptr %1, align 8

@@ -227,7 +227,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib16BSMRNDCalculatorC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture noundef %process) unnamed_addr #8 align 2 {
+define void @_ZN8QuantLib16BSMRNDCalculatorC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef %process) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN8QuantLib16BSMRNDCalculatorE, i64 16), ptr %this, align 8, !tbaa !14
   %process_ = getelementptr inbounds nuw i8, ptr %this, i64 8

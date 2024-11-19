@@ -4888,7 +4888,7 @@ declare dso_local i32 @jbd2_journal_inode_ranged_wait(ptr noundef, ptr noundef, 
 declare dso_local i32 @jbd2_journal_finish_inode_data_buffers(ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @jbd2_journal_init_jbd_inode(ptr noundef initializes((0, 16), (32, 64)) %0, ptr noundef %1) #5 align 16 {
+define dso_local void @jbd2_journal_init_jbd_inode(ptr noundef %0, ptr noundef %1) #5 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store ptr %1, ptr %3, align 8
@@ -6138,7 +6138,7 @@ define dso_local i32 @jbd2_journal_bmap(ptr noundef %0, i64 noundef %1, ptr noca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @jbd2_fc_get_buf(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #1 align 16 {
+define dso_local i32 @jbd2_fc_get_buf(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = alloca i64, align 8
   store ptr null, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 928
@@ -6494,7 +6494,7 @@ define dso_local void @jbd2_descriptor_block_csum_set(ptr nocapture noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 2) i32 @jbd2_journal_get_log_tail(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 2) i32 @jbd2_journal_get_log_tail(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_raw_read_lock(ptr noundef %4) #20
   %5 = getelementptr inbounds i8, ptr %0, i64 1044
@@ -7709,7 +7709,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #0
 declare dso_local ptr @crypto_alloc_shash(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @jbd2_journal_clear_features(ptr nocapture noundef initializes((1100, 1104)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local void @jbd2_journal_clear_features(ptr nocapture noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = trunc i64 %1 to i32

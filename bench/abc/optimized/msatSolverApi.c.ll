@@ -125,7 +125,7 @@ define range(i32 -2147483647, -2147483648) i32 @Msat_SolverIncrementSeenId(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Msat_SolverSetVerbosity(ptr nocapture noundef writeonly initializes((168, 172)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @Msat_SolverSetVerbosity(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 %1, ptr %3, align 8
   ret void
@@ -185,7 +185,7 @@ declare ptr @Msat_ClauseVecReadEntry(ptr noundef, i32 noundef) local_unnamed_add
 declare i32 @Msat_ClauseVecReadSize(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_SolverMarkClausesStart(ptr nocapture noundef initializes((4, 8)) %0) local_unnamed_addr #1 {
+define void @Msat_SolverMarkClausesStart(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %3) #11
@@ -770,7 +770,7 @@ declare void @Msat_QueueFree(ptr noundef) local_unnamed_addr #2
 declare void @Msat_IntVecGrow(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_SolverClean(ptr noundef initializes((0, 4), (96, 100)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @Msat_SolverClean(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 %1, ptr %3, align 8
   store i32 0, ptr %0, align 8

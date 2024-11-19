@@ -2008,7 +2008,7 @@ _ZNK5clang13CXXRecordDecl13getDefinitionEv.exit.thread: ; preds = %79, %88, %63,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen13CodeGenModule24getVTablePointerAuthInfoEPNS0_15CodeGenFunctionEPKNS_13CXXRecordDeclEPN4llvm5ValueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.983") align 8 initializes((16, 17)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen13CodeGenModule24getVTablePointerAuthInfoEPNS0_15CodeGenFunctionEPKNS_13CXXRecordDeclEPN4llvm5ValueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.983") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca [2 x ptr], align 8
   %8 = alloca %"class.llvm::Twine", align 8
@@ -2336,7 +2336,7 @@ _ZNK5clang4Type21isFunctionPointerTypeEv.exit46.thread: ; preds = %_ZNK5clang4Ty
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24authPointerToPointerCastENS0_7AddressENS_8QualTypeES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24authPointerToPointerCastENS0_7AddressENS_8QualTypeES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CodeGen::CGPointerAuthInfo", align 8
   %7 = alloca %"class.clang::CodeGen::Address", align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2557,7 +2557,7 @@ _ZNK5clang4Type21isFunctionPointerTypeEv.exit40:  ; preds = %.thread.thread67, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang7CodeGen7Address18getResignedAddressERKNS0_17CGPointerAuthInfoERNS0_15CodeGenFunctionE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(6488) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang7CodeGen7Address18getResignedAddressERKNS0_17CGPointerAuthInfoERNS0_15CodeGenFunctionE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(6488) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CodeGen::CGPointerAuthInfo", align 8
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2674,7 +2674,7 @@ _ZN5clang7CodeGeneqERKNS0_17CGPointerAuthInfoES3_.exit.thread: ; preds = %22, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21getAsNaturalAddressOfENS0_7AddressENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21getAsNaturalAddressOfENS0_7AddressENS_8QualTypeE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::CodeGen::CGPointerAuthInfo", align 8
   %.not.i.i = icmp ult i64 %3, 16
   br i1 %.not.i.i, label %6, label %7

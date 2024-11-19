@@ -519,7 +519,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__36HdSingleInputFi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBase14GetInputScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.13") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__36HdSingleInputFilteringSceneIndexBase14GetInputScenesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.13") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [1 x %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr"], align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %5 = load ptr, ptr %4, align 8

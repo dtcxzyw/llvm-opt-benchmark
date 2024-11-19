@@ -116,7 +116,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Star
 @_ZN5clang5NSAPIC1ERNS_10ASTContextE = unnamed_addr alias void (ptr, ptr), ptr @_ZN5clang5NSAPIC2ERNS_10ASTContextE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang5NSAPIC2ERNS_10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(712) initializes((0, 712)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang5NSAPIC2ERNS_10ASTContextE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(712) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1) unnamed_addr #0 align 2 {
 .preheader32.preheader:
   store ptr %1, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8

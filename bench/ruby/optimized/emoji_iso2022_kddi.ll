@@ -32,7 +32,7 @@ define void @Init_emoji_iso2022_kddi() local_unnamed_addr #0 {
 declare void @rb_register_transcoder(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @iso2022jp_kddi_init(ptr nocapture noundef writeonly initializes((0, 1)) %0) #2 {
+define internal noundef i32 @iso2022jp_kddi_init(ptr nocapture noundef writeonly %0) #2 {
   store i8 0, ptr %0, align 1
   ret i32 0
 }

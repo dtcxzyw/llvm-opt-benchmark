@@ -653,7 +653,7 @@ define range(i32 -1, 1) i32 @H5T_vlen_reclaim_elmt(ptr noundef %0, ptr nocapture
 declare i32 @H5CX_get_vlen_alloc_info(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5T__vlen_mem_seq_getlen(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #4 {
+define internal noundef i32 @H5T__vlen_mem_seq_getlen(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 1
   store i64 %.sroa.0.0.copyload, ptr %2, align 8
   ret i32 0
@@ -667,7 +667,7 @@ define internal ptr @H5T__vlen_mem_seq_getptr(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5T__vlen_mem_seq_isnull(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #4 {
+define internal noundef i32 @H5T__vlen_mem_seq_isnull(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
   %.sroa.0.0.copyload = load i64, ptr %1, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 1
@@ -680,7 +680,7 @@ define internal noundef i32 @H5T__vlen_mem_seq_isnull(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5T__vlen_mem_seq_setnull(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 16)) %1, ptr nocapture readnone %2) #6 {
+define internal noundef i32 @H5T__vlen_mem_seq_setnull(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   ret i32 0
 }
@@ -749,7 +749,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_mem_seq_write(ptr nocapture read
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5T__vlen_mem_str_getlen(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #9 {
+define internal noundef i32 @H5T__vlen_mem_str_getlen(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #9 {
   %.0.copyload = load ptr, ptr %1, align 1
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.copyload) #15
   store i64 %4, ptr %2, align 8
@@ -763,7 +763,7 @@ define internal ptr @H5T__vlen_mem_str_getptr(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5T__vlen_mem_str_isnull(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #4 {
+define internal noundef i32 @H5T__vlen_mem_str_isnull(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
   %.0.copyload = load ptr, ptr %1, align 1
   %4 = icmp eq ptr %.0.copyload, null
   %5 = zext i1 %4 to i8
@@ -772,7 +772,7 @@ define internal noundef i32 @H5T__vlen_mem_str_isnull(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5T__vlen_mem_str_setnull(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture readnone %2) #6 {
+define internal noundef i32 @H5T__vlen_mem_str_setnull(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #6 {
   store ptr null, ptr %1, align 1
   ret i32 0
 }
@@ -841,7 +841,7 @@ define internal range(i32 -1, 1) i32 @H5T__vlen_mem_str_write(ptr nocapture read
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @H5T__vlen_disk_getlen(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #4 {
+define internal noundef i32 @H5T__vlen_disk_getlen(ptr nocapture readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #4 {
   %4 = load i8, ptr %1, align 1
   %5 = zext i8 %4 to i64
   store i64 %5, ptr %2, align 8

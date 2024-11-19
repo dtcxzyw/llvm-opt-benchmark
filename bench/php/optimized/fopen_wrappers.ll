@@ -700,7 +700,7 @@ declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local
 declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef initializes((0, 80)) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @php_fopen_primary_script(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @sapi_globals, i64 48), align 8

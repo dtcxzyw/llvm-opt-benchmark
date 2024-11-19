@@ -29,7 +29,7 @@ define hidden void @Init_newline() local_unnamed_addr #0 {
 declare void @rb_register_transcoder(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @universal_newline_init(ptr nocapture noundef writeonly initializes((0, 2)) %0) #2 {
+define internal noundef i32 @universal_newline_init(ptr nocapture noundef writeonly %0) #2 {
   store i8 0, ptr %0, align 1
   %2 = getelementptr i8, ptr %0, i64 1
   store i8 0, ptr %2, align 1

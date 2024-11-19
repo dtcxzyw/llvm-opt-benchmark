@@ -162,7 +162,7 @@ define dso_local void @update_build_target_with_opt_level(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_default_build_target(ptr noundef initializes((0, 416)) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local void @init_default_build_target(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 8 dereferenceable(416) @default_build_target, i64 416, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 41088
   %4 = load ptr, ptr %3, align 8
@@ -180,7 +180,7 @@ define dso_local void @init_default_build_target(ptr noundef initializes((0, 416
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @update_build_target_from_options(ptr noundef initializes((157, 158), (228, 232)) %0, ptr noundef readonly %1) unnamed_addr #1 {
+define internal fastcc void @update_build_target_from_options(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 41180
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %15 [
@@ -1593,7 +1593,7 @@ update_build_target_with_opt_level.exit:          ; preds = %672, %676
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_build_target(ptr noundef initializes((0, 416)) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local void @init_build_target(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(416) %0, i8 0, i64 416, i1 false)
   tail call void (...) @file_find_top_dir() #7
   %3 = tail call ptr @project_load() #7

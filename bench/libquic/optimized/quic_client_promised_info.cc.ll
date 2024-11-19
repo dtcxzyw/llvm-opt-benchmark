@@ -70,7 +70,7 @@ $_ZTIN3net26QuicClientPushPromiseIndex9TryHandleE = comdat any
 @_ZN3net22QuicClientPromisedInfoD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net22QuicClientPromisedInfoD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22QuicClientPromisedInfoC2EPNS_21QuicClientSessionBaseEjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 20)) %this, ptr noundef %session, i32 noundef %id, ptr noundef nonnull %url) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22QuicClientPromisedInfoC2EPNS_21QuicClientSessionBaseEjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %session, i32 noundef %id, ptr noundef nonnull %url) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22QuicClientPromisedInfoE, i64 16), ptr %this, align 8
   %session_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -88,7 +88,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22QuicClientPromisedInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net22QuicClientPromisedInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net22QuicClientPromisedInfoE, i64 16), ptr %this, align 8
   %cleanup_alarm_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -154,7 +154,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN3net26QuicClientPushPromiseIndex9TryHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net22QuicClientPromisedInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net22QuicClientPromisedInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3net22QuicClientPromisedInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) #8
   tail call void @_ZdlPv(ptr noundef nonnull %this) #9
@@ -668,7 +668,7 @@ return:                                           ; preds = %_ZNSt10unique_ptrIN
 declare noundef zeroext i1 @_ZN3net11QuicSession14IsClosedStreamEj(ptr noundef nonnull align 8 dereferenceable(2044), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net22QuicClientPromisedInfo6CancelEv(ptr noundef nonnull align 8 dereferenceable(96) initializes((80, 88)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN3net22QuicClientPromisedInfo6CancelEv(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 {
 _ZN3net22QuicClientPromisedInfo5ResetENS_22QuicRstStreamErrorCodeE.exit:
   %client_request_delegate_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr null, ptr %client_request_delegate_, align 8

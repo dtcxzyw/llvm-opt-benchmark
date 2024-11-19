@@ -5418,7 +5418,7 @@ define internal noundef zeroext i1 @rule_ulist_to_inferred(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cast_retype(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #5 {
+define internal void @cast_retype(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #5 {
   store ptr %2, ptr %1, align 8
   ret void
 }
@@ -7993,7 +7993,7 @@ type_flatten.exit29:                              ; preds = %.preheader
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cast_arr_to_arr(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #5 {
+define internal void @cast_arr_to_arr(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #5 {
   store ptr %2, ptr %1, align 8
   ret void
 }
@@ -8183,7 +8183,7 @@ define internal void @cast_fault_to_ptr(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cast_fault_to_anyfault(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr noundef %2) #5 {
+define internal void @cast_fault_to_anyfault(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #5 {
   store ptr %2, ptr %1, align 8
   ret void
 }

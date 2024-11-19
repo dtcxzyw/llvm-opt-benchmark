@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @WebPConvertRGBA32ToUV = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @VP8YuvToRgb32_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 96)) %3) local_unnamed_addr #0 {
+define hidden void @VP8YuvToRgb32_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %.val = load i64, ptr %0, align 1
   %.val24 = load i64, ptr %1, align 1
   %.val25 = load i64, ptr %2, align 1
@@ -192,7 +192,7 @@ define hidden void @VP8YuvToRgb32_SSE41(ptr nocapture noundef readonly %0, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @VP8YuvToBgr32_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly initializes((0, 96)) %3) local_unnamed_addr #0 {
+define hidden void @VP8YuvToBgr32_SSE41(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %.val32 = load i64, ptr %0, align 1
   %.val33 = load i64, ptr %1, align 1
   %.val34 = load i64, ptr %2, align 1

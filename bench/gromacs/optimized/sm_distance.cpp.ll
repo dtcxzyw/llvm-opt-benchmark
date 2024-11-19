@@ -508,7 +508,7 @@ _ZN3gmx26AnalysisNeighborhoodSearchD2Ev.exit:     ; preds = %_ZN3gmx26AnalysisNe
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL17evaluate_distanceRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((4, 8)) %2, ptr noundef %3) #0 {
+define internal void @_ZL17evaluate_distanceRKN3gmx20SelMethodEvalContextEP13gmx_ana_pos_tP18gmx_ana_selvalue_tPv(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr noundef %3) #0 {
   %5 = alloca %"class.gmx::AnalysisNeighborhoodPositions", align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 48
   %7 = load i32, ptr %6, align 8

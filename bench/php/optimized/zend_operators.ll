@@ -357,7 +357,7 @@ declare void @zend_error(i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 declare ptr @zend_get_type_by_const(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @zval_try_get_long(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) local_unnamed_addr #1 {
+define i64 @zval_try_get_long(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i8, ptr %3, align 8
   %5 = icmp eq i8 %4, 4
@@ -378,7 +378,7 @@ define i64 @zval_try_get_long(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @zendi_try_get_long(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) unnamed_addr #1 {
+define internal fastcc i64 @zendi_try_get_long(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) unnamed_addr #1 {
   %3 = alloca i64, align 8
   %4 = alloca double, align 8
   %5 = alloca i8, align 1
@@ -7808,7 +7808,7 @@ define range(i32 -1, 2) i32 @numeric_compare_function(ptr nocapture noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @compare_function(ptr nocapture noundef writeonly initializes((0, 12)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define noundef i32 @compare_function(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %2)
   %5 = sext i32 %4 to i64
   store i64 %5, ptr %0, align 8
@@ -8845,7 +8845,7 @@ define internal range(i32 0, 2) i32 @hash_zval_identical_function(ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @is_identical_function(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define noundef i32 @is_identical_function(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = tail call zeroext i1 @zend_is_identical(ptr noundef %1, ptr noundef %2)
   %5 = select i1 %4, i32 3, i32 2
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8854,7 +8854,7 @@ define noundef i32 @is_identical_function(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @is_not_identical_function(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
+define noundef i32 @is_not_identical_function(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #1 {
   %4 = tail call zeroext i1 @zend_is_identical(ptr noundef %1, ptr noundef %2)
   %5 = select i1 %4, i32 2, i32 3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8863,7 +8863,7 @@ define noundef i32 @is_not_identical_function(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @is_equal_function(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define noundef i32 @is_equal_function(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %2)
   %5 = icmp eq i32 %4, 0
   %6 = select i1 %5, i32 3, i32 2
@@ -8873,7 +8873,7 @@ define noundef i32 @is_equal_function(ptr nocapture noundef writeonly initialize
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @is_not_equal_function(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define noundef i32 @is_not_equal_function(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %4, 0
   %5 = select i1 %.not, i32 2, i32 3
@@ -8883,7 +8883,7 @@ define noundef i32 @is_not_equal_function(ptr nocapture noundef writeonly initia
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @is_smaller_function(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define noundef i32 @is_smaller_function(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %2)
   %5 = icmp slt i32 %4, 0
   %6 = select i1 %5, i32 3, i32 2
@@ -8893,7 +8893,7 @@ define noundef i32 @is_smaller_function(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @is_smaller_or_equal_function(ptr nocapture noundef writeonly initializes((8, 12)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define noundef i32 @is_smaller_or_equal_function(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @zend_compare(ptr noundef %1, ptr noundef %2)
   %5 = icmp slt i32 %4, 1
   %6 = select i1 %5, i32 3, i32 2

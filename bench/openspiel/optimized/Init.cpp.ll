@@ -1201,7 +1201,7 @@ define void @FreeMemory() local_unnamed_addr #3 {
 declare void @_ZN6Memory12ReturnThreadEj(ptr noundef nonnull align 8 dereferenceable(56), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ErrorMessage(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #11 {
+define void @ErrorMessage(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
   switch i32 %0, label %30 [
     i32 1, label %3
     i32 -1, label %4

@@ -1242,7 +1242,7 @@ _ZN7QStringD2Ev.exit20:                           ; preds = %_ZN10QByteArrayD2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN17ColumnEditorFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
+define void @_ZN17ColumnEditorFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ColumnEditorFrame, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV17ColumnEditorFrame, i64 456), ptr %2, align 8
@@ -1535,7 +1535,7 @@ declare void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferencea
 declare noundef ptr @_ZNK16QDialogButtonBox6buttonENS_14StandardButtonE(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17ColumnEditorFrame10editColumnEi(ptr noundef nonnull align 8 dereferenceable(120) initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17ColumnEditorFrame10editColumnEi(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
@@ -1973,7 +1973,7 @@ _ZN17ColumnEditorFrame13syntaxIsValidEv.exit:     ; preds = %40, %51
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17ColumnEditorFrame21on_buttonBox_rejectedEv(ptr noundef nonnull align 8 dereferenceable(120) initializes((64, 68)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN17ColumnEditorFrame21on_buttonBox_rejectedEv(ptr noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 -1, ptr %2, align 8
   tail call void @_ZN14AccordionFrame12animatedHideEv(ptr noundef nonnull align 8 dereferenceable(56) %0)

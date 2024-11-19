@@ -245,7 +245,7 @@ $_ZN5folly6detail21safe_assert_msg_typesINS0_22safe_assert_msg_type_sIJLNS0_20sa
 @_ZN5folly17ThreadCachedArenaC1Emm = unnamed_addr alias void (ptr, i64, i64), ptr @_ZN5folly17ThreadCachedArenaC2Emm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5folly17ThreadCachedArenaC2Emm(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 20), (24, 32)) %this, i64 noundef %minBlockSize, i64 noundef %maxAlign) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17ThreadCachedArenaC2Emm(ptr noundef nonnull align 8 dereferenceable(128) %this, i64 noundef %minBlockSize, i64 noundef %maxAlign) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store i64 %minBlockSize, ptr %this, align 8, !tbaa !7
   %maxAlign_ = getelementptr inbounds i8, ptr %this, i64 8

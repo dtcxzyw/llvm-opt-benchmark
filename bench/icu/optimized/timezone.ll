@@ -226,7 +226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758TimeZoneC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 18)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758TimeZoneC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758TimeZoneE, i64 16), ptr %this, align 8
   %fID = getelementptr inbounds i8, ptr %this, i64 8
@@ -245,7 +245,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758TimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758TimeZoneC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758TimeZoneE, i64 16), ptr %this, align 8
   %fID = getelementptr inbounds i8, ptr %this, i64 8
@@ -265,7 +265,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_758TimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define void @_ZN6icu_758TimeZoneD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758TimeZoneE, i64 16), ptr %this, align 8
   %fID = getelementptr inbounds i8, ptr %this, i64 8
@@ -288,7 +288,7 @@ entry:
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758TimeZoneC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(72) %source) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758TimeZoneC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %source) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758TimeZoneE, i64 16), ptr %this, align 8
   %fID = getelementptr inbounds i8, ptr %this, i64 8
@@ -1084,7 +1084,7 @@ for.end:                                          ; preds = %_ZN6icu_755Grego11m
 declare noundef i32 @_ZN6icu_759ClockMath11floorDivideEdiPi(double noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513TZEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513TZEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513TZEnumerationE, i64 16), ptr %this, align 8
   %localMap = getelementptr inbounds i8, ptr %this, i64 128
@@ -1683,7 +1683,7 @@ declare void @_ZN6icu_7520StackUResourceBundleD1Ev(ptr noundef nonnull align 8 d
 declare void @ures_close_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758TimeZone15getEquivalentIDERKNS_13UnicodeStringEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %id, i32 noundef %index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758TimeZone15getEquivalentIDERKNS_13UnicodeStringEi(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %id, i32 noundef %index) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ec = alloca i32, align 4
   %res = alloca %"class.icu_75::StackUResourceBundle", align 8
@@ -2053,7 +2053,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6icu_758TimeZone9getRegionERKNS_13UnicodeStringEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef initializes((0, 1)) %region, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN6icu_758TimeZone9getRegionERKNS_13UnicodeStringEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %region, i32 noundef %capacity, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status.i = alloca i32, align 4
   store i8 0, ptr %region, align 1
@@ -3317,7 +3317,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_758TimeZone14getCanonicalIDERKNS_13UnicodeStringERS1_RaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull returned align 8 dereferenceable(64) %canonicalID, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %isSystemID, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_758TimeZone14getCanonicalIDERKNS_13UnicodeStringERS1_RaR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef nonnull returned align 8 dereferenceable(64) %canonicalID, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %isSystemID, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sign.i = alloca i32, align 4
   %hour.i = alloca i32, align 4

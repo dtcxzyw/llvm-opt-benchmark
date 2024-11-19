@@ -70,7 +70,7 @@ define hidden noundef nonnull align 4 dereferenceable(20) ptr @"_ZN2tt13Leaf$LT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN2tt18TokenTree$LT$S$GT$10first_span17h5b5a6337f04b24a8E"(ptr noalias nocapture noundef writeonly sret({ i32, { i32, i32 }, { i32, i32 } }) align 4 dereferenceable(20) initializes((0, 20)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #1 {
+define hidden void @"_ZN2tt18TokenTree$LT$S$GT$10first_span17h5b5a6337f04b24a8E"(ptr noalias nocapture noundef writeonly sret({ i32, { i32, i32 }, { i32, i32 } }) align 4 dereferenceable(20) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = load i8, ptr %3, align 8, !range !6, !noundef !5
   %5 = icmp eq i8 %4, 4

@@ -4993,7 +4993,7 @@ declare i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereference
 declare i64 @_ZN5clang4Sema18ActOnConditionalOpENS_14SourceLocationES1_PNS_4ExprES3_S3_(ptr noundef nonnull align 8 dereferenceable(17560), i32, i32, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser19ParseCastExpressionENS0_13CastParseKindEbRbNS0_13TypeCastStateEbPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser19ParseCastExpressionENS0_13CastParseKindEbRbNS0_13TypeCastStateEbPb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef nonnull align 1 dereferenceable(1) %3, i32 noundef %4, i1 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.54", align 1
@@ -12883,7 +12883,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPN5clang14IdentifierInfoENS2_3tok9Toke
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser36ParseBuiltinPtrauthTypeDiscriminatorEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser36ParseBuiltinPtrauthTypeDiscriminatorEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i16, align 2
   %3 = alloca %"class.clang::BalancedDelimiterTracker", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14476,7 +14476,7 @@ declare i64 @_ZN5clang4Sema20ActOnNumericConstantERKNS_5TokenEPNS_5ScopeE(ptr no
 declare i64 @_ZN5clang6Parser19ParseCXXBoolLiteralEv(ptr noundef nonnull align 8 dereferenceable(2936)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser20ParseObjCBoolLiteralEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser20ParseObjCBoolLiteralEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i16, ptr %3, align 8
@@ -15399,7 +15399,7 @@ _ZN4llvm11SmallVectorIN5clang9OpaquePtrINS1_8QualTypeEEELj12EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser26ParseAvailabilityCheckExprENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser26ParseAvailabilityCheckExprENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.54", align 1
@@ -15864,7 +15864,7 @@ _ZN4llvm11SmallVectorIN5clang16AvailabilitySpecELj4EED2Ev.exit: ; preds = %198, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser29ParseBuiltinPrimaryExpressionEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser29ParseBuiltinPrimaryExpressionEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca i16, align 2
   %3 = alloca i16, align 2
   %4 = alloca i16, align 2
@@ -17031,7 +17031,7 @@ declare i64 @_ZN5clang4Sema16ActOnCoawaitExprEPNS_5ScopeENS_14SourceLocationEPNS
 declare void @_ZN5clang6Parser23diagnoseUseOfC11KeywordERKNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(2936), ptr noundef nonnull align 8 dereferenceable(20)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser35ParseUnaryExprOrTypeTraitExpressionEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser35ParseUnaryExprOrTypeTraitExpressionEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.54", align 1
@@ -17881,7 +17881,7 @@ declare i64 @_ZN5clang6Parser14ParseCXXUuidofEv(ptr noundef nonnull align 8 dere
 declare i64 @_ZN5clang6Parser12ParseCXXThisEv(ptr noundef nonnull align 8 dereferenceable(2936)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser35ParseSYCLUniqueStableNameExpressionEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser35ParseSYCLUniqueStableNameExpressionEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::BalancedDelimiterTracker", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
@@ -17982,7 +17982,7 @@ declare i64 @_ZN5clang6Parser19ParseArrayTypeTraitEv(ptr noundef nonnull align 8
 declare i64 @_ZN5clang6Parser20ParseExpressionTraitEv(ptr noundef nonnull align 8 dereferenceable(2936)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser27ParseBlockLiteralExpressionEv(ptr noundef nonnull align 8 dereferenceable(2936) initializes((40, 44)) %0) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser27ParseBlockLiteralExpressionEv(ptr noundef nonnull align 8 dereferenceable(2936) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::PrettyStackTraceLoc", align 8
   %3 = alloca %"class.clang::DeclSpec", align 8
   %4 = alloca %"class.clang::Declarator", align 8
@@ -18815,7 +18815,7 @@ declare i64 @_ZN5clang4Sema21ActOnMemberAccessExprEPNS_5ScopeEPNS_4ExprENS_14Sou
 declare i64 @_ZN5clang4Sema19ActOnPostfixUnaryOpEPNS_5ScopeENS_14SourceLocationENS_3tok9TokenKindEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, i32, i16 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang6Parser34ParseExprAfterUnaryExprOrTypeTraitERKNS_5TokenERbRNS_9OpaquePtrINS_8QualTypeEEERNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %4) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang6Parser34ParseExprAfterUnaryExprOrTypeTraitERKNS_5TokenERbRNS_9OpaquePtrINS_8QualTypeEEERNS_11SourceRangeE(ptr noundef nonnull align 8 dereferenceable(2936) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::allocator.54", align 1
@@ -20868,7 +20868,7 @@ declare i64 @_ZN5clang4Sema18ActOnBlockStmtExprENS_14SourceLocationEPNS_4StmtEPN
 declare i64 @_ZN5clang8SemaObjC20ActOnObjCBoolLiteralENS_14SourceLocationENS_3tok9TokenKindE(ptr noundef nonnull align 8 dereferenceable(328), i32, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6Parser21ParseAvailabilitySpecEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1524") align 8 initializes((40, 41)) %0, ptr noundef nonnull align 8 dereferenceable(2936) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6Parser21ParseAvailabilitySpecEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.1524") align 8 %0, ptr noundef nonnull align 8 dereferenceable(2936) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %4 = alloca %"class.clang::SourceRange", align 4
   %5 = alloca %"class.llvm::StringRef", align 8
@@ -22910,7 +22910,7 @@ _ZN5clang27CorrectionCandidateCallback11MatchesTypoERKNS_14TypoCorrectionE.exit.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_125CastExpressionIdValidator5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.1561") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_125CastExpressionIdValidator5cloneEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.1561") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_125CastExpressionIdValidatorESt14default_deleteIS1_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20, !noalias !98
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8

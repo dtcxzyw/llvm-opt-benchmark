@@ -318,7 +318,7 @@ _ZN9Bytecodes15wide_length_forENS_4CodeE.exit:    ; preds = %3, %14
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16ciBytecodeStream12reset_to_bciEi(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((16, 32), (56, 64)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN16ciBytecodeStream12reset_to_bciEi(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -331,7 +331,7 @@ define hidden void @_ZN16ciBytecodeStream12reset_to_bciEi(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16ciBytecodeStream9force_bciEi(ptr noundef nonnull align 8 dereferenceable(72) initializes((16, 32), (56, 64)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16ciBytecodeStream9force_bciEi(ptr noundef nonnull align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp slt i32 %1, 0
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1631,7 +1631,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16ciBytecodeStream9get_fieldERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16ciBytecodeStream9get_fieldERb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 1808
@@ -2027,7 +2027,7 @@ _ZNK16ciBytecodeStream12get_index_u2Eb.exit:      ; preds = %16, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN16ciBytecodeStream10get_methodERbPP11ciSignature(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN16ciBytecodeStream10get_methodERbPP11ciSignature(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.constantPoolHandle, align 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %6 = load ptr, ptr %5, align 8

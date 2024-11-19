@@ -35,7 +35,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.24 = private unnamed_addr constant [3 x i8] c"  \00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @jw_init(ptr nocapture noundef writeonly initializes((0, 56)) %jw) local_unnamed_addr #0 {
+define dso_local void @jw_init(ptr nocapture noundef writeonly %jw) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %jw, ptr noundef nonnull align 8 dereferenceable(56) @__const.jw_init.blank, i64 56, i1 false)
   ret void

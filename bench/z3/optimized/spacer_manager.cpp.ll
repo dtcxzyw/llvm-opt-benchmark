@@ -1373,7 +1373,7 @@ declare void @_ZN10model_core13register_declEP9func_declP4expr(ptr noundef nonnu
 declare void @_Z5applyR3refI15model_converterERS_I5modelE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK6spacer18inductive_property7to_exprEv(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK6spacer18inductive_property7to_exprEv(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %md = alloca %class.ref.29, align 8
   store ptr null, ptr %md, align 8
@@ -2524,7 +2524,7 @@ _ZN14core_hashtableI14obj_hash_entryI9func_declE12obj_ptr_hashIS1_E6ptr_eqIS1_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6spacer7managerC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %manager) unnamed_addr #3 align 2 {
+define hidden void @_ZN6spacer7managerC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(976) %manager) unnamed_addr #3 align 2 {
 entry:
   store ptr %manager, ptr %this, align 8
   %m_mux = getelementptr inbounds i8, ptr %this, i64 8

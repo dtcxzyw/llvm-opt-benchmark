@@ -35,7 +35,7 @@ $_ZN4llvm15SmallVectorImplImEaSEOS1_ = comdat any
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z18startFromBeginningRmRN4llvm18DIExpressionCursorENS0_8ArrayRefImEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %1, ptr %2, i64 %3) local_unnamed_addr #0 {
+define dso_local void @_Z18startFromBeginningRmRN4llvm18DIExpressionCursorENS0_8ArrayRefImEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %1, ptr %2, i64 %3) local_unnamed_addr #0 {
   %5 = ptrtoint ptr %2 to i64
   store i64 %5, ptr %1, align 8
   %6 = getelementptr inbounds i64, ptr %2, i64 %3

@@ -154,7 +154,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8sat2goal2mcC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 12), (16, 25), (32, 40)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN8sat2goal2mcC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
@@ -2270,7 +2270,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8sat2goalC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZN8sat2goalC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr null, ptr %this, align 8
   ret void

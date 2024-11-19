@@ -159,7 +159,7 @@ $_ZTVN3gmx13ExceptionInfoINS_22ExceptionInfoLocation_ENS_13ThrowLocationEEE = co
 @_ZN3gmx19IndexGroupsAndNamesC1ENS_8ArrayRefIK10IndexGroupEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN3gmx19IndexGroupsAndNamesC2ENS_8ArrayRefIK10IndexGroupEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx19IndexGroupsAndNamesC2ENS_8ArrayRefIK10IndexGroupEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr %1, ptr %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx19IndexGroupsAndNamesC2ENS_8ArrayRefIK10IndexGroupEE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr %1, ptr %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = ptrtoint ptr %2 to i64
   %5 = ptrtoint ptr %1 to i64
@@ -1772,7 +1772,7 @@ _ZNSt6vectorI15gmx_ana_index_tSaIS0_EED2Ev.exit:  ; preds = %_ZNSt6vectorINSt7__
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20gmx_ana_index_deinitP15gmx_ana_index_t(ptr nocapture noundef initializes((0, 4)) %0) local_unnamed_addr #0 {
+define void @_Z20gmx_ana_index_deinitP15gmx_ana_index_t(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
@@ -1793,7 +1793,7 @@ define void @_Z20gmx_ana_index_deinitP15gmx_ana_index_t(ptr nocapture noundef in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z25gmx_ana_indexgrps_extractP15gmx_ana_index_tPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP19gmx_ana_indexgrps_ti(ptr nocapture noundef initializes((0, 4)) %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z25gmx_ana_indexgrps_extractP15gmx_ana_index_tPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP19gmx_ana_indexgrps_ti(ptr nocapture noundef %0, ptr noundef nonnull %1, ptr nocapture noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #23
   %5 = icmp slt i32 %3, 0
   br i1 %5, label %15, label %6
@@ -1852,7 +1852,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z18gmx_ana_index_copyP15gmx_ana_index_tS0_b(ptr nocapture noundef initializes((0, 4)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define void @_Z18gmx_ana_index_copyP15gmx_ana_index_tS0_b(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   br i1 %2, label %5, label %11
@@ -2148,7 +2148,7 @@ define void @_Z21gmx_ana_index_reserveP15gmx_ana_index_ti(ptr nocapture noundef 
 declare noundef ptr @_Z12save_reallocPKcS0_iPvmm(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z21gmx_ana_index_squeezeP15gmx_ana_index_t(ptr nocapture noundef initializes((16, 20)) %0) local_unnamed_addr #0 {
+define void @_Z21gmx_ana_index_squeezeP15gmx_ana_index_t(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %0, align 8
   %4 = sext i32 %3 to i64
@@ -2162,7 +2162,7 @@ define void @_Z21gmx_ana_index_squeezeP15gmx_ana_index_t(ptr nocapture noundef i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr nocapture noundef writeonly initializes((0, 4), (8, 20)) %0) local_unnamed_addr #13 {
+define void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -2172,7 +2172,7 @@ define void @_Z19gmx_ana_index_clearP15gmx_ana_index_t(ptr nocapture noundef wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr nocapture noundef writeonly initializes((0, 4), (8, 20)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #13 {
+define void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr nocapture noundef writeonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #13 {
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -2182,7 +2182,7 @@ define void @_Z17gmx_ana_index_setP15gmx_ana_index_tiPii(ptr nocapture noundef w
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z25gmx_ana_index_init_simpleP15gmx_ana_index_ti(ptr nocapture noundef initializes((0, 4), (8, 16)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @_Z25gmx_ana_index_init_simpleP15gmx_ana_index_ti(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
@@ -3278,7 +3278,7 @@ define noundef i32 @_Z29gmx_ana_index_difference_sizeP15gmx_ana_index_tS0_(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z23gmx_ana_index_partitionP15gmx_ana_index_tS0_S0_S0_(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 4), (8, 16)) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #16 {
+define void @_Z23gmx_ana_index_partitionP15gmx_ana_index_tS0_S0_S0_(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3) local_unnamed_addr #16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i32, ptr %3, align 8
@@ -3907,7 +3907,7 @@ _Z19gmx_ana_index_unionP15gmx_ana_index_tS0_S0_.exit: ; preds = %71, %_Z19gmx_an
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z19gmx_ana_index_mergeP15gmx_ana_index_tS0_S0_(ptr nocapture noundef initializes((0, 4)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #16 {
+define void @_Z19gmx_ana_index_mergeP15gmx_ana_index_tS0_S0_(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #16 {
   %4 = load i32, ptr %1, align 8
   %5 = load i32, ptr %2, align 8
   %6 = add nsw i32 %5, %4
@@ -5083,7 +5083,7 @@ _ZL25mtopGetAtomAndResidueNameRK10gmx_mtop_tiPiPPKcS2_S5_S2_.exit17: ; preds = %
 declare void @_Z18gmx_mtop_moleculesRK10gmx_mtop_t(ptr dead_on_unwind writable sret(%"class.gmx::RangePartitioning") align 8, ptr noundef nonnull align 8 dereferenceable(768)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_Z22gmx_ana_indexmap_clearP18gmx_ana_indexmap_t(ptr nocapture noundef writeonly initializes((0, 4), (8, 28), (32, 44), (48, 76), (80, 92), (96, 113)) %0) local_unnamed_addr #13 {
+define void @_Z22gmx_ana_indexmap_clearP18gmx_ana_indexmap_t(ptr nocapture noundef writeonly %0) local_unnamed_addr #13 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5160,7 +5160,7 @@ define void @_Z24gmx_ana_indexmap_reserveP18gmx_ana_indexmap_tii(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z21gmx_ana_indexmap_initP18gmx_ana_indexmap_tP15gmx_ana_index_tPK10gmx_mtop_t9e_index_t(ptr nocapture noundef initializes((0, 4)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @_Z21gmx_ana_indexmap_initP18gmx_ana_indexmap_tP15gmx_ana_index_tPK10gmx_mtop_t9e_index_t(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   store i32 %3, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -5644,7 +5644,7 @@ _ZL20mtopGetMoleculeIndexRK10gmx_mtop_tiPi.exit.i.us: ; preds = %113
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z27gmx_ana_indexmap_set_staticP18gmx_ana_indexmap_tP8t_blocka(ptr nocapture noundef initializes((48, 64), (104, 112)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
+define void @_Z27gmx_ana_indexmap_set_staticP18gmx_ana_indexmap_tP8t_blocka(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.3, i32 noundef 1239, ptr noundef %4)
@@ -6314,7 +6314,7 @@ _ZL9set_atomsP18gmx_ana_indexmap_tiPi.exit135:    ; preds = %163, %.preheader.i1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z23gmx_ana_indexmap_deinitP18gmx_ana_indexmap_t(ptr nocapture noundef initializes((0, 4), (24, 28), (40, 44), (72, 76), (88, 92), (112, 113)) %0) local_unnamed_addr #0 {
+define void @_Z23gmx_ana_indexmap_deinitP18gmx_ana_indexmap_t(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.3, i32 noundef 1449, ptr noundef %3)

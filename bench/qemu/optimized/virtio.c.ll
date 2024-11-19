@@ -550,7 +550,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qvring_init(ptr noundef %qts, ptr nocapture noundef readnone %alloc, ptr nocapture noundef initializes((8, 32)) %vq, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local void @qvring_init(ptr noundef %qts, ptr nocapture noundef readnone %alloc, ptr nocapture noundef %vq, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %desc = getelementptr inbounds i8, ptr %vq, i64 8
   store i64 %addr, ptr %desc, align 8

@@ -552,7 +552,7 @@ lpad:                                             ; preds = %if.then.i.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21ThreadWheelTimekeeperC2Ev(ptr noundef nonnull align 16 dereferenceable(624) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21ThreadWheelTimekeeperC2Ev(ptr noundef nonnull align 16 dereferenceable(624) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.84", align 8
   %agg.tmp = alloca %"class.folly::Function", align 16
@@ -880,7 +880,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #13
 declare void @_ZN5folly9EventBase7setNameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 16 dereferenceable(584), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly21ThreadWheelTimekeeperD2Ev(ptr noundef nonnull align 16 dereferenceable(624) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21ThreadWheelTimekeeperD2Ev(ptr noundef nonnull align 16 dereferenceable(624) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Function", align 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly21ThreadWheelTimekeeperE, i64 16), ptr %this, align 16, !tbaa !44

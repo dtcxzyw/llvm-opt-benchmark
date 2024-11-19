@@ -496,7 +496,7 @@ push_back_token.exit:                             ; preds = %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_peek2(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
+define hidden void @plpgsql_peek2(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.TokenAuxData, align 8
   %6 = alloca %struct.TokenAuxData, align 8
   %7 = call fastcc i32 @internal_yylex(ptr noundef %5)

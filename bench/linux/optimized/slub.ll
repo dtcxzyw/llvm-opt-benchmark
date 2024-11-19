@@ -4016,7 +4016,7 @@ define dso_local void @kmem_cache_free_bulk(ptr noundef %0, i64 noundef %1, ptr 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #11
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc i32 @build_detached_freelist(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef initializes((0, 8)) %3) unnamed_addr #8 align 16 {
+define internal fastcc i32 @build_detached_freelist(ptr noundef %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #8 align 16 {
   %5 = add i64 %1, -1
   %6 = getelementptr ptr, ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8
@@ -5323,7 +5323,7 @@ define internal fastcc void @flush_all_cpus_locked(ptr noundef %0) unnamed_addr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__kmem_obj_info(ptr nocapture noundef writeonly initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @__kmem_obj_info(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca ptr, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -6115,7 +6115,7 @@ define dso_local ptr @__kmem_cache_alias(ptr noundef %0, i32 noundef %1, i32 nou
 declare dso_local ptr @find_mergeable(i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__kmem_cache_create(ptr noundef initializes((8, 12), (24, 28), (32, 44), (80, 84)) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @__kmem_cache_create(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
@@ -10402,7 +10402,7 @@ define internal fastcc ptr @get_partial_node(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @put_cpu_partial(ptr nocapture noundef readonly %0, ptr noundef initializes((16, 28)) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @put_cpu_partial(ptr nocapture noundef readonly %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #26
   store i64 0, ptr %3, align 8, !annotation !66
@@ -11844,7 +11844,7 @@ declare dso_local void @cpus_read_unlock() local_unnamed_addr #4
 declare dso_local i32 @__cpuhp_setup_state(i32 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 0, 2) i32 @calculate_sizes(ptr nocapture noundef initializes((24, 28), (32, 44), (80, 84)) %0) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 0, 2) i32 @calculate_sizes(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 28

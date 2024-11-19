@@ -362,7 +362,7 @@ _ZN12cmConstStackI17cmListFileContext19cmListFileBacktraceED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN38cmInstallRuntimeDependencySetGenerator7ComputeEP16cmLocalGenerator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(352) initializes((344, 352)) %0, ptr noundef %1) unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZN38cmInstallRuntimeDependencySetGenerator7ComputeEP16cmLocalGenerator(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(352) %0, ptr noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 344
   store ptr %1, ptr %3, align 8
   ret i1 true

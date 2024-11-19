@@ -9269,7 +9269,7 @@ _ZN4llvm5eraseISt6vectorIPN12_GLOBAL__N_16ChainTESaIS4_EES4_EEvRT_T0_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_112MergedNodesT8getNodesEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_112MergedNodesT8getNodesEv(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %.sroa.014.0.copyload = load ptr, ptr %1, align 8
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -10767,7 +10767,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_110CDSortImpl16getBestMergeGainEPNS_9ChainEdgeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_110CDSortImpl16getBestMergeGainEPNS_9ChainEdgeE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %1, ptr noundef %2) unnamed_addr #0 align 2 {
 .lr.ph.i:
   %3 = alloca %"struct.(anonymous namespace)::MergedJumpsT", align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -11488,7 +11488,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_16ChainTEdNS_12DenseMapInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_16ChainTEdNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_dEEEES5_dS7_SA_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_16ChainTEdNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_dEEEES5_dS7_SA_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

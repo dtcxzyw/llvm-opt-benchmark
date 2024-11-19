@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN8FindFileD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8FindFileD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8FindFileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8208) initializes((0, 4), (8192, 8193), (8200, 8208)) %0) unnamed_addr #0 align 2 {
+define void @_ZN8FindFileC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8208) %0) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8192
   store i8 1, ptr %2, align 8
@@ -57,7 +57,7 @@ define void @_ZN8FindFile7SetMaskEPKw(ptr noundef nonnull align 8 dereferenceabl
 declare void @_Z8wcsncpyzPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull align 8 dereferenceable(8208) %0, ptr noundef initializes((8236, 8237)) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN8FindFile4NextEP8FindDatab(ptr noundef nonnull align 8 dereferenceable(8208) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
   %4 = alloca %class.uiMsgStore, align 8
   %5 = alloca %class.uiMsgStore, align 8
   %6 = alloca [2048 x i32], align 16
@@ -289,7 +289,7 @@ declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #6
 declare void @_Z8wcsncatzPwPKwm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef %0, ptr noundef initializes((8236, 8237)) %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN8FindFile8FastFindEPKwP8FindDatab(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
   %4 = alloca [2048 x i8], align 16
   %5 = alloca %struct.stat, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8236

@@ -2645,7 +2645,7 @@ _ZN5boost10shared_ptrIN8QuantLib13HestonProcessEED2Ev.exit: ; preds = %entry, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib10BatesModelC1ERKN5boost10shared_ptrINS_12BatesProcessEEE(ptr noundef nonnull align 8 dereferenceable(96) initializes((96, 104), (112, 116), (120, 128)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib10BatesModelC1ERKN5boost10shared_ptrINS_12BatesProcessEEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.33", align 8
   %ref.tmp5 = alloca %"class.QuantLib::ConstantParameter", align 8
@@ -4494,7 +4494,7 @@ _ZN8QuantLib11HestonModelD2Ev.exit:               ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17BatesDetJumpModelC1ERKN5boost10shared_ptrINS_12BatesProcessEEEdd(ptr noundef nonnull align 8 dereferenceable(96) initializes((96, 104), (112, 116), (120, 128)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %kappaLambda, double noundef %thetaLambda) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17BatesDetJumpModelC1ERKN5boost10shared_ptrINS_12BatesProcessEEEdd(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %process, double noundef %kappaLambda, double noundef %thetaLambda) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::ConstantParameter", align 8
   %ref.tmp5 = alloca %"class.QuantLib::PositiveConstraint", align 8
@@ -6393,7 +6393,7 @@ _ZN5boost10shared_ptrIN8QuantLib10Constraint4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19BatesDoubleExpModelC1ERKN5boost10shared_ptrINS_13HestonProcessEEEdddd(ptr noundef nonnull align 8 dereferenceable(96) initializes((96, 104), (112, 116), (120, 128)) %this, ptr noundef nonnull align 8 dereferenceable(16) %process, double noundef %lambda, double noundef %nuUp, double noundef %nuDown, double noundef %p) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19BatesDoubleExpModelC1ERKN5boost10shared_ptrINS_13HestonProcessEEEdddd(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(16) %process, double noundef %lambda, double noundef %nuUp, double noundef %nuDown, double noundef %p) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::ConstantParameter", align 8
   %ref.tmp5 = alloca %"class.QuantLib::BoundaryConstraint", align 8
@@ -8201,7 +8201,7 @@ _ZN8QuantLib11HestonModelD2Ev.exit:               ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26BatesDoubleExpDetJumpModelC1ERKN5boost10shared_ptrINS_13HestonProcessEEEdddddd(ptr noundef nonnull align 8 dereferenceable(96) initializes((96, 104), (112, 116), (120, 128)) %this, ptr noundef nonnull align 8 dereferenceable(16) %process, double noundef %lambda, double noundef %nuUp, double noundef %nuDown, double noundef %p, double noundef %kappaLambda, double noundef %thetaLambda) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26BatesDoubleExpDetJumpModelC1ERKN5boost10shared_ptrINS_13HestonProcessEEEdddddd(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(16) %process, double noundef %lambda, double noundef %nuUp, double noundef %nuDown, double noundef %p, double noundef %kappaLambda, double noundef %thetaLambda) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::ConstantParameter", align 8
   %ref.tmp5 = alloca %"class.QuantLib::PositiveConstraint", align 8

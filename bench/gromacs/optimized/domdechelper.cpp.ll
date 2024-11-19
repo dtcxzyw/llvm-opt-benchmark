@@ -208,7 +208,7 @@ _ZN3gmx12DomDecHelperD2Ev.exit:                   ; preds = %_ZSt8_DestroyIPSt8f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx12DomDecHelper18registerNSCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 initializes((0, 33)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx12DomDecHelper18registerNSCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -223,7 +223,7 @@ define void @_ZN3gmx12DomDecHelper18registerNSCallbackEv(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx12DomDecHelperC2EbiPNS_19StatePropagatorDataEPNS_14TopologyHolderEP8_IO_FILEP9t_commrecRKNS_8MDLoggerEPNS_11ConstraintsEPK10t_inputrecRKNS_18MDModulesNotifiersEPNS_7MDAtomsEP6t_nrnbP13gmx_wallcycleP10t_forcerecPNS_19VirtualSitesHandlerEPNS_10ImdSessionEP6pull_tOSt6vectorISt8functionIFvvEESaIS11_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((0, 17), (20, 168)) %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 1 %7, ptr noundef %8, ptr noundef %9, ptr noundef nonnull align 1 %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr nocapture noundef nonnull align 8 dereferenceable(24) %18) unnamed_addr #2 align 2 {
+define void @_ZN3gmx12DomDecHelperC2EbiPNS_19StatePropagatorDataEPNS_14TopologyHolderEP8_IO_FILEP9t_commrecRKNS_8MDLoggerEPNS_11ConstraintsEPK10t_inputrecRKNS_18MDModulesNotifiersEPNS_7MDAtomsEP6t_nrnbP13gmx_wallcycleP10t_forcerecPNS_19VirtualSitesHandlerEPNS_10ImdSessionEP6pull_tOSt6vectorISt8functionIFvvEESaIS11_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0, i1 noundef zeroext %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef nonnull align 1 %7, ptr noundef %8, ptr noundef %9, ptr noundef nonnull align 1 %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17, ptr nocapture noundef nonnull align 8 dereferenceable(24) %18) unnamed_addr #2 align 2 {
   %20 = zext i1 %1 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx12DomDecHelperE, i64 16), ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 8
@@ -289,7 +289,7 @@ define void @_ZN3gmx12DomDecHelper5setupEv(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx12DomDecHelper15partitionSystemEbbP13gmx_wallcycleP7t_stateS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef initializes((16, 20)) %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
+define void @_ZN3gmx12DomDecHelper15partitionSystemEbbP13gmx_wallcycleP7t_stateS4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(168) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #3 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr @_ZN3gmx19StatePropagatorData12forcePointerEv(ptr noundef nonnull align 8 dereferenceable(632) %8)

@@ -2651,7 +2651,7 @@ _ZN4Luau8TypePath4PathD2Ev.exit10:                ; preds = %_ZSt8_DestroyIPN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7TypeIdsC2ESt16initializer_listIPKNS_4TypeEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 32), (40, 72)) %0, ptr readonly %1, i64 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7TypeIdsC2ESt16initializer_listIPKNS_4TypeEE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr readonly %1, i64 %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = getelementptr inbounds ptr, ptr %1, i64 %2
   %.not10 = icmp eq i64 %2, 0
@@ -3512,7 +3512,7 @@ _ZNK4Luau7TypeIds5countEPKNS_4TypeE.exit.thread:  ; preds = %_ZNK4Luau7TypeIds5c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau20NormalizedStringTypeC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 1), (16, 20), (24, 32)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau20NormalizedStringTypeC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
@@ -3528,7 +3528,7 @@ define dso_local void @_ZN4Luau20NormalizedStringTypeC2Ev(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau20NormalizedStringTypeC2EbSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_4TypeESt4lessIS7_ESaISt4pairIKS7_SA_EEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 1), (16, 20), (24, 32)) %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau20NormalizedStringTypeC2EbSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_4TypeESt4lessIS7_ESaISt4pairIKS7_SA_EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i1 noundef zeroext %1, ptr noundef %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -3581,7 +3581,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau20NormalizedStringType13resetToStringEv(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 1)) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau20NormalizedStringType13resetToStringEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3609,7 +3609,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN4Luau4TypeESt4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau20NormalizedStringType12resetToNeverEv(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 1)) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau20NormalizedStringType12resetToNeverEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4174,7 +4174,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau19NormalizedClassType7isNeverEv(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau22NormalizedFunctionType10resetToTopEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 1)) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau22NormalizedFunctionType10resetToTopEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4233,7 +4233,7 @@ _ZN4Luau7TypeIds5clearEv.exit:                    ; preds = %_ZNSt6vectorIPKN4Lu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau22NormalizedFunctionType12resetToNeverEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 1)) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau22NormalizedFunctionType12resetToNeverEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4306,7 +4306,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau22NormalizedFunctionType7isNeverEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau14NormalizedTypeC2ENS_7NotNullINS_12BuiltinTypesEEE(ptr noundef nonnull align 8 dereferenceable(401) initializes((0, 16)) %0, ptr nocapture readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau14NormalizedTypeC2ENS_7NotNullINS_12BuiltinTypesEEE(ptr noundef nonnull align 8 dereferenceable(401) %0, ptr nocapture readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, const Luau::Type *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, const Luau::Type *>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 128
   %5 = load ptr, ptr %4, align 8
@@ -8737,7 +8737,7 @@ _ZNSt8optionalIN4Luau14NormalizedTypeEED2Ev.exit232: ; preds = %.thread372, %.lo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4Luau10Normalizer11clearNormalERNS_14NormalizedTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(337) %0, ptr noundef nonnull align 8 dereferenceable(401) initializes((0, 16)) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau10Normalizer11clearNormalERNS_14NormalizedTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(337) %0, ptr noundef nonnull align 8 dereferenceable(401) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 128
@@ -20855,7 +20855,7 @@ _ZNSt10unique_ptrIN4Luau14NormalizedTypeESt14default_deleteIS1_EEaSEOS4_.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau10Normalizer9negateAllERKNS_7TypeIdsE(ptr dead_on_unwind noalias writable sret(%"class.Luau::TypeIds") align 8 initializes((0, 32), (40, 72)) %0, ptr noundef nonnull align 8 dereferenceable(337) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau10Normalizer9negateAllERKNS_7TypeIdsE(ptr dead_on_unwind noalias writable sret(%"class.Luau::TypeIds") align 8 %0, ptr noundef nonnull align 8 dereferenceable(337) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 32, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)

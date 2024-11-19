@@ -2692,7 +2692,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt9TokenizerC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St8functionIFvPKcPKNS_7FileLocEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 72)) %this, ptr noundef %str, ptr noundef %filename, ptr nocapture noundef %errorCallback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt9TokenizerC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St8functionIFvPKcPKNS_7FileLocEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %str, ptr noundef %filename, ptr nocapture noundef %errorCallback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca ptr, align 8
   %__args.addr2.i.i = alloca ptr, align 8
@@ -2920,7 +2920,7 @@ if.end:                                           ; preds = %land.lhs.true, %lan
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt9TokenizerC2EPvmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvPKcPKNS_7FileLocEEE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 72)) %this, ptr noundef %ptr, i64 noundef %len, ptr noundef %filename, ptr nocapture noundef %errorCallback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt9TokenizerC2EPvmNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFvPKcPKNS_7FileLocEEE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef %ptr, i64 noundef %len, ptr noundef %filename, ptr nocapture noundef %errorCallback) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i.i = alloca ptr, align 8
   %__args.addr2.i.i = alloca ptr, align 8
@@ -9681,7 +9681,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEE"(ptr noalias nonnull align 8 initializes((0, 16), (80, 96)) %agg.result, ptr noundef nonnull %nextToken, ptr nocapture %ungetToken.coerce, i1 noundef zeroext %formatting, ptr noundef nonnull align 8 dereferenceable(32) %errorCallback) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN4pbrtL15parseParametersISt8functionIFN4pstd8optionalINS_5TokenEEEiEEZNS_5parseEPNS_12ParserTargetESt10unique_ptrINS_9TokenizerESt14default_deleteISB_EEE3$_6EENS_13InlinedVectorIPNS_15ParsedParameterELi8ENS2_3pmr21polymorphic_allocatorISI_EEEET_T0_bRKS1_IFvRKS4_PKcEE"(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %nextToken, ptr nocapture %ungetToken.coerce, i1 noundef zeroext %formatting, ptr noundef nonnull align 8 dereferenceable(32) %errorCallback) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i236 = alloca %"class.std::__cxx11::basic_string", align 8
   %__args.addr.i138 = alloca i32, align 4
@@ -11183,7 +11183,7 @@ eh.resume:                                        ; preds = %ehcleanup, %_ZNSt8f
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt22FormattingParserTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4pbrt22FormattingParserTargetE, i64 16), ptr %this, align 8
   %errorExit = getelementptr inbounds i8, ptr %this, i64 8
@@ -11298,7 +11298,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4pbrt22FormattingParserTargetD0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #14 align 2 {
+define dso_local void @_ZN4pbrt22FormattingParserTargetD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #14 align 2 {
 entry:
   tail call void @_ZN4pbrt22FormattingParserTargetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) #33
   tail call void @_ZdlPv(ptr noundef nonnull %this) #36

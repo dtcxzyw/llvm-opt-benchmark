@@ -540,7 +540,7 @@ _ZN4llvm8ExpectedINS_8ArrayRefINS_8minidump20MemoryInfoListHeaderEEEED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object12MinidumpFile12getDataSliceENS_8ArrayRefIhEEmm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.27") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm6object12MinidumpFile12getDataSliceENS_8ArrayRefIhEEmm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.27") align 8 %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = add i64 %4, %3
   %8 = icmp ult i64 %7, %3

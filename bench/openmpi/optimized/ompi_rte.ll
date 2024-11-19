@@ -542,7 +542,7 @@ define range(i32 -1, 2) i32 @ompi_rte_compare_name_fields(i8 noundef zeroext %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @ompi_rte_convert_string_to_process_name(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @ompi_rte_convert_string_to_process_name(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @pmix_name_invalid, align 4
   store i32 %3, ptr %0, align 4
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_name_invalid, i64 4), align 4
@@ -2350,7 +2350,7 @@ ompi_rte_compare_name_fields.exit:                ; preds = %8, %2, %4, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -5, 1) i32 @_convert_string_to_process_name(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) #0 {
+define internal range(i32 -5, 1) i32 @_convert_string_to_process_name(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @ompi_rte_convert_string_to_process_name(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }
@@ -2385,7 +2385,7 @@ define internal range(i32 -1, 1) i32 @ompi_pmix_snprintf_jobid(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -5, 1) i32 @_convert_string_to_jobid(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr noundef readonly %1) #0 {
+define internal range(i32 -5, 1) i32 @_convert_string_to_jobid(ptr nocapture noundef writeonly %0, ptr noundef readonly %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %sub_0.i
 

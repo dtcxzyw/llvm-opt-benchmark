@@ -19,7 +19,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @do_qemu_init_imx_i2c_register_nodes, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @imx_i2c_init(ptr nocapture noundef writeonly initializes((0, 8), (40, 72)) %s, ptr noundef %qts, i64 noundef %addr) local_unnamed_addr #0 {
+define dso_local void @imx_i2c_init(ptr nocapture noundef writeonly %s, ptr noundef %qts, i64 noundef %addr) local_unnamed_addr #0 {
 entry:
   %addr1 = getelementptr inbounds i8, ptr %s, i64 64
   store i64 %addr, ptr %addr1, align 8

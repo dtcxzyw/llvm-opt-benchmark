@@ -361,7 +361,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference3(ptr nocapture noundef initializes((4, 8), (12, 24), (28, 32)) %in) local_unnamed_addr #11 {
+define range(i64 -2147483648, 2147483648) i64 @_testfunc_union_by_reference3(ptr nocapture noundef %in) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %in, align 8
   %nested = getelementptr inbounds i8, ptr %in, i64 8
@@ -396,7 +396,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 -9, 6) i64 @_testfunc_bitfield_by_reference1(ptr nocapture noundef initializes((1, 4)) %in) local_unnamed_addr #11 {
+define range(i64 -9, 6) i64 @_testfunc_bitfield_by_reference1(ptr nocapture noundef %in) local_unnamed_addr #11 {
 entry:
   %bf.load = load i8, ptr %in, align 4
   %0 = and i8 %bf.load, 1
@@ -414,7 +414,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 0, 15) i64 @_testfunc_bitfield_by_reference2(ptr nocapture noundef initializes((1, 4)) %in) local_unnamed_addr #11 {
+define range(i64 0, 15) i64 @_testfunc_bitfield_by_reference2(ptr nocapture noundef %in) local_unnamed_addr #11 {
 entry:
   %bf.load = load i8, ptr %in, align 4
   %bf.clear = and i8 %bf.load, 1
@@ -565,7 +565,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_testfunc_v(i32 noundef %a, i32 noundef %b, ptr nocapture noundef writeonly initializes((0, 4)) %presult) local_unnamed_addr #21 {
+define void @_testfunc_v(i32 noundef %a, i32 noundef %b, ptr nocapture noundef writeonly %presult) local_unnamed_addr #21 {
 entry:
   %add = add i32 %b, %a
   store i32 %add, ptr %presult, align 4
@@ -831,7 +831,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @getSPAMANDEGGS(ptr nocapture noundef writeonly initializes((0, 8)) %eggs) local_unnamed_addr #21 {
+define noundef i32 @getSPAMANDEGGS(ptr nocapture noundef writeonly %eggs) local_unnamed_addr #21 {
 entry:
   store ptr @my_eggs, ptr %eggs, align 8
   ret i32 1
@@ -1353,7 +1353,7 @@ return:                                           ; preds = %if.end7, %if.end4, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @ReturnRect(ptr noalias nocapture writeonly sret(%struct.RECT) align 8 initializes((0, 32)) %agg.result, i32 noundef %i, ptr nocapture noundef byval(%struct.RECT) align 8 %ar, ptr nocapture noundef readonly %br, i64 %cp.coerce0, i64 %cp.coerce1, ptr nocapture noundef readonly byval(%struct.RECT) align 8 %dr, ptr nocapture noundef readonly %er, ptr nocapture noundef readonly byval(%struct.POINT) align 8 %fp, ptr nocapture noundef readonly byval(%struct.RECT) align 8 %gr) local_unnamed_addr #30 {
+define void @ReturnRect(ptr noalias nocapture writeonly sret(%struct.RECT) align 8 %agg.result, i32 noundef %i, ptr nocapture noundef byval(%struct.RECT) align 8 %ar, ptr nocapture noundef readonly %br, i64 %cp.coerce0, i64 %cp.coerce1, ptr nocapture noundef readonly byval(%struct.RECT) align 8 %dr, ptr nocapture noundef readonly %er, ptr nocapture noundef readonly byval(%struct.POINT) align 8 %fp, ptr nocapture noundef readonly byval(%struct.RECT) align 8 %gr) local_unnamed_addr #30 {
 entry:
   %0 = load i64, ptr %ar, align 8
   %1 = load i64, ptr %br, align 8
@@ -1446,7 +1446,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ret_8i_func(ptr noalias nocapture writeonly sret(%struct.S8I) align 4 initializes((0, 32)) %agg.result, ptr nocapture noundef byval(%struct.S8I) align 8 %inp) local_unnamed_addr #11 {
+define void @ret_8i_func(ptr noalias nocapture writeonly sret(%struct.S8I) align 4 %agg.result, ptr nocapture noundef byval(%struct.S8I) align 8 %inp) local_unnamed_addr #11 {
 entry:
   %0 = load i32, ptr %inp, align 8
   %mul = shl i32 %0, 1

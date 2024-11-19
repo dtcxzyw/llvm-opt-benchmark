@@ -20,7 +20,7 @@ $__clang_call_terminate = comdat any
 @_ZN4absl24synchronization_internal13PthreadWaiterC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4absl24synchronization_internal13PthreadWaiterC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiterC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((88, 96)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl24synchronization_internal13PthreadWaiterC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 {
 entry:
   %waiter_count_ = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %waiter_count_, align 8

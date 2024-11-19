@@ -43,7 +43,7 @@ $_ZN4llvm15SmallVectorImplINS_9MCOperandEEaSERKS2_ = comdat any
 @_ZN4llvm24AArch64MCRegisterClassesE = external local_unnamed_addr global [0 x %"class.llvm::MCRegisterClass"], align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK4llvm19AArch64Disassembler14getInstructionERNS_6MCInstERmNS_8ArrayRefIhEEmRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) initializes((32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2, ptr nocapture readonly %3, i64 %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %6) unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZNK4llvm19AArch64Disassembler14getInstructionERNS_6MCInstERmNS_8ArrayRefIhEEmRNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture readonly %3, i64 %4, i64 noundef %5, ptr noundef nonnull align 8 dereferenceable(48) %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::MCOperand", align 8
   %9 = alloca %"class.llvm::MCOperand", align 8
   %10 = alloca %"class.llvm::MCOperand", align 8
@@ -2189,7 +2189,7 @@ declare noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() local
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %6) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZN4llvmL14decodeToMCInstIjEENS_14MCDisassembler12DecodeStatusES2_jT_RNS_6MCInstEmPKS1_Rb(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(128) %3, i64 noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %6) unnamed_addr #0 {
   store i8 1, ptr %6, align 1
   switch i32 %1, label %8 [
     i32 0, label %9

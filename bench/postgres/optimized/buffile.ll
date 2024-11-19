@@ -1014,7 +1014,7 @@ declare i64 @FileSize(i32 noundef) local_unnamed_addr #1
 declare ptr @FilePathName(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @BufFileTell(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #4 {
+define dso_local void @BufFileTell(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
   store i32 %5, ptr %1, align 4

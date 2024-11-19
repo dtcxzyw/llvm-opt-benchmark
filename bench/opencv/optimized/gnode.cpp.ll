@@ -98,7 +98,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv5GNode4PrivC2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 16)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv5GNode4PrivC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
@@ -111,7 +111,7 @@ define hidden void @_ZN2cv5GNode4PrivC2Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv5GNode4PrivC2ENS_5GCallE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 32)) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5GNode4PrivC2ENS_5GCallE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef readonly %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i32 1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1, ptr %3, align 8
@@ -148,7 +148,7 @@ _ZN2cv4util7variantIJNS0_9monostateENS_5GCallEEEC2IRS3_vEEOT_.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv5GNode4PrivC2ENS1_8ParamTagE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 16)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv5GNode4PrivC2ENS1_8ParamTagE(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   store i32 2, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
@@ -158,7 +158,7 @@ define hidden void @_ZN2cv5GNode4PrivC2ENS1_8ParamTagE(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv5GNode4PrivC2ENS1_8ConstTagE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 16)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv5GNode4PrivC2ENS1_8ConstTagE(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 {
   store i32 3, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
@@ -168,7 +168,7 @@ define hidden void @_ZN2cv5GNode4PrivC2ENS1_8ConstTagE(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNodeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5GNodeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -231,7 +231,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNodeC2ERKNS_5GCallE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5GNodeC2ERKNS_5GCallE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::GCall", align 8
   %4 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   %5 = load ptr, ptr %1, align 8
@@ -355,7 +355,7 @@ _ZN2cv5GCallC2ERKS0_.exit:                        ; preds = %12
 declare void @_ZN2cv5GCallD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNodeC2ENS0_8ParamTagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5GNodeC2ENS0_8ParamTagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   store i32 2, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -410,7 +410,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNodeC2ENS0_8ConstTagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv5GNodeC2ENS0_8ConstTagE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #15
   store i32 3, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
@@ -465,19 +465,19 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN2cv5GNode4PrivEEET_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNode4CallERKNS_5GCallE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%"class.cv::GNode") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv5GNode4CallERKNS_5GCallE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%"class.cv::GNode") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 {
   tail call void @_ZN2cv5GNodeC2ERKNS_5GCallE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNode5ParamEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%"class.cv::GNode") align 8 initializes((0, 16)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv5GNode5ParamEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%"class.cv::GNode") align 8 %0) local_unnamed_addr #4 align 2 {
   tail call void @_ZN2cv5GNodeC2ENS0_8ParamTagE(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv5GNode5ConstEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%"class.cv::GNode") align 8 initializes((0, 16)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv5GNode5ConstEv(ptr dead_on_unwind noalias nocapture nonnull writable writeonly sret(%"class.cv::GNode") align 8 %0) local_unnamed_addr #4 align 2 {
   tail call void @_ZN2cv5GNodeC2ENS0_8ConstTagE(ptr noundef nonnull align 8 dereferenceable(16) %0)
   ret void
 }

@@ -1670,7 +1670,7 @@ _ZN8pybind1118gil_scoped_acquire7dec_refEv.exit:  ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z10create_zoov(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0) #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z10create_zoov(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0) #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

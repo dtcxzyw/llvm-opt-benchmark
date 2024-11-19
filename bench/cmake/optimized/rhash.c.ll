@@ -383,7 +383,7 @@ define dso_local noalias noundef ptr @rhash_import(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @rhash_set_callback(ptr nocapture noundef writeonly initializes((32, 48)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define dso_local void @rhash_set_callback(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40

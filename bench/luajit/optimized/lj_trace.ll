@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.4 = private unnamed_addr constant [6 x i8] c"abort\00", align 1
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @lj_trace_err(ptr nocapture noundef initializes((3088, 3096)) %J, i32 noundef %e) local_unnamed_addr #0 {
+define hidden void @lj_trace_err(ptr nocapture noundef %J, i32 noundef %e) local_unnamed_addr #0 {
 entry:
   %errinfo = getelementptr inbounds i8, ptr %J, i64 3088
   store i64 -1, ptr %errinfo, align 8
@@ -622,7 +622,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_trace_ins(ptr noundef initializes((136, 160)) %J, ptr noundef %pc) local_unnamed_addr #2 {
+define hidden void @lj_trace_ins(ptr noundef %J, ptr noundef %pc) local_unnamed_addr #2 {
 entry:
   %pc1 = getelementptr inbounds i8, ptr %J, i64 136
   store ptr %pc, ptr %pc1, align 8
@@ -2162,7 +2162,7 @@ return:                                           ; preds = %sw.bb108, %sw.defau
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @trace_exit_cp(ptr nocapture noundef readonly %L, ptr nocapture readnone %dummy, ptr nocapture noundef initializes((16, 24)) %ud) #2 {
+define internal noalias noundef ptr @trace_exit_cp(ptr nocapture noundef readonly %L, ptr nocapture readnone %dummy, ptr nocapture noundef %ud) #2 {
 entry:
   %cframe = getelementptr inbounds i8, ptr %L, i64 80
   %0 = load ptr, ptr %cframe, align 8

@@ -892,7 +892,7 @@ define internal void @quirk_f0_vpd_link(ptr nocapture noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @quirk_blacklist_vpd(ptr noundef initializes((2000, 2004)) %0) #6 align 16 {
+define internal void @quirk_blacklist_vpd(ptr noundef %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 2000
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 184

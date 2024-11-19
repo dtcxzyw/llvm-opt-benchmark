@@ -4145,7 +4145,7 @@ declare dso_local i32 @nfs4_do_close(ptr noundef, i32 noundef, i32 noundef) loca
 declare dso_local void @rpc_destroy_wait_queue(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nfs4_fl_copy_lock(ptr nocapture noundef writeonly initializes((184, 192)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal void @nfs4_fl_copy_lock(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 184
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 184

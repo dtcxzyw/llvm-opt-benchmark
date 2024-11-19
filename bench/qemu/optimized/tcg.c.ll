@@ -4161,7 +4161,7 @@ do.body23:                                        ; preds = %lor.lhs.false, %for
 declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @tcg_set_frame(ptr noundef initializes((88, 104)) %s, i32 noundef %reg, i64 noundef %start, i64 noundef %size) local_unnamed_addr #11 {
+define dso_local void @tcg_set_frame(ptr noundef %s, i32 noundef %reg, i64 noundef %start, i64 noundef %size) local_unnamed_addr #11 {
 entry:
   %frame_start = getelementptr inbounds i8, ptr %s, i64 88
   store i64 %start, ptr %frame_start, align 8
@@ -22288,7 +22288,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @prepare_host_addr(ptr nocapture noundef %s, ptr nocapture noundef nonnull writeonly initializes((0, 16)) %h, i32 noundef %addrlo, i32 noundef %oi, i1 noundef zeroext %is_ld) unnamed_addr #0 {
+define internal fastcc noundef ptr @prepare_host_addr(ptr nocapture noundef %s, ptr nocapture noundef nonnull writeonly %h, i32 noundef %addrlo, i32 noundef %oi, i1 noundef zeroext %is_ld) unnamed_addr #0 {
 entry:
   %frombool = zext i1 %is_ld to i8
   %shr.i = lshr i32 %oi, 4

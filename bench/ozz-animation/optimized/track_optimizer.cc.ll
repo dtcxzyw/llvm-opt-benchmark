@@ -108,7 +108,7 @@ $_ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEE
 @_ZN3ozz9animation7offline14TrackOptimizerC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3ozz9animation7offline14TrackOptimizerC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3ozz9animation7offline14TrackOptimizerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3ozz9animation7offline14TrackOptimizerC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %0) unnamed_addr #0 align 2 {
   store float 0x3F50624DE0000000, ptr %0, align 4
   ret void
 }

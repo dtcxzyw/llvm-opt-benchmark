@@ -48543,7 +48543,7 @@ nrvo.skipdtor:                                    ; preds = %if.then.i.i.i.i7, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_16AsJsonC2ERNS0_4exec7EvalCtxERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEb(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(104) %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(8) %elementToTopLevelRows, i1 noundef zeroext %isMapKey) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox12_GLOBAL__N_16AsJsonC2ERNS0_4exec7EvalCtxERKSt10shared_ptrINS0_10BaseVectorEERKNS0_17SelectivityVectorERKN5boost13intrusive_ptrINS0_6BufferEEEb(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(104) %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %input, ptr noundef nonnull align 8 dereferenceable(38) %rows, ptr noundef nonnull align 8 dereferenceable(8) %elementToTopLevelRows, i1 noundef zeroext %isMapKey) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %newRowsHolder.i = alloca %"class.facebook::velox::exec::LocalSelectivityVector", align 8
   %localDecoded.i = alloca %"class.facebook::velox::exec::LocalDecodedVector", align 8

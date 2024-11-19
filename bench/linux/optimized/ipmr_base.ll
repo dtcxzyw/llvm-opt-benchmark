@@ -486,7 +486,7 @@ define dso_local ptr @mr_mfc_find_any(ptr noundef %0, i32 noundef %1, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local noundef ptr @mr_vif_seq_idx(ptr nocapture readnone %0, ptr nocapture noundef initializes((16, 20)) %1, i64 noundef %2) #5 align 16 {
+define dso_local noundef ptr @mr_vif_seq_idx(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 noundef %2) #5 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 16
@@ -596,7 +596,7 @@ define dso_local noundef ptr @mr_vif_seq_next(ptr nocapture noundef readonly %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @mr_mfc_seq_idx(ptr nocapture readnone %0, ptr nocapture noundef initializes((16, 24)) %1, i64 noundef %2) #0 align 16 {
+define dso_local ptr @mr_mfc_seq_idx(ptr nocapture readnone %0, ptr nocapture noundef %1, i64 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   tail call void @__rcu_read_lock() #9

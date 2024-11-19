@@ -260,7 +260,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = linkonce_odr local_unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", comdat, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene12CSkinnedMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(186) initializes((0, 8), (16, 41), (48, 73), (80, 105), (112, 137), (144, 186)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr5scene12CSkinnedMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(186) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -331,7 +331,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene12CSkinnedMeshC1Ev(ptr noundef nonnull align 8 dereferenceable(186) initializes((0, 8), (16, 41), (48, 73), (80, 105), (112, 137), (144, 186), (192, 212)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3irr5scene12CSkinnedMeshC1Ev(ptr noundef nonnull align 8 dereferenceable(186) %this) unnamed_addr #1 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 192
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 200
@@ -374,7 +374,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene12CSkinnedMeshD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(186) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene12CSkinnedMeshD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(186) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -645,7 +645,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene12CSkinnedMeshD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(186) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene12CSkinnedMeshD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(186) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN3irr5scene12CSkinnedMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(186) %this, ptr noundef nonnull @_ZTTN3irr5scene12CSkinnedMeshE) #31
   ret void
@@ -663,7 +663,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene12CSkinnedMeshD0Ev(ptr noundef nonnull align 8 dereferenceable(186) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene12CSkinnedMeshD0Ev(ptr noundef nonnull align 8 dereferenceable(186) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN3irr5scene12CSkinnedMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(186) %this, ptr noundef nonnull @_ZTTN3irr5scene12CSkinnedMeshE) #31
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -702,7 +702,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene12CSkinnedMesh17setAnimationSpeedEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(186) initializes((172, 176)) %this, float noundef %fps) unnamed_addr #1 align 2 {
+define void @_ZN3irr5scene12CSkinnedMesh17setAnimationSpeedEf(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(186) %this, float noundef %fps) unnamed_addr #1 align 2 {
 entry:
   %FramesPerSecond = getelementptr inbounds i8, ptr %this, i64 172
   store float %fps, ptr %FramesPerSecond, align 4, !tbaa !77
@@ -2740,7 +2740,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5scene12CSkinnedMesh14setBoundingBoxERKNS_4core8aabbox3dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(186) initializes((144, 168)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %box) unnamed_addr #18 align 2 {
+define void @_ZN3irr5scene12CSkinnedMesh14setBoundingBoxERKNS_4core8aabbox3dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(186) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %box) unnamed_addr #18 align 2 {
 entry:
   %BoundingBox = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %BoundingBox, ptr noundef nonnull align 4 dereferenceable(24) %box, i64 24, i1 false), !tbaa.struct !160
@@ -2965,7 +2965,7 @@ if.end23:                                         ; preds = %for.cond.cleanup9, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene12CSkinnedMesh17checkForAnimationEv(ptr nocapture noundef nonnull align 8 dereferenceable(186) initializes((182, 183)) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene12CSkinnedMesh17checkForAnimationEv(ptr nocapture noundef nonnull align 8 dereferenceable(186) %this) local_unnamed_addr #2 align 2 {
 entry:
   %HasAnimation = getelementptr inbounds i8, ptr %this, i64 182
   store i8 0, ptr %HasAnimation, align 2, !tbaa !78
@@ -3455,7 +3455,7 @@ if.end254:                                        ; preds = %for.end253, %land.l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene12CSkinnedMesh26updateNormalsWhenAnimatingEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(186) initializes((184, 185)) %this, i1 noundef zeroext %on) unnamed_addr #1 align 2 {
+define void @_ZN3irr5scene12CSkinnedMesh26updateNormalsWhenAnimatingEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(186) %this, i1 noundef zeroext %on) unnamed_addr #1 align 2 {
 entry:
   %frombool = zext i1 %on to i8
   %AnimateNormals = getelementptr inbounds i8, ptr %this, i64 184
@@ -3464,7 +3464,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr5scene12CSkinnedMesh20setInterpolationModeENS0_20E_INTERPOLATION_MODEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(186) initializes((181, 182)) %this, i32 noundef %mode) unnamed_addr #1 align 2 {
+define void @_ZN3irr5scene12CSkinnedMesh20setInterpolationModeENS0_20E_INTERPOLATION_MODEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(186) %this, i32 noundef %mode) unnamed_addr #1 align 2 {
 entry:
   %InterpolationMode = getelementptr inbounds i8, ptr %this, i64 181
   %0 = trunc i32 %mode to i8
@@ -4559,7 +4559,7 @@ _ZN3irr4core5arrayINS1_IfEEED2Ev.exit:            ; preds = %if.then.i.i.i.i221,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene12CSkinnedMesh8finalizeEv(ptr noundef nonnull align 8 dereferenceable(186) initializes((176, 181)) %this) unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene12CSkinnedMesh8finalizeEv(ptr noundef nonnull align 8 dereferenceable(186) %this) unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::array.82", align 8
   %ref.tmp175 = alloca %"class.irr::core::string", align 8
@@ -10122,7 +10122,7 @@ if.end49:                                         ; preds = %if.end49.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr5scene12CSkinnedMesh17calculateTangentsERNS_4core8vector3dIfEES5_S5_RKS4_S7_S7_RKNS2_8vector2dIfEESB_SB_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %normal, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %tangent, ptr nocapture noundef nonnull align 4 dereferenceable(12) initializes((0, 12)) %binormal, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vt1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vt2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vt3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %tc1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %tc2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %tc3) local_unnamed_addr #22 align 2 {
+define void @_ZN3irr5scene12CSkinnedMesh17calculateTangentsERNS_4core8vector3dIfEES5_S5_RKS4_S7_S7_RKNS2_8vector2dIfEESB_SB_(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull align 4 dereferenceable(12) %normal, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %tangent, ptr nocapture noundef nonnull align 4 dereferenceable(12) %binormal, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vt1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vt2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %vt3, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %tc1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %tc2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %tc3) local_unnamed_addr #22 align 2 {
 entry:
   %Z.i = getelementptr inbounds i8, ptr %vt1, i64 8
   %0 = load float, ptr %Z.i, align 4, !tbaa !84

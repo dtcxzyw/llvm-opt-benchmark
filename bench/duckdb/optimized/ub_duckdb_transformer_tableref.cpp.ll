@@ -2816,7 +2816,7 @@ _ZN6duckdb10unique_ptrINS_16ParsedExpressionESt14default_deleteIS1_ELb1EE13Asser
 declare void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer20TransformPivotColumnERN17duckdb_libpgquery7PGPivotE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::PivotColumn") align 8 initializes((0, 72)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %pivot) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer20TransformPivotColumnERN17duckdb_libpgquery7PGPivotE(ptr dead_on_unwind noalias writable sret(%"struct.duckdb::PivotColumn") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %pivot) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp14 = alloca %"class.std::allocator", align 1
@@ -3980,7 +3980,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_16ParsedExpressionESt14default_deleteIS2_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb11Transformer18TransformPivotListERN17duckdb_libpgquery6PGListE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.126") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %list) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb11Transformer18TransformPivotListERN17duckdb_libpgquery6PGListE(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.126") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %list) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pivot = alloca %"class.duckdb::optional_ptr.132", align 8
   %ref.tmp = alloca %"struct.duckdb::PivotColumn", align 16

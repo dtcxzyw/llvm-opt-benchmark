@@ -4562,7 +4562,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare noundef ptr @strstr(ptr noundef, ptr nocapture noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp19Discreet3DSImporter12ConvertSceneEP7aiScene(ptr noundef nonnull align 8 dereferenceable(162) %this, ptr nocapture noundef initializes((32, 36), (40, 48)) %pcOut) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp19Discreet3DSImporter12ConvertSceneEP7aiScene(ptr noundef nonnull align 8 dereferenceable(162) %this, ptr nocapture noundef %pcOut) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mScene = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %mScene, align 8

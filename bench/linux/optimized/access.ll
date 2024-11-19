@@ -93,7 +93,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pci_clear_an
 @llvm.compiler.used = appending global [35 x ptr] [ptr @__UNIQUE_ID___addressable_pci_bus_read_config_byte352, ptr @__UNIQUE_ID___addressable_pci_bus_read_config_dword354, ptr @__UNIQUE_ID___addressable_pci_bus_read_config_word353, ptr @__UNIQUE_ID___addressable_pci_bus_set_ops362, ptr @__UNIQUE_ID___addressable_pci_bus_write_config_byte355, ptr @__UNIQUE_ID___addressable_pci_bus_write_config_dword357, ptr @__UNIQUE_ID___addressable_pci_bus_write_config_word356, ptr @__UNIQUE_ID___addressable_pci_cfg_access_lock369, ptr @__UNIQUE_ID___addressable_pci_cfg_access_trylock370, ptr @__UNIQUE_ID___addressable_pci_cfg_access_unlock373, ptr @__UNIQUE_ID___addressable_pci_clear_and_set_config_dword387, ptr @__UNIQUE_ID___addressable_pci_generic_config_read32360, ptr @__UNIQUE_ID___addressable_pci_generic_config_read358, ptr @__UNIQUE_ID___addressable_pci_generic_config_write32361, ptr @__UNIQUE_ID___addressable_pci_generic_config_write359, ptr @__UNIQUE_ID___addressable_pci_read_config_byte381, ptr @__UNIQUE_ID___addressable_pci_read_config_dword383, ptr @__UNIQUE_ID___addressable_pci_read_config_word382, ptr @__UNIQUE_ID___addressable_pci_user_read_config_byte363, ptr @__UNIQUE_ID___addressable_pci_user_read_config_dword365, ptr @__UNIQUE_ID___addressable_pci_user_read_config_word364, ptr @__UNIQUE_ID___addressable_pci_user_write_config_byte366, ptr @__UNIQUE_ID___addressable_pci_user_write_config_dword368, ptr @__UNIQUE_ID___addressable_pci_user_write_config_word367, ptr @__UNIQUE_ID___addressable_pci_write_config_byte384, ptr @__UNIQUE_ID___addressable_pci_write_config_dword386, ptr @__UNIQUE_ID___addressable_pci_write_config_word385, ptr @__UNIQUE_ID___addressable_pcie_capability_clear_and_set_dword380, ptr @__UNIQUE_ID___addressable_pcie_capability_clear_and_set_word_locked379, ptr @__UNIQUE_ID___addressable_pcie_capability_clear_and_set_word_unlocked378, ptr @__UNIQUE_ID___addressable_pcie_capability_read_dword375, ptr @__UNIQUE_ID___addressable_pcie_capability_read_word374, ptr @__UNIQUE_ID___addressable_pcie_capability_write_dword377, ptr @__UNIQUE_ID___addressable_pcie_capability_write_word376, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched37], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_bus_read_config_byte(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 1)) %3) #0 align 16 {
+define dso_local i32 @pci_bus_read_config_byte(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   store i32 0, ptr %5, align 4
@@ -416,7 +416,7 @@ declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #3
 declare dso_local void @_raw_spin_unlock_irqrestore(ptr noundef, i64 noundef) local_unnamed_addr #3 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @pci_user_read_config_byte(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @pci_user_read_config_byte(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #7
   store i32 -1, ptr %4, align 4
@@ -1003,7 +1003,7 @@ define dso_local zeroext i1 @pcie_cap_has_rtctl(ptr nocapture noundef readonly %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pcie_capability_read_word(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 2)) %2) #0 align 16 {
+define dso_local i32 @pcie_capability_read_word(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   store i16 0, ptr %2, align 2
   %5 = and i32 %1, 1
@@ -1235,7 +1235,7 @@ pci_bus_read_config_word.exit:                    ; preds = %9, %16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pcie_capability_read_dword(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 align 16 {
+define dso_local i32 @pcie_capability_read_dword(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %5 = and i32 %1, 3
@@ -1726,7 +1726,7 @@ pci_bus_write_config_dword.exit:                  ; preds = %24, %10, %62, %56, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @pci_read_config_byte(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) #0 align 16 {
+define dso_local i32 @pci_read_config_byte(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 180
   %6 = load i32, ptr %5, align 4

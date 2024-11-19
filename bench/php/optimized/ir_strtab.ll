@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._ir_strtab_bucket = type { i32, i32, ptr, i32, i32 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ir_strtab_init(ptr nocapture noundef writeonly initializes((0, 40)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden void @ir_strtab_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = add i32 %1, -1
   %5 = lshr i32 %4, 1
   %6 = or i32 %5, %4
@@ -480,7 +480,7 @@ define hidden ptr @ir_strtab_str(ptr nocapture noundef readonly %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @ir_strtab_strl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #7 {
+define hidden ptr @ir_strtab_strl(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #7 {
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds %struct._ir_strtab_bucket, ptr %4, i64 %5

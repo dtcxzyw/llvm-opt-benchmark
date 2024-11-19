@@ -483,7 +483,7 @@ declare void @_ZN6MapgenC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull a
 declare noundef zeroext i16 @_ZNK14NodeDefManager5getIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(65848), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16MapgenSinglenode9makeChunkEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(203) initializes((24, 25), (32, 40), (48, 60)) %this, ptr noundef %data) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16MapgenSinglenode9makeChunkEP13BlockMakeData(ptr noundef nonnull align 8 dereferenceable(203) %this, ptr noundef %data) unnamed_addr #5 align 2 {
 entry:
   %generating = getelementptr inbounds i8, ptr %this, i64 24
   store i8 1, ptr %generating, align 8, !tbaa !37

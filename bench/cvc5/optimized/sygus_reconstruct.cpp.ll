@@ -376,7 +376,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusReconstructC2ERNS0_3EnvEPNS2_11TermDbSygusERNS2_15SygusStatisticsE(ptr noundef nonnull align 8 dereferenceable(720) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %tds, ptr noundef nonnull align 1 %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusReconstructC2ERNS0_3EnvEPNS2_11TermDbSygusERNS2_15SygusStatisticsE(ptr noundef nonnull align 8 dereferenceable(720) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %tds, ptr noundef nonnull align 1 %s) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4expr11NotifyMatchE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -17221,7 +17221,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusReconstruct11postConvertENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers16SygusReconstruct11postConvertENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %n) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nb.i = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %agg.tmp.i = alloca %"class.cvc5::internal::NodeTemplate.411", align 8
@@ -17591,7 +17591,7 @@ return:                                           ; preds = %_ZN4cvc58internal12
 declare noundef zeroext i1 @_ZN4cvc58internal11NodeManager10isNAryKindENS0_4kind6Kind_tE(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define hidden void @_ZThn8_N4cvc58internal6theory11quantifiers16SygusReconstruct11postConvertENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readnone %this, ptr nocapture noundef readonly %n) unnamed_addr #7 align 2 {
+define hidden void @_ZThn8_N4cvc58internal6theory11quantifiers16SygusReconstruct11postConvertENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef readnone %this, ptr nocapture noundef readonly %n) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers16SygusReconstruct11postConvertENS0_12NodeTemplateILb1EEE(ptr sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nonnull align 8 poison, ptr noundef %n)
   ret void

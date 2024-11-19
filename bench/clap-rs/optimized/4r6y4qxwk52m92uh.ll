@@ -79,7 +79,7 @@ define internal noundef zeroext i1 @"_ZN64_$LT$core..str..error..Utf8Error$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8clap_lex7RawArgs9from_args17h37c332722468ec6eE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #2 {
+define void @_ZN8clap_lex7RawArgs9from_args17h37c332722468ec6eE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 } }) align 8 dereferenceable(24) %0) unnamed_addr #2 {
   %2 = alloca { { { { ptr, i64, ptr, ptr, {}, { {} } } } }, {} }, align 8
   %3 = alloca { { i64, ptr }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2), !noalias !5
@@ -679,7 +679,7 @@ define { ptr, i64 } @_ZN8clap_lex9ParsedArg11to_value_os17h684c110d853c41baE(ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN8clap_lex9ParsedArg8to_value17h5a17c2ac1d44678eE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 {
+define void @_ZN8clap_lex9ParsedArg8to_value17h5a17c2ac1d44678eE(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #2 {
   %3 = alloca { i64, [2 x i64] }, align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !4, !align !31, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -905,7 +905,7 @@ _ZN8clap_lex9is_number17hc403b9878a2b42b1E.exit:  ; preds = %27, %24, %23, %20, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN8clap_lex10ShortFlags9next_flag17ha2bfb32424d88ce6E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1) unnamed_addr #4 {
+define void @_ZN8clap_lex10ShortFlags9next_flag17ha2bfb32424d88ce6E(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
   %4 = getelementptr inbounds i8, ptr %1, i64 24
@@ -1108,7 +1108,7 @@ _ZN8clap_lex3ext8split_at17hf432e678d412a774E.exit: ; preds = %"_ZN87_$LT$core..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @"_ZN79_$LT$clap_lex..ShortFlags$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf59eef4936093e48E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1) unnamed_addr #4 {
+define void @"_ZN79_$LT$clap_lex..ShortFlags$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf59eef4936093e48E"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef align 8 dereferenceable(56) %1) unnamed_addr #4 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
   %3 = getelementptr inbounds i8, ptr %1, i64 16

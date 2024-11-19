@@ -194,7 +194,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib31ForwardEuropeanHestonPathPricerC2ENS_6Option4TypeEdmd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %this, i32 noundef %type, double noundef %moneyness, i64 noundef %resetIndex, double noundef %discount) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib31ForwardEuropeanHestonPathPricerC2ENS_6Option4TypeEdmd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i32 noundef %type, double noundef %moneyness, i64 noundef %resetIndex, double noundef %discount) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

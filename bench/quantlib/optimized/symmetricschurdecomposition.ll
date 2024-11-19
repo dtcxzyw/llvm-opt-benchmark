@@ -67,7 +67,7 @@ $_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPSt4pairIdSt6vec
 @_ZN8QuantLib27SymmetricSchurDecompositionC1ERKNS_6MatrixE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib27SymmetricSchurDecompositionC2ERKNS_6MatrixE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27SymmetricSchurDecompositionC2ERKNS_6MatrixE(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27SymmetricSchurDecompositionC2ERKNS_6MatrixE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %s) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -437,7 +437,7 @@ define internal fastcc ptr @type_lowering(ptr nocapture noundef readonly %0) unn
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @c_abi_func_create_riscv(ptr nocapture noundef initializes((56, 64)) %0) local_unnamed_addr #0 {
+define dso_local void @c_abi_func_create_riscv(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4

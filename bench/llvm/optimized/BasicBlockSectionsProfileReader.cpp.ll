@@ -236,7 +236,7 @@ define internal noundef nonnull ptr @_ZL60initializeBasicBlockSectionsProfileRea
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm31BasicBlockSectionsProfileReader15parseUniqueBBIDENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm31BasicBlockSectionsProfileReader15parseUniqueBBIDENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca %"class.llvm::SmallVector", align 8
   %7 = alloca %"class.llvm::Error", align 8
@@ -542,7 +542,7 @@ _ZNSt4pairIbN4llvm11SmallVectorINS0_13BBClusterInfoELj3EEEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm31BasicBlockSectionsProfileReader25getClusterInfoForFunctionENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm31BasicBlockSectionsProfileReader25getClusterInfoForFunctionENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.9", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -3301,7 +3301,7 @@ declare { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dere
 declare void @_ZN4llvm18report_fatal_errorENS_5ErrorEb(ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm39BasicBlockSectionsProfileReaderAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::BasicBlockSectionsProfileReader") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm39BasicBlockSectionsProfileReaderAnalysis3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::BasicBlockSectionsProfileReader") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(136) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 904
   %7 = load ptr, ptr %6, align 8
@@ -3348,7 +3348,7 @@ _ZNK4llvm31BasicBlockSectionsProfileReader13isFunctionHotENS_9StringRefE.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm42BasicBlockSectionsProfileReaderWrapperPass25getClusterInfoForFunctionENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm42BasicBlockSectionsProfileReaderWrapperPass25getClusterInfoForFunctionENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   tail call void @_ZNK4llvm31BasicBlockSectionsProfileReader25getClusterInfoForFunctionENS_9StringRefE(ptr dead_on_unwind writable sret(%"struct.std::pair") align 8 %0, ptr noundef nonnull align 8 dereferenceable(144) %5, ptr %2, i64 %3)
   ret void

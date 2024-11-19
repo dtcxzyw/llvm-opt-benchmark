@@ -141,7 +141,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core13ResourceQuotaC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %this, ptr noundef nonnull %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13ResourceQuotaC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %name) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__a.i.i = alloca %"class.std::allocator.1", align 1
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -289,7 +289,7 @@ _ZNSt12__shared_ptrIN9grpc_core11MemoryQuotaELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core13ResourceQuotaD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core13ResourceQuotaD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core13ResourceQuotaE, i64 16), ptr %this, align 8
   %thread_quota_ = getelementptr inbounds i8, ptr %this, i64 32

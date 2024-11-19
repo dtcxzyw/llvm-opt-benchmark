@@ -745,7 +745,7 @@ declare void @error_prepend(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @object_dynamic_cast_assert(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @vfio_platform_compute_needs_reset(ptr nocapture noundef writeonly initializes((97, 98)) %vbasedev) #3 {
+define internal void @vfio_platform_compute_needs_reset(ptr nocapture noundef writeonly %vbasedev) #3 {
 entry:
   %needs_reset = getelementptr inbounds i8, ptr %vbasedev, i64 97
   store i8 1, ptr %needs_reset, align 1

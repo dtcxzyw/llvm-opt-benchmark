@@ -389,7 +389,7 @@ _ZNSt10unique_ptrIN7rocksdb13SstFileReader3RepESt14default_deleteIS2_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb13SstFileReader4OpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %file_path) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb13SstFileReader4OpenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 dereferenceable(32) %file_path) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %file_size = alloca i64, align 8
   %file = alloca %"class.std::unique_ptr.101", align 8

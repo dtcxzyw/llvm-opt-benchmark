@@ -1306,7 +1306,7 @@ define dso_local void @intel_rps_boost(ptr noundef %0) local_unnamed_addr #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @gen6_rps_get_freq_caps(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 3)) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @gen6_rps_get_freq_caps(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -3696
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 7176
@@ -1952,7 +1952,7 @@ gen9_rps_enable.exit:                             ; preds = %240
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @gen8_rps_enable(ptr noundef initializes((132, 136), (137, 138), (192, 196)) %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @gen8_rps_enable(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -3672
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 145
@@ -2011,7 +2011,7 @@ define internal fastcc noundef zeroext i1 @gen8_rps_enable(ptr noundef initializ
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @gen6_rps_enable(ptr noundef initializes((132, 136), (137, 138), (192, 196)) %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @gen6_rps_enable(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -3672
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 36

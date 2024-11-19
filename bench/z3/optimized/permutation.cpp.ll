@@ -45,7 +45,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11permutationC2Ej(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, i32 noundef %size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11permutationC2Ej(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN6vectorIjLb0EjE5resetEv.exit4.i:
   %m_inv_p = getelementptr inbounds i8, ptr %this, i64 8
   %cmp23.not.i = icmp eq i32 %size, 0

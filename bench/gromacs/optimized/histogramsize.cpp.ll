@@ -22,7 +22,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN3gmx13HistogramSizeC1ERKNS_13AwhBiasParamsEd = unnamed_addr alias void (ptr, ptr, double), ptr @_ZN3gmx13HistogramSizeC2ERKNS_13AwhBiasParamsEd
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx13HistogramSizeC2ERKNS_13AwhBiasParamsEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((0, 17), (24, 33), (40, 57)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(93) %1, double noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN3gmx13HistogramSizeC2ERKNS_13AwhBiasParamsEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(93) %1, double noundef %2) unnamed_addr #0 align 2 {
   store i64 0, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store double %2, ptr %4, align 8
@@ -326,7 +326,7 @@ declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr nou
 declare double @llvm.fabs.f64(double) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN3gmx13HistogramSize16setHistogramSizeEdd(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((8, 16)) %0, double noundef %1, double noundef %2) local_unnamed_addr #8 align 2 {
+define void @_ZN3gmx13HistogramSize16setHistogramSizeEdd(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0, double noundef %1, double noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store double %1, ptr %4, align 8
   %5 = tail call double @log(double noundef %2) #10
@@ -338,7 +338,7 @@ define void @_ZN3gmx13HistogramSize16setHistogramSizeEdd(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3gmx13HistogramSize18restoreFromHistoryERKNS_19AwhBiasStateHistoryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) initializes((0, 17), (32, 33), (40, 57)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN3gmx13HistogramSize18restoreFromHistoryERKNS_19AwhBiasStateHistoryE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(57) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8
   store i64 %4, ptr %0, align 8
@@ -370,7 +370,7 @@ define void @_ZN3gmx13HistogramSize18restoreFromHistoryERKNS_19AwhBiasStateHisto
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK3gmx13HistogramSize10storeStateEPNS_19AwhBiasStateHistoryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %0, ptr nocapture noundef writeonly initializes((12, 14), (16, 48)) %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK3gmx13HistogramSize10storeStateEPNS_19AwhBiasStateHistoryE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(57) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 align 2 {
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   store i64 %3, ptr %4, align 8

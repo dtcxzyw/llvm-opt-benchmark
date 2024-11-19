@@ -3365,7 +3365,7 @@ define internal void @intel_pmu_arch_lbr_read(ptr nocapture noundef %0) #0 align
 declare dso_local void @setup_clear_cpu_cap(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: write, inaccessiblemem: none)
-define dso_local void @x86_perf_get_lbr(ptr nocapture noundef writeonly initializes((0, 16)) %0) #9 align 16 {
+define dso_local void @x86_perf_get_lbr(ptr nocapture noundef writeonly %0) #9 align 16 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 464), align 8
   store i32 %2, ptr %0, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @x86_pmu, i64 452), align 4

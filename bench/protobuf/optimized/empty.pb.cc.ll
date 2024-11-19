@@ -54,7 +54,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf5EmptyC2EPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, ptr noundef %arena) unnamed_addr #4 align 2 {
+define void @_ZN6google8protobuf5EmptyC2EPNS0_5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %arena) unnamed_addr #4 align 2 {
 entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
@@ -66,7 +66,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf5EmptyC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 20)) %this, ptr noundef %arena, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf5EmptyC2EPNS0_5ArenaERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %arena, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64

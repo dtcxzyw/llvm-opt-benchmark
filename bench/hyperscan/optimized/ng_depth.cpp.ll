@@ -631,7 +631,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i36, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17findLoopReachableINS_8NGHolderEEESt6vectorIbSaIbEERKT_NS5_17vertex_descriptorE(ptr noalias nonnull align 8 initializes((0, 12), (16, 28), (32, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %src.coerce0, i64 %src.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L17findLoopReachableINS_8NGHolderEEESt6vectorIbSaIbEERKT_NS5_17vertex_descriptorE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %g, ptr %src.coerce0, i64 %src.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.0.i = alloca { i64, %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::prop_map" }, align 8
   %deadEdges = alloca %"class.std::set", align 8
@@ -1655,7 +1655,7 @@ eh.resume:                                        ; preds = %if.then.i.i.i34, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17findLoopReachableIN5boost13reverse_graphINS_8NGHolderERKS3_EEEESt6vectorIbSaIbEERKT_NSA_17vertex_descriptorE(ptr noalias nonnull align 8 initializes((0, 12), (16, 28), (32, 40)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %g, ptr %src.coerce0, i64 %src.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L17findLoopReachableIN5boost13reverse_graphINS_8NGHolderERKS3_EEEESt6vectorIbSaIbEERKT_NSA_17vertex_descriptorE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %g, ptr %src.coerce0, i64 %src.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.sroa.0.i = alloca { i64, %"struct.ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>::prop_map" }, align 8
   %deadEdges = alloca %"class.std::set.181", align 8

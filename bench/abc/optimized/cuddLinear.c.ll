@@ -686,7 +686,7 @@ ddLinearAndSiftingAux.exit:                       ; preds = %.lr.ph184.i, %ddLin
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 0, 2) i32 @cuddInitLinear(ptr nocapture noundef initializes((384, 392)) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @cuddInitLinear(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1

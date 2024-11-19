@@ -1862,7 +1862,7 @@ for.end597:                                       ; preds = %for.body582, %for.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbcc_update_batch_begin(ptr nocapture noundef writeonly initializes((16, 20)) %g) local_unnamed_addr #5 {
+define void @stbcc_update_batch_begin(ptr nocapture noundef writeonly %g) local_unnamed_addr #5 {
 entry:
   %in_batched_update = getelementptr inbounds i8, ptr %g, i64 16
   store i32 1, ptr %in_batched_update, align 4
@@ -1870,7 +1870,7 @@ entry:
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc_update_batch_end(ptr nocapture noundef initializes((16, 20)) %g) local_unnamed_addr #2 {
+define void @stbcc_update_batch_end(ptr nocapture noundef %g) local_unnamed_addr #2 {
 entry:
   %in_batched_update = getelementptr inbounds i8, ptr %g, i64 16
   store i32 0, ptr %in_batched_update, align 4
@@ -1885,7 +1885,7 @@ entry:
 }
 
 ; Function Attrs: nofree nosync nounwind memory(argmem: readwrite) uwtable
-define void @stbcc_init_grid(ptr nocapture noundef initializes((0, 20)) %g, ptr nocapture noundef readonly %map, i32 noundef %w, i32 noundef %h) local_unnamed_addr #2 {
+define void @stbcc_init_grid(ptr nocapture noundef %g, ptr nocapture noundef readonly %map, i32 noundef %w, i32 noundef %h) local_unnamed_addr #2 {
 entry:
   store i32 %w, ptr %g, align 4
   %h2 = getelementptr inbounds i8, ptr %g, i64 4

@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ompi_grequest_construct(ptr nocapture noundef writeonly initializes((56, 60), (120, 136), (152, 160), (192, 194)) %0) #0 {
+define internal void @ompi_grequest_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr @ompi_grequest_free, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128

@@ -602,7 +602,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_queue_set_notification(ptr nocapture noundef initializes((71, 72)) %vq, i32 noundef %enable) local_unnamed_addr #0 {
+define dso_local void @virtio_queue_set_notification(ptr nocapture noundef %vq, i32 noundef %enable) local_unnamed_addr #0 {
 entry:
   %tobool = icmp ne i32 %enable, 0
   %notification = getelementptr inbounds i8, ptr %vq, i64 71
@@ -5537,7 +5537,7 @@ if.end5:                                          ; preds = %for.end
 declare void @abort() local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_delete_queue(ptr nocapture noundef initializes((0, 8), (88, 96)) %vq) local_unnamed_addr #0 {
+define dso_local void @virtio_delete_queue(ptr nocapture noundef %vq) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %vq, align 8
   %num_default = getelementptr inbounds i8, ptr %vq, i64 4
@@ -8126,7 +8126,7 @@ entry:
 declare void @aio_set_event_notifier_poll(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_queue_host_notifier_aio_poll_begin(ptr nocapture noundef initializes((-45, -44)) %n) #0 {
+define internal void @virtio_queue_host_notifier_aio_poll_begin(ptr nocapture noundef %n) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %n, i64 -116
   tail call void @virtio_queue_set_notification(ptr noundef %add.ptr, i32 noundef 0)
@@ -8134,7 +8134,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_queue_host_notifier_aio_poll_end(ptr nocapture noundef initializes((-45, -44)) %n) #0 {
+define internal void @virtio_queue_host_notifier_aio_poll_end(ptr nocapture noundef %n) #0 {
 entry:
   %add.ptr = getelementptr i8, ptr %n, i64 -116
   tail call void @virtio_queue_set_notification(ptr noundef %add.ptr, i32 noundef 1)
@@ -8262,7 +8262,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @virtio_queue_set_host_notifier_enabled(ptr nocapture noundef writeonly initializes((128, 129)) %vq, i1 noundef zeroext %enabled) local_unnamed_addr #15 {
+define dso_local void @virtio_queue_set_host_notifier_enabled(ptr nocapture noundef writeonly %vq, i1 noundef zeroext %enabled) local_unnamed_addr #15 {
 entry:
   %frombool = zext i1 %enabled to i8
   %host_notifier_enabled = getelementptr inbounds i8, ptr %vq, i64 128
@@ -9741,7 +9741,7 @@ declare void @aio_bh_schedule_oneshot_full(ptr noundef, ptr noundef, ptr noundef
 declare ptr @qemu_get_current_aio_context() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @virtio_set_features_nocheck_bh(ptr nocapture noundef initializes((24, 28)) %opaque) #0 {
+define internal void @virtio_set_features_nocheck_bh(ptr nocapture noundef %opaque) #0 {
 entry:
   %vdev = getelementptr inbounds i8, ptr %opaque, i64 8
   %0 = load ptr, ptr %vdev, align 8

@@ -52231,7 +52231,7 @@ define internal i32 @dissect_lte_rrc_INTEGER_0_23(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_lte_rrc_T_duration(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((24, 32)) %2, ptr noundef %3, i32 noundef %4) #1 {
+define internal noundef i32 @dissect_lte_rrc_T_duration(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3, i32 noundef %4) #1 {
   %6 = tail call ptr @proto_tree_add_bits_item(ptr noundef %3, i32 noundef %4, ptr noundef %0, i32 noundef %1, i32 noundef 1, i32 noundef 0) #11
   %7 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %6, ptr %7, align 8

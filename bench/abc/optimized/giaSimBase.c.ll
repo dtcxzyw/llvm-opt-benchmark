@@ -10806,7 +10806,7 @@ Abc_TtClear.exit:                                 ; preds = %1, %.lr.ph.preheade
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_SimAbsSolve(ptr nocapture noundef initializes((72, 76)) %0) local_unnamed_addr #3 {
+define void @Gia_SimAbsSolve(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
@@ -13294,7 +13294,7 @@ Gia_RsbRemovalCost.exit.loopexit:                 ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_RsbFindMints(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #3 {
+define void @Gia_RsbFindMints(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = tail call i32 @Abc_Random(i32 noundef 0) #30
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   %6 = load ptr, ptr %5, align 8
@@ -17563,7 +17563,7 @@ Abc_Clock.exit69:                                 ; preds = %109, %112
 declare i64 @Abc_RandomW(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManSim2ArrayOne(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 8)) %1) local_unnamed_addr #3 {
+define void @Gia_ManSim2ArrayOne(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val25 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %0, i64 4

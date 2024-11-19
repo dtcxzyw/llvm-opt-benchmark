@@ -158,7 +158,7 @@ define internal noundef i32 @H5D__btree_idx_close(ptr nocapture readnone %0) #1 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__btree_idx_is_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #2 {
+define internal noundef i32 @H5D__btree_idx_is_open(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 32
@@ -492,7 +492,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_idx_size(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5D__btree_idx_reset(ptr nocapture noundef writeonly initializes((32, 40)) %0, i1 noundef zeroext %1) #4 {
+define internal noundef i32 @H5D__btree_idx_reset(ptr nocapture noundef writeonly %0, i1 noundef zeroext %1) #4 {
   br i1 %1, label %3, label %5
 
 3:                                                ; preds = %2
@@ -757,7 +757,7 @@ define internal ptr @H5D__btree_get_shared(ptr nocapture readnone %0, ptr nocapt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__btree_new_node(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((264, 272)) %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #11 {
+define internal noundef i32 @H5D__btree_new_node(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #11 {
   %7 = getelementptr inbounds i8, ptr %3, i64 32
   %8 = load i64, ptr %7, align 8
   store i64 %8, ptr %5, align 8
@@ -1414,7 +1414,7 @@ define internal range(i32 -1, 1) i32 @H5D__btree_decode_key(ptr nocapture nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__btree_encode_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef readonly %2) #11 {
+define internal noundef i32 @H5D__btree_encode_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #11 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 264

@@ -847,7 +847,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3con10makePacketERK7AddressRK12SharedBufferIhEjth(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %address, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, i32 noundef %protocol_id, i16 noundef zeroext %sender_peer_id, i8 noundef zeroext %channel) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3con10makePacketERK7AddressRK12SharedBufferIhEjth(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %address, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, i32 noundef %protocol_id, i16 noundef zeroext %sender_peer_id, i8 noundef zeroext %channel) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i32, ptr %m_size.i, align 8, !tbaa !27
@@ -984,7 +984,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3con18makeOriginalPacketERK12SharedBufferIhE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.SharedBuffer) align 8 initializes((0, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3con18makeOriginalPacketERK12SharedBufferIhE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.SharedBuffer) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i32, ptr %m_size.i, align 8, !tbaa !27
@@ -1267,7 +1267,7 @@ lpad:                                             ; preds = %_ZN3con18makeOrigin
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3con18makeReliablePacketERK12SharedBufferIhEt(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.SharedBuffer) align 8 initializes((0, 12), (16, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, i16 noundef zeroext %seqnum) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3con18makeReliablePacketERK12SharedBufferIhEt(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.SharedBuffer) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %data, i16 noundef zeroext %seqnum) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %m_size.i = getelementptr inbounds i8, ptr %data, i64 8
   %0 = load i32, ptr %m_size.i, align 8, !tbaa !27
@@ -7094,7 +7094,7 @@ delete.end:                                       ; preds = %delete.notnull, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3con7UDPPeerC2EtRK7AddressPNS_10ConnectionE(ptr noundef nonnull align 8 dereferenceable(1696) initializes((0, 10), (12, 57), (64, 129), (132, 140), (144, 152)) %this, i16 noundef zeroext %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %address, ptr noundef %connection) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3con7UDPPeerC2EtRK7AddressPNS_10ConnectionE(ptr noundef nonnull align 8 dereferenceable(1696) %this, i16 noundef zeroext %id, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %address, ptr noundef %connection) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i.i = alloca %struct.timespec, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3con4PeerE, i64 16), ptr %this, align 8, !tbaa !38
@@ -12407,7 +12407,7 @@ _ZNSt8_Rb_treeItSt4pairIKtPN3con4PeerEESt10_Select1stIS5_ESt4lessItESaIS5_EED2Ev
 declare void @_ZN9UDPSocketD1Ev(ptr noundef nonnull align 4 dereferenceable(10)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3con10ConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(509) initializes((508, 509)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3con10ConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(509) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i6 = alloca %"struct.std::_Deque_iterator.46", align 16
   %agg.tmp2.i.i7 = alloca %"struct.std::_Deque_iterator.46", align 16

@@ -636,7 +636,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN18VM_RedefineClassesC1EiPK20jvmtiClassDefinition18JvmtiClassLoadKind = hidden unnamed_addr alias void (ptr, i32, ptr, i32), ptr @_ZN18VM_RedefineClassesC2EiPK20jvmtiClassDefinition18JvmtiClassLoadKind
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18VM_RedefineClassesC2EiPK20jvmtiClassDefinition18JvmtiClassLoadKind(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) initializes((0, 28), (32, 44), (80, 85), (88, 96), (104, 105), (112, 120), (128, 129), (136, 144), (152, 153), (160, 168), (176, 177)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN18VM_RedefineClassesC2EiPK20jvmtiClassDefinition18JvmtiClassLoadKind(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(192) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV18VM_RedefineClasses, i64 16), ptr %0, align 8
@@ -1367,7 +1367,7 @@ define hidden noundef zeroext i1 @_ZN18VM_RedefineClasses19is_modifiable_classEP
 declare void @_ZN12elapsedTimer5startEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN18VM_RedefineClasses23load_new_class_versionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((72, 80)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN18VM_RedefineClasses23load_new_class_versionsEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.HandleMark, align 8
   %3 = alloca %class.ClassFileStream, align 8
   %4 = alloca %class.ExceptionMark, align 8

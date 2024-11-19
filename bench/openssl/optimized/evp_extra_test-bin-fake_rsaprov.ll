@@ -145,7 +145,7 @@ declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local
 declare i32 @OSSL_PROVIDER_add_builtin(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly initializes((0, 8)) %provctx) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_provider_init(ptr nocapture readnone %handle, ptr nocapture readnone %in, ptr nocapture noundef writeonly %out, ptr nocapture noundef writeonly %provctx) #1 {
 entry:
   %call = tail call ptr @OSSL_LIB_CTX_new() #12
   store ptr %call, ptr %provctx, align 8
@@ -180,7 +180,7 @@ declare ptr @OSSL_LIB_CTX_new() local_unnamed_addr #3
 declare void @OSSL_LIB_CTX_free(ptr noundef) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef ptr @fake_rsa_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly initializes((0, 4)) %no_cache) #4 {
+define internal noundef ptr @fake_rsa_query(ptr nocapture readnone %provctx, i32 noundef %operation_id, ptr nocapture noundef writeonly %no_cache) #4 {
 entry:
   store i32 0, ptr %no_cache, align 4
   switch i32 %operation_id, label %sw.epilog [
@@ -658,7 +658,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @fake_rsa_keymgmt_import(ptr nocapture noundef writeonly initializes((4, 8)) %keydata, i32 %selection, ptr nocapture readnone %p) #4 {
+define internal noundef i32 @fake_rsa_keymgmt_import(ptr nocapture noundef writeonly %keydata, i32 %selection, ptr nocapture readnone %p) #4 {
 entry:
   %status = getelementptr inbounds i8, ptr %keydata, i64 4
   store i32 1, ptr %status, align 4

@@ -58,7 +58,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN7Imf_3_212ImageChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_218SampleCountChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN7Imf_3_218SampleCountChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_218SampleCountChannelE, i64 16), ptr %this, align 8
   %_numSamples = getelementptr inbounds i8, ptr %this, i64 48
@@ -449,7 +449,7 @@ declare hidden void @_ZN7Imf_3_214DeepImageLevel14moveSampleListEmjjm(ptr nounde
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN7Imf_3_218SampleCountChannel16resetBasePointerEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((56, 64)) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN7Imf_3_218SampleCountChannel16resetBasePointerEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #9 align 2 {
 entry:
   %_numSamples = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_numSamples, align 8
@@ -618,7 +618,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7Imf_3_218SampleCountChannel7endEditEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((80, 96)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_218SampleCountChannel7endEditEv(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.Imath_3_2::Box", align 4
   %_totalNumSamples = getelementptr inbounds i8, ptr %this, i64 80

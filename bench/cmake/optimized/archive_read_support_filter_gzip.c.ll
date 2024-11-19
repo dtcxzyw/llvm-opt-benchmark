@@ -50,7 +50,7 @@ define internal i32 @gzip_bidder_bid(ptr nocapture readnone %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @gzip_bidder_init(ptr nocapture noundef initializes((48, 60)) %0) #0 {
+define internal range(i32 -30, 1) i32 @gzip_bidder_init(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48

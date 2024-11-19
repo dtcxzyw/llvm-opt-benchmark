@@ -49,7 +49,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef ptr @_ZN6snappy4Sink23GetAppendBufferVariableEmmPcmPm(ptr nocapture nonnull readnone align 8 %this, i64 %min_size, i64 %desired_size_hint, ptr noundef readnone returned %scratch, i64 noundef %scratch_size, ptr nocapture noundef writeonly initializes((0, 8)) %allocated_size) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN6snappy4Sink23GetAppendBufferVariableEmmPcmPm(ptr nocapture nonnull readnone align 8 %this, i64 %min_size, i64 %desired_size_hint, ptr noundef readnone returned %scratch, i64 noundef %scratch_size, ptr nocapture noundef writeonly %allocated_size) unnamed_addr #3 align 2 {
 entry:
   store i64 %scratch_size, ptr %allocated_size, align 8
   ret ptr %scratch
@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN6snappy15ByteArraySource4PeekEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly initializes((0, 8)) %len) unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZN6snappy15ByteArraySource4PeekEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr nocapture noundef writeonly %len) unnamed_addr #7 align 2 {
 entry:
   %left_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %left_, align 8
@@ -181,7 +181,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN6snappy22UncheckedByteArraySink23GetAppendBufferVariableEmmPcmPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %min_size, i64 noundef %desired_size_hint, ptr nocapture readnone %scratch, i64 %scratch_size, ptr nocapture noundef writeonly initializes((0, 8)) %allocated_size) unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZN6snappy22UncheckedByteArraySink23GetAppendBufferVariableEmmPcmPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i64 %min_size, i64 noundef %desired_size_hint, ptr nocapture readnone %scratch, i64 %scratch_size, ptr nocapture noundef writeonly %allocated_size) unnamed_addr #7 align 2 {
 entry:
   store i64 %desired_size_hint, ptr %allocated_size, align 8
   %dest_ = getelementptr inbounds i8, ptr %this, i64 8

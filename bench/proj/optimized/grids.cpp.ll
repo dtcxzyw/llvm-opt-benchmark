@@ -676,7 +676,7 @@ $_ZTIN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapI
 @_ZN5osgeo4proj19GenericShiftGridSetD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5osgeo4proj19GenericShiftGridSetD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN5osgeo4proj12ExtentAndRes13computeInvResEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((56, 72)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5osgeo4proj12ExtentAndRes13computeInvResEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load double, ptr %2, align 8
   %4 = fdiv double 1.000000e+00, %3
@@ -786,7 +786,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj12ExtentAndRes10intersectsERKS1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5osgeo4proj4GridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4) unnamed_addr #2 align 2 {
+define void @_ZN5osgeo4proj4GridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj4GridE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -805,7 +805,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj4GridD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define void @_ZN5osgeo4proj4GridD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj4GridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #30
@@ -825,7 +825,7 @@ define void @_ZN5osgeo4proj4GridD0Ev(ptr nocapture nonnull readnone align 8 %0) 
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5osgeo4proj17VerticalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4) unnamed_addr #2 align 2 {
+define void @_ZN5osgeo4proj17VerticalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj4GridE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -845,7 +845,7 @@ define void @_ZN5osgeo4proj17VerticalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj17VerticalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj17VerticalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj17VerticalShiftGridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -906,7 +906,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZNK5osgeo4proj21NullVerticalShiftGrid7valueAtEiiRf(ptr nocapture nonnull readnone align 8 %0, i32 %1, i32 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK5osgeo4proj21NullVerticalShiftGrid7valueAtEiiRf(ptr nocapture nonnull readnone align 8 %0, i32 %1, i32 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #11 align 2 {
   store float 0.000000e+00, ptr %3, align 4
   ret i1 true
 }
@@ -1266,7 +1266,7 @@ _ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj20GTXVerticalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj20GTXVerticalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj20GTXVerticalShiftGridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
@@ -1351,7 +1351,7 @@ _ZN5osgeo4proj17VerticalShiftGridD2Ev.exit:       ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj20GTXVerticalShiftGridD0Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN5osgeo4proj20GTXVerticalShiftGridD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj20GTXVerticalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #30
   tail call void @_ZdlPv(ptr noundef nonnull %0) #32
   ret void
@@ -1904,7 +1904,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj20GTXVerticalShiftGrid8isNodata
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj20VerticalShiftGridSetC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define void @_ZN5osgeo4proj20VerticalShiftGridSetC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj20VerticalShiftGridSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #30
@@ -1916,7 +1916,7 @@ define void @_ZN5osgeo4proj20VerticalShiftGridSetC2Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj20VerticalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj20VerticalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj20VerticalShiftGridSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -2326,7 +2326,7 @@ _ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj9GTiffGridC2EP6pj_ctxP4tiffRNS0_10BlockCacheEPNS0_4FileEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResENS0_12TIFFDataTypeEttb(ptr noundef nonnull align 8 dereferenceable(340) initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %9, i32 noundef %10, i16 noundef zeroext %11, i16 noundef zeroext %12, i1 noundef zeroext %13) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj9GTiffGridC2EP6pj_ctxP4tiffRNS0_10BlockCacheEPNS0_4FileEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResENS0_12TIFFDataTypeEttb(ptr noundef nonnull align 8 dereferenceable(340) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef %7, i32 noundef %8, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %9, i32 noundef %10, i16 noundef zeroext %11, i16 noundef zeroext %12, i1 noundef zeroext %13) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %15 = alloca %"class.std::allocator", align 1
   %16 = alloca ptr, align 8
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3263,7 +3263,7 @@ _ZNSt8_Rb_treeISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES0_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj9GTiffGridD2Ev(ptr noundef nonnull align 8 dereferenceable(340) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj9GTiffGridD2Ev(ptr noundef nonnull align 8 dereferenceable(340) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9GTiffGridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   %3 = getelementptr inbounds i8, ptr %0, i64 296
@@ -3316,7 +3316,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIdSaIdE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj9GTiffGridD0Ev(ptr noundef nonnull align 8 dereferenceable(340) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj9GTiffGridD0Ev(ptr noundef nonnull align 8 dereferenceable(340) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj9GTiffGridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   %3 = getelementptr inbounds i8, ptr %0, i64 296
@@ -4124,7 +4124,7 @@ declare i64 @TIFFReadEncodedTile(ptr noundef, i32 noundef, ptr noundef, i64 noun
 declare i64 @TIFFReadEncodedStrip(ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRb(ptr noundef nonnull align 8 dereferenceable(340) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %8) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRb(ptr noundef nonnull align 8 dereferenceable(340) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %8) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca i64, align 8
   store i8 0, ptr %8, align 1
   %11 = getelementptr inbounds i8, ptr %0, i64 329
@@ -4772,7 +4772,7 @@ _ZNKSt3mapISt4pairIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES6_St4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj12GTiffDatasetD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj12GTiffDatasetD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj12GTiffDatasetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -4868,7 +4868,7 @@ _ZNSt10unique_ptrIN5osgeo4proj4FileESt14default_deleteIS2_EED2Ev.exit: ; preds =
 declare void @TIFFClose(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj12GTiffDatasetD0Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN5osgeo4proj12GTiffDatasetD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj12GTiffDatasetD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) #30
   tail call void @_ZdlPv(ptr noundef nonnull %0) #32
   ret void
@@ -5666,7 +5666,7 @@ declare double @llvm.fabs.f64(double) #13
 declare i32 @TIFFReadDirectory(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj18GTiffVGridShiftSetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj18GTiffVGridShiftSetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj18GTiffVGridShiftSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -5731,7 +5731,7 @@ _ZN5osgeo4proj20VerticalShiftGridSetD2Ev.exit:    ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj18GTiffVGridShiftSetD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj18GTiffVGridShiftSetD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj18GTiffVGridShiftSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -5797,7 +5797,7 @@ _ZN5osgeo4proj18GTiffVGridShiftSetD2Ev.exit:      ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj10GTiffVGridC2EOSt10unique_ptrINS0_9GTiffGridESt14default_deleteIS3_EEt(ptr noundef nonnull align 8 dereferenceable(154) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, i16 noundef zeroext %2) unnamed_addr #2 align 2 {
+define hidden void @_ZN5osgeo4proj10GTiffVGridC2EOSt10unique_ptrINS0_9GTiffGridESt14default_deleteIS3_EEt(ptr noundef nonnull align 8 dereferenceable(154) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, i16 noundef zeroext %2) unnamed_addr #2 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   %6 = getelementptr inbounds i8, ptr %4, i64 40
@@ -5827,7 +5827,7 @@ define hidden void @_ZN5osgeo4proj10GTiffVGridC2EOSt10unique_ptrINS0_9GTiffGridE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj10GTiffVGridD2Ev(ptr noundef nonnull align 8 dereferenceable(154) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj10GTiffVGridD2Ev(ptr noundef nonnull align 8 dereferenceable(154) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj10GTiffVGridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
@@ -5891,7 +5891,7 @@ _ZN5osgeo4proj17VerticalShiftGridD2Ev.exit:       ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj10GTiffVGridD0Ev(ptr noundef nonnull align 8 dereferenceable(154) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj10GTiffVGridD0Ev(ptr noundef nonnull align 8 dereferenceable(154) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj10GTiffVGridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
@@ -8177,7 +8177,7 @@ define void @_ZN5osgeo4proj20VerticalShiftGridSet16reassign_contextEP6pj_ctx(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5osgeo4proj19HorizontalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4) unnamed_addr #2 align 2 {
+define void @_ZN5osgeo4proj19HorizontalShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj4GridE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -8194,7 +8194,7 @@ define void @_ZN5osgeo4proj19HorizontalShiftGridC2ERKNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj19HorizontalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj19HorizontalShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj19HorizontalShiftGridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -8249,7 +8249,7 @@ define void @_ZN5osgeo4proj19HorizontalShiftGridD0Ev(ptr nocapture nonnull readn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj22HorizontalShiftGridSetC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define void @_ZN5osgeo4proj22HorizontalShiftGridSetC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj22HorizontalShiftGridSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #30
@@ -8261,7 +8261,7 @@ define void @_ZN5osgeo4proj22HorizontalShiftGridSetC2Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj22HorizontalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj22HorizontalShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj22HorizontalShiftGridSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -8318,14 +8318,14 @@ define void @_ZN5osgeo4proj22HorizontalShiftGridSetD0Ev(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZNK5osgeo4proj23NullHorizontalShiftGrid7valueAtEiibRfS2_(ptr nocapture nonnull readnone align 8 %0, i32 %1, i32 %2, i1 zeroext %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %5) unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK5osgeo4proj23NullHorizontalShiftGrid7valueAtEiibRfS2_(ptr nocapture nonnull readnone align 8 %0, i32 %1, i32 %2, i1 zeroext %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %5) unnamed_addr #11 align 2 {
   store float 0.000000e+00, ptr %4, align 4
   store float 0.000000e+00, ptr %5, align 4
   ret i1 true
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj8NTv1GridD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj8NTv1GridD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8NTv1GridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
@@ -8389,7 +8389,7 @@ _ZN5osgeo4proj19HorizontalShiftGridD2Ev.exit:     ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj8NTv1GridD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj8NTv1GridD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj8NTv1GridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
@@ -8780,7 +8780,7 @@ _ZN5osgeo4projL10swap_wordsEPvmm.exit:            ; preds = %._crit_edge.us.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj11CTable2GridD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj11CTable2GridD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj11CTable2GridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
@@ -8844,7 +8844,7 @@ _ZN5osgeo4proj19HorizontalShiftGridD2Ev.exit:     ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj11CTable2GridD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj11CTable2GridD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj11CTable2GridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
@@ -9499,7 +9499,7 @@ _ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit: ; preds = %._c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj11NTv2GridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj11NTv2GridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj11NTv2GridSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
@@ -9575,7 +9575,7 @@ _ZN5osgeo4proj22HorizontalShiftGridSetD2Ev.exit:  ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj11NTv2GridSetD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN5osgeo4proj11NTv2GridSetD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN5osgeo4proj11NTv2GridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #30
   tail call void @_ZdlPv(ptr noundef nonnull %0) #32
   ret void
@@ -10324,7 +10324,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_P
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj18GTiffHGridShiftSetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj18GTiffHGridShiftSetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj18GTiffHGridShiftSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -10389,7 +10389,7 @@ _ZN5osgeo4proj22HorizontalShiftGridSetD2Ev.exit:  ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj18GTiffHGridShiftSetD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj18GTiffHGridShiftSetD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj18GTiffHGridShiftSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -10455,7 +10455,7 @@ _ZN5osgeo4proj18GTiffHGridShiftSetD2Ev.exit:      ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj10GTiffHGridC2EOSt10unique_ptrINS0_9GTiffGridESt14default_deleteIS3_EEttdb(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, double noundef %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
+define hidden void @_ZN5osgeo4proj10GTiffHGridC2EOSt10unique_ptrINS0_9GTiffGridESt14default_deleteIS3_EEttdb(ptr noundef nonnull align 8 dereferenceable(169) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, i16 noundef zeroext %2, i16 noundef zeroext %3, double noundef %4, i1 noundef zeroext %5) unnamed_addr #2 align 2 {
   %7 = zext i1 %5 to i8
   %8 = load ptr, ptr %1, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
@@ -10492,7 +10492,7 @@ define hidden void @_ZN5osgeo4proj10GTiffHGridC2EOSt10unique_ptrINS0_9GTiffGridE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj10GTiffHGridD2Ev(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj10GTiffHGridD2Ev(ptr noundef nonnull align 8 dereferenceable(169) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj10GTiffHGridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
@@ -10556,7 +10556,7 @@ _ZN5osgeo4proj19HorizontalShiftGridD2Ev.exit:     ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj10GTiffHGridD0Ev(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj10GTiffHGridD0Ev(ptr noundef nonnull align 8 dereferenceable(169) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj10GTiffHGridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
@@ -13137,7 +13137,7 @@ define void @_ZN5osgeo4proj22HorizontalShiftGridSet16reassign_contextEP6pj_ctx(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj24GTiffGenericGridShiftSetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj24GTiffGenericGridShiftSetD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj24GTiffGenericGridShiftSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -13202,7 +13202,7 @@ _ZN5osgeo4proj19GenericShiftGridSetD2Ev.exit:     ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj19GenericShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj19GenericShiftGridSetD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj19GenericShiftGridSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -13252,7 +13252,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5osgeo4proj24GTiffGenericGridShiftSetD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5osgeo4proj24GTiffGenericGridShiftSetD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj24GTiffGenericGridShiftSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
@@ -13318,7 +13318,7 @@ _ZN5osgeo4proj24GTiffGenericGridShiftSetD2Ev.exit: ; preds = %_ZSt8_DestroyIPSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5osgeo4proj16GTiffGenericGridC2EOSt10unique_ptrINS0_9GTiffGridESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN5osgeo4proj16GTiffGenericGridC2EOSt10unique_ptrINS0_9GTiffGridESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = getelementptr inbounds i8, ptr %3, i64 40
@@ -13352,7 +13352,7 @@ define hidden void @_ZN5osgeo4proj16GTiffGenericGridC2EOSt10unique_ptrINS0_9GTif
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5osgeo4proj16GenericShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4) unnamed_addr #2 align 2 {
+define void @_ZN5osgeo4proj16GenericShiftGridC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiRKNS0_12ExtentAndResE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %4) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj4GridE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -13434,7 +13434,7 @@ _ZN5osgeo4proj16GenericShiftGridD2Ev.exit:        ; preds = %_ZSt8_DestroyIPSt10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj16GenericShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5osgeo4proj16GenericShiftGridD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj16GenericShiftGridE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
@@ -13573,7 +13573,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj16GTiffGenericGrid7valueAtEiiiR
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK5osgeo4proj16GTiffGenericGrid8valuesAtEiiiiiPKiPfRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %8) unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZNK5osgeo4proj16GTiffGenericGrid8valuesAtEiiiiiPKiPfRb(ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %8) unnamed_addr #2 align 2 {
   %10 = getelementptr inbounds i8, ptr %0, i64 144
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfRb(ptr noundef nonnull align 8 dereferenceable(340) %11, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull align 1 dereferenceable(1) %8)
@@ -13693,7 +13693,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZNK5osgeo4proj20NullGenericShiftGrid7valueAtEiiiRf(ptr nocapture nonnull readnone align 8 %0, i32 %1, i32 %2, i32 %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %4) unnamed_addr #11 align 2 {
+define hidden noundef zeroext i1 @_ZNK5osgeo4proj20NullGenericShiftGrid7valueAtEiiiRf(ptr nocapture nonnull readnone align 8 %0, i32 %1, i32 %2, i32 %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) unnamed_addr #11 align 2 {
   store float 0.000000e+00, ptr %4, align 4
   ret i1 true
 }
@@ -14892,7 +14892,7 @@ define void @_ZN5osgeo4proj16GenericShiftGridD0Ev(ptr nocapture nonnull readnone
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK5osgeo4proj16GenericShiftGrid8valuesAtEiiiiiPKiPfRb(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %8) unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZNK5osgeo4proj16GenericShiftGrid8valuesAtEiiiiiPKiPfRb(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %8) unnamed_addr #2 align 2 {
   store i8 0, ptr %8, align 1
   %10 = add nsw i32 %4, %2
   %11 = icmp slt i32 %4, 1
@@ -14952,7 +14952,7 @@ define noundef zeroext i1 @_ZNK5osgeo4proj16GenericShiftGrid8valuesAtEiiiiiPKiPf
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5osgeo4proj19GenericShiftGridSetC2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define void @_ZN5osgeo4proj19GenericShiftGridSetC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj19GenericShiftGridSetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #30
@@ -18454,7 +18454,7 @@ define hidden noundef ptr @_ZN5osgeo4proj20pj_find_generic_gridERKSt6vectorISt10
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN5osgeo4proj39pj_bilinear_interpolation_three_samplesEP6pj_ctxPKNS0_16GenericShiftGridERK5PJ_LPiiiRdS9_S9_Rb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %9) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @_ZN5osgeo4proj39pj_bilinear_interpolation_three_samplesEP6pj_ctxPKNS0_16GenericShiftGridERK5PJ_LPiiiRdS9_S9_Rb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %7, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %8, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %9) local_unnamed_addr #2 {
   %11 = alloca float, align 4
   %12 = alloca float, align 4
   %13 = alloca float, align 4

@@ -125,7 +125,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN17ShenandoahFreeSetC1EP14ShenandoahHeapm = hidden unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN17ShenandoahFreeSetC2EP14ShenandoahHeapm
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26ShenandoahRegionPartitionsC2EmP17ShenandoahFreeSet(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 24)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN26ShenandoahRegionPartitionsC2EmP17ShenandoahFreeSet(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr @_ZN20ShenandoahHeapRegion15RegionSizeBytesE, align 8
@@ -248,7 +248,7 @@ _ZN22ShenandoahSimpleBitMap9clear_allEv.exit:     ; preds = %15, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN26ShenandoahRegionPartitions27establish_mutator_intervalsEllllmm(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((72, 184)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN26ShenandoahRegionPartitions27establish_mutator_intervalsEllllmm(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #3 align 2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 168
   %9 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 %1, ptr %9, align 8
@@ -1140,7 +1140,7 @@ _ZNK22ShenandoahSimpleBitMap17find_last_set_bitEll.exit.i23: ; preds = %90, %84
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ShenandoahFreeSetC2EP14ShenandoahHeapm(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 24)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN17ShenandoahFreeSetC2EP14ShenandoahHeapm(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -2870,7 +2870,7 @@ _ZN17ShenandoahFreeSet14clear_internalEv.exit:    ; preds = %_ZN22ShenandoahSimp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ShenandoahFreeSet32find_regions_with_alloc_capacityERm(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ShenandoahFreeSet32find_regions_with_alloc_capacityERm(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   store i64 0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -3476,7 +3476,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ShenandoahFreeSet18prepare_to_rebuildERm(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ShenandoahFreeSet18prepare_to_rebuildERm(ptr nocapture noundef nonnull align 8 dereferenceable(224) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = load volatile ptr, ptr getelementptr inbounds (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4

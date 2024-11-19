@@ -2222,7 +2222,7 @@ _ZN5faiss12simd16uint16C2Ei.exit32._crit_edge:    ; preds = %_ZN5faiss12simd16ui
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5faiss17simd_histogram_16EPKtitiPi(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef initializes((0, 64)) %4) local_unnamed_addr #6 {
+define void @_ZN5faiss17simd_histogram_16EPKtitiPi(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   %6 = icmp slt i32 %3, 0
   %7 = sext i32 %1 to i64
@@ -2289,7 +2289,7 @@ define void @_ZN5faiss17simd_histogram_16EPKtitiPi(ptr nocapture noundef readonl
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5faiss16simd_histogram_8EPKtitiPi(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef initializes((0, 32)) %4) local_unnamed_addr #6 {
+define void @_ZN5faiss16simd_histogram_8EPKtitiPi(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #6 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %6 = icmp slt i32 %3, 0
   %7 = sext i32 %1 to i64
@@ -2347,7 +2347,7 @@ define void @_ZN5faiss16simd_histogram_8EPKtitiPi(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss14PartitionStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) local_unnamed_addr #9 align 2 {
+define void @_ZN5faiss14PartitionStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) local_unnamed_addr #9 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }

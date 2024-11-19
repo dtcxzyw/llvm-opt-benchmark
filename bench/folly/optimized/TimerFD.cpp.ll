@@ -441,7 +441,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #11
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly7TimerFDD2Ev(ptr noundef nonnull align 8 dereferenceable(212) initializes((0, 8), (176, 192)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7TimerFDD2Ev(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %val.i.i = alloca %struct.itimerspec, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly7TimerFDE, i64 16), ptr %this, align 8, !tbaa !35
@@ -626,7 +626,7 @@ declare i32 @timerfd_settime(i32 noundef, i32 noundef, ptr noundef, ptr noundef)
 declare noundef i64 @_ZN5folly9readNoIntEiPvm(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7TimerFD17eventReadCallbackEPNS0_5IoVecEi(ptr noundef nonnull align 8 dereferenceable(212) %this, ptr noundef initializes((48, 56)) %ioVec, i32 noundef %res) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7TimerFD17eventReadCallbackEPNS0_5IoVecEi(ptr noundef nonnull align 8 dereferenceable(212) %this, ptr noundef %ioVec, i32 noundef %res) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %timerData_ = getelementptr inbounds i8, ptr %ioVec, i64 48
   store i64 0, ptr %timerData_, align 8, !tbaa !38

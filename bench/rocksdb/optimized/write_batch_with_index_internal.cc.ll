@@ -339,7 +339,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17BaseDeltaIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(192) initializes((40, 41), (48, 54), (152, 168)) %this) unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb17BaseDeltaIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %forward_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %forward_, align 8
@@ -360,7 +360,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17BaseDeltaIterator13UpdateCurrentEv(ptr noundef nonnull align 8 dereferenceable(192) initializes((48, 54), (152, 168)) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb17BaseDeltaIterator13UpdateCurrentEv(ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %key.i6 = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp.i = alloca %"struct.rocksdb::WriteEntry", align 8
@@ -721,7 +721,7 @@ return:                                           ; preds = %if.end28, %if.else7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17BaseDeltaIterator10SeekToLastEv(ptr noundef nonnull align 8 dereferenceable(192) initializes((40, 41), (48, 54), (152, 168)) %this) unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb17BaseDeltaIterator10SeekToLastEv(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 {
 entry:
   %forward_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %forward_, align 8
@@ -742,7 +742,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17BaseDeltaIterator4SeekERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(192) initializes((40, 41), (48, 54), (152, 168)) %this, ptr noundef nonnull align 8 dereferenceable(16) %k) unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb17BaseDeltaIterator4SeekERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(16) %k) unnamed_addr #2 align 2 {
 entry:
   %forward_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %forward_, align 8
@@ -763,7 +763,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17BaseDeltaIterator11SeekForPrevERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(192) initializes((40, 41), (48, 54), (152, 168)) %this, ptr noundef nonnull align 8 dereferenceable(16) %k) unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb17BaseDeltaIterator11SeekForPrevERKNS_5SliceE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(16) %k) unnamed_addr #2 align 2 {
 entry:
   %forward_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 0, ptr %forward_, align 8
@@ -2037,7 +2037,7 @@ if.end10:                                         ; preds = %_ZN7rocksdb16WBWIIt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb17BaseDeltaIterator20ResetValueAndColumnsEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) initializes((152, 168)) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb17BaseDeltaIterator20ResetValueAndColumnsEv(ptr nocapture noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value_ = getelementptr inbounds i8, ptr %this, i64 152
   store ptr @.str.9, ptr %value_, align 8
@@ -2059,7 +2059,7 @@ _ZNSt6vectorIN7rocksdb10WideColumnESaIS1_EE5clearEv.exit: ; preds = %entry, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17BaseDeltaIterator26SetValueAndColumnsFromBaseEv(ptr noundef nonnull align 8 dereferenceable(192) initializes((152, 168)) %this) local_unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb17BaseDeltaIterator26SetValueAndColumnsFromBaseEv(ptr noundef nonnull align 8 dereferenceable(192) %this) local_unnamed_addr #2 align 2 {
 entry:
   %base_iterator_ = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %base_iterator_, align 8
@@ -5400,7 +5400,7 @@ return:                                           ; preds = %land.lhs.true, %ent
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7rocksdb16WBWIIteratorImpl5EntryEv(ptr noalias sret(%"struct.rocksdb::WriteEntry") align 8 initializes((0, 4), (8, 40)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7rocksdb16WBWIIteratorImpl5EntryEv(ptr noalias sret(%"struct.rocksdb::WriteEntry") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(65) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %blob = alloca %"class.rocksdb::Slice", align 8
   %xid = alloca %"class.rocksdb::Slice", align 8
@@ -5529,7 +5529,7 @@ return:                                           ; preds = %if.end8, %if.then5,
 declare noundef nonnull align 8 dereferenceable(857) ptr @_ZN7rocksdb19GetImmutableOptionsEPNS_18ColumnFamilyHandleE(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext range(i8 0, 5) i8 @_ZN7rocksdb27WriteBatchWithIndexInternal12GetFromBatchEPNS_19WriteBatchWithIndexEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_12MergeContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6StatusE(ptr noundef %batch, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef %context, ptr noundef %value, ptr noundef initializes((0, 6)) %s) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext range(i8 0, 5) i8 @_ZN7rocksdb27WriteBatchWithIndexInternal12GetFromBatchEPNS_19WriteBatchWithIndexEPNS_18ColumnFamilyHandleERKNS_5SliceEPNS_12MergeContextEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_6StatusE(ptr noundef %batch, ptr noundef %column_family, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef %context, ptr noundef %value, ptr noundef %s) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp7 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp8 = alloca %"class.rocksdb::Slice", align 8

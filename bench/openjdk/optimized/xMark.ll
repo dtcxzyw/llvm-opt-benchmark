@@ -524,7 +524,7 @@ define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure6do_
 declare void @_ZN13XStatSubPhaseC1EPKc(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5XMarkC2EP8XWorkersP10XPageTable(ptr noundef nonnull align 64 dereferenceable(2492) initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN5XMarkC2EP8XWorkersP10XPageTable(ptr noundef nonnull align 64 dereferenceable(2492) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 64
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8

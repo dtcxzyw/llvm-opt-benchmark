@@ -901,7 +901,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZN4ncnn12Gemm_x86_avx15create_pip
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4ncnnL20get_optimal_tile_mnkEiiiiiiRiS0_S0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %6, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %8, i32 noundef %9) unnamed_addr #0 {
+define internal fastcc void @_ZN4ncnnL20get_optimal_tile_mnkEiiiiiiRiS0_S0_i(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull align 4 dereferenceable(4) %7, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %8, i32 noundef %9) unnamed_addr #0 {
   %11 = tail call noundef i32 @_ZN4ncnn25get_cpu_level2_cache_sizeEv()
   %12 = sext i32 %11 to i64
   %13 = icmp eq i32 %9, 0

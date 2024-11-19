@@ -2205,7 +2205,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib24StrippedOptionletAdapterC1ERKN5boost10shared_ptrINS_21StrippedOptionletBaseEEE(ptr noundef nonnull align 8 dereferenceable(136) initializes((136, 144), (152, 156), (160, 168)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib24StrippedOptionletAdapterC1ERKN5boost10shared_ptrINS_21StrippedOptionletBaseEEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %s) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Calendar", align 8
   %ref.tmp17 = alloca %"class.QuantLib::DayCounter", align 8

@@ -862,7 +862,7 @@ zfp_field_dimensionality.exit62:                  ; preds = %14, %1, %40, %43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_pointer(ptr nocapture noundef writeonly initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @zfp_field_set_pointer(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   ret void
@@ -884,7 +884,7 @@ define range(i32 0, 5) i32 @zfp_field_set_type(ptr nocapture noundef writeonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_size_1d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1) local_unnamed_addr #7 {
+define void @zfp_field_set_size_1d(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -893,7 +893,7 @@ define void @zfp_field_set_size_1d(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_size_2d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
+define void @zfp_field_set_size_2d(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -904,7 +904,7 @@ define void @zfp_field_set_size_2d(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_size_3d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 {
+define void @zfp_field_set_size_3d(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -917,7 +917,7 @@ define void @zfp_field_set_size_3d(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_size_4d(ptr nocapture noundef writeonly initializes((8, 40)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
+define void @zfp_field_set_size_4d(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -930,7 +930,7 @@ define void @zfp_field_set_size_4d(ptr nocapture noundef writeonly initializes((
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_stride_1d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1) local_unnamed_addr #7 {
+define void @zfp_field_set_stride_1d(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -939,7 +939,7 @@ define void @zfp_field_set_stride_1d(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_stride_2d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
+define void @zfp_field_set_stride_2d(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
@@ -950,7 +950,7 @@ define void @zfp_field_set_stride_2d(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_stride_3d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 {
+define void @zfp_field_set_stride_3d(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -963,7 +963,7 @@ define void @zfp_field_set_stride_3d(ptr nocapture noundef writeonly initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_field_set_stride_4d(ptr nocapture noundef writeonly initializes((40, 72)) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
+define void @zfp_field_set_stride_4d(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) local_unnamed_addr #7 {
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store i64 %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1067,13 +1067,13 @@ default.unreachable47:                            ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_none(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4)) %0) local_unnamed_addr #7 {
+define void @zfp_config_none(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 %0) local_unnamed_addr #7 {
   store i32 0, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_rate(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4), (8, 16)) %0, double noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @zfp_config_rate(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 %0, double noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   store i32 2, ptr %0, align 8
   %.not = icmp eq i32 %2, 0
   %4 = fneg double %1
@@ -1084,7 +1084,7 @@ define void @zfp_config_rate(ptr dead_on_unwind noalias nocapture writable write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_precision(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4), (8, 12)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @zfp_config_precision(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 %0, i32 noundef %1) local_unnamed_addr #7 {
   store i32 3, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -1092,7 +1092,7 @@ define void @zfp_config_precision(ptr dead_on_unwind noalias nocapture writable 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_accuracy(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4), (8, 16)) %0, double noundef %1) local_unnamed_addr #7 {
+define void @zfp_config_accuracy(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 %0, double noundef %1) local_unnamed_addr #7 {
   store i32 4, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store double %1, ptr %3, align 8
@@ -1100,13 +1100,13 @@ define void @zfp_config_accuracy(ptr dead_on_unwind noalias nocapture writable w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_reversible(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4)) %0) local_unnamed_addr #7 {
+define void @zfp_config_reversible(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 %0) local_unnamed_addr #7 {
   store i32 5, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_config_expert(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 initializes((0, 4), (8, 24)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define void @zfp_config_expert(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.zfp_config) align 8 %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   store i32 1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %6, align 8
@@ -1770,14 +1770,14 @@ zfp_field_precision.exit41:                       ; preds = %switch.lookup, %zfp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_stream_set_bit_stream(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @zfp_stream_set_bit_stream(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zfp_stream_set_reversible(ptr nocapture noundef writeonly initializes((0, 16)) %0) local_unnamed_addr #7 {
+define void @zfp_stream_set_reversible(ptr nocapture noundef writeonly %0) local_unnamed_addr #7 {
   store i32 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 16658, ptr %2, align 4
@@ -1789,7 +1789,7 @@ define void @zfp_stream_set_reversible(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define double @zfp_stream_set_rate(ptr nocapture noundef writeonly initializes((0, 16)) %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
+define double @zfp_stream_set_rate(ptr nocapture noundef writeonly %0, double noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #7 {
   %6 = shl i32 %3, 1
   %7 = shl nuw i32 1, %6
   %8 = uitofp nneg i32 %7 to double
@@ -1844,7 +1844,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #13
 declare double @llvm.floor.f64(double) #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef range(i32 0, 65) i32 @zfp_stream_set_precision(ptr nocapture noundef writeonly initializes((0, 16)) %0, i32 noundef %1) local_unnamed_addr #7 {
+define noundef range(i32 0, 65) i32 @zfp_stream_set_precision(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #7 {
   store i32 1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 16658, ptr %3, align 4
@@ -1859,7 +1859,7 @@ define noundef range(i32 0, 65) i32 @zfp_stream_set_precision(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define double @zfp_stream_set_accuracy(ptr nocapture noundef writeonly initializes((0, 16)) %0, double noundef %1) local_unnamed_addr #9 {
+define double @zfp_stream_set_accuracy(ptr nocapture noundef writeonly %0, double noundef %1) local_unnamed_addr #9 {
   %3 = alloca i32, align 4
   store i32 -1074, ptr %3, align 4
   %4 = fcmp ogt double %1, 0.000000e+00

@@ -72944,7 +72944,7 @@ return:                                           ; preds = %_ZN4entt7type_idIiE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4enttL8meta_argINS_9type_listIJiEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 initializes((0, 120)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4enttL8meta_argINS_9type_listIJiEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.entt::internal::meta_type_node", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp) #27
@@ -81004,7 +81004,7 @@ _ZN4entt13meta_dispatchINS_7as_is_tERKiEENSt9enable_ifIX16is_meta_policy_vIT_EEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4enttL8meta_argINS_9type_listIJ6base_tEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 initializes((0, 120)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4enttL8meta_argINS_9type_listIJ6base_tEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.entt::internal::meta_type_node", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp) #27
@@ -82815,7 +82815,7 @@ _ZN4entt8internal14meta_type_nodeD2Ev.exit:       ; preds = %if.then7.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4enttL8meta_argINS_9type_listIJdEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 initializes((0, 120)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4enttL8meta_argINS_9type_listIJdEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.entt::internal::meta_type_node", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp) #27
@@ -83609,7 +83609,7 @@ _ZN4entt8internal14meta_type_nodeD2Ev.exit:       ; preds = %if.then7.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4enttL8meta_argINS_9type_listIJRKiEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 initializes((0, 120)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4enttL8meta_argINS_9type_listIJRKiEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.entt::internal::meta_type_node", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp) #27
@@ -84810,7 +84810,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4enttL8meta_argINS_9type_listIJdPKcEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 initializes((0, 120)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4enttL8meta_argINS_9type_listIJdPKcEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.entt::internal::meta_type_node", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp) #27
@@ -86935,7 +86935,7 @@ return:                                           ; preds = %_ZN4entt7type_idIA3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4enttL8meta_argINS_9type_listIJA3_iEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 initializes((0, 120)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4enttL8meta_argINS_9type_listIJA3_iEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.entt::internal::meta_type_node", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp) #27
@@ -87722,7 +87722,7 @@ return:                                           ; preds = %_ZN4entt7type_idIA5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4enttL8meta_argINS_9type_listIJA5_iEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 initializes((0, 120)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4enttL8meta_argINS_9type_listIJA5_iEEEEENS_9meta_typeERKNS_8meta_ctxEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.entt::meta_type") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %ctx, i64 noundef %index) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.entt::internal::meta_type_node", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %ref.tmp) #27

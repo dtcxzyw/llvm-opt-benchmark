@@ -158,7 +158,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector19MainThreadInterfaceC2EPNS0_5AgentE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 96)) %this, ptr noundef %agent) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9inspector19MainThreadInterfaceC2EPNS0_5AgentE(ptr noundef nonnull align 8 dereferenceable(352) %this, ptr noundef %agent) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %requests_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -864,7 +864,7 @@ declare void @_ZN4node6AssertERKNS_13AssertionInfoE(ptr noundef nonnull align 8 
 declare void @abort() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4node9inspector19MainThreadInterface20WaitForFrontendEventEv(ptr noundef nonnull align 8 dereferenceable(352) initializes((216, 217)) %this) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN4node9inspector19MainThreadInterface20WaitForFrontendEventEv(ptr noundef nonnull align 8 dereferenceable(352) %this) local_unnamed_addr #3 align 2 {
 entry:
   %dispatching_messages_ = getelementptr inbounds i8, ptr %this, i64 216
   store i8 0, ptr %dispatching_messages_, align 8
@@ -1070,7 +1070,7 @@ declare void @_ZN2v815SealHandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 
 declare void @_ZN2v815SealHandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector19MainThreadInterface9GetHandleEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(352) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9inspector19MainThreadInterface9GetHandleEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(352) %this) local_unnamed_addr #3 align 2 {
 entry:
   %__a.i = alloca %"class.std::allocator.469", align 1
   %ref.tmp = alloca %"class.std::shared_ptr", align 8
@@ -2258,7 +2258,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_122MainThreadSessionState6CreateEPNS0_19MainThreadInterfaceEb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.355") align 8 initializes((0, 8)) %agg.result, ptr noundef %thread, i1 noundef zeroext %prevent_shutdown) #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_122MainThreadSessionState6CreateEPNS0_19MainThreadInterfaceEb(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.355") align 8 %agg.result, ptr noundef %thread, i1 noundef zeroext %prevent_shutdown) #3 align 2 {
 entry:
   %frombool = zext i1 %prevent_shutdown to i8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !42)
@@ -2333,7 +2333,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_127CrossThreadInspectorSessionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_127CrossThreadInspectorSessionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::unique_ptr", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_127CrossThreadInspectorSessionE, i64 16), ptr %this, align 8
@@ -2462,7 +2462,7 @@ _ZN4node9inspector12_GLOBAL__N_128AnotherThreadObjectReferenceINS1_22MainThreadS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_127CrossThreadInspectorSessionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_127CrossThreadInspectorSessionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node9inspector12_GLOBAL__N_127CrossThreadInspectorSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -2628,7 +2628,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEEE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2659,7 +2659,7 @@ _ZNSt10unique_ptrIN4node9inspector12_GLOBAL__N_122MainThreadSessionStateESt14def
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateEEE, i64 16), ptr %this, align 8
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -2820,7 +2820,7 @@ _ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEEE, i64 16), ptr %this, align 8
   %_M_bound_args.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2841,7 +2841,7 @@ _ZNSt5_BindIFPFvPN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEMS3_FvSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrINS0_24InspectorSessionDelegateESt14default_deleteIS7_EEERSA_ESt12_PlaceholderILi1EESC_SA_EEEE, i64 16), ptr %this, align 8
   %_M_bound_args.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -3048,7 +3048,7 @@ _ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS1_22MainThreadSessionStateE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEERSB_ESt12_PlaceholderILi1EESD_SB_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEERSB_ESt12_PlaceholderILi1EESD_SB_EEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEERSB_ESt12_PlaceholderILi1EESD_SB_EEEE, i64 16), ptr %this, align 8
   %_M_bound_args.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -3069,7 +3069,7 @@ _ZNSt5_BindIFPFvPN4node9inspector12_GLOBAL__N_122MainThreadSessionStateEMS3_FvSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEERSB_ESt12_PlaceholderILi1EESD_SB_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEERSB_ESt12_PlaceholderILi1EESD_SB_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_BindIFPFvPS3_MS3_FvSt10unique_ptrIN12v8_inspector12StringBufferESt14default_deleteIS8_EEERSB_ESt12_PlaceholderILi1EESD_SB_EEEE, i64 16), ptr %this, align 8
   %_M_bound_args.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -3090,7 +3090,7 @@ _ZN4node9inspector12_GLOBAL__N_111CallRequestINS1_22MainThreadSessionStateESt5_B
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp.i.i = alloca %"class.std::unique_ptr", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_118ThreadSafeDelegateE, i64 16), ptr %this, align 8
@@ -3293,7 +3293,7 @@ _ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev.exit: ; preds = %_ZN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -3467,7 +3467,7 @@ _ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS0_24InspectorSessionDelegateEZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS0_24InspectorSessionDelegateEZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS0_24InspectorSessionDelegateEZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EE, i64 16), ptr %this, align 8
   %fn_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3488,7 +3488,7 @@ _ZZN4node9inspector12_GLOBAL__N_118ThreadSafeDelegate21SendMessageToFrontendERKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS0_24InspectorSessionDelegateEZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_111CallRequestINS0_24InspectorSessionDelegateEZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_ED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_111CallRequestINS0_24InspectorSessionDelegateEZNS1_18ThreadSafeDelegate21SendMessageToFrontendERKN12v8_inspector10StringViewEEUlPS3_E_EE, i64 16), ptr %this, align 8
   %fn_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -3726,7 +3726,7 @@ declare i32 @uv_async_send(ptr noundef) local_unnamed_addr #0
 declare void @_ZN4node11Environment22RequestInterruptFromV8Ev(ptr noundef nonnull align 8 dereferenceable(2872)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val = load ptr, ptr %0, align 8
@@ -3781,7 +3781,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %"_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_9inspector19MainThreadInterface4PostESt10unique_ptrINS5_7RequestESt14default_deleteIS8_EEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %callback_.val.i = load ptr, ptr %0, align 8
@@ -4624,7 +4624,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @_ZN4node21LowMemoryNotificationEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegateEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegateEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegateEEE, i64 16), ptr %this, align 8
   %object_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4645,7 +4645,7 @@ _ZNSt10unique_ptrIN4node9inspector24InspectorSessionDelegateESt14default_deleteI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegateEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegateEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node9inspector12_GLOBAL__N_116DeletableWrapperINS0_24InspectorSessionDelegateEEE, i64 16), ptr %this, align 8
   %object_.i = getelementptr inbounds i8, ptr %this, i64 8

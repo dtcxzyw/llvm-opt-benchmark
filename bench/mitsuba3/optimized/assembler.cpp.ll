@@ -181,7 +181,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler7sectionEPNS0_7
 declare noundef i32 @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6asmjit9_abi_1_1013BaseAssembler8newLabelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.asmjit::_abi_1_10::Label") align 4 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN6asmjit9_abi_1_1013BaseAssembler8newLabelEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.asmjit::_abi_1_10::Label") align 4 %0, ptr noundef nonnull align 8 dereferenceable(176) %1) unnamed_addr #4 align 2 {
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !6
@@ -225,7 +225,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1013BaseAssembler8newLabelEv(ptr dead_o
 declare noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder13newLabelEntryEPPNS0_10LabelEntryE(ptr noundef nonnull align 8 dereferenceable(336), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6asmjit9_abi_1_1013BaseAssembler13newNamedLabelEPKcmNS0_9LabelTypeEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.asmjit::_abi_1_10::Label") align 4 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #4 align 2 {
+define dso_local void @_ZN6asmjit9_abi_1_1013BaseAssembler13newNamedLabelEPKcmNS0_9LabelTypeEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.asmjit::_abi_1_10::Label") align 4 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef %2, i64 noundef %3, i8 noundef zeroext %4, i32 noundef %5) unnamed_addr #4 align 2 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !6
@@ -1426,7 +1426,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler8onAttachEPNS0_
 declare noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter8onAttachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler8onDetachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(176) initializes((144, 176)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler8onDetachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)
   %4 = tail call noundef i32 @_ZN6asmjit9_abi_1_1011BaseEmitter8onDetachEPNS0_10CodeHolderE(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %1) #12

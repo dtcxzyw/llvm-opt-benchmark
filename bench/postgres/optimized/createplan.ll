@@ -59,7 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.create_gather_merge_plan = private unnamed_addr constant [25 x i8] c"create_gather_merge_plan\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @create_plan(ptr noundef initializes((640, 656)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @create_plan(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 640
   %4 = getelementptr inbounds i8, ptr %0, i64 648
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)

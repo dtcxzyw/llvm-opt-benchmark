@@ -733,7 +733,7 @@ cond.end:                                         ; preds = %land.lhs.true.i, %c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGenC2EPNS_6ESTree4NodeERKSt6vectorIPNS2_11ProgramNodeESaIS7_EEPNS_6ModuleERKNS_10ScopeChainE(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 48), (56, 108), (112, 120)) %this, ptr noundef %root, ptr noundef nonnull align 8 dereferenceable(24) %declFileList, ptr noundef %M, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %scopeChain) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGenC2EPNS_6ESTree4NodeERKSt6vectorIPNS2_11ProgramNodeESaIS7_EEPNS_6ModuleERKNS_10ScopeChainE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %root, ptr noundef nonnull align 8 dereferenceable(24) %declFileList, ptr noundef %M, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %scopeChain) unnamed_addr #0 align 2 {
 entry:
   store ptr %M, ptr %this, align 8
   %Builder = getelementptr inbounds i8, ptr %this, i64 8
@@ -765,7 +765,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen23resolveScopeIdentifiersERKNS_10ScopeChainE(ptr noalias nocapture sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %chain) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen23resolveScopeIdentifiersERKNS_10ScopeChainE(ptr noalias nocapture sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(200) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %chain) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, i8 0, i64 16, i1 false)
   %_M_finish.i.i = getelementptr inbounds i8, ptr %chain, i64 8
@@ -2187,7 +2187,7 @@ _ZNSt6vectorIPN6hermes8FunctionESaIS2_EE9push_backERKS2_.exit: ; preds = %if.the
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden { ptr, ptr } @_ZN6hermes5irgen11ESTreeIRGen14doLazyFunctionEPNS_3hbc19LazyCompilationDataE(ptr noundef nonnull align 8 dereferenceable(200) initializes((120, 128)) %this, ptr noundef %lazyData) local_unnamed_addr #0 align 2 {
+define hidden { ptr, ptr } @_ZN6hermes5irgen11ESTreeIRGen14doLazyFunctionEPNS_3hbc19LazyCompilationDataE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %lazyData) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp.i = alloca %"class.std::tuple.167", align 8
   %topLevelFunctionContext = alloca %"class.hermes::irgen::FunctionContext", align 8

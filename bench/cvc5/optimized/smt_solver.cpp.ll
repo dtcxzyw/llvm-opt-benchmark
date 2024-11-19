@@ -432,7 +432,7 @@ declare void @_ZN4cvc58internal3smt10AssertionsD1Ev(ptr noundef nonnull align 8 
 declare void @_ZN4cvc58internal3smt12PreprocessorD1Ev(ptr noundef nonnull align 8 dereferenceable(712)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal3smt9SmtSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1216) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt9SmtSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt9SmtSolverE, i64 16), ptr %this, align 8
   %d_ppSkolemMap = getelementptr inbounds i8, ptr %this, i64 1104
@@ -549,7 +549,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal3smt9SmtSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(1216) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal3smt9SmtSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(1216) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal3smt9SmtSolverE, i64 16), ptr %this, align 8
   %d_ppSkolemMap.i = getelementptr inbounds i8, ptr %this, i64 1104

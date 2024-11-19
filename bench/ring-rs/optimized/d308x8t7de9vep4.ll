@@ -66,7 +66,7 @@ define internal void @_ZN4core3ops8function6FnOnce9call_once17h13bc0bb185bac1d6E
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal void @_ZN4core3ops8function6FnOnce9call_once17h9a83a73e618bd9afE(ptr noalias nocapture noundef writeonly sret({ [18 x i64] }) align 8 dereferenceable(144) initializes((0, 144)) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(96) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal void @_ZN4core3ops8function6FnOnce9call_once17h9a83a73e618bd9afE(ptr noalias nocapture noundef writeonly sret({ [18 x i64] }) align 8 dereferenceable(144) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1, ptr noalias noundef readonly align 8 dereferenceable(48) %2, ptr noalias noundef readonly align 8 dereferenceable(96) %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { [18 x i64] }, align 8
   %6 = alloca { [18 x i64] }, align 8
   %7 = alloca { [18 x i64] }, align 8
@@ -2669,7 +2669,7 @@ _ZN4ring2ec7suite_b3ops16elem_sqr_mul_acc17h2824ace7a5993411E.exit41: ; preds = 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN4ring2ec7suite_b3ops4p38424p384_point_mul_base_impl17h83653d9a4cded224E(ptr noalias nocapture noundef writeonly sret({ [18 x i64] }) align 8 dereferenceable(144) initializes((0, 144)) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #1 {
+define void @_ZN4ring2ec7suite_b3ops4p38424p384_point_mul_base_impl17h83653d9a4cded224E(ptr noalias nocapture noundef writeonly sret({ [18 x i64] }) align 8 dereferenceable(144) %0, ptr noalias noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #1 {
   %3 = alloca { [18 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %3), !noalias !382
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %3, i8 0, i64 144, i1 false), !alias.scope !386, !noalias !382

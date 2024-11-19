@@ -26,7 +26,7 @@ $_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__normal_iteratorIPjS1_EEmRKj
 @_ZN6Assimp11SpatialSortD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6Assimp11SpatialSortD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp11SpatialSortC2EPK10aiVector3tIfEjj(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((0, 49)) %this, ptr nocapture noundef readonly %pPositions, i32 noundef %pNumPositions, i32 noundef %pElementOffset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp11SpatialSortC2EPK10aiVector3tIfEjj(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this, ptr nocapture noundef readonly %pPositions, i32 noundef %pNumPositions, i32 noundef %pElementOffset) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN6Assimp11SpatialSort5EntryESaIS2_EE5clearEv.exit.i:
   %mCentroid = getelementptr inbounds i8, ptr %this, i64 12
   %mFinalized = getelementptr inbounds i8, ptr %this, i64 48
@@ -66,7 +66,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp11SpatialSort4FillEPK10aiVector3tIfEjjb(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((48, 49)) %this, ptr nocapture noundef readonly %pPositions, i32 noundef %pNumPositions, i32 noundef %pElementOffset, i1 noundef zeroext %pFinalize) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp11SpatialSort4FillEPK10aiVector3tIfEjjb(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this, ptr nocapture noundef readonly %pPositions, i32 noundef %pNumPositions, i32 noundef %pElementOffset, i1 noundef zeroext %pFinalize) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mPositions = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %mPositions, align 8
@@ -89,7 +89,7 @@ _ZNSt6vectorIN6Assimp11SpatialSort5EntryESaIS2_EE5clearEv.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Assimp11SpatialSortC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 49)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp11SpatialSortC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %mCentroid = getelementptr inbounds i8, ptr %this, i64 12
   %z.i.i.i = getelementptr inbounds i8, ptr %this, i64 8

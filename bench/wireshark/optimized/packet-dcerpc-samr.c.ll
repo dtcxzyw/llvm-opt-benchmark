@@ -8164,7 +8164,7 @@ define internal i32 @samr_dissect_element_ValidatePasswordInfo_pwd_history__(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Connect_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Connect_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1206, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_Connect_system_name, align 4
@@ -8177,7 +8177,7 @@ define internal i32 @samr_dissect_Connect_request(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Connect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Connect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1206, ptr %8, align 8
@@ -8202,7 +8202,7 @@ define internal i32 @samr_dissect_Connect_response(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Close_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Close_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1207, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_handle, align 4
@@ -8212,7 +8212,7 @@ define internal i32 @samr_dissect_Close_request(ptr noundef %0, i32 noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Close_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Close_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1207, ptr %8, align 8
@@ -8237,7 +8237,7 @@ define internal i32 @samr_dissect_Close_response(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetSecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetSecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1208, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_handle, align 4
@@ -8252,7 +8252,7 @@ define internal i32 @samr_dissect_SetSecurity_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetSecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetSecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1208, ptr %8, align 8
@@ -8274,7 +8274,7 @@ define internal i32 @samr_dissect_SetSecurity_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QuerySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QuerySecurity_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1209, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_handle, align 4
@@ -8286,7 +8286,7 @@ define internal i32 @samr_dissect_QuerySecurity_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QuerySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QuerySecurity_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1209, ptr %8, align 8
@@ -8311,7 +8311,7 @@ define internal i32 @samr_dissect_QuerySecurity_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Shutdown_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Shutdown_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1210, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_Shutdown_connect_handle, align 4
@@ -8321,7 +8321,7 @@ define internal i32 @samr_dissect_Shutdown_request(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Shutdown_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Shutdown_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1210, ptr %8, align 8
@@ -8343,7 +8343,7 @@ define internal i32 @samr_dissect_Shutdown_response(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_LookupDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_LookupDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1211, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_connect_handle, align 4
@@ -8356,7 +8356,7 @@ define internal i32 @samr_dissect_LookupDomain_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_LookupDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_LookupDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1211, ptr %8, align 8
@@ -8381,7 +8381,7 @@ define internal i32 @samr_dissect_LookupDomain_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_EnumDomains_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_EnumDomains_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1212, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_EnumDomains_connect_handle, align 4
@@ -8397,7 +8397,7 @@ define internal i32 @samr_dissect_EnumDomains_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_EnumDomains_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_EnumDomains_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1212, ptr %8, align 8
@@ -8428,7 +8428,7 @@ define internal i32 @samr_dissect_EnumDomains_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_OpenDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_OpenDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1213, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_connect_handle, align 4
@@ -8444,7 +8444,7 @@ define internal i32 @samr_dissect_OpenDomain_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_OpenDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_OpenDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1213, ptr %8, align 8
@@ -8469,7 +8469,7 @@ define internal i32 @samr_dissect_OpenDomain_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryDomainInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryDomainInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1214, ptr %8, align 8
@@ -8486,7 +8486,7 @@ define internal i32 @samr_dissect_QueryDomainInfo_request(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryDomainInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryDomainInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1214, ptr %8, align 8
@@ -8511,7 +8511,7 @@ define internal i32 @samr_dissect_QueryDomainInfo_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetDomainInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetDomainInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1215, ptr %8, align 8
@@ -8531,7 +8531,7 @@ define internal i32 @samr_dissect_SetDomainInfo_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetDomainInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetDomainInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1215, ptr %8, align 8
@@ -8553,7 +8553,7 @@ define internal i32 @samr_dissect_SetDomainInfo_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_CreateDomainGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_CreateDomainGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1216, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -8569,7 +8569,7 @@ define internal i32 @samr_dissect_CreateDomainGroup_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_CreateDomainGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_CreateDomainGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1216, ptr %8, align 8
@@ -8597,7 +8597,7 @@ define internal i32 @samr_dissect_CreateDomainGroup_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_EnumDomainGroups_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_EnumDomainGroups_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1217, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -8613,7 +8613,7 @@ define internal i32 @samr_dissect_EnumDomainGroups_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_EnumDomainGroups_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_EnumDomainGroups_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1217, ptr %8, align 8
@@ -8644,7 +8644,7 @@ define internal i32 @samr_dissect_EnumDomainGroups_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_CreateUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_CreateUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1218, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -8660,7 +8660,7 @@ define internal i32 @samr_dissect_CreateUser_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_CreateUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_CreateUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1218, ptr %8, align 8
@@ -8688,7 +8688,7 @@ define internal i32 @samr_dissect_CreateUser_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_EnumDomainUsers_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_EnumDomainUsers_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1219, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -8707,7 +8707,7 @@ define internal i32 @samr_dissect_EnumDomainUsers_request(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_EnumDomainUsers_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_EnumDomainUsers_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1219, ptr %8, align 8
@@ -8738,7 +8738,7 @@ define internal i32 @samr_dissect_EnumDomainUsers_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_CreateDomAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_CreateDomAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1220, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -8754,7 +8754,7 @@ define internal i32 @samr_dissect_CreateDomAlias_request(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_CreateDomAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_CreateDomAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1220, ptr %8, align 8
@@ -8782,7 +8782,7 @@ define internal i32 @samr_dissect_CreateDomAlias_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_EnumDomainAliases_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_EnumDomainAliases_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1221, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -8798,7 +8798,7 @@ define internal i32 @samr_dissect_EnumDomainAliases_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_EnumDomainAliases_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_EnumDomainAliases_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1221, ptr %8, align 8
@@ -8829,7 +8829,7 @@ define internal i32 @samr_dissect_EnumDomainAliases_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetAliasMembership_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetAliasMembership_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1222, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -8842,7 +8842,7 @@ define internal i32 @samr_dissect_GetAliasMembership_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetAliasMembership_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetAliasMembership_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1222, ptr %8, align 8
@@ -8867,7 +8867,7 @@ define internal i32 @samr_dissect_GetAliasMembership_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_LookupNames_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_LookupNames_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1223, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -8882,7 +8882,7 @@ define internal i32 @samr_dissect_LookupNames_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_LookupNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_LookupNames_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1223, ptr %8, align 8
@@ -8910,7 +8910,7 @@ define internal i32 @samr_dissect_LookupNames_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_LookupRids_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_LookupRids_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1224, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -8926,7 +8926,7 @@ define internal i32 @samr_dissect_LookupRids_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_LookupRids_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_LookupRids_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1224, ptr %8, align 8
@@ -8954,7 +8954,7 @@ define internal i32 @samr_dissect_LookupRids_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_OpenGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_OpenGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1225, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -8970,7 +8970,7 @@ define internal i32 @samr_dissect_OpenGroup_request(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_OpenGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_OpenGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1225, ptr %8, align 8
@@ -8995,7 +8995,7 @@ define internal i32 @samr_dissect_OpenGroup_response(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryGroupInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryGroupInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1226, ptr %8, align 8
@@ -9012,7 +9012,7 @@ define internal i32 @samr_dissect_QueryGroupInfo_request(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryGroupInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryGroupInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1226, ptr %8, align 8
@@ -9037,7 +9037,7 @@ define internal i32 @samr_dissect_QueryGroupInfo_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetGroupInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetGroupInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1227, ptr %8, align 8
@@ -9057,7 +9057,7 @@ define internal i32 @samr_dissect_SetGroupInfo_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetGroupInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetGroupInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1227, ptr %8, align 8
@@ -9079,7 +9079,7 @@ define internal i32 @samr_dissect_SetGroupInfo_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_AddGroupMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_AddGroupMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1228, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_group_handle, align 4
@@ -9095,7 +9095,7 @@ define internal i32 @samr_dissect_AddGroupMember_request(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_AddGroupMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_AddGroupMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1228, ptr %8, align 8
@@ -9117,7 +9117,7 @@ define internal i32 @samr_dissect_AddGroupMember_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_DeleteDomainGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_DeleteDomainGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1229, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_group_handle, align 4
@@ -9127,7 +9127,7 @@ define internal i32 @samr_dissect_DeleteDomainGroup_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_DeleteDomainGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_DeleteDomainGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1229, ptr %8, align 8
@@ -9152,7 +9152,7 @@ define internal i32 @samr_dissect_DeleteDomainGroup_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_DeleteGroupMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_DeleteGroupMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1230, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_group_handle, align 4
@@ -9165,7 +9165,7 @@ define internal i32 @samr_dissect_DeleteGroupMember_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_DeleteGroupMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_DeleteGroupMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1230, ptr %8, align 8
@@ -9187,7 +9187,7 @@ define internal i32 @samr_dissect_DeleteGroupMember_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryGroupMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryGroupMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1231, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_group_handle, align 4
@@ -9197,7 +9197,7 @@ define internal i32 @samr_dissect_QueryGroupMember_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryGroupMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryGroupMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1231, ptr %8, align 8
@@ -9222,7 +9222,7 @@ define internal i32 @samr_dissect_QueryGroupMember_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetMemberAttributesOfGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetMemberAttributesOfGroup_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1232, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_group_handle, align 4
@@ -9238,7 +9238,7 @@ define internal i32 @samr_dissect_SetMemberAttributesOfGroup_request(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetMemberAttributesOfGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetMemberAttributesOfGroup_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1232, ptr %8, align 8
@@ -9260,7 +9260,7 @@ define internal i32 @samr_dissect_SetMemberAttributesOfGroup_response(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_OpenAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_OpenAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1233, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -9276,7 +9276,7 @@ define internal i32 @samr_dissect_OpenAlias_request(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_OpenAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_OpenAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1233, ptr %8, align 8
@@ -9301,7 +9301,7 @@ define internal i32 @samr_dissect_OpenAlias_response(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryAliasInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryAliasInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1234, ptr %8, align 8
@@ -9318,7 +9318,7 @@ define internal i32 @samr_dissect_QueryAliasInfo_request(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryAliasInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryAliasInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1234, ptr %8, align 8
@@ -9343,7 +9343,7 @@ define internal i32 @samr_dissect_QueryAliasInfo_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetAliasInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetAliasInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1235, ptr %8, align 8
@@ -9363,7 +9363,7 @@ define internal i32 @samr_dissect_SetAliasInfo_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetAliasInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetAliasInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1235, ptr %8, align 8
@@ -9385,7 +9385,7 @@ define internal i32 @samr_dissect_SetAliasInfo_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_DeleteDomAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_DeleteDomAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1236, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
@@ -9395,7 +9395,7 @@ define internal i32 @samr_dissect_DeleteDomAlias_request(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_DeleteDomAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_DeleteDomAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1236, ptr %8, align 8
@@ -9420,7 +9420,7 @@ define internal i32 @samr_dissect_DeleteDomAlias_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_AddAliasMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_AddAliasMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1237, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
@@ -9433,7 +9433,7 @@ define internal i32 @samr_dissect_AddAliasMember_request(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_AddAliasMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_AddAliasMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1237, ptr %8, align 8
@@ -9455,7 +9455,7 @@ define internal i32 @samr_dissect_AddAliasMember_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_DeleteAliasMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_DeleteAliasMember_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1238, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
@@ -9468,7 +9468,7 @@ define internal i32 @samr_dissect_DeleteAliasMember_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_DeleteAliasMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_DeleteAliasMember_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1238, ptr %8, align 8
@@ -9490,7 +9490,7 @@ define internal i32 @samr_dissect_DeleteAliasMember_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetMembersInAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetMembersInAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1239, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
@@ -9500,7 +9500,7 @@ define internal i32 @samr_dissect_GetMembersInAlias_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetMembersInAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetMembersInAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1239, ptr %8, align 8
@@ -9525,7 +9525,7 @@ define internal i32 @samr_dissect_GetMembersInAlias_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_OpenUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_OpenUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1240, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -9541,7 +9541,7 @@ define internal i32 @samr_dissect_OpenUser_request(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_OpenUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_OpenUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1240, ptr %8, align 8
@@ -9566,7 +9566,7 @@ define internal i32 @samr_dissect_OpenUser_response(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_DeleteUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_DeleteUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1241, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_user_handle, align 4
@@ -9576,7 +9576,7 @@ define internal i32 @samr_dissect_DeleteUser_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_DeleteUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_DeleteUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1241, ptr %8, align 8
@@ -9601,7 +9601,7 @@ define internal i32 @samr_dissect_DeleteUser_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryUserInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryUserInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1242, ptr %8, align 8
@@ -9618,7 +9618,7 @@ define internal i32 @samr_dissect_QueryUserInfo_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryUserInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryUserInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1242, ptr %8, align 8
@@ -9643,7 +9643,7 @@ define internal i32 @samr_dissect_QueryUserInfo_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetUserInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetUserInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1243, ptr %8, align 8
@@ -9663,7 +9663,7 @@ define internal i32 @samr_dissect_SetUserInfo_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetUserInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetUserInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1243, ptr %8, align 8
@@ -9685,7 +9685,7 @@ define internal i32 @samr_dissect_SetUserInfo_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_ChangePasswordUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_ChangePasswordUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1244, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_user_handle, align 4
@@ -9725,7 +9725,7 @@ define internal i32 @samr_dissect_ChangePasswordUser_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_ChangePasswordUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_ChangePasswordUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1244, ptr %8, align 8
@@ -9747,7 +9747,7 @@ define internal i32 @samr_dissect_ChangePasswordUser_response(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetGroupsForUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetGroupsForUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1245, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_user_handle, align 4
@@ -9757,7 +9757,7 @@ define internal i32 @samr_dissect_GetGroupsForUser_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetGroupsForUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetGroupsForUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1245, ptr %8, align 8
@@ -9782,7 +9782,7 @@ define internal i32 @samr_dissect_GetGroupsForUser_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryDisplayInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryDisplayInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1246, ptr %8, align 8
@@ -9808,7 +9808,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryDisplayInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryDisplayInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1246, ptr %8, align 8
@@ -9839,7 +9839,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetDisplayEnumerationIndex_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetDisplayEnumerationIndex_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1247, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -9855,7 +9855,7 @@ define internal i32 @samr_dissect_GetDisplayEnumerationIndex_request(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetDisplayEnumerationIndex_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetDisplayEnumerationIndex_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1247, ptr %8, align 8
@@ -9880,7 +9880,7 @@ define internal i32 @samr_dissect_GetDisplayEnumerationIndex_response(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_TestPrivateFunctionsDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_TestPrivateFunctionsDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1248, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -9890,7 +9890,7 @@ define internal i32 @samr_dissect_TestPrivateFunctionsDomain_request(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_TestPrivateFunctionsDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_TestPrivateFunctionsDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1248, ptr %8, align 8
@@ -9912,7 +9912,7 @@ define internal i32 @samr_dissect_TestPrivateFunctionsDomain_response(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_TestPrivateFunctionsUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_TestPrivateFunctionsUser_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1249, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_user_handle, align 4
@@ -9922,7 +9922,7 @@ define internal i32 @samr_dissect_TestPrivateFunctionsUser_request(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_TestPrivateFunctionsUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_TestPrivateFunctionsUser_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1249, ptr %8, align 8
@@ -9944,7 +9944,7 @@ define internal i32 @samr_dissect_TestPrivateFunctionsUser_response(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetUserPwInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetUserPwInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1250, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_user_handle, align 4
@@ -9954,7 +9954,7 @@ define internal i32 @samr_dissect_GetUserPwInfo_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetUserPwInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetUserPwInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1250, ptr %8, align 8
@@ -9979,7 +9979,7 @@ define internal i32 @samr_dissect_GetUserPwInfo_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_RemoveMemberFromForeignDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_RemoveMemberFromForeignDomain_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1251, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -9992,7 +9992,7 @@ define internal i32 @samr_dissect_RemoveMemberFromForeignDomain_request(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_RemoveMemberFromForeignDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_RemoveMemberFromForeignDomain_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1251, ptr %8, align 8
@@ -10014,7 +10014,7 @@ define internal i32 @samr_dissect_RemoveMemberFromForeignDomain_response(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryDomainInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryDomainInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1252, ptr %8, align 8
@@ -10031,7 +10031,7 @@ define internal i32 @samr_dissect_QueryDomainInfo2_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryDomainInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryDomainInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1252, ptr %8, align 8
@@ -10056,7 +10056,7 @@ define internal i32 @samr_dissect_QueryDomainInfo2_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryUserInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryUserInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1253, ptr %8, align 8
@@ -10073,7 +10073,7 @@ define internal i32 @samr_dissect_QueryUserInfo2_request(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryUserInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryUserInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1253, ptr %8, align 8
@@ -10098,7 +10098,7 @@ define internal i32 @samr_dissect_QueryUserInfo2_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryDisplayInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryDisplayInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1254, ptr %8, align 8
@@ -10124,7 +10124,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo2_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryDisplayInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryDisplayInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1254, ptr %8, align 8
@@ -10155,7 +10155,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo2_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetDisplayEnumerationIndex2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetDisplayEnumerationIndex2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1255, ptr %8, align 8
@@ -10175,7 +10175,7 @@ define internal i32 @samr_dissect_GetDisplayEnumerationIndex2_request(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetDisplayEnumerationIndex2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetDisplayEnumerationIndex2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1255, ptr %8, align 8
@@ -10200,7 +10200,7 @@ define internal i32 @samr_dissect_GetDisplayEnumerationIndex2_response(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_CreateUser2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_CreateUser2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1256, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -10219,7 +10219,7 @@ define internal i32 @samr_dissect_CreateUser2_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_CreateUser2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_CreateUser2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1256, ptr %8, align 8
@@ -10250,7 +10250,7 @@ define internal i32 @samr_dissect_CreateUser2_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryDisplayInfo3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryDisplayInfo3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1257, ptr %8, align 8
@@ -10276,7 +10276,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo3_request(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_QueryDisplayInfo3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_QueryDisplayInfo3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1257, ptr %8, align 8
@@ -10307,7 +10307,7 @@ define internal i32 @samr_dissect_QueryDisplayInfo3_response(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_AddMultipleMembersToAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_AddMultipleMembersToAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1258, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
@@ -10320,7 +10320,7 @@ define internal i32 @samr_dissect_AddMultipleMembersToAlias_request(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_AddMultipleMembersToAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_AddMultipleMembersToAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1258, ptr %8, align 8
@@ -10342,7 +10342,7 @@ define internal i32 @samr_dissect_AddMultipleMembersToAlias_response(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_RemoveMultipleMembersFromAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_RemoveMultipleMembersFromAlias_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1259, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_alias_handle, align 4
@@ -10355,7 +10355,7 @@ define internal i32 @samr_dissect_RemoveMultipleMembersFromAlias_request(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_RemoveMultipleMembersFromAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_RemoveMultipleMembersFromAlias_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1259, ptr %8, align 8
@@ -10377,7 +10377,7 @@ define internal i32 @samr_dissect_RemoveMultipleMembersFromAlias_response(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_OemChangePasswordUser2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_OemChangePasswordUser2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1260, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_OemChangePasswordUser2_server, align 4
@@ -10396,7 +10396,7 @@ define internal i32 @samr_dissect_OemChangePasswordUser2_request(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_OemChangePasswordUser2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_OemChangePasswordUser2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1260, ptr %8, align 8
@@ -10418,7 +10418,7 @@ define internal i32 @samr_dissect_OemChangePasswordUser2_response(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_ChangePasswordUser2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_ChangePasswordUser2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1261, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_ChangePasswordUser2_server, align 4
@@ -10446,7 +10446,7 @@ define internal i32 @samr_dissect_ChangePasswordUser2_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_ChangePasswordUser2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_ChangePasswordUser2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1261, ptr %8, align 8
@@ -10468,7 +10468,7 @@ define internal i32 @samr_dissect_ChangePasswordUser2_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetDomPwInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetDomPwInfo_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1262, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_GetDomPwInfo_domain_name, align 4
@@ -10478,7 +10478,7 @@ define internal i32 @samr_dissect_GetDomPwInfo_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetDomPwInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetDomPwInfo_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1262, ptr %8, align 8
@@ -10503,7 +10503,7 @@ define internal i32 @samr_dissect_GetDomPwInfo_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Connect2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Connect2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1263, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_Connect2_system_name, align 4
@@ -10516,7 +10516,7 @@ define internal i32 @samr_dissect_Connect2_request(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Connect2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Connect2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1263, ptr %8, align 8
@@ -10541,7 +10541,7 @@ define internal i32 @samr_dissect_Connect2_response(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetUserInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetUserInfo2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1264, ptr %8, align 8
@@ -10561,7 +10561,7 @@ define internal i32 @samr_dissect_SetUserInfo2_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetUserInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetUserInfo2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1264, ptr %8, align 8
@@ -10583,7 +10583,7 @@ define internal i32 @samr_dissect_SetUserInfo2_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetBootKeyInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetBootKeyInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1265, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_connect_handle, align 4
@@ -10602,7 +10602,7 @@ define internal i32 @samr_dissect_SetBootKeyInformation_request(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetBootKeyInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetBootKeyInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1265, ptr %8, align 8
@@ -10624,7 +10624,7 @@ define internal i32 @samr_dissect_SetBootKeyInformation_response(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetBootKeyInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetBootKeyInformation_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1266, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_GetBootKeyInformation_domain_handle, align 4
@@ -10634,7 +10634,7 @@ define internal i32 @samr_dissect_GetBootKeyInformation_request(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_GetBootKeyInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_GetBootKeyInformation_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1266, ptr %8, align 8
@@ -10659,7 +10659,7 @@ define internal i32 @samr_dissect_GetBootKeyInformation_response(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Connect3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Connect3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1267, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_Connect3_system_name, align 4
@@ -10675,7 +10675,7 @@ define internal i32 @samr_dissect_Connect3_request(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Connect3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Connect3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1267, ptr %8, align 8
@@ -10700,7 +10700,7 @@ define internal i32 @samr_dissect_Connect3_response(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Connect4_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Connect4_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1268, ptr %8, align 8
@@ -10720,7 +10720,7 @@ define internal i32 @samr_dissect_Connect4_request(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Connect4_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Connect4_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1268, ptr %8, align 8
@@ -10745,7 +10745,7 @@ define internal i32 @samr_dissect_Connect4_response(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_ChangePasswordUser3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_ChangePasswordUser3_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1269, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_ChangePasswordUser3_server, align 4
@@ -10776,7 +10776,7 @@ define internal i32 @samr_dissect_ChangePasswordUser3_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_ChangePasswordUser3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_ChangePasswordUser3_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1269, ptr %8, align 8
@@ -10804,7 +10804,7 @@ define internal i32 @samr_dissect_ChangePasswordUser3_response(ptr noundef %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Connect5_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Connect5_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1270, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_Connect5_system_name, align 4
@@ -10823,7 +10823,7 @@ define internal i32 @samr_dissect_Connect5_request(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_Connect5_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_Connect5_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1270, ptr %8, align 8
@@ -10854,7 +10854,7 @@ define internal i32 @samr_dissect_Connect5_response(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_RidToSid_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_RidToSid_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1271, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_domain_handle, align 4
@@ -10867,7 +10867,7 @@ define internal i32 @samr_dissect_RidToSid_request(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_RidToSid_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_RidToSid_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1271, ptr %8, align 8
@@ -10892,7 +10892,7 @@ define internal i32 @samr_dissect_RidToSid_response(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetDsrmPassword_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetDsrmPassword_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1272, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_SetDsrmPassword_name, align 4
@@ -10908,7 +10908,7 @@ define internal i32 @samr_dissect_SetDsrmPassword_request(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_SetDsrmPassword_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_SetDsrmPassword_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1272, ptr %8, align 8
@@ -10930,7 +10930,7 @@ define internal i32 @samr_dissect_SetDsrmPassword_response(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_ValidatePassword_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_ValidatePassword_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1273, ptr %8, align 8
@@ -10947,7 +10947,7 @@ define internal i32 @samr_dissect_ValidatePassword_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_ValidatePassword_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_ValidatePassword_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1273, ptr %8, align 8
@@ -10972,77 +10972,77 @@ define internal i32 @samr_dissect_ValidatePassword_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @samr_dissect_Opnum68NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @samr_dissect_Opnum68NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1274, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @samr_dissect_Opnum68NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @samr_dissect_Opnum68NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1274, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @samr_dissect_Opnum69NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @samr_dissect_Opnum69NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1275, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @samr_dissect_Opnum69NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @samr_dissect_Opnum69NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1275, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @samr_dissect_Opnum70NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @samr_dissect_Opnum70NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1276, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @samr_dissect_Opnum70NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @samr_dissect_Opnum70NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1276, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @samr_dissect_Opnum71NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @samr_dissect_Opnum71NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1277, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @samr_dissect_Opnum71NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @samr_dissect_Opnum71NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1277, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @samr_dissect_Opnum72NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @samr_dissect_Opnum72NotUsedOnWire_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1278, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @samr_dissect_Opnum72NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @samr_dissect_Opnum72NotUsedOnWire_response(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1278, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_ChangePasswordUser4_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_ChangePasswordUser4_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1279, ptr %7, align 8
   %8 = load i32, ptr @hf_samr_samr_ChangePasswordUser4_server, align 4
@@ -11058,7 +11058,7 @@ define internal i32 @samr_dissect_ChangePasswordUser4_request(ptr noundef %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @samr_dissect_ChangePasswordUser4_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @samr_dissect_ChangePasswordUser4_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.1279, ptr %8, align 8

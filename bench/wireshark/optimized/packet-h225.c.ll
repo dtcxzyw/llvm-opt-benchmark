@@ -5242,7 +5242,7 @@ declare i32 @dissect_per_boolean(ptr noundef, i32 noundef, ptr noundef, ptr noun
 declare i32 @dissect_per_bit_string(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_h225_T_guid(ptr noundef %0, i32 noundef %1, ptr noundef initializes((40, 48)) %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal i32 @dissect_h225_T_guid(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
@@ -7654,7 +7654,7 @@ define internal i32 @dissect_h225_OCTET_STRING_SIZE_1_131(ptr noundef %0, i32 no
 declare nonnull ptr @find_or_create_conversation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @append_h225ras_call(ptr nocapture noundef nonnull initializes((56, 64)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @append_h225ras_call(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) unnamed_addr #0 {
   %4 = tail call ptr @wmem_file_scope() #10
   %5 = tail call noalias ptr @wmem_alloc(ptr noundef %4, i64 noundef 64) #10
   %6 = getelementptr inbounds i8, ptr %1, i64 20

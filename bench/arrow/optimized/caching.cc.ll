@@ -273,7 +273,7 @@ $_ZTSSt14default_deleteIN5arrow10FutureImplEE = comdat any
 @_ZN5arrow2io8internal14ReadRangeCacheD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5arrow2io8internal14ReadRangeCacheD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io12CacheOptions8DefaultsEv(ptr noalias nocapture writeonly sret(%"struct.arrow::io::CacheOptions") align 8 initializes((0, 17), (24, 32)) %agg.result) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io12CacheOptions8DefaultsEv(ptr noalias nocapture writeonly sret(%"struct.arrow::io::CacheOptions") align 8 %agg.result) local_unnamed_addr #0 align 2 {
 entry:
   store i64 8192, ptr %agg.result, align 8
   %range_size_limit = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -286,7 +286,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io12CacheOptions12LazyDefaultsEv(ptr noalias nocapture writeonly sret(%"struct.arrow::io::CacheOptions") align 8 initializes((0, 17), (24, 32)) %agg.result) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io12CacheOptions12LazyDefaultsEv(ptr noalias nocapture writeonly sret(%"struct.arrow::io::CacheOptions") align 8 %agg.result) local_unnamed_addr #0 align 2 {
 entry:
   store i64 8192, ptr %agg.result, align 8
   %range_size_limit = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -299,7 +299,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow2io12CacheOptions22MakeFromNetworkMetricsElldl(ptr noalias nocapture writeonly sret(%"struct.arrow::io::CacheOptions") align 8 initializes((0, 17), (24, 32)) %agg.result, i64 noundef %time_to_first_byte_millis, i64 noundef %transfer_bandwidth_mib_per_sec, double noundef %ideal_bandwidth_utilization_frac, i64 noundef %max_ideal_request_size_mib) local_unnamed_addr #0 align 2 {
+define void @_ZN5arrow2io12CacheOptions22MakeFromNetworkMetricsElldl(ptr noalias nocapture writeonly sret(%"struct.arrow::io::CacheOptions") align 8 %agg.result, i64 noundef %time_to_first_byte_millis, i64 noundef %transfer_bandwidth_mib_per_sec, double noundef %ideal_bandwidth_utilization_frac, i64 noundef %max_ideal_request_size_mib) local_unnamed_addr #0 align 2 {
 entry:
   %conv = sitofp i64 %time_to_first_byte_millis to double
   %div = fdiv double %conv, 1.000000e+03

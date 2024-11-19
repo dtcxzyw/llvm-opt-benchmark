@@ -512,7 +512,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4llvm7memprof16RawMemProfReaderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm7memprof16RawMemProfReaderD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm7memprof13MemProfReaderC2ENS_8DenseMapImNS0_5FrameENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS_9MapVectorImNS0_20IndexedMemProfRecordENS2_ImjS5_NS7_ImjEEEENS_11SmallVectorISt4pairImSB_ELj0EEEEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 28), (32, 52), (56, 76)) %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm7memprof13MemProfReaderC2ENS_8DenseMapImNS0_5FrameENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS3_EEEENS_9MapVectorImNS0_20IndexedMemProfRecordENS2_ImjS5_NS7_ImjEEEENS_11SmallVectorISt4pairImSB_ELj0EEEEE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"struct.std::pair.23", align 8
   %5 = alloca %"struct.std::pair.23", align 8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN4llvm7memprof13MemProfReaderE, i64 16), ptr %0, align 8

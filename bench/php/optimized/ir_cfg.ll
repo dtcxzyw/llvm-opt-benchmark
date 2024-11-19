@@ -4153,7 +4153,7 @@ define hidden i32 @ir_skip_empty_next_blocks(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @ir_get_true_false_blocks(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #8 {
+define hidden void @ir_get_true_false_blocks(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #8 {
   store i32 0, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 104

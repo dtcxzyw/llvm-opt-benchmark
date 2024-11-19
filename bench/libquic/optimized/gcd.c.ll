@@ -157,7 +157,7 @@ declare i32 @BN_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @BN_CTX_end(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @BN_mod_inverse_ex(ptr noundef %out, ptr nocapture noundef writeonly initializes((0, 4)) %out_no_inverse, ptr noundef %a, ptr noundef %n, ptr noundef %ctx) local_unnamed_addr #0 {
+define hidden ptr @BN_mod_inverse_ex(ptr noundef %out, ptr nocapture noundef writeonly %out_no_inverse, ptr noundef %a, ptr noundef %n, ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   %local_A.i = alloca %struct.bignum_st, align 8
   %local_B.i = alloca %struct.bignum_st, align 8

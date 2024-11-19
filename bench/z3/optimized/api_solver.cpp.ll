@@ -11532,7 +11532,7 @@ terminate.lpad:                                   ; preds = %lpad21
 declare void @_Z29log_Z3_solver_congruence_nextP11_Z3_contextP10_Z3_solverP7_Z3_ast(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_solver_register_on_clause(ptr noundef initializes((1560, 1564)) %c, ptr noundef %s, ptr noundef %user_context, ptr noundef %on_clause_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_solver_register_on_clause(ptr noundef %c, ptr noundef %s, ptr noundef %user_context, ptr noundef %on_clause_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_on_clause = alloca %"class.std::function", align 8
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
@@ -11719,7 +11719,7 @@ terminate.lpad:                                   ; preds = %lpad52
 declare void @_Z15init_proof_cmdsR11cmd_context(ptr noundef nonnull align 8 dereferenceable(872)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_solver_propagate_init(ptr noundef initializes((1560, 1564)) %c, ptr noundef %s, ptr noundef %user_context, ptr noundef %push_eh, ptr noundef %pop_eh, ptr noundef %fresh_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_solver_propagate_init(ptr noundef %c, ptr noundef %s, ptr noundef %user_context, ptr noundef %push_eh, ptr noundef %pop_eh, ptr noundef %fresh_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_push = alloca %"class.std::function.191", align 8
   %_pop = alloca %"class.std::function.193", align 8
@@ -11920,7 +11920,7 @@ terminate.lpad:                                   ; preds = %lpad9
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_solver_propagate_fixed(ptr noundef initializes((1560, 1564)) %c, ptr nocapture noundef readonly %s, ptr noundef %fixed_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_solver_propagate_fixed(ptr noundef %c, ptr nocapture noundef readonly %s, ptr noundef %fixed_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_fixed = alloca %"class.std::function.198", align 8
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
@@ -12022,7 +12022,7 @@ terminate.lpad:                                   ; preds = %lpad6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_solver_propagate_final(ptr noundef initializes((1560, 1564)) %c, ptr nocapture noundef readonly %s, ptr noundef %final_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_solver_propagate_final(ptr noundef %c, ptr nocapture noundef readonly %s, ptr noundef %final_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_final = alloca %"class.std::function.191", align 8
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
@@ -12124,7 +12124,7 @@ terminate.lpad:                                   ; preds = %lpad6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_solver_propagate_eq(ptr noundef initializes((1560, 1564)) %c, ptr nocapture noundef readonly %s, ptr noundef %eq_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_solver_propagate_eq(ptr noundef %c, ptr nocapture noundef readonly %s, ptr noundef %eq_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_eq = alloca %"class.std::function.198", align 8
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
@@ -12226,7 +12226,7 @@ terminate.lpad:                                   ; preds = %lpad6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_solver_propagate_diseq(ptr noundef initializes((1560, 1564)) %c, ptr nocapture noundef readonly %s, ptr noundef %diseq_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_solver_propagate_diseq(ptr noundef %c, ptr nocapture noundef readonly %s, ptr noundef %diseq_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %_diseq = alloca %"class.std::function.198", align 8
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
@@ -12593,7 +12593,7 @@ terminate.lpad:                                   ; preds = %lpad11
 declare void @_Z35log_Z3_solver_propagate_consequenceP11_Z3_contextP19_Z3_solver_callbackjPKP7_Z3_astjS6_S6_S4_(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_solver_propagate_created(ptr noundef initializes((1560, 1564)) %c, ptr nocapture noundef readonly %s, ptr noundef %created_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_solver_propagate_created(ptr noundef %c, ptr nocapture noundef readonly %s, ptr noundef %created_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %c2 = alloca %"class.std::function.200", align 8
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560
@@ -12695,7 +12695,7 @@ terminate.lpad:                                   ; preds = %lpad7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @Z3_solver_propagate_decide(ptr noundef initializes((1560, 1564)) %c, ptr nocapture noundef readonly %s, ptr noundef %decide_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @Z3_solver_propagate_decide(ptr noundef %c, ptr nocapture noundef readonly %s, ptr noundef %decide_eh) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %c2 = alloca %"class.std::function.202", align 8
   %m_error_code.i = getelementptr inbounds i8, ptr %c, i64 1560

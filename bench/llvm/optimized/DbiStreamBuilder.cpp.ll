@@ -203,7 +203,7 @@ $_ZTVN4llvm3pdb8RawErrorE = comdat any
 @_ZN4llvm3pdb16DbiStreamBuilderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb16DbiStreamBuilderD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilderC2ERNS_3msf10MSFBuilderE(ptr noundef nonnull align 8 dereferenceable(936) initializes((0, 16), (20, 21), (24, 52), (56, 88), (128, 129), (136, 184)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilderC2ERNS_3msf10MSFBuilderE(ptr noundef nonnull align 8 dereferenceable(936) %0, ptr noundef nonnull align 8 dereferenceable(152) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %1, align 8
@@ -579,7 +579,7 @@ define linkonce_odr hidden void @_ZN4llvm23MutableBinaryByteStreamD2Ev(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder16setVersionHeaderENS0_13PdbRaw_DbiVerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((16, 24)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder16setVersionHeaderENS0_13PdbRaw_DbiVerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.0.insert.ext, 4294967296
@@ -591,21 +591,21 @@ define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder16setVersionHeaderENS0_13Pd
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder6setAgeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((24, 28)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder6setAgeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder14setBuildNumberEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((28, 30)) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder14setBuildNumberEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i16 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder14setBuildNumberEhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((28, 30)) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder14setBuildNumberEhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #1 align 2 {
   %4 = zext i8 %1 to i16
   %5 = shl nuw i16 %4, 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -617,56 +617,56 @@ define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder14setBuildNumberEhh(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder16setPdbDllVersionEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((30, 32)) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder16setPdbDllVersionEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i16 %1, ptr %3, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder13setPdbDllRbldEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((32, 34)) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder13setPdbDllRbldEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i16 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder8setFlagsEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((34, 36)) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder8setFlagsEt(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i16 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i16 %1, ptr %3, align 2
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder14setMachineTypeENS0_11PDB_MachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((36, 40)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder14setMachineTypeENS0_11PDB_MachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder14setMachineTypeENS_4COFF12MachineTypesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((36, 40)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder14setMachineTypeENS_4COFF12MachineTypesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder21setGlobalsStreamIndexEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((40, 44)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder21setGlobalsStreamIndexEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder26setSymbolRecordStreamIndexEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder26setSymbolRecordStreamIndexEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder21setPublicsStreamIndexEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((44, 48)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder21setPublicsStreamIndexEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %1, ptr %3, align 4
   ret void
@@ -775,7 +775,7 @@ _ZNSt6vectorIN4llvm6object7FpoDataESaIS2_EE9push_backERKS2_.exit: ; preds = %8, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder12addDbgStreamENS0_13DbgHeaderTypeENS_8ArrayRefIhEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(936) %1, i16 noundef zeroext %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder12addDbgStreamENS0_13DbgHeaderTypeENS_8ArrayRefIhEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(936) %1, i16 noundef zeroext %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.std::function", align 8
   %7 = alloca %"class.std::function", align 8
   %.sroa.0 = alloca <{ %"class.std::function", i32 }>, align 8
@@ -1234,7 +1234,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb16DbiStreamBuilder23calculateDbgStrea
 declare noundef i32 @_ZNK4llvm3pdb21PDBStringTableBuilder23calculateSerializedSizeEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder13addModuleInfoENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder13addModuleInfoENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -1289,7 +1289,7 @@ _ZNSt10unique_ptrIN4llvm3pdb26DbiModuleDescriptorBuilderESt14default_deleteIS2_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder19addModuleSourceFileERNS0_26DbiModuleDescriptorBuilderENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder19addModuleSourceFileERNS0_26DbiModuleDescriptorBuilderENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr %3, i64 %4) local_unnamed_addr #0 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   %5 = alloca %"struct.std::pair.100", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 160
@@ -1312,7 +1312,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:
 declare void @_ZN4llvm3pdb26DbiModuleDescriptorBuilder13addSourceFileENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(256), ptr, i64) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder22getSourceFileNameIndexENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.103") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb16DbiStreamBuilder22getSourceFileNameIndexENS_9StringRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.103") align 8 %0, ptr noundef nonnull align 8 dereferenceable(936) %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 160
   %7 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %2, i64 %3) #19

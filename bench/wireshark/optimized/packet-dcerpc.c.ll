@@ -3311,7 +3311,7 @@ define hidden noundef i32 @dissect_ndr_wchar_vstring(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @init_ndr_pointer_list(ptr nocapture noundef writeonly initializes((28, 32)) %0) local_unnamed_addr #0 {
+define hidden void @init_ndr_pointer_list(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %2, align 4
   %3 = load ptr, ptr @list_ndr_pointer_list, align 8
@@ -11086,7 +11086,7 @@ declare ptr @expert_add_info(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare ptr @proto_tree_add_bitmask_value_with_flags(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_cn_auth(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull initializes((0, 6), (8, 13), (16, 20), (24, 64)) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_cn_auth(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr nocapture noundef nonnull %5) unnamed_addr #0 {
   %7 = alloca %struct._dcerpc_info, align 8
   %8 = alloca %struct._dcerpc_call_value, align 8
   %9 = alloca %struct._dcerpc_auth_context, align 8
@@ -12103,7 +12103,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @proto_tree_add_bitmask_value(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_dcerpc_dg_auth(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_dcerpc_dg_auth(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull readonly %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   store i32 -1, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 74
   %6 = load i16, ptr %5, align 2

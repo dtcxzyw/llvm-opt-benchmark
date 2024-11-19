@@ -1045,7 +1045,7 @@ define ptr @H5O__attr_open_by_idx(ptr noundef %0, i32 noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 2) i32 @H5O__attr_open_by_idx_cb(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal range(i32 -1, 2) i32 @H5O__attr_open_by_idx_cb(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = tail call ptr @H5A__copy(ptr noundef null, ptr noundef %0) #9
   store ptr %3, ptr %1, align 8
   %4 = icmp eq ptr %3, null

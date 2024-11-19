@@ -1013,7 +1013,7 @@ declare dso_local void @down_write(ptr noundef) local_unnamed_addr #1
 declare dso_local void @up_write(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rtnl_af_register(ptr noundef initializes((0, 16)) %0) #0 align 16 {
+define dso_local void @rtnl_af_register(ptr noundef %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @rtnl_mutex) #18
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @rtnl_af_ops, i64 8), align 8
   store ptr @rtnl_af_ops, ptr %0, align 8
@@ -8997,7 +8997,7 @@ define internal range(i32 -2147483648, 1) i32 @rtnl_stats_get(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @rtnl_stats_dump(ptr noundef %0, ptr nocapture noundef initializes((68, 72)) %1) #0 align 16 {
+define internal i32 @rtnl_stats_dump(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct.rtnl_stats_dump_filters, align 4
@@ -14634,7 +14634,7 @@ define internal fastcc noundef i32 @rtnl_bridge_notify(ptr noundef nonnull %0) u
 declare dso_local ptr @nla_find(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef initializes((0, 24)) %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_stats_get_parse(ptr noundef %0, i32 noundef range(i32 1, 0) %1, ptr nocapture noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca [6 x ptr], align 16
   %6 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #18

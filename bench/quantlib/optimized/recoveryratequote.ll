@@ -411,7 +411,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #8 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15makeIsdaConvMapEv(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15makeIsdaConvMapEv(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %agg.result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %isdaType.i = alloca i32, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
@@ -456,7 +456,7 @@ _ZN8QuantLib17RecoveryRateQuote11makeIsdaMapILm5EEESt3mapINS_9SeniorityEdSt4less
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17RecoveryRateQuoteC2EdNS_9SeniorityE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 12), (16, 24)) %this, ptr nocapture noundef readonly %vtt, double noundef %value, i32 noundef %seniority) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17RecoveryRateQuoteC2EdNS_9SeniorityE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %vtt, double noundef %value, i32 noundef %seniority) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -658,7 +658,7 @@ unreachable:                                      ; preds = %invoke.cont22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17RecoveryRateQuoteC1EdNS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(24) initializes((40, 44), (48, 56)) %this, double noundef %value, i32 noundef %seniority) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17RecoveryRateQuoteC1EdNS_9SeniorityE(ptr noundef nonnull align 8 dereferenceable(24) %this, double noundef %value, i32 noundef %seniority) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8

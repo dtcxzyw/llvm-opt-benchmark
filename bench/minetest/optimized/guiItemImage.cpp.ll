@@ -849,7 +849,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12GUIItemImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_8IGUIFontEP6Client(ptr noundef nonnull align 8 dereferenceable(392) initializes((392, 412)) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %item_name, ptr noundef %font, ptr noundef %client) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12GUIItemImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS1_8IGUIFontEP6Client(ptr noundef nonnull align 8 dereferenceable(392) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %item_name, ptr noundef %font, ptr noundef %client) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 392

@@ -48,7 +48,7 @@ $_ZTIN5zxing8ArrayRefIcEE = comdat any
 @_ZN5zxing15LuminanceSourceD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5zxing15LuminanceSourceD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5zxing15LuminanceSourceC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN5zxing15LuminanceSourceC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 72) (i8, ptr @_ZTVN5zxing15LuminanceSourceE, i64 16), ptr %0, align 8
@@ -79,7 +79,7 @@ define hidden noundef zeroext i1 @_ZNK5zxing15LuminanceSource15isCropSupportedEv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK5zxing15LuminanceSource4cropEiiiiRNS_12ErrorHandlerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i32 %3, i32 %4, i32 %5, ptr nocapture nonnull readnone align 8 %6) unnamed_addr #0 align 2 {
+define hidden void @_ZNK5zxing15LuminanceSource4cropEiiiiRNS_12ErrorHandlerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i32 %2, i32 %3, i32 %4, i32 %5, ptr nocapture nonnull readnone align 8 %6) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -90,7 +90,7 @@ define hidden noundef zeroext i1 @_ZNK5zxing15LuminanceSource17isRotateSupported
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZNK5zxing15LuminanceSource22rotateCounterClockwiseERNS_12ErrorHandlerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
+define hidden void @_ZNK5zxing15LuminanceSource22rotateCounterClockwiseERNS_12ErrorHandlerE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }

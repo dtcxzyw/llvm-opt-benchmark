@@ -83,7 +83,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN5ZPageC1E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory = hidden unnamed_addr alias void (ptr, i8, ptr, ptr), ptr @_ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 12), (16, 32)) %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN5ZPageC2E9ZPageTypeRK14ZVirtualMemoryRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
   store i8 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 0, ptr %5, align 1
@@ -609,7 +609,7 @@ declare noundef zeroext i1 @_ZNK14ZRememberedSet14is_initializedEv(ptr noundef n
 declare void @_ZN14ZRememberedSet10initializeEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ZPage5resetE8ZPageAge14ZPageResetType(ptr noundef nonnull align 8 dereferenceable(192) initializes((1, 2), (152, 160)) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5ZPage5resetE8ZPageAge14ZPageResetType(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2
   %5 = load i8, ptr %4, align 2
   store i8 %1, ptr %4, align 2
@@ -702,7 +702,7 @@ define hidden void @_ZN5ZPage38finalize_reset_for_in_place_relocationEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5ZPage19reset_type_and_sizeE9ZPageType(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 1)) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN5ZPage19reset_type_and_sizeE9ZPageType(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   store i8 %1, ptr %0, align 8
   %cond.i = icmp eq i8 %1, 2
   br i1 %cond.i, label %_ZNK5ZPage16object_max_countEv.exit, label %3
@@ -755,7 +755,7 @@ declare void @_ZN8ZLiveMap6resizeEj(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN14ZRememberedSet6resizeEm(ptr noundef nonnull align 8 dereferenceable(48), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN5ZPage6retypeE9ZPageType(ptr noundef nonnull returned align 8 dereferenceable(192) initializes((0, 1)) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN5ZPage6retypeE9ZPageType(ptr noundef nonnull returned align 8 dereferenceable(192) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   store i8 %1, ptr %0, align 8
   %cond.i.i = icmp eq i8 %1, 2
   br i1 %cond.i.i, label %_ZN5ZPage19reset_type_and_sizeE9ZPageType.exit, label %3
@@ -865,7 +865,7 @@ _ZN15ZPhysicalMemoryD2Ev.exit:                    ; preds = %.loopexit.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN5ZPage15split_with_pmemE9ZPageTypeRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 1)) %0, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN5ZPage15split_with_pmemE9ZPageTypeRK15ZPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = tail call noundef i64 @_ZNK15ZPhysicalMemory4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #13
   %6 = load i64, ptr %4, align 8

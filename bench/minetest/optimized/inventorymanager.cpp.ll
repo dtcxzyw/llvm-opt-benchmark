@@ -5693,7 +5693,7 @@ _ZNSt10unique_ptrI13InventoryListNS0_14ResizeUnlockerEED2Ev.exit2116: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc void @"_ZZN11IMoveAction5applyEP16InventoryManagerP18ServerActiveObjectP8IGameDefENK3$_0clERK17InventoryLocationRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(46) %invloc, ptr noundef nonnull align 8 dereferenceable(32) %listname) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN11IMoveAction5applyEP16InventoryManagerP18ServerActiveObjectP8IGameDefENK3$_0clERK17InventoryLocationRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %agg.result, ptr %this.0.val, ptr noundef nonnull align 8 dereferenceable(46) %invloc, ptr noundef nonnull align 8 dereferenceable(32) %listname) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %vtable = load ptr, ptr %this.0.val, align 8, !tbaa !25
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -8749,7 +8749,7 @@ _ZN17InventoryLocationD2Ev.exit88:                ; preds = %if.then.i.i.i84, %_
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #14
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12ICraftActionC2ERSi(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 10)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12ICraftActionC2ERSi(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(16) %is) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ts = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV12ICraftAction, i64 16), ptr %this, align 8, !tbaa !25

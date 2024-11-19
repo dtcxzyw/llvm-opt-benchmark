@@ -86,7 +86,7 @@ $_ZN4llvm23SmallVectorTemplateBaseINS_13RangeSpanListELb0EE19moveElementsForGrow
 @_ZN4llvm9DwarfFileC1EPNS_10AsmPrinterENS_9StringRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE = unnamed_addr alias void (ptr, ptr, ptr, i64, ptr), ptr @_ZN4llvm9DwarfFileC2EPNS_10AsmPrinterENS_9StringRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm9DwarfFileC2EPNS_10AsmPrinterENS_9StringRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull align 8 dereferenceable(456) initializes((0, 24)) %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(96) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm9DwarfFileC2EPNS_10AsmPrinterENS_9StringRefERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(96) %4) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24

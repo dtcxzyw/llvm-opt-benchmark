@@ -60,7 +60,7 @@ declare void @qemu_mutex_init(ptr noundef) local_unnamed_addr #1
 declare void @qemu_co_queue_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @register_aiocontext(ptr nocapture noundef initializes((144, 152)) %ctx) local_unnamed_addr #0 {
+define dso_local void @register_aiocontext(ptr nocapture noundef %ctx) local_unnamed_addr #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(24) ptr @g_malloc0_n(i64 noundef 1, i64 noundef 24) #6
   %bdrv_graph = getelementptr inbounds i8, ptr %ctx, i64 144

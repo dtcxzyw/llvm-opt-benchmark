@@ -350,7 +350,7 @@ declare dso_local ptr @mempool_alloc_slab(i32 noundef, ptr noundef) #2
 declare dso_local void @mempool_free_slab(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @list_get_page(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #6 align 16 {
+define internal void @list_get_page(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #6 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -366,7 +366,7 @@ define internal void @list_get_page(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @list_next_page(ptr nocapture noundef initializes((16, 20)) %0) #6 align 16 {
+define internal void @list_next_page(ptr nocapture noundef %0) #6 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -377,7 +377,7 @@ define internal void @list_next_page(ptr nocapture noundef initializes((16, 20))
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @bio_get_page(ptr nocapture noundef initializes((16, 24)) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #6 align 16 {
+define internal void @bio_get_page(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #6 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -487,7 +487,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vm_get_page(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #0 align 16 {
+define internal void @vm_get_page(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @vmalloc_to_page(ptr noundef %6) #12
@@ -519,7 +519,7 @@ define internal void @vm_next_page(ptr nocapture noundef %0) #8 align 16 {
 declare dso_local ptr @vmalloc_to_page(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal void @km_get_page(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #6 align 16 {
+define internal void @km_get_page(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) #6 align 16 {
   %5 = load i64, ptr @vmemmap_base, align 8
   %6 = inttoptr i64 %5 to ptr
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -562,7 +562,7 @@ define internal void @km_next_page(ptr nocapture noundef %0) #8 align 16 {
 declare dso_local noalias ptr @mempool_alloc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @sync_io_complete(i64 noundef %0, ptr noundef initializes((0, 8)) %1) #0 align 16 {
+define internal void @sync_io_complete(i64 noundef %0, ptr noundef %1) #0 align 16 {
   store i64 %0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @complete(ptr noundef %3) #12

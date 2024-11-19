@@ -641,7 +641,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib32FdOrnsteinUhlenbeckVanillaEngineC2EN5boost10shared_ptrINS_24OrnsteinUhlenbeckProcessEEERKNS2_INS_18YieldTermStructureEEEmmmdRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(448) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rTS, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %dampingSteps, double noundef %epsilon, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib32FdOrnsteinUhlenbeckVanillaEngineC2EN5boost10shared_ptrINS_24OrnsteinUhlenbeckProcessEEERKNS2_INS_18YieldTermStructureEEEmmmdRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr nocapture noundef %process, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rTS, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %dampingSteps, double noundef %epsilon, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp5 = alloca %"class.boost::shared_ptr", align 8
@@ -1386,7 +1386,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib32FdOrnsteinUhlenbeckVanillaEngineC2EN5boost10shared_ptrINS_24OrnsteinUhlenbeckProcessEEERKNS2_INS_18YieldTermStructureEEESt6vectorINS2_INS_8DividendEEESaISB_EEmmmdRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(448) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rTS, ptr nocapture noundef %dividends, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %dampingSteps, double noundef %epsilon, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib32FdOrnsteinUhlenbeckVanillaEngineC2EN5boost10shared_ptrINS_24OrnsteinUhlenbeckProcessEEERKNS2_INS_18YieldTermStructureEEESt6vectorINS2_INS_8DividendEEESaISB_EEmmmdRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr nocapture noundef %process, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %rTS, ptr nocapture noundef %dividends, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %dampingSteps, double noundef %epsilon, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp5 = alloca %"class.boost::shared_ptr", align 8
@@ -6146,7 +6146,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 declare void @_ZN5boost16assertion_failedEPKcS1_S1_l(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_115FdmOUInnerValueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_115FdmOUInnerValueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_115FdmOUInnerValueE, i64 16), ptr %this, align 8, !tbaa !35
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -6231,7 +6231,7 @@ _ZN5boost10shared_ptrIN8QuantLib6PayoffEED2Ev.exit: ; preds = %_ZN5boost10shared
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_115FdmOUInnerValueD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_115FdmOUInnerValueD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_115FdmOUInnerValueE, i64 16), ptr %this, align 8, !tbaa !35
   %pn.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32

@@ -37,7 +37,7 @@ $_ZTVN4llvm8codeview27DebugSymbolRVASubsectionRefE = comdat any
 @_ZN4llvm8codeview24DebugSymbolRVASubsectionC1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm8codeview24DebugSymbolRVASubsectionC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview27DebugSymbolRVASubsectionRefC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 12), (16, 48), (56, 57)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview27DebugSymbolRVASubsectionRefC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 253, ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN4llvm8codeview27DebugSymbolRVASubsectionRefE, i64 16), ptr %0, align 8
@@ -597,7 +597,7 @@ _ZN4llvm15BinaryStreamRefD2Ev.exit49:             ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm8codeview24DebugSymbolRVASubsectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 12), (16, 40)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8codeview24DebugSymbolRVASubsectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 253, ptr %2, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm8codeview24DebugSymbolRVASubsectionE, i64 16), ptr %0, align 8

@@ -5377,7 +5377,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15NonstandardSwapC1ERKNS_19FixedVsFloatingSwapE(ptr noundef nonnull align 8 dereferenceable(718) initializes((720, 728), (736, 740), (744, 752)) %this, ptr noundef nonnull align 8 dereferenceable(674) %fromVanilla) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15NonstandardSwapC1ERKNS_19FixedVsFloatingSwapE(ptr noundef nonnull align 8 dereferenceable(718) %this, ptr noundef nonnull align 8 dereferenceable(674) %fromVanilla) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 720
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN8QuantLib10ObservableE, i64 16), ptr %0, align 8, !tbaa !33
@@ -6324,7 +6324,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit104:                 ; preds = %ehcleanup32, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15NonstandardSwapC1ENS_4Swap4TypeESt6vectorIdSaIdEERKS5_NS_8ScheduleES5_NS_10DayCounterES8_N5boost10shared_ptrINS_9IborIndexEEEddS9_bbNSA_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) initializes((720, 728), (736, 740), (744, 752)) %this, i32 noundef %type, ptr nocapture noundef %fixedNominal, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %floatingNominal, ptr nocapture noundef %fixedSchedule, ptr nocapture noundef %fixedRate, ptr nocapture noundef %fixedDayCount, ptr nocapture noundef %floatingSchedule, ptr nocapture noundef %iborIndex, double noundef %gearing, double noundef %spread, ptr nocapture noundef %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15NonstandardSwapC1ENS_4Swap4TypeESt6vectorIdSaIdEERKS5_NS_8ScheduleES5_NS_10DayCounterES8_N5boost10shared_ptrINS_9IborIndexEEEddS9_bbNSA_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) %this, i32 noundef %type, ptr nocapture noundef %fixedNominal, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %floatingNominal, ptr nocapture noundef %fixedSchedule, ptr nocapture noundef %fixedRate, ptr nocapture noundef %fixedDayCount, ptr nocapture noundef %floatingSchedule, ptr nocapture noundef %iborIndex, double noundef %gearing, double noundef %spread, ptr nocapture noundef %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %paymentConvention.sroa.3111.0.extract.shift = lshr i64 %paymentConvention.coerce, 32
   %paymentConvention.sroa.3111.0.extract.trunc = trunc nuw i64 %paymentConvention.sroa.3111.0.extract.shift to i32
@@ -7085,7 +7085,7 @@ invoke.cont16:                                    ; preds = %_ZN8QuantLib8Schedu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15NonstandardSwapC1ENS_4Swap4TypeESt6vectorIdSaIdEES5_NS_8ScheduleES5_NS_10DayCounterES6_N5boost10shared_ptrINS_9IborIndexEEES5_S5_S7_bbNS8_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) initializes((720, 728), (736, 740), (744, 752)) %this, i32 noundef %type, ptr nocapture noundef %fixedNominal, ptr nocapture noundef %floatingNominal, ptr nocapture noundef %fixedSchedule, ptr nocapture noundef %fixedRate, ptr nocapture noundef %fixedDayCount, ptr nocapture noundef %floatingSchedule, ptr nocapture noundef %iborIndex, ptr nocapture noundef %gearing, ptr nocapture noundef %spread, ptr nocapture noundef %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15NonstandardSwapC1ENS_4Swap4TypeESt6vectorIdSaIdEES5_NS_8ScheduleES5_NS_10DayCounterES6_N5boost10shared_ptrINS_9IborIndexEEES5_S5_S7_bbNS8_8optionalINS_21BusinessDayConventionEEE(ptr noundef nonnull align 8 dereferenceable(718) %this, i32 noundef %type, ptr nocapture noundef %fixedNominal, ptr nocapture noundef %floatingNominal, ptr nocapture noundef %fixedSchedule, ptr nocapture noundef %fixedRate, ptr nocapture noundef %fixedDayCount, ptr nocapture noundef %floatingSchedule, ptr nocapture noundef %iborIndex, ptr nocapture noundef %gearing, ptr nocapture noundef %spread, ptr nocapture noundef %floatingDayCount, i1 noundef zeroext %intermediateCapitalExchange, i1 noundef zeroext %finalCapitalExchange, i64 %paymentConvention.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %paymentConvention.sroa.378.0.extract.shift = lshr i64 %paymentConvention.coerce, 32
   %paymentConvention.sroa.378.0.extract.trunc = trunc nuw i64 %paymentConvention.sroa.378.0.extract.shift to i32

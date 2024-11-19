@@ -86,7 +86,7 @@ if.end9:                                          ; preds = %if.then, %land.lhs.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @virtio_gpu_init_udmabuf(ptr nocapture noundef initializes((72, 76)) %res) local_unnamed_addr #0 {
+define dso_local void @virtio_gpu_init_udmabuf(ptr nocapture noundef %res) local_unnamed_addr #0 {
 entry:
   %offset.i = alloca i64, align 8
   %dmabuf_fd = getelementptr inbounds i8, ptr %res, i64 72

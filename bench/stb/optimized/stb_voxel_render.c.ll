@@ -506,7 +506,7 @@ if.end281:                                        ; preds = %if.end262, %land.lh
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stbvox_get_quad_vertex_pointer(ptr nocapture noundef %mm, i32 noundef %mesh, ptr nocapture noundef initializes((0, 32)) %vertices, i32 %face.coerce) local_unnamed_addr #6 {
+define void @stbvox_get_quad_vertex_pointer(ptr nocapture noundef %mm, i32 noundef %mesh, ptr nocapture noundef %vertices, i32 %face.coerce) local_unnamed_addr #6 {
 entry:
   %output_cur = getelementptr inbounds i8, ptr %mm, i64 608
   %idxprom = sext i32 %mesh to i64
@@ -2949,7 +2949,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @stbvox_make_mesh(ptr noundef initializes((604, 608)) %mm) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @stbvox_make_mesh(ptr noundef %mm) local_unnamed_addr #7 {
 entry:
   %config_dirty.i = getelementptr inbounds i8, ptr %mm, i64 388
   %0 = load i32, ptr %config_dirty.i, align 4
@@ -3092,7 +3092,7 @@ return:                                           ; preds = %while.body, %for.in
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define void @stbvox_init_mesh_maker(ptr nocapture noundef writeonly initializes((0, 1856)) %mm) local_unnamed_addr #9 {
+define void @stbvox_init_mesh_maker(ptr nocapture noundef writeonly %mm) local_unnamed_addr #9 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1856) %mm, i8 0, i64 1856, i1 false)
   br label %for.body.i
@@ -3173,7 +3173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbvox_reset_buffers(ptr nocapture noundef writeonly initializes((608, 656), (704, 752)) %mm) local_unnamed_addr #12 {
+define void @stbvox_reset_buffers(ptr nocapture noundef writeonly %mm) local_unnamed_addr #12 {
 entry:
   %output_cur = getelementptr inbounds i8, ptr %mm, i64 608
   %output_buffer = getelementptr inbounds i8, ptr %mm, i64 704
@@ -3225,7 +3225,7 @@ stbvox_bring_up_to_date.exit:                     ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbvox_set_default_mesh(ptr nocapture noundef writeonly initializes((392, 396)) %mm, i32 noundef %mesh) local_unnamed_addr #12 {
+define void @stbvox_set_default_mesh(ptr nocapture noundef writeonly %mm, i32 noundef %mesh) local_unnamed_addr #12 {
 entry:
   %default_mesh = getelementptr inbounds i8, ptr %mm, i64 392
   store i32 %mesh, ptr %default_mesh, align 8
@@ -3261,7 +3261,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbvox_set_input_range(ptr nocapture noundef writeonly initializes((344, 380)) %mm, i32 noundef %x0, i32 noundef %y0, i32 noundef %z0, i32 noundef %x1, i32 noundef %y1, i32 noundef %z1) local_unnamed_addr #12 {
+define void @stbvox_set_input_range(ptr nocapture noundef writeonly %mm, i32 noundef %x0, i32 noundef %y0, i32 noundef %z0, i32 noundef %x1, i32 noundef %y1, i32 noundef %z1) local_unnamed_addr #12 {
 entry:
   %x01 = getelementptr inbounds i8, ptr %mm, i64 356
   store i32 %x0, ptr %x01, align 4
@@ -3285,7 +3285,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbvox_get_transform(ptr nocapture noundef readonly %mm, ptr nocapture noundef writeonly initializes((0, 36)) %transform) local_unnamed_addr #10 {
+define void @stbvox_get_transform(ptr nocapture noundef readonly %mm, ptr nocapture noundef writeonly %transform) local_unnamed_addr #10 {
 entry:
   store float 1.000000e+00, ptr %transform, align 4
   %arrayidx3 = getelementptr inbounds i8, ptr %transform, i64 4
@@ -3326,7 +3326,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stbvox_get_bounds(ptr nocapture noundef readonly %mm, ptr nocapture noundef writeonly initializes((0, 24)) %bounds) local_unnamed_addr #10 {
+define void @stbvox_get_bounds(ptr nocapture noundef readonly %mm, ptr nocapture noundef writeonly %bounds) local_unnamed_addr #10 {
 entry:
   %pos_x = getelementptr inbounds i8, ptr %mm, i64 592
   %0 = load i32, ptr %pos_x, align 8
@@ -3376,7 +3376,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stbvox_set_mesh_coordinates(ptr nocapture noundef writeonly initializes((592, 604)) %mm, i32 noundef %x, i32 noundef %y, i32 noundef %z) local_unnamed_addr #12 {
+define void @stbvox_set_mesh_coordinates(ptr nocapture noundef writeonly %mm, i32 noundef %x, i32 noundef %y, i32 noundef %z) local_unnamed_addr #12 {
 entry:
   %pos_x = getelementptr inbounds i8, ptr %mm, i64 592
   store i32 %x, ptr %pos_x, align 8
@@ -3388,7 +3388,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @stbvox_set_input_stride(ptr nocapture noundef writeonly initializes((380, 388)) %mm, i32 noundef %x_stride_in_bytes, i32 noundef %y_stride_in_bytes) local_unnamed_addr #14 {
+define void @stbvox_set_input_stride(ptr nocapture noundef writeonly %mm, i32 noundef %x_stride_in_bytes, i32 noundef %y_stride_in_bytes) local_unnamed_addr #14 {
 entry:
   %x_stride_in_bytes1 = getelementptr inbounds i8, ptr %mm, i64 380
   store i32 %x_stride_in_bytes, ptr %x_stride_in_bytes1, align 4

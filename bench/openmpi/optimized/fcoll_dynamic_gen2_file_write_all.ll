@@ -1145,7 +1145,7 @@ mca_fcoll_dynamic_gen2_get_configuration.exit.thread534: ; preds = %._crit_edge.
 declare i32 @mca_common_ompio_decode_datatype(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define range(i32 -2, 1) i32 @mca_fcoll_dynamic_gen2_get_configuration(ptr nocapture noundef initializes((432, 444)) %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
+define range(i32 -2, 1) i32 @mca_fcoll_dynamic_gen2_get_configuration(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #2 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp slt i32 %4, 1
   br i1 %5, label %6, label %9
@@ -1673,7 +1673,7 @@ declare i32 @ompi_fcoll_base_coll_allgatherv_array(ptr noundef, i32 noundef, ptr
 declare i32 @ompi_fcoll_base_sort_iovec(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((172, 176), (200, 208), (216, 220)) %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 216
   store i32 0, ptr %7, align 8

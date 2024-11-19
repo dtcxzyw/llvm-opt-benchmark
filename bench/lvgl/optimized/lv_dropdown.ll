@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.5 = private unnamed_addr constant [27 x i8] c"Option 1\0AOption 2\0AOption 3\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_dropdown_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 112)) %1) #0 {
+define internal void @lv_dropdown_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store ptr null, ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
@@ -1131,7 +1131,7 @@ define void @lv_dropdown_set_dir(ptr noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_dropdown_set_symbol(ptr noundef initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_dropdown_set_symbol(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8, !tbaa !13
   tail call void @lv_obj_invalidate(ptr noundef %0) #7

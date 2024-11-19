@@ -1371,7 +1371,7 @@ return:                                           ; preds = %if.end2, %if.end, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18CompactionIterator25CreateBlobFetcherIfNeededEPKNS0_15CompactionProxyE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.25") align 8 initializes((0, 8)) %agg.result, ptr noundef %compaction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18CompactionIterator25CreateBlobFetcherIfNeededEPKNS0_15CompactionProxyE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.25") align 8 %agg.result, ptr noundef %compaction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %read_options.sroa.0 = alloca <{ ptr, ptr, ptr, %"class.std::chrono::duration", %"class.std::chrono::duration", i32 }>, align 8
   %read_options.sroa.10 = alloca <{ [3 x i8], i64, i64, ptr, ptr, i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::function" }>, align 8
@@ -1425,7 +1425,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18CompactionIterator38CreatePrefetchBufferCollectionIfNeededEPKNS0_15CompactionProxyE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.33") align 8 initializes((0, 8)) %agg.result, ptr noundef %compaction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18CompactionIterator38CreatePrefetchBufferCollectionIfNeededEPKNS0_15CompactionProxyE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.33") align 8 %agg.result, ptr noundef %compaction) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %compaction, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1968,7 +1968,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb18CompactionIterator17ResetRecordCountsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1097) initializes((920, 968)) %this) local_unnamed_addr #10 align 2 {
+define void @_ZN7rocksdb18CompactionIterator17ResetRecordCountsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1097) %this) local_unnamed_addr #10 align 2 {
 entry:
   %iter_stats_ = getelementptr inbounds i8, ptr %this, i64 920
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %iter_stats_, i8 0, i64 48, i1 false)
@@ -1976,7 +1976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18CompactionIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(1097) initializes((312, 313), (401, 402)) %this) local_unnamed_addr #3 align 2 {
+define void @_ZN7rocksdb18CompactionIterator11SeekToFirstEv(ptr noundef nonnull align 8 dereferenceable(1097) %this) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN7rocksdb18CompactionIterator13NextFromInputEv(ptr noundef nonnull align 8 dereferenceable(1097) %this)
   tail call void @_ZN7rocksdb18CompactionIterator13PrepareOutputEv(ptr noundef nonnull align 8 dereferenceable(1097) %this)
@@ -1984,7 +1984,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18CompactionIterator13NextFromInputEv(ptr noundef nonnull align 8 dereferenceable(1097) initializes((312, 313), (401, 402)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18CompactionIterator13NextFromInputEv(ptr noundef nonnull align 8 dereferenceable(1097) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ts.i = alloca %"class.rocksdb::Slice", align 8
   %ref.tmp.i57 = alloca %"class.rocksdb::Slice", align 8
@@ -7460,7 +7460,7 @@ eh.resume:                                        ; preds = %eh.resume.sink.spli
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18CompactionIterator17DecideOutputLevelEv(ptr noundef nonnull align 8 dereferenceable(1097) initializes((1077, 1078)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18CompactionIterator17DecideOutputLevelEv(ptr noundef nonnull align 8 dereferenceable(1097) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
   %ref.tmp18 = alloca %"class.rocksdb::Slice", align 8

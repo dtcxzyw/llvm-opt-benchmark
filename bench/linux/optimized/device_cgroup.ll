@@ -138,7 +138,7 @@ define internal noundef range(i32 -12, 1) i32 @devcgroup_online(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devcgroup_offline(ptr nocapture noundef writeonly initializes((216, 220)) %0) #0 align 16 {
+define internal void @devcgroup_offline(ptr nocapture noundef writeonly %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @devcgroup_mutex) #9
   %2 = getelementptr inbounds i8, ptr %0, i64 216
   store i32 0, ptr %2, align 8

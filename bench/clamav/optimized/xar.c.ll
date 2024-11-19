@@ -1352,7 +1352,7 @@ xar_cleanup_temp_file.exit:                       ; preds = %53, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5, ptr nocapture noundef nonnull initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %7, ptr nocapture noundef nonnull initializes((0, 4)) %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, ptr nocapture noundef nonnull %6, ptr nocapture noundef nonnull writeonly %7, ptr nocapture noundef nonnull %8) unnamed_addr #0 {
   store ptr null, ptr %5, align 8
   store i32 0, ptr %6, align 4
   store ptr null, ptr %7, align 8
@@ -1737,7 +1737,7 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_numeric_from_xml_element(pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xar_get_checksum_values(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull initializes((0, 4)) %2) unnamed_addr #0 {
+define internal fastcc void @xar_get_checksum_values(ptr noundef nonnull %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = tail call ptr @xmlTextReaderGetAttribute(ptr noundef nonnull %0, ptr noundef nonnull @.str.58) #9
   store i32 0, ptr %2, align 4
   %5 = icmp eq ptr %4, null

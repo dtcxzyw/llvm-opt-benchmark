@@ -265,7 +265,7 @@ $_ZTIN32pxrInternal_v0_24__pxrReserved__7VtArrayIjEE = comdat any
 @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQueryC1ERKNS_17UsdSkelBindingAPIE = unnamed_addr alias void (ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQueryC2ERKNS_17UsdSkelBindingAPIE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQueryC2ERKNS_17UsdSkelBindingAPIE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 4), (8, 104)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQueryC2ERKNS_17UsdSkelBindingAPIE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdRelationship", align 8
   %4 = alloca %"class.std::vector.11", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdSkelBlendShape", align 8
@@ -1972,7 +1972,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7UsdPrimD2Ev.exit: ; preds = %48, %45, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery12GetInbetweenEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdSkelInbetweenShape") align 8 initializes((0, 4), (8, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__22UsdSkelBlendShapeQuery12GetInbetweenEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::UsdSkelInbetweenShape") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1, i64 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40

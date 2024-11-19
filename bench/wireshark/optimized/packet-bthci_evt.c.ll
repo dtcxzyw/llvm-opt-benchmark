@@ -2220,7 +2220,7 @@ define internal noalias noundef ptr @bthci_evt_vendor_value(ptr nocapture readno
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @bthci_evt_vendor_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 10)) %1) #3 {
+define internal void @bthci_evt_vendor_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #3 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %1, ptr noundef nonnull align 1 dereferenceable(10) @.str.1419, i64 10, i1 false)
   ret void
 }
@@ -4976,7 +4976,7 @@ send_hci_summary_status_tap.exit:                 ; preds = %4, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dissect_bthci_evt_command_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %6) unnamed_addr #1 {
+define internal fastcc i32 @dissect_bthci_evt_command_complete(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6) unnamed_addr #1 {
   %8 = alloca [6 x i8], align 1
   %9 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %10 = alloca i32, align 4

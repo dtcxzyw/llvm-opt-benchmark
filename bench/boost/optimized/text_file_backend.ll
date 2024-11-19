@@ -3991,7 +3991,7 @@ _ZN5boost3log11v2_mt_posix3aux14light_functionIFNSt7__cxx1112basic_stringIcSt11c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost3log11v2_mt_posix5sinks9anonymous14file_collectorC2ERKNS_10shared_ptrINS3_25file_collector_repositoryEEERKNS_10filesystem4pathEmmm(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 120)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost3log11v2_mt_posix5sinks9anonymous14file_collectorC2ERKNS_10shared_ptrINS3_25file_collector_repositoryEEERKNS_10filesystem4pathEmmm(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.boost::filesystem::path", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, i8 0, i64 32, i1 false)
@@ -4329,7 +4329,7 @@ _ZN5boost8weak_ptrINS_3log11v2_mt_posix5sinks9anonymous14file_collectorEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5boost3log11v2_mt_posix5sinks9anonymous14file_collectorD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost3log11v2_mt_posix5sinks9anonymous14file_collectorD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost3log11v2_mt_posix5sinks9anonymous14file_collectorE, i64 16), ptr %0, align 8, !tbaa !49
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !70
@@ -4534,7 +4534,7 @@ define hidden void @_ZN5boost3log11v2_mt_posix5sinks9anonymous25file_collector_r
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5boost3log11v2_mt_posix5sinks9anonymous14file_collectorD0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #11 align 2 {
+define hidden void @_ZN5boost3log11v2_mt_posix5sinks9anonymous14file_collectorD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #11 align 2 {
   tail call void @_ZN5boost3log11v2_mt_posix5sinks9anonymous14file_collectorD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #29
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 216) #32
   ret void
@@ -9449,7 +9449,7 @@ define void @_ZN5boost3log11v2_mt_posix5sinks4file3aux14make_collectorERKNS_10fi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix5sinks4file22rotation_at_time_pointC2Ehhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix5sinks4file22rotation_at_time_pointC2Ehhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #4 align 2 {
   store i8 0, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 %1, ptr %5, align 1, !tbaa !208
@@ -9464,7 +9464,7 @@ define void @_ZN5boost3log11v2_mt_posix5sinks4file22rotation_at_time_pointC2Ehhh
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix5sinks4file22rotation_at_time_pointC2ENS_9date_time8weekdaysEhhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix5sinks4file22rotation_at_time_pointC2ENS_9date_time8weekdaysEhhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #4 align 2 {
   %6 = trunc i32 %1 to i8
   %7 = and i8 %6, 63
   %8 = or disjoint i8 %7, 64
@@ -9482,7 +9482,7 @@ define void @_ZN5boost3log11v2_mt_posix5sinks4file22rotation_at_time_pointC2ENS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost3log11v2_mt_posix5sinks4file22rotation_at_time_pointC2ENS_9gregorian8greg_dayEhhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, i16 %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #4 align 2 {
+define void @_ZN5boost3log11v2_mt_posix5sinks4file22rotation_at_time_pointC2ENS_9gregorian8greg_dayEhhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i16 %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) unnamed_addr #4 align 2 {
   %6 = trunc i16 %1 to i8
   %7 = and i8 %6, 63
   %8 = or disjoint i8 %7, -128

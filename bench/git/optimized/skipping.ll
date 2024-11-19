@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [47 x i8] c"received ack for commit %s not sent as 'have'\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @skipping_negotiator_init(ptr nocapture noundef writeonly initializes((0, 48)) %negotiator) local_unnamed_addr #0 {
+define dso_local void @skipping_negotiator_init(ptr nocapture noundef writeonly %negotiator) local_unnamed_addr #0 {
 entry:
   store ptr @known_common, ptr %negotiator, align 8
   %add_tip = getelementptr inbounds i8, ptr %negotiator, i64 8
@@ -67,7 +67,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @add_tip(ptr nocapture noundef initializes((0, 8)) %n, ptr noundef %c) #0 {
+define internal void @add_tip(ptr nocapture noundef %n, ptr noundef %c) #0 {
 entry:
   store ptr null, ptr %n, align 8
   %bf.load = load i32, ptr %c, align 8
@@ -94,7 +94,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @next(ptr nocapture noundef initializes((0, 16)) %n) #0 {
+define internal ptr @next(ptr nocapture noundef %n) #0 {
 entry:
   %queue.i.i = alloca %struct.prio_queue, align 8
   %data = getelementptr inbounds i8, ptr %n, i64 40

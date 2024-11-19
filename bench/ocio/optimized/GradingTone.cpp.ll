@@ -1940,7 +1940,7 @@ land.end:                                         ; preds = %land.lhs.true6, %la
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC2ENS_12GradingStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) initializes((0, 929), (932, 936)) %this, i32 noundef %style) unnamed_addr #6 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRenderC2ENS_12GradingStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(936) %this, i32 noundef %style) unnamed_addr #6 align 2 {
 entry:
   %m_top = getelementptr inbounds i8, ptr %this, i64 912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(912) %this, i8 0, i64 912, i1 false)
@@ -2056,7 +2056,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) initializes((928, 929)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev20GradingTonePreRender6updateERKNS_11GradingToneE(ptr nocapture noundef nonnull align 8 dereferenceable(936) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(248) %v) local_unnamed_addr #9 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN19OpenColorIO_v2_4dev10IsIdentityERKNS_11GradingToneE(ptr noundef nonnull align 8 dereferenceable(248) %v)
   %m_localBypass = getelementptr inbounds i8, ptr %this, i64 928

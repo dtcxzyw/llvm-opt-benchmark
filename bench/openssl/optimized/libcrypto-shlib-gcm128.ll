@@ -52,7 +52,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define void @CRYPTO_gcm128_init(ptr noundef initializes((0, 448)) %ctx, ptr noundef %key, ptr noundef %block) local_unnamed_addr #0 {
+define void @CRYPTO_gcm128_init(ptr noundef %ctx, ptr noundef %key, ptr noundef %block) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(448) %ctx, i8 0, i64 448, i1 false)
   %block1 = getelementptr inbounds i8, ptr %ctx, i64 384
@@ -101,7 +101,7 @@ gcm_get_funcs.exit:                               ; preds = %entry, %if.then.i
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define void @CRYPTO_gcm128_setiv(ptr noundef initializes((48, 80), (376, 384)) %ctx, ptr nocapture noundef readonly %iv, i64 noundef %len) local_unnamed_addr #0 {
+define void @CRYPTO_gcm128_setiv(ptr noundef %ctx, ptr nocapture noundef readonly %iv, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %len1 = getelementptr inbounds i8, ptr %ctx, i64 48
   %ares = getelementptr inbounds i8, ptr %ctx, i64 380
@@ -1562,7 +1562,7 @@ entry:
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @gcm_init_4bit(ptr nocapture noundef writeonly initializes((0, 256)) %Htable, ptr nocapture noundef readonly %H) #4 {
+define internal void @gcm_init_4bit(ptr nocapture noundef writeonly %Htable, ptr nocapture noundef readonly %H) #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %Htable, i8 0, i64 16, i1 false)
   %0 = load i64, ptr %H, align 8

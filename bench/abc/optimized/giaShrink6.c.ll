@@ -814,7 +814,7 @@ define i64 @Shr_ManComputeTruth6(ptr noundef %0, ptr noundef %1, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Shr_ManComputeTruths(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((4, 8)) %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define void @Shr_ManComputeTruths(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %6, align 4
   %7 = icmp sgt i32 %1, 0

@@ -34,7 +34,7 @@ $_ZN11b2WeldJointD0Ev = comdat any
 @_ZN11b2WeldJointC1EPK14b2WeldJointDef = unnamed_addr alias void (ptr, ptr), ptr @_ZN11b2WeldJointC2EPK14b2WeldJointDef
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14b2WeldJointDef10InitializeEP6b2BodyS1_RK6b2Vec2(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((16, 32), (36, 56)) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor) local_unnamed_addr #0 align 2 {
+define void @_ZN14b2WeldJointDef10InitializeEP6b2BodyS1_RK6b2Vec2(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr noundef %bA, ptr noundef %bB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %anchor) local_unnamed_addr #0 align 2 {
 entry:
   %bodyA = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %bA, ptr %bodyA, align 8
@@ -132,7 +132,7 @@ declare void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferen
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11b2WeldJoint23InitVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 dereferenceable(268) initializes((176, 232)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
+define void @_ZN11b2WeldJoint23InitVelocityConstraintsERK12b2SolverData(ptr noundef nonnull align 8 dereferenceable(268) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %data) unnamed_addr #3 align 2 {
 entry:
   %K = alloca %struct.b2Mat33, align 4
   %m_bodyA = getelementptr inbounds i8, ptr %this, i64 96

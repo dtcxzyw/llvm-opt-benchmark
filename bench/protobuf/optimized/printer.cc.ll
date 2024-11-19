@@ -400,7 +400,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf2io7Printer14TokenizeFormatESt17basic_string_viewIcSt11char_traitsIcEERKNS2_12PrintOptionsE(ptr noalias sret(%"struct.google::protobuf::io::Printer::Format") align 8 initializes((0, 25)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, i64 %format_string.coerce0, ptr %format_string.coerce1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(9) %options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io7Printer14TokenizeFormatESt17basic_string_viewIcSt11char_traitsIcEERKNS2_12PrintOptionsE(ptr noalias sret(%"struct.google::protobuf::io::Printer::Format") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %this, i64 %format_string.coerce0, ptr %format_string.coerce1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(9) %options) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp4.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1385,7 +1385,7 @@ _ZNSt6vectorIN6google8protobuf2io7Printer6Format4LineESaIS5_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6google8protobuf2io7PrinterC2EPNS1_20ZeroCopyOutputStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((0, 33), (40, 114), (120, 256)) %this, ptr noundef %output) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io7PrinterC2EPNS1_20ZeroCopyOutputStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %this, ptr noundef %output) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   store ptr %output, ptr %this, align 8
   %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1446,7 +1446,7 @@ _ZN6google8protobuf2io7PrinterC2EPNS1_20ZeroCopyOutputStreamENS2_7OptionsE.exit:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6google8protobuf2io7PrinterC2EPNS1_20ZeroCopyOutputStreamENS2_7OptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((0, 33), (40, 114), (120, 256)) %this, ptr noundef %output, ptr nocapture noundef readonly byval(%"struct.google::protobuf::io::Printer::Options") align 8 %options) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io7PrinterC2EPNS1_20ZeroCopyOutputStreamENS2_7OptionsE(ptr nocapture noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %output, ptr nocapture noundef readonly byval(%"struct.google::protobuf::io::Printer::Options") align 8 %options) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr %output, ptr %this, align 8
   %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1511,7 +1511,7 @@ declare noundef ptr @getenv(ptr nocapture noundef) local_unnamed_addr #8
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define void @_ZN6google8protobuf2io7PrinterC2EPNS1_20ZeroCopyOutputStreamEcPNS1_19AnnotationCollectorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((0, 33), (40, 41), (48, 98), (104, 114), (120, 256)) %this, ptr noundef %output, i8 noundef signext %variable_delimiter, ptr noundef %annotation_collector) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf2io7PrinterC2EPNS1_20ZeroCopyOutputStreamEcPNS1_19AnnotationCollectorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %this, ptr noundef %output, i8 noundef signext %variable_delimiter, ptr noundef %annotation_collector) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 if.then.i:
   store ptr %output, ptr %this, align 8
   %buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 8

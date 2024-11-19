@@ -587,7 +587,7 @@ _ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ArchiveHeapWriter5writeEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EEP15ArchiveHeapInfo(ptr noundef %0, ptr noundef initializes((0, 16), (64, 72)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ArchiveHeapWriter5writeEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EEP15ArchiveHeapInfo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17ArchiveHeapWriter15allocate_bufferEv()
   tail call void @_ZN17ArchiveHeapWriter26copy_source_objs_to_bufferEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EE(ptr noundef %0)
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -950,7 +950,7 @@ _ZN27ResizeableResourceHashtableImP7oopDescLN6AnyObj15allocation_typeE2EL8MEMFLA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ArchiveHeapWriter21set_requested_addressEP15ArchiveHeapInfo(ptr nocapture noundef writeonly initializes((0, 16), (64, 72)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ArchiveHeapWriter21set_requested_addressEP15ArchiveHeapInfo(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 520
   %4 = load i64, ptr %3, align 8

@@ -247,7 +247,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib32DiscretizedCallableFixedRateBondC2ERKNS_12CallableBond9argumentsERKNS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 8), (16, 64)) %this, ptr noundef nonnull align 8 dereferenceable(232) %args, ptr noundef nonnull align 8 dereferenceable(16) %termStructure) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib32DiscretizedCallableFixedRateBondC2ERKNS_12CallableBond9argumentsERKNS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(400) %this, ptr noundef nonnull align 8 dereferenceable(232) %args, ptr noundef nonnull align 8 dereferenceable(16) %termStructure) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dayCounter = alloca %"class.QuantLib::DayCounter", align 8
   %referenceDate = alloca %"class.QuantLib::Date", align 8
@@ -2333,7 +2333,7 @@ _ZN8QuantLib16DiscretizedAsset12adjustValuesEv.exit: ; preds = %_ZN8QuantLib16Di
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib32DiscretizedCallableFixedRateBond14mandatoryTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib32DiscretizedCallableFixedRateBond14mandatoryTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(400) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %redemptionTime_ = getelementptr inbounds nuw i8, ptr %this, i64 296

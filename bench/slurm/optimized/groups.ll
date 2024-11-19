@@ -29,7 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._put_group_cache = private unnamed_addr constant [17 x i8] c"_put_group_cache\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_groups_members(ptr noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local ptr @get_groups_members(ptr noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca %struct.group, align 8
   %5 = alloca ptr, align 8

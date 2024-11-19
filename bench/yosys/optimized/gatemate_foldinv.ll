@@ -649,7 +649,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNK5Yosys5RTLIL6Design16selected_modulesEv(ptr dead_on_unwind writable sret(%"class.std::vector.3") align 8, ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113FoldInvWorkerC2EPN5Yosys5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 56), (64, 88)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_113FoldInvWorkerC2EPN5Yosys5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [3 x %"struct.std::pair"], align 8
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = alloca %"struct.(anonymous namespace)::LUTType", align 8
@@ -10210,7 +10210,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS0_8hash_opsIS3_EEEC2ERKSt16initializer_listISt4pairIS3_S5_EE(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 48)) %0, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5Yosys7hashlib4dictINS_5RTLIL8IdStringEN12_GLOBAL__N_16LUTPinENS0_8hash_opsIS3_EEEC2ERKSt16initializer_listISt4pairIS3_S5_EE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr readonly %.0.val, i64 %.8.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds %"struct.std::pair.94", ptr %.0.val, i64 %.8.val
   %.not1 = icmp eq i64 %.8.val, 0

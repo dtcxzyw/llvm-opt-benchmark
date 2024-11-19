@@ -83,7 +83,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf4util15FieldComparatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf4util15FieldComparatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf4util15FieldComparatorE, i64 16), ptr %this, align 8
   ret void
@@ -106,7 +106,7 @@ entry:
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf4util21SimpleFieldComparatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 14), (16, 64)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf4util21SimpleFieldComparatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf4util21SimpleFieldComparatorE, i64 16), ptr %this, align 8
   %float_comparison_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -127,7 +127,7 @@ invoke.cont2:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6google8protobuf4util21SimpleFieldComparatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf4util21SimpleFieldComparatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf4util21SimpleFieldComparatorE, i64 16), ptr %this, align 8
   %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -698,7 +698,7 @@ entry:
 declare noundef zeroext i1 @_ZN6google8protobuf4util18MessageDifferencer7CompareERKNS0_7MessageES5_iPSt6vectorINS2_13SpecificFieldESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(432), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf4util21SimpleFieldComparator27SetDefaultFractionAndMarginEdd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((13, 14), (16, 32)) %this, double noundef %fraction, double noundef %margin) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf4util21SimpleFieldComparator27SetDefaultFractionAndMarginEdd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, double noundef %fraction, double noundef %margin) local_unnamed_addr #3 align 2 {
 entry:
   %default_tolerance_ = getelementptr inbounds i8, ptr %this, i64 16
   store double %fraction, ptr %default_tolerance_, align 8

@@ -684,7 +684,7 @@ $_ZTVN5clang4ento31PrettyStackTraceLocationContextE = comdat any
 @_ZN5clang4ento10ExprEngineC1ERNS_8cross_tu27CrossTranslationUnitContextERNS0_15AnalysisManagerEPN4llvm8DenseSetIPKNS_4DeclENS7_12DenseMapInfoISB_vEEEEPNS0_19FunctionSummariesTyENS1_13InliningModesE = unnamed_addr alias void (ptr, ptr, ptr, ptr, ptr, i32), ptr @_ZN5clang4ento10ExprEngineC2ERNS_8cross_tu27CrossTranslationUnitContextERNS0_15AnalysisManagerEPN4llvm8DenseSetIPKNS_4DeclENS7_12DenseMapInfoISB_vEEEEPNS0_19FunctionSummariesTyENS1_13InliningModesE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngineC2ERNS_8cross_tu27CrossTranslationUnitContextERNS0_15AnalysisManagerEPN4llvm8DenseSetIPKNS_4DeclENS7_12DenseMapInfoISB_vEEEEPNS0_19FunctionSummariesTyENS1_13InliningModesE(ptr noundef nonnull align 8 dereferenceable(796) initializes((0, 17), (24, 40)) %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngineC2ERNS_8cross_tu27CrossTranslationUnitContextERNS0_15AnalysisManagerEPN4llvm8DenseSetIPKNS_4DeclENS7_12DenseMapInfoISB_vEEEEPNS0_19FunctionSummariesTyENS1_13InliningModesE(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef nonnull align 1 %1, ptr noundef nonnull align 8 dereferenceable(256) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang4ento10ExprEngineE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
@@ -8087,7 +8087,7 @@ define linkonce_odr hidden void @_ZN5clang4ento31PrettyStackTraceLocationContext
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine17processCFGElementENS_10CFGElementEPNS0_12ExplodedNodeEjPNS0_18NodeBuilderContextE(ptr noundef nonnull align 8 dereferenceable(796) initializes((608, 612), (616, 624)) %0, i64 %1, i64 %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine17processCFGElementENS_10CFGElementEPNS0_12ExplodedNodeEjPNS0_18NodeBuilderContextE(ptr noundef nonnull align 8 dereferenceable(796) %0, i64 %1, i64 %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::ento::PrettyStackTraceLocationContext", align 8
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %3, i64 24
   %.sroa.1.0.copyload.i = load i64, ptr %.sroa.1.0..sroa_idx.i, align 8
@@ -19617,7 +19617,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_124ObjCForHasMoreIterationsEEENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine13processBranchEPKNS_4StmtERNS0_18NodeBuilderContextEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetEPKNS_8CFGBlockESD_(ptr noundef nonnull align 8 dereferenceable(796) initializes((616, 624)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine13processBranchEPKNS_4StmtERNS0_18NodeBuilderContextEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetEPKNS_8CFGBlockESD_(ptr noundef nonnull align 8 dereferenceable(796) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %9 = alloca %"class.clang::ento::EnvironmentEntry", align 8
   %10 = alloca %"class.clang::ento::EnvironmentEntry", align 8
@@ -20463,7 +20463,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit: ; preds = %
 declare void @_ZN5clang4ento14CheckerManager29runCheckersForBranchConditionEPKNS_4StmtERNS0_15ExplodedNodeSetEPNS0_12ExplodedNodeERNS0_10ExprEngineE(ptr noundef nonnull align 8 dereferenceable(1552), ptr noundef, ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef nonnull align 8 dereferenceable(796)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento10ExprEngine24processStaticInitializerEPKNS_8DeclStmtERNS0_18NodeBuilderContextEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetEPKNS_8CFGBlockESD_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(796) initializes((616, 624)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4ento10ExprEngine24processStaticInitializerEPKNS_8DeclStmtERNS0_18NodeBuilderContextEPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetEPKNS_8CFGBlockESD_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(796) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::ImmutableSet", align 8
   %9 = alloca %"class.llvm::IntrusiveRefCntPtr.503", align 8
   %10 = alloca %"class.llvm::ImmutableSet", align 8
@@ -24090,7 +24090,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSB_EEEEjSB_SD_SG_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIN12_GLOBAL__N_120ConstructedObjectKeyEN5clang4ento4SValEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSB_EEEEjSB_SD_SG_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

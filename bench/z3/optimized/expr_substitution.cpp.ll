@@ -212,7 +212,7 @@ if.end8:                                          ; preds = %_Z7deallocI7obj_map
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17expr_substitutionC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 28), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17expr_substitutionC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_subst = getelementptr inbounds i8, ptr %this, i64 8
@@ -358,7 +358,7 @@ _ZN14core_hashtableIN7obj_mapI4exprPS1_E13obj_map_entryE8obj_hashINS3_8key_dataE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17expr_substitutionC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 28), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %core_enabled) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17expr_substitutionC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %core_enabled) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_subst = getelementptr inbounds i8, ptr %this, i64 8
@@ -403,7 +403,7 @@ lpad4:                                            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17expr_substitutionC2ER11ast_managerbb(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 28), (32, 48)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %core_enabled, i1 noundef zeroext %proofs_enabled) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17expr_substitutionC2ER11ast_managerbb(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i1 noundef zeroext %core_enabled, i1 noundef zeroext %proofs_enabled) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_subst = getelementptr inbounds i8, ptr %this, i64 8

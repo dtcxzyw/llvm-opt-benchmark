@@ -1823,7 +1823,7 @@ define void @init(ptr noundef %0) local_unnamed_addr #4 {
 declare void @dt_iop_default_init(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @reload_defaults(ptr nocapture noundef initializes((492, 496), (676, 680)) %0) local_unnamed_addr #4 {
+define void @reload_defaults(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 664
   %3 = load ptr, ptr %2, align 8, !tbaa !90
   %4 = getelementptr inbounds i8, ptr %3, i64 112
@@ -2170,7 +2170,7 @@ define void @commit_params(ptr nocapture noundef readnone %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #8 {
+define void @init_pipe(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #8 {
   %4 = tail call noalias dereferenceable_or_null(128) ptr @malloc(i64 noundef 128) #23
   %5 = getelementptr inbounds i8, ptr %0, i64 688
   %6 = load ptr, ptr %5, align 16, !tbaa !85
@@ -2447,7 +2447,7 @@ define void @gui_update(ptr nocapture noundef readonly %0) local_unnamed_addr #4
 declare void @gtk_widget_queue_draw(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #4 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #4 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 1776) #24
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

@@ -1755,7 +1755,7 @@ declare i32 @H5MF_xfree(ptr noundef, i32 noundef, i64 noundef, i64 noundef) loca
 declare i32 @H5PB_update_entry(ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__serialize_single_entry(ptr noundef %0, ptr noundef %1, ptr noundef initializes((59, 60)) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C__serialize_single_entry(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 59
   store i8 1, ptr %4, align 1
   %5 = getelementptr inbounds i8, ptr %2, i64 24

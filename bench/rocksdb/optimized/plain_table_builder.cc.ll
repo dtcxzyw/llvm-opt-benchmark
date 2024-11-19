@@ -327,7 +327,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17PlainTableBuilderC2ERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsEPKSt6vectorISt10unique_ptrINS_26IntTblPropCollectorFactoryESt14default_deleteIS9_EESaISC_EEjiPNS_18WritableFileWriterEjNS_12EncodingTypeEmjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjmdbSR_SR_m(ptr noundef nonnull align 16 dereferenceable(3288) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr noundef nonnull align 8 dereferenceable(560) %moptions, ptr nocapture noundef readonly %int_tbl_prop_collector_factories, i32 noundef %column_family_id, i32 noundef %level_at_creation, ptr noundef %file, i32 noundef %user_key_len, i8 noundef signext %encoding_type, i64 noundef %index_sparseness, i32 noundef %bloom_bits_per_key, ptr noundef nonnull align 8 dereferenceable(32) %column_family_name, i32 noundef %num_probes, i64 noundef %huge_page_tlb_size, double noundef %hash_table_ratio, i1 noundef zeroext %store_index_in_file, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, i64 noundef %file_number) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb17PlainTableBuilderC2ERKNS_16ImmutableOptionsERKNS_16MutableCFOptionsEPKSt6vectorISt10unique_ptrINS_26IntTblPropCollectorFactoryESt14default_deleteIS9_EESaISC_EEjiPNS_18WritableFileWriterEjNS_12EncodingTypeEmjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjmdbSR_SR_m(ptr noundef nonnull align 16 dereferenceable(3288) %this, ptr noundef nonnull align 8 dereferenceable(857) %ioptions, ptr noundef nonnull align 8 dereferenceable(560) %moptions, ptr nocapture noundef readonly %int_tbl_prop_collector_factories, i32 noundef %column_family_id, i32 noundef %level_at_creation, ptr noundef %file, i32 noundef %user_key_len, i8 noundef signext %encoding_type, i64 noundef %index_sparseness, i32 noundef %bloom_bits_per_key, ptr noundef nonnull align 8 dereferenceable(32) %column_family_name, i32 noundef %num_probes, i64 noundef %huge_page_tlb_size, double noundef %hash_table_ratio, i1 noundef zeroext %store_index_in_file, ptr noundef nonnull align 8 dereferenceable(32) %db_id, ptr noundef nonnull align 8 dereferenceable(32) %db_session_id, i64 noundef %file_number) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %value.addr.i = alloca i32, align 4
   %ref.tmp = alloca %"class.rocksdb::Status", align 8
@@ -1146,7 +1146,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN7rocksdb19IntTblPropCollectorESt14default_de
 declare void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb17PlainTableBuilderD2Ev(ptr noundef nonnull align 16 dereferenceable(3288) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb17PlainTableBuilderD2Ev(ptr noundef nonnull align 16 dereferenceable(3288) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb17PlainTableBuilderE, i64 16), ptr %this, align 16
   %keys_or_prefixes_hashes_ = getelementptr inbounds i8, ptr %this, i64 3248
@@ -2036,7 +2036,7 @@ declare void @_ZN7rocksdb18WritableFileWriter6AppendERKNS_5SliceEjNS_3Env10IOPri
 declare noundef zeroext i1 @_ZN7rocksdb33NotifyCollectTableCollectorsOnAddERKNS_5SliceES2_mRKSt6vectorISt10unique_ptrINS_19IntTblPropCollectorESt14default_deleteIS5_EESaIS8_EEPNS_6LoggerE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), i64 noundef, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb17PlainTableBuilder6FinishEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(3288) initializes((2448, 2456), (3272, 3273)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb17PlainTableBuilder6FinishEv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(3288) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i248 = alloca %"class.std::unique_ptr.16", align 8
   %ref.tmp.i194 = alloca %"class.std::unique_ptr.16", align 8
@@ -3345,7 +3345,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_N7rocksdb12stl_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7rocksdb17PlainTableBuilder7AbandonEv(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(3288) initializes((3272, 3273)) %this) unnamed_addr #10 align 2 {
+define void @_ZN7rocksdb17PlainTableBuilder7AbandonEv(ptr nocapture noundef nonnull writeonly align 16 dereferenceable(3288) %this) unnamed_addr #10 align 2 {
 entry:
   %closed_ = getelementptr inbounds i8, ptr %this, i64 3272
   store i8 1, ptr %closed_, align 8

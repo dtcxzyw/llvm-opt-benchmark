@@ -44,7 +44,7 @@ define range(i32 0, -2147483648) i32 @Hash_DefaultHashFunc(i32 noundef %0, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Pdr_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 192)) %0) local_unnamed_addr #1 {
+define void @Pdr_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(192) %2, i8 0, i64 160, i1 false)
   store i32 300, ptr %0, align 8
@@ -1538,7 +1538,7 @@ define noundef i32 @Pdr_ManGeneralize2(ptr nocapture noundef readnone %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Pdr_ManGeneralize(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef initializes((0, 8)) %4) local_unnamed_addr #3 {
+define range(i32 -1, 2) i32 @Pdr_ManGeneralize(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #3 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8

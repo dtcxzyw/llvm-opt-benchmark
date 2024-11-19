@@ -72,7 +72,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3dC2ERKNS_9GfRange3fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__9GfRange3dC2ERKNS_9GfRange3fE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %1) unnamed_addr #3 align 2 {
   %3 = load float, ptr %1, align 4
   %4 = fpext float %3 to double
   store double %4, ptr %0, align 8
@@ -187,7 +187,7 @@ define noundef double @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d18GetDist
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d9GetCornerEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d9GetCornerEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = icmp ugt i64 %2, 7
   br i1 %5, label %6, label %11
@@ -236,7 +236,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d9GetCornerEm(ptr de
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33), i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d9GetOctantEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 initializes((0, 8), (24, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d9GetOctantEm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i64 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = icmp ugt i64 %2, 7
   br i1 %5, label %6, label %_ZNK32pxrInternal_v0_24__pxrReserved__9GfRange3d9GetCornerEm.exit

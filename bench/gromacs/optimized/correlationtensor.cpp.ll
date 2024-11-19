@@ -1081,7 +1081,7 @@ _ZN3gmx20CorrelationBlockData7addDataEdNS_8ArrayRefIKdEE.exit23: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx17CorrelationTensorC2Eiid(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2, double noundef %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx17CorrelationTensorC2Eiid(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2, double noundef %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca double, align 8
   store i32 %1, ptr %5, align 4

@@ -67,7 +67,7 @@ define hidden void @fcgi_terminate() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @fcgi_request_set_keep(ptr nocapture noundef writeonly initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden void @fcgi_request_set_keep(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   ret void

@@ -963,7 +963,7 @@ define { i64, i64 } @_ZN10open_spiel9dou_dizhu21GetAirplaneCombParamsEi(i32 noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9dou_dizhu12ActionToHandEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 initializes((0, 60)) %0, i32 noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9dou_dizhu12ActionToHandEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 %0, i32 noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::array", align 4
   %4 = alloca %"struct.std::array", align 4
   %5 = alloca %"struct.std::array", align 4
@@ -1344,7 +1344,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9dou_dizhu14SingleRankHandEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 initializes((0, 60)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @_ZN10open_spiel9dou_dizhu14SingleRankHandEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 %0, i32 noundef %1) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %0, i8 0, i64 60, i1 false)
   %3 = tail call i64 @_ZN10open_spiel9dou_dizhu23GetSingleRankHandParamsEi(i32 noundef %1)
   %.sroa.2.0.extract.shift = lshr i64 %3, 32
@@ -2301,7 +2301,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9dou_dizhu13ChainOnlyHandEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 initializes((0, 60)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @_ZN10open_spiel9dou_dizhu13ChainOnlyHandEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 %0, i32 noundef %1) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %0, i8 0, i64 60, i1 false)
   %3 = tail call { i64, i32 } @_ZN10open_spiel9dou_dizhu22GetChainOnlyHandParamsEi(i32 noundef %1)
   %.fca.0.extract = extractvalue { i64, i32 } %3, 0
@@ -3549,7 +3549,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9dou_dizhu18SingleTrioCombHandEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 initializes((0, 60)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @_ZN10open_spiel9dou_dizhu18SingleTrioCombHandEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.std::array") align 4 %0, i32 noundef %1) local_unnamed_addr #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %0, i8 0, i64 60, i1 false)
   %3 = tail call { i64, i64 } @_ZN10open_spiel9dou_dizhu23GetSingleTrioCombParamsEi(i32 noundef %1)
   %4 = extractvalue { i64, i64 } %3, 0
@@ -4596,7 +4596,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel9dou_dizhu16AirplaneCombHandEi(ptr dead_on_unwind noalias writable sret(%"struct.std::array") align 4 initializes((0, 60)) %0, i32 noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel9dou_dizhu16AirplaneCombHandEi(ptr dead_on_unwind noalias writable sret(%"struct.std::array") align 4 %0, i32 noundef %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::array", align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

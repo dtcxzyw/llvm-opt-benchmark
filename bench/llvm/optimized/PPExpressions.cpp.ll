@@ -451,7 +451,7 @@ _ZN12_GLOBAL__N_17PPValueD2Ev.exit:               ; preds = %164, %167
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL13EvaluateValueRN12_GLOBAL__N_17PPValueERN5clang5TokenER14DefinedTrackerbRNS2_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(17) initializes((0, 4)) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(3288) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL13EvaluateValueRN12_GLOBAL__N_17PPValueERN5clang5TokenER14DefinedTrackerbRNS2_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(3288) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.clang::CharSourceRange", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -4886,7 +4886,7 @@ declare void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 derefe
 declare i32 @_ZNK5clang13SourceManager23getExpansionLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696), i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL15EvaluateDefinedRN12_GLOBAL__N_17PPValueERN5clang5TokenER14DefinedTrackerbRNS2_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(3288) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL15EvaluateDefinedRN12_GLOBAL__N_17PPValueERN5clang5TokenER14DefinedTrackerbRNS2_12PreprocessorE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17) %2, i1 noundef zeroext %3, ptr noundef nonnull align 8 dereferenceable(3288) %4) unnamed_addr #0 {
   %6 = alloca %"class.llvm::APSInt", align 8
   %7 = alloca %"class.clang::MacroDefinition", align 8
   %8 = alloca %"class.clang::Token", align 8
@@ -7376,7 +7376,7 @@ declare noundef i32 @_ZNK4llvm5APInt7compareERKS0_(ptr noundef nonnull align 8 d
 declare noundef i32 @_ZNK4llvm5APInt13compareSignedERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26diagnoseUnexpectedOperatorRN5clang12PreprocessorERN12_GLOBAL__N_17PPValueERNS_5TokenE(ptr initializes((368, 376)) %.48.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %.0.val, i16 %.16.val) unnamed_addr #0 {
+define internal fastcc void @_ZL26diagnoseUnexpectedOperatorRN5clang12PreprocessorERN12_GLOBAL__N_17PPValueERNS_5TokenE(ptr %.48.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, i32 %.0.val, i16 %.16.val) unnamed_addr #0 {
   %2 = alloca %"class.clang::CharSourceRange", align 8
   %3 = alloca %"class.clang::DiagnosticBuilder", align 8
   %4 = icmp eq i16 %.16.val, 22

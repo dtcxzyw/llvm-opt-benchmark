@@ -144,7 +144,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core12BatchBuilderC2EP38grpc_transport_stream_op_batch_payload(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 8), (32, 33), (40, 48)) %this, ptr noundef %payload) unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core12BatchBuilderC2EP38grpc_transport_stream_op_batch_payload(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %payload) unnamed_addr #3 align 2 {
 entry:
   store ptr %payload, ptr %this, align 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -417,7 +417,7 @@ _ZN4absl12lts_202308026StatusD2Ev.exit:           ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN9grpc_core12BatchBuilder17PendingCompletionC2ENS_13RefCountedPtrINS0_5BatchEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (16, 24), (40, 49), (50, 52), (56, 64)) %this, ptr nocapture noundef %batch) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12BatchBuilder17PendingCompletionC2ENS_13RefCountedPtrINS0_5BatchEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef %batch) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12BatchBuilder17PendingCompletionE, i64 16), ptr %this, align 8
   %done_latch = getelementptr inbounds i8, ptr %this, i64 40
@@ -465,7 +465,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core12BatchBuilder5BatchC2EP38grpc_transport_stream_op_batch_payloadP20grpc_stream_refcount(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 17), (24, 113)) %this, ptr noundef %payload, ptr noundef %stream_refcount) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12BatchBuilder5BatchC2EP38grpc_transport_stream_op_batch_payloadP20grpc_stream_refcount(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef %payload, ptr noundef %stream_refcount) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %handler_private.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 0, i64 17, i1 false)

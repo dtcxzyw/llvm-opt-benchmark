@@ -684,7 +684,7 @@ _ZN5Gluco3vecINS0_IjEEED2Ev.exit:                 ; preds = %_ZN5Gluco3vecIcED2E
 declare void @_ZN5Gluco6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1216)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Gluco10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1484) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Gluco10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Gluco10SimpSolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1456
   %3 = load ptr, ptr %2, align 8
@@ -3466,7 +3466,7 @@ _ZN5Gluco3vecINS_3LitEE4pushERKS1_.exit56:        ; preds = %._ZN5Gluco3vecINS_3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZN5Gluco10SimpSolver5mergeERKNS_6ClauseES3_iRi(ptr nocapture noundef nonnull align 8 dereferenceable(1484) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #8 align 2 {
+define noundef zeroext i1 @_ZN5Gluco10SimpSolver5mergeERKNS_6ClauseES3_iRi(ptr nocapture noundef nonnull align 8 dereferenceable(1484) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(12) %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4) local_unnamed_addr #8 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 1244
   %7 = load i32, ptr %6, align 4
   %8 = add nsw i32 %7, 1

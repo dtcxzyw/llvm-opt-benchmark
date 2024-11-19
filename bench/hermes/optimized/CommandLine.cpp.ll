@@ -2293,7 +2293,7 @@ _ZN12_GLOBAL__N_117CommandLineParser16addLiteralOptionERN4llvh2cl6OptionENS1_9St
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh2cl9extrahelpC2ENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr %Help.coerce0, i64 %Help.coerce1) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh2cl9extrahelpC2ENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr %Help.coerce0, i64 %Help.coerce1) unnamed_addr #0 align 2 {
 entry:
   store ptr %Help.coerce0, ptr %this, align 8
   %Help.sroa.4.0.this.sroa_idx = getelementptr inbounds i8, ptr %this, i64 8
@@ -3079,7 +3079,7 @@ _ZN12_GLOBAL__N_117CommandLineParser20unregisterSubCommandEPN4llvh2cl10SubComman
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh2cl10SubCommand5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(168) initializes((40, 44), (88, 92)) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh2cl10SubCommand5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(168) %this) local_unnamed_addr #0 align 2 {
 entry:
   %Size.i.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %Size.i.i, align 8
@@ -10311,7 +10311,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -10330,7 +10330,7 @@ _ZN4llvh2cl6OptionD2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -10478,7 +10478,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -16194,7 +16194,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -16306,7 +16306,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvh2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEENS0_4descEJNS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_(ptr noundef initializes((40, 56)) %O, ptr %M.0.val, i64 %M.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %Ms, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %Ms1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %Ms3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %Ms5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %Ms7) unnamed_addr #0 {
+define internal fastcc void @_ZN4llvh2cl5applyINS0_3optIN12_GLOBAL__N_111HelpPrinterELb1ENS0_6parserIbEEEENS0_4descEJNS0_13LocationClassIS4_EENS0_12OptionHiddenENS0_13ValueExpectedENS0_3catENS0_3subEEEEvPT_RKT0_DpRKT1_(ptr noundef %O, ptr %M.0.val, i64 %M.8.val, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %Ms, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %Ms1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %Ms3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %Ms5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %Ms7) unnamed_addr #0 {
 entry:
   %ref.tmp.i.i.i.i = alloca %"class.llvh::Twine", align 8
   %HelpStr.i.i.i = getelementptr inbounds i8, ptr %O, i64 40
@@ -16484,7 +16484,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_118HelpPrinterWrapperELb1ENS0_6parserIbEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -16917,7 +16917,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvh2cl3optIN12_GLOBAL__N_114VersionPrinterELb1ENS0_6parserIbEEED0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh2cl6OptionE, i64 16), ptr %this, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80

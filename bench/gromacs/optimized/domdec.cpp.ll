@@ -948,7 +948,7 @@ define noundef i32 @_Z15dd_natoms_vsiteRK12gmx_domdec_t(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_Z23dd_get_constraint_rangeRK12gmx_domdec_tPiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(456) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #13 {
+define void @_Z23dd_get_constraint_rangeRK12gmx_domdec_tPiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(456) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #13 {
   %4 = getelementptr inbounds i8, ptr %0, i64 320
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 1584
@@ -3271,7 +3271,7 @@ declare noundef i32 @_Z14tMPI_Comm_freePP10tmpi_comm_(ptr noundef) local_unnamed
 declare noundef i32 @_Z14tMPI_Comm_sizeP10tmpi_comm_Pi(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12UnitCellInfoC2ERK10t_inputrec(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(10) initializes((0, 10)) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #0 align 2 {
+define void @_ZN12UnitCellInfoC2ERK10t_inputrec(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 176
   %4 = load i32, ptr %3, align 8
   %5 = tail call noundef i32 @_Z16numPbcDimensions7PbcType(i32 noundef %4)
@@ -3352,7 +3352,7 @@ define noundef zeroext i1 @_Z16dd_bonded_molpbcRK12gmx_domdec_t7PbcType(ptr noca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12gmx_domdec_tC2ERK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(456) initializes((0, 4), (8, 53), (56, 68)) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12gmx_domdec_tC2ERK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(456) %0, ptr noundef nonnull align 8 dereferenceable(856) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -5119,7 +5119,7 @@ declare void @_ZN3gmx15GpuHaloExchangeD1Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZNK3gmx20HostAllocationPolicy4freeEPv(ptr noundef nonnull align 4 dereferenceable(4), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx26DomainDecompositionBuilder4ImplC2ERKNS_8MDLoggerEP9t_commrecRKNS_13DomdecOptionsERKNS_12MdrunOptionsERK10gmx_mtop_tRK10t_inputrecRKNS_18MDModulesNotifiersEPA3_KfNS_8ArrayRefIKNS_17RangePartitioningEEEbfNSP_IKNS_11BasicVectorIfEEEEbbbbb(ptr noundef nonnull align 8 dereferenceable(816) initializes((0, 105), (108, 119), (120, 137), (144, 160), (164, 167), (168, 182), (184, 190), (232, 464), (468, 485), (488, 504)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(768) %5, ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull align 8 dereferenceable(600) %7, ptr noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, i1 noundef zeroext %10, float noundef %11, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.376") align 8 %12, i1 noundef zeroext %13, i1 noundef zeroext %14, i1 noundef zeroext %15, i1 noundef zeroext %16, i1 noundef zeroext %17) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx26DomainDecompositionBuilder4ImplC2ERKNS_8MDLoggerEP9t_commrecRKNS_13DomdecOptionsERKNS_12MdrunOptionsERK10gmx_mtop_tRK10t_inputrecRKNS_18MDModulesNotifiersEPA3_KfNS_8ArrayRefIKNS_17RangePartitioningEEEbfNSP_IKNS_11BasicVectorIfEEEEbbbbb(ptr noundef nonnull align 8 dereferenceable(816) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %4, ptr noundef nonnull align 8 dereferenceable(768) %5, ptr noundef nonnull align 8 dereferenceable(856) %6, ptr noundef nonnull align 8 dereferenceable(600) %7, ptr noundef %8, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %9, i1 noundef zeroext %10, float noundef %11, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.376") align 8 %12, i1 noundef zeroext %13, i1 noundef zeroext %14, i1 noundef zeroext %15, i1 noundef zeroext %16, i1 noundef zeroext %17) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %19 = alloca [3 x i8], align 1
   %20 = alloca %"class.gmx::LogEntryWriter", align 8
   %21 = alloca %"class.gmx::LogEntryWriter", align 8
@@ -11926,7 +11926,7 @@ declare void @_Z46dd_dlb_set_should_check_whether_to_turn_dlb_onP12gmx_domdec_tb
 declare noundef float @_Z23maxReferenceTemperatureRK10t_inputrec(ptr noundef nonnull align 8 dereferenceable(856)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12get_slb_fracRKN3gmx8MDLoggerEPKciS4_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12get_slb_fracRKN3gmx8MDLoggerEPKciS4_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.gmx::LogEntryWriter", align 8
   %7 = alloca double, align 8
   %8 = alloca i32, align 4
@@ -12357,7 +12357,7 @@ declare noundef i32 @_Z14tMPI_AllreducePvS_iP14tmpi_datatype_7tMPI_OpP10tmpi_com
 declare void @_ZN16AtomDistributionC1EPKiii(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef, i32 noundef, i32 noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL10init_ddpmeP12gmx_domdec_tP9gmx_ddpmei(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 5), (8, 12)) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL10init_ddpmeP12gmx_domdec_tP9gmx_ddpmei(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca [3 x i32], align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 320
   %6 = load ptr, ptr %5, align 8

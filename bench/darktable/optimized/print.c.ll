@@ -58,7 +58,7 @@ define noundef i32 @view(ptr nocapture noundef readnone %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write) uwtable
-define void @init(ptr noundef initializes((288, 296)) %0) local_unnamed_addr #3 {
+define void @init(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #11
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %2, ptr %3, align 8, !tbaa !6

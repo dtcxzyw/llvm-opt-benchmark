@@ -14744,7 +14744,7 @@ entry:
 declare i32 @uv_async_send(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6Buffer12_GLOBAL__N_112CallbackInfo18OnBackingStoreFreeEvEUlS2_E_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6Buffer12_GLOBAL__N_112CallbackInfo18OnBackingStoreFreeEvEUlS2_E_ED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_, align 8
@@ -14787,7 +14787,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %_ZZ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6Buffer12_GLOBAL__N_112CallbackInfo18OnBackingStoreFreeEvEUlS2_E_ED0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6Buffer12_GLOBAL__N_112CallbackInfo18OnBackingStoreFreeEvEUlS2_E_ED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %callback_.i, align 8

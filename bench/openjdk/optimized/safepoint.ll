@@ -232,7 +232,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN20ThreadSafepointStateC1EP10JavaThread = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN20ThreadSafepointStateC2EP10JavaThread
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN21SafepointStateTrackerC2Emb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN21SafepointStateTrackerC2Emb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, i64 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store i64 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1363,7 +1363,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20ThreadSafepointState7restartEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((16, 17)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20ThreadSafepointState7restartEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i8 0, ptr %2, align 8
   ret void
@@ -1503,7 +1503,7 @@ define hidden void @_ZN16SafepointTracing3endEv() local_unnamed_addr #2 align 2 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN20SafepointSynchronize21try_stable_load_stateEP15JavaThreadStateP10JavaThreadm(ptr nocapture noundef initializes((0, 4)) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN20SafepointSynchronize21try_stable_load_stateEP15JavaThreadStateP10JavaThreadm(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 1092
   %5 = load volatile i32, ptr %4, align 4
   store i32 %5, ptr %0, align 4
@@ -2053,7 +2053,7 @@ define hidden void @_ZN20ThreadSafepointState7destroyEP10JavaThread(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN20ThreadSafepointState19account_safe_threadEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 17)) %0) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN20ThreadSafepointState19account_safe_threadEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #7 align 2 {
   %2 = load i32, ptr @_ZN20SafepointSynchronize17_waiting_to_blockE, align 4
   %3 = add nsw i32 %2, -1
   store i32 %3, ptr @_ZN20SafepointSynchronize17_waiting_to_blockE, align 4

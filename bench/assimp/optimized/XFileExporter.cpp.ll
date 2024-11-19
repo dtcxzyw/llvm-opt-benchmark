@@ -746,7 +746,7 @@ _ZNSt3mapIjiSt4lessIjESaISt4pairIKjiEEED2Ev.exit: ; preds = %_ZNSt3mapIjfSt4less
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13XFileExporterC2EPK7aiScenePNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PKNS_16ExportPropertiesE(ptr noundef nonnull align 8 dereferenceable(560) initializes((0, 8)) %this, ptr noundef %pScene, ptr noundef %pIOSystem, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %file, ptr noundef %pProperties) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13XFileExporterC2EPK7aiScenePNS_8IOSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PKNS_16ExportPropertiesE(ptr noundef nonnull align 8 dereferenceable(560) %this, ptr noundef %pScene, ptr noundef %pIOSystem, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr noundef nonnull align 8 dereferenceable(32) %file, ptr noundef %pProperties) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
   %agg.tmp.ensured = alloca %"class.std::locale", align 8
@@ -947,7 +947,7 @@ entry:
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp13XFileExporterD2Ev(ptr noundef nonnull align 8 dereferenceable(560) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp13XFileExporterD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp13XFileExporterE, i64 16), ptr %this, align 8
   %mSceneOwned = getelementptr inbounds i8, ptr %this, i64 488
@@ -987,7 +987,7 @@ declare void @_ZN7aiSceneD1Ev(ptr noundef nonnull align 8 dereferenceable(1168))
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp13XFileExporterD0Ev(ptr noundef nonnull align 8 dereferenceable(560) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN6Assimp13XFileExporterD0Ev(ptr noundef nonnull align 8 dereferenceable(560) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp13XFileExporterE, i64 16), ptr %this, align 8
   %mSceneOwned.i = getelementptr inbounds i8, ptr %this, i64 488

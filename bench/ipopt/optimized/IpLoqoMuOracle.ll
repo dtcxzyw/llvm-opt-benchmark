@@ -61,7 +61,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Ipopt12LoqoMuOracleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((0, 12), (16, 49)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt12LoqoMuOracleC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -92,7 +92,7 @@ define noundef zeroext i1 @_ZN5Ipopt12LoqoMuOracle14InitializeImplERKNS_11Option
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Ipopt12LoqoMuOracle11CalculateMuEddRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %3) unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN5Ipopt12LoqoMuOracle11CalculateMuEddRd(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %0, double noundef %1, double noundef %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef double @_ZN5Ipopt25IpoptCalculatedQuantities15curr_avrg_complEv(ptr noundef nonnull align 8 dereferenceable(2185) %6)

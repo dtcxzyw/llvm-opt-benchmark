@@ -1131,7 +1131,7 @@ declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef no
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26BlockFrequencyInfoImplBase5clearEv(ptr noundef nonnull align 8 dereferenceable(112) initializes((16, 24)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm26BlockFrequencyInfoImplBase5clearEv(ptr noundef nonnull align 8 dereferenceable(112) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3049,7 +3049,7 @@ define dso_local void @_ZNK4llvm26BlockFrequencyInfoImplBase11getLoopNameB5cxx11
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10bfi_detail16IrreducibleGraph14addNodesInLoopERKNS_26BlockFrequencyInfoImplBase8LoopDataE(ptr noundef nonnull align 8 dereferenceable(120) initializes((8, 12)) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10bfi_detail16IrreducibleGraph14addNodesInLoopERKNS_26BlockFrequencyInfoImplBase8LoopDataE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(176) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", align 4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %5 = load ptr, ptr %4, align 8
@@ -3422,7 +3422,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjPNS_10bfi_detail16IrreducibleGraph7Ir
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10bfi_detail16IrreducibleGraph18addNodesInFunctionEv(ptr noundef nonnull align 8 dereferenceable(120) initializes((8, 12)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10bfi_detail16IrreducibleGraph18addNodesInFunctionEv(ptr noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"struct.llvm::BlockFrequencyInfoImplBase::BlockNode", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8

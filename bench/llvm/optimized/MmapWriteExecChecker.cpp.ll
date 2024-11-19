@@ -620,7 +620,7 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120MmapWriteExecCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 8), (160, 168)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120MmapWriteExecCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_120MmapWriteExecCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -699,7 +699,7 @@ _ZN5clang4ento15CallDescriptionD2Ev.exit9:        ; preds = %_ZSt8_DestroyIPNSt7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120MmapWriteExecCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 8), (160, 168)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120MmapWriteExecCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_120MmapWriteExecCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(276) %0) #14
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 280) #16
   ret void

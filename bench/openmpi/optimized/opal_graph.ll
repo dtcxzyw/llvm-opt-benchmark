@@ -27,14 +27,14 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_graph_vertex_construct(ptr nocapture noundef writeonly initializes((40, 112)) %0) #0 {
+define internal void @opal_graph_vertex_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_graph_vertex_destruct(ptr nocapture noundef initializes((40, 56), (64, 80), (88, 112)) %0) #1 {
+define internal void @opal_graph_vertex_destruct(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = getelementptr inbounds i8, ptr %0, i64 88
@@ -61,7 +61,7 @@ define internal void @opal_graph_vertex_destruct(ptr nocapture noundef initializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_graph_edge_construct(ptr nocapture noundef writeonly initializes((40, 60), (64, 72)) %0) #0 {
+define internal void @opal_graph_edge_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %3, align 8
@@ -70,7 +70,7 @@ define internal void @opal_graph_edge_construct(ptr nocapture noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @opal_graph_edge_destruct(ptr nocapture noundef writeonly initializes((40, 60), (64, 72)) %0) #0 {
+define internal void @opal_graph_edge_destruct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %3, align 8
@@ -265,7 +265,7 @@ opal_obj_run_destructors.exit21:                  ; preds = %opal_obj_run_destru
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_adjacency_list_construct(ptr nocapture noundef writeonly initializes((40, 48)) %0) #1 {
+define internal void @opal_adjacency_list_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   %3 = load i64, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 56), align 8
@@ -308,7 +308,7 @@ opal_obj_new.exit:                                ; preds = %.lr.ph.i.i, %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_adjacency_list_destruct(ptr nocapture noundef initializes((40, 48)) %0) #1 {
+define internal void @opal_adjacency_list_destruct(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48

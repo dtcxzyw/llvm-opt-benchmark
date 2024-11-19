@@ -29,7 +29,7 @@ $_ZN2OT4cff219accelerator_templ_tIN3CFF25cff2_private_dict_opset_tENS2_31cff2_pr
 @_hb_NullPool = external constant [80 x i64], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12hb_ot_face_t5init0EP9hb_face_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12hb_ot_face_t5init0EP9hb_face_t(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

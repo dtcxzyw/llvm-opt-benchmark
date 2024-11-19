@@ -1522,7 +1522,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_28OptionletVolatilityStructureEE4Lin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27SpreadedOptionletVolatilityC1ERKNS_6HandleINS_28OptionletVolatilityStructureEEENS1_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((104, 112), (120, 124), (128, 136)) %this, ptr noundef nonnull align 8 dereferenceable(16) %baseVol, ptr nocapture noundef %spread) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27SpreadedOptionletVolatilityC1ERKNS_6HandleINS_28OptionletVolatilityStructureEEENS1_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(16) %baseVol, ptr nocapture noundef %spread) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %ref.tmp11 = alloca %"class.boost::shared_ptr", align 8

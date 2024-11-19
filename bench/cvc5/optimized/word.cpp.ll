@@ -1121,7 +1121,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory7strings4Word8getCharsENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.std::vector.65") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef readonly %x) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings4Word8getCharsENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.std::vector.65") align 8 %agg.result, ptr nocapture noundef readonly %x) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ccVec = alloca %"class.std::vector", align 8
   %ch = alloca %"class.cvc5::internal::NodeTemplate", align 8
@@ -4915,7 +4915,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal6String10isRepeatedEv(ptr noundef 
 declare noundef zeroext i1 @_ZNK4cvc58internal8Sequence10isRepeatedEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory7strings4Word13splitConstantENS0_12NodeTemplateILb0EEES5_Rmb(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %y, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %index, i1 noundef zeroext %isRev) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings4Word13splitConstantENS0_12NodeTemplateILb0EEES5_Rmb(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef readonly %x, ptr nocapture noundef readonly %y, ptr nocapture noundef nonnull align 8 dereferenceable(8) %index, i1 noundef zeroext %isRev) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.78", align 8
   %agg.tmp1 = alloca %"class.cvc5::internal::NodeTemplate.78", align 8

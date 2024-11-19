@@ -8258,7 +8258,7 @@ define dso_local noundef ptr @_Z17lua_getthreaddataP9lua_State(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z17lua_setthreaddataP9lua_StatePv(ptr nocapture noundef writeonly initializes((120, 128)) %0, ptr noundef %1) local_unnamed_addr #13 {
+define dso_local void @_Z17lua_setthreaddataP9lua_StatePv(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %1, ptr %3, align 8
   ret void
@@ -10263,7 +10263,7 @@ define dso_local noundef nonnull ptr @_Z13lua_callbacksP9lua_State(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_Z13lua_setmemcatP9lua_Statei(ptr nocapture noundef writeonly initializes((4, 5)) %0, i32 noundef %1) local_unnamed_addr #13 {
+define dso_local void @_Z13lua_setmemcatP9lua_Statei(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #13 {
   %3 = trunc i32 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 %3, ptr %4, align 4

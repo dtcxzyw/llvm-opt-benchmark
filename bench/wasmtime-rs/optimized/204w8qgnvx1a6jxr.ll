@@ -64,7 +64,7 @@ define { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..func
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h2b315eae14a9ed6eE"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 initializes((0, 24)) %0, ptr nocapture readnone align 1 %1, ptr readonly align 1 %2, i64 %3) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h2b315eae14a9ed6eE"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nocapture readnone align 1 %1, ptr readonly align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
@@ -96,7 +96,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9649047afbfdbb03E"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 initializes((0, 24)) %0, ptr nocapture readnone align 1 %1, ptr readonly align 1 %2, i64 %3) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h9649047afbfdbb03E"(ptr nocapture writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 %0, ptr nocapture readnone align 1 %1, ptr readonly align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11)

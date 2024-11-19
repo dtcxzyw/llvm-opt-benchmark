@@ -210,7 +210,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29BermudanSwaptionExerciseValueC2ERKSt6vectorIdSaIdEES1_IN5boost10shared_ptrINS_6PayoffEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 40)) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef %payoffs) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib29BermudanSwaptionExerciseValueC2ERKSt6vectorIdSaIdEES1_IN5boost10shared_ptrINS_6PayoffEEESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef %payoffs) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1023,7 +1023,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib29BermudanSwaptionExerciseValue21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.3") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib29BermudanSwaptionExerciseValue21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.3") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1069,7 +1069,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib29BermudanSwaptionExerciseValue5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((192, 200)) %this) unnamed_addr #9 align 2 {
+define void @_ZN8QuantLib29BermudanSwaptionExerciseValue5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %this) unnamed_addr #9 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i64 0, ptr %currentIndex_, align 8, !tbaa !57
@@ -1077,7 +1077,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib29BermudanSwaptionExerciseValue8nextStepERKNS_10CurveStateE(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((200, 216)) %this, ptr noundef nonnull align 8 dereferenceable(64) %state) unnamed_addr #1 align 2 {
+define void @_ZN8QuantLib29BermudanSwaptionExerciseValue8nextStepERKNS_10CurveStateE(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(64) %state) unnamed_addr #1 align 2 {
 entry:
   %payoffs_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 192
@@ -1124,7 +1124,7 @@ _ZNK5boost10shared_ptrIN8QuantLib6PayoffEEdeEv.exit: ; preds = %entry, %cond.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib29BermudanSwaptionExerciseValue14isExerciseTimeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::valarray") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #1 align 2 {
+define void @_ZNK8QuantLib29BermudanSwaptionExerciseValue14isExerciseTimeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::valarray") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(216) %this) unnamed_addr #1 align 2 {
 entry:
   %numberOfExercises_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %numberOfExercises_, align 8, !tbaa !19

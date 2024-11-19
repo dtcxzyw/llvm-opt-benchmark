@@ -65,7 +65,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL26CNS_11643_1992_Plane_7_STR = internal constant [5 x i8] c"\1B$+M\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef initializes((16, 24)) %cnv, ptr nocapture noundef readonly %pArgs, ptr noundef %errorCode) #0 {
+define internal void @_ZL12_ISO2022OpenP10UConverterP18UConverterLoadArgsP10UErrorCode(ptr nocapture noundef %cnv, ptr nocapture noundef readonly %pArgs, ptr noundef %errorCode) #0 {
 entry:
   %myLocale = alloca [7 x i8], align 1
   %stackPieces = alloca %struct.UConverterNamePieces, align 4

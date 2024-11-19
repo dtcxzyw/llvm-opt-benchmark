@@ -3512,7 +3512,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN8QuantLib19LPP2HestonExpansionC2Edddddd(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (32, 64)) %this, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %rho, double noundef %term) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19LPP2HestonExpansionC2Edddddd(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %rho, double noundef %term) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib19LPP2HestonExpansionE, i64 16), ptr %this, align 8, !tbaa !35
   %mul = fmul double %kappa, %term
@@ -3934,7 +3934,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #13
 declare double @pow(double noundef, double noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @_ZN8QuantLib20FordeHestonExpansionC2Edddddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %rho, double noundef %term) unnamed_addr #14 align 2 {
+define void @_ZN8QuantLib20FordeHestonExpansionC2Edddddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %rho, double noundef %term) unnamed_addr #14 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib20FordeHestonExpansionE, i64 16), ptr %this, align 8, !tbaa !35
   %call = tail call double @sqrt(double noundef %v0) #29, !tbaa !112
@@ -5833,7 +5833,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZN8QuantLib19LPP3HestonExpansionC2Edddddd(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (40, 72)) %this, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %rho, double noundef %term) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19LPP3HestonExpansionC2Edddddd(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, double noundef %kappa, double noundef %theta, double noundef %sigma, double noundef %v0, double noundef %rho, double noundef %term) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib19LPP3HestonExpansionE, i64 16), ptr %this, align 8, !tbaa !35
   %mul = fmul double %kappa, %term

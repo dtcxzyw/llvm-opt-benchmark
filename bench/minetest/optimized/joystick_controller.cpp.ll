@@ -127,7 +127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias writable sret(%struct.JoystickLayout) align 8 initializes((0, 48)) %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias writable sret(%struct.JoystickLayout) align 8 %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1004,7 +1004,7 @@ _ZNSt6vectorI17JoystickButtonCmbSaIS0_EED2Ev.exit: ; preds = %if.then.i.i.i14, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnull writable sret(%struct.JoystickLayout) align 8 initializes((0, 82)) %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnull writable sret(%struct.JoystickLayout) align 8 %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %ref.tmp = alloca i32, align 4
   %ref.tmp3 = alloca i32, align 4
@@ -1944,7 +1944,7 @@ ehcleanup:                                        ; preds = %lpad138, %lpad130, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind noalias nonnull writable sret(%struct.JoystickLayout) align 8 initializes((0, 82)) %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind noalias nonnull writable sret(%struct.JoystickLayout) align 8 %agg.result) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 if.else.i:
   %ref.tmp = alloca i32, align 4
   %ref.tmp3 = alloca i32, align 4
@@ -2608,7 +2608,7 @@ ehcleanup:                                        ; preds = %lpad98, %lpad90, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18JoystickControllerC2Ev(ptr noundef nonnull align 8 dereferenceable(488) initializes((8, 56), (104, 105), (112, 144), (456, 488)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18JoystickControllerC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2704,7 +2704,7 @@ ehcleanup10:                                      ; preds = %if.then.i.i27, %_ZN
 declare noundef float @_ZNK8Settings8getFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN18JoystickController5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) initializes((96, 104), (112, 144), (456, 488)) %this) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN18JoystickController5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) %this) local_unnamed_addr #8 align 2 {
 entry:
   %m_keys_down = getelementptr inbounds i8, ptr %this, i64 112
   %m_past_keys_pressed = getelementptr inbounds i8, ptr %this, i64 456

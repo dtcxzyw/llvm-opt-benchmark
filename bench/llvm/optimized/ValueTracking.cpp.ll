@@ -1930,7 +1930,7 @@ _ZN4llvm16computeKnownBitsEPKNS_5ValueERNS_9KnownBitsEjRKNS_13SimplifyQueryE.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16computeKnownBitsEPKNS_5ValueERKNS_10DataLayoutEjPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 initializes((8, 12)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(512) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm16computeKnownBitsEPKNS_5ValueERKNS_10DataLayoutEjPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(512) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i1 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca %"struct.llvm::SimplifyQuery", align 8
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %13, label %10
@@ -1978,7 +1978,7 @@ _ZL8safeCxtIPKN4llvm5ValueEPKNS_11InstructionE.exit: ; preds = %10, %16, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16computeKnownBitsEPKNS_5ValueEjRKNS_13SimplifyQueryE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 initializes((8, 12)) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(58) %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm16computeKnownBitsEPKNS_5ValueEjRKNS_13SimplifyQueryE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(58) %3) local_unnamed_addr #0 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -2074,7 +2074,7 @@ _ZN4llvm16computeKnownBitsEPKNS_5ValueERNS_9KnownBitsEjRKNS_13SimplifyQueryE.exi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16computeKnownBitsEPKNS_5ValueERKNS_5APIntERKNS_10DataLayoutEjPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 initializes((8, 12)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(512) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm16computeKnownBitsEPKNS_5ValueERKNS_5APIntERKNS_10DataLayoutEjPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(512) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = alloca %"struct.llvm::SimplifyQuery", align 8
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %14, label %11
@@ -2155,7 +2155,7 @@ _ZN4llvm16computeKnownBitsEPKNS_5ValueERKNS_5APIntEjRKNS_13SimplifyQueryE.exit: 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16computeKnownBitsEPKNS_5ValueERKNS_5APIntEjRKNS_13SimplifyQueryE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 initializes((8, 12)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(58) %4) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm16computeKnownBitsEPKNS_5ValueERKNS_5APIntEjRKNS_13SimplifyQueryE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(58) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 @_ZNK4llvm4Type19getScalarSizeInBitsEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #26
@@ -8537,7 +8537,7 @@ _ZN4llvm9KnownBitsD2Ev.exit25:                    ; preds = %100, %97, %_ZN4llvm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28analyzeKnownBitsFromAndXorOrEPKNS_8OperatorERKNS_9KnownBitsES5_jRKNS_13SimplifyQueryE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 initializes((8, 12)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(58) %5) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm28analyzeKnownBitsFromAndXorOrEPKNS_8OperatorERKNS_9KnownBitsES5_jRKNS_13SimplifyQueryE(ptr dead_on_unwind noalias writable sret(%"struct.llvm::KnownBits") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %4, ptr noundef nonnull align 8 dereferenceable(58) %5) local_unnamed_addr #0 {
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -8599,7 +8599,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZN4llvm5APInt10get
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24getKnownBitsFromAndXorOrPKN4llvm8OperatorERKNS_5APIntERKNS_9KnownBitsES8_jRKNS_13SimplifyQueryE(ptr dead_on_unwind noalias writable align 8 initializes((8, 12)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(58) %6) unnamed_addr #0 {
+define internal fastcc void @_ZL24getKnownBitsFromAndXorOrPKN4llvm8OperatorERKNS_5APIntERKNS_9KnownBitsES8_jRKNS_13SimplifyQueryE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(58) %6) unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca %"struct.llvm::KnownBits", align 8
   %10 = alloca %"struct.llvm::PatternMatch::BinaryOp_match.349", align 8
@@ -15802,7 +15802,7 @@ declare i16 @_ZNK4llvm8Function15getDenormalModeERKNS_12fltSemanticsE(ptr nounde
 declare noundef nonnull align 1 ptr @_ZNK4llvm4Type15getFltSemanticsEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12KnownFPClass17propagateDenormalERKS0_RKNS_8FunctionEPNS_4TypeE(ptr nocapture noundef nonnull align 4 dereferenceable(6) initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12KnownFPClass17propagateDenormalERKS0_RKNS_8FunctionEPNS_4TypeE(ptr nocapture noundef nonnull align 4 dereferenceable(6) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = load i32, ptr %1, align 4
   store i32 %5, ptr %0, align 4
   %6 = and i32 %5, 96
@@ -15887,7 +15887,7 @@ _ZNK4llvm12DenormalModeneES0_.exit22.thread:      ; preds = %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12KnownFPClass26propagateCanonicalizingSrcERKS0_RKNS_8FunctionEPNS_4TypeE(ptr nocapture noundef nonnull align 4 dereferenceable(6) initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12KnownFPClass26propagateCanonicalizingSrcERKS0_RKNS_8FunctionEPNS_4TypeE(ptr nocapture noundef nonnull align 4 dereferenceable(6) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(6) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm12KnownFPClass17propagateDenormalERKS0_RKNS_8FunctionEPNS_4TypeE(ptr noundef nonnull align 4 dereferenceable(6) %0, ptr noundef nonnull align 4 dereferenceable(6) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef %3)
   %5 = load i32, ptr %1, align 4
   %6 = and i32 %5, 3
@@ -37630,7 +37630,7 @@ _ZN4llvm12PatternMatch5matchINS_5ValueENS0_7bind_tyINS_8ConstantEEEEEbPT_RKT0_.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc { i64, i8 } @_ZL18matchSelectPatternN4llvm7CmpInst9PredicateENS_13FastMathFlagsEPNS_5ValueES4_S4_S4_RS4_S5_j(i32 noundef %0, i32 %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %6, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc { i64, i8 } @_ZL18matchSelectPatternN4llvm7CmpInst9PredicateENS_13FastMathFlagsEPNS_5ValueES4_S4_S4_RS4_S5_j(i32 noundef %0, i32 %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr nocapture noundef nonnull align 8 dereferenceable(8) %6, ptr nocapture noundef nonnull align 8 dereferenceable(8) %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca %"struct.llvm::PatternMatch::MaxMin_match", align 8
   %12 = alloca %"struct.llvm::PatternMatch::MaxMin_match.511", align 8
@@ -39186,7 +39186,7 @@ define dso_local noundef range(i32 229, 358) i32 @_ZN4llvm25getInverseMinMaxIntr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14getMinMaxLimitENS_19SelectPatternFlavorEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 initializes((8, 12)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm14getMinMaxLimitENS_19SelectPatternFlavorEj(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8
   %5 = icmp ult i32 %2, 65
@@ -40246,7 +40246,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21matchSimpleRecurrenceEPKNS_7PHINo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm21matchSimpleRecurrenceEPKNS_14BinaryOperatorERPNS_7PHINodeERPNS_5ValueES8_(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #11 {
+define dso_local noundef zeroext i1 @_ZN4llvm21matchSimpleRecurrenceEPKNS_14BinaryOperatorERPNS_7PHINodeERPNS_5ValueES8_(ptr noundef readonly %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %3) local_unnamed_addr #11 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -64
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %6, align 8
@@ -70345,7 +70345,7 @@ declare void @_ZNK4llvm8Function18BuildLazyArgumentsEv(ptr noundef nonnull align
 declare { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define internal fastcc void @_ZL21getInvertibleOperandsPKN4llvm8OperatorES2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((16, 17)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #15 {
+define internal fastcc void @_ZL21getInvertibleOperandsPKN4llvm8OperatorES2_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef %1, ptr noundef %2) unnamed_addr #15 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

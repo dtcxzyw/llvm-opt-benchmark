@@ -130,7 +130,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core23GrpcAuthorizationEngineC2ENS_4RbacE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16)) %this, ptr noundef nonnull %policy) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23GrpcAuthorizationEngineC2ENS_4RbacE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull %policy) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %policy6 = alloca %"struct.grpc_core::GrpcAuthorizationEngine::Policy", align 8
   %ref.tmp = alloca %"class.std::unique_ptr.38", align 8
@@ -593,7 +593,7 @@ _ZNSt12_Vector_baseIN9grpc_core23GrpcAuthorizationEngine6PolicyESaIS2_EED2Ev.exi
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core23GrpcAuthorizationEngineC2EOS0_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(112) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core23GrpcAuthorizationEngineC2EOS0_(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(112) %other) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8

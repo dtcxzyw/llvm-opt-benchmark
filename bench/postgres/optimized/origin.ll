@@ -370,7 +370,7 @@ declare void @UnlockSharedObject(i32 noundef, i32 noundef, i16 noundef zeroext, 
 declare void @CatalogTupleDelete(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @replorigin_by_oid(i16 noundef zeroext %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @replorigin_by_oid(i16 noundef zeroext %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = zext i16 %0 to i64
   %5 = tail call ptr @SearchSysCache1(i32 noundef 56, i64 noundef %4) #10
   %.not = icmp ne ptr %5, null

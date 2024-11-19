@@ -1645,7 +1645,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #0
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #1 {
+define hidden i32 @add_content_type(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

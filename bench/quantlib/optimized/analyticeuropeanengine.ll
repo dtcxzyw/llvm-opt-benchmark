@@ -627,7 +627,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22AnalyticEuropeanEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr noundef nonnull align 8 dereferenceable(368) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22AnalyticEuropeanEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEE(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef %process) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.boost::shared_ptr.25", align 8
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
@@ -1122,7 +1122,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib22AnalyticEuropeanEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(368) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, ptr nocapture noundef %discountCurve) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib22AnalyticEuropeanEngineC2EN5boost10shared_ptrINS_30GeneralizedBlackScholesProcessEEENS_6HandleINS_18YieldTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr nocapture noundef %process, ptr nocapture noundef %discountCurve) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp5 = alloca %"class.boost::shared_ptr", align 8

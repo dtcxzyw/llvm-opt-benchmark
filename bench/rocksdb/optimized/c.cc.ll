@@ -2147,7 +2147,7 @@ delete.end:                                       ; preds = %_ZN25rocksdb_restor
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_restore_options_set_keep_log_files(ptr nocapture noundef writeonly initializes((0, 1)) %opt, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_restore_options_set_keep_log_files(ptr nocapture noundef writeonly %opt, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i32 %v, 0
   %frombool = zext i1 %tobool to i8
@@ -2854,7 +2854,7 @@ lpad.body:                                        ; preds = %lpad.i, %lpad
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @rocksdb_backup_engine_options_set_env(ptr nocapture noundef writeonly initializes((32, 40)) %options, ptr noundef readonly %env) local_unnamed_addr #9 {
+define void @rocksdb_backup_engine_options_set_env(ptr nocapture noundef writeonly %options, ptr noundef readonly %env) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %env, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -2871,7 +2871,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_backup_engine_options_set_share_table_files(ptr nocapture noundef writeonly initializes((40, 41)) %options, i8 noundef zeroext %val) local_unnamed_addr #6 {
+define void @rocksdb_backup_engine_options_set_share_table_files(ptr nocapture noundef writeonly %options, i8 noundef zeroext %val) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %val, 0
   %share_table_files = getelementptr inbounds i8, ptr %options, i64 40
@@ -2890,7 +2890,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_backup_engine_options_set_sync(ptr nocapture noundef writeonly initializes((56, 57)) %options, i8 noundef zeroext %val) local_unnamed_addr #6 {
+define void @rocksdb_backup_engine_options_set_sync(ptr nocapture noundef writeonly %options, i8 noundef zeroext %val) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %val, 0
   %sync = getelementptr inbounds i8, ptr %options, i64 56
@@ -2909,7 +2909,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_backup_engine_options_set_destroy_old_data(ptr nocapture noundef writeonly initializes((57, 58)) %options, i8 noundef zeroext %val) local_unnamed_addr #6 {
+define void @rocksdb_backup_engine_options_set_destroy_old_data(ptr nocapture noundef writeonly %options, i8 noundef zeroext %val) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %val, 0
   %destroy_old_data = getelementptr inbounds i8, ptr %options, i64 57
@@ -2928,7 +2928,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_backup_engine_options_set_backup_log_files(ptr nocapture noundef writeonly initializes((58, 59)) %options, i8 noundef zeroext %val) local_unnamed_addr #6 {
+define void @rocksdb_backup_engine_options_set_backup_log_files(ptr nocapture noundef writeonly %options, i8 noundef zeroext %val) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %val, 0
   %backup_log_files = getelementptr inbounds i8, ptr %options, i64 58
@@ -2947,7 +2947,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_backup_engine_options_set_backup_rate_limit(ptr nocapture noundef writeonly initializes((64, 72)) %options, i64 noundef %limit) local_unnamed_addr #6 {
+define void @rocksdb_backup_engine_options_set_backup_rate_limit(ptr nocapture noundef writeonly %options, i64 noundef %limit) local_unnamed_addr #6 {
 entry:
   %backup_rate_limit = getelementptr inbounds i8, ptr %options, i64 64
   store i64 %limit, ptr %backup_rate_limit, align 8
@@ -2963,7 +2963,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_backup_engine_options_set_restore_rate_limit(ptr nocapture noundef writeonly initializes((88, 96)) %options, i64 noundef %limit) local_unnamed_addr #6 {
+define void @rocksdb_backup_engine_options_set_restore_rate_limit(ptr nocapture noundef writeonly %options, i64 noundef %limit) local_unnamed_addr #6 {
 entry:
   %restore_rate_limit = getelementptr inbounds i8, ptr %options, i64 88
   store i64 %limit, ptr %restore_rate_limit, align 8
@@ -2979,7 +2979,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_backup_engine_options_set_max_background_operations(ptr nocapture noundef writeonly initializes((116, 120)) %options, i32 noundef %val) local_unnamed_addr #6 {
+define void @rocksdb_backup_engine_options_set_max_background_operations(ptr nocapture noundef writeonly %options, i32 noundef %val) local_unnamed_addr #6 {
 entry:
   %max_background_operations = getelementptr inbounds i8, ptr %options, i64 116
   store i32 %val, ptr %max_background_operations, align 4
@@ -2995,7 +2995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_backup_engine_options_set_callback_trigger_interval_size(ptr nocapture noundef writeonly initializes((120, 128)) %options, i64 noundef %size) local_unnamed_addr #6 {
+define void @rocksdb_backup_engine_options_set_callback_trigger_interval_size(ptr nocapture noundef writeonly %options, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   %callback_trigger_interval_size = getelementptr inbounds i8, ptr %options, i64 120
   store i64 %size, ptr %callback_trigger_interval_size, align 8
@@ -3011,7 +3011,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_backup_engine_options_set_max_valid_backups_to_open(ptr nocapture noundef writeonly initializes((128, 132)) %options, i32 noundef %val) local_unnamed_addr #6 {
+define void @rocksdb_backup_engine_options_set_max_valid_backups_to_open(ptr nocapture noundef writeonly %options, i32 noundef %val) local_unnamed_addr #6 {
 entry:
   %max_valid_backups_to_open = getelementptr inbounds i8, ptr %options, i64 128
   store i32 %val, ptr %max_valid_backups_to_open, align 8
@@ -3027,7 +3027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_backup_engine_options_set_share_files_with_checksum_naming(ptr nocapture noundef writeonly initializes((132, 136)) %options, i32 noundef %val) local_unnamed_addr #6 {
+define void @rocksdb_backup_engine_options_set_share_files_with_checksum_naming(ptr nocapture noundef writeonly %options, i32 noundef %val) local_unnamed_addr #6 {
 entry:
   %share_files_with_checksum_naming = getelementptr inbounds i8, ptr %options, i64 132
   store i32 %val, ptr %share_files_with_checksum_naming, align 4
@@ -3304,7 +3304,7 @@ delete.notnull2:                                  ; preds = %entry, %delete.notn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @rocksdb_options_set_uint64add_merge_operator(ptr nocapture noundef initializes((1216, 1224)) %opt) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @rocksdb_options_set_uint64add_merge_operator(ptr nocapture noundef %opt) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.57", align 8
   call void @_ZN7rocksdb14MergeOperators23CreateUInt64AddOperatorEv(ptr nonnull sret(%"class.std::shared_ptr.57") align 8 %ref.tmp)
@@ -8649,7 +8649,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_column_family_handle_get_name(ptr nocapture noundef readonly %handle, ptr nocapture noundef writeonly initializes((0, 8)) %name_len) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @rocksdb_column_family_handle_get_name(ptr nocapture noundef readonly %handle, ptr nocapture noundef writeonly %name_len) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %handle, align 8
@@ -14950,7 +14950,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @rocksdb_iter_key(ptr nocapture noundef readonly %iter, ptr nocapture noundef writeonly initializes((0, 8)) %klen) local_unnamed_addr #0 {
+define ptr @rocksdb_iter_key(ptr nocapture noundef readonly %iter, ptr nocapture noundef writeonly %klen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -14964,7 +14964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @rocksdb_iter_value(ptr nocapture noundef readonly %iter, ptr nocapture noundef writeonly initializes((0, 8)) %vlen) local_unnamed_addr #0 {
+define ptr @rocksdb_iter_value(ptr nocapture noundef readonly %iter, ptr nocapture noundef writeonly %vlen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -14978,7 +14978,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @rocksdb_iter_timestamp(ptr nocapture noundef readonly %iter, ptr nocapture noundef writeonly initializes((0, 8)) %tslen) local_unnamed_addr #0 {
+define ptr @rocksdb_iter_timestamp(ptr nocapture noundef readonly %iter, ptr nocapture noundef writeonly %tslen) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %iter, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -16808,7 +16808,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @rocksdb_writebatch_data(ptr noundef %b, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #4 {
+define noundef ptr @rocksdb_writebatch_data(ptr noundef %b, ptr nocapture noundef writeonly %size) local_unnamed_addr #4 {
 entry:
   %rep_.i = getelementptr inbounds i8, ptr %b, i64 64
   %call.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %rep_.i) #36
@@ -18611,7 +18611,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_writebatch_wi_data(ptr nocapture noundef readonly %b, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #0 {
+define noundef ptr @rocksdb_writebatch_wi_data(ptr nocapture noundef readonly %b, ptr nocapture noundef writeonly %size) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %b, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -19911,7 +19911,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_checksum(ptr nocapture noundef writeonly initializes((48, 49)) %opt, i8 noundef signext %v) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_checksum(ptr nocapture noundef writeonly %opt, i8 noundef signext %v) local_unnamed_addr #6 {
 entry:
   %checksum = getelementptr inbounds i8, ptr %opt, i64 48
   store i8 %v, ptr %checksum, align 8
@@ -19919,7 +19919,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_block_size(ptr nocapture noundef writeonly initializes((88, 96)) %options, i64 noundef %block_size) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_block_size(ptr nocapture noundef writeonly %options, i64 noundef %block_size) local_unnamed_addr #6 {
 entry:
   %block_size1 = getelementptr inbounds i8, ptr %options, i64 88
   store i64 %block_size, ptr %block_size1, align 8
@@ -19927,7 +19927,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_block_size_deviation(ptr nocapture noundef writeonly initializes((96, 100)) %options, i32 noundef %block_size_deviation) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_block_size_deviation(ptr nocapture noundef writeonly %options, i32 noundef %block_size_deviation) local_unnamed_addr #6 {
 entry:
   %block_size_deviation1 = getelementptr inbounds i8, ptr %options, i64 96
   store i32 %block_size_deviation, ptr %block_size_deviation1, align 8
@@ -19935,7 +19935,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_block_restart_interval(ptr nocapture noundef writeonly initializes((100, 104)) %options, i32 noundef %block_restart_interval) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_block_restart_interval(ptr nocapture noundef writeonly %options, i32 noundef %block_restart_interval) local_unnamed_addr #6 {
 entry:
   %block_restart_interval1 = getelementptr inbounds i8, ptr %options, i64 100
   store i32 %block_restart_interval, ptr %block_restart_interval1, align 4
@@ -19943,7 +19943,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_index_block_restart_interval(ptr nocapture noundef writeonly initializes((104, 108)) %options, i32 noundef %index_block_restart_interval) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_index_block_restart_interval(ptr nocapture noundef writeonly %options, i32 noundef %index_block_restart_interval) local_unnamed_addr #6 {
 entry:
   %index_block_restart_interval1 = getelementptr inbounds i8, ptr %options, i64 104
   store i32 %index_block_restart_interval, ptr %index_block_restart_interval1, align 8
@@ -19951,7 +19951,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_metadata_block_size(ptr nocapture noundef writeonly initializes((112, 120)) %options, i64 noundef %metadata_block_size) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_metadata_block_size(ptr nocapture noundef writeonly %options, i64 noundef %metadata_block_size) local_unnamed_addr #6 {
 entry:
   %metadata_block_size1 = getelementptr inbounds i8, ptr %options, i64 112
   store i64 %metadata_block_size, ptr %metadata_block_size1, align 8
@@ -19959,7 +19959,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_partition_filters(ptr nocapture noundef writeonly initializes((176, 177)) %options, i8 noundef zeroext %partition_filters) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_partition_filters(ptr nocapture noundef writeonly %options, i8 noundef zeroext %partition_filters) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %partition_filters, 0
   %partition_filters1 = getelementptr inbounds i8, ptr %options, i64 176
@@ -19969,7 +19969,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_optimize_filters_for_memory(ptr nocapture noundef writeonly initializes((177, 178)) %options, i8 noundef zeroext %optimize_filters_for_memory) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_optimize_filters_for_memory(ptr nocapture noundef writeonly %options, i8 noundef zeroext %optimize_filters_for_memory) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %optimize_filters_for_memory, 0
   %optimize_filters_for_memory1 = getelementptr inbounds i8, ptr %options, i64 177
@@ -19979,7 +19979,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_use_delta_encoding(ptr nocapture noundef writeonly initializes((178, 179)) %options, i8 noundef zeroext %use_delta_encoding) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_use_delta_encoding(ptr nocapture noundef writeonly %options, i8 noundef zeroext %use_delta_encoding) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %use_delta_encoding, 0
   %use_delta_encoding1 = getelementptr inbounds i8, ptr %options, i64 178
@@ -20128,7 +20128,7 @@ _ZNSt12__shared_ptrIKN7rocksdb12FilterPolicyELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_no_block_cache(ptr nocapture noundef writeonly initializes((49, 50)) %options, i8 noundef zeroext %no_block_cache) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_no_block_cache(ptr nocapture noundef writeonly %options, i8 noundef zeroext %no_block_cache) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %no_block_cache, 0
   %no_block_cache1 = getelementptr inbounds i8, ptr %options, i64 49
@@ -20260,7 +20260,7 @@ if.end:                                           ; preds = %if.end9.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_whole_key_filtering(ptr nocapture noundef writeonly initializes((200, 201)) %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_whole_key_filtering(ptr nocapture noundef writeonly %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %whole_key_filtering = getelementptr inbounds i8, ptr %options, i64 200
@@ -20270,7 +20270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_format_version(ptr nocapture noundef writeonly initializes((208, 212)) %options, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_format_version(ptr nocapture noundef writeonly %options, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %format_version = getelementptr inbounds i8, ptr %options, i64 208
   store i32 %v, ptr %format_version, align 8
@@ -20278,7 +20278,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_index_type(ptr nocapture noundef writeonly initializes((32, 33)) %options, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_index_type(ptr nocapture noundef writeonly %options, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %conv = trunc i32 %v to i8
   %index_type = getelementptr inbounds i8, ptr %options, i64 32
@@ -20287,7 +20287,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_data_block_index_type(ptr nocapture noundef writeonly initializes((33, 34)) %options, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_data_block_index_type(ptr nocapture noundef writeonly %options, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %conv = trunc i32 %v to i8
   %data_block_index_type = getelementptr inbounds i8, ptr %options, i64 33
@@ -20296,7 +20296,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_data_block_hash_ratio(ptr nocapture noundef writeonly initializes((40, 48)) %options, double noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_data_block_hash_ratio(ptr nocapture noundef writeonly %options, double noundef %v) local_unnamed_addr #6 {
 entry:
   %data_block_hash_table_util_ratio = getelementptr inbounds i8, ptr %options, i64 40
   store double %v, ptr %data_block_hash_table_util_ratio, align 8
@@ -20304,7 +20304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_cache_index_and_filter_blocks(ptr nocapture noundef writeonly initializes((16, 17)) %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_cache_index_and_filter_blocks(ptr nocapture noundef writeonly %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %cache_index_and_filter_blocks = getelementptr inbounds i8, ptr %options, i64 16
@@ -20314,7 +20314,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_cache_index_and_filter_blocks_with_high_priority(ptr nocapture noundef writeonly initializes((17, 18)) %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_cache_index_and_filter_blocks_with_high_priority(ptr nocapture noundef writeonly %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %cache_index_and_filter_blocks_with_high_priority = getelementptr inbounds i8, ptr %options, i64 17
@@ -20324,7 +20324,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_pin_l0_filter_and_index_blocks_in_cache(ptr nocapture noundef writeonly initializes((18, 19)) %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_pin_l0_filter_and_index_blocks_in_cache(ptr nocapture noundef writeonly %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %pin_l0_filter_and_index_blocks_in_cache = getelementptr inbounds i8, ptr %options, i64 18
@@ -20334,7 +20334,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_block_based_options_set_pin_top_level_index_and_filter(ptr nocapture noundef writeonly initializes((19, 20)) %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_block_based_options_set_pin_top_level_index_and_filter(ptr nocapture noundef writeonly %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %pin_top_level_index_and_filter = getelementptr inbounds i8, ptr %options, i64 19
@@ -20523,14 +20523,14 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_cuckoo_options_set_hash_ratio(ptr nocapture noundef writeonly initializes((0, 8)) %options, double noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_cuckoo_options_set_hash_ratio(ptr nocapture noundef writeonly %options, double noundef %v) local_unnamed_addr #6 {
 entry:
   store double %v, ptr %options, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_cuckoo_options_set_max_search_depth(ptr nocapture noundef writeonly initializes((8, 12)) %options, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_cuckoo_options_set_max_search_depth(ptr nocapture noundef writeonly %options, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %max_search_depth = getelementptr inbounds i8, ptr %options, i64 8
   store i32 %v, ptr %max_search_depth, align 8
@@ -20538,7 +20538,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_cuckoo_options_set_cuckoo_block_size(ptr nocapture noundef writeonly initializes((12, 16)) %options, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_cuckoo_options_set_cuckoo_block_size(ptr nocapture noundef writeonly %options, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %cuckoo_block_size = getelementptr inbounds i8, ptr %options, i64 12
   store i32 %v, ptr %cuckoo_block_size, align 4
@@ -20546,7 +20546,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_cuckoo_options_set_identity_as_first_hash(ptr nocapture noundef writeonly initializes((16, 17)) %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_cuckoo_options_set_identity_as_first_hash(ptr nocapture noundef writeonly %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %identity_as_first_hash = getelementptr inbounds i8, ptr %options, i64 16
@@ -20556,7 +20556,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_cuckoo_options_set_use_module_hash(ptr nocapture noundef writeonly initializes((17, 18)) %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_cuckoo_options_set_use_module_hash(ptr nocapture noundef writeonly %options, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %use_module_hash = getelementptr inbounds i8, ptr %options, i64 17
@@ -21154,7 +21154,7 @@ entry:
 declare noundef ptr @_ZN7rocksdb19ColumnFamilyOptions32OptimizeUniversalStyleCompactionEm(ptr noundef nonnull align 8 dereferenceable(820), i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_allow_ingest_behind(ptr nocapture noundef writeonly initializes((532, 533)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_allow_ingest_behind(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %allow_ingest_behind = getelementptr inbounds i8, ptr %opt, i64 532
@@ -21173,7 +21173,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_compaction_filter(ptr nocapture noundef writeonly initializes((1232, 1240)) %opt, ptr noundef %filter) local_unnamed_addr #6 {
+define void @rocksdb_options_set_compaction_filter(ptr nocapture noundef writeonly %opt, ptr noundef %filter) local_unnamed_addr #6 {
 entry:
   %compaction_filter = getelementptr inbounds i8, ptr %opt, i64 1232
   store ptr %filter, ptr %compaction_filter, align 8
@@ -21393,7 +21393,7 @@ _ZNSt12__shared_ptrIN7rocksdb23CompactionFilterFactoryELN9__gnu_cxx12_Lock_polic
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_compaction_readahead_size(ptr nocapture noundef writeonly initializes((368, 376)) %opt, i64 noundef %s) local_unnamed_addr #6 {
+define void @rocksdb_options_compaction_readahead_size(ptr nocapture noundef writeonly %opt, i64 noundef %s) local_unnamed_addr #6 {
 entry:
   %compaction_readahead_size = getelementptr inbounds i8, ptr %opt, i64 368
   store i64 %s, ptr %compaction_readahead_size, align 8
@@ -21409,7 +21409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_comparator(ptr nocapture noundef writeonly initializes((1208, 1216)) %opt, ptr noundef %cmp) local_unnamed_addr #6 {
+define void @rocksdb_options_set_comparator(ptr nocapture noundef writeonly %opt, ptr noundef %cmp) local_unnamed_addr #6 {
 entry:
   %comparator = getelementptr inbounds i8, ptr %opt, i64 1208
   store ptr %cmp, ptr %comparator, align 8
@@ -21549,7 +21549,7 @@ _ZNSt10shared_ptrIN7rocksdb13MergeOperatorEED2Ev.exit: ; preds = %if.end8.sink.s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_create_if_missing(ptr nocapture noundef writeonly initializes((0, 1)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_create_if_missing(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %frombool = zext i1 %tobool to i8
@@ -21566,7 +21566,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_create_missing_column_families(ptr nocapture noundef writeonly initializes((1, 2)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_create_missing_column_families(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %create_missing_column_families = getelementptr inbounds i8, ptr %opt, i64 1
@@ -21585,7 +21585,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_error_if_exists(ptr nocapture noundef writeonly initializes((2, 3)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_error_if_exists(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %error_if_exists = getelementptr inbounds i8, ptr %opt, i64 2
@@ -21604,7 +21604,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_paranoid_checks(ptr nocapture noundef writeonly initializes((3, 4)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_paranoid_checks(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %paranoid_checks = getelementptr inbounds i8, ptr %opt, i64 3
@@ -22101,7 +22101,7 @@ _ZNSt6vectorIN7rocksdb6DbPathESaIS1_EED2Ev.exit:  ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @rocksdb_options_set_env(ptr nocapture noundef writeonly initializes((8, 16)) %opt, ptr noundef readonly %env) local_unnamed_addr #9 {
+define void @rocksdb_options_set_env(ptr nocapture noundef writeonly %opt, ptr noundef readonly %env) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %env, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -22240,7 +22240,7 @@ if.end:                                           ; preds = %if.end9.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_info_log_level(ptr nocapture noundef writeonly initializes((64, 65)) %opt, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_info_log_level(ptr nocapture noundef writeonly %opt, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %conv = trunc i32 %v to i8
   %info_log_level = getelementptr inbounds i8, ptr %opt, i64 64
@@ -22258,7 +22258,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_db_write_buffer_size(ptr nocapture noundef writeonly initializes((336, 344)) %opt, i64 noundef %s) local_unnamed_addr #6 {
+define void @rocksdb_options_set_db_write_buffer_size(ptr nocapture noundef writeonly %opt, i64 noundef %s) local_unnamed_addr #6 {
 entry:
   %db_write_buffer_size = getelementptr inbounds i8, ptr %opt, i64 336
   store i64 %s, ptr %db_write_buffer_size, align 8
@@ -22274,7 +22274,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_write_buffer_size(ptr nocapture noundef writeonly initializes((1256, 1264)) %opt, i64 noundef %s) local_unnamed_addr #6 {
+define void @rocksdb_options_set_write_buffer_size(ptr nocapture noundef writeonly %opt, i64 noundef %s) local_unnamed_addr #6 {
 entry:
   %write_buffer_size = getelementptr inbounds i8, ptr %opt, i64 1256
   store i64 %s, ptr %write_buffer_size, align 8
@@ -22282,7 +22282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @rocksdb_options_set_write_buffer_manager(ptr nocapture noundef initializes((344, 352)) %opt, ptr nocapture noundef readonly %wbm) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @rocksdb_options_set_write_buffer_manager(ptr nocapture noundef %opt, ptr nocapture noundef readonly %wbm) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %write_buffer_manager = getelementptr inbounds i8, ptr %opt, i64 344
   %0 = load ptr, ptr %wbm, align 8
@@ -22408,7 +22408,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_open_files(ptr nocapture noundef writeonly initializes((68, 72)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_open_files(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %max_open_files = getelementptr inbounds i8, ptr %opt, i64 68
   store i32 %n, ptr %max_open_files, align 4
@@ -22424,7 +22424,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_file_opening_threads(ptr nocapture noundef writeonly initializes((72, 76)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_file_opening_threads(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %max_file_opening_threads = getelementptr inbounds i8, ptr %opt, i64 72
   store i32 %n, ptr %max_file_opening_threads, align 8
@@ -22440,7 +22440,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_total_wal_size(ptr nocapture noundef writeonly initializes((80, 88)) %opt, i64 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_total_wal_size(ptr nocapture noundef writeonly %opt, i64 noundef %n) local_unnamed_addr #6 {
 entry:
   %max_total_wal_size = getelementptr inbounds i8, ptr %opt, i64 80
   store i64 %n, ptr %max_total_wal_size, align 8
@@ -22456,7 +22456,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_target_file_size_base(ptr nocapture noundef writeonly initializes((840, 848)) %opt, i64 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_target_file_size_base(ptr nocapture noundef writeonly %opt, i64 noundef %n) local_unnamed_addr #6 {
 entry:
   %target_file_size_base = getelementptr inbounds i8, ptr %opt, i64 840
   store i64 %n, ptr %target_file_size_base, align 8
@@ -22472,7 +22472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_target_file_size_multiplier(ptr nocapture noundef writeonly initializes((848, 852)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_target_file_size_multiplier(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %target_file_size_multiplier = getelementptr inbounds i8, ptr %opt, i64 848
   store i32 %n, ptr %target_file_size_multiplier, align 8
@@ -22488,7 +22488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_bytes_for_level_base(ptr nocapture noundef writeonly initializes((1408, 1416)) %opt, i64 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_bytes_for_level_base(ptr nocapture noundef writeonly %opt, i64 noundef %n) local_unnamed_addr #6 {
 entry:
   %max_bytes_for_level_base = getelementptr inbounds i8, ptr %opt, i64 1408
   store i64 %n, ptr %max_bytes_for_level_base, align 8
@@ -22504,7 +22504,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_level_compaction_dynamic_level_bytes(ptr nocapture noundef writeonly initializes((852, 853)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_level_compaction_dynamic_level_bytes(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %level_compaction_dynamic_level_bytes = getelementptr inbounds i8, ptr %opt, i64 852
@@ -22523,7 +22523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_bytes_for_level_multiplier(ptr nocapture noundef writeonly initializes((856, 864)) %opt, double noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_bytes_for_level_multiplier(ptr nocapture noundef writeonly %opt, double noundef %n) local_unnamed_addr #6 {
 entry:
   %max_bytes_for_level_multiplier = getelementptr inbounds i8, ptr %opt, i64 856
   store double %n, ptr %max_bytes_for_level_multiplier, align 8
@@ -22539,7 +22539,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_compaction_bytes(ptr nocapture noundef writeonly initializes((888, 896)) %opt, i64 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_compaction_bytes(ptr nocapture noundef writeonly %opt, i64 noundef %n) local_unnamed_addr #6 {
 entry:
   %max_compaction_bytes = getelementptr inbounds i8, ptr %opt, i64 888
   store i64 %n, ptr %max_compaction_bytes, align 8
@@ -22609,7 +22609,7 @@ for.end:                                          ; preds = %for.body, %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_periodic_compaction_seconds(ptr nocapture noundef writeonly initializes((1072, 1080)) %opt, i64 noundef %seconds) local_unnamed_addr #6 {
+define void @rocksdb_options_set_periodic_compaction_seconds(ptr nocapture noundef writeonly %opt, i64 noundef %seconds) local_unnamed_addr #6 {
 entry:
   %periodic_compaction_seconds = getelementptr inbounds i8, ptr %opt, i64 1072
   store i64 %seconds, ptr %periodic_compaction_seconds, align 8
@@ -22625,7 +22625,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @rocksdb_options_enable_statistics(ptr nocapture noundef initializes((88, 96)) %opt) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @rocksdb_options_enable_statistics(ptr nocapture noundef %opt) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.8", align 8
   call void @_ZN7rocksdb18CreateDBStatisticsEv(ptr nonnull sret(%"class.std::shared_ptr.8") align 8 %ref.tmp)
@@ -22908,7 +22908,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_skip_stats_update_on_db_open(ptr nocapture noundef writeonly initializes((496, 497)) %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_skip_stats_update_on_db_open(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %val, 0
   %skip_stats_update_on_db_open = getelementptr inbounds i8, ptr %opt, i64 496
@@ -22927,7 +22927,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_skip_checking_sst_file_sizes_on_db_open(ptr nocapture noundef writeonly initializes((497, 498)) %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_skip_checking_sst_file_sizes_on_db_open(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %val, 0
   %skip_checking_sst_file_sizes_on_db_open = getelementptr inbounds i8, ptr %opt, i64 497
@@ -22946,7 +22946,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_enable_blob_files(ptr nocapture noundef writeonly initializes((1112, 1113)) %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_enable_blob_files(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %val, 0
   %enable_blob_files = getelementptr inbounds i8, ptr %opt, i64 1112
@@ -22965,7 +22965,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_min_blob_size(ptr nocapture noundef writeonly initializes((1120, 1128)) %opt, i64 noundef %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_min_blob_size(ptr nocapture noundef writeonly %opt, i64 noundef %val) local_unnamed_addr #6 {
 entry:
   %min_blob_size = getelementptr inbounds i8, ptr %opt, i64 1120
   store i64 %val, ptr %min_blob_size, align 8
@@ -22981,7 +22981,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_blob_file_size(ptr nocapture noundef writeonly initializes((1128, 1136)) %opt, i64 noundef %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_blob_file_size(ptr nocapture noundef writeonly %opt, i64 noundef %val) local_unnamed_addr #6 {
 entry:
   %blob_file_size = getelementptr inbounds i8, ptr %opt, i64 1128
   store i64 %val, ptr %blob_file_size, align 8
@@ -22997,7 +22997,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_blob_compression_type(ptr nocapture noundef writeonly initializes((1136, 1137)) %opt, i32 noundef %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_blob_compression_type(ptr nocapture noundef writeonly %opt, i32 noundef %val) local_unnamed_addr #6 {
 entry:
   %conv = trunc i32 %val to i8
   %blob_compression_type = getelementptr inbounds i8, ptr %opt, i64 1136
@@ -23015,7 +23015,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_enable_blob_gc(ptr nocapture noundef writeonly initializes((1137, 1138)) %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_enable_blob_gc(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %val, 0
   %enable_blob_garbage_collection = getelementptr inbounds i8, ptr %opt, i64 1137
@@ -23034,7 +23034,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_blob_gc_age_cutoff(ptr nocapture noundef writeonly initializes((1144, 1152)) %opt, double noundef %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_blob_gc_age_cutoff(ptr nocapture noundef writeonly %opt, double noundef %val) local_unnamed_addr #6 {
 entry:
   %blob_garbage_collection_age_cutoff = getelementptr inbounds i8, ptr %opt, i64 1144
   store double %val, ptr %blob_garbage_collection_age_cutoff, align 8
@@ -23050,7 +23050,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_blob_gc_force_threshold(ptr nocapture noundef writeonly initializes((1152, 1160)) %opt, double noundef %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_blob_gc_force_threshold(ptr nocapture noundef writeonly %opt, double noundef %val) local_unnamed_addr #6 {
 entry:
   %blob_garbage_collection_force_threshold = getelementptr inbounds i8, ptr %opt, i64 1152
   store double %val, ptr %blob_garbage_collection_force_threshold, align 8
@@ -23066,7 +23066,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_blob_compaction_readahead_size(ptr nocapture noundef writeonly initializes((1160, 1168)) %opt, i64 noundef %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_blob_compaction_readahead_size(ptr nocapture noundef writeonly %opt, i64 noundef %val) local_unnamed_addr #6 {
 entry:
   %blob_compaction_readahead_size = getelementptr inbounds i8, ptr %opt, i64 1160
   store i64 %val, ptr %blob_compaction_readahead_size, align 8
@@ -23082,7 +23082,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_blob_file_starting_level(ptr nocapture noundef writeonly initializes((1168, 1172)) %opt, i32 noundef %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_blob_file_starting_level(ptr nocapture noundef writeonly %opt, i32 noundef %val) local_unnamed_addr #6 {
 entry:
   %blob_file_starting_level = getelementptr inbounds i8, ptr %opt, i64 1168
   store i32 %val, ptr %blob_file_starting_level, align 8
@@ -23098,7 +23098,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @rocksdb_options_set_blob_cache(ptr nocapture noundef initializes((1176, 1184)) %opt, ptr nocapture noundef readonly %blob_cache) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @rocksdb_options_set_blob_cache(ptr nocapture noundef %opt, ptr nocapture noundef readonly %blob_cache) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %blob_cache2 = getelementptr inbounds i8, ptr %opt, i64 1176
   %0 = load ptr, ptr %blob_cache, align 8
@@ -23216,7 +23216,7 @@ _ZNSt10shared_ptrIN7rocksdb5CacheEEaSERKS2_.exit: ; preds = %entry, %if.end9.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_prepopulate_blob_cache(ptr nocapture noundef writeonly initializes((1192, 1193)) %opt, i32 noundef %t) local_unnamed_addr #6 {
+define void @rocksdb_options_set_prepopulate_blob_cache(ptr nocapture noundef writeonly %opt, i32 noundef %t) local_unnamed_addr #6 {
 entry:
   %conv = trunc i32 %t to i8
   %prepopulate_blob_cache = getelementptr inbounds i8, ptr %opt, i64 1192
@@ -23234,7 +23234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_num_levels(ptr nocapture noundef writeonly initializes((824, 828)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_num_levels(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %num_levels = getelementptr inbounds i8, ptr %opt, i64 824
   store i32 %n, ptr %num_levels, align 8
@@ -23250,7 +23250,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_level0_file_num_compaction_trigger(ptr nocapture noundef writeonly initializes((1384, 1388)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_level0_file_num_compaction_trigger(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %level0_file_num_compaction_trigger = getelementptr inbounds i8, ptr %opt, i64 1384
   store i32 %n, ptr %level0_file_num_compaction_trigger, align 8
@@ -23266,7 +23266,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_level0_slowdown_writes_trigger(ptr nocapture noundef writeonly initializes((828, 832)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_level0_slowdown_writes_trigger(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %level0_slowdown_writes_trigger = getelementptr inbounds i8, ptr %opt, i64 828
   store i32 %n, ptr %level0_slowdown_writes_trigger, align 4
@@ -23282,7 +23282,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_level0_stop_writes_trigger(ptr nocapture noundef writeonly initializes((832, 836)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_level0_stop_writes_trigger(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %level0_stop_writes_trigger = getelementptr inbounds i8, ptr %opt, i64 832
   store i32 %n, ptr %level0_stop_writes_trigger, align 8
@@ -23298,7 +23298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_wal_recovery_mode(ptr nocapture noundef writeonly initializes((498, 499)) %opt, i32 noundef %mode) local_unnamed_addr #6 {
+define void @rocksdb_options_set_wal_recovery_mode(ptr nocapture noundef writeonly %opt, i32 noundef %mode) local_unnamed_addr #6 {
 entry:
   %conv = trunc i32 %mode to i8
   %wal_recovery_mode = getelementptr inbounds i8, ptr %opt, i64 498
@@ -23316,7 +23316,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_compression(ptr nocapture noundef writeonly initializes((1264, 1265)) %opt, i32 noundef %t) local_unnamed_addr #6 {
+define void @rocksdb_options_set_compression(ptr nocapture noundef writeonly %opt, i32 noundef %t) local_unnamed_addr #6 {
 entry:
   %conv = trunc i32 %t to i8
   %compression = getelementptr inbounds i8, ptr %opt, i64 1264
@@ -23334,7 +23334,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_bottommost_compression(ptr nocapture noundef writeonly initializes((1265, 1266)) %opt, i32 noundef %t) local_unnamed_addr #6 {
+define void @rocksdb_options_set_bottommost_compression(ptr nocapture noundef writeonly %opt, i32 noundef %t) local_unnamed_addr #6 {
 entry:
   %conv = trunc i32 %t to i8
   %bottommost_compression = getelementptr inbounds i8, ptr %opt, i64 1265
@@ -23484,7 +23484,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_bottommost_compression_options(ptr nocapture noundef writeonly initializes((1272, 1288), (1296, 1297)) %opt, i32 noundef %w_bits, i32 noundef %level, i32 noundef %strategy, i32 noundef %max_dict_bytes, i8 noundef zeroext %enabled) local_unnamed_addr #6 {
+define void @rocksdb_options_set_bottommost_compression_options(ptr nocapture noundef writeonly %opt, i32 noundef %w_bits, i32 noundef %level, i32 noundef %strategy, i32 noundef %max_dict_bytes, i8 noundef zeroext %enabled) local_unnamed_addr #6 {
 entry:
   %bottommost_compression_opts = getelementptr inbounds i8, ptr %opt, i64 1272
   store i32 %w_bits, ptr %bottommost_compression_opts, align 8
@@ -23502,7 +23502,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_bottommost_compression_options_zstd_max_train_bytes(ptr nocapture noundef writeonly initializes((1288, 1292), (1296, 1297)) %opt, i32 noundef %zstd_max_train_bytes, i8 noundef zeroext %enabled) local_unnamed_addr #6 {
+define void @rocksdb_options_set_bottommost_compression_options_zstd_max_train_bytes(ptr nocapture noundef writeonly %opt, i32 noundef %zstd_max_train_bytes, i8 noundef zeroext %enabled) local_unnamed_addr #6 {
 entry:
   %zstd_max_train_bytes1 = getelementptr inbounds i8, ptr %opt, i64 1288
   store i32 %zstd_max_train_bytes, ptr %zstd_max_train_bytes1, align 8
@@ -23514,7 +23514,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_bottommost_compression_options_use_zstd_dict_trainer(ptr nocapture noundef writeonly initializes((1296, 1297), (1312, 1313)) %opt, i8 noundef zeroext %use_zstd_dict_trainer, i8 noundef zeroext %enabled) local_unnamed_addr #6 {
+define void @rocksdb_options_set_bottommost_compression_options_use_zstd_dict_trainer(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %use_zstd_dict_trainer, i8 noundef zeroext %enabled) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %use_zstd_dict_trainer, 0
   %use_zstd_dict_trainer1 = getelementptr inbounds i8, ptr %opt, i64 1312
@@ -23537,7 +23537,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_bottommost_compression_options_max_dict_buffer_bytes(ptr nocapture noundef writeonly initializes((1296, 1297), (1304, 1312)) %opt, i64 noundef %max_dict_buffer_bytes, i8 noundef zeroext %enabled) local_unnamed_addr #6 {
+define void @rocksdb_options_set_bottommost_compression_options_max_dict_buffer_bytes(ptr nocapture noundef writeonly %opt, i64 noundef %max_dict_buffer_bytes, i8 noundef zeroext %enabled) local_unnamed_addr #6 {
 entry:
   %max_dict_buffer_bytes1 = getelementptr inbounds i8, ptr %opt, i64 1304
   store i64 %max_dict_buffer_bytes, ptr %max_dict_buffer_bytes1, align 8
@@ -23549,7 +23549,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_compression_options(ptr nocapture noundef writeonly initializes((1328, 1344)) %opt, i32 noundef %w_bits, i32 noundef %level, i32 noundef %strategy, i32 noundef %max_dict_bytes) local_unnamed_addr #6 {
+define void @rocksdb_options_set_compression_options(ptr nocapture noundef writeonly %opt, i32 noundef %w_bits, i32 noundef %level, i32 noundef %strategy, i32 noundef %max_dict_bytes) local_unnamed_addr #6 {
 entry:
   %compression_opts = getelementptr inbounds i8, ptr %opt, i64 1328
   store i32 %w_bits, ptr %compression_opts, align 8
@@ -23563,7 +23563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_compression_options_zstd_max_train_bytes(ptr nocapture noundef writeonly initializes((1344, 1348)) %opt, i32 noundef %zstd_max_train_bytes) local_unnamed_addr #6 {
+define void @rocksdb_options_set_compression_options_zstd_max_train_bytes(ptr nocapture noundef writeonly %opt, i32 noundef %zstd_max_train_bytes) local_unnamed_addr #6 {
 entry:
   %zstd_max_train_bytes1 = getelementptr inbounds i8, ptr %opt, i64 1344
   store i32 %zstd_max_train_bytes, ptr %zstd_max_train_bytes1, align 8
@@ -23579,7 +23579,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_compression_options_use_zstd_dict_trainer(ptr nocapture noundef writeonly initializes((1368, 1369)) %opt, i8 noundef zeroext %use_zstd_dict_trainer) local_unnamed_addr #6 {
+define void @rocksdb_options_set_compression_options_use_zstd_dict_trainer(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %use_zstd_dict_trainer) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %use_zstd_dict_trainer, 0
   %use_zstd_dict_trainer1 = getelementptr inbounds i8, ptr %opt, i64 1368
@@ -23598,7 +23598,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_compression_options_parallel_threads(ptr nocapture noundef writeonly initializes((1348, 1352)) %opt, i32 noundef %value) local_unnamed_addr #6 {
+define void @rocksdb_options_set_compression_options_parallel_threads(ptr nocapture noundef writeonly %opt, i32 noundef %value) local_unnamed_addr #6 {
 entry:
   %parallel_threads = getelementptr inbounds i8, ptr %opt, i64 1348
   store i32 %value, ptr %parallel_threads, align 4
@@ -23614,7 +23614,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_compression_options_max_dict_buffer_bytes(ptr nocapture noundef writeonly initializes((1360, 1368)) %opt, i64 noundef %max_dict_buffer_bytes) local_unnamed_addr #6 {
+define void @rocksdb_options_set_compression_options_max_dict_buffer_bytes(ptr nocapture noundef writeonly %opt, i64 noundef %max_dict_buffer_bytes) local_unnamed_addr #6 {
 entry:
   %max_dict_buffer_bytes1 = getelementptr inbounds i8, ptr %opt, i64 1360
   store i64 %max_dict_buffer_bytes, ptr %max_dict_buffer_bytes1, align 8
@@ -23769,7 +23769,7 @@ _ZNSt12__shared_ptrIKN7rocksdb14SliceTransformELN9__gnu_cxx12_Lock_policyE2EED2E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_use_fsync(ptr nocapture noundef writeonly initializes((104, 105)) %opt, i32 noundef %use_fsync) local_unnamed_addr #6 {
+define void @rocksdb_options_set_use_fsync(ptr nocapture noundef writeonly %opt, i32 noundef %use_fsync) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i32 %use_fsync, 0
   %use_fsync1 = getelementptr inbounds i8, ptr %opt, i64 104
@@ -23805,7 +23805,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_WAL_ttl_seconds(ptr nocapture noundef writeonly initializes((272, 280)) %opt, i64 noundef %ttl) local_unnamed_addr #6 {
+define void @rocksdb_options_set_WAL_ttl_seconds(ptr nocapture noundef writeonly %opt, i64 noundef %ttl) local_unnamed_addr #6 {
 entry:
   %WAL_ttl_seconds = getelementptr inbounds i8, ptr %opt, i64 272
   store i64 %ttl, ptr %WAL_ttl_seconds, align 8
@@ -23821,7 +23821,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_WAL_size_limit_MB(ptr nocapture noundef writeonly initializes((280, 288)) %opt, i64 noundef %limit) local_unnamed_addr #6 {
+define void @rocksdb_options_set_WAL_size_limit_MB(ptr nocapture noundef writeonly %opt, i64 noundef %limit) local_unnamed_addr #6 {
 entry:
   %WAL_size_limit_MB = getelementptr inbounds i8, ptr %opt, i64 280
   store i64 %limit, ptr %WAL_size_limit_MB, align 8
@@ -23837,7 +23837,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_manifest_preallocation_size(ptr nocapture noundef writeonly initializes((288, 296)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_manifest_preallocation_size(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %manifest_preallocation_size = getelementptr inbounds i8, ptr %opt, i64 288
   store i64 %v, ptr %manifest_preallocation_size, align 8
@@ -23853,7 +23853,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_use_direct_reads(ptr nocapture noundef writeonly initializes((298, 299)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_use_direct_reads(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %use_direct_reads = getelementptr inbounds i8, ptr %opt, i64 298
@@ -23872,7 +23872,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_use_direct_io_for_flush_and_compaction(ptr nocapture noundef writeonly initializes((299, 300)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_use_direct_io_for_flush_and_compaction(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %use_direct_io_for_flush_and_compaction = getelementptr inbounds i8, ptr %opt, i64 299
@@ -23891,7 +23891,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_allow_mmap_reads(ptr nocapture noundef writeonly initializes((296, 297)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_allow_mmap_reads(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %allow_mmap_reads = getelementptr inbounds i8, ptr %opt, i64 296
@@ -23910,7 +23910,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_allow_mmap_writes(ptr nocapture noundef writeonly initializes((297, 298)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_allow_mmap_writes(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %allow_mmap_writes = getelementptr inbounds i8, ptr %opt, i64 297
@@ -23929,7 +23929,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_is_fd_close_on_exec(ptr nocapture noundef writeonly initializes((301, 302)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_is_fd_close_on_exec(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %is_fd_close_on_exec = getelementptr inbounds i8, ptr %opt, i64 301
@@ -23948,7 +23948,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_stats_dump_period_sec(ptr nocapture noundef writeonly initializes((304, 308)) %opt, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_stats_dump_period_sec(ptr nocapture noundef writeonly %opt, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %stats_dump_period_sec = getelementptr inbounds i8, ptr %opt, i64 304
   store i32 %v, ptr %stats_dump_period_sec, align 8
@@ -23964,7 +23964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_stats_persist_period_sec(ptr nocapture noundef writeonly initializes((308, 312)) %opt, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_stats_persist_period_sec(ptr nocapture noundef writeonly %opt, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %stats_persist_period_sec = getelementptr inbounds i8, ptr %opt, i64 308
   store i32 %v, ptr %stats_persist_period_sec, align 4
@@ -23980,7 +23980,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_advise_random_on_open(ptr nocapture noundef writeonly initializes((328, 329)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_advise_random_on_open(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %advise_random_on_open = getelementptr inbounds i8, ptr %opt, i64 328
@@ -24022,7 +24022,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_use_adaptive_mutex(ptr nocapture noundef writeonly initializes((392, 393)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_use_adaptive_mutex(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %use_adaptive_mutex = getelementptr inbounds i8, ptr %opt, i64 392
@@ -24041,7 +24041,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_wal_bytes_per_sync(ptr nocapture noundef writeonly initializes((408, 416)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_wal_bytes_per_sync(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %wal_bytes_per_sync = getelementptr inbounds i8, ptr %opt, i64 408
   store i64 %v, ptr %wal_bytes_per_sync, align 8
@@ -24057,7 +24057,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_bytes_per_sync(ptr nocapture noundef writeonly initializes((400, 408)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_bytes_per_sync(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %bytes_per_sync = getelementptr inbounds i8, ptr %opt, i64 400
   store i64 %v, ptr %bytes_per_sync, align 8
@@ -24073,7 +24073,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_writable_file_max_buffer_size(ptr nocapture noundef writeonly initializes((384, 392)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_writable_file_max_buffer_size(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %writable_file_max_buffer_size = getelementptr inbounds i8, ptr %opt, i64 384
   store i64 %v, ptr %writable_file_max_buffer_size, align 8
@@ -24089,7 +24089,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_allow_concurrent_memtable_write(ptr nocapture noundef writeonly initializes((466, 467)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_allow_concurrent_memtable_write(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %allow_concurrent_memtable_write = getelementptr inbounds i8, ptr %opt, i64 466
@@ -24108,7 +24108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_enable_write_thread_adaptive_yield(ptr nocapture noundef writeonly initializes((467, 468)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_enable_write_thread_adaptive_yield(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %enable_write_thread_adaptive_yield = getelementptr inbounds i8, ptr %opt, i64 467
@@ -24127,7 +24127,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_sequential_skip_in_iterations(ptr nocapture noundef writeonly initializes((1000, 1008)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_sequential_skip_in_iterations(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %max_sequential_skip_in_iterations = getelementptr inbounds i8, ptr %opt, i64 1000
   store i64 %v, ptr %max_sequential_skip_in_iterations, align 8
@@ -24143,7 +24143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_write_buffer_number(ptr nocapture noundef writeonly initializes((688, 692)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_write_buffer_number(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %opt, i64 688
   store i32 %n, ptr %add.ptr, align 8
@@ -24159,7 +24159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_min_write_buffer_number_to_merge(ptr nocapture noundef writeonly initializes((692, 696)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_min_write_buffer_number_to_merge(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %min_write_buffer_number_to_merge = getelementptr inbounds i8, ptr %opt, i64 692
   store i32 %n, ptr %min_write_buffer_number_to_merge, align 4
@@ -24175,7 +24175,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_write_buffer_number_to_maintain(ptr nocapture noundef writeonly initializes((696, 700)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_write_buffer_number_to_maintain(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %max_write_buffer_number_to_maintain = getelementptr inbounds i8, ptr %opt, i64 696
   store i32 %n, ptr %max_write_buffer_number_to_maintain, align 8
@@ -24191,7 +24191,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_write_buffer_size_to_maintain(ptr nocapture noundef writeonly initializes((704, 712)) %opt, i64 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_write_buffer_size_to_maintain(ptr nocapture noundef writeonly %opt, i64 noundef %n) local_unnamed_addr #6 {
 entry:
   %max_write_buffer_size_to_maintain = getelementptr inbounds i8, ptr %opt, i64 704
   store i64 %n, ptr %max_write_buffer_size_to_maintain, align 8
@@ -24207,7 +24207,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_enable_pipelined_write(ptr nocapture noundef writeonly initializes((464, 465)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_enable_pipelined_write(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %enable_pipelined_write = getelementptr inbounds i8, ptr %opt, i64 464
@@ -24226,7 +24226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_unordered_write(ptr nocapture noundef writeonly initializes((465, 466)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_unordered_write(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %unordered_write = getelementptr inbounds i8, ptr %opt, i64 465
@@ -24245,7 +24245,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_subcompactions(ptr nocapture noundef writeonly initializes((216, 220)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_subcompactions(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %max_subcompactions = getelementptr inbounds i8, ptr %opt, i64 216
   store i32 %n, ptr %max_subcompactions, align 8
@@ -24261,7 +24261,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_background_jobs(ptr nocapture noundef writeonly initializes((208, 212)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_background_jobs(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %max_background_jobs = getelementptr inbounds i8, ptr %opt, i64 208
   store i32 %n, ptr %max_background_jobs, align 8
@@ -24277,7 +24277,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_background_compactions(ptr nocapture noundef writeonly initializes((212, 216)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_background_compactions(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %max_background_compactions = getelementptr inbounds i8, ptr %opt, i64 212
   store i32 %n, ptr %max_background_compactions, align 4
@@ -24293,7 +24293,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_background_flushes(ptr nocapture noundef writeonly initializes((220, 224)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_background_flushes(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %max_background_flushes = getelementptr inbounds i8, ptr %opt, i64 220
   store i32 %n, ptr %max_background_flushes, align 4
@@ -24309,7 +24309,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_experimental_mempurge_threshold(ptr nocapture noundef writeonly initializes((728, 736)) %opt, double noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_experimental_mempurge_threshold(ptr nocapture noundef writeonly %opt, double noundef %v) local_unnamed_addr #6 {
 entry:
   %experimental_mempurge_threshold = getelementptr inbounds i8, ptr %opt, i64 728
   store double %v, ptr %experimental_mempurge_threshold, align 8
@@ -24325,7 +24325,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_log_file_size(ptr nocapture noundef writeonly initializes((224, 232)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_log_file_size(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %max_log_file_size = getelementptr inbounds i8, ptr %opt, i64 224
   store i64 %v, ptr %max_log_file_size, align 8
@@ -24341,7 +24341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_log_file_time_to_roll(ptr nocapture noundef writeonly initializes((232, 240)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_log_file_time_to_roll(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %log_file_time_to_roll = getelementptr inbounds i8, ptr %opt, i64 232
   store i64 %v, ptr %log_file_time_to_roll, align 8
@@ -24357,7 +24357,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_keep_log_file_num(ptr nocapture noundef writeonly initializes((240, 248)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_keep_log_file_num(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %keep_log_file_num = getelementptr inbounds i8, ptr %opt, i64 240
   store i64 %v, ptr %keep_log_file_num, align 8
@@ -24373,7 +24373,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_recycle_log_file_num(ptr nocapture noundef writeonly initializes((248, 256)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_recycle_log_file_num(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %recycle_log_file_num = getelementptr inbounds i8, ptr %opt, i64 248
   store i64 %v, ptr %recycle_log_file_num, align 8
@@ -24389,7 +24389,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_soft_pending_compaction_bytes_limit(ptr nocapture noundef writeonly initializes((904, 912)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_soft_pending_compaction_bytes_limit(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %soft_pending_compaction_bytes_limit = getelementptr inbounds i8, ptr %opt, i64 904
   store i64 %v, ptr %soft_pending_compaction_bytes_limit, align 8
@@ -24405,7 +24405,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_hard_pending_compaction_bytes_limit(ptr nocapture noundef writeonly initializes((912, 920)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_hard_pending_compaction_bytes_limit(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %hard_pending_compaction_bytes_limit = getelementptr inbounds i8, ptr %opt, i64 912
   store i64 %v, ptr %hard_pending_compaction_bytes_limit, align 8
@@ -24421,7 +24421,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_manifest_file_size(ptr nocapture noundef writeonly initializes((256, 264)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_manifest_file_size(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %max_manifest_file_size = getelementptr inbounds i8, ptr %opt, i64 256
   store i64 %v, ptr %max_manifest_file_size, align 8
@@ -24437,7 +24437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_table_cache_numshardbits(ptr nocapture noundef writeonly initializes((264, 268)) %opt, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_table_cache_numshardbits(ptr nocapture noundef writeonly %opt, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %table_cache_numshardbits = getelementptr inbounds i8, ptr %opt, i64 264
   store i32 %v, ptr %table_cache_numshardbits, align 8
@@ -24453,7 +24453,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_arena_block_size(ptr nocapture noundef writeonly initializes((792, 800)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_arena_block_size(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %arena_block_size = getelementptr inbounds i8, ptr %opt, i64 792
   store i64 %v, ptr %arena_block_size, align 8
@@ -24469,7 +24469,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_disable_auto_compactions(ptr nocapture noundef writeonly initializes((1424, 1425)) %opt, i32 noundef %disable) local_unnamed_addr #6 {
+define void @rocksdb_options_set_disable_auto_compactions(ptr nocapture noundef writeonly %opt, i32 noundef %disable) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i32 %disable, 0
   %disable_auto_compactions = getelementptr inbounds i8, ptr %opt, i64 1424
@@ -24488,7 +24488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_optimize_filters_for_hits(ptr nocapture noundef writeonly initializes((1056, 1057)) %opt, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_optimize_filters_for_hits(ptr nocapture noundef writeonly %opt, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i32 %v, 0
   %optimize_filters_for_hits = getelementptr inbounds i8, ptr %opt, i64 1056
@@ -24507,7 +24507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_delete_obsolete_files_period_micros(ptr nocapture noundef writeonly initializes((200, 208)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_delete_obsolete_files_period_micros(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %delete_obsolete_files_period_micros = getelementptr inbounds i8, ptr %opt, i64 200
   store i64 %v, ptr %delete_obsolete_files_period_micros, align 8
@@ -24684,7 +24684,7 @@ _ZNSt12__shared_ptrIN7rocksdb18MemTableRepFactoryELN9__gnu_cxx12_Lock_policyE2EE
 declare void @_ZN7rocksdb16VectorRepFactoryC1Em(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_memtable_prefix_bloom_size_ratio(ptr nocapture noundef writeonly initializes((744, 752)) %opt, double noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_memtable_prefix_bloom_size_ratio(ptr nocapture noundef writeonly %opt, double noundef %v) local_unnamed_addr #6 {
 entry:
   %memtable_prefix_bloom_size_ratio = getelementptr inbounds i8, ptr %opt, i64 744
   store double %v, ptr %memtable_prefix_bloom_size_ratio, align 8
@@ -24700,7 +24700,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_memtable_huge_page_size(ptr nocapture noundef writeonly initializes((760, 768)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_memtable_huge_page_size(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %memtable_huge_page_size = getelementptr inbounds i8, ptr %opt, i64 760
   store i64 %v, ptr %memtable_huge_page_size, align 8
@@ -24900,7 +24900,7 @@ entry:
 declare noundef ptr @_ZN7rocksdb20NewPlainTableFactoryERKNS_17PlainTableOptionsE(ptr noundef nonnull align 8 dereferenceable(35)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_max_successive_merges(ptr nocapture noundef writeonly initializes((1048, 1056)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_max_successive_merges(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %max_successive_merges = getelementptr inbounds i8, ptr %opt, i64 1048
   store i64 %v, ptr %max_successive_merges, align 8
@@ -24916,7 +24916,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_bloom_locality(ptr nocapture noundef writeonly initializes((784, 788)) %opt, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_bloom_locality(ptr nocapture noundef writeonly %opt, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %bloom_locality = getelementptr inbounds i8, ptr %opt, i64 784
   store i32 %v, ptr %bloom_locality, align 8
@@ -24932,7 +24932,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_inplace_update_support(ptr nocapture noundef writeonly initializes((712, 713)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_inplace_update_support(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %inplace_update_support = getelementptr inbounds i8, ptr %opt, i64 712
@@ -24951,7 +24951,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_inplace_update_num_locks(ptr nocapture noundef writeonly initializes((720, 728)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_inplace_update_num_locks(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %inplace_update_num_locks = getelementptr inbounds i8, ptr %opt, i64 720
   store i64 %v, ptr %inplace_update_num_locks, align 8
@@ -24967,7 +24967,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_report_bg_io_stats(ptr nocapture noundef writeonly initializes((1060, 1061)) %opt, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_options_set_report_bg_io_stats(ptr nocapture noundef writeonly %opt, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i32 %v, 0
   %report_bg_io_stats = getelementptr inbounds i8, ptr %opt, i64 1060
@@ -24986,7 +24986,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_compaction_style(ptr nocapture noundef writeonly initializes((920, 921)) %opt, i32 noundef %style) local_unnamed_addr #6 {
+define void @rocksdb_options_set_compaction_style(ptr nocapture noundef writeonly %opt, i32 noundef %style) local_unnamed_addr #6 {
 entry:
   %conv = trunc i32 %style to i8
   %compaction_style = getelementptr inbounds i8, ptr %opt, i64 920
@@ -25004,7 +25004,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @rocksdb_options_set_universal_compaction_options(ptr nocapture noundef writeonly initializes((924, 950)) %opt, ptr nocapture noundef readonly %uco) local_unnamed_addr #18 {
+define void @rocksdb_options_set_universal_compaction_options(ptr nocapture noundef writeonly %opt, ptr nocapture noundef readonly %uco) local_unnamed_addr #18 {
 entry:
   %0 = load ptr, ptr %uco, align 8
   %compaction_options_universal = getelementptr inbounds i8, ptr %opt, i64 924
@@ -25013,7 +25013,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @rocksdb_options_set_fifo_compaction_options(ptr noundef initializes((952, 976)) %opt, ptr noundef %fifo) local_unnamed_addr #0 {
+define void @rocksdb_options_set_fifo_compaction_options(ptr noundef %opt, ptr noundef %fifo) local_unnamed_addr #0 {
 entry:
   %compaction_options_fifo = getelementptr inbounds i8, ptr %opt, i64 952
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %compaction_options_fifo, ptr noundef nonnull align 8 dereferenceable(48) %fifo, i64 24, i1 false)
@@ -25213,7 +25213,7 @@ if.end:                                           ; preds = %if.end9.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_atomic_flush(ptr nocapture noundef writeonly initializes((536, 537)) %opt, i8 noundef zeroext %atomic_flush) local_unnamed_addr #6 {
+define void @rocksdb_options_set_atomic_flush(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %atomic_flush) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %atomic_flush, 0
   %atomic_flush1 = getelementptr inbounds i8, ptr %opt, i64 536
@@ -25232,7 +25232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_manual_wal_flush(ptr nocapture noundef writeonly initializes((534, 535)) %opt, i8 noundef zeroext %manual_wal_flush) local_unnamed_addr #6 {
+define void @rocksdb_options_set_manual_wal_flush(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %manual_wal_flush) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %manual_wal_flush, 0
   %manual_wal_flush1 = getelementptr inbounds i8, ptr %opt, i64 534
@@ -25251,7 +25251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_wal_compression(ptr nocapture noundef writeonly initializes((535, 536)) %opt, i32 noundef %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_wal_compression(ptr nocapture noundef writeonly %opt, i32 noundef %val) local_unnamed_addr #6 {
 entry:
   %conv = trunc i32 %val to i8
   %wal_compression = getelementptr inbounds i8, ptr %opt, i64 535
@@ -26543,7 +26543,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_compactionfilter_set_ignore_snapshots(ptr nocapture noundef writeonly initializes((64, 65)) %filter, i8 noundef zeroext %whether_ignore) local_unnamed_addr #6 {
+define void @rocksdb_compactionfilter_set_ignore_snapshots(ptr nocapture noundef writeonly %filter, i8 noundef zeroext %whether_ignore) local_unnamed_addr #6 {
 entry:
   %ignore_snapshots_ = getelementptr inbounds i8, ptr %filter, i64 64
   store i8 %whether_ignore, ptr %ignore_snapshots_, align 8
@@ -26939,7 +26939,7 @@ delete.end:                                       ; preds = %_ZN21rocksdb_readop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_verify_checksums(ptr nocapture noundef writeonly initializes((72, 73)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_verify_checksums(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %verify_checksums = getelementptr inbounds i8, ptr %opt, i64 72
@@ -26958,7 +26958,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_fill_cache(ptr nocapture noundef writeonly initializes((73, 74)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_fill_cache(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %fill_cache = getelementptr inbounds i8, ptr %opt, i64 73
@@ -26977,7 +26977,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @rocksdb_readoptions_set_snapshot(ptr nocapture noundef writeonly initializes((0, 8)) %opt, ptr noundef readonly %snap) local_unnamed_addr #9 {
+define void @rocksdb_readoptions_set_snapshot(ptr nocapture noundef writeonly %opt, ptr noundef readonly %snap) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %snap, null
   br i1 %tobool.not, label %cond.end, label %cond.true
@@ -27025,7 +27025,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_read_tier(ptr nocapture noundef writeonly initializes((40, 44)) %opt, i32 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_read_tier(ptr nocapture noundef writeonly %opt, i32 noundef %v) local_unnamed_addr #6 {
 entry:
   %read_tier = getelementptr inbounds i8, ptr %opt, i64 40
   store i32 %v, ptr %read_tier, align 8
@@ -27041,7 +27041,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_tailing(ptr nocapture noundef writeonly initializes((112, 113)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_tailing(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %tailing = getelementptr inbounds i8, ptr %opt, i64 112
@@ -27060,7 +27060,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_managed(ptr nocapture noundef writeonly initializes((113, 114)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_managed(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %managed = getelementptr inbounds i8, ptr %opt, i64 113
@@ -27070,7 +27070,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_readahead_size(ptr nocapture noundef writeonly initializes((80, 88)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_readahead_size(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %readahead_size = getelementptr inbounds i8, ptr %opt, i64 80
   store i64 %v, ptr %readahead_size, align 8
@@ -27086,7 +27086,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_prefix_same_as_start(ptr nocapture noundef writeonly initializes((116, 117)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_prefix_same_as_start(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %prefix_same_as_start = getelementptr inbounds i8, ptr %opt, i64 116
@@ -27105,7 +27105,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_pin_data(ptr nocapture noundef writeonly initializes((117, 118)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_pin_data(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %pin_data = getelementptr inbounds i8, ptr %opt, i64 117
@@ -27124,7 +27124,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_total_order_seek(ptr nocapture noundef writeonly initializes((114, 115)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_total_order_seek(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %total_order_seek = getelementptr inbounds i8, ptr %opt, i64 114
@@ -27143,7 +27143,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_max_skippable_internal_keys(ptr nocapture noundef writeonly initializes((88, 96)) %opt, i64 noundef %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_max_skippable_internal_keys(ptr nocapture noundef writeonly %opt, i64 noundef %v) local_unnamed_addr #6 {
 entry:
   %max_skippable_internal_keys = getelementptr inbounds i8, ptr %opt, i64 88
   store i64 %v, ptr %max_skippable_internal_keys, align 8
@@ -27159,7 +27159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_background_purge_on_iterator_cleanup(ptr nocapture noundef writeonly initializes((119, 120)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_background_purge_on_iterator_cleanup(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %background_purge_on_iterator_cleanup = getelementptr inbounds i8, ptr %opt, i64 119
@@ -27178,7 +27178,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_ignore_range_deletions(ptr nocapture noundef writeonly initializes((74, 75)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_ignore_range_deletions(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %ignore_range_deletions = getelementptr inbounds i8, ptr %opt, i64 74
@@ -27197,7 +27197,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_deadline(ptr nocapture noundef writeonly initializes((24, 32)) %opt, i64 noundef %microseconds) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_deadline(ptr nocapture noundef writeonly %opt, i64 noundef %microseconds) local_unnamed_addr #6 {
 entry:
   %deadline = getelementptr inbounds i8, ptr %opt, i64 24
   store i64 %microseconds, ptr %deadline, align 8
@@ -27213,7 +27213,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_io_timeout(ptr nocapture noundef writeonly initializes((32, 40)) %opt, i64 noundef %microseconds) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_io_timeout(ptr nocapture noundef writeonly %opt, i64 noundef %microseconds) local_unnamed_addr #6 {
 entry:
   %io_timeout = getelementptr inbounds i8, ptr %opt, i64 32
   store i64 %microseconds, ptr %io_timeout, align 8
@@ -27229,7 +27229,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_async_io(ptr nocapture noundef writeonly initializes((75, 76)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_async_io(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %async_io = getelementptr inbounds i8, ptr %opt, i64 75
@@ -27280,7 +27280,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_readoptions_set_auto_readahead_size(ptr nocapture noundef writeonly initializes((152, 153)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_readoptions_set_auto_readahead_size(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %auto_readahead_size = getelementptr inbounds i8, ptr %opt, i64 152
@@ -27316,7 +27316,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_writeoptions_set_sync(ptr nocapture noundef writeonly initializes((0, 1)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_writeoptions_set_sync(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %frombool = zext i1 %tobool to i8
@@ -27333,7 +27333,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_writeoptions_disable_WAL(ptr nocapture noundef writeonly initializes((1, 2)) %opt, i32 noundef %disable) local_unnamed_addr #6 {
+define void @rocksdb_writeoptions_disable_WAL(ptr nocapture noundef writeonly %opt, i32 noundef %disable) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i32 %disable, 0
   %disableWAL = getelementptr inbounds i8, ptr %opt, i64 1
@@ -27352,7 +27352,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_writeoptions_set_ignore_missing_column_families(ptr nocapture noundef writeonly initializes((2, 3)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_writeoptions_set_ignore_missing_column_families(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %ignore_missing_column_families = getelementptr inbounds i8, ptr %opt, i64 2
@@ -27371,7 +27371,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_writeoptions_set_no_slowdown(ptr nocapture noundef writeonly initializes((3, 4)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_writeoptions_set_no_slowdown(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %no_slowdown = getelementptr inbounds i8, ptr %opt, i64 3
@@ -27390,7 +27390,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_writeoptions_set_low_pri(ptr nocapture noundef writeonly initializes((4, 5)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_writeoptions_set_low_pri(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %low_pri = getelementptr inbounds i8, ptr %opt, i64 4
@@ -27409,7 +27409,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_writeoptions_set_memtable_insert_hint_per_batch(ptr nocapture noundef writeonly initializes((5, 6)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_writeoptions_set_memtable_insert_hint_per_batch(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %memtable_insert_hint_per_batch = getelementptr inbounds i8, ptr %opt, i64 5
@@ -27470,7 +27470,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_compactoptions_set_bottommost_level_compaction(ptr nocapture noundef writeonly initializes((12, 16)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_compactoptions_set_bottommost_level_compaction(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %conv = zext i8 %v to i32
   %bottommost_level_compaction = getelementptr inbounds i8, ptr %opt, i64 12
@@ -27488,7 +27488,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_compactoptions_set_exclusive_manual_compaction(ptr nocapture noundef writeonly initializes((0, 1)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_compactoptions_set_exclusive_manual_compaction(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %frombool = zext i1 %tobool to i8
@@ -27505,7 +27505,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_compactoptions_set_change_level(ptr nocapture noundef writeonly initializes((1, 2)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_compactoptions_set_change_level(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %change_level = getelementptr inbounds i8, ptr %opt, i64 1
@@ -27524,7 +27524,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_compactoptions_set_target_level(ptr nocapture noundef writeonly initializes((4, 8)) %opt, i32 noundef %n) local_unnamed_addr #6 {
+define void @rocksdb_compactoptions_set_target_level(ptr nocapture noundef writeonly %opt, i32 noundef %n) local_unnamed_addr #6 {
 entry:
   %target_level = getelementptr inbounds i8, ptr %opt, i64 4
   store i32 %n, ptr %target_level, align 4
@@ -27580,7 +27580,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_flushoptions_set_wait(ptr nocapture noundef writeonly initializes((0, 1)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_flushoptions_set_wait(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %frombool = zext i1 %tobool to i8
@@ -27807,7 +27807,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_lru_cache_options_set_capacity(ptr nocapture noundef writeonly initializes((8, 16)) %opt, i64 noundef %capacity) local_unnamed_addr #6 {
+define void @rocksdb_lru_cache_options_set_capacity(ptr nocapture noundef writeonly %opt, i64 noundef %capacity) local_unnamed_addr #6 {
 entry:
   %capacity1 = getelementptr inbounds i8, ptr %opt, i64 8
   store i64 %capacity, ptr %capacity1, align 8
@@ -27815,7 +27815,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_lru_cache_options_set_num_shard_bits(ptr nocapture noundef writeonly initializes((16, 20)) %opt, i32 noundef %num_shard_bits) local_unnamed_addr #6 {
+define void @rocksdb_lru_cache_options_set_num_shard_bits(ptr nocapture noundef writeonly %opt, i32 noundef %num_shard_bits) local_unnamed_addr #6 {
 entry:
   %num_shard_bits1 = getelementptr inbounds i8, ptr %opt, i64 16
   store i32 %num_shard_bits, ptr %num_shard_bits1, align 8
@@ -27823,7 +27823,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @rocksdb_lru_cache_options_set_memory_allocator(ptr nocapture noundef initializes((24, 32)) %opt, ptr nocapture noundef readonly %allocator) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @rocksdb_lru_cache_options_set_memory_allocator(ptr nocapture noundef %opt, ptr nocapture noundef readonly %allocator) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %memory_allocator = getelementptr inbounds i8, ptr %opt, i64 24
   %0 = load ptr, ptr %allocator, align 8
@@ -28284,7 +28284,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_hyper_clock_cache_options_set_capacity(ptr nocapture noundef writeonly initializes((8, 16)) %opts, i64 noundef %capacity) local_unnamed_addr #6 {
+define void @rocksdb_hyper_clock_cache_options_set_capacity(ptr nocapture noundef writeonly %opts, i64 noundef %capacity) local_unnamed_addr #6 {
 entry:
   %capacity1 = getelementptr inbounds i8, ptr %opts, i64 8
   store i64 %capacity, ptr %capacity1, align 8
@@ -28292,7 +28292,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_hyper_clock_cache_options_set_estimated_entry_charge(ptr nocapture noundef writeonly initializes((72, 80)) %opts, i64 noundef %estimated_entry_charge) local_unnamed_addr #6 {
+define void @rocksdb_hyper_clock_cache_options_set_estimated_entry_charge(ptr nocapture noundef writeonly %opts, i64 noundef %estimated_entry_charge) local_unnamed_addr #6 {
 entry:
   %estimated_entry_charge1 = getelementptr inbounds i8, ptr %opts, i64 72
   store i64 %estimated_entry_charge, ptr %estimated_entry_charge1, align 8
@@ -28300,7 +28300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_hyper_clock_cache_options_set_num_shard_bits(ptr nocapture noundef writeonly initializes((16, 20)) %opts, i32 noundef %num_shard_bits) local_unnamed_addr #6 {
+define void @rocksdb_hyper_clock_cache_options_set_num_shard_bits(ptr nocapture noundef writeonly %opts, i32 noundef %num_shard_bits) local_unnamed_addr #6 {
 entry:
   %num_shard_bits1 = getelementptr inbounds i8, ptr %opts, i64 16
   store i32 %num_shard_bits, ptr %num_shard_bits1, align 8
@@ -28308,7 +28308,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @rocksdb_hyper_clock_cache_options_set_memory_allocator(ptr nocapture noundef initializes((24, 32)) %opts, ptr nocapture noundef readonly %memory_allocator) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @rocksdb_hyper_clock_cache_options_set_memory_allocator(ptr nocapture noundef %opts, ptr nocapture noundef readonly %memory_allocator) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %memory_allocator2 = getelementptr inbounds i8, ptr %opts, i64 24
   %0 = load ptr, ptr %memory_allocator, align 8
@@ -30407,7 +30407,7 @@ _ZN7rocksdb6StatusD2Ev.exit4:                     ; preds = %lpad, %_ZNKSt14defa
 declare void @_ZN7rocksdb13SstFileWriter6FinishEPNS_19ExternalSstFileInfoE(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @rocksdb_sstfilewriter_file_size(ptr nocapture noundef readonly %writer, ptr nocapture noundef writeonly initializes((0, 8)) %file_size) local_unnamed_addr #0 {
+define void @rocksdb_sstfilewriter_file_size(ptr nocapture noundef readonly %writer, ptr nocapture noundef writeonly %file_size) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %writer, align 8
   %call = tail call noundef i64 @_ZN7rocksdb13SstFileWriter8FileSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
@@ -30454,7 +30454,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_ingestexternalfileoptions_set_move_files(ptr nocapture noundef writeonly initializes((0, 1)) %opt, i8 noundef zeroext %move_files) local_unnamed_addr #6 {
+define void @rocksdb_ingestexternalfileoptions_set_move_files(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %move_files) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %move_files, 0
   %frombool = zext i1 %tobool to i8
@@ -30463,7 +30463,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_ingestexternalfileoptions_set_snapshot_consistency(ptr nocapture noundef writeonly initializes((2, 3)) %opt, i8 noundef zeroext %snapshot_consistency) local_unnamed_addr #6 {
+define void @rocksdb_ingestexternalfileoptions_set_snapshot_consistency(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %snapshot_consistency) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %snapshot_consistency, 0
   %snapshot_consistency1 = getelementptr inbounds i8, ptr %opt, i64 2
@@ -30473,7 +30473,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_ingestexternalfileoptions_set_allow_global_seqno(ptr nocapture noundef writeonly initializes((3, 4)) %opt, i8 noundef zeroext %allow_global_seqno) local_unnamed_addr #6 {
+define void @rocksdb_ingestexternalfileoptions_set_allow_global_seqno(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %allow_global_seqno) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %allow_global_seqno, 0
   %allow_global_seqno1 = getelementptr inbounds i8, ptr %opt, i64 3
@@ -30483,7 +30483,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_ingestexternalfileoptions_set_allow_blocking_flush(ptr nocapture noundef writeonly initializes((4, 5)) %opt, i8 noundef zeroext %allow_blocking_flush) local_unnamed_addr #6 {
+define void @rocksdb_ingestexternalfileoptions_set_allow_blocking_flush(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %allow_blocking_flush) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %allow_blocking_flush, 0
   %allow_blocking_flush1 = getelementptr inbounds i8, ptr %opt, i64 4
@@ -30493,7 +30493,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_ingestexternalfileoptions_set_ingest_behind(ptr nocapture noundef writeonly initializes((5, 6)) %opt, i8 noundef zeroext %ingest_behind) local_unnamed_addr #6 {
+define void @rocksdb_ingestexternalfileoptions_set_ingest_behind(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %ingest_behind) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %ingest_behind, 0
   %ingest_behind1 = getelementptr inbounds i8, ptr %opt, i64 5
@@ -30503,7 +30503,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_ingestexternalfileoptions_set_fail_if_not_bottommost_level(ptr nocapture noundef writeonly initializes((17, 18)) %opt, i8 noundef zeroext %fail_if_not_bottommost_level) local_unnamed_addr #6 {
+define void @rocksdb_ingestexternalfileoptions_set_fail_if_not_bottommost_level(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %fail_if_not_bottommost_level) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %fail_if_not_bottommost_level, 0
   %fail_if_not_bottommost_level1 = getelementptr inbounds i8, ptr %opt, i64 17
@@ -31272,7 +31272,7 @@ _ZN7rocksdb21CompactionOptionsFIFOD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_fifo_compaction_options_set_allow_compaction(ptr nocapture noundef writeonly initializes((8, 9)) %fifo_opts, i8 noundef zeroext %allow_compaction) local_unnamed_addr #6 {
+define void @rocksdb_fifo_compaction_options_set_allow_compaction(ptr nocapture noundef writeonly %fifo_opts, i8 noundef zeroext %allow_compaction) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %allow_compaction, 0
   %allow_compaction1 = getelementptr inbounds i8, ptr %fifo_opts, i64 8
@@ -31291,7 +31291,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_fifo_compaction_options_set_max_table_files_size(ptr nocapture noundef writeonly initializes((0, 8)) %fifo_opts, i64 noundef %size) local_unnamed_addr #6 {
+define void @rocksdb_fifo_compaction_options_set_max_table_files_size(ptr nocapture noundef writeonly %fifo_opts, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   store i64 %size, ptr %fifo_opts, align 8
   ret void
@@ -31437,7 +31437,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @rocksdb_livefiles_smallestkey(ptr nocapture noundef readonly %lf, i32 noundef %index, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #4 {
+define noundef ptr @rocksdb_livefiles_smallestkey(ptr nocapture noundef readonly %lf, i32 noundef %index, ptr nocapture noundef writeonly %size) local_unnamed_addr #4 {
 entry:
   %conv = sext i32 %index to i64
   %0 = load ptr, ptr %lf, align 8
@@ -31454,7 +31454,7 @@ entry:
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @rocksdb_livefiles_largestkey(ptr nocapture noundef readonly %lf, i32 noundef %index, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #4 {
+define noundef ptr @rocksdb_livefiles_largestkey(ptr nocapture noundef readonly %lf, i32 noundef %index, ptr nocapture noundef writeonly %size) local_unnamed_addr #4 {
 entry:
   %conv = sext i32 %index to i64
   %0 = load ptr, ptr %lf, align 8
@@ -32075,7 +32075,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noalias noundef ptr @rocksdb_sst_file_metadata_get_smallestkey(ptr nocapture noundef readonly %file_meta, ptr nocapture noundef writeonly initializes((0, 8)) %key_len) local_unnamed_addr #4 {
+define noalias noundef ptr @rocksdb_sst_file_metadata_get_smallestkey(ptr nocapture noundef readonly %file_meta, ptr nocapture noundef writeonly %key_len) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %file_meta, align 8
   %smallestkey = getelementptr inbounds i8, ptr %0, i64 176
@@ -32092,7 +32092,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noalias noundef ptr @rocksdb_sst_file_metadata_get_largestkey(ptr nocapture noundef readonly %file_meta, ptr nocapture noundef writeonly initializes((0, 8)) %key_len) local_unnamed_addr #4 {
+define noalias noundef ptr @rocksdb_sst_file_metadata_get_largestkey(ptr nocapture noundef readonly %file_meta, ptr nocapture noundef writeonly %key_len) local_unnamed_addr #4 {
 entry:
   %0 = load ptr, ptr %file_meta, align 8
   %largestkey = getelementptr inbounds i8, ptr %0, i64 208
@@ -32152,14 +32152,14 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_transactiondb_options_set_max_num_locks(ptr nocapture noundef writeonly initializes((0, 8)) %opt, i64 noundef %max_num_locks) local_unnamed_addr #6 {
+define void @rocksdb_transactiondb_options_set_max_num_locks(ptr nocapture noundef writeonly %opt, i64 noundef %max_num_locks) local_unnamed_addr #6 {
 entry:
   store i64 %max_num_locks, ptr %opt, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_transactiondb_options_set_num_stripes(ptr nocapture noundef writeonly initializes((16, 24)) %opt, i64 noundef %num_stripes) local_unnamed_addr #6 {
+define void @rocksdb_transactiondb_options_set_num_stripes(ptr nocapture noundef writeonly %opt, i64 noundef %num_stripes) local_unnamed_addr #6 {
 entry:
   %num_stripes1 = getelementptr inbounds i8, ptr %opt, i64 16
   store i64 %num_stripes, ptr %num_stripes1, align 8
@@ -32167,7 +32167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_transactiondb_options_set_transaction_lock_timeout(ptr nocapture noundef writeonly initializes((24, 32)) %opt, i64 noundef %txn_lock_timeout) local_unnamed_addr #6 {
+define void @rocksdb_transactiondb_options_set_transaction_lock_timeout(ptr nocapture noundef writeonly %opt, i64 noundef %txn_lock_timeout) local_unnamed_addr #6 {
 entry:
   %transaction_lock_timeout = getelementptr inbounds i8, ptr %opt, i64 24
   store i64 %txn_lock_timeout, ptr %transaction_lock_timeout, align 8
@@ -32175,7 +32175,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_transactiondb_options_set_default_lock_timeout(ptr nocapture noundef writeonly initializes((32, 40)) %opt, i64 noundef %default_lock_timeout) local_unnamed_addr #6 {
+define void @rocksdb_transactiondb_options_set_default_lock_timeout(ptr nocapture noundef writeonly %opt, i64 noundef %default_lock_timeout) local_unnamed_addr #6 {
 entry:
   %default_lock_timeout1 = getelementptr inbounds i8, ptr %opt, i64 32
   store i64 %default_lock_timeout, ptr %default_lock_timeout1, align 8
@@ -32221,7 +32221,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_transaction_options_set_set_snapshot(ptr nocapture noundef writeonly initializes((0, 1)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_transaction_options_set_set_snapshot(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %frombool = zext i1 %tobool to i8
@@ -32230,7 +32230,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_transaction_options_set_deadlock_detect(ptr nocapture noundef writeonly initializes((1, 2)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_transaction_options_set_deadlock_detect(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %deadlock_detect = getelementptr inbounds i8, ptr %opt, i64 1
@@ -32240,7 +32240,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_transaction_options_set_lock_timeout(ptr nocapture noundef writeonly initializes((8, 16)) %opt, i64 noundef %lock_timeout) local_unnamed_addr #6 {
+define void @rocksdb_transaction_options_set_lock_timeout(ptr nocapture noundef writeonly %opt, i64 noundef %lock_timeout) local_unnamed_addr #6 {
 entry:
   %lock_timeout1 = getelementptr inbounds i8, ptr %opt, i64 8
   store i64 %lock_timeout, ptr %lock_timeout1, align 8
@@ -32248,7 +32248,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_transaction_options_set_expiration(ptr nocapture noundef writeonly initializes((16, 24)) %opt, i64 noundef %expiration) local_unnamed_addr #6 {
+define void @rocksdb_transaction_options_set_expiration(ptr nocapture noundef writeonly %opt, i64 noundef %expiration) local_unnamed_addr #6 {
 entry:
   %expiration1 = getelementptr inbounds i8, ptr %opt, i64 16
   store i64 %expiration, ptr %expiration1, align 8
@@ -32256,7 +32256,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_transaction_options_set_deadlock_detect_depth(ptr nocapture noundef writeonly initializes((24, 32)) %opt, i64 noundef %depth) local_unnamed_addr #6 {
+define void @rocksdb_transaction_options_set_deadlock_detect_depth(ptr nocapture noundef writeonly %opt, i64 noundef %depth) local_unnamed_addr #6 {
 entry:
   %deadlock_detect_depth = getelementptr inbounds i8, ptr %opt, i64 24
   store i64 %depth, ptr %deadlock_detect_depth, align 8
@@ -32264,7 +32264,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_transaction_options_set_max_write_batch_size(ptr nocapture noundef writeonly initializes((32, 40)) %opt, i64 noundef %size) local_unnamed_addr #6 {
+define void @rocksdb_transaction_options_set_max_write_batch_size(ptr nocapture noundef writeonly %opt, i64 noundef %size) local_unnamed_addr #6 {
 entry:
   %max_write_batch_size = getelementptr inbounds i8, ptr %opt, i64 32
   store i64 %size, ptr %max_write_batch_size, align 8
@@ -32272,7 +32272,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_transaction_options_set_skip_prepare(ptr nocapture noundef writeonly initializes((41, 42)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_transaction_options_set_skip_prepare(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %skip_prepare = getelementptr inbounds i8, ptr %opt, i64 41
@@ -32316,7 +32316,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_optimistictransaction_options_set_set_snapshot(ptr nocapture noundef writeonly initializes((0, 1)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_optimistictransaction_options_set_set_snapshot(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %frombool = zext i1 %tobool to i8
@@ -33606,7 +33606,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @rocksdb_transaction_get_name(ptr nocapture noundef readonly %txn, ptr nocapture noundef writeonly initializes((0, 8)) %name_len) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef ptr @rocksdb_transaction_get_name(ptr nocapture noundef readonly %txn, ptr nocapture noundef writeonly %name_len) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %name = alloca %"class.std::__cxx11::basic_string", align 8
   %0 = load ptr, ptr %txn, align 8
@@ -40091,7 +40091,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @rocksdb_pinnableslice_value(ptr noundef readonly %v, ptr nocapture noundef writeonly initializes((0, 8)) %vlen) local_unnamed_addr #9 {
+define ptr @rocksdb_pinnableslice_value(ptr noundef readonly %v, ptr nocapture noundef writeonly %vlen) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq ptr %v, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -40856,7 +40856,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_dump_malloc_stats(ptr nocapture noundef writeonly initializes((529, 530)) %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_dump_malloc_stats(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %val, 0
   %dump_malloc_stats = getelementptr inbounds i8, ptr %opt, i64 529
@@ -40866,7 +40866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_memtable_whole_key_filtering(ptr nocapture noundef writeonly initializes((752, 753)) %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_memtable_whole_key_filtering(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %val, 0
   %memtable_whole_key_filtering = getelementptr inbounds i8, ptr %opt, i64 752
@@ -40876,7 +40876,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_options_set_avoid_unnecessary_blocking_io(ptr nocapture noundef writeonly initializes((537, 538)) %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
+define void @rocksdb_options_set_avoid_unnecessary_blocking_io(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %val) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %val, 0
   %avoid_unnecessary_blocking_io = getelementptr inbounds i8, ptr %opt, i64 537
@@ -41132,7 +41132,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_wait_for_compact_options_set_abort_on_pause(ptr nocapture noundef writeonly initializes((0, 1)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_wait_for_compact_options_set_abort_on_pause(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %frombool = zext i1 %tobool to i8
@@ -41149,7 +41149,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_wait_for_compact_options_set_flush(ptr nocapture noundef writeonly initializes((1, 2)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_wait_for_compact_options_set_flush(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %flush = getelementptr inbounds i8, ptr %opt, i64 1
@@ -41168,7 +41168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_wait_for_compact_options_set_close_db(ptr nocapture noundef writeonly initializes((2, 3)) %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
+define void @rocksdb_wait_for_compact_options_set_close_db(ptr nocapture noundef writeonly %opt, i8 noundef zeroext %v) local_unnamed_addr #6 {
 entry:
   %tobool = icmp ne i8 %v, 0
   %close_db = getelementptr inbounds i8, ptr %opt, i64 2
@@ -41187,7 +41187,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rocksdb_wait_for_compact_options_set_timeout(ptr nocapture noundef writeonly initializes((8, 16)) %opt, i64 noundef %microseconds) local_unnamed_addr #6 {
+define void @rocksdb_wait_for_compact_options_set_timeout(ptr nocapture noundef writeonly %opt, i64 noundef %microseconds) local_unnamed_addr #6 {
 entry:
   %timeout = getelementptr inbounds i8, ptr %opt, i64 8
   store i64 %microseconds, ptr %timeout, align 8
@@ -46322,7 +46322,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ40rocksdb_filterpolicy_create_bloom_formatEN7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ40rocksdb_filterpolicy_create_bloom_formatEN7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ40rocksdb_filterpolicy_create_bloom_formatE7Wrapper, i64 16), ptr %this, align 8
   %rep_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -46359,7 +46359,7 @@ _ZN22rocksdb_filterpolicy_tD2Ev.exit:             ; preds = %delete.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ40rocksdb_filterpolicy_create_bloom_formatEN7WrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ40rocksdb_filterpolicy_create_bloom_formatEN7WrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ40rocksdb_filterpolicy_create_bloom_formatE7Wrapper, i64 16), ptr %this, align 8
   %rep_.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -46489,7 +46489,7 @@ entry:
 declare void @_ZN7rocksdb12FilterPolicyD2Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ41rocksdb_filterpolicy_create_ribbon_formatEN7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ41rocksdb_filterpolicy_create_ribbon_formatEN7WrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ41rocksdb_filterpolicy_create_ribbon_formatE7Wrapper, i64 16), ptr %this, align 8
   %rep_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -46526,7 +46526,7 @@ _ZN22rocksdb_filterpolicy_tD2Ev.exit:             ; preds = %delete.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZ41rocksdb_filterpolicy_create_ribbon_formatEN7WrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZ41rocksdb_filterpolicy_create_ribbon_formatEN7WrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVZ41rocksdb_filterpolicy_create_ribbon_formatE7Wrapper, i64 16), ptr %this, align 8
   %rep_.i = getelementptr inbounds i8, ptr %this, i64 56

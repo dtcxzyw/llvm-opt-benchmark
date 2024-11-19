@@ -528,7 +528,7 @@ define internal range(i32 -8, 1) i32 @eyesdn_dump_can_write_encap(i32 noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @eyesdn_dump_open(ptr noundef initializes((64, 72)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal range(i32 0, 2) i32 @eyesdn_dump_open(ptr noundef %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @eyesdn_dump, ptr %4, align 8
   %5 = tail call i32 @wtap_dump_file_write(ptr noundef %0, ptr noundef nonnull @eyesdn_hdr_magic, i64 noundef 6, ptr noundef %1) #5

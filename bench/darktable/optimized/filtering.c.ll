@@ -1355,7 +1355,7 @@ declare void @dt_lib_presets_add(ptr noundef, ptr noundef, i32 noundef, ptr noun
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #1 {
+define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8, !tbaa !63
   %5 = getelementptr i8, ptr %4, i64 4512
@@ -1371,7 +1371,7 @@ define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_filters_update_params(ptr initializes((0, 2692)) %0) unnamed_addr #1 {
+define internal fastcc void @_filters_update_params(ptr %0) unnamed_addr #1 {
   %2 = alloca [200 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(2692) %0, i8 0, i64 2688, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 2688
@@ -2439,7 +2439,7 @@ define noundef i32 @position(ptr nocapture noundef readnone %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.dt_lib_filtering_rule_t, align 8
   %3 = tail call noalias dereferenceable_or_null(4528) ptr @calloc(i64 noundef 1, i64 noundef 4528) #25
   %4 = getelementptr inbounds i8, ptr %0, i64 280
@@ -4737,7 +4737,7 @@ declare void @dt_collection_sort_serialize(ptr noundef, i32 noundef) local_unnam
 declare i32 @dt_collection_serialize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_widget_init(ptr noundef initializes((368, 372)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_widget_init(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef %7) unnamed_addr #1 {
   %9 = getelementptr inbounds i8, ptr %0, i64 360
   %10 = load i32, ptr %9, align 8, !tbaa !121
   %11 = add nsw i32 %10, 1
@@ -6020,7 +6020,7 @@ declare ptr @dt_bauhaus_combobox_get_data(ptr noundef) local_unnamed_addr #4
 declare ptr @g_object_ref(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @_sort_init(ptr noundef initializes((0, 4), (40, 44)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
+define internal fastcc noundef range(i32 0, 2) i32 @_sort_init(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #1 {
   %6 = getelementptr inbounds i8, ptr %4, i64 280
   %7 = load ptr, ptr %6, align 8, !tbaa !63
   %8 = getelementptr inbounds i8, ptr %7, i64 4504
@@ -10525,7 +10525,7 @@ define internal void @_search_changed(ptr nocapture readnone %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_search_reset_text_entry(ptr nocapture readnone %0, ptr noundef initializes((72, 73)) %1) #1 {
+define internal void @_search_reset_text_entry(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 72
   store i8 0, ptr %3, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 360
@@ -10778,7 +10778,7 @@ declare void @dtgtk_range_select_set_selection_from_raw_text(ptr noundef, ptr no
 declare i64 @sqlite3_column_int64(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_range_widget_add_to_rule(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @_range_widget_add_to_rule(ptr noundef %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 {
   store ptr %0, ptr %1, align 8, !tbaa !202
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !79

@@ -6128,7 +6128,7 @@ define internal noundef nonnull align 8 dereferenceable(120) ptr @"_ZN92_$LT$tra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN25ockam_transport_websocket6router15WebSocketRouter8register17h9137cb170befbafdE(ptr noalias nocapture noundef writeonly sret({ [85 x i64], ptr, [5 x i8], i8, [1946 x i8] }) align 8 dereferenceable(2640) initializes((680, 688), (693, 694)) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1) unnamed_addr #5 {
+define void @_ZN25ockam_transport_websocket6router15WebSocketRouter8register17h9137cb170befbafdE(ptr noalias nocapture noundef writeonly sret({ [85 x i64], ptr, [5 x i8], i8, [1946 x i8] }) align 8 dereferenceable(2640) %0, ptr noalias noundef readonly align 8 dereferenceable(240) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 680
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 693
@@ -6137,7 +6137,7 @@ define void @_ZN25ockam_transport_websocket6router15WebSocketRouter8register17h9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN25ockam_transport_websocket6router15WebSocketRouter18create_self_handle17h9b1c20e61744467fE(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [880 x i8], i8, [7 x i8] }) align 8 dereferenceable(904) initializes((0, 16), (896, 897)) %0, ptr noalias noundef readonly align 8 dereferenceable(336) %1, ptr noalias noundef readonly align 8 dereferenceable(240) %2) unnamed_addr #5 {
+define void @_ZN25ockam_transport_websocket6router15WebSocketRouter18create_self_handle17h9b1c20e61744467fE(ptr noalias nocapture noundef writeonly sret({ ptr, ptr, [880 x i8], i8, [7 x i8] }) align 8 dereferenceable(904) %0, ptr noalias noundef readonly align 8 dereferenceable(336) %1, ptr noalias noundef readonly align 8 dereferenceable(240) %2) unnamed_addr #5 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -6147,7 +6147,7 @@ define void @_ZN25ockam_transport_websocket6router15WebSocketRouter18create_self
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN25ockam_transport_websocket6router15WebSocketRouter15handle_register17h1434c0d8b45441f6E(ptr noalias nocapture noundef writeonly sret({ ptr, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(72) initializes((0, 65)) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3) unnamed_addr #6 {
+define void @_ZN25ockam_transport_websocket6router15WebSocketRouter15handle_register17h1434c0d8b45441f6E(ptr noalias nocapture noundef writeonly sret({ ptr, { { ptr, i64 }, i64 }, { { { ptr, i64 }, i64 }, i8, [7 x i8] }, i8, [7 x i8] }) align 8 dereferenceable(72) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %3) unnamed_addr #6 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
@@ -7545,7 +7545,7 @@ default.unreachable168:                           ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN25ockam_transport_websocket6router15WebSocketRouter7connect17hd346aea9709d9657E(ptr noalias nocapture noundef writeonly sret({ [1 x i64], { { { ptr, i64 }, i64 } }, ptr, [2 x i8], i8, [1789 x i8] }) align 8 dereferenceable(1832) initializes((8, 40), (42, 43)) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #6 {
+define void @_ZN25ockam_transport_websocket6router15WebSocketRouter7connect17hd346aea9709d9657E(ptr noalias nocapture noundef writeonly sret({ [1 x i64], { { { ptr, i64 }, i64 } }, ptr, [2 x i8], i8, [1789 x i8] }) align 8 dereferenceable(1832) %0, ptr noalias noundef align 8 dereferenceable(336) %1, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

@@ -44,7 +44,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib11EndCriteriaC1Emmddd = unnamed_addr alias void (ptr, i64, i64, double, double, double), ptr @_ZN8QuantLib11EndCriteriaC2Emmddd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib11EndCriteriaC2Emmddd(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, i64 noundef %maxIterations, i64 noundef %maxStationaryStateIterations, double noundef %rootEpsilon, double noundef %functionEpsilon, double noundef %gradientNormEpsilon) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib11EndCriteriaC2Emmddd(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %maxIterations, i64 noundef %maxStationaryStateIterations, double noundef %rootEpsilon, double noundef %functionEpsilon, double noundef %gradientNormEpsilon) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp16 = alloca %"class.std::__cxx11::basic_string", align 8

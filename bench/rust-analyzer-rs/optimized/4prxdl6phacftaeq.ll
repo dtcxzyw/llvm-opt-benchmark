@@ -720,7 +720,7 @@ _ZN3std6thread7Builder15spawn_unchecked17hd76e7c91a49df6c2E.llvm.469929328479064
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h6d7284e5b89d1bd0E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2, ptr %3) unnamed_addr #0 {
+define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h6d7284e5b89d1bd0E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2, ptr %3) unnamed_addr #0 {
   %5 = alloca { ptr, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN3std6thread7Builder16spawn_unchecked_17h607dc8982f8dc285E.llvm.4699293284790641138(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %2, ptr %3, ptr noundef null)
@@ -746,7 +746,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h6d7284e5b89d1bd0E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h77d2452157ee3029E.llvm.4699293284790641138(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #0 {
+define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h77d2452157ee3029E.llvm.4699293284790641138(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #0 {
   %4 = alloca { ptr, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN3std6thread7Builder16spawn_unchecked_17hb38a2d8b383c6840E.llvm.4699293284790641138(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noundef null)
@@ -772,7 +772,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17h77d2452157ee3029E.
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hcec7fcbc38d64ad1E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
+define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hcec7fcbc38d64ad1E(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, i64 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca { ptr, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   call void @_ZN3std6thread7Builder16spawn_unchecked_17he94650ae678c4173E.llvm.4699293284790641138(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %5, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %2, ptr noundef %3, ptr noundef null)
@@ -798,7 +798,7 @@ define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hcec7fcbc38d64ad1E(
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hd76e7c91a49df6c2E.llvm.4699293284790641138(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 16)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #0 {
+define hidden void @_ZN3std6thread7Builder15spawn_unchecked17hd76e7c91a49df6c2E.llvm.4699293284790641138(ptr noalias nocapture noundef writeonly sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2) unnamed_addr #0 {
   %4 = alloca { ptr, [2 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN3std6thread7Builder16spawn_unchecked_17hb44452f6fa5af63fE.llvm.4699293284790641138(ptr noalias nocapture noundef nonnull sret({ ptr, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias nocapture noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, ptr noundef null)

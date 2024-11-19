@@ -71,7 +71,7 @@ $_ZN5ArrayI10RecVolItemE5AllocEm = comdat any
 @_ZN11RecVolumes5D1Ev = unnamed_addr alias void (ptr), ptr @_ZN11RecVolumes5D2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11RecVolumes3C2EP11CommandDatab(ptr nocapture noundef nonnull align 8 dereferenceable(2080) initializes((0, 2080)) %0, ptr nocapture readnone %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11RecVolumes3C2EP11CommandDatab(ptr nocapture noundef nonnull align 8 dereferenceable(2080) %0, ptr nocapture readnone %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 2048
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2080) %0, i8 0, i64 2080, i1 false)
   br i1 %2, label %14, label %5
@@ -2325,7 +2325,7 @@ declare noundef zeroext i1 @_Z18uiStartFileExtractPKwbbb(ptr noundef, i1 noundef
 declare void @_ZN12ErrorHandler12SetErrorCodeE8RAR_EXIT(ptr noundef nonnull align 4 dereferenceable(14), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11RecVolumes5C2EP11CommandDatab(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 40), (48, 56), (64, 84), (100, 104)) %0, ptr nocapture readnone %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11RecVolumes5C2EP11CommandDatab(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture readnone %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64

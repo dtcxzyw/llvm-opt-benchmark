@@ -99,7 +99,7 @@ return:                                           ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML10NodeEventsC2ERKNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 48)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %node) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML10NodeEventsC2ERKNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %node) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_pMemory2 = getelementptr inbounds i8, ptr %node, i64 40
   %0 = load ptr, ptr %m_pMemory2, align 8

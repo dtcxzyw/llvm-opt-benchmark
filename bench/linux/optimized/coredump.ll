@@ -1126,7 +1126,7 @@ declare dso_local i32 @do_unlinkat(i32 noundef, ptr noundef) local_unnamed_addr 
 declare dso_local ptr @getname_kernel(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @get_fs_root(ptr noundef %0, ptr noundef initializes((0, 16)) %1) unnamed_addr #6 align 16 {
+define internal fastcc void @get_fs_root(ptr noundef %0, ptr noundef %1) unnamed_addr #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   tail call void @_raw_spin_lock(ptr noundef %3) #19
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1998,7 +1998,7 @@ __dump_emit.exit:                                 ; preds = %.loopexit, %89, %95
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @dump_skip_to(ptr nocapture noundef initializes((56, 64)) %0, i64 noundef %1) #7 align 16 {
+define dso_local void @dump_skip_to(ptr nocapture noundef %0, i64 noundef %1) #7 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %5 = sub i64 %1, %4

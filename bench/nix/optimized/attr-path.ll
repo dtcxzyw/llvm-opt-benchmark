@@ -758,7 +758,7 @@ define internal void @__cxx_global_var_init.4() #0 section ".text.startup" comda
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix13parseAttrPathERNS_9EvalStateESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, i64 %2, ptr %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix13parseAttrPathERNS_9EvalStateESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1248) %1, i64 %2, ptr %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 .preheader:
   %4 = alloca %"class.std::__cxx11::list", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

@@ -285,7 +285,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z26grpc_tcp_client_prepare_fdRKN9grpc_core15PosixTcpOptionsEPK21grpc_resolved_addressPS3_Pi(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %options, ptr noundef %addr, ptr noundef %mapped_addr, ptr noundef initializes((0, 4)) %fd) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z26grpc_tcp_client_prepare_fdRKN9grpc_core15PosixTcpOptionsEPK21grpc_resolved_addressPS3_Pi(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %options, ptr noundef %addr, ptr noundef %mapped_addr, ptr noundef %fd) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp7.i = alloca %"class.absl::lts_20230802::Status", align 8

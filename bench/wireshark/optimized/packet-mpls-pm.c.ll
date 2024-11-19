@@ -495,7 +495,7 @@ switch.lookup:                                    ; preds = %59
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4, ptr nocapture noundef nonnull initializes((0, 4)) %5, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %6, ptr nocapture noundef nonnull initializes((0, 1)) %7) unnamed_addr #0 {
+define internal fastcc void @mpls_pm_build_cinfo(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull writeonly %6, ptr nocapture noundef nonnull %7) unnamed_addr #0 {
   %9 = getelementptr inbounds i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.122, ptr noundef %2) #2

@@ -41704,7 +41704,7 @@ declare ptr @PyNumber_Long(ptr noundef) local_unnamed_addr #5
 declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZ22test_submodule_buffersRN8pybind117module_EEN6MatrixC2Ell(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 16)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZZ22test_submodule_buffersRN8pybind117module_EEN6MatrixC2Ell(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct._Guard, align 8
   %5 = alloca %"struct.std::type_index", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

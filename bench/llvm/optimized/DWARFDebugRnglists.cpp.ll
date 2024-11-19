@@ -109,7 +109,7 @@ $_ZTVN4llvm13format_objectIJPKcmcEEE = comdat any
 @_ZTVN4llvm13format_objectIJPKcmcEEE = linkonce_odr unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN4llvm18format_object_base4homeEv, ptr @_ZNK4llvm13format_objectIJPKcmcEE7snprintEPcj] }, comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm14RangeListEntry7extractENS_18DWARFDataExtractorEPm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8), (16, 24)) %1, ptr noundef nonnull byval(%"class.llvm::DWARFDataExtractor") align 8 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm14RangeListEntry7extractENS_18DWARFDataExtractorEPm(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull byval(%"class.llvm::DWARFDataExtractor") align 8 %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.llvm::raw_string_ostream", align 8
@@ -396,7 +396,7 @@ declare noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr nou
 declare { ptr, i64 } @_ZN4llvm5dwarf9RLEStringEj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm17DWARFDebugRnglist17getAbsoluteRangesESt8optionalINS_6object16SectionedAddressEERNS_9DWARFUnitE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %2, ptr noundef nonnull align 8 dereferenceable(448) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm17DWARFDebugRnglist17getAbsoluteRangesESt8optionalINS_6object16SectionedAddressEERNS_9DWARFUnitE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef readonly byval(%"class.std::optional") align 8 %2, ptr noundef nonnull align 8 dereferenceable(448) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.anon, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 34
   %7 = load i8, ptr %6, align 2
@@ -407,7 +407,7 @@ define dso_local void @_ZNK4llvm17DWARFDebugRnglist17getAbsoluteRangesESt8option
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm17DWARFDebugRnglist17getAbsoluteRangesESt8optionalINS_6object16SectionedAddressEEhNS_12function_refIFS4_jEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef byval(%"class.std::optional") align 8 %2, i8 noundef zeroext %3, ptr nocapture readonly %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm17DWARFDebugRnglist17getAbsoluteRangesESt8optionalINS_6object16SectionedAddressEEhNS_12function_refIFS4_jEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef byval(%"class.std::optional") align 8 %2, i8 noundef zeroext %3, ptr nocapture readonly %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::optional", align 8
   %8 = alloca %"class.std::optional", align 8
   %9 = alloca %"class.std::optional", align 8

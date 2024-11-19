@@ -2429,7 +2429,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef %2, i32 %3, i64 %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %7, ptr noundef %8) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef %2, i32 %3, i64 %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %7, ptr noundef %8) unnamed_addr #0 align 2 {
   %10 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1
   %11 = alloca %"struct.std::pair.2629", align 8
   %12 = alloca %"struct.clang::Sema::CodeSynthesisContext", align 8
@@ -2659,7 +2659,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema21InstantiatingTemplate23Chec
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema24pushCodeSynthesisContextENS0_20CodeSynthesisContextE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull byval(%"struct.clang::Sema::CodeSynthesisContext") align 8 initializes((4, 5)) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema24pushCodeSynthesisContextENS0_20CodeSynthesisContextE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr noundef nonnull byval(%"struct.clang::Sema::CodeSynthesisContext") align 8 %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12784
   %4 = load i8, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -2723,7 +2723,7 @@ _ZNK5clang4Sema20CodeSynthesisContext21isInstantiationRecordEv.exit.thread: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_4DeclENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_4DeclENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::ArrayRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 0, i32 %2, i64 %4, ptr noundef %3, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %6, ptr noundef null)
@@ -2731,7 +2731,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_12FunctionDeclENS1_22ExceptionSpecificationENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_12FunctionDeclENS1_22ExceptionSpecificationENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::ArrayRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 9, i32 %2, i64 %4, ptr noundef %3, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %6, ptr noundef null)
@@ -2739,7 +2739,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEN4llvm12PointerUnionIJPNS_20TemplateTypeParmDeclEPNS_23NonTypeTemplateParmDeclEPNS_24TemplateTemplateParmDeclEEEEPNS_12TemplateDeclENS4_8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, i64 %3, ptr noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %5, i64 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEN4llvm12PointerUnionIJPNS_20TemplateTypeParmDeclEPNS_23NonTypeTemplateParmDeclEPNS_24TemplateTemplateParmDeclEEEEPNS_12TemplateDeclENS4_8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, i64 %3, ptr noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %5, i64 %6) unnamed_addr #0 align 2 {
   %8 = and i64 %3, -8
   %9 = inttoptr i64 %8 to ptr
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 1, i32 %2, i64 %6, ptr noundef %9, ptr noundef %4, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %5, ptr noundef null)
@@ -2747,7 +2747,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_20FunctionTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS0_20CodeSynthesisContext13SynthesisKindERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(504) %7, i64 %8) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_20FunctionTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS0_20CodeSynthesisContext13SynthesisKindERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, i32 noundef %6, ptr noundef nonnull align 8 dereferenceable(504) %7, i64 %8) unnamed_addr #0 align 2 {
   %10 = alloca %"class.llvm::ArrayRef", align 8
   store ptr %4, ptr %10, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %10, i64 8
@@ -2757,7 +2757,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_12TemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(504) %6, i64 %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_12TemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(504) %6, i64 %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::ArrayRef", align 8
   store ptr %4, ptr %9, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
@@ -2767,7 +2767,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_38ClassTemplatePartialSpecializationDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(504) %6, i64 %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_38ClassTemplatePartialSpecializationDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(504) %6, i64 %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::ArrayRef", align 8
   store ptr %4, ptr %9, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
@@ -2777,7 +2777,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_36VarTemplatePartialSpecializationDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(504) %6, i64 %7) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_36VarTemplatePartialSpecializationDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, ptr noundef nonnull align 8 dereferenceable(504) %6, i64 %7) unnamed_addr #0 align 2 {
   %9 = alloca %"class.llvm::ArrayRef", align 8
   store ptr %4, ptr %9, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %9, i64 8
@@ -2787,7 +2787,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_11ParmVarDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, i64 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_11ParmVarDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, i64 %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::ArrayRef", align 8
   store ptr %4, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
@@ -2797,19 +2797,19 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_9NamedDeclEPNS_23NonTypeTemplateParmDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %5, i64 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_9NamedDeclEPNS_23NonTypeTemplateParmDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %5, i64 %6) unnamed_addr #0 align 2 {
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 6, i32 %2, i64 %6, ptr noundef %4, ptr noundef %3, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %5, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_9NamedDeclEPNS_24TemplateTemplateParmDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %5, i64 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_9NamedDeclEPNS_24TemplateTemplateParmDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %5, i64 %6) unnamed_addr #0 align 2 {
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 6, i32 %2, i64 %6, ptr noundef %4, ptr noundef %3, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %5, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_21TypeAliasTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, i64 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_21TypeAliasTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, i64 %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::ArrayRef", align 8
   store ptr %4, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
@@ -2819,13 +2819,13 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_12TemplateDeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %5, i64 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_12TemplateDeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %5, i64 %6) unnamed_addr #0 align 2 {
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 7, i32 %2, i64 %6, ptr noundef %4, ptr noundef %3, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %5, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_8concepts11RequirementERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr nocapture readnone %3, ptr noundef nonnull align 8 dereferenceable(504) %4, i64 %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_8concepts11RequirementERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr nocapture readnone %3, ptr noundef nonnull align 8 dereferenceable(504) %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::ArrayRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 10, i32 %2, i64 %5, ptr noundef null, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %7, ptr noundef nonnull %4)
@@ -2833,7 +2833,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_8concepts17NestedRequirementENS1_16ConstraintsCheckENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_8concepts17NestedRequirementENS1_16ConstraintsCheckENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr nocapture readnone %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::ArrayRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 11, i32 %2, i64 %4, ptr noundef null, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %6, ptr noundef null)
@@ -2841,7 +2841,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPKNS_12RequiresExprERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr nocapture readnone %3, ptr noundef nonnull align 8 dereferenceable(504) %4, i64 %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPKNS_12RequiresExprERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr nocapture readnone %3, ptr noundef nonnull align 8 dereferenceable(504) %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::ArrayRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 18, i32 %2, i64 %5, ptr noundef null, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %7, ptr noundef nonnull %4)
@@ -2849,7 +2849,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationENS1_16ConstraintsCheckEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, i64 %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationENS1_16ConstraintsCheckEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr %4, i64 %5, i64 %6) unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::ArrayRef", align 8
   store ptr %4, ptr %8, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
@@ -2859,7 +2859,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationENS1_22ConstraintSubstitutionEPNS_9NamedDeclERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(504) %4, i64 %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationENS1_22ConstraintSubstitutionEPNS_9NamedDeclERNS_4sema21TemplateDeductionInfoENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(504) %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::ArrayRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 16, i32 %2, i64 %5, ptr noundef %3, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %7, ptr noundef nonnull %4)
@@ -2870,7 +2870,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationENS1_23ConstraintNormalizationEPNS_9NamedDeclENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationENS1_23ConstraintNormalizationEPNS_9NamedDeclENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::ArrayRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 17, i32 %2, i64 %4, ptr noundef %3, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %6, ptr noundef null)
@@ -2878,7 +2878,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationENS1_28ParameterMappingSubstitutionEPNS_9NamedDeclENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationENS1_28ParameterMappingSubstitutionEPNS_9NamedDeclENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::ArrayRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 19, i32 %2, i64 %4, ptr noundef %3, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %6, ptr noundef null)
@@ -2886,7 +2886,7 @@ define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_12TemplateDeclENS1_26BuildingDeductionGuidesTagENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS_14SourceLocationEPNS_12TemplateDeclENS1_26BuildingDeductionGuidesTagENS_11SourceRangeE(ptr nocapture noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 %2, ptr noundef %3, i64 %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::ArrayRef", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   tail call void @_ZN5clang4Sema21InstantiatingTemplateC2ERS0_NS0_20CodeSynthesisContext13SynthesisKindENS_14SourceLocationENS_11SourceRangeEPNS_4DeclEPNS_9NamedDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPNS_4sema21TemplateDeductionInfoE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, i32 noundef 25, i32 %2, i64 %4, ptr noundef %3, ptr noundef null, ptr noundef nonnull byval(%"class.llvm::ArrayRef") align 8 %6, ptr noundef null)
@@ -21132,7 +21132,7 @@ _ZN4llvm12is_containedIRNS_11SmallVectorIPN5clang7VarDeclELj4EEEPKNS2_4DeclEEEbO
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang23LocalInstantiationScope27SetPartiallySubstitutedPackEPNS_9NamedDeclEPKNS_16TemplateArgumentEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((120, 140)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
+define dso_local void @_ZN5clang23LocalInstantiationScope27SetPartiallySubstitutedPackEPNS_9NamedDeclEPKNS_16TemplateArgumentEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -83515,7 +83515,7 @@ declare i64 @_ZN5clang4Sema14ActOnParenExprENS_14SourceLocationES1_PNS_4ExprE(pt
 declare i64 @_ZN5clang4Sema30CreateUnaryExprOrTypeTraitExprEPNS_4ExprENS_14SourceLocationENS_20UnaryExprOrTypeTraitE(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, i32, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE34ForgetPartiallySubstitutedPackRAIIC2ERS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(59) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE34ForgetPartiallySubstitutedPackRAIIC2ERS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(59) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -84725,7 +84725,7 @@ declare void @_ZN5clang4Sema31collectUnexpandedParameterPacksENS_19TemplateArgum
 declare i64 @_ZNK5clang19TemplateArgumentLoc14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 4), (8, 16)) %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN5clang13TreeTransformIN12_GLOBAL__N_120TemplateInstantiatorEE20RebuildPackExpansionENS_19TemplateArgumentLocENS_14SourceLocationESt8optionalIjE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr %.0.val, ptr nocapture noundef readonly byval(%"class.clang::TemplateArgumentLoc") align 8 %1, i32 %2, i64 %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.clang::TemplateName", align 8
   %6 = alloca %"class.clang::TemplateArgument", align 8
   %7 = load i32, ptr %1, align 8

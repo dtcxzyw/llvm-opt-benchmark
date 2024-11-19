@@ -266,7 +266,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox9connector6fuzzer16FuzzerDataSourceC2ERKSt10shared_ptrIKNS0_7RowTypeEERKS4_INS1_20ConnectorTableHandleEEPNS0_6memory10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %outputType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %tableHandle, ptr noundef %pool) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox9connector6fuzzer16FuzzerDataSourceC2ERKSt10shared_ptrIKNS0_7RowTypeEERKS4_INS1_20ConnectorTableHandleEEPNS0_6memory10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %outputType, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %tableHandle, ptr noundef %pool) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fuzzerTableHandle = alloca %"class.std::shared_ptr.5", align 8
   %ref.tmp = alloca %"class.std::unique_ptr", align 8

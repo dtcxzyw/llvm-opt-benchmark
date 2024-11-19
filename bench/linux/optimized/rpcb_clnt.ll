@@ -1226,7 +1226,7 @@ define internal noundef range(i32 -5, 1) i32 @rpcb_dec_set(ptr nocapture readnon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -5, 1) i32 @rpcb_dec_getaddr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((20, 22)) %2) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @rpcb_dec_getaddr(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = alloca %struct.__kernel_sockaddr_storage, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #10
   %5 = getelementptr inbounds i8, ptr %2, i64 20
@@ -1345,7 +1345,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local ptr @rpc_run_task(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @rpcb_getport_done(ptr noundef %0, ptr nocapture noundef initializes((48, 52)) %1) #0 align 16 {
+define internal void @rpcb_getport_done(ptr noundef %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
@@ -1502,7 +1502,7 @@ define internal void @rpcb_enc_mapping(ptr nocapture readnone %0, ptr noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -5, 1) i32 @rpcb_dec_getport(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((20, 22)) %2) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @rpcb_dec_getport(ptr nocapture readnone %0, ptr noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %2, i64 20
   store i16 0, ptr %4, align 4
   %5 = tail call ptr @xdr_inline_decode(ptr noundef %1, i64 noundef 4) #10

@@ -78,7 +78,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.core_yylex = private unnamed_addr constant [11 x i8] c"\08\08\0C\08\08\08\0A\08\0D\09\0B", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -128, 65536) i32 @core_yylex(ptr noundef %0, ptr noundef %1, ptr noundef initializes((144, 160)) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -128, 65536) i32 @core_yylex(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.ErrorSaveContext, align 8
   %5 = alloca %struct.ErrorSaveContext, align 8
   %6 = alloca %struct.ErrorSaveContext, align 8
@@ -4682,7 +4682,7 @@ define dso_local ptr @core_yyget_text(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @core_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #10 {
+define dso_local void @core_yyset_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -4738,14 +4738,14 @@ define dso_local void @core_yyset_column(i32 noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @core_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #10 {
+define dso_local void @core_yyset_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @core_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #10 {
+define dso_local void @core_yyset_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -4759,7 +4759,7 @@ define dso_local i32 @core_yyget_debug(ptr nocapture noundef readonly %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @core_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #10 {
+define dso_local void @core_yyset_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -4773,7 +4773,7 @@ define dso_local ptr @core_yyget_lval(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @core_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly initializes((144, 152)) %1) local_unnamed_addr #10 {
+define dso_local void @core_yyset_lval(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   store ptr %0, ptr %3, align 8
   ret void
@@ -4787,7 +4787,7 @@ define dso_local ptr @core_yyget_lloc(ptr nocapture noundef readonly %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @core_yyset_lloc(ptr noundef %0, ptr nocapture noundef writeonly initializes((152, 160)) %1) local_unnamed_addr #10 {
+define dso_local void @core_yyset_lloc(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 {
   %3 = getelementptr inbounds i8, ptr %1, i64 152
   store ptr %0, ptr %3, align 8
   ret void
@@ -5044,7 +5044,7 @@ declare i32 @pg_mbstrlen_with_len(ptr noundef, i32 noundef) local_unnamed_addr #
 declare i32 @errposition(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @setup_scanner_errposition_callback(ptr noundef initializes((0, 12), (24, 32)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+define dso_local void @setup_scanner_errposition_callback(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #13 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %2, ptr %4, align 8

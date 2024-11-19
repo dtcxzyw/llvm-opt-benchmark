@@ -513,7 +513,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number5ScaleC2EiPNS0_4impl6DecNumE(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((0, 4), (8, 20)) %this, i32 noundef %magnitude, ptr noundef %arbitraryToAdopt) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number5ScaleC2EiPNS0_4impl6DecNumE(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %magnitude, ptr noundef %arbitraryToAdopt) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %magnitude, ptr %this, align 8
   %fArbitrary = getelementptr inbounds i8, ptr %this, i64 8
@@ -583,7 +583,7 @@ declare noundef zeroext i1 @_ZNK6icu_756number4impl6DecNum10isNegativeEv(ptr nou
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756number5ScaleC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 4), (8, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756number5ScaleC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %localStatus = alloca i32, align 4
   %0 = load i32, ptr %other, align 8
@@ -676,7 +676,7 @@ return:                                           ; preds = %entry, %if.end8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756number5ScaleC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 4), (8, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #8 align 2 {
+define void @_ZN6icu_756number5ScaleC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %src, align 8
   store i32 %0, ptr %this, align 8
@@ -693,7 +693,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(20) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number5ScaleaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %src, align 8
   store i32 %0, ptr %this, align 8

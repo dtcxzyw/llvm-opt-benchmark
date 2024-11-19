@@ -475,7 +475,7 @@ define dso_local void @_ZNK4llvm18LiveDebugVariables16getAnalysisUsageERNS_13Ana
 declare void @_ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(161)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LiveDebugVariablesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 28), (32, 64)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18LiveDebugVariablesC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.anon.765, align 8
   %3 = alloca %"class.std::reference_wrapper", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3542,7 +3542,7 @@ define dso_local void @_ZN4llvm18LiveDebugVariables13releaseMemoryEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17LDVImpl5clearEv(ptr noundef nonnull align 8 dereferenceable(1160) initializes((112, 120)) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_17LDVImpl5clearEv(ptr noundef nonnull align 8 dereferenceable(1160) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
@@ -3967,7 +3967,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_13DebugVariableEPN12_GLOBAL__N_19UserValu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LiveDebugVariablesD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18LiveDebugVariablesD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN4llvm18LiveDebugVariablesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -10963,7 +10963,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_19UserValue13getLocationNoER
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116DbgVariableValueC2EN4llvm8ArrayRefIjEEbbRKNS1_12DIExpressionE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %0, ptr readonly %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(40) %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116DbgVariableValueC2EN4llvm8ArrayRefIjEEbbRKNS1_12DIExpressionE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr readonly %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(40) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::SmallVector.378", align 8
   %8 = alloca [2 x i64], align 8
   %9 = alloca %"class.std::optional.182", align 8
@@ -22048,7 +22048,7 @@ _ZN12_GLOBAL__N_19UserValue5mergeEPS0_S1_.exit:   ; preds = %_ZN12_GLOBAL__N_19U
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPN12_GLOBAL__N_19UserValueENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPN12_GLOBAL__N_19UserValueENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS4_EEEEjS4_S6_S9_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

@@ -556,7 +556,7 @@ declare i32 @ompi_errcode_intern_init() local_unnamed_addr #1
 declare i32 @ompi_mpiinfo_init() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_mpi_instance_init(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @ompi_mpi_instance_init(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
@@ -2350,7 +2350,7 @@ opal_obj_run_destructors.exit:                    ; preds = %opal_obj_run_destru
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_instance_get_num_psets(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define noundef i32 @ompi_instance_get_num_psets(ptr nocapture noundef readnone %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   tail call fastcc void @ompi_instance_refresh_pmix_psets(ptr noundef nonnull @.str.8)
   %3 = load i64, ptr @ompi_mpi_instance_num_pmix_psets, align 8
   %4 = trunc i64 %3 to i32
@@ -3034,7 +3034,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @ompi_instance_get_pset_info(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define i32 @ompi_instance_get_pset_info(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.pmix_proc, align 4
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -3226,7 +3226,7 @@ declare i32 @PMIx_Register_event_handler(ptr noundef, i64 noundef, ptr noundef, 
 declare void @ompi_errhandler_callback(i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr noundef initializes((116, 128)) %2) #0 {
+define internal void @evhandler_reg_callbk(i32 noundef %0, i64 noundef %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 116
   store i32 %0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %2, i64 120
@@ -3361,7 +3361,7 @@ declare void @mca_mpool_base_tree_print(i32 noundef) local_unnamed_addr #1
 declare i32 @PMIx_Deregister_event_handler(i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @evhandler_dereg_callbk(i32 noundef %0, ptr noundef initializes((116, 120)) %1) #0 {
+define internal void @evhandler_dereg_callbk(i32 noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 116
   store i32 %0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 16

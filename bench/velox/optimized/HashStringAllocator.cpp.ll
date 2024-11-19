@@ -301,7 +301,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox19HashStringAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(37416) initializes((0, 8), (36848, 37248)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox19HashStringAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(37416) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox19HashStringAllocatorE, i64 16), ptr %this, align 8
   invoke void @_ZN8facebook5velox19HashStringAllocator5clearEv(ptr noundef nonnull align 8 dereferenceable(37416) %this)
@@ -345,7 +345,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox19HashStringAllocator5clearEv(ptr noundef nonnull align 8 dereferenceable(37416) initializes((36848, 37248)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox19HashStringAllocator5clearEv(ptr noundef nonnull align 8 dereferenceable(37416) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %scevgep = getelementptr inbounds i8, ptr %this, i64 36848
   %allocationsFromPool_ = getelementptr inbounds i8, ptr %this, i64 37376

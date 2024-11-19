@@ -1828,7 +1828,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_PolyCollectRoots(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef initializes((4, 8)) %4) local_unnamed_addr #0 {
+define void @Gia_PolyCollectRoots(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, i32 noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
   %7 = mul nsw i32 %3, 6

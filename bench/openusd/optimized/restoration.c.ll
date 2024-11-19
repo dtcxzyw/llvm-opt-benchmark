@@ -73,7 +73,7 @@ define hidden range(i32 1, -2147483648) i32 @av1_lr_count_units_in_tile(i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_alloc_restoration_struct(ptr noundef %0, ptr nocapture noundef initializes((8, 20)) %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden void @av1_alloc_restoration_struct(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2) local_unnamed_addr #2 {
   %.not.i = icmp eq i32 %2, 0
   br i1 %.not.i, label %av1_whole_frame_rect.exit, label %4
 
@@ -340,7 +340,7 @@ extend_frame_highbd.exit:                         ; preds = %50, %87, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @av1_decode_xq(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
+define hidden void @av1_decode_xq(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #5 {
   %4 = load i32, ptr %2, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %10
@@ -1582,7 +1582,7 @@ copy_tile.exit:                                   ; preds = %restore_processing_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_loop_restoration_filter_frame_init(ptr nocapture noundef initializes((0, 8), (224, 240)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define hidden void @av1_loop_restoration_filter_frame_init(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 25256
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 25260
@@ -1825,7 +1825,7 @@ declare void @aom_yv12_partial_coloc_copy_u_c(ptr noundef, ptr noundef, i32 noun
 declare void @aom_yv12_partial_coloc_copy_v_c(ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_loop_restoration_filter_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef initializes((0, 8), (224, 240)) %3) local_unnamed_addr #2 {
+define hidden void @av1_loop_restoration_filter_frame(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr i8, ptr %1, i64 25261
   %.val = load i8, ptr %5, align 1
   %.not.i = icmp eq i8 %.val, 0

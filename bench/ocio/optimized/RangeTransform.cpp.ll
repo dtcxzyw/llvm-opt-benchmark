@@ -342,7 +342,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl8setStyleENS_10RangeStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((8, 12)) %this, i32 noundef %style) unnamed_addr #10 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl8setStyleENS_10RangeStyleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %this, i32 noundef %style) unnamed_addr #10 align 2 {
 entry:
   %m_style = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %style, ptr %m_style, align 8
@@ -563,7 +563,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl20setFileInputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((232, 236)) %this, i32 noundef %bitDepth) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl20setFileInputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %this, i32 noundef %bitDepth) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fileInBitDepth.i = getelementptr inbounds i8, ptr %this, i64 232
   store i32 %bitDepth, ptr %m_fileInBitDepth.i, align 8
@@ -571,7 +571,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl21setFileOutputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((236, 240)) %this, i32 noundef %bitDepth) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev18RangeTransformImpl21setFileOutputBitDepthENS_8BitDepthE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %this, i32 noundef %bitDepth) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_fileOutBitDepth.i = getelementptr inbounds i8, ptr %this, i64 236
   store i32 %bitDepth, ptr %m_fileOutBitDepth.i, align 4

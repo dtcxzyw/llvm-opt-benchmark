@@ -8732,7 +8732,7 @@ define internal fastcc range(i32 -63, 1) i32 @more_workspace(ptr nocapture nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_callout_dfa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, i64 noundef range(i64 0, 4) %5, ptr nocapture noundef nonnull initializes((0, 8)) %6) unnamed_addr #0 {
+define internal fastcc i32 @do_callout_dfa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull readonly %4, i64 noundef range(i64 0, 4) %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = getelementptr inbounds i8, ptr %4, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 %5

@@ -6521,7 +6521,7 @@ declare void @_ZN2cv17CommandLineParserD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN2cv12VideoCaptureD1Ev(ptr noundef nonnull align 8 dereferenceable(41)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN8SettingsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) initializes((0, 36)) %0) unnamed_addr #7 align 2 {
+define hidden void @_ZN8SettingsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false)

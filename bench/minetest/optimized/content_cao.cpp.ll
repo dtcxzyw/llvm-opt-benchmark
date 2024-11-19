@@ -3327,7 +3327,7 @@ return:                                           ; preds = %if.then14, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10GenericCAOD2Ev(ptr noundef nonnull align 8 dereferenceable(1073) initializes((0, 8)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10GenericCAOD2Ev(ptr noundef nonnull align 8 dereferenceable(1073) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV10GenericCAO, i64 16), ptr %this, align 8, !tbaa !42
   invoke void @_ZN10GenericCAO15removeFromSceneEb(ptr noundef nonnull align 8 dereferenceable(1073) %this, i1 noundef zeroext true)
@@ -3558,7 +3558,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10GenericCAOD0Ev(ptr noundef nonnull align 8 dereferenceable(1073) initializes((0, 8)) %this) unnamed_addr #15 align 2 {
+define dso_local void @_ZN10GenericCAOD0Ev(ptr noundef nonnull align 8 dereferenceable(1073) %this) unnamed_addr #15 align 2 {
 entry:
   tail call void @_ZN10GenericCAOD2Ev(ptr noundef nonnull align 8 dereferenceable(1073) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #36
@@ -4055,7 +4055,7 @@ if.end37:                                         ; preds = %if.else34, %lor.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK10GenericCAO13getAttachmentEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3irr4core8vector3dIfEESC_Pb(ptr noundef nonnull align 8 dereferenceable(1073) %this, ptr nocapture noundef writeonly initializes((0, 4)) %parent_id, ptr noundef nonnull %bone, ptr nocapture noundef writeonly initializes((0, 12)) %position, ptr nocapture noundef writeonly initializes((0, 12)) %rotation, ptr nocapture noundef writeonly initializes((0, 1)) %force_visible) unnamed_addr #4 align 2 {
+define dso_local void @_ZNK10GenericCAO13getAttachmentEPiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3irr4core8vector3dIfEESC_Pb(ptr noundef nonnull align 8 dereferenceable(1073) %this, ptr nocapture noundef writeonly %parent_id, ptr noundef nonnull %bone, ptr nocapture noundef writeonly %position, ptr nocapture noundef writeonly %rotation, ptr nocapture noundef writeonly %force_visible) unnamed_addr #4 align 2 {
 entry:
   %m_attachment_parent_id = getelementptr inbounds i8, ptr %this, i64 776
   %0 = load i32, ptr %m_attachment_parent_id, align 8, !tbaa !267
@@ -4712,7 +4712,7 @@ declare void @_ZN6Camera13removeNametagEP7Nametag(ptr noundef nonnull align 8 de
 declare void @_ZN7Minimap12removeMarkerEPP13MinimapMarker(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN10GenericCAO10addToSceneEP14ITextureSourcePN3irr5scene13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(1073) initializes((440, 448)) %this, ptr noundef %tsrc, ptr noundef %smgr) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10GenericCAO10addToSceneEP14ITextureSourcePN3irr5scene13ISceneManagerE(ptr noundef nonnull align 8 dereferenceable(1073) %this, ptr noundef %tsrc, ptr noundef %smgr) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %message.i = alloca %"class.std::__cxx11::basic_string", align 8
   %__dnew.i.i1214 = alloca i64, align 8
@@ -10435,7 +10435,7 @@ return:                                           ; preds = %if.end40, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext range(i16 2, 4) i16 @_ZN10GenericCAO16getLightPositionEPN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1073) %this, ptr nocapture noundef writeonly initializes((0, 12)) %pos) local_unnamed_addr #16 align 2 {
+define dso_local noundef zeroext range(i16 2, 4) i16 @_ZN10GenericCAO16getLightPositionEPN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1073) %this, ptr nocapture noundef writeonly %pos) local_unnamed_addr #16 align 2 {
 entry:
   %collisionbox = getelementptr inbounds i8, ptr %this, i64 120
   %m_position = getelementptr inbounds i8, ptr %this, i64 536

@@ -4921,7 +4921,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08PSDInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecERKS9_(ptr noundef nonnull align 8 dereferenceable(840) initializes((568, 569)) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) %newspec, ptr noundef nonnull align 8 dereferenceable(160) %config) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08PSDInput4openERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_9ImageSpecERKS9_(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(160) %newspec, ptr noundef nonnull align 8 dereferenceable(160) %config) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8
   %agg.tmp2 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

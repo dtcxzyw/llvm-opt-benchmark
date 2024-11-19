@@ -539,7 +539,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @read_mmblob(ptr nocapture noundef writeonly initializes((0, 8)) %ptr, ptr noundef %oid) local_unnamed_addr #0 {
+define dso_local void @read_mmblob(ptr nocapture noundef writeonly %ptr, ptr noundef %oid) local_unnamed_addr #0 {
 entry:
   %size = alloca i64, align 8
   %type = alloca i32, align 4
@@ -626,7 +626,7 @@ entry:
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @xdiff_set_find_func(ptr nocapture noundef writeonly initializes((24, 40)) %xecfg, ptr noundef %value, i32 noundef %cflags) local_unnamed_addr #0 {
+define dso_local void @xdiff_set_find_func(ptr nocapture noundef writeonly %xecfg, ptr noundef %value, i32 noundef %cflags) local_unnamed_addr #0 {
 entry:
   %find_func = getelementptr inbounds i8, ptr %xecfg, i64 24
   store ptr @ff_regexp, ptr %find_func, align 8

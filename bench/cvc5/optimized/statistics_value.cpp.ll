@@ -264,7 +264,7 @@ _ZNSt8__detail9__variant13_Variant_baseIJldNSt7__cxx1112basic_stringIcSt11char_t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK4cvc58internal21StatisticAverageValue9getViewerB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::variant") align 8 initializes((0, 8), (48, 49)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal21StatisticAverageValue9getViewerB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::variant") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_sum.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load double, ptr %d_sum.i, align 8

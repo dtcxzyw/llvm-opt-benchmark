@@ -189,7 +189,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory25InferenceIdProofAnnotatorC2EPNS0_16ProofNodeManagerEPNS_7context7ContextE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 16)) %this, ptr noundef %pnm, ptr noundef %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory25InferenceIdProofAnnotatorC2EPNS0_16ProofNodeManagerEPNS_7context7ContextE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %pnm, ptr noundef %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory25InferenceIdProofAnnotatorE, i64 16), ptr %this, align 8
   %d_pnm = getelementptr inbounds i8, ptr %this, i64 8

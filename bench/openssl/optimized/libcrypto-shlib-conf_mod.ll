@@ -827,7 +827,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @CONF_imodule_set_usr_data(ptr nocapture noundef writeonly initializes((32, 40)) %md, ptr noundef %usr_data) local_unnamed_addr #3 {
+define void @CONF_imodule_set_usr_data(ptr nocapture noundef writeonly %md, ptr noundef %usr_data) local_unnamed_addr #3 {
 entry:
   %usr_data1 = getelementptr inbounds i8, ptr %md, i64 32
   store ptr %usr_data, ptr %usr_data1, align 8
@@ -850,7 +850,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @CONF_imodule_set_flags(ptr nocapture noundef writeonly initializes((24, 32)) %md, i64 noundef %flags) local_unnamed_addr #3 {
+define void @CONF_imodule_set_flags(ptr nocapture noundef writeonly %md, i64 noundef %flags) local_unnamed_addr #3 {
 entry:
   %flags1 = getelementptr inbounds i8, ptr %md, i64 24
   store i64 %flags, ptr %flags1, align 8
@@ -866,7 +866,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @CONF_module_set_usr_data(ptr nocapture noundef writeonly initializes((40, 48)) %pmod, ptr noundef %usr_data) local_unnamed_addr #3 {
+define void @CONF_module_set_usr_data(ptr nocapture noundef writeonly %pmod, ptr noundef %usr_data) local_unnamed_addr #3 {
 entry:
   %usr_data1 = getelementptr inbounds i8, ptr %pmod, i64 40
   store ptr %usr_data, ptr %usr_data1, align 8

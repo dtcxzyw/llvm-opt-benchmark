@@ -74,7 +74,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes4inst17decodeInstructionEPKNS0_4InstE(ptr noalias writeonly sret(%"struct.hermes::inst::DecodedInstruction") align 8 initializes((0, 9)) %agg.result, ptr noundef readonly %inst) local_unnamed_addr #2 {
+define hidden void @_ZN6hermes4inst17decodeInstructionEPKNS0_4InstE(ptr noalias writeonly sret(%"struct.hermes::inst::DecodedInstruction") align 8 %agg.result, ptr noundef readonly %inst) local_unnamed_addr #2 {
 entry:
   %retval.i.sroa.6 = alloca [6 x i8], align 8
   %0 = load i8, ptr %inst, align 1

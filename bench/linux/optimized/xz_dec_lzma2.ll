@@ -1913,7 +1913,7 @@ define internal fastcc noundef zeroext i1 @lzma_main(ptr noundef %0) unnamed_add
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @lzma_len(ptr nocapture noundef initializes((144, 148)) %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #6 align 16 {
+define internal fastcc void @lzma_len(ptr nocapture noundef %0, ptr nocapture noundef %1, i32 noundef %2) unnamed_addr #6 align 16 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp ult i32 %4, 16777216
   br i1 %5, label %6, label %._crit_edge

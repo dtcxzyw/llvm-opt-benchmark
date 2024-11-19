@@ -110,7 +110,7 @@ $_ZNSt8_Rb_treeImSt4pairIKmP14LBMStreamEntryESt10_Select1stIS4_ESt4lessImESaIS4_
 @_ZN15LBMStreamDialogD1Ev = unnamed_addr alias void (ptr), ptr @_ZN15LBMStreamDialogD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LBMSubstreamEntryC2EmjPK8_addresstS2_t(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 12), (16, 88)) %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, i16 noundef zeroext %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN17LBMSubstreamEntryC2EmjPK8_addresstS2_t(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, i16 noundef zeroext %4, ptr noundef %5, i16 noundef zeroext %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.QString, align 8
   %9 = alloca %class.QString, align 8
   %10 = alloca %class.QString, align 8
@@ -1254,7 +1254,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i128:   ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17LBMSubstreamEntry7setItemEP15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN17LBMSubstreamEntry7setItemEP15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %1, ptr %3, align 8
   tail call void @_ZN17LBMSubstreamEntry8fillItemEi(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 0)
@@ -1262,7 +1262,7 @@ define void @_ZN17LBMSubstreamEntry7setItemEP15QTreeWidgetItem(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14LBMStreamEntryC2EPK12_packet_infomPK25lbm_uim_stream_endpoint_tS5_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14LBMStreamEntryC2EPK12_packet_infomPK25lbm_uim_stream_endpoint_tS5_(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
   store i64 %2, ptr %0, align 8
@@ -2724,7 +2724,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i93:    ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN14LBMStreamEntry7setItemEP15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable(88) initializes((72, 80)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN14LBMStreamEntry7setItemEP15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %1, ptr %3, align 8
   tail call void @_ZN14LBMStreamEntry8fillItemEi(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef 0)
@@ -2737,7 +2737,7 @@ declare void @_ZN8QVariantC1Ey(ptr noundef nonnull align 8 dereferenceable(32), 
 declare void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19LBMStreamDialogInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #10 align 2 {
+define void @_ZN19LBMStreamDialogInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #10 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
@@ -2882,7 +2882,7 @@ _ZN4QMapImP14LBMStreamEntryE3endEv.exit:          ; preds = %17, %_ZN9QtPrivate3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN19LBMStreamDialogInfo9setDialogEP15LBMStreamDialog(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN19LBMStreamDialogInfo9setDialogEP15LBMStreamDialog(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #10 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -4194,7 +4194,7 @@ _ZN7QStringD2Ev.exit32:                           ; preds = %_ZN7QStringD2Ev.exi
 declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15LBMStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (16, 24)) %0) unnamed_addr #2 align 2 {
+define void @_ZN15LBMStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15LBMStreamDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV15LBMStreamDialog, i64 488), ptr %2, align 8

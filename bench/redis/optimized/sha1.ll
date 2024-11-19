@@ -1038,7 +1038,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SHA1Init(ptr nocapture noundef writeonly initializes((0, 28)) %context) local_unnamed_addr #3 {
+define dso_local void @SHA1Init(ptr nocapture noundef writeonly %context) local_unnamed_addr #3 {
 entry:
   store i32 1732584193, ptr %context, align 4
   %arrayidx2 = getelementptr inbounds i8, ptr %context, i64 4

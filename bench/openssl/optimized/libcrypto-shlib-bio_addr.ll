@@ -79,7 +79,7 @@ return:                                           ; preds = %if.end, %if.then12.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BIO_ADDR_clear(ptr nocapture noundef writeonly initializes((0, 112)) %ap) local_unnamed_addr #3 {
+define void @BIO_ADDR_clear(ptr nocapture noundef writeonly %ap) local_unnamed_addr #3 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(112) %ap, i8 0, i64 112, i1 false)
   ret void

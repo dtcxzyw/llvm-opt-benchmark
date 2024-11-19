@@ -1090,7 +1090,7 @@ define void @pxr_nc_1_0_FreeColorSpace(ptr noundef %0) local_unnamed_addr #14 {
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @pxr_nc_1_0_GetRGBtoXYZMatrix(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 initializes((0, 36)) %0, ptr noundef readonly %1) local_unnamed_addr #16 {
+define void @pxr_nc_1_0_GetRGBtoXYZMatrix(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 %0, ptr noundef readonly %1) local_unnamed_addr #16 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sink = select i1 %.not, ptr @constinit.19, ptr %3
@@ -1099,7 +1099,7 @@ define void @pxr_nc_1_0_GetRGBtoXYZMatrix(ptr dead_on_unwind noalias nocapture w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @pxr_nc_1_0_GetXYZtoRGBMatrix(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 initializes((0, 36)) %0, ptr noundef readonly %1) local_unnamed_addr #17 {
+define void @pxr_nc_1_0_GetXYZtoRGBMatrix(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 %0, ptr noundef readonly %1) local_unnamed_addr #17 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %4
 
@@ -1190,7 +1190,7 @@ define void @pxr_nc_1_0_GetXYZtoRGBMatrix(ptr dead_on_unwind noalias nocapture w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @GetRGBtoRGBMatrix(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 initializes((0, 36)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #18 {
+define void @GetRGBtoRGBMatrix(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #18 {
   %.not.i = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sink.i = select i1 %.not.i, ptr @constinit.19, ptr %4
@@ -1373,7 +1373,7 @@ pxr_nc_1_0_GetXYZtoRGBMatrix.exit:                ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @pxr_nc_1_0_GetRGBToRGBMatrix(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 initializes((0, 36)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #17 {
+define void @pxr_nc_1_0_GetRGBToRGBMatrix(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #17 {
   %4 = icmp ne ptr %2, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %4

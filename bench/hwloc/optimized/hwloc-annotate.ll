@@ -3391,7 +3391,7 @@ declare ptr @hwloc_topology_insert_misc_object(ptr noundef, ptr noundef, ptr nou
 declare i32 @hwloc_memattr_set_value(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_level(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3, ptr noundef nonnull initializes((0, 4), (56, 57), (88, 104)) %4) unnamed_addr #10 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_level(ptr nocapture noundef nonnull readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef range(i64 1, 0) %3, ptr noundef nonnull %4) unnamed_addr #10 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca [21 x i8], align 16
@@ -4077,7 +4077,7 @@ declare i32 @hwloc_get_type_depth_with_attr(ptr noundef, i32 noundef, ptr nounde
 declare i32 @strncasecmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_range(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc_calc_parse_range(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, ptr nocapture noundef nonnull writeonly %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca [65 x i8], align 16
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8

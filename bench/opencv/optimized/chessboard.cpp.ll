@@ -491,7 +491,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare double @cos(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv7details5FastXC2ERKNS1_10ParametersE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 30)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv7details5FastXC2ERKNS1_10ParametersE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(22) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
@@ -3080,13 +3080,13 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv7details7EllipseC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 28)) %0) unnamed_addr #11 align 2 {
+define hidden void @_ZN2cv7details7EllipseC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %0) unnamed_addr #11 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, i8 0, i64 28, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @_ZN2cv7details7EllipseC2ERKNS_6Point_IfEERKNS_5Size_IfEEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 28)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, float noundef %3) unnamed_addr #12 align 2 {
+define hidden void @_ZN2cv7details7EllipseC2ERKNS_6Point_IfEERKNS_5Size_IfEEf(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %2, float noundef %3) unnamed_addr #12 align 2 {
   %5 = load i64, ptr %1, align 4
   store i64 %5, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3567,13 +3567,13 @@ define hidden noundef i32 @_ZNK2cv7details10Chessboard5Board4Cell6getColEv(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv7details10Chessboard5Board4CellC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(66) initializes((0, 66)) %0) unnamed_addr #11 align 2 {
+define hidden void @_ZN2cv7details10Chessboard5Board4CellC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(66) %0) unnamed_addr #11 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(66) %0, i8 0, i64 66, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv7details10Chessboard5Board9PointIterC2EPNS2_4CellENS2_11CornerIndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #11 align 2 {
+define hidden void @_ZN2cv7details10Chessboard5Board9PointIterC2EPNS2_4CellENS2_11CornerIndexE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #11 align 2 {
   store i32 %2, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -3581,7 +3581,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board9PointIterC2EPNS2_4CellENS2_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv7details10Chessboard5Board9PointIterC2ERKS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #16 align 2 {
+define hidden void @_ZN2cv7details10Chessboard5Board9PointIterC2ERKS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #16 align 2 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -3592,7 +3592,7 @@ define hidden void @_ZN2cv7details10Chessboard5Board9PointIterC2ERKS3_(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv7details10Chessboard5Board9PointIteraSERKS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #16 align 2 {
+define hidden void @_ZN2cv7details10Chessboard5Board9PointIteraSERKS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #16 align 2 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -5859,7 +5859,7 @@ define hidden noundef ptr @_ZN2cv7details10Chessboard5Board9PointIterptEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv7details10Chessboard5BoardC2Eff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 80)) %0, float noundef %1, float noundef %2) unnamed_addr #11 align 2 {
+define hidden void @_ZN2cv7details10Chessboard5BoardC2Eff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, float noundef %1, float noundef %2) unnamed_addr #11 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv7details10Chessboard5BoardE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 72
@@ -5871,7 +5871,7 @@ define hidden void @_ZN2cv7details10Chessboard5BoardC2Eff(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv7details10Chessboard5BoardC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 72)) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv7details10Chessboard5BoardC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(80) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv7details10Chessboard5BoardE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, i8 0, i64 64, i1 false)
@@ -6507,7 +6507,7 @@ _ZNSt3mapIPN2cv6Point_IfEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv7details10Chessboard5BoardC2ERKNS_5Size_IiEERKSt6vectorINS_6Point_IfEESaIS9_EEff(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, float noundef %3, float noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv7details10Chessboard5BoardC2ERKNS_5Size_IiEERKSt6vectorINS_6Point_IfEESaIS9_EEff(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, float noundef %3, float noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.cv::_OutputArray", align 8
   %7 = alloca %"class.cv::_OutputArray", align 8
   %8 = alloca %"class.cv::_OutputArray", align 8
@@ -7094,7 +7094,7 @@ _ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EED2Ev.exit: ; preds = %
 declare void @_ZNK2cv3Mat7reshapeEii(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8, ptr noundef nonnull align 8 dereferenceable(96), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv7details10Chessboard5Board4initESt6vectorINS_6Point_IfEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(80) initializes((56, 72)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv7details10Chessboard5Board4initESt6vectorINS_6Point_IfEESaIS5_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8325,7 +8325,7 @@ _ZNSt6vectorIPN2cv6Point_IfEESaIS3_EE9push_backEOS3_.exit57: ; preds = %157, %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv7details10Chessboard5BoardD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (56, 72)) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv7details10Chessboard5BoardD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv7details10Chessboard5BoardE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -8421,7 +8421,7 @@ _ZNSt6vectorIPN2cv7details10Chessboard5Board4CellESaIS5_EED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv7details10Chessboard5Board5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((56, 72)) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv7details10Chessboard5Board5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -8510,7 +8510,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv7details10Chessboard5BoardD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8), (56, 72)) %0) unnamed_addr #9 align 2 {
+define hidden void @_ZN2cv7details10Chessboard5BoardD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #9 align 2 {
   tail call void @_ZN2cv7details10Chessboard5BoardD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #34
   tail call void @_ZdlPv(ptr noundef nonnull %0) #37
   ret void
@@ -8520,7 +8520,7 @@ define hidden void @_ZN2cv7details10Chessboard5BoardD0Ev(ptr noundef nonnull ali
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv7details10Chessboard5Board9setAnglesEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((72, 80)) %0, float noundef %1, float noundef %2) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN2cv7details10Chessboard5Board9setAnglesEff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, float noundef %1, float noundef %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 72
   store float %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 76
@@ -9690,7 +9690,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE12emplace_backIJS2_EEEvDpOT_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv7details10Chessboard5Board8getCellsEfbb(ptr dead_on_unwind noalias writable sret(%"class.std::vector.4") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, float noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv7details10Chessboard5Board8getCellsEfbb(ptr dead_on_unwind noalias writable sret(%"class.std::vector.4") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, float noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"class.cv::Mat", align 8
@@ -11595,7 +11595,7 @@ declare void @_ZNK2cv3Mat9convertToERKNS_12_OutputArrayEidd(ptr noundef nonnull 
 declare void @_ZN2cv13applyColorMapERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv7details10Chessboard5Board10getCornersEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.34") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv7details10Chessboard5Board10getCornersEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.34") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -16593,7 +16593,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit192:                 ; preds = %251, %_ZNSt6vectorI
 declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvlsIdiEENS_20MatCommaInitializer_IT_EERKNS_4Mat_IS2_EET0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #4 {
+define internal fastcc void @_ZN2cvlsIdiEENS_20MatCommaInitializer_IT_EERKNS_4Mat_IS2_EET0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #4 {
   %3 = alloca %"class.cv::MatCommaInitializer_", align 8
   call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull %1)
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -26621,7 +26621,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit60:  ; preds = %78, %.thread
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv7details10Chessboard5Board10getContourEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.34") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv7details10Chessboard5Board10getContourEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.34") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -28283,7 +28283,7 @@ define hidden noundef i32 @_ZN2cv7details10Chessboard5Board4growERKNS_3MatERNS_5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv7details10Chessboard5Board10getMappingEv(ptr dead_on_unwind noalias writable sret(%"class.std::map.85") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv7details10Chessboard5Board10getMappingEv(ptr dead_on_unwind noalias writable sret(%"class.std::map.85") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.34", align 8
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -28471,7 +28471,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiiESt10_Select1stIS2_ESt4lessIiESaIS2_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv7details10Chessboard5Board12getKeyPointsEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.9") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv7details10Chessboard5Board12getKeyPointsEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.9") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.34", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   call void @_ZNK2cv7details10Chessboard5Board10getCornersEb(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.34") align 8 %4, ptr noundef nonnull align 8 dereferenceable(80) %1, i1 noundef zeroext %2)
@@ -30018,7 +30018,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev.exit177: ; preds = %613, %_ZNSt6vectorI
 declare void @_ZN2cv13getRectSubPixERKNS_11_InputArrayENS_5Size_IiEENS_6Point_IfEERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24), i64, <2 x float>, ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN2cv7details10ChessboardC2ERKNS1_10ParametersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 35)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(27) %2) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv7details10ChessboardC2ERKNS1_10ParametersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(27) %2) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %0, align 8
@@ -30057,7 +30057,7 @@ define hidden void @_ZN2cv7details10ChessboardC2ERKNS1_10ParametersE(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv7details10Chessboard11reconfigureERKNS1_10ParametersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((8, 35)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(27) %1) local_unnamed_addr #16 align 2 {
+define hidden void @_ZN2cv7details10Chessboard11reconfigureERKNS1_10ParametersE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(27) %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(27) %3, ptr noundef nonnull align 4 dereferenceable(27) %1, i64 27, i1 false)
   ret void
@@ -30088,7 +30088,7 @@ define hidden void @_ZN2cv7details10ChessboardC1ERKNS1_10ParametersE(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK2cv7details10Chessboard7getParaEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::details::Chessboard::Parameters") align 4 initializes((0, 28)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1) local_unnamed_addr #16 align 2 {
+define hidden void @_ZNK2cv7details10Chessboard7getParaEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::details::Chessboard::Parameters") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %0, ptr noundef nonnull align 8 dereferenceable(28) %3, i64 28, i1 false)
   ret void

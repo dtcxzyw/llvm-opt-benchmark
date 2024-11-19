@@ -44,7 +44,7 @@ declare void @_ZN9NumberSeqC2Ed(ptr noundef nonnull align 8 dereferenceable(72),
 declare noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef, i8 noundef zeroext, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6HdrSeqD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN6HdrSeqD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTV6HdrSeq, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   br label %3
@@ -211,7 +211,7 @@ define hidden noundef double @_ZNK6HdrSeq10percentileEd(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18BinaryMagnitudeSeqC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN18BinaryMagnitudeSeqC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 512, i8 noundef zeroext 9, i32 noundef 0) #9
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %3, align 8

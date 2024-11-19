@@ -204,7 +204,7 @@ declare ptr @OPENSSL_sk_new_reserve(ptr noundef, i32 noundef) local_unnamed_addr
 declare i32 @X509_add_certs(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ts_verify_cert(ptr noundef %store, ptr noundef nonnull %untrusted, ptr noundef %signer, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %chain) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ts_verify_cert(ptr noundef %store, ptr noundef nonnull %untrusted, ptr noundef %signer, ptr nocapture noundef nonnull writeonly %chain) unnamed_addr #0 {
 entry:
   store ptr null, ptr %chain, align 8
   %call = tail call ptr @X509_STORE_CTX_new() #7

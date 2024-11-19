@@ -971,7 +971,7 @@ declare void @prefs_register_obsolete_preference(ptr noundef, ptr noundef) local
 declare void @register_conversation_table(i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @jxta_conversation_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @jxta_conversation_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 24
@@ -982,7 +982,7 @@ define internal noundef i32 @jxta_conversation_packet(ptr noundef initializes((2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @jxta_endpoint_packet(ptr noundef initializes((24, 28)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
+define internal noundef i32 @jxta_endpoint_packet(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, i32 noundef %4) #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 48

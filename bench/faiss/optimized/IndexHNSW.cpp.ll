@@ -2052,7 +2052,7 @@ _ZNSt10unique_ptrIA_lSt14default_deleteIS0_EED2Ev.exit: ; preds = %_ZNKSt14defau
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(5208) initializes((0, 12), (16, 26), (28, 36)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss9IndexHNSWC2EiiNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(5208) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2092,7 +2092,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss9IndexHNSWC2EPNS_5IndexEi(ptr noundef nonnull align 8 dereferenceable(5208) initializes((0, 12), (16, 26), (28, 36)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss9IndexHNSWC2EPNS_5IndexEi(ptr noundef nonnull align 8 dereferenceable(5208) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 28
@@ -2129,7 +2129,7 @@ define void @_ZN5faiss9IndexHNSWC2EPNS_5IndexEi(ptr noundef nonnull align 8 dere
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss9IndexHNSWD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss9IndexHNSWD2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss9IndexHNSWE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 5192
   %3 = load i8, ptr %2, align 8
@@ -3452,7 +3452,7 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -3471,7 +3471,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputerD2Ev(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputerD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN5faiss12_GLOBAL__N_124NegativeDistanceComputerD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_124NegativeDistanceComputerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -7026,7 +7026,7 @@ declare void @_ZN5faiss14IndexFlatCodes15permute_entriesEPKl(ptr noundef nonnull
 declare void @_ZN5faiss4HNSW15permute_entriesEPKl(ptr noundef nonnull align 8 dereferenceable(5149), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss13IndexHNSWFlatC2Ev(ptr noundef nonnull align 8 dereferenceable(5208) initializes((0, 12), (16, 26), (28, 36)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss13IndexHNSWFlatC2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7155,7 +7155,7 @@ declare void @_ZN5faiss9IndexFlatC1ElNS_10MetricTypeE(ptr noundef nonnull align 
 declare void @_ZN5faiss9IndexFlatC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72), i64 noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss11IndexHNSWPQC2Ev(ptr noundef nonnull align 8 dereferenceable(5208) initializes((0, 12), (16, 26), (28, 36)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss11IndexHNSWPQC2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7321,7 +7321,7 @@ define linkonce_odr void @_ZN5faiss11IndexHNSWSQD0Ev(ptr noundef nonnull align 8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss11IndexHNSWSQC2Ev(ptr noundef nonnull align 8 dereferenceable(5208) initializes((0, 12), (16, 26), (28, 36)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss11IndexHNSWSQC2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7411,7 +7411,7 @@ _ZN5faiss9IndexHNSWC2EPNS_5IndexEi.exit:          ; preds = %7
 declare void @_ZN5faiss11Index2LayerC1EPNS_5IndexEmiiNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(368), ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss15IndexHNSW2LevelC2Ev(ptr noundef nonnull align 8 dereferenceable(5208) initializes((0, 12), (16, 26), (28, 36)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss15IndexHNSW2LevelC2Ev(ptr noundef nonnull align 8 dereferenceable(5208) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

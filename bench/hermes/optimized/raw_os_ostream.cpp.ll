@@ -18,7 +18,7 @@ $_ZNK4llvh11raw_ostream10has_colorsEv = comdat any
 @_ZN4llvh14raw_os_ostreamD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN4llvh14raw_os_ostreamD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_os_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_os_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -41,7 +41,7 @@ _ZN4llvh11raw_ostream5flushEv.exit:               ; preds = %entry, %if.then.i
 declare void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(36)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh14raw_os_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh14raw_os_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 16), ptr %this, align 8
   %OutBufCur.i.i = getelementptr inbounds i8, ptr %this, i64 24

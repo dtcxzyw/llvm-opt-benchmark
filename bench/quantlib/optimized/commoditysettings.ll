@@ -81,7 +81,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib13UnitOfMeasure4DataEEE = comda
 @_ZN8QuantLib17CommoditySettingsC1Ev = unnamed_addr alias void (ptr), ptr @_ZN8QuantLib17CommoditySettingsC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17CommoditySettingsC2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17CommoditySettingsC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN8QuantLib8CurrencyD2Ev.exit:
   %ref.tmp = alloca %"class.QuantLib::USDCurrency", align 8
   %ref.tmp2 = alloca %"class.QuantLib::BarrelUnitOfMeasure", align 8

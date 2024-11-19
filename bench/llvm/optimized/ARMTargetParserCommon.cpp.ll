@@ -1046,7 +1046,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3ARM21parseBranchProtectionENS_9StringRefERNS0_22ParsedBranchProtectionERS1_b(ptr %0, i64 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(35) initializes((0, 35)) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm3ARM21parseBranchProtectionENS_9StringRefERNS0_22ParsedBranchProtectionERS1_b(ptr %0, i64 %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(35) %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca %"class.llvm::StringRef", align 8
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8

@@ -39,7 +39,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.23 = private unnamed_addr constant [29 x i8] c"starting load-detect on CRT\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @intel_crt_port_enabled(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @intel_crt_port_enabled(ptr noundef %0, i32 %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 7368
   %5 = getelementptr inbounds i8, ptr %0, i64 7512
   %6 = load ptr, ptr %5, align 8
@@ -1013,7 +1013,7 @@ define internal void @intel_disable_crt(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @intel_crt_get_config(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((636, 640)) %1) #0 align 16 {
+define internal void @intel_crt_get_config(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 872
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 2

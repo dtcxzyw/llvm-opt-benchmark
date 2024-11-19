@@ -1195,7 +1195,7 @@ define hidden void @_Z17luaC_barriertableP9lua_StateP5TableP8GCObject(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
+define hidden void @_Z16luaC_barrierbackP9lua_StateP8GCObjectPS2_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 1

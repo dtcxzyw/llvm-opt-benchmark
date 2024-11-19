@@ -557,7 +557,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i16 1, 258) i16 @_ZN4node6crypto17RandomBytesTraits12EncodeOutputEPNS_11EnvironmentERKNS0_17RandomBytesConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %params, ptr nocapture noundef readnone %unused, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 1, 258) i16 @_ZN4node6crypto17RandomBytesTraits12EncodeOutputEPNS_11EnvironmentERKNS0_17RandomBytesConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %params, ptr nocapture noundef readnone %unused, ptr nocapture noundef writeonly %result) local_unnamed_addr #3 align 2 {
 entry:
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
@@ -1991,7 +1991,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node6crypto10ByteSo
 declare void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i16 @_ZN4node6crypto16CheckPrimeTraits12EncodeOutputEPNS_11EnvironmentERKNS0_16CheckPrimeConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %params, ptr nocapture noundef readonly %out, ptr nocapture noundef writeonly initializes((0, 8)) %result) local_unnamed_addr #7 align 2 {
+define dso_local noundef i16 @_ZN4node6crypto16CheckPrimeTraits12EncodeOutputEPNS_11EnvironmentERKNS0_16CheckPrimeConfigEPNS0_10ByteSourceEPN2v85LocalINS9_5ValueEEE(ptr nocapture noundef readonly %env, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %params, ptr nocapture noundef readonly %out, ptr nocapture noundef writeonly %result) local_unnamed_addr #7 align 2 {
 entry:
   %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8

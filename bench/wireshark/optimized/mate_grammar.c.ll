@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [12 x i8] c"Parse Error\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @MateParserInit(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
+define hidden void @MateParserInit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -150,7 +150,7 @@ MateParserFinalize.exit:                          ; preds = %yy_pop_parser_stack
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @MateParser(ptr noundef initializes((16, 24)) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @MateParser(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %3, ptr %5, align 8
   %6 = icmp eq i32 %1, 0

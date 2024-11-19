@@ -186,7 +186,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.print_ole2_property = private unnamed_addr constant [5 x ptr] [ptr @.str.86, ptr @.str.85, ptr @.str.88, ptr @.str.88, ptr @.str.87], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @ole2_list_init(ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %0) local_unnamed_addr #0 {
+define noundef i32 @ole2_list_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
   store i32 0, ptr %0, align 8
@@ -457,7 +457,7 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #7
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @copy_encryption_info_stream_standard(ptr nocapture noundef writeonly initializes((0, 44)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define void @copy_encryption_info_stream_standard(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(44) %0, ptr noundef nonnull align 1 dereferenceable(44) %1, i64 44, i1 false)
   ret void
 }
@@ -466,7 +466,7 @@ define void @copy_encryption_info_stream_standard(ptr nocapture noundef writeonl
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @copy_encryption_verifier(ptr nocapture noundef writeonly initializes((0, 72)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
+define void @copy_encryption_verifier(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #9 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(72) %0, ptr noundef nonnull align 1 dereferenceable(72) %1, i64 72, i1 false)
   ret void
 }
@@ -782,7 +782,7 @@ define i32 @cli_ole2_extract(ptr noundef %0, ptr noundef %1, ptr nocapture nound
 declare ptr @cli_bitset_init() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @initialize_encryption_key(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 260)) %2) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @initialize_encryption_key(ptr nocapture noundef nonnull readonly %0, i64 noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #2 {
   %4 = alloca %struct.encryption_key_t, align 4
   %5 = alloca %struct.encryption_verifier_t, align 1
   %.sroa.0.0.copyload = load i16, ptr %0, align 1

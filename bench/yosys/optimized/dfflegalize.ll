@@ -379,7 +379,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115DffLegalizePassD2Ev(ptr noundef nonnull align 8 dereferenceable(2536) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115DffLegalizePassD2Ev(ptr noundef nonnull align 8 dereferenceable(2536) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115DffLegalizePassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 2480
   %3 = getelementptr inbounds i8, ptr %0, i64 2504
@@ -494,7 +494,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN5Yosys4PassD2Ev(ptr noundef nonnull align 8 dereferenceable(104)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115DffLegalizePassD0Ev(ptr noundef nonnull align 8 dereferenceable(2536) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define internal void @_ZN12_GLOBAL__N_115DffLegalizePassD0Ev(ptr noundef nonnull align 8 dereferenceable(2536) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN12_GLOBAL__N_115DffLegalizePassD2Ev(ptr noundef nonnull align 8 dereferenceable(2536) %0) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void
@@ -573,7 +573,7 @@ define internal void @_ZN12_GLOBAL__N_115DffLegalizePass4helpEv(ptr nocapture no
 declare void @_ZN5Yosys4Pass11clear_flagsEv(ptr noundef nonnull align 8 dereferenceable(104)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_115DffLegalizePass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE(ptr noundef nonnull align 8 dereferenceable(2536) initializes((104, 2216)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115DffLegalizePass7executeESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEPN5Yosys5RTLIL6DesignE(ptr noundef nonnull align 8 dereferenceable(2536) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [75 x i32], align 4
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = alloca [75 x i32], align 4

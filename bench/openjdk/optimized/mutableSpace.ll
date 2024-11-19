@@ -268,7 +268,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN12MutableSpaceC1Em = hidden unnamed_addr alias void (ptr, i64), ptr @_ZN12MutableSpaceC2Em
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN12MutableSpaceC2Em(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 40)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12MutableSpaceC2Em(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 168) (i8, ptr @_ZTV12MutableSpace, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
@@ -322,7 +322,7 @@ declare void @_ZN2os11free_memoryEPcmm(ptr noundef, i64 noundef, i64 noundef) lo
 declare void @_ZN2os16numa_make_globalEPcm(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12MutableSpace10initializeE9MemRegionbbbP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 40)) %0, ptr %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #1 align 2 {
+define hidden void @_ZN12MutableSpace10initializeE9MemRegionbbbP13WorkerThreads(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr %1, i64 %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #1 align 2 {
   %8 = alloca %class.MemRegion, align 8
   br i1 %5, label %9, label %110
 

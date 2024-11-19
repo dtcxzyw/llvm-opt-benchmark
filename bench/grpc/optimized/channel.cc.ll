@@ -306,7 +306,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core7ChannelC2EbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelArgsE24grpc_compression_optionsNS_13RefCountedPtrI18grpc_channel_stackEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 18), (20, 56), (64, 68), (72, 80)) %this, i1 noundef zeroext %is_client, i1 noundef zeroext %is_promising, ptr noundef %target, ptr noundef nonnull align 8 dereferenceable(8) %channel_args, ptr nocapture noundef readonly byval(%struct.grpc_compression_options) align 8 %compression_options, ptr nocapture noundef %channel_stack) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core7ChannelC2EbbNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11ChannelArgsE24grpc_compression_optionsNS_13RefCountedPtrI18grpc_channel_stackEE(ptr noundef nonnull align 8 dereferenceable(176) %this, i1 noundef zeroext %is_client, i1 noundef zeroext %is_promising, ptr noundef %target, ptr noundef nonnull align 8 dereferenceable(8) %channel_args, ptr nocapture noundef readonly byval(%struct.grpc_compression_options) align 8 %compression_options, ptr nocapture noundef %channel_stack) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function", align 8
@@ -3483,7 +3483,7 @@ lpad10:                                           ; preds = %cond.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14RegisteredCallC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 32), (64, 65)) %this, ptr noundef %method_arg, ptr noundef %host_arg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14RegisteredCallC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef %method_arg, ptr noundef %host_arg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.sroa.4 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %__tmp.i.i.i.i.sroa.4 = alloca %"union.grpc_slice::grpc_slice_data", align 8
@@ -3611,7 +3611,7 @@ if.end:                                           ; preds = %if.then.i.i.i9, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core14RegisteredCallC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 32), (64, 65)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core14RegisteredCallC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.sroa.4 = alloca %"union.grpc_slice::grpc_slice_data", align 8
   %__tmp.i.i.i.i.sroa.4 = alloca %"union.grpc_slice::grpc_slice_data", align 8

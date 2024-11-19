@@ -594,7 +594,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN15output_redirectC2EP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef %f, i1 noundef zeroext %flush) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN15output_redirectC2EP8_IO_FILEb(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %f, i1 noundef zeroext %flush) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.fmt::v10::file", align 4
   %write_end = alloca %"class.fmt::v10::file", align 4

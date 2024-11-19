@@ -78,7 +78,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.1 = private unnamed_addr constant [65 x i8] c"Hard limit on the number of nodes (2^29) is reached. Quitting...\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManCountMuxXor(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 4)) %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
+define void @Gia_ManCountMuxXor(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store i32 0, ptr %2, align 4
@@ -4022,7 +4022,7 @@ Vec_StrPush.exit36:                               ; preds = %.Vec_StrGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @Gia_MuxStructDump(ptr noundef %0, i32 noundef %1, ptr noundef initializes((4, 8)) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @Gia_MuxStructDump(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 32
   %.val.i = load ptr, ptr %6, align 8
   %7 = sext i32 %1 to i64
@@ -5240,7 +5240,7 @@ Gia_ObjIsMux.exit.thread:                         ; preds = %Gia_ObjIsXor.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManProfileCollect(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef initializes((4, 8)) %4) local_unnamed_addr #0 {
+define void @Gia_ManProfileCollect(ptr nocapture readnone %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 0, ptr %6, align 4
   %7 = getelementptr i8, ptr %3, i64 8

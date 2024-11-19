@@ -2503,7 +2503,7 @@ _ZN16Unique_Node_List4pushEP4Node.exit:           ; preds = %_ZN9Node_List4pushE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26ShenandoahBarrierC2Support13test_gc_stateERP4NodeS1_S2_P14PhaseIdealLoopi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN26ShenandoahBarrierC2Support13test_gc_stateERP4NodeS1_S2_P14PhaseIdealLoopi(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr nocapture noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %3, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %0, align 8
@@ -3261,7 +3261,7 @@ _ZNK14PhaseIdealLoop8get_loopEP4Node.exit:        ; preds = %_ZNK14PhaseIdealLoo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN26ShenandoahBarrierC2Support12test_in_csetERP4NodeS2_S1_S1_P14PhaseIdealLoop(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN26ShenandoahBarrierC2Support12test_in_csetERP4NodeS2_S1_S1_P14PhaseIdealLoop(ptr nocapture noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 56
   %8 = load ptr, ptr %7, align 8

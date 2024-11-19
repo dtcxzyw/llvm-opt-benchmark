@@ -69,7 +69,7 @@ $_ZTSN5folly18DelayedDestruction10DestructorE = comdat any
 @_ZN5folly15ScopedBoundPortD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5folly15ScopedBoundPortD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly15ScopedBoundPortC2ENS_9IPAddressE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef byval(%"class.folly::IPAddress") align 8 %host) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly15ScopedBoundPortC2ENS_9IPAddressE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef byval(%"class.folly::IPAddress") align 8 %host) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.folly::Function", align 16
   %sock_ = getelementptr inbounds i8, ptr %this, i64 8

@@ -666,7 +666,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 declare void @deconstruct_array_builtin(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
+define internal fastcc ptr @extract_jsp_query(ptr noundef %0, i16 noundef zeroext %1, i1 noundef zeroext %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.JsonPathGinContext, align 8
   %7 = alloca %struct.JsonPathItem, align 8
   %8 = alloca %struct.GinEntries, align 8

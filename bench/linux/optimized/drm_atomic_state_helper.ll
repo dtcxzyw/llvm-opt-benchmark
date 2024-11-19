@@ -72,7 +72,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_atomic_h
 @llvm.compiler.used = appending global [30 x ptr] [ptr @__UNIQUE_ID___addressable___drm_atomic_helper_bridge_duplicate_state413, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_bridge_reset418, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_connector_destroy_state410, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_connector_duplicate_state406, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_connector_reset401, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_connector_state_reset400, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_crtc_destroy_state389, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_crtc_duplicate_state385, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_crtc_reset383, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_crtc_state_reset382, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_plane_destroy_state398, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_plane_duplicate_state394, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_plane_reset392, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_plane_state_reset391, ptr @__UNIQUE_ID___addressable___drm_atomic_helper_private_obj_duplicate_state412, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_bridge_destroy_state417, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_bridge_duplicate_state416, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_bridge_reset419, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_connector_destroy_state411, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_connector_duplicate_state409, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_connector_reset402, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_connector_tv_check405, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_connector_tv_margins_reset403, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_connector_tv_reset404, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_crtc_destroy_state390, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_crtc_duplicate_state388, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_crtc_reset384, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_plane_destroy_state399, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_plane_duplicate_state397, ptr @__UNIQUE_ID___addressable_drm_atomic_helper_plane_reset393], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @__drm_atomic_helper_crtc_state_reset(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) #0 align 16 {
+define dso_local void @__drm_atomic_helper_crtc_state_reset(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 align 16 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -153,7 +153,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__drm_atomic_helper_crtc_duplicate_state(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 336)) %1) #1 align 16 {
+define dso_local void @__drm_atomic_helper_crtc_duplicate_state(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1480
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(336) %1, ptr noundef align 8 dereferenceable(336) %4, i64 336, i1 false)
@@ -416,7 +416,7 @@ define dso_local void @drm_atomic_helper_crtc_destroy_state(ptr nocapture readno
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__drm_atomic_helper_plane_state_reset(ptr nocapture noundef writeonly initializes((0, 8), (72, 80)) %0, ptr noundef %1) #1 align 16 {
+define dso_local void @__drm_atomic_helper_plane_state_reset(ptr nocapture noundef writeonly %0, ptr noundef %1) #1 align 16 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   store i64 0, ptr %3, align 8, !annotation !15
@@ -646,7 +646,7 @@ define dso_local void @__drm_atomic_helper_plane_destroy_state(ptr nocapture nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__drm_atomic_helper_plane_duplicate_state(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 176)) %1) #1 align 16 {
+define dso_local void @__drm_atomic_helper_plane_duplicate_state(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1240
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(176) %1, ptr noundef align 8 dereferenceable(176) %4, i64 176, i1 false)
@@ -732,7 +732,7 @@ define dso_local void @drm_atomic_helper_plane_destroy_state(ptr nocapture readn
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @__drm_atomic_helper_connector_state_reset(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) #0 align 16 {
+define dso_local void @__drm_atomic_helper_connector_state_reset(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 align 16 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -1273,7 +1273,7 @@ define dso_local noundef range(i32 -22, 1) i32 @drm_atomic_helper_connector_tv_c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__drm_atomic_helper_connector_duplicate_state(ptr noundef %0, ptr nocapture noundef initializes((0, 160)) %1) #1 align 16 {
+define dso_local void @__drm_atomic_helper_connector_duplicate_state(ptr noundef %0, ptr nocapture noundef %1) #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1904
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(160) %1, ptr noundef align 8 dereferenceable(160) %4, i64 160, i1 false)
@@ -1419,7 +1419,7 @@ __drm_atomic_helper_connector_destroy_state.exit: ; preds = %.thread.i, %24
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @__drm_atomic_helper_private_obj_duplicate_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #6 align 16 {
+define dso_local void @__drm_atomic_helper_private_obj_duplicate_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %1, ptr noundef align 8 dereferenceable(16) %4, i64 16, i1 false)
@@ -1427,7 +1427,7 @@ define dso_local void @__drm_atomic_helper_private_obj_duplicate_state(ptr nocap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(readwrite, inaccessiblemem: none)
-define dso_local void @__drm_atomic_helper_bridge_duplicate_state(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) #6 align 16 {
+define dso_local void @__drm_atomic_helper_bridge_duplicate_state(ptr noundef %0, ptr nocapture noundef writeonly %1) #6 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %1, ptr noundef align 8 dereferenceable(16) %4, i64 16, i1 false)
@@ -1474,7 +1474,7 @@ define dso_local void @drm_atomic_helper_bridge_destroy_state(ptr nocapture read
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @__drm_atomic_helper_bridge_reset(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 40)) %1) #0 align 16 {
+define dso_local void @__drm_atomic_helper_bridge_reset(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8

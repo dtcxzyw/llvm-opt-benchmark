@@ -107,7 +107,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco10ObjDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 1), (4, 53), (56, 60)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5draco10ObjDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i8 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = getelementptr inbounds i8, ptr %0, i64 28
@@ -211,7 +211,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco10ObjDecoder14DecodeFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4MeshE(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) initializes((248, 256), (312, 320)) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco10ObjDecoder14DecodeFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4MeshE(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 312
   store ptr %3, ptr %5, align 8, !noalias !6
   %6 = getelementptr inbounds i8, ptr %1, i64 248
@@ -221,7 +221,7 @@ define void @_ZN5draco10ObjDecoder14DecodeFromFileERKNSt7__cxx1112basic_stringIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco10ObjDecoder14DecodeFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4MeshEPSt6vectorIS6_SaIS6_EE(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) initializes((248, 256), (312, 320)) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco10ObjDecoder14DecodeFromFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_4MeshEPSt6vectorIS6_SaIS6_EE(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #3 align 2 {
   %6 = getelementptr inbounds i8, ptr %1, i64 312
   store ptr %3, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %1, i64 248
@@ -348,7 +348,7 @@ declare void @_ZN5draco13DecoderBuffer4InitEPKcm(ptr noundef nonnull align 8 der
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco10ObjDecoder14DecodeInternalEv(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 1), (4, 20), (24, 28), (56, 60)) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5draco10ObjDecoder14DecodeInternalEv(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::array", align 4
   %4 = alloca %"struct.std::array", align 4
   %5 = alloca %"class.draco::Status", align 8
@@ -1757,7 +1757,7 @@ _ZNSt12_Vector_baseIcSaIcEED2Ev.exit:             ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco10ObjDecoder16DecodeFromBufferEPNS_13DecoderBufferEPNS_4MeshE(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) initializes((312, 328)) %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco10ObjDecoder16DecodeFromBufferEPNS_13DecoderBufferEPNS_4MeshE(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 312
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 320
@@ -1776,7 +1776,7 @@ define void @_ZN5draco10ObjDecoder16DecodeFromBufferEPNS_13DecoderBufferEPNS_4Me
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco10ObjDecoder16DecodeFromBufferEPNS_13DecoderBufferEPNS_10PointCloudE(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) initializes((320, 328)) %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
+define void @_ZN5draco10ObjDecoder16DecodeFromBufferEPNS_13DecoderBufferEPNS_10PointCloudE(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(328) %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 320
   store ptr %3, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 256
@@ -1793,7 +1793,7 @@ define void @_ZN5draco10ObjDecoder16DecodeFromBufferEPNS_13DecoderBufferEPNS_10P
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5draco10ObjDecoder13ResetCountersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) initializes((4, 20), (24, 28), (56, 60)) %0) local_unnamed_addr #5 align 2 {
+define void @_ZN5draco10ObjDecoder13ResetCountersEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(328) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %3, align 8

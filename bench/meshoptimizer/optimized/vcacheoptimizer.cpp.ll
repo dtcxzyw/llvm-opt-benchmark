@@ -416,7 +416,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17TriangleAdjacencyEPKjmmR17meshopt_Allocator(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %adjacency, ptr nocapture noundef readonly %indices, i64 noundef range(i64 1, 0) %index_count, i64 noundef range(i64 1, 0) %vertex_count, ptr nocapture noundef nonnull align 8 dereferenceable(200) %allocator) unnamed_addr #0 {
+define internal fastcc void @_ZN7meshoptL22buildTriangleAdjacencyERNS_17TriangleAdjacencyEPKjmmR17meshopt_Allocator(ptr nocapture noundef nonnull align 8 dereferenceable(24) %adjacency, ptr nocapture noundef readonly %indices, i64 noundef range(i64 1, 0) %index_count, i64 noundef range(i64 1, 0) %vertex_count, ptr nocapture noundef nonnull align 8 dereferenceable(200) %allocator) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr @_ZN17meshopt_Allocator8StorageTIvE8allocateE, align 8
   %cmp.i = icmp ugt i64 %vertex_count, 4611686018427387903

@@ -49,7 +49,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @cipher_hw_des_initkey(ptr noundef initializes((320, 328)) %ctx, ptr noundef %key, i64 %keylen) #1 {
+define internal noundef i32 @cipher_hw_des_initkey(ptr noundef %ctx, ptr noundef %key, i64 %keylen) #1 {
 entry:
   %dks = getelementptr inbounds i8, ptr %ctx, i64 192
   %dstream = getelementptr inbounds i8, ptr %ctx, i64 320
@@ -90,7 +90,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @cipher_hw_des_copyctx(ptr noundef initializes((0, 328)) %dst, ptr nocapture noundef readonly %src) #2 {
+define internal void @cipher_hw_des_copyctx(ptr noundef %dst, ptr nocapture noundef readonly %src) #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %dst, ptr noundef nonnull align 8 dereferenceable(328) %src, i64 328, i1 false)
   %dks = getelementptr inbounds i8, ptr %dst, i64 192

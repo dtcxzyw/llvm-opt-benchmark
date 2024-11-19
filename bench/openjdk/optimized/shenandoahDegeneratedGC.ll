@@ -130,7 +130,7 @@ $_ZN6Events3logEP6ThreadPKcz = comdat any
 @_ZN17ShenandoahDegenGCC1EN12ShenandoahGC20ShenandoahDegenPointE = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN17ShenandoahDegenGCC2EN12ShenandoahGC20ShenandoahDegenPointE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17ShenandoahDegenGCC2EN12ShenandoahGC20ShenandoahDegenPointE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(13) initializes((0, 13)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN17ShenandoahDegenGCC2EN12ShenandoahGC20ShenandoahDegenPointE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(13) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17ShenandoahDegenGC, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8

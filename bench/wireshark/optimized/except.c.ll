@@ -34,7 +34,7 @@ define void @except_deinit() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @except_setup_clean(ptr noundef initializes((0, 12), (16, 24)) %0, ptr noundef initializes((0, 16)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @except_setup_clean(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   store ptr %2, ptr %1, align 8
@@ -50,7 +50,7 @@ define hidden void @except_setup_clean(ptr noundef initializes((0, 12), (16, 24)
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define void @except_setup_try(ptr noundef initializes((0, 12), (16, 24)) %0, ptr noundef initializes((0, 16)) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
+define void @except_setup_try(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #2 {
   store ptr %2, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 %3, ptr %5, align 8

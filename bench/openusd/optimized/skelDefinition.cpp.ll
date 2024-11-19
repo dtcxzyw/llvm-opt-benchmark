@@ -1366,7 +1366,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_22UsdSkel_SkelDefinitionEE10_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinitionC2Ev(ptr noundef nonnull align 8 dereferenceable(496) initializes((0, 12), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22UsdSkel_SkelDefinitionC2Ev(ptr noundef nonnull align 8 dereferenceable(496) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %3, align 8

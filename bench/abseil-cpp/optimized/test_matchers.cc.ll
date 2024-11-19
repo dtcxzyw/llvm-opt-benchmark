@@ -1164,7 +1164,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal8AsStringERKN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noalias nocapture writeonly sret(%"class.testing::Matcher") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %str_matcher) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4absl12log_internal8AsStringERKN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noalias nocapture writeonly sret(%"class.testing::Matcher") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %str_matcher) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl12log_internal12_GLOBAL__N_112AsStringImplE, i64 16), ptr %call, align 8
@@ -4498,7 +4498,7 @@ ehcleanup:                                        ; preds = %ehcleanup8.i.i, %lp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN7testing8internal15ResultOfMatcherIZN4absl12log_internal10TextPrefixERKNS_7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0S9_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) initializes((40, 48)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN7testing8internal15ResultOfMatcherIZN4absl12log_internal10TextPrefixERKNS_7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0S9_ED2Ev"(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %matcher_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %matcher_, align 8
@@ -5441,7 +5441,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12log_internal12_GLOBAL__N_112AsStringImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12log_internal12_GLOBAL__N_112AsStringImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %str_matcher_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %str_matcher_, align 8
@@ -5483,7 +5483,7 @@ _ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl12log_internal12_GLOBAL__N_112AsStringImplD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl12log_internal12_GLOBAL__N_112AsStringImplD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %str_matcher_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %str_matcher_.i, align 8
@@ -13841,7 +13841,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7testing8internal15ResultOfMatcherIZN4absl12log_internal10TextPrefixERKNS_7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0S9_E4ImplIRKNS2_8LogEntryEED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (48, 56)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7testing8internal15ResultOfMatcherIZN4absl12log_internal10TextPrefixERKNS_7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0S9_E4ImplIRKNS2_8LogEntryEED2Ev"(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7testing8internal15ResultOfMatcherIZN4absl12log_internal10TextPrefixERKNS_7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0S9_E4ImplIRKNS2_8LogEntryEEE", i64 16), ptr %this, align 8
   %matcher_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -13886,7 +13886,7 @@ _ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN7testing8internal15ResultOfMatcherIZN4absl12log_internal10TextPrefixERKNS_7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0S9_E4ImplIRKNS2_8LogEntryEED0Ev"(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (48, 56)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN7testing8internal15ResultOfMatcherIZN4absl12log_internal10TextPrefixERKNS_7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0S9_E4ImplIRKNS2_8LogEntryEED0Ev"(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @"_ZTVN7testing8internal15ResultOfMatcherIZN4absl12log_internal10TextPrefixERKNS_7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0S9_E4ImplIRKNS2_8LogEntryEEE", i64 16), ptr %this, align 8
   %matcher_.i = getelementptr inbounds i8, ptr %this, i64 48

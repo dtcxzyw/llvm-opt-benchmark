@@ -2018,7 +2018,7 @@ define internal i64 @H5FD__onion_get_eoa(ptr nocapture noundef readonly %0, i32 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5FD__onion_set_eoa(ptr nocapture noundef writeonly initializes((616, 624)) %0, i32 %1, i64 noundef %2) #6 {
+define internal noundef i32 @H5FD__onion_set_eoa(ptr nocapture noundef writeonly %0, i32 %1, i64 noundef %2) #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 616
   store i64 %2, ptr %4, align 8
   ret i32 0
@@ -2812,7 +2812,7 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 declare double @log2(double noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_create_truncate_onion(ptr noundef nonnull initializes((420, 424), (432, 440)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i64 noundef range(i64 1, -1) %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__onion_create_truncate_onion(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %4, i64 noundef range(i64 1, -1) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 416
   %8 = getelementptr inbounds i8, ptr %0, i64 464
   %9 = getelementptr inbounds i8, ptr %0, i64 420

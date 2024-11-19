@@ -425,7 +425,7 @@ Vec_IntPush.exit43:                               ; preds = %.Vec_IntGrow.exit10
 declare i32 @Cloud_DagCollect(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Kit_CreateCloudFromTruth(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Kit_CreateCloudFromTruth(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   tail call void @Cloud_Restart(ptr noundef %0) #8
   %5 = tail call ptr @Kit_TruthToCloud_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %2)
   %6 = getelementptr inbounds i8, ptr %3, i64 4

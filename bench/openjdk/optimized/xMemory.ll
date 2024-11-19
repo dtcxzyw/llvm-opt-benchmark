@@ -130,7 +130,7 @@ define hidden void @_ZN14XMemoryManager14grow_from_backEP7XMemorym(ptr nocapture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN14XMemoryManager9CallbacksC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN14XMemoryManager9CallbacksC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
@@ -148,7 +148,7 @@ define hidden void @_ZN14XMemoryManagerC2Ev(ptr noundef nonnull align 8 derefere
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN14XMemoryManager18register_callbacksERKNS_9CallbacksE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((64, 112)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN14XMemoryManager18register_callbacksERKNS_9CallbacksE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   ret void
@@ -272,7 +272,7 @@ _ZN7XLockerI5XLockED2Ev.exit:                     ; preds = %select.unfold, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i64 @_ZN14XMemoryManager25alloc_low_address_at_mostEmPm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i64 @_ZN14XMemoryManager25alloc_low_address_at_mostEmPm(ptr noundef nonnull align 8 dereferenceable(112) %0, i64 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 align 2 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %0) #7
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = getelementptr inbounds i8, ptr %0, i64 56

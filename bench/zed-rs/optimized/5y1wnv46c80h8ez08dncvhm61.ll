@@ -6458,7 +6458,7 @@ define internal fastcc noundef zeroext i1 @"_ZN9html5ever12tree_builder32TreeBui
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14parse_raw_data17h81acbc5d39d921c1E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(48) initializes((0, 9)) %0, ptr noalias noundef nonnull align 8 dereferenceable(192) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i8 noundef range(i8 2, 4) %3) unnamed_addr #2 {
+define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$14parse_raw_data17h81acbc5d39d921c1E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(192) %1, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(40) %2, i8 noundef range(i8 2, 4) %3) unnamed_addr #2 {
   %5 = alloca [24 x i8], align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load i64, ptr %6, align 8, !range !57, !noundef !4
@@ -11292,7 +11292,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN9html5ever12tr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21append_comment_to_doc17hca4379609f23c589E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(48) initializes((0, 8)) %0, ptr noalias noundef nonnull align 8 dereferenceable(192) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #2 {
+define internal fastcc void @"_ZN9html5ever12tree_builder32TreeBuilder$LT$Handle$C$Sink$GT$21append_comment_to_doc17hca4379609f23c589E"(ptr dead_on_unwind noalias nocapture noundef nonnull writable writeonly align 8 dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(192) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #2 {
   %4 = alloca [24 x i8], align 8
   %5 = tail call noundef nonnull ptr @"_ZN91_$LT$markup5ever_rcdom..RcDom$u20$as$u20$markup5ever..interface..tree_builder..TreeSink$GT$14create_comment17hcffc2439f65f9edeE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(16) %2)
   %6 = getelementptr inbounds i8, ptr %1, i64 136

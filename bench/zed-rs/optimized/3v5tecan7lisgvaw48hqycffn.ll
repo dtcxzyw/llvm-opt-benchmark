@@ -5101,7 +5101,7 @@ define void @"_ZN4task13task_template1_84_$LT$impl$u20$schemars..JsonSchema$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN4task13task_template1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$task..task_template..TaskTemplate$GT$9schema_id17hee54ba4b7d3d90f0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #12 {
+define void @"_ZN4task13task_template1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$task..task_template..TaskTemplate$GT$9schema_id17hee54ba4b7d3d90f0E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.5c97d14bf264c3cc007767e5c438f665.68.llvm.15031654937687130066, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -5874,7 +5874,7 @@ define void @"_ZN4task13task_template1_86_$LT$impl$u20$schemars..JsonSchema$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN4task13task_template1_86_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$task..task_template..RevealStrategy$GT$9schema_id17h8a3e40e245fc1875E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #12 {
+define void @"_ZN4task13task_template1_86_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$task..task_template..RevealStrategy$GT$9schema_id17h8a3e40e245fc1875E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.5c97d14bf264c3cc007767e5c438f665.95.llvm.15031654937687130066, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6101,7 +6101,7 @@ define void @"_ZN4task13task_template1_84_$LT$impl$u20$schemars..JsonSchema$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN4task13task_template1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$task..task_template..HideStrategy$GT$9schema_id17heb8d5a39f56c7201E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #12 {
+define void @"_ZN4task13task_template1_84_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$task..task_template..HideStrategy$GT$9schema_id17heb8d5a39f56c7201E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.5c97d14bf264c3cc007767e5c438f665.103.llvm.15031654937687130066, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6359,7 +6359,7 @@ define void @"_ZN4task13task_template1_85_$LT$impl$u20$schemars..JsonSchema$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN4task13task_template1_85_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$task..task_template..TaskTemplates$GT$9schema_id17h7a9d0b9ae82fb00fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #12 {
+define void @"_ZN4task13task_template1_85_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$task..task_template..TaskTemplates$GT$9schema_id17h7a9d0b9ae82fb00fE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #12 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.5c97d14bf264c3cc007767e5c438f665.111.llvm.15031654937687130066, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

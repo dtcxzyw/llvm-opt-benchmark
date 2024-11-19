@@ -164,7 +164,7 @@ declare void @lv_obj_class_init_obj(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_scale_set_mode(ptr noundef initializes((96, 100)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_scale_set_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %1, ptr %3, align 8, !tbaa !3
   tail call void @lv_obj_invalidate(ptr noundef %0) #9
@@ -213,7 +213,7 @@ define void @lv_scale_set_label_show(ptr noundef %0, i1 noundef zeroext %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_scale_set_range(ptr noundef initializes((100, 108)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_scale_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 %1, ptr %4, align 4, !tbaa !15
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -223,7 +223,7 @@ define void @lv_scale_set_range(ptr noundef initializes((100, 108)) %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_scale_set_angle_range(ptr noundef initializes((116, 120)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_scale_set_angle_range(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %1, ptr %3, align 4, !tbaa !13
   tail call void @lv_obj_invalidate(ptr noundef %0) #9
@@ -231,7 +231,7 @@ define void @lv_scale_set_angle_range(ptr noundef initializes((116, 120)) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_scale_set_rotation(ptr noundef initializes((120, 124)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_scale_set_rotation(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %1, ptr %3, align 8, !tbaa !14
   tail call void @lv_obj_invalidate(ptr noundef %0) #9
@@ -450,7 +450,7 @@ define void @lv_scale_set_image_needle_value(ptr nocapture noundef readonly %0, 
 declare void @lv_image_set_rotation(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_scale_set_text_src(ptr noundef initializes((88, 96), (124, 128)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @lv_scale_set_text_src(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %1, ptr %3, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -1960,7 +1960,7 @@ declare void @lv_draw_line_dsc_init(ptr noundef) local_unnamed_addr #2
 declare void @lv_obj_init_draw_line_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scale_set_line_properties(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((64, 67), (68, 72), (80, 81)) %1, ptr noundef %2, i32 noundef range(i32 0, 327681) %3) unnamed_addr #0 {
+define internal fastcc void @scale_set_line_properties(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr noundef %2, i32 noundef range(i32 0, 327681) %3) unnamed_addr #0 {
   %5 = alloca %union.lv_style_value_t, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %35, label %6
@@ -2405,7 +2405,7 @@ declare void @lv_draw_arc_dsc_init(ptr noundef) local_unnamed_addr #2
 declare void @lv_obj_init_draw_arc_dsc(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @scale_get_center(ptr noundef %0, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %1, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %2) unnamed_addr #0 {
+define internal fastcc void @scale_get_center(ptr noundef %0, ptr nocapture noundef nonnull writeonly %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = tail call ptr @lv_obj_get_style_prop(ptr noundef %0, i32 noundef 0, i8 noundef zeroext 18) #9
   %5 = ptrtoint ptr %4 to i64
   %.sroa.0.0.extract.trunc.i = trunc i64 %5 to i32

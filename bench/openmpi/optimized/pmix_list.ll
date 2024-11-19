@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_list_t_class = local_unnamed_addr global %struct.pmix_class_t { ptr @.str.1, ptr @pmix_object_t_class, ptr @pmix_list_construct, ptr @pmix_list_destruct, i32 0, i32 0, ptr null, ptr null, i64 272 }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @pmix_list_item_construct(ptr nocapture noundef writeonly initializes((120, 140)) %0) #0 {
+define internal void @pmix_list_item_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)

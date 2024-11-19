@@ -4987,7 +4987,7 @@ return:                                           ; preds = %if.end451, %_ZNSt7_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z13getModsInPathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_b(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %virtual_path, i1 noundef zeroext %part_of_modpack) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z13getModsInPathRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_b(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %virtual_path, i1 noundef zeroext %part_of_modpack) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i = alloca i64, align 8
   %dirlist = alloca %"class.std::vector.72", align 8
@@ -6445,7 +6445,7 @@ _ZNSt12_Vector_baseIN2fs11DirListNodeESaIS1_EED2Ev.exit: ; preds = %if.then.i.i,
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z11flattenModsRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE7ModSpecSt4lessIS5_ESaISt4pairIKS5_S6_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.83") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %mods) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z11flattenModsRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE7ModSpecSt4lessIS5_ESaISt4pairIKS5_S6_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.83") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %mods) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %content = alloca %"class.std::vector.83", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -6698,7 +6698,7 @@ _ZNSt12_Vector_baseI7ModSpecSaIS0_EED2Ev.exit:    ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10ModStorageC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP18ModStorageDatabase(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %mod_name, ptr noundef %database) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10ModStorageC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP18ModStorageDatabase(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %mod_name, ptr noundef %database) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTV10ModStorage, i64 16), ptr %this, align 8, !tbaa !16

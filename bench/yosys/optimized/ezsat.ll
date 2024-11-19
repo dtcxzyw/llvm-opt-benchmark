@@ -201,7 +201,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @_ZN5ezSATD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5ezSATD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSATC2Ev(ptr noundef nonnull align 8 dereferenceable(284) initializes((0, 8), (24, 28), (32, 40)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSATC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator.26", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -637,7 +637,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5ezSATD2Ev(ptr noundef nonnull align 8 dereferenceable(284) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSATD2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV5ezSAT, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
@@ -2300,7 +2300,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5ezSAT14lookup_liter
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5ezSAT17lookup_expressionEiRNS_4OpIdERSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
+define void @_ZNK5ezSAT17lookup_expressionEiRNS_4OpIdERSt6vectorIiSaIiEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 136
   %6 = xor i32 %1, -1
   %7 = sext i32 %6 to i64
@@ -2425,7 +2425,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5ezSAT17lookup_expressionEiRNS_4OpIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5ezSAT17lookup_expressionEiRNS_4OpIdE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 136
   %5 = xor i32 %1, -1
   %6 = sext i32 %5 to i64
@@ -2798,7 +2798,7 @@ tailrecurse.backedge:                             ; preds = %75, %79
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5ezSAT5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(284) initializes((160, 161), (164, 172)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 164
@@ -6118,7 +6118,7 @@ _ZN5ezSAT17preSolverCallbackEv.exit:              ; preds = %4, %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT9vec_constERKSt6vectorIbSaIbEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT9vec_constERKSt6vectorIbSaIbEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = load ptr, ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 16
@@ -6258,7 +6258,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %53, %54
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT16vec_const_signedEli(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(284) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT16vec_const_signedEli(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(284) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -6383,7 +6383,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %42, %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT18vec_const_unsignedEmi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT18vec_const_unsignedEmi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr nocapture nonnull readnone align 8 %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -6508,7 +6508,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %42, %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT7vec_varEi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(284) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT7vec_varEi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(284) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = icmp sgt i32 %2, 0
@@ -6665,7 +6665,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %58
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT7vec_varENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT7vec_varENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.ezSAT::_V", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -6844,7 +6844,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %59, %60
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT8vec_castERKSt6vectorIiSaIiEEib(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT8vec_castERKSt6vectorIiSaIiEEib(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -7042,7 +7042,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT7vec_notERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT7vec_notERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.ezSAT::_V", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = load ptr, ptr %2, align 8
@@ -8272,7 +8272,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %32
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT9vec_countERKSt6vectorIiSaIiEEib(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT9vec_countERKSt6vectorIiSaIiEEib(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.ezSAT::_V", align 8
   %7 = alloca %"struct.ezSAT::_V", align 8
   %8 = alloca %"struct.ezSAT::_V", align 8
@@ -9209,7 +9209,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit8:                   ; preds = %24, %22
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT7vec_cmpERKSt6vectorIiSaIiEES4_RiS5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT7vec_cmpERKSt6vectorIiSaIiEES4_RiS5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull align 4 dereferenceable(4) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.ezSAT::_V", align 8
   %9 = alloca %"struct.ezSAT::_V", align 8
   %10 = alloca %"struct.ezSAT::_V", align 8
@@ -10515,7 +10515,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit7:                   ; preds = %16, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT7vec_shlERKSt6vectorIiSaIiEEib(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT7vec_shlERKSt6vectorIiSaIiEEib(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -10791,7 +10791,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT7vec_srlERKSt6vectorIiSaIiEEi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT7vec_srlERKSt6vectorIiSaIiEEi(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -10946,7 +10946,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %67, %68
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT9vec_shiftERKSt6vectorIiSaIiEEiii(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT9vec_shiftERKSt6vectorIiSaIiEEiii(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.16") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -13693,7 +13693,7 @@ define { ptr, i32 } @_ZN5ezSAT3bitENS_2_VE(ptr noundef nonnull align 8 dereferen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT3vecERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ezSATvec) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT3vecERKSt6vectorIiSaIiEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.ezSATvec) align 8 %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8

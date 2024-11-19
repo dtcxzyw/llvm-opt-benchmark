@@ -316,7 +316,7 @@ $_ZN4Luau6detail14DenseHashTableImSt4pairImiES2_IKmiENS0_16ItemInterfaceMapImiEE
 @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64D2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64C2EbNS1_6ABIX64E(ptr noundef nonnull align 8 dereferenceable(252) initializes((0, 48)) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64C2EbNS1_6ABIX64E(ptr noundef nonnull align 8 dereferenceable(252) %0, i1 noundef zeroext %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = zext i1 %1 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -570,7 +570,7 @@ _ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit:   ; preds = %45, %43, %_ZNSt12_V
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64C2Eb(ptr noundef nonnull align 8 dereferenceable(252) initializes((0, 48)) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64C2Eb(ptr noundef nonnull align 8 dereferenceable(252) %0, i1 noundef zeroext %1) unnamed_addr #0 align 2 {
   tail call void @_ZN4Luau7CodeGen3X6418AssemblyBuilderX64C2EbNS1_6ABIX64E(ptr noundef nonnull align 8 dereferenceable(252) %0, i1 noundef zeroext %1, i32 noundef 1)
   ret void
 }

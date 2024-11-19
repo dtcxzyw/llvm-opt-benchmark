@@ -3622,7 +3622,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef nonnull align 1 dereferenceable_or_null(1) ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hca5f1bf490dda318E.llvm.12150801376095413471"(ptr noundef nonnull writeonly align 1 initializes((0, 2)) %0, ptr noalias nocapture noundef align 1 dereferenceable_or_null(2) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 1 dereferenceable_or_null(1) ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17hca5f1bf490dda318E.llvm.12150801376095413471"(ptr noundef nonnull writeonly align 1 %0, ptr noalias nocapture noundef align 1 dereferenceable_or_null(2) %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !406)
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %"_ZN3std3sys3pal6common12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h924dce9fbf1c6eb2E.exit", label %3
@@ -3838,7 +3838,7 @@ default.unreachable:                              ; preds = %5
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_value17h0c3322f68fc69122E(ptr nocapture noundef initializes((16, 17)) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_value17h0c3322f68fc69122E(ptr nocapture noundef %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { i64, [1 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -3928,7 +3928,7 @@ define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_value17h117b3c35cb1edc39E(ptr nocapture noundef initializes((16, 17)) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_value17h117b3c35cb1edc39E(ptr nocapture noundef %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %4 = load i64, ptr %0, align 8, !range !375, !noalias !493, !noundef !4
@@ -6384,7 +6384,7 @@ _ZN5alloc11collections5btree3mem7replace17h721ed20daa808281E.llvm.12150801376095
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h0b20deb5fe6187f9E.llvm.12150801376095413471"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #8 {
+define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h0b20deb5fe6187f9E.llvm.12150801376095413471"(ptr noalias nocapture noundef writeonly sret({ i64, [4 x i64] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !noundef !4
   %5 = icmp eq i64 %4, 0

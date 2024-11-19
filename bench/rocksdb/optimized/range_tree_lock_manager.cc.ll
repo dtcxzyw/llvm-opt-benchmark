@@ -3065,7 +3065,7 @@ return:                                           ; preds = %entry, %if.else27, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20RangeTreeLockManagerC2ESt10shared_ptrINS_25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(656) initializes((0, 16), (128, 144), (408, 456)) %this, ptr nocapture noundef readonly %mutex_factory) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20RangeTreeLockManagerC2ESt10shared_ptrINS_25TransactionDBMutexFactoryEE(ptr noundef nonnull align 8 dereferenceable(656) %this, ptr nocapture noundef readonly %mutex_factory) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
@@ -3900,7 +3900,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20RangeTreeLockManager21GetDeadlockInfoBufferEv(ptr noalias sret(%"class.std::vector.120") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20RangeTreeLockManager21GetDeadlockInfoBufferEv(ptr noalias sret(%"class.std::vector.120") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data = alloca %"class.std::vector.8", align 8
   %path = alloca %"class.std::vector.126", align 8
@@ -4593,7 +4593,7 @@ _ZNSt12_Vector_baseIN7rocksdb12DeadlockPathESaIS1_EED2Ev.exit: ; preds = %invoke
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb20RangeTreeLockManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(656) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20RangeTreeLockManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(656) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %local_caches = alloca %"class.rocksdb::autovector.131", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb20RangeTreeLockManagerE, i64 16), ptr %this, align 8
@@ -5184,7 +5184,7 @@ _ZN7rocksdb20RangeTreeLockManager9GetStatusEv.exit: ; preds = %for.inc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrEPN4toku8locktreeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.30") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %lt) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20RangeTreeLockManager15MakeLockTreePtrEPN4toku8locktreeE(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.30") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(656) %this, ptr noundef %lt) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ltm_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %lt, ptr %agg.result, align 8

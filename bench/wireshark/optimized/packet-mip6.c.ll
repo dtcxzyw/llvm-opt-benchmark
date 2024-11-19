@@ -3613,7 +3613,7 @@ declare void @dissect_gtpv2_epc_timer(ptr noundef, ptr noundef, ptr noundef, ptr
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @mip6_var_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5, i32 noundef %6, i32 noundef range(i32 0, 7) %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @mip6_var_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, i32 noundef %6, i32 noundef range(i32 0, 7) %7) unnamed_addr #0 {
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   store ptr %9, ptr %5, align 8
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %4) #5
@@ -3641,7 +3641,7 @@ declare ptr @proto_get_protocol_short_name(ptr noundef) local_unnamed_addr #1
 declare ptr @find_protocol_by_id(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @mip6_fixed_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %5, i32 noundef %6, i32 noundef range(i32 0, 19) %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @mip6_fixed_option_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef nonnull writeonly %5, i32 noundef %6, i32 noundef range(i32 0, 19) %7) unnamed_addr #0 {
   %9 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %3, ptr noundef %2, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   store ptr %9, ptr %5, align 8
   %10 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %4) #5

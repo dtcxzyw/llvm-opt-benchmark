@@ -176,7 +176,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.115 = private unnamed_addr constant [52 x i8] c"prefix_item_list in inconsistent state (%lu vs %lu)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_add_i_state(ptr noundef initializes((0, 12)) %s, ptr noundef %r) local_unnamed_addr #0 {
+define dso_local void @init_add_i_state(ptr noundef %s, ptr noundef %r) local_unnamed_addr #0 {
 entry:
   %value.i146 = alloca ptr, align 8
   %value.i132 = alloca ptr, align 8
@@ -534,7 +534,7 @@ declare i32 @git_config_get_bool(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @setbuf(ptr nocapture noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @clear_add_i_state(ptr nocapture noundef initializes((0, 696)) %s) local_unnamed_addr #5 {
+define dso_local void @clear_add_i_state(ptr nocapture noundef %s) local_unnamed_addr #5 {
 entry:
   %interactive_diff_filter = getelementptr inbounds i8, ptr %s, i64 696
   %0 = load ptr, ptr %interactive_diff_filter, align 8
@@ -1969,7 +1969,7 @@ _.exit30:                                         ; preds = %_.exit25, %if.end3.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @print_file_item(i32 noundef %i, i32 noundef %selected, ptr nocapture noundef readonly %item, ptr noundef initializes((32, 40), (80, 88), (104, 112)) %print_file_item_data) #0 {
+define internal void @print_file_item(i32 noundef %i, i32 noundef %selected, ptr nocapture noundef readonly %item, ptr noundef %print_file_item_data) #0 {
 entry:
   %util = getelementptr inbounds i8, ptr %item, i64 8
   %0 = load ptr, ptr %util, align 8

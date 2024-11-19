@@ -78,7 +78,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h1ea52c5c375d36daE.llvm.5752411277730341755"(ptr noundef nonnull returned writeonly align 8 initializes((0, 8)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h1ea52c5c375d36daE.llvm.5752411277730341755"(ptr noundef nonnull returned writeonly align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(8) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca ptr, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -321,7 +321,7 @@ define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @"_ZN3std3s
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_value17hfb2b3d73140b5958E(ptr nocapture noundef initializes((16, 17)) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define internal void @_ZN3std3sys3pal6common12thread_local10fast_local13destroy_value17hfb2b3d73140b5958E(ptr nocapture noundef %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { i64, [1 x i64] }, align 8
   %4 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8

@@ -5948,7 +5948,7 @@ lpad:                                             ; preds = %_ZNK6google8protobu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8compiler19OneofFieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK7Options(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 9)) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(48) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8compiler19OneofFieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK7Options(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(48) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %struct.Options, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i)
@@ -6006,7 +6006,7 @@ _ZN9struct_pb8compiler14FieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8compiler26MessageOneofFieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK7Options(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 9)) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(48) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8compiler26MessageOneofFieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK7Options(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(48) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %struct.Options, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i.i)
@@ -8802,7 +8802,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8compiler28PrimitiveOneofFieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK7Options(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 9)) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(48) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8compiler28PrimitiveOneofFieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK7Options(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(48) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %struct.Options, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i.i)
@@ -9323,7 +9323,7 @@ cleanup.done:                                     ; preds = %arraydestroy.body40
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8compiler25StringOneofFieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK7Options(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 9)) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(48) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8compiler25StringOneofFieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK7Options(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(48) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %struct.Options, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i.i)
@@ -9844,7 +9844,7 @@ cleanup.done:                                     ; preds = %arraydestroy.body40
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9struct_pb8compiler23EnumOneofFieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK7Options(ptr noundef nonnull align 8 dereferenceable(64) initializes((8, 9)) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(48) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9struct_pb8compiler23EnumOneofFieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK7Options(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %descriptor, ptr noundef nonnull align 8 dereferenceable(48) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %struct.Options, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %agg.tmp.i.i)

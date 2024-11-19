@@ -1186,7 +1186,7 @@ define hidden void @prefs_cleanup() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @free_module_prefs(ptr nocapture noundef initializes((56, 60)) %0, ptr nocapture readnone %1) #1 {
+define internal noundef i32 @free_module_prefs(ptr nocapture noundef %0, ptr nocapture readnone %1) #1 {
   %3 = alloca %struct.call_foreach_t, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8
@@ -8827,7 +8827,7 @@ declare ptr @g_string_truncate(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare noundef i32 @ferror(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define i32 @prefs_set_pref(ptr noundef %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #1 {
+define i32 @prefs_set_pref(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   store i32 -1, ptr @mgcp_tcp_port_count, align 4
   store i32 -1, ptr @mgcp_udp_port_count, align 4
   store ptr null, ptr %1, align 8
@@ -9229,7 +9229,7 @@ define range(i32 0, 2) i32 @prefs_has_layout_pane_content(i32 noundef %0) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define signext range(i8 111, 109) i8 @string_to_name_resolve(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 32)) %1) local_unnamed_addr #15 {
+define signext range(i8 111, 109) i8 @string_to_name_resolve(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %1, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 12
   %4 = getelementptr inbounds i8, ptr %1, i64 8

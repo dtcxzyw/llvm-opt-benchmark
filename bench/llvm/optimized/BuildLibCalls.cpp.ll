@@ -3153,7 +3153,7 @@ _ZN4llvm18isLibFuncEmittableEPKNS_6ModuleEPKNS_17TargetLibraryInfoENS_7LibFuncE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { ptr, i64 } @_ZN4llvm10getFloatFnEPKNS_6ModuleEPKNS_17TargetLibraryInfoEPNS_4TypeENS_7LibFuncES8_S8_RS8_(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %6) local_unnamed_addr #0 {
+define dso_local { ptr, i64 } @_ZN4llvm10getFloatFnEPKNS_6ModuleEPKNS_17TargetLibraryInfoEPNS_4TypeENS_7LibFuncES8_S8_RS8_(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %9 = load i32, ptr %8, align 8
   %trunc = trunc i32 %9 to i8

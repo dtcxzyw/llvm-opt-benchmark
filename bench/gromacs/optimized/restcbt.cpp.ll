@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.21 = type { [3 x float], [3 x float], [3 x float], [3 x float] }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_Z26compute_factors_restanglesiPK9t_iparamsPfS2_PdS3_S3_S2_(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5, ptr nocapture noundef writeonly initializes((0, 8)) %6, ptr nocapture noundef writeonly initializes((0, 4)) %7) local_unnamed_addr #0 {
+define void @_Z26compute_factors_restanglesiPK9t_iparamsPfS2_PdS3_S3_S2_(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7) local_unnamed_addr #0 {
   %9 = sext i32 %0 to i64
   %10 = getelementptr inbounds %union.t_iparams, ptr %1, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 4
@@ -81,7 +81,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #2
 declare double @sqrt(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_Z25compute_factors_restrdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly initializes((0, 4)) %5, ptr nocapture noundef writeonly initializes((0, 4)) %6, ptr nocapture noundef writeonly initializes((0, 4)) %7, ptr nocapture noundef writeonly initializes((0, 4)) %8, ptr nocapture noundef writeonly initializes((0, 4)) %9, ptr nocapture noundef writeonly initializes((0, 4)) %10, ptr nocapture noundef writeonly initializes((0, 4)) %11, ptr nocapture noundef writeonly initializes((0, 4)) %12, ptr nocapture noundef writeonly initializes((0, 4)) %13, ptr nocapture noundef writeonly initializes((0, 4)) %14, ptr nocapture noundef writeonly initializes((0, 4)) %15, ptr nocapture noundef writeonly initializes((0, 4)) %16, ptr nocapture noundef writeonly initializes((0, 4)) %17, ptr nocapture noundef writeonly initializes((0, 4)) %18) local_unnamed_addr #0 {
+define void @_Z25compute_factors_restrdihsiPK9t_iparamsPfS2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_S2_(i32 noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr nocapture noundef writeonly %9, ptr nocapture noundef writeonly %10, ptr nocapture noundef writeonly %11, ptr nocapture noundef writeonly %12, ptr nocapture noundef writeonly %13, ptr nocapture noundef writeonly %14, ptr nocapture noundef writeonly %15, ptr nocapture noundef writeonly %16, ptr nocapture noundef writeonly %17, ptr nocapture noundef writeonly %18) local_unnamed_addr #0 {
   %20 = sext i32 %0 to i64
   %21 = getelementptr inbounds %union.t_iparams, ptr %1, i64 %20
   %22 = load float, ptr %21, align 4

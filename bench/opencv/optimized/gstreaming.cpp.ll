@@ -741,7 +741,7 @@ define noundef zeroext i1 @_ZNK2cv18GStreamingCompiled4Priv7runningEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv18GStreamingCompiledC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv18GStreamingCompiledC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %2, i8 0, i64 104, i1 false)
   store ptr %2, ptr %0, align 8

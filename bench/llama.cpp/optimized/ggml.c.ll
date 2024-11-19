@@ -2045,7 +2045,7 @@ cond.end:                                         ; preds = %entry, %cond.false
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @ggml_set_scratch(ptr nocapture noundef initializes((48, 56)) %ctx, ptr nocapture noundef readonly byval(%struct.ggml_scratch) align 8 %scratch) local_unnamed_addr #20 {
+define i64 @ggml_set_scratch(ptr nocapture noundef %ctx, ptr nocapture noundef readonly byval(%struct.ggml_scratch) align 8 %scratch) local_unnamed_addr #20 {
 entry:
   %scratch1 = getelementptr inbounds i8, ptr %ctx, i64 40
   %data = getelementptr inbounds i8, ptr %ctx, i64 56
@@ -2073,7 +2073,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ggml_set_no_alloc(ptr nocapture noundef writeonly initializes((17, 18)) %ctx, i1 noundef zeroext %no_alloc) local_unnamed_addr #21 {
+define void @ggml_set_no_alloc(ptr nocapture noundef writeonly %ctx, i1 noundef zeroext %no_alloc) local_unnamed_addr #21 {
 entry:
   %frombool = zext i1 %no_alloc to i8
   %no_alloc1 = getelementptr inbounds i8, ptr %ctx, i64 17
@@ -2488,7 +2488,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_new_i32(ptr nocapture noundef initializes((18, 19)) %ctx, i32 noundef %value) local_unnamed_addr #0 {
+define noundef ptr @ggml_new_i32(ptr nocapture noundef %ctx, i32 noundef %value) local_unnamed_addr #0 {
 entry:
   %ne0.addr.i = alloca i64, align 8
   %no_alloc.i = getelementptr inbounds i8, ptr %ctx, i64 17
@@ -2713,7 +2713,7 @@ sw.epilog:                                        ; preds = %ggml_vec_set_f32.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ggml_new_f32(ptr nocapture noundef initializes((18, 19)) %ctx, float noundef %value) local_unnamed_addr #0 {
+define noundef ptr @ggml_new_f32(ptr nocapture noundef %ctx, float noundef %value) local_unnamed_addr #0 {
 entry:
   %ne0.addr.i = alloca i64, align 8
   %no_alloc.i = getelementptr inbounds i8, ptr %ctx, i64 17
@@ -13690,7 +13690,7 @@ do.end9:                                          ; preds = %ggml_is_scalar.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_set_param(ptr nocapture noundef %ctx, ptr noundef initializes((148, 149)) %tensor) local_unnamed_addr #0 {
+define void @ggml_set_param(ptr nocapture noundef %ctx, ptr noundef %tensor) local_unnamed_addr #0 {
 entry:
   %is_param = getelementptr inbounds i8, ptr %tensor, i64 148
   store i8 1, ptr %is_param, align 4
@@ -13719,7 +13719,7 @@ do.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define void @ggml_rope_yarn_corr_dims(i32 noundef %n_dims, i32 noundef %n_orig_ctx, float noundef %freq_base, float noundef %beta_fast, float noundef %beta_slow, ptr nocapture noundef writeonly initializes((0, 8)) %dims) local_unnamed_addr #28 {
+define void @ggml_rope_yarn_corr_dims(i32 noundef %n_dims, i32 noundef %n_orig_ctx, float noundef %freq_base, float noundef %beta_fast, float noundef %beta_slow, ptr nocapture noundef writeonly %dims) local_unnamed_addr #28 {
 entry:
   %conv.i = sitofp i32 %n_dims to float
   %conv1.i = sitofp i32 %n_orig_ctx to float
@@ -16757,7 +16757,7 @@ ggml_new_graph_custom.exit:                       ; preds = %while.end.i.i, %con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ggml_graph_view(ptr noalias nocapture writeonly sret(%struct.ggml_cgraph) align 8 initializes((0, 12), (16, 80)) %agg.result, ptr nocapture noundef readonly %cgraph0, i32 noundef %i0, i32 noundef %i1) local_unnamed_addr #20 {
+define void @ggml_graph_view(ptr noalias nocapture writeonly sret(%struct.ggml_cgraph) align 8 %agg.result, ptr nocapture noundef readonly %cgraph0, i32 noundef %i0, i32 noundef %i1) local_unnamed_addr #20 {
 entry:
   store i32 0, ptr %agg.result, align 8
   %n_nodes = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -17006,7 +17006,7 @@ for.end:                                          ; preds = %for.inc, %for.cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @ggml_graph_clear(ptr nocapture noundef initializes((4, 12)) %cgraph) local_unnamed_addr #31 {
+define void @ggml_graph_clear(ptr nocapture noundef %cgraph) local_unnamed_addr #31 {
 entry:
   %n_leafs = getelementptr inbounds i8, ptr %cgraph, i64 8
   store i32 0, ptr %n_leafs, align 8
@@ -17022,7 +17022,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_graph_plan(ptr noalias nocapture writeonly sret(%struct.ggml_cplan) align 8 initializes((16, 40)) %agg.result, ptr nocapture noundef readonly %cgraph, i32 noundef %n_threads) local_unnamed_addr #0 {
+define void @ggml_graph_plan(ptr noalias nocapture writeonly sret(%struct.ggml_cplan) align 8 %agg.result, ptr nocapture noundef readonly %cgraph, i32 noundef %n_threads) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %n_threads, 1
   %spec.store.select = select i1 %cmp, i32 4, i32 %n_threads
@@ -20330,7 +20330,7 @@ sw.epilog:                                        ; preds = %sw.bb2, %sw.bb, %en
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ggml_opt_init(ptr noundef %ctx, ptr nocapture noundef initializes((0, 132), (136, 145)) %opt, ptr nocapture noundef readonly byval(%struct.ggml_opt_params) align 8 %params, i64 noundef %nx) local_unnamed_addr #0 {
+define void @ggml_opt_init(ptr noundef %ctx, ptr nocapture noundef %opt, ptr nocapture noundef readonly byval(%struct.ggml_opt_params) align 8 %params, i64 noundef %nx) local_unnamed_addr #0 {
 entry:
   %ne.i171 = alloca [2 x i64], align 16
   %ne.i = alloca [2 x i64], align 16

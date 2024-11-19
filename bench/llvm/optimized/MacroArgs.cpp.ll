@@ -553,7 +553,7 @@ declare void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 
 declare void @_ZN5clang12Preprocessor21RemoveTopOfLexerStackEv(ptr noundef nonnull align 8 dereferenceable(3288)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9MacroArgs17StringifyArgumentEPKNS_5TokenERNS_12PreprocessorEbNS_14SourceLocationES6_(ptr dead_on_unwind noalias writable sret(%"class.clang::Token") align 8 initializes((0, 20)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(3288) %2, i1 noundef zeroext %3, i32 %4, i32 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9MacroArgs17StringifyArgumentEPKNS_5TokenERNS_12PreprocessorEbNS_14SourceLocationES6_(ptr dead_on_unwind noalias writable sret(%"class.clang::Token") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(3288) %2, i1 noundef zeroext %3, i32 %4, i32 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::SmallString", align 8
   %8 = alloca i8, align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8

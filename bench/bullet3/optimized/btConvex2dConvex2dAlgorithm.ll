@@ -69,7 +69,7 @@ $_ZTIN12btConvexCast10CastResultE = comdat any
 @_ZN27btConvex2dConvex2dAlgorithmD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN27btConvex2dConvex2dAlgorithmD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncC2EP22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 9), (16, 32)) %this, ptr noundef %simplexSolver, ptr noundef %pdSolver) unnamed_addr #0 align 2 {
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncC2EP22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolver(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %simplexSolver, ptr noundef %pdSolver) unnamed_addr #0 align 2 {
 entry:
   %m_swapped.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %m_swapped.i, align 8
@@ -118,7 +118,7 @@ entry:
 declare void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %this, align 8
   %m_ownManifold = getelementptr inbounds i8, ptr %this, i64 32
@@ -171,7 +171,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 16), ptr %this, align 8
   %m_ownManifold.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -208,7 +208,7 @@ _ZN27btConvex2dConvex2dAlgorithmD2Ev.exit:        ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithm19setLowLevelOfDetailEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) initializes((48, 49)) %this, i1 noundef zeroext %useLowLevel) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithm19setLowLevelOfDetailEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(49) %this, i1 noundef zeroext %useLowLevel) local_unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %useLowLevel to i8
   %m_lowLevelOfDetail = getelementptr inbounds i8, ptr %this, i64 48
@@ -217,7 +217,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN27btConvex2dConvex2dAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this, ptr nocapture noundef readonly %body0Wrap, ptr nocapture noundef readonly %body1Wrap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %dispatchInfo, ptr noundef initializes((8, 16)) %resultOut) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN27btConvex2dConvex2dAlgorithm16processCollisionEPK24btCollisionObjectWrapperS2_RK16btDispatcherInfoP16btManifoldResult(ptr nocapture noundef nonnull align 8 dereferenceable(49) %this, ptr nocapture noundef readonly %body0Wrap, ptr nocapture noundef readonly %body1Wrap, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %dispatchInfo, ptr noundef %resultOut) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %input = alloca %"struct.btDiscreteCollisionDetectorInterface::ClosestPointInput", align 4
   %gjkPairDetector = alloca %class.btGjkPairDetector, align 8

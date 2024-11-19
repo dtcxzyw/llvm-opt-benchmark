@@ -1855,7 +1855,7 @@ _ZN4core3ops8function5FnMut8call_mut17h539988b3dd5fcec6E.exit: ; preds = %16, %1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core4iter6traits8iterator8Iterator8find_map17h0e37a3dba6f38a98E.llvm.5640989741778157468(ptr noalias nocapture noundef writeonly sret({ [16 x i8], i8, [7 x i8] }) align 8 dereferenceable(24) initializes((16, 17)) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
+define hidden void @_ZN4core4iter6traits8iterator8Iterator8find_map17h0e37a3dba6f38a98E.llvm.5640989741778157468(ptr noalias nocapture noundef writeonly sret({ [16 x i8], i8, [7 x i8] }) align 8 dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(24) %1) unnamed_addr #0 {
   %3 = alloca { [16 x i8], i8, [7 x i8] }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   call void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h81ad1aa0f3d80d3fE.llvm.5640989741778157468(ptr noalias nocapture noundef nonnull sret({ [16 x i8], i8, [7 x i8] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %4)
@@ -1904,7 +1904,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h77b15b3b2979df0cE.llvm.5640989
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @_ZN4core4iter6traits8iterator8Iterator8find_map17hb2f07478a2f47148E.llvm.5640989741778157468(ptr noalias nocapture noundef writeonly sret({ [9 x i8], i8, [6 x i8] }) align 8 dereferenceable(16) initializes((9, 10)) %0, ptr noalias noundef align 8 dereferenceable(16) %1) unnamed_addr #0 {
+define hidden void @_ZN4core4iter6traits8iterator8Iterator8find_map17hb2f07478a2f47148E.llvm.5640989741778157468(ptr noalias nocapture noundef writeonly sret({ [9 x i8], i8, [6 x i8] }) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(16) %1) unnamed_addr #0 {
   %3 = alloca { [9 x i8], i8, [6 x i8] }, align 8
   call void @_ZN4core4iter6traits8iterator8Iterator8try_fold17hc437b44b9f0ef31bE.llvm.5640989741778157468(ptr noalias nocapture noundef nonnull sret({ [9 x i8], i8, [6 x i8] }) align 8 dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(16) %1, ptr noalias nonnull align 1 poison)
   %4 = getelementptr inbounds i8, ptr %3, i64 9
@@ -20560,7 +20560,7 @@ _ZN4core3ops8function6FnOnce9call_once17h520fdc56b29bc4d2E.exit: ; preds = %22, 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6syntax3ast8node_ext58_$LT$impl$u20$syntax..ast..generated..nodes..BlockExpr$GT$10statements17h757306604cdd7548E"(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] } }, { i64, [1 x i64] }, { i64, [1 x i64] } } }) align 8 dereferenceable(48) initializes((0, 24), (32, 40)) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
+define void @"_ZN6syntax3ast8node_ext58_$LT$impl$u20$syntax..ast..generated..nodes..BlockExpr$GT$10statements17h757306604cdd7548E"(ptr noalias nocapture noundef writeonly sret({ { { { i64, [1 x i64] } }, { i64, [1 x i64] }, { i64, [1 x i64] } } }) align 8 dereferenceable(48) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #1 {
   %3 = tail call noundef ptr @_ZN6syntax3ast7support5child17hb45bf99e62838512E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   store i64 1, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
@@ -50152,7 +50152,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN75_$LT$syntax..ast..g
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN122_$LT$syntax..ast..generated..nodes..Stmt$u20$as$u20$core..convert..From$LT$syntax..ast..generated..nodes..ExprStmt$GT$$GT$4from17hd97c4ae7dd8ccfdcE"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #7 {
+define void @"_ZN122_$LT$syntax..ast..generated..nodes..Stmt$u20$as$u20$core..convert..From$LT$syntax..ast..generated..nodes..ExprStmt$GT$$GT$4from17hd97c4ae7dd8ccfdcE"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i64 17, ptr %0, align 8
@@ -50160,7 +50160,7 @@ define void @"_ZN122_$LT$syntax..ast..generated..nodes..Stmt$u20$as$u20$core..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN118_$LT$syntax..ast..generated..nodes..Stmt$u20$as$u20$core..convert..From$LT$syntax..ast..generated..nodes..Item$GT$$GT$4from17h4bc8d1eae9b70c17E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #7 {
+define void @"_ZN118_$LT$syntax..ast..generated..nodes..Stmt$u20$as$u20$core..convert..From$LT$syntax..ast..generated..nodes..Item$GT$$GT$4from17h4bc8d1eae9b70c17E"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #7 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -50168,7 +50168,7 @@ define void @"_ZN118_$LT$syntax..ast..generated..nodes..Stmt$u20$as$u20$core..co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN121_$LT$syntax..ast..generated..nodes..Stmt$u20$as$u20$core..convert..From$LT$syntax..ast..generated..nodes..LetStmt$GT$$GT$4from17h870c719985655c7dE"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #7 {
+define void @"_ZN121_$LT$syntax..ast..generated..nodes..Stmt$u20$as$u20$core..convert..From$LT$syntax..ast..generated..nodes..LetStmt$GT$$GT$4from17h870c719985655c7dE"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noundef nonnull %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i64 19, ptr %0, align 8

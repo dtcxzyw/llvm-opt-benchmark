@@ -1328,7 +1328,7 @@ _ZN8QuantLib10LazyObject6updateEv.exit:           ; preds = %entry, %if.end9.i
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr nocapture) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27FdSimpleKlugeExtOUVPPEngineC2EN5boost10shared_ptrINS_17KlugeExtOUProcessEEENS2_INS_18YieldTermStructureEEENS2_ISt6vectorISt4pairIddESaIS9_EEEESC_dmmmmRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(496) initializes((16, 20), (24, 32)) %this, ptr nocapture noundef %process, ptr nocapture noundef %rTS, ptr nocapture noundef %fuelShape, ptr nocapture noundef %powerShape, double noundef %fuelCostAddon, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %yGrid, i64 noundef %gGrid, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27FdSimpleKlugeExtOUVPPEngineC2EN5boost10shared_ptrINS_17KlugeExtOUProcessEEENS2_INS_18YieldTermStructureEEENS2_ISt6vectorISt4pairIddESaIS9_EEEESC_dmmmmRKNS_13FdmSchemeDescE(ptr noundef nonnull align 8 dereferenceable(496) %this, ptr nocapture noundef %process, ptr nocapture noundef %rTS, ptr nocapture noundef %fuelShape, ptr nocapture noundef %powerShape, double noundef %fuelCostAddon, i64 noundef %tGrid, i64 noundef %xGrid, i64 noundef %yGrid, i64 noundef %gGrid, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %schemeDesc) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8, !tbaa !20
@@ -8773,7 +8773,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_124FdmSparkSpreadInnerValueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_124FdmSparkSpreadInnerValueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_124FdmSparkSpreadInnerValueE, i64 16), ptr %this, align 8, !tbaa !14
   %pn.i = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -8897,7 +8897,7 @@ _ZN5boost10shared_ptrIN8QuantLib12BasketPayoffEED2Ev.exit: ; preds = %_ZN5boost1
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_124FdmSparkSpreadInnerValueD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_124FdmSparkSpreadInnerValueD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN8QuantLib12_GLOBAL__N_124FdmSparkSpreadInnerValueD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #31
   tail call void @_ZdlPvm(ptr noundef nonnull %this, i64 noundef 56) #33

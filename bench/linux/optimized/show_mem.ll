@@ -118,7 +118,7 @@ declare dso_local ptr @next_zone(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @si_meminfo(ptr nocapture noundef writeonly initializes((32, 64), (88, 108)) %0) #0 align 16 {
+define dso_local void @si_meminfo(ptr nocapture noundef writeonly %0) #0 align 16 {
   %2 = load volatile i64, ptr @_totalram_pages, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %2, ptr %3, align 8

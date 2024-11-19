@@ -619,7 +619,7 @@ declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16),
 declare void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN22EditManipulatorsPlugin12resetOffsetsEv(ptr nocapture noundef nonnull align 8 dereferenceable(304) initializes((228, 268)) %0) local_unnamed_addr #12 align 2 {
+define void @_ZN22EditManipulatorsPlugin12resetOffsetsEv(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = load i32, ptr %2, align 8
   %4 = icmp eq i32 %3, 3
@@ -705,7 +705,7 @@ define void @_ZN22EditManipulatorsPlugin4infoEv(ptr dead_on_unwind noalias writa
 declare void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22EditManipulatorsPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) initializes((208, 209), (212, 220)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef %3) unnamed_addr #10 align 2 {
+define void @_ZN22EditManipulatorsPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(304) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef %3) unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 208
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 32
@@ -765,7 +765,7 @@ _ZNK11QMouseEvent1yEv.exit:                       ; preds = %24, %27
 declare void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N22EditManipulatorsPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef writeonly initializes((192, 193), (196, 204)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef %3) unnamed_addr #14 align 2 {
+define void @_ZThn16_N22EditManipulatorsPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef %3) unnamed_addr #14 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 192
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 32
@@ -901,7 +901,7 @@ _ZNK11QMouseEvent1yEv.exit:                       ; preds = %27, %30
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22EditManipulatorsPlugin12UpdateMatrixER9MeshModelP6GLAreabb(ptr noundef nonnull align 8 dereferenceable(304) initializes((112, 176)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(1288) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22EditManipulatorsPlugin12UpdateMatrixER9MeshModelP6GLAreabb(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef nonnull align 8 dereferenceable(1288) %1, ptr nocapture noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %.sroa.15 = alloca [4 x float], align 4
   %.sroa.17 = alloca [4 x float], align 4
   %.sroa.18 = alloca [4 x float], align 4
@@ -3676,7 +3676,7 @@ _ZN22EditManipulatorsPlugin17mouseReleaseEventEP11QMouseEventR9MeshModelP6GLArea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22EditManipulatorsPlugin11applyMotionER9MeshModelP6GLArea(ptr nocapture noundef nonnull align 8 dereferenceable(304) initializes((48, 186), (188, 192), (200, 201), (204, 209), (228, 268)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22EditManipulatorsPlugin11applyMotionER9MeshModelP6GLArea(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 0, ptr %5, align 8
@@ -3754,7 +3754,7 @@ _ZN3vcg8Matrix44IfE8IdentityEv.exit:              ; preds = %_ZN7QStringaSEPKc.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22EditManipulatorsPlugin12cancelMotionER9MeshModelP6GLArea(ptr nocapture noundef nonnull align 8 dereferenceable(304) initializes((112, 186), (188, 192), (200, 201), (204, 209), (228, 268)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(1288) initializes((1132, 1196)) %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22EditManipulatorsPlugin12cancelMotionER9MeshModelP6GLArea(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = getelementptr inbounds i8, ptr %1, i64 1132
@@ -7442,7 +7442,7 @@ _ZN3vcgmlIfEENS_6Point3IT_EERKNS_8Matrix44IS2_EERKS3_.exit: ; preds = %4, %96
 declare void @glVertex3fv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(ptr noundef nonnull align 8 dereferenceable(304) initializes((268, 304)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -10082,7 +10082,7 @@ _ZN7QStringD2Ev.exit566:                          ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN22EditManipulatorsPlugin6MyPickERKiS1_RN3vcg6Point3IfEEf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(304) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %3, float noundef %4) local_unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZN22EditManipulatorsPlugin6MyPickERKiS1_RN3vcg6Point3IfEEf(ptr nocapture noundef nonnull readnone align 8 dereferenceable(304) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %3, float noundef %4) local_unnamed_addr #10 align 2 {
   %6 = alloca [3 x double], align 16
   %7 = alloca [16 x double], align 16
   %8 = alloca [16 x double], align 16
@@ -10221,7 +10221,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(ptr noundef initializes((252, 288)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) unnamed_addr #14 align 2 {
+define void @_ZThn16_N22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1288) %1, ptr nocapture noundef readonly %2, ptr nocapture noundef readnone %3) unnamed_addr #14 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN22EditManipulatorsPlugin8decorateER9MeshModelP6GLAreaP8QPainter(ptr noundef nonnull align 8 dereferenceable(304) %5, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2, ptr poison)
   ret void
@@ -10471,13 +10471,13 @@ define noundef zeroext i1 @_ZThn16_N22EditManipulatorsPlugin9startEditER9MeshMod
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22EditManipulatorsPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr nocapture noundef nonnull align 8 dereferenceable(304) initializes((112, 186), (188, 192), (200, 201), (204, 209), (228, 268)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(1288) initializes((1132, 1196)) %1, ptr noundef %2, ptr nocapture noundef readnone %3) unnamed_addr #10 align 2 {
+define void @_ZN22EditManipulatorsPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2, ptr nocapture noundef readnone %3) unnamed_addr #10 align 2 {
   tail call void @_ZN22EditManipulatorsPlugin12cancelMotionER9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2)
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N22EditManipulatorsPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr nocapture noundef initializes((96, 170), (172, 176), (184, 185), (188, 193), (212, 252)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(1288) initializes((1132, 1196)) %1, ptr noundef %2, ptr nocapture noundef readnone %3) unnamed_addr #14 align 2 {
+define void @_ZThn16_N22EditManipulatorsPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext(ptr nocapture noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2, ptr nocapture noundef readnone %3) unnamed_addr #14 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN22EditManipulatorsPlugin12cancelMotionER9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(304) %5, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2)
   ret void

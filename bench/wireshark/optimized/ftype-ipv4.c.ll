@@ -175,7 +175,7 @@ define internal noalias ptr @val_to_repr(ptr noundef %0, ptr nocapture noundef r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @value_set_ipv4(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1) #1 {
+define internal void @value_set_ipv4(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 8
@@ -189,7 +189,7 @@ define internal nonnull ptr @value_get_ipv4(ptr noundef readnone %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #1 {
+define internal noundef i32 @cmp_order(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef writeonly %2) #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
@@ -251,7 +251,7 @@ define internal void @slice(ptr nocapture noundef readonly %0, ptr noundef %1, i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @bitwise_and(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #1 {
+define internal noundef i32 @bitwise_and(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture readnone %3) #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8

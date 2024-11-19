@@ -35,7 +35,7 @@ $_ZTWN8proxygen19RequestWorkerThread21currentRequestWorker_E = comdat any
 @_ZN8proxygen19RequestWorkerThreadD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8proxygen19RequestWorkerThreadD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8proxygen19RequestWorkerThreadC2ERNS0_14FinishCallbackEhPN5folly9EventBaseE(ptr noundef nonnull align 8 dereferenceable(89) initializes((0, 8), (16, 20), (24, 32)) %this, ptr noundef nonnull align 8 dereferenceable(8) %callback, i8 noundef zeroext %threadId, ptr noundef %evb) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen19RequestWorkerThreadC2ERNS0_14FinishCallbackEhPN5folly9EventBaseE(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef nonnull align 8 dereferenceable(8) %callback, i8 noundef zeroext %threadId, ptr noundef %evb) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv = zext i8 %threadId to i64
   %shl = shl nuw i64 %conv, 56

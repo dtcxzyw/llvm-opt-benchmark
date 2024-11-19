@@ -1153,7 +1153,7 @@ define dso_local void @dsm_pin_mapping(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dsm_unpin_mapping(ptr noundef initializes((16, 24)) %0) local_unnamed_addr #0 {
+define dso_local void @dsm_unpin_mapping(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @CurrentResourceOwner, align 8
   tail call void @ResourceOwnerEnlarge(ptr noundef %2) #12
   %3 = load ptr, ptr @CurrentResourceOwner, align 8

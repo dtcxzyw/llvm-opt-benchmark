@@ -896,7 +896,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix8fetchers11jsonToAttrsERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix8fetchers11jsonToAttrsERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS1_14adl_serializerES4_IhSaIhEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = alloca i64, align 8
@@ -1904,7 +1904,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix8fetchers11attrsToJSONERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS7_mNS_8ExplicitIbEEEESt4lessIS7_ESaISt4pairIKS7_SB_EEE(ptr dead_on_unwind noalias writable sret(%"class.nlohmann::basic_json") align 8 initializes((0, 1), (8, 16)) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix8fetchers11attrsToJSONERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS7_mNS_8ExplicitIbEEEESt4lessIS7_ESaISt4pairIKS7_SB_EEE(ptr dead_on_unwind noalias writable sret(%"class.nlohmann::basic_json") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.nlohmann::basic_json", align 8
   %4 = alloca %"class.nlohmann::basic_json", align 8
   %5 = alloca %"class.nlohmann::basic_json", align 8
@@ -3315,7 +3315,7 @@ define noundef zeroext i1 @_ZN3nix8fetchers11getBoolAttrERKSt3mapINSt7__cxx1112b
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix8fetchers12attrsToQueryERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS7_mNS_8ExplicitIbEEEESt4lessIS7_ESaISt4pairIKS7_SB_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::map.45") align 8 initializes((8, 12), (16, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix8fetchers12attrsToQueryERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt7variantIJS7_mNS_8ExplicitIbEEEESt4lessIS7_ESaISt4pairIKS7_SB_EEE(ptr dead_on_unwind noalias writable sret(%"class.std::map.45") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::io::detail::put_holder", align 8
   %4 = alloca %"class.boost::basic_format", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

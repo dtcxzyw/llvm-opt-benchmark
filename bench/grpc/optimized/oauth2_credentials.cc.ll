@@ -509,7 +509,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z40grpc_auth_refresh_token_create_from_jsonRKN9grpc_core12experimental4JsonE(ptr noalias sret(%struct.grpc_auth_refresh_token) align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %json) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_Z40grpc_auth_refresh_token_create_from_jsonRKN9grpc_core12experimental4JsonE(ptr noalias sret(%struct.grpc_auth_refresh_token) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %json) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"class.absl::lts_20230802::Status", align 8
   %error = alloca %"class.absl::lts_20230802::Status", align 8
@@ -1179,7 +1179,7 @@ _ZNSt8__detail9__variant13_Variant_baseIJSt9monostatebN9grpc_core12experimental4
 declare void @gpr_free(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN37grpc_oauth2_token_fetcher_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN37grpc_oauth2_token_fetcher_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV37grpc_oauth2_token_fetcher_credentials, i64 16), ptr %this, align 8
   %mu_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -3250,7 +3250,7 @@ eh.resume:                                        ; preds = %lpad3, %lpad.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN37grpc_oauth2_token_fetcher_credentialsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 20), (64, 65)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN37grpc_oauth2_token_fetcher_credentialsC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
@@ -3502,7 +3502,7 @@ _ZN9grpc_core13RefCountedPtrIN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN37grpc_google_refresh_token_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((120, 128)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN37grpc_google_refresh_token_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refresh_token_ = getelementptr inbounds i8, ptr %this, i64 120
   store ptr @.str, ptr %refresh_token_, align 8
@@ -4239,7 +4239,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN37grpc_google_refresh_token_credentialsC2E23grpc_auth_refresh_token(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 20), (64, 65)) %this, ptr nocapture noundef readonly byval(%struct.grpc_auth_refresh_token) align 8 %refresh_token) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN37grpc_google_refresh_token_credentialsC2E23grpc_auth_refresh_token(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef readonly byval(%struct.grpc_auth_refresh_token) align 8 %refresh_token) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8
@@ -5939,7 +5939,7 @@ lpad:                                             ; preds = %init
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN29grpc_access_token_credentialsC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 20)) %this, ptr noundef %access_token) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN29grpc_access_token_credentialsC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %access_token) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp.i = alloca %struct.grpc_slice, align 8
   %agg.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -10831,7 +10831,7 @@ entry:
 declare noundef zeroext i1 @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbNS2_4DataENS1_24FormatConversionSpecImplEPv(ptr, i64, i32, ptr noundef) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsE, i64 16), ptr %this, align 8
   %http_request_ = getelementptr inbounds i8, ptr %this, i64 152
@@ -10911,7 +10911,7 @@ _ZN37grpc_oauth2_token_fetcher_credentialsD2Ev.exit: ; preds = %invoke.cont3.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN12_GLOBAL__N_145grpc_compute_engine_token_fetcher_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32
@@ -11375,7 +11375,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsE, i64 16), ptr %this, align 8
   %http_request_ = getelementptr inbounds i8, ptr %this, i64 416
@@ -11601,7 +11601,7 @@ _ZN37grpc_oauth2_token_fetcher_credentialsD2Ev.exit: ; preds = %invoke.cont3.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(424) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_126StsTokenFetcherCredentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) #29
   tail call void @_ZdlPv(ptr noundef nonnull %this) #32

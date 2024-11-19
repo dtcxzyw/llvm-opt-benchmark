@@ -43,7 +43,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_xfrm6_protoc
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_xfrm6_protocol_deregister850, ptr @__UNIQUE_ID___addressable_xfrm6_protocol_register849, ptr @__UNIQUE_ID___addressable_xfrm6_rcv_encap821], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef initializes((64, 80)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local range(i32 -21, -22) i32 @xfrm6_rcv_encap(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = alloca %struct.flowi6, align 8
   %6 = trunc i32 %1 to i8
   switch i8 %6, label %9 [
@@ -458,7 +458,7 @@ declare dso_local void @icmp6_send(ptr noundef, i8 noundef zeroext, i8 noundef z
 declare dso_local void @kfree_skb_reason(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -21, -22) i32 @xfrm6_esp_rcv(ptr noundef initializes((64, 72)) %0) #0 align 16 {
+define internal range(i32 -21, -22) i32 @xfrm6_esp_rcv(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = load volatile ptr, ptr @esp6_handlers, align 8
@@ -515,7 +515,7 @@ define internal noundef range(i32 -2, 1) i32 @xfrm6_esp_err(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -21, -22) i32 @xfrm6_ah_rcv(ptr noundef initializes((64, 72)) %0) #0 align 16 {
+define internal range(i32 -21, -22) i32 @xfrm6_ah_rcv(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = load volatile ptr, ptr @ah6_handlers, align 8
@@ -572,7 +572,7 @@ define internal noundef range(i32 -2, 1) i32 @xfrm6_ah_err(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -21, -22) i32 @xfrm6_ipcomp_rcv(ptr noundef initializes((64, 72)) %0) #0 align 16 {
+define internal range(i32 -21, -22) i32 @xfrm6_ipcomp_rcv(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %2, align 8
   %3 = load volatile ptr, ptr @ipcomp6_handlers, align 8

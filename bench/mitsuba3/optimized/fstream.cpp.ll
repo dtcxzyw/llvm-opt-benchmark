@@ -591,7 +591,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
 declare void @_ZN7mitsuba6StreamD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7mitsuba10FileStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba10FileStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba10FileStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
@@ -1483,7 +1483,7 @@ define noundef i64 @_ZNK7mitsuba10FileStream4sizeEv(ptr noundef nonnull align 8 
 declare noundef i64 @_ZN7mitsuba10filesystem9file_sizeERKNS0_4pathE(ptr noundef nonnull align 8 dereferenceable(25)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba10FileStream9read_lineEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba10FileStream9read_lineEv(ptr dead_on_unwind noalias writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__1::locale", align 8
   %4 = alloca %"class.std::__1::basic_string", align 8
   %5 = alloca %"class.std::__1::basic_string", align 8

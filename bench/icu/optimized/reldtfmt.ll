@@ -682,7 +682,7 @@ ehcleanup72:                                      ; preds = %cleanup.action47, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7518RelativeDateFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(760) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7518RelativeDateFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(760) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7518RelativeDateFormatE, i64 16), ptr %this, align 8
   %fDateTimeFormatter = getelementptr inbounds i8, ptr %this, i64 352

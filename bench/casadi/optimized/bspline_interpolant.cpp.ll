@@ -392,7 +392,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @casadi_register_interpolant_bspline(ptr nocapture noundef writeonly initializes((0, 28), (32, 56)) %0) #3 {
+define noundef i32 @casadi_register_interpolant_bspline(ptr nocapture noundef writeonly %0) #3 {
   store ptr @_ZN6casadi18BSplineInterpolant7creatorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIdSaIdEERKS9_IxSaIxEESD_x, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str, ptr %2, align 8
@@ -525,7 +525,7 @@ _ZNSt6vectorIPKN6casadi7OptionsESaIS3_EED2Ev.exit: ; preds = %_ZNSt3mapINSt7__cx
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi18BSplineInterpolantD2Ev(ptr noundef nonnull align 8 dereferenceable(1512) initializes((0, 8), (1304, 1312)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi18BSplineInterpolantD2Ev(ptr noundef nonnull align 8 dereferenceable(1512) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi18BSplineInterpolantE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1304
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi18BSplineInterpolantE, i64 920), ptr %2, align 8
@@ -620,7 +620,7 @@ declare void @_ZN6casadi8FunctionC1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6casadi18BSplineInterpolant10not_a_knotERKSt6vectorIdSaIdEEx(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.43") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi18BSplineInterpolant10not_a_knotERKSt6vectorIdSaIdEEx(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.43") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i64 noundef %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

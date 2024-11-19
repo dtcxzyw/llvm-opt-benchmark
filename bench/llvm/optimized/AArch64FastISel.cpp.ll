@@ -19090,7 +19090,7 @@ _ZNK4llvm3EVTeqES0_.exit51.thread:                ; preds = %94
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel15processCallArgsERN4llvm8FastISel16CallLoweringInfoERNS1_15SmallVectorImplINS1_3MVTEEERj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115AArch64FastISel15processCallArgsERN4llvm8FastISel16CallLoweringInfoERNS1_15SmallVectorImplINS1_3MVTEEERj(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(856) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::MachineOperand", align 8
   %6 = alloca %"class.llvm::MachineOperand", align 8
   %7 = alloca %"class.llvm::MachineOperand", align 8

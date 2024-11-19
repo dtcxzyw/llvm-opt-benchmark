@@ -305,7 +305,7 @@ define internal void @printtup_startup(ptr noundef %0, i32 %1, ptr noundef %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @printtup_shutdown(ptr nocapture noundef initializes((56, 64)) %0) #0 {
+define internal void @printtup_shutdown(ptr nocapture noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -351,7 +351,7 @@ define internal void @printtup_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @SetRemoteDestReceiverParams(ptr nocapture noundef writeonly initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #2 {
+define dso_local void @SetRemoteDestReceiverParams(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   ret void

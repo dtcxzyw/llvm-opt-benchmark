@@ -3482,7 +3482,7 @@ declare ptr @g_list_first(ptr noundef) local_unnamed_addr #1
 declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @store_free(ptr noundef initializes((8, 16)) %0) #0 {
+define internal void @store_free(ptr noundef %0) #0 {
   %2 = load i32, ptr %0, align 8
   %.not.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i, label %free_address.exit, label %3
@@ -3514,7 +3514,7 @@ declare void @g_free(ptr noundef) #1
 declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @tsn_free(ptr noundef initializes((24, 32), (48, 56)) %0) #0 {
+define internal void @tsn_free(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3586,7 +3586,7 @@ define internal void @free_first(ptr noundef %0, ptr nocapture readnone %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @chunk_free(ptr noundef initializes((16, 24)) %0) #0 {
+define internal void @chunk_free(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not.i.i = icmp eq i32 %3, 0

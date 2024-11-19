@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [13 x i8] c"%.*s: %.*s\0D\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_dynhds_init(ptr nocapture noundef writeonly initializes((0, 52)) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @Curl_dynhds_init(ptr nocapture noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -98,7 +98,7 @@ define dso_local i64 @Curl_dynhds_count(ptr nocapture noundef readonly %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @Curl_dynhds_set_opts(ptr nocapture noundef writeonly initializes((48, 52)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @Curl_dynhds_set_opts(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %1, ptr %3, align 8
   ret void
@@ -550,7 +550,7 @@ define dso_local i32 @Curl_dynhds_h1_dprint(ptr nocapture noundef readonly %0, p
 declare i32 @Curl_dyn_addf(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @Curl_dynhds_to_nva(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #1 {
+define dso_local ptr @Curl_dynhds_to_nva(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr @Curl_ccalloc, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8

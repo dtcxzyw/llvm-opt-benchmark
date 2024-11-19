@@ -347,7 +347,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8comments8DeclInfo4fillEv(ptr nocapture noundef nonnull align 8 dereferenceable(50) initializes((16, 32), (40, 48)) %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang8comments8DeclInfo4fillEv(ptr nocapture noundef nonnull align 8 dereferenceable(50) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, -1023

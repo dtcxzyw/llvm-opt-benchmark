@@ -1981,7 +1981,7 @@ define hidden noundef ptr @_ZN11OptoRuntime12rethrow_TypeEv() #0 align 2 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11OptoRuntime9rethrow_CEP7oopDescP10JavaThreadPh(ptr noundef %0, ptr noundef initializes((1016, 1024)) %1, ptr noundef %2) #0 align 2 {
+define hidden noundef ptr @_ZN11OptoRuntime9rethrow_CEP7oopDescP10JavaThreadPh(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 1016
   store ptr %0, ptr %4, align 8
   %5 = tail call noundef ptr @_ZN13SharedRuntime40raw_exception_handler_for_return_addressEP10JavaThreadPh(ptr noundef nonnull %1, ptr noundef %2) #12
@@ -3297,7 +3297,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11OptoRuntime25handle_exception_C_helperEP10JavaThreadRP7nmethod(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN11OptoRuntime25handle_exception_C_helperEP10JavaThreadRP7nmethod(ptr noundef %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.stringStream, align 8
   %4 = alloca %class.Handle, align 8
   %5 = alloca %class.LogStream, align 8

@@ -1925,7 +1925,7 @@ str_buf_append.exit:                              ; preds = %if.then7.i.i, %if.t
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc void @parse_ident(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull %rdm) unnamed_addr #3 {
+define internal fastcc void @parse_ident(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull %rdm) unnamed_addr #3 {
 entry:
   %ascii_len = getelementptr inbounds i8, ptr %agg.result, i64 8
   %punycode = getelementptr inbounds i8, ptr %agg.result, i64 16

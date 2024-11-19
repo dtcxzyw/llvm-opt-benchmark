@@ -156,7 +156,7 @@ $_ZN11colvarvalue26read_from_stream_template_IN12colvarmodule13memory_streamEEEv
 @_ZN11colvarvalueC1ERKN12colvarmodule8vector1dIdEENS_4TypeE = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN11colvarvalueC2ERKN12colvarmodule8vector1dIdEENS_4TypeE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11colvarvalueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((0, 4), (8, 168)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11colvarvalueC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN12colvarmodule8vector1dIdEC2Em.exit:
   store i32 1, ptr %0, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 8
@@ -429,7 +429,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %46, %_ZSt6fill_nIPd
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11colvarvalueC2ERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 4), (8, 168)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11colvarvalueC2ERKNS_4TypeE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZN12colvarmodule8vector1dIdEC2Em.exit:
   %2 = alloca double, align 8
   %3 = load i32, ptr %1, align 4
@@ -573,7 +573,7 @@ define void @_ZN11colvarvalue5resetEv(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11colvarvalueC2ERKd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((0, 4), (8, 168)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11colvarvalueC2ERKd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 _ZN12colvarmodule8vector1dIdEC2Em.exit:
   store i32 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
@@ -585,7 +585,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11colvarvalueC2ERKN12colvarmodule7rvectorENS_4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((0, 4), (8, 168)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11colvarvalueC2ERKN12colvarmodule7rvectorENS_4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 _ZN12colvarmodule8vector1dIdEC2Em.exit:
   store i32 %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -598,7 +598,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN11colvarvalueC2ERKN12colvarmodule10quaternionENS_4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((0, 4), (8, 168)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11colvarvalueC2ERKN12colvarmodule10quaternionENS_4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 _ZN12colvarmodule8vector1dIdEC2Em.exit:
   store i32 %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -611,7 +611,7 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11colvarvalueC2ERKS_(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 4), (8, 168)) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11colvarvalueC2ERKS_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(168) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZN12colvarmodule8vector1dIdEC2Em.exit:
   %2 = load i32, ptr %1, align 8
   store i32 %2, ptr %0, align 8
@@ -1056,7 +1056,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKdSt6vectorIdSaIdEEEENS1_IPdS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11colvarvalueC2ERKN12colvarmodule8vector1dIdEENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(168) initializes((8, 168)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11colvarvalueC2ERKN12colvarmodule8vector1dIdEENS_4TypeE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZN12colvarmodule8vector1dIdEC2Em.exit:
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

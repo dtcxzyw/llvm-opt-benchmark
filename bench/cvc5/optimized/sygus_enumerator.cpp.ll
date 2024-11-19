@@ -4133,7 +4133,7 @@ invoke.cont:                                      ; preds = %invoke.cont.i.i7, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache10initializeEPNS2_15SygusStatisticsENS0_12NodeTemplateILb1EEENS0_8TypeNodeEPNS2_23SygusEnumeratorCallbackE(ptr noundef nonnull align 8 dereferenceable(317) initializes((0, 8), (24, 32)) %this, ptr noundef %s, ptr nocapture noundef readonly %e, ptr noundef %tn, ptr noundef %sec) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache10initializeEPNS2_15SygusStatisticsENS0_12NodeTemplateILb1EEENS0_8TypeNodeEPNS2_23SygusEnumeratorCallbackE(ptr noundef nonnull align 8 dereferenceable(317) %this, ptr noundef %s, ptr nocapture noundef readonly %e, ptr noundef %tn, ptr noundef %sec) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %__z.i1387 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<cvc5::internal::TypeNode>>, std::_Select1st<std::pair<const unsigned int, std::vector<cvc5::internal::TypeNode>>>, std::less<unsigned int>>::_Auto_node", align 8
   %__z.i1338 = alloca %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::vector<cvc5::internal::TypeNode>>, std::_Select1st<std::pair<const unsigned int, std::vector<cvc5::internal::TypeNode>>>, std::less<unsigned int>>::_Auto_node", align 8
@@ -7440,7 +7440,7 @@ _ZNKSt3mapIjjSt4lessIjESaISt4pairIKjjEEE4findERS3_.exit: ; preds = %entry, %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache7getTermEj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(317) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache7getTermEj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(317) %this, i32 noundef %index) local_unnamed_addr #3 align 2 {
 entry:
   %d_terms = getelementptr inbounds i8, ptr %this, i64 184
   %conv = zext i32 %index to i64
@@ -7502,7 +7502,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache11setCompleteEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(317) initializes((316, 317)) %this) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator9TermCache11setCompleteEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(317) %this) local_unnamed_addr #9 align 2 {
 entry:
   %d_isComplete = getelementptr inbounds i8, ptr %this, i64 316
   store i8 1, ptr %d_isComplete, align 4
@@ -7510,7 +7510,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 16)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_se = getelementptr inbounds i8, ptr %this, i64 8
@@ -7554,7 +7554,7 @@ _ZN4cvc58internal8TypeNodeC2Ev.exit:              ; preds = %entry, %init.check.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 16)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlaveC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_se.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -7607,7 +7607,7 @@ _ZN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumC2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlave10initializeEPS3_NS0_8TypeNodeEjj(ptr noundef nonnull align 8 dereferenceable(56) initializes((8, 16), (28, 32)) %this, ptr noundef %se, ptr nocapture noundef readonly %tn, i32 noundef %sizeMin, i32 noundef %sizeMax) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlave10initializeEPS3_NS0_8TypeNodeEjj(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %se, ptr nocapture noundef readonly %tn, i32 noundef %sizeMin, i32 noundef %sizeMax) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.718", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.687", align 1
@@ -7973,7 +7973,7 @@ if.end:                                           ; preds = %_ZNK4cvc58internal6
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlave13validateIndexEv(ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 33)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlave13validateIndexEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %ref.tmp9.i = alloca %"class.std::tuple.718", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.687", align 1
@@ -8324,7 +8324,7 @@ return:                                           ; preds = %if.then13.i.i550, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlave9incrementEv(ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 33)) %this) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator13TermEnumSlave9incrementEv(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
   %d_index = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %d_index, align 4
@@ -8533,7 +8533,7 @@ ehcleanup:                                        ; preds = %lpad3, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator14TermEnumMaster10initializeEPS3_NS0_8TypeNodeE(ptr noundef nonnull align 8 dereferenceable(176) initializes((8, 16), (24, 28), (32, 43), (56, 57), (60, 64), (168, 172)) %this, ptr noundef %se, ptr nocapture noundef readonly %tn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator14TermEnumMaster10initializeEPS3_NS0_8TypeNodeE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %se, ptr nocapture noundef readonly %tn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %d_tds = getelementptr inbounds i8, ptr %se, i64 16
   %0 = load ptr, ptr %d_tds, align 8
@@ -8639,7 +8639,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal11Fatal
 declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator16TermEnumMasterFv10initializeEPS3_NS0_8TypeNodeE(ptr noundef nonnull align 8 dereferenceable(28) initializes((8, 16), (24, 28)) %this, ptr noundef %se, ptr nocapture noundef readonly %tn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator16TermEnumMasterFv10initializeEPS3_NS0_8TypeNodeE(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef %se, ptr nocapture noundef readonly %tn) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.718", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.687", align 1
@@ -8940,7 +8940,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #11
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterp10initializeEPS3_NS0_8TypeNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((8, 16), (24, 28), (40, 48)) %this, ptr noundef %se, ptr nocapture noundef readonly %tn) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterp10initializeEPS3_NS0_8TypeNodeE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %se, ptr nocapture noundef readonly %tn) local_unnamed_addr #3 align 2 {
 entry:
   %d_se = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %se, ptr %d_se, align 8
@@ -9008,7 +9008,7 @@ _ZN4cvc58internal8TypeNodeaSERKS1_.exit:          ; preds = %entry, %if.then.i5.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator14TermEnumMasterC2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 16)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator14TermEnumMasterC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_se.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -14366,7 +14366,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_NS2_ILb1EEEESa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpC2ENS0_8TypeNodeEm(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 16)) %this, ptr nocapture noundef readonly %tn, i64 noundef %numConstants) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator20TermEnumMasterInterpC2ENS0_8TypeNodeEm(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %tn, i64 noundef %numConstants) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
@@ -14824,7 +14824,7 @@ return:                                           ; preds = %if.then13.i.i37, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator16TermEnumMasterFvC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 16)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15SygusEnumerator16TermEnumMasterFvC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers15SygusEnumerator8TermEnumE, i64 16), ptr %this, align 8
   %d_se.i = getelementptr inbounds i8, ptr %this, i64 8

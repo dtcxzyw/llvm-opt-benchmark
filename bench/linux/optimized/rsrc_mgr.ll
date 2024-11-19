@@ -17,7 +17,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_pccard_stati
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable_pccard_static_ops352, ptr @__UNIQUE_ID_alias356, ptr @__UNIQUE_ID_author353, ptr @__UNIQUE_ID_file354, ptr @__UNIQUE_ID_license355], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @static_init(ptr nocapture noundef writeonly initializes((344, 345)) %0) #0 align 16 {
+define dso_local noundef i32 @static_init(ptr nocapture noundef writeonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 344
   store i8 1, ptr %2, align 8
   ret i32 0

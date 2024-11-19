@@ -1705,7 +1705,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5boost3anyESt4les
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib14RiskyAssetSwapC1EbdNS_8ScheduleES1_NS_10DayCounterES2_ddNS_6HandleINS_18YieldTermStructureEEENS3_INS_31DefaultProbabilityTermStructureEEEd(ptr noundef nonnull align 8 dereferenceable(520) initializes((520, 528), (536, 540), (544, 552)) %this, i1 noundef zeroext %fixedPayer, double noundef %nominal, ptr nocapture noundef %fixedSchedule, ptr nocapture noundef %floatSchedule, ptr nocapture noundef %fixedDayCounter, ptr nocapture noundef %floatDayCounter, double noundef %spread, double noundef %recoveryRate, ptr nocapture noundef %yieldTS, ptr nocapture noundef %defaultTS, double noundef %coupon) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib14RiskyAssetSwapC1EbdNS_8ScheduleES1_NS_10DayCounterES2_ddNS_6HandleINS_18YieldTermStructureEEENS3_INS_31DefaultProbabilityTermStructureEEEd(ptr noundef nonnull align 8 dereferenceable(520) %this, i1 noundef zeroext %fixedPayer, double noundef %nominal, ptr nocapture noundef %fixedSchedule, ptr nocapture noundef %floatSchedule, ptr nocapture noundef %fixedDayCounter, ptr nocapture noundef %floatDayCounter, double noundef %spread, double noundef %recoveryRate, ptr nocapture noundef %yieldTS, ptr nocapture noundef %defaultTS, double noundef %coupon) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp14 = alloca %"class.boost::shared_ptr", align 8
@@ -2625,7 +2625,7 @@ _ZN8QuantLib10ObservableD2Ev.exit:                ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib14RiskyAssetSwap12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(520) initializes((16, 40)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib14RiskyAssetSwap12setupExpiredEv(ptr noundef nonnull align 8 dereferenceable(520) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %NPV_.i = getelementptr inbounds nuw i8, ptr %this, i64 16

@@ -1868,7 +1868,7 @@ _ZN4Luau10TypeFamilyD2Ev.exit44:                  ; preds = %_ZN4Luau10TypeFamil
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau8Unifier2C2ENS_7NotNullINS_9TypeArenaEEENS1_INS_12BuiltinTypesEEENS1_INS_5ScopeEEENS1_INS_21InternalErrorReporterEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) initializes((0, 32), (40, 41), (52, 53), (60, 61), (64, 120), (128, 168), (176, 208), (216, 248), (256, 288), (296, 336)) %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau8Unifier2C2ENS_7NotNullINS_9TypeArenaEEENS1_INS_12BuiltinTypesEEENS1_INS_5ScopeEEENS1_INS_21InternalErrorReporterEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -1910,7 +1910,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau8Unifier2C2ENS_7NotNullINS_9TypeArenaEEENS1_INS_12BuiltinTypesEEENS1_INS_5ScopeEEENS1_INS_21InternalErrorReporterEEEPNS_12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toISC_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) initializes((0, 32), (40, 41), (52, 53), (60, 61), (64, 120), (128, 168), (176, 208), (216, 248), (256, 288), (296, 336)) %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau8Unifier2C2ENS_7NotNullINS_9TypeArenaEEENS1_INS_12BuiltinTypesEEENS1_INS_5ScopeEEENS1_INS_21InternalErrorReporterEEEPNS_12DenseHashSetIPKvNS_16DenseHashPointerESt8equal_toISC_EEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr noundef %5) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8

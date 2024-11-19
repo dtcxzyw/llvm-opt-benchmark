@@ -2255,7 +2255,7 @@ define dso_local double @mcv_combine_selectivities(double noundef %0, double nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @mcv_clauselist_selectivity(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6, ptr nocapture noundef initializes((0, 8)) %7, ptr nocapture noundef initializes((0, 8)) %8) local_unnamed_addr #0 {
+define dso_local double @mcv_clauselist_selectivity(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef readnone %5, ptr nocapture noundef readonly %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %0, i64 72
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %6, i64 112
@@ -3003,7 +3003,7 @@ is_orclause.exit249:                              ; preds = %is_orclause.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @mcv_clause_selectivity_or(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef initializes((0, 8)) %5, ptr nocapture noundef initializes((0, 8)) %6, ptr nocapture noundef initializes((0, 8)) %7, ptr nocapture noundef initializes((0, 8)) %8) local_unnamed_addr #0 {
+define dso_local double @mcv_clause_selectivity_or(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, ptr nocapture noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8) local_unnamed_addr #0 {
   %10 = load ptr, ptr %4, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %17

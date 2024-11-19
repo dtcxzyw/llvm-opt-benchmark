@@ -203,7 +203,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @"_ZN3std2io5impls69_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$$u5b$u8$u5d$$GT$5write17hb538cfff7a8c559aE.llvm.14258815958238736712"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN3std2io5impls69_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$$u5b$u8$u5d$$GT$5write17hb538cfff7a8c559aE.llvm.14258815958238736712"(ptr noalias nocapture noundef writeonly sret({ i64, [1 x i64] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef align 8 dereferenceable(16) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #1 personality ptr @rust_eh_personality {
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h35775f860a96d436E.exit":
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
@@ -8990,7 +8990,7 @@ define hidden i64 @_ZN5gimli5write6writer6Writer16write_eh_pointer17hefcf1f7f4e7
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5gimli5write6writer6Writer20write_initial_length17h9c7094eedfeb1703E(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i8 noundef %2) unnamed_addr #4 {
+define hidden void @_ZN5gimli5write6writer6Writer20write_initial_length17h9c7094eedfeb1703E(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(56) %1, i8 noundef %2) unnamed_addr #4 {
   %4 = icmp eq i8 %2, 8
   br i1 %4, label %5, label %.split
 
@@ -9080,7 +9080,7 @@ _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit38: ; preds =
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5gimli5write6writer6Writer20write_initial_length17hf0442dd12a0b8666E(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) initializes((0, 4), (8, 16)) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i8 noundef %2) unnamed_addr #4 {
+define hidden void @_ZN5gimli5write6writer6Writer20write_initial_length17hf0442dd12a0b8666E(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias noundef align 8 dereferenceable(32) %1, i8 noundef %2) unnamed_addr #4 {
   %4 = icmp eq i8 %2, 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4

@@ -125,7 +125,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_SatCollectCone(ptr noundef %0, ptr noundef %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
+define void @Gia_SatCollectCone(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   tail call void @Gia_SatCollectCone_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2)
@@ -133,7 +133,7 @@ define void @Gia_SatCollectCone(ptr noundef %0, ptr noundef %1, ptr noundef init
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define void @Gia_SatVerifyPattern(ptr noundef %0, ptr noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load i64, ptr %1, align 4
   %6 = and i64 %5, 536870911
   %7 = sub nsw i64 0, %6

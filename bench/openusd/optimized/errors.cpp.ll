@@ -992,7 +992,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -1004,7 +1004,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseC2ENS_12PcpError
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteC1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
@@ -1162,7 +1162,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpErrorArcCycleC2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpErrorArcCycleC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -1175,7 +1175,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpErrorArcCycleC2Ev(ptr nou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpErrorArcCycleD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16PcpErrorArcCycleD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__16PcpErrorArcCycleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8
@@ -1580,7 +1580,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__27PcpErrorArcPermissionDeni
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpErrorArcPermissionDeniedC2Ev(ptr noundef nonnull align 8 dereferenceable(284) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpErrorArcPermissionDeniedC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %2, align 8
@@ -1617,7 +1617,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpErrorArcPermissionDeniedC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpErrorArcPermissionDeniedD2Ev(ptr noundef nonnull align 8 dereferenceable(284) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpErrorArcPermissionDeniedD2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__27PcpErrorArcPermissionDeniedE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -1918,7 +1918,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__28PcpErrorArcToProhibitedCh
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorArcToProhibitedChildC2Ev(ptr noundef nonnull align 8 dereferenceable(372) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorArcToProhibitedChildC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %2, align 8
@@ -1970,7 +1970,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorArcToProhibitedChild
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorArcToProhibitedChildD2Ev(ptr noundef nonnull align 8 dereferenceable(372) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorArcToProhibitedChildD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__28PcpErrorArcToProhibitedChildE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -2341,7 +2341,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24PcpErrorCapacityExceededE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24PcpErrorCapacityExceededC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24PcpErrorCapacityExceededC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -2352,7 +2352,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24PcpErrorCapacityExceededC2EN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24PcpErrorCapacityExceededD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24PcpErrorCapacityExceededD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
@@ -2486,7 +2486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__6TfEnum14GetDisplayNameB5cxx11ES0_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr, i32) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPropertyBaseC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPropertyBaseC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(184) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -2509,7 +2509,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentProperty
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPropertyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPropertyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPropertyBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i32, ptr %2, align 8
@@ -2723,7 +2723,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPrope
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPropertyTypeC2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPropertyTypeC2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 6, ptr %2, align 8
@@ -2747,7 +2747,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentProperty
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPropertyTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPropertyTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPropertyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #19
   ret void
 }
@@ -2852,7 +2852,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__33PcpErrorInconsistentAttri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInconsistentAttributeTypeC2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInconsistentAttributeTypeC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 7, ptr %2, align 8
@@ -2878,7 +2878,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInconsistentAttribut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInconsistentAttributeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInconsistentAttributeTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__33PcpErrorInconsistentAttributeTypeE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
@@ -3032,7 +3032,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__40PcpErrorInconsistentAttri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__40PcpErrorInconsistentAttributeVariabilityC2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__40PcpErrorInconsistentAttributeVariabilityC2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 8, ptr %2, align 8
@@ -3056,7 +3056,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__40PcpErrorInconsistentAttribut
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__40PcpErrorInconsistentAttributeVariabilityD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__40PcpErrorInconsistentAttributeVariabilityD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInconsistentPropertyBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) #19
   ret void
 }
@@ -3190,7 +3190,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__23PcpErrorInvalidPrimPathEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpErrorInvalidPrimPathC2Ev(ptr noundef nonnull align 8 dereferenceable(220) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpErrorInvalidPrimPathC2Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 10, ptr %2, align 8
@@ -3214,7 +3214,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpErrorInvalidPrimPathC2Ev(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpErrorInvalidPrimPathD2Ev(ptr noundef nonnull align 8 dereferenceable(220) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__23PcpErrorInvalidPrimPathD2Ev(ptr noundef nonnull align 8 dereferenceable(220) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__23PcpErrorInvalidPrimPathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
@@ -3462,7 +3462,7 @@ declare noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath7GetTextEv(pt
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteC1ERKNS_9TfWeakPtrINS_8SdfLayerEEERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBaseC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBaseC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(320) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -3496,7 +3496,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBase
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -3697,7 +3697,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__24PcpErrorInvalidAssetPathE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24PcpErrorInvalidAssetPathC2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24PcpErrorInvalidAssetPathC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 11, ptr %2, align 8
@@ -3732,7 +3732,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBaseC2ENS_12PcpEr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__24PcpErrorInvalidAssetPathD2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__24PcpErrorInvalidAssetPathD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) #19
   ret void
 }
@@ -3923,7 +3923,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__22PcpErrorMutedAssetPathEEC
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorMutedAssetPathC2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorMutedAssetPathC2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 20, ptr %2, align 8
@@ -3958,7 +3958,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBaseC2ENS_12PcpEr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorMutedAssetPathD2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorMutedAssetPathD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorInvalidAssetPathBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) #19
   ret void
 }
@@ -4079,7 +4079,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %21, %24, %37
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorTargetPathBaseC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorTargetPathBaseC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(152) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -4094,7 +4094,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorTargetPathBaseC2ENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorTargetPathBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorTargetPathBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__22PcpErrorTargetPathBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8
@@ -4319,7 +4319,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidInstanceTa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidInstanceTargetPathC2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidInstanceTargetPathC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 12, ptr %2, align 8
@@ -4334,7 +4334,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidInstanceTarge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidInstanceTargetPathD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidInstanceTargetPathD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorTargetPathBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
   ret void
 }
@@ -4484,7 +4484,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidExternalTa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidExternalTargetPathC2Ev(ptr noundef nonnull align 8 dereferenceable(164) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidExternalTargetPathC2Ev(ptr noundef nonnull align 8 dereferenceable(164) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 13, ptr %2, align 8
@@ -4503,7 +4503,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidExternalTarge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidExternalTargetPathD2Ev(ptr noundef nonnull align 8 dereferenceable(164) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidExternalTargetPathD2Ev(ptr noundef nonnull align 8 dereferenceable(164) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidExternalTargetPathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %3 = load i32, ptr %2, align 4
@@ -4702,7 +4702,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__25PcpErrorInvalidTargetPath
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25PcpErrorInvalidTargetPathC2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25PcpErrorInvalidTargetPathC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 14, ptr %2, align 8
@@ -4717,7 +4717,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__25PcpErrorInvalidTargetPathC2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__25PcpErrorInvalidTargetPathD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__25PcpErrorInvalidTargetPathD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorTargetPathBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
   ret void
 }
@@ -4863,7 +4863,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__29PcpErrorInvalidSublayerOf
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__29PcpErrorInvalidSublayerOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__29PcpErrorInvalidSublayerOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 16, ptr %2, align 8
@@ -4927,7 +4927,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit8: ; pred
 declare void @_ZN32pxrInternal_v0_24__pxrReserved__14SdfLayerOffsetC1Edd(ptr noundef nonnull align 8 dereferenceable(16), double noundef, double noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__29PcpErrorInvalidSublayerOffsetD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__29PcpErrorInvalidSublayerOffsetD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__29PcpErrorInvalidSublayerOffsetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -5199,7 +5199,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__30PcpErrorInvalidReferenceO
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__30PcpErrorInvalidReferenceOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__30PcpErrorInvalidReferenceOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 15, ptr %2, align 8
@@ -5252,7 +5252,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__30PcpErrorInvalidReferenceOffsetD2Ev(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__30PcpErrorInvalidReferenceOffsetD2Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__30PcpErrorInvalidReferenceOffsetE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load i32, ptr %2, align 8
@@ -5597,7 +5597,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32PcpErrorInvalidSublayerOw
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInvalidSublayerOwnershipC2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInvalidSublayerOwnershipC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 17, ptr %2, align 8
@@ -5612,7 +5612,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInvalidSublayerOwner
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInvalidSublayerOwnershipD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorInvalidSublayerOwnershipD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32PcpErrorInvalidSublayerOwnershipE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
@@ -6104,7 +6104,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__27PcpErrorInvalidSublayerPa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpErrorInvalidSublayerPathC2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpErrorInvalidSublayerPathC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 18, ptr %2, align 8
@@ -6121,7 +6121,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpErrorInvalidSublayerPathC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpErrorInvalidSublayerPathD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__27PcpErrorInvalidSublayerPathD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__27PcpErrorInvalidSublayerPathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -6226,7 +6226,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_8SdfLay
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorRelocationBaseC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorRelocationBaseC2ENS_12PcpErrorTypeE(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -6237,7 +6237,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorRelocationBaseC2ENS_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorRelocationBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorRelocationBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load i32, ptr %2, align 8
@@ -6346,7 +6346,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidAuthoredRe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidAuthoredRelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidAuthoredRelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 21, ptr %2, align 8
@@ -6361,7 +6361,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidAuthoredReloc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidAuthoredRelocationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidAuthoredRelocationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__33PcpErrorInvalidAuthoredRelocationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -6637,7 +6637,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 22, ptr %2, align 8
@@ -6650,7 +6650,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationD2Ev(ptr noundef nonnull align 8 dereferenceable(188) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationD2Ev(ptr noundef nonnull align 8 dereferenceable(188) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidConflictingRelocationE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load i32, ptr %2, align 8
@@ -7090,7 +7090,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTarget
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocationsC2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocationsC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 23, ptr %2, align 8
@@ -7103,7 +7103,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRel
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocationsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocationsD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__36PcpErrorInvalidSameTargetRelocationsE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -7420,7 +7420,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__33PcpErrorOpinionAtRelocati
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorOpinionAtRelocationSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorOpinionAtRelocationSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 24, ptr %2, align 8
@@ -7433,7 +7433,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorOpinionAtRelocationS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorOpinionAtRelocationSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__33PcpErrorOpinionAtRelocationSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__33PcpErrorOpinionAtRelocationSourceE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load i32, ptr %2, align 8
@@ -7637,7 +7637,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__28PcpErrorPrimPermissionDen
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorPrimPermissionDeniedC2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorPrimPermissionDeniedC2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 25, ptr %2, align 8
@@ -7674,7 +7674,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorPrimPermissionDenied
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorPrimPermissionDeniedD2Ev(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28PcpErrorPrimPermissionDeniedD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__28PcpErrorPrimPermissionDeniedE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
@@ -7931,7 +7931,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__32PcpErrorPropertyPermissio
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorPropertyPermissionDeniedC2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 12)) %0) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorPropertyPermissionDeniedC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 26, ptr %2, align 8
@@ -7948,7 +7948,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorPropertyPermissionDe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorPropertyPermissionDeniedD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__32PcpErrorPropertyPermissionDeniedD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__32PcpErrorPropertyPermissionDeniedE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
@@ -8107,7 +8107,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21PcpErrorSublayerCycleEEC2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21PcpErrorSublayerCycleC2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21PcpErrorSublayerCycleC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 27, ptr %2, align 8
@@ -8120,7 +8120,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__21PcpErrorSublayerCycleC2Ev(pt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__21PcpErrorSublayerCycleD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__21PcpErrorSublayerCycleD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__21PcpErrorSublayerCycleE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = load ptr, ptr %2, align 8
@@ -8343,7 +8343,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__30PcpErrorTargetPermissionD
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__30PcpErrorTargetPermissionDeniedC2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__30PcpErrorTargetPermissionDeniedC2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 28, ptr %2, align 8
@@ -8358,7 +8358,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__30PcpErrorTargetPermissionDeni
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__30PcpErrorTargetPermissionDeniedD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__30PcpErrorTargetPermissionDeniedD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN32pxrInternal_v0_24__pxrReserved__22PcpErrorTargetPathBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) #19
   ret void
 }
@@ -8507,7 +8507,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__26PcpErrorUnresolvedPrimPat
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__26PcpErrorUnresolvedPrimPathC2Ev(ptr noundef nonnull align 8 dereferenceable(236) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__26PcpErrorUnresolvedPrimPathC2Ev(ptr noundef nonnull align 8 dereferenceable(236) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 29, ptr %2, align 8
@@ -8531,7 +8531,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__26PcpErrorUnresolvedPrimPathC2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__26PcpErrorUnresolvedPrimPathD2Ev(ptr noundef nonnull align 8 dereferenceable(236) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__26PcpErrorUnresolvedPrimPathD2Ev(ptr noundef nonnull align 8 dereferenceable(236) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__26PcpErrorUnresolvedPrimPathE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %3 = load i32, ptr %2, align 8
@@ -8937,7 +8937,7 @@ _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__31PcpErrorVariableExpressio
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__31PcpErrorVariableExpressionErrorC2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 12)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__31PcpErrorVariableExpressionErrorC2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__12PcpErrorBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 30, ptr %2, align 8
@@ -8956,7 +8956,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__31PcpErrorVariableExpressionEr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__31PcpErrorVariableExpressionErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__31PcpErrorVariableExpressionErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN32pxrInternal_v0_24__pxrReserved__31PcpErrorVariableExpressionErrorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %3 = load i32, ptr %2, align 8

@@ -544,7 +544,7 @@ cond.end:                                         ; preds = %if.end, %cond.true
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @read_directory(ptr noundef initializes((300, 308)) %dir, ptr noundef %istate, ptr noundef %path, i32 noundef %len, ptr noundef %pathspec) local_unnamed_addr #0 {
+define dso_local i32 @read_directory(ptr noundef %dir, ptr noundef %istate, ptr noundef %path, i32 noundef %len, ptr noundef %pathspec) local_unnamed_addr #0 {
 entry:
   %tmp.i = alloca %struct.strbuf, align 8
   %sb.i = alloca %struct.strbuf, align 8
@@ -1294,7 +1294,7 @@ simple_length.exit:                               ; preds = %for.cond.i, %lor.lh
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @parse_path_pattern(ptr nocapture noundef %pattern, ptr nocapture noundef writeonly %patternlen, ptr nocapture noundef initializes((0, 4)) %flags, ptr nocapture noundef writeonly %nowildcardlen) local_unnamed_addr #7 {
+define dso_local void @parse_path_pattern(ptr nocapture noundef %pattern, ptr nocapture noundef writeonly %patternlen, ptr nocapture noundef %flags, ptr nocapture noundef writeonly %nowildcardlen) local_unnamed_addr #7 {
 entry:
   %0 = load ptr, ptr %pattern, align 8
   store i32 0, ptr %flags, align 4
@@ -1459,7 +1459,7 @@ fspathncmp.exit:                                  ; preds = %cond.true.i, %cond.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hashmap_contains_parent(ptr noundef %map, ptr noundef %path, ptr noundef initializes((8, 16)) %buffer) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @hashmap_contains_parent(ptr noundef %map, ptr noundef %path, ptr noundef %buffer) local_unnamed_addr #0 {
 entry:
   %p.i = alloca %struct.pattern_entry, align 8
   %len2.i = getelementptr inbounds i8, ptr %buffer, i64 8
@@ -2497,7 +2497,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @do_read_blob(ptr noundef %oid, ptr noundef writeonly %oid_stat, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %size_out, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %data_out) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @do_read_blob(ptr noundef %oid, ptr noundef writeonly %oid_stat, ptr nocapture noundef nonnull writeonly %size_out, ptr nocapture noundef nonnull writeonly %data_out) unnamed_addr #0 {
 entry:
   %type = alloca i32, align 4
   %sz = alloca i64, align 8
@@ -3420,7 +3420,7 @@ return:                                           ; preds = %if.end3, %if.end, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @get_sparse_checkout_patterns(ptr noundef initializes((32, 36)) %pl) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @get_sparse_checkout_patterns(ptr noundef %pl) local_unnamed_addr #0 {
 entry:
   %call.i = tail call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.16) #26
   %0 = load i32, ptr @core_sparse_checkout_cone, align 4
@@ -6105,7 +6105,7 @@ return:                                           ; preds = %if.then93, %if.else
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @setup_standard_excludes(ptr noundef initializes((40, 48)) %dir) local_unnamed_addr #0 {
+define dso_local void @setup_standard_excludes(ptr noundef %dir) local_unnamed_addr #0 {
 entry:
   %exclude_per_dir = getelementptr inbounds i8, ptr %dir, i64 40
   store ptr @.str.14, ptr %exclude_per_dir, align 8
@@ -8842,7 +8842,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare ptr @null_oid() local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @do_invalidate_gitignore(ptr nocapture noundef initializes((64, 68)) %dir) unnamed_addr #22 {
+define internal fastcc void @do_invalidate_gitignore(ptr nocapture noundef %dir) unnamed_addr #22 {
 entry:
   %valid = getelementptr inbounds i8, ptr %dir, i64 68
   %bf.load = load i8, ptr %valid, align 4

@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @extra_pool_slop = internal unnamed_addr constant [2 x i64] [i64 0, i64 5000], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @jIMemMgr(ptr noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
+define hidden void @jIMemMgr(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i8, align 1
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 8

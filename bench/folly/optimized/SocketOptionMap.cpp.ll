@@ -293,7 +293,7 @@ declare ptr @__errno_location() local_unnamed_addr #9
 declare noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly21validateSocketOptionsERKSt3mapINS_15SocketOptionKeyENS_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEEtNS1_8ApplyPosE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %options, i16 noundef zeroext %family, i32 noundef %pos) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly21validateSocketOptionsERKSt3mapINS_15SocketOptionKeyENS_17SocketOptionValueESt4lessIS1_ESaISt4pairIKS1_S2_EEEtNS1_8ApplyPosE(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %options, i16 noundef zeroext %family, i32 noundef %pos) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i = alloca %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, folly::SocketOptionValue>, std::_Select1st<std::pair<const folly::SocketOptionKey, folly::SocketOptionValue>>, std::less<folly::SocketOptionKey>>::_Alloc_node", align 8
   %0 = getelementptr inbounds i8, ptr %agg.result, i64 8

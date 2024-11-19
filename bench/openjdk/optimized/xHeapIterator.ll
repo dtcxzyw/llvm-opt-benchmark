@@ -578,7 +578,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN13XHeapIteratorD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN13XHeapIteratorD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13XHeapIteratorC2Ejb(ptr noundef nonnull align 8 dereferenceable(1464) initializes((0, 9), (16, 24)) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN13XHeapIteratorC2Ejb(ptr noundef nonnull align 8 dereferenceable(1464) %0, i32 noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13XHeapIterator, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -755,7 +755,7 @@ declare void @_ZN14XRootsIteratorC1Ei(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN14TaskTerminatorC1EjP17TaskQueueSetSuper(ptr noundef nonnull align 8 dereferenceable(384), i32 noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13XHeapIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1464) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13XHeapIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1464) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTV13XHeapIterator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1043,7 +1043,7 @@ declare void @_ZN20ClassLoaderDataGraph19clear_claimed_marksEi(i32 noundef) loca
 declare void @_ZN14TaskTerminatorD1Ev(ptr noundef nonnull align 8 dereferenceable(384)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13XHeapIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1464) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13XHeapIteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1464) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN13XHeapIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1464) %0) #11
   tail call void @_Z8FreeHeapPv(ptr noundef nonnull %0) #11
   ret void

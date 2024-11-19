@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_label_class = external constant %struct._lv_obj_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_tabview_constructor(ptr nocapture readnone %0, ptr noundef initializes((68, 72)) %1) #0 {
+define internal void @lv_tabview_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 0, ptr %3, align 4, !tbaa !3
   tail call void @lv_obj_set_size(ptr noundef %1, i32 noundef 536871012, i32 noundef 536871012) #5

@@ -73,7 +73,7 @@ define dso_local noundef i32 @dst_discard_out(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dst_init(ptr noundef initializes((0, 56), (58, 64), (96, 98), (128, 136)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 align 16 {
+define dso_local void @dst_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i16 noundef zeroext %4) #0 align 16 {
   store ptr %2, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 104
   %7 = icmp eq ptr %2, null
@@ -458,7 +458,7 @@ define dso_local void @dst_release_immediate(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dst_dev_put(ptr noundef initializes((58, 60)) %0) #0 align 16 {
+define dso_local void @dst_dev_put(ptr noundef %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 58
   store i16 2, ptr %3, align 2

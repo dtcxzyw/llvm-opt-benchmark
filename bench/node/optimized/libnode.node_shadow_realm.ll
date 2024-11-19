@@ -347,7 +347,7 @@ declare void @_ZN4node5Realm16CreatePropertiesEv(ptr noundef nonnull align 8 der
 declare void @_ZN4node11Environment16TrackShadowRealmEPNS_12shadow_realm11ShadowRealmE(ptr noundef nonnull align 8 dereferenceable(2872), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node12shadow_realm11ShadowRealmD2Ev(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node12shadow_realm11ShadowRealmD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12shadow_realm11ShadowRealmE, i64 16), ptr %this, align 8
@@ -404,7 +404,7 @@ declare void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN4node5RealmD2Ev(ptr noundef nonnull align 8 dereferenceable(872)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node12shadow_realm11ShadowRealmD0Ev(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node12shadow_realm11ShadowRealmD0Ev(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node12shadow_realm11ShadowRealmD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %this) #13
   tail call void @_ZdlPv(ptr noundef nonnull %this) #15
@@ -6899,7 +6899,7 @@ declare void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef) local_unnamed_
 declare void @_ZN4node11Environment18ToggleImmediateRefEb(ptr noundef nonnull align 8 dereferenceable(2872), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -6920,7 +6920,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_12shadow_realm11ShadowRealm12WeakCallbackERKN2v816WeakCallbackInfoIS6_EEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 16), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16

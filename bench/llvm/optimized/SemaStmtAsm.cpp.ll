@@ -4874,7 +4874,7 @@ _ZN4llvm15SmallVectorImplIN5clang10TargetInfo14ConstraintInfoEED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema27FillInlineAsmIdentifierInfoEPNS_4ExprERN4llvm23InlineAsmIdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 8), (24, 28)) %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema27FillInlineAsmIdentifierInfoEPNS_4ExprERN4llvm23InlineAsmIdentifierInfoE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17560) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"struct.clang::Expr::EvalResult", align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %5, align 8
@@ -5126,7 +5126,7 @@ declare void @_ZN5clang4Sema30PopExpressionEvaluationContextEv(ptr noundef nonnu
 declare noundef zeroext i1 @_ZN5clang4Sema23RequireCompleteExprTypeEPNS_4ExprEj(ptr noundef nonnull align 8 dereferenceable(17560), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang4Sema20LookupInlineAsmFieldEN4llvm9StringRefES2_RjNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %5, i32 %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang4Sema20LookupInlineAsmFieldEN4llvm9StringRefES2_RjNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(17560) %0, ptr %1, i64 %2, ptr %3, i64 %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, i32 %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.llvm::SmallVector.1099", align 8
   %10 = alloca %"class.clang::LookupResult", align 8

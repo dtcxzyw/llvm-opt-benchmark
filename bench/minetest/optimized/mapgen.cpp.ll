@@ -622,7 +622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define dso_local void @_ZN6MapgenC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 25), (32, 56), (64, 86), (88, 96)) %this, i32 noundef %mapgenid, ptr nocapture noundef readonly %params, ptr noundef %emerge) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6MapgenC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(200) %this, i32 noundef %mapgenid, ptr nocapture noundef readonly %params, ptr noundef %emerge) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont13:
   store ptr getelementptr inbounds (i8, ptr @_ZTV6Mapgen, i64 16), ptr %this, align 8, !tbaa !15
   %seed = getelementptr inbounds i8, ptr %this, i64 8
@@ -701,7 +701,7 @@ invoke.cont13:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6MapgenD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6MapgenD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV6Mapgen, i64 16), ptr %this, align 8, !tbaa !15
   %m_emerge = getelementptr inbounds i8, ptr %this, i64 40
@@ -804,7 +804,7 @@ declare void @_ZN12EmergeParamsD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6MapgenD0Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN6MapgenD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN6MapgenD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
@@ -4893,7 +4893,7 @@ _ZNSt5queueISt4pairIN3irr4core8vector3dIsEEhESt5dequeIS5_SaIS5_EEED2Ev.exit271: 
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN11MapgenBasicC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(474) initializes((8, 25), (32, 56), (64, 86), (88, 96)) %this, i32 noundef %mapgenid, ptr nocapture noundef readonly %params, ptr noundef %emerge) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11MapgenBasicC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(474) %this, i32 noundef %mapgenid, ptr nocapture noundef readonly %params, ptr noundef %emerge) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont8:
   %__dnew.i.i219 = alloca i64, align 8
   %__dnew.i.i201 = alloca i64, align 8
@@ -5661,7 +5661,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #11
 declare noundef zeroext i16 @_ZNK14NodeDefManager5getIdERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(65848), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(474) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(474) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV11MapgenBasic, i64 16), ptr %this, align 8, !tbaa !15
   %heightmap = getelementptr inbounds i8, ptr %this, i64 64
@@ -5682,7 +5682,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN11MapgenBasicD0Ev(ptr noundef nonnull align 8 dereferenceable(474) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN11MapgenBasicD0Ev(ptr noundef nonnull align 8 dereferenceable(474) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV11MapgenBasic, i64 16), ptr %this, align 8, !tbaa !15
   %heightmap.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -7780,7 +7780,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12MapgenParamsD0Ev(ptr noundef nonnull align 8 dereferenceable(53) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN12MapgenParamsD0Ev(ptr noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12MapgenParams, i64 16), ptr %this, align 8, !tbaa !15
   %bparams.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -8936,7 +8936,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #19
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #20
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12MapgenParamsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(53) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN12MapgenParamsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(53) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12MapgenParams, i64 16), ptr %this, align 8, !tbaa !15
   %bparams = getelementptr inbounds i8, ptr %this, i64 40

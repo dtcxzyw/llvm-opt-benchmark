@@ -618,7 +618,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 declare void @llvm.trap() #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_StatMissingFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_StatMissingFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -629,7 +629,7 @@ define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_StatMissingFile_TestD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_StatMissingFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_StatMissingFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1660,7 +1660,7 @@ declare void @_ZN17RealDiskInterfaceC1Ev(ptr noundef nonnull align 8 dereference
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117DiskInterfaceTestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_117DiskInterfaceTestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2025,7 +2025,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147DiskInterfaceTest_StatMissingFileWithCache_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_147DiskInterfaceTest_StatMissingFileWithCache_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2036,7 +2036,7 @@ define internal void @_ZN12_GLOBAL__N_147DiskInterfaceTest_StatMissingFileWithCa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_147DiskInterfaceTest_StatMissingFileWithCache_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_147DiskInterfaceTest_StatMissingFileWithCache_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2512,7 +2512,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_134DiskInterfaceTest_StatBadPath_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_134DiskInterfaceTest_StatBadPath_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2523,7 +2523,7 @@ define internal void @_ZN12_GLOBAL__N_134DiskInterfaceTest_StatBadPath_TestD2Ev(
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_134DiskInterfaceTest_StatBadPath_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_134DiskInterfaceTest_StatBadPath_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -3470,7 +3470,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_139DiskInterfaceTest_StatExistingFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_139DiskInterfaceTest_StatExistingFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -3481,7 +3481,7 @@ define internal void @_ZN12_GLOBAL__N_139DiskInterfaceTest_StatExistingFile_Test
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_139DiskInterfaceTest_StatExistingFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_139DiskInterfaceTest_StatExistingFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4492,7 +4492,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_StatExistingDir_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_StatExistingDir_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -4503,7 +4503,7 @@ define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_StatExistingDir_TestD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_StatExistingDir_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_StatExistingDir_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6651,7 +6651,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131DiskInterfaceTest_ReadFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131DiskInterfaceTest_ReadFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -6662,7 +6662,7 @@ define internal void @_ZN12_GLOBAL__N_131DiskInterfaceTest_ReadFile_TestD2Ev(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131DiskInterfaceTest_ReadFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131DiskInterfaceTest_ReadFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -8009,7 +8009,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131DiskInterfaceTest_MakeDirs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131DiskInterfaceTest_MakeDirs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -8020,7 +8020,7 @@ define internal void @_ZN12_GLOBAL__N_131DiskInterfaceTest_MakeDirs_TestD2Ev(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_131DiskInterfaceTest_MakeDirs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_131DiskInterfaceTest_MakeDirs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -8479,7 +8479,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133DiskInterfaceTest_RemoveFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133DiskInterfaceTest_RemoveFile_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -8490,7 +8490,7 @@ define internal void @_ZN12_GLOBAL__N_133DiskInterfaceTest_RemoveFile_TestD2Ev(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_133DiskInterfaceTest_RemoveFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_133DiskInterfaceTest_RemoveFile_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -9155,7 +9155,7 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_RemoveDirectory_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_RemoveDirectory_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -9166,7 +9166,7 @@ define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_RemoveDirectory_TestD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_RemoveDirectory_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_138DiskInterfaceTest_RemoveDirectory_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #7 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_117DiskInterfaceTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -9867,13 +9867,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120StatTest_Simple_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8), (280, 288)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_120StatTest_Simple_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120StatTest_Simple_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8), (280, 288)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_120StatTest_Simple_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
@@ -10858,14 +10858,14 @@ define internal noundef i32 @_ZN12_GLOBAL__N_18StatTest10RemoveFileERKNSt7__cxx1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn280_N12_GLOBAL__N_120StatTest_Simple_TestD1Ev(ptr noundef initializes((-280, -272), (0, 8)) %0) unnamed_addr #14 align 2 {
+define internal void @_ZThn280_N12_GLOBAL__N_120StatTest_Simple_TestD1Ev(ptr noundef %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -280
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn280_N12_GLOBAL__N_120StatTest_Simple_TestD0Ev(ptr noundef initializes((-280, -272), (0, 8)) %0) unnamed_addr #14 align 2 {
+define internal void @_ZThn280_N12_GLOBAL__N_120StatTest_Simple_TestD0Ev(ptr noundef %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -280
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #22
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(432) %2) #23
@@ -10902,7 +10902,7 @@ define internal noundef i32 @_ZThn280_N12_GLOBAL__N_18StatTest10RemoveFileERKNSt
 declare void @_ZN25StateTestWithBuiltinRulesC2Ev(ptr noundef nonnull align 8 dereferenceable(280)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8), (280, 288)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_18StatTestE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_18StatTestE, i64 120), ptr %2, align 8
@@ -10962,7 +10962,7 @@ define internal void @_ZN12_GLOBAL__N_18StatTestD0Ev(ptr nocapture nonnull readn
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn280_N12_GLOBAL__N_18StatTestD1Ev(ptr noundef initializes((-280, -272), (0, 8)) %0) unnamed_addr #14 align 2 {
+define internal void @_ZThn280_N12_GLOBAL__N_18StatTestD1Ev(ptr noundef %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -280
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #22
   ret void
@@ -11622,13 +11622,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121StatTest_TwoStep_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8), (280, 288)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_121StatTest_TwoStep_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_121StatTest_TwoStep_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8), (280, 288)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_121StatTest_TwoStep_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
@@ -12936,14 +12936,14 @@ _ZN7testing7MessageD2Ev.exit104:                  ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn280_N12_GLOBAL__N_121StatTest_TwoStep_TestD1Ev(ptr noundef initializes((-280, -272), (0, 8)) %0) unnamed_addr #14 align 2 {
+define internal void @_ZThn280_N12_GLOBAL__N_121StatTest_TwoStep_TestD1Ev(ptr noundef %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -280
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn280_N12_GLOBAL__N_121StatTest_TwoStep_TestD0Ev(ptr noundef initializes((-280, -272), (0, 8)) %0) unnamed_addr #14 align 2 {
+define internal void @_ZThn280_N12_GLOBAL__N_121StatTest_TwoStep_TestD0Ev(ptr noundef %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -280
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #22
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(432) %2) #23
@@ -13008,13 +13008,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118StatTest_Tree_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8), (280, 288)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_118StatTest_Tree_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118StatTest_Tree_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8), (280, 288)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_118StatTest_Tree_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
@@ -14047,14 +14047,14 @@ _ZN7testing7MessageD2Ev.exit79:                   ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn280_N12_GLOBAL__N_118StatTest_Tree_TestD1Ev(ptr noundef initializes((-280, -272), (0, 8)) %0) unnamed_addr #14 align 2 {
+define internal void @_ZThn280_N12_GLOBAL__N_118StatTest_Tree_TestD1Ev(ptr noundef %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -280
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn280_N12_GLOBAL__N_118StatTest_Tree_TestD0Ev(ptr noundef initializes((-280, -272), (0, 8)) %0) unnamed_addr #14 align 2 {
+define internal void @_ZThn280_N12_GLOBAL__N_118StatTest_Tree_TestD0Ev(ptr noundef %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -280
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #22
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(432) %2) #23
@@ -14195,13 +14195,13 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120StatTest_Middle_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8), (280, 288)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_120StatTest_Middle_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120StatTest_Middle_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(432) initializes((0, 8), (280, 288)) %0) unnamed_addr #7 align 2 {
+define internal void @_ZN12_GLOBAL__N_120StatTest_Middle_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
@@ -15300,14 +15300,14 @@ _ZN7testing7MessageD2Ev.exit88:                   ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn280_N12_GLOBAL__N_120StatTest_Middle_TestD1Ev(ptr noundef initializes((-280, -272), (0, 8)) %0) unnamed_addr #14 align 2 {
+define internal void @_ZThn280_N12_GLOBAL__N_120StatTest_Middle_TestD1Ev(ptr noundef %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -280
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #22
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn280_N12_GLOBAL__N_120StatTest_Middle_TestD0Ev(ptr noundef initializes((-280, -272), (0, 8)) %0) unnamed_addr #14 align 2 {
+define internal void @_ZThn280_N12_GLOBAL__N_120StatTest_Middle_TestD0Ev(ptr noundef %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -280
   tail call void @_ZN12_GLOBAL__N_18StatTestD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %2) #22
   tail call void @_ZdlPv(ptr noundef nonnull align 8 dereferenceable(432) %2) #23

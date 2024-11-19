@@ -32,7 +32,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_net_selftest
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable_net_selftest907, ptr @__UNIQUE_ID___addressable_net_selftest_get_count908, ptr @__UNIQUE_ID___addressable_net_selftest_get_strings909, ptr @__UNIQUE_ID_author913, ptr @__UNIQUE_ID_description910, ptr @__UNIQUE_ID_file911, ptr @__UNIQUE_ID_license912, ptr @might_resched.__UNIQUE_ID___addressable___SCK__might_resched5], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @net_selftest(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly initializes((0, 56)) %2) #0 align 16 {
+define dso_local void @net_selftest(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   store i8 0, ptr @net_test_next_id, align 1
   %4 = getelementptr inbounds i8, ptr %1, i64 4

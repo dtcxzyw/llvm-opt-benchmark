@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._bind_ldom = private unnamed_addr constant [11 x i8] c"_bind_ldom\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @get_cpuset(ptr noundef initializes((0, 128)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @get_cpuset(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [257 x i8], align 16
   %5 = alloca [1024 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 312
@@ -441,7 +441,7 @@ declare i32 @sched_setaffinity(i32 noundef, i64 noundef, ptr noundef) local_unna
 declare ptr @task_cpuset_to_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_getaffinity(i32 noundef %0, i64 noundef %1, ptr noundef initializes((0, 128)) %2) local_unnamed_addr #0 {
+define i32 @slurm_getaffinity(i32 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [257 x i8], align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false)
   %5 = tail call i32 @sched_getaffinity(i32 noundef %0, i64 noundef %1, ptr noundef %2) #7

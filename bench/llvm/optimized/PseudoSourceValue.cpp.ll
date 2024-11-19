@@ -100,7 +100,7 @@ $_ZTVN4llvm18ValueMapCallbackVHIPKNS_11GlobalValueESt10unique_ptrIKNS_28GlobalVa
 @_ZN4llvm24PseudoSourceValueManagerC1ERKNS_13TargetMachineE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm24PseudoSourceValueManagerC2ERKNS_13TargetMachineE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm17PseudoSourceValueC2EjRKNS_13TargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(1232) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm17PseudoSourceValueC2EjRKNS_13TargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(1232) %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm17PseudoSourceValueE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8
@@ -359,7 +359,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26CallEntryPseudoSourceValueC2EjRKNS_13TargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(1232) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm26CallEntryPseudoSourceValueC2EjRKNS_13TargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(1232) %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm17PseudoSourceValueE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8
@@ -389,7 +389,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm26CallEntryPseudoSourceValue8mayAl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm28GlobalValuePseudoSourceValueC2EPKNS_11GlobalValueERKNS_13TargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1232) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm28GlobalValuePseudoSourceValueC2EPKNS_11GlobalValueERKNS_13TargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1232) %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm17PseudoSourceValueE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 5, ptr %4, align 8
@@ -406,7 +406,7 @@ define dso_local void @_ZN4llvm28GlobalValuePseudoSourceValueC2EPKNS_11GlobalVal
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm31ExternalSymbolPseudoSourceValueC2EPKcRKNS_13TargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1232) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm31ExternalSymbolPseudoSourceValueC2EPKcRKNS_13TargetMachineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(1232) %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN4llvm17PseudoSourceValueE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 6, ptr %4, align 8
@@ -423,7 +423,7 @@ define dso_local void @_ZN4llvm31ExternalSymbolPseudoSourceValueC2EPKcRKNS_13Tar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm24PseudoSourceValueManagerC2ERKNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(1232) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm24PseudoSourceValueManagerC2ERKNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(1232) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZN4llvm17PseudoSourceValueC1EjRKNS_13TargetMachineE(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(1232) %1) #16

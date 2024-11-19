@@ -19,7 +19,7 @@ $_ZTIN3url12CanonOutputTIcEE = comdat any
 @_ZN3url20StdStringCanonOutputD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3url20StdStringCanonOutputD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url20StdStringCanonOutputC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3url20StdStringCanonOutputC2EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull %str) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer_.i, i8 0, i64 16, i1 false)
@@ -85,7 +85,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url20StdStringCanonOutput8CompleteEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 20)) %this) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN3url20StdStringCanonOutput8CompleteEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) local_unnamed_addr #0 align 2 {
 entry:
   %str_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %str_, align 8
@@ -100,7 +100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3url20StdStringCanonOutput6ResizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((8, 20)) %this, i32 noundef %sz) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3url20StdStringCanonOutput6ResizeEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %sz) unnamed_addr #0 align 2 {
 entry:
   %str_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %str_, align 8

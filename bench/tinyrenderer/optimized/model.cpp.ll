@@ -78,7 +78,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ModelC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 264)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5ModelC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(264) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::basic_ifstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1759,7 +1759,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK5Model4vertEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.vec) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, i32 noundef %2) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZNK5Model4vertEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.vec) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, i32 noundef %2) local_unnamed_addr #14 align 2 {
   %4 = sext i32 %2 to i64
   %5 = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds %struct.vec, ptr %5, i64 %4
@@ -1768,7 +1768,7 @@ define dso_local void @_ZNK5Model4vertEi(ptr dead_on_unwind noalias nocapture wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK5Model4vertEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.vec) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZNK5Model4vertEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.vec) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 72
   %6 = mul nsw i32 %2, 3
   %7 = add nsw i32 %6, %3
@@ -2206,7 +2206,7 @@ define dso_local { double, double } @_ZNK5Model2uvEii(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK5Model6normalEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.vec) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 align 2 {
+define dso_local void @_ZNK5Model6normalEii(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.vec) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(264) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 48
   %6 = getelementptr inbounds i8, ptr %1, i64 120
   %7 = mul nsw i32 %2, 3

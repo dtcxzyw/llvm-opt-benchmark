@@ -62,7 +62,7 @@ define hidden noundef zeroext i1 @_ZN19ResolvedMethodEntry30check_no_old_or_obso
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19ResolvedMethodEntry11reset_entryEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (10, 16), (18, 21), (22, 24)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19ResolvedMethodEntry11reset_entryEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 21
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 32
@@ -95,7 +95,7 @@ define hidden void @_ZN19ResolvedMethodEntry11reset_entryEv(ptr nocapture nounde
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN19ResolvedMethodEntry23remove_unshareable_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8), (10, 16), (18, 21), (22, 24)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN19ResolvedMethodEntry23remove_unshareable_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 21
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 32

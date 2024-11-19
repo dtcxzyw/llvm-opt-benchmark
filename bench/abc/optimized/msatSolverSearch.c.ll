@@ -590,7 +590,7 @@ define void @Msat_SolverRemoveMarked(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef initializes((32, 40), (64, 72)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Msat_SolverSearch(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef readonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 256
   %8 = load i64, ptr %7, align 8

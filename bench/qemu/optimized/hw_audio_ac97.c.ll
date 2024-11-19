@@ -662,7 +662,7 @@ sw.epilog:                                        ; preds = %if.end.i137.i, %sw.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @mixer_reset(ptr noundef initializes((2728, 2984), (3008, 3012)) %s) unnamed_addr #0 {
+define internal fastcc void @mixer_reset(ptr noundef %s) unnamed_addr #0 {
 entry:
   %active = alloca [3 x i8], align 1
   %mixer_data = getelementptr inbounds i8, ptr %s, i64 2728
@@ -860,7 +860,7 @@ if.end:                                           ; preds = %sw.bb14, %sw.bb18, 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @reset_voices(ptr noundef initializes((3008, 3012)) %s, ptr nocapture noundef nonnull readonly %active) unnamed_addr #0 {
+define internal fastcc void @reset_voices(ptr noundef %s, ptr nocapture noundef nonnull readonly %active) unnamed_addr #0 {
 entry:
   %as.i40 = alloca %struct.audsettings, align 4
   %as.i22 = alloca %struct.audsettings, align 4
@@ -2144,7 +2144,7 @@ sw.epilog:                                        ; preds = %sw.bb5.i, %if.then.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @reset_bm_regs(ptr noundef %s, ptr noundef initializes((0, 6)) %r) unnamed_addr #0 {
+define internal fastcc void @reset_bm_regs(ptr noundef %s, ptr noundef %r) unnamed_addr #0 {
 entry:
   store i32 0, ptr %r, align 4
   %civ = getelementptr inbounds i8, ptr %r, i64 4
@@ -2232,7 +2232,7 @@ voice_set_active.exit:                            ; preds = %sw.bb.i, %sw.bb1.i,
 declare void @AUD_remove_card(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @ac97_post_load(ptr noundef initializes((3008, 3012)) %opaque, i32 %version_id) #0 {
+define internal noundef i32 @ac97_post_load(ptr noundef %opaque, i32 %version_id) #0 {
 entry:
   %active = alloca [3 x i8], align 1
   %arrayidx.i = getelementptr i8, ptr %opaque, i64 2754

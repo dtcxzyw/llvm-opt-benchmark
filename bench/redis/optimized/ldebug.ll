@@ -33,7 +33,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.20 = private unnamed_addr constant [10 x i8] c"%s:%d: %s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @lua_sethook(ptr nocapture noundef writeonly initializes((100, 101), (104, 120)) %L, ptr noundef %func, i32 noundef %mask, i32 noundef %count) local_unnamed_addr #0 {
+define dso_local noundef i32 @lua_sethook(ptr nocapture noundef writeonly %L, ptr noundef %func, i32 noundef %mask, i32 noundef %count) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %func, null
   %cmp1 = icmp eq i32 %mask, 0

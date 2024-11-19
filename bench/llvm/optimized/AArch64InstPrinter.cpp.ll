@@ -20680,7 +20680,7 @@ define dso_local void @_ZN4llvm23AArch64AppleInstPrinter23printCustomAliasOperan
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18AArch64InstPrinterC2ERKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) initializes((0, 58)) %0, ptr noundef nonnull align 8 dereferenceable(484) %1, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 8 dereferenceable(224) %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm18AArch64InstPrinterC2ERKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) %0, ptr noundef nonnull align 8 dereferenceable(484) %1, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 8 dereferenceable(224) %3) unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20704,7 +20704,7 @@ define dso_local void @_ZN4llvm18AArch64InstPrinterC2ERKNS_9MCAsmInfoERKNS_11MCI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm23AArch64AppleInstPrinterC2ERKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) initializes((0, 58)) %0, ptr noundef nonnull align 8 dereferenceable(484) %1, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 8 dereferenceable(224) %3) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm23AArch64AppleInstPrinterC2ERKNS_9MCAsmInfoERKNS_11MCInstrInfoERKNS_14MCRegisterInfoE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(58) %0, ptr noundef nonnull align 8 dereferenceable(484) %1, ptr noundef nonnull align 1 %2, ptr noundef nonnull align 8 dereferenceable(224) %3) unnamed_addr #5 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

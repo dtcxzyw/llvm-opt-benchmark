@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Ivy_ObjCreatePi(ptr noundef initializes((56, 72)) %0) local_unnamed_addr #0 {
+define noundef ptr @Ivy_ObjCreatePi(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
@@ -666,7 +666,7 @@ Vec_IntFillExtra.exit:                            ; preds = %._crit_edge.i, %273
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Ivy_ObjCreatePo(ptr noundef initializes((56, 72)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @Ivy_ObjCreatePo(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8
@@ -682,7 +682,7 @@ define noundef ptr @Ivy_ObjCreatePo(ptr noundef initializes((56, 72)) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_ObjConnect(ptr noundef %0, ptr noundef initializes((16, 32)) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @Ivy_ObjConnect(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %2, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 24

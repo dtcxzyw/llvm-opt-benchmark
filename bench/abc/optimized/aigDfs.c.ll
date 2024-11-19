@@ -2719,7 +2719,7 @@ define noalias noundef ptr @Aig_Support(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_SupportNodes(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define void @Aig_SupportNodes(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #14
@@ -3133,7 +3133,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ObjCollectCut(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef initializes((4, 8)) %2) local_unnamed_addr #0 {
+define void @Aig_ObjCollectCut(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4
   %5 = getelementptr i8, ptr %1, i64 4
@@ -3390,7 +3390,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 declare ptr @Aig_ObjReal_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Aig_ObjCollectSuper(ptr noundef %0, ptr noundef initializes((4, 8)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Aig_ObjCollectSuper(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   store i32 0, ptr %3, align 4
   %4 = tail call i32 @Aig_ObjCollectSuper_rec(ptr noundef %0, ptr noundef %0, ptr noundef %1)

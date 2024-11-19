@@ -8383,7 +8383,7 @@ define zeroext i1 @zend_mm_is_custom_heap(ptr nocapture noundef readnone %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @zend_mm_set_custom_handlers(ptr nocapture noundef writeonly initializes((0, 4)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #20 {
+define void @zend_mm_set_custom_handlers(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #20 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %or.cond = or i1 %5, %6
@@ -8407,7 +8407,7 @@ define void @zend_mm_set_custom_handlers(ptr nocapture noundef writeonly initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @zend_mm_get_custom_handlers(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #21 {
+define void @zend_mm_get_custom_handlers(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #21 {
   %5 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %13, label %6
@@ -9127,7 +9127,7 @@ zend_mm_alloc_small_slow.exit:                    ; preds = %74, %36, %34, %87, 
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @zend_mm_safe_error(ptr nocapture noundef writeonly initializes((296, 300)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #30 {
+define internal fastcc void @zend_mm_safe_error(ptr nocapture noundef writeonly %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #30 {
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %6 = getelementptr inbounds i8, ptr %0, i64 296
   store i32 1, ptr %6, align 8

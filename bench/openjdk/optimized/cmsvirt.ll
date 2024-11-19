@@ -570,7 +570,7 @@ declare ptr @cmsStageAllocCLut16bit(ptr noundef, i32 noundef, i32 noundef, i32 n
 declare i32 @cmsStageSampleCLut16bit(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @InkLimitingSampler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef readonly %2) #2 {
+define internal noundef i32 @InkLimitingSampler(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef readonly %2) #2 {
   %4 = load double, ptr %2, align 8
   %5 = fmul double %4, 6.553500e+02
   %6 = load i16, ptr %0, align 2

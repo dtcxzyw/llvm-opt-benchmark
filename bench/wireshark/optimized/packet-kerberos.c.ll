@@ -4156,7 +4156,7 @@ define internal void @insert_longterm_keys_into_key_map_cb(ptr nocapture readnon
 declare i32 @krb5_c_fx_cf2_simple(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_encryption_key(ptr noundef %0, ptr nocapture noundef initializes((104, 112)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc void @add_encryption_key(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr nocapture noundef readonly %7, ptr noundef %8, ptr noundef %9, ptr noundef %10) unnamed_addr #0 {
   %12 = alloca %struct.insert_longterm_keys_into_key_map_state, align 8
   %13 = getelementptr inbounds i8, ptr %1, i64 104
   store ptr null, ptr %13, align 8
@@ -6739,7 +6739,7 @@ define internal i32 @dissect_kerberos_KERB_AD_RESTRICTION_ENTRY(i1 noundef zeroe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_kerberos_AD_AP_OPTIONS(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((24, 32)) %3, ptr noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_kerberos_AD_AP_OPTIONS(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_krb_ad_ap_options, align 4
   %8 = load i32, ptr @ett_krb_ad_ap_options, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @hf_krb_ad_ap_options_fields, i32 noundef -2147483648) #16
@@ -7025,7 +7025,7 @@ declare i64 @tvb_get_guint64(ptr noundef, i32 noundef, i32 noundef) local_unname
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %2) unnamed_addr #0 {
+define internal fastcc void @dissect_krb5_PAC_NDRHEADERBLOB(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly %2) unnamed_addr #0 {
   %4 = load i32, ptr @ett_krb_pac_midl_blob, align 4
   %5 = tail call ptr @proto_tree_add_subtree(ptr noundef %0, ptr noundef %1, i32 noundef 0, i32 noundef 16, i32 noundef %4, ptr noundef null, ptr noundef nonnull @.str.858) #16
   %6 = load i32, ptr @hf_krb_midl_version, align 4
@@ -8038,7 +8038,7 @@ define internal i32 @dissect_kerberos_PA_KERB_KEY_LIST_REP(i1 noundef zeroext %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @dissect_kerberos_PA_SUPPORTED_ENCTYPES(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((24, 32)) %3, ptr noundef %4, i32 %5) #0 {
+define internal noundef i32 @dissect_kerberos_PA_SUPPORTED_ENCTYPES(i1 zeroext %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr noundef %4, i32 %5) #0 {
   %7 = load i32, ptr @hf_krb_pa_supported_enctypes, align 4
   %8 = load i32, ptr @ett_krb_pa_supported_enctypes, align 4
   %9 = tail call ptr @proto_tree_add_bitmask(ptr noundef %4, ptr noundef %1, i32 noundef %2, i32 noundef %7, i32 noundef %8, ptr noundef nonnull @hf_krb_pa_supported_enctypes_fields, i32 noundef -2147483648) #16
@@ -11040,7 +11040,7 @@ declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare void @tcp_dissect_pdus(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dissect_kerberos_tcp_pdu(ptr noundef %0, ptr noundef initializes((272, 276)) %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
+define internal i32 @dissect_kerberos_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 272
   store i32 1, ptr %5, align 8
   %6 = tail call fastcc i32 @dissect_kerberos_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef null)

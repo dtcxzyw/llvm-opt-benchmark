@@ -4933,7 +4933,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NodeMffcSimulate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define void @Abc_NodeMffcSimulate(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = icmp sgt i32 %1, 0
@@ -5188,7 +5188,7 @@ define noalias noundef ptr @Abc_NodeMffcConstants(ptr nocapture noundef readnone
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Abc_NodeMffcSingleVar(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #0 {
+define noalias noundef ptr @Abc_NodeMffcSingleVar(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 96

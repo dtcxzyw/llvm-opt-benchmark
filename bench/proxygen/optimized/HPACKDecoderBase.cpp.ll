@@ -274,7 +274,7 @@ if.end30:                                         ; preds = %entry, %if.end26, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HPACKDecoderBase21setHeaderTableMaxSizeERNS_11HeaderTableEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((4, 8)) %this, ptr noundef nonnull align 8 dereferenceable(80) %table, i32 noundef %maxSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16HPACKDecoderBase21setHeaderTableMaxSizeERNS_11HeaderTableEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(80) %table, i32 noundef %maxSize) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp5 = alloca %"class.google::LogMessageFatal", align 8
   %maxTableSize_ = getelementptr inbounds i8, ptr %this, i64 4
@@ -326,7 +326,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen16HPACKDecoderBase21handleTableSizeUpdateERNS_17HPACKDecodeBufferERNS_11HeaderTableEb(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 1)) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf, ptr noundef nonnull align 8 dereferenceable(80) %table, i1 noundef zeroext %isQpack) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen16HPACKDecoderBase21handleTableSizeUpdateERNS_17HPACKDecodeBufferERNS_11HeaderTableEb(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(21) %dbuf, ptr noundef nonnull align 8 dereferenceable(80) %table, i1 noundef zeroext %isQpack) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arg = alloca i64, align 8
   %ref.tmp = alloca %"class.google::LogMessage", align 8

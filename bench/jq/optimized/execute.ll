@@ -6419,7 +6419,7 @@ define internal void @default_err_cb(ptr nocapture noundef %0, i64 %1, ptr %2) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @jq_set_error_cb(ptr nocapture noundef writeonly initializes((24, 40)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
+define void @jq_set_error_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %1, null
   %5 = load ptr, ptr @stderr, align 8
   %spec.select = select i1 %4, ptr @default_err_cb, ptr %1
@@ -6432,7 +6432,7 @@ define void @jq_set_error_cb(ptr nocapture noundef writeonly initializes((24, 40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @jq_get_error_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
+define void @jq_get_error_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -6443,7 +6443,7 @@ define void @jq_get_error_cb(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @jq_set_nomem_handler(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @jq_set_nomem_handler(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call void @jv_nomem_handler(ptr noundef %1, ptr noundef %2) #12
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -7022,7 +7022,7 @@ define void @jq_dump_disassembly(ptr nocapture noundef readonly %0, i32 noundef 
 declare void @dump_disassembly(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_set_input_cb(ptr nocapture noundef writeonly initializes((192, 208)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @jq_set_input_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 200
@@ -7031,7 +7031,7 @@ define void @jq_set_input_cb(ptr nocapture noundef writeonly initializes((192, 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @jq_get_input_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
+define void @jq_get_input_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -7042,7 +7042,7 @@ define void @jq_get_input_cb(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_set_debug_cb(ptr nocapture noundef writeonly initializes((208, 224)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @jq_set_debug_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 208
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 216
@@ -7051,7 +7051,7 @@ define void @jq_set_debug_cb(ptr nocapture noundef writeonly initializes((208, 2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @jq_get_debug_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
+define void @jq_get_debug_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 208
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -7062,7 +7062,7 @@ define void @jq_get_debug_cb(ptr nocapture noundef readonly %0, ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_set_stderr_cb(ptr nocapture noundef writeonly initializes((224, 240)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
+define void @jq_set_stderr_cb(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 232
@@ -7071,7 +7071,7 @@ define void @jq_set_stderr_cb(ptr nocapture noundef writeonly initializes((224, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @jq_get_stderr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #6 {
+define void @jq_get_stderr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %1, align 8
@@ -7082,7 +7082,7 @@ define void @jq_get_stderr_cb(ptr nocapture noundef readonly %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @jq_halt(ptr nocapture noundef writeonly initializes((136, 140), (144, 176)) %0, i64 %1, ptr %2, i64 %3, ptr %4) local_unnamed_addr #8 {
+define void @jq_halt(ptr nocapture noundef writeonly %0, i64 %1, ptr %2, i64 %3, ptr %4) local_unnamed_addr #8 {
   %6 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 144

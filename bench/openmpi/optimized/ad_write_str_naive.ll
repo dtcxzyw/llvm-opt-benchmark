@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_mpi_byte = external global %struct.ompi_predefined_datatype_t, align 1
 
 ; Function Attrs: nounwind uwtable
-define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef initializes((0, 4)) %7) local_unnamed_addr #0 {
+define void @ADIOI_GEN_WriteStrided_naive(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca i64, align 8

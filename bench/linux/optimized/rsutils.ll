@@ -178,7 +178,7 @@ define dso_local void @acpi_rs_set_resource_length(i32 noundef %0, ptr noundef %
 declare dso_local zeroext i8 @acpi_ut_get_resource_header_length(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_rs_set_resource_header(i8 noundef zeroext %0, i32 noundef %1, ptr noundef initializes((0, 1)) %2) local_unnamed_addr #5 align 16 {
+define dso_local void @acpi_rs_set_resource_header(i8 noundef zeroext %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #5 align 16 {
   store i8 %0, ptr %2, align 4
   %4 = tail call zeroext i8 @acpi_ut_get_resource_header_length(ptr noundef %2) #13
   %5 = zext i8 %4 to i32
@@ -205,7 +205,7 @@ define dso_local void @acpi_rs_set_resource_header(i8 noundef zeroext %0, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(write, argmem: readwrite, inaccessiblemem: none)
-define dso_local zeroext i16 @acpi_rs_get_resource_source(i16 noundef zeroext %0, i16 noundef zeroext %1, ptr noundef initializes((0, 1)) %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #7 align 16 {
+define dso_local zeroext i16 @acpi_rs_get_resource_source(i16 noundef zeroext %0, i16 noundef zeroext %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) local_unnamed_addr #7 align 16 {
   %6 = zext i16 %0 to i32
   %7 = add nuw nsw i32 %6, 3
   %8 = zext i16 %1 to i32

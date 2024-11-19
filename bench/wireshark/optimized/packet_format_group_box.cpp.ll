@@ -1227,7 +1227,7 @@ declare void @_ZN12QStyleOptionD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN9QGroupBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN20PacketFormatGroupBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
+define void @_ZN20PacketFormatGroupBoxD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV20PacketFormatGroupBox, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV20PacketFormatGroupBox, i64 456), ptr %2, align 8

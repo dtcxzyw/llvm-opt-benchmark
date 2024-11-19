@@ -576,7 +576,7 @@ declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18MeshLabApplication9qtVersionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN18MeshLabApplication9qtVersionEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.8, i32 noundef 6)
   store ptr %2, ptr %0, align 8
   ret void

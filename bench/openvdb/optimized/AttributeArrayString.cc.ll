@@ -658,7 +658,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points18StringMetaInserterC2ERNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 88)) %this, ptr noundef nonnull align 8 dereferenceable(56) %metadata) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points18StringMetaInserterC2ERNS0_7MetaMapE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(56) %metadata) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %metadata, ptr %this, align 8
   %mIdBlocks = getelementptr inbounds i8, ptr %this, i64 8
@@ -1916,7 +1916,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points21StringAttributeHandle6createERKNS1_14AttributeArrayERKNS0_7MetaMapEb(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.19") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %array, ptr noundef nonnull align 8 dereferenceable(56) %metadata, i1 noundef zeroext %preserveCompression) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points21StringAttributeHandle6createERKNS1_14AttributeArrayERKNS0_7MetaMapEb(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.19") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %array, ptr noundef nonnull align 8 dereferenceable(56) %metadata, i1 noundef zeroext %preserveCompression) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !55)
   store ptr null, ptr %agg.result, align 8, !alias.scope !55
@@ -2959,7 +2959,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7openvdb5v11_06points26StringAttributeWriteHandle6createERNS1_14AttributeArrayERKNS0_7MetaMapEb(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %array, ptr noundef nonnull align 8 dereferenceable(56) %metadata, i1 noundef zeroext %expand) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7openvdb5v11_06points26StringAttributeWriteHandle6createERNS1_14AttributeArrayERKNS0_7MetaMapEb(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.33") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(24) %array, ptr noundef nonnull align 8 dereferenceable(56) %metadata, i1 noundef zeroext %expand) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   store ptr null, ptr %agg.result, align 8, !alias.scope !72

@@ -194,7 +194,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #4
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv10xobjdetect8CvParamsC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv10xobjdetect8CvParamsC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv10xobjdetect8CvParamsE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -252,7 +252,7 @@ define hidden noundef zeroext i1 @_ZN2cv10xobjdetect8CvParams8scanAttrENSt7__cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv10xobjdetect15CvFeatureParamsC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv10xobjdetect15CvFeatureParamsC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN2cv10xobjdetect8CvParamsE, i64 16), ptr %0, align 8
@@ -296,7 +296,7 @@ _ZN2cv10xobjdetect8CvParamsC2Ev.exit:             ; preds = %1
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv10xobjdetect15CvFeatureParams4initERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((40, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #7 align 2 {
+define hidden void @_ZN2cv10xobjdetect15CvFeatureParams4initERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 40
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -655,7 +655,7 @@ define hidden void @_ZN2cv10xobjdetect18CvFeatureEvaluator8setImageERKNS_3MatEhi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv10xobjdetect18CvFeatureEvaluator6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.4") align 8 initializes((0, 16)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv10xobjdetect18CvFeatureEvaluator6createEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.4") align 8 %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(360) ptr @_Znwm(i64 noundef 360) #20
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN2cv10xobjdetect18CvFeatureEvaluatorE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 20

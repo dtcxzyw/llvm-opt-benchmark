@@ -69,7 +69,7 @@ $_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDe
 @_ZN5clang8SemaBase20ImmediateDiagBuilderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang8SemaBase20ImmediateDiagBuilderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang8SemaBaseC2ERNS_4SemaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8SemaBaseC2ERNS_4SemaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -180,7 +180,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZN5clang17Diagnost
 declare void @_ZN5clang4Sema21EmitCurrentDiagnosticEj(ptr noundef nonnull align 8 dereferenceable(17560), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang8SemaBase5PDiagEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::PartialDiagnostic") align 8 initializes((0, 20)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN5clang8SemaBase5PDiagEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::PartialDiagnostic") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 noundef %2) local_unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 256
   %6 = load ptr, ptr %5, align 8
@@ -798,7 +798,7 @@ declare void @_ZN5clang8SemaCUDA14DiagIfHostCodeENS_14SourceLocationEj(ptr dead_
 declare void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8SemaBase4DiagENS_14SourceLocationERKNS_17PartialDiagnosticEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 initializes((0, 25), (80, 81), (88, 96)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(20) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang8SemaBase4DiagENS_14SourceLocationERKNS_17PartialDiagnosticEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(20) %3, i1 noundef zeroext %4) local_unnamed_addr #2 align 2 {
   %6 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i32, ptr %7, align 8

@@ -58,7 +58,7 @@ define hidden void @_ZN4ncnn29MultiHeadAttention_x86_avx512C2Ev(ptr noundef nonn
 declare void @_ZN4ncnn18MultiHeadAttentionC2Ev(ptr noundef nonnull align 8 dereferenceable(816)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipelineERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(872) initializes((816, 824)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN4ncnn29MultiHeadAttention_x86_avx51215create_pipelineERKNS_6OptionE(ptr noundef nonnull align 8 dereferenceable(872) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.ncnn::ParamDict", align 8
   %4 = alloca [2 x %"class.ncnn::Mat"], align 16
   %5 = alloca %"class.ncnn::ModelBinFromMatArray", align 8

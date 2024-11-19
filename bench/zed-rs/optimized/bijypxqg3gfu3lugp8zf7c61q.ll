@@ -60,7 +60,7 @@ define internal noundef i16 @"_ZN100_$LT$rodio..source..uniform..UniformSourceIt
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define internal void @"_ZN100_$LT$rodio..source..uniform..UniformSourceIterator$LT$I$C$D$GT$$u20$as$u20$rodio..source..Source$GT$8try_seek17h97c33ac3f11f67caE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(184) %1, i64 %2, i32 %3) unnamed_addr #2 {
+define internal void @"_ZN100_$LT$rodio..source..uniform..UniformSourceIterator$LT$I$C$D$GT$$u20$as$u20$rodio..source..Source$GT$8try_seek17h97c33ac3f11f67caE"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(184) %1, i64 %2, i32 %3) unnamed_addr #2 {
   %5 = load i64, ptr %1, align 8, !range !6, !noundef !4
   %6 = icmp eq i64 %5, 2
   br i1 %6, label %8, label %7

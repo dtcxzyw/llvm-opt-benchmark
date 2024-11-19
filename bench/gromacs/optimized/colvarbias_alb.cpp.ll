@@ -315,7 +315,7 @@ define linkonce_odr void @_ZN10colvardeps23do_feature_side_effectsEi(ptr noundef
 declare noundef i32 @_ZTv0_n56_N10colvarbias17init_dependenciesEv(ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN14colvarbias_alb6updateEv(ptr nocapture noundef nonnull align 8 dereferenceable(541) initializes((248, 256)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN14colvarbias_alb6updateEv(ptr nocapture noundef nonnull align 8 dereferenceable(541) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca double, align 8
   %3 = alloca %class.colvarvalue, align 8
   %4 = alloca double, align 8
@@ -1744,7 +1744,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit103: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14colvarbias_albD1Ev(ptr noundef nonnull align 8 dereferenceable(541) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN14colvarbias_albD1Ev(ptr noundef nonnull align 8 dereferenceable(541) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN14colvarbias_albD2Ev(ptr noundef nonnull align 8 dereferenceable(541) %0, ptr noundef nonnull @_ZTT14colvarbias_alb) #22
   %2 = getelementptr inbounds i8, ptr %0, i64 864
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #22
@@ -1754,7 +1754,7 @@ define void @_ZN14colvarbias_albD1Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14colvarbias_albD0Ev(ptr noundef nonnull align 8 dereferenceable(541) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN14colvarbias_albD0Ev(ptr noundef nonnull align 8 dereferenceable(541) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN14colvarbias_albD2Ev(ptr noundef nonnull align 8 dereferenceable(541) %0, ptr noundef nonnull @_ZTT14colvarbias_alb) #22
   %2 = getelementptr inbounds i8, ptr %0, i64 864
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #22
@@ -4183,7 +4183,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit35: ; preds = %_ZNSt6vectorId
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14colvarbias_albD2Ev(ptr noundef nonnull align 8 dereferenceable(541) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14colvarbias_albD2Ev(ptr noundef nonnull align 8 dereferenceable(541) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32

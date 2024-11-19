@@ -2144,7 +2144,7 @@ define dso_local void @intel_fbc_handle_fifo_underrun_irq(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @intel_fbc_add_plane(ptr noundef %0, ptr nocapture noundef writeonly initializes((1352, 1360)) %1) local_unnamed_addr #2 align 16 {
+define dso_local void @intel_fbc_add_plane(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 1352
   store ptr %0, ptr %3, align 8
   ret void
@@ -4939,7 +4939,7 @@ declare dso_local i32 @simple_attr_release(ptr noundef, ptr noundef) #1
 declare dso_local i32 @simple_attr_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @intel_fbc_debugfs_false_color_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #9 align 16 {
+define internal noundef i32 @intel_fbc_debugfs_false_color_get(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #9 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 397
   %4 = load i8, ptr %3, align 1, !range !13, !noundef !14
   %5 = zext nneg i8 %4 to i64

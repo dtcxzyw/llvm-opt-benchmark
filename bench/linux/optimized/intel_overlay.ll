@@ -632,7 +632,7 @@ declare dso_local void @drm_modeset_lock_all(ptr noundef) local_unnamed_addr #3
 declare dso_local void @drm_modeset_unlock_all(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @update_pfit_vscale_ratio(ptr nocapture noundef nonnull initializes((52, 56)) %0) unnamed_addr #2 align 16 {
+define internal fastcc void @update_pfit_vscale_ratio(ptr nocapture noundef nonnull %0) unnamed_addr #2 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 2624
   %4 = getelementptr inbounds i8, ptr %2, i64 2632

@@ -2961,7 +2961,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare dso_local zeroext i1 @__virt_addr_valid(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @create_boot_cache(ptr noundef initializes((24, 32), (96, 104)) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5) local_unnamed_addr #12 section ".init.text" align 16 {
+define dso_local void @create_boot_cache(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 %4, i32 %5) local_unnamed_addr #12 section ".init.text" align 16 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 28

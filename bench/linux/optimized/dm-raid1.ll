@@ -2464,7 +2464,7 @@ define internal void @trigger_event(ptr nocapture noundef readonly %0) #2 align 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @parse_features(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((0, 4)) %3) unnamed_addr #7 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @parse_features(ptr nocapture noundef nonnull %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) unnamed_addr #7 align 16 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #12
@@ -2834,7 +2834,7 @@ declare dso_local void @dm_io_client_destroy(ptr noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @queue_bio(ptr noundef %0, ptr noundef initializes((0, 8)) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 align 16 {
+define internal fastcc void @queue_bio(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 align 16 {
   %.not = icmp eq i32 %2, 0
   %4 = select i1 %.not, i64 40, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 %4

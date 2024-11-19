@@ -8580,7 +8580,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN16influxdb3_server4http27record_batch_stream_to_body17h2b7ee394cd267727E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, [41 x i8], i8, i8, [5 x i8] }) align 8 dereferenceable(64) initializes((0, 16), (57, 59)) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2, i8 noundef %3) unnamed_addr #7 {
+define void @_ZN16influxdb3_server4http27record_batch_stream_to_body17h2b7ee394cd267727E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, [41 x i8], i8, i8, [5 x i8] }) align 8 dereferenceable(64) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2, i8 noundef %3) unnamed_addr #7 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -9531,7 +9531,7 @@ define noundef zeroext i1 @_ZN16influxdb3_server4http7true_fn17he350c022356c177a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16influxdb3_server4http10pprof_home17h583ca0105ecc7bf2E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, ptr, i8, {}, [7 x i8] }, { { i64, [4 x i64] }, ptr } }, i8, [7 x i8] }) align 8 dereferenceable(280) initializes((0, 273)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(272) %1) unnamed_addr #8 {
+define void @_ZN16influxdb3_server4http10pprof_home17h583ca0105ecc7bf2E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, ptr, i8, {}, [7 x i8] }, { { i64, [4 x i64] }, ptr } }, i8, [7 x i8] }) align 8 dereferenceable(280) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(272) %1) unnamed_addr #8 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(272) %1, i64 272, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   store i8 0, ptr %3, align 8
@@ -9559,7 +9559,7 @@ define noundef i32 @_ZN16influxdb3_server4http15PProfAllocsArgs16default_interva
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16influxdb3_server4http13pprof_profile17hc917b894b1d00d9aE(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, ptr, i8, {}, [7 x i8] }, { { i64, [4 x i64] }, ptr } }, i8, [7 x i8] }) align 8 dereferenceable(280) initializes((0, 273)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(272) %1) unnamed_addr #8 {
+define void @_ZN16influxdb3_server4http13pprof_profile17hc917b894b1d00d9aE(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, ptr, i8, {}, [7 x i8] }, { { i64, [4 x i64] }, ptr } }, i8, [7 x i8] }) align 8 dereferenceable(280) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(272) %1) unnamed_addr #8 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(272) %1, i64 272, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   store i8 0, ptr %3, align 8
@@ -9567,7 +9567,7 @@ define void @_ZN16influxdb3_server4http13pprof_profile17hc917b894b1d00d9aE(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN16influxdb3_server4http20pprof_heappy_profile17h678af0c0f6164ab5E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, ptr, i8, {}, [7 x i8] }, { { i64, [4 x i64] }, ptr } }, i8, [7 x i8] }) align 8 dereferenceable(280) initializes((0, 273)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(272) %1) unnamed_addr #8 {
+define void @_ZN16influxdb3_server4http20pprof_heappy_profile17h678af0c0f6164ab5E(ptr noalias nocapture noundef writeonly sret({ { { { { i64, [2 x i64] }, { ptr, i64 }, { { ptr, i64 }, i64 }, { { ptr, i64 }, i64 }, i16, [3 x i16] }, { { { i8, [15 x i8] } }, { { { ptr, ptr, i64, { ptr } } } }, { { { ptr, ptr, i64, { ptr } } }, i16, [3 x i16] } }, { { i8, [23 x i8] } }, ptr, i8, {}, [7 x i8] }, { { i64, [4 x i64] }, ptr } }, i8, [7 x i8] }) align 8 dereferenceable(280) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(272) %1) unnamed_addr #8 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef nonnull align 8 dereferenceable(272) %1, i64 272, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   store i8 0, ptr %3, align 8
@@ -10397,7 +10397,7 @@ default.unreachable67:                            ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN123_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$data_types..namespace_name..NamespaceNameError$GT$$GT$4from17h4c2476937513548fE"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
+define void @"_ZN123_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$data_types..namespace_name..NamespaceNameError$GT$$GT$4from17h4c2476937513548fE"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i8 7, ptr %0, align 8
@@ -10405,7 +10405,7 @@ define void @"_ZN123_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN96_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$hyper..error..Error$GT$$GT$4from17h3836b0c6390a6158E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 16)) %0, ptr noalias noundef nonnull align 8 %1) unnamed_addr #7 {
+define void @"_ZN96_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$hyper..error..Error$GT$$GT$4from17h3836b0c6390a6158E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias noundef nonnull align 8 %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i8 14, ptr %0, align 8
@@ -10413,7 +10413,7 @@ define void @"_ZN96_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN100_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$serde..de..value..Error$GT$$GT$4from17h8cf161b0be1d176dE"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 24)) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #7 {
+define void @"_ZN100_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$serde..de..value..Error$GT$$GT$4from17h8cf161b0be1d176dE"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias noundef nonnull align 1 %1, i64 noundef %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10423,7 +10423,7 @@ define void @"_ZN100_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN117_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$influxdb3_server..http..QueryParamsError$GT$$GT$4from17h9a91d3b44e4d4903E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 48)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #8 {
+define void @"_ZN117_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$influxdb3_server..http..QueryParamsError$GT$$GT$4from17h9a91d3b44e4d4903E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   store i8 18, ptr %0, align 8
@@ -10431,7 +10431,7 @@ define void @"_ZN117_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN108_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$arrow_schema..error..ArrowError$GT$$GT$4from17h1349d781213217c8E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 48)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #8 {
+define void @"_ZN108_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$arrow_schema..error..ArrowError$GT$$GT$4from17h1349d781213217c8E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   store i8 19, ptr %0, align 8
@@ -10439,7 +10439,7 @@ define void @"_ZN108_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN95_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$http..error..Error$GT$$GT$4from17ha1bf2429b524bf2eE"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 3)) %0, i8 noundef %1, i8 %2) unnamed_addr #7 {
+define void @"_ZN95_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$http..error..Error$GT$$GT$4from17ha1bf2429b524bf2eE"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, i8 noundef %1, i8 %2) unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 %1, ptr %4, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 2
@@ -10449,7 +10449,7 @@ define void @"_ZN95_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN113_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$influxdb3_write..write_buffer..Error$GT$$GT$4from17he65a9f5bc3715cf7E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 120)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #8 {
+define void @"_ZN113_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$influxdb3_write..write_buffer..Error$GT$$GT$4from17he65a9f5bc3715cf7E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
   store i8 21, ptr %0, align 8
@@ -10457,7 +10457,7 @@ define void @"_ZN113_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN110_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$influxdb3_write..persister..Error$GT$$GT$4from17h0dd4f210227a74bdE"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 120)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #8 {
+define void @"_ZN110_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$influxdb3_write..persister..Error$GT$$GT$4from17h0dd4f210227a74bdE"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
   store i8 22, ptr %0, align 8
@@ -10465,13 +10465,13 @@ define void @"_ZN110_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN108_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$http..header..value..ToStrError$GT$$GT$4from17h248800fc6a80fb92E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1)) %0) unnamed_addr #7 {
+define void @"_ZN108_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$http..header..value..ToStrError$GT$$GT$4from17h248800fc6a80fb92E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0) unnamed_addr #7 {
   store i8 23, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN101_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$serde_json..error..Error$GT$$GT$4from17h0150f9afe75e4970E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 16)) %0, ptr noalias noundef nonnull align 8 %1) unnamed_addr #7 {
+define void @"_ZN101_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$serde_json..error..Error$GT$$GT$4from17h0150f9afe75e4970E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias noundef nonnull align 8 %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i8 24, ptr %0, align 8
@@ -10479,7 +10479,7 @@ define void @"_ZN101_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN99_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$influxdb3_write..Error$GT$$GT$4from17h9bd378496bc40e31E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 128)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
+define void @"_ZN99_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$influxdb3_write..Error$GT$$GT$4from17h9bd378496bc40e31E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
   store i8 25, ptr %0, align 8
@@ -10487,7 +10487,7 @@ define void @"_ZN99_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN118_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$datafusion_common..error..DataFusionError$GT$$GT$4from17he683b7aa90653bf0E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 120)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #8 {
+define void @"_ZN118_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$datafusion_common..error..DataFusionError$GT$$GT$4from17he683b7aa90653bf0E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(112) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %3, ptr noundef nonnull align 8 dereferenceable(112) %1, i64 112, i1 false)
   store i8 26, ptr %0, align 8
@@ -10495,7 +10495,7 @@ define void @"_ZN118_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN98_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17hdf03647d0f925003E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 16)) %0, ptr noundef nonnull %1) unnamed_addr #7 {
+define void @"_ZN98_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17hdf03647d0f925003E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noundef nonnull %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i8 27, ptr %0, align 8
@@ -10503,7 +10503,7 @@ define void @"_ZN98_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN116_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$influxdb3_server..query_executor..Error$GT$$GT$4from17h51333baa5c9c3ef6E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 128)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
+define void @"_ZN116_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$influxdb3_server..query_executor..Error$GT$$GT$4from17h51333baa5c9c3ef6E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(120) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull align 8 dereferenceable(120) %1, i64 120, i1 false)
   store i8 28, ptr %0, align 8
@@ -10511,7 +10511,7 @@ define void @"_ZN116_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN110_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$iox_query_influxql_rewrite..Error$GT$$GT$4from17had8676cab8d49b03E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) initializes((0, 1), (8, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
+define void @"_ZN110_$LT$influxdb3_server..http..Error$u20$as$u20$core..convert..From$LT$iox_query_influxql_rewrite..Error$GT$$GT$4from17had8676cab8d49b03E"(ptr noalias nocapture noundef writeonly sret({ i8, [127 x i8] }) align 8 dereferenceable(128) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   store i8 32, ptr %0, align 8
@@ -10696,7 +10696,7 @@ define noundef zeroext i1 @"_ZN79_$LT$influxdb3_server..http..QueryParamsError$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN116_$LT$influxdb3_server..http..QueryParamsError$u20$as$u20$core..convert..From$LT$alloc..string..FromUtf8Error$GT$$GT$4from17h27678fa62b89096aE"(ptr noalias nocapture noundef writeonly sret({ [32 x i8], i8, [7 x i8] }) align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #8 {
+define void @"_ZN116_$LT$influxdb3_server..http..QueryParamsError$u20$as$u20$core..convert..From$LT$alloc..string..FromUtf8Error$GT$$GT$4from17h27678fa62b89096aE"(ptr noalias nocapture noundef writeonly sret({ [32 x i8], i8, [7 x i8] }) align 8 dereferenceable(40) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(40) %1) unnamed_addr #8 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   ret void
 }

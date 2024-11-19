@@ -14,7 +14,7 @@ define hidden noundef i64 @pm_buffer_sizeof() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @pm_buffer_init_capacity(ptr nocapture noundef writeonly initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @pm_buffer_init_capacity(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %1, ptr %3, align 8
@@ -29,7 +29,7 @@ define hidden noundef zeroext i1 @pm_buffer_init_capacity(ptr nocapture noundef 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @pm_buffer_init(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @pm_buffer_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #1 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 1024, ptr %2, align 8
@@ -1405,7 +1405,7 @@ pm_buffer_append.exit:                            ; preds = %25, %20, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden void @pm_buffer_clear(ptr nocapture noundef writeonly initializes((0, 8)) %0) local_unnamed_addr #8 {
+define hidden void @pm_buffer_clear(ptr nocapture noundef writeonly %0) local_unnamed_addr #8 {
   store i64 0, ptr %0, align 8
   ret void
 }

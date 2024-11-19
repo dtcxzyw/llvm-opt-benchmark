@@ -5639,7 +5639,7 @@ _ZN8QuantLib10InstrumentD2Ev.exit:                ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9AssetSwapC1EbN5boost10shared_ptrINS_4BondEEEdddRKNS2_INS_9IborIndexEEEdRKNS_10DayCounterENS_4DateEb(ptr noundef nonnull align 8 dereferenceable(336) initializes((336, 344), (352, 356), (360, 368)) %this, i1 noundef zeroext %parSwap, ptr nocapture noundef %bond, double noundef %bondCleanPrice, double noundef %nonParRepayment, double noundef %gearing, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %iborIndex, double noundef %spread, ptr noundef nonnull align 8 dereferenceable(16) %floatingDayCounter, i64 %dealMaturity.coerce, i1 noundef zeroext %payBondCoupon) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9AssetSwapC1EbN5boost10shared_ptrINS_4BondEEEdddRKNS2_INS_9IborIndexEEEdRKNS_10DayCounterENS_4DateEb(ptr noundef nonnull align 8 dereferenceable(336) %this, i1 noundef zeroext %parSwap, ptr nocapture noundef %bond, double noundef %bondCleanPrice, double noundef %nonParRepayment, double noundef %gearing, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %iborIndex, double noundef %spread, ptr noundef nonnull align 8 dereferenceable(16) %floatingDayCounter, i64 %dealMaturity.coerce, i1 noundef zeroext %payBondCoupon) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %dealMaturity = alloca %"class.QuantLib::Date", align 8
   %tempSch = alloca %"class.QuantLib::Schedule", align 8
@@ -12206,7 +12206,7 @@ unreachable:                                      ; preds = %invoke.cont402, %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9AssetSwapC1EbN5boost10shared_ptrINS_4BondEEEdRKNS2_INS_9IborIndexEEEdNS_8ScheduleERKNS_10DayCounterEb(ptr noundef nonnull align 8 dereferenceable(336) initializes((336, 344), (352, 356), (360, 368)) %this, i1 noundef zeroext %payBondCoupon, ptr nocapture noundef %bond, double noundef %bondCleanPrice, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %iborIndex, double noundef %spread, ptr nocapture noundef %floatSchedule, ptr noundef nonnull align 8 dereferenceable(16) %floatingDayCounter, i1 noundef zeroext %parSwap) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9AssetSwapC1EbN5boost10shared_ptrINS_4BondEEEdRKNS2_INS_9IborIndexEEEdNS_8ScheduleERKNS_10DayCounterEb(ptr noundef nonnull align 8 dereferenceable(336) %this, i1 noundef zeroext %payBondCoupon, ptr nocapture noundef %bond, double noundef %bondCleanPrice, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %iborIndex, double noundef %spread, ptr nocapture noundef %floatSchedule, ptr noundef nonnull align 8 dereferenceable(16) %floatingDayCounter, i1 noundef zeroext %parSwap) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %schedule = alloca %"class.QuantLib::Schedule", align 8
   %agg.tmp12 = alloca %"class.QuantLib::Date", align 8

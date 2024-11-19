@@ -713,7 +713,7 @@ define dso_local void @skcipher_walk_complete(ptr noundef readonly %0, i32 nound
 declare dso_local void @scatterwalk_copychunks(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skcipher_walk_virt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local i32 @skcipher_walk_virt(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 512
@@ -738,7 +738,7 @@ define dso_local i32 @skcipher_walk_virt(ptr noundef initializes((48, 52), (72, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @skcipher_walk_skcipher(ptr noundef %0, ptr nocapture noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 64
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr i8, ptr %4, i64 24
@@ -858,7 +858,7 @@ define dso_local i32 @skcipher_walk_async(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skcipher_walk_aead_encrypt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local i32 @skcipher_walk_aead_encrypt(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 72
@@ -868,7 +868,7 @@ define dso_local i32 @skcipher_walk_aead_encrypt(ptr noundef initializes((48, 52
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((48, 52), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
@@ -1034,7 +1034,7 @@ define internal fastcc i32 @skcipher_walk_aead_common(ptr noundef initializes((4
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skcipher_walk_aead_decrypt(ptr noundef initializes((48, 52), (72, 76), (112, 128)) %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
+define dso_local i32 @skcipher_walk_aead_decrypt(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 -8
@@ -1318,7 +1318,7 @@ define dso_local i32 @crypto_skcipher_import(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @crypto_grab_skcipher(ptr noundef initializes((32, 40)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local i32 @crypto_grab_skcipher(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @crypto_skcipher_type, ptr %6, align 8
   %7 = tail call i32 @crypto_grab_spawn(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) #9
@@ -2029,7 +2029,7 @@ define internal fastcc i32 @skcipher_next_slow(ptr noundef %0, i32 noundef %1) u
 declare dso_local i64 @__get_free_pages(i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_next_copy(ptr noundef initializes((8, 16), (24, 32)) %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_next_copy(ptr noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2124,7 +2124,7 @@ declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed
 declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_copy_iv(ptr nocapture noundef initializes((104, 112)) %0) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @skcipher_copy_iv(ptr nocapture noundef %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 128

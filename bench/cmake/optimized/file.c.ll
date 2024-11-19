@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [25 x i8] c"Can't get the size of %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 28) i32 @file_setup_connection(ptr nocapture noundef writeonly initializes((384, 392)) %0, ptr nocapture readnone %1) #0 {
+define internal range(i32 0, 28) i32 @file_setup_connection(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #0 {
   %3 = load ptr, ptr @Curl_ccalloc, align 8
   %4 = tail call ptr %3(i64 noundef 1, i64 noundef 24) #9
   %5 = getelementptr inbounds i8, ptr %0, i64 384
@@ -37,7 +37,7 @@ define internal range(i32 0, 28) i32 @file_setup_connection(ptr nocapture nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @file_do(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #0 {
+define internal i32 @file_do(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca [8192 x i8], align 16
   %4 = alloca %struct.stat, align 8
   %5 = alloca i64, align 8

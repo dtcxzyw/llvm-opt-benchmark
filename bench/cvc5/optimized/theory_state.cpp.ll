@@ -144,7 +144,7 @@ declare noundef ptr @_ZNK4cvc58internal6EnvObj7contextEv(ptr noundef nonnull ali
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11TheoryState17setEqualityEngineEPNS1_2eq14EqualityEngineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((24, 32)) %this, ptr noundef %ee) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory11TheoryState17setEqualityEngineEPNS1_2eq14EqualityEngineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this, ptr noundef %ee) local_unnamed_addr #5 align 2 {
 entry:
   %d_ee = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %ee, ptr %d_ee, align 8

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @nghttp2_ratelim_init(ptr nocapture noundef writeonly initializes((0, 32)) %rl, i64 noundef %burst, i64 noundef %rate) local_unnamed_addr #0 {
+define hidden void @nghttp2_ratelim_init(ptr nocapture noundef writeonly %rl, i64 noundef %burst, i64 noundef %rate) local_unnamed_addr #0 {
 entry:
   store i64 %burst, ptr %rl, align 8
   %val = getelementptr inbounds i8, ptr %rl, i64 16

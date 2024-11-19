@@ -209,7 +209,7 @@ _ZN4cvc58internal6theory5arith2nl12Interleaving6BranchD2Ev.exit5: ; preds = %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith2nl12Interleaving12resetCounterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 8)) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith2nl12Interleaving12resetCounterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) local_unnamed_addr #5 align 2 {
 entry:
   store i64 0, ptr %this, align 8
   ret void

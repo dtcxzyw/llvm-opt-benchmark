@@ -518,7 +518,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexMatcherC2EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 24), (56, 60), (64, 131), (136, 170), (184, 192), (264, 312), (313, 314), (316, 320)) %this, ptr noundef %pat) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexMatcherC2EPKNS_12RegexPatternE(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %pat) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
   %fDeferredStatus = getelementptr inbounds i8, ptr %this, i64 316
@@ -594,7 +594,7 @@ invoke.cont9:                                     ; preds = %if.end7, %if.then5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7512RegexMatcher4initER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) initializes((8, 24), (56, 60), (64, 131), (136, 170), (176, 192), (264, 312), (313, 314), (316, 320)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) local_unnamed_addr #7 align 2 {
+define void @_ZN6icu_7512RegexMatcher4initER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %status) local_unnamed_addr #7 align 2 {
 entry:
   %fPattern = getelementptr inbounds i8, ptr %this, i64 8
   %fFrameSize = getelementptr inbounds i8, ptr %this, i64 56
@@ -783,7 +783,7 @@ if.end23:                                         ; preds = %if.then21, %_ZN6icu
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexMatcherC2ERKNS_13UnicodeStringES3_jR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 24), (56, 60), (64, 131), (136, 170), (176, 192), (264, 312), (313, 314), (316, 320)) %this, ptr noundef nonnull align 8 dereferenceable(64) %regexp, ptr noundef nonnull align 8 dereferenceable(64) %input, i32 noundef %flags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexMatcherC2ERKNS_13UnicodeStringES3_jR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(64) %regexp, ptr noundef nonnull align 8 dereferenceable(64) %input, i32 noundef %flags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pe = alloca %struct.UParseError, align 4
   %inputText = alloca %struct.UText, align 8
@@ -886,7 +886,7 @@ declare ptr @utext_openConstUnicodeString_75(ptr noundef, ptr noundef, ptr nound
 declare ptr @utext_close_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexMatcherC2EP5UTextS2_jR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 24), (56, 60), (64, 131), (136, 170), (176, 192), (264, 312), (313, 314), (316, 320)) %this, ptr noundef %regexp, ptr noundef %input, i32 noundef %flags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexMatcherC2EP5UTextS2_jR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %regexp, ptr noundef %input, i32 noundef %flags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pe = alloca %struct.UParseError, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
@@ -970,7 +970,7 @@ invoke.cont11:                                    ; preds = %invoke.cont3, %entr
 declare noundef ptr @_ZN6icu_7512RegexPattern7compileEP5UTextjR11UParseErrorR10UErrorCode(ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(72), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexMatcherC2ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 24), (56, 60), (64, 131), (136, 170), (176, 192), (264, 312), (313, 314), (316, 320)) %this, ptr noundef nonnull align 8 dereferenceable(64) %regexp, i32 noundef %flags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexMatcherC2ERKNS_13UnicodeStringEjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(64) %regexp, i32 noundef %flags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pe = alloca %struct.UParseError, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
@@ -1055,7 +1055,7 @@ invoke.cont11:                                    ; preds = %invoke.cont3, %entr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexMatcherC2EP5UTextjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 24), (56, 60), (64, 131), (136, 170), (176, 192), (264, 312), (313, 314), (316, 320)) %this, ptr noundef %regexp, i32 noundef %flags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexMatcherC2EP5UTextjR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef %regexp, i32 noundef %flags, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pe = alloca %struct.UParseError, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512RegexMatcherE, i64 16), ptr %this, align 8
@@ -10420,7 +10420,7 @@ return:                                           ; preds = %entry, %if.end13, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEv(ptr noundef nonnull returned align 8 dereferenceable(336) initializes((64, 128), (130, 131), (136, 170), (268, 276)) %this) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher5resetEv(ptr noundef nonnull returned align 8 dereferenceable(336) %this) unnamed_addr #7 align 2 {
 entry:
   %fRegionStart = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %fRegionStart, align 8
@@ -14114,14 +14114,14 @@ eh.resume:                                        ; preds = %lpad1649.loopexit, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7512RegexMatcher5groupER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define void @_ZNK6icu_7512RegexMatcher5groupER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZNK6icu_7512RegexMatcher5groupEiR10UErrorCode(ptr sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7512RegexMatcher5groupEiR10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, i32 noundef %groupNum, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7512RegexMatcher5groupEiR10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, i32 noundef %groupNum, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513UnicodeStringE, i64 16), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -14263,14 +14263,14 @@ nrvo.skipdtor:                                    ; preds = %nrvo.skipdtor.sink.
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7512RegexMatcher5groupEP5UTextRlR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, ptr noundef %dest, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %group_len, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK6icu_7512RegexMatcher5groupEP5UTextRlR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, ptr noundef %dest, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %group_len, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef ptr @_ZNK6icu_7512RegexMatcher5groupEiP5UTextRlR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(336) %this, i32 noundef 0, ptr noundef %dest, ptr noundef nonnull align 8 dereferenceable(8) %group_len, ptr noundef nonnull align 4 dereferenceable(4) %status)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7512RegexMatcher5groupEiP5UTextRlR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, i32 noundef %groupNum, ptr noundef %dest, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %group_len, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK6icu_7512RegexMatcher5groupEiP5UTextRlR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(336) %this, i32 noundef %groupNum, ptr noundef %dest, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %group_len, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   store i64 0, ptr %group_len, align 8
   %0 = load i32, ptr %status, align 4
@@ -14877,7 +14877,7 @@ return:                                           ; preds = %entry, %if.end29, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7512RegexMatcher19resetPreserveRegionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) initializes((130, 131), (136, 170), (268, 276)) %this) local_unnamed_addr #14 align 2 {
+define void @_ZN6icu_7512RegexMatcher19resetPreserveRegionEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) %this) local_unnamed_addr #14 align 2 {
 entry:
   %fMatchStart = getelementptr inbounds i8, ptr %this, i64 136
   %fLastMatchEnd = getelementptr inbounds i8, ptr %this, i64 152
@@ -15713,7 +15713,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexMatcher10replaceAllERKNS_13UnicodeStringER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(64) %replacement, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexMatcher10replaceAllERKNS_13UnicodeStringER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(64) %replacement, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %replacementText = alloca %struct.UText, align 8
   %resultText = alloca %struct.UText, align 8
@@ -15888,7 +15888,7 @@ return:                                           ; preds = %if.end13, %while.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexMatcher12replaceFirstERKNS_13UnicodeStringER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(64) %replacement, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7512RegexMatcher12replaceFirstERKNS_13UnicodeStringER10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(336) %this, ptr noundef nonnull align 8 dereferenceable(64) %replacement, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %replacementText = alloca %struct.UText, align 8
   %resultText = alloca %struct.UText, align 8
@@ -16285,7 +16285,7 @@ return:                                           ; preds = %if.end17, %if.end29
 declare i64 @utext_getNativeIndex_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7512RegexMatcher8setTraceEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) initializes((313, 314)) %this, i8 noundef signext %state) local_unnamed_addr #14 align 2 {
+define void @_ZN6icu_7512RegexMatcher8setTraceEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) %this, i8 noundef signext %state) local_unnamed_addr #14 align 2 {
 entry:
   %fTraceDebug = getelementptr inbounds i8, ptr %this, i64 313
   store i8 %state, ptr %fTraceDebug, align 1
@@ -17254,7 +17254,7 @@ _ZNK6icu_7512RegexMatcher7start64EiR10UErrorCode.exit: ; preds = %entry, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher18useAnchoringBoundsEa(ptr noundef nonnull returned align 8 dereferenceable(336) initializes((80, 88), (129, 130)) %this, i8 noundef signext %b) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher18useAnchoringBoundsEa(ptr noundef nonnull returned align 8 dereferenceable(336) %this, i8 noundef signext %b) unnamed_addr #7 align 2 {
 entry:
   %fAnchoringBounds = getelementptr inbounds i8, ptr %this, i64 129
   store i8 %b, ptr %fAnchoringBounds, align 1
@@ -17273,7 +17273,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher20useTransparentBoundsEa(ptr noundef nonnull returned align 8 dereferenceable(336) initializes((96, 104), (128, 129)) %this, i8 noundef signext %b) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(336) ptr @_ZN6icu_7512RegexMatcher20useTransparentBoundsEa(ptr noundef nonnull returned align 8 dereferenceable(336) %this, i8 noundef signext %b) unnamed_addr #7 align 2 {
 entry:
   %fTransparentBounds = getelementptr inbounds i8, ptr %this, i64 128
   store i8 %b, ptr %fTransparentBounds, align 8
@@ -17948,7 +17948,7 @@ return:                                           ; preds = %if.then, %if.end7
 declare noundef ptr @_ZN6icu_7513BreakIterator23createCharacterInstanceERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7512RegexMatcher13IncrementTimeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((272, 276)) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512RegexMatcher13IncrementTimeER10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(336) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %fTickCounter = getelementptr inbounds i8, ptr %this, i64 272
   store i32 10000, ptr %fTickCounter, align 8

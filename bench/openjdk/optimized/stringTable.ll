@@ -2802,7 +2802,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE149ELS1_0ELS1_0ELS1_
 declare void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringTable20get_table_statisticsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.TableStatistics) align 8 initializes((0, 96)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN11StringTable20get_table_statisticsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.TableStatistics) align 8 %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %struct.SizeFunc, align 1
   %3 = alloca %class.TableStatistics, align 8
   %4 = alloca %class.TableStatistics, align 8
@@ -3427,7 +3427,7 @@ _ZNK16CompactHashtableIPKtP7oopDescXadL_ZN11StringTable34read_string_from_compac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15StringtableDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 17), (24, 91)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15StringtableDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8

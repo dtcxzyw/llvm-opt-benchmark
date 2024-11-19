@@ -55,7 +55,7 @@ $_ZN20b3AlignedObjectArrayIiE7reserveEi = comdat any
 @_ZN24btInverseDynamicsBullet313MultiBodyTreeD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN24btInverseDynamicsBullet313MultiBodyTreeD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTreeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 3), (8, 24)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTreeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
   %m_mass_parameters_are_valid = getelementptr inbounds i8, ptr %this, i64 1
@@ -641,7 +641,7 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet311InertiaDataEED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree30setAcceptInvalidMassParametersEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((2, 3)) %this, i1 noundef zeroext %flag) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree30setAcceptInvalidMassParametersEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i1 noundef zeroext %flag) local_unnamed_addr #3 align 2 {
 entry:
   %frombool = zext i1 %flag to i8
   %m_accept_invalid_mass_parameters = getelementptr inbounds i8, ptr %this, i64 2

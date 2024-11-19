@@ -453,7 +453,7 @@ highbd_clip_pixel_add.exit:                       ; preds = %4, %highbd_clip_pix
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @av1_get_inv_txfm_cfg(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 1), (4, 12), (16, 60)) %2) local_unnamed_addr #1 {
+define hidden void @av1_get_inv_txfm_cfg(i8 noundef zeroext %0, i8 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   store i8 %1, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 26
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 38

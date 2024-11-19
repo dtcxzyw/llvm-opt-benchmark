@@ -3532,7 +3532,7 @@ if.end:                                           ; preds = %_ZN6Assimp12CopyNex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp18ObjFileMtlImporter12getColorRGBAERNS_5MaybeI9aiColor3DEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(13) initializes((0, 13)) %value) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6Assimp18ObjFileMtlImporter12getColorRGBAERNS_5MaybeI9aiColor3DEE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(13) %value) local_unnamed_addr #0 align 2 {
 entry:
   %v = alloca %struct.aiColor3D, align 4
   store float 0.000000e+00, ptr %v, align 4

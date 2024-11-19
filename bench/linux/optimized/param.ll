@@ -136,7 +136,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [33 x ptr] [ptr @__UNIQUE_ID_CrcStripping727, ptr @__UNIQUE_ID_CrcStrippingtype726, ptr @__UNIQUE_ID_IntMode719, ptr @__UNIQUE_ID_IntModetype718, ptr @__UNIQUE_ID_InterruptThrottleRate717, ptr @__UNIQUE_ID_InterruptThrottleRatetype716, ptr @__UNIQUE_ID_KumeranLockLoss723, ptr @__UNIQUE_ID_KumeranLockLosstype722, ptr @__UNIQUE_ID_RxAbsIntDelay715, ptr @__UNIQUE_ID_RxAbsIntDelaytype714, ptr @__UNIQUE_ID_RxIntDelay713, ptr @__UNIQUE_ID_RxIntDelaytype712, ptr @__UNIQUE_ID_SmartPowerDownEnable721, ptr @__UNIQUE_ID_SmartPowerDownEnabletype720, ptr @__UNIQUE_ID_TxAbsIntDelay711, ptr @__UNIQUE_ID_TxAbsIntDelaytype710, ptr @__UNIQUE_ID_TxIntDelay709, ptr @__UNIQUE_ID_TxIntDelaytype708, ptr @__UNIQUE_ID_WriteProtectNVM725, ptr @__UNIQUE_ID_WriteProtectNVMtype724, ptr @__UNIQUE_ID_copybreak707, ptr @__UNIQUE_ID_copybreaktype706, ptr @__param_CrcStripping, ptr @__param_IntMode, ptr @__param_InterruptThrottleRate, ptr @__param_KumeranLockLoss, ptr @__param_RxAbsIntDelay, ptr @__param_RxIntDelay, ptr @__param_SmartPowerDownEnable, ptr @__param_TxAbsIntDelay, ptr @__param_TxIntDelay, ptr @__param_WriteProtectNVM, ptr @__param_copybreak], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @e1000e_check_options(ptr noundef initializes((1204, 1208)) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @e1000e_check_options(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4

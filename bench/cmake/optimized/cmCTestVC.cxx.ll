@@ -135,7 +135,7 @@ declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dere
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN9cmCTestVCC2EP7cmCTestRSo(ptr noundef nonnull align 8 dereferenceable(388) initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN9cmCTestVCC2EP7cmCTestRSo(ptr noundef nonnull align 8 dereferenceable(388) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9cmCTestVC, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -224,7 +224,7 @@ define linkonce_odr dso_local void @_ZN9cmCTestVC8RevisionD2Ev(ptr noundef nonnu
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9cmCTestVCD2Ev(ptr noundef nonnull align 8 dereferenceable(388) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN9cmCTestVCD2Ev(ptr noundef nonnull align 8 dereferenceable(388) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9cmCTestVC, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 344
@@ -252,7 +252,7 @@ define dso_local void @_ZN9cmCTestVCD2Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN9cmCTestVCD0Ev(ptr noundef nonnull align 8 dereferenceable(388) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN9cmCTestVCD0Ev(ptr noundef nonnull align 8 dereferenceable(388) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV9cmCTestVC, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   %3 = getelementptr inbounds i8, ptr %0, i64 344

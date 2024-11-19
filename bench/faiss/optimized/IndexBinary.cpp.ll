@@ -562,7 +562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 26), (28, 32)) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss11IndexBinaryE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

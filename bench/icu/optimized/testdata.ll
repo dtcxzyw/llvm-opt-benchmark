@@ -24,7 +24,7 @@ $__clang_call_terminate = comdat any
 @_ZN10RBTestDataD1Ev = unnamed_addr alias void (ptr), ptr @_ZN10RBTestDataD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8TestDataC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, ptr noundef %testName) unnamed_addr #0 align 2 {
+define void @_ZN8TestDataC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr noundef %testName) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV8TestData, i64 16), ptr %this, align 8
   %name = getelementptr inbounds i8, ptr %this, i64 8
@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8TestDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define void @_ZN8TestDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV8TestData, i64 16), ptr %this, align 8
   %fInfo = getelementptr inbounds i8, ptr %this, i64 16
@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10RBTestDataC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 88)) %this, ptr noundef %testName) unnamed_addr #0 align 2 {
+define void @_ZN10RBTestDataC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %this, ptr noundef %testName) unnamed_addr #0 align 2 {
 entry:
   %name.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %testName, ptr %name.i, align 8
@@ -112,7 +112,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10RBTestDataC2EP15UResourceBundleS1_R10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 88)) %this, ptr noundef %data, ptr noundef %headers, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10RBTestDataC2EP15UResourceBundleS1_R10UErrorCode(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %data, ptr noundef %headers, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %intStatus = alloca i32, align 4
   %call = tail call ptr @ures_getKey_75(ptr noundef %data)
@@ -240,7 +240,7 @@ declare void @_ZN9RBDataMapC1EP15UResourceBundleR10UErrorCode(ptr noundef nonnul
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10RBTestDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10RBTestDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV10RBTestData, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 56
@@ -338,7 +338,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext range(i8 0, 2) i8 @_ZNK10RBTestData7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #11 align 2 {
+define noundef signext range(i8 0, 2) i8 @_ZNK10RBTestData7getInfoERPK7DataMapR10UErrorCode(ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %info, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #11 align 2 {
 entry:
   %fInfo = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %fInfo, align 8

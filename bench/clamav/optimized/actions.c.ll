@@ -343,7 +343,7 @@ define internal void @action_remove(ptr noundef %0) #0 {
 declare noundef i32 @stat(ptr nocapture noundef readonly, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @getdest(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, -2147483648) i32 @getdest(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = tail call noalias ptr @strdup(ptr noundef %0) #11
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %4, label %5

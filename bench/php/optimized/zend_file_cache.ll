@@ -350,7 +350,7 @@ declare noalias ptr @_emalloc(i64 noundef) local_unnamed_addr #6
 declare void @zend_shared_alloc_init_xlat_table() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr noundef nonnull initializes((0, 72)) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_serialize(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   store i64 19501227087974479, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 16 dereferenceable(32) @zend_system_id, i64 32, i1 false)
@@ -5303,7 +5303,7 @@ define internal void @zend_file_cache_serialize_func(ptr nocapture noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef initializes((56, 64), (96, 104)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_serialize_op_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -8327,7 +8327,7 @@ declare i64 @writev(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @zend_shared_alloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_file_cache_unserialize_hash(ptr nocapture noundef initializes((48, 56)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @zend_file_cache_unserialize_hash(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8

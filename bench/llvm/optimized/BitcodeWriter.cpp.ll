@@ -732,7 +732,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13BitcodeWriterC2ERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13BitcodeWriterC2ERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   tail call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(152) %3, ptr noundef nonnull %4, i64 noundef 0) #27
@@ -955,7 +955,7 @@ _ZN4llvm15BitstreamWriter4EmitEjj.exit25:         ; preds = %_ZN4llvm15Bitstream
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm13BitcodeWriterC2ERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm13BitcodeWriterC2ERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #0 align 2 {
   %3 = tail call noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #28
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL14FlushThreshold, i64 128), align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -13116,7 +13116,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 declare void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123ModuleBitcodeWriterBaseC2ERKN4llvm6ModuleERNS1_18StringTableBuilderERNS1_15BitstreamWriterEbPKNS1_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(592) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(38) %2, ptr noundef nonnull align 8 dereferenceable(152) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123ModuleBitcodeWriterBaseC2ERKN4llvm6ModuleERNS1_18StringTableBuilderERNS1_15BitstreamWriterEbPKNS1_18ModuleSummaryIndexE(ptr noundef nonnull align 8 dereferenceable(592) %0, ptr noundef nonnull align 8 dereferenceable(857) %1, ptr noundef nonnull align 8 dereferenceable(38) %2, ptr noundef nonnull align 8 dereferenceable(152) %3, i1 noundef zeroext %4, ptr noundef %5) unnamed_addr #0 align 2 {
   store ptr %3, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8

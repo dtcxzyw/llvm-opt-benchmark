@@ -19473,7 +19473,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly8LoggerDB24buildCategoryHandlerListERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_10LogHandlerEESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_SA_EEENS_5RangeIPKcEERKSt6vectorIS7_SaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.168") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(56) %handlerMap, ptr %categoryName.coerce0, ptr %categoryName.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %categoryHandlerNames) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly8LoggerDB24buildCategoryHandlerListERKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS_10LogHandlerEESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_SA_EEENS_5RangeIPKcEERKSt6vectorIS7_SaIS7_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.168") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull align 8 dereferenceable(56) %handlerMap, ptr %categoryName.coerce0, ptr %categoryName.coerce1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %categoryHandlerNames) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %categoryName = alloca %"class.folly::Range", align 8
   %ref.tmp13 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -559,7 +559,7 @@ define range(i32 -1, 1) i32 @H5G_loc_find_by_idx(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__loc_find_by_idx_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #0 {
+define internal range(i32 -1, 1) i32 @H5G__loc_find_by_idx_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca %struct.H5O_link_t, align 8
   %8 = alloca i8, align 1
   store i8 0, ptr %8, align 1
@@ -773,7 +773,7 @@ define range(i32 -1, 1) i32 @H5G__loc_addr(ptr noundef %0, ptr noundef %1, ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5G__loc_addr_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #2 {
+define internal noundef i32 @H5G__loc_addr_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) #2 {
   %7 = icmp eq ptr %3, null
   br i1 %7, label %12, label %8
 
@@ -812,7 +812,7 @@ define range(i32 -1, 1) i32 @H5G_loc_info(ptr noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__loc_info_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #0 {
+define internal range(i32 -1, 1) i32 @H5G__loc_info_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = icmp eq ptr %3, null
   br i1 %7, label %8, label %12
 
@@ -865,7 +865,7 @@ define range(i32 -1, 1) i32 @H5G_loc_native_info(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__loc_native_info_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #0 {
+define internal range(i32 -1, 1) i32 @H5G__loc_native_info_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = icmp eq ptr %3, null
   br i1 %7, label %8, label %12
 
@@ -916,7 +916,7 @@ define range(i32 -1, 1) i32 @H5G_loc_set_comment(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__loc_set_comment_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #0 {
+define internal range(i32 -1, 1) i32 @H5G__loc_set_comment_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca %struct.H5O_name_t, align 8
   store i64 0, ptr %7, align 8
   %8 = icmp eq ptr %3, null
@@ -1031,7 +1031,7 @@ define range(i32 -1, 1) i32 @H5G_loc_get_comment(ptr noundef %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__loc_get_comment_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) #0 {
+define internal range(i32 -1, 1) i32 @H5G__loc_get_comment_cb(ptr nocapture readnone %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr noundef readonly %3, ptr nocapture noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca %struct.H5O_name_t, align 8
   %8 = icmp eq ptr %3, null
   br i1 %8, label %9, label %13

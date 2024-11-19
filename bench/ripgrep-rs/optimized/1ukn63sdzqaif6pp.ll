@@ -200,7 +200,7 @@ _ZN12regex_syntax3hir3Hir7literal17he9262638b22c6425E.exit: ; preds = %34, %.noe
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h08196c12e3a78679E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i32 %.0.val) unnamed_addr #0 {
+define internal fastcc void @"_ZN48_$LT$char$u20$as$u20$alloc..string..ToString$GT$9to_string17h08196c12e3a78679E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 %.0.val) unnamed_addr #0 {
   %.sroa.0 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %.sroa.0)
   store i32 0, ptr %.sroa.0, align 4

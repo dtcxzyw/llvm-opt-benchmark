@@ -61327,7 +61327,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev20DisplayViewTransformELN9__gnu_cxx12_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_17ExponentTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_17ExponentTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -63347,7 +63347,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev17ExponentTransformELN9__gnu_cxx12_Loc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_27ExponentWithLinearTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_27ExponentWithLinearTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -65966,7 +65966,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev27ExponentWithLinearTransformELN9__gnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_25ExposureContrastTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_25ExposureContrastTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -68099,7 +68099,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev25ExposureContrastTransformELN9__gnu_c
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_13FileTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_13FileTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i312 = alloca %"class.std::__cxx11::basic_string", align 8
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -69768,7 +69768,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev13FileTransformELN9__gnu_cxx12_Lock_po
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_22FixedFunctionTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_22FixedFunctionTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -71466,7 +71466,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev22FixedFunctionTransformELN9__gnu_cxx1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_23GradingPrimaryTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_23GradingPrimaryTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -74493,7 +74493,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev23GradingPrimaryTransformELN9__gnu_cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_24GradingRGBCurveTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_24GradingRGBCurveTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -79108,7 +79108,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev24GradingRGBCurveTransformELN9__gnu_cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_20GradingToneTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_20GradingToneTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -81901,7 +81901,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev20GradingToneTransformELN9__gnu_cxx12_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_14GroupTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_14GroupTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i355 = alloca %"struct.YAML::detail::iterator_value", align 8
@@ -85293,7 +85293,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev14GroupTransformELN9__gnu_cxx12_Lock_p
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_18LogAffineTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_18LogAffineTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -87399,7 +87399,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev18LogAffineTransformELN9__gnu_cxx12_Lo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_18LogCameraTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_18LogCameraTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -89755,7 +89755,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev18LogCameraTransformELN9__gnu_cxx12_Lo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_12LogTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_12LogTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -91466,7 +91466,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev12LogTransformELN9__gnu_cxx12_Lock_pol
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_13LookTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_13LookTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -93048,7 +93048,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev13LookTransformELN9__gnu_cxx12_Lock_po
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_15MatrixTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_15MatrixTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8
@@ -94904,7 +94904,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev15MatrixTransformELN9__gnu_cxx12_Lock_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_14RangeTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_14loadERKN4YAML4NodeERSt10shared_ptrINS_14RangeTransformEE(ptr noundef nonnull align 8 dereferenceable(64) %node, ptr nocapture noundef nonnull align 8 dereferenceable(16) %t) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %str.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp.i = alloca %"struct.YAML::as_if", align 8

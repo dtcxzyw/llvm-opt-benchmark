@@ -52,7 +52,7 @@ $__clang_call_terminate = comdat any
 @_ZN8QuantLib10ConstraintC1EN5boost10shared_ptrINS0_4ImplEEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN8QuantLib10ConstraintC2EN5boost10shared_ptrINS0_4ImplEEE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib10ConstraintC2EN5boost10shared_ptrINS0_4ImplEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef %impl) unnamed_addr #0 align 2 {
+define void @_ZN8QuantLib10ConstraintC2EN5boost10shared_ptrINS0_4ImplEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef %impl) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %impl, align 8, !tbaa !3
   store ptr %0, ptr %this, align 8, !tbaa !3

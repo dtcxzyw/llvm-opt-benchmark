@@ -294,7 +294,7 @@ $_ZTIZZN5ceres8internal14ParallelInvokeIZNS0_14ParallelAssignIN5Eigen6MatrixIdLi
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal20TrustRegionMinimizer8MinimizeERKNS0_9Minimizer7OptionsEPdPNS_6Solver7SummaryE(ptr noundef nonnull align 8 dereferenceable(784) initializes((760, 776)) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal20TrustRegionMinimizer8MinimizeERKNS0_9Minimizer7OptionsEPdPNS_6Solver7SummaryE(ptr noundef nonnull align 8 dereferenceable(784) %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.google::LogMessage", align 8
   %7 = alloca %"class.google::LogMessage", align 8
@@ -873,7 +873,7 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSINS_14CwiseNullaryOpINS_8internal18sc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer13IterationZeroEv(ptr noundef nonnull align 8 dereferenceable(784) initializes((416, 536)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer13IterationZeroEv(ptr noundef nonnull align 8 dereferenceable(784) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 416
   %3 = getelementptr inbounds i8, ptr %0, i64 420
   %4 = getelementptr inbounds i8, ptr %0, i64 422
@@ -1257,7 +1257,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer22ComputeTrustRegionStepEv(ptr noundef nonnull align 8 dereferenceable(784) initializes((420, 421)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer22ComputeTrustRegionStepEv(ptr noundef nonnull align 8 dereferenceable(784) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.ceres::internal::TrustRegionStrategy::PerSolveOptions", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2119,7 +2119,7 @@ define hidden void @_ZN5ceres8internal20TrustRegionMinimizer36ComputeCandidatePo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5ceres8internal20TrustRegionMinimizer25DoInnerIterationsIfNeededEv(ptr noundef nonnull align 8 dereferenceable(784) initializes((410, 411)) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5ceres8internal20TrustRegionMinimizer25DoInnerIterationsIfNeededEv(ptr noundef nonnull align 8 dereferenceable(784) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.ceres::internal::Evaluator::EvaluateOptions", align 2
   %3 = alloca %"struct.ceres::Solver::Summary", align 8
   %4 = alloca double, align 8
@@ -2752,7 +2752,7 @@ _ZNK5Eigen10MatrixBaseINS_13CwiseBinaryOpINS_8internal20scalar_difference_opIddE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer24FunctionToleranceReachedEv(ptr nocapture noundef nonnull align 8 dereferenceable(784) initializes((432, 440)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer24FunctionToleranceReachedEv(ptr nocapture noundef nonnull align 8 dereferenceable(784) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.google::LogMessage", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 728
@@ -2829,7 +2829,7 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer24Func
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer16IsStepSuccessfulEv(ptr nocapture noundef nonnull align 8 dereferenceable(784) initializes((464, 472)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN5ceres8internal20TrustRegionMinimizer16IsStepSuccessfulEv(ptr nocapture noundef nonnull align 8 dereferenceable(784) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 400
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 752

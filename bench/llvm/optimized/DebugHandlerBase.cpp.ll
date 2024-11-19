@@ -445,7 +445,7 @@ _ZN4llvm19DbgVariableLocationD2Ev.exit:           ; preds = %.loopexit, %129
 declare noundef ptr @_ZNK4llvm12MachineInstr18getDebugExpressionEv(ptr noundef nonnull align 8 dereferenceable(70)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DebugHandlerBaseC2EPNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 80)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16DebugHandlerBaseC2EPNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm16DebugHandlerBaseE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
@@ -511,7 +511,7 @@ define dso_local void @_ZN4llvm16DebugHandlerBaseC2EPNS_10AsmPrinterE(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DebugHandlerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(480) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16DebugHandlerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm16DebugHandlerBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %3 = load ptr, ptr %2, align 8
@@ -2116,7 +2116,7 @@ switch.hole_check48:                              ; preds = %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DebugHandlerBase13beginFunctionEPKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(480) initializes((40, 48)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16DebugHandlerBase13beginFunctionEPKNS_15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"struct.std::pair.411", align 8
   %4 = alloca %"struct.std::pair.411", align 8
   %5 = alloca %"struct.std::pair.411", align 8
@@ -3569,7 +3569,7 @@ _ZN4llvm19InstructionOrdering5clearEv.exit:       ; preds = %_ZN4llvm12DenseMapB
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DebugHandlerBase22beginBasicBlockSectionERKNS_17MachineBasicBlockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) initializes((56, 64)) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16DebugHandlerBase22beginBasicBlockSectionERKNS_17MachineBasicBlockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) %0, ptr noundef nonnull align 8 dereferenceable(288) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %3, align 8
   %4 = tail call noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock12isEntryBlockEv(ptr noundef nonnull align 8 dereferenceable(288) %1) #16
@@ -3590,7 +3590,7 @@ declare noundef zeroext i1 @_ZNK4llvm17MachineBasicBlock12isEntryBlockEv(ptr nou
 declare noundef ptr @_ZNK4llvm17MachineBasicBlock9getSymbolEv(ptr noundef nonnull align 8 dereferenceable(288)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm16DebugHandlerBase20endBasicBlockSectionERKNS_17MachineBasicBlockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) initializes((32, 40)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(288) %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN4llvm16DebugHandlerBase20endBasicBlockSectionERKNS_17MachineBasicBlockE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(480) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(288) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr null, ptr %3, align 8
   ret void

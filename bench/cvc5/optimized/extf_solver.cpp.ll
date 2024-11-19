@@ -1196,7 +1196,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; pre
 declare void @_ZN4cvc58internal6theory7strings17StringsPreprocessD1Ev(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory7strings10ExtfSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8), (352, 360)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings10ExtfSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory7strings10ExtfSolverE, i64 16), ptr %this, align 8
   %d_reduced = getelementptr inbounds i8, ptr %this, i64 352
@@ -1390,7 +1390,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit21: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory7strings10ExtfSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8), (352, 360)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory7strings10ExtfSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory7strings10ExtfSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #26

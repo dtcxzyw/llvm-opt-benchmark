@@ -134,7 +134,7 @@ $_ZZNSt8__detail18__to_chars_10_implImEEvPcjT_E8__digits = comdat any
 @_ZN7rocksdb25RandomTransactionInserterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb25RandomTransactionInserterD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25RandomTransactionInserterC2EPNS_8Random64ERKNS_12WriteOptionsERKNS_11ReadOptionsEmtmm(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 184)) %this, ptr noundef %rand, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %write_options, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i64 noundef %num_keys, i16 noundef zeroext %num_sets, i64 noundef %cmt_delay_ms, i64 noundef %first_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25RandomTransactionInserterC2EPNS_8Random64ERKNS_12WriteOptionsERKNS_11ReadOptionsEmtmm(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef %rand, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %write_options, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i64 noundef %num_keys, i16 noundef zeroext %num_sets, i64 noundef %cmt_delay_ms, i64 noundef %first_id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %rand, ptr %this, align 8
   %write_options_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1873,7 +1873,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25RandomTransactionInserter5DBGetEPNS_2DBEPNS_11TransactionERNS_11ReadOptionsEtmbPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef %db, ptr noundef %txn, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i16 noundef zeroext %set_i, i64 noundef %ikey, i1 noundef zeroext %get_for_update, ptr nocapture noundef writeonly %int_value, ptr noundef %full_key, ptr nocapture noundef writeonly %unexpected_error) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25RandomTransactionInserter5DBGetEPNS_2DBEPNS_11TransactionERNS_11ReadOptionsEtmbPmPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPb(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %db, ptr noundef %txn, ptr noundef nonnull align 8 dereferenceable(154) %read_options, i16 noundef zeroext %set_i, i64 noundef %ikey, i1 noundef zeroext %get_for_update, ptr nocapture noundef writeonly %int_value, ptr noundef %full_key, ptr nocapture noundef writeonly %unexpected_error) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__endptr.i.i = alloca ptr, align 8
   %prefix_buf = alloca [6 x i8], align 1

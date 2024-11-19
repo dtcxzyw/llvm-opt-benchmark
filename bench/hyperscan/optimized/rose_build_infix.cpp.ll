@@ -1803,7 +1803,7 @@ ehcleanup206:                                     ; preds = %ehcleanup204, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue223findCountingMiracleInfoERKNS_7left_idERKSt6vectorIhSaIhEEPhPNS_9CharReachE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stopTable, ptr nocapture noundef writeonly initializes((0, 1)) %cm_count, ptr nocapture noundef initializes((0, 32)) %cm_cr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue223findCountingMiracleInfoERKNS_7left_idERKSt6vectorIhSaIhEEPhPNS_9CharReachE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %stopTable, ptr nocapture noundef writeonly %cm_count, ptr nocapture noundef %cm_cr) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cyclics = alloca %"class.ue2::flat_set", align 8
   %lits = alloca %"class.std::set", align 8

@@ -4200,7 +4200,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %entry, %_ZN5arrow6S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5arrow3ipc7feather15WriteProperties8DefaultsEv(ptr noalias nocapture writeonly sret(%"struct.arrow::ipc::feather::WriteProperties") align 8 initializes((0, 4), (8, 24)) %agg.result) local_unnamed_addr #3 align 2 {
+define void @_ZN5arrow3ipc7feather15WriteProperties8DefaultsEv(ptr noalias nocapture writeonly sret(%"struct.arrow::ipc::feather::WriteProperties") align 8 %agg.result) local_unnamed_addr #3 align 2 {
 entry:
   store i32 3, ptr %agg.result, align 8
   %chunksize.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -16948,7 +16948,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV1D2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV1D2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow3ipc7feather12_GLOBAL__N_18ReaderV1E, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -17177,7 +17177,7 @@ _ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV1D0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV1D0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV1D2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -17215,7 +17215,7 @@ _ZNK5arrow3ipc7feather3fbs6CTable7versionEv.exit: ; preds = %entry, %_ZNK22arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK5arrow3ipc7feather12_GLOBAL__N_18ReaderV16schemaEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.22") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5arrow3ipc7feather12_GLOBAL__N_18ReaderV16schemaEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.22") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %schema_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %schema_, align 8
@@ -24477,7 +24477,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV2D2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV2D2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow3ipc7feather12_GLOBAL__N_18ReaderV2E, i64 16), ptr %this, align 8
   %included_fields.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -24642,7 +24642,7 @@ _ZNSt10shared_ptrIN5arrow2io16RandomAccessFileEED2Ev.exit: ; preds = %_ZNSt10sha
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV2D0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV2D0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5arrow3ipc7feather12_GLOBAL__N_18ReaderV2D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -24656,7 +24656,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define internal void @_ZNK5arrow3ipc7feather12_GLOBAL__N_18ReaderV26schemaEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.22") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK5arrow3ipc7feather12_GLOBAL__N_18ReaderV26schemaEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.22") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(120) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %schema_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %schema_, align 8

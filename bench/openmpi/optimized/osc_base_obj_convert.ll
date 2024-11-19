@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @ompi_op_ddt_map = external local_unnamed_addr global [52 x i32], align 16
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ompi_osc_base_get_primitive_type_info(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define noundef i32 @ompi_osc_base_get_primitive_type_info(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @ompi_datatype_get_single_predefined_type_from_args(ptr noundef %0) #4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6

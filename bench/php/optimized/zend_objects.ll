@@ -38,7 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 @std_object_handlers = external constant %struct._zend_object_handlers, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @zend_object_std_init(ptr noundef initializes((0, 8), (16, 40)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @zend_object_std_init(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   store i32 1, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 8, ptr %3, align 4

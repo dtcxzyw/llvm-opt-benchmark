@@ -355,7 +355,7 @@ _ZN4core4iter6traits8iterator8Iterator5eq_by17h4a15be8a4f56830dE.exit.i.i: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN110_$LT$diesel_migrations..errors..MigrationError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h942e7c856d9176f3E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 16)) %0, ptr noundef nonnull %1) unnamed_addr #1 {
+define void @"_ZN110_$LT$diesel_migrations..errors..MigrationError$u20$as$u20$core..convert..From$LT$std..io..error..Error$GT$$GT$4from17h942e7c856d9176f3E"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noundef nonnull %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store i64 2, ptr %0, align 8

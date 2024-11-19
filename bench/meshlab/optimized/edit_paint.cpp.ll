@@ -1086,7 +1086,7 @@ define linkonce_odr void @_ZN5QHashIP8CVertexOSt4pairIN3vcg6Color4IhEEiEE11delet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15EditPaintPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(704) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15EditPaintPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(704) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15EditPaintPlugin, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV15EditPaintPlugin, i64 192), ptr %2, align 8
@@ -2097,7 +2097,7 @@ declare void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(4
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditPaintPlugin11setToolTypeE8ToolType(ptr noundef nonnull align 8 dereferenceable(704) initializes((480, 488)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define void @_ZN15EditPaintPlugin11setToolTypeE8ToolType(ptr noundef nonnull align 8 dereferenceable(704) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 480
   store i32 %1, ptr %3, align 8
   switch i32 %1, label %10 [
@@ -2300,7 +2300,7 @@ define void @_ZThn16_N15EditPaintPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditPaintPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef nonnull align 8 dereferenceable(704) initializes((584, 596)) %0, ptr nocapture noundef readonly %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef %3) unnamed_addr #10 align 2 {
+define void @_ZN15EditPaintPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef nonnull align 8 dereferenceable(704) %0, ptr nocapture noundef readonly %1, ptr nocapture nonnull readnone align 8 %2, ptr noundef %3) unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 312
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -2429,7 +2429,7 @@ _ZN15EditPaintPlugin14pushInputEventEN6QEvent4TypeE6QPoint6QFlagsIN2Qt16Keyboard
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N15EditPaintPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef initializes((568, 580)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef %3) unnamed_addr #13 align 2 {
+define void @_ZThn16_N15EditPaintPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1288) %2, ptr noundef %3) unnamed_addr #13 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15EditPaintPlugin15mousePressEventEP11QMouseEventR9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(704) %5, ptr noundef %1, ptr nonnull align 8 poison, ptr noundef %3)
   ret void
@@ -3196,7 +3196,7 @@ declare void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN15EditPaintPlugin21setSelectionRenderingEb(ptr noundef nonnull align 8 dereferenceable(704), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15EditPaintPlugin16setBrushSettingsEiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(704) initializes((584, 596)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #18 align 2 {
+define void @_ZN15EditPaintPlugin16setBrushSettingsEiii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(704) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #18 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 584
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 588
@@ -3207,7 +3207,7 @@ define void @_ZN15EditPaintPlugin16setBrushSettingsEiii(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditPaintPlugin8decorateER9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(704) initializes((304, 312)) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15EditPaintPlugin8decorateER9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(704) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %5 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
   %6 = alloca %"class.vcg::GLMeshAttributesInfo::RenderingAtts", align 1
@@ -11329,7 +11329,7 @@ declare void @_ZN8Paintbox15movePixmapDeltaEdd(ptr noundef nonnull align 8 deref
 declare void @_ZN10QUndoStack8endMacroEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define void @_ZThn16_N15EditPaintPlugin8decorateER9MeshModelP6GLArea(ptr noundef initializes((288, 296)) %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2) unnamed_addr #13 align 2 {
+define void @_ZThn16_N15EditPaintPlugin8decorateER9MeshModelP6GLArea(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2) unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN15EditPaintPlugin8decorateER9MeshModelP6GLArea(ptr noundef nonnull align 8 dereferenceable(704) %4, ptr noundef nonnull align 8 dereferenceable(1288) %1, ptr noundef %2)
   ret void

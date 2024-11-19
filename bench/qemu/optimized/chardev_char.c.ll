@@ -274,7 +274,7 @@ declare void @replay_char_write_event_load(ptr noundef, ptr noundef) local_unnam
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @qemu_chr_write_buffer(ptr noundef %s, ptr noundef %buf, i32 noundef %len, ptr nocapture noundef nonnull initializes((0, 4)) %offset, i1 noundef zeroext %write_all) unnamed_addr #0 {
+define internal fastcc i32 @qemu_chr_write_buffer(ptr noundef %s, ptr noundef %buf, i32 noundef %len, ptr nocapture noundef nonnull %offset, i1 noundef zeroext %write_all) unnamed_addr #0 {
 entry:
   %w.i = alloca %struct.QemuCoSleep, align 8
   %call.i = tail call ptr @object_get_class(ptr noundef %s) #13
@@ -1016,7 +1016,7 @@ declare zeroext i1 @qemu_opts_do_parse(ptr noundef, ptr noundef, ptr noundef, pt
 declare void @qemu_opts_del(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qemu_chr_parse_common(ptr noundef %opts, ptr nocapture noundef writeonly initializes((0, 10)) %backend) local_unnamed_addr #0 {
+define dso_local void @qemu_chr_parse_common(ptr noundef %opts, ptr nocapture noundef writeonly %backend) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @qemu_opt_get(ptr noundef %opts, ptr noundef nonnull @.str.59) #13
   %call1 = tail call noalias ptr @g_strdup(ptr noundef %call) #13

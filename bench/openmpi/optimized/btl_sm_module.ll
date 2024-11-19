@@ -659,7 +659,7 @@ mca_smsc_base_has_feature.exit:                   ; preds = %10, %12
 }
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define noundef i32 @mca_btl_sm_free(ptr nocapture readnone %0, ptr noundef initializes((64, 72), (104, 112)) %1) #1 {
+define noundef i32 @mca_btl_sm_free(ptr nocapture readnone %0, ptr noundef %1) #1 {
   %3 = getelementptr inbounds i8, ptr %1, i64 144
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -1045,7 +1045,7 @@ declare i32 @mca_btl_sm_sendi(ptr noundef, ptr noundef, ptr noundef, ptr noundef
 declare void @mca_btl_base_dump(ptr noundef, ptr noundef, i32 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @sm_register_error_cb(ptr nocapture noundef writeonly initializes((568, 576)) %0, ptr noundef %1) #3 {
+define internal noundef i32 @sm_register_error_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 568
   store ptr %1, ptr %3, align 8
   ret i32 0
@@ -1195,7 +1195,7 @@ opal_free_list_get.exit:                          ; preds = %opal_free_list_get_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_btl_sm_endpoint_constructor(ptr noundef initializes((288, 296)) %0) #0 {
+define internal void @mca_btl_sm_endpoint_constructor(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3

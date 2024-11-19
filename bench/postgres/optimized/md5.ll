@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @md5_paddat = internal unnamed_addr constant <{ i8, [63 x i8] }> <{ i8 -128, [63 x i8] zeroinitializer }>, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @pg_md5_init(ptr nocapture noundef writeonly initializes((0, 92)) %0) local_unnamed_addr #0 {
+define dso_local void @pg_md5_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
@@ -669,7 +669,7 @@ define internal fastcc void @md5_calc(ptr nocapture noundef readonly %0, ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @pg_md5_final(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) local_unnamed_addr #4 {
+define dso_local void @pg_md5_final(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8
   %5 = sub i32 64, %4

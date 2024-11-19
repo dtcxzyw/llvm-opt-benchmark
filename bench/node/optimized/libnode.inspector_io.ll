@@ -191,7 +191,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector11InspectorIo5StartESt10shared_ptrINS0_16MainThreadHandleEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_INS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEERKNS_17InspectPublishUidE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %main_thread, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr nocapture noundef readonly %host_port, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %inspect_publish_uid) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9inspector11InspectorIo5StartESt10shared_ptrINS0_16MainThreadHandleEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_INS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEERKNS_17InspectPublishUidE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef readonly %main_thread, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr nocapture noundef readonly %host_port, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %inspect_publish_uid) local_unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr", align 8
   %agg.tmp1 = alloca %"class.std::shared_ptr.2", align 8
@@ -426,7 +426,7 @@ _ZNSt10unique_ptrIN4node9inspector11InspectorIoESt14default_deleteIS2_EED2Ev.exi
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector11InspectorIoC2ESt10shared_ptrINS0_16MainThreadHandleEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_INS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEERKNS_17InspectPublishUidE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 50), (56, 64)) %this, ptr nocapture noundef readonly %main_thread, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr nocapture noundef readonly %host_port, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %inspect_publish_uid) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9inspector11InspectorIoC2ESt10shared_ptrINS0_16MainThreadHandleEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_INS_15ExclusiveAccessINS_8HostPortENS_9MutexBaseINS_16LibuvMutexTraitsEEEEEERKNS_17InspectPublishUidE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr nocapture noundef readonly %main_thread, ptr noundef nonnull align 8 dereferenceable(32) %path, ptr nocapture noundef readonly %host_port, ptr nocapture noundef nonnull readonly align 1 dereferenceable(2) %inspect_publish_uid) unnamed_addr #3 align 2 {
 entry:
   %buffer.i = alloca [8 x i16], align 16
   %uuid.i = alloca [256 x i8], align 16
@@ -2477,7 +2477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node9inspector19InspectorIoDelegate12GetTargetIdsB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::vector.71") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node9inspector19InspectorIoDelegate12GetTargetIdsB5cxx11Ev(ptr noalias nocapture writeonly sret(%"class.std::vector.71") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %target_id_ = getelementptr inbounds i8, ptr %this, i64 160

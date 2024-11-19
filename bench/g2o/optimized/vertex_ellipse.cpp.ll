@@ -299,7 +299,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN3g2o9RobotDataD2Ev(ptr noundef nonnull align 8 dereferenceable(104)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o13VertexEllipseD2Ev(ptr noundef nonnull align 16 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o13VertexEllipseD2Ev(ptr noundef nonnull align 16 dereferenceable(216) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN3g2o13VertexEllipseE, i64 16), ptr %0, align 16
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 16
@@ -381,7 +381,7 @@ define void @_ZNK3g2o13VertexEllipse10_updateSVDEv(ptr noundef nonnull align 16 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3g2o13VertexEllipse4readERSi(ptr noundef nonnull align 16 dereferenceable(216) initializes((104, 140)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3g2o13VertexEllipse4readERSi(ptr noundef nonnull align 16 dereferenceable(216) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.Eigen::SelfAdjointEigenSolver", align 16
   %4 = alloca %"class.Eigen::Block", align 8
   %5 = alloca float, align 4

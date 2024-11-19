@@ -5919,7 +5919,7 @@ _ZNSt6vectorIN5vcpkg15BinaryParagraphESaIS1_EED2Ev.exit: ; preds = %_ZSt8_Destro
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg10Paragraphs27try_load_all_registry_portsERKNS_18ReadOnlyFilesystemERKNS_11RegistrySetE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Paragraphs::LoadResults") align 8 initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg10Paragraphs27try_load_all_registry_portsERKNS_18ReadOnlyFilesystemERKNS_11RegistrySetE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::Paragraphs::LoadResults") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.vcpkg::LineInfo", align 8
   %5 = alloca %"class.std::vector.12", align 8
   %6 = alloca %"struct.vcpkg::ExpectedT", align 8

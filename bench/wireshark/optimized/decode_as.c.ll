@@ -777,7 +777,7 @@ define void @decode_cleanup() local_unnamed_addr #0 {
 declare void @g_list_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @next_proto_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 23)) %1) #7 {
+define internal void @next_proto_prompt(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #7 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %1, ptr noundef nonnull align 1 dereferenceable(23) @.str.9, i64 23, i1 false)
   ret void
 }

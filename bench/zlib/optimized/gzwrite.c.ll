@@ -671,7 +671,7 @@ return:                                           ; preds = %if.end45, %if.end64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull initializes((48, 56)) %state) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @gz_init(ptr noundef nonnull %state) unnamed_addr #0 {
 entry:
   %strm1 = getelementptr inbounds i8, ptr %state, i64 128
   %want = getelementptr inbounds i8, ptr %state, i64 44

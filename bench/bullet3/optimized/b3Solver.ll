@@ -215,7 +215,7 @@ $_ZTI13b3OpenCLArrayIjE = comdat any
 @_ZN8b3SolverD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN8b3SolverD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z13b3PlaneSpace1RK9b3Vector3PS_S2_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %n, ptr nocapture noundef initializes((0, 12)) %p, ptr nocapture noundef writeonly initializes((0, 12)) %q) local_unnamed_addr #0 {
+define dso_local void @_Z13b3PlaneSpace1RK9b3Vector3PS_S2_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %n, ptr nocapture noundef %p, ptr nocapture noundef writeonly %q) local_unnamed_addr #0 {
 entry:
   %z = getelementptr inbounds i8, ptr %n, i64 8
   %0 = load float, ptr %z, align 8
@@ -292,7 +292,7 @@ if.end:                                           ; preds = %if.else, %if.then
 declare float @llvm.fmuladd.f32(float, float, float) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_Z19setLinearAndAngularRK9b3Vector3S1_S1_PS_S2_S2_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %n, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %r0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %r1, ptr nocapture noundef writeonly initializes((0, 16)) %linear, ptr nocapture noundef writeonly initializes((0, 16)) %angular0, ptr nocapture noundef writeonly initializes((0, 16)) %angular1) local_unnamed_addr #2 {
+define dso_local void @_Z19setLinearAndAngularRK9b3Vector3S1_S1_PS_S2_S2_(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %n, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %r0, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %r1, ptr nocapture noundef writeonly %linear, ptr nocapture noundef writeonly %angular0, ptr nocapture noundef writeonly %angular1) local_unnamed_addr #2 {
 entry:
   %0 = load <4 x float>, ptr %n, align 16
   %y = getelementptr inbounds i8, ptr %n, i64 4
@@ -498,7 +498,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_Z14setConstraint4RK9b3Vector3S1_S1_fRK11b3Matrix3x3S1_S1_S1_fS4_P14b3Contact4DatafffP20b3ContactConstraint4(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVelA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVelA, float noundef %invMassA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %invInertiaA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVelB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVelB, float noundef %invMassB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %invInertiaB, ptr nocapture noundef readonly %src, float noundef %dt, float noundef %positionDrift, float noundef %positionConstraintCoeff, ptr nocapture noundef writeonly initializes((0, 16), (128, 152), (160, 168)) %dstC) local_unnamed_addr #6 {
+define dso_local void @_Z14setConstraint4RK9b3Vector3S1_S1_fRK11b3Matrix3x3S1_S1_S1_fS4_P14b3Contact4DatafffP20b3ContactConstraint4(ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVelA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVelA, float noundef %invMassA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %invInertiaA, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %posB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %linVelB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(16) %angVelB, float noundef %invMassB, ptr nocapture noundef nonnull readonly align 16 dereferenceable(48) %invInertiaB, ptr nocapture noundef readonly %src, float noundef %dt, float noundef %positionDrift, float noundef %positionConstraintCoeff, ptr nocapture noundef writeonly %dstC) local_unnamed_addr #6 {
 entry:
   %tangent = alloca [2 x %class.b3Vector3], align 16
   %m_bodyAPtrAndSignBit = getelementptr inbounds i8, ptr %src, i64 88
@@ -935,7 +935,7 @@ for.end143:                                       ; preds = %for.inc141
 declare i32 @llvm.abs.i32(i32, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8b3SolverC2EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 32), (48, 98), (104, 108)) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, i32 noundef %pairCapacity) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8b3SolverC2EP11_cl_contextP13_cl_device_idP17_cl_command_queuei(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %ctx, ptr noundef %device, ptr noundef %queue, i32 noundef %pairCapacity) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pErrNum = alloca i32, align 4
   store ptr getelementptr inbounds (i8, ptr @_ZTV8b3Solver, i64 16), ptr %this, align 8
@@ -1282,7 +1282,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8b3SolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8b3SolverD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV8b3Solver, i64 16), ptr %this, align 8
   %m_offsets = getelementptr inbounds i8, ptr %this, i64 40
@@ -1483,7 +1483,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN8b3SolverD0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %this) unnamed_addr #11 align 2 {
+define dso_local void @_ZN8b3SolverD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #11 align 2 {
 entry:
   tail call void @_ZN8b3SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22

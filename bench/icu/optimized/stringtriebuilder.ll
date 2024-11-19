@@ -80,7 +80,7 @@ $_ZTIN6icu_7517StringTrieBuilder10BranchNodeE = comdat any
 @_ZN6icu_7517StringTrieBuilderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7517StringTrieBuilderD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7517StringTrieBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7517StringTrieBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringTrieBuilderE, i64 16), ptr %this, align 8
   %nodes = getelementptr inbounds i8, ptr %this, i64 8
@@ -89,7 +89,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7517StringTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7517StringTrieBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7517StringTrieBuilderE, i64 16), ptr %this, align 8
   %nodes.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1668,7 +1668,7 @@ return:                                           ; preds = %if.end.i.i, %_ZNKSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517StringTrieBuilder14FinalValueNode5writeERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(20) initializes((12, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %builder) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7517StringTrieBuilder14FinalValueNode5writeERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(20) %this, ptr noundef nonnull align 8 dereferenceable(16) %builder) unnamed_addr #2 align 2 {
 entry:
   %value = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %value, align 8
@@ -1847,7 +1847,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517StringTrieBuilder21IntermediateValueNode5writeERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((12, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %builder) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7517StringTrieBuilder21IntermediateValueNode5writeERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(16) %builder) unnamed_addr #2 align 2 {
 entry:
   %next = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %next, align 8
@@ -2356,7 +2356,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517StringTrieBuilder15SplitBranchNode5writeERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((12, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %builder) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7517StringTrieBuilder15SplitBranchNode5writeERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %builder) unnamed_addr #2 align 2 {
 entry:
   %lessThan = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %lessThan, align 8
@@ -2517,7 +2517,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7517StringTrieBuilder14BranchHeadNode5writeERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((12, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %builder) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7517StringTrieBuilder14BranchHeadNode5writeERS0_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(16) %builder) unnamed_addr #2 align 2 {
 entry:
   %next = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %next, align 8

@@ -1348,13 +1348,13 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28Tf_MallocTagStringMatchTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #3 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28Tf_MallocTagStringMatchTableC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__28Tf_MallocTagStringMatchTableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__28Tf_MallocTagStringMatchTableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   invoke void @_ZN32pxrInternal_v0_24__pxrReserved__28Tf_MallocTagStringMatchTable12SetMatchListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %3 unwind label %4
@@ -3661,7 +3661,7 @@ _ZNSt13unordered_mapISt6vectorImSaImEEN32pxrInternal_v0_24__pxrReserved__12_GLOB
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_MallocGlobalData27_BuildPathNodeChildrenTableEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::robin_map") align 8 initializes((0, 74)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2392) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_MallocGlobalData27_BuildPathNodeChildrenTableEv(ptr dead_on_unwind noalias writable sret(%"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::robin_map") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(2392) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple.320", align 8
   %4 = alloca %"class.std::tuple.298", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 32, i1 false)
@@ -4619,7 +4619,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12TfBigRWMutex10ScopedLockD2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag23GetCapturedMallocStacksEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.109") align 8 initializes((0, 24)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__11TfMallocTag23GetCapturedMallocStacksEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.109") align 8 %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfMallocTag::Auto", align 8
   %3 = alloca %"class.tbb::detail::d2::concurrent_hash_map.35", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -15081,7 +15081,7 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__17Tf_MallocCallSiteEEc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIPKcPN32pxrInternal_v0_24__pxrReserved__17Tf_MallocCallSiteENS5_12_GLOBAL__N_111_HashEqCStrENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorC2EPSG_mb(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 9), (16, 24)) %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapIPKcPN32pxrInternal_v0_24__pxrReserved__17Tf_MallocCallSiteENS5_12_GLOBAL__N_111_HashEqCStrENS0_2d113tbb_allocatorISt4pairIKS4_S7_EEEE15bucket_accessorC2EPSG_mb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.pxrInternal_v0_24__pxrReserved__::TfHashCString", align 1
   %5 = alloca %"class.tbb::detail::d2::concurrent_hash_map<const char *, pxrInternal_v0_24__pxrReserved__::Tf_MallocCallSite *, pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_HashEqCStr>::bucket_accessor", align 8
   store ptr null, ptr %0, align 8
@@ -15645,7 +15645,7 @@ _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPKvN32pxrIntern
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapISt4pairIPN32pxrInternal_v0_24__pxrReserved__17Tf_MallocPathNodeEPNS4_17Tf_MallocCallSiteEES6_NS4_12_GLOBAL__N_120_HashEqPathNodeTableENS0_2d113tbb_allocatorIS3_IKS9_S6_EEEE15bucket_accessorC2EPSH_mb(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 9), (16, 24)) %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3tbb6detail2d219concurrent_hash_mapISt4pairIPN32pxrInternal_v0_24__pxrReserved__17Tf_MallocPathNodeEPNS4_17Tf_MallocCallSiteEES6_NS4_12_GLOBAL__N_120_HashEqPathNodeTableENS0_2d113tbb_allocatorIS3_IKS9_S6_EEEE15bucket_accessorC2EPSH_mb(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly %1, i64 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.tbb::detail::d2::concurrent_hash_map<std::pair<pxrInternal_v0_24__pxrReserved__::Tf_MallocPathNode *, pxrInternal_v0_24__pxrReserved__::Tf_MallocCallSite *>, pxrInternal_v0_24__pxrReserved__::Tf_MallocPathNode *, pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::_HashEqPathNodeTable>::bucket_accessor", align 8
   store ptr null, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

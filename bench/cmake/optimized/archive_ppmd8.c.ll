@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @kInitBinEsc = internal unnamed_addr constant [8 x i16] [i16 15581, i16 7999, i16 22975, i16 18675, i16 25761, i16 23228, i16 26162, i16 24657], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local void @Ppmd8_Construct(ptr nocapture noundef writeonly initializes((56, 64)) %0) #0 {
+define dso_local void @Ppmd8_Construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 166
@@ -96,7 +96,7 @@ define dso_local void @Ppmd8_Construct(ptr nocapture noundef writeonly initializ
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @Ppmd8_Free(ptr nocapture noundef initializes((48, 52)) %0) #2 {
+define dso_local void @Ppmd8_Free(ptr nocapture noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   tail call void @free(ptr noundef %3) #13
@@ -150,7 +150,7 @@ define dso_local range(i32 0, 2) i32 @Ppmd8_Alloc(ptr nocapture noundef %0, i32 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @Ppmd8_Init(ptr nocapture noundef initializes((0, 28), (32, 48), (52, 56), (64, 96), (100, 104), (296, 600)) %0, i32 noundef %1, i32 noundef %2) #5 {
+define dso_local void @Ppmd8_Init(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %1, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 100
@@ -166,7 +166,7 @@ define dso_local void @Ppmd8_Init(ptr nocapture noundef initializes((0, 28), (32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @RestartModel(ptr nocapture noundef initializes((0, 28), (32, 36), (40, 48), (52, 56), (64, 96), (296, 600)) %0) unnamed_addr #5 {
+define internal fastcc void @RestartModel(ptr nocapture noundef %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(304) %2, i8 0, i64 304, i1 false)
@@ -353,7 +353,7 @@ define internal fastcc void @RestartModel(ptr nocapture noundef initializes((0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local nonnull ptr @Ppmd8_MakeEscFreq(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #6 {
+define dso_local nonnull ptr @Ppmd8_MakeEscFreq(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr %4, align 1
   %.not = icmp eq i8 %5, -1
@@ -780,7 +780,7 @@ define internal fastcc void @Rescale(ptr nocapture noundef %0) unnamed_addr #8 {
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @Ppmd8_Update1_0(ptr noundef initializes((32, 36)) %0) local_unnamed_addr #7 {
+define dso_local void @Ppmd8_Update1_0(ptr noundef %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
@@ -851,7 +851,7 @@ NextContext.exit:                                 ; preds = %40, %42
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @Ppmd8_UpdateBin(ptr noundef initializes((32, 36)) %0) local_unnamed_addr #7 {
+define dso_local void @Ppmd8_UpdateBin(ptr noundef %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1
@@ -1665,7 +1665,7 @@ AllocUnits.exit211:                               ; preds = %358, %361
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @Ppmd8_RangeDec_Init(ptr nocapture noundef initializes((104, 116)) %0) #9 {
+define dso_local range(i32 0, 2) i32 @Ppmd8_RangeDec_Init(ptr nocapture noundef %0) #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
@@ -3070,7 +3070,7 @@ define internal fastcc ptr @CreateSuccessors(ptr noundef %0, i32 noundef range(i
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @RestoreModel(ptr noundef initializes((80, 88)) %0, ptr noundef readnone %1) unnamed_addr #7 {
+define internal fastcc void @RestoreModel(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #7 {
   %3 = alloca [38 x i32], align 16
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8

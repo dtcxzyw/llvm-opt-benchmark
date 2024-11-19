@@ -2530,7 +2530,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 declare ptr @gzgets(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @cli_yara_init(ptr nocapture noundef initializes((1192, 1200)) %0) local_unnamed_addr #0 {
+define range(i32 0, 21) i32 @cli_yara_init(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = tail call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 1192
   store ptr %2, ptr %3, align 8
@@ -14153,7 +14153,7 @@ define internal fastcc void @ytable_delete(ptr %.0.val, i32 %.8.val) unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 23) i32 @init_tdb(ptr noundef nonnull initializes((128, 136)) %0, ptr %.256.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 23) i32 @init_tdb(ptr noundef nonnull %0, ptr %.256.val, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [11 x %struct.lsig_attrib], align 16
   %5 = alloca [10 x ptr], align 16
   %6 = alloca i32, align 4

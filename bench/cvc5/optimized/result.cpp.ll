@@ -95,7 +95,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6ResultC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store i32 0, ptr %this, align 8
@@ -144,7 +144,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6ResultC2ENS1_6StatusENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, i32 noundef %s, ptr noundef nonnull %inputName) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6ResultC2ENS1_6StatusENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %s, ptr noundef nonnull %inputName) unnamed_addr #3 align 2 {
 entry:
   store i32 %s, ptr %this, align 8
   %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
@@ -157,7 +157,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6ResultC2ENS1_6StatusENS_18UnknownExplanationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, i32 noundef %s, i32 noundef %unknownExplanation, ptr noundef nonnull %inputName) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6ResultC2ENS1_6StatusENS_18UnknownExplanationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %s, i32 noundef %unknownExplanation, ptr noundef nonnull %inputName) unnamed_addr #3 align 2 {
 entry:
   store i32 %s, ptr %this, align 8
   %d_unknownExplanation = getelementptr inbounds i8, ptr %this, i64 4
@@ -168,7 +168,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6ResultC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(32) %instr, ptr noundef nonnull %inputName) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6ResultC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %instr, ptr noundef nonnull %inputName) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

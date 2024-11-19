@@ -9277,7 +9277,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116CustomDfaEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116CustomDfaEmitterD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_116CustomDfaEmitterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21
@@ -9286,7 +9286,7 @@ define internal void @_ZN12_GLOBAL__N_116CustomDfaEmitterD2Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110TransitionEEE9constructIS1_JRPN4llvm6RecordEPNS0_9AutomatonEEEEvRS2_PT_DpOT0_(ptr noundef initializes((8, 32)) %0, ptr %.0.val, ptr nocapture readonly %.0.val1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNSt16allocator_traitsISaIN12_GLOBAL__N_110TransitionEEE9constructIS1_JRPN4llvm6RecordEPNS0_9AutomatonEEEEvRS2_PT_DpOT0_(ptr noundef %0, ptr %.0.val, ptr nocapture readonly %.0.val1) unnamed_addr #0 align 2 {
   %2 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -11277,7 +11277,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116CustomDfaEmitterD0Ev(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_116CustomDfaEmitterD0Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_116CustomDfaEmitterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #21

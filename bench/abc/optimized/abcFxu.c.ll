@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.3 = private unnamed_addr constant [50 x i8] c"Abc_NtkFastExtract: The network check has failed.\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Abc_NtkSetDefaultFxParams(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #0 {
+define void @Abc_NtkSetDefaultFxParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 80, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 28

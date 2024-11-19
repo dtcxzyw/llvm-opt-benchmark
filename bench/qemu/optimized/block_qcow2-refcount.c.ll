@@ -3464,7 +3464,7 @@ return:                                           ; preds = %if.end45, %if.end76
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @compare_refcounts(ptr noundef %bs, ptr noundef %res, i32 noundef %fix, ptr nocapture noundef writeonly %rebuild, ptr nocapture noundef writeonly initializes((0, 8)) %highest_cluster, ptr noundef %refcount_table, i64 noundef %nb_clusters) #0 {
+define internal void @compare_refcounts(ptr noundef %bs, ptr noundef %res, i32 noundef %fix, ptr nocapture noundef writeonly %rebuild, ptr nocapture noundef writeonly %highest_cluster, ptr noundef %refcount_table, i64 noundef %nb_clusters) #0 {
 entry:
   %refcount1 = alloca i64, align 8
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24

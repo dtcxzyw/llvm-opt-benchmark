@@ -925,7 +925,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicTD2Ev(ptr noundef nonnull align 8 dereferenceable(3064) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicTD2Ev(ptr noundef nonnull align 8 dereferenceable(3064) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 3000
   tail call void @_ZN12cmWorkerPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #25
@@ -1759,7 +1759,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 declare void @_ZN17cmQtAutoGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(328)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicTD0Ev(ptr noundef nonnull align 8 dereferenceable(3064) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicTD0Ev(ptr noundef nonnull align 8 dereferenceable(3064) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 3000
   tail call void @_ZN12cmWorkerPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #25
@@ -9497,7 +9497,7 @@ _ZZ8cmStrCatIRA17_KcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS2_EES8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt11make_sharedIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEJRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr null, ptr %0, align 8
   %4 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #29
@@ -14468,7 +14468,7 @@ declare void @_ZN12cmWorkerPool5AbortEv(ptr noundef nonnull align 8 dereferencea
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmPKc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -14551,7 +14551,7 @@ _ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTD2Ev.exit: ; preds = %1, %20, %33, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseHeaderTD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -14711,7 +14711,7 @@ _ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseT8MocMacroEv.exit: ; preds = %24, %9,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -15779,7 +15779,7 @@ _ZNSt6vectorIN12_GLOBAL__N_115cmQtAutoMocUicT11IncludeKeyTESaIS2_EE12emplace_bac
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -15862,7 +15862,7 @@ _ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTD2Ev.exit: ; preds = %1, %20, %33, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT15JobParseSourceTD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -16219,7 +16219,7 @@ _ZN12_GLOBAL__N_115cmQtAutoMocUicT9JobParseT11MocIncludesEv.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -16254,7 +16254,7 @@ _ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTD2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocTD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheMocTD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -16839,7 +16839,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11SourceFileTEED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -23609,7 +23609,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %.val = load ptr, ptr %2, align 8
@@ -23721,7 +23721,7 @@ _ZN12_GLOBAL__N_115cmQtAutoMocUicT13JobEvalCacheTD2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTD0Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT16JobEvalCacheUicTD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
@@ -27853,7 +27853,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_SaIS5_E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %.val = load ptr, ptr %2, align 8
@@ -27934,7 +27934,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_115cmQtAutoMocUicT11ParseCacheT5FileTEED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileMocTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %.val.i = load ptr, ptr %2, align 8
@@ -29039,7 +29039,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
@@ -30429,13 +30429,13 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #25
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #5 align 2 {
+define internal void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT14JobCompileUicTD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 align 2 {
   tail call void @_ZN12_GLOBAL__N_115cmQtAutoMocUicT11JobCompileTD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void

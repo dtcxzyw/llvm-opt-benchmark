@@ -2400,7 +2400,7 @@ define hidden ptr @k12text_get_text(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @k12text_set_extra(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #12 {
+define hidden void @k12text_set_extra(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   store ptr %0, ptr %1, align 8
   ret void
 }
@@ -2456,14 +2456,14 @@ define hidden void @k12text_set_column(i32 noundef %0, ptr nocapture noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @k12text_set_in(ptr noundef %0, ptr nocapture noundef writeonly initializes((8, 16)) %1) local_unnamed_addr #12 {
+define hidden void @k12text_set_in(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @k12text_set_out(ptr noundef %0, ptr nocapture noundef writeonly initializes((16, 24)) %1) local_unnamed_addr #12 {
+define hidden void @k12text_set_out(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store ptr %0, ptr %3, align 8
   ret void
@@ -2477,7 +2477,7 @@ define hidden i32 @k12text_get_debug(ptr nocapture noundef readonly %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @k12text_set_debug(i32 noundef %0, ptr nocapture noundef writeonly initializes((124, 128)) %1) local_unnamed_addr #12 {
+define hidden void @k12text_set_debug(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 124
   store i32 %0, ptr %3, align 4
   ret void
@@ -3046,7 +3046,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @exit(i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @k12text_set_headers(ptr nocapture noundef writeonly initializes((0, 8), (16, 28), (64, 76), (232, 240)) %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @k12text_set_headers(ptr nocapture noundef writeonly %0, ptr nocapture noundef nonnull readonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %5 = tail call ptr @wtap_block_create(i32 noundef 5) #28
   %6 = getelementptr inbounds i8, ptr %0, i64 232
@@ -3147,7 +3147,7 @@ define internal range(i32 -8, 1) i32 @k12text_dump_can_write_encap(i32 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @k12text_dump_open(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
+define internal noundef i32 @k12text_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #12 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @k12text_dump, ptr %4, align 8
   ret i32 1

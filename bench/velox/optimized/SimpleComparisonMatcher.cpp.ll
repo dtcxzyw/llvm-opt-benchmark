@@ -4165,7 +4165,7 @@ return:                                           ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherE, i64 16), ptr %this, align 8
   %inputMatchers_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4273,7 +4273,7 @@ _ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_19IfMatcherE, i64 16), ptr %this, align 8
   %inputMatchers_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4657,7 +4657,7 @@ return:                                           ; preds = %for.body.i, %return
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherE, i64 16), ptr %this, align 8
   %inputMatchers_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -4767,7 +4767,7 @@ _ZNSt6vectorISt10shared_ptrIN8facebook5velox9functions9prestosql12_GLOBAL__N_17M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN8facebook5velox9functions9prestosql12_GLOBAL__N_117ComparisonMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21

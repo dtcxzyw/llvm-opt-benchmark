@@ -126,7 +126,7 @@ define dso_local i32 @ipv6_select_ident(ptr nocapture readnone %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local range(i32 -22, 65536) i32 @ip6_find_1stfragopt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #4 align 16 {
+define dso_local range(i32 -22, 65536) i32 @ip6_find_1stfragopt(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #4 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 184
@@ -237,7 +237,7 @@ define dso_local i32 @ip6_dst_hoplimit(ptr nocapture noundef readonly %0) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__ip6_local_out(ptr noundef %0, ptr noundef %1, ptr noundef initializes((54, 56)) %2) #0 align 16 {
+define dso_local i32 @__ip6_local_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.nf_hook_state, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 112
   %6 = load i32, ptr %5, align 8
@@ -343,7 +343,7 @@ define internal i32 @dst_output(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ip6_local_out(ptr noundef %0, ptr noundef %1, ptr noundef initializes((54, 56)) %2) #0 align 16 {
+define dso_local i32 @ip6_local_out(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.nf_hook_state, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 112
   %6 = load i32, ptr %5, align 8

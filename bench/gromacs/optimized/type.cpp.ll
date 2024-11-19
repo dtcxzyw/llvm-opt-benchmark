@@ -3561,7 +3561,7 @@ define internal void @_ZL17tMPI_INT64_T_bxorPvS_S_i(ptr nocapture noundef writeo
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z20tMPI_Type_contiguousiP14tmpi_datatype_PS0_(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #1 {
+define noundef i32 @_Z20tMPI_Type_contiguousiP14tmpi_datatype_PS0_(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #1 {
   %4 = tail call noundef ptr @_Z11tMPI_Mallocm(i64 noundef 40)
   %5 = sext i32 %0 to i64
   %6 = load i64, ptr %1, align 8

@@ -211,7 +211,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @H5E_printf_stack(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @H5MF__alloc_to_fs_type(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #3 {
+define void @H5MF__alloc_to_fs_type(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 1520
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 1

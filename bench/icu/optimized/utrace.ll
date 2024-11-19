@@ -2067,7 +2067,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @utrace_getFunctions_75(ptr nocapture noundef writeonly initializes((0, 8)) %context, ptr nocapture noundef writeonly initializes((0, 8)) %e, ptr nocapture noundef writeonly initializes((0, 8)) %x, ptr nocapture noundef writeonly initializes((0, 8)) %d) local_unnamed_addr #6 {
+define void @utrace_getFunctions_75(ptr nocapture noundef writeonly %context, ptr nocapture noundef writeonly %e, ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %d) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr @_ZL15pTraceEntryFunc, align 8
   store ptr %0, ptr %e, align 8

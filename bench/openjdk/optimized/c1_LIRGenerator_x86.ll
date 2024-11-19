@@ -2075,7 +2075,7 @@ define hidden void @_ZN12LIRGenerator17array_store_checkE7LIR_OprS0_P12CodeEmitI
 declare void @_ZN8LIR_List11store_checkE7LIR_OprS0_S0_S0_S0_P12CodeEmitInfoP8ciMethodi(ptr noundef nonnull align 8 dereferenceable(32), i64, i64, i64, i64, i64, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator15do_MonitorEnterEP12MonitorEnter(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef initializes((48, 56)) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12LIRGenerator15do_MonitorEnterEP12MonitorEnter(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.LIRItem, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -2186,7 +2186,7 @@ declare noundef ptr @_ZN12LIRGenerator9state_forEP11InstructionP10ValueStackb(pt
 declare void @_ZN12LIRGenerator13monitor_enterE7LIR_OprS0_S0_S0_iP12CodeEmitInfoS2_(ptr noundef nonnull align 8 dereferenceable(232), i64, i64, i64, i64, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator14do_MonitorExitEP11MonitorExit(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef initializes((48, 56)) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12LIRGenerator14do_MonitorExitEP11MonitorExit(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not.i.i = icmp eq ptr %4, null
@@ -11463,7 +11463,7 @@ _ZN7LIRItem6resultEv.exit:                        ; preds = %40, %45, %48, %52
 declare void @_ZN8LIR_List10instanceofE7LIR_OprS0_P7ciKlassS0_S0_S0_bP12CodeEmitInfoP8ciMethodi(ptr noundef nonnull align 8 dereferenceable(32), i64, i64, ptr noundef, i64, i64, i64, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12LIRGenerator5do_IfEP2If(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef initializes((48, 56)) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12LIRGenerator5do_IfEP2If(ptr noundef nonnull align 8 dereferenceable(232) %0, ptr noundef %1) unnamed_addr #0 align 2 {
 _ZN7LIRItemC2EP11InstructionP12LIRGenerator.exit:
   %2 = alloca %class.LIRItem, align 8
   %3 = alloca %class.LIRItem, align 8

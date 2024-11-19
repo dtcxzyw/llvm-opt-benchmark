@@ -390,7 +390,7 @@ define dso_local void @FreeWaitEventSet(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @InitLatch(ptr nocapture noundef writeonly initializes((0, 9), (12, 16)) %0) local_unnamed_addr #4 {
+define dso_local void @InitLatch(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -403,7 +403,7 @@ define dso_local void @InitLatch(ptr nocapture noundef writeonly initializes((0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @InitSharedLatch(ptr nocapture noundef writeonly initializes((0, 9), (12, 16)) %0) local_unnamed_addr #5 {
+define dso_local void @InitSharedLatch(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   store i32 0, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -435,7 +435,7 @@ define dso_local void @OwnLatch(ptr nocapture noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @DisownLatch(ptr nocapture noundef writeonly initializes((12, 16)) %0) local_unnamed_addr #5 {
+define dso_local void @DisownLatch(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   ret void
@@ -1071,7 +1071,7 @@ define dso_local void @SetLatch(ptr nocapture noundef %0) local_unnamed_addr #0 
 declare i32 @kill(i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ResetLatch(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #0 {
+define dso_local void @ResetLatch(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 4
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"() #14, !srcloc !11
   ret void

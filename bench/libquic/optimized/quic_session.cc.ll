@@ -145,7 +145,7 @@ $_ZTIN3net30QuicConnectionVisitorInterfaceE = comdat any
 @_ZN3net11QuicSessionD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net11QuicSessionD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net11QuicSessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2044) initializes((0, 8), (16, 20), (24, 32)) %this, ptr noundef %connection, ptr noundef nonnull align 8 dereferenceable(600) %config) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net11QuicSessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2044) %this, ptr noundef %connection, ptr noundef nonnull align 8 dereferenceable(600) %config) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net11QuicSessionE, i64 16), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -660,7 +660,7 @@ return:                                           ; preds = %_ZNSt13unordered_ma
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN3net11QuicSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(2044) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net11QuicSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(2044) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net11QuicSessionE, i64 16), ptr %this, align 8
   %closed_streams_ = getelementptr inbounds i8, ptr %this, i64 64
@@ -3745,7 +3745,7 @@ declare noundef i32 @_ZN3net10QuicConfig33ReceivedMaxIncomingDynamicStreamsEv(pt
 declare noundef i32 @_ZNK3net10QuicConfig23MaxStreamsPerConnectionEv(ptr noundef nonnull align 8 dereferenceable(600)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net11QuicSession29set_max_open_outgoing_streamsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2044) initializes((688, 696)) %this, i64 noundef %max_open_outgoing_streams) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN3net11QuicSession29set_max_open_outgoing_streamsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2044) %this, i64 noundef %max_open_outgoing_streams) local_unnamed_addr #12 align 2 {
 entry:
   %max_open_outgoing_streams_ = getelementptr inbounds i8, ptr %this, i64 688
   store i64 %max_open_outgoing_streams, ptr %max_open_outgoing_streams_, align 8
@@ -3753,7 +3753,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net11QuicSession29set_max_open_incoming_streamsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2044) initializes((696, 704)) %this, i64 noundef %max_open_incoming_streams) local_unnamed_addr #12 align 2 {
+define dso_local void @_ZN3net11QuicSession29set_max_open_incoming_streamsEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2044) %this, i64 noundef %max_open_incoming_streams) local_unnamed_addr #12 align 2 {
 entry:
   %max_open_incoming_streams_ = getelementptr inbounds i8, ptr %this, i64 696
   store i64 %max_open_incoming_streams, ptr %max_open_incoming_streams_, align 8

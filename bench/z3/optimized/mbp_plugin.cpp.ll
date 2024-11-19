@@ -937,7 +937,7 @@ if.end:                                           ; preds = %_ZN15ref_vector_cor
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3mbp14project_plugin6reduceER15model_evaluatorR5modelP4exprR10ref_vectorIS5_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %eval, ptr noundef nonnull align 8 dereferenceable(160) initializes((137, 138)) %model, ptr noundef %fml, ptr noundef nonnull align 8 dereferenceable(16) %fmls) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3mbp14project_plugin6reduceER15model_evaluatorR5modelP4exprR10ref_vectorIS5_11ast_managerE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(8) %eval, ptr noundef nonnull align 8 dereferenceable(160) %model, ptr noundef %fml, ptr noundef nonnull align 8 dereferenceable(16) %fmls) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nfml = alloca ptr, align 8
   %f1 = alloca ptr, align 8

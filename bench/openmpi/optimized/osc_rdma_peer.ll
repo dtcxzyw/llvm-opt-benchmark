@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_class_init_epoch = external local_unnamed_addr global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -12, 1) i32 @ompi_osc_rdma_new_peer(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 -12, 1) i32 @ompi_osc_rdma_new_peer(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i8, align 1
   store ptr null, ptr %4, align 8
@@ -610,7 +610,7 @@ ompi_osc_rdma_peer_lookup_internal.exit:          ; preds = %ompi_osc_module_get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ompi_osc_rdma_peer_construct(ptr nocapture noundef writeonly initializes((40, 152)) %0) #1 {
+define internal void @ompi_osc_rdma_peer_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(112) %2, i8 0, i64 112, i1 false)
   ret void
@@ -639,7 +639,7 @@ define internal void @ompi_osc_rdma_peer_destruct(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ompi_osc_rdma_peer_basic_construct(ptr nocapture noundef writeonly initializes((152, 176)) %0) #1 {
+define internal void @ompi_osc_rdma_peer_basic_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   ret void
@@ -668,7 +668,7 @@ define internal void @ompi_osc_rdma_peer_basic_destruct(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @ompi_osc_rdma_peer_dynamic_construct(ptr nocapture noundef writeonly initializes((152, 168)) %0) #1 {
+define internal void @ompi_osc_rdma_peer_dynamic_construct(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void

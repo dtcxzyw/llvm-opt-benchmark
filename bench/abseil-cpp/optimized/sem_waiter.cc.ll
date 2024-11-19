@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4absl24synchronization_internal9SemWaiterC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4absl24synchronization_internal9SemWaiterC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl24synchronization_internal9SemWaiterC2Ev(ptr noundef nonnull align 8 dereferenceable(36) initializes((32, 36)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4absl24synchronization_internal9SemWaiterC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #0 align 2 {
 entry:
   %wakeups_ = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %wakeups_, align 8

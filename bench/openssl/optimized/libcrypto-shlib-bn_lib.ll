@@ -374,7 +374,7 @@ if.end5:                                          ; preds = %entry, %if.then4, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @bn_init(ptr nocapture noundef writeonly initializes((0, 24)) %a) local_unnamed_addr #7 {
+define void @bn_init(ptr nocapture noundef writeonly %a) local_unnamed_addr #7 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %a, i8 0, i64 24, i1 false)
   ret void
@@ -1833,7 +1833,7 @@ return:                                           ; preds = %if.then8.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @BN_set_negative(ptr nocapture noundef initializes((16, 20)) %a, i32 noundef %b) local_unnamed_addr #9 {
+define void @BN_set_negative(ptr nocapture noundef %a, i32 noundef %b) local_unnamed_addr #9 {
 entry:
   %tobool.not = icmp eq i32 %b, 0
   br i1 %tobool.not, label %if.else, label %land.lhs.true
@@ -2117,7 +2117,7 @@ return:                                           ; preds = %if.end19, %if.end16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BN_zero_ex(ptr nocapture noundef writeonly initializes((8, 12), (16, 20)) %a) local_unnamed_addr #7 {
+define void @BN_zero_ex(ptr nocapture noundef writeonly %a) local_unnamed_addr #7 {
 entry:
   %neg = getelementptr inbounds i8, ptr %a, i64 16
   store i32 0, ptr %neg, align 8
@@ -2257,7 +2257,7 @@ entry:
 declare i32 @BN_mod_mul_montgomery(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @BN_with_flags(ptr nocapture noundef initializes((0, 20)) %dest, ptr nocapture noundef readonly %b, i32 noundef %flags) local_unnamed_addr #9 {
+define void @BN_with_flags(ptr nocapture noundef %dest, ptr nocapture noundef readonly %b, i32 noundef %flags) local_unnamed_addr #9 {
 entry:
   %0 = load ptr, ptr %b, align 8
   store ptr %0, ptr %dest, align 8
@@ -2320,7 +2320,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BN_GENCB_set_old(ptr nocapture noundef writeonly initializes((0, 4), (8, 24)) %gencb, ptr noundef %callback, ptr noundef %cb_arg) local_unnamed_addr #7 {
+define void @BN_GENCB_set_old(ptr nocapture noundef writeonly %gencb, ptr noundef %callback, ptr noundef %cb_arg) local_unnamed_addr #7 {
 entry:
   store i32 1, ptr %gencb, align 8
   %arg = getelementptr inbounds i8, ptr %gencb, i64 8
@@ -2331,7 +2331,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @BN_GENCB_set(ptr nocapture noundef writeonly initializes((0, 4), (8, 24)) %gencb, ptr noundef %callback, ptr noundef %cb_arg) local_unnamed_addr #7 {
+define void @BN_GENCB_set(ptr nocapture noundef writeonly %gencb, ptr noundef %callback, ptr noundef %cb_arg) local_unnamed_addr #7 {
 entry:
   store i32 2, ptr %gencb, align 8
   %arg = getelementptr inbounds i8, ptr %gencb, i64 8

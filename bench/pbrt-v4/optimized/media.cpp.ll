@@ -2230,7 +2230,7 @@ _ZN4pbrt12StringPrintfIJRKNS_22DenselySampledSpectrumES3_S3_RKNS_15HGPhaseFuncti
 declare void @_ZN4pbrt14StatRegistererC1EPFvRNS_16StatsAccumulatorEEPFvNS_6Point2IiEEiRNS_21PixelStatsAccumulatorEE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10GridMediumC2ERKNS_7Bounds3IfEERKNS_9TransformENS_8SpectrumES8_ffNS_11SampledGridIfEEN4pstd8optionalISA_EEffS8_SA_NSB_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(520) initializes((0, 152)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %bounds, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %renderFromMedium, ptr nocapture noundef readonly %sigma_a, ptr nocapture noundef readonly %sigma_s, float noundef %sigmaScale, float noundef %g, ptr nocapture noundef %d, ptr nocapture noundef %temperature, float noundef %temperatureScale, float noundef %temperatureOffset, ptr nocapture noundef readonly %Le, ptr nocapture noundef %LeGrid, i64 %alloc.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt10GridMediumC2ERKNS_7Bounds3IfEERKNS_9TransformENS_8SpectrumES8_ffNS_11SampledGridIfEEN4pstd8optionalISA_EEffS8_SA_NSB_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(520) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %bounds, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %renderFromMedium, ptr nocapture noundef readonly %sigma_a, ptr nocapture noundef readonly %sigma_s, float noundef %sigmaScale, float noundef %g, ptr nocapture noundef %d, ptr nocapture noundef %temperature, float noundef %temperatureScale, float noundef %temperatureOffset, ptr nocapture noundef readonly %Le, ptr nocapture noundef %LeGrid, i64 %alloc.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp.i19 = alloca %"class.pbrt::Spectrum", align 8
   %agg.tmp.i18 = alloca %"class.pbrt::Spectrum", align 8
@@ -4703,7 +4703,7 @@ _ZN4pbrt12StringPrintfIJRKNS_7Bounds3IfEERKNS_9TransformERKNS_15HGPhaseFunctionE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13RGBGridMediumC2ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 152), (200, 201)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %bounds, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %renderFromMedium, float noundef %g, ptr nocapture noundef %rgbA, ptr nocapture noundef %rgbS, float noundef %sigmaScale, ptr nocapture noundef %rgbLe, float noundef %LeScale, i64 %alloc.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt13RGBGridMediumC2ERKNS_7Bounds3IfEERKNS_9TransformEfN4pstd8optionalINS_11SampledGridINS_20RGBUnboundedSpectrumEEEEESD_fNS9_INSA_INS_21RGBIlluminantSpectrumEEEEEfNS8_3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %bounds, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %renderFromMedium, float noundef %g, ptr nocapture noundef %rgbA, ptr nocapture noundef %rgbS, float noundef %sigmaScale, ptr nocapture noundef %rgbLe, float noundef %LeScale, i64 %alloc.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %bounds68 = alloca %"class.pbrt::Bounds3", align 8
   %coerce.val.ip = inttoptr i64 %alloc.coerce to ptr
@@ -7801,7 +7801,7 @@ ehcleanup90:                                      ; preds = %lpad80, %lpad.i81, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13NanoVDBMediumC2ERKNS_9TransformENS_8SpectrumES4_ffN7nanovdb10GridHandleINS_13NanoVDBBufferEEES8_fffN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(404) initializes((0, 152)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %renderFromMedium, ptr nocapture noundef readonly %sigma_a, ptr nocapture noundef readonly %sigma_s, float noundef %sigmaScale, float noundef %g, ptr nocapture noundef %dg, ptr nocapture noundef %tg, float noundef %LeScale, float noundef %temperatureOffset, float noundef %temperatureScale, i64 %alloc.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt13NanoVDBMediumC2ERKNS_9TransformENS_8SpectrumES4_ffN7nanovdb10GridHandleINS_13NanoVDBBufferEEES8_fffN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(404) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(128) %renderFromMedium, ptr nocapture noundef readonly %sigma_a, ptr nocapture noundef readonly %sigma_s, float noundef %sigmaScale, float noundef %g, ptr nocapture noundef %dg, ptr nocapture noundef %tg, float noundef %LeScale, float noundef %temperatureOffset, float noundef %temperatureScale, i64 %alloc.coerce) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp.i122 = alloca %"class.std::function.55", align 8
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9299,7 +9299,7 @@ eh.resume:                                        ; preds = %ehcleanup165, %ehcl
 declare void @_ZN4pbrt15ResolveFilenameENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4pbrtL8readGridINS_13NanoVDBBufferEEEN7nanovdb10GridHandleIT_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nonnull align 8 initializes((0, 32)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %gridName, ptr noundef %loc, ptr %alloc.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4pbrtL8readGridINS_13NanoVDBBufferEEEN7nanovdb10GridHandleIT_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_PKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %gridName, ptr noundef %loc, ptr %alloc.coerce) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %buf = alloca %"class.pbrt::NanoVDBBuffer", align 8
@@ -9547,7 +9547,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt6Medium6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryERKNS_9TransformEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Medium") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4pbrt6Medium6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryERKNS_9TransformEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Medium") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef nonnull align 4 dereferenceable(128) %renderFromMedium, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #3 align 2 {
 entry:
   store i64 0, ptr %agg.result, align 8
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str.102) #29

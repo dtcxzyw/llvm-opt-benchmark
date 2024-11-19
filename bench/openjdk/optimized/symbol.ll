@@ -517,7 +517,7 @@ declare noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef, i32 noundef
 declare void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK6Symbol10as_unicodeERi(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZNK6Symbol10as_unicodeERi(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1) local_unnamed_addr #1 align 2 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 6

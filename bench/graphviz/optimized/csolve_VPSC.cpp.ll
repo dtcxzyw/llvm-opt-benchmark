@@ -456,7 +456,7 @@ define void @solveVPSC(ptr noundef %0) local_unnamed_addr #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @setVariableDesiredPos(ptr nocapture noundef writeonly initializes((8, 16)) %0, double noundef %1) local_unnamed_addr #8 {
+define void @setVariableDesiredPos(ptr nocapture noundef writeonly %0, double noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store double %1, ptr %3, align 8
   ret void

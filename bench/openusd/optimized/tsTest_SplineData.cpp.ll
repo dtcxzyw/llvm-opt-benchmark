@@ -156,7 +156,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(74) initializes((0, 12), (16, 25), (32, 74)) %0) unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(74) %0) unnamed_addr #1 align 2 {
   store double 0.000000e+00, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
@@ -170,7 +170,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC2Ev(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(74) initializes((0, 74)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(74) %1) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(74) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(74) %1) unnamed_addr #2 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(74) %1, i64 74, i1 false)
   ret void
 }
@@ -179,7 +179,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotC2ERKS
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(74) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(74) initializes((0, 74)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(74) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(74) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(74) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(74) %1) local_unnamed_addr #2 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %0, ptr noundef nonnull align 8 dereferenceable(74) %1, i64 74, i1 false)
   ret ptr %0
 }
@@ -389,7 +389,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_Spline
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 1), (8, 41), (48, 56)) %0) unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0) unnamed_addr #1 align 2 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -401,13 +401,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoop
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamsC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamsC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) unnamed_addr #2 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamsaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(56) initializes((0, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData15InnerLoopParamsaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(56) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #2 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1, i64 56, i1 false)
   ret ptr %0
 }
@@ -570,7 +570,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_Spline
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 4), (8, 20)) %0) unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0) unnamed_addr #1 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 0.000000e+00, ptr %2, align 8
@@ -580,7 +580,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13Extrapola
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationC2ENS0_12ExtrapMethodE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 4), (8, 20)) %0, i32 noundef %1) unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationC2ENS0_12ExtrapMethodE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1) unnamed_addr #1 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double 0.000000e+00, ptr %3, align 8
@@ -590,13 +590,13 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13Extrapola
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) unnamed_addr #2 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(20) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) local_unnamed_addr #2 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i64 20, i1 false)
   ret ptr %0
 }
@@ -676,7 +676,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData13ExtrapolationeqERKS1_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataC2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 1), (16, 20), (24, 32)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
@@ -734,7 +734,7 @@ _ZNSt8_Rb_treeIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotES2_St
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 1), (16, 20), (24, 32)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<pxrInternal_v0_24__pxrReserved__::TsTest_SplineData::Knot, pxrInternal_v0_24__pxrReserved__::TsTest_SplineData::Knot, std::_Identity<pxrInternal_v0_24__pxrReserved__::TsTest_SplineData::Knot>, std::less<pxrInternal_v0_24__pxrReserved__::TsTest_SplineData::Knot>>::_Alloc_node", align 8
   %4 = load i8, ptr %1, align 8
   %5 = and i8 %4, 1
@@ -817,7 +817,7 @@ _ZNSt3setIN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData4KnotESt4lessIS2
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(160) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(160) initializes((0, 1)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(160) ptr @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineDataaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %1, align 8
   %4 = and i8 %3, 1
   store i8 %4, ptr %0, align 8
@@ -995,7 +995,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17TsTest_Spline
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData12SetIsHermiteEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 1)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData12SetIsHermiteEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 8
   ret void
@@ -1071,21 +1071,21 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData8SetKnotsER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19SetPreExtrapolationERKNS0_13ExtrapolationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((56, 76)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData19SetPreExtrapolationERKNS0_13ExtrapolationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull readonly align 8 dereferenceable(20) %1, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData20SetPostExtrapolationERKNS0_13ExtrapolationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((80, 100)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData20SetPostExtrapolationERKNS0_13ExtrapolationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, ptr noundef nonnull readonly align 8 dereferenceable(20) %1, i64 20, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData18SetInnerLoopParamsERKNS0_15InnerLoopParamsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((104, 160)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17TsTest_SplineData18SetInnerLoopParamsERKNS0_15InnerLoopParamsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull readonly align 8 dereferenceable(56) %1, i64 56, i1 false)
   ret void

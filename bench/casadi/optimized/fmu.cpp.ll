@@ -11530,7 +11530,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 declare void @_ZN6casadi20SharedObjectInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi11FmuInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(608) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi11FmuInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi11FmuInternalE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 600
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #26

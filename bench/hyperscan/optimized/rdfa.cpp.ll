@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3ue27raw_dfaD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN3ue27raw_dfaD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue27raw_dfaD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(560) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue27raw_dfaD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(560) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue27raw_dfaE, i64 16), ptr %this, align 8
   %states = getelementptr inbounds i8, ptr %this, i64 16
@@ -88,7 +88,7 @@ _ZNSt6vectorIN3ue26dstateESaIS1_EED2Ev.exit:      ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3ue27raw_dfaD0Ev(ptr noundef nonnull align 8 dereferenceable(560) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue27raw_dfaD0Ev(ptr noundef nonnull align 8 dereferenceable(560) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3ue27raw_dfaE, i64 16), ptr %this, align 8
   %states.i = getelementptr inbounds i8, ptr %this, i64 16

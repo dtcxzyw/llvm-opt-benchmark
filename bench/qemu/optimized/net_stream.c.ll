@@ -397,7 +397,7 @@ declare ptr @__errno_location() local_unnamed_addr #3
 declare i32 @qio_channel_add_watch(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @net_stream_writable(ptr nocapture readnone %ioc, i32 %condition, ptr noundef initializes((404, 408)) %data) #0 {
+define internal noundef i32 @net_stream_writable(ptr nocapture readnone %ioc, i32 %condition, ptr noundef %data) #0 {
 entry:
   %ioc_write_tag = getelementptr inbounds i8, ptr %data, i64 404
   store i32 0, ptr %ioc_write_tag, align 4
@@ -633,7 +633,7 @@ declare ptr @qio_channel_socket_get_local_address(ptr noundef, ptr noundef) loca
 declare i32 @g_timeout_add_seconds(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i32 @net_stream_reconnect(ptr noundef initializes((392, 400), (70080, 70084)) %data) #0 {
+define internal noundef i32 @net_stream_reconnect(ptr noundef %data) #0 {
 entry:
   %timer_tag = getelementptr inbounds i8, ptr %data, i64 70080
   store i32 0, ptr %timer_tag, align 8

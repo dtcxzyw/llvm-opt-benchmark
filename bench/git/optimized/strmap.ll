@@ -27,7 +27,7 @@ entry:
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @strmap_init(ptr nocapture noundef writeonly initializes((0, 64)) %map) local_unnamed_addr #2 {
+define dso_local void @strmap_init(ptr nocapture noundef writeonly %map) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %map, ptr noundef nonnull align 8 dereferenceable(64) @__const.strmap_init.blank, i64 64, i1 false)
   ret void

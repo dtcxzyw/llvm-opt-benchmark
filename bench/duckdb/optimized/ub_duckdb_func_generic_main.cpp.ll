@@ -849,7 +849,7 @@ _ZNSt12_Vector_baseIN6duckdb11LogicalTypeESaIS1_EED2Ev.exit: ; preds = %if.then.
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb14ConstantOrNull4BindENS_5ValueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb14ConstantOrNull4BindENS_5ValueE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result, ptr noundef %value) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb22ConstantOrNullBindDataESt14default_deleteIS1_EED2Ev.exit:
   %agg.tmp.i = alloca %"class.duckdb::Value", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %agg.tmp.i)

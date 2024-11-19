@@ -2884,7 +2884,7 @@ guess_timezone.exit:                              ; preds = %11, %27, %30, %32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @zm_globals_ctor_date(ptr nocapture noundef writeonly initializes((0, 24)) %0) #4 {
+define internal void @zm_globals_ctor_date(ptr nocapture noundef writeonly %0) #4 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   ret void
 }
@@ -6238,7 +6238,7 @@ declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...)
 declare void @timelib_update_from_sse(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @php_date_initialize_from_ts_long(ptr nocapture noundef initializes((0, 8)) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @php_date_initialize_from_ts_long(ptr nocapture noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @timelib_time_ctor() #25
   store ptr %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 232
@@ -8850,7 +8850,7 @@ define hidden void @zif_date_parse(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_do_return_parsed_time(ptr noundef initializes((0, 12)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @php_date_do_return_parsed_time(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = tail call ptr @_zend_new_array_0() #25
   store ptr %5, ptr %0, align 8
@@ -14230,7 +14230,7 @@ define hidden void @zim_DateInterval___set_state(ptr noundef %0, ptr noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_date_interval_initialize_from_hash(ptr nocapture initializes((8, 12), (24, 25)) %.0.val, ptr noundef %0) unnamed_addr #0 {
+define internal fastcc void @php_date_interval_initialize_from_hash(ptr nocapture %.0.val, ptr noundef %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load ptr, ptr %.0.val, align 8
   %.not = icmp eq ptr %3, null
@@ -19104,7 +19104,7 @@ define internal ptr @date_object_get_properties_for(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_object_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @date_object_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = tail call ptr @zend_std_get_properties(ptr noundef %0) #25
@@ -19260,7 +19260,7 @@ define internal ptr @date_object_get_properties_for_timezone(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_object_get_gc_timezone(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @date_object_get_gc_timezone(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = tail call ptr @zend_std_get_properties(ptr noundef %0) #25
@@ -19268,7 +19268,7 @@ define internal ptr @date_object_get_gc_timezone(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @date_object_get_debug_info_timezone(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal noundef ptr @date_object_get_debug_info_timezone(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 -32
   %5 = tail call ptr @zend_std_get_properties(ptr noundef %0) #25
@@ -20016,7 +20016,7 @@ define internal ptr @date_interval_get_property_ptr_ptr(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_object_get_gc_interval(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @date_object_get_gc_interval(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = tail call ptr @zend_std_get_properties(ptr noundef %0) #25
@@ -20253,7 +20253,7 @@ define internal noundef nonnull ptr @date_object_clone_period(ptr noundef %0) #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @date_object_get_gc_period(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #0 {
+define internal ptr @date_object_get_gc_period(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #0 {
   store ptr null, ptr %1, align 8
   store i32 0, ptr %2, align 4
   %4 = tail call ptr @zend_std_get_properties(ptr noundef %0) #25
@@ -20505,7 +20505,7 @@ get_base_date_class.exit:                         ; preds = %10, %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @date_period_it_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #17 {
+define internal void @date_period_it_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #17 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -20624,7 +20624,7 @@ date_period_it_invalidate_current.exit:           ; preds = %44, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @date_period_it_rewind(ptr noundef initializes((112, 116)) %0) #0 {
+define internal void @date_period_it_rewind(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104

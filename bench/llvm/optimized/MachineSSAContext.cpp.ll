@@ -302,7 +302,7 @@ define dso_local noundef i32 @_ZN4llvm17GenericSSAContextINS_15MachineFunctionEE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm17GenericSSAContextINS_15MachineFunctionEE5printEPKNS_17MachineBasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm17GenericSSAContextINS_15MachineFunctionEE5printEPKNS_17MachineBasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit, label %_ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit3
 
@@ -328,7 +328,7 @@ _ZNSt8functionIFvRN4llvm11raw_ostreamEEED2Ev.exit: ; preds = %_ZN4llvm9Printable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm17GenericSSAContextINS_15MachineFunctionEE5printEPKNS_12MachineInstrE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm17GenericSSAContextINS_15MachineFunctionEE5printEPKNS_12MachineInstrE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
 _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   %3 = ptrtoint ptr %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -342,7 +342,7 @@ _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK4llvm17GenericSSAContextINS_15MachineFunctionEE5printENS_8RegisterE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4llvm17GenericSSAContextINS_15MachineFunctionEE5printENS_8RegisterE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, i32 %2) local_unnamed_addr #4 align 2 {
 _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -360,7 +360,7 @@ _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZNK4llvm17GenericSSAContextINS_15MachineFunctionEE14printAsOperandEPKNS_17MachineBasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK4llvm17GenericSSAContextINS_15MachineFunctionEE14printAsOperandEPKNS_17MachineBasicBlockE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #3 align 2 {
 _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   %3 = ptrtoint ptr %2 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24

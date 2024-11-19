@@ -35,7 +35,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16remote_bitbang_tC2EtP10jtag_dtm_t(ptr nocapture noundef nonnull align 8 dereferenceable(131104) initializes((0, 16), (131088, 131104)) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define void @_ZN16remote_bitbang_tC2EtP10jtag_dtm_t(ptr nocapture noundef nonnull align 8 dereferenceable(131104) %0, i16 noundef zeroext %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = alloca i32, align 4
   %5 = alloca %struct.sockaddr_in, align 4
   %6 = alloca i32, align 4
@@ -191,7 +191,7 @@ declare zeroext i16 @ntohs(i16 noundef zeroext) local_unnamed_addr #5
 declare noundef i32 @fflush(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16remote_bitbang_t6acceptEv(ptr nocapture noundef nonnull align 8 dereferenceable(131104) initializes((12, 16)) %0) local_unnamed_addr #3 align 2 {
+define void @_ZN16remote_bitbang_t6acceptEv(ptr nocapture noundef nonnull align 8 dereferenceable(131104) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = tail call i32 @accept(i32 noundef %3, ptr noundef null, ptr noundef null)

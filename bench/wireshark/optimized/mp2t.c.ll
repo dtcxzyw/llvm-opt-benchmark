@@ -370,7 +370,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mp2t_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal range(i32 0, 2) i32 @mp2t_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %0, align 8
@@ -530,7 +530,7 @@ define internal noundef range(i32 -9, 1) i32 @mp2t_dump_can_write_encap(i32 noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mp2t_dump_open(ptr nocapture noundef writeonly initializes((64, 72)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #4 {
+define internal noundef i32 @mp2t_dump_open(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #4 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr @mp2t_dump, ptr %4, align 8
   ret i32 1

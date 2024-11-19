@@ -186,7 +186,7 @@ $_ZTIN8QuantLib18OptimizationMethodE = comdat any
 @_ZN8QuantLib13ClubsTopologyC1Emmmmmm = unnamed_addr alias void (ptr, i64, i64, i64, i64, i64, i64), ptr @_ZN8QuantLib13ClubsTopologyC2Emmmmmm
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25ParticleSwarmOptimizationC2EmN5boost10shared_ptrINS0_8TopologyEEENS2_INS0_7InertiaEEEddm(ptr noundef nonnull align 8 dereferenceable(5240) initializes((0, 176)) %this, i64 noundef %M, ptr nocapture noundef %topology, ptr nocapture noundef %inertia, double noundef %c1, double noundef %c2, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25ParticleSwarmOptimizationC2EmN5boost10shared_ptrINS0_8TopologyEEENS2_INS0_7InertiaEEEddm(ptr noundef nonnull align 8 dereferenceable(5240) %this, i64 noundef %M, ptr nocapture noundef %topology, ptr nocapture noundef %inertia, double noundef %c1, double noundef %c2, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -749,7 +749,7 @@ _ZNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EED2Ev.exit: ; preds = %invoke.cont, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib25ParticleSwarmOptimizationC2EmN5boost10shared_ptrINS0_8TopologyEEENS2_INS0_7InertiaEEEdddm(ptr noundef nonnull align 8 dereferenceable(5240) initializes((0, 176), (184, 208)) %this, i64 noundef %M, ptr nocapture noundef %topology, ptr nocapture noundef %inertia, double noundef %omega, double noundef %c1, double noundef %c2, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib25ParticleSwarmOptimizationC2EmN5boost10shared_ptrINS0_8TopologyEEENS2_INS0_7InertiaEEEdddm(ptr noundef nonnull align 8 dereferenceable(5240) %this, i64 noundef %M, ptr nocapture noundef %topology, ptr nocapture noundef %inertia, double noundef %omega, double noundef %c1, double noundef %c2, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib25ParticleSwarmOptimizationE, i64 16), ptr %this, align 8, !tbaa !3
   %X_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3702,7 +3702,7 @@ _ZN8QuantLib5ArrayaSERKS0_.exit:                  ; preds = %_ZN8QuantLib5ArrayC
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13ClubsTopologyC2Emmmmmm(ptr noundef nonnull align 8 dereferenceable(5232) initializes((0, 8), (64, 112), (120, 168)) %this, i64 noundef %defaultClubs, i64 noundef %totalClubs, i64 noundef %maxClubs, i64 noundef %minClubs, i64 noundef %resetIteration, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13ClubsTopologyC2Emmmmmm(ptr noundef nonnull align 8 dereferenceable(5232) %this, i64 noundef %defaultClubs, i64 noundef %totalClubs, i64 noundef %maxClubs, i64 noundef %minClubs, i64 noundef %resetIteration, i64 noundef %seed) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp17 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4625,7 +4625,7 @@ _ZNSt12_Vector_baseISt6vectorIbSaIbEESaIS2_EED2Ev.exit: ; preds = %invoke.cont, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13ClubsTopology7setSizeEm(ptr noundef nonnull align 8 dereferenceable(5232) initializes((112, 120)) %this, i64 noundef %M) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13ClubsTopology7setSizeEm(ptr noundef nonnull align 8 dereferenceable(5232) %this, i64 noundef %M) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.23", align 8
   %ref.tmp3 = alloca %"class.std::vector.33", align 8

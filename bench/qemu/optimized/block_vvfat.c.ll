@@ -2417,7 +2417,7 @@ if.end:                                           ; preds = %if.then, %vvfat_clo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal void @vvfat_refresh_limits(ptr nocapture noundef writeonly initializes((16464, 16468)) %bs, ptr nocapture readnone %errp) #3 {
+define internal void @vvfat_refresh_limits(ptr nocapture noundef writeonly %bs, ptr nocapture readnone %errp) #3 {
 entry:
   %bl = getelementptr inbounds i8, ptr %bs, i64 16464
   store i32 512, ptr %bl, align 8
@@ -2532,7 +2532,7 @@ return:                                           ; preds = %if.end8, %if.end12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define internal noundef i32 @vvfat_co_block_status(ptr nocapture readnone %bs, i1 zeroext %want_zero, i64 %offset, i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %n, ptr nocapture readnone %map, ptr nocapture readnone %file) #3 {
+define internal noundef i32 @vvfat_co_block_status(ptr nocapture readnone %bs, i1 zeroext %want_zero, i64 %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %n, ptr nocapture readnone %map, ptr nocapture readnone %file) #3 {
 entry:
   store i64 %bytes, ptr %n, align 8
   ret i32 1
@@ -2587,7 +2587,7 @@ declare ptr @bdrv_get_device_or_node_name(ptr noundef) local_unnamed_addr #1
 declare i32 @migrate_add_blocker_normal(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @init_mbr(ptr nocapture noundef initializes((56, 568)) %s, i32 noundef range(i32 64, 1025) %cyls, i32 noundef range(i32 2, 17) %heads, i32 noundef range(i32 18, 64) %secs) unnamed_addr #8 {
+define internal fastcc void @init_mbr(ptr nocapture noundef %s, i32 noundef range(i32 64, 1025) %cyls, i32 noundef range(i32 2, 17) %heads, i32 noundef range(i32 18, 64) %secs) unnamed_addr #8 {
 entry:
   %first_sectors = getelementptr inbounds i8, ptr %s, i64 56
   %partition1 = getelementptr inbounds i8, ptr %s, i64 502
@@ -3886,7 +3886,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -1, 1) i32 @try_commit(ptr nocapture noundef initializes((32992, 32996)) %s) #0 {
+define internal range(i32 -1, 1) i32 @try_commit(ptr nocapture noundef %s) #0 {
 entry:
   %current_mapping.i = getelementptr inbounds i8, ptr %s, i64 32968
   %0 = load ptr, ptr %current_mapping.i, align 8
@@ -5794,7 +5794,7 @@ return:                                           ; preds = %modified_fat_get.ex
 declare void @pstrcpy(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i32 @get_cluster_count_for_direntry(ptr nocapture noundef initializes((32992, 32996)) %s, ptr nocapture noundef readonly %direntry, ptr noundef %path) #0 {
+define internal i32 @get_cluster_count_for_direntry(ptr nocapture noundef %s, ptr nocapture noundef readonly %direntry, ptr noundef %path) #0 {
 entry:
   %qiov.i = alloca %struct.QEMUIOVector, align 8
   %0 = getelementptr i8, ptr %direntry, i64 20
@@ -6913,7 +6913,7 @@ return:                                           ; preds = %array_get.exit115, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -7, 1) i32 @handle_commits(ptr nocapture noundef initializes((32992, 32996)) %s) #0 {
+define internal range(i32 -7, 1) i32 @handle_commits(ptr nocapture noundef %s) #0 {
 entry:
   %current_mapping.i = getelementptr inbounds i8, ptr %s, i64 32968
   %0 = load ptr, ptr %current_mapping.i, align 8

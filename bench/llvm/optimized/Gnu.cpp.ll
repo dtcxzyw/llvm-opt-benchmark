@@ -24371,7 +24371,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang6driver10toolchains11Generic_GCCD2Ev(ptr noundef nonnull align 8 dereferenceable(4488) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN5clang6driver10toolchains11Generic_GCCD2Ev(ptr noundef nonnull align 8 dereferenceable(4488) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 752) (i8, ptr @_ZTVN5clang6driver10toolchains11Generic_GCCE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4480
   %3 = load ptr, ptr %2, align 8
@@ -24480,7 +24480,7 @@ _ZNSt8optionalIN5clang6driver8MultilibEED2Ev.exit: ; preds = %1, %14
 declare void @_ZN5clang6driver9ToolChainD2Ev(ptr noundef nonnull align 8 dereferenceable(2168)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5clang6driver10toolchains11Generic_GCCD0Ev(ptr noundef nonnull align 8 dereferenceable(4488) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN5clang6driver10toolchains11Generic_GCCD0Ev(ptr noundef nonnull align 8 dereferenceable(4488) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN5clang6driver10toolchains11Generic_GCCD2Ev(ptr noundef nonnull align 8 dereferenceable(4488) %0) #22
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 4488) #23
   ret void
@@ -27851,7 +27851,7 @@ _ZNSt6vectorIN5clang6driver11MultilibSet11FlagMatcherESaIS3_EED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL21findMipsMuslMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL21findMipsMuslMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -27922,7 +27922,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang6driver18Multi
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang6driver18MultilibSetBuilder6EitherEN4llvm8ArrayRefINS0_15MultilibBuilderEEE(ptr noundef nonnull align 8 dereferenceable(24), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsMtiMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias writable sret(%"class.std::vector.41") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsMtiMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias writable sret(%"class.std::vector.41") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -28127,7 +28127,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsMtiMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsMtiMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -28189,7 +28189,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsMtiMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsMtiMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -28244,7 +28244,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsImgMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 initializes((0, 8), (16, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsImgMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca [2 x %"class.std::__cxx11::basic_string"], align 8
   %6 = alloca %"class.std::allocator", align 1
@@ -28336,7 +28336,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsImgMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsImgMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_1E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -28398,7 +28398,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFSt6vectorINSt7__c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsImgMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL20findMipsImgMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_2E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -28457,7 +28457,7 @@ declare noundef nonnull align 8 dereferenceable(120) ptr @_ZN5clang6driver15Mult
 declare noundef nonnull align 8 dereferenceable(120) ptr @_ZN5clang6driver15MultilibBuilder13includeSuffixEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(120), ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL19findMipsCsMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias writable sret(%"class.std::vector.41") align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL19findMipsCsMultilibsRKNSA_6DriverERKS8_RN12_GLOBAL__N_117FilterNonExistentERNSA_17DetectedMultilibsEE3$_0E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias writable sret(%"class.std::vector.41") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
@@ -28917,7 +28917,7 @@ _ZNSt12_Vector_baseIN5clang6driver15MultilibBuilderESaIS2_EE13_M_deallocateEPS2_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL27findRISCVBareMetalMultilibsRKNSA_6DriverERKN4llvm6TripleENSI_9StringRefERKNSI_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 initializes((0, 8), (16, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EERKN5clang6driver8MultilibEEZL27findRISCVBareMetalMultilibsRKNSA_6DriverERKN4llvm6TripleENSI_9StringRefERKNSI_3opt7ArgListERNSA_17DetectedMultilibsEE3$_0E9_M_invokeERKSt9_Any_dataSD_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.41") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr noundef nonnull align 8 dereferenceable(192) %2) #0 align 2 {
   %4 = alloca %"class.std::allocator", align 1
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"class.std::allocator", align 1

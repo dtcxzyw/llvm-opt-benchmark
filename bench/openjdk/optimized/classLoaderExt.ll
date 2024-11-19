@@ -401,7 +401,7 @@ declare noundef ptr @_ZN16SystemDictionary18java_system_loaderEv() local_unnamed
 declare noundef ptr @_ZN7Modules22get_module_entry_tableE6Handle(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ClassLoaderExt13read_manifestEP10JavaThreadP14ClassPathEntryPib(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14ClassLoaderExt13read_manifestEP10JavaThreadP14ClassPathEntryPib(ptr noundef %0, ptr noundef nonnull %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca i32, align 4
   %6 = call noundef ptr @_ZN17ClassPathZipEntry10open_entryEP10JavaThreadPKcPib(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %5, i1 noundef zeroext true) #11
   %7 = icmp eq ptr %6, null
@@ -752,7 +752,7 @@ define hidden void @_ZN14ClassLoaderExt18setup_search_pathsEP10JavaThread(ptr no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14ClassLoaderExt13record_resultEsP13InstanceKlassb(i16 noundef signext %0, ptr noundef initializes((186, 188)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14ClassLoaderExt13record_resultEsP13InstanceKlassb(i16 noundef signext %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 152
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8

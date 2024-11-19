@@ -17,7 +17,7 @@ $__clang_call_terminate = comdat any
 declare i64 @sysconf(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau7CodeGen13CodeAllocatorC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 120)) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau7CodeGen13CodeAllocatorC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 88, i1 false)
   store i64 %1, ptr %4, align 8
@@ -29,7 +29,7 @@ define dso_local void @_ZN4Luau7CodeGen13CodeAllocatorC2Emm(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4Luau7CodeGen13CodeAllocatorC2EmmPFvPvS2_mS2_mES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 120)) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4Luau7CodeGen13CodeAllocatorC2EmmPFvPvS2_mS2_mES2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #1 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, i8 0, i64 88, i1 false)
   store i64 %1, ptr %6, align 8

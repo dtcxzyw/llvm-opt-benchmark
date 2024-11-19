@@ -5285,7 +5285,7 @@ define range(i32 -1, 5) i32 @If_CluDetectSpecialCaseCofs(ptr nocapture noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @If_CluDecUsingCofs(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.If_Grp_t_) align 1 initializes((0, 18)) %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 {
+define void @If_CluDecUsingCofs(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.If_Grp_t_) align 1 %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 {
   %5 = alloca [6 x i32], align 16
   %6 = alloca [1024 x i64], align 16
   %7 = alloca [18 x i32], align 16
@@ -6552,7 +6552,7 @@ If_CluCofactors.exit.us:                          ; preds = %._crit_edge.us.i.us
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @If_CluFindGroup(ptr dead_on_unwind noalias nocapture writable sret(%struct.If_Grp_t_) align 1 initializes((0, 18)) %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #10 {
+define void @If_CluFindGroup(ptr dead_on_unwind noalias nocapture writable sret(%struct.If_Grp_t_) align 1 %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #10 {
   %10 = alloca [128 x i64], align 16
   %11 = getelementptr inbounds i8, ptr %0, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %11, i8 0, i64 16, i1 false)
@@ -7433,7 +7433,7 @@ If_CluTruthShrink.exit:                           ; preds = %57, %._crit_edge59.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_CluCheck(ptr dead_on_unwind noalias nocapture writable sret(%struct.If_Grp_t_) align 1 initializes((0, 18)) %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef %11, i32 noundef %12) local_unnamed_addr #1 {
+define void @If_CluCheck(ptr dead_on_unwind noalias nocapture writable sret(%struct.If_Grp_t_) align 1 %0, ptr noundef %1, ptr nocapture noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef %11, i32 noundef %12) local_unnamed_addr #1 {
   %14 = alloca [3 x [256 x i64]], align 16
   %15 = alloca %struct.If_Grp_t_, align 1
   %16 = alloca [1024 x i64], align 16
@@ -9102,7 +9102,7 @@ If_CluMoveGroupToMsb.exit:                        ; preds = %57, %._crit_edge153
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_CluCheckExt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly initializes((0, 18)) %5, ptr nocapture noundef writeonly initializes((0, 18)) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @If_CluCheckExt(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5, ptr nocapture noundef writeonly %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #1 {
   %10 = alloca %struct.If_Grp_t_, align 1
   %11 = alloca %struct.If_Grp_t_, align 1
   call void @If_CluCheck(ptr dead_on_unwind nonnull writable sret(%struct.If_Grp_t_) align 1 %11, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 0, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %10, ptr noundef %7, ptr noundef %8, ptr noundef null, i32 noundef 0)
@@ -9118,7 +9118,7 @@ define range(i32 0, 2) i32 @If_CluCheckExt(ptr noundef %0, ptr nocapture noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_CluCheckExt3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly initializes((0, 18)) %6, ptr nocapture noundef writeonly initializes((0, 18)) %7, ptr nocapture noundef writeonly initializes((0, 18)) %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @If_CluCheckExt3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr nocapture noundef writeonly %6, ptr nocapture noundef writeonly %7, ptr nocapture noundef writeonly %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #1 {
   %13 = alloca %struct.If_Grp_t_, align 1
   %14 = alloca %struct.If_Grp_t_, align 1
   %15 = alloca %struct.If_Grp_t_, align 1

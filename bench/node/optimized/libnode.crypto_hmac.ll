@@ -1551,7 +1551,7 @@ declare void @abort() local_unnamed_addr #7
 declare ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto10HmacConfigC2EOS1_(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(88) %other) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto10HmacConfigC2EOS1_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %other) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto10HmacConfigE, i64 16), ptr %this, align 8
   %job_mode = getelementptr inbounds i8, ptr %this, i64 8
@@ -2080,7 +2080,7 @@ if.end:                                           ; preds = %_ZN4node13MemoryTra
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i16 0, 258) i16 @_ZN4node6crypto10HmacTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_10HmacConfigE(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr noundef initializes((8, 12)) %params) local_unnamed_addr #3 align 2 {
+define dso_local range(i16 0, 258) i16 @_ZN4node6crypto10HmacTraits16AdditionalConfigENS0_13CryptoJobModeERKN2v820FunctionCallbackInfoINS3_5ValueEEEjPNS0_10HmacConfigE(i32 noundef %mode, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %args, i32 noundef %offset, ptr noundef %params) local_unnamed_addr #3 align 2 {
 entry:
   %digest = alloca %"class.node::Utf8Value", align 8
   %ref.tmp70 = alloca ptr, align 8

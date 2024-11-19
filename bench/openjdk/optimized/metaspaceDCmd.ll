@@ -53,7 +53,7 @@ $_ZTV12DCmdArgumentIPcE = comdat any
 @_ZN9metaspace13MetaspaceDCmdC1EP12outputStreamb = hidden unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(496) initializes((0, 17), (24, 91), (96, 147), (152, 203), (208, 259), (264, 315), (320, 371), (376, 427), (440, 491)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN9metaspace13MetaspaceDCmdC2EP12outputStreamb(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8

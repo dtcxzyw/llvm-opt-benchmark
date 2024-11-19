@@ -234,7 +234,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt16FilterLSAcceptorC2ERKNS_8SmartPtrINS_14PDSystemSolverEEE(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 12), (16, 49)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt16FilterLSAcceptorC2ERKNS_8SmartPtrINS_14PDSystemSolverEEE(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -294,7 +294,7 @@ declare void @_ZN5Ipopt6FilterC1Ei(ptr noundef nonnull align 8 dereferenceable(3
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt16FilterLSAcceptorD2Ev(ptr noundef nonnull align 8 dereferenceable(304) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt16FilterLSAcceptorD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt16FilterLSAcceptorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8
@@ -3909,7 +3909,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt16FilterLSAcceptor18InitThisLineSearchEb(ptr noundef nonnull align 8 dereferenceable(304) initializes((200, 224)) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
+define void @_ZN5Ipopt16FilterLSAcceptor18InitThisLineSearchEb(ptr noundef nonnull align 8 dereferenceable(304) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 {
   br i1 %1, label %19, label %3
 
 3:                                                ; preds = %2
@@ -4756,7 +4756,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit14:                  ; preds = %20, %17, %15
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt16FilterLSAcceptor13StartWatchDogEv(ptr nocapture noundef nonnull align 8 dereferenceable(304) initializes((224, 248)) %0) unnamed_addr #3 align 2 {
+define void @_ZN5Ipopt16FilterLSAcceptor13StartWatchDogEv(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -4780,7 +4780,7 @@ define void @_ZN5Ipopt16FilterLSAcceptor13StartWatchDogEv(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5Ipopt16FilterLSAcceptor12StopWatchDogEv(ptr nocapture noundef nonnull align 8 dereferenceable(304) initializes((200, 224)) %0) unnamed_addr #9 align 2 {
+define void @_ZN5Ipopt16FilterLSAcceptor12StopWatchDogEv(ptr nocapture noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   %3 = load double, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 200
@@ -4797,7 +4797,7 @@ define void @_ZN5Ipopt16FilterLSAcceptor12StopWatchDogEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt16FilterLSAcceptor5ResetEv(ptr noundef nonnull align 8 dereferenceable(304) initializes((280, 281), (284, 288)) %0) unnamed_addr #3 align 2 {
+define void @_ZN5Ipopt16FilterLSAcceptor5ResetEv(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 284

@@ -4280,13 +4280,13 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.php_escape_html_entities_ex = private unnamed_addr constant [4 x ptr] [ptr @ent_ht_html4, ptr @ent_ht_be_apos, ptr @ent_ht_html4, ptr @ent_ht_html5], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 9437184) i32 @php_next_utf8_char(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define range(i32 0, 9437184) i32 @php_next_utf8_char(ptr nocapture noundef readonly %0, i64 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @get_next_char(i32 noundef 0, ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 9437184) i32 @get_next_char(i32 noundef %0, ptr nocapture noundef readonly %1, i64 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 {
   %6 = load i64, ptr %3, align 8
   store i32 0, ptr %4, align 4
   %7 = sub i64 %2, %6

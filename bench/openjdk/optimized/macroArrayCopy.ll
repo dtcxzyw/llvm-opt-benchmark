@@ -2656,7 +2656,7 @@ _ZN4NodenwEm.exit16:                              ; preds = %70, %72
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16PhaseMacroExpand21finish_arraycopy_callEP4NodePS1_PP12MergeMemNodePK7TypePtr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16PhaseMacroExpand21finish_arraycopy_callEP4NodePS1_PP12MergeMemNodePK7TypePtr(ptr nocapture noundef nonnull readonly align 8 dereferenceable(97) %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @_ZN12PhaseIterGVN32register_new_node_with_optimizerEP4NodeS1_(ptr noundef nonnull align 8 dereferenceable(2416) %7, ptr noundef %1, ptr noundef null) #6

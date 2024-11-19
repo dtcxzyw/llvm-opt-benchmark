@@ -2111,7 +2111,7 @@ define linkonce_odr hidden ptr @_ZN4llvm9StringMapIN5clang17UnaryOperatorKindENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento13getPointeeValENS0_4SValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.222") align 8 initializes((16, 17)) %0, ptr %1, i8 %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang4ento13getPointeeValENS0_4SValEN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.222") align 8 %0, ptr %1, i8 %2, ptr nocapture noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %"class.clang::ento::SVal", align 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8

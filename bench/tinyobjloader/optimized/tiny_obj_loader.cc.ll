@@ -962,7 +962,7 @@ declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN7tinyobjL10parseReal3EPfS0_S0_PPKcddd(ptr nocapture noundef writeonly initializes((0, 4)) %x, ptr nocapture noundef writeonly initializes((0, 4)) %y, ptr nocapture noundef writeonly initializes((0, 4)) %z, ptr nocapture noundef nonnull %token, double noundef %default_x, double noundef %default_y, double noundef %default_z) unnamed_addr #6 {
+define internal fastcc void @_ZN7tinyobjL10parseReal3EPfS0_S0_PPKcddd(ptr nocapture noundef writeonly %x, ptr nocapture noundef writeonly %y, ptr nocapture noundef writeonly %z, ptr nocapture noundef nonnull %token, double noundef %default_x, double noundef %default_y, double noundef %default_z) unnamed_addr #6 {
 entry:
   %val.i10 = alloca double, align 8
   %val.i3 = alloca double, align 8
@@ -2639,7 +2639,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN7tinyobjL12InitMaterialEPNS_10material_tE(ptr noundef nonnull initializes((368, 432), (464, 528), (560, 624), (656, 720), (752, 816), (848, 912), (944, 1008), (1040, 1104), (1328, 1392), (1424, 1488), (1520, 1584), (1616, 1680), (1712, 1776)) %material) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7tinyobjL12InitMaterialEPNS_10material_tE(ptr noundef nonnull %material) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ambient_texopt = getelementptr inbounds i8, ptr %material, i64 368
   %0 = getelementptr inbounds i8, ptr %material, i64 425
@@ -8686,7 +8686,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd(ptr nocapture noundef nonnull writeonly initializes((0, 4)) %x, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %y, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %z, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %r, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %g, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %b, ptr nocapture noundef nonnull %token) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZN7tinyobjL20parseVertexWithColorEPfS0_S0_S0_S0_S0_PPKcddd(ptr nocapture noundef nonnull writeonly %x, ptr nocapture noundef nonnull writeonly %y, ptr nocapture noundef nonnull writeonly %z, ptr nocapture noundef nonnull writeonly %r, ptr nocapture noundef nonnull writeonly %g, ptr nocapture noundef nonnull writeonly %b, ptr nocapture noundef nonnull %token) unnamed_addr #6 {
 entry:
   %val.i40 = alloca double, align 8
   %val.i31 = alloca double, align 8

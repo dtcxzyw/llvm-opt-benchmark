@@ -1093,7 +1093,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3old15model_evaluator5resetEv(ptr noundef nonnull align 8 dereferenceable(184) initializes((120, 124), (144, 148)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3old15model_evaluator5resetEv(ptr noundef nonnull align 8 dereferenceable(184) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %m_data.i.i, align 8
@@ -12275,7 +12275,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3old15model_evaluator10eval_heavyERK3refI5modelEP4expr(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %model, ptr noundef %fml) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3old15model_evaluator10eval_heavyERK3refI5modelEP4expr(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %model, ptr noundef %fml) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %fmls = alloca %class.ptr_vector, align 8
   %0 = load ptr, ptr %model, align 8
@@ -12582,7 +12582,7 @@ ehcleanup:                                        ; preds = %lpad4, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3old15model_evaluator4evalERK3refI5modelEP9func_decl(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %model, ptr noundef %d) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3old15model_evaluator4evalERK3refI5modelEP9func_decl(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %model, ptr noundef %d) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %e = alloca %class.obj_ref, align 8
   %ref.tmp = alloca %class.obj_ref, align 8

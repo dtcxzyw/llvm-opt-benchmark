@@ -74,7 +74,7 @@ define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$alloc..string..String$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3egg3run16BackoffScheduler24with_initial_match_limit17h57ae216e9e9109e8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) initializes((56, 64)) %1, i64 noundef %2) unnamed_addr #2 {
+define void @_ZN3egg3run16BackoffScheduler24with_initial_match_limit17h57ae216e9e9109e8E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   store i64 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
@@ -82,7 +82,7 @@ define void @_ZN3egg3run16BackoffScheduler24with_initial_match_limit17h57ae216e9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3egg3run16BackoffScheduler15with_ban_length17h30a30c56f3e3db76E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) initializes((64, 72)) %1, i64 noundef %2) unnamed_addr #2 {
+define void @_ZN3egg3run16BackoffScheduler15with_ban_length17h30a30c56f3e3db76E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) %0, ptr noalias nocapture noundef align 8 dereferenceable(72) %1, i64 noundef %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   store i64 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
@@ -289,7 +289,7 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN3egg3run16BackoffSche
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN69_$LT$egg..run..BackoffScheduler$u20$as$u20$core..default..Default$GT$7default17h8b21008b05f94543E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) initializes((0, 72)) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
+define void @"_ZN69_$LT$egg..run..BackoffScheduler$u20$as$u20$core..default..Default$GT$7default17h8b21008b05f94543E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([72 x i8]) align 8 dereferenceable(72) %0) unnamed_addr #4 personality ptr @rust_eh_personality {
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7.0..sroa_idx, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 56

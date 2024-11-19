@@ -1063,7 +1063,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_read_lpa(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_pma_baset1_read_master_slave(ptr noundef initializes((1036, 1037), (1038, 1039)) %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_pma_baset1_read_master_slave(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1038
   store i8 1, ptr %2, align 2
   %3 = getelementptr inbounds i8, ptr %0, i64 1036
@@ -1087,7 +1087,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_pma_baset1_read_maste
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_read_pma(ptr noundef initializes((1072, 1088)) %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_read_pma(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1072
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = tail call i32 @phy_read_mmd(ptr noundef %0, i32 noundef 1, i32 noundef 0) #7
@@ -1854,7 +1854,7 @@ define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_pma_read_abilities(pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_baset1_read_status(ptr noundef initializes((1036, 1037), (1038, 1039)) %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @genphy_c45_baset1_read_status(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1036
   store i8 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 1038

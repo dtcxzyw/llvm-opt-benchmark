@@ -5835,7 +5835,7 @@ declare void @llvm.assume(i1 noundef) #24
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #23
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly7dynamicC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 4), (8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(40) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7dynamicC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %o) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp27 = alloca %"class.google::LogMessageFatal", align 8
@@ -7721,7 +7721,7 @@ return:                                           ; preds = %invoke.cont66, %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly7dynamicC2EOS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 4), (8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(40) %o) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly7dynamicC2EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(40) %o) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.i.i.i.i.i.i = alloca %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin", align 8
   %ref.tmp24 = alloca %"class.google::LogMessageFatal", align 8

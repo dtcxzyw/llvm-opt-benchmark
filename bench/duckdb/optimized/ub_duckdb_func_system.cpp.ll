@@ -346,7 +346,7 @@ $_ZTIPFvRN6duckdb9DataChunkERNS_15ExpressionStateERNS_6VectorEE = comdat any
 @_ZN6duckdb31ExportAggregateFunctionBindDataC1ENS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEE = unnamed_addr alias void (ptr, ptr), ptr @_ZN6duckdb31ExportAggregateFunctionBindDataC2ENS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb31ExportAggregateFunctionBindDataC2ENS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef %aggregate_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb31ExportAggregateFunctionBindDataC2ENS_10unique_ptrINS_10ExpressionESt14default_deleteIS2_ELb1EEE(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef %aggregate_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6duckdb31ExportAggregateFunctionBindDataE, i64 16), ptr %this, align 8, !tbaa !3
   %aggregate = getelementptr inbounds i8, ptr %this, i64 8

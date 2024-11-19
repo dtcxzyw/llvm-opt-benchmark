@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4i18n12phonenumbers17DefaultMapStorageD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN4i18n12phonenumbers17DefaultMapStorageD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4i18n12phonenumbers17DefaultMapStorageC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4i18n12phonenumbers17DefaultMapStorageC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers17DefaultMapStorageE, i64 16), ptr %0, align 8
   ret void
 }
@@ -52,7 +52,7 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers17DefaultMapStorage14GetDes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4i18n12phonenumbers17DefaultMapStorage11ReadFromMapEPKNS0_18PrefixDescriptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((8, 20), (24, 44)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN4i18n12phonenumbers17DefaultMapStorage11ReadFromMapEPKNS0_18PrefixDescriptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %4, align 8

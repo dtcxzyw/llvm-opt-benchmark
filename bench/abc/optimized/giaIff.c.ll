@@ -500,7 +500,7 @@ define float @Gia_IffObjTimeOne(ptr nocapture noundef readonly %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define float @Gia_IffObjTimeTwo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, float noundef %3) local_unnamed_addr #4 {
+define float @Gia_IffObjTimeTwo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, float noundef %3) local_unnamed_addr #4 {
   store i32 -1, ptr %2, align 4
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %0, align 8
@@ -787,7 +787,7 @@ Gia_IffObjCount.exit:                             ; preds = %114, %.critedge.i29
 }
 
 ; Function Attrs: nounwind uwtable
-define float @Gia_IffObjTimeThree(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, float noundef %4) local_unnamed_addr #4 {
+define float @Gia_IffObjTimeThree(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, float noundef %4) local_unnamed_addr #4 {
   store i32 -1, ptr %2, align 4
   store i32 -1, ptr %3, align 4
   %6 = sext i32 %1 to i64

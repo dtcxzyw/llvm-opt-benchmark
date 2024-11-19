@@ -991,7 +991,7 @@ if.end13:                                         ; preds = %entry, %if.then12, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @net_dgram_writable(ptr noundef initializes((70049, 70050)) %opaque) #0 {
+define internal void @net_dgram_writable(ptr noundef %opaque) #0 {
 entry:
   %write_poll.i = getelementptr inbounds i8, ptr %opaque, i64 70049
   store i8 0, ptr %write_poll.i, align 1

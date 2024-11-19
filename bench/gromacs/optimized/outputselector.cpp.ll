@@ -112,7 +112,7 @@ define linkonce_odr void @_ZN3gmx14OutputSelectorD0Ev(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx14OutputSelector12processFrameEiP10t_trxframe(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 %1, ptr nocapture noundef initializes((8, 12)) %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx14OutputSelector12processFrameEiP10t_trxframe(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 %1, ptr nocapture noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

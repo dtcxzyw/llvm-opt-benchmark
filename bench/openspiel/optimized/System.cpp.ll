@@ -180,7 +180,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6SystemC2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8), (20, 36), (40, 52), (56, 184)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6SystemC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -280,7 +280,7 @@ _ZNSt6vectorIPFviESaIS1_EED2Ev.exit:              ; preds = %_ZNSt6vectorIPFvRK6
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6System5ResetEv(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8), (20, 24)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6System5ResetEv(ptr noundef nonnull align 8 dereferenceable(200) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 1, ptr %2, align 4
@@ -811,7 +811,7 @@ declare void @_Z14CopyCalcSingleRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 
 declare void @_Z14CopyPlaySingleRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(24)) #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6System11GetHardwareERiRy(ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #4 align 2 {
+define void @_ZNK6System11GetHardwareERiRy(ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   store i64 0, ptr %2, align 8
   store i32 1, ptr %1, align 4
@@ -830,7 +830,7 @@ define void @_ZNK6System11GetHardwareERiRy(ptr nocapture noundef nonnull readnon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZNK6System8GetCoresB5cxx11ERi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #3 align 2 {
+define void @_ZNK6System8GetCoresB5cxx11ERi(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #3 align 2 {
   %4 = tail call i64 @sysconf(i32 noundef 84) #23
   %5 = trunc i64 %4 to i32
   store i32 %5, ptr %2, align 4
@@ -941,7 +941,7 @@ define noundef range(i32 -104, 2) i32 @_ZN6System15PreferThreadingEj(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) initializes((184, 192)) %0) local_unnamed_addr #4 align 2 {
+define noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 dereferenceable(200) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %0, align 8
   %4 = zext i32 %3 to i64
@@ -982,7 +982,7 @@ define noundef i32 @_ZN6System10RunThreadsEv(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6System10GetVersionB5cxx11ERiS0_S0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6System10GetVersionB5cxx11ERiS0_S0_(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull align 4 dereferenceable(4) %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1242,7 +1242,7 @@ _ZNSt8__detail18__to_chars_10_implIjEEvPcjT_.exit: ; preds = %49, %59
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6System9GetSystemB5cxx11ERi(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #4 align 2 {
+define void @_ZNK6System9GetSystemB5cxx11ERi(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #4 align 2 {
   store i32 3, ptr %2, align 4
   %4 = load ptr, ptr @_ZL19DDS_SYSTEM_PLATFORMB5cxx11, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 96
@@ -1253,7 +1253,7 @@ define void @_ZNK6System9GetSystemB5cxx11ERi(ptr dead_on_unwind noalias nonnull 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6System7GetBitsB5cxx11ERi(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6System7GetBitsB5cxx11ERi(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #23
   store i32 64, ptr %2, align 4
   %4 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.27)
@@ -1275,7 +1275,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6System11GetCompilerB5cxx11ERi(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #4 align 2 {
+define void @_ZNK6System11GetCompilerB5cxx11ERi(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #4 align 2 {
   store i32 4, ptr %2, align 4
   %4 = load ptr, ptr @_ZL19DDS_SYSTEM_COMPILERB5cxx11, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 128
@@ -1284,7 +1284,7 @@ define void @_ZNK6System11GetCompilerB5cxx11ERi(ptr dead_on_unwind noalias nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6System14GetConstructorB5cxx11ERi(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2) local_unnamed_addr #4 align 2 {
+define void @_ZNK6System14GetConstructorB5cxx11ERi(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2) local_unnamed_addr #4 align 2 {
   store i32 0, ptr %2, align 4
   %4 = load ptr, ptr @_ZL22DDS_SYSTEM_CONSTRUCTORB5cxx11, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4)

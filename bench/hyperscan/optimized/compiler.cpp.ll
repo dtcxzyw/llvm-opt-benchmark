@@ -163,7 +163,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @_ZN3ue211ue2_literal9push_backEcb(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue219ParsedLitExpressionC2EjPKcmjj(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 49)) %this, i32 noundef %index_in, ptr nocapture noundef readonly %expression, i64 noundef %expLength, i32 noundef %flags, i32 noundef %report) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue219ParsedLitExpressionC2EjPKcmjj(ptr noundef nonnull align 8 dereferenceable(120) %this, i32 noundef %index_in, ptr nocapture noundef readonly %expression, i64 noundef %expLength, i32 noundef %flags, i32 noundef %report) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator", align 1
@@ -379,7 +379,7 @@ _ZN5boost14dynamic_bitsetImSaImEED2Ev.exit:       ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue216ParsedExpressionC2EjPKcjjPK11hs_expr_ext(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 49), (56, 64)) %this, i32 noundef %index_in, ptr noundef %expression, i32 noundef %flags, i32 noundef %report, ptr noundef readonly %ext) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue216ParsedExpressionC2EjPKcjjPK11hs_expr_ext(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this, i32 noundef %index_in, ptr noundef %expression, i32 noundef %flags, i32 noundef %report, ptr noundef readonly %ext) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp12 = alloca %"class.std::allocator", align 1
@@ -2616,7 +2616,7 @@ declare noundef zeroext i1 @_ZNK3ue28target_t10has_avx512Ev(ptr noundef nonnull 
 declare noundef zeroext i1 @_ZNK3ue28target_t14has_avx512vbmiEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN3ue25buildERNS_2NGEPjh(ptr noundef nonnull align 8 dereferenceable(1104) %ng, ptr nocapture noundef initializes((0, 4)) %length, i8 noundef zeroext %pureFlag) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN3ue25buildERNS_2NGEPjh(ptr noundef nonnull align 8 dereferenceable(1104) %ng, ptr nocapture noundef %length, i8 noundef zeroext %pureFlag) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %rose.i = alloca %"class.ue2::bytecode_ptr", align 8
   %rose = alloca %"class.ue2::bytecode_ptr", align 8

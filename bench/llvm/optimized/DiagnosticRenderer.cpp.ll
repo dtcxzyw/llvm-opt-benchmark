@@ -164,7 +164,7 @@ $_ZN4llvm15SmallVectorImplIN5clang15CharSourceRangeEE6appendIPKS2_vEEvT_S7_ = co
 @_ZN5clang22DiagnosticNoteRendererD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang22DiagnosticNoteRendererD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang18DiagnosticRendererC2ERKNS_11LangOptionsEPNS_17DiagnosticOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %0, ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang18DiagnosticRendererC2ERKNS_11LangOptionsEPNS_17DiagnosticOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %0, ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang18DiagnosticRendererE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -190,7 +190,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang17DiagnosticOptionsEEC2EPS2_.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18DiagnosticRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang18DiagnosticRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang18DiagnosticRendererE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -2524,7 +2524,7 @@ declare { i64, i8 } @_ZNK5clang13SourceManager26getImmediateExpansionRangeENS_14
 declare noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang22DiagnosticNoteRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang22DiagnosticNoteRendererD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN5clang18DiagnosticRendererE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8

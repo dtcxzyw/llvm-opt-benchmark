@@ -23,7 +23,7 @@ $_ZN26GrowableArrayWithAllocatorI7GCPhase13GrowableArrayIS0_EE9expand_toEi = com
 @_ZN14TimePartitionsD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14TimePartitionsD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN7GCTimer17register_gc_startERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 24), (72, 76), (80, 112)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN7GCTimer17register_gc_startERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   store i32 0, ptr %4, align 4
@@ -37,7 +37,7 @@ define hidden void @_ZN7GCTimer17register_gc_startERK11TimeInstantI30CompositeCo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14TimePartitions5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((32, 36), (40, 72)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14TimePartitions5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr %0, align 8
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 32
@@ -53,7 +53,7 @@ define hidden void @_ZN14TimePartitions5clearEv(ptr nocapture noundef nonnull al
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN7GCTimer15register_gc_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) initializes((24, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
+define hidden void @_ZN7GCTimer15register_gc_endERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   ret void
@@ -497,7 +497,7 @@ _ZN14TimePartitions19report_gc_phase_endERK11TimeInstantI30CompositeCounterRepre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10STWGCTimer17register_gc_startERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((8, 24), (72, 76), (80, 112)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
+define hidden void @_ZN10STWGCTimer17register_gc_startERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #3 align 2 {
   %.sroa.3.i.i.i = alloca <{ [4 x i8], %class.TimeInstant, %class.TimeInstant }>, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
@@ -747,7 +747,7 @@ _ZN14TimePartitions19report_gc_phase_endERK11TimeInstantI30CompositeCounterRepre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11PhasesStack5clearEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) initializes((24, 28)) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN11PhasesStack5clearEv(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(28) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %2, align 4
   ret void
@@ -812,7 +812,7 @@ define hidden noundef i32 @_ZNK14TimePartitions18current_phase_typeEv(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14TimePartitionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 8), (32, 36), (40, 72)) %0) unnamed_addr #3 align 2 {
+define hidden void @_ZN14TimePartitionsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40

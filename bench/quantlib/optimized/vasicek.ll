@@ -2339,7 +2339,7 @@ _ZN5boost10shared_ptrIN8QuantLib10Constraint4ImplEED2Ev.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib7VasicekC1Eddddd(ptr noundef nonnull align 8 dereferenceable(128) initializes((128, 136), (144, 148), (152, 160)) %this, double noundef %r0, double noundef %a, double noundef %b, double noundef %sigma, double noundef %lambda) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib7VasicekC1Eddddd(ptr noundef nonnull align 8 dereferenceable(128) %this, double noundef %r0, double noundef %a, double noundef %b, double noundef %sigma, double noundef %lambda) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::ConstantParameter", align 8
   %ref.tmp10 = alloca %"class.QuantLib::PositiveConstraint", align 8

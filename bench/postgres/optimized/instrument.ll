@@ -66,7 +66,7 @@ define dso_local ptr @InstrAlloc(i32 noundef %0, i32 noundef %1, i1 noundef zero
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @InstrInit(ptr nocapture noundef writeonly initializes((0, 400)) %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local void @InstrInit(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %0, i8 0, i64 400, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = trunc i32 %1 to i8
@@ -742,7 +742,7 @@ define dso_local void @InstrStartParallelQuery() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @InstrEndParallelQuery(ptr nocapture noundef initializes((0, 128)) %0, ptr nocapture noundef writeonly initializes((0, 24)) %1) local_unnamed_addr #8 {
+define dso_local void @InstrEndParallelQuery(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #8 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, i8 0, i64 128, i1 false)
   tail call void @BufferUsageAccumDiff(ptr noundef %0, ptr noundef nonnull @pgBufferUsage, ptr noundef nonnull @save_pgBufferUsage)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)

@@ -420,7 +420,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.313 = private unnamed_addr constant [7 x i8] c"PNIORW\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @init_pnio_rtc1_station(ptr nocapture noundef writeonly initializes((48, 88)) %0) local_unnamed_addr #0 {
+define hidden void @init_pnio_rtc1_station(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @wmem_file_scope() #5
   %3 = tail call noalias ptr @wmem_list_new(ptr noundef %2) #5
   %4 = getelementptr inbounds i8, ptr %0, i64 48

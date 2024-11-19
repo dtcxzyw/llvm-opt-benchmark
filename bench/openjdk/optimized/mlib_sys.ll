@@ -64,7 +64,7 @@ define hidden noundef ptr @mlib_memmove(ptr noundef returned writeonly %0, ptr n
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define hidden void @__mlib_sincosf(float noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #9 {
+define hidden void @__mlib_sincosf(float noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
   %4 = fpext float %0 to double
   %5 = tail call double @sin(double noundef %4) #11
   %6 = fptrunc double %5 to float

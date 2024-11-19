@@ -5738,7 +5738,7 @@ define hidden void @zim_SplFileObject___construct(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_open(ptr nocapture noundef initializes((40, 44)) %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_open(ptr nocapture noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 2, ptr %4, align 8
@@ -9908,7 +9908,7 @@ define internal ptr @spl_filesystem_object_get_method_check(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_filesystem_dir_open(ptr noundef initializes((16, 24), (40, 44), (72, 80), (88, 92)) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @spl_filesystem_dir_open(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i64, ptr %3, align 8
   %.fr81 = freeze i64 %4
@@ -10382,7 +10382,7 @@ define internal nonnull ptr @spl_filesystem_dir_it_current_data(ptr noundef read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @spl_filesystem_dir_it_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 12)) %1) #14 {
+define internal void @spl_filesystem_dir_it_current_key(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #14 {
   %3 = getelementptr i8, ptr %0, i64 104
   %.val = load ptr, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %.val, i64 88

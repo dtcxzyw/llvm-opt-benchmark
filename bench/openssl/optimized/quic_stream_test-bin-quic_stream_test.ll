@@ -1641,7 +1641,7 @@ declare i32 @test_mem_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @test_single_copy_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef initializes((0, 8)) %readbytes, ptr noundef %fin) unnamed_addr #0 {
+define internal range(i32 0, 2) i32 @test_single_copy_read(ptr noundef %qrs, ptr nocapture noundef writeonly %buf, i64 noundef %size, ptr nocapture noundef %readbytes, ptr noundef %fin) unnamed_addr #0 {
 entry:
   %record = alloca ptr, align 8
   %rec_len = alloca i64, align 8

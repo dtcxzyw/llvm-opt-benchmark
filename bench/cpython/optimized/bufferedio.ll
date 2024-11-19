@@ -1432,7 +1432,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare ptr @PyLong_FromSsize_t(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @buffered_dealloc(ptr noundef initializes((40, 41)) %self) #0 {
+define internal void @buffered_dealloc(ptr noundef %self) #0 {
 entry:
   %0 = getelementptr i8, ptr %self, i64 8
   %self.val = load ptr, ptr %0, align 8
@@ -1689,7 +1689,7 @@ return:                                           ; preds = %if.then19, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @buffered_clear(ptr nocapture noundef initializes((24, 28)) %self) #0 {
+define internal noundef i32 @buffered_clear(ptr nocapture noundef %self) #0 {
 entry:
   %ok = getelementptr inbounds i8, ptr %self, i64 24
   store i32 0, ptr %ok, align 8

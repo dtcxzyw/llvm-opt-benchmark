@@ -1799,7 +1799,7 @@ return:                                           ; preds = %make_executor_from_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_Py_BloomFilter_Init(ptr nocapture noundef writeonly initializes((0, 32)) %bloom) local_unnamed_addr #7 {
+define hidden void @_Py_BloomFilter_Init(ptr nocapture noundef writeonly %bloom) local_unnamed_addr #7 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %bloom, i8 0, i64 32, i1 false)
   ret void
@@ -1845,7 +1845,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_Py_ExecutorInit(ptr noundef initializes((34, 35)) %executor, ptr nocapture noundef readonly %dependency_set) local_unnamed_addr #9 {
+define hidden void @_Py_ExecutorInit(ptr noundef %executor, ptr nocapture noundef readonly %dependency_set) local_unnamed_addr #9 {
 entry:
   %valid = getelementptr inbounds i8, ptr %executor, i64 34
   store i8 1, ptr %valid, align 2

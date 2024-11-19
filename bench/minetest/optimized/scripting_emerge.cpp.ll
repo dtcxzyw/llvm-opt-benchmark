@@ -383,7 +383,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.4: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15EmergeScriptingC2EP12EmergeThread(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt, ptr noundef %parent) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15EmergeScriptingC2EP12EmergeThread(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %vtt, ptr noundef %parent) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %stack_unroller = alloca %class.StackUnroller, align 8

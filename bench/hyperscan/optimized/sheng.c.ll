@@ -5263,7 +5263,7 @@ if.end7:                                          ; preds = %for.body.i, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden signext range(i8 0, 2) i8 @nfaExecSheng_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly initializes((0, 1)) %state, i8 noundef zeroext %key) local_unnamed_addr #4 {
+define hidden signext range(i8 0, 2) i8 @nfaExecSheng_initCompressedState(ptr nocapture noundef readonly %nfa, i64 noundef %offset, ptr nocapture noundef writeonly %state, i8 noundef zeroext %key) local_unnamed_addr #4 {
 entry:
   %tobool.not = icmp eq i64 %offset, 0
   %cond.in.in.v = select i1 %tobool.not, i64 4177, i64 4178
@@ -5300,7 +5300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef signext i8 @nfaExecSheng_expandState(ptr nocapture noundef readnone %nfa, ptr nocapture noundef writeonly initializes((0, 1)) %dest, ptr nocapture noundef readonly %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #4 {
+define hidden noundef signext i8 @nfaExecSheng_expandState(ptr nocapture noundef readnone %nfa, ptr nocapture noundef writeonly %dest, ptr nocapture noundef readonly %src, i64 noundef %offset, i8 noundef zeroext %key) local_unnamed_addr #4 {
 entry:
   %0 = load i8, ptr %src, align 1
   store i8 %0, ptr %dest, align 1

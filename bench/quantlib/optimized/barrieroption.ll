@@ -1288,7 +1288,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13BarrierOptionC1ENS_7Barrier4TypeEddRKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS4_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(248) initializes((248, 256), (264, 268), (272, 280)) %this, i32 noundef %barrierType, double noundef %barrier, double noundef %rebate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13BarrierOptionC1ENS_7Barrier4TypeEddRKN5boost10shared_ptrINS_17StrikedTypePayoffEEERKNS4_INS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(248) %this, i32 noundef %barrierType, double noundef %barrier, double noundef %rebate, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %payoff, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 248
@@ -2968,7 +2968,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib13BarrierOption9argumentsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 44), (48, 64)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13BarrierOption9argumentsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #17 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -2999,7 +2999,7 @@ invoke.cont5:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib13BarrierOption9argumentsC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 44), (48, 64)) %this) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13BarrierOption9argumentsC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %payoff.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %payoff.i, i8 0, i64 32, i1 false)

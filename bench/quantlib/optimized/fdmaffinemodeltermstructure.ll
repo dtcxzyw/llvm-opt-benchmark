@@ -1349,7 +1349,7 @@ _ZNSt6vectorIN8QuantLib6HandleINS0_5QuoteEEESaIS3_EED2Ev.exit: ; preds = %invoke
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27FdmAffineModelTermStructureC1ENS_5ArrayERKNS_8CalendarERKNS_10DayCounterERKNS_4DateESA_N5boost10shared_ptrINS_11AffineModelEEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((192, 200), (208, 212), (216, 224)) %this, ptr nocapture noundef %r, ptr noundef nonnull align 8 dereferenceable(16) %cal, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr noundef nonnull align 8 dereferenceable(8) %modelReferenceDate, ptr nocapture noundef %model) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27FdmAffineModelTermStructureC1ENS_5ArrayERKNS_8CalendarERKNS_10DayCounterERKNS_4DateESA_N5boost10shared_ptrINS_11AffineModelEEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef %r, ptr noundef nonnull align 8 dereferenceable(16) %cal, ptr noundef nonnull align 8 dereferenceable(16) %dayCounter, ptr noundef nonnull align 8 dereferenceable(8) %referenceDate, ptr noundef nonnull align 8 dereferenceable(8) %modelReferenceDate, ptr nocapture noundef %model) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::vector.28", align 8
   %ref.tmp = alloca %"class.std::vector.33", align 8
@@ -1821,7 +1821,7 @@ entry:
 declare i64 @_ZN8QuantLib4Date7maxDateEv() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib27FdmAffineModelTermStructure11setVariableERKNS_5ArrayE(ptr noundef nonnull align 8 dereferenceable(192) initializes((160, 168)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib27FdmAffineModelTermStructure11setVariableERKNS_5ArrayE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %n_.i.i = getelementptr inbounds nuw i8, ptr %r, i64 8

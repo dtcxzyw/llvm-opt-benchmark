@@ -75,7 +75,7 @@ define hidden range(i32 0, 2) i32 @cmsGDBAddPoint(ptr noundef %0, ptr nocapture 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @GetPoint(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc ptr @GetPoint(ptr noundef readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 {
   %4 = alloca %struct.cmsVEC3, align 8
   %5 = load double, ptr %1, align 8
   %6 = fadd double %5, -5.000000e+01

@@ -604,7 +604,7 @@ $_ZZN4llvm10FoldingSetIN5clang7CodeGen17BlockByrefHelpersEE17getFoldingSetInfoEv
 @_ZN5clang7CodeGen17BlockByrefHelpersD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang7CodeGen17BlockByrefHelpersD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen11CGBlockInfoC2EPKNS_9BlockDeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 20), (24, 44)) %0, ptr noundef %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen11CGBlockInfoC2EPKNS_9BlockDeclEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef %1, ptr %2, i64 %3) unnamed_addr #0 align 2 {
   store ptr %2, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %3, ptr %.sroa.5.0..sroa_idx, align 8
@@ -3820,7 +3820,7 @@ declare noundef ptr @_ZN5clang7CodeGen15CGOpenCLRuntime25getGenericVoidPointerTy
 declare void @_ZN5clang7CodeGen15CodeGenFunctionC1ERNS0_13CodeGenModuleEb(ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef nonnull align 8 dereferenceable(3600), i1 noundef zeroext) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction21GenerateBlockFunctionENS_10GlobalDeclERKNS0_11CGBlockInfoERKN4llvm8DenseMapIPKNS_4DeclENS0_7AddressENS6_12DenseMapInfoISA_vEENS6_6detail12DenseMapPairISA_SB_EEEEbb(ptr noundef nonnull align 8 dereferenceable(6488) initializes((1912, 1924), (2144, 2152), (6152, 6156)) %0, i64 %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(376) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang7CodeGen15CodeGenFunction21GenerateBlockFunctionENS_10GlobalDeclERKNS0_11CGBlockInfoERKN4llvm8DenseMapIPKNS_4DeclENS0_7AddressENS6_12DenseMapInfoISA_vEENS6_6detail12DenseMapPairISA_SB_EEEEbb(ptr noundef nonnull align 8 dereferenceable(6488) %0, i64 %1, i32 %2, ptr noundef nonnull align 8 dereferenceable(376) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"struct.std::pair.1029", align 8
   %9 = alloca %"class.llvm::Twine", align 8
   %10 = alloca %"class.llvm::TypeSize", align 8
@@ -6105,7 +6105,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang7CodeGen13Code
 declare noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15LoadBlockStructEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15LoadBlockStructEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 2144
@@ -7534,7 +7534,7 @@ _ZN4llvm11SmallVectorIPNS_4TypeELj8EED2Ev.exit:   ; preds = %246, %_ZN4llvm12Den
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21emitBlockByrefAddressENS0_7AddressERKNS0_14BlockByrefInfoEbRKN4llvm5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(34) %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21emitBlockByrefAddressENS0_7AddressERKNS0_14BlockByrefInfoEbRKN4llvm5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %3, i1 noundef zeroext %4, ptr noundef nonnull align 8 dereferenceable(34) %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::TypeSize", align 8
   %8 = alloca %"class.llvm::TypeSize", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -11196,7 +11196,7 @@ define internal void @_ZN12_GLOBAL__N_118ObjectByrefHelpersD2Ev(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21emitBlockByrefAddressENS0_7AddressEPKNS_7VarDeclEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 initializes((0, 24), (32, 48)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction21emitBlockByrefAddressENS0_7AddressEPKNS_7VarDeclEb(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::Address") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::Address") align 8 %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5clang7CodeGen15CodeGenFunction17getBlockByrefInfoEPKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef %3)
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -17161,7 +17161,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %2, %8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118ObjectByrefHelpers8emitCopyERN5clang7CodeGen15CodeGenFunctionENS2_7AddressES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 initializes((8, 16)) %2, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 initializes((8, 16)) %3) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_118ObjectByrefHelpers8emitCopyERN5clang7CodeGen15CodeGenFunctionENS2_7AddressES5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr noundef byval(%"class.clang::CodeGen::Address") align 8 %2, ptr nocapture noundef byval(%"class.clang::CodeGen::Address") align 8 %3) unnamed_addr #0 align 2 {
 _ZNK5clang7CodeGen7Address15withElementTypeEPN4llvm4TypeE.exit:
   %4 = alloca [3 x ptr], align 16
   %5 = alloca %"class.llvm::Twine", align 8

@@ -575,7 +575,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13
 @_ZN20VM_HeapWalkOperationD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20VM_HeapWalkOperationD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11JvmtiTagMapC2EP8JvmtiEnv(ptr noundef nonnull align 8 dereferenceable(122) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11JvmtiTagMapC2EP8JvmtiEnv(ptr noundef nonnull align 8 dereferenceable(122) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN5MutexC2ENS_4RankEPKcb(ptr noundef nonnull align 8 dereferenceable(104) %3, i32 noundef 21, ptr noundef nonnull @.str, i1 noundef zeroext true) #14
@@ -994,7 +994,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %5, %9, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13ClassFieldMapC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13ClassFieldMapC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef 24, i8 noundef zeroext 23) #14
   %3 = icmp eq ptr %2, null
   br i1 %3, label %9, label %4
@@ -2102,7 +2102,7 @@ _ZN23FilteredJavaFieldStream4nextEv.exit:         ; preds = %190, %_ZN15FieldStr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN24JvmtiCachedClassFieldMapC2EP13ClassFieldMap(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN24JvmtiCachedClassFieldMapC2EP13ClassFieldMap(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -4617,7 +4617,7 @@ define hidden void @_ZN15CallbackInvoker33initialize_for_advanced_heap_walkEP11J
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17StackRefCollector10set_threadEP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((24, 49), (52, 64)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17StackRefCollector10set_threadEP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = load ptr, ptr %0, align 8
@@ -4645,7 +4645,7 @@ define hidden noundef zeroext i1 @_ZN17StackRefCollector10set_threadEP7oopDesc(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((24, 49), (52, 64)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN17StackRefCollector10set_threadE22jvmtiHeapReferenceKindP7oopDesc(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %2, ptr %4, align 8
   %5 = load ptr, ptr %0, align 8
@@ -5050,7 +5050,7 @@ define hidden noundef zeroext i1 @_ZN17StackRefCollector14process_framesEP6vfram
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20VM_HeapWalkOperationC2EP11JvmtiTagMap6Handle20BasicHeapWalkContextPKvP13GrowableArrayIlE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 17), (24, 52), (56, 108)) %0, ptr noundef %1, ptr %2, ptr nocapture noundef readonly byval(%class.BasicHeapWalkContext) align 8 %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN20VM_HeapWalkOperationC2EP11JvmtiTagMap6Handle20BasicHeapWalkContextPKvP13GrowableArrayIlE(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %1, ptr %2, ptr nocapture noundef readonly byval(%class.BasicHeapWalkContext) align 8 %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV20VM_HeapWalkOperation, i64 16), ptr %0, align 8
@@ -5119,7 +5119,7 @@ _ZN20VM_HeapWalkOperation18create_visit_stackEv.exit: ; preds = %6, %28
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20VM_HeapWalkOperationC2EP11JvmtiTagMap6Handle23AdvancedHeapWalkContextPKvP13GrowableArrayIlE(ptr noundef nonnull align 8 dereferenceable(108) initializes((0, 17), (24, 52), (56, 108)) %0, ptr noundef %1, ptr %2, ptr nocapture noundef readonly byval(%class.AdvancedHeapWalkContext) align 8 %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
+define hidden void @_ZN20VM_HeapWalkOperationC2EP11JvmtiTagMap6Handle23AdvancedHeapWalkContextPKvP13GrowableArrayIlE(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef %1, ptr %2, ptr nocapture noundef readonly byval(%class.AdvancedHeapWalkContext) align 8 %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %7, align 8
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV20VM_HeapWalkOperation, i64 16), ptr %0, align 8
@@ -5198,7 +5198,7 @@ _ZN20VM_HeapWalkOperation18create_visit_stackEv.exit: ; preds = %6, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20VM_HeapWalkOperationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(108) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20VM_HeapWalkOperationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(108) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTV20VM_HeapWalkOperation, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8

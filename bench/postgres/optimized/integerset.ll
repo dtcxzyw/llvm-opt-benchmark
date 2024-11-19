@@ -615,7 +615,7 @@ simple8b_contains.exit:                           ; preds = %.lr.ph, %intset_bin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @intset_begin_iterate(ptr noundef initializes((4004, 4005), (4016, 4036)) %0) local_unnamed_addr #6 {
+define dso_local void @intset_begin_iterate(ptr noundef %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 4004
   store i8 1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 136

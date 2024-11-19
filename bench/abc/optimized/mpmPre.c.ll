@@ -987,7 +987,7 @@ Vec_WrdPush.exit:                                 ; preds = %.Vec_WrdGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Mpm_ComputeCnfSizeOne(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #4 {
+define i32 @Mpm_ComputeCnfSizeOne(i64 noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef %3) local_unnamed_addr #4 {
   %5 = alloca i64, align 8
   store i64 %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 4

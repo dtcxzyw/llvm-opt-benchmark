@@ -1960,7 +1960,7 @@ define internal void @snd_dma_noncoherent_free(ptr nocapture noundef readonly %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @snd_dma_noncoherent_mmap(ptr nocapture noundef readonly %0, ptr noundef initializes((24, 32)) %1) #0 align 16 {
+define internal i32 @snd_dma_noncoherent_mmap(ptr nocapture noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i64, ptr %4, align 8

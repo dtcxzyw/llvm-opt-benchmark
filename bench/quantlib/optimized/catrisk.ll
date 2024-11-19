@@ -208,7 +208,7 @@ $_ZTSN5boost6detail13sp_ms_deleterIN8QuantLib18BetaRiskSimulationEEE = comdat an
 @_ZN8QuantLib8BetaRiskC1Edddd = unnamed_addr alias void (ptr, double, double, double, double), ptr @_ZN8QuantLib8BetaRiskC2Edddd
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18EventSetSimulationC2EN5boost10shared_ptrISt6vectorISt4pairINS_4DateEdESaIS6_EEEES5_S5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(84) initializes((0, 56)) %this, ptr nocapture noundef %events, i64 %eventsStart.coerce, i64 %eventsEnd.coerce, i64 %start.coerce, i64 %end.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18EventSetSimulationC2EN5boost10shared_ptrISt6vectorISt4pairINS_4DateEdESaIS6_EEEES5_S5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr nocapture noundef %events, i64 %eventsStart.coerce, i64 %eventsEnd.coerce, i64 %start.coerce, i64 %end.coerce) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Date", align 8
   %ref.tmp44 = alloca %"class.QuantLib::Date", align 8
@@ -913,7 +913,7 @@ return:                                           ; preds = %if.then56, %if.else
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLib4DatepLERKNS_6PeriodE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib8EventSetC2EN5boost10shared_ptrISt6vectorISt4pairINS_4DateEdESaIS6_EEEES5_S5_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef %events, i64 %eventsStart.coerce, i64 %eventsEnd.coerce) unnamed_addr #5 align 2 {
+define void @_ZN8QuantLib8EventSetC2EN5boost10shared_ptrISt6vectorISt4pairINS_4DateEdESaIS6_EEEES5_S5_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr nocapture noundef %events, i64 %eventsStart.coerce, i64 %eventsEnd.coerce) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN8QuantLib8EventSetE, i64 16), ptr %this, align 8, !tbaa !7
   %events_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -932,7 +932,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib8EventSet13newSimulationERKNS_4DateES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.0") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib8EventSet13newSimulationERKNS_4DateES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost10shared_ptrIN8QuantLib18EventSetSimulationEED2Ev.exit:
   %ref.tmp = alloca %"class.boost::shared_ptr.1", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #21
@@ -1163,7 +1163,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib18BetaRiskSimulationC2ENS_4DateES1_dddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5184) initializes((0, 32), (48, 56)) %this, i64 %start.coerce, i64 %end.coerce, double noundef %maxLoss, double noundef %lambda, double noundef %alpha, double noundef %beta) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18BetaRiskSimulationC2ENS_4DateES1_dddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(5184) %this, i64 %start.coerce, i64 %end.coerce, double noundef %maxLoss, double noundef %lambda, double noundef %alpha, double noundef %beta) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %start = alloca %"class.QuantLib::Date", align 8
   %end = alloca %"class.QuantLib::Date", align 8
@@ -2462,7 +2462,7 @@ while.end:                                        ; preds = %cleanup, %while.bod
 declare i64 @lround(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib8BetaRiskC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 24)) %this, double noundef %maxLoss, double noundef %years, double noundef %mean, double noundef %stdDev) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib8BetaRiskC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, double noundef %maxLoss, double noundef %years, double noundef %mean, double noundef %stdDev) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2994,7 +2994,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #10 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib8BetaRisk13newSimulationERKNS_4DateES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.0") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib8BetaRisk13newSimulationERKNS_4DateES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.boost::shared_ptr.0") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(8) %start, ptr noundef nonnull align 8 dereferenceable(8) %end) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN5boost10shared_ptrIN8QuantLib18BetaRiskSimulationEED2Ev.exit:
   %ref.tmp = alloca %"class.boost::shared_ptr.22", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #21

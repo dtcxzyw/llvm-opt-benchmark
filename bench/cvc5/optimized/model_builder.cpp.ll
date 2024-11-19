@@ -234,14 +234,14 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 declare noundef nonnull align 8 dereferenceable(392) ptr @_ZNK4cvc58internal6EnvObj7optionsEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13QModelBuilder20preProcessBuildModelEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(176) initializes((120, 128)) %this, ptr nocapture noundef readonly %m) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13QModelBuilder20preProcessBuildModelEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef readonly %m) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13QModelBuilder23preProcessBuildModelStdEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %m)
   ret i1 true
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13QModelBuilder23preProcessBuildModelStdEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(176) initializes((120, 128)) %this, ptr nocapture noundef readonly %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers13QModelBuilder23preProcessBuildModelStdEPNS1_11TheoryModelE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef readonly %m) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i = alloca %"class.std::tuple.688", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.691", align 1

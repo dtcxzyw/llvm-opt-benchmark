@@ -684,7 +684,7 @@ if.end74:                                         ; preds = %if.else, %bcread_va
 declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lj_bcread(ptr noundef initializes((64, 72), (116, 120)) %ls) local_unnamed_addr #0 {
+define hidden ptr @lj_bcread(ptr noundef %ls) local_unnamed_addr #0 {
 entry:
   %L1 = getelementptr inbounds i8, ptr %ls, i64 8
   %0 = load ptr, ptr %L1, align 8

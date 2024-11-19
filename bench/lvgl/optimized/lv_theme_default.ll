@@ -1089,7 +1089,7 @@ define internal void @theme_apply(ptr nocapture readnone %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @style_init(ptr noundef initializes((80, 92)) %0) unnamed_addr #0 {
+define internal fastcc void @style_init(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i32, ptr %3, align 8, !tbaa !21

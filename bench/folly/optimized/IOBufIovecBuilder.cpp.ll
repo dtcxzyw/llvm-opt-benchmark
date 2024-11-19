@@ -900,7 +900,7 @@ return:                                           ; preds = %cleanup, %entry
 declare extern_weak zeroext i1 @MallocExtension_Internal_GetNumericProperty(ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17IOBufIovecBuilder17extractIOBufChainEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %len) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17IOBufIovecBuilder17extractIOBufChainEm(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::unique_ptr") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, i64 noundef %len) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp = alloca %"class.std::unique_ptr", align 8
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8

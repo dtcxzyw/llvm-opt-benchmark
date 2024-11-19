@@ -1102,7 +1102,7 @@ if.end:                                           ; preds = %evrpc_hook_context_
 declare void @evhttp_connection_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @evrpc_pool_add_connection(ptr nocapture noundef %pool, ptr noundef initializes((0, 16)) %connection) local_unnamed_addr #0 {
+define void @evrpc_pool_add_connection(ptr nocapture noundef %pool, ptr noundef %connection) local_unnamed_addr #0 {
 entry:
   store ptr null, ptr %connection, align 8
   %tqh_last = getelementptr inbounds i8, ptr %pool, i64 64
@@ -1757,7 +1757,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @evrpc_request_set_pool(ptr nocapture noundef writeonly initializes((24, 32)) %ctx, ptr noundef %pool) local_unnamed_addr #9 {
+define void @evrpc_request_set_pool(ptr nocapture noundef writeonly %ctx, ptr noundef %pool) local_unnamed_addr #9 {
 entry:
   %pool1 = getelementptr inbounds i8, ptr %ctx, i64 24
   store ptr %pool, ptr %pool1, align 8
@@ -1765,7 +1765,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @evrpc_request_set_cb(ptr nocapture noundef writeonly initializes((176, 192)) %ctx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #9 {
+define void @evrpc_request_set_cb(ptr nocapture noundef writeonly %ctx, ptr noundef %cb, ptr noundef %cb_arg) local_unnamed_addr #9 {
 entry:
   %cb1 = getelementptr inbounds i8, ptr %ctx, i64 176
   store ptr %cb, ptr %cb1, align 8

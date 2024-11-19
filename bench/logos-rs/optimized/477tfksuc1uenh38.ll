@@ -80,7 +80,7 @@ define hidden i32 @_ZN13logos_codegen4leaf8Callback4span17h5b024c4801b0fb97E(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13logos_codegen4leaf4Leaf3new17h79eb671fa539b92eE(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 8), (32, 40), (64, 84)) %0, ptr align 8 %1, i32 %2) unnamed_addr #1 {
+define hidden void @_ZN13logos_codegen4leaf4Leaf3new17h79eb671fa539b92eE(ptr nocapture writeonly sret([88 x i8]) align 8 %0, ptr align 8 %1, i32 %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
@@ -94,7 +94,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf3new17h79eb671fa539b92eE(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN13logos_codegen4leaf4Leaf8new_skip17h8b12259d6eff5f2aE(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 8), (32, 44), (64, 84)) %0, i32 %1) unnamed_addr #1 {
+define hidden void @_ZN13logos_codegen4leaf4Leaf8new_skip17h8b12259d6eff5f2aE(ptr nocapture writeonly sret([88 x i8]) align 8 %0, i32 %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr null, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
@@ -165,7 +165,7 @@ define hidden void @_ZN13logos_codegen4leaf4Leaf5field17ha98d5bd5c131053dE(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13logos_codegen4leaf4Leaf8priority17h2a20124f23cd1c1eE(ptr nocapture writeonly sret([88 x i8]) align 8 initializes((0, 88)) %0, ptr nocapture align 8 initializes((72, 80)) %1, i64 %2) unnamed_addr #2 {
+define hidden void @_ZN13logos_codegen4leaf4Leaf8priority17h2a20124f23cd1c1eE(ptr nocapture writeonly sret([88 x i8]) align 8 %0, ptr nocapture align 8 %1, i64 %2) unnamed_addr #2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 72
   store i64 %2, ptr %4, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, i64 88, i1 false)

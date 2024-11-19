@@ -647,7 +647,7 @@ define hidden range(i32 -2147483648, 2147467136) i32 @mbedtls_rsa_export_crt(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_rsa_init(ptr nocapture noundef writeonly initializes((0, 336)) %0) local_unnamed_addr #2 {
+define hidden void @mbedtls_rsa_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(336) %0, i8 0, i64 336, i1 false)
   ret void
 }
@@ -2712,7 +2712,7 @@ define hidden i32 @mbedtls_rsa_pkcs1_verify(ptr noundef %0, i32 noundef %1, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_rsa_copy(ptr noundef initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_rsa_copy(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

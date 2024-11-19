@@ -604,7 +604,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7LoadBIOEPNS_11EnvironmentEN2v85LocalINS3_5ValueEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %env, ptr %v.coerce) local_unnamed_addr #3 {
+define dso_local void @_ZN4node6crypto7LoadBIOEPNS_11EnvironmentEN2v85LocalINS3_5ValueEEE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %env, ptr %v.coerce) local_unnamed_addr #3 {
 entry:
   %bsrc = alloca %"class.node::crypto::ByteSource", align 8
   %0 = load i64, ptr %v.coerce, align 8
@@ -7694,7 +7694,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto13SecureContext9CreateSSLEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.316") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto13SecureContext9CreateSSLEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.316") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %this) local_unnamed_addr #3 align 2 {
 entry:
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %ctx_, align 8

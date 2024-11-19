@@ -585,7 +585,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @rule_set_alert(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
+define hidden void @rule_set_alert(ptr nocapture noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
@@ -607,7 +607,7 @@ define hidden void @rule_set_alert(ptr nocapture noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @create_config(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @create_config(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(72) ptr @g_malloc_n(i64 noundef 1, i64 noundef 72) #18
   store ptr %3, ptr %0, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -1895,7 +1895,7 @@ define hidden ptr @get_rule(ptr noundef readonly %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @get_global_rule_stats(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, ptr nocapture noundef writeonly initializes((0, 4)) %4, ptr nocapture noundef writeonly initializes((0, 4)) %5) local_unnamed_addr #0 {
+define hidden void @get_global_rule_stats(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   %8 = load i32, ptr %7, align 8
   store i32 %8, ptr %2, align 4
@@ -1948,7 +1948,7 @@ define hidden void @reset_global_rule_stats(ptr noundef %0) local_unnamed_addr #
 declare void @g_hash_table_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @reset_rule_stats(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((3568, 3572)) %1, ptr nocapture readnone %2) #10 {
+define internal void @reset_rule_stats(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1, ptr nocapture readnone %2) #10 {
   %4 = getelementptr inbounds i8, ptr %1, i64 3568
   store i32 0, ptr %4, align 8
   ret void

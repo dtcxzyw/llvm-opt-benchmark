@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [22 x i8] c"%9.2f sec (%6.2f %%)\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cec_ManSatSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #0 {
+define void @Cec_ManSatSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 4
   store i32 -1, ptr %0, align 4
@@ -64,7 +64,7 @@ define void @Cec_ManSatSetDefaultParams(ptr nocapture noundef writeonly initiali
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cec_ManSimSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 48)) %0) local_unnamed_addr #0 {
+define void @Cec_ManSimSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %2, align 4
   store i32 31, ptr %0, align 4
@@ -86,7 +86,7 @@ define void @Cec_ManSimSetDefaultParams(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cec_ManSmfSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 40)) %0) local_unnamed_addr #0 {
+define void @Cec_ManSmfSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store i32 31, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 200, ptr %2, align 4
@@ -104,7 +104,7 @@ define void @Cec_ManSmfSetDefaultParams(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cec_ManFraSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 100)) %0) local_unnamed_addr #0 {
+define void @Cec_ManFraSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %0, i8 0, i64 100, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 15, ptr %2, align 4
@@ -126,7 +126,7 @@ define void @Cec_ManFraSetDefaultParams(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cec_ManCecSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 36)) %0) local_unnamed_addr #0 {
+define void @Cec_ManCecSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 4
   store i32 1000, ptr %0, align 4
@@ -146,7 +146,7 @@ define void @Cec_ManCecSetDefaultParams(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cec_ManCorSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 96)) %0) local_unnamed_addr #0 {
+define void @Cec_ManCorSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %2, i8 0, i64 88, i1 false)
   store i32 15, ptr %0, align 8
@@ -172,7 +172,7 @@ define void @Cec_ManCorSetDefaultParams(ptr nocapture noundef writeonly initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Cec_ManChcSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 28)) %0) local_unnamed_addr #0 {
+define void @Cec_ManChcSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store i32 15, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 15, ptr %2, align 4

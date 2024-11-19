@@ -430,7 +430,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 declare void @_ZN5arrow2io16RandomAccessFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io16HdfsReadableFileC1ERKNS0_9IOContextE(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (32, 60)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %io_context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16HdfsReadableFileC1ERKNS0_9IOContextE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %io_context) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 32
   %1 = getelementptr inbounds i8, ptr %this, i64 40
@@ -494,7 +494,7 @@ ehcleanup11:                                      ; preds = %lpad4, %lpad
 declare void @_ZN5arrow2io13FileInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(28)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io16HdfsReadableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this, ptr noundef %vtt) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16HdfsReadableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %vtt) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_s = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -715,7 +715,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io16HdfsReadableFileD1Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
+define void @_ZN5arrow2io16HdfsReadableFileD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow2io16HdfsReadableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @_ZTTN5arrow2io16HdfsReadableFileE) #22
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -737,7 +737,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N5arrow2io16HdfsReadableFileD1Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #8 align 2 {
+define void @_ZThn8_N5arrow2io16HdfsReadableFileD1Ev(ptr noundef %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN5arrow2io16HdfsReadableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @_ZTTN5arrow2io16HdfsReadableFileE) #22
@@ -747,7 +747,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io16HdfsReadableFileD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
+define void @_ZN5arrow2io16HdfsReadableFileD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow2io16HdfsReadableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull @_ZTTN5arrow2io16HdfsReadableFileE) #22
   %0 = getelementptr inbounds i8, ptr %this, i64 32
@@ -771,7 +771,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn8_N5arrow2io16HdfsReadableFileD0Ev(ptr noundef initializes((-8, 8)) %this) unnamed_addr #8 align 2 {
+define void @_ZThn8_N5arrow2io16HdfsReadableFileD0Ev(ptr noundef %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   tail call void @_ZN5arrow2io16HdfsReadableFileD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @_ZTTN5arrow2io16HdfsReadableFileE) #22
@@ -2715,7 +2715,7 @@ return:                                           ; preds = %_ZN5arrow6Status11D
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io16HdfsReadableFile4SeekEl(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %position) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16HdfsReadableFile4SeekEl(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i64 noundef %position) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -2769,7 +2769,7 @@ _ZN5arrow2io15HdfsAnyFileImpl4SeekEl.exit:        ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N5arrow2io16HdfsReadableFile4SeekEl(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef readonly %this, i64 noundef %position) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn8_N5arrow2io16HdfsReadableFile4SeekEl(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef readonly %this, i64 noundef %position) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.arrow::Status", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
@@ -3068,7 +3068,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io16HdfsOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16HdfsOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io8WritableE, i64 16), ptr %this, align 8
@@ -3135,7 +3135,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io16HdfsOutputStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 44)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16HdfsOutputStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -3175,7 +3175,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io16HdfsOutputStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16HdfsOutputStreamD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_s = alloca %"class.arrow::Status", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3396,7 +3396,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io16HdfsOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN5arrow2io16HdfsOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow2io16HdfsOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull @_ZTTN5arrow2io16HdfsOutputStreamE) #22
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -3418,7 +3418,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io16HdfsOutputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define void @_ZN5arrow2io16HdfsOutputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN5arrow2io16HdfsOutputStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull @_ZTTN5arrow2io16HdfsOutputStreamE) #22
   %0 = getelementptr inbounds i8, ptr %this, i64 16
@@ -3600,7 +3600,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io16HdfsOutputStream5FlushEv(ptr noalias sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16HdfsOutputStream5FlushEv(ptr noalias sret(%"class.arrow::Status") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.arrow::Status", align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -3677,7 +3677,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow2io16HadoopFileSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16HadoopFileSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io16HadoopFileSystemE, i64 16), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -3745,7 +3745,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow2io16HadoopFileSystemD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow2io16HadoopFileSystemD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5arrow2io16HadoopFileSystemE, i64 16), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -8276,7 +8276,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 declare noundef i32 @_ZN5arrow2io8internal11LibHdfsShim6ExistsEP13hdfs_internalPKc(ptr noundef nonnull align 8 dereferenceable(312), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow2ioL11SetPathInfoEPK12hdfsFileInfoPNS0_12HdfsPathInfoE(ptr nocapture noundef readonly %input, ptr noundef initializes((0, 4)) %out) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow2ioL11SetPathInfoEPK12hdfsFileInfoPNS0_12HdfsPathInfoE(ptr nocapture noundef readonly %input, ptr noundef %out) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp1 = alloca %"class.std::allocator", align 1

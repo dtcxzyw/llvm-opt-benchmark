@@ -2047,7 +2047,7 @@ declare noundef i32 @fseek(ptr nocapture noundef, i64 noundef, i32 noundef) loca
 declare noundef i64 @ftell(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @NextFile(ptr nocapture noundef nonnull initializes((272, 280)) %context) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @NextFile(ptr nocapture noundef nonnull %context) unnamed_addr #10 {
 entry:
   %iterator = getelementptr inbounds i8, ptr %context, i64 216
   %0 = load i32, ptr %iterator, align 8
@@ -2243,7 +2243,7 @@ declare i32 @BrotliEncoderSetParameter(ptr noundef, i32 noundef, i32 noundef) lo
 declare i32 @BrotliEncoderAttachPreparedDictionary(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @OpenFiles(ptr nocapture noundef nonnull initializes((280, 288)) %context) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @OpenFiles(ptr nocapture noundef nonnull %context) unnamed_addr #0 {
 entry:
   %current_input_path = getelementptr inbounds i8, ptr %context, i64 256
   %0 = load ptr, ptr %current_input_path, align 8

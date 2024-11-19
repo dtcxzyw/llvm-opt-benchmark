@@ -437,7 +437,7 @@ define internal i32 @stream_decoder_get_check(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 7) i32 @stream_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i64 noundef %3) #3 {
+define internal range(i32 0, 7) i32 @stream_decoder_memconfig(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, i64 noundef %3) #3 {
   %5 = getelementptr inbounds i8, ptr %0, i64 360
   %6 = load i64, ptr %5, align 8
   store i64 %6, ptr %1, align 8

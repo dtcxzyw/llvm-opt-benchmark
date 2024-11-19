@@ -227,7 +227,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook3jsi10HostObject3getERNS0_7RuntimeERKNS0_10PropNameIDE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Value") align 8 initializes((0, 4)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 {
+define void @_ZN8facebook3jsi10HostObject3getERNS0_7RuntimeERKNS0_10PropNameIDE(ptr noalias nocapture writeonly sret(%"class.facebook::jsi::Value") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %agg.result, align 8
   ret void
@@ -1738,7 +1738,7 @@ unreachable:                                      ; preds = %invoke.cont11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8facebook3jsi5ValueC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 4)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %other) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook3jsi5ValueC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull align 8 dereferenceable(16) %other) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -1810,7 +1810,7 @@ if.end:                                           ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook3jsi5ValueC2ERNS0_7RuntimeERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %this, ptr noundef nonnull align 8 dereferenceable(8) %runtime, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook3jsi5ValueC2ERNS0_7RuntimeERKS1_(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(8) %runtime, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %other) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i32, ptr %other, align 8
   store i32 %0, ptr %this, align 8
@@ -3082,7 +3082,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook3jsi5Array18createWithElementsERNS0_7RuntimeESt16initializer_listINS0_5ValueEE(ptr noalias sret(%"class.facebook::jsi::Array") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr %elements.coerce0, i64 %elements.coerce1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook3jsi5Array18createWithElementsERNS0_7RuntimeESt16initializer_listINS0_5ValueEE(ptr noalias sret(%"class.facebook::jsi::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr %elements.coerce0, i64 %elements.coerce1) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i5 = alloca %"class.facebook::jsi::Value", align 8
   %ref.tmp.i = alloca %"class.facebook::jsi::Array", align 8
@@ -3158,7 +3158,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8facebook3jsi10HostObject16getPropertyNamesERNS0_7RuntimeE(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
+define void @_ZN8facebook3jsi10HostObject16getPropertyNamesERNS0_7RuntimeE(ptr noalias nocapture writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0) unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   ret void
@@ -3180,7 +3180,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook3jsi7JSErrorC2ERNS0_7RuntimeEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull align 8 dereferenceable(16) %value) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook3jsi7JSErrorC2ERNS0_7RuntimeEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull align 8 dereferenceable(16) %value) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4323,7 +4323,7 @@ _ZNSt12__shared_ptrIN8facebook3jsi5ValueELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook3jsi12JSIExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define void @_ZN8facebook3jsi12JSIExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -4333,7 +4333,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook3jsi7JSErrorC2ERNS0_7RuntimeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef %msg) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook3jsi7JSErrorC2ERNS0_7RuntimeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef %msg) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.facebook::jsi::Value", align 8
   %ref.tmp2 = alloca %"class.facebook::jsi::Value", align 8
@@ -5095,7 +5095,7 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook3jsi7JSErrorC2ERNS0_7RuntimeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef %msg, ptr noundef %stack) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook3jsi7JSErrorC2ERNS0_7RuntimeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef %msg, ptr noundef %stack) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.facebook::jsi::Object", align 8
   %e = alloca %"class.facebook::jsi::Object", align 8
@@ -5508,7 +5508,7 @@ _ZN8facebook3jsi6StringD2Ev.exit9:                ; preds = %lpad.body, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook3jsi7JSErrorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_7RuntimeEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this, ptr noundef nonnull %what, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull align 8 dereferenceable(16) %value) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook3jsi7JSErrorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS0_7RuntimeEONS0_5ValueE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %what, ptr noundef nonnull align 8 dereferenceable(8) %rt, ptr noundef nonnull align 8 dereferenceable(16) %value) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %what) #25
@@ -5640,7 +5640,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook3jsi18JSINativeExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define void @_ZN8facebook3jsi18JSINativeExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 16), ptr %this, align 8
   %what_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -5658,7 +5658,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook3jsi7JSErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook3jsi7JSErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook3jsi7JSErrorE, i64 16), ptr %this, align 8
   %stack_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -5791,7 +5791,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZZN8facebook3jsi7Runtime15instrumentationEvEN17NoInstrumentation11getHeapInfoB5cxx11Eb(ptr noalias sret(%"class.std::unordered_map") align 8 initializes((32, 40)) %agg.result, ptr nocapture nonnull readnone align 8 %this, i1 zeroext %0) unnamed_addr #3 align 2 {
+define internal void @_ZZN8facebook3jsi7Runtime15instrumentationEvEN17NoInstrumentation11getHeapInfoB5cxx11Eb(ptr noalias sret(%"class.std::unordered_map") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, i1 zeroext %0) unnamed_addr #3 align 2 {
 entry:
   %1 = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i64 0, ptr %1, align 8

@@ -99,7 +99,7 @@ _ZN3gmx14TopologyHolderD2Ev.exit:                 ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3gmx14TopologyHolder22registerDomDecCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx14TopologyHolder22registerDomDecCallbackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::function") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -112,7 +112,7 @@ define void @_ZN3gmx14TopologyHolder22registerDomDecCallbackEv(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx14TopologyHolderC2ESt6vectorIPNS_21ITopologyHolderClientESaIS3_EERK10gmx_mtop_tP14gmx_localtop_tPK9t_commrecPK10t_inputrecP10t_forcerecPNS_7MDAtomsEPNS_11ConstraintsEPNS_19VirtualSitesHandlerE(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(768) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx14TopologyHolderC2ESt6vectorIPNS_21ITopologyHolderClientESaIS3_EERK10gmx_mtop_tP14gmx_localtop_tPK9t_commrecPK10t_inputrecP10t_forcerecPNS_7MDAtomsEPNS_11ConstraintsEPNS_19VirtualSitesHandlerE(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef %1, ptr noundef nonnull align 8 dereferenceable(768) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3gmx14TopologyHolderE, i64 16), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %11, align 8

@@ -28,7 +28,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MutualInfoC2Ejib(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 5), (8, 12), (16, 40)) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 {
+define void @_ZN10MutualInfoC2Ejib(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #3 align 2 {
   %5 = zext i1 %3 to i8
   store i32 %2, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -40,7 +40,7 @@ define void @_ZN10MutualInfoC2Ejib(ptr nocapture noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10MutualInfo7setBinsEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 12)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN10MutualInfo7setBinsEj(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

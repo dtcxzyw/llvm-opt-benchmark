@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [10 x i8] c"lenN <= 8\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @asn1_ctx_init(ptr nocapture noundef writeonly initializes((0, 208)) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
+define void @asn1_ctx_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %6, i8 0, i64 200, i1 false)
@@ -48,7 +48,7 @@ define hidden zeroext i1 @asn1_ctx_check_signature(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @asn1_ctx_clean_external(ptr nocapture noundef writeonly initializes((56, 120)) %0) local_unnamed_addr #0 {
+define hidden void @asn1_ctx_clean_external(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   store i32 -1, ptr %2, align 8
@@ -58,7 +58,7 @@ define hidden void @asn1_ctx_clean_external(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @asn1_ctx_clean_epdv(ptr nocapture noundef writeonly initializes((144, 200)) %0) local_unnamed_addr #0 {
+define hidden void @asn1_ctx_clean_epdv(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 0, i64 56, i1 false)
   store i32 -1, ptr %2, align 8
@@ -353,7 +353,7 @@ get_par_by_name.exit:                             ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rose_ctx_init(ptr nocapture noundef writeonly initializes((0, 120)) %0) local_unnamed_addr #0 {
+define void @rose_ctx_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %0, i8 0, i64 120, i1 false)
   store i32 1380930373, ptr %0, align 8
   ret void
@@ -375,7 +375,7 @@ define hidden zeroext i1 @rose_ctx_check_signature(ptr noundef readonly %0) loca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @rose_ctx_clean_data(ptr nocapture noundef writeonly initializes((80, 112)) %0) local_unnamed_addr #0 {
+define void @rose_ctx_clean_data(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 84

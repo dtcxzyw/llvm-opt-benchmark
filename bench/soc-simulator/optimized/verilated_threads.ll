@@ -138,7 +138,7 @@ $_ZTINSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvP14VlWorkerThreadP16Veril
 @_ZN12VlThreadPoolD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN12VlThreadPoolD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN13VlMTaskVertexC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN13VlMTaskVertexC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
@@ -146,7 +146,7 @@ define dso_local void @_ZN13VlMTaskVertexC2Ej(ptr nocapture noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN14VlWorkerThreadC2EP16VerilatedContext(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 40)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN14VlWorkerThreadC2EP16VerilatedContext(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 40, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -913,7 +913,7 @@ _ZTWN9Verilated3t_sE.exit:                        ; preds = %1, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12VlThreadPoolC2EP16VerilatedContextj(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12VlThreadPoolC2EP16VerilatedContextj(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTV12VlThreadPool, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)

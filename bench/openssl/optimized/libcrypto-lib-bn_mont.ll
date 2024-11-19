@@ -340,7 +340,7 @@ return:                                           ; preds = %entry, %if.end
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @BN_MONT_CTX_init(ptr noundef initializes((0, 4)) %ctx) local_unnamed_addr #0 {
+define void @BN_MONT_CTX_init(ptr noundef %ctx) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ctx, align 8
   %RR = getelementptr inbounds i8, ptr %ctx, i64 8

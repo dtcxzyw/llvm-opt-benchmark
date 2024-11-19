@@ -235,7 +235,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui9CGUIImageC1EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(361) initializes((368, 388)) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui9CGUIImageC1EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(361) %this, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i64 %rectangle.coerce0, i64 %rectangle.coerce1) unnamed_addr #0 align 2 {
 entry:
   %agg.tmp2 = alloca %"class.irr::core::rect", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 368
@@ -270,7 +270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui9CGUIImageD2Ev(ptr noundef nonnull align 8 dereferenceable(361) initializes((0, 8)) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui9CGUIImageD2Ev(ptr noundef nonnull align 8 dereferenceable(361) %this, ptr noundef %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -311,7 +311,7 @@ if.end:                                           ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui9CGUIImageD1Ev(ptr noundef nonnull align 8 dereferenceable(361) initializes((0, 8), (368, 376)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui9CGUIImageD1Ev(ptr noundef nonnull align 8 dereferenceable(361) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 368
@@ -385,7 +385,7 @@ _ZN3irr3gui9CGUIImageD1Ev.exit:                   ; preds = %delete.notnull.i.i.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui9CGUIImageD0Ev(ptr noundef nonnull align 8 dereferenceable(361) initializes((0, 8), (368, 376)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui9CGUIImageD0Ev(ptr noundef nonnull align 8 dereferenceable(361) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr3gui9CGUIImageE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 368
@@ -523,7 +523,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui9CGUIImage8setColorENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(361) initializes((320, 324)) %this, i32 %color.coerce) unnamed_addr #5 align 2 {
+define void @_ZN3irr3gui9CGUIImage8setColorENS_5video6SColorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(361) %this, i32 %color.coerce) unnamed_addr #5 align 2 {
 entry:
   %Color = getelementptr inbounds i8, ptr %this, i64 320
   store i32 %color.coerce, ptr %Color, align 8, !tbaa !45
@@ -908,7 +908,7 @@ if.end:                                           ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui9CGUIImage18setUseAlphaChannelEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(361) initializes((324, 325)) %this, i1 noundef zeroext %use) unnamed_addr #5 align 2 {
+define void @_ZN3irr3gui9CGUIImage18setUseAlphaChannelEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(361) %this, i1 noundef zeroext %use) unnamed_addr #5 align 2 {
 entry:
   %frombool = zext i1 %use to i8
   %UseAlphaChannel = getelementptr inbounds i8, ptr %this, i64 324
@@ -917,7 +917,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3irr3gui9CGUIImage13setScaleImageEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(361) initializes((325, 326)) %this, i1 noundef zeroext %scale) unnamed_addr #5 align 2 {
+define void @_ZN3irr3gui9CGUIImage13setScaleImageEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(361) %this, i1 noundef zeroext %scale) unnamed_addr #5 align 2 {
 entry:
   %frombool = zext i1 %scale to i8
   %ScaleImage = getelementptr inbounds i8, ptr %this, i64 325
@@ -944,7 +944,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr3gui9CGUIImage13setSourceRectERKNS_4core4rectIiEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(361) initializes((328, 344)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %sourceRect) unnamed_addr #7 align 2 {
+define void @_ZN3irr3gui9CGUIImage13setSourceRectERKNS_4core4rectIiEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(361) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %sourceRect) unnamed_addr #7 align 2 {
 entry:
   %SourceRect = getelementptr inbounds i8, ptr %this, i64 328
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %SourceRect, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, i64 16, i1 false), !tbaa.struct !50
@@ -964,7 +964,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN3irr3gui9CGUIImage13setDrawBoundsERKNS_4core4rectIfEE(ptr nocapture noundef nonnull align 8 dereferenceable(361) initializes((344, 360)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %drawBoundUVs) unnamed_addr #7 align 2 {
+define void @_ZN3irr3gui9CGUIImage13setDrawBoundsERKNS_4core4rectIfEE(ptr nocapture noundef nonnull align 8 dereferenceable(361) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %drawBoundUVs) unnamed_addr #7 align 2 {
 entry:
   %DrawBounds = getelementptr inbounds i8, ptr %this, i64 344
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %DrawBounds, ptr noundef nonnull align 4 dereferenceable(16) %drawBoundUVs, i64 16, i1 false), !tbaa.struct !64

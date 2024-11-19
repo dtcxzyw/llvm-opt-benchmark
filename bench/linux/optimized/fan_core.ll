@@ -577,7 +577,7 @@ define internal i32 @acpi_fan_speed_cmp(ptr nocapture noundef readonly %0, ptr n
 declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #9
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal noundef i32 @fan_get_max_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #10 align 16 {
+define internal noundef i32 @fan_get_max_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #10 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 760
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 608

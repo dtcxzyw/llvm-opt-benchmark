@@ -665,7 +665,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers14BvInstantiatorD2Ev(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers14BvInstantiatorD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers14BvInstantiatorE, i64 16), ptr %this, align 8
   %d_alit_to_model_slack = getelementptr inbounds i8, ptr %this, i64 288
@@ -917,7 +917,7 @@ _ZN4cvc58internal6theory11quantifiers12InstantiatorD2Ev.exit: ; preds = %_ZNSt13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers14BvInstantiatorD0Ev(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers14BvInstantiatorD0Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers14BvInstantiatorD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) #21
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -928,7 +928,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers14BvInstantiator5resetEPNS2_15CegInstantiatorERNS2_10SolvedFormENS0_12NodeTemplateILb1EEENS2_13CegInstEffortE(ptr noundef nonnull align 8 dereferenceable(344) initializes((56, 60)) %this, ptr nocapture readnone %ci, ptr nocapture nonnull readnone align 8 %sf, ptr nocapture readnone %pv, i32 %effort) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers14BvInstantiator5resetEPNS2_15CegInstantiatorERNS2_10SolvedFormENS0_12NodeTemplateILb1EEENS2_13CegInstEffortE(ptr noundef nonnull align 8 dereferenceable(344) %this, ptr nocapture readnone %ci, ptr nocapture nonnull readnone align 8 %sf, ptr nocapture readnone %pv, i32 %effort) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_inst_id_counter = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %d_inst_id_counter, align 8

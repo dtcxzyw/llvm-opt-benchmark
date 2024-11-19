@@ -4296,7 +4296,7 @@ declare ptr @Abc_SclReadLiberty(ptr noundef, i32 noundef, i32 noundef, i32, ptr)
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Abc_SclSurfaceFree(ptr nocapture noundef initializes((8, 16), (24, 32), (56, 64), (72, 80)) %0) unnamed_addr #0 {
+define internal fastcc void @Abc_SclSurfaceFree(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8

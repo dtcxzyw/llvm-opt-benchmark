@@ -353,7 +353,7 @@ define internal fastcc void @_ZN6memchr4arch6x86_644avx210packedpair6Finder14wit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6memchr6memmem13FinderBuilder25build_forward_with_ranker17h3f4a209ded515876E(ptr noalias nocapture noundef writeonly sret({ { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }) align 32 dereferenceable(288) initializes((0, 280)) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN6memchr6memmem13FinderBuilder25build_forward_with_ranker17h3f4a209ded515876E(ptr noalias nocapture noundef writeonly sret({ { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, { { i64, [2 x i64] } }, [1 x i64] }) align 32 dereferenceable(288) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { { [28 x i64] }, { i32, i32 }, ptr, [2 x i64] }, align 32
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5)
   %6 = load i8, ptr %1, align 1, !range !89, !noundef !7

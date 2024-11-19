@@ -4907,7 +4907,7 @@ lpad.body:                                        ; preds = %lpad2.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129CondVarWaitDeadlock_Test_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8), (16, 24)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_129CondVarWaitDeadlock_Test_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119CondVarWaitDeadlockE, i64 16), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -4917,7 +4917,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_129CondVarWaitDeadlock_Test_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8), (16, 24)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_129CondVarWaitDeadlock_Test_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119CondVarWaitDeadlockE, i64 16), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -5080,7 +5080,7 @@ ehcleanup27:                                      ; preds = %lpad, %lpad.i.i4, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N12_GLOBAL__N_129CondVarWaitDeadlock_Test_TestD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N12_GLOBAL__N_129CondVarWaitDeadlock_Test_TestD1Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119CondVarWaitDeadlockE, i64 16), ptr %0, align 8
@@ -5090,7 +5090,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N12_GLOBAL__N_129CondVarWaitDeadlock_Test_TestD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N12_GLOBAL__N_129CondVarWaitDeadlock_Test_TestD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119CondVarWaitDeadlockE, i64 16), ptr %0, align 8
@@ -5138,7 +5138,7 @@ if.end:                                           ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_119CondVarWaitDeadlockD2Ev(ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8), (16, 24)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_119CondVarWaitDeadlockD2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119CondVarWaitDeadlockE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -5155,7 +5155,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ZThn16_N12_GLOBAL__N_119CondVarWaitDeadlockD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N12_GLOBAL__N_119CondVarWaitDeadlockD1Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN12_GLOBAL__N_119CondVarWaitDeadlockE, i64 16), ptr %0, align 8
@@ -12946,7 +12946,7 @@ _ZN7testing8ValuesInIN9__gnu_cxx17__normal_iteratorIPKN12_GLOBAL__N_116TimeoutTe
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126MakeTimeoutTestParamValuesEv(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_126MakeTimeoutTestParamValuesEv(ptr noalias nocapture nonnull align 8 %agg.result) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN4abslngENS_8DurationE.exit:
   %lhs.i = alloca %"class.absl::Duration", align 8
   %rhs.i = alloca %"class.absl::Duration", align 8
@@ -14087,7 +14087,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEEE, i64 16), ptr %this, align 8
   %container_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -14104,7 +14104,7 @@ _ZNSt6vectorIN12_GLOBAL__N_116TimeoutTestParamESaIS1_EED2Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEEE, i64 16), ptr %this, align 8
   %container_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -14154,7 +14154,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEE8IteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEE8IteratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEE8IteratorE, i64 16), ptr %this, align 8
   %value_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -14172,7 +14172,7 @@ _ZNSt10unique_ptrIKN12_GLOBAL__N_116TimeoutTestParamESt14default_deleteIS2_EED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEE8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEE8IteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIN12_GLOBAL__N_116TimeoutTestParamEE8IteratorE, i64 16), ptr %this, align 8
   %value_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -19424,7 +19424,7 @@ while.end:                                        ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull initializes((0, 16)) %cxt, ptr noundef %test, i32 noundef %threads, i32 noundef %iterations) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_113RunTestCommonEPNS_11TestContextEPFvS1_iEiii(ptr noundef nonnull %cxt, ptr noundef %test, i32 noundef %threads, i32 noundef %iterations) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %mu2 = alloca %"class.absl::Mutex", align 8
   %cv2 = alloca %"class.absl::CondVar", align 8
@@ -27252,7 +27252,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare void @abort() local_unnamed_addr #31
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEEE, i64 16), ptr %this, align 8
   %instantiations_ = getelementptr inbounds i8, ptr %this, i64 104
@@ -27392,7 +27392,7 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_119CondVarWaitDeadlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #38
   tail call void @_ZdlPv(ptr noundef nonnull %this) #41
@@ -28659,7 +28659,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEEE, i64 16), ptr %this, align 8
   %instantiations_ = getelementptr inbounds i8, ptr %this, i64 104
@@ -28799,7 +28799,7 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_111TimeoutTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #38
   tail call void @_ZdlPv(ptr noundef nonnull %this) #41
@@ -30013,7 +30013,7 @@ eh.resume:                                        ; preds = %if.end8.sink.split.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEEE, i64 16), ptr %this, align 8
   %instantiations_ = getelementptr inbounds i8, ptr %this, i64 104
@@ -30153,7 +30153,7 @@ _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define internal void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEED0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_128MutexVariableThreadCountTestEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) #38
   tail call void @_ZdlPv(ptr noundef nonnull %this) #41

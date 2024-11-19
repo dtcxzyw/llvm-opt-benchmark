@@ -89,7 +89,7 @@ $_ZTI16RarCheckPassword = comdat any
 @_ZN10CmdExtractD1Ev = unnamed_addr alias void (ptr), ptr @_ZN10CmdExtractD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10CmdExtractC2EP11CommandData(ptr noundef nonnull align 8 dereferenceable(16800) initializes((0, 32), (48, 56)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10CmdExtractC2EP11CommandData(ptr noundef nonnull align 8 dereferenceable(16800) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %3, align 8
@@ -359,7 +359,7 @@ declare noundef zeroext i1 @_Z7DelFilePKw(ptr noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10CmdExtract9DoExtractEv(ptr noundef nonnull align 8 dereferenceable(16800) initializes((212, 216), (16764, 16765)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN10CmdExtract9DoExtractEv(ptr noundef nonnull align 8 dereferenceable(16800) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.uiMsgStore, align 8
   %3 = alloca %struct.FindData, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16764

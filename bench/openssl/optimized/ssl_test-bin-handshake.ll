@@ -2381,7 +2381,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare void @SSL_CTX_set_next_protos_advertised_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @server_npn_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly initializes((0, 8)) %data, ptr nocapture noundef writeonly initializes((0, 4)) %len, ptr nocapture noundef readonly %arg) #6 {
+define internal noundef i32 @server_npn_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly %data, ptr nocapture noundef writeonly %len, ptr nocapture noundef readonly %arg) #6 {
 entry:
   %0 = load ptr, ptr %arg, align 8
   store ptr %0, ptr %data, align 8
@@ -2414,7 +2414,7 @@ entry:
 declare void @SSL_CTX_set_alpn_select_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @server_alpn_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly initializes((0, 8)) %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #0 {
+define internal range(i32 0, 3) i32 @server_alpn_cb(ptr nocapture readnone %s, ptr nocapture noundef writeonly %out, ptr noundef %outlen, ptr noundef %in, i32 noundef %inlen, ptr nocapture noundef readonly %arg) #0 {
 entry:
   %tmp_out = alloca ptr, align 8
   %alpn_protocols = getelementptr inbounds i8, ptr %arg, i64 16

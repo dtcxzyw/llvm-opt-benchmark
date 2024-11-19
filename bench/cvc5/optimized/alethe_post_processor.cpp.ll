@@ -34625,7 +34625,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal5proof22AletheProofPostprocessD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal5proof22AletheProofPostprocessD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof22AletheProofPostprocessE, i64 16), ptr %this, align 8
   %d_cb = getelementptr inbounds i8, ptr %this, i64 16
@@ -34728,7 +34728,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit22: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal5proof22AletheProofPostprocessD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal5proof22AletheProofPostprocessD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal5proof22AletheProofPostprocessE, i64 16), ptr %this, align 8
   %d_cb.i = getelementptr inbounds i8, ptr %this, i64 16

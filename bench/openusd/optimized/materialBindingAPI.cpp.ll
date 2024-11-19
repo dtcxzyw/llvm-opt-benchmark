@@ -2327,7 +2327,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit39: ; preds = %203, %209
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI13DirectBindingC2ERKNS_15UsdRelationshipE(ptr noundef nonnull align 8 dereferenceable(49) initializes((0, 12), (16, 40)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI13DirectBindingC2ERKNS_15UsdRelationshipE(ptr noundef nonnull align 8 dereferenceable(49) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.63", align 8
   store i32 0, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -3927,7 +3927,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__11UsdPropertyESaIS1_EED2E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI17CollectionBindingC2ERKNS_15UsdRelationshipE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 20), (24, 48)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI17CollectionBindingC2ERKNS_15UsdRelationshipE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.63", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5124,7 +5124,7 @@ declare void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPath14JoinIdentifierB5cxx
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI21GetCollectionBindingsERKNS_7TfTokenE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.99") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI21GetCollectionBindingsERKNS_7TfTokenE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.99") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.80", align 8
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI24GetCollectionBindingRelsERKNS_7TfTokenE(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.80") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -5401,7 +5401,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBinding
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI22_GetCollectionBindingsERKSt6vectorINS_7TfTokenESaIS2_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.99") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI22_GetCollectionBindingsERKSt6vectorINS_7TfTokenESaIS2_EE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.99") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdRelationship", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::UsdPrim", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -9906,7 +9906,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__15UsdRelationshipD2Ev.exit: ; preds = %_ZN3
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdCollectionAPI11IncludePathERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI14BindingsAtPrimC2ERKNS_7UsdPrimERKNS_7TfTokenEb(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdShadeMaterialBindingAPI14BindingsAtPrimC2ERKNS_7UsdPrimERKNS_7TfTokenEb(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.73", align 8
   %6 = alloca %"class.std::function", align 8
   %7 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8

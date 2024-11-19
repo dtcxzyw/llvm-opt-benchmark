@@ -1106,7 +1106,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10battleship15BattleshipState19AllPla
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10battleship15BattleshipState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.19") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10battleship15BattleshipState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.19") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.24", align 8
   %4 = alloca %"struct.open_spiel::battleship::Ship", align 8
   %5 = alloca %"class.open_spiel::battleship::ShipPlacement", align 8
@@ -14469,7 +14469,7 @@ define noundef range(i32 0, -1) i32 @_ZNK10open_spiel10battleship14BattleshipGam
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10battleship14BattleshipGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.47") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10battleship14BattleshipGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.47") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(328) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 288
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 296

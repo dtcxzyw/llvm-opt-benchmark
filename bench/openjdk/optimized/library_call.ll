@@ -5911,7 +5911,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit26inline_math_multiplyExact
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14LibraryCallKit24inline_math_multiplyHighEv(ptr nocapture noundef nonnull align 8 dereferenceable(108) initializes((96, 104)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14LibraryCallKit24inline_math_multiplyHighEv(ptr nocapture noundef nonnull align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -5979,7 +5979,7 @@ _ZN4NodenwEm.exit:                                ; preds = %19, %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14LibraryCallKit32inline_math_unsignedMultiplyHighEv(ptr nocapture noundef nonnull align 8 dereferenceable(108) initializes((96, 104)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14LibraryCallKit32inline_math_unsignedMultiplyHighEv(ptr nocapture noundef nonnull align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -40603,7 +40603,7 @@ _ZN7Compile15record_for_igvnEP4Node.exit:         ; preds = %_ZN9VectorSet8test_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN14LibraryCallKit24inline_isCompileConstantEv(ptr nocapture noundef nonnull align 8 dereferenceable(108) initializes((96, 104)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN14LibraryCallKit24inline_isCompileConstantEv(ptr nocapture noundef nonnull align 8 dereferenceable(108) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 56
@@ -45662,7 +45662,7 @@ declare void @_ZN16PreserveJVMStateC1EP8GraphKitb(ptr noundef nonnull align 8 de
 declare void @_ZN16PreserveJVMStateD1Ev(ptr noundef nonnull align 8 dereferenceable(20)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14LibraryCallKit21current_thread_helperERP4Node8ByteSizeb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14LibraryCallKit21current_thread_helperERP4Node8ByteSizeb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = load ptr, ptr @_ZN5ciEnv13_Thread_klassE, align 8
   %6 = tail call noundef ptr @_ZN10TypeOopPtr22make_from_klass_commonEP7ciKlassbbN4Type17InterfaceHandlingE(ptr noundef %5, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 1) #13
   %7 = load ptr, ptr %6, align 8
@@ -45787,7 +45787,7 @@ define linkonce_odr hidden noundef ptr @_ZN8GraphKit9make_loadEP4NodeS1_PK4Type9
 declare noundef ptr @_ZN8GraphKit11access_loadEP4NodePK4Type9BasicTypem(ptr noundef nonnull align 8 dereferenceable(84), ptr noundef, ptr noundef, i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14LibraryCallKit23generate_current_threadERP4Node(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14LibraryCallKit23generate_current_threadERP4Node(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef ptr @_ZN14LibraryCallKit21current_thread_helperERP4Node8ByteSizeb(ptr noundef nonnull align 8 dereferenceable(108) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef 896, i1 noundef zeroext false)
   ret ptr %3
 }

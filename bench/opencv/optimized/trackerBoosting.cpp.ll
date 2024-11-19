@@ -248,7 +248,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv6legacy8tracking15TrackerBoosting6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 20)) %0) unnamed_addr #3 align 2 {
+define void @_ZN2cv6legacy8tracking15TrackerBoosting6ParamsC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0) unnamed_addr #3 align 2 {
   store i32 100, ptr %0, align 4
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store float 0x3FEFAE1480000000, ptr %2, align 4
@@ -262,7 +262,7 @@ define void @_ZN2cv6legacy8tracking15TrackerBoosting6ParamsC2Ev(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6legacy8tracking15TrackerBoosting6Params4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN2cv6legacy8tracking15TrackerBoosting6Params4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(20) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"class.cv::FileNode", align 8
   %4 = alloca %"class.cv::FileNode", align 8
   %5 = alloca %"class.cv::FileNode", align 8
@@ -809,7 +809,7 @@ declare void @_ZN2cv9AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(8
 declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv6legacy8tracking19TrackerBoostingImpl4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) initializes((64, 80)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv6legacy8tracking19TrackerBoostingImpl4readERKNS_8FileNodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN2cv6legacy8tracking15TrackerBoosting6Params4readERKNS_8FileNodeE(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 8 dereferenceable(24) %1)
   ret void

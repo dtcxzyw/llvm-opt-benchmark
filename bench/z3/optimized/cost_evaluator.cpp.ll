@@ -56,7 +56,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14cost_evaluatorC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 {
+define hidden void @_ZN14cost_evaluatorC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(976) %m) unnamed_addr #3 align 2 {
 entry:
   store ptr %m, ptr %this, align 8
   %m_util = getelementptr inbounds i8, ptr %this, i64 8
@@ -632,7 +632,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 declare void @_Z11warning_msgPKcz(ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef float @_ZN14cost_evaluatorclEP4exprjPKf(ptr noundef nonnull align 8 dereferenceable(40) initializes((24, 28), (32, 40)) %this, ptr noundef %f, i32 noundef %num_args, ptr noundef %args) local_unnamed_addr #3 align 2 {
+define hidden noundef float @_ZN14cost_evaluatorclEP4exprjPKf(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %f, i32 noundef %num_args, ptr noundef %args) local_unnamed_addr #3 align 2 {
 entry:
   %m_num_args = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %num_args, ptr %m_num_args, align 8

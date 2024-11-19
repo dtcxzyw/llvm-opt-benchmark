@@ -323,7 +323,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @X509_CRL_set_meth_data(ptr nocapture noundef writeonly initializes((112, 120)) %crl, ptr noundef %dat) local_unnamed_addr #7 {
+define hidden void @X509_CRL_set_meth_data(ptr nocapture noundef writeonly %crl, ptr noundef %dat) local_unnamed_addr #7 {
 entry:
   %meth_data = getelementptr inbounds i8, ptr %crl, i64 112
   store ptr %dat, ptr %meth_data, align 8

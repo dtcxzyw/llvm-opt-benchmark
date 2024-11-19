@@ -69,7 +69,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib18FdmMesherCompositeEEE = comda
 @_ZN8QuantLib17FdmMesherIntegralC1ERKN5boost10shared_ptrINS_18FdmMesherCompositeEEERKSt8functionIFdRKNS_5ArrayESA_EE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8QuantLib17FdmMesherIntegralC2ERKN5boost10shared_ptrINS_18FdmMesherCompositeEEERKSt8functionIFdRKNS_5ArrayESA_EE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17FdmMesherIntegralC2ERKN5boost10shared_ptrINS_18FdmMesherCompositeEEERKSt8functionIFdRKNS_5ArrayESA_EE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 24)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesher, ptr noundef nonnull align 8 dereferenceable(32) %integrator1d) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17FdmMesherIntegralC2ERKN5boost10shared_ptrINS_18FdmMesherCompositeEEERKSt8functionIFdRKNS_5ArrayESA_EE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %mesher, ptr noundef nonnull align 8 dereferenceable(32) %integrator1d) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %mesher, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %0, null

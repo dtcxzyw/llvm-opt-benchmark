@@ -1526,7 +1526,7 @@ declare float @llvm.floor.f32(float) #11
 declare float @llvm.ceil.f32(float) #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20DispersionCorrectionC2ERK10gmx_mtop_tRK10t_inputrecbiN3gmx8ArrayRefIKfEERK19interaction_const_tPKc(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(768) %1, ptr noundef nonnull align 8 dereferenceable(856) %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %5, ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef %7) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20DispersionCorrectionC2ERK10gmx_mtop_tRK10t_inputrecbiN3gmx8ArrayRefIKfEERK19interaction_const_tPKc(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(768) %1, ptr noundef nonnull align 8 dereferenceable(856) %2, i1 noundef zeroext %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef") align 8 %5, ptr noundef nonnull align 8 dereferenceable(152) %6, ptr noundef %7) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.gmx::ArrayRef", align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 384
   %11 = load i32, ptr %10, align 8

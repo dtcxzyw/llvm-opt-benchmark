@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define void @lv_array_init(ptr nocapture noundef writeonly initializes((0, 21)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_array_init(ptr nocapture noundef writeonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -51,7 +51,7 @@ define void @lv_array_init_from_buf(ptr nocapture noundef writeonly %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_array_deinit(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
+define void @lv_array_deinit(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !12
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %3
@@ -695,7 +695,7 @@ define zeroext i1 @lv_array_is_full(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_array_clear(ptr nocapture noundef writeonly initializes((8, 12)) %0) local_unnamed_addr #5 {
+define void @lv_array_clear(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8, !tbaa !3
   ret void

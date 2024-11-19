@@ -54,13 +54,13 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_58ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN22XPhysicalMemoryManagerC1Em = hidden unnamed_addr alias void (ptr, i64), ptr @_ZN22XPhysicalMemoryManagerC2Em
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN15XPhysicalMemoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN15XPhysicalMemoryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15XPhysicalMemoryC2ERK22XPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN15XPhysicalMemoryC2ERK22XPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %1) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   tail call void @_ZN15XPhysicalMemory11add_segmentERK22XPhysicalMemorySegment(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(17) %1)
   ret void
@@ -250,7 +250,7 @@ _ZN15XPhysicalMemory14remove_segmentEi.exit:      ; preds = %42, %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15XPhysicalMemoryC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN15XPhysicalMemoryC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, 0
@@ -301,7 +301,7 @@ define hidden void @_ZN15XPhysicalMemory12add_segmentsERKS_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN15XPhysicalMemoryaSERKS_(ptr noundef nonnull returned align 8 dereferenceable(16) initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN15XPhysicalMemoryaSERKS_(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
@@ -564,7 +564,7 @@ _ZN17GrowableArrayViewI22XPhysicalMemorySegmentE9remove_atEi.exit: ; preds = %8,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15XPhysicalMemory15remove_segmentsEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 4)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15XPhysicalMemory15remove_segmentsEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #1 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
@@ -685,7 +685,7 @@ define hidden noundef zeroext i1 @_ZN15XPhysicalMemory16uncommit_segmentEim(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15XPhysicalMemory5splitEm(ptr dead_on_unwind noalias writable sret(%class.XPhysicalMemory) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15XPhysicalMemory5splitEm(ptr dead_on_unwind noalias writable sret(%class.XPhysicalMemory) align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 align 2 {
   %4 = alloca %class.XPhysicalMemorySegment, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = load i32, ptr %1, align 8
@@ -837,7 +837,7 @@ _ZNK15XPhysicalMemory4sizeEv.exit38:              ; preds = %42, %_ZNK15XPhysica
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15XPhysicalMemory15split_committedEv(ptr dead_on_unwind noalias writable sret(%class.XPhysicalMemory) align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15XPhysicalMemory15split_committedEv(ptr dead_on_unwind noalias writable sret(%class.XPhysicalMemory) align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = load i32, ptr %1, align 8
   %4 = icmp sgt i32 %3, 0

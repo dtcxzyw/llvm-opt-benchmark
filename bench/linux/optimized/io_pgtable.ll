@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [54 x i8] c"\014AMD-Vi: AMD-Vi: IOMMU pte changed since we read it\0A\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @amd_iommu_domain_set_pgtable(ptr nocapture noundef writeonly initializes((392, 396), (400, 408)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @amd_iommu_domain_set_pgtable(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, -4096
   %6 = inttoptr i64 %5 to ptr
@@ -48,7 +48,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal ptr @v1_alloc_pgtable(ptr noundef writeonly initializes((8, 24), (32, 40), (224, 256)) %0, ptr nocapture readnone %1) #0 align 16 {
+define internal ptr @v1_alloc_pgtable(ptr noundef writeonly %0, ptr nocapture readnone %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 -549755817984, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16

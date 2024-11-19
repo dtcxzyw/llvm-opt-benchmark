@@ -75,7 +75,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN7rocksdb13BlobLogWriterC2EOSt10unique_ptrINS_18WritableFileWriterESt14default_deleteIS2_EEPNS_11SystemClockEPNS_10StatisticsEmbbm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 42), (44, 48)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef %clock, ptr noundef %statistics, i64 noundef %log_number, i1 noundef zeroext %use_fs, i1 noundef zeroext %do_flush, i64 noundef %boffset) unnamed_addr #2 align 2 {
+define void @_ZN7rocksdb13BlobLogWriterC2EOSt10unique_ptrINS_18WritableFileWriterESt14default_deleteIS2_EEPNS_11SystemClockEPNS_10StatisticsEmbbm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %dest, ptr noundef %clock, ptr noundef %statistics, i64 noundef %log_number, i1 noundef zeroext %use_fs, i1 noundef zeroext %do_flush, i64 noundef %boffset) unnamed_addr #2 align 2 {
 entry:
   %frombool = zext i1 %use_fs to i8
   %frombool1 = zext i1 %do_flush to i8

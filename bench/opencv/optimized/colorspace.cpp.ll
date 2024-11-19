@@ -872,7 +872,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 declare noundef zeroext i1 @_ZNK2cv3ccm2IOeqERKS1_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv3ccm10ColorSpace8relationERKS1_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::ccm::Operations") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv3ccm10ColorSpace8relationERKS1_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::ccm::Operations") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cv3ccm10Operations16get_IDENTITY_OPSEv()
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN2cv3ccm10OperationsE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1048,7 +1048,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 declare noundef zeroext i1 @_ZNK2cv3ccm2IOltERKS1_(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK2cv3ccm8RGBBase_8relationERKNS0_10ColorSpaceE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::ccm::Operations") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(440) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK2cv3ccm8RGBBase_8relationERKNS0_10ColorSpaceE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::ccm::Operations") align 8 %0, ptr noundef nonnull align 8 dereferenceable(440) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(200) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [1 x %"class.cv::ccm::Operation"], align 8
   %5 = alloca %"class.std::function", align 8
   %6 = alloca [1 x %"class.cv::ccm::Operation"], align 8
@@ -4762,7 +4762,7 @@ define hidden void @_ZNK2cv3ccm13AdobeRGBBase_9fromLFuncERNS_3MatES2_(ptr dead_o
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden void @_ZN2cv3ccm9sRGBBase_9calLinearEv(ptr nocapture noundef nonnull align 8 dereferenceable(488) initializes((456, 488)) %0) unnamed_addr #5 align 2 {
+define hidden void @_ZN2cv3ccm9sRGBBase_9calLinearEv(ptr nocapture noundef nonnull align 8 dereferenceable(488) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   %3 = load double, ptr %2, align 8
   %4 = fadd double %3, 1.000000e+00
@@ -6190,7 +6190,7 @@ _ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i: ; preds = %.noexc22, %245, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3ccm5sRGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) initializes((200, 248), (440, 456)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv3ccm5sRGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store double 6.400000e-01, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
@@ -6211,7 +6211,7 @@ define hidden void @_ZN2cv3ccm5sRGB_12setParameterEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3ccm9AdobeRGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((200, 248), (440, 448)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv3ccm9AdobeRGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store double 6.400000e-01, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
@@ -6230,7 +6230,7 @@ define hidden void @_ZN2cv3ccm9AdobeRGB_12setParameterEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3ccm13WideGamutRGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((200, 248), (440, 448)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv3ccm13WideGamutRGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store double 7.347000e-01, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
@@ -6249,7 +6249,7 @@ define hidden void @_ZN2cv3ccm13WideGamutRGB_12setParameterEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3ccm12ProPhotoRGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((200, 248), (440, 448)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv3ccm12ProPhotoRGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store double 7.346990e-01, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
@@ -6268,7 +6268,7 @@ define hidden void @_ZN2cv3ccm12ProPhotoRGB_12setParameterEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3ccm11DCI_P3_RGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((200, 248), (440, 448)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv3ccm11DCI_P3_RGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store double 6.800000e-01, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
@@ -6287,7 +6287,7 @@ define hidden void @_ZN2cv3ccm11DCI_P3_RGB_12setParameterEv(ptr nocapture nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3ccm9AppleRGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) initializes((200, 248), (440, 448)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv3ccm9AppleRGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(448) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store double 6.250000e-01, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
@@ -6306,7 +6306,7 @@ define hidden void @_ZN2cv3ccm9AppleRGB_12setParameterEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3ccm12REC_709_RGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) initializes((200, 248), (440, 456)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv3ccm12REC_709_RGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store double 6.400000e-01, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
@@ -6327,7 +6327,7 @@ define hidden void @_ZN2cv3ccm12REC_709_RGB_12setParameterEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3ccm13REC_2020_RGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) initializes((200, 248), (440, 456)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZN2cv3ccm13REC_2020_RGB_12setParameterEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(488) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store double 0x3FE6A7EF9DB22D0E, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
@@ -7864,7 +7864,7 @@ _ZNKSt4lessISt5tupleIJN2cv3ccm2IOES3_NS2_3CAMEEEEclERKS5_S8_.exit.thread12: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN2cvlsIddEENS_20MatCommaInitializer_IT_EERKNS_4Mat_IS2_EET0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, double noundef %2) unnamed_addr #3 {
+define internal fastcc void @_ZN2cvlsIddEENS_20MatCommaInitializer_IT_EERKNS_4Mat_IS2_EET0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, double noundef %2) unnamed_addr #3 {
   %4 = alloca %"class.cv::MatCommaInitializer_", align 8
   call void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %1)
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -9132,7 +9132,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec.49") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv3ccm3Lab7fromxyzERNS_3VecIdLi3EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec.49") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = tail call fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv3ccmL14getIlluminantsERKNS0_2IOE(ptr noundef nonnull align 8 dereferenceable(72) %4)
   %6 = load double, ptr %2, align 8
@@ -9440,7 +9440,7 @@ _ZN2cv12MatIterator_INS_3VecIdLi3EEEEppEv.exit.i: ; preds = %._ZN2cv12MatIterato
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec.49") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN2cv3ccm3Lab5tolabERNS_3VecIdLi3EEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Vec.49") align 8 %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 {
   %4 = load double, ptr %2, align 8
   %5 = fadd double %4, 1.600000e+01
   %6 = fdiv double %5, 1.160000e+02
@@ -10404,7 +10404,7 @@ _ZNSt12__shared_ptrIN2cv3ccm3LabELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv3ccm5GetCSC2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((8, 12), (16, 24)) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv3ccm5GetCSC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

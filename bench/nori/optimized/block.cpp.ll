@@ -128,7 +128,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4nori10ImageBlockC2ERKNS_7TVectorIiLi2EEEPKNS_20ReconstructionFilterE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 44), (48, 60), (64, 84)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori10ImageBlockC2ERKNS_7TVectorIiLi2EEEPKNS_20ReconstructionFilterE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %5 = load i64, ptr %1, align 4
@@ -1187,7 +1187,7 @@ define linkonce_odr hidden void @_ZNK4nori7TVectorIiLi2EE8toStringB5cxx11Ev(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4nori14BlockGeneratorC2ERKNS_7TVectorIiLi2EEEi(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 28)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4nori14BlockGeneratorC2ERKNS_7TVectorIiLi2EEEi(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, i32 noundef %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %5 = load i64, ptr %1, align 4

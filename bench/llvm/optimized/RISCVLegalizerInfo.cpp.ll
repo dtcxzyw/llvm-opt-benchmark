@@ -139,7 +139,7 @@ $_ZNSt14_Function_base13_Base_managerIZN4llvm18LegalityPredicates3anyISt8functio
 @_ZN4llvm18RISCVLegalizerInfoC1ERKNS_14RISCVSubtargetE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm18RISCVLegalizerInfoC2ERKNS_14RISCVSubtargetE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18RISCVLegalizerInfoC2ERKNS_14RISCVSubtargetE(ptr noundef nonnull align 8 dereferenceable(121064) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(409192) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18RISCVLegalizerInfoC2ERKNS_14RISCVSubtargetE(ptr noundef nonnull align 8 dereferenceable(121064) %0, ptr noundef nonnull align 8 dereferenceable(409192) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::function", align 8
   %4 = alloca %"class.llvm::TypeSize", align 8
   %5 = alloca %"class.std::function.67", align 8

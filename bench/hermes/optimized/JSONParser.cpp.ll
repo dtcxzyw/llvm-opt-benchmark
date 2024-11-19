@@ -238,7 +238,7 @@ declare void @_ZN6hermes11JSONEmitter9emitValueEb(ptr noundef nonnull align 8 de
 declare void @_ZN6hermes11JSONEmitter13emitNullValueEv(ptr noundef nonnull align 8 dereferenceable(72)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser11JSONFactoryC2ERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef %strTab) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes6parser11JSONFactoryC2ERNS_28BacktrackingBumpPtrAllocatorEPNS_11StringTableE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef %strTab) unnamed_addr #1 align 2 {
 entry:
   store ptr %allocator, ptr %this, align 8
   %tobool.not = icmp eq ptr %strTab, null
@@ -1053,7 +1053,7 @@ return:                                           ; preds = %for.body, %if.end14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes6parser10JSONParserC2ERNS0_11JSONFactoryESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS6_EERNS_18SourceErrorManagerEb(ptr noundef nonnull align 8 dereferenceable(1144) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(120) %factory, ptr nocapture noundef %input, ptr noundef nonnull align 8 dereferenceable(464) %sm, i1 noundef zeroext %convertSurrogates) unnamed_addr #1 align 2 {
+define hidden void @_ZN6hermes6parser10JSONParserC2ERNS0_11JSONFactoryESt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS6_EERNS_18SourceErrorManagerEb(ptr noundef nonnull align 8 dereferenceable(1144) %this, ptr noundef nonnull align 8 dereferenceable(120) %factory, ptr nocapture noundef %input, ptr noundef nonnull align 8 dereferenceable(464) %sm, i1 noundef zeroext %convertSurrogates) unnamed_addr #1 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.27", align 8
   store ptr %factory, ptr %this, align 8

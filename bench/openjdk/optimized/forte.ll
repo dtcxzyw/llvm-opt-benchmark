@@ -67,7 +67,7 @@ $_ZN5frameC2EPlS0_S0_Ph = comdat any
 @_ZN17vframeStreamForteC1EP10JavaThread5frameb = hidden unnamed_addr alias void (ptr, ptr, ptr, i1), ptr @_ZN17vframeStreamForteC2EP10JavaThread5frameb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17vframeStreamForteC2EP10JavaThread5frameb(ptr noundef nonnull align 8 dereferenceable(5104) initializes((0, 5048), (5080, 5089), (5096, 5104)) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%class.frame) align 8 %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN17vframeStreamForteC2EP10JavaThread5frameb(ptr noundef nonnull align 8 dereferenceable(5104) %0, ptr noundef %1, ptr nocapture noundef readonly byval(%class.frame) align 8 %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = alloca %class.RegisterMap, align 8
   %6 = zext i1 %3 to i8
   call void @_ZN11RegisterMapC1EP10JavaThreadNS_9UpdateMapENS_13ProcessFramesENS_16WalkContinuationE(ptr noundef nonnull align 8 dereferenceable(4983) %5, ptr noundef %1, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
@@ -407,7 +407,7 @@ _ZNK5frame6senderEP11RegisterMap.exit:            ; preds = %34, %_ZNK11Register
 declare noundef zeroext i1 @_ZN5frame15safe_for_senderEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @AsyncGetCallTrace(ptr nocapture noundef initializes((8, 12)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @AsyncGetCallTrace(ptr nocapture noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %class.frame, align 8
   %5 = alloca %class.frame, align 8
   %6 = tail call noundef zeroext i1 @_ZN18ThreadLocalStorage14is_initializedEv() #8

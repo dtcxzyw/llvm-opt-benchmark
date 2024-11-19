@@ -122,7 +122,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core8ExecutorC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 8), (32, 40)) %this, ptr noundef %name) unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core8ExecutorC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %name) unnamed_addr #3 align 2 {
 entry:
   store ptr %name, ptr %this, align 8
   %adding_thread_lock_2 = getelementptr inbounds i8, ptr %this, i64 32

@@ -400,7 +400,7 @@ $_ZN4llvm15SmallVectorImplINS_9StringRefEE6appendIPKS1_vEEvT_S6_ = comdat any
 @_ZN5clang4Sema23PragmaStackSentinelRAIID1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang4Sema23PragmaStackSentinelRAIID2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4Sema23PragmaStackSentinelRAIIC2ERS0_N4llvm9StringRefEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang4Sema23PragmaStackSentinelRAIIC2ERS0_N4llvm9StringRefEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr %2, i64 %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::SourceLocation", align 4
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.clang::SourceLocation", align 4
@@ -5033,7 +5033,7 @@ _ZNK5clang8SemaBase20ImmediateDiagBuilderlsINS_9FixItHintEvEERKS1_OT_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang4Sema19ActOnPragmaMSStructENS_18PragmaMSStructKindE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17560) initializes((828, 829)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN5clang4Sema19ActOnPragmaMSStructENS_18PragmaMSStructKindE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17560) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = icmp eq i32 %1, 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 828
   %5 = zext i1 %3 to i8
@@ -5983,7 +5983,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i.i: ; preds = %_ZN4llvm12D
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang4Sema30ActOnPragmaMSPointersToMembersENS_15LangOptionsBase29PragmaMSPointersToMembersKindENS_14SourceLocationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17560) initializes((824, 828), (832, 836)) %0, i32 noundef %1, i32 %2) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN5clang4Sema30ActOnPragmaMSPointersToMembersENS_15LangOptionsBase29PragmaMSPointersToMembersKindENS_14SourceLocationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17560) %0, i32 noundef %1, i32 %2) local_unnamed_addr #7 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 824
   store i32 %1, ptr %4, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 832
@@ -7752,7 +7752,7 @@ define dso_local void @_ZN5clang4Sema20ActOnPragmaMSSectionENS_14SourceLocationE
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang4Sema20ActOnPragmaMSInitSegENS_14SourceLocationEPNS_13StringLiteralE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17560) initializes((1952, 1964)) %0, i32 %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN5clang4Sema20ActOnPragmaMSInitSegENS_14SourceLocationEPNS_13StringLiteralE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17560) %0, i32 %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
   %4 = load i32, ptr %2, align 8
   %5 = lshr i32 %4, 21
   %6 = and i32 %5, 7
@@ -10825,7 +10825,7 @@ define dso_local void @_ZN5clang4Sema35DiagnoseUnterminatedPragmaAttributeEv(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang4Sema19ActOnPragmaOptimizeEbNS_14SourceLocationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17560) initializes((2312, 2316)) %0, i1 noundef zeroext %1, i32 %2) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN5clang4Sema19ActOnPragmaOptimizeEbNS_14SourceLocationE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(17560) %0, i1 noundef zeroext %1, i32 %2) local_unnamed_addr #7 align 2 {
   %spec.select = select i1 %1, i32 0, i32 %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2312
   store i32 %spec.select, ptr %4, align 8

@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [44 x i8] c"ignoring non-SCM_RIGHTS ancillary data: %d\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv__stream_init(ptr noundef %0, ptr noundef initializes((8, 20), (32, 48), (88, 92)) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @uv__stream_init(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
@@ -1913,7 +1913,7 @@ uv__writev.exit:                                  ; preds = %.preheader, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @uv__read_start(ptr noundef initializes((104, 120)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @uv__read_start(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, -6145

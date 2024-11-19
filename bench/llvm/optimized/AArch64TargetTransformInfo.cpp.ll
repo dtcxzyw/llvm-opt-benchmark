@@ -698,7 +698,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_117TailFoldingOptionELb1ENS0_6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_117TailFoldingOptionELb1ENS0_6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_117TailFoldingOptionELb1ENS0_6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8
@@ -19598,7 +19598,7 @@ _ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread107: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm14AArch64TTIImpl21enableMemCmpExpansionEbb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::TargetTransformInfo::MemCmpExpansionOptions") align 8 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm14AArch64TTIImpl21enableMemCmpExpansionEbb(ptr dead_on_unwind noalias writable sret(%"struct.llvm::TargetTransformInfo::MemCmpExpansionOptions") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [4 x i32], align 4
   %6 = alloca [3 x i32], align 4
   store i32 0, ptr %0, align 8
@@ -22537,7 +22537,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm14AArch64TTIImpl21getPeelingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERNS_19TargetTransformInfo18PeelingPreferencesE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1392) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 7)) %3) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm14AArch64TTIImpl21getPeelingPreferencesEPNS_4LoopERNS_15ScalarEvolutionERNS_19TargetTransformInfo18PeelingPreferencesE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef readnone %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1392) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %3) local_unnamed_addr #9 align 2 {
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i8 1, ptr %5, align 4
@@ -22874,7 +22874,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14AArch64TTIImpl18getTgtMemIntrinsi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm14AArch64TTIImpl34shouldConsiderAddressTypePromotionERKNS_11InstructionERb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm14AArch64TTIImpl34shouldConsiderAddressTypePromotionERKNS_11InstructionERb(ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #0 align 2 {
   store i8 0, ptr %2, align 1
   %4 = load i8, ptr %1, align 8
   %5 = icmp eq i8 %4, 69
@@ -26477,7 +26477,7 @@ define internal noundef i32 @_ZNK4llvm2cl3optIN12_GLOBAL__N_117TailFoldingOption
 declare void @_ZN4llvm2cl6Option6anchorEv(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_117TailFoldingOptionELb1ENS0_6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN4llvm2cl3optIN12_GLOBAL__N_117TailFoldingOptionELb1ENS0_6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN4llvm2cl3optIN12_GLOBAL__N_117TailFoldingOptionELb1ENS0_6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8

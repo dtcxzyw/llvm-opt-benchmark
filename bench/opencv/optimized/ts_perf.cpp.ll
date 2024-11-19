@@ -2266,7 +2266,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 declare noundef zeroext i1 @_ZNK2cv11FileStorage8isOpenedEv(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4perf10RegressionC2Ev(ptr noundef nonnull align 8 dereferenceable(288) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4perf10RegressionC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef i64 @_ZN2cv12getTickCountEv()
   %.not.i = icmp eq i64 %2, 0
   %3 = select i1 %.not.i, i64 4294967295, i64 %2
@@ -8678,7 +8678,7 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStor
 declare noundef zeroext i1 @_ZNK2cv8FileNode5isMapEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4perf19performance_metricsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) initializes((0, 84)) %0) unnamed_addr #13 align 2 {
+define hidden void @_ZN4perf19performance_metricsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %0, i8 0, i64 80, i1 false)
   store i32 -1, ptr %2, align 8
@@ -8686,7 +8686,7 @@ define hidden void @_ZN4perf19performance_metricsC2Ev(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4perf19performance_metrics5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) initializes((0, 84)) %0) local_unnamed_addr #13 align 2 {
+define hidden void @_ZN4perf19performance_metrics5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(84) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %0, i8 0, i64 80, i1 false)
   store i32 -1, ptr %2, align 8
@@ -12400,7 +12400,7 @@ define hidden noundef i32 @_ZNK4perf8TestBase18getTotalOutputSizeEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4perf8TestBase10startTimerEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) initializes((96, 104)) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN4perf8TestBase10startTimerEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(248) %0) local_unnamed_addr #4 align 2 {
   %2 = tail call noundef i64 @_ZN2cv12getTickCountEv()
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store i64 %2, ptr %3, align 8
@@ -14327,7 +14327,7 @@ declare void @_ZN2cv5utils5trace7details8traceArgERKNS2_8TraceArgEl(ptr noundef 
 declare void @_ZN2cv5utils5trace7details8traceArgERKNS2_8TraceArgEd(ptr noundef nonnull align 8 dereferenceable(24), double noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4perf8TestBase5SetUpEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) initializes((96, 120), (124, 136), (224, 228), (232, 233)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4perf8TestBase5SetUpEv(ptr nocapture noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i64, ptr @_ZN6cvtest10param_seedE, align 8
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv6theRNGEv()
   store i64 %2, ptr %3, align 8
@@ -14774,7 +14774,7 @@ declare noalias noundef ptr @fopen(ptr nocapture noundef readonly, ptr nocapture
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4perf8TestBase15RunPerfTestBodyEv(ptr noundef nonnull align 8 dereferenceable(248) initializes((144, 228)) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4perf8TestBase15RunPerfTestBodyEv(ptr noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::Message", align 8
   %3 = alloca %"class.testing::internal::AssertHelper", align 8
   %4 = alloca %"class.testing::Message", align 8
@@ -15370,7 +15370,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4perf8TestBase1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4perf8TestBase14_declareHelperC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #13 align 2 {
+define hidden void @_ZN4perf8TestBase14_declareHelperC2EPS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #13 align 2 {
   store ptr %1, ptr %0, align 8
   ret void
 }

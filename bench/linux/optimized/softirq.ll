@@ -1682,13 +1682,13 @@ define dso_local void @open_softirq(i32 noundef %0, ptr noundef %1) local_unname
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__tasklet_schedule(ptr noundef initializes((0, 8)) %0) #1 align 16 {
+define dso_local void @__tasklet_schedule(ptr noundef %0) #1 align 16 {
   tail call fastcc void @__tasklet_schedule_common(ptr noundef %0, ptr noundef nonnull @tasklet_vec, i32 noundef 6)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__tasklet_schedule_common(ptr noundef initializes((0, 8)) %0, ptr noundef %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #1 align 16 {
+define internal fastcc void @__tasklet_schedule_common(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 7) %2) unnamed_addr #1 align 16 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
   store i64 0, ptr %4, align 8, !annotation !17
@@ -1775,13 +1775,13 @@ define internal fastcc void @__tasklet_schedule_common(ptr noundef initializes((
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__tasklet_hi_schedule(ptr noundef initializes((0, 8)) %0) #1 align 16 {
+define dso_local void @__tasklet_hi_schedule(ptr noundef %0) #1 align 16 {
   tail call fastcc void @__tasklet_schedule_common(ptr noundef %0, ptr noundef nonnull @tasklet_hi_vec, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @tasklet_setup(ptr noundef initializes((0, 16)) %0, ptr noundef %1) #9 align 16 {
+define dso_local void @tasklet_setup(ptr noundef %0, ptr noundef %1) #9 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store volatile i32 0, ptr %3, align 4
@@ -1795,7 +1795,7 @@ define dso_local void @tasklet_setup(ptr noundef initializes((0, 16)) %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid memory(argmem: readwrite, inaccessiblemem: readwrite)
-define dso_local void @tasklet_init(ptr noundef initializes((0, 16)) %0, ptr noundef %1, i64 noundef %2) #9 align 16 {
+define dso_local void @tasklet_init(ptr noundef %0, ptr noundef %1, i64 noundef %2) #9 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store volatile i32 0, ptr %4, align 4

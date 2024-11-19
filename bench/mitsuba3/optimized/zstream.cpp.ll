@@ -1046,7 +1046,7 @@ declare i32 @deflateEnd(ptr noundef) local_unnamed_addr #1
 declare i32 @inflateEnd(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7mitsuba7ZStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(65577) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba7ZStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(65577) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba7ZStreamE, i64 16), ptr %0, align 8
   invoke void @_ZN7mitsuba7ZStream5closeEv(ptr noundef nonnull align 8 dereferenceable(65577) %0)
           to label %2 unwind label %10

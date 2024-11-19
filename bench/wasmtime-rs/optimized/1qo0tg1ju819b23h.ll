@@ -519,7 +519,7 @@ _ZN17cranelift_codegen2ir7builder11InstBuilder6iconst17h3e05f36f4156b698E.exit: 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_wasm15code_translator14translate_load17h37a9df8188497669E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 9)) %0, i64 %.0.val, i32 %.8.val, i8 noundef range(i8 30, 40) %1, i16 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(248) %4, ptr noalias noundef nonnull align 8 dereferenceable(520) %5) unnamed_addr #0 {
+define internal fastcc void @_ZN14cranelift_wasm15code_translator14translate_load17h37a9df8188497669E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i64 %.0.val, i32 %.8.val, i8 noundef range(i8 30, 40) %1, i16 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(24) %3, ptr noalias noundef nonnull align 8 dereferenceable(248) %4, ptr noalias noundef nonnull align 8 dereferenceable(520) %5) unnamed_addr #0 {
   %7 = alloca { i8, [15 x i8] }, align 8
   %8 = alloca { i64, [3 x i64] }, align 8
   %9 = tail call noundef i8 @_ZN14cranelift_wasm15code_translator11mem_op_size17h6e9fa4be80037084E(i8 noundef %1, i16 noundef %2)
@@ -604,7 +604,7 @@ define internal fastcc void @_ZN14cranelift_wasm15code_translator14translate_loa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN14cranelift_wasm15code_translator15translate_store17h96b7128297746f15E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 8)) %0, i64 %.0.val, i32 %.8.val, i8 noundef range(i8 31, 41) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(248) %3, ptr noalias noundef nonnull align 8 dereferenceable(520) %4) unnamed_addr #0 {
+define internal fastcc void @_ZN14cranelift_wasm15code_translator15translate_store17h96b7128297746f15E(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i64 %.0.val, i32 %.8.val, i8 noundef range(i8 31, 41) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noalias noundef nonnull align 8 dereferenceable(248) %3, ptr noalias noundef nonnull align 8 dereferenceable(520) %4) unnamed_addr #0 {
   %6 = alloca { i8, [15 x i8] }, align 8
   %7 = alloca { i64, [3 x i64] }, align 8
   %8 = tail call noundef i32 @_ZN14cranelift_wasm5state20FuncTranslationState4pop117h1c1c630438deedecE(ptr noalias noundef nonnull align 8 dereferenceable(248) %3)
@@ -15466,7 +15466,7 @@ define hidden noundef align 8 dereferenceable_or_null(3424) ptr @"_ZN31_$LT$dyn$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h1bf548a856dd28f0E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr @_ZN3std4hash6random11RandomState3new4KEYS7__getit5__KEY17hc99e64f5c8d1830fE, align 8, !range !18, !noalias !848, !noundef !4
   %trunc.i.i = trunc nuw i64 %2 to i1
   br i1 %trunc.i.i, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit.thread, label %_ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.exit
@@ -16024,7 +16024,7 @@ define internal fastcc void @"_ZN4core3ptr95drop_in_place$LT$wasmtime_cranelift.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0686a77d600ee887E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h0686a77d600ee887E"(ptr noalias nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca { { { i64, [2 x i64] }, i16, [3 x i16] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %.sroa.5 = alloca [2 x i64], align 8

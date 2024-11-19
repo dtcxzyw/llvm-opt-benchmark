@@ -700,7 +700,7 @@ declare void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 de
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN15PacketListModel14setCaptureFileEP13_capture_file(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(164) initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define void @_ZN15PacketListModel14setCaptureFileEP13_capture_file(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(164) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void
@@ -1046,7 +1046,7 @@ _ZN17QArrayDataPointerI7QStringED2Ev.exit:        ; preds = %1, %_ZN17QArrayData
 declare void @_ZN18QAbstractItemModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15PacketListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(164) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15PacketListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(164) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15PacketListModel, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
@@ -1181,7 +1181,7 @@ define void @_ZN15PacketListModelD0Ev(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK15PacketListModel5indexEiiRK11QModelIndex(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QModelIndex) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(164) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %4) unnamed_addr #8 align 2 {
+define void @_ZNK15PacketListModel5indexEiiRK11QModelIndex(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QModelIndex) align 8 %0, ptr noundef nonnull align 8 dereferenceable(164) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %4) unnamed_addr #8 align 2 {
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds i8, ptr %1, i64 88
   %8 = load i64, ptr %7, align 8
@@ -1224,7 +1224,7 @@ define void @_ZNK15PacketListModel5indexEiiRK11QModelIndex(ptr dead_on_unwind no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZNK15PacketListModel6parentERK11QModelIndex(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QModelIndex) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(164) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
+define void @_ZNK15PacketListModel6parentERK11QModelIndex(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QModelIndex) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(164) %1, ptr nocapture noundef nonnull readnone align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   store i32 -1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 -1, ptr %4, align 4
@@ -4086,7 +4086,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP16PacketListRecordEED2Ev.exit35: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15PacketListModel19setMaximumRowHeightEi(ptr noundef nonnull align 8 dereferenceable(164) initializes((144, 148)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15PacketListModel19setMaximumRowHeightEi(ptr noundef nonnull align 8 dereferenceable(164) %0, i32 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QModelIndex, align 8
   %4 = alloca %class.QModelIndex, align 8
   %5 = alloca %class.QModelIndex, align 8

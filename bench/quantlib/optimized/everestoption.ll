@@ -1138,7 +1138,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13EverestOptionC1EddRKN5boost10shared_ptrINS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(208) initializes((208, 216), (224, 228), (232, 240)) %this, double noundef %notional, double noundef %guarantee, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13EverestOptionC1EddRKN5boost10shared_ptrINS_8ExerciseEEE(ptr noundef nonnull align 8 dereferenceable(208) %this, double noundef %notional, double noundef %guarantee, ptr noundef nonnull align 8 dereferenceable(16) %exercise) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.16", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 208
@@ -1849,7 +1849,7 @@ unreachable:                                      ; preds = %invoke.cont13
 declare void @_ZNK8QuantLib16MultiAssetOption12fetchResultsEPKNS_13PricingEngine7resultsE(ptr noundef nonnull align 8 dereferenceable(184), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN8QuantLib13EverestOption9argumentsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13EverestOption9argumentsC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont5:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -1878,7 +1878,7 @@ invoke.cont5:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib13EverestOption9argumentsC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 56)) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13EverestOption9argumentsC1Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   %payoff.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %payoff.i, i8 0, i64 32, i1 false)
@@ -2767,7 +2767,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib13EverestOption7results5resetEv(ptr noundef nonnull align 8 dereferenceable(144) initializes((8, 32)) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib13EverestOption7results5resetEv(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i = alloca %"class.QuantLib::Date", align 8
   %errorEstimate.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2928,7 +2928,7 @@ _ZN8QuantLib13EverestOption7results5resetEv.exit: ; preds = %entry
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn80_N8QuantLib13EverestOption7results5resetEv(ptr noundef initializes((-72, -48)) %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn80_N8QuantLib13EverestOption7results5resetEv(ptr noundef %this) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i.i.i = alloca %"class.QuantLib::Date", align 8
   %errorEstimate.i.i.i = getelementptr inbounds i8, ptr %this, i64 -64

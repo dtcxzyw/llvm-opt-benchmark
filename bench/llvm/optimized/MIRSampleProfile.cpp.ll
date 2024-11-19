@@ -682,7 +682,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12extractProbeERKNS_12MachineInstrE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 4 initializes((20, 21)) %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm12extractProbeERKNS_12MachineInstrE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional") align 4 %0, ptr noundef nonnull align 8 dereferenceable(70) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 23
@@ -2019,7 +2019,7 @@ _ZN4llvm27SampleProfileLoaderBaseImplINS_15MachineFunctionEE21initWeightPropagat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20MIRProfileLoaderPassC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_10sampleprof19FSDiscriminatorPassENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 28), (32, 56)) %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm20MIRProfileLoaderPassC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_10sampleprof19FSDiscriminatorPassENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2727,7 +2727,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MIRProfileLoaderPass16doInitializ
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm20MIRProfileLoaderPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(161) initializes((160, 161)) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm20MIRProfileLoaderPass16getAnalysisUsageERNS_13AnalysisUsageE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(161) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 160
   store i8 1, ptr %3, align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(161) ptr @_ZN4llvm13AnalysisUsage13addRequiredIDERc(ptr noundef nonnull align 8 dereferenceable(161) %1, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4llvm36MachineBlockFrequencyInfoWrapperPass2IDE) #21

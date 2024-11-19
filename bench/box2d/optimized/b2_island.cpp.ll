@@ -22,7 +22,7 @@ $__clang_call_terminate = comdat any
 @_ZN8b2IslandD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN8b2IslandD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN8b2IslandC2EiiiP16b2StackAllocatorP17b2ContactListener(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %this, i32 noundef %bodyCapacity, i32 noundef %contactCapacity, i32 noundef %jointCapacity, ptr noundef nonnull %allocator, ptr noundef %listener) unnamed_addr #0 align 2 {
+define hidden void @_ZN8b2IslandC2EiiiP16b2StackAllocatorP17b2ContactListener(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %bodyCapacity, i32 noundef %contactCapacity, i32 noundef %jointCapacity, ptr noundef nonnull %allocator, ptr noundef %listener) unnamed_addr #0 align 2 {
 entry:
   %m_bodyCapacity = getelementptr inbounds i8, ptr %this, i64 68
   store i32 %bodyCapacity, ptr %m_bodyCapacity, align 4

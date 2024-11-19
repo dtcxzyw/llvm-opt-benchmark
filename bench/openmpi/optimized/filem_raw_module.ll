@@ -2229,7 +2229,7 @@ create_link.exit:                                 ; preds = %160, %167
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @xfer_construct(ptr nocapture noundef writeonly initializes((144, 276), (280, 293), (296, 312), (316, 328)) %0) #2 {
+define internal void @xfer_construct(ptr nocapture noundef writeonly %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %2, i8 0, i64 128, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 272
@@ -2288,7 +2288,7 @@ define internal void @xfer_destruct(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @out_construct(ptr noundef initializes((184, 196), (200, 264)) %0) #0 {
+define internal void @out_construct(ptr noundef %0) #0 {
   %2 = load i32, ptr @pmix_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -2434,7 +2434,7 @@ pmix_obj_run_destructors.exit22:                  ; preds = %.lr.ph.i19, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @in_construct(ptr noundef initializes((144, 148), (280, 281), (284, 312), (320, 328), (368, 380), (384, 448)) %0) #0 {
+define internal void @in_construct(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 280
@@ -2640,7 +2640,7 @@ pmix_obj_run_destructors.exit40:                  ; preds = %.lr.ph.i37, %._crit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @output_construct(ptr nocapture noundef writeonly initializes((144, 148)) %0) #2 {
+define internal void @output_construct(ptr nocapture noundef writeonly %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %2, align 8
   ret void
@@ -3574,7 +3574,7 @@ declare noundef i32 @open(ptr nocapture noundef readonly, i32 noundef, ...) loca
 declare i32 @prte_event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef signext, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @write_handler(i32 %0, i16 signext %1, ptr noundef initializes((280, 281)) %2) #0 {
+define internal void @write_handler(i32 %0, i16 signext %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca [4096 x i8], align 16
   fence acquire

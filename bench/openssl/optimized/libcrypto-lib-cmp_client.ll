@@ -89,7 +89,7 @@ err:                                              ; preds = %entry, %if.end
 declare ptr @ossl_cmp_certConf_new(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @send_receive_check(ptr noundef %ctx, ptr noundef nonnull %req, ptr nocapture noundef nonnull initializes((0, 8)) %rep, i32 noundef range(i32 -2147483647, -2147483648) %expected_type) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @send_receive_check(ptr noundef %ctx, ptr noundef nonnull %req, ptr nocapture noundef nonnull %rep, i32 noundef range(i32 -2147483647, -2147483648) %expected_type) unnamed_addr #0 {
 entry:
   %buf = alloca [1024 x i8], align 16
   %call = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %req) #4
@@ -611,7 +611,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @poll_for_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, -2147483648) %rid, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %rep, ptr noundef writeonly %checkAfter) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @poll_for_response(ptr noundef nonnull %ctx, i32 noundef range(i32 0, 2) %sleep, i32 noundef range(i32 -1, -2147483648) %rid, ptr nocapture noundef nonnull writeonly %rep, ptr noundef writeonly %checkAfter) unnamed_addr #0 {
 entry:
   %prep = alloca ptr, align 8
   %check_after = alloca i64, align 8

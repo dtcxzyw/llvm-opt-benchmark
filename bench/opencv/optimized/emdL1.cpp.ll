@@ -2156,7 +2156,7 @@ _ZNSt6vectorIP9cvEMDEdgeSaIS1_EE6resizeEm.exit63: ; preds = %705, %703, %701, %6
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN5EmdL113fillBaseTreesEPfS0_(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((240, 248)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN5EmdL113fillBaseTreesEPfS0_(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 240
   store ptr null, ptr %4, align 8
   %5 = load i32, ptr %0, align 8
@@ -2646,7 +2646,7 @@ define hidden noundef zeroext i1 @_ZN5EmdL114greedySolutionEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5EmdL110initBVTreeEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((240, 248)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5EmdL110initBVTreeEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -3116,7 +3116,7 @@ define hidden void @_ZN5EmdL113updateSubtreeEP9cvEMDNode(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN5EmdL19isOptimalEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((248, 260)) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN5EmdL19isOptimalEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 256
@@ -3216,7 +3216,7 @@ define hidden noundef zeroext i1 @_ZN5EmdL19isOptimalEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5EmdL115findNewSolutionEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((264, 272), (328, 336)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5EmdL115findNewSolutionEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   tail call void @_ZN5EmdL119findLoopFromEnterBVEv(ptr noundef nonnull align 8 dereferenceable(336) %0)
@@ -3521,7 +3521,7 @@ define hidden noundef float @_ZN5EmdL114compuTotalFlowEv(ptr nocapture noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5EmdL115setMaxIterationEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN5EmdL115setMaxIterationEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(336) %0, i32 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
@@ -5173,7 +5173,7 @@ _ZNSt12_Vector_baseISt6vectorIS0_IfSaIfEESaIS2_EESaIS4_EED2Ev.exit: ; preds = %_
 declare double @llvm.fmuladd.f64(double, double, double) #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5EmdL119findLoopFromEnterBVEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) initializes((264, 272), (328, 336)) %0) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN5EmdL119findLoopFromEnterBVEv(ptr nocapture noundef nonnull align 8 dereferenceable(336) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8

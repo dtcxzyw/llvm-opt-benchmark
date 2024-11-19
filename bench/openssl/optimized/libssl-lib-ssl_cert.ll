@@ -1011,7 +1011,7 @@ return:                                           ; preds = %for.inc, %if.end9, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @ssl_cert_set_cert_cb(ptr nocapture noundef writeonly initializes((96, 112)) %c, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #4 {
+define void @ssl_cert_set_cert_cb(ptr nocapture noundef writeonly %c, ptr noundef %cb, ptr noundef %arg) local_unnamed_addr #4 {
 entry:
   %cert_cb = getelementptr inbounds i8, ptr %c, i64 96
   store ptr %cb, ptr %cert_cb, align 8
@@ -2512,7 +2512,7 @@ if.end4:                                          ; preds = %if.then3, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @ssl_cert_get_cert_store(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly initializes((0, 8)) %pstore, i32 noundef %chain) local_unnamed_addr #10 {
+define noundef i32 @ssl_cert_get_cert_store(ptr nocapture noundef readonly %c, ptr nocapture noundef writeonly %pstore, i32 noundef %chain) local_unnamed_addr #10 {
 entry:
   %tobool.not = icmp eq i32 %chain, 0
   %cond.in.v = select i1 %tobool.not, i64 120, i64 112

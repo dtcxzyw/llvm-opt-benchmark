@@ -996,7 +996,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers25SingleInvocationPartition4initERSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERS4_INS0_8TypeNodeESaISA_EES6_b(ptr noundef nonnull align 8 dereferenceable(512) initializes((432, 433)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %funcs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %typs, ptr nocapture noundef readonly %n, i1 noundef zeroext %has_funcs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers25SingleInvocationPartition4initERSt6vectorINS0_12NodeTemplateILb1EEESaIS6_EERS4_INS0_8TypeNodeESaISA_EES6_b(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %funcs, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %typs, ptr nocapture noundef readonly %n, i1 noundef zeroext %has_funcs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %__node26.i = alloca %"struct.std::_Hashtable<cvc5::internal::NodeTemplate<true>, cvc5::internal::NodeTemplate<true>, std::allocator<cvc5::internal::NodeTemplate<true>>, std::__detail::_Identity, std::equal_to<cvc5::internal::NodeTemplate<true>>, std::hash<cvc5::internal::Node>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, true, true>>::_Scoped_node", align 8
   %__second.i.i.i.i.i.i.i = alloca %"class.std::tuple.142", align 1

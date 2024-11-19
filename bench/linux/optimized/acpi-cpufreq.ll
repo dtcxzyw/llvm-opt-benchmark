@@ -990,7 +990,7 @@ define internal i32 @acpi_cpufreq_fast_switch(ptr nocapture noundef readonly %0,
 declare dso_local i32 @acpi_processor_get_bios_limit(i32 noundef, ptr noundef) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @acpi_cpufreq_cpu_exit(ptr nocapture noundef initializes((504, 505)) %0) #2 align 16 {
+define internal noundef i32 @acpi_cpufreq_cpu_exit(ptr nocapture noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 576
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr getelementptr inbounds (i8, ptr @boot_cpu_data, i64 1), align 1
@@ -1551,7 +1551,7 @@ declare dso_local ptr @cpufreq_cpu_get_raw(i32 noundef) local_unnamed_addr #1
 declare dso_local i32 @smp_call_function_any(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @do_drv_read(ptr nocapture noundef initializes((8, 12)) %0) #2 align 16 {
+define internal void @do_drv_read(ptr nocapture noundef %0) #2 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8

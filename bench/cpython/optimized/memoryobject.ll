@@ -8611,7 +8611,7 @@ return:                                           ; preds = %if.end.i, %if.then1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @cast_to_ND(ptr noundef nonnull initializes((92, 96)) %mv, ptr nocapture noundef nonnull readonly %shape, i32 noundef %ndim) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @cast_to_ND(ptr noundef nonnull %mv, ptr nocapture noundef nonnull readonly %shape, i32 noundef %ndim) unnamed_addr #0 {
 entry:
   %view1 = getelementptr inbounds i8, ptr %mv, i64 56
   %ndim2 = getelementptr inbounds i8, ptr %mv, i64 92

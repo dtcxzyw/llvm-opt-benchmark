@@ -99,7 +99,7 @@ define noundef i32 @topology_p_build_config() local_unnamed_addr #0 {
 declare void @switch_record_validate() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @topology_p_eval_nodes(ptr noundef initializes((32, 40), (96, 97)) %0) local_unnamed_addr #0 {
+define i32 @topology_p_eval_nodes(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr @eval_nodes_tree, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 96
@@ -1241,7 +1241,7 @@ declare void @slurm_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr
 declare i32 @atoi(ptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define noundef i32 @topology_p_topology_print(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %10, label %5
@@ -1379,7 +1379,7 @@ declare i32 @slurm_hostset_within(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @slurm_hostset_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @topology_p_topology_unpack(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4

@@ -58,7 +58,7 @@ $_ZTV17DeadlyImportError = comdat any
 @_ZTV17DeadlyImportError = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI17DeadlyImportError, ptr @_ZN17DeadlyImportErrorD2Ev, ptr @_ZN17DeadlyImportErrorD0Ev, ptr @_ZNKSt13runtime_error4whatEv] }, comdat, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZNK6Assimp21GenFaceNormalsProcess8IsActiveEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(27) initializes((24, 27)) %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK6Assimp21GenFaceNormalsProcess8IsActiveEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(27) %this, i32 noundef %pFlags) unnamed_addr #0 align 2 {
 entry:
   %force_ = getelementptr inbounds i8, ptr %this, i64 24
   %and = lshr i32 %pFlags, 29

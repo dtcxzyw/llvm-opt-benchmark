@@ -12,7 +12,7 @@ $_ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EEaSERKS5_ = com
 @_ZN2cv13wechat_qrcode12BinarizerMgrD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN2cv13wechat_qrcode12BinarizerMgrD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv13wechat_qrcode12BinarizerMgrC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv13wechat_qrcode12BinarizerMgrC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 -1, ptr %2, align 4
@@ -95,7 +95,7 @@ _ZNSt6vectorIN2cv13wechat_qrcode12BinarizerMgr9BINARIZERESaIS3_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv13wechat_qrcode12BinarizerMgr8BinarizeEN5zxing3RefINS2_15LuminanceSourceEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv13wechat_qrcode12BinarizerMgr8BinarizeEN5zxing3RefINS2_15LuminanceSourceEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.zxing::Ref") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.zxing::Ref.0", align 8
   %5 = alloca %"class.zxing::Ref.0", align 8
   %6 = alloca %"class.zxing::Ref.0", align 8
@@ -497,7 +497,7 @@ define hidden noundef i32 @_ZN2cv13wechat_qrcode12BinarizerMgr15GetCurBinarizerE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv13wechat_qrcode12BinarizerMgr20SetNextOnceBinarizerEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((4, 8)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
+define hidden void @_ZN2cv13wechat_qrcode12BinarizerMgr20SetNextOnceBinarizerEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
   ret void

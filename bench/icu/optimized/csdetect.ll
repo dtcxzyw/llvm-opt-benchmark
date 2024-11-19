@@ -1081,7 +1081,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515CharsetDetector7setTextEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((21, 22)) %this, ptr noundef %in, i32 noundef %len) local_unnamed_addr #0 align 2 {
+define void @_ZN6icu_7515CharsetDetector7setTextEPKci(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %in, i32 noundef %len) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @_ZN6icu_759InputText7setTextEPKci(ptr noundef nonnull align 8 dereferenceable(52) %0, ptr noundef %in, i32 noundef %len)
@@ -1093,7 +1093,7 @@ entry:
 declare void @_ZN6icu_759InputText7setTextEPKci(ptr noundef nonnull align 8 dereferenceable(52), ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef signext i8 @_ZN6icu_7515CharsetDetector16setStripTagsFlagEa(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((21, 22)) %this, i8 noundef signext %flag) local_unnamed_addr #7 align 2 {
+define noundef signext i8 @_ZN6icu_7515CharsetDetector16setStripTagsFlagEa(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, i8 noundef signext %flag) local_unnamed_addr #7 align 2 {
 entry:
   %fStripTags = getelementptr inbounds i8, ptr %this, i64 20
   %0 = load i8, ptr %fStripTags, align 4

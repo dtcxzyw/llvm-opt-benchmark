@@ -1347,7 +1347,7 @@ _ZNSt8_Rb_treeIPKN5clang11DeclContextESt4pairIKS3_NS0_17ExternalASTMerger8DCOrig
 declare noundef ptr @_ZN5clang11ASTImporter11MapImportedEPNS_4DeclES2_(ptr noundef nonnull align 8 dereferenceable(280360), ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang17ExternalASTMergerC2ERKNS0_14ImporterTargetEN4llvm8ArrayRefINS0_14ImporterSourceEEE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 40), (48, 52), (56, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr %2, i64 %3) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang17ExternalASTMergerC2ERKNS0_14ImporterTargetEN4llvm8ArrayRefINS0_14ImporterSourceEEE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr %2, i64 %3) unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -5550,7 +5550,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5clang11ASTImporter21returnWit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115LazyASTImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(560776) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_115LazyASTImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(560776) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_115LazyASTImporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560744
   %3 = load ptr, ptr %2, align 8
@@ -5566,7 +5566,7 @@ define internal void @_ZN12_GLOBAL__N_115LazyASTImporterD2Ev(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115LazyASTImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(560776) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_115LazyASTImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(560776) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_115LazyASTImporterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560744
   %3 = load ptr, ptr %2, align 8

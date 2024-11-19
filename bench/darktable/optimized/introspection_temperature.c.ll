@@ -1164,7 +1164,7 @@ define void @commit_params(ptr nocapture noundef readonly %0, ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #10 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #10 {
   %4 = tail call noalias dereferenceable_or_null(20) ptr @malloc(i64 noundef 20) #22
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !42
@@ -1184,7 +1184,7 @@ define void @cleanup_pipe(ptr nocapture noundef readnone %0, ptr nocapture nound
 declare void @free(ptr allocptr nocapture noundef) #12
 
 ; Function Attrs: nounwind uwtable
-define void @gui_update(ptr noundef initializes((492, 496), (676, 680)) %0) local_unnamed_addr #4 {
+define void @gui_update(ptr noundef %0) local_unnamed_addr #4 {
   %2 = alloca float, align 4
   %3 = alloca float, align 4
   %4 = alloca %struct.dt_wb_data, align 8
@@ -1763,7 +1763,7 @@ declare i64 @gtk_stack_get_type() local_unnamed_addr #13
 declare void @dt_iop_color_picker_reset(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mul2temp(ptr nocapture readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((0, 4)) %2, ptr nocapture noundef %3) unnamed_addr #4 {
+define internal fastcc void @_mul2temp(ptr nocapture readonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2, ptr nocapture noundef %3) unnamed_addr #4 {
   %5 = alloca %struct.cmsCIEXYZ, align 8
   %6 = load float, ptr %1, align 4, !tbaa !6, !noalias !132
   %7 = fpext float %6 to double
@@ -3622,7 +3622,7 @@ declare void @dt_bauhaus_combobox_clear(ptr noundef) local_unnamed_addr #5
 declare void @dt_bauhaus_combobox_add(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_global(ptr nocapture noundef writeonly initializes((528, 536)) %0) local_unnamed_addr #17 {
+define void @init_global(ptr nocapture noundef writeonly %0) local_unnamed_addr #17 {
   %2 = tail call noalias dereferenceable_or_null(12) ptr @malloc(i64 noundef 12) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 528
   store ptr %2, ptr %3, align 8, !tbaa !152
@@ -3756,7 +3756,7 @@ declare float @llvm.minnum.f32(float, float) #18
 declare float @llvm.maxnum.f32(float, float) #18
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #4 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #4 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 648) #23
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4
@@ -4768,7 +4768,7 @@ declare i64 @gtk_label_get_type() local_unnamed_addr #13
 declare void @gtk_stack_add_named(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @gui_cleanup(ptr noundef initializes((496, 500)) %0) local_unnamed_addr #4 {
+define void @gui_cleanup(ptr noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 496
   store i32 0, ptr %2, align 16, !tbaa !170
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @darktable, i64 3120), align 8, !tbaa !166

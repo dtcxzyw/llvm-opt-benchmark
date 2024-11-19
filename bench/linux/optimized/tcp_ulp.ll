@@ -82,7 +82,7 @@ define dso_local void @tcp_unregister_ulp(ptr nocapture noundef %0) #0 align 16 
 declare dso_local void @synchronize_rcu() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_get_available_ulp(ptr nocapture noundef writeonly initializes((0, 1)) %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @tcp_get_available_ulp(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 align 16 {
   store i8 0, ptr %0, align 1
   tail call void @__rcu_read_lock() #4
   br label %3

@@ -953,7 +953,7 @@ define dso_local void @_ZNK8V3Number15v3errorEndFatalERKNSt7__cxx1119basic_ostri
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8V3NumberC2ENS_20VerilogStringLiteralEP7AstNodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 37), (40, 56)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8V3NumberC2ENS_20VerilogStringLiteralEP7AstNodeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 36
@@ -1459,7 +1459,7 @@ _ZN12V3NumberData18destroyStoredValueEv.exit:     ; preds = %14, %12, %6, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN8V3NumberC2EP7AstNodePK12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 37), (40, 56)) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN8V3NumberC2EP7AstNodePK12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr nocapture noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4514,7 +4514,7 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN8V3Number5nodepEP7AstNode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((40, 48)) %0, ptr noundef %1) #9 align 2 {
+define dso_local void @_ZN8V3Number5nodepEP7AstNode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, ptr noundef %1) #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr %1, ptr %3, align 8
   %.not = icmp eq ptr %1, null

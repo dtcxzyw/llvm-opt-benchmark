@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.9a7ca3272f400ba5a471793dc1e5d887.2 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.9a7ca3272f400ba5a471793dc1e5d887.1, [16 x i8] c"O\00\00\00\00\00\00\00\B8\01\00\007\00\00\00" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h7e72ee91bcb5da42E"(ptr nocapture writeonly sret({ { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }) align 8 initializes((0, 48)) %0, i32 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
+define hidden void @"_ZN52_$LT$char$u20$as$u20$core..str..pattern..Pattern$GT$13into_searcher17h7e72ee91bcb5da42E"(ptr nocapture writeonly sret({ { ptr, i64 }, i64, i64, i64, [4 x i8], i32 }) align 8 %0, i32 %1, ptr align 1 %2, i64 %3) unnamed_addr #0 {
   %5 = alloca [4 x i8], align 4
   store i32 0, ptr %5, align 4
   %6 = call { ptr, i64 } @_ZN4core4char7methods15encode_utf8_raw17h1b00fbb00589afe4E(i32 %1, ptr nonnull align 1 %5, i64 4)

@@ -795,7 +795,7 @@ return:                                           ; preds = %callReplyParse.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local ptr @callReplyGetProto(ptr nocapture noundef readonly %rep, ptr nocapture noundef writeonly initializes((0, 8)) %proto_len) local_unnamed_addr #4 {
+define dso_local ptr @callReplyGetProto(ptr nocapture noundef readonly %rep, ptr nocapture noundef writeonly %proto_len) local_unnamed_addr #4 {
 entry:
   %proto_len1 = getelementptr inbounds i8, ptr %rep, i64 24
   %0 = load i64, ptr %proto_len1, align 8
@@ -986,7 +986,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare i32 @parseReply(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyNullArray(ptr nocapture noundef writeonly initializes((16, 36)) %ctx, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplyNullArray(ptr nocapture noundef writeonly %ctx, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 4, ptr %type1.i, align 8
@@ -998,7 +998,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyNullBulkString(ptr nocapture noundef writeonly initializes((16, 36)) %ctx, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplyNullBulkString(ptr nocapture noundef writeonly %ctx, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 4, ptr %type1.i, align 8
@@ -1010,7 +1010,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyBulkString(ptr nocapture noundef writeonly initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplyBulkString(ptr nocapture noundef writeonly %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 0, ptr %type1.i, align 8
@@ -1026,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyError(ptr nocapture noundef writeonly initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplyError(ptr nocapture noundef writeonly %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 1, ptr %type1.i, align 8
@@ -1042,7 +1042,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplySimpleStr(ptr nocapture noundef writeonly initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplySimpleStr(ptr nocapture noundef writeonly %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 0, ptr %type1.i, align 8
@@ -1058,7 +1058,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyLong(ptr nocapture noundef writeonly initializes((16, 36), (48, 56)) %ctx, i64 noundef %val, ptr noundef %proto, i64 noundef %proto_len) #6 {
+define internal void @callReplyLong(ptr nocapture noundef writeonly %ctx, i64 noundef %val, ptr noundef %proto, i64 noundef %proto_len) #6 {
 entry:
   %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 2, ptr %type1.i, align 8
@@ -1072,7 +1072,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callReplyArray(ptr noundef %parser, ptr nocapture noundef initializes((32, 36), (40, 56)) %ctx, i64 noundef %len, ptr noundef %proto) #0 {
+define internal void @callReplyArray(ptr noundef %parser, ptr nocapture noundef %ctx, i64 noundef %len, ptr noundef %proto) #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 3, ptr %type, align 8
@@ -1134,7 +1134,7 @@ callReplyParseCollection.exit:                    ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callReplySet(ptr noundef %parser, ptr nocapture noundef initializes((32, 36), (40, 56)) %ctx, i64 noundef %len, ptr noundef %proto) #0 {
+define internal void @callReplySet(ptr noundef %parser, ptr nocapture noundef %ctx, i64 noundef %len, ptr noundef %proto) #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 6, ptr %type, align 8
@@ -1200,7 +1200,7 @@ callReplyParseCollection.exit:                    ; preds = %for.inc.i, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callReplyMap(ptr noundef %parser, ptr nocapture noundef initializes((32, 36), (40, 56)) %ctx, i64 noundef %len, ptr noundef %proto) #0 {
+define internal void @callReplyMap(ptr noundef %parser, ptr nocapture noundef %ctx, i64 noundef %len, ptr noundef %proto) #0 {
 entry:
   %type = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 5, ptr %type, align 8
@@ -1279,7 +1279,7 @@ callReplyParseCollection.exit:                    ; preds = %for.inc21.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyBool(ptr nocapture noundef initializes((16, 36), (48, 56)) %ctx, i32 noundef %val, ptr noundef %proto, i64 noundef %proto_len) #4 {
+define internal void @callReplyBool(ptr nocapture noundef %ctx, i32 noundef %val, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
   %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 7, ptr %type1.i, align 8
@@ -1298,7 +1298,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyDouble(ptr nocapture noundef initializes((16, 36), (48, 56)) %ctx, double noundef %val, ptr noundef %proto, i64 noundef %proto_len) #4 {
+define internal void @callReplyDouble(ptr nocapture noundef %ctx, double noundef %val, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
   %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 8, ptr %type1.i, align 8
@@ -1316,7 +1316,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyBigNumber(ptr nocapture noundef initializes((16, 36), (40, 56)) %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #4 {
+define internal void @callReplyBigNumber(ptr nocapture noundef %ctx, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
   %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 9, ptr %type1.i, align 8
@@ -1336,7 +1336,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyVerbatimString(ptr nocapture noundef initializes((16, 36), (40, 64)) %ctx, ptr noundef %format, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #4 {
+define internal void @callReplyVerbatimString(ptr nocapture noundef %ctx, ptr noundef %format, ptr noundef %str, i64 noundef %len, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
   %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 10, ptr %type1.i, align 8
@@ -1358,7 +1358,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @callReplyAttribute(ptr noundef %parser, ptr noundef initializes((72, 80)) %ctx, i64 noundef %len, ptr noundef %proto) #0 {
+define internal void @callReplyAttribute(ptr noundef %parser, ptr noundef %ctx, i64 noundef %len, ptr noundef %proto) #0 {
 entry:
   %call = tail call noalias dereferenceable_or_null(80) ptr @zcalloc(i64 noundef 80) #9
   %attribute = getelementptr inbounds i8, ptr %ctx, i64 72
@@ -1456,7 +1456,7 @@ callReplyParseCollection.exit:                    ; preds = %for.inc21.i, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @callReplyNull(ptr nocapture noundef initializes((16, 36)) %ctx, ptr noundef %proto, i64 noundef %proto_len) #4 {
+define internal void @callReplyNull(ptr nocapture noundef %ctx, ptr noundef %proto, i64 noundef %proto_len) #4 {
 entry:
   %type1.i = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 4, ptr %type1.i, align 8
@@ -1472,7 +1472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @callReplyParseError(ptr nocapture noundef writeonly initializes((32, 36)) %ctx) #6 {
+define internal void @callReplyParseError(ptr nocapture noundef writeonly %ctx) #6 {
 entry:
   %type = getelementptr inbounds i8, ptr %ctx, i64 32
   store i32 -1, ptr %type, align 8

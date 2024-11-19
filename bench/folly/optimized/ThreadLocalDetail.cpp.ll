@@ -246,7 +246,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5folly18threadlocal_detail15ThreadEntryNode9push_backEPNS0_11ThreadEntryE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 32)) %this, ptr noundef %head) local_unnamed_addr #1 align 2 {
+define void @_ZN5folly18threadlocal_detail15ThreadEntryNode9push_backEPNS0_11ThreadEntryE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %head) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %head, align 8, !tbaa !23
   %bf.load = load i32, ptr %this, align 8
@@ -306,7 +306,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly18threadlocal_detail14StaticMetaBaseC2EPFPNS0_11ThreadEntryEvEb(ptr noundef nonnull align 8 dereferenceable(153) initializes((0, 4), (8, 76), (80, 121), (128, 153)) %this, ptr noundef %threadEntry, i1 noundef zeroext %strict) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18threadlocal_detail14StaticMetaBaseC2EPFPNS0_11ThreadEntryEvEb(ptr noundef nonnull align 8 dereferenceable(153) %this, ptr noundef %threadEntry, i1 noundef zeroext %strict) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %strict to i8
   store i32 1, ptr %this, align 8, !tbaa !27
@@ -3167,7 +3167,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #22
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZN5folly18threadlocal_detail14StaticMetaBase10reallocateEPNS0_11ThreadEntryEjRm(ptr nocapture noundef readonly %threadEntry, i32 noundef %idval, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %newCapacity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @_ZN5folly18threadlocal_detail14StaticMetaBase10reallocateEPNS0_11ThreadEntryEjRm(ptr nocapture noundef readonly %threadEntry, i32 noundef %idval, ptr nocapture noundef nonnull align 8 dereferenceable(8) %newCapacity) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %struct.Initializer, align 1
   %elementsCapacity.i = getelementptr inbounds i8, ptr %threadEntry, i64 8

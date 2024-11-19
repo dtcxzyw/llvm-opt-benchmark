@@ -7158,7 +7158,7 @@ unreachable:                                      ; preds = %invoke.cont90
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib9CashFlows9IrrFinderC2ERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS6_EEdNS_10DayCounterENS_11CompoundingENS_9FrequencyEbNS_4DateESE_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 41), (48, 64)) %this, ptr noundef nonnull align 8 dereferenceable(24) %leg, double noundef %npv, ptr nocapture noundef %dayCounter, i32 noundef %comp, i32 noundef %freq, i1 noundef zeroext %includeSettlementDateFlows, i64 %settlementDate.coerce, i64 %npvDate.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib9CashFlows9IrrFinderC2ERKSt6vectorIN5boost10shared_ptrINS_8CashFlowEEESaIS6_EEdNS_10DayCounterENS_11CompoundingENS_9FrequencyEbNS_4DateESE_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(24) %leg, double noundef %npv, ptr nocapture noundef %dayCounter, i32 noundef %comp, i32 noundef %freq, i1 noundef zeroext %includeSettlementDateFlows, i64 %settlementDate.coerce, i64 %npvDate.coerce) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.QuantLib::Date", align 8
   %ref.tmp = alloca %"class.QuantLib::Date", align 8

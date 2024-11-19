@@ -37,7 +37,7 @@ $_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5
 @switch.table._ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 1, i32 7], align 4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::sys::MemoryBlock") align 8 %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::sys::MemoryBlock") align 8 %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::sys::MemoryBlock", align 8
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #15
   %.sroa.244.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8

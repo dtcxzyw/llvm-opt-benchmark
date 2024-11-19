@@ -422,7 +422,7 @@ cleanup241:                                       ; preds = %for.cond.cleanup146
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN5folly12EpollBackend23eb_event_base_loopbreakEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(352) initializes((48, 49)) %this) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN5folly12EpollBackend23eb_event_base_loopbreakEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(352) %this) unnamed_addr #2 align 2 {
 entry:
   %loopBreak_ = getelementptr inbounds i8, ptr %this, i64 48
   store i8 1, ptr %loopBreak_, align 8, !tbaa !44
@@ -635,7 +635,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EpollBackend10SocketPairC2Ev(ptr noundef nonnull align 4 dereferenceable(8) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12EpollBackend10SocketPairC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store i32 -1, ptr %this, align 4, !tbaa !71
@@ -793,7 +793,7 @@ terminate.lpad:                                   ; preds = %if.then.1, %if.then
 declare i32 @close(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly12EpollBackendC2ENS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 20), (24, 52), (56, 80), (200, 228), (240, 245), (256, 260), (264, 272)) %this, i64 %options.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12EpollBackendC2ENS0_7OptionsE(ptr noundef nonnull align 8 dereferenceable(352) %this, i64 %options.coerce) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp21 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1465,7 +1465,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly12EpollBackendD2Ev(ptr noundef nonnull align 8 dereferenceable(352) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly12EpollBackendD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly12EpollBackendE, i64 16), ptr %this, align 8, !tbaa !76
   %epollFd_ = getelementptr inbounds i8, ptr %this, i64 16

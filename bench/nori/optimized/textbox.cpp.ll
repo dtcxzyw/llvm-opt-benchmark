@@ -1146,7 +1146,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN7nanogui7TextBox12set_editableEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(440) initializes((136, 141)) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN7nanogui7TextBox12set_editableEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(440) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 140
   store i8 %3, ptr %4, align 4
@@ -2864,7 +2864,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN7nanogui7TextBox18mouse_motion_eventERKNS_5ArrayIiLm2EEES4_ii(ptr nocapture noundef nonnull align 8 dereferenceable(440) initializes((136, 140), (400, 408)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture nonnull readnone align 4 %2, i32 %3, i32 %4) unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZN7nanogui7TextBox18mouse_motion_eventERKNS_5ArrayIiLm2EEES4_ii(ptr nocapture noundef nonnull align 8 dereferenceable(440) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture nonnull readnone align 4 %2, i32 %3, i32 %4) unnamed_addr #10 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 400
   %7 = load i64, ptr %1, align 4
   store i64 %7, ptr %6, align 8
@@ -2935,7 +2935,7 @@ _ZN7nanogui7TextBox9spin_areaERKNS_5ArrayIiLm2EEE.exit: ; preds = %39, %38, %22,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZN7nanogui7TextBox16mouse_drag_eventERKNS_5ArrayIiLm2EEES4_ii(ptr nocapture noundef nonnull align 8 dereferenceable(440) initializes((400, 408), (416, 424)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture nonnull readnone align 4 %2, i32 %3, i32 %4) unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZN7nanogui7TextBox16mouse_drag_eventERKNS_5ArrayIiLm2EEES4_ii(ptr nocapture noundef nonnull align 8 dereferenceable(440) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1, ptr nocapture nonnull readnone align 4 %2, i32 %3, i32 %4) unnamed_addr #10 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 400
   %7 = load i64, ptr %1, align 4
   store i64 %7, ptr %6, align 8

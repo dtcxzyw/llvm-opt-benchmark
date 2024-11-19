@@ -364,7 +364,7 @@ $_ZTV17LogStreamImplBase = comdat any
 @_ZN11StringDedup5Table6BucketC1Ei = hidden unnamed_addr alias void (ptr, i32), ptr @_ZN11StringDedup5Table6BucketC2Ei
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11StringDedup5Table6BucketC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN11StringDedup5Table6BucketC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %_ZN18GrowableArrayCHeapI10WeakHandleL8MEMFLAGS25EE8allocateEiS1_.exit.thread.i, label %_ZN18GrowableArrayCHeapIjL8MEMFLAGS25EE8allocateEiS0_.exit.i
 

@@ -70,7 +70,7 @@ define noundef i32 @view(ptr nocapture noundef readnone %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write) uwtable
-define void @init(ptr noundef initializes((288, 296)) %0) local_unnamed_addr #3 {
+define void @init(ptr noundef %0) local_unnamed_addr #3 {
   %2 = tail call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   store ptr %2, ptr %3, align 8, !tbaa !6
@@ -1431,7 +1431,7 @@ define internal noundef i32 @_tethering_bpp(ptr nocapture readnone %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noundef i32 @_tethering_write_image(ptr nocapture noundef initializes((152, 160)) %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i32 %6, i32 %7, i32 %8, i32 %9, ptr nocapture readnone %10, i32 %11) #13 {
+define internal noundef i32 @_tethering_write_image(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 %3, ptr nocapture readnone %4, ptr nocapture readnone %5, i32 %6, i32 %7, i32 %8, i32 %9, ptr nocapture readnone %10, i32 %11) #13 {
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !109
   %15 = sext i32 %14 to i64

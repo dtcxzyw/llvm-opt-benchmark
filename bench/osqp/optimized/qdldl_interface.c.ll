@@ -250,7 +250,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 declare void @csc_spfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5) local_unnamed_addr #1 {
+define range(i64 0, 5) i64 @init_linsys_solver_qdldl(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr noundef readonly %3, ptr nocapture noundef readonly %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   %9 = load double, ptr %8, align 8

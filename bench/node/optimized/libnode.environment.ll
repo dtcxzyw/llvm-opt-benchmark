@@ -2814,7 +2814,7 @@ _ZNSt10unique_ptrIN4node20MultiIsolatePlatformESt14default_deleteIS1_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20MultiIsolatePlatform6CreateEiPN2v817TracingControllerEPNS1_13PageAllocatorE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.489") align 8 initializes((0, 8)) %agg.result, i32 noundef %thread_pool_size, ptr noundef %tracing_controller, ptr noundef %page_allocator) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node20MultiIsolatePlatform6CreateEiPN2v817TracingControllerEPNS1_13PageAllocatorE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.489") align 8 %agg.result, i32 noundef %thread_pool_size, ptr noundef %tracing_controller, ptr noundef %page_allocator) local_unnamed_addr #3 align 2 {
 _ZNSt10unique_ptrIN4node12NodePlatformESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(144) ptr @_Znwm(i64 noundef 144) #24, !noalias !31
   tail call void @_ZN4node12NodePlatformC1EiPN2v817TracingControllerEPNS1_13PageAllocatorE(ptr noundef nonnull align 8 dereferenceable(137) %call.i, i32 noundef %thread_pool_size, ptr noundef %tracing_controller, ptr noundef %page_allocator) #12, !noalias !31

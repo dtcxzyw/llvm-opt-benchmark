@@ -115,7 +115,7 @@ declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dere
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN24cmParseCoberturaCoverageC2ER31cmCTestCoverageHandlerContainerP7cmCTest(ptr noundef nonnull align 8 dereferenceable(80) initializes((8, 48)) %0, ptr noundef nonnull align 8 dereferenceable(129) %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN24cmParseCoberturaCoverageC2ER31cmCTestCoverageHandlerContainerP7cmCTest(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(129) %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 32

@@ -228,7 +228,7 @@ define internal noundef i32 @ompi_request_null_cancel(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @ompi_request_empty_free(ptr nocapture noundef writeonly initializes((0, 8)) %0) #4 {
+define internal noundef i32 @ompi_request_empty_free(ptr nocapture noundef writeonly %0) #4 {
   store ptr @ompi_request_null, ptr %0, align 8
   ret i32 0
 }

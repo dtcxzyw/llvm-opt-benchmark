@@ -1570,7 +1570,7 @@ define noundef i32 @_ZN6google8protobuf16strtou32_adaptorEPKcPPci(ptr noundef %0
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN6google8protobuf17FastInt64ToBufferElPc(i64 noundef %0, ptr noundef writeonly initializes((21, 22)) %1) local_unnamed_addr #14 {
+define noundef nonnull ptr @_ZN6google8protobuf17FastInt64ToBufferElPc(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %1, i64 21
   %4 = getelementptr inbounds i8, ptr %1, i64 20
   store i8 0, ptr %3, align 1
@@ -1634,7 +1634,7 @@ define noundef nonnull ptr @_ZN6google8protobuf17FastInt64ToBufferElPc(i64 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN6google8protobuf17FastInt32ToBufferEiPc(i32 noundef %0, ptr noundef writeonly initializes((11, 12)) %1) local_unnamed_addr #14 {
+define noundef nonnull ptr @_ZN6google8protobuf17FastInt32ToBufferEiPc(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %1, i64 11
   %4 = getelementptr inbounds i8, ptr %1, i64 10
   store i8 0, ptr %3, align 1
@@ -1786,7 +1786,7 @@ define noundef ptr @_ZN6google8protobuf23InternalFastHexToBufferEmPci(i64 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @_ZN6google8protobuf17FastHex64ToBufferEmPc(i64 noundef %0, ptr noundef returned writeonly initializes((16, 17)) %1) local_unnamed_addr #14 {
+define noundef ptr @_ZN6google8protobuf17FastHex64ToBufferEmPc(i64 noundef %0, ptr noundef returned writeonly %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   store i8 0, ptr %3, align 1
   br label %.lr.ph.i
@@ -1809,7 +1809,7 @@ _ZN6google8protobuf23InternalFastHexToBufferEmPci.exit: ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef ptr @_ZN6google8protobuf17FastHex32ToBufferEjPc(i32 noundef %0, ptr noundef returned writeonly initializes((8, 9)) %1) local_unnamed_addr #14 {
+define noundef ptr @_ZN6google8protobuf17FastHex32ToBufferEjPc(i32 noundef %0, ptr noundef returned writeonly %1) local_unnamed_addr #14 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store i8 0, ptr %4, align 1
@@ -3295,7 +3295,7 @@ _ZN6google8protobufL10memcasecmpEPKcS2_m.exit:    ; preds = %.lr.ph.i, %5, %4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef zeroext i1 @_ZN6google8protobuf11safe_strtofEPKcPf(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #11 {
+define noundef zeroext i1 @_ZN6google8protobuf11safe_strtofEPKcPf(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #11 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @__errno_location() #32
   store i32 0, ptr %4, align 4
@@ -3325,7 +3325,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11safe_strtofEPKcPf(ptr noundef %0
 declare float @strtof(ptr noundef readonly, ptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf11safe_strtodEPKcPd(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #3 {
+define noundef zeroext i1 @_ZN6google8protobuf11safe_strtodEPKcPd(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   %3 = alloca ptr, align 8
   %4 = call noundef double @_ZN6google8protobuf8internal14NoLocaleStrtodEPKcPPc(ptr noundef %0, ptr noundef nonnull %3)
   store double %4, ptr %1, align 8

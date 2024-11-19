@@ -3003,7 +3003,7 @@ return:                                           ; preds = %if.else, %if.then11
 declare i32 @PyCallable_Check(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @PyWeakref_GetRef(ptr noundef readonly %ref, ptr nocapture noundef writeonly initializes((0, 8)) %pobj) local_unnamed_addr #1 {
+define dso_local range(i32 -1, 2) i32 @PyWeakref_GetRef(ptr noundef readonly %ref, ptr nocapture noundef writeonly %pobj) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %ref, null
   br i1 %cmp, label %if.then, label %if.end

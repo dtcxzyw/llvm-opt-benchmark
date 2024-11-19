@@ -542,7 +542,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #6 align 2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13NetworkPacket12putRawPacketEPKhjt(ptr noundef nonnull align 8 dereferenceable(36) initializes((24, 28), (34, 36)) %this, ptr nocapture noundef readonly %data, i32 noundef %datasize, i16 noundef zeroext %peer_id) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN13NetworkPacket12putRawPacketEPKhjt(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr nocapture noundef readonly %data, i32 noundef %datasize, i16 noundef zeroext %peer_id) local_unnamed_addr #4 align 2 {
 entry:
   %sub = add i32 %datasize, -2
   %m_datasize = getelementptr inbounds i8, ptr %this, i64 24
@@ -682,7 +682,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN13NetworkPacket5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) initializes((24, 36)) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13NetworkPacket5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(36) %this) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8, !tbaa !27
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -748,7 +748,7 @@ return:                                           ; preds = %if.end, %_ZN13Netwo
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %dst) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(32) %dst) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1096,7 +1096,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(32) initializes((8, 16)) %dst) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(32) %dst) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1602,7 +1602,7 @@ unreachable:                                      ; preds = %invoke.cont10
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERc(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERc(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1859,7 +1859,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERb(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERb(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1878,7 +1878,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERh(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERh(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1927,7 +1927,7 @@ return:                                           ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERt(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERt(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1957,7 +1957,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERj(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERj(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1976,7 +1976,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERm(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERm(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -1994,7 +1994,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERf(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERf(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2100,7 +2100,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector2dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector2dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %dst) local_unnamed_addr #11 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2122,7 +2122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %dst) local_unnamed_addr #11 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIfEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %dst) local_unnamed_addr #11 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2148,7 +2148,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERs(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) initializes((0, 2)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERs(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(2) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2197,7 +2197,7 @@ _ZN13NetworkPacketlsEt.exit:                      ; preds = %if.then.i.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERi(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERi(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2247,7 +2247,7 @@ _ZN13NetworkPacketlsEj.exit:                      ; preds = %if.then.i.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIsEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(6) initializes((0, 6)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIsEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 2 dereferenceable(6) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2279,7 +2279,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector2dIiEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 8)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector2dIiEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2304,7 +2304,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIiEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) initializes((0, 12)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr4core8vector3dIiEE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(12) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2675,7 +2675,7 @@ _ZN13NetworkPacketlsEi.exit27:                    ; preds = %if.then.i.i.i24, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr5video6SColorE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %dst) local_unnamed_addr #4 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(36) ptr @_ZN13NetworkPacketrsERN3irr5video6SColorE(ptr noundef nonnull returned align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %dst) local_unnamed_addr #4 align 2 {
 entry:
   %m_read_offset = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %m_read_offset, align 4, !tbaa !30
@@ -2725,7 +2725,7 @@ _ZN13NetworkPacket13checkDataSizeEj.exit:         ; preds = %if.then.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN13NetworkPacket14oldForgePacketEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Buffer) align 8 initializes((0, 12)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN13NetworkPacket14oldForgePacketEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.Buffer) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_command = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i16, ptr %m_command, align 8, !tbaa !26

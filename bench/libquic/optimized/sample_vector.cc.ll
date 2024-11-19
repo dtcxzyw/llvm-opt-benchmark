@@ -294,7 +294,7 @@ if.end38:                                         ; preds = %if.end, %invoke.con
 declare void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull align 8 dereferenceable(40), i64 noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base12SampleVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base12SampleVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base12SampleVectorE, i64 16), ptr %this, align 8
   %local_counts_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -312,7 +312,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4base12SampleVectorD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base12SampleVectorD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4base12SampleVectorE, i64 16), ptr %this, align 8
   %local_counts_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -726,7 +726,7 @@ if.end74:                                         ; preds = %_ZN7logging11CheckG
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base20SampleVectorIteratorC2EPKSt6vectorIiSaIiEEPKNS_12BucketRangesE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr nocapture noundef readonly %counts, ptr noundef %bucket_ranges) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base20SampleVectorIteratorC2EPKSt6vectorIiSaIiEEPKNS_12BucketRangesE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef readonly %counts, ptr noundef %bucket_ranges) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp11 = alloca %"class.logging::LogMessage", align 8
@@ -860,7 +860,7 @@ while.end:                                        ; preds = %if.end6, %while.bod
 declare void @_ZN4base19SampleCountIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4base20SampleVectorIteratorC2EPKimPKNS_12BucketRangesE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 40)) %this, ptr noundef %counts, i64 noundef %counts_size, ptr noundef %bucket_ranges) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4base20SampleVectorIteratorC2EPKimPKNS_12BucketRangesE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %counts, i64 noundef %counts_size, ptr noundef %bucket_ranges) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp9 = alloca %"class.logging::LogMessage", align 8

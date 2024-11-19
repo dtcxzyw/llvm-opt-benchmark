@@ -870,7 +870,7 @@ entry:
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_111CdsLbConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_111CdsLbConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_111CdsLbConfigE, i64 16), ptr %this, align 8
   %cluster_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -879,7 +879,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_111CdsLbConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_111CdsLbConfigD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_111CdsLbConfigE, i64 16), ptr %this, align 8
   %cluster_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1809,7 +1809,7 @@ declare void @_ZN9grpc_core19LoadBalancingPolicyD2Ev(ptr noundef nonnull align 8
 declare void @_ZN9grpc_core19LoadBalancingPolicy6OrphanEv(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_15CdsLbD2Ev(ptr noundef nonnull align 8 dereferenceable(161) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_15CdsLbD2Ev(ptr noundef nonnull align 8 dereferenceable(161) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_15CdsLbE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core17grpc_cds_lb_traceE, i64 16) monotonic, align 8
@@ -1982,7 +1982,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_15CdsLbD0Ev(ptr noundef nonnull align 8 dereferenceable(161) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_15CdsLbD0Ev(ptr noundef nonnull align 8 dereferenceable(161) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @_ZN9grpc_core12_GLOBAL__N_15CdsLbD2Ev(ptr noundef nonnull align 8 dereferenceable(161) %this) #24
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -3644,7 +3644,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_15CdsLb14ClusterWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_15CdsLb14ClusterWatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_15CdsLb14ClusterWatcherE, i64 16), ptr %this, align 8
   %name_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -3672,7 +3672,7 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_15CdsLbEED2Ev.exit: ; preds = %entr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core12_GLOBAL__N_15CdsLb14ClusterWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core12_GLOBAL__N_15CdsLb14ClusterWatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core12_GLOBAL__N_15CdsLb14ClusterWatcherE, i64 16), ptr %this, align 8
   %name_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -14703,7 +14703,7 @@ terminate.lpad:                                   ; preds = %entry
 declare noundef nonnull align 8 dereferenceable(776) ptr @_ZN9grpc_core17CoreConfiguration19BuildNewAndMaybeSetEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core19LoadBalancingPolicy42ParentOwningDelegatingChannelControlHelperINS_12_GLOBAL__N_15CdsLbEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core19LoadBalancingPolicy42ParentOwningDelegatingChannelControlHelperINS_12_GLOBAL__N_15CdsLbEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19LoadBalancingPolicy42ParentOwningDelegatingChannelControlHelperINS_12_GLOBAL__N_15CdsLbEEE, i64 16), ptr %this, align 8
   %parent_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -14748,7 +14748,7 @@ _ZN9grpc_core13RefCountedPtrINS_19LoadBalancingPolicyEED2Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9grpc_core19LoadBalancingPolicy42ParentOwningDelegatingChannelControlHelperINS_12_GLOBAL__N_15CdsLbEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN9grpc_core19LoadBalancingPolicy42ParentOwningDelegatingChannelControlHelperINS_12_GLOBAL__N_15CdsLbEED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core19LoadBalancingPolicy42ParentOwningDelegatingChannelControlHelperINS_12_GLOBAL__N_15CdsLbEEE, i64 16), ptr %this, align 8
   %parent_.i = getelementptr inbounds i8, ptr %this, i64 8

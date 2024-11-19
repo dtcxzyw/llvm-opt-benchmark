@@ -1440,7 +1440,7 @@ return:                                           ; preds = %for.body, %for.inc,
 declare ptr @qemu_coroutine_self() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @bdrv_round_to_subclusters(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %align_offset, ptr nocapture noundef writeonly initializes((0, 8)) %align_bytes) #0 {
+define dso_local void @bdrv_round_to_subclusters(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr nocapture noundef writeonly %align_offset, ptr nocapture noundef writeonly %align_bytes) #0 {
 entry:
   %bdi = alloca %struct.BlockDriverInfo, align 8
   %call = call i32 @bdrv_co_get_info(ptr noundef %bs, ptr noundef nonnull %bdi) #15
@@ -2563,7 +2563,7 @@ return:                                           ; preds = %if.then2, %if.then4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @tracked_request_begin(ptr noundef initializes((0, 29), (32, 96)) %req, ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %type) #0 {
+define internal void @tracked_request_begin(ptr noundef %req, ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %type) #0 {
 entry:
   %call.i = tail call range(i32 -5, 1) i32 @bdrv_check_qiov_request(i64 noundef %offset, i64 noundef %bytes, ptr noundef null, i64 noundef 0, ptr noundef nonnull @error_abort)
   %call5 = tail call ptr @qemu_coroutine_self() #15
@@ -4991,7 +4991,7 @@ entry:
 declare void @bdrv_co_debug_event(ptr noundef, i32 noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_co_io_em_complete(ptr nocapture noundef initializes((8, 12)) %opaque, i32 noundef %ret) #0 {
+define internal void @bdrv_co_io_em_complete(ptr nocapture noundef %opaque, i32 noundef %ret) #0 {
 entry:
   %ret1 = getelementptr inbounds i8, ptr %opaque, i64 8
   store i32 %ret, ptr %ret1, align 8

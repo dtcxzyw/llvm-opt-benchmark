@@ -525,7 +525,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756number15FormattedNumberC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #7 align 2 {
+define void @_ZN6icu_756number15FormattedNumberC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 8
@@ -542,7 +542,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number15FormattedNumberD2Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number15FormattedNumberD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 8
@@ -578,7 +578,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number15FormattedNumberaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(20) initializes((16, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number15FormattedNumberaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
 entry:
   %fData = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
@@ -997,7 +997,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 declare noundef nonnull align 8 dereferenceable(66) ptr @_ZN6icu_756number4impl15DecimalQuantityaSERKS2_(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(66)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number4impl20UFormattedNumberDataD2Ev(ptr noundef nonnull align 8 dereferenceable(408) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number4impl20UFormattedNumberDataD2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 16), ptr %this, align 8
   %outputUnit = getelementptr inbounds i8, ptr %this, i64 376
@@ -1026,7 +1026,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_756number20FormattedNumberRangeC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #7 align 2 {
+define void @_ZN6icu_756number20FormattedNumberRangeC2EOS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number20FormattedNumberRangeE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 8
@@ -1043,7 +1043,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number20FormattedNumberRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(20) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number20FormattedNumberRangeD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number20FormattedNumberRangeE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 8
@@ -1073,7 +1073,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number20FormattedNumberRangeaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(20) initializes((16, 20)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN6icu_756number20FormattedNumberRangeaSEOS1_(ptr noundef nonnull returned align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) local_unnamed_addr #0 align 2 {
 entry:
   %fData = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
@@ -1430,7 +1430,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_756number4impl25UFormattedNumberRangeDataD2Ev(ptr noundef nonnull align 8 dereferenceable(452) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_756number4impl25UFormattedNumberRangeDataD2Ev(ptr noundef nonnull align 8 dereferenceable(452) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_756number4impl25UFormattedNumberRangeDataE, i64 16), ptr %this, align 8
   %quantity2 = getelementptr inbounds i8, ptr %this, i64 376

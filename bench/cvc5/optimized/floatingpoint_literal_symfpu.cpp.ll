@@ -2410,7 +2410,7 @@ _ZN4cvc58internal13symfpuLiteral16wrappedBitVectorILb0EED2Ev.exit30: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal20FloatingPointLiteral4packEv(ptr noalias sret(%"class.cvc5::internal::BitVector") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal20FloatingPointLiteral4packEv(ptr noalias sret(%"class.cvc5::internal::BitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::symfpuLiteral::wrappedBitVector.0", align 8
   %d_symuf = getelementptr inbounds i8, ptr %this, i64 8
@@ -6907,7 +6907,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal20FloatingPointLiteral11getExponentEv(ptr noalias sret(%"class.cvc5::internal::BitVector") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK4cvc58internal20FloatingPointLiteral11getExponentEv(ptr noalias sret(%"class.cvc5::internal::BitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #4 align 2 {
 entry:
   %exponent = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i32, ptr %exponent, align 8
@@ -6919,7 +6919,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal20FloatingPointLiteral14getSignificandEv(ptr noalias sret(%"class.cvc5::internal::BitVector") align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZNK4cvc58internal20FloatingPointLiteral14getSignificandEv(ptr noalias sret(%"class.cvc5::internal::BitVector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this) local_unnamed_addr #4 align 2 {
 entry:
   %significand = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i32, ptr %significand, align 8

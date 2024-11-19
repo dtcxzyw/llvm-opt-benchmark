@@ -813,7 +813,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_dispatch_ins(ptr noundef initializes((40, 48)) %L, ptr noundef %pc) local_unnamed_addr #3 {
+define hidden void @lj_dispatch_ins(ptr noundef %L, ptr noundef %pc) local_unnamed_addr #3 {
 entry:
   %ar.i75 = alloca %struct.lua_Debug, align 8
   %ar.i45 = alloca %struct.lua_Debug, align 8
@@ -1552,7 +1552,7 @@ cur_topslot.exit:                                 ; preds = %sw.bb.i, %sw.bb11.i
 declare hidden void @lj_trace_stitch(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_dispatch_profile(ptr noundef initializes((40, 48)) %L, ptr noundef %pc) local_unnamed_addr #3 {
+define hidden void @lj_dispatch_profile(ptr noundef %L, ptr noundef %pc) local_unnamed_addr #3 {
 entry:
   %call = tail call ptr @__errno_location() #13
   %0 = load i32, ptr %call, align 4

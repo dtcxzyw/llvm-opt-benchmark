@@ -1004,7 +1004,7 @@ for.end:                                          ; preds = %do.body
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_PyGC_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 initializes((0, 4), (8, 28)) %agg.result, ptr nocapture noundef writeonly initializes((1208, 1216)) %interp) local_unnamed_addr #1 {
+define hidden void @_PyGC_Init(ptr noalias nocapture writeonly sret(%struct.PyStatus) align 8 %agg.result, ptr nocapture noundef writeonly %interp) local_unnamed_addr #1 {
 entry:
   %call = tail call ptr @PyList_New(i64 noundef 0) #14
   %garbage = getelementptr inbounds i8, ptr %interp, i64 1208
@@ -2597,7 +2597,7 @@ _Py_set_eval_breaker_bit.exit:                    ; preds = %_Py_atomic_compare_
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_PyObject_GC_Link(ptr nocapture noundef writeonly initializes((-16, 0)) %op) local_unnamed_addr #8 {
+define hidden void @_PyObject_GC_Link(ptr nocapture noundef writeonly %op) local_unnamed_addr #8 {
 entry:
   %add.ptr.i = getelementptr i8, ptr %op, i64 -16
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)

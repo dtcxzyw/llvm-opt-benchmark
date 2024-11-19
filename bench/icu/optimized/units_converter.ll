@@ -1115,7 +1115,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_755units23extractCompoundBaseUnitERKNS_15MeasureUnitImplERKNS0_15ConversionRatesER10UErrorCode(ptr noalias sret(%"class.icu_75::MeasureUnitImpl") align 8 initializes((0, 4), (8, 12)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %source, ptr noundef nonnull align 8 dereferenceable(88) %conversionRates, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_755units23extractCompoundBaseUnitERKNS_15MeasureUnitImplERKNS0_15ConversionRatesER10UErrorCode(ptr noalias sret(%"class.icu_75::MeasureUnitImpl") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %source, ptr noundef nonnull align 8 dereferenceable(88) %conversionRates, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   %baseUnits = alloca %"class.icu_75::MaybeStackVector", align 8
@@ -3156,7 +3156,7 @@ return:                                           ; preds = %if.end20, %_ZN6icu_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6icu_755units12_GLOBAL__N_118loadCompoundFactorERKNS_15MeasureUnitImplERKNS0_15ConversionRatesER10UErrorCode(ptr noalias nocapture nonnull align 8 initializes((0, 25), (28, 88)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %source, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 {
+define internal fastcc void @_ZN6icu_755units12_GLOBAL__N_118loadCompoundFactorERKNS_15MeasureUnitImplERKNS0_15ConversionRatesER10UErrorCode(ptr noalias nocapture nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(160) %source, ptr noundef nonnull align 8 dereferenceable(88) %ratesInfo, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 {
 entry:
   %converter.i24.i.i = alloca %"class.icu_75::double_conversion::StringToDoubleConverter", align 8
   %count.i25.i.i = alloca i32, align 4
@@ -3597,7 +3597,7 @@ return:                                           ; preds = %if.end3, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK6icu_755units14UnitsConverter17getConversionInfoEv(ptr noalias nocapture writeonly sret(%"struct.icu_75::units::ConversionInfo") align 8 initializes((0, 17)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this) local_unnamed_addr #11 align 2 {
+define void @_ZNK6icu_755units14UnitsConverter17getConversionInfoEv(ptr noalias nocapture writeonly sret(%"struct.icu_75::units::ConversionInfo") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this) local_unnamed_addr #11 align 2 {
 entry:
   %factorNum = getelementptr inbounds i8, ptr %this, i64 336
   %0 = load double, ptr %factorNum, align 8

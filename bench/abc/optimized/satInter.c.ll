@@ -47,7 +47,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define nonnull ptr @Int_ManSetGlobalVars(ptr noundef writeonly initializes((72, 76)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define nonnull ptr @Int_ManSetGlobalVars(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2236,7 +2236,7 @@ Int_ManEnqueue.exit79:                            ; preds = %144
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Int_ManProcessRoots(ptr nocapture noundef initializes((100, 104)) %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @Int_ManProcessRoots(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 100
@@ -2536,7 +2536,7 @@ Int_ManTruthFill.exit:                            ; preds = %Int_ManTruthOrNot.e
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Int_ManInterpolate(ptr nocapture noundef initializes((0, 8), (76, 80)) %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #5 {
+define i32 @Int_ManInterpolate(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #5 {
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)

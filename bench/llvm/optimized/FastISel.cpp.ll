@@ -236,7 +236,7 @@ $_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable = comdat any
 @_ZN4llvm8FastISelD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm8FastISelD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN4llvm8FastISel13startNewBlockEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((160, 168)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8FastISel13startNewBlockEv(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store ptr null, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5271,7 +5271,7 @@ _ZN4llvm11SmallVectorINS_3EVTELj4EED2Ev.exit:     ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(856) ptr @_ZN4llvm8FastISel16CallLoweringInfo9setCalleeERKNS_10DataLayoutERNS_9MCContextEjPNS_4TypeENS_9StringRefEOSt6vectorINS_18TargetLoweringBase12ArgListEntryESaISC_EEj(ptr noundef nonnull returned align 8 dereferenceable(856) initializes((0, 8), (12, 20), (32, 40), (48, 56)) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef nonnull align 8 dereferenceable(2432) %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, ptr nocapture noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %7) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(856) ptr @_ZN4llvm8FastISel16CallLoweringInfo9setCalleeERKNS_10DataLayoutERNS_9MCContextEjPNS_4TypeENS_9StringRefEOSt6vectorINS_18TargetLoweringBase12ArgListEntryESaISC_EEj(ptr noundef nonnull returned align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(512) %1, ptr noundef nonnull align 8 dereferenceable(2432) %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly byval(%"class.llvm::StringRef") align 8 %5, ptr nocapture noundef nonnull align 8 dereferenceable(24) %6, i32 noundef %7) local_unnamed_addr #1 align 2 {
   %9 = alloca %"class.llvm::SmallString", align 8
   %10 = alloca %"class.llvm::Twine", align 8
   %11 = alloca %"class.llvm::Twine", align 8
@@ -10847,7 +10847,7 @@ _ZN4llvm8CastInfoINS_13IntrinsicInstEKPKNS_4UserEvE10isPossibleERS5_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8FastISelC2ERNS_20FunctionLoweringInfoEPKNS_17TargetLibraryInfoEb(ptr nocapture noundef nonnull align 8 dereferenceable(176) initializes((0, 28), (32, 145), (152, 176)) %0, ptr noundef nonnull align 8 dereferenceable(1080) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8FastISelC2ERNS_20FunctionLoweringInfoEPKNS_17TargetLibraryInfoEb(ptr nocapture noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(1080) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 {
   %5 = zext i1 %3 to i8
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm8FastISelE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10921,7 +10921,7 @@ define dso_local void @_ZN4llvm8FastISelC2ERNS_20FunctionLoweringInfoEPKNS_17Tar
 declare noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1041)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8FastISelD2Ev(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm8FastISelD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN4llvm8FastISelE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8

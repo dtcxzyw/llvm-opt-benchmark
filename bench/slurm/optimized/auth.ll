@@ -642,7 +642,7 @@ define i32 @auth_g_verify(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @auth_g_get_ids(ptr noundef %0, ptr noundef initializes((0, 4)) %1, ptr noundef initializes((0, 4)) %2) local_unnamed_addr #1 {
+define void @auth_g_get_ids(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   store i32 99, ptr %1, align 4
   store i32 99, ptr %2, align 4
   %.not = icmp eq ptr %0, null

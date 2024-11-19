@@ -128,7 +128,7 @@ _ZN18methoddata_permuteC2Ev.exit:                 ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZL12init_permutePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef initializes((152, 156), (160, 168)) %3) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL12init_permutePK10gmx_mtop_tiP18gmx_ana_selparam_tPv(ptr nocapture readnone %0, i32 %1, ptr nocapture noundef readonly %2, ptr nocapture noundef %3) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.gmx::InconsistentInputError", align 8
   %6 = alloca %"class.gmx::ExceptionInitializer", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

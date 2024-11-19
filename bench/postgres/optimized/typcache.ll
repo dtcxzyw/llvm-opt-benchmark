@@ -2440,7 +2440,7 @@ fastgetattr.exit:                                 ; preds = %86
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InitDomainConstraintRef(i32 noundef %0, ptr noundef initializes((8, 25), (32, 48)) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @InitDomainConstraintRef(i32 noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i1 %3 to i8
   %6 = tail call ptr @lookup_type_cache(i32 noundef %0, i32 noundef 8192)
   %7 = getelementptr inbounds i8, ptr %1, i64 16
@@ -3360,7 +3360,7 @@ define dso_local noundef i64 @SharedRecordTypmodRegistryEstimate() local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SharedRecordTypmodRegistryInit(ptr noundef initializes((0, 16)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @SharedRecordTypmodRegistryInit(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.SharedRecordTableKey, align 8
   %5 = alloca i8, align 1
   %6 = load ptr, ptr @TopMemoryContext, align 8

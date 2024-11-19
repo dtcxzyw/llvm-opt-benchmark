@@ -624,7 +624,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm2383942EP7oopDescLNS_11BarrierTypeE3EE13
 @_ZN14Deoptimization11UnrollBlockD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN14Deoptimization11UnrollBlockD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19DeoptimizationScopeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN19DeoptimizationScopeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
   store i64 0, ptr %0, align 8
   %2 = load ptr, ptr @NMethodState_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
@@ -955,7 +955,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %22, %24
 declare void @_ZN2os11naked_yieldEv() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14Deoptimization11UnrollBlockC2EiiiiPlPPh9BasicTypei(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 12), (16, 41), (48, 80)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i8 noundef zeroext %7, i32 noundef %8) unnamed_addr #0 align 2 {
+define hidden void @_ZN14Deoptimization11UnrollBlockC2EiiiiPlPPh9BasicTypei(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i8 noundef zeroext %7, i32 noundef %8) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %10, align 4
@@ -2828,7 +2828,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %91, %89, %_ZNK5fram
 declare void @_ZN10JavaThread25clear_scopedValueBindingsEv(ptr noundef nonnull align 8 dereferenceable(1800)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14Deoptimization26pop_frames_failed_reallocsEP10JavaThreadP11vframeArray(ptr noundef initializes((1328, 1332)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14Deoptimization26pop_frames_failed_reallocsEP10JavaThreadP11vframeArray(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 188
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 1328
@@ -2933,7 +2933,7 @@ declare void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull a
 declare noundef ptr @_ZN5frame27initial_deoptimization_infoEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14Deoptimization18cleanup_deopt_infoEP10JavaThreadP11vframeArray(ptr nocapture noundef initializes((976, 984)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14Deoptimization18cleanup_deopt_infoEP10JavaThreadP11vframeArray(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %7
 
@@ -7493,7 +7493,7 @@ declare void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull a
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14Deoptimization24query_update_method_dataEP10MethodDataiNS_11DeoptReasonEbbP6MethodRjRbS6_(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %7, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %8) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14Deoptimization24query_update_method_dataEP10MethodDataiNS_11DeoptReasonEbbP6MethodRjRbS6_(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %7, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %8) local_unnamed_addr #0 align 2 {
   br i1 %3, label %10, label %32
 
 10:                                               ; preds = %9

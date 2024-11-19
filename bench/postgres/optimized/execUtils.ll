@@ -466,7 +466,7 @@ define dso_local ptr @MakePerTupleExprContext(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecAssignExprContext(ptr noundef %0, ptr nocapture noundef writeonly initializes((128, 136)) %1) local_unnamed_addr #0 {
+define dso_local void @ExecAssignExprContext(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -923,7 +923,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ExecInitRangeTable(ptr nocapture noundef writeonly initializes((24, 36), (40, 64), (96, 104)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @ExecInitRangeTable(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56

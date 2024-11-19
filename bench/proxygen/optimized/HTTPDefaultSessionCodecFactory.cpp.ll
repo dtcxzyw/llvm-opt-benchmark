@@ -84,7 +84,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryC2ERKNS_21AcceptorConfigurationE(ptr nocapture noundef nonnull align 8 dereferenceable(50) initializes((0, 50)) %this, ptr noundef nonnull align 8 dereferenceable(761) %accConfig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryC2ERKNS_21AcceptorConfigurationE(ptr nocapture noundef nonnull align 8 dereferenceable(50) %this, ptr noundef nonnull align 8 dereferenceable(761) %accConfig) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %useStrictValidationFn_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 24

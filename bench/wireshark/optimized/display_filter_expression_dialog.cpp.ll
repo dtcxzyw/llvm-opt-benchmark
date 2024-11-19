@@ -6462,7 +6462,7 @@ _ZN16QFutureInterfaceIP15QTreeWidgetItemED2Ev.exit: ; preds = %1, %5
 declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN29DisplayFilterExpressionDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN29DisplayFilterExpressionDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QFuture, align 8
   %3 = alloca %class.QList.6, align 8
   %4 = alloca %class.QFuture, align 8
@@ -7865,7 +7865,7 @@ declare void @_Z16range_to_qstringPK13_range_string(ptr dead_on_unwind writable 
 declare void @_ZN7QString6numberEmi(ptr dead_on_unwind writable sret(%class.QString) align 8, i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN29DisplayFilterExpressionDialog39on_fieldTreeWidget_itemSelectionChangedEv(ptr noundef nonnull align 8 dereferenceable(120) initializes((80, 84), (88, 96)) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN29DisplayFilterExpressionDialog39on_fieldTreeWidget_itemSelectionChangedEv(ptr noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.QString, align 8
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QList.6, align 8

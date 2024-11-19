@@ -334,7 +334,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN18G1BlockOffsetTableC1E9MemRegionP21G1RegionToSpaceMapper = hidden unnamed_addr alias void (ptr, ptr, i64, ptr), ptr @_ZN18G1BlockOffsetTableC2E9MemRegionP21G1RegionToSpaceMapper
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18G1BlockOffsetTableC2E9MemRegionP21G1RegionToSpaceMapper(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN18G1BlockOffsetTableC2E9MemRegionP21G1RegionToSpaceMapper(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8

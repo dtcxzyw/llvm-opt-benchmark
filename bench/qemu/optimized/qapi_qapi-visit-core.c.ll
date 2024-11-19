@@ -986,7 +986,7 @@ return:                                           ; preds = %trace_visit_policy_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local void @visit_set_policy(ptr nocapture noundef writeonly initializes((164, 196)) %v, ptr nocapture noundef readonly %policy) local_unnamed_addr #2 {
+define dso_local void @visit_set_policy(ptr nocapture noundef writeonly %v, ptr nocapture noundef readonly %policy) local_unnamed_addr #2 {
 entry:
   %compat_policy = getelementptr inbounds i8, ptr %v, i64 164
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %compat_policy, ptr noundef nonnull align 4 dereferenceable(32) %policy, i64 32, i1 false)

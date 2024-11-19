@@ -114,7 +114,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Ipopt11CGPenaltyCqC2EPNS_8IpoptNLPEPNS_9IpoptDataEPNS_25IpoptCalculatedQuantitiesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(241) initializes((0, 12), (16, 52), (56, 76), (80, 100), (104, 124), (128, 148), (152, 172), (176, 196), (200, 220), (224, 232), (240, 241)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt11CGPenaltyCqC2EPNS_8IpoptNLPEPNS_9IpoptDataEPNS_25IpoptCalculatedQuantitiesE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(241) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt11CGPenaltyCqE, i64 16), ptr %0, align 8
@@ -240,7 +240,7 @@ _ZNSt7__cxx114listIPN5Ipopt15DependentResultIdEESaIS4_EED2Ev.exit: ; preds = %.l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt11CGPenaltyCqD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(241) initializes((0, 8), (208, 216)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt11CGPenaltyCqD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(241) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt11CGPenaltyCqE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt13CachedResultsIdEE, i64 16), ptr %2, align 8
@@ -742,7 +742,7 @@ define void @_ZN5Ipopt11CGPenaltyCq15RegisterOptionsERKNS_8SmartPtrINS_17Registe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN5Ipopt11CGPenaltyCq10InitializeERKNS_10JournalistERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(241) initializes((240, 241)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN5Ipopt11CGPenaltyCq10InitializeERKNS_10JournalistERKNS_11OptionsListERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(241) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture nonnull readnone align 8 %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 240
   store i8 1, ptr %5, align 8
   ret i1 true

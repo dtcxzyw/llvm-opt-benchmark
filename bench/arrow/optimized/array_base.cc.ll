@@ -5110,7 +5110,7 @@ cleanup:                                          ; preds = %if.end8.sink.split.
 declare void @_ZN5arrow8internal12GetArrayViewERKSt10shared_ptrINS_9ArrayDataEERKS1_INS_8DataTypeEE(ptr sret(%"class.arrow::Result.23") align 8, ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow9NullArrayC2El(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow9NullArrayC2El(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %length) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::shared_ptr.5", align 8
   %agg.tmp = alloca %"class.std::shared_ptr", align 8

@@ -889,7 +889,7 @@ terminate.lpad:                                   ; preds = %entry
 declare void @_ZN4cvc58internal4prop9LearnedDbD1Ev(ptr noundef nonnull align 8 dereferenceable(336)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal4prop16ZeroLevelLearnerD2Ev(ptr noundef nonnull align 8 dereferenceable(704) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop16ZeroLevelLearnerD2Ev(ptr noundef nonnull align 8 dereferenceable(704) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal4prop16ZeroLevelLearnerE, i64 16), ptr %this, align 8
   %d_learnedTypes = getelementptr inbounds i8, ptr %this, i64 648
@@ -1037,7 +1037,7 @@ _ZN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal4prop16ZeroLevelLearnerD0Ev(ptr noundef nonnull align 8 dereferenceable(704) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal4prop16ZeroLevelLearnerD0Ev(ptr noundef nonnull align 8 dereferenceable(704) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal4prop16ZeroLevelLearnerD2Ev(ptr noundef nonnull align 8 dereferenceable(704) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #21
@@ -4473,7 +4473,7 @@ cleanup.done15:
 declare void @_ZNK4cvc58internal4prop9LearnedDb18getLearnedLiteralsENS_5modes14LearnedLitTypeE(ptr sret(%"class.std::vector.317") align 8, ptr noundef nonnull align 8 dereferenceable(336), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal4prop16ZeroLevelLearner37getLearnedZeroLevelLiteralsForRestartEv(ptr noalias sret(%"class.std::vector.317") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(704) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal4prop16ZeroLevelLearner37getLearnedZeroLevelLiteralsForRestartEv(ptr noalias sret(%"class.std::vector.317") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(704) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rett = alloca %"class.std::vector.317", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)

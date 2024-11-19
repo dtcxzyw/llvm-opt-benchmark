@@ -201,7 +201,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.192 = private unnamed_addr constant [7 x i8] c"VACUUM\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @InitializeQueryCompletion(ptr nocapture noundef writeonly initializes((0, 4), (8, 16)) %0) local_unnamed_addr #0 {
+define dso_local void @InitializeQueryCompletion(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
@@ -217,7 +217,7 @@ define dso_local ptr @GetCommandTagName(i32 noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local ptr @GetCommandTagNameAndLen(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local ptr @GetCommandTagNameAndLen(i32 noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr [193 x %struct.CommandTagBehavior], ptr @tag_behavior, i64 0, i64 %3
   %5 = getelementptr inbounds i8, ptr %4, i64 8

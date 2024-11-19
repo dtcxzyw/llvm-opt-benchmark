@@ -555,7 +555,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt23WavefrontPathIntegratorC2EPN4pstd3pmr15memory_resourceERNS_10BasicSceneE(ptr noundef nonnull align 8 dereferenceable(648) initializes((3, 27), (40, 80), (88, 96), (168, 200), (208, 224), (232, 248), (464, 480), (536, 640)) %this, ptr noundef %memoryResource, ptr noundef nonnull align 8 dereferenceable(1520) %scene) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt23WavefrontPathIntegratorC2EPN4pstd3pmr15memory_resourceERNS_10BasicSceneE(ptr noundef nonnull align 8 dereferenceable(648) %this, ptr noundef %memoryResource, ptr noundef nonnull align 8 dereferenceable(1520) %scene) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %"class.pbrt::WorkQueue.355", align 8
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5605,7 +5605,7 @@ entry:
 declare void @_ZN4pbrt16ProgressReporterD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt23WavefrontPathIntegrator5StatsC2EiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 40)) %this, i32 noundef %maxDepth, ptr %alloc.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt23WavefrontPathIntegrator5StatsC2EiN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %maxDepth, ptr %alloc.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i64 0, ptr %this, align 8
   %indirectRays = getelementptr inbounds i8, ptr %this, i64 8

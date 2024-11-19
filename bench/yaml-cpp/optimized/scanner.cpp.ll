@@ -1252,7 +1252,7 @@ unreachable:                                      ; preds = %invoke.cont135
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML7Scanner11StartStreamEv(ptr noundef nonnull align 8 dereferenceable(480) initializes((208, 209), (210, 211)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML7Scanner11StartStreamEv(ptr noundef nonnull align 8 dereferenceable(480) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca ptr, align 8
   %m_startedStream = getelementptr inbounds i8, ptr %this, i64 208

@@ -756,7 +756,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad
 declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16IborCouponPricerC2ENS_6HandleINS_28OptionletVolatilityStructureEEEN5boost8optionalIbEE(ptr noundef nonnull align 8 dereferenceable(121) initializes((0, 8), (16, 32)) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %v, i16 %useIndexedCoupon.coerce) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16IborCouponPricerC2ENS_6HandleINS_28OptionletVolatilityStructureEEEN5boost8optionalIbEE(ptr noundef nonnull align 8 dereferenceable(121) %this, ptr nocapture noundef readonly %vtt, ptr nocapture noundef %v, i16 %useIndexedCoupon.coerce) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
@@ -2273,7 +2273,7 @@ unreachable:                                      ; preds = %invoke.cont14
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib16IborCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr nocapture noundef nonnull align 8 dereferenceable(121) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib16IborCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr nocapture noundef nonnull align 8 dereferenceable(121) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2713,7 +2713,7 @@ unreachable:                                      ; preds = %invoke.cont56, %inv
 declare noundef double @_ZNK8QuantLib6Coupon13accrualPeriodEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21BlackIborCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21BlackIborCouponPricer10initializeERKNS_18FloatingRateCouponE(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(176) %coupon) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Handle", align 8
   %paymentDate = alloca %"class.QuantLib::Date", align 8
@@ -5703,7 +5703,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((0, 128)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %this, align 8, !tbaa !35
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
@@ -8434,7 +8434,7 @@ declare void @_ZNK8QuantLib13TermStructure10checkRangeERKNS_4DateEb(ptr noundef 
 declare void @_ZNK8QuantLib23VolatilityTermStructure11checkStrikeEdb(ptr noundef nonnull align 8 dereferenceable(68), double noundef, i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 128)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %this, align 8, !tbaa !35
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -13077,7 +13077,7 @@ unreachable:                                      ; preds = %invoke.cont16
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn8_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-8, 120)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn8_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13153,7 +13153,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn8_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-8, 120)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn8_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -8
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13236,7 +13236,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn16_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-16, 112)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13312,7 +13312,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn16_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-16, 112)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn16_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13395,7 +13395,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn24_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-24, 104)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn24_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13471,7 +13471,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn24_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-24, 104)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn24_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13559,7 +13559,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn32_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-32, 96)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn32_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13635,7 +13635,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn32_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-32, 96)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn32_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13720,7 +13720,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn40_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-40, 88)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn40_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13796,7 +13796,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn40_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-40, 88)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn40_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -40
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13881,7 +13881,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn48_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-48, 80)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn48_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -13957,7 +13957,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn48_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-48, 80)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn48_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -48
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14042,7 +14042,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn56_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-56, 72)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn56_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14118,7 +14118,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn56_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-56, 72)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn56_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14203,7 +14203,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn64_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-64, 64)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn64_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -64
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14279,7 +14279,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn64_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-64, 64)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn64_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -64
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14364,7 +14364,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn72_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-72, 56)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn72_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14440,7 +14440,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn72_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-72, 56)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn72_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14525,7 +14525,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-80, 48)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn80_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14601,7 +14601,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn80_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-80, 48)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn80_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14686,7 +14686,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn88_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-88, 40)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn88_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14762,7 +14762,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn88_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-88, 40)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn88_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14847,7 +14847,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn96_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-96, 32)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn96_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -96
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -14923,7 +14923,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn96_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-96, 32)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn96_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -96
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -15008,7 +15008,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn104_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-104, 24)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn104_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -15084,7 +15084,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn104_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-104, 24)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn104_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -104
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -15169,7 +15169,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn112_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-112, 16)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn112_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -112
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -15245,7 +15245,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn112_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-112, 16)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn112_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -112
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -15330,7 +15330,7 @@ entry:
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn120_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef initializes((-120, 8)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn120_N8QuantLib12_GLOBAL__N_112PricerSetterD1Ev(ptr nocapture noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35
@@ -15406,7 +15406,7 @@ _ZN8QuantLib12_GLOBAL__N_112PricerSetterD2Ev.exit: ; preds = %entry, %if.then.i.
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal void @_ZThn120_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef initializes((-120, 8)) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZThn120_N8QuantLib12_GLOBAL__N_112PricerSetterD0Ev(ptr noundef %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -120
   store ptr getelementptr inbounds inrange(-16, 136) (i8, ptr @_ZTVN8QuantLib12_GLOBAL__N_112PricerSetterE, i64 16), ptr %0, align 8, !tbaa !35

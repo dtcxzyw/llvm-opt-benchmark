@@ -2697,7 +2697,7 @@ declare void @_ZN16InstanceRefKlassC1ERK15ClassFileParser(ptr noundef nonnull al
 declare void @_ZN23InstanceStackChunkKlassC1ERK15ClassFileParser(ptr noundef nonnull align 8 dereferenceable(464), ptr noundef nonnull align 8 dereferenceable(440)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13InstanceKlass20copy_method_orderingEPK13GrowableArrayIiEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(464) initializes((432, 440)) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13InstanceKlass20copy_method_orderingEPK13GrowableArrayIiEP10JavaThread(ptr nocapture noundef nonnull align 8 dereferenceable(464) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %33, label %4
 
@@ -9381,7 +9381,7 @@ define hidden noundef ptr @_ZNK13InstanceKlass31lookup_method_in_all_interfacesE
 declare noundef zeroext i1 @_ZNK6Method17is_default_methodEv(ptr noundef nonnull align 8 dereferenceable(88)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17PrintClassClosureC2EP12outputStreamb(ptr nocapture noundef nonnull align 8 dereferenceable(17) initializes((0, 17)) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN17PrintClassClosureC2EP12outputStreamb(ptr nocapture noundef nonnull align 8 dereferenceable(17) %0, ptr noundef nonnull %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = zext i1 %2 to i8
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV17PrintClassClosure, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
@@ -13179,7 +13179,7 @@ _ZN12ConstantPool8klass_atEiP10JavaThread.exit:   ; preds = %47, %53
 declare noundef zeroext i1 @_ZN12ConstantPool21klass_name_at_matchesEPK13InstanceKlassi(ptr noundef nonnull align 8 dereferenceable(68), ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK13InstanceKlass23compute_enclosing_classEPbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr nocapture noundef initializes((0, 1)) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK13InstanceKlass23compute_enclosing_classEPbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(464) %0, ptr nocapture noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.constantPoolHandle, align 8
   %5 = alloca %class.constantPoolHandle, align 8
   %6 = alloca i32, align 4
@@ -13756,7 +13756,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE125ELS1_16ELS1_168EL
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13InstanceKlass15add_osr_nmethodEP7nmethod(ptr nocapture noundef nonnull align 8 dereferenceable(464) %0, ptr noundef initializes((80, 88)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13InstanceKlass15add_osr_nmethodEP7nmethod(ptr nocapture noundef nonnull align 8 dereferenceable(464) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 360
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 80
@@ -16325,7 +16325,7 @@ _ZN7oopDesc11oop_iterateI18VerifyFieldClosureEEvPT_.exit: ; preds = %9, %19
 declare void @_ZN5Klass13oop_verify_onEP7oopDescP12outputStream(ptr noundef nonnull align 8 dereferenceable(196), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5JNIidC2EP5KlassiPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #14 align 2 {
+define hidden void @_ZN5JNIidC2EP5KlassiPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #14 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %2, ptr %5, align 8

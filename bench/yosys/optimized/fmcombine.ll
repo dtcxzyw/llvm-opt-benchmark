@@ -2583,7 +2583,7 @@ _ZN5Yosys5RTLIL8IdString13put_referenceEi.exit:   ; preds = %6, %1, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115FmcombineWorkerC2EPN5Yosys5RTLIL6DesignENS2_8IdStringERKNS_6opts_tE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(5) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115FmcombineWorkerC2EPN5Yosys5RTLIL6DesignENS2_8IdStringERKNS_6opts_tE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull align 1 dereferenceable(5) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %3, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -14762,7 +14762,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit55:               ; preds = %_ZSt8_DestroyIPN5Yo
 declare void @_ZN5Yosys5RTLIL6Module7connectERKNS0_7SigSpecES4_(ptr noundef nonnull align 8 dereferenceable(560), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115FmcombineWorker10import_sigEN5Yosys5RTLIL7SigSpecERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 4), (8, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115FmcombineWorker10import_sigEN5Yosys5RTLIL7SigSpecERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, ptr noundef nonnull %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %"struct.Yosys::RTLIL::SigChunk", align 8
   %7 = alloca %"struct.Yosys::RTLIL::IdString", align 4

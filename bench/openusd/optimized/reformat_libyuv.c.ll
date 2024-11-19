@@ -9,7 +9,7 @@ define hidden noundef i32 @avifImageRGBToYUVLibYUV(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @avifImageYUVToRGBLibYUV(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #1 {
+define hidden noundef i32 @avifImageYUVToRGBLibYUV(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 {
   store i32 0, ptr %3, align 4
   ret i32 25
 }

@@ -43,7 +43,7 @@ initPQExpBuffer.exit:                             ; preds = %5, %6
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @initPQExpBuffer(ptr nocapture noundef writeonly initializes((0, 24)) %0) local_unnamed_addr #2 {
+define void @initPQExpBuffer(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   %2 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #15
   store ptr %2, ptr %0, align 8
   %3 = icmp eq ptr %2, null
@@ -89,7 +89,7 @@ termPQExpBuffer.exit:                             ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @termPQExpBuffer(ptr nocapture noundef initializes((8, 24)) %0) local_unnamed_addr #3 {
+define void @termPQExpBuffer(ptr nocapture noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %2, @oom_buffer
   br i1 %.not, label %4, label %3

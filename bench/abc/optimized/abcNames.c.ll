@@ -2540,7 +2540,7 @@ define void @Abc_NtkMoveNames(ptr nocapture noundef %0, ptr nocapture noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NtkStartNameIds(ptr noundef initializes((440, 448)) %0) local_unnamed_addr #0 {
+define void @Abc_NtkStartNameIds(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1000 x i8], align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -2894,7 +2894,7 @@ declare ptr @Abc_NtkDfs(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Abc_NtkTransferNameIds(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((440, 448)) %1) local_unnamed_addr #3 {
+define void @Abc_NtkTransferNameIds(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %1, i64 32
   %.val25 = load ptr, ptr %3, align 8
   %4 = getelementptr i8, ptr %.val25, i64 4

@@ -3466,7 +3466,7 @@ define internal noundef range(i64 1, 0) i64 @_ZN2cv12_GLOBAL__N_117opjSkipFromBu
 declare hidden void @opj_stream_set_seek_function(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @_ZN2cv12_GLOBAL__N_117opjSeekFromBufferElPNS_6detail15OpjMemoryBufferE(i64 noundef %0, ptr nocapture noundef initializes((0, 8)) %1) #12 {
+define internal noundef i32 @_ZN2cv12_GLOBAL__N_117opjSeekFromBufferElPNS_6detail15OpjMemoryBufferE(i64 noundef %0, ptr nocapture noundef %1) #12 {
   %3 = getelementptr inbounds i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %0, i64 %4)

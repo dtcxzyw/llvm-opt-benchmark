@@ -3137,7 +3137,7 @@ declare i32 @EVP_CIPHER_get_iv_length(ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr nocapture noundef initializes((6568, 6576)) %t, i32 noundef range(i32 0, 2) %enc, i64 noundef range(i64 0, 2) %out_misalign, i64 noundef range(i64 0, 2) %inp_misalign, i32 noundef range(i32 0, 2) %frag, i32 noundef range(i32 0, 2) %in_place) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr nocapture noundef %t, i32 noundef range(i32 0, 2) %enc, i64 noundef range(i64 0, 2) %out_misalign, i64 noundef range(i64 0, 2) %inp_misalign, i32 noundef range(i32 0, 2) %frag, i32 noundef range(i32 0, 2) %in_place) unnamed_addr #1 {
 entry:
   %tmplen = alloca i32, align 4
   %chunklen = alloca i32, align 4
@@ -4238,7 +4238,7 @@ return:                                           ; preds = %if.end10.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @digest_test_run(ptr nocapture noundef initializes((6568, 6576)) %t) #1 {
+define internal noundef i32 @digest_test_run(ptr nocapture noundef %t) #1 {
 entry:
   %dont.i55 = alloca [6 x i8], align 1
   %dont.i = alloca [6 x i8], align 1
@@ -6005,7 +6005,7 @@ return:                                           ; preds = %if.end, %kdf_test_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @kdf_test_run(ptr nocapture noundef initializes((6568, 6576)) %t) #1 {
+define internal noundef i32 @kdf_test_run(ptr nocapture noundef %t) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %t, i64 6600
   %0 = load ptr, ptr %data, align 8
@@ -6218,7 +6218,7 @@ return:                                           ; preds = %if.end, %if.then4, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_kdf_test_run(ptr nocapture noundef initializes((6568, 6576)) %t) #1 {
+define internal noundef i32 @pkey_kdf_test_run(ptr nocapture noundef %t) #1 {
 entry:
   %got_len = alloca i64, align 8
   %data = getelementptr inbounds i8, ptr %t, i64 6600
@@ -7962,7 +7962,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @oneshot_digestsign_test_run(ptr nocapture noundef initializes((6568, 6576)) %t) #1 {
+define internal noundef i32 @oneshot_digestsign_test_run(ptr nocapture noundef %t) #1 {
 entry:
   %got_len = alloca i64, align 8
   %data = getelementptr inbounds i8, ptr %t, i64 6600
@@ -8398,7 +8398,7 @@ return:                                           ; preds = %if.end15.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pbe_test_run(ptr nocapture noundef initializes((6568, 6576)) %t) #1 {
+define internal noundef i32 @pbe_test_run(ptr nocapture noundef %t) #1 {
 entry:
   %data = getelementptr inbounds i8, ptr %t, i64 6600
   %0 = load ptr, ptr %data, align 8
@@ -8708,7 +8708,7 @@ return:                                           ; preds = %if.end6, %if.then9,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pkey_test_run(ptr nocapture noundef initializes((6568, 6576)) %t) #1 {
+define internal noundef i32 @pkey_test_run(ptr nocapture noundef %t) #1 {
 entry:
   %got_len = alloca i64, align 8
   %data = getelementptr inbounds i8, ptr %t, i64 6600
@@ -9126,7 +9126,7 @@ return:                                           ; preds = %for.inc.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @pderive_test_run(ptr nocapture noundef initializes((6568, 6576)) %t) #1 {
+define internal noundef i32 @pderive_test_run(ptr nocapture noundef %t) #1 {
 entry:
   %got_len = alloca i64, align 8
   %data = getelementptr inbounds i8, ptr %t, i64 6600

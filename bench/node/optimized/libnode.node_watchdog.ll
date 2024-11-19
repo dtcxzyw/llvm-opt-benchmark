@@ -195,7 +195,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node8WatchdogC2EPN2v87IsolateEmPb(ptr noundef nonnull align 8 dereferenceable(1152) initializes((0, 8), (1144, 1152)) %this, ptr noundef %isolate, i64 noundef %ms, ptr noundef %timed_out) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node8WatchdogC2EPN2v87IsolateEmPb(ptr noundef nonnull align 8 dereferenceable(1152) %this, ptr noundef %isolate, i64 noundef %ms, ptr noundef %timed_out) unnamed_addr #3 align 2 {
 entry:
   store ptr %isolate, ptr %this, align 8
   %timed_out_ = getelementptr inbounds i8, ptr %this, i64 1144
@@ -327,7 +327,7 @@ declare void @_ZN2v87Isolate18TerminateExecutionEv(ptr noundef nonnull align 1 d
 declare void @uv_stop(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14SigintWatchdogC2EPN2v87IsolateEPb(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr noundef %isolate, ptr noundef %received_signal) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14SigintWatchdogC2EPN2v87IsolateEPb(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %isolate, ptr noundef %received_signal) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14SigintWatchdogE, i64 16), ptr %this, align 8
   %isolate_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -490,7 +490,7 @@ cleanup:                                          ; preds = %do.end39, %entry, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14SigintWatchdogD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14SigintWatchdogD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14SigintWatchdogE, i64 16), ptr %this, align 8
   tail call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node20SigintWatchdogHelper22instance_action_mutex_E) #15
@@ -712,7 +712,7 @@ cleanup23:                                        ; preds = %cleanup, %do.end16,
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14SigintWatchdogD0Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14SigintWatchdogD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14SigintWatchdogE, i64 16), ptr %this, align 8
   tail call void @uv_mutex_lock(ptr noundef nonnull @_ZN4node20SigintWatchdogHelper22instance_action_mutex_E) #15
@@ -982,7 +982,7 @@ declare void @_ZN4node22SetConstructorFunctionEN2v85LocalINS0_7ContextEEENS1_INS
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node19TraceSigintWatchdogC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(236) initializes((0, 8), (88, 96)) %this, ptr noundef %env, ptr %object.coerce) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node19TraceSigintWatchdogC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(236) %this, ptr noundef %env, ptr %object.coerce) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node19TraceSigintWatchdogE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 88
@@ -1259,7 +1259,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20SigintWatchdogHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(162) initializes((0, 4)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node20SigintWatchdogHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(162) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -1307,7 +1307,7 @@ do.end6:                                          ; preds = %_ZN4node9MutexBaseI
 declare i32 @uv_sem_init(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node20SigintWatchdogHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(162) initializes((0, 4)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node20SigintWatchdogHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(162) %this) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %call = tail call noundef zeroext i1 @_ZN4node20SigintWatchdogHelper4StopEv(ptr noundef nonnull align 8 dereferenceable(162) %this)

@@ -171,7 +171,7 @@ declare noundef ptr @_ZNK3irr5video18COpenGL3DriverBase15getCacheHandlerEv(ptr n
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video18COpenGL3Renderer2DC1EPKcS3_PNS0_18COpenGL3DriverBaseEb(ptr noundef nonnull align 8 dereferenceable(88) initializes((88, 108)) %this, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, ptr noundef %driver, i1 noundef zeroext %withTexture) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video18COpenGL3Renderer2DC1EPKcS3_PNS0_18COpenGL3DriverBaseEb(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %vertexShaderProgram, ptr noundef %pixelShaderProgram, ptr noundef %driver, i1 noundef zeroext %withTexture) unnamed_addr #0 align 2 {
 entry:
   %Temp = alloca i32, align 4
   %TextureUnit = alloca i32, align 4

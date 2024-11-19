@@ -72,7 +72,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515NumberingSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(86) initializes((0, 18), (72, 77)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515NumberingSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(86) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %defaultDigits = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -132,7 +132,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7515NumberingSystemC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(86) initializes((0, 18)) %this, ptr noundef nonnull align 8 dereferenceable(86) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7515NumberingSystemC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(86) %this, ptr noundef nonnull align 8 dereferenceable(86) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515NumberingSystemE, i64 16), ptr %this, align 8
   %desc = getelementptr inbounds i8, ptr %this, i64 8
@@ -262,7 +262,7 @@ declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #3
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7515NumberingSystem8setRadixEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(86) initializes((72, 76)) %this, i32 noundef %r) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_7515NumberingSystem8setRadixEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(86) %this, i32 noundef %r) local_unnamed_addr #4 align 2 {
 entry:
   %radix = getelementptr inbounds i8, ptr %this, i64 72
   store i32 %r, ptr %radix, align 8
@@ -278,7 +278,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7515NumberingSystem14setAlgorithmicEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(86) initializes((76, 77)) %this, i8 noundef signext %c) local_unnamed_addr #4 align 2 {
+define void @_ZN6icu_7515NumberingSystem14setAlgorithmicEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(86) %this, i8 noundef signext %c) local_unnamed_addr #4 align 2 {
 entry:
   %algorithmic = getelementptr inbounds i8, ptr %this, i64 76
   store i8 %c, ptr %algorithmic, align 4
@@ -806,7 +806,7 @@ declare ptr @ures_openDirect_75(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare i32 @ures_getInt_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515NumberingSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(86) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define void @_ZN6icu_7515NumberingSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(86) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515NumberingSystemE, i64 16), ptr %this, align 8
   %desc = getelementptr inbounds i8, ptr %this, i64 8
@@ -1193,7 +1193,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 declare noundef ptr @_ZNK6icu_757UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7521NumsysNameEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((116, 120)) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #4 align 2 {
+define void @_ZN6icu_7521NumsysNameEnumeration5resetER10UErrorCode(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %this, ptr nocapture nonnull readnone align 4 %0) unnamed_addr #4 align 2 {
 entry:
   %pos = getelementptr inbounds i8, ptr %this, i64 116
   store i32 0, ptr %pos, align 4

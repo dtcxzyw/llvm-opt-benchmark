@@ -6289,7 +6289,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6insertEmmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @"_ZNSt17_Function_handlerIFN12_GLOBAL__N_113DocumentationEPN4llvm6RecordEEZNS0_20extractDocumentationERNS2_12RecordKeeperEPKS3_E3$_0E9_M_invokeERKSt9_Any_dataOS4_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.(anonymous namespace)::Documentation") align 8 initializes((0, 48)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) #0 align 2 {
+define internal void @"_ZNSt17_Function_handlerIFN12_GLOBAL__N_113DocumentationEPN4llvm6RecordEEZNS0_20extractDocumentationERNS2_12RecordKeeperEPKS3_E3$_0E9_M_invokeERKSt9_Any_dataOS4_"(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.(anonymous namespace)::Documentation") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) #0 align 2 {
   %4 = alloca %"class.std::tuple.163", align 8
   %5 = alloca %"class.std::tuple.103", align 1
   %6 = alloca ptr, align 8

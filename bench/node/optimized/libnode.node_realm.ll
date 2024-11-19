@@ -372,7 +372,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5RealmC2EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEENS0_4KindE(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 8), (16, 20), (24, 32)) %this, ptr noundef %env, ptr nonnull %context.coerce, i32 noundef %kind) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node5RealmC2EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEENS0_4KindE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef %env, ptr nonnull %context.coerce, i32 noundef %kind) unnamed_addr #3 align 2 {
 if.end.i400:
   %ref.tmp = alloca %"struct.node::ContextInfo", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -471,7 +471,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5RealmD2Ev(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node5RealmD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node5RealmE, i64 16), ptr %this, align 8
   %base_object_count_ = getelementptr inbounds i8, ptr %this, i64 688
@@ -5007,7 +5007,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 declare void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node5Realm9SerializeEPN2v815SnapshotCreatorE(ptr noalias sret(%"struct.node::RealmSerializeInfo") align 8 initializes((0, 72)) %agg.result, ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef %creator) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node5Realm9SerializeEPN2v815SnapshotCreatorE(ptr noalias sret(%"struct.node::RealmSerializeInfo") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef %creator) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp30 = alloca %"struct.node::PropInfo", align 8
   %ref.tmp31 = alloca %"class.std::allocator.117", align 1
@@ -13445,7 +13445,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealmC2EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEEPKNS_18RealmSerializeInfoE(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 8), (16, 20), (24, 32)) %this, ptr noundef %env, ptr %context.coerce, ptr noundef readnone %realm_info) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealmC2EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEEPKNS_18RealmSerializeInfoE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef %env, ptr %context.coerce, ptr noundef readnone %realm_info) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node5RealmC2EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEENS0_4KindE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef %env, ptr %context.coerce, i32 noundef 0)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14PrincipalRealmE, i64 16), ptr %this, align 8
@@ -13461,7 +13461,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealmD2Ev(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealmD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node14PrincipalRealmE, i64 16), ptr %this, align 8
@@ -13483,7 +13483,7 @@ entry:
 declare void @_ZN4node11Environment19UnassignFromContextEN2v85LocalINS1_7ContextEEE(ptr noundef nonnull align 8 dereferenceable(2872), ptr) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node14PrincipalRealmD0Ev(ptr noundef nonnull align 8 dereferenceable(872) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node14PrincipalRealmD0Ev(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)

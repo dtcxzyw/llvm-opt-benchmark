@@ -461,7 +461,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @llvm.stackrestore.p0(ptr) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @sp_cond_swap_ct_ex(ptr nocapture noundef %a, ptr nocapture noundef %b, i32 noundef %cnt, i32 noundef %swap, ptr nocapture noundef initializes((0, 4)) %t) local_unnamed_addr #7 {
+define noundef i32 @sp_cond_swap_ct_ex(ptr nocapture noundef %a, ptr nocapture noundef %b, i32 noundef %cnt, i32 noundef %swap, ptr nocapture noundef %t) local_unnamed_addr #7 {
 entry:
   %conv = sext i32 %swap to i64
   %sub = sub nsw i64 0, %conv
@@ -15227,7 +15227,7 @@ declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #15
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal fastcc range(i32 -3, 1) i32 @sp_prime_miller_rabin(ptr noundef %a, ptr noundef %b, ptr nocapture noundef initializes((0, 4)) %result, ptr noundef %n1, ptr noundef %r) unnamed_addr #10 {
+define internal fastcc range(i32 -3, 1) i32 @sp_prime_miller_rabin(ptr noundef %a, ptr noundef %b, ptr nocapture noundef %result, ptr noundef %n1, ptr noundef %r) unnamed_addr #10 {
 entry:
   store i32 0, ptr %result, align 4
   %cmp.i = icmp eq ptr %b, null

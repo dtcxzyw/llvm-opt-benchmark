@@ -410,7 +410,7 @@ $_ZN14AccessInternal15RuntimeDispatchILm299078EP7oopDescLNS_11BarrierTypeE2EE10_
 @_ZN16G1FullGCMarkTaskC1EP15G1FullCollector = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN16G1FullGCMarkTaskC2EP15G1FullCollector
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1FullGCMarkTaskC2EP15G1FullCollector(ptr noundef nonnull align 8 dereferenceable(736) initializes((0, 20), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1FullGCMarkTaskC2EP15G1FullCollector(ptr noundef nonnull align 8 dereferenceable(736) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV10WorkerTask, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str, ptr %3, align 8

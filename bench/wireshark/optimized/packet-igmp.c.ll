@@ -1077,7 +1077,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare i32 @tvb_captured_length_remaining(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %4, i32 noundef range(i32 0, 4) %5) unnamed_addr #0 {
+define internal fastcc ptr @dissect_igmp_common(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4, i32 noundef range(i32 0, 4) %5) unnamed_addr #0 {
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.189, i32 noundef %5) #4

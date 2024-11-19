@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @pmix_value_array_t_class = external global %struct.pmix_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @pmix_mca_base_var_group_constructor(ptr noundef initializes((144, 496)) %0) #0 {
+define internal void @pmix_mca_base_var_group_constructor(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(352) %2, i8 0, i64 352, i1 false)
   %3 = load i32, ptr @pmix_class_init_epoch, align 4

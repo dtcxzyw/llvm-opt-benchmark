@@ -1539,7 +1539,7 @@ define internal range(i32 -1, 2) i32 @_parse_feature(ptr nocapture noundef write
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_parse_exclusives(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
+define internal noundef i32 @_parse_exclusives(ptr nocapture noundef writeonly %0, i32 %1, ptr nocapture readnone %2, ptr noundef %3, ptr nocapture readnone %4, ptr nocapture readnone %5) #0 {
   %7 = tail call ptr @xstrdup(ptr noundef %3) #10
   store ptr %7, ptr %0, align 8
   ret i32 1

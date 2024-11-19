@@ -303,7 +303,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14HeapTimekeeperC2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14HeapTimekeeperC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseIN5folly14HeapTimekeeper2OpESaIS2_EE11_M_allocateEm.exit.i.i:
   %agg.tmp.i = alloca %"class.std::unique_ptr", align 8
   %ref.tmp = alloca %"class.std::thread", align 8
@@ -2194,7 +2194,7 @@ _ZNSt6vectorIN5folly14HeapTimekeeper2OpESaIS2_EED2Ev.exit448: ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly14HeapTimekeeperD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14HeapTimekeeperD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i = alloca %class.anon.18, align 1
   %agg.tmp.i.i.i.i = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -4744,7 +4744,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly14HeapTimekeeper7TimeoutC2ERS0_NSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_7PromiseINS_4UnitEEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (24, 34), (40, 41), (48, 56)) %this, ptr noundef nonnull align 8 dereferenceable(80) %timekeeper, i64 %exp.coerce, ptr nocapture noundef %promise) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly14HeapTimekeeper7TimeoutC2ERS0_NSt6chrono10time_pointINS3_3_V212steady_clockENS3_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_7PromiseINS_4UnitEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(80) %timekeeper, i64 %exp.coerce, ptr nocapture noundef %promise) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i.i = alloca %"class.folly::exception_wrapper", align 8
   %fn_.i.i = alloca %class.anon.89, align 8

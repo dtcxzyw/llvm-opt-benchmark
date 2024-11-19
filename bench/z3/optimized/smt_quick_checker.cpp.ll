@@ -121,7 +121,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt13quick_checker9collectorC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 17), (24, 48)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt13quick_checker9collectorC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(11616) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %c, ptr %this, align 8
   %m_manager = getelementptr inbounds i8, ptr %this, i64 8
@@ -243,7 +243,7 @@ _ZN6vectorIbLb0EjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt13quick_checker9collector4initEP10quantifier(ptr noundef nonnull align 8 dereferenceable(72) initializes((20, 24)) %this, ptr nocapture noundef readonly %q) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt13quick_checker9collector4initEP10quantifier(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %q) local_unnamed_addr #3 align 2 {
 entry:
   %m_num_decls.i = getelementptr inbounds i8, ptr %q, i64 20
   %0 = load i32, ptr %m_num_decls.i, align 4
@@ -1621,7 +1621,7 @@ for.end13:                                        ; preds = %for.inc12, %_ZN6vec
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt13quick_checker9collectorclEP10quantifierbR6vectorI10ptr_vectorINS_5enodeEELb1EjE(ptr noundef nonnull align 8 dereferenceable(72) initializes((20, 24)) %this, ptr nocapture noundef readonly %q, i1 noundef zeroext %conservative, ptr noundef nonnull align 8 dereferenceable(8) %candidates) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt13quick_checker9collectorclEP10quantifierbR6vectorI10ptr_vectorINS_5enodeEELb1EjE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef readonly %q, i1 noundef zeroext %conservative, ptr noundef nonnull align 8 dereferenceable(8) %candidates) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i.i = alloca %"struct.smt::quick_checker::collector::entry", align 8
   %e.i = alloca %"struct.smt::quick_checker::collector::entry", align 8
@@ -1701,7 +1701,7 @@ lpad:                                             ; preds = %.noexc, %if.end10.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt13quick_checkerC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 33), (40, 64)) %this, ptr noundef nonnull align 8 dereferenceable(11616) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt13quick_checkerC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(11616) %c) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %c, ptr %this, align 8
   %m_manager = getelementptr inbounds i8, ptr %this, i64 8

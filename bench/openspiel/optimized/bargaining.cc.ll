@@ -1919,7 +1919,7 @@ define noundef zeroext i1 @_ZNK10open_spiel10bargaining15BargainingState10IsTerm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10bargaining15BargainingState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.29") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(169) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10bargaining15BargainingState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.29") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(169) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %4 = load i8, ptr %3, align 8
   %5 = trunc i8 %4 to i1
@@ -10509,7 +10509,7 @@ _ZN10open_spiel10bargaining5OfferD2Ev.exit:       ; preds = %_ZSteqIiSaIiEEbRKSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10bargaining14BargainingGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.9") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10bargaining14BargainingGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.9") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %4 = load i32, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -10526,7 +10526,7 @@ define void @_ZNK10open_spiel10bargaining14BargainingGame22ObservationTensorShap
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10bargaining14BargainingGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.9") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10bargaining14BargainingGame27InformationStateTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.9") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(352) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %4 = load i32, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

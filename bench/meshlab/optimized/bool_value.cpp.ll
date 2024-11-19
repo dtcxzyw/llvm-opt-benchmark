@@ -204,14 +204,14 @@ define linkonce_odr noundef zeroext i1 @_ZNK5Value7isColorEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9BoolValue8typeNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 {
+define void @_ZNK9BoolValue8typeNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #2 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str, i32 noundef 4)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9BoolValue3setERK5Value(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((8, 9)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 align 2 {
+define void @_ZN9BoolValue3setERK5Value(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #2 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8
@@ -351,7 +351,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9BoolValueC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0, i1 noundef zeroext %1) unnamed_addr #7 align 2 {
+define void @_ZN9BoolValueC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0, i1 noundef zeroext %1) unnamed_addr #7 align 2 {
   %3 = zext i1 %1 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTV9BoolValue, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

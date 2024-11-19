@@ -88,7 +88,7 @@ $_ZNK7rocksdb10WriteBatch7Handler18WriteBeforePrepareEv = comdat any
 @_ZN7rocksdb24TimestampRecoveryHandlerC1ERKSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEESC_ = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN7rocksdb24TimestampRecoveryHandlerC2ERKSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEESC_
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24TimestampRecoveryHandlerC2ERKSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEESC_(ptr noundef nonnull align 8 dereferenceable(34) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(56) %running_ts_sz, ptr noundef nonnull align 8 dereferenceable(56) %record_ts_sz) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24TimestampRecoveryHandlerC2ERKSt13unordered_mapIjmSt4hashIjESt8equal_toIjESaISt4pairIKjmEEESC_(ptr noundef nonnull align 8 dereferenceable(34) %this, ptr noundef nonnull align 8 dereferenceable(56) %running_ts_sz, ptr noundef nonnull align 8 dereferenceable(56) %record_ts_sz) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb24TimestampRecoveryHandlerE, i64 16), ptr %this, align 8
   %running_ts_sz_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -2095,7 +2095,7 @@ _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit:       ; preds = %entry, %if.end.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb25MaybeAddTimestampsToRangeEPKNS_5SliceES2_mPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_b(ptr noalias nocapture writeonly sret(%"class.std::tuple.34") align 8 initializes((0, 17), (24, 41)) %agg.result, ptr noundef %start, ptr noundef %end, i64 noundef %ts_sz, ptr noundef %start_with_ts, ptr noundef %end_with_ts, i1 noundef zeroext %exclusive_end) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb25MaybeAddTimestampsToRangeEPKNS_5SliceES2_mPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_b(ptr noalias nocapture writeonly sret(%"class.std::tuple.34") align 8 %agg.result, ptr noundef %start, ptr noundef %end, i64 noundef %ts_sz, ptr noundef %start_with_ts, ptr noundef %end_with_ts, i1 noundef zeroext %exclusive_end) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %start, null
   br i1 %tobool.not, label %if.end3, label %if.then

@@ -254,7 +254,7 @@ declare dso_local ptr @d_hash_and_lookup(ptr noundef, ptr noundef) local_unnamed
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @sel_init_fs_context(ptr nocapture noundef writeonly initializes((0, 8)) %0) #4 align 16 {
+define internal noundef i32 @sel_init_fs_context(ptr nocapture noundef writeonly %0) #4 align 16 {
   store ptr @sel_context_ops, ptr %0, align 8
   ret i32 0
 }

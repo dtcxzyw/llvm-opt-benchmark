@@ -1326,7 +1326,7 @@ declare double @llvm.fabs.f64(double) #11
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30MultiplicativePriceSeasonalityC2ERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %seasonalityBaseDate, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seasonalityFactors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30MultiplicativePriceSeasonalityC2ERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %seasonalityBaseDate, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seasonalityFactors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 96) (i8, ptr @_ZTVN8QuantLib30MultiplicativePriceSeasonalityE, i64 16), ptr %this, align 8, !tbaa !3
   %seasonalityBaseDate_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1362,7 +1362,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i, %lpa
 declare void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib30MultiplicativePriceSeasonality3setERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((16, 20)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %seasonalityBaseDate, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seasonalityFactors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib30MultiplicativePriceSeasonality3setERKNS_4DateENS_9FrequencyERKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %seasonalityBaseDate, i32 noundef %frequency, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %seasonalityFactors) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frequency_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %frequency, ptr %frequency_, align 8, !tbaa !25
@@ -1471,7 +1471,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib30MultiplicativePriceSeasonality18seasonalityFactorsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib30MultiplicativePriceSeasonality18seasonalityFactorsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %seasonalityFactors_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32

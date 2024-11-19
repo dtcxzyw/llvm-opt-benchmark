@@ -632,7 +632,7 @@ define hidden void @_ZN12G1HeapRegion22setup_heap_region_sizeEm(i64 noundef %0) 
 declare void @_Z15report_vm_errorPKciS0_S0_z(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12G1HeapRegion25handle_evacuation_failureEb(ptr noundef nonnull align 8 dereferenceable(136) initializes((64, 68), (104, 108)) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN12G1HeapRegion25handle_evacuation_failureEb(ptr noundef nonnull align 8 dereferenceable(136) %0, i1 noundef zeroext %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
@@ -729,7 +729,7 @@ declare void @_ZN18G1HeapRegionRemSet16clean_code_rootsEP12G1HeapRegion(ptr noun
 declare void @_ZN18G1HeapRegionRemSet5clearEbb(ptr noundef nonnull align 8 dereferenceable(84), i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12G1HeapRegion16unlink_from_listEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((72, 88)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12G1HeapRegion16unlink_from_listEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   ret void
@@ -1045,7 +1045,7 @@ define hidden void @_ZN12G1HeapRegion23set_continues_humongousEPS_(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12G1HeapRegion15clear_humongousEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((56, 64)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12G1HeapRegion15clear_humongousEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr null, ptr %2, align 8
   ret void
@@ -1062,7 +1062,7 @@ define hidden void @_ZN12G1HeapRegion23prepare_remset_for_scanEv(ptr nocapture n
 declare void @_ZN18G1HeapRegionRemSet19reset_table_scannerEv(ptr noundef nonnull align 8 dereferenceable(84)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12G1HeapRegionC2EjP18G1BlockOffsetTable9MemRegionP22G1CardSetConfiguration(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 16)) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef %5) unnamed_addr #1 align 2 {
+define hidden void @_ZN12G1HeapRegionC2EjP18G1BlockOffsetTable9MemRegionP22G1CardSetConfiguration(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef %5) unnamed_addr #1 align 2 {
   store ptr %3, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = getelementptr inbounds ptr, ptr %3, i64 %4
@@ -1229,7 +1229,7 @@ _ZN12G1HeapRegion8hr_clearEb.exit:                ; preds = %_ZN12G1HeapRegion25
 declare void @_ZN18G1HeapRegionTracer23send_region_type_changeEjN21G1HeapRegionTraceType4TypeES1_mm(i32 noundef, i32 noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12G1HeapRegion23note_evacuation_failureEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((96, 104)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN12G1HeapRegion23note_evacuation_failureEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   store i64 0, ptr %2, align 8
   ret void

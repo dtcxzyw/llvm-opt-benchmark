@@ -705,7 +705,7 @@ dom_lexbor_tree_error_code_to_string.exit21:      ; preds = %23, %switch.lookup2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull initializes((88, 144), (152, 160)) %2, ptr nocapture noundef nonnull writeonly initializes((8, 24)) %3) unnamed_addr #0 {
+define internal fastcc void @dom_setup_parser_encoding_implicitly(ptr nocapture noundef nonnull %0, ptr nocapture noundef nonnull %1, ptr noundef nonnull %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.lxb_html_encoding_t, align 8
   %6 = load ptr, ptr %0, align 8
   %7 = load i64, ptr %1, align 8
@@ -1913,7 +1913,7 @@ define internal range(i32 -1, 1) i32 @dom_write_output_stream(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @dom_common_save(ptr noundef nonnull initializes((0, 48)) %0, ptr %.112.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @dom_common_save(ptr noundef nonnull %0, ptr %.112.val, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.lxb_encoding_encode_t, align 8
   %4 = alloca %struct.lxb_encoding_decode_t, align 8
   %5 = alloca [4096 x i8], align 16

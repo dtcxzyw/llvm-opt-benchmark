@@ -17631,7 +17631,7 @@ _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %_ZN8pybind116class_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN8pybind1112cpp_functionC2IRZ37test_submodule_methods_and_attributesRNS_7module_EE4$_11JNS_19return_value_policyEEvEEOT_DpRKT0_"(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN8pybind1112cpp_functionC2IRZ37test_submodule_methods_and_attributesRNS_7module_EE4$_11JNS_19return_value_policyEEvEEOT_DpRKT0_"(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 1 dereferenceable(1) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
@@ -17696,7 +17696,7 @@ define internal fastcc void @"_ZN8pybind1112cpp_functionC2IRZ37test_submodule_me
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN8pybind1112cpp_functionC2IRZ37test_submodule_methods_and_attributesRNS_7module_EE4$_13JEvEEOT_DpRKT0_"(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN8pybind1112cpp_functionC2IRZ37test_submodule_methods_and_attributesRNS_7module_EE4$_13JEvEEOT_DpRKT0_"(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr", align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -70980,7 +70980,7 @@ _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %_ZN8pybind116class_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN8pybind1112cpp_functionC2IRKZ37test_submodule_methods_and_attributesRNS_7module_EE4$_10JEvEEOT_DpRKT0_"(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN8pybind1112cpp_functionC2IRKZ37test_submodule_methods_and_attributesRNS_7module_EE4$_10JEvEEOT_DpRKT0_"(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr", align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -71121,7 +71121,7 @@ _ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN8pybind1112cpp_functionC2IRKZ37test_submodule_methods_and_attributesRNS_7module_EE4$_11JEvEEOT_DpRKT0_"(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN8pybind1112cpp_functionC2IRKZ37test_submodule_methods_and_attributesRNS_7module_EE4$_11JEvEEOT_DpRKT0_"(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::unique_ptr", align 8
   store ptr null, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)

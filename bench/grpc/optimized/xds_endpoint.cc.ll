@@ -1437,7 +1437,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9grpc_core23XdsEndpointResourceType6DecodeERKNS_15XdsResourceType13DecodeContextESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.grpc_core::XdsResourceType::DecodeResult") align 8 initializes((32, 33)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, i64 %serialized_resource.coerce0, ptr %serialized_resource.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9grpc_core23XdsEndpointResourceType6DecodeERKNS_15XdsResourceType13DecodeContextESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias sret(%"struct.grpc_core::XdsResourceType::DecodeResult") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %context, i64 %serialized_resource.coerce0, ptr %serialized_resource.coerce1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__guard.i.i = alloca %struct._Guard, align 8
   %ref.tmp.i34.i.i = alloca %"struct.grpc_core::XdsEndpointResource::DropConfig::DropCategory", align 8

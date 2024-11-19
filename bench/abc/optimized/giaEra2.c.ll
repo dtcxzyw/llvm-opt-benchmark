@@ -4393,7 +4393,7 @@ Gia_ManAreCreateSta.exit:                         ; preds = %10, %28
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Gia_ManAreCubeProcess(ptr noundef initializes((164, 168)) %0, ptr noundef %1) unnamed_addr #4 {
+define internal fastcc void @Gia_ManAreCubeProcess(ptr noundef %0, ptr noundef %1) unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 164
   store i32 0, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5875,7 +5875,7 @@ Abc_Clock.exit128:                                ; preds = %Abc_Clock.exit126, 
 declare ptr @Gia_ManDup(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Gia_ManAreDeriveCex(ptr nocapture noundef initializes((112, 152)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef ptr @Gia_ManAreDeriveCex(ptr nocapture noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   tail call void @Gia_ManAreDeriveCexSatStart(ptr noundef %0)
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -6098,7 +6098,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %99
 declare i32 @Gia_ManVerifyCex(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManAreDeriveCexSatStart(ptr nocapture noundef initializes((112, 152)) %0) local_unnamed_addr #4 {
+define void @Gia_ManAreDeriveCexSatStart(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call ptr @Gia_ManToAig(ptr noundef %2, i32 noundef 0) #26
   tail call void @Aig_ManSetRegNum(ptr noundef %3, i32 noundef 0) #26
@@ -6157,7 +6157,7 @@ declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #5
 declare void @Aig_ManStop(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManAreDeriveCexSatStop(ptr nocapture noundef initializes((152, 160)) %0) local_unnamed_addr #4 {
+define void @Gia_ManAreDeriveCexSatStop(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
   tail call void @sat_solver_delete(ptr noundef %3) #26

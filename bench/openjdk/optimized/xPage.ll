@@ -62,7 +62,7 @@ $_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm = c
 @_ZN5XPageD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN5XPageD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5XPageC2ERK14XVirtualMemoryRK15XPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 2), (4, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN5XPageC2ERK14XVirtualMemoryRK15XPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %1, align 8
@@ -113,7 +113,7 @@ _ZN5XPageC2EhRK14XVirtualMemoryRK15XPhysicalMemory.exit: ; preds = %3, %_ZNK5XPa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5XPageC2EhRK14XVirtualMemoryRK15XPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 2), (4, 24)) %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN5XPageC2EhRK14XVirtualMemoryRK15XPhysicalMemory(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 noundef zeroext %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) unnamed_addr #0 align 2 {
   store i8 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1
   store i8 -1, ptr %5, align 1
@@ -180,7 +180,7 @@ define hidden void @_ZNK5XPage18assert_initializedEv(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5XPageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((104, 108)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN5XPageD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 108
@@ -210,7 +210,7 @@ _ZN15XPhysicalMemoryD2Ev.exit:                    ; preds = %1, %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN5XPage5resetEv(ptr noundef nonnull align 8 dereferenceable(136) initializes((4, 8)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN5XPage5resetEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr @XGlobalSeqNum, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %3, align 4
@@ -226,7 +226,7 @@ define hidden void @_ZN5XPage5resetEv(ptr noundef nonnull align 8 dereferenceabl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN5XPage29reset_for_in_place_relocationEv(ptr noundef nonnull align 8 dereferenceable(136) initializes((4, 8)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN5XPage29reset_for_in_place_relocationEv(ptr noundef nonnull align 8 dereferenceable(136) %0) local_unnamed_addr #4 align 2 {
   %2 = load i32, ptr @XGlobalSeqNum, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %3, align 4
@@ -238,7 +238,7 @@ define hidden void @_ZN5XPage29reset_for_in_place_relocationEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull ptr @_ZN5XPage6retypeEh(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((0, 1)) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN5XPage6retypeEh(ptr noundef nonnull returned align 8 dereferenceable(136) %0, i8 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   store i8 %1, ptr %0, align 8
   %cond.i = icmp eq i8 %1, 2
   br i1 %cond.i, label %_ZNK5XPage16object_max_countEv.exit, label %3

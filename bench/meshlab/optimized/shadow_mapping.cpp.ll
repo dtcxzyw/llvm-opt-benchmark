@@ -1071,7 +1071,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN13ShadowMappingC2Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 9), (12, 28), (32, 44)) %0, float noundef %1) unnamed_addr #12 align 2 {
+define void @_ZN13ShadowMappingC2Ef(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %0, float noundef %1) unnamed_addr #12 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1093,7 +1093,7 @@ define void @_ZN13ShadowMappingC2Ef(ptr nocapture noundef nonnull writeonly alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN13ShadowMappingD2Ev(ptr noundef nonnull align 8 dereferenceable(44) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN13ShadowMappingD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13ShadowMapping, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @__glewDetachShader, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32

@@ -59,13 +59,13 @@ $_ZTVN5nblib14NbLibExceptionE = comdat any
 @_ZN5nblib3BoxC1Efff = unnamed_addr alias void (ptr, float, float, float), ptr @_ZN5nblib3BoxC2Efff
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib3BoxC2Ef(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) initializes((0, 36)) %0, float noundef %1) unnamed_addr #0 align 2 {
+define void @_ZN5nblib3BoxC2Ef(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) %0, float noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN5nblib3BoxC2Efff(ptr noundef nonnull align 4 dereferenceable(36) %0, float noundef %1, float noundef %1, float noundef %1)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib3BoxC2Efff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) initializes((0, 36)) %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib3BoxC2Efff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(36) %0, float noundef %1, float noundef %2, float noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %0, i8 0, i64 36, i1 false)

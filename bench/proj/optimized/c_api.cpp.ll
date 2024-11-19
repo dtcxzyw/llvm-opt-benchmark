@@ -1100,7 +1100,7 @@ _ZNSt10shared_ptrIN5osgeo4proj2io15DatabaseContextEED2Ev.exit: ; preds = %_ZNSt6
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14projCppContextC2EP6pj_ctxPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 24)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14projCppContextC2EP6pj_ctxPKcRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1359,7 +1359,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN14projCppContext8toVectorB5cxx11EPKPKc(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN14projCppContext8toVectorB5cxx11EPKPKc(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef readonly %1) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -2719,7 +2719,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs11GeodeticCRSELN9__gnu_cxx12_Lock_policyE2EE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PJ_OBJ_LISTD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11PJ_OBJ_LISTD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -2931,7 +2931,7 @@ _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16Iden
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN11PJ_OBJ_LISTD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11PJ_OBJ_LISTD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -72530,7 +72530,7 @@ define void @proj_operation_factory_context_set_allow_ballpark_transformations(p
 declare void @_ZN5osgeo4proj9operation26CoordinateOperationContext31setAllowBallparkTransformationsEb(ptr noundef nonnull align 8 dereferenceable(16), i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN17PJ_OPERATION_LISTC2EP6pj_ctxPK8PJconstsS4_OSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaISF_EE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17PJ_OPERATION_LISTC2EP6pj_ctxPK8PJconstsS4_OSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common16IdentifiedObjectEEEESaISF_EE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(24) %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV11PJ_OBJ_LIST, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load ptr, ptr %4, align 8
@@ -72571,7 +72571,7 @@ define hidden void @_ZN17PJ_OPERATION_LISTC2EP6pj_ctxPK8PJconstsS4_OSt6vectorIN7
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17PJ_OPERATION_LISTD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN17PJ_OPERATION_LISTD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV17PJ_OPERATION_LIST, i64 16), ptr %0, align 8
   %2 = invoke ptr @proj_context_create()
           to label %3 unwind label %68
@@ -72750,7 +72750,7 @@ declare void @proj_assign_context(ptr noundef, ptr noundef) local_unnamed_addr #
 declare ptr @proj_context_destroy(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17PJ_OPERATION_LISTD0Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17PJ_OPERATION_LISTD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN17PJ_OPERATION_LISTD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) #29
   tail call void @_ZdlPv(ptr noundef nonnull %0) #30
   ret void

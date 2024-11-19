@@ -821,7 +821,7 @@ define internal i32 @pkcs1pad_verify(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pkcs1pad_set_pub_key(ptr nocapture noundef initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @pkcs1pad_set_pub_key(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %5, align 8
@@ -854,7 +854,7 @@ define internal i32 @pkcs1pad_set_pub_key(ptr nocapture noundef initializes((48,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @pkcs1pad_set_priv_key(ptr nocapture noundef initializes((48, 52)) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define internal i32 @pkcs1pad_set_priv_key(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 0, ptr %5, align 8
@@ -939,7 +939,7 @@ define internal void @pkcs1pad_encrypt_sign_complete_cb(ptr nocapture noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef i32 @pkcs1pad_encrypt_sign_complete(ptr nocapture noundef initializes((68, 72)) %0, i32 noundef %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef i32 @pkcs1pad_encrypt_sign_complete(ptr nocapture noundef %0, i32 noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq i32 %1, 0

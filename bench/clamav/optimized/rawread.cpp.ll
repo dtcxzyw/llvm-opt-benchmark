@@ -12,13 +12,13 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN7RawReadC1EP4File = unnamed_addr alias void (ptr, ptr), ptr @_ZN7RawReadC2EP4File
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7RawReadC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7RawReadC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, i8 0, i64 64, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7RawRead5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((8, 16), (40, 64)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN7RawRead5ResetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -29,7 +29,7 @@ define void @_ZN7RawRead5ResetEv(ptr nocapture noundef nonnull writeonly align 8
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN7RawReadC2EP4File(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7RawReadC2EP4File(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
@@ -627,7 +627,7 @@ define noundef i32 @_ZN7RawRead8GetCRC50Ev(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i64 @_Z7RawGetVPKhRjjRb(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %3) local_unnamed_addr #9 {
+define noundef i64 @_Z7RawGetVPKhRjjRb(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %3) local_unnamed_addr #9 {
   store i8 0, ptr %3, align 1
   %.promoted = load i32, ptr %1, align 4
   %5 = icmp ult i32 %.promoted, %2

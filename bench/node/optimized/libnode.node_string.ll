@@ -399,7 +399,7 @@ declare void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strE
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN4node9inspector8protocol10StringUtil8toDoubleEPKcmPb(ptr noundef %buffer, i64 noundef %length, ptr nocapture noundef writeonly initializes((0, 1)) %ok) local_unnamed_addr #0 {
+define dso_local noundef double @_ZN4node9inspector8protocol10StringUtil8toDoubleEPKcmPb(ptr noundef %buffer, i64 noundef %length, ptr nocapture noundef writeonly %ok) local_unnamed_addr #0 {
 entry:
   %stream = alloca %"class.std::__cxx11::basic_istringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

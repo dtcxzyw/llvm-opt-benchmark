@@ -827,7 +827,7 @@ _ZN2cv3PtrINS_4usac30EpipolarGeometryDegeneracyImplEED2Ev.exit: ; preds = %.noex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4usac20HomographyDegeneracy6createERKNS_3MatE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.5") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4usac20HomographyDegeneracy6createERKNS_3MatE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.5") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_4usac24HomographyDegeneracyImplEED2Ev.exit:
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::shared_ptr.10", align 8

@@ -1313,7 +1313,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z33gmx_fio_get_output_file_positionsv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.5") align 8 initializes((0, 24)) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z33gmx_fio_get_output_file_positionsv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.5") align 8 %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca [4096 x i8], align 16
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

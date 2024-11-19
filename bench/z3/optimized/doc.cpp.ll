@@ -4631,7 +4631,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11doc_manager10complementERK3docR6bufferIPS0_Lb0ELj8EE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %src, ptr noundef nonnull align 8 dereferenceable(80) initializes((8, 12)) %result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11doc_manager10complementERK3docR6bufferIPS0_Lb0ELj8EE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %src, ptr noundef nonnull align 8 dereferenceable(80) %result) local_unnamed_addr #3 align 2 {
 entry:
   %m_pos.i = getelementptr inbounds i8, ptr %result, i64 8
   store i32 0, ptr %m_pos.i, align 8
@@ -5898,7 +5898,7 @@ declare void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8)
 declare void @_ZN3smt6kernelC1ER11ast_managerR10smt_paramsRK10params_ref(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(976), ptr noundef nonnull align 8 dereferenceable(800), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11doc_manager10to_formulaER11ast_managerRK3doc(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %src) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11doc_manager10to_formulaER11ast_managerRK3doc(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef nonnull readonly align 8 dereferenceable(88) %src) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %conj = alloca %class.ref_vector, align 8
   %ref.tmp = alloca %class.obj_ref, align 8
@@ -7312,7 +7312,7 @@ eh.resume:                                        ; preds = %ehcleanup21, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11doc_manager10to_formulaER11ast_managerRK3tbv(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %src) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11doc_manager10to_formulaER11ast_managerRK3tbv(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %src) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conj = alloca %class.ref_vector, align 8
   %ref.tmp = alloca %class.symbol, align 8
@@ -7652,7 +7652,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11doc_manager6mk_varER11ast_managerj(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %i) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11doc_manager6mk_varER11ast_managerj(ptr noalias nocapture writeonly sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, i32 noundef %i) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %class.symbol, align 8
   %conv.i = zext i32 %i to i64

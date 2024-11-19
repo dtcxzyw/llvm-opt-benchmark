@@ -254,7 +254,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN104_$LT$aws_smithy_async..future..timeout..Timeout$LT$T$C$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h5fb3e46073f1686dE"(ptr noalias nocapture noundef writeonly sret({ i64, [31 x i64] }) align 8 dereferenceable(256) initializes((0, 8)) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define hidden void @"_ZN104_$LT$aws_smithy_async..future..timeout..Timeout$LT$T$C$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h5fb3e46073f1686dE"(ptr noalias nocapture noundef writeonly sret({ i64, [31 x i64] }) align 8 dereferenceable(256) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { i64, [31 x i64] }, align 8
   call void @"_ZN18aws_smithy_runtime6client12orchestrator6try_op28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h40f85af361f66da7E.llvm.16214660704857022774"(ptr noalias nocapture noundef nonnull sret({ i64, [31 x i64] }) align 8 dereferenceable(256) %4, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %5 = load i64, ptr %4, align 8, !range !4, !noundef !5
@@ -283,7 +283,7 @@ define hidden void @"_ZN104_$LT$aws_smithy_async..future..timeout..Timeout$LT$T$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN104_$LT$aws_smithy_async..future..timeout..Timeout$LT$T$C$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hde7a931b5ecfae0dE"(ptr noalias nocapture noundef writeonly sret({ i64, [132 x i64] }) align 8 dereferenceable(1064) initializes((0, 8)) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define hidden void @"_ZN104_$LT$aws_smithy_async..future..timeout..Timeout$LT$T$C$S$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hde7a931b5ecfae0dE"(ptr noalias nocapture noundef writeonly sret({ i64, [132 x i64] }) align 8 dereferenceable(1064) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca { i64, [132 x i64] }, align 8
   call void @"_ZN18aws_smithy_runtime6client12orchestrator22invoke_with_stop_point28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h7e2f49dd9125b837E.llvm.16214660704857022774"(ptr noalias nocapture noundef nonnull sret({ i64, [132 x i64] }) align 8 dereferenceable(1064) %4, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
   %5 = load i64, ptr %4, align 8, !range !6, !noundef !5

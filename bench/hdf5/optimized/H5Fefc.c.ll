@@ -636,7 +636,7 @@ define i32 @H5F__efc_max_nfiles(ptr nocapture noundef readonly %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__efc_release(ptr nocapture noundef initializes((36, 40)) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__efc_release(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 -2, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8

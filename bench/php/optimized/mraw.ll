@@ -444,7 +444,7 @@ define hidden i64 @lexbor_mraw_data_size_noi(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_mraw_data_size_set_noi(ptr nocapture noundef writeonly initializes((-8, 0)) %0, i64 noundef %1) local_unnamed_addr #5 {
+define hidden void @lexbor_mraw_data_size_set_noi(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -8
   store i64 %1, ptr %3, align 1
   ret void

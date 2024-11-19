@@ -1742,7 +1742,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 declare i32 @gpr_cpu_current_cpu() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL12cq_init_nextPvP29grpc_completion_queue_functor(ptr noundef initializes((0, 120)) %data, ptr nocapture readnone %0) #17 {
+define internal void @_ZL12cq_init_nextPvP29grpc_completion_queue_functor(ptr noundef %data, ptr nocapture readnone %0) #17 {
 entry:
   %queue_.i.i = getelementptr inbounds i8, ptr %data, i64 8
   %stub_.i.i.i = getelementptr inbounds i8, ptr %data, i64 80
@@ -2799,7 +2799,7 @@ ehcleanup143:                                     ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL13cq_init_pluckPvP29grpc_completion_queue_functor(ptr noundef initializes((48, 66), (68, 72)) %data, ptr nocapture readnone %0) #17 {
+define internal void @_ZL13cq_init_pluckPvP29grpc_completion_queue_functor(ptr noundef %data, ptr nocapture readnone %0) #17 {
 entry:
   %pending_events.i = getelementptr inbounds i8, ptr %data, i64 48
   store i64 1, ptr %pending_events.i, align 8
@@ -3800,7 +3800,7 @@ ehcleanup134:                                     ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL16cq_init_callbackPvP29grpc_completion_queue_functor(ptr nocapture noundef writeonly initializes((0, 9), (16, 24)) %data, ptr noundef %shutdown_callback) #17 {
+define internal void @_ZL16cq_init_callbackPvP29grpc_completion_queue_functor(ptr nocapture noundef writeonly %data, ptr noundef %shutdown_callback) #17 {
 entry:
   store i64 1, ptr %data, align 8
   %shutdown_called.i = getelementptr inbounds i8, ptr %data, i64 8
@@ -4809,7 +4809,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123non_polling_poller_initEP12grpc_pollsetPPl(ptr noundef %pollset, ptr nocapture noundef writeonly initializes((0, 8)) %mu) #7 {
+define internal void @_ZN12_GLOBAL__N_123non_polling_poller_initEP12grpc_pollsetPPl(ptr noundef %pollset, ptr nocapture noundef writeonly %mu) #7 {
 entry:
   tail call void @gpr_mu_init(ptr noundef %pollset)
   store ptr %pollset, ptr %mu, align 8
@@ -4817,7 +4817,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_123non_polling_poller_kickEP12grpc_pollsetP19grpc_pollset_worker(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef %pollset, ptr noundef %specific_worker) #7 {
+define internal void @_ZN12_GLOBAL__N_123non_polling_poller_kickEP12grpc_pollsetP19grpc_pollset_worker(ptr noalias nocapture writeonly sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr nocapture noundef %pollset, ptr noundef %specific_worker) #7 {
 entry:
   %cmp = icmp eq ptr %specific_worker, null
   br i1 %cmp, label %if.end, label %if.then2

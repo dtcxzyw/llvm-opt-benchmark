@@ -368,7 +368,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qemu_console_set_window_id(ptr nocapture noundef writeonly initializes((144, 148)) %con, i32 noundef %window_id) local_unnamed_addr #4 {
+define dso_local void @qemu_console_set_window_id(ptr nocapture noundef writeonly %con, i32 noundef %window_id) local_unnamed_addr #4 {
 entry:
   %window_id1 = getelementptr inbounds i8, ptr %con, i64 144
   store i32 %window_id, ptr %window_id1, align 8
@@ -1545,7 +1545,7 @@ if.end15:                                         ; preds = %land.lhs.true, %if.
 declare void @qemu_text_console_update_cursor() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @update_displaychangelistener(ptr nocapture noundef initializes((0, 8)) %dcl, i64 noundef %interval) local_unnamed_addr #0 {
+define dso_local void @update_displaychangelistener(ptr nocapture noundef %dcl, i64 noundef %interval) local_unnamed_addr #0 {
 entry:
   %ds1 = getelementptr inbounds i8, ptr %dcl, i64 16
   %0 = load ptr, ptr %ds1, align 8
@@ -2715,7 +2715,7 @@ for.end:                                          ; preds = %for.inc, %if.end
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gl_scanout_texture(ptr noundef initializes((64, 68), (72, 77), (80, 112)) %con, i32 noundef %backing_id, i1 noundef zeroext %backing_y_0_top, i32 noundef %backing_width, i32 noundef %backing_height, i32 noundef %x, i32 noundef %y, i32 noundef %width, i32 noundef %height, ptr noundef %d3d_tex2d) local_unnamed_addr #0 {
+define dso_local void @dpy_gl_scanout_texture(ptr noundef %con, i32 noundef %backing_id, i1 noundef zeroext %backing_y_0_top, i32 noundef %backing_width, i32 noundef %backing_height, i32 noundef %x, i32 noundef %y, i32 noundef %width, i32 noundef %height, ptr noundef %d3d_tex2d) local_unnamed_addr #0 {
 entry:
   %frombool = zext i1 %backing_y_0_top to i8
   %ds = getelementptr inbounds i8, ptr %con, i64 48
@@ -2784,7 +2784,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @dpy_gl_scanout_dmabuf(ptr noundef initializes((64, 68), (72, 80)) %con, ptr noundef %dmabuf) local_unnamed_addr #0 {
+define dso_local void @dpy_gl_scanout_dmabuf(ptr noundef %con, ptr noundef %dmabuf) local_unnamed_addr #0 {
 entry:
   %ds = getelementptr inbounds i8, ptr %con, i64 48
   %0 = load ptr, ptr %ds, align 8
@@ -3135,7 +3135,7 @@ declare ptr @container_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @object_get_root() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @graphic_console_set_hwops(ptr nocapture noundef writeonly initializes((184, 200)) %con, ptr noundef %hw_ops, ptr noundef %opaque) local_unnamed_addr #4 {
+define dso_local void @graphic_console_set_hwops(ptr nocapture noundef writeonly %con, ptr noundef %hw_ops, ptr noundef %opaque) local_unnamed_addr #4 {
 entry:
   %hw_ops1 = getelementptr inbounds i8, ptr %con, i64 184
   store ptr %hw_ops, ptr %hw_ops1, align 8
@@ -4563,7 +4563,7 @@ declare void @qemu_log(ptr noundef, ...) local_unnamed_addr #1
 declare i32 @qemu_get_thread_id() local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @gui_update(ptr nocapture noundef initializes((24, 25)) %opaque) #0 {
+define internal void @gui_update(ptr nocapture noundef %opaque) #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   %refreshing = getelementptr inbounds i8, ptr %opaque, i64 24

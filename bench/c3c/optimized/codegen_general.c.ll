@@ -461,7 +461,7 @@ define dso_local zeroext i1 @type_homogenous_aggregate_small_enough(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 {
+define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   store i32 0, ptr %2, align 4
   %5 = load i32, ptr %0, align 8
@@ -782,7 +782,7 @@ define dso_local i32 @type_alloca_alignment(ptr noundef %0) local_unnamed_addr #
 declare i32 @type_abi_alignment(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @codegen_setup_object_names(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local void @codegen_setup_object_names(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @module_create_object_file_name(ptr noundef %0) #4
   %6 = load i32, ptr getelementptr inbounds (i8, ptr @active_target, i64 228), align 4
   %7 = icmp eq i32 %6, 1

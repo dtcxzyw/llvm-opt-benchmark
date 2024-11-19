@@ -1782,7 +1782,7 @@ define internal { ptr, i64 } @_ZNK12_GLOBAL__N_111GlobalMerge11getPassNameEv(ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_111GlobalMerge16doInitializationERN4llvm6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((44, 48)) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_111GlobalMerge16doInitializationERN4llvm6ModuleE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(857) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.(anonymous namespace)::GlobalMergeImpl", align 8
   %4 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL22GlobalMergeMinDataSize, i64 8), align 8
   %.not = icmp eq i16 %4, 0

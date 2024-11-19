@@ -212,7 +212,7 @@ define void @_ZN7mitsuba12MemoryStreamC2EPvm(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7mitsuba12MemoryStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(57) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN7mitsuba12MemoryStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7mitsuba12MemoryStreamE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
@@ -658,7 +658,7 @@ declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7mitsuba12MemoryStream8truncateEm(ptr nocapture noundef nonnull align 8 dereferenceable(57) initializes((24, 32)) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7mitsuba12MemoryStream8truncateEm(ptr nocapture noundef nonnull align 8 dereferenceable(57) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__1::basic_string", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %1, ptr %4, align 8

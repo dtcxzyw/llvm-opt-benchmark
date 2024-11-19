@@ -58987,7 +58987,7 @@ select_registry.exit.thread:                      ; preds = %2, %select_registry
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ws_manuf_iter_init(ptr nocapture noundef writeonly initializes((0, 30), (32, 54), (56, 78), (80, 96)) %0) local_unnamed_addr #4 {
+define void @ws_manuf_iter_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   store i64 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %2, ptr noundef nonnull align 16 dereferenceable(3) @global_manuf_oui24_table, i64 3, i1 false)

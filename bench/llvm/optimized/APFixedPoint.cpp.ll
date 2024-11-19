@@ -399,7 +399,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit43:               ; preds = %196, %198
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12APFixedPoint7convertERKNS_19FixedPointSemanticsEPb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 initializes((0, 13), (16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12APFixedPoint7convertERKNS_19FixedPointSemanticsEPb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
@@ -1388,7 +1388,7 @@ _ZN4llvm6APSIntD2Ev.exit53:                       ; preds = %_ZN4llvm6APSIntD2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12APFixedPoint6getMaxERKNS_19FixedPointSemanticsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 initializes((0, 13), (16, 20)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12APFixedPoint6getMaxERKNS_19FixedPointSemanticsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APSInt", align 8
@@ -1604,7 +1604,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZN4llvm12APFixedPo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12APFixedPoint6getMinERKNS_19FixedPointSemanticsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 initializes((0, 13), (16, 20)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12APFixedPoint6getMinERKNS_19FixedPointSemanticsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APSInt", align 8
@@ -1733,7 +1733,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %_ZN4llvm12APFixedPo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12APFixedPoint10getEpsilonERKNS_19FixedPointSemanticsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 initializes((0, 13), (16, 20)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12APFixedPoint10getEpsilonERKNS_19FixedPointSemanticsE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APSInt", align 8
   %5 = load i32, ptr %1, align 4
@@ -2088,7 +2088,7 @@ define dso_local i32 @_ZNK4llvm19FixedPointSemantics18getCommonSemanticsERKS0_(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12APFixedPoint3addERKS0_Pb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 initializes((0, 13), (16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12APFixedPoint3addERKS0_Pb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
@@ -2389,7 +2389,7 @@ declare void @_ZNK4llvm5APInt7sadd_ovERKS0_Rb(ptr dead_on_unwind writable sret(%
 declare void @_ZNK4llvm5APInt7uadd_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12APFixedPoint3subERKS0_Pb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 initializes((0, 13), (16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12APFixedPoint3subERKS0_Pb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
@@ -2690,7 +2690,7 @@ declare void @_ZNK4llvm5APInt7ssub_ovERKS0_Rb(ptr dead_on_unwind writable sret(%
 declare void @_ZNK4llvm5APInt7usub_ovERKS0_Rb(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12APFixedPoint3mulERKS0_Pb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 initializes((0, 13), (16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12APFixedPoint3mulERKS0_Pb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
@@ -3476,7 +3476,7 @@ declare void @_ZNK4llvm5APInt7umul_ovERKS0_Rb(ptr dead_on_unwind writable sret(%
 declare void @_ZNK4llvm5APInt11sextOrTruncEj(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12APFixedPoint3divERKS0_Pb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 initializes((0, 13), (16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12APFixedPoint3divERKS0_Pb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1, ptr noundef nonnull align 8 dereferenceable(20) %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
@@ -4460,7 +4460,7 @@ declare void @_ZN4llvm5APInt7sdivremERKS0_S2_RS0_S3_(ptr noundef nonnull align 8
 declare void @_ZNK4llvm5APInt4udivERKS0_(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12APFixedPoint3shlEjPb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 initializes((0, 13), (16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12APFixedPoint3shlEjPb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
@@ -6205,7 +6205,7 @@ _ZN4llvm6APSIntD2Ev.exit:                         ; preds = %163, %160, %151, %.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12APFixedPoint12convertToIntEjbPb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APSInt") align 8 initializes((0, 13)) %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm12APFixedPoint12convertToIntEjbPb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APSInt") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.llvm::APInt", align 8
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = alloca %"class.llvm::APInt", align 8
@@ -7275,7 +7275,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %52, %53
 declare noundef i32 @_ZN4llvm7APFloat7convertERKNS_12fltSemanticsENS_12RoundingModeEPb(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1, i8 noundef signext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12APFixedPoint15getFromIntValueERKNS_6APSIntERKNS_19FixedPointSemanticsEPb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 initializes((0, 13), (16, 20)) %0, ptr noundef nonnull align 8 dereferenceable(13) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12APFixedPoint15getFromIntValueERKNS_6APSIntERKNS_19FixedPointSemanticsEPb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::APFixedPoint") align 8 %0, ptr noundef nonnull align 8 dereferenceable(13) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = alloca %"class.llvm::APFixedPoint", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8

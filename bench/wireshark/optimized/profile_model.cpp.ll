@@ -783,7 +783,7 @@ _ZN17QArrayDataPointerIDsED2Ev.exit:              ; preds = %1, %_ZN17QArrayData
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16ProfileSortModel13setFilterTypeENS_10FilterTypeE(ptr noundef nonnull align 8 dereferenceable(48) initializes((16, 20)) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
+define void @_ZN16ProfileSortModel13setFilterTypeENS_10FilterTypeE(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8
   tail call void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -793,7 +793,7 @@ define void @_ZN16ProfileSortModel13setFilterTypeENS_10FilterTypeE(ptr noundef n
 declare void @_ZN21QSortFilterProxyModel16invalidateFilterEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16ProfileSortModel15setFilterStringE7QString(ptr noundef nonnull align 8 dereferenceable(48) initializes((32, 48)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16ProfileSortModel15setFilterStringE7QString(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 16
   %5 = load i64, ptr %4, align 8
@@ -3616,7 +3616,7 @@ _ZN7QStringD2Ev.exit.thread:                      ; preds = %15, %29, %_ZN7QStri
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12ProfileModel26findAllByNameAndVisibilityE7QStringbb(ptr dead_on_unwind noalias writable sret(%class.QList.9) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12ProfileModel26findAllByNameAndVisibilityE7QStringbb(ptr dead_on_unwind noalias writable sret(%class.QList.9) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca %class.QString, align 8
   %8 = alloca %class.QString, align 8
@@ -9667,7 +9667,7 @@ define noundef zeroext i1 @_ZNK12ProfileModel12resetDefaultEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ProfileModel12doResetModelEb(ptr noundef nonnull align 8 dereferenceable(104) initializes((96, 97)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
+define void @_ZN12ProfileModel12doResetModelEb(ptr noundef nonnull align 8 dereferenceable(104) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 0, ptr %3, align 8
   br i1 %1, label %4, label %6
@@ -9683,7 +9683,7 @@ define void @_ZN12ProfileModel12doResetModelEb(ptr noundef nonnull align 8 deref
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN12ProfileModel7setDataERK11QModelIndexRK8QVarianti(ptr noundef nonnull align 8 dereferenceable(104) initializes((100, 104)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN12ProfileModel7setDataERK11QModelIndexRK8QVarianti(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i32 noundef %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QMetaType, align 8
   %7 = alloca %class.QString, align 8
@@ -10559,7 +10559,7 @@ _ZN17QArrayDataPointerI9QFileInfoED2Ev.exit:      ; preds = %1, %_ZN17QArrayData
 declare void @_ZN4QDirD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ProfileModel11uniquePathsE5QListI9QFileInfoE(ptr dead_on_unwind noalias writable sret(%class.QList.31) align 8 initializes((0, 24)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12ProfileModel11uniquePathsE5QListI9QFileInfoE(ptr dead_on_unwind noalias writable sret(%class.QList.31) align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QList, align 8
   %5 = alloca %"class.QtPrivate::QForeachContainer.36", align 8
   %6 = alloca %class.QFileInfo, align 8
@@ -10879,7 +10879,7 @@ declare noundef zeroext i1 @_ZNK9QFileInfo5isDirEv(ptr noundef nonnull align 8 d
 declare void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ProfileModel17filterProfilePathE7QString5QListI9QFileInfoEb(ptr dead_on_unwind noalias writable sret(%class.QList.31) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12ProfileModel17filterProfilePathE7QString5QListI9QFileInfoEb(ptr dead_on_unwind noalias writable sret(%class.QList.31) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(104) %1, ptr noundef %2, ptr nocapture noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QDir, align 8
   %7 = alloca %class.QList.31, align 8
   %8 = alloca %class.QFileInfo, align 8
@@ -11543,7 +11543,7 @@ declare void @_ZN4QDir10setSortingE6QFlagsINS_8SortFlagEE(ptr noundef nonnull al
 declare zeroext i1 @config_file_exists_with_entries(ptr noundef, i8 noundef signext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12ProfileModel14exportFileListE5QListI11QModelIndexE(ptr dead_on_unwind noalias writable sret(%class.QList) align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12ProfileModel14exportFileListE5QListI11QModelIndexE(ptr dead_on_unwind noalias writable sret(%class.QList) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QModelIndex, align 8

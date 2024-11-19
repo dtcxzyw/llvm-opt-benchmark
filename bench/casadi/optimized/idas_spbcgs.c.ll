@@ -172,7 +172,7 @@ define range(i32 -4, 1) i32 @IDASpbcg(ptr noundef %0, i32 noundef %1) local_unna
 declare void @IDAProcessError(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @IDASpbcgInit(ptr noundef initializes((1648, 1652)) %0) #2 {
+define internal noundef i32 @IDASpbcgInit(ptr noundef %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1632
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 192

@@ -6289,7 +6289,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue210fillHolderEPNS_8NGHolderERKS0_RKSt5dequeINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISB_EEPSt13unordered_mapISB_SB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr noundef initializes((64, 68)) %outp, ptr noundef nonnull align 8 dereferenceable(136) %in, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %vv, ptr noundef %v_map_out) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue210fillHolderEPNS_8NGHolderERKS0_RKSt5dequeINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESaISB_EEPSt13unordered_mapISB_SB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr noundef %outp, ptr noundef nonnull align 8 dereferenceable(136) %in, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %vv, ptr noundef %v_map_out) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %kind = getelementptr inbounds i8, ptr %in, i64 64
   %0 = load i32, ptr %kind, align 8
@@ -6883,7 +6883,7 @@ for.end:                                          ; preds = %for.inc, %_ZNKSt13u
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211cloneHolderERNS_8NGHolderERKS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((64, 68)) %out, ptr noundef nonnull readonly align 8 dereferenceable(136) %in) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211cloneHolderERNS_8NGHolderERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %out, ptr noundef nonnull readonly align 8 dereferenceable(136) %in) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp79 = alloca %"struct.std::pair.24", align 8
   %kind = getelementptr inbounds i8, ptr %in, i64 64
@@ -7331,7 +7331,7 @@ _ZN3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211cloneHolderERNS_8NGHolderERKS0_PSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr noundef nonnull align 8 dereferenceable(136) initializes((64, 68)) %out, ptr noundef nonnull align 8 dereferenceable(136) %in, ptr noundef %mapping) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211cloneHolderERNS_8NGHolderERKS0_PSt13unordered_mapINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr noundef nonnull align 8 dereferenceable(136) %out, ptr noundef nonnull align 8 dereferenceable(136) %in, ptr noundef %mapping) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3ue211cloneHolderERNS_8NGHolderERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %out, ptr noundef nonnull align 8 dereferenceable(136) %in)
   %add.ptr.i = getelementptr inbounds i8, ptr %in, i64 8

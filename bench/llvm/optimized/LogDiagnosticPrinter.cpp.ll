@@ -98,7 +98,7 @@ $_ZN4llvm23SmallVectorTemplateBaseIN5clang20LogDiagnosticPrinter9DiagEntryELb0EE
 @_ZN5clang20LogDiagnosticPrinterC1ERN4llvm11raw_ostreamEPNS_17DiagnosticOptionsESt10unique_ptrIS2_St14default_deleteIS2_EE = unnamed_addr alias void (ptr, ptr, ptr, ptr), ptr @_ZN5clang20LogDiagnosticPrinterC2ERN4llvm11raw_ostreamEPNS_17DiagnosticOptionsESt10unique_ptrIS2_St14default_deleteIS2_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20LogDiagnosticPrinterC2ERN4llvm11raw_ostreamEPNS_17DiagnosticOptionsESt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(1112) initializes((0, 52), (56, 60), (64, 72)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang20LogDiagnosticPrinterC2ERN4llvm11raw_ostreamEPNS_17DiagnosticOptionsESt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2, ptr nocapture noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12

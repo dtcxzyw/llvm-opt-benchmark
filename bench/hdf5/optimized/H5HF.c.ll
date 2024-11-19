@@ -412,7 +412,7 @@ define ptr @H5HF_open(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF_get_id_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define noundef i32 @H5HF_get_id_len(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 248
   %5 = load i32, ptr %4, align 8
@@ -422,7 +422,7 @@ define noundef i32 @H5HF_get_id_len(ptr nocapture noundef readonly %0, ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5HF_get_heap_addr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #4 {
+define noundef i32 @H5HF_get_heap_addr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 576
   %5 = load i64, ptr %4, align 8

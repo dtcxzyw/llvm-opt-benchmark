@@ -10170,7 +10170,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL23split_by_comma_or_colonESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture nonnull align 8 initializes((0, 24)) %agg.result, i64 %str.coerce0, ptr %str.coerce1) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL23split_by_comma_or_colonESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture nonnull align 8 %agg.result, i64 %str.coerce0, ptr %str.coerce1) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %cmp5.i.i.not31 = icmp eq i64 %str.coerce0, 0
@@ -12045,7 +12045,7 @@ _ZN4mold7SyncOutINS_3elf7ContextINS1_7SPARC64EEEElsIRA29_KcEERS5_OT_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL19parse_section_orderINS0_7SPARC64EEESt6vectorINS0_12SectionOrderESaIS4_EERNS0_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(4584) %ctx, i64 %arg.coerce0, ptr %arg.coerce1) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL19parse_section_orderINS0_7SPARC64EEESt6vectorINS0_12SectionOrderESaIS4_EERNS0_7ContextIT_EESt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(4584) %ctx, i64 %arg.coerce0, ptr %arg.coerce1) unnamed_addr #4 {
 entry:
   %__endptr.i.i126 = alloca ptr, align 8
   %__endptr.i.i = alloca ptr, align 8
@@ -14446,7 +14446,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind
-define internal fastcc void @_ZN4mold3elfL10add_dashesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 8), (16, 24)) %agg.result, ptr noundef nonnull %name) unnamed_addr #4 {
+define internal fastcc void @_ZN4mold3elfL10add_dashesENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr noundef nonnull %name) unnamed_addr #4 {
 entry:
   %ref.tmp = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %ref.tmp7 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8

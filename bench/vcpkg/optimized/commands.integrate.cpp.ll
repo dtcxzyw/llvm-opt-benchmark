@@ -533,7 +533,7 @@ _ZN5vcpkg4Util15search_and_skipIPKcNS_13StringLiteralEEET_S5_S5_RKT0_.exit.threa
 declare void @_ZN5vcpkg7Strings5strtoIiEENS_8OptionalIT_EENS_10StringViewE(ptr dead_on_unwind writable sret(%"struct.vcpkg::Optional") align 4, ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg32get_bash_source_completion_linesB5cxx11ENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg32get_bash_source_completion_linesB5cxx11ENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
@@ -766,7 +766,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5vcpkg25get_zsh_autocomplete_dataENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ZshAutocomplete") align 8 initializes((0, 26)) %0, ptr %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5vcpkg25get_zsh_autocomplete_dataENS_10StringViewE(ptr dead_on_unwind noalias writable sret(%"struct.vcpkg::ZshAutocomplete") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.0", align 1
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8

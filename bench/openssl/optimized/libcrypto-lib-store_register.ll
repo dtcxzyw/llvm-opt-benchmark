@@ -69,7 +69,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @OSSL_STORE_LOADER_set_open(ptr nocapture noundef writeonly initializes((16, 24)) %loader, ptr noundef %open_function) local_unnamed_addr #3 {
+define noundef i32 @OSSL_STORE_LOADER_set_open(ptr nocapture noundef writeonly %loader, ptr noundef %open_function) local_unnamed_addr #3 {
 entry:
   %open = getelementptr inbounds i8, ptr %loader, i64 16
   store ptr %open_function, ptr %open, align 8
@@ -77,7 +77,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @OSSL_STORE_LOADER_set_open_ex(ptr nocapture noundef writeonly initializes((88, 96)) %loader, ptr noundef %open_ex_function) local_unnamed_addr #3 {
+define noundef i32 @OSSL_STORE_LOADER_set_open_ex(ptr nocapture noundef writeonly %loader, ptr noundef %open_ex_function) local_unnamed_addr #3 {
 entry:
   %open_ex = getelementptr inbounds i8, ptr %loader, i64 88
   store ptr %open_ex_function, ptr %open_ex, align 8
@@ -85,7 +85,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @OSSL_STORE_LOADER_set_attach(ptr nocapture noundef writeonly initializes((24, 32)) %loader, ptr noundef %attach_function) local_unnamed_addr #3 {
+define noundef i32 @OSSL_STORE_LOADER_set_attach(ptr nocapture noundef writeonly %loader, ptr noundef %attach_function) local_unnamed_addr #3 {
 entry:
   %attach = getelementptr inbounds i8, ptr %loader, i64 24
   store ptr %attach_function, ptr %attach, align 8
@@ -93,7 +93,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @OSSL_STORE_LOADER_set_ctrl(ptr nocapture noundef writeonly initializes((32, 40)) %loader, ptr noundef %ctrl_function) local_unnamed_addr #3 {
+define noundef i32 @OSSL_STORE_LOADER_set_ctrl(ptr nocapture noundef writeonly %loader, ptr noundef %ctrl_function) local_unnamed_addr #3 {
 entry:
   %ctrl = getelementptr inbounds i8, ptr %loader, i64 32
   store ptr %ctrl_function, ptr %ctrl, align 8
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @OSSL_STORE_LOADER_set_expect(ptr nocapture noundef writeonly initializes((40, 48)) %loader, ptr noundef %expect_function) local_unnamed_addr #3 {
+define noundef i32 @OSSL_STORE_LOADER_set_expect(ptr nocapture noundef writeonly %loader, ptr noundef %expect_function) local_unnamed_addr #3 {
 entry:
   %expect = getelementptr inbounds i8, ptr %loader, i64 40
   store ptr %expect_function, ptr %expect, align 8
@@ -109,7 +109,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @OSSL_STORE_LOADER_set_find(ptr nocapture noundef writeonly initializes((48, 56)) %loader, ptr noundef %find_function) local_unnamed_addr #3 {
+define noundef i32 @OSSL_STORE_LOADER_set_find(ptr nocapture noundef writeonly %loader, ptr noundef %find_function) local_unnamed_addr #3 {
 entry:
   %find = getelementptr inbounds i8, ptr %loader, i64 48
   store ptr %find_function, ptr %find, align 8
@@ -117,7 +117,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @OSSL_STORE_LOADER_set_load(ptr nocapture noundef writeonly initializes((56, 64)) %loader, ptr noundef %load_function) local_unnamed_addr #3 {
+define noundef i32 @OSSL_STORE_LOADER_set_load(ptr nocapture noundef writeonly %loader, ptr noundef %load_function) local_unnamed_addr #3 {
 entry:
   %load = getelementptr inbounds i8, ptr %loader, i64 56
   store ptr %load_function, ptr %load, align 8
@@ -125,7 +125,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @OSSL_STORE_LOADER_set_eof(ptr nocapture noundef writeonly initializes((64, 72)) %loader, ptr noundef %eof_function) local_unnamed_addr #3 {
+define noundef i32 @OSSL_STORE_LOADER_set_eof(ptr nocapture noundef writeonly %loader, ptr noundef %eof_function) local_unnamed_addr #3 {
 entry:
   %eof = getelementptr inbounds i8, ptr %loader, i64 64
   store ptr %eof_function, ptr %eof, align 8
@@ -133,7 +133,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @OSSL_STORE_LOADER_set_error(ptr nocapture noundef writeonly initializes((72, 80)) %loader, ptr noundef %error_function) local_unnamed_addr #3 {
+define noundef i32 @OSSL_STORE_LOADER_set_error(ptr nocapture noundef writeonly %loader, ptr noundef %error_function) local_unnamed_addr #3 {
 entry:
   %error = getelementptr inbounds i8, ptr %loader, i64 72
   store ptr %error_function, ptr %error, align 8
@@ -141,7 +141,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @OSSL_STORE_LOADER_set_close(ptr nocapture noundef writeonly initializes((80, 88)) %loader, ptr noundef %close_function) local_unnamed_addr #3 {
+define noundef i32 @OSSL_STORE_LOADER_set_close(ptr nocapture noundef writeonly %loader, ptr noundef %close_function) local_unnamed_addr #3 {
 entry:
   %closefn = getelementptr inbounds i8, ptr %loader, i64 80
   store ptr %close_function, ptr %closefn, align 8

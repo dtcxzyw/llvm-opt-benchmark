@@ -47,7 +47,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.32 = private unnamed_addr constant [10 x i8] c"CNAME: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @Curl_doh(ptr noundef initializes((400, 408)) %data, ptr noundef %hostname, i32 noundef %port, ptr nocapture noundef writeonly initializes((0, 4)) %waitp) local_unnamed_addr #0 {
+define hidden noundef ptr @Curl_doh(ptr noundef %data, ptr noundef %hostname, i32 noundef %port, ptr nocapture noundef writeonly %waitp) local_unnamed_addr #0 {
 entry:
   %conn1 = getelementptr inbounds i8, ptr %data, i64 32
   %0 = load ptr, ptr %conn1, align 8
@@ -649,7 +649,7 @@ declare i32 @curl_multi_remove_handle(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @Curl_close(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 28) i32 @Curl_doh_is_resolved(ptr noundef %data, ptr nocapture noundef writeonly initializes((0, 8)) %dnsp) local_unnamed_addr #0 {
+define hidden range(i32 0, 28) i32 @Curl_doh_is_resolved(ptr noundef %data, ptr nocapture noundef writeonly %dnsp) local_unnamed_addr #0 {
 entry:
   %buffer.i = alloca [128 x i8], align 16
   %index.i = alloca i32, align 4

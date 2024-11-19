@@ -773,7 +773,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7contextC2ER11ast_managerR10smt_paramsRK10params_ref(ptr noundef nonnull align 8 dereferenceable(11616) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(800) %p, ptr noundef nonnull align 8 dereferenceable(8) %_p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt7contextC2ER11ast_managerR10smt_paramsRK10params_ref(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef nonnull align 8 dereferenceable(976) %m, ptr noundef nonnull align 8 dereferenceable(800) %p, ptr noundef nonnull align 8 dereferenceable(8) %_p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %class.params_ref, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt7contextE, i64 16), ptr %this, align 8
@@ -5077,7 +5077,7 @@ return:                                           ; preds = %_ZNK3smt7context10g
 declare void @_ZN15ast_translationD1Ev(ptr noundef nonnull align 8 dereferenceable(84)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(11616) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(11616) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt7contextE, i64 16), ptr %this, align 8
   invoke void @_ZN3smt7context5flushEv(ptr noundef nonnull align 8 dereferenceable(11616) %this)
@@ -7110,7 +7110,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 declare void @_ZN17asserted_formulas8finalizeEv(ptr noundef nonnull align 8 dereferenceable(7260)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt7contextD0Ev(ptr noundef nonnull align 8 dereferenceable(11616) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN3smt7contextD0Ev(ptr noundef nonnull align 8 dereferenceable(11616) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN3smt7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(11616) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #35
@@ -7293,7 +7293,7 @@ declare noundef i32 @_ZN3smt7context11mk_bool_varEP4expr(ptr noundef nonnull ali
 declare noundef ptr @_ZN11ast_manager13mk_true_proofEv(ptr noundef nonnull align 8 dereferenceable(976)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN3smt7context17set_justificationEjRNS_13bool_var_dataERKNS_15b_justificationE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(11616) %this, i32 noundef %v, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %d, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %j) local_unnamed_addr #11 align 2 {
+define hidden void @_ZN3smt7context17set_justificationEjRNS_13bool_var_dataERKNS_15b_justificationE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(11616) %this, i32 noundef %v, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %d, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %j) local_unnamed_addr #11 align 2 {
 entry:
   %0 = load i64, ptr %j, align 8
   store i64 %0, ptr %d, align 8
@@ -7305,7 +7305,7 @@ declare void @_ZN3smt27justification_proof_wrapperC1ERNS_7contextEP3appb(ptr nou
 declare noundef ptr @_ZN3smt7context8mk_enodeEP3appbbb(ptr noundef nonnull align 8 dereferenceable(11616), ptr noundef, i1 noundef zeroext, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN3smt7context21set_progress_callbackEP17progress_callback(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(11616) initializes((7544, 7552)) %this, ptr noundef %cb) local_unnamed_addr #12 align 2 {
+define hidden void @_ZN3smt7context21set_progress_callbackEP17progress_callback(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(11616) %this, ptr noundef %cb) local_unnamed_addr #12 align 2 {
 entry:
   %m_progress_callback = getelementptr inbounds i8, ptr %this, i64 7544
   store ptr %cb, ptr %m_progress_callback, align 8
@@ -9188,7 +9188,7 @@ if.end122:                                        ; preds = %if.end119, %while.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN3smt7context12invert_transEPNS_5enodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(11616) %this, ptr noundef initializes((52, 53)) %n) local_unnamed_addr #14 align 2 {
+define hidden void @_ZN3smt7context12invert_transEPNS_5enodeE(ptr nocapture noundef nonnull readnone align 8 dereferenceable(11616) %this, ptr noundef %n) local_unnamed_addr #14 align 2 {
 entry:
   %m_trans = getelementptr inbounds i8, ptr %n, i64 80
   %0 = load ptr, ptr %m_trans, align 8
@@ -32288,7 +32288,7 @@ for.end:                                          ; preds = %cond.end, %_ZNK6vec
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7context9get_trailEj(ptr noalias sret(%class.ref_vector) align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 noundef %max_level) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt7context9get_trailEj(ptr noalias sret(%class.ref_vector) align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(11616) %this, i32 noundef %max_level) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %e = alloca %class.obj_ref, align 8
   %m.i = getelementptr inbounds i8, ptr %this, i64 104

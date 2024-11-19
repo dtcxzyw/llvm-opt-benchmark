@@ -2366,7 +2366,7 @@ _ZN5boost10shared_ptrIN8QuantLib6HandleINS1_21BlackVolTermStructureEE4LinkEED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15LocalVolSurfaceC1ERKNS_6HandleINS_21BlackVolTermStructureEEENS1_INS_18YieldTermStructureEEES7_NS1_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(136) initializes((136, 144), (152, 156), (160, 168)) %this, ptr noundef nonnull align 8 dereferenceable(16) %blackTS, ptr nocapture noundef %riskFreeTS, ptr nocapture noundef %dividendTS, ptr nocapture noundef %underlying) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15LocalVolSurfaceC1ERKNS_6HandleINS_21BlackVolTermStructureEEENS1_INS_18YieldTermStructureEEES7_NS1_INS_5QuoteEEE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %blackTS, ptr nocapture noundef %riskFreeTS, ptr nocapture noundef %dividendTS, ptr nocapture noundef %underlying) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %ref.tmp19 = alloca %"class.boost::shared_ptr", align 8
@@ -4571,7 +4571,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib15LocalVolSurfaceC1ERKNS_6HandleINS_21BlackVolTermStructureEEENS1_INS_18YieldTermStructureEEES7_d(ptr noundef nonnull align 8 dereferenceable(136) initializes((136, 144), (152, 156), (160, 168)) %this, ptr noundef nonnull align 8 dereferenceable(16) %blackTS, ptr nocapture noundef %riskFreeTS, ptr nocapture noundef %dividendTS, double noundef %underlying) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib15LocalVolSurfaceC1ERKNS_6HandleINS_21BlackVolTermStructureEEENS1_INS_18YieldTermStructureEEES7_d(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(16) %blackTS, ptr nocapture noundef %riskFreeTS, ptr nocapture noundef %dividendTS, double noundef %underlying) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::DayCounter", align 8
   %ref.tmp17 = alloca %"class.boost::shared_ptr.20", align 8

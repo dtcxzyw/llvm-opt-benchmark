@@ -217,7 +217,7 @@ define dso_local void @LogicalTapeClose(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @LogicalTapeSetForgetFreeSpace(ptr nocapture noundef writeonly initializes((48, 49)) %0) local_unnamed_addr #3 {
+define dso_local void @LogicalTapeSetForgetFreeSpace(ptr nocapture noundef writeonly %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i8 1, ptr %2, align 8
   ret void
@@ -624,7 +624,7 @@ define internal fastcc void @ltsWriteBlock(ptr nocapture noundef %0, i64 noundef
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef initializes((56, 60)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @LogicalTapeRewindForRead(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 9
   %5 = load i8, ptr %4, align 1
@@ -872,7 +872,7 @@ define dso_local i64 @LogicalTapeRead(ptr nocapture noundef %0, ptr nocapture no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ltsReadFillBuffer(ptr nocapture noundef initializes((64, 72)) %0) unnamed_addr #0 {
+define internal fastcc zeroext i1 @ltsReadFillBuffer(ptr nocapture noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 68
@@ -1017,7 +1017,7 @@ ltsReleaseBlock.exit:                             ; preds = %._crit_edge.i, %40,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @LogicalTapeFreeze(ptr nocapture noundef initializes((8, 10), (64, 68)) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
+define dso_local void @LogicalTapeFreeze(ptr nocapture noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 10
   %5 = load i8, ptr %4, align 2
@@ -1336,7 +1336,7 @@ ltsReadBlock.exit:                                ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @LogicalTapeTell(ptr nocapture noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define dso_local void @LogicalTapeTell(ptr nocapture noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

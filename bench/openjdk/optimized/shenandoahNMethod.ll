@@ -132,7 +132,7 @@ define linkonce_odr hidden void @_ZN38ClaimMetadataVisitingOopIterateClosure6do_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ShenandoahNMethodC2EP7nmethodR13GrowableArrayIPP7oopDescEb(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 20), (21, 22)) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN17ShenandoahNMethodC2EP7nmethodR13GrowableArrayIPP7oopDescEb(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %5, align 8
@@ -350,7 +350,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %59, %61
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ShenandoahNMethod17detect_reloc_oopsEP7nmethodR13GrowableArrayIPP7oopDescERb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ShenandoahNMethod17detect_reloc_oopsEP7nmethodR13GrowableArrayIPP7oopDescERb(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.RelocIterator, align 8
   store i8 0, ptr %2, align 1
   %5 = getelementptr inbounds i8, ptr %4, i64 112
@@ -837,7 +837,7 @@ _ZN17ShenandoahNMethod7oops_doEP10OopClosureb.exit: ; preds = %40, %115, %_ZN17S
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ShenandoahNMethodTableC2Ev(ptr noundef nonnull align 8 dereferenceable(236) initializes((0, 8), (16, 20)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ShenandoahNMethodTableC2Ev(ptr noundef nonnull align 8 dereferenceable(236) %0) unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1568,7 +1568,7 @@ declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dere
 declare noundef ptr @_ZNK7nmethod13compiler_nameEv(ptr noundef nonnull align 8 dereferenceable(214)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ShenandoahNMethodListC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN21ShenandoahNMethodListC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1597,7 +1597,7 @@ define hidden noundef nonnull ptr @_ZN21ShenandoahNMethodList7acquireEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden void @_ZN30ShenandoahNMethodTableSnapshotC2EP22ShenandoahNMethodTable(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 20)) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 {
+define hidden void @_ZN30ShenandoahNMethodTableSnapshotC2EP22ShenandoahNMethodTable(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef readonly %1) unnamed_addr #6 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1747,7 +1747,7 @@ define hidden void @_ZN30ShenandoahNMethodTableSnapshot22concurrent_nmethods_doE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN35ShenandoahConcurrentNMethodIteratorC2EP22ShenandoahNMethodTable(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr noundef %1) unnamed_addr #7 align 2 {
+define hidden void @_ZN35ShenandoahConcurrentNMethodIteratorC2EP22ShenandoahNMethodTable(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #7 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -1755,7 +1755,7 @@ define hidden void @_ZN35ShenandoahConcurrentNMethodIteratorC2EP22ShenandoahNMet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN35ShenandoahConcurrentNMethodIterator17nmethods_do_beginEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 16)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN35ShenandoahConcurrentNMethodIterator17nmethods_do_beginEv(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @CodeCache_lock, align 8
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit, label %3

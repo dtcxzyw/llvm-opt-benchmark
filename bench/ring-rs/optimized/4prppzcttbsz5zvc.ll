@@ -2083,7 +2083,7 @@ define noundef zeroext i1 @"_ZN85_$LT$ring..io..writer..LengthMeasurement$u20$as
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4ring2io6writer6Writer13with_capacity17ha51cf8a69327b7dfE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i64 }) align 8 dereferenceable(32) initializes((0, 32)) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden void @_ZN4ring2io6writer6Writer13with_capacity17ha51cf8a69327b7dfE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64 }, i64 }) align 8 dereferenceable(32) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hac902e916d2c19c3E"(i64 noundef %1, i1 noundef zeroext false)
   %4 = extractvalue { i64, ptr } %3, 0
   %5 = extractvalue { i64, ptr } %3, 1

@@ -1638,7 +1638,7 @@ _ZN3gmx12_GLOBAL__N_119stepInMultiDimArrayEiPKiPi.exit: ; preds = %.lr.ph43, %.p
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8GridAxisC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 8), (16, 24), (40, 41)) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #6 align 2 {
+define void @_ZN3gmx8GridAxisC2Edddd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4) unnamed_addr #6 align 2 {
   store double %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store double %3, ptr %6, align 8
@@ -1742,7 +1742,7 @@ declare double @llvm.ceil.f64(double) #8
 declare double @llvm.round.f64(double) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8GridAxisC2Edddib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) initializes((0, 8), (16, 24), (32, 36), (40, 41)) %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #6 align 2 {
+define void @_ZN3gmx8GridAxisC2Edddib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #6 align 2 {
   %7 = zext i1 %5 to i8
   store double %1, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1805,7 +1805,7 @@ _ZN3gmx12_GLOBAL__N_125getIntervalLengthPeriodicEddd.exit: ; preds = %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx8BiasGridC2ENS_8ArrayRefIKNS_9DimParamsEEENS1_IKNS_12AwhDimParamsEEE(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx8BiasGridC2ENS_8ArrayRefIKNS_9DimParamsEEENS1_IKNS_12AwhDimParamsEEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr %1, ptr %2, ptr %3, ptr %4) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca [4 x i32], align 16
   %7 = alloca [4 x i32], align 16
   %8 = alloca [4 x i32], align 16

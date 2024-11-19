@@ -1053,7 +1053,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -22, 1) i32 @vduse_queue_update_vring(ptr nocapture noundef initializes((32, 40)) %vq, i64 noundef %desc_addr, i64 noundef %avail_addr, i64 noundef %used_addr) unnamed_addr #2 {
+define internal fastcc range(i32 -22, 1) i32 @vduse_queue_update_vring(ptr nocapture noundef %vq, i64 noundef %desc_addr, i64 noundef %avail_addr, i64 noundef %used_addr) unnamed_addr #2 {
 entry:
   %len = alloca i64, align 8
   %dev1 = getelementptr inbounds i8, ptr %vq, i64 88
@@ -1480,7 +1480,7 @@ return:                                           ; preds = %if.end, %if.end49, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -22, 1) i32 @vduse_set_reconnect_log_file(ptr nocapture noundef initializes((8264, 8272)) %dev, ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
+define dso_local range(i32 -22, 1) i32 @vduse_set_reconnect_log_file(ptr nocapture noundef %dev, ptr nocapture noundef readonly %filename) local_unnamed_addr #2 {
 entry:
   %num_queues = getelementptr inbounds i8, ptr %dev, i64 8224
   %0 = load i16, ptr %num_queues, align 8

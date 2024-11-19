@@ -1700,7 +1700,7 @@ return:                                           ; preds = %_ZN3ue212_GLOBAL__N
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_18dfa_infoC2ERNS_21accel_dfa_build_stratE(ptr noundef nonnull align 8 dereferenceable(90) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(17) %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_18dfa_infoC2ERNS_21accel_dfa_build_stratE(ptr noundef nonnull align 8 dereferenceable(90) %this, ptr noundef nonnull align 8 dereferenceable(17) %s) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %s, ptr %this, align 8
   %raw = getelementptr inbounds i8, ptr %this, i64 8
@@ -11275,7 +11275,7 @@ _ZNSt6vectorItSaItEED2Ev.exit208:                 ; preds = %_ZNSt6vectorItSaItE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef range(i64 1, 3) %state_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %total_size, i32 noundef %aux_offset, i32 noundef %accel_offset, i32 noundef %accel_count, i32 noundef %arb, i1 noundef zeroext %single, ptr nocapture noundef initializes((4, 9), (20, 32)) %nfa) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L17populateBasicInfoEmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef range(i64 1, 3) %state_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %total_size, i32 noundef %aux_offset, i32 noundef %accel_offset, i32 noundef %accel_count, i32 noundef %arb, i1 noundef zeroext %single, ptr nocapture noundef %nfa) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %length = getelementptr inbounds i8, ptr %nfa, i64 4
   store i32 %total_size, ptr %length, align 4
@@ -12573,7 +12573,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeItSt4
 declare void @_ZN3ue215dfa_build_stratD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L19populateBasicInfo64EmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef range(i64 1, 3) %state_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %total_size, i32 noundef %aux_offset, i32 noundef %accel_offset, i32 noundef %accel_count, i32 noundef %arb, i1 noundef zeroext %single, ptr nocapture noundef initializes((4, 9), (20, 32)) %nfa) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L19populateBasicInfo64EmRKNS_12_GLOBAL__N_18dfa_infoEjjjjjbP3NFA(i64 noundef range(i64 1, 3) %state_size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(90) %info, i32 noundef %total_size, i32 noundef %aux_offset, i32 noundef %accel_offset, i32 noundef %accel_count, i32 noundef %arb, i1 noundef zeroext %single, ptr nocapture noundef %nfa) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %length = getelementptr inbounds i8, ptr %nfa, i64 4
   store i32 %total_size, ptr %length, align 4

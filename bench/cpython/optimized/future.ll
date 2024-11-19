@@ -20,7 +20,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.13 = private unnamed_addr constant [37 x i8] c"future feature %.100s is not defined\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_PyFuture_FromAST(ptr nocapture noundef readonly %mod, ptr noundef %filename, ptr nocapture noundef initializes((0, 20)) %ff) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_PyFuture_FromAST(ptr nocapture noundef readonly %mod, ptr noundef %filename, ptr nocapture noundef %ff) local_unnamed_addr #0 {
 entry:
   store i32 0, ptr %ff, align 4
   %ff_location = getelementptr inbounds i8, ptr %ff, i64 4

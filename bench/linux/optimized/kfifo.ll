@@ -67,7 +67,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___kfifo_dma_
 @llvm.compiler.used = appending global [22 x ptr] [ptr @__UNIQUE_ID___addressable___kfifo_alloc328, ptr @__UNIQUE_ID___addressable___kfifo_dma_in_finish_r358, ptr @__UNIQUE_ID___addressable___kfifo_dma_in_prepare346, ptr @__UNIQUE_ID___addressable___kfifo_dma_in_prepare_r357, ptr @__UNIQUE_ID___addressable___kfifo_dma_out_finish_r361, ptr @__UNIQUE_ID___addressable___kfifo_dma_out_prepare347, ptr @__UNIQUE_ID___addressable___kfifo_dma_out_prepare_r360, ptr @__UNIQUE_ID___addressable___kfifo_free329, ptr @__UNIQUE_ID___addressable___kfifo_from_user340, ptr @__UNIQUE_ID___addressable___kfifo_from_user_r354, ptr @__UNIQUE_ID___addressable___kfifo_in333, ptr @__UNIQUE_ID___addressable___kfifo_in_r350, ptr @__UNIQUE_ID___addressable___kfifo_init330, ptr @__UNIQUE_ID___addressable___kfifo_len_r349, ptr @__UNIQUE_ID___addressable___kfifo_max_r348, ptr @__UNIQUE_ID___addressable___kfifo_out337, ptr @__UNIQUE_ID___addressable___kfifo_out_peek336, ptr @__UNIQUE_ID___addressable___kfifo_out_peek_r351, ptr @__UNIQUE_ID___addressable___kfifo_out_r352, ptr @__UNIQUE_ID___addressable___kfifo_skip_r353, ptr @__UNIQUE_ID___addressable___kfifo_to_user343, ptr @__UNIQUE_ID___addressable___kfifo_to_user_r355], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @__kfifo_alloc(ptr nocapture noundef writeonly initializes((0, 24)) %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__kfifo_alloc(ptr nocapture noundef writeonly %0, i32 noundef %1, i64 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = zext i32 %1 to i64
   %6 = add nsw i64 %5, -1
   %7 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %6, i32 -1) #11, !srcloc !5
@@ -119,7 +119,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__kfifo_alloc(ptr nocapture noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__kfifo_free(ptr nocapture noundef initializes((0, 16)) %0) #0 align 16 {
+define dso_local void @__kfifo_free(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @kfree(ptr noundef %3) #13
@@ -131,7 +131,7 @@ define dso_local void @__kfifo_free(ptr nocapture noundef initializes((0, 16)) %
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(read, argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @__kfifo_init(ptr nocapture noundef writeonly initializes((0, 24)) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #2 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @__kfifo_init(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) #2 align 16 {
   %5 = zext i32 %2 to i64
   %6 = udiv i64 %5, %3
   %7 = icmp ule i64 %3, %5
@@ -273,7 +273,7 @@ define dso_local i32 @__kfifo_out(ptr nocapture noundef %0, ptr nocapture nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -14, 1) i32 @__kfifo_from_user(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @__kfifo_from_user(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
@@ -316,7 +316,7 @@ define dso_local noundef range(i32 -14, 1) i32 @__kfifo_from_user(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @kfifo_copy_from_user(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) unnamed_addr #0 align 16 {
+define internal fastcc i64 @kfifo_copy_from_user(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 1
@@ -402,7 +402,7 @@ define internal fastcc i64 @kfifo_copy_from_user(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -14, 1) i32 @__kfifo_to_user(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @__kfifo_to_user(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 1
@@ -441,7 +441,7 @@ define dso_local noundef range(i32 -14, 1) i32 @__kfifo_to_user(ptr nocapture no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i64 @kfifo_copy_to_user(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 4)) %4) unnamed_addr #0 align 16 {
+define internal fastcc i64 @kfifo_copy_to_user(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4) unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
   %8 = add i32 %7, 1
@@ -876,7 +876,7 @@ define dso_local void @__kfifo_skip_r(ptr nocapture noundef %0, i64 noundef %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -14, 1) i32 @__kfifo_from_user_r(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, i64 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @__kfifo_from_user_r(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) #0 align 16 {
   %6 = trunc i64 %2 to i32
   %7 = trunc i64 %4 to i32
   %8 = shl i32 %7, 3
@@ -947,7 +947,7 @@ define dso_local noundef range(i32 -14, 1) i32 @__kfifo_from_user_r(ptr nocaptur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -14, 1) i32 @__kfifo_to_user_r(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3, i64 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -14, 1) i32 @__kfifo_to_user_r(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2, ptr nocapture noundef writeonly %3, i64 noundef %4) #0 align 16 {
   %6 = load i32, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 4
   %8 = load i32, ptr %7, align 4

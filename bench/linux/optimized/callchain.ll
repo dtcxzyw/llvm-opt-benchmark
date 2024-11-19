@@ -193,7 +193,7 @@ define dso_local void @put_callchain_buffers() local_unnamed_addr #0 align 16 {
 declare dso_local i32 @atomic_dec_and_mutex_lock(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @get_callchain_entry(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @get_callchain_entry(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 16 {
   %2 = tail call i64 asm "add %gs:$1, $0", "=r,*m,0,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @this_cpu_off, ptr nonnull @callchain_recursion) #7, !srcloc !18
   %3 = inttoptr i64 %2 to ptr
   %4 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds (i8, ptr @pcpu_hot, i64 8)) #7, !srcloc !19

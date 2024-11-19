@@ -2207,7 +2207,7 @@ Vec_PtrPush.exit72:                               ; preds = %.Vec_PtrGrow.exit11
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull initializes((24, 32)) %0) unnamed_addr #0 {
+define internal fastcc ptr @Io_ReadBlifNetworkOne(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8

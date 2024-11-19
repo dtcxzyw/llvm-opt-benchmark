@@ -387,7 +387,7 @@ define void @_ZN2cv9FormatterD0Ev(ptr nocapture nonnull readnone align 8 %0) unn
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv9Formatter3getENS0_10FormatTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 initializes((0, 16)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv9Formatter3getENS0_10FormatTypeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16, !noalias !4
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !4

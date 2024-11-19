@@ -773,7 +773,7 @@ coerce_type_typmod.exit:                          ; preds = %17, %48, %find_typm
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @find_coercion_pathway(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
@@ -3554,7 +3554,7 @@ define dso_local noundef zeroext i1 @IsBinaryCoercible(i32 noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @IsBinaryCoercibleWithCast(i32 noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   %4 = icmp eq i32 %0, %1
   br i1 %4, label %51, label %5
@@ -3696,7 +3696,7 @@ declare zeroext i1 @type_is_multirange(i32 noundef) local_unnamed_addr #1
 declare ptr @SearchSysCache2(i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @find_typmod_coercion_function(i32 noundef %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @find_typmod_coercion_function(i32 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %3 = tail call ptr @typeidType(i32 noundef %0) #5
   %4 = getelementptr inbounds i8, ptr %3, i64 16

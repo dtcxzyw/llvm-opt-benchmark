@@ -3629,7 +3629,7 @@ _ZN3nix5lstatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pre
 }
 
 ; Function Attrs: uwtable
-define void @_ZN3nix13readDirectoryEP11__dirstreamRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.27") align 8 initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix13readDirectoryEP11__dirstreamRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.27") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -4825,7 +4825,7 @@ define void @_ZN3nix10deletePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10deletePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10deletePathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.nix::AutoCloseFD", align 4
   store i64 0, ptr %1, align 8
@@ -5469,7 +5469,7 @@ declare noundef i32 @remove(ptr nocapture noundef readonly) local_unnamed_addr #
 declare void @_ZN3nix15ignoreExceptionENS_9VerbosityE(i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3nix10AutoDelete6cancelEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) initializes((32, 33)) %0) local_unnamed_addr #16 align 2 {
+define void @_ZN3nix10AutoDelete6cancelEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(34) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %2, align 8
   ret void

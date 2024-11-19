@@ -240,7 +240,7 @@ define void @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$5clear17hb29b9c95b4bf20beE"(ptr noalias nocapture noundef writeonly align 16 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #4 {
+define void @"_ZN93_$LT$softposit..quire16..Q16E1$u20$as$u20$softposit..Quire$LT$softposit..p16e1..P16E1$GT$$GT$5clear17hb29b9c95b4bf20beE"(ptr noalias nocapture noundef writeonly align 16 dereferenceable(16) %0) unnamed_addr #4 {
   store i128 0, ptr %0, align 16
   ret void
 }

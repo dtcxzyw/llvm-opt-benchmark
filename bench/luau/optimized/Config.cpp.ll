@@ -1280,7 +1280,7 @@ define internal void @__cxx_global_var_init.51() #0 section ".text.startup" comd
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau6ConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 6), (8, 26), (32, 80)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau6ConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i32 1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 0, ptr %2, align 4

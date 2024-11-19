@@ -1972,7 +1972,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly initializes((16, 24)) %2) local_unnamed_addr #6 {
+define void @init_pipe(ptr nocapture noundef readnone %0, ptr nocapture noundef readnone %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   %4 = tail call noalias dereferenceable_or_null(8280) ptr @malloc(i64 noundef 8280) #17
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %5, align 16, !tbaa !6
@@ -1995,7 +1995,7 @@ define void @gui_update(ptr nocapture noundef readnone %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_init(ptr noundef initializes((704, 712)) %0) local_unnamed_addr #1 {
+define void @gui_init(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call ptr @dt_alloc_aligned(i64 noundef 8328) #16
   %3 = icmp eq ptr %2, null
   br i1 %3, label %5, label %4

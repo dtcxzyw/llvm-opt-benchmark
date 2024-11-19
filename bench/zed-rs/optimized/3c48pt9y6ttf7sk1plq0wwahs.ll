@@ -218,7 +218,7 @@ define internal fastcc noundef nonnull ptr @_ZN6anyhow9__private10format_err17h7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN11http_client6github21latest_github_release17hd10c7b3513657b7eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([264 x i8]) align 8 dereferenceable(264) initializes((176, 208), (210, 213)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull %5, ptr noalias noundef readonly align 8 dereferenceable(56) %6) unnamed_addr #2 {
+define void @_ZN11http_client6github21latest_github_release17hd10c7b3513657b7eE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([264 x i8]) align 8 dereferenceable(264) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef nonnull %5, ptr noalias noundef readonly align 8 dereferenceable(56) %6) unnamed_addr #2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 176
   store ptr %1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 184
@@ -239,7 +239,7 @@ define void @_ZN11http_client6github21latest_github_release17hd10c7b3513657b7eE(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN11http_client6github23get_release_by_tag_name17hdc9c813035d6d7c9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([304 x i8]) align 8 dereferenceable(304) initializes((0, 48), (240, 241)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noundef nonnull %5, ptr noalias noundef readonly align 8 dereferenceable(56) %6) unnamed_addr #2 {
+define void @_ZN11http_client6github23get_release_by_tag_name17hdc9c813035d6d7c9E(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([304 x i8]) align 8 dereferenceable(304) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noundef nonnull %5, ptr noalias noundef readonly align 8 dereferenceable(56) %6) unnamed_addr #2 {
   store ptr %1, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %8, align 8

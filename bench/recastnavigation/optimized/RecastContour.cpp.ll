@@ -44,7 +44,7 @@ $_ZZ15rcGetDirOffsetYiE6offset = comdat any
 @.str.17 = private unnamed_addr constant [48 x i8] c"mergeHoles: Failed to merge contours %p and %p.\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z15rcBuildContoursP9rcContextRK20rcCompactHeightfieldfiR12rcContourSeti(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, float noundef %2, i32 noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((12, 60)) %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z15rcBuildContoursP9rcContextRK20rcCompactHeightfieldfiR12rcContourSeti(ptr noundef %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1, float noundef %2, i32 noundef %3, ptr nocapture noundef nonnull align 8 dereferenceable(60) %4, i32 noundef %5) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4

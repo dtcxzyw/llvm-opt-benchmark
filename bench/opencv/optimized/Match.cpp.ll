@@ -31,7 +31,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @_ZN5logos5MatchC2EPNS_9PointPairES2_(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 16), (40, 56)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN5logos5MatchC2EPNS_9PointPairES2_(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -111,7 +111,7 @@ _ZN5logos5Match17setRelOrientationEv.exit:        ; preds = %.lr.ph.i.i, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5logos5Match26calculateInternalVariablesEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((40, 56)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN5logos5Match26calculateInternalVariablesEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = load float, ptr %3, align 8
@@ -190,7 +190,7 @@ _ZN5logos5Match12angleAbsDiffEff.exit:            ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN5logos5Match11setRelScaleEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((20, 24)) %0) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN5logos5Match11setRelScaleEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = load float, ptr %3, align 8
@@ -206,7 +206,7 @@ define hidden void @_ZN5logos5Match11setRelScaleEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @_ZN5logos5Match24interOrientationAndScaleEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((32, 40)) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN5logos5Match24interOrientationAndScaleEv(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load float, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 52

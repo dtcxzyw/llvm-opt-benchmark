@@ -107,7 +107,7 @@ define dso_local void @_ZN11SafeOpFlagsC2Ev(ptr nocapture nonnull readnone align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11SafeOpFlagsC2Ebbb10SafeOpSize(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 3), (4, 8)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #5 align 2 {
+define dso_local void @_ZN11SafeOpFlagsC2Ebbb10SafeOpSize(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4) unnamed_addr #5 align 2 {
   %6 = zext i1 %1 to i8
   %7 = zext i1 %2 to i8
   %8 = zext i1 %3 to i8
@@ -122,7 +122,7 @@ define dso_local void @_ZN11SafeOpFlagsC2Ebbb10SafeOpSize(ptr nocapture noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN11SafeOpFlagsC2ERKS_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) initializes((0, 3), (4, 8)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZN11SafeOpFlagsC2ERKS_(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(8) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %1) unnamed_addr #6 align 2 {
   %3 = load i8, ptr %1, align 4
   %4 = and i8 %3, 1
   store i8 %4, ptr %0, align 4

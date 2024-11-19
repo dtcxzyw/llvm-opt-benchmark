@@ -210,7 +210,7 @@ declare void @_ZN5cmsys18SystemToolsManagerD1Ev(ptr noundef nonnull align 1 dere
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN20cmExtraKateGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 40)) %0) unnamed_addr #3 align 2 {
+define dso_local void @_ZN20cmExtraKateGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV34cmExternalMakefileProjectGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40

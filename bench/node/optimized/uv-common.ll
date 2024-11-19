@@ -2080,7 +2080,7 @@ return:                                           ; preds = %entry, %sw.epilog, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_ip4_addr(ptr noundef %ip, i32 noundef %port, ptr noundef initializes((0, 16)) %addr) local_unnamed_addr #0 {
+define dso_local i32 @uv_ip4_addr(ptr noundef %ip, i32 noundef %port, ptr noundef %addr) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %addr, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 12, i1 false)
@@ -2103,7 +2103,7 @@ declare zeroext i16 @htons(i16 noundef zeroext) local_unnamed_addr #3
 declare i32 @uv_inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_ip6_addr(ptr noundef %ip, i32 noundef %port, ptr noundef initializes((0, 28)) %addr) local_unnamed_addr #0 {
+define dso_local i32 @uv_ip6_addr(ptr noundef %ip, i32 noundef %port, ptr noundef %addr) local_unnamed_addr #0 {
 entry:
   %address_part = alloca [40 x i8], align 16
   %0 = getelementptr inbounds i8, ptr %addr, i64 4
@@ -2862,7 +2862,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @uv_stop(ptr nocapture noundef writeonly initializes((48, 52)) %loop) local_unnamed_addr #13 {
+define dso_local void @uv_stop(ptr nocapture noundef writeonly %loop) local_unnamed_addr #13 {
 entry:
   %stop_flag = getelementptr inbounds i8, ptr %loop, i64 48
   store i32 1, ptr %stop_flag, align 8
@@ -3461,7 +3461,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_metrics_info(ptr nocapture noundef readonly %loop, ptr nocapture noundef writeonly initializes((0, 128)) %metrics) local_unnamed_addr #12 {
+define dso_local noundef i32 @uv_metrics_info(ptr nocapture noundef readonly %loop, ptr nocapture noundef writeonly %metrics) local_unnamed_addr #12 {
 entry:
   %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8

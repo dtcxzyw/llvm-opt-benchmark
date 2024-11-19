@@ -985,7 +985,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare void @_ZN9grpc_core9TraceFlagC1EbPKc(ptr noundef nonnull align 8 dereferenceable(17), i1 noundef zeroext, ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient12ChannelStateC2ENS_17WeakRefCountedPtrIS0_EERKNS_12XdsBootstrap9XdsServerE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 41), (48, 64), (72, 76), (80, 88)) %this, ptr nocapture noundef %xds_client, ptr noundef nonnull align 8 dereferenceable(8) %server) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient12ChannelStateC2ENS_17WeakRefCountedPtrIS0_EERKNS_12XdsBootstrap9XdsServerE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr nocapture noundef %xds_client, ptr noundef nonnull align 8 dereferenceable(8) %server) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %status = alloca %"class.absl::lts_20230802::Status", align 8
   %ref.tmp = alloca %"class.std::unique_ptr", align 8
@@ -2068,7 +2068,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core9XdsClient12ChannelStateD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient12ChannelStateD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9XdsClient12ChannelStateE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core21grpc_xds_client_traceE, i64 16) monotonic, align 8
@@ -5772,7 +5772,7 @@ _ZNSt12__shared_ptrIKN9grpc_core15XdsResourceType12ResourceDataELN9__gnu_cxx12_L
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_127CreateResourceMetadataAckedENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9TimestampE(ptr noalias nonnull align 8 initializes((0, 4)) %agg.result, ptr noundef nonnull %serialized_proto, ptr noundef nonnull %version, i64 %update_time.coerce) unnamed_addr #4 {
+define internal fastcc void @_ZN9grpc_core12_GLOBAL__N_127CreateResourceMetadataAckedENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_NS_9TimestampE(ptr noalias nonnull align 8 %agg.result, ptr noundef nonnull %serialized_proto, ptr noundef nonnull %version, i64 %update_time.coerce) unnamed_addr #4 {
 entry:
   store i32 1, ptr %agg.result, align 8
   %serialized_proto.i = getelementptr inbounds i8, ptr %agg.result, i64 8
@@ -5895,7 +5895,7 @@ _ZNSt8_Rb_treeIPN9grpc_core9XdsClient24ResourceWatcherInterfaceESt4pairIKS3_NS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt8functionIFvvEEC2IZN9grpc_core9XdsClient12ChannelState12AdsCallState17AdsResponseParser13ParseResourceEP9upb_ArenamSt17basic_string_viewIcSt11char_traitsIcEESD_SD_E3$_0vEEOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(64) %__f) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt8functionIFvvEEC2IZN9grpc_core9XdsClient12ChannelState12AdsCallState17AdsResponseParser13ParseResourceEP9upb_ArenamSt17basic_string_viewIcSt11char_traitsIcEESD_SD_E3$_0vEEOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(64) %__f) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   %call.i.i2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
@@ -6130,7 +6130,7 @@ lpad:                                             ; preds = %if.else.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient12ChannelState12AdsCallStateC2ENS_13RefCountedPtrINS1_13RetryableCallIS2_EEEE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 34), (40, 48), (56, 60), (64, 72)) %this, ptr nocapture noundef %parent) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient12ChannelState12AdsCallStateC2ENS_13RefCountedPtrINS1_13RetryableCallIS2_EEEE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef %parent) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp9.i = alloca %"class.std::tuple.476", align 8
   %ref.tmp10.i = alloca %"class.std::tuple.479", align 1
@@ -7667,7 +7667,7 @@ _ZNSt10unique_ptrIN9grpc_core19XdsTransportFactory12XdsTransport13StreamingCallE
 declare void @_ZN9grpc_core6XdsApi16CreateAdsRequestESt17basic_string_viewIcSt11char_traitsIcEES4_S4_RKSt6vectorINSt7__cxx1112basic_stringIcS3_SaIcEEESaIS9_EEN4absl12lts_202308026StatusEb(ptr sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(96), i64, ptr, i64, ptr, ptr noundef byval(%"class.std::basic_string_view") align 8, ptr noundef nonnull align 8 dereferenceable(24), ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient12ChannelState12AdsCallState23ResourceNamesForRequestB5cxx11EPKNS_15XdsResourceTypeE(ptr noalias sret(%"class.std::vector.164") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef %type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient12ChannelState12AdsCallState23ResourceNamesForRequestB5cxx11EPKNS_15XdsResourceTypeE(ptr noalias sret(%"class.std::vector.164") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(144) %this, ptr noundef %type) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp23 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -10922,7 +10922,7 @@ ehcleanup57:                                      ; preds = %lpad52, %lpad44, %l
 }
 
 ; Function Attrs: uwtable
-define void @_ZN9grpc_core9XdsClient29BuildLoadReportSnapshotLockedERKNS_12XdsBootstrap9XdsServerEbRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EE(ptr noalias sret(%"class.std::map.276") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(433) %this, ptr noundef nonnull readnone align 8 dereferenceable(8) %xds_server, i1 noundef zeroext %send_all_clusters, ptr noundef nonnull align 8 dereferenceable(48) %clusters) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient29BuildLoadReportSnapshotLockedERKNS_12XdsBootstrap9XdsServerEbRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EE(ptr noalias sret(%"class.std::map.276") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(433) %this, ptr noundef nonnull readnone align 8 dereferenceable(8) %xds_server, i1 noundef zeroext %send_all_clusters, ptr noundef nonnull align 8 dereferenceable(48) %clusters) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i145 = alloca %"class.std::tuple.476", align 8
   %ref.tmp10.i146 = alloca %"class.std::tuple.479", align 1
@@ -11937,7 +11937,7 @@ return:                                           ; preds = %if.end, %_ZNSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient12ChannelState12LrsCallStateC2ENS_13RefCountedPtrINS1_13RetryableCallIS2_EEEE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 35), (48, 52), (56, 64)) %this, ptr nocapture noundef %parent) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient12ChannelState12LrsCallStateC2ENS_13RefCountedPtrINS1_13RetryableCallIS2_EEEE(ptr noundef nonnull align 8 dereferenceable(104) %this, ptr nocapture noundef %parent) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.std::unique_ptr.106", align 8
   %agg.tmp = alloca %"class.std::unique_ptr.233", align 8
@@ -12272,7 +12272,7 @@ _ZNSt10unique_ptrIN9grpc_core19XdsTransportFactory12XdsTransport13StreamingCallE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClient12ChannelState12LrsCallState13OnRequestSentEb(ptr noundef nonnull align 8 dereferenceable(104) initializes((33, 34)) %this, i1 zeroext %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClient12ChannelState12LrsCallState13OnRequestSentEb(ptr noundef nonnull align 8 dereferenceable(104) %this, i1 zeroext %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %parent_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %parent_.i.i, align 8
@@ -12883,7 +12883,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit12:      ; preds = %ehcleanup
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core9XdsClientC2ESt10unique_ptrINS_12XdsBootstrapESt14default_deleteIS2_EES1_INS_19XdsTransportFactoryENS_16OrphanableDeleteEESt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_NS_8DurationE(ptr noundef nonnull align 8 dereferenceable(433) initializes((0, 40)) %this, ptr nocapture noundef %bootstrap, ptr nocapture noundef %transport_factory, ptr nocapture noundef %engine, ptr noundef %user_agent_name, ptr noundef %user_agent_version, i64 %resource_request_timeout.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClientC2ESt10unique_ptrINS_12XdsBootstrapESt14default_deleteIS2_EES1_INS_19XdsTransportFactoryENS_16OrphanableDeleteEESt10shared_ptrIN17grpc_event_engine12experimental11EventEngineEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_NS_8DurationE(ptr noundef nonnull align 8 dereferenceable(433) %this, ptr nocapture noundef %bootstrap, ptr nocapture noundef %transport_factory, ptr nocapture noundef %engine, ptr noundef %user_agent_name, ptr noundef %user_agent_version, i64 %resource_request_timeout.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %agg.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -13458,7 +13458,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core9XdsClientD2Ev(ptr noundef nonnull align 8 dereferenceable(433) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core9XdsClientD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core9XdsClientE, i64 16), ptr %this, align 8
   %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @_ZN9grpc_core21grpc_xds_client_traceE, i64 16) monotonic, align 8

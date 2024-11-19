@@ -2068,7 +2068,7 @@ define void @_v39_openapi_spec_JOB_ARRAY_RESPONSE_MSG(ptr nocapture readnone %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @get_parsers(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #3 {
+define void @get_parsers(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #3 {
   store i32 191, ptr %1, align 4
   store ptr @parsers, ptr %0, align 8
   ret void

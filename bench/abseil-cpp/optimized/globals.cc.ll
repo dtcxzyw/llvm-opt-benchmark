@@ -112,7 +112,7 @@ _ZN4absl12_GLOBAL__N_129TriggerLoggingGlobalsListenerEv.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl12log_internal17ScopedMinLogLevelC2ENS_18LogSeverityAtLeastE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %severity) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4absl12log_internal17ScopedMinLogLevelC2ENS_18LogSeverityAtLeastE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %severity) unnamed_addr #1 align 2 {
 entry:
   %0 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_113min_log_levelE.0 acquire, align 4
   store i32 %0, ptr %this, align 4
@@ -200,7 +200,7 @@ _ZN4absl12_GLOBAL__N_129TriggerLoggingGlobalsListenerEv.exit: ; preds = %entry, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4absl21ScopedStderrThresholdC2ENS_18LogSeverityAtLeastE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %severity) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4absl21ScopedStderrThresholdC2ENS_18LogSeverityAtLeastE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %severity) unnamed_addr #1 align 2 {
 entry:
   %0 = load atomic i32, ptr @_ZN4absl12_GLOBAL__N_115stderrthresholdE.0 acquire, align 4
   store i32 %0, ptr %this, align 4

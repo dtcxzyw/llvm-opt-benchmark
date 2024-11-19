@@ -1546,7 +1546,7 @@ _ZN7QStringD2Ev.exit180:                          ; preds = %_ZN17QArrayDataPoin
 declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN19SCTPAllAssocsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(58) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
+define void @_ZN19SCTPAllAssocsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(58) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV19SCTPAllAssocsDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV19SCTPAllAssocsDialog, i64 488), ptr %2, align 8

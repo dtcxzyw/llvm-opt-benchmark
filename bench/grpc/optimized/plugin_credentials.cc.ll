@@ -1108,7 +1108,7 @@ if.end:                                           ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN23grpc_plugin_credentials14PendingRequest15PollAsyncResultEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll") align 8 initializes((0, 1)) %agg.result, ptr noundef nonnull align 8 dereferenceable(332) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23grpc_plugin_credentials14PendingRequest15PollAsyncResultEv(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(332) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %ready_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -2347,7 +2347,7 @@ _ZN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchN9grpc_core5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN23grpc_plugin_credentialsC2E32grpc_metadata_credentials_plugin19grpc_security_level(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 20), (24, 64)) %this, ptr nocapture noundef readonly byval(%struct.grpc_metadata_credentials_plugin) align 8 %plugin, i32 noundef %min_security_level) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN23grpc_plugin_credentialsC2E32grpc_metadata_credentials_plugin19grpc_security_level(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %this, ptr nocapture noundef readonly byval(%struct.grpc_metadata_credentials_plugin) align 8 %plugin, i32 noundef %min_security_level) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
@@ -6579,7 +6579,7 @@ entry:
 declare void @grpc_auth_metadata_context_reset(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZN9grpc_core20arena_promise_detail7InlinedIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZN23grpc_plugin_credentials18GetRequestMetadataES9_PKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0E8PollOnceEPNS0_7ArgTypeE"(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll") align 8 initializes((0, 1)) %agg.result, ptr nocapture noundef readonly %arg) #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN9grpc_core20arena_promise_detail7InlinedIN4absl12lts_202308028StatusOrISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEZN23grpc_plugin_credentials18GetRequestMetadataES9_PKN21grpc_call_credentials22GetRequestMetadataArgsEE3$_0E8PollOnceEPNS0_7ArgTypeE"(ptr noalias nocapture writeonly sret(%"class.grpc_core::Poll") align 8 %agg.result, ptr nocapture noundef readonly %arg) #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"class.absl::lts_20230802::StatusOr", align 8
   %0 = load ptr, ptr %arg, align 8, !noalias !348

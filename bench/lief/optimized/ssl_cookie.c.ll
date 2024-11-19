@@ -14,7 +14,7 @@ define hidden void @mbedtls_ssl_cookie_init(ptr noundef %0) local_unnamed_addr #
 declare void @mbedtls_md_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ssl_cookie_set_timeout(ptr nocapture noundef writeonly initializes((24, 32)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden void @mbedtls_ssl_cookie_set_timeout(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %1, ptr %3, align 8
   ret void

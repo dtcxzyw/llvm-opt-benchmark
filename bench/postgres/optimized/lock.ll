@@ -2032,14 +2032,14 @@ GrantLockLocal.exit:                              ; preds = %14, %._crit_edge.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @MarkLockClear(ptr nocapture noundef writeonly initializes((65, 66)) %0) local_unnamed_addr #9 {
+define dso_local void @MarkLockClear(ptr nocapture noundef writeonly %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds i8, ptr %0, i64 65
   store i8 1, ptr %2, align 1
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @RemoveFromWaitQueue(ptr nocapture noundef initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @RemoveFromWaitQueue(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 120

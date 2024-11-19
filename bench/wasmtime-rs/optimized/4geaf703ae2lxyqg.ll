@@ -873,7 +873,7 @@ define noundef i64 @_ZN14cranelift_isle10trie_again4Rule17total_constraints17h7e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 16 initializes((0, 1)) %0, ptr align 8 %1, i16 %2) unnamed_addr #1 {
+define void @_ZN14cranelift_isle10trie_again4Rule14get_constraint17h863d3d5b43627294E(ptr nocapture writeonly sret({ i8, [31 x i8] }) align 16 %0, ptr align 8 %1, i16 %2) unnamed_addr #1 {
   %4 = alloca i16, align 2
   store i16 %2, ptr %4, align 2
   %5 = getelementptr inbounds i8, ptr %1, i64 24

@@ -333,7 +333,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm15SimplifyCFGPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 14), (16, 24)) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm15SimplifyCFGPassC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #2 align 2 {
   store i32 1, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i8 0, ptr %2, align 4
@@ -459,7 +459,7 @@ _ZL34applyCommandLineOverridesToOptionsRN4llvm18SimplifyCFGOptionsE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm15SimplifyCFGPassC2ERKNS_18SimplifyCFGOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm15SimplifyCFGPassC2ERKNS_18SimplifyCFGOptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #3 align 2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %3 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZL22UserBonusInstThreshold, i64 8), align 8
   %.not.i = icmp eq i16 %3, 0
@@ -1246,7 +1246,7 @@ _ZN4llvm11raw_ostreamlsEc.exit92:                 ; preds = %365, %367
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15SimplifyCFGPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) initializes((16, 24)) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15SimplifyCFGPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PreservedAnalyses") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(136) %2, ptr noundef nonnull align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm16TargetIRAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_(ptr noundef nonnull align 8 dereferenceable(72) %3, ptr noundef nonnull @_ZN4llvm18AssumptionAnalysis3KeyE, ptr noundef nonnull align 8 dereferenceable(136) %2) #20
@@ -2566,7 +2566,7 @@ _ZNSt8functionIFbRKN4llvm8FunctionEEED2Ev.exit:   ; preds = %_ZNSt8functionIFbRK
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115CFGSimplifyPassC2EN4llvm18SimplifyCFGOptionsESt8functionIFbRKNS1_8FunctionEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 28), (32, 88)) %0, ptr nocapture noundef readonly byval(%"struct.llvm::SimplifyCFGOptions") align 8 %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_115CFGSimplifyPassC2EN4llvm18SimplifyCFGOptionsESt8functionIFbRKNS1_8FunctionEEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr nocapture noundef readonly byval(%"struct.llvm::SimplifyCFGOptions") align 8 %1, ptr nocapture noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.anon.242, align 8
   %5 = alloca %"class.std::reference_wrapper", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4305,7 +4305,7 @@ declare void @_ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb(ptr noundef 
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115CFGSimplifyPassD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115CFGSimplifyPassD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115CFGSimplifyPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -4323,7 +4323,7 @@ _ZNSt8functionIFbRKN4llvm8FunctionEEED2Ev.exit:   ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115CFGSimplifyPassD0Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115CFGSimplifyPassD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 144) (i8, ptr @_ZTVN12_GLOBAL__N_115CFGSimplifyPassE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8

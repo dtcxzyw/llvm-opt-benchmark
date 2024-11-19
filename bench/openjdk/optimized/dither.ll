@@ -589,7 +589,7 @@ define internal fastcc range(i32 0, 2) i32 @recurseLevel(ptr nocapture noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @initDitherTables(ptr nocapture noundef initializes((48, 72)) %0) local_unnamed_addr #4 {
+define hidden void @initDitherTables(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = load i32, ptr @std_odas_computed, align 4
   %.not = icmp eq i32 %2, 0
   %3 = getelementptr inbounds i8, ptr %0, i64 48

@@ -1041,7 +1041,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN5vcpkg6Checks12exit_successERKNS_8LineInfoE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg4Util4fmapIRSt6vectorINS_20InstalledPackageViewESaIS3_EEZNS_21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg4Util4fmapIRSt6vectorINS_20InstalledPackageViewESaIS3_EEZNS_21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_0EES2_INSt5decayIDTclclsr3stdE7declvalIRT0_EEdecldtclsr3stdE7declvalIT_EE5beginEEEE4typeESaISK_EEOSH_OSF_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1196,7 +1196,7 @@ _ZNSt6vectorIPKN5vcpkg15StatusParagraphESaIS3_EED2Ev.exit: ; preds = %51, %53
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg4Util12fmap_flattenIRSt6vectorINS_20InstalledPackageViewESaIS3_EEZNS_21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_1PKNS_15StatusParagraphEEES2_IT1_SaISH_EEOT_OT0_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg4Util12fmap_flattenIRSt6vectorINS_20InstalledPackageViewESaIS3_EEZNS_21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_1PKNS_15StatusParagraphEEES2_IT1_SaISH_EEOT_OT0_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
@@ -1556,7 +1556,7 @@ _ZNKSt3setIN5vcpkg13StringLiteralESt4lessIvESaIS1_EE4findINSt7__cxx1112basic_str
 declare void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZN5vcpkg4Util6filterISt6vectorIPKNS_15StatusParagraphESaIS5_EEZNS_21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_3EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaISL_EESI_T0_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZN5vcpkg4Util6filterISt6vectorIPKNS_15StatusParagraphESaIS5_EEZNS_21command_list_and_exitERKNS_17VcpkgCmdArgumentsERKNS_10VcpkgPathsEE3$_3EES2_INSt5decayIDTdecldtclsr3stdE7declvalIRKT_EE5beginEEE4typeESaISL_EESI_T0_"(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef nonnull %1) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.vcpkg::StringView", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"struct.vcpkg::StringView", align 8

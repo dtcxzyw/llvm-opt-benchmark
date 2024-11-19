@@ -2017,7 +2017,7 @@ declare ptr @Llb_DriverLastPartition(ptr noundef, ptr noundef, i64 noundef) loca
 declare void @Extra_StopManager(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Llb_CoreSetVarMaps(ptr nocapture noundef initializes((88, 120)) %0) local_unnamed_addr #5 {
+define void @Llb_CoreSetVarMaps(ptr nocapture noundef %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr i8, ptr %3, i64 32
@@ -2676,7 +2676,7 @@ define range(i32 -1, 2) i32 @Llb_CoreExperiment(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @Llb_ManReachMinCut(ptr noundef %0, ptr noundef initializes((96, 104)) %1) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @Llb_ManReachMinCut(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8

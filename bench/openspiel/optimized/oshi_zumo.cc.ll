@@ -2525,7 +2525,7 @@ define noundef zeroext i1 @_ZNK10open_spiel9oshi_zumo13OshiZumoState10IsTerminal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9oshi_zumo13OshiZumoState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9oshi_zumo13OshiZumoState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -5198,7 +5198,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %22, %40, %53, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9oshi_zumo12OshiZumoGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.20") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(300) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9oshi_zumo12OshiZumoGame22ObservationTensorShapeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.20") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(300) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 284
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 288

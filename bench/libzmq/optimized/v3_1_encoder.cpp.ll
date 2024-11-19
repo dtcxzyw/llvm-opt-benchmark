@@ -45,7 +45,7 @@ $_ZTVN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE = comdat any
 @_ZN3zmq14v3_1_encoder_tD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq14v3_1_encoder_tD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14v3_1_encoder_tC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 41), (48, 72)) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq14v3_1_encoder_tC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE, i64 16), ptr %this, align 8
   %_write_pos.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -81,7 +81,7 @@ _ZN3zmq14encoder_base_tINS_14v3_1_encoder_tEEC2Em.exit: ; preds = %entry, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14v3_1_encoder_t13message_readyEv(ptr noundef nonnull align 8 dereferenceable(96) initializes((72, 74)) %this) #0 align 2 {
+define void @_ZN3zmq14v3_1_encoder_t13message_readyEv(ptr noundef nonnull align 8 dereferenceable(96) %this) #0 align 2 {
 entry:
   %_in_progress.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_in_progress.i, align 8
@@ -220,7 +220,7 @@ if.end61:                                         ; preds = %if.end44, %if.then5
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN3zmq14v3_1_encoder_tD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %this) unnamed_addr #1 align 2 {
+define void @_ZN3zmq14v3_1_encoder_tD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3zmq14encoder_base_tINS_14v3_1_encoder_tEEE, i64 16), ptr %this, align 8
   %_buf.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -248,7 +248,7 @@ declare noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 d
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3zmq14v3_1_encoder_t10size_readyEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) initializes((8, 41)) %this) #0 align 2 {
+define void @_ZN3zmq14v3_1_encoder_t10size_readyEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) #0 align 2 {
 entry:
   %_in_progress.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_in_progress.i, align 8

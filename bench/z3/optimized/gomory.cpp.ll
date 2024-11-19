@@ -1379,7 +1379,7 @@ _ZN2lp6gomory3cutERNS_8lar_termER8rationalPNS_11explanationEjRK6vectorINS_8row_c
 declare noundef i32 @_ZNK2lp10int_solver19row_of_basic_columnEj(ptr noundef nonnull align 8 dereferenceable(504), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2lp6gomoryC2ERNS_10int_solverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(504) %lia) unnamed_addr #5 align 2 {
+define hidden void @_ZN2lp6gomoryC2ERNS_10int_solverE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(504) %lia) unnamed_addr #5 align 2 {
 entry:
   store ptr %lia, ptr %this, align 8
   %lra = getelementptr inbounds i8, ptr %this, i64 8

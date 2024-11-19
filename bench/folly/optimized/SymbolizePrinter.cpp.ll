@@ -400,7 +400,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5folly10symbolizer16AddressFormatterC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(23) initializes((0, 23)) %this) unnamed_addr #4 align 2 {
+define void @_ZN5folly10symbolizer16AddressFormatterC2Ev(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(23) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(23) %this, ptr noundef nonnull align 16 dereferenceable(23) @_ZN5folly10symbolizer16AddressFormatter11bufTemplateE, i64 23, i1 false)
   ret void
@@ -410,7 +410,7 @@ entry:
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define { ptr, ptr } @_ZN5folly10symbolizer16AddressFormatter6formatEm(ptr noundef nonnull align 1 dereferenceable(23) initializes((22, 23)) %this, i64 noundef %address) local_unnamed_addr #6 align 2 {
+define { ptr, ptr } @_ZN5folly10symbolizer16AddressFormatter6formatEm(ptr noundef nonnull align 1 dereferenceable(23) %this, i64 noundef %address) local_unnamed_addr #6 align 2 {
 entry:
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 22
   store i8 0, ptr %add.ptr2, align 1, !tbaa !10
@@ -1311,7 +1311,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10symbolizer23OStreamSymbolizePrinterC2ERSoi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 13), (16, 24)) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %options) unnamed_addr #0 align 2 {
+define void @_ZN5folly10symbolizer23OStreamSymbolizePrinterC2ERSoi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %out, i32 noundef %options) unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %out, align 8, !tbaa !7
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -1407,7 +1407,7 @@ declare noundef i32 @_ZNSt12__basic_fileIcE2fdEv(ptr noundef nonnull align 8 der
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly10symbolizer18FDSymbolizePrinterC2Eiim(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 13), (16, 20)) %this, i32 noundef %fd, i32 noundef %options, i64 noundef %bufferSize) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10symbolizer18FDSymbolizePrinterC2Eiim(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %fd, i32 noundef %options, i64 noundef %bufferSize) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %and.i = and i32 %options, 2
   %cmp.not.i = icmp eq i32 %and.i, 0
@@ -1469,7 +1469,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
 declare void @_ZN5folly5IOBuf6createEm(ptr dead_on_unwind writable sret(%"class.std::unique_ptr") align 8, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10symbolizer18FDSymbolizePrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly10symbolizer18FDSymbolizePrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5folly10symbolizer18FDSymbolizePrinterE, i64 16), ptr %this, align 8, !tbaa !7
   %buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -1539,7 +1539,7 @@ declare noundef i64 @_ZN5folly9writeFullEiPKvm(i32 noundef, ptr noundef, i64 nou
 declare noundef zeroext i1 @_ZNK5folly5IOBuf5emptyEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly10symbolizer20FILESymbolizePrinterC2EP8_IO_FILEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 13), (16, 24)) %this, ptr noundef %file, i32 noundef %options) unnamed_addr #0 align 2 {
+define void @_ZN5folly10symbolizer20FILESymbolizePrinterC2EP8_IO_FILEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %file, i32 noundef %options) unnamed_addr #0 align 2 {
 entry:
   %call = tail call i32 @fileno(ptr noundef %file) #28
   %and.i = and i32 %options, 2

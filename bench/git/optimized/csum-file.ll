@@ -555,7 +555,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashfile_checkpoint(ptr noundef %f, ptr noundef initializes((0, 8)) %checkpoint) local_unnamed_addr #0 {
+define dso_local void @hashfile_checkpoint(ptr noundef %f, ptr noundef %checkpoint) local_unnamed_addr #0 {
 entry:
   %offset1.i = getelementptr inbounds i8, ptr %f, i64 8
   %0 = load i32, ptr %offset1.i, align 8
@@ -645,7 +645,7 @@ declare i32 @ftruncate64(i32 noundef, i64 noundef) local_unnamed_addr #4
 declare i64 @lseek64(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @crc32_begin(ptr nocapture noundef writeonly initializes((2440, 2448)) %f) local_unnamed_addr #0 {
+define dso_local void @crc32_begin(ptr nocapture noundef writeonly %f) local_unnamed_addr #0 {
 entry:
   %call = tail call i64 @crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #11
   %conv = trunc i64 %call to i32
@@ -657,7 +657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local i32 @crc32_end(ptr nocapture noundef initializes((2440, 2444)) %f) local_unnamed_addr #5 {
+define dso_local i32 @crc32_end(ptr nocapture noundef %f) local_unnamed_addr #5 {
 entry:
   %do_crc = getelementptr inbounds i8, ptr %f, i64 2440
   store i32 0, ptr %do_crc, align 8

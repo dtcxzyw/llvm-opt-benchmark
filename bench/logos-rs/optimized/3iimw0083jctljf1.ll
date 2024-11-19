@@ -21,7 +21,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hba7460ab4ea1b6f2E"(ptr nocapture writeonly sret([40 x i8]) align 8 initializes((0, 28), (32, 36)) %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 1 %2) unnamed_addr #0 {
+define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17hba7460ab4ea1b6f2E"(ptr nocapture writeonly sret([40 x i8]) align 8 %0, ptr nocapture readonly align 8 %1, ptr nocapture readonly align 1 %2) unnamed_addr #0 {
   %4 = alloca [24 x i8], align 8
   %5 = alloca [9 x i8], align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %5, ptr noundef nonnull align 1 dereferenceable(9) %2, i64 9, i1 false)

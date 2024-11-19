@@ -2540,7 +2540,7 @@ if.end:                                           ; preds = %_ZNK9grpc_core11Unr
 declare void @_ZN4absl12lts_202308026Status15UnrefNonInlinedEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN9grpc_core14promise_detail6TrySeqINS0_3MapINS0_3SeqINS_11pipe_detail4NextISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_12PipeReceiverISA_E4NextEvEUlSt8optionalISA_EE_EEEZNS_11CallHandler25PullClientInitialMetadataEvEUlNS_10NextResultISA_EEE_EEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallESI_EUlSA_E_NS_17ImmediateOkStatusEEEC2EOSR_(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 81)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN9grpc_core14promise_detail6TrySeqINS0_3MapINS0_3SeqINS_11pipe_detail4NextISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_12PipeReceiverISA_E4NextEvEUlSt8optionalISA_EE_EEEZNS_11CallHandler25PullClientInitialMetadataEvEUlNS_10NextResultISA_EEE_EEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallESI_EUlSA_E_NS_17ImmediateOkStatusEEEC2EOSR_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i = getelementptr inbounds i8, ptr %this, i64 80
   %state2.i = getelementptr inbounds i8, ptr %0, i64 80

@@ -472,7 +472,7 @@ declare i32 @pg_fprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 declare noundef i32 @pclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @printTableInit(ptr nocapture noundef initializes((0, 32)) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
+define dso_local void @printTableInit(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8

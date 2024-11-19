@@ -1517,7 +1517,7 @@ for.end:                                          ; preds = %_ZNK6hermes3hbc21Ru
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes3hbc14BCProviderBase21getLocationForAddressEjj(ptr noalias sret(%"class.llvh::Optional") align 8 initializes((40, 41)) %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %funcId, i32 noundef %offsetInFunction) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes3hbc14BCProviderBase21getLocationForAddressEjj(ptr noalias sret(%"class.llvh::Optional") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %funcId, i32 noundef %offsetInFunction) local_unnamed_addr #0 align 2 {
 entry:
   %locOpt = alloca %"class.hermes::OptValue", align 4
   %fileName = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1913,7 +1913,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes3hbc20BCProviderFromBufferC2ESt10unique_ptrIKNS_6BufferESt14default_deleteIS4_EENS0_12BytecodeFormE(ptr noundef nonnull align 8 dereferenceable(376) initializes((0, 9), (12, 184), (192, 248)) %this, ptr nocapture noundef %buffer, i32 noundef %form) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes3hbc20BCProviderFromBufferC2ESt10unique_ptrIKNS_6BufferESt14default_deleteIS4_EENS0_12BytecodeFormE(ptr noundef nonnull align 8 dereferenceable(376) %this, ptr nocapture noundef %buffer, i32 noundef %form) unnamed_addr #0 align 2 {
 entry:
   %populator.i = alloca %struct.BytecodeFileFieldsPopulator, align 8
   %fields = alloca %"struct.hermes::hbc::BytecodeFileFields", align 8
@@ -2084,7 +2084,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK6hermes3hbc20BCProviderFromBuffer13getSourceHashEv(ptr noalias nocapture writeonly sret(%"struct.std::array") align 1 initializes((0, 20)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZNK6hermes3hbc20BCProviderFromBuffer13getSourceHashEv(ptr noalias nocapture writeonly sret(%"struct.std::array") align 1 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this) unnamed_addr #8 align 2 {
 entry:
   %bufferPtr_ = getelementptr inbounds i8, ptr %this, i64 288
   %0 = load ptr, ptr %bufferPtr_, align 8
@@ -2094,7 +2094,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer25getSourceHashFromBytecodeEN4llvh8ArrayRefIhEE(ptr noalias nocapture writeonly sret(%"struct.std::array") align 1 initializes((0, 20)) %agg.result, ptr nocapture readonly %buffer.coerce0, i64 %buffer.coerce1) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer25getSourceHashFromBytecodeEN4llvh8ArrayRefIhEE(ptr noalias nocapture writeonly sret(%"struct.std::array") align 1 %agg.result, ptr nocapture readonly %buffer.coerce0, i64 %buffer.coerce1) local_unnamed_addr #9 align 2 {
 entry:
   %sourceHash = getelementptr inbounds i8, ptr %buffer.coerce0, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %agg.result, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 20, i1 false)

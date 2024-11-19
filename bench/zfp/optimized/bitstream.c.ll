@@ -231,7 +231,7 @@ define i64 @stream_wtell(ptr nocapture noundef readonly %0) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stream_rewind(ptr nocapture noundef initializes((0, 24)) %0) local_unnamed_addr #4 {
+define void @stream_rewind(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -241,7 +241,7 @@ define void @stream_rewind(ptr nocapture noundef initializes((0, 24)) %0) local_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stream_rseek(ptr nocapture noundef initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define void @stream_rseek(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = and i64 %1, 63
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -270,7 +270,7 @@ define void @stream_rseek(ptr nocapture noundef initializes((0, 24)) %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stream_wseek(ptr nocapture noundef initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define void @stream_wseek(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = and i64 %1, 63
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -297,7 +297,7 @@ define void @stream_wseek(ptr nocapture noundef initializes((0, 24)) %0, i64 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @stream_skip(ptr nocapture noundef initializes((8, 16)) %0, i64 noundef %1) local_unnamed_addr #2 {
+define void @stream_skip(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24

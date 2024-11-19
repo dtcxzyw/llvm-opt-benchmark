@@ -183,7 +183,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog18mk_karr_invariantsC2ERNS_7contextEj(ptr noundef nonnull align 8 dereferenceable(3664) initializes((0, 13), (16, 48)) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx, i32 noundef %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog18mk_karr_invariantsC2ERNS_7contextEj(ptr noundef nonnull align 8 dereferenceable(3664) %this, ptr noundef nonnull align 8 dereferenceable(3556) %ctx, i32 noundef %priority) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.params_ref, align 8
   %params = alloca %class.params_ref, align 8
@@ -410,7 +410,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP4exprE13obj_map_entryE8obj_hashINS4_8ke
 declare void @_ZN7datalog7contextD1Ev(ptr noundef nonnull align 8 dereferenceable(3556)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog18mk_karr_invariantsD2Ev(ptr noundef nonnull align 8 dereferenceable(3664) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog18mk_karr_invariantsD2Ev(ptr noundef nonnull align 8 dereferenceable(3664) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7datalog18mk_karr_invariantsE, i64 16), ptr %this, align 8
   %m_pinned = getelementptr inbounds i8, ptr %this, i64 3648
@@ -501,7 +501,7 @@ _ZN7obj_mapI9func_declP4exprED2Ev.exit:           ; preds = %_ZN10ref_vectorI3as
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7datalog18mk_karr_invariantsD0Ev(ptr noundef nonnull align 8 dereferenceable(3664) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN7datalog18mk_karr_invariantsD0Ev(ptr noundef nonnull align 8 dereferenceable(3664) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN7datalog18mk_karr_invariantsD2Ev(ptr noundef nonnull align 8 dereferenceable(3664) %this) #16
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18

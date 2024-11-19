@@ -6366,7 +6366,7 @@ declare void @_ZN8facebook5velox10BaseVector15prepareForReuseEv(ptr noundef nonn
 declare void @_ZN8facebook5velox10BaseVector15prepareForReuseERSt10shared_ptrIS1_Ei(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox9RowVector27updateContainsLazyNotLoadedEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) initializes((136, 138)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZNK8facebook5velox9RowVector27updateContainsLazyNotLoadedEv(ptr nocapture noundef nonnull align 8 dereferenceable(138) %this) local_unnamed_addr #0 align 2 {
 entry:
   %childrenLoaded_ = getelementptr inbounds i8, ptr %this, i64 137
   store i8 0, ptr %childrenLoaded_, align 1

@@ -36,7 +36,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal9UnsatCoreC2ERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EE(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 1), (8, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %core) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc58internal9UnsatCoreC2ERKSt6vectorINS0_12NodeTemplateILb1EEESaIS4_EE(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %core) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 0, ptr %this, align 8
   %d_core = getelementptr inbounds i8, ptr %this, i64 8
@@ -162,7 +162,7 @@ _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4cvc58internal9UnsatCoreC2ERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 1), (8, 32)) %this, ptr noundef nonnull align 8 dereferenceable(24) %names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4cvc58internal9UnsatCoreC2ERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(24) %names) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i8 1, ptr %this, align 8
   %d_core = getelementptr inbounds i8, ptr %this, i64 8

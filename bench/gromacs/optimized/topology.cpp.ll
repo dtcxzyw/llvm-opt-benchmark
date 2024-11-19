@@ -1345,7 +1345,7 @@ $_ZTVN5nblib14NbLibExceptionE = comdat any
 @_ZN5nblib15TopologyBuilderC1Ev = unnamed_addr alias void (ptr), ptr @_ZN5nblib15TopologyBuilderC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib15TopologyBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(1296) initializes((8, 128)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib15TopologyBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(1296) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = getelementptr inbounds i8, ptr %0, i64 176
@@ -5630,7 +5630,7 @@ _ZSt4copyIN3gmx12ArrayRefIterIKiEEN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSa
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5nblib15TopologyBuilder21createInteractionDataERKNS_17ParticleSequencerE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::tuple") align 8 initializes((0, 864)) %0, ptr noundef nonnull align 8 dereferenceable(1296) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5nblib15TopologyBuilder21createInteractionDataERKNS_17ParticleSequencerE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::tuple") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1296) %1, ptr noundef nonnull align 8 dereferenceable(56) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.anon.464, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(864) %0, i8 0, i64 864, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -60312,7 +60312,7 @@ define noundef i32 @_ZNK5nblib8Topology12numParticlesEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5nblib8Topology10getChargesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.5") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5nblib8Topology10getChargesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.5") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 56
   %4 = getelementptr inbounds i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8
@@ -60364,7 +60364,7 @@ define void @_ZNK5nblib8Topology16getParticleTypesEv(ptr dead_on_unwind noalias 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5nblib8Topology31getParticleTypeIdOfAllParticlesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.0") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5nblib8Topology31getParticleTypeIdOfAllParticlesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.0") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   %4 = getelementptr inbounds i8, ptr %1, i64 40
   %5 = load ptr, ptr %4, align 8
@@ -60416,7 +60416,7 @@ define noundef i32 @_ZNK5nblib8Topology10sequenceIDENS_10StrongTypeINSt7__cxx111
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5nblib8Topology26getNonBondedInteractionMapEv(ptr dead_on_unwind noalias writable sret(%"class.nblib::NonBondedInteractionMap") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5nblib8Topology26getNonBondedInteractionMapEv(ptr dead_on_unwind noalias writable sret(%"class.nblib::NonBondedInteractionMap") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1104) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::tuple<nblib::StrongType<std::__cxx11::basic_string<char>, nblib::ParticleTypeNameParameter>, nblib::StrongType<std::__cxx11::basic_string<char>, nblib::ParticleTypeNameParameter>>, std::pair<const std::tuple<nblib::StrongType<std::__cxx11::basic_string<char>, nblib::ParticleTypeNameParameter>, nblib::StrongType<std::__cxx11::basic_string<char>, nblib::ParticleTypeNameParameter>>, std::tuple<nblib::StrongType<float, nblib::C6Parameter>, nblib::StrongType<float, nblib::C12Parameter>>>, std::_Select1st<std::pair<const std::tuple<nblib::StrongType<std::__cxx11::basic_string<char>, nblib::ParticleTypeNameParameter>, nblib::StrongType<std::__cxx11::basic_string<char>, nblib::ParticleTypeNameParameter>>, std::tuple<nblib::StrongType<float, nblib::C6Parameter>, nblib::StrongType<float, nblib::C12Parameter>>>>, std::less<std::tuple<nblib::StrongType<std::__cxx11::basic_string<char>, nblib::ParticleTypeNameParameter>, nblib::StrongType<std::__cxx11::basic_string<char>, nblib::ParticleTypeNameParameter>>>>::_Alloc_node", align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8

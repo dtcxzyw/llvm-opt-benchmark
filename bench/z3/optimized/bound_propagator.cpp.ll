@@ -119,7 +119,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16bound_propagator5boundC2ER11mpq_managerILb0EERK3mpqdbbjjNS_5bkindEjjPS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 4), (8, 20), (24, 40), (44, 48), (56, 64)) %this, ptr noundef nonnull align 8 dereferenceable(728) %m, ptr noundef nonnull align 8 dereferenceable(32) %k, double noundef %approx_k, i1 noundef zeroext %lower, i1 noundef zeroext %strict, i32 noundef %lvl, i32 noundef %ts, i32 noundef %bk, i32 noundef %c_idx, i32 noundef %a, ptr noundef %prev) unnamed_addr #3 align 2 {
+define hidden void @_ZN16bound_propagator5boundC2ER11mpq_managerILb0EERK3mpqdbbjjNS_5bkindEjjPS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(728) %m, ptr noundef nonnull align 8 dereferenceable(32) %k, double noundef %approx_k, i1 noundef zeroext %lower, i1 noundef zeroext %strict, i32 noundef %lvl, i32 noundef %ts, i32 noundef %bk, i32 noundef %c_idx, i32 noundef %a, ptr noundef %prev) unnamed_addr #3 align 2 {
 entry:
   store i32 0, ptr %this, align 8
   %m_kind.i.i = getelementptr inbounds i8, ptr %this, i64 4
@@ -200,7 +200,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit:       ; preds = %if.then.i.i8.i, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16bound_propagatorC2ER11mpq_managerILb0EER22small_object_allocatorRK10params_ref(ptr noundef nonnull align 8 dereferenceable(280) initializes((0, 140), (144, 180), (184, 196), (200, 224), (272, 280)) %this, ptr noundef nonnull align 8 dereferenceable(728) %_m, ptr noundef nonnull align 8 dereferenceable(520) %a, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN16bound_propagatorC2ER11mpq_managerILb0EER22small_object_allocatorRK10params_ref(ptr noundef nonnull align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(728) %_m, ptr noundef nonnull align 8 dereferenceable(520) %a, ptr noundef nonnull align 8 dereferenceable(8) %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont20:
   store ptr %_m, ptr %this, align 8
   %m_allocator = getelementptr inbounds i8, ptr %this, i64 8
@@ -309,7 +309,7 @@ lpad26:                                           ; preds = %call3.i.noexc, %cal
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN16bound_propagator11updt_paramsERK10params_ref(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((224, 228), (232, 256)) %this, ptr noundef nonnull align 8 dereferenceable(8) %p) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN16bound_propagator11updt_paramsERK10params_ref(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) %this, ptr noundef nonnull align 8 dereferenceable(8) %p) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call noundef i32 @_ZNK10params_ref8get_uintEPKcj(ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef nonnull @.str.2, i32 noundef 16)
   %m_max_refinements = getelementptr inbounds i8, ptr %this, i64 224
@@ -327,7 +327,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN16bound_propagator16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) initializes((256, 268)) %this) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN16bound_propagator16reset_statisticsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(280) %this) local_unnamed_addr #4 align 2 {
 entry:
   %m_conflicts = getelementptr inbounds i8, ptr %this, i64 256
   store i32 0, ptr %m_conflicts, align 8

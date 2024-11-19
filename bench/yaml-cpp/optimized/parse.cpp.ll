@@ -416,7 +416,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #3
 declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML7LoadAllERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::vector.20") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %input) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML7LoadAllERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias sret(%"class.std::vector.20") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %input) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %stream = alloca %"class.std::__cxx11::basic_stringstream", align 8
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(128) %stream, ptr noundef nonnull align 8 dereferenceable(32) %input, i32 noundef 24)
@@ -435,7 +435,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4YAML7LoadAllERSi(ptr noalias sret(%"class.std::vector.20") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %input) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN4YAML7LoadAllERSi(ptr noalias sret(%"class.std::vector.20") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %input) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %parser = alloca %"class.YAML::Parser", align 8
   %builder = alloca %"class.YAML::NodeBuilder", align 8

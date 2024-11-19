@@ -828,7 +828,7 @@ define noundef nonnull align 8 dereferenceable(344) ptr @_RNvMNtCs8mTrBI1stz4_15
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser13entire_screen(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 18)) %0, ptr noalias noundef readonly align 8 dereferenceable(1776) %1) unnamed_addr #1 {
+define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser13entire_screen(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(1776) %1) unnamed_addr #1 {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [48 x i8], align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !102)

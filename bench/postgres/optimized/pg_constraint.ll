@@ -1684,7 +1684,7 @@ define dso_local i32 @get_relation_constraint_oid(i32 noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local ptr @get_relation_constraint_attnos(i32 noundef %0, ptr noundef %1, i1 noundef zeroext %2, ptr nocapture noundef %3) local_unnamed_addr #0 {
   %5 = alloca [3 x %struct.ScanKeyData], align 16
   %6 = alloca i8, align 1
   store i32 0, ptr %3, align 4
@@ -1996,7 +1996,7 @@ define dso_local i32 @get_domain_constraint_oid(i32 noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) local_unnamed_addr #0 {
+define dso_local ptr @get_primary_key_attnos(i32 noundef %0, i1 noundef zeroext %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.ScanKeyData], align 16
   %5 = alloca i8, align 1
   store i32 0, ptr %2, align 4

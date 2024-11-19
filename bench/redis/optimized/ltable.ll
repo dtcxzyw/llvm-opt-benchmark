@@ -699,7 +699,7 @@ declare hidden ptr @luaM_realloc_(ptr noundef, ptr noundef, i64 noundef, i64 nou
 declare hidden void @luaC_link(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setnodevector(ptr noundef %L, ptr nocapture noundef initializes((40, 48)) %t, i32 noundef %size) unnamed_addr #0 {
+define internal fastcc void @setnodevector(ptr noundef %L, ptr nocapture noundef %t, i32 noundef %size) unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %size, 0
   br i1 %cmp, label %if.then, label %if.else

@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_hash_table_t_class = external global %struct.opal_class_t, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_base_alias_init(ptr noundef initializes((16, 24)) %0) #0 {
+define internal void @mca_base_alias_init(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -153,7 +153,7 @@ opal_obj_run_destructors.exit12:                  ; preds = %.lr.ph.i9, %opal_li
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_base_alias_item_init(ptr nocapture noundef writeonly initializes((40, 48)) %0) #1 {
+define internal void @mca_base_alias_item_init(ptr nocapture noundef writeonly %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %2, align 8
   ret void

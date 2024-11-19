@@ -50,7 +50,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6marisa5AgentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #3 align 2 {
+define void @_ZN6marisa5AgentC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
@@ -190,7 +190,7 @@ define void @_ZN6marisa5Agent9set_queryEPKcm(ptr nocapture noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6marisa5Agent9set_queryEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((16, 24)) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
+define void @_ZN6marisa5Agent9set_queryEm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0, i64 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null

@@ -2171,7 +2171,7 @@ _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_fini
 declare void @hb_face_destroy(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16hb_subset_plan_tC2EP9hb_face_tPK17hb_subset_input_t(ptr noundef nonnull align 8 dereferenceable(2536) initializes((0, 16), (24, 26), (64, 80)) %this, ptr noundef %face, ptr noundef %input) unnamed_addr #2 align 2 {
+define hidden void @_ZN16hb_subset_plan_tC2EP9hb_face_tPK17hb_subset_input_t(ptr noundef nonnull align 8 dereferenceable(2536) %this, ptr noundef %face, ptr noundef %input) unnamed_addr #2 align 2 {
 entry:
   %glyf.i = alloca %"struct.OT::glyf_accelerator_t", align 8
   %new_gid.i920 = alloca i32, align 4
@@ -51797,7 +51797,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias nonnull align 8 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %lhs, i64 48, i1 false)
   %p.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
@@ -55244,7 +55244,7 @@ for.inc.i.i:                                      ; preds = %"_ZNR9hb_iter_tI13h
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias nonnull align 8 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISQ_Efp_EEEOSQ_OSW_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %lhs, i64 48, i1 false)
   %p.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
@@ -71873,7 +71873,7 @@ if.end62:                                         ; preds = %"_ZorI13hb_map_iter
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSP_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISP_Efp_EEEOSP_OSV_"(ptr noalias nonnull align 8 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSP_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISP_Efp_EEEOSP_OSV_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %lhs, i64 48, i1 false)
   %p.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48
@@ -85909,7 +85909,7 @@ do.body.backedge.i.i.i:                           ; preds = %"_ZNK4$_14clIRPK8hb
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %it_, ptr noundef nonnull align 8 dereferenceable(8) %p_, ptr noundef nonnull align 1 dereferenceable(1) %f_) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EEC2ERKS8_SC_SF_"(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(44) %it_, ptr noundef nonnull align 8 dereferenceable(8) %p_, ptr noundef nonnull align 1 dereferenceable(1) %f_) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %it_, i64 48, i1 false)
   %p = getelementptr inbounds i8, ptr %this, i64 48
@@ -88853,7 +88853,7 @@ return:                                           ; preds = %_ZN14hb_sparseset_t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN16hb_filter_iter_tIN23hb_bit_set_invertible_t6iter_tER8hb_set_tRK4$_10LPv0EEC2ERKS1_S3_S6_"(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %it_, ptr noundef nonnull align 8 dereferenceable(72) %p_, ptr noundef nonnull align 1 dereferenceable(1) %f_) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZN16hb_filter_iter_tIN23hb_bit_set_invertible_t6iter_tER8hb_set_tRK4$_10LPv0EEC2ERKS1_S3_S6_"(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %it_, ptr noundef nonnull align 8 dereferenceable(72) %p_, ptr noundef nonnull align 1 dereferenceable(1) %f_) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %it_, i64 16, i1 false)
   %p = getelementptr inbounds i8, ptr %this, i64 16
@@ -90675,7 +90675,7 @@ _ZN8hb_map_tD2Ev.exit:                            ; preds = %_ZL14hb_object_fini
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSS_"(ptr noalias nonnull align 8 initializes((0, 64)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZorI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELPv0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSS_"(ptr noalias nonnull align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %lhs, ptr %rhs.0.val, ptr %rhs.8.val) unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(48) %lhs, i64 48, i1 false)
   %p.i.i = getelementptr inbounds i8, ptr %agg.result, i64 48

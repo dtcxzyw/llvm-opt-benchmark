@@ -1297,7 +1297,7 @@ define linkonce_odr hidden void @_ZN5clang4ento7BugTypeC2EPKNS0_11CheckerBaseEN4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8), (64, 72)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -1352,7 +1352,7 @@ _ZN4llvm8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsCh
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8), (64, 72)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN5clang4ento7BugTypeE, i64 16), ptr %2, align 8
@@ -1437,7 +1437,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12__sv_wrappe
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ENS4_12__sv_wrapperERKS3_(ptr noundef nonnull align 8 dereferenceable(32), i64, ptr, ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker17NoErrnoConstraint5applyEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS5_9CallEventERKNS0_7SummaryERNS5_14CheckerContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 initializes((0, 8)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #9 align 2 {
+define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker17NoErrnoConstraint5applyEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS5_9CallEventERKNS0_7SummaryERNS5_14CheckerContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef %2, ptr nocapture nonnull readnone align 8 %3, ptr nocapture nonnull readnone align 8 %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #9 align 2 {
   %7 = load ptr, ptr %2, align 8
   store ptr %7, ptr %0, align 8
   store ptr null, ptr %2, align 8
@@ -76950,7 +76950,7 @@ _ZNSt6vectorISt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 4), (8, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   store i32 %3, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -77439,7 +77439,7 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker11SummaryCaseD2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4ento14CheckerContextEENK3$_3clIJjN4llvm6APSIntEEEEDaDpT_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 16)) %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZNK12_GLOBAL__N_126StdLibraryFunctionsChecker21initFunctionSummariesERN5clang4ento14CheckerContextEENK3$_3clIJjN4llvm6APSIntEEEEDaDpT_"(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, i32 noundef range(i32 0, 2) %1, ptr noundef nonnull %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::APSInt", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4480)
   store ptr null, ptr %0, align 8, !alias.scope !4480
@@ -78270,7 +78270,7 @@ declare noundef i32 @_ZNK5clang12FunctionDecl12getNumParamsEv(ptr noundef nonnul
 declare noundef nonnull align 8 dereferenceable(23096) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12FunctionDeclEN12_GLOBAL__N_126StdLibraryFunctionsChecker7SummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -78612,7 +78612,7 @@ define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126Std
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -78633,7 +78633,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit:        ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
@@ -78655,7 +78655,7 @@ _ZN12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraintD2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraint5applyEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS5_9CallEventERKNS0_7SummaryERNS5_14CheckerContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %5) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker15RangeConstraint5applyEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS5_9CallEventERKNS0_7SummaryERNS5_14CheckerContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(81) %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.std::optional.1060", align 8
   %8 = alloca %"class.std::function.1075", align 8
   %9 = load ptr, ptr %5, align 8
@@ -79843,7 +79843,7 @@ _ZNK5clang4ento4SVal5getAsINS0_6NonLocEEESt8optionalIT_Ev.exit: ; preds = %_ZN12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraint14getArgsToTrackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.1055") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker15ValueConstraint14getArgsToTrackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.1055") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #18
@@ -81325,7 +81325,7 @@ define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonC
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraint5applyEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS5_9CallEventERKNS0_7SummaryERNS5_14CheckerContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, ptr nocapture noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker20ComparisonConstraint5applyEN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEERKNS5_9CallEventERKNS0_7SummaryERNS5_14CheckerContextE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::IntrusiveRefCntPtr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(20) %1, ptr nocapture noundef %2, ptr noundef nonnull align 8 dereferenceable(72) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %4, ptr nocapture nonnull readnone align 8 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %8 = alloca %"class.llvm::IntrusiveRefCntPtr", align 8
   %9 = alloca %"class.clang::ento::SVal", align 8
@@ -81866,7 +81866,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraint6negateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraint6negateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %1) unnamed_addr #0 align 2 {
 _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker23NotNullBufferConstraintEED2Ev.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8
@@ -82225,7 +82225,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %14, %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint6negateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %1) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraint6negateEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(13) %1) unnamed_addr #0 align 2 {
 _ZNSt10shared_ptrIN12_GLOBAL__N_126StdLibraryFunctionsChecker17NotNullConstraintEED2Ev.exit:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8
@@ -82353,7 +82353,7 @@ define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_126Std
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -82382,7 +82382,7 @@ _ZNSt8optionalIN4llvm6APSIntEED2Ev.exit:          ; preds = %1, %6, %10, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(60) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 64) (i8, ptr @_ZTVN12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraintE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -82925,7 +82925,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %42, %44
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraint14getArgsToTrackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.1055") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1) unnamed_addr #0 align 2 {
+define internal void @_ZNK12_GLOBAL__N_126StdLibraryFunctionsChecker20BufferSizeConstraint14getArgsToTrackEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.1055") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(60) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #18

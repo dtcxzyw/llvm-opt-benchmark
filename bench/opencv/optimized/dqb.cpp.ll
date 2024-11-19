@@ -24,13 +24,13 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN2cv6dynafu14DualQuaternionC1ERNS0_10QuaternionES3_ = hidden unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN2cv6dynafu14DualQuaternionC2ERNS0_10QuaternionES3_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv6dynafu10QuaternionC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv6dynafu10QuaternionC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv6dynafu10QuaternionC2Effff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv6dynafu10QuaternionC2Effff(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, float noundef %1, float noundef %2, float noundef %3, float noundef %4) unnamed_addr #0 align 2 {
   store float %1, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4
   store float %2, ptr %6, align 4
@@ -42,7 +42,7 @@ define hidden void @_ZN2cv6dynafu10QuaternionC2Effff(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZN2cv6dynafu10QuaternionC2ERKNS_7Affine3IfEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN2cv6dynafu10QuaternionC2ERKNS_7Affine3IfEE(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %1) unnamed_addr #1 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %3
 
@@ -203,7 +203,7 @@ _ZN2cvL5traceIfLi4ELi4EEEdRKNS_4MatxIT_XT0_EXT1_EEE.exit: ; preds = %3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK2cv6dynafu10Quaternion11getRotationEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Affine3") align 4 initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK2cv6dynafu10Quaternion11getRotationEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Affine3") align 4 %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
 _ZN2cv3VecIfLi3EE3allEf.exit:
   %2 = load float, ptr %1, align 4
   %3 = getelementptr inbounds i8, ptr %1, i64 4
@@ -459,13 +459,13 @@ _ZN2cvdVIfLi4EEERNS_3VecIT_XT0_EEES4_f.exit:      ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN2cv6dynafu14DualQuaternionC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN2cv6dynafu14DualQuaternionC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden void @_ZN2cv6dynafu14DualQuaternionC2ERKNS_7Affine3IfEE(ptr nocapture noundef nonnull align 4 dereferenceable(32) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %1) unnamed_addr #1 align 2 {
+define hidden void @_ZN2cv6dynafu14DualQuaternionC2ERKNS_7Affine3IfEE(ptr nocapture noundef nonnull align 4 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(64) %1) unnamed_addr #1 align 2 {
   %3 = alloca %"class.cv::dynafu::Quaternion", align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 32, i1 false)
@@ -847,7 +847,7 @@ _ZN2cv6dynafudvERKNS0_10QuaternionEf.exit:        ; preds = %12
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN2cv6dynafu3DQBERSt6vectorIfSaIfEERS1_INS0_14DualQuaternionESaIS5_EE(ptr dead_on_unwind noalias nocapture writable sret(%"class.cv::dynafu::DualQuaternion") align 4 initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #8 {
+define hidden void @_ZN2cv6dynafu3DQBERSt6vectorIfSaIfEERS1_INS0_14DualQuaternionESaIS5_EE(ptr dead_on_unwind noalias nocapture writable sret(%"class.cv::dynafu::DualQuaternion") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) local_unnamed_addr #8 {
   %4 = alloca %"class.cv::Vec", align 4
   %5 = alloca %"class.cv::Vec", align 4
   %6 = alloca %"class.cv::dynafu::DualQuaternion", align 4

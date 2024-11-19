@@ -1365,7 +1365,7 @@ declare noundef double @_ZN2cv4normERKNS_11_InputArrayES2_iS2_(ptr noundef nonnu
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN2cv7noArrayEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv4face19EigenFaceRecognizer6createEid(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.6") align 8 initializes((0, 16)) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4face19EigenFaceRecognizer6createEid(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.6") align 8 %0, i32 noundef %1, double noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_4face10EigenfacesEED2Ev.exit:
   %3 = alloca %"class.std::allocator.20", align 1
   %4 = alloca %"class.std::shared_ptr.11", align 8

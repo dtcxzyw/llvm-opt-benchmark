@@ -3840,7 +3840,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing10StrictMockIN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing10StrictMockIN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerE, i64 16), ptr %this, align 8
   %gmock01_GetExponentialBiased_38.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -3917,7 +3917,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7testing10StrictMockIN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing10StrictMockIN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerE, i64 16), ptr %this, align 8
   %gmock01_GetExponentialBiased_38.i.i = getelementptr inbounds i8, ptr %this, i64 112
@@ -3984,7 +3984,7 @@ terminate.lpad:                                   ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerE, i64 16), ptr %this, align 8
   %gmock01_GetExponentialBiased_38 = getelementptr inbounds i8, ptr %this, i64 112
@@ -3995,7 +3995,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerD0Ev(ptr noundef nonnull align 8 dereferenceable(184) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define internal void @_ZN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18profiling_internal12_GLOBAL__N_119MockPeriodicSamplerE, i64 16), ptr %this, align 8
   %gmock01_GetExponentialBiased_38.i = getelementptr inbounds i8, ptr %this, i64 112

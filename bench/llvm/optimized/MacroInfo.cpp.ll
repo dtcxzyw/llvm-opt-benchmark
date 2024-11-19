@@ -51,7 +51,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Star
 @_ZN5clang9MacroInfoC1ENS_14SourceLocationE = unnamed_addr alias void (ptr, i32), ptr @_ZN5clang9MacroInfoC2ENS_14SourceLocationE
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5clang9MacroInfoC2ENS_14SourceLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(38) initializes((0, 32)) %0, i32 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9MacroInfoC2ENS_14SourceLocationE(ptr nocapture noundef nonnull align 8 dereferenceable(38) %0, i32 %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -66,7 +66,7 @@ define dso_local void @_ZN5clang9MacroInfoC2ENS_14SourceLocationE(ptr nocapture 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef i32 @_ZNK5clang9MacroInfo23getDefinitionLengthSlowERKNS_13SourceManagerE(ptr nocapture noundef nonnull align 8 dereferenceable(38) initializes((32, 36)) %0, ptr noundef nonnull align 8 dereferenceable(696) %1) local_unnamed_addr #2 align 2 {
+define dso_local noundef i32 @_ZNK5clang9MacroInfo23getDefinitionLengthSlowERKNS_13SourceManagerE(ptr nocapture noundef nonnull align 8 dereferenceable(38) %0, ptr noundef nonnull align 8 dereferenceable(696) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i16, ptr %3, align 4
   %5 = or i16 %4, 1

@@ -6956,7 +6956,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %37, %34, %_ZN4llvm5
 declare noundef zeroext i1 @_ZN4llvm34isDereferenceableAndAlignedPointerEPKNS_5ValueENS_5AlignERKNS_5APIntERKNS_10DataLayoutEPKNS_11InstructionEPNS_15AssumptionCacheEPKNS_13DominatorTreeEPKNS_17TargetLibraryInfoE(ptr noundef, i8, ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(512), ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18MachinePointerInfo15getConstantPoolERNS_15MachineFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 initializes((0, 21)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18MachinePointerInfo15getConstantPoolERNS_15MachineFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZN4llvm24PseudoSourceValueManager15getConstantPoolEv(ptr noundef nonnull align 8 dereferenceable(224) %4) #21
@@ -6985,7 +6985,7 @@ _ZN4llvm18MachinePointerInfoC2EPKNS_17PseudoSourceValueElh.exit: ; preds = %2, %
 declare noundef ptr @_ZN4llvm24PseudoSourceValueManager15getConstantPoolEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 initializes((0, 21)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18MachinePointerInfo13getFixedStackERNS_15MachineFunctionEil(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_ZN4llvm24PseudoSourceValueManager13getFixedStackEi(ptr noundef nonnull align 8 dereferenceable(224) %6, i32 noundef %2) #21
@@ -7014,7 +7014,7 @@ _ZN4llvm18MachinePointerInfoC2EPKNS_17PseudoSourceValueElh.exit: ; preds = %4, %
 declare noundef ptr @_ZN4llvm24PseudoSourceValueManager13getFixedStackEi(ptr noundef nonnull align 8 dereferenceable(224), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18MachinePointerInfo12getJumpTableERNS_15MachineFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 initializes((0, 21)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18MachinePointerInfo12getJumpTableERNS_15MachineFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZN4llvm24PseudoSourceValueManager12getJumpTableEv(ptr noundef nonnull align 8 dereferenceable(224) %4) #21
@@ -7043,7 +7043,7 @@ _ZN4llvm18MachinePointerInfoC2EPKNS_17PseudoSourceValueElh.exit: ; preds = %2, %
 declare noundef ptr @_ZN4llvm24PseudoSourceValueManager12getJumpTableEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18MachinePointerInfo6getGOTERNS_15MachineFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 initializes((0, 21)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18MachinePointerInfo6getGOTERNS_15MachineFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef ptr @_ZN4llvm24PseudoSourceValueManager6getGOTEv(ptr noundef nonnull align 8 dereferenceable(224) %4) #21
@@ -7072,7 +7072,7 @@ _ZN4llvm18MachinePointerInfoC2EPKNS_17PseudoSourceValueElh.exit: ; preds = %2, %
 declare noundef ptr @_ZN4llvm24PseudoSourceValueManager6getGOTEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18MachinePointerInfo8getStackERNS_15MachineFunctionElh(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 initializes((0, 21)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18MachinePointerInfo8getStackERNS_15MachineFunctionElh(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1041) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 352
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr @_ZN4llvm24PseudoSourceValueManager8getStackEv(ptr noundef nonnull align 8 dereferenceable(224) %6) #21
@@ -7101,7 +7101,7 @@ _ZN4llvm18MachinePointerInfoC2EPKNS_17PseudoSourceValueElh.exit: ; preds = %4, %
 declare noundef ptr @_ZN4llvm24PseudoSourceValueManager8getStackEv(ptr noundef nonnull align 8 dereferenceable(224)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18MachinePointerInfo15getUnknownStackERNS_15MachineFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 initializes((0, 21)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18MachinePointerInfo15getUnknownStackERNS_15MachineFunctionE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.llvm::MachinePointerInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1041) %1) #21
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %4, align 4
@@ -7116,7 +7116,7 @@ define dso_local void @_ZN4llvm18MachinePointerInfo15getUnknownStackERNS_15Machi
 declare noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm15MachineFunction13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(1041)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm17MachineMemOperandC2ENS_18MachinePointerInfoENS0_5FlagsENS_3LLTENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESB_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 35), (36, 38), (40, 80)) %0, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %1, i16 noundef zeroext %2, i64 %3, i8 %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noundef %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm17MachineMemOperandC2ENS_18MachinePointerInfoENS0_5FlagsENS_3LLTENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESB_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %1, i16 noundef zeroext %2, i64 %3, i8 %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noundef %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9) unnamed_addr #5 align 2 {
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %3, ptr %11, align 8
@@ -7142,7 +7142,7 @@ define dso_local void @_ZN4llvm17MachineMemOperandC2ENS_18MachinePointerInfoENS0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm17MachineMemOperandC2ENS_18MachinePointerInfoENS0_5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESB_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 35), (36, 38), (40, 80)) %0, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %1, i16 noundef zeroext %2, i64 %3, i8 %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noundef %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9) unnamed_addr #5 align 2 {
+define dso_local void @_ZN4llvm17MachineMemOperandC2ENS_18MachinePointerInfoENS0_5FlagsENS_12LocationSizeENS_5AlignERKNS_9AAMDNodesEPKNS_6MDNodeEhNS_14AtomicOrderingESB_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, ptr nocapture noundef readonly byval(%"struct.llvm::MachinePointerInfo") align 8 %1, i16 noundef zeroext %2, i64 %3, i8 %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %5, ptr noundef %6, i8 noundef zeroext %7, i32 noundef %8, i32 noundef %9) unnamed_addr #5 align 2 {
   switch i64 %3, label %11 [
     i64 -1, label %21
     i64 -4611686018427387906, label %21

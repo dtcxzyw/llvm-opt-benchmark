@@ -107,7 +107,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3opt3lnsC2ER6solverRNS_11lns_contextE(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 28), (32, 74), (76, 84), (88, 100), (104, 136), (144, 160), (168, 184)) %this, ptr noundef nonnull align 8 dereferenceable(96) %s, ptr noundef nonnull align 8 dereferenceable(8) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3opt3lnsC2ER6solverRNS_11lns_contextE(ptr nocapture noundef nonnull align 8 dereferenceable(184) %this, ptr noundef nonnull align 8 dereferenceable(96) %s, ptr noundef nonnull align 8 dereferenceable(8) %ctx) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont16:
   %vtable = load ptr, ptr %s, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 72
@@ -446,7 +446,7 @@ lpad:                                             ; preds = %invoke.cont11, %inv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3opt3lns5climbER3refI5modelE(ptr noundef nonnull align 8 dereferenceable(184) initializes((68, 72)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %mdl) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN3opt3lns5climbER3refI5modelE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %mdl) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %old_p = alloca %class.params_ref, align 8
   %call = tail call noundef i32 @_Z19get_verbosity_levelv()

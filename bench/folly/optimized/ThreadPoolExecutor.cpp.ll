@@ -2357,7 +2357,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZN6google14FlagRegistererC1IlEEPKcS3_S3_PT_S5_(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly18ThreadPoolExecutorC2EmmSt10shared_ptrINS_13ThreadFactoryEE(ptr noundef nonnull align 64 dereferenceable(481) initializes((0, 28)) %this, ptr noundef %vtt, i64 noundef %0, i64 noundef %minThreads, ptr nocapture noundef %threadFactory) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18ThreadPoolExecutorC2EmmSt10shared_ptrINS_13ThreadFactoryEE(ptr noundef nonnull align 64 dereferenceable(481) %this, ptr noundef %vtt, i64 noundef %0, i64 noundef %minThreads, ptr nocapture noundef %threadFactory) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__dnew.i.i = alloca i64, align 8
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4196,7 +4196,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6s
 declare void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #25
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly18ThreadPoolExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(481) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18ThreadPoolExecutorD2Ev(ptr noundef nonnull align 64 dereferenceable(481) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i.i = alloca %"struct.std::_Deque_iterator", align 16
   %agg.tmp2.i.i = alloca %"struct.std::_Deque_iterator", align 16
@@ -5027,7 +5027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly18ThreadPoolExecutor4TaskC2EONS_8FunctionIFvvEEENSt6chrono8durationIlSt5ratioILl1ELl1000EEEES5_(ptr noundef nonnull align 16 dereferenceable(96) initializes((0, 8), (48, 64)) %this, ptr noundef nonnull align 16 dereferenceable(64) %func, i64 %expiration.coerce, ptr noundef nonnull align 16 dereferenceable(64) %expireCallback) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly18ThreadPoolExecutor4TaskC2EONS_8FunctionIFvvEEENSt6chrono8durationIlSt5ratioILl1ELl1000EEEES5_(ptr noundef nonnull align 16 dereferenceable(96) %this, ptr noundef nonnull align 16 dereferenceable(64) %func, i64 %expiration.coerce, ptr noundef nonnull align 16 dereferenceable(64) %expireCallback) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr null, ptr %this, align 16, !tbaa !43
   %call_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -8859,7 +8859,7 @@ _ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5folly18ThreadPoolExecutor12getPoolStatsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::ThreadPoolExecutor::PoolStats") align 8 initializes((0, 48)) %agg.result, ptr noundef nonnull align 64 dereferenceable(481) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5folly18ThreadPoolExecutor12getPoolStatsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.folly::ThreadPoolExecutor::PoolStats") align 8 %agg.result, ptr noundef nonnull align 64 dereferenceable(481) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i = alloca i32, align 4
   %ctx.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1

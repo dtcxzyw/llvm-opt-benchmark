@@ -59,7 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.47 = private unnamed_addr constant [48 x i8] c"error writing ancillary chunked compressed data\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_save_uint_32(ptr nocapture noundef writeonly initializes((0, 4)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @png_save_uint_32(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = lshr i32 %1, 24
   %4 = trunc nuw i32 %3 to i8
   store i8 %4, ptr %0, align 1
@@ -78,7 +78,7 @@ define void @png_save_uint_32(ptr nocapture noundef writeonly initializes((0, 4)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @png_save_uint_16(ptr nocapture noundef writeonly initializes((0, 2)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @png_save_uint_16(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = lshr i32 %1, 8
   %4 = trunc i32 %3 to i8
   store i8 %4, ptr %0, align 1
@@ -89,7 +89,7 @@ define void @png_save_uint_16(ptr nocapture noundef writeonly initializes((0, 2)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_write_sig(ptr noalias noundef initializes((1140, 1144)) %0) local_unnamed_addr #1 {
+define void @png_write_sig(ptr noalias noundef %0) local_unnamed_addr #1 {
   %2 = alloca [8 x i8], align 8
   store i64 727905341920923785, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1140
@@ -3811,7 +3811,7 @@ define void @png_write_tIME(ptr noalias noundef %0, ptr nocapture noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define void @png_write_start_row(ptr noalias noundef initializes((622, 624)) %0) local_unnamed_addr #1 {
+define void @png_write_start_row(ptr noalias noundef %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 620
   %3 = load i8, ptr %2, align 4
   %4 = zext i8 %3 to i32

@@ -1445,7 +1445,7 @@ declare noundef i64 @read(i32 noundef, ptr nocapture noundef, i64 noundef) local
 declare ptr @__errno_location() local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z9open_filev(ptr noalias nonnull sret(%"class.fmt::v10::file") align 4 initializes((0, 4)) %agg.result) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z9open_filev(ptr noalias nonnull sret(%"class.fmt::v10::file") align 4 %agg.result) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %write_end = alloca %"class.fmt::v10::file", align 4
   store i32 -1, ptr %agg.result, align 4
@@ -7965,7 +7965,7 @@ ehcleanup25:                                      ; preds = %ehcleanup24, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z18open_buffered_fileRi(ptr noalias sret(%"class.fmt::v10::file") align 4 initializes((0, 4)) %agg.result, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %fd) local_unnamed_addr #6 {
+define hidden void @_Z18open_buffered_fileRi(ptr noalias sret(%"class.fmt::v10::file") align 4 %agg.result, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %fd) local_unnamed_addr #6 {
 entry:
   tail call void @_Z9open_filev(ptr sret(%"class.fmt::v10::file") align 4 %agg.result)
   %0 = load i32, ptr %agg.result, align 4

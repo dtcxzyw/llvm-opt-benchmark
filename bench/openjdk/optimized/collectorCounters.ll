@@ -153,7 +153,7 @@ define hidden void @_ZN17CollectorCountersD2Ev(ptr nocapture noundef nonnull rea
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19TraceCollectorStatsC2EP17CollectorCounters(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 17), (24, 32)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN19TraceCollectorStatsC2EP17CollectorCounters(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %1, align 8

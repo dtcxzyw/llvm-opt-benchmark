@@ -118,7 +118,7 @@ target triple = "x86_64-pc-linux-gnu"
 @uri_prefix_length.short_uri_designator = internal constant [12 x i8] c"postgres://\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @openQueryOutputFile(ptr noundef %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @openQueryOutputFile(ptr noundef %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %4
 
@@ -2508,7 +2508,7 @@ declare i32 @PQtransactionStatus(ptr noundef) local_unnamed_addr #2
 declare i32 @PQresultStatus(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ExecQueryUsingCursor(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 8)) %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @ExecQueryUsingCursor(ptr noundef %0, ptr nocapture noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.timespec, align 8
   %5 = alloca [32 x i8], align 16

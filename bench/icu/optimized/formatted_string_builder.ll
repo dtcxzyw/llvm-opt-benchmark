@@ -29,7 +29,7 @@ $__clang_call_terminate = comdat any
 @_ZN6icu_7522FormattedStringBuilderC1ERKS0_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN6icu_7522FormattedStringBuilderC2ERKS0_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7522FormattedStringBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) initializes((0, 1), (128, 136)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7522FormattedStringBuilderC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this) unnamed_addr #0 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %fZero = getelementptr inbounds i8, ptr %this, i64 128
@@ -86,7 +86,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7522FormattedStringBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 1), (128, 136)) %this, ptr noundef nonnull align 8 dereferenceable(136) %other) unnamed_addr #5 align 2 {
+define void @_ZN6icu_7522FormattedStringBuilderC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(136) %other) unnamed_addr #5 align 2 {
 entry:
   store i8 0, ptr %this, align 8
   %fZero = getelementptr inbounds i8, ptr %this, i64 128
@@ -559,7 +559,7 @@ do.end65:                                         ; preds = %do.body14, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7522FormattedStringBuilder5clearEv(ptr noundef nonnull returned align 8 dereferenceable(136) initializes((128, 136)) %this) local_unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(136) ptr @_ZN6icu_7522FormattedStringBuilder5clearEv(ptr noundef nonnull returned align 8 dereferenceable(136) %this) local_unnamed_addr #9 align 2 {
 entry:
   %0 = load i8, ptr %this, align 8
   %tobool.i = trunc i8 %0 to i1
@@ -1673,7 +1673,7 @@ lpad:                                             ; preds = %entry
 declare void @_ZN6icu_7513UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64), i8 noundef signext, ptr noundef, i32 noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6icu_7522FormattedStringBuilder13toDebugStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6icu_7522FormattedStringBuilder13toDebugStringEv(ptr noalias nonnull sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(136) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %srcChar.addr.i42 = alloca i16, align 2
   %srcChar.addr.i = alloca i16, align 2

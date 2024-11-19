@@ -328,7 +328,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_st(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 1 %x509) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly3ssl16OpenSSLCertUtils18getSubjectAltNamesB5cxx11ER7x509_st(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 1 %x509) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %nameData = alloca ptr, align 8
   %nameLen = alloca i32, align 4
@@ -1275,7 +1275,7 @@ unreachable:                                      ; preds = %invoke.cont
 declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly3ssl16OpenSSLCertUtils12getExtensionB5cxx11ER7x509_stNS_5RangeIPKcEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 1 %x509, ptr %oid.coerce0, ptr %oid.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly3ssl16OpenSSLCertUtils12getExtensionB5cxx11ER7x509_stNS_5RangeIPKcEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 1 %x509, ptr %oid.coerce0, ptr %oid.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %extensionOid = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2035,7 +2035,7 @@ declare i32 @ASN1_STRING_type(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_get_object(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly3ssl16OpenSSLCertUtils16getAllExtensionsB5cxx11ER7x509_st(ptr dead_on_unwind noalias writable sret(%"class.std::vector.8") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 1 %x509) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly3ssl16OpenSSLCertUtils16getAllExtensionsB5cxx11ER7x509_st(ptr dead_on_unwind noalias writable sret(%"class.std::vector.8") align 8 %agg.result, ptr noundef nonnull align 1 %x509) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oid = alloca %"class.std::__cxx11::basic_string", align 8
   %value = alloca %"class.std::__cxx11::basic_string", align 8
@@ -3313,7 +3313,7 @@ terminate.lpad:                                   ; preds = %if.then
 declare i32 @ASN1_TIME_print(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly3ssl16OpenSSLCertUtils9derDecodeENS_5RangeIPKhEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.27") align 8 initializes((0, 8)) %agg.result, ptr %range.coerce0, ptr %range.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly3ssl16OpenSSLCertUtils9derDecodeENS_5RangeIPKhEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.27") align 8 %agg.result, ptr %range.coerce0, ptr %range.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %begin = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %begin) #20

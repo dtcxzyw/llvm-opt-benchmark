@@ -612,7 +612,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %66, %_ZNSt6vectorIb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing9BitMatrixC2EiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(346) initializes((0, 12), (24, 84), (88, 100), (104, 220), (224, 236), (240, 308), (312, 332), (336, 344)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing9BitMatrixC2EiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(346) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing9BitMatrixE, i64 16), ptr %0, align 8
@@ -1068,7 +1068,7 @@ _ZN5zxing7Counted7releaseEv.exit:                 ; preds = %9, %4, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing9BitMatrixC2EiiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(346) initializes((0, 12), (24, 84), (88, 100), (104, 220), (224, 236), (240, 308), (312, 332), (336, 344)) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing9BitMatrixC2EiiRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(346) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing9BitMatrixE, i64 16), ptr %0, align 8
@@ -1240,7 +1240,7 @@ _ZNSt6vectorIsSaIsEED2Ev.exit19:                  ; preds = %_ZNSt6vectorIsSaIsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5zxing9BitMatrixC2EiiPhRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(346) initializes((0, 12), (24, 84), (88, 100), (104, 220), (224, 236), (240, 308), (312, 332), (336, 344)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing9BitMatrixC2EiiPhRNS_12ErrorHandlerE(ptr noundef nonnull align 8 dereferenceable(346) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing9BitMatrixE, i64 16), ptr %0, align 8
@@ -1650,7 +1650,7 @@ define hidden void @_ZN5zxing9BitMatrix4xxorENS_3RefIS0_EE(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing9BitMatrixD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(346) initializes((0, 8), (296, 304), (320, 328)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5zxing9BitMatrixD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(346) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing9BitMatrixE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5zxing8ArrayRefIiEE, i64 16), ptr %2, align 8
@@ -1838,7 +1838,7 @@ _ZNSt6vectorIsSaIsEED2Ev.exit21:                  ; preds = %_ZNSt6vectorIsSaIsE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN5zxing9BitMatrixD0Ev(ptr noundef nonnull align 8 dereferenceable(346) initializes((0, 8), (296, 304), (320, 328)) %0) unnamed_addr #1 align 2 {
+define hidden void @_ZN5zxing9BitMatrixD0Ev(ptr noundef nonnull align 8 dereferenceable(346) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN5zxing9BitMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(346) %0) #16
   tail call void @_ZdlPv(ptr noundef nonnull %0) #15
   ret void

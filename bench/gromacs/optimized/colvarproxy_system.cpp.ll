@@ -51,14 +51,14 @@ define noundef i32 @_ZN18colvarproxy_system15set_unit_systemERKNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN18colvarproxy_system22set_target_temperatureEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((72, 80)) %0, double noundef %1) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN18colvarproxy_system22set_target_temperatureEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %0, double noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   store double %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_ZN18colvarproxy_system24set_integration_timestepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((80, 88)) %0, double noundef %1) unnamed_addr #2 align 2 {
+define noundef i32 @_ZN18colvarproxy_system24set_integration_timestepEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %0, double noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store double %1, ptr %3, align 8
   ret i32 0
@@ -637,7 +637,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK18colvarproxy_system15accelMD_enable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18colvarproxy_systemC2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18colvarproxy_systemC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18colvarproxy_system, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
@@ -670,7 +670,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18colvarproxy_system17reset_pbc_latticeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((112, 256)) %0) local_unnamed_addr #2 align 2 {
+define void @_ZN18colvarproxy_system17reset_pbc_latticeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   ret void
@@ -680,7 +680,7 @@ define void @_ZN18colvarproxy_system17reset_pbc_latticeEv(ptr nocapture noundef 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN18colvarproxy_systemD2Ev(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN18colvarproxy_systemD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV18colvarproxy_system, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #12
@@ -954,7 +954,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #9
 declare double @llvm.floor.f64(double) #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN18colvarproxy_system15set_alch_lambdaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) initializes((48, 57)) %0, double noundef %1) local_unnamed_addr #2 align 2 {
+define void @_ZN18colvarproxy_system15set_alch_lambdaEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(256) %0, double noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   store double %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56

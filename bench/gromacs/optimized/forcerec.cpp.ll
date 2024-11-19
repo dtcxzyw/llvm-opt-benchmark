@@ -401,7 +401,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18ForceHelperBuffersC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) initializes((0, 1), (8, 56)) %0, i1 noundef zeroext %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN18ForceHelperBuffersC2Eb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %0, i1 noundef zeroext %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EE6resizeEm.exit:
   %2 = zext i1 %1 to i8
   store i8 %2, ptr %0, align 8
@@ -547,7 +547,7 @@ define void @_ZN18ForceHelperBuffers6resizeEi(ptr noundef nonnull align 8 derefe
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z27makeNonBondedParameterListsiN3gmx8ArrayRefIK9t_iparamsEEb(ptr dead_on_unwind noalias writable sret(%"class.std::vector.3") align 8 initializes((0, 24)) %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture readnone %3, i1 noundef zeroext %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z27makeNonBondedParameterListsiN3gmx8ArrayRefIK9t_iparamsEEb(ptr dead_on_unwind noalias writable sret(%"class.std::vector.3") align 8 %0, i32 noundef %1, ptr nocapture readonly %2, ptr nocapture readnone %3, i1 noundef zeroext %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br i1 %4, label %6, label %37
 
@@ -970,7 +970,7 @@ declare float @sqrtf(float noundef) local_unnamed_addr #12
 declare float @cbrtf(float noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z19forcerec_set_rangesP10t_forcereciii(ptr nocapture noundef initializes((272, 280)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define void @_Z19forcerec_set_rangesP10t_forcereciii(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 272
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 276
@@ -1367,7 +1367,7 @@ define noundef float @_Z10cutoff_inff(float noundef %0) local_unnamed_addr #15 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z13init_forcerecP8_IO_FILERKN3gmx8MDLoggerERKNS1_18SimulationWorkloadEP10t_forcerecRK10t_inputrecRK10gmx_mtop_tPK9t_commrecPA3_fPKcSM_NS1_8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEf(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(24) %2, ptr noundef initializes((45, 46)) %3, ptr noundef nonnull align 8 dereferenceable(856) %4, ptr noundef nonnull align 8 dereferenceable(768) %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.168") align 8 %10, float noundef %11) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z13init_forcerecP8_IO_FILERKN3gmx8MDLoggerERKNS1_18SimulationWorkloadEP10t_forcerecRK10t_inputrecRK10gmx_mtop_tPK9t_commrecPA3_fPKcSM_NS1_8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEf(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr nocapture noundef nonnull readonly align 1 dereferenceable(24) %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(856) %4, ptr noundef nonnull align 8 dereferenceable(768) %5, ptr nocapture noundef readonly %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.168") align 8 %10, float noundef %11) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %13 = alloca %"class.gmx::ArrayRef.478", align 8
   %14 = alloca %"struct.gmx::AtomInfoWithinMoleculeBlock", align 8
   %15 = alloca ptr, align 8
@@ -4492,7 +4492,7 @@ declare void @_Z11make_tablesP8_IO_FILEPK19interaction_const_tPKcfi(ptr dead_on_
 declare void @_Z16make_wall_tablesP8_IO_FILERK10t_inputrecPKcPK16SimulationGroupsP10t_forcerec(ptr noundef, ptr noundef nonnull align 8 dereferenceable(856), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL18make_bonded_tablesP8_IO_FILEiiRK10gmx_mtop_tN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKc(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef %1, i32 noundef range(i32 7, 27) %2, i32 noundef range(i32 -1, 9) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %4, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.168") align 8 %5, ptr noundef %6) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL18make_bonded_tablesP8_IO_FILEiiRK10gmx_mtop_tN3gmx8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPKc(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, i32 noundef range(i32 7, 27) %2, i32 noundef range(i32 -1, 9) %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(768) %4, ptr nocapture noundef readonly byval(%"class.gmx::ArrayRef.168") align 8 %5, ptr noundef %6) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %struct.bondedtable_t, align 8
@@ -6034,7 +6034,7 @@ declare void @_ZN20DispersionCorrectionC1ERK10gmx_mtop_tRK10t_inputrecbiN3gmx8Ar
 declare void @_ZN20DispersionCorrection17InteractionParamsD1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN10t_forcerecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(552) initializes((0, 13), (16, 46), (48, 68), (72, 132), (136, 148), (152, 244), (248, 321), (328, 428), (432, 552)) %0) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10t_forcerecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(552) %0) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8

@@ -1124,7 +1124,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %44, %.lr.ph.i.i.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN8WasmEdge8Executor8Executor16runMemoryFenceOpEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1) local_unnamed_addr #3 align 2 {
+define void @_ZN8WasmEdge8Executor8Executor16runMemoryFenceOpEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cxx20::expected") align 4 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(408) %1) local_unnamed_addr #3 align 2 {
   fence release
   store i64 1, ptr %0, align 4
   ret void

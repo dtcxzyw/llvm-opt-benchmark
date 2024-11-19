@@ -156,7 +156,7 @@ define dso_local noundef ptr @virtio_gpu_create_object(ptr nocapture noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @virtio_gpu_object_create(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   store ptr null, ptr %2, align 8
   %5 = load i64, ptr %1, align 8
   %6 = add i64 %5, 4095

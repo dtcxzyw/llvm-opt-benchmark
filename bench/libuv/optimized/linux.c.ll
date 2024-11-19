@@ -224,7 +224,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -2147483647, -2147483648) i32 @uv__platform_loop_init(ptr nocapture noundef initializes((64, 68), (832, 844)) %loop) local_unnamed_addr #0 {
+define hidden range(i32 -2147483647, -2147483648) i32 @uv__platform_loop_init(ptr nocapture noundef %loop) local_unnamed_addr #0 {
 entry:
   %internal_fields = getelementptr inbounds i8, ptr %loop, i64 40
   %0 = load ptr, ptr %internal_fields, align 8
@@ -2147,7 +2147,7 @@ declare ptr @uv__malloc(i64 noundef) local_unnamed_addr #1
 declare void @uv__free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @uv__statx_to_stat(ptr nocapture noundef readonly %statxbuf, ptr nocapture noundef writeonly initializes((0, 160)) %buf) local_unnamed_addr #8 {
+define hidden void @uv__statx_to_stat(ptr nocapture noundef readonly %statxbuf, ptr nocapture noundef writeonly %buf) local_unnamed_addr #8 {
 entry:
   %stx_dev_major = getelementptr inbounds i8, ptr %statxbuf, i64 136
   %0 = load i32, ptr %stx_dev_major, align 8
@@ -3599,7 +3599,7 @@ declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @uv_interface_addresses(ptr nocapture noundef initializes((0, 8)) %addresses, ptr nocapture noundef initializes((0, 4)) %count) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @uv_interface_addresses(ptr nocapture noundef %addresses, ptr nocapture noundef %count) local_unnamed_addr #0 {
 entry:
   %addrs = alloca ptr, align 8
   store i32 0, ptr %count, align 4
@@ -4597,7 +4597,7 @@ return:                                           ; preds = %if.end7, %if.then, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @uv_fs_event_init(ptr noundef %loop, ptr noundef initializes((8, 20), (32, 48), (88, 92)) %handle) local_unnamed_addr #12 {
+define noundef i32 @uv_fs_event_init(ptr noundef %loop, ptr noundef %handle) local_unnamed_addr #12 {
 entry:
   %loop1 = getelementptr inbounds i8, ptr %handle, i64 8
   store ptr %loop, ptr %loop1, align 8

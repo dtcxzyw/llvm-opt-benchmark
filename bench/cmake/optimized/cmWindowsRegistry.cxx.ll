@@ -479,21 +479,21 @@ define dso_local { i64, ptr } @_ZNK17cmWindowsRegistry12GetLastErrorEv(ptr nound
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17cmWindowsRegistry9ReadValueB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_NS_4ViewES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.36") align 8 initializes((32, 33)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1, i64 %2, ptr nocapture readnone %3, i64 %4, ptr nocapture readnone %5, i32 noundef %6, ptr nocapture noundef readnone byval(%"class.std::basic_string_view") align 8 %7) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN17cmWindowsRegistry9ReadValueB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEES3_NS_4ViewES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.36") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1, i64 %2, ptr nocapture readnone %3, i64 %4, ptr nocapture readnone %5, i32 noundef %6, ptr nocapture noundef readnone byval(%"class.std::basic_string_view") align 8 %7) local_unnamed_addr #5 align 2 {
   %9 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 0, ptr %9, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17cmWindowsRegistry13GetValueNamesB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEENS_4ViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.46") align 8 initializes((24, 25)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1, i64 %2, ptr nocapture readnone %3, i32 noundef %4) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN17cmWindowsRegistry13GetValueNamesB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEENS_4ViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.46") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1, i64 %2, ptr nocapture readnone %3, i32 noundef %4) local_unnamed_addr #5 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN17cmWindowsRegistry10GetSubKeysB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEENS_4ViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.46") align 8 initializes((24, 25)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1, i64 %2, ptr nocapture readnone %3, i32 noundef %4) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN17cmWindowsRegistry10GetSubKeysB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEENS_4ViewE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.46") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1, i64 %2, ptr nocapture readnone %3, i32 noundef %4) local_unnamed_addr #5 align 2 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store i8 0, ptr %6, align 8
   ret void

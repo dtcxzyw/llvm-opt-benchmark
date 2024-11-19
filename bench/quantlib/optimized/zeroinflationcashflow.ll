@@ -592,7 +592,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib21ZeroInflationCashFlowC1EdRKN5boost10shared_ptrINS_18ZeroInflationIndexEEENS_3CPI17InterpolationTypeERKNS_4DateESB_RKNS_6PeriodESB_b(ptr noundef nonnull align 8 dereferenceable(136) initializes((136, 144), (152, 156), (160, 168)) %this, double noundef %notional, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, i32 noundef %observationInterpolation, ptr noundef nonnull align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %endDate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, i1 noundef zeroext %growthOnly) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib21ZeroInflationCashFlowC1EdRKN5boost10shared_ptrINS_18ZeroInflationIndexEEENS_3CPI17InterpolationTypeERKNS_4DateESB_RKNS_6PeriodESB_b(ptr noundef nonnull align 8 dereferenceable(136) %this, double noundef %notional, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %index, i32 noundef %observationInterpolation, ptr noundef nonnull align 8 dereferenceable(8) %startDate, ptr noundef nonnull align 8 dereferenceable(8) %endDate, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %observationLag, ptr noundef nonnull align 8 dereferenceable(8) %paymentDate, i1 noundef zeroext %growthOnly) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.boost::shared_ptr.20", align 8
   %ref.tmp = alloca %"class.QuantLib::Date", align 8

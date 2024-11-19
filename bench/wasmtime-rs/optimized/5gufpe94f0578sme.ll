@@ -558,7 +558,7 @@ switch.lookup:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN14cranelift_isle3ast4Expr3pos17h2b71ba7499a60f7eE(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 initializes((0, 32)) %0, ptr nocapture readonly align 16 %1) unnamed_addr #2 {
+define void @_ZN14cranelift_isle3ast4Expr3pos17h2b71ba7499a60f7eE(ptr nocapture writeonly sret({ i64, i64, i64, i64 }) align 8 %0, ptr nocapture readonly align 16 %1) unnamed_addr #2 {
   %3 = load i64, ptr %1, align 16, !range !8, !noundef !4
   %switch = icmp eq i64 %3, 2
   %. = select i1 %switch, i64 32, i64 8

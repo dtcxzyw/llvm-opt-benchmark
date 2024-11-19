@@ -179,7 +179,7 @@ _ZN5Ipopt8SmartPtrIKNS_11MatrixSpaceEED2Ev.exit:  ; preds = %1, %5, %13
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14DenseGenMatrixC2EPKNS_19DenseGenMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 12), (16, 48)) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14DenseGenMatrixC2EPKNS_19DenseGenMatrixSpaceE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %1) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -280,7 +280,7 @@ declare i32 @__gxx_personality_v0(...)
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt14DenseGenMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt14DenseGenMatrixD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt14DenseGenMatrixE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt14DenseGenMatrixE, i64 128), ptr %2, align 8
@@ -406,7 +406,7 @@ declare void @_ZN5Ipopt10IpBlasScalEidPdi(i32 noundef, double noundef, ptr nound
 declare void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14DenseGenMatrix4CopyERKS0_(ptr noundef nonnull align 8 dereferenceable(104) initializes((88, 89)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN5Ipopt14DenseGenMatrix4CopyERKS0_(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -475,7 +475,7 @@ define void @_ZN5Ipopt14DenseGenMatrix12FillIdentityEd(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt14DenseGenMatrix16AddMatrixProductEdRKS0_bS2_bd(ptr noundef nonnull align 8 dereferenceable(104) initializes((88, 89)) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %4, i1 noundef zeroext %5, double noundef %6) local_unnamed_addr #2 align 2 {
+define void @_ZN5Ipopt14DenseGenMatrix16AddMatrixProductEdRKS0_bS2_bd(ptr noundef nonnull align 8 dereferenceable(104) %0, double noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %2, i1 noundef zeroext %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %4, i1 noundef zeroext %5, double noundef %6) local_unnamed_addr #2 align 2 {
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %9, i64 12
@@ -1334,7 +1334,7 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %30, %_ZNK5Ipopt16De
 declare void @_ZN5Ipopt12IpLapackSyevEbiPdiS0_Ri(i1 noundef zeroext, i32 noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Ipopt14DenseGenMatrix23CholeskyBackSolveMatrixEbdRS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i1 noundef zeroext %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(104) initializes((88, 89)) %3) local_unnamed_addr #2 align 2 {
+define void @_ZNK5Ipopt14DenseGenMatrix23CholeskyBackSolveMatrixEbdRS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, i1 noundef zeroext %1, double noundef %2, ptr noundef nonnull align 8 dereferenceable(104) %3) local_unnamed_addr #2 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 12
@@ -1424,7 +1424,7 @@ _ZN5Ipopt11DenseVector6ValuesEv.exit:             ; preds = %17, %_ZNK5Ipopt16De
 declare void @_ZN5Ipopt13IpLapackPotrsEiiPKdiPdi(i32 noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Ipopt14DenseGenMatrix19CholeskySolveMatrixERS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) initializes((88, 89)) %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK5Ipopt14DenseGenMatrix19CholeskySolveMatrixERS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 12
@@ -1508,7 +1508,7 @@ define noundef zeroext i1 @_ZN5Ipopt14DenseGenMatrix22ComputeLUFactorInPlaceEv(p
 declare void @_ZN5Ipopt13IpLapackGetrfEiPdPiiRi(i32 noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5Ipopt14DenseGenMatrix13LUSolveMatrixERS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) initializes((88, 89)) %1) local_unnamed_addr #2 align 2 {
+define void @_ZNK5Ipopt14DenseGenMatrix13LUSolveMatrixERS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 12
@@ -2042,7 +2042,7 @@ define void @_ZNK5Ipopt14DenseGenMatrix9PrintImplERKNS_10JournalistENS_13EJourna
 declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Ipopt19DenseGenMatrixSpaceC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) initializes((0, 20)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 align 2 {
+define void @_ZN5Ipopt19DenseGenMatrixSpaceC2Eii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 12

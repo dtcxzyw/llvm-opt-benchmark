@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN2EA6Thread5MutexD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN2EA6Thread5MutexD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN11EAMutexDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) initializes((0, 44)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN11EAMutexDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(44) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %this, i8 0, i64 44, i1 false)
   ret void
@@ -35,7 +35,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA6Thread15MutexParametersC2EbPKc(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(129) initializes((0, 1)) %this, i1 noundef zeroext %bIntraProcess, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA6Thread15MutexParametersC2EbPKc(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(129) %this, i1 noundef zeroext %bIntraProcess, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %bIntraProcess to i8
   store i8 %frombool, ptr %this, align 1
@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA6Thread5MutexC2EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 44)) %this, ptr noundef readonly %pMutexParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #3 align 2 {
+define dso_local void @_ZN2EA6Thread5MutexC2EPKNS0_15MutexParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly %pMutexParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #3 align 2 {
 entry:
   %attr.i6 = alloca %union.pthread_mutexattr_t, align 4
   %attr.i = alloca %union.pthread_mutexattr_t, align 4
@@ -323,7 +323,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN2EA6Thread12MutexFactory14ConstructMutexEPv(ptr noundef returned initializes((0, 44)) %pMemory) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN2EA6Thread12MutexFactory14ConstructMutexEPv(ptr noundef returned %pMemory) local_unnamed_addr #3 align 2 {
 entry:
   %attr.i6.i = alloca %union.pthread_mutexattr_t, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i8 0, i64 40, i1 false)

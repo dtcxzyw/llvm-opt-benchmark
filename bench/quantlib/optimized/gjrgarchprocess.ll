@@ -1540,7 +1540,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib15GJRGARCHProcess13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(236) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib15GJRGARCHProcess13initialValuesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(236) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %s0_ = getelementptr inbounds nuw i8, ptr %this, i64 160
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %s0_)
@@ -2268,7 +2268,7 @@ _ZN8QuantLib10DayCounterD2Ev.exit:                ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib15GJRGARCHProcess9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(236) %this, double %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib15GJRGARCHProcess9diffusionEdRKNS_5ArrayE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Matrix") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(236) %this, double %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.QuantLib::CumulativeNormalDistribution", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znam(i64 noundef 32) #29
@@ -2400,7 +2400,7 @@ lpad:                                             ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib15GJRGARCHProcess5applyERKNS_5ArrayES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib15GJRGARCHProcess5applyERKNS_5ArrayES3_(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dx) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %x0, align 8, !tbaa !3
   %1 = load double, ptr %0, align 8, !tbaa !100
@@ -2433,7 +2433,7 @@ _ZN8QuantLib5ArrayC2ESt16initializer_listIdE.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib15GJRGARCHProcess6evolveEdRKNS_5ArrayEdS3_(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(236) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dw) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib15GJRGARCHProcess6evolveEdRKNS_5ArrayEdS3_(ptr dead_on_unwind noalias nocapture writable sret(%"class.QuantLib::Array") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(236) %this, double noundef %t0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %x0, double noundef %dt, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %dw) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.QuantLib::CumulativeNormalDistribution", align 8
   %ref.tmp88 = alloca %"class.QuantLib::InterestRate", align 8

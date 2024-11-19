@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5FFlag24LuauCodegenUserdataAllocE = external local_unnamed_addr global %"struct.Luau::FValue", align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4Luau7CodeGen13initFunctionsERNS0_13NativeContextE(ptr noundef nonnull writeonly align 8 dereferenceable(2624) initializes((16, 472), (480, 2624)) %0) local_unnamed_addr #0 {
+define dso_local void @_ZN4Luau7CodeGen13initFunctionsERNS0_13NativeContextE(ptr noundef nonnull writeonly align 8 dereferenceable(2624) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 576
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(2048) %2, ptr noundef nonnull align 16 dereferenceable(2048) @luauF_table, i64 2048, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 16

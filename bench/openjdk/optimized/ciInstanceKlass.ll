@@ -712,7 +712,7 @@ _ZN15ciInstanceKlass26compute_has_trusted_loaderEv.exit: ; preds = %4, %_ZN15ciI
 declare void @_ZN7ciKlassC2EP8ciSymbol9BasicType(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef, i8 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((64, 65)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ciInstanceKlass25compute_shared_init_stateEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN5ciEnv8is_in_vmEv() #12
   br i1 %2, label %3, label %9
 
@@ -812,7 +812,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN20ThreadInVMfrom
 declare noundef zeroext i1 @_ZN5ciEnv8is_in_vmEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN15ciInstanceKlass27compute_shared_has_subklassEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) initializes((68, 72)) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN15ciInstanceKlass27compute_shared_has_subklassEv(ptr nocapture noundef nonnull align 8 dereferenceable(144) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN5ciEnv8is_in_vmEv() #12
   br i1 %2, label %3, label %10
 

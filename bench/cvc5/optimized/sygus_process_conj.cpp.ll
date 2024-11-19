@@ -9560,7 +9560,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers22SynthConjectureProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers22SynthConjectureProcessD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers22SynthConjectureProcessE, i64 16), ptr %this, align 8
   %d_sf_info = getelementptr inbounds i8, ptr %this, i64 16
@@ -9581,7 +9581,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEENS1_6theory11quantifiers25SynthCon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers22SynthConjectureProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers22SynthConjectureProcessD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers22SynthConjectureProcessE, i64 16), ptr %this, align 8
   %d_sf_info.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -16179,7 +16179,7 @@ return:                                           ; preds = %if.then13.i.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers22SynthConjectureProcess28getSymmetryBreakingPredicateENS0_12NodeTemplateILb1EEES5_NS0_8TypeNodeEjj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %this, ptr nocapture noundef readnone %x, ptr nocapture noundef readnone %e, ptr nocapture noundef readnone %tn, i32 noundef %tindex, i32 noundef %depth) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers22SynthConjectureProcess28getSymmetryBreakingPredicateENS0_12NodeTemplateILb1EEES5_NS0_8TypeNodeEjj(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %this, ptr nocapture noundef readnone %x, ptr nocapture noundef readnone %e, ptr nocapture noundef readnone %tn, i32 noundef %tindex, i32 noundef %depth) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !196)
   %0 = load ptr, ptr @_ZN4cvc58internal12NodeTemplateILb1EE6s_nullE, align 8, !noalias !196

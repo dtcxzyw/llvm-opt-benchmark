@@ -4465,7 +4465,7 @@ define ptr @conmgr_fd_get_name(ptr nocapture noundef readonly %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @conmgr_fd_get_in_buffer(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #9 {
+define void @conmgr_fd_get_in_buffer(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %13, label %4
 
@@ -4661,7 +4661,7 @@ define i32 @conmgr_fd_get_output_fd(ptr nocapture noundef readonly %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @conmgr_fd_get_status(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.conmgr_fd_status_t) align 8 initializes((0, 1), (8, 19)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
+define void @conmgr_fd_get_status(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.conmgr_fd_status_t) align 8 %0, ptr nocapture noundef readonly %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %1, i64 96
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
@@ -6653,7 +6653,7 @@ define internal void @_handle_write(ptr nocapture noundef %0, i32 %1, i32 %2, pt
 declare i32 @list_transfer(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_handle_read(ptr nocapture noundef initializes((115, 116)) %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
+define internal void @_handle_read(ptr nocapture noundef %0, i32 %1, i32 %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 115
   store i8 0, ptr %7, align 1
@@ -8091,7 +8091,7 @@ define internal void @_listen_accept(ptr noundef %0, i32 %1, i32 %2, ptr nocaptu
 declare i32 @accept4(i32 noundef, ptr, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @_handle_poll_event(i32 noundef %0, ptr nocapture noundef initializes((114, 116)) %1, i16 noundef signext %2) #0 {
+define internal void @_handle_poll_event(i32 noundef %0, ptr nocapture noundef %1, i16 noundef signext %2) #0 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 115
   store i8 0, ptr %5, align 1

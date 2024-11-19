@@ -75,7 +75,7 @@ define internal noundef i32 @H5D__single_idx_close(ptr nocapture readnone %0) #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5D__single_idx_is_open(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 1)) %1) #2 {
+define internal noundef i32 @H5D__single_idx_is_open(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #2 {
   store i8 1, ptr %1, align 1
   ret i32 0
 }
@@ -153,7 +153,7 @@ define internal range(i32 -1, 1) i32 @H5D__single_idx_insert(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5D__single_idx_get_addr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((32, 52)) %1) #5 {
+define internal noundef i32 @H5D__single_idx_get_addr(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #5 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 8
@@ -366,7 +366,7 @@ define internal noundef i32 @H5D__single_idx_copy_setup(ptr nocapture readnone %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5D__single_idx_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #2 {
+define internal noundef i32 @H5D__single_idx_size(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #2 {
   store i64 0, ptr %1, align 8
   ret i32 0
 }

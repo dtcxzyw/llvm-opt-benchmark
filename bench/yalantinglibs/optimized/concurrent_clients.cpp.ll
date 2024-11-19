@@ -2572,7 +2572,7 @@ declare void @__cxa_guard_abort(ptr) local_unnamed_addr #3
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z9call_echoi(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result, i32 noundef %cnt) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z9call_echoi(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result, i32 noundef %cnt) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(544) ptr @_Znwm(i64 noundef 544) #38
   store ptr @_Z9call_echoi.resume, ptr %call, align 8
@@ -3357,7 +3357,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit:   ; preds = %_ZNSt15__exception_
 declare void @__cxa_end_catch() local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z11qps_watcherv(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z11qps_watcherv(ptr nocapture writeonly sret(%"class.async_simple::coro::Lazy") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 AfterCoroEnd:
   %call = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #38
   store ptr @_Z11qps_watcherv.resume, ptr %call, align 8
@@ -52279,7 +52279,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt10error_codeED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12async_simple4coro6detail12ViaCoroutine6createEPNS_8ExecutorE.resume(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8), (48, 56)) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12async_simple4coro6detail12ViaCoroutine6createEPNS_8ExecutorE.resume(ptr noundef nonnull align 8 dereferenceable(64) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
 CoroSave28:
   %agg.tmp.i = alloca %"class.std::function.121", align 8
   %ref.tmp8.reload.addr = getelementptr inbounds i8, ptr %0, i64 48

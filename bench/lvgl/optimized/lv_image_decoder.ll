@@ -482,27 +482,27 @@ declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_image_decoder_set_info_cb(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @lv_image_decoder_set_info_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   store ptr %1, ptr %0, align 8, !tbaa !34
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_image_decoder_set_open_cb(ptr nocapture noundef writeonly initializes((8, 16)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @lv_image_decoder_set_open_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !36
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_image_decoder_set_get_area_cb(ptr nocapture noundef writeonly initializes((16, 24)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @lv_image_decoder_set_get_area_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8, !tbaa !55
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @lv_image_decoder_set_close_cb(ptr nocapture noundef writeonly initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #4 {
+define void @lv_image_decoder_set_close_cb(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8, !tbaa !56
   ret void

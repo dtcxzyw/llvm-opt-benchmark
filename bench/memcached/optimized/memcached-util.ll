@@ -117,7 +117,7 @@ return:                                           ; preds = %for.body, %for.end
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtoull(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 8)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtoull(ptr noundef %str, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #13
@@ -177,7 +177,7 @@ declare i64 @strtoull(ptr noundef readonly, ptr nocapture noundef, i32 noundef) 
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtoull_hex(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 8)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtoull_hex(ptr noundef %str, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #13
@@ -228,7 +228,7 @@ return:                                           ; preds = %if.end, %if.then15,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtoll(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 8)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtoll(ptr noundef %str, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #13
@@ -270,7 +270,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 declare i64 @strtoll(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtoul(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 4)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtoul(ptr noundef %str, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   store ptr null, ptr %endptr, align 8
@@ -326,7 +326,7 @@ return:                                           ; preds = %if.end, %if.then15,
 declare i64 @strtoul(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtol(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 4)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtol(ptr noundef %str, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #13
@@ -369,7 +369,7 @@ return:                                           ; preds = %if.end, %entry, %lo
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define dso_local noundef zeroext i1 @safe_strtod(ptr noundef %str, ptr nocapture noundef writeonly initializes((0, 8)) %out) local_unnamed_addr #5 {
+define dso_local noundef zeroext i1 @safe_strtod(ptr noundef %str, ptr nocapture noundef writeonly %out) local_unnamed_addr #5 {
 entry:
   %endptr = alloca ptr, align 8
   %call = tail call ptr @__errno_location() #13

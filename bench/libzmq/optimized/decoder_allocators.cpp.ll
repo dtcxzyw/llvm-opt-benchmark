@@ -15,7 +15,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3zmq31shared_message_memory_allocatorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq31shared_message_memory_allocatorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq31shared_message_memory_allocatorC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq31shared_message_memory_allocatorC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i64 noundef %bufsize_) unnamed_addr #0 align 2 {
 entry:
   %_max_size = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -30,7 +30,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq31shared_message_memory_allocatorC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %this, i64 noundef %bufsize_, i64 noundef %max_messages_) unnamed_addr #0 align 2 {
+define void @_ZN3zmq31shared_message_memory_allocatorC2Emm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, i64 noundef %bufsize_, i64 noundef %max_messages_) unnamed_addr #0 align 2 {
 entry:
   %_max_size = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
@@ -43,7 +43,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN3zmq31shared_message_memory_allocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16), (24, 32)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3zmq31shared_message_memory_allocatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -67,7 +67,7 @@ invoke.cont:                                      ; preds = %if.then.i, %land.lh
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN3zmq31shared_message_memory_allocator10deallocateEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16), (24, 32)) %this) local_unnamed_addr #1 align 2 {
+define void @_ZN3zmq31shared_message_memory_allocator10deallocateEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -93,7 +93,7 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN3zmq31shared_message_memory_allocator8allocateEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16), (24, 32)) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN3zmq31shared_message_memory_allocator8allocateEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -161,7 +161,7 @@ if.end21:                                         ; preds = %if.else, %do.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN3zmq31shared_message_memory_allocator7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16), (24, 32)) %this) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN3zmq31shared_message_memory_allocator7releaseEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %_msg_content.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -185,7 +185,7 @@ declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #6
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3zmq31shared_message_memory_allocator5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 16), (24, 32)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3zmq31shared_message_memory_allocator5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_msg_content = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %_msg_content, align 8

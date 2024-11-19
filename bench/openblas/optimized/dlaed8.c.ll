@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [2 x i8] c"A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @dlaed8_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr nocapture noundef %14, ptr nocapture noundef writeonly %15, ptr nocapture noundef %16, ptr nocapture noundef writeonly %17, ptr nocapture noundef writeonly %18, ptr nocapture noundef %19, ptr noundef %20, ptr nocapture noundef writeonly initializes((0, 4)) %21) local_unnamed_addr #0 {
+define void @dlaed8_(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr nocapture noundef %7, ptr nocapture noundef %8, ptr nocapture noundef readonly %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr nocapture noundef %14, ptr nocapture noundef writeonly %15, ptr nocapture noundef %16, ptr nocapture noundef writeonly %17, ptr nocapture noundef writeonly %18, ptr nocapture noundef %19, ptr noundef %20, ptr nocapture noundef writeonly %21) local_unnamed_addr #0 {
   %23 = alloca i32, align 4
   %24 = alloca double, align 8
   %25 = alloca double, align 8

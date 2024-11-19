@@ -2796,7 +2796,7 @@ _ZN4llvh11raw_ostreamlsEc.exit178:                ; preds = %if.then.i173, %if.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes14CompiledRegExpC2EOS0_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes14CompiledRegExpC2EOS0_(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #0 align 2 {
 entry:
   %__tmp.sroa.0.i.i.i.i = alloca { ptr, i64 }, align 8
   %1 = load ptr, ptr %0, align 8
@@ -2903,7 +2903,7 @@ _ZNSt5dequeIN4llvh11SmallVectorIDsLj5EEESaIS2_EEC2EOS4_.exit: ; preds = %entry, 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(192) ptr @_ZN6hermes14CompiledRegExpaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(192) initializes((8, 24)) %this, ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(192) ptr @_ZN6hermes14CompiledRegExpaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(192) %0) local_unnamed_addr #0 align 2 {
 entry:
   %agg.tmp.i.i.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %agg.tmp2.i.i.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
@@ -3135,7 +3135,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt5dequeIN4llvh1
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes14CompiledRegExpC2ESt6vectorIhSaIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_OSt5dequeIN4llvh11SmallVectorIDsLj5EEESaISD_EEONSB_8DenseMapINSB_8ArrayRefIDsEEjNSB_12DenseMapInfoISJ_EENSB_6detail12DenseMapPairISJ_jEEEE(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %this, ptr nocapture noundef %bytecode, ptr noundef nonnull %pattern, ptr noundef %flags, ptr nocapture noundef nonnull align 8 dereferenceable(80) %orderedGroupNames, ptr nocapture noundef nonnull align 8 dereferenceable(20) %mapping) unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes14CompiledRegExpC2ESt6vectorIhSaIhEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_OSt5dequeIN4llvh11SmallVectorIDsLj5EEESaISD_EEONSB_8DenseMapINSB_8ArrayRefIDsEEjNSB_12DenseMapInfoISJ_EENSB_6detail12DenseMapPairISJ_jEEEE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr nocapture noundef %bytecode, ptr noundef nonnull %pattern, ptr noundef %flags, ptr nocapture noundef nonnull align 8 dereferenceable(80) %orderedGroupNames, ptr nocapture noundef nonnull align 8 dereferenceable(20) %mapping) unnamed_addr #0 align 2 {
 entry:
   %__tmp.sroa.0.i.i.i.i = alloca { ptr, i64 }, align 8
   %0 = load ptr, ptr %bytecode, align 8
@@ -3987,7 +3987,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes19UniquingRegExpTable12getEntryListEv(ptr noalias nocapture writeonly sret(%"class.std::vector.36") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes19UniquingRegExpTable12getEntryListEv(ptr noalias nocapture writeonly sret(%"class.std::vector.36") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4124,7 +4124,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorIN6herm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK6hermes19UniquingRegExpTable17getBytecodeBufferEv(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK6hermes19UniquingRegExpTable17getBytecodeBufferEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %0 = load ptr, ptr %this, align 8

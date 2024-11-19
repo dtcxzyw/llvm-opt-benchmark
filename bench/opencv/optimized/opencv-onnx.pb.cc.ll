@@ -378,7 +378,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN11opencv_onnx
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx14AttributeProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx14AttributeProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -553,7 +553,7 @@ _ZN6google8protobuf11MessageLiteD2Ev.exit:        ; preds = %1, %11, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx14AttributeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx14AttributeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef nonnull align 8 dereferenceable(192) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14AttributeProtoE, i64 16), ptr %0, align 8
@@ -2461,8 +2461,8 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINS0_
   br i1 %.not49, label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread, label %.backedge
 
 _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread: ; preds = %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit, %193, %223, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit70, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit, %370, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit, %260, %245, %230, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit63, %36, %346, %347
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %346 ], [ %.sroa.0.0, %347 ], [ %.sroa.0.0, %36 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit63 ], [ %.sroa.0.0, %230 ], [ %.sroa.0.0, %245 ], [ %.sroa.0.0, %260 ], [ %.sroa.0.0, %370 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit70 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %.sroa.0.0, %223 ], [ %.sroa.0.0, %193 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ %87, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
-  %.8 = phi ptr [ null, %346 ], [ %.0.i, %347 ], [ %spec.select, %36 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit63 ], [ null, %230 ], [ null, %245 ], [ null, %260 ], [ null, %370 ], [ null, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit70 ], [ null, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %223 ], [ null, %193 ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %42, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0, %346 ], [ %.sroa.0.0, %347 ], [ %.sroa.0.0, %36 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit63 ], [ %.sroa.0.0, %230 ], [ %.sroa.0.0, %245 ], [ %.sroa.0.0, %260 ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ %87, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ %.sroa.0.0, %193 ], [ %.sroa.0.0, %223 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ %.sroa.0.0, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit70 ], [ %.sroa.0.0, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ %.sroa.0.0, %370 ]
+  %.8 = phi ptr [ null, %346 ], [ %.0.i, %347 ], [ %spec.select, %36 ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit63 ], [ null, %230 ], [ null, %245 ], [ null, %260 ], [ %42, %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit ], [ null, %_ZN11opencv_onnx14AttributeProto22_internal_mutable_nameB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_sB5cxx11Ev.exit ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_tEv.exit ], [ null, %_ZN11opencv_onnx14AttributeProto19_internal_mutable_gEv.exit ], [ null, %193 ], [ null, %223 ], [ null, %_ZN11opencv_onnx14AttributeProto28_internal_mutable_doc_stringB5cxx11Ev.exit ], [ null, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit70 ], [ null, %_ZN11opencv_onnx14AttributeProto31_internal_mutable_ref_attr_nameB5cxx11Ev.exit ], [ null, %370 ]
   %372 = load i32, ptr %8, align 8
   %373 = or i32 %372, %.sroa.0.1
   store i32 %373, ptr %8, align 8
@@ -5120,7 +5120,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN11opencv_onnx1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -5141,7 +5141,7 @@ define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2EPN6google8protobuf5ArenaE
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx14ValueInfoProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx14ValueInfoProtoE, i64 16), ptr %0, align 8
@@ -6688,7 +6688,7 @@ define hidden { ptr, ptr } @_ZNK11opencv_onnx14ValueInfoProto11GetMetadataEv(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx9NodeProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 24)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx9NodeProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -6766,7 +6766,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN11opencv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx9NodeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx9NodeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9NodeProtoE, i64 16), ptr %0, align 8
@@ -8584,7 +8584,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN11opencv_onnx
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx10ModelProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx10ModelProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -8667,7 +8667,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN11opencv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx10ModelProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx10ModelProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10ModelProtoE, i64 16), ptr %0, align 8
@@ -11371,7 +11371,7 @@ define hidden { ptr, ptr } @_ZNK11opencv_onnx10ModelProto11GetMetadataEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -11390,7 +11390,7 @@ define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2EPN6google8protobu
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx22StringStringEntryProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx22StringStringEntryProtoE, i64 16), ptr %0, align 8
@@ -12355,7 +12355,7 @@ define hidden { ptr, ptr } @_ZNK11opencv_onnx22StringStringEntryProto11GetMetada
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx10GraphProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 160)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx10GraphProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -12444,7 +12444,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN11opencv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx10GraphProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 48)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx10GraphProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx10GraphProtoE, i64 16), ptr %0, align 8
@@ -14282,7 +14282,7 @@ define hidden { ptr, ptr } @_ZNK11opencv_onnx10GraphProto11GetMetadataEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -14295,7 +14295,7 @@ define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2EPN6google8protobuf5A
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx19TensorProto_SegmentC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx19TensorProto_SegmentE, i64 16), ptr %0, align 8
@@ -15127,7 +15127,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN11opencv_onnx1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx11TensorProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 24)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx11TensorProtoC2EPN6google8protobuf5ArenaEb(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -15266,7 +15266,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIdED1Ev(ptr noundef nonnull alig
 declare void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx11TensorProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx11TensorProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(208) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx11TensorProtoE, i64 16), ptr %0, align 8
@@ -17825,7 +17825,7 @@ define hidden { ptr, ptr } @_ZNK11opencv_onnx11TensorProto11GetMetadataEv(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 32), (40, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -17844,7 +17844,7 @@ define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2EPN6google8pro
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx26TensorShapeProto_DimensionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx26TensorShapeProto_DimensionE, i64 16), ptr %0, align 8
@@ -19101,7 +19101,7 @@ define hidden { ptr, ptr } @_ZNK11opencv_onnx26TensorShapeProto_Dimension11GetMe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx16TensorShapeProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx16TensorShapeProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -19141,7 +19141,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf16RepeatedPtrFieldIN11opencv
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx16TensorShapeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx16TensorShapeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TensorShapeProtoE, i64 16), ptr %0, align 8
@@ -20000,7 +20000,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN11opencv_onnx1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -20013,7 +20013,7 @@ define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2EPN6google8protobuf5Aren
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx16TypeProto_TensorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx16TypeProto_TensorE, i64 16), ptr %0, align 8
@@ -20231,7 +20231,7 @@ define hidden void @_ZNK11opencv_onnx16TypeProto_Tensor13SetCachedSizeEi(ptr noc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx16TypeProto_Tensor5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((32, 36)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx16TypeProto_Tensor5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1
@@ -21348,7 +21348,7 @@ _ZNK6google8protobuf11MessageLite21GetArenaForAllocationEv.exit: ; preds = %4, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx9TypeProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 32), (40, 44)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx9TypeProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -21367,7 +21367,7 @@ define hidden void @_ZN11opencv_onnx9TypeProtoC2EPN6google8protobuf5ArenaEb(ptr 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx9TypeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx9TypeProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx9TypeProtoE, i64 16), ptr %0, align 8
@@ -22164,7 +22164,7 @@ define hidden { ptr, ptr } @_ZNK11opencv_onnx9TypeProto11GetMetadataEv(ptr nocap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2EPN6google8protobuf5ArenaEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = ptrtoint ptr %1 to i64
   %6 = or i64 %5, 2
@@ -22183,7 +22183,7 @@ define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2EPN6google8protobuf5Ar
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx18OperatorSetIdProtoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %3, align 8
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTVN11opencv_onnx18OperatorSetIdProtoE, i64 16), ptr %0, align 8
@@ -22404,7 +22404,7 @@ define hidden void @_ZNK11opencv_onnx18OperatorSetIdProto13SetCachedSizeEi(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11opencv_onnx18OperatorSetIdProto5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((32, 40)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11opencv_onnx18OperatorSetIdProto5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 1

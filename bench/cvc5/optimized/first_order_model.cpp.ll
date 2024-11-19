@@ -589,7 +589,7 @@ terminate.lpad:                                   ; preds = %if.end.i, %entry
 declare void @_ZN4cvc58internal6theory11quantifiers13EqualityQueryD1Ev(ptr noundef nonnull align 8 dereferenceable(184)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15FirstOrderModel10finishInitEPNS1_11TheoryModelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(656) initializes((16, 24)) %this, ptr noundef %m) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15FirstOrderModel10finishInitEPNS1_11TheoryModelE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(656) %this, ptr noundef %m) local_unnamed_addr #5 align 2 {
 entry:
   %d_model = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %m, ptr %d_model, align 8
@@ -981,7 +981,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers15FirstOrderModel21getAssertedQuantifierEjb(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, i32 noundef %i, i1 noundef zeroext %ordered) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers15FirstOrderModel21getAssertedQuantifierEjb(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(656) %this, i32 noundef %i, i1 noundef zeroext %ordered) local_unnamed_addr #3 align 2 {
 entry:
   br i1 %ordered, label %lor.lhs.false, label %if.then
 

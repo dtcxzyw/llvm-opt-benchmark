@@ -184,7 +184,7 @@ $_ZN4llvm23SmallVectorTemplateBaseINS_5APIntELb0EE4growEm = comdat any
 @_ZN4llvm10DataLayoutD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm10DataLayoutD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12StructLayoutC2EPNS_10StructTypeERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 9), (16, 17)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(512) %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm12StructLayoutC2EPNS_10StructTypeERKNS_10DataLayoutE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(512) %2) unnamed_addr #0 align 2 {
   store i64 0, ptr %0, align 8
   %.sroa.233.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %.sroa.233.0..sroa_idx, align 8
@@ -501,7 +501,7 @@ define dso_local noundef nonnull ptr @_ZN4llvm10DataLayout20getManglingComponent
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10DataLayoutC2Ev(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 1), (4, 16), (17, 18), (19, 28)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10DataLayoutC2Ev(ptr noundef nonnull align 8 dereferenceable(512) %0) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -550,7 +550,7 @@ define dso_local void @_ZN4llvm10DataLayoutC2Ev(ptr noundef nonnull align 8 dere
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10DataLayoutC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(512) initializes((0, 1), (4, 16), (17, 18), (19, 28)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10DataLayoutC2ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(512) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   tail call void @_ZN4llvm10DataLayoutC2Ev(ptr noundef nonnull align 8 dereferenceable(512) %0)
@@ -1180,7 +1180,7 @@ _ZSt5equalIPKN4llvm10DataLayout11PointerSpecES4_EbT_S5_T0_.exit: ; preds = %32, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10DataLayout5parseENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 initializes((0, 1), (4, 8)) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10DataLayout5parseENS_9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected") align 8 %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::DataLayout", align 8
   %5 = alloca %"class.llvm::Error", align 8
   call void @_ZN4llvm10DataLayoutC1Ev(ptr noundef nonnull align 8 dereferenceable(512) %4) #19

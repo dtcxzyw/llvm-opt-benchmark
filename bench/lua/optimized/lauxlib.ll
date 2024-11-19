@@ -339,7 +339,7 @@ luaL_pushresult.exit:                             ; preds = %while.end, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @luaL_buffinit(ptr noundef %L, ptr noundef initializes((24, 32)) %B) local_unnamed_addr #0 {
+define dso_local void @luaL_buffinit(ptr noundef %L, ptr noundef %B) local_unnamed_addr #0 {
 entry:
   %L1 = getelementptr inbounds i8, ptr %B, i64 24
   store ptr %L, ptr %L1, align 8
@@ -1343,7 +1343,7 @@ luaL_pushresult.exit:                             ; preds = %entry, %if.then.i
 declare void @lua_pushlightuserdata(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @luaL_buffinitsize(ptr noundef %L, ptr noundef initializes((24, 32)) %B, i64 noundef %sz) local_unnamed_addr #0 {
+define dso_local ptr @luaL_buffinitsize(ptr noundef %L, ptr noundef %B, i64 noundef %sz) local_unnamed_addr #0 {
 entry:
   %L1.i = getelementptr inbounds i8, ptr %B, i64 24
   store ptr %L, ptr %L1.i, align 8

@@ -251,7 +251,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriterC2ERNS2_12OperatorElimE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(264) %oe) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriterC2ERNS2_12OperatorElimE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(264) %oe) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory5arith13ArithRewriterE, i64 16), ptr %this, align 8
   %d_opElim = getelementptr inbounds i8, ptr %this, i64 8
@@ -5526,7 +5526,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEESt4pairIKS3_NS1_19RealAlgebra
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriter15rewriteVariableENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriter15rewriteVariableENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %t, align 8
@@ -9786,7 +9786,7 @@ ehcleanup311:                                     ; preds = %lpad7, %lpad9, %ehc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriter14preRewritePlusENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriter14preRewritePlusENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %agg.tmp1 = alloca %"class.cvc5::internal::NodeTemplate.12", align 8
@@ -10126,7 +10126,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad13
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriter24preRewriteTranscendentalENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture noundef readonly %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriter24preRewriteTranscendentalENS0_12NodeTemplateILb0EEE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture noundef readonly %t) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %t, align 8
@@ -23825,7 +23825,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal19RealAlgebraicNumbergeERKS1_(ptr 
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriter13returnRewriteENS0_12NodeTemplateILb0EEENS4_ILb1EEENS2_7RewriteE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 initializes((0, 4), (8, 16)) %agg.result, ptr nocapture readonly %t, ptr nocapture noundef readonly %ret, i32 %r) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith13ArithRewriter13returnRewriteENS0_12NodeTemplateILb0EEENS4_ILb1EEENS2_7RewriteE(ptr noalias nocapture writeonly sret(%"struct.cvc5::internal::theory::RewriteResponse") align 8 %agg.result, ptr nocapture readonly %t, ptr nocapture noundef readonly %ret, i32 %r) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %0 = load ptr, ptr %ret, align 8

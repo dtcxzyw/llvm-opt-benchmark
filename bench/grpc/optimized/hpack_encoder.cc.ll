@@ -137,7 +137,7 @@ declare ptr @grpc_slice_buffer_tiny_add(ptr noundef, i64 noundef) local_unnamed_
 declare void @grpc_slice_buffer_move_first(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core15HPackCompressor16SetMaxUsableSizeEj(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 4)) %this, i32 noundef %max_table_size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core15HPackCompressor16SetMaxUsableSizeEj(ptr noundef nonnull align 8 dereferenceable(344) %this, i32 noundef %max_table_size) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store i32 %max_table_size, ptr %this, align 8
   %table_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -3550,7 +3550,7 @@ declare noundef double @_ZNK9grpc_core7Timeout11RatioVersusES0_(ptr noundef nonn
 declare void @_ZNK9grpc_core7Timeout6EncodeEv(ptr sret(%"class.grpc_core::Slice") align 8, ptr noundef nonnull align 2 dereferenceable(3)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core20hpack_encoder_detail7EncoderC2EPNS_15HPackCompressorEbRNS_11SliceBufferE(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 1), (8, 24)) %this, ptr noundef %compressor, i1 noundef zeroext %use_true_binary_metadata, ptr noundef nonnull align 8 dereferenceable(264) %output) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core20hpack_encoder_detail7EncoderC2EPNS_15HPackCompressorEbRNS_11SliceBufferE(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %compressor, i1 noundef zeroext %use_true_binary_metadata, ptr noundef nonnull align 8 dereferenceable(264) %output) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %use_true_binary_metadata to i8
   store i8 %frombool, ptr %this, align 8

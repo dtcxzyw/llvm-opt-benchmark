@@ -911,7 +911,7 @@ define noundef zeroext i1 @_ZNK10open_spiel11tic_tac_toe14TicTacToeState7HasLine
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11tic_tac_toe14TicTacToeState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.6") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(108) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11tic_tac_toe14TicTacToeState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector.6") align 8 %0, ptr noundef nonnull align 8 dereferenceable(108) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -1371,7 +1371,7 @@ define noundef zeroext i1 @_ZNK10open_spiel11tic_tac_toe14TicTacToeState10IsTerm
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel11tic_tac_toe14TicTacToeState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.11") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel11tic_tac_toe14TicTacToeState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.11") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(108) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 2
@@ -2020,7 +2020,7 @@ _ZN10open_spiel10TensorViewILi2EEixERKSt5arrayIiLm2EE.exit: ; preds = %_ZNK10ope
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10open_spiel11tic_tac_toe14TicTacToeState10UndoActionEil(ptr nocapture noundef nonnull align 8 dereferenceable(108) initializes((96, 104)) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #9 align 2 {
+define void @_ZN10open_spiel11tic_tac_toe14TicTacToeState10UndoActionEil(ptr nocapture noundef nonnull align 8 dereferenceable(108) %0, i32 noundef %1, i64 noundef %2) unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = getelementptr inbounds [9 x i32], ptr %4, i64 0, i64 %2
   store i32 0, ptr %5, align 4

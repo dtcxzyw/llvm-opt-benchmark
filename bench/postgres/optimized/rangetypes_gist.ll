@@ -2169,7 +2169,7 @@ define internal fastcc void @range_gist_single_sorting_split(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef initializes((8, 12), (40, 44)) %2) unnamed_addr #0 {
+define internal fastcc void @range_gist_fallback_split(ptr noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %5, align 8

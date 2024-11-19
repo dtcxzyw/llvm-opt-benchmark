@@ -45,7 +45,7 @@ define dso_local void @_ZN5clang15ASTRecordLayout7DestroyERNS_10ASTContextE(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ASTRecordLayoutC2ERKNS_10ASTContextENS_9CharUnitsES4_S4_S4_S4_S4_N4llvm8ArrayRefImEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %8) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15ASTRecordLayoutC2ERKNS_10ASTContextENS_9CharUnitsES4_S4_S4_S4_S4_N4llvm8ArrayRefImEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %6, i64 %7, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %8) unnamed_addr #0 align 2 {
   store i64 %2, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %7, ptr %10, align 8
@@ -123,7 +123,7 @@ _ZN5clang9ASTVectorImE6appendIPKmEEvRKNS_10ASTContextET_S8_.exit: ; preds = %9, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang15ASTRecordLayoutC2ERKNS_10ASTContextENS_9CharUnitsES4_S4_S4_S4_bbS4_S4_N4llvm8ArrayRefImEES4_S4_S4_S4_PKNS_13CXXRecordDeclEbSA_bbRKNS5_8DenseMapISA_S4_NS5_12DenseMapInfoISA_vEENS5_6detail12DenseMapPairISA_S4_EEEERKNSB_ISA_NS0_9VBaseInfoESD_NSF_ISA_SK_EEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i64 %9, i64 %10, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %11, i64 %12, i64 %13, i64 %14, i64 %15, ptr noundef %16, i1 noundef zeroext %17, ptr noundef %18, i1 noundef zeroext %19, i1 noundef zeroext %20, ptr noundef nonnull readonly align 8 dereferenceable(20) %21, ptr noundef nonnull readonly align 8 dereferenceable(20) %22) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang15ASTRecordLayoutC2ERKNS_10ASTContextENS_9CharUnitsES4_S4_S4_S4_bbS4_S4_N4llvm8ArrayRefImEES4_S4_S4_S4_PKNS_13CXXRecordDeclEbSA_bbRKNS5_8DenseMapISA_S4_NS5_12DenseMapInfoISA_vEENS5_6detail12DenseMapPairISA_S4_EEEERKNSB_ISA_NS0_9VBaseInfoESD_NSF_ISA_SK_EEEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(23096) %1, i64 %2, i64 %3, i64 %4, i64 %5, i64 %6, i1 noundef zeroext %7, i1 noundef zeroext %8, i64 %9, i64 %10, ptr nocapture noundef readonly byval(%"class.llvm::ArrayRef") align 8 %11, i64 %12, i64 %13, i64 %14, i64 %15, ptr noundef %16, i1 noundef zeroext %17, ptr noundef %18, i1 noundef zeroext %19, i1 noundef zeroext %20, ptr noundef nonnull readonly align 8 dereferenceable(20) %21, ptr noundef nonnull readonly align 8 dereferenceable(20) %22) unnamed_addr #0 align 2 {
   store i64 %2, ptr %0, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %10, ptr %24, align 8

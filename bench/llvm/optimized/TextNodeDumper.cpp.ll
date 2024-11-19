@@ -1988,7 +1988,7 @@ $_ZNK5clang13CXXRecordDecl27needsImplicitMoveAssignmentEv = comdat any
 @_ZN5clang14TextNodeDumperC1ERN4llvm11raw_ostreamEb = unnamed_addr alias void (ptr, ptr, i1), ptr @_ZN5clang14TextNodeDumperC2ERN4llvm11raw_ostreamEb
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumperC2ERN4llvm11raw_ostreamERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(1168) initializes((0, 9)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(23096) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumperC2ERN4llvm11raw_ostreamERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(23096) %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   %5 = zext i1 %3 to i8
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2029,7 +2029,7 @@ define dso_local void @_ZN5clang14TextNodeDumperC2ERN4llvm11raw_ostreamERKNS_10A
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumperC2ERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(1168) initializes((0, 9)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumperC2ERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(1168) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.clang::LangOptions", align 8
   %5 = zext i1 %2 to i8
   store ptr %1, ptr %0, align 8
@@ -60391,7 +60391,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZN4llvm11raw_ostre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper5VisitERKNS3_7APValueENS3_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_vEEOSE_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper5VisitERKNS3_7APValueENS3_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_vEEOSE_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)

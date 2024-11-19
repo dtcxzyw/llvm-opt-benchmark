@@ -1318,7 +1318,7 @@ eh.resume:                                        ; preds = %lpad8, %lpad.i9, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt6Filter6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Filter") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4pbrt6Filter6CreateERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_19ParameterDictionaryEPKNS_7FileLocEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noalias nocapture writeonly sret(%"class.pbrt::Filter") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(108) %parameters, ptr noundef %loc, ptr %alloc.coerce) local_unnamed_addr #0 align 2 {
 entry:
   store i64 0, ptr %agg.result, align 8
   %call.i = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull @.str.13) #17
@@ -1423,7 +1423,7 @@ lpad:                                             ; preds = %_ZN4pbrt12StringPri
 declare void @_ZNK4pbrt19ParameterDictionary12ReportUnusedEv(ptr noundef nonnull align 8 dereferenceable(108)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt13FilterSamplerC2ENS_6FilterEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(176) initializes((0, 48)) %this, ptr nocapture noundef readonly %filter, ptr %alloc.coerce) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt13FilterSamplerC2ENS_6FilterEN4pstd3pmr21polymorphic_allocatorISt4byteEE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef readonly %filter, ptr %alloc.coerce) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp67 = alloca %"class.pbrt::PiecewiseConstant2D", align 8
   %0 = load i64, ptr %filter, align 8

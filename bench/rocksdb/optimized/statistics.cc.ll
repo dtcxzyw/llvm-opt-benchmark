@@ -3158,7 +3158,7 @@ _ZNSt12_Vector_baseISt4pairIN7rocksdb10HistogramsENSt7__cxx1112basic_stringIcSt1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb18CreateDBStatisticsEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 16)) %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb18CreateDBStatisticsEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10shared_ptrIN7rocksdb14StatisticsImplEED2Ev.exit:
   %__a.i = alloca %"class.std::allocator.69", align 1
   %ref.tmp = alloca %"class.std::shared_ptr.11", align 8
@@ -4387,7 +4387,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14StatisticsImplC2ESt10shared_ptrINS_10StatisticsEE(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 33), (40, 56)) %this, ptr nocapture noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14StatisticsImplC2ESt10shared_ptrINS_10StatisticsEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef %stats) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp4 = alloca %"class.std::allocator.0", align 1
@@ -4638,7 +4638,7 @@ _ZNSt10unique_ptrIA_N7rocksdb14StatisticsImpl14StatisticsDataESt14default_delete
 declare void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb14StatisticsImplD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14StatisticsImplD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb14StatisticsImplE, i64 16), ptr %this, align 8
   %per_core_stats_ = getelementptr inbounds i8, ptr %this, i64 96

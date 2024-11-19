@@ -918,7 +918,7 @@ declare void @_ZNK10Expression11output_castERSo(ptr noundef nonnull align 8 dere
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK18ExpressionVariable21get_dereferenced_ptrsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.73") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK18ExpressionVariable21get_dereferenced_ptrsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.73") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds i8, ptr %1, i64 24

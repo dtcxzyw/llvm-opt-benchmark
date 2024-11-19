@@ -618,7 +618,7 @@ declare void @_ZN4cvc57context7ContextD1Ev(ptr noundef nonnull align 8 dereferen
 declare void @_ZN4cvc58internal14ProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal19TConvProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(801) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal19TConvProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(801) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal19TConvProofGeneratorE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
@@ -652,7 +652,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt10shared_ptrINS1_9ProofNodeEESt4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn16_N4cvc58internal19TConvProofGeneratorD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn16_N4cvc58internal19TConvProofGeneratorD1Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4cvc58internal19TConvProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(801) %0) #22
@@ -660,7 +660,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal19TConvProofGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(801) initializes((0, 8), (16, 24)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal19TConvProofGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(801) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal19TConvProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(801) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -671,7 +671,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn16_N4cvc58internal19TConvProofGeneratorD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZThn16_N4cvc58internal19TConvProofGeneratorD0Ev(ptr noundef %this) unnamed_addr #5 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   tail call void @_ZN4cvc58internal19TConvProofGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(801) %0) #22

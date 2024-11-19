@@ -663,7 +663,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_757Array1DD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_757Array1DD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array1DE, i64 16), ptr %this, align 8
   %memory_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -691,7 +691,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_757Array2DD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_757Array2DD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_757Array2DE, i64 16), ptr %this, align 8
   %memory_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -719,7 +719,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758LSTMDataC2EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(248) initializes((0, 12), (16, 116), (120, 188), (192, 236), (240, 248)) %this, ptr noundef %rb, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758LSTMDataC2EP15UResourceBundleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %rb, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %embeddings_res = alloca %"class.icu_75::LocalUResourceBundlePointer", align 8
   %hunits_res = alloca %"class.icu_75::LocalUResourceBundlePointer", align 8
@@ -3209,7 +3209,7 @@ declare void @_ZN6icu_7521DictionaryBreakEngineC2Ev(ptr noundef nonnull align 8 
 declare void @_ZN6icu_7521DictionaryBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(208)) unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7515LSTMBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7515LSTMBreakEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7515LSTMBreakEngineE, i64 16), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 208
@@ -3259,7 +3259,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7511defaultLSTME11UScriptCodeR10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 initializes((0, 10)) %agg.result, i32 noundef %script, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511defaultLSTME11UScriptCodeR10UErrorCode(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, i32 noundef %script, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %len.i = alloca i32, align 4
   %agg.tmp.i = alloca %"class.icu_75::ConstChar16Ptr", align 8

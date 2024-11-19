@@ -90,7 +90,7 @@ $_ZTVN4llvm8codeview13CodeViewErrorE = comdat any
 @_ZN4llvm3pdb12SymbolStreamD1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3pdb12SymbolStreamD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm3pdb12SymbolStreamC2ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) initializes((0, 32), (40, 41), (52, 64)) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm3pdb12SymbolStreamC2ESt10unique_ptrINS_3msf17MappedBlockStreamESt14default_deleteIS4_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(64) %0, ptr nocapture noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i8 0, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 32, i1 false)
@@ -1129,7 +1129,7 @@ _ZN4llvm22VarStreamArrayIteratorINS_8codeview8CVRecordINS1_10SymbolKindEEENS_23V
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm3pdb12SymbolStream6commitEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm3pdb12SymbolStream6commitEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(64) %1) local_unnamed_addr #3 align 2 {
 _ZN4llvm12ErrorSuccessD2Ev.exit:
   store ptr null, ptr %0, align 8
   ret void

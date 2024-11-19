@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lv_bar_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr @lv_obj_class, ptr @lv_bar_constructor, ptr @lv_bar_destructor, ptr @lv_bar_event, ptr null, ptr @.str, i32 260, i32 13, i8 0, i8 10, i8 0, [5 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_bar_constructor(ptr nocapture readnone %0, ptr noundef initializes((64, 97)) %1) #0 {
+define internal void @lv_bar_constructor(ptr nocapture readnone %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 68
   store i32 0, ptr %3, align 4, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -779,7 +779,7 @@ define void @lv_bar_set_start_value(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_bar_set_range(ptr noundef initializes((96, 97)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @lv_bar_set_range(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp sgt i32 %1, %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = zext i1 %4 to i8
@@ -1039,7 +1039,7 @@ declare void @lv_anim_set_var(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @lv_anim_set_exec_cb(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @lv_bar_anim(ptr nocapture noundef initializes((16, 20)) %0, i32 noundef %1) #0 {
+define internal void @lv_bar_anim(ptr nocapture noundef %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %1, ptr %3, align 8, !tbaa !20
   %4 = load ptr, ptr %0, align 8, !tbaa !17

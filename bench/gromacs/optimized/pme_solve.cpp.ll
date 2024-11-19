@@ -66,7 +66,7 @@ $_ZN16pme_solve_work_tD2Ev = comdat any
 @_ZN8PmeSolveD1Ev = unnamed_addr alias void (ptr), ptr @_ZN8PmeSolveD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN16pme_solve_work_tC2Ei(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 248)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16pme_solve_work_tC2Ei(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca float, align 4
   %4 = alloca float, align 4
   %5 = alloca float, align 4
@@ -1113,7 +1113,7 @@ _ZSt4fillIPffEvT_S1_RKT0_.exit:                   ; preds = %.lr.ph.i.i.i76, %.l
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8PmeSolveC2Eii(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8PmeSolveC2Eii(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = tail call i32 @__kmpc_global_thread_num(ptr nonnull @2)
@@ -1585,7 +1585,7 @@ _ZNSt6vectorISt10unique_ptrI16pme_solve_work_tSt14default_deleteIS1_EESaIS4_EED2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8PmeSolve25getCoulombEnergyAndVirialEP9PmeOutput(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly initializes((20, 60)) %1) local_unnamed_addr #14 align 2 {
+define void @_ZNK8PmeSolve25getCoulombEnergyAndVirialEP9PmeOutput(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 248
@@ -1715,7 +1715,7 @@ define void @_ZNK8PmeSolve25getCoulombEnergyAndVirialEP9PmeOutput(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK8PmeSolve20getLJEnergyAndVirialEP9PmeOutput(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly initializes((68, 108)) %1) local_unnamed_addr #14 align 2 {
+define void @_ZNK8PmeSolve20getLJEnergyAndVirialEP9PmeOutput(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #14 align 2 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 288

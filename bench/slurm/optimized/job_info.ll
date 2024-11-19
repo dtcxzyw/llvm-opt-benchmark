@@ -654,7 +654,7 @@ define i32 @slurm_xlate_job_id(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @strtol(ptr noundef readonly, ptr nocapture noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_load_job(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @slurm_load_job(ptr nocapture noundef writeonly %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.slurm_msg, align 8
   %6 = alloca %struct.job_id_msg, align 8
@@ -2715,7 +2715,7 @@ declare void @slurm_free_return_code_msg(ptr noundef) local_unnamed_addr #3
 declare void @slurm_seterrno(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_load_jobs(i64 noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @slurm_load_jobs(i64 noundef %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.slurm_msg, align 8
   %6 = alloca %struct.job_info_request_msg, align 8
@@ -2827,7 +2827,7 @@ declare i32 @slurm_load_federation(ptr noundef) local_unnamed_addr #3
 declare zeroext i1 @cluster_in_federation(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_load_fed_jobs(ptr noundef nonnull %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_load_fed_jobs(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, i16 noundef zeroext %2, ptr noundef %3, ptr nocapture noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -3284,7 +3284,7 @@ define internal fastcc range(i32 -1, 1) i32 @_load_fed_jobs(ptr noundef nonnull 
 declare void @slurm_destroy_federation_rec(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_load_job_user(ptr nocapture noundef writeonly initializes((0, 8)) %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @slurm_load_job_user(ptr nocapture noundef writeonly %0, i32 noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.slurm_msg, align 8
   %5 = alloca %struct.slurm_msg, align 8
   %6 = alloca %struct.job_user_id_msg, align 8

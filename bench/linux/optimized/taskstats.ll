@@ -460,7 +460,7 @@ define internal fastcc ptr @mk_reply(ptr noundef %0, i32 noundef range(i32 1, 3)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fill_stats(ptr noundef %0, ptr noundef %1, ptr noundef nonnull initializes((0, 432)) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @fill_stats(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 align 16 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %2, i8 0, i64 432, i1 false)
   %4 = tail call i32 @delayacct_add_tsk(ptr noundef nonnull %2, ptr noundef %1) #10
   store i16 14, ptr %2, align 8

@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [29 x i8] c"unable to set none selection\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5S__none_copy(ptr nocapture noundef writeonly initializes((352, 360)) %0, ptr nocapture readnone %1, i1 zeroext %2) #0 {
+define internal noundef i32 @H5S__none_copy(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, i1 zeroext %2) #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 352
   store i64 0, ptr %4, align 8
   ret i32 0
@@ -328,7 +328,7 @@ H5S_select_none.exit:                             ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5S__none_iter_init(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal noundef i32 @H5S__none_iter_init(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #0 {
   store ptr @H5S_sel_iter_none, ptr %1, align 8
   ret i32 0
 }
@@ -482,7 +482,7 @@ define internal noundef i32 @H5S__none_iter_next_block(ptr nocapture readnone %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5S__none_iter_get_seq_list(ptr nocapture readnone %0, i64 %1, i64 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture readnone %5, ptr nocapture readnone %6) #0 {
+define internal noundef i32 @H5S__none_iter_get_seq_list(ptr nocapture readnone %0, i64 %1, i64 %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5, ptr nocapture readnone %6) #0 {
   store i64 0, ptr %3, align 8
   store i64 0, ptr %4, align 8
   ret i32 0

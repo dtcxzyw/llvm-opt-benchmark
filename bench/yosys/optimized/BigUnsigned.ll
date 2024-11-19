@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN11BigUnsignedC1Es = unnamed_addr alias void (ptr, i16), ptr @_ZN11BigUnsignedC2Es
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2Em(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %_ZN11BigUnsigned17initFromPrimitiveImEEvT_.exit, label %.noexc
@@ -46,7 +46,7 @@ _ZN11BigUnsigned17initFromPrimitiveImEEvT_.exit:  ; preds = %.noexc, %2
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp eq i32 %1, 0
   br i1 %3, label %_ZN11BigUnsigned17initFromPrimitiveIjEEvT_.exit, label %.noexc
@@ -67,7 +67,7 @@ _ZN11BigUnsigned17initFromPrimitiveIjEEvT_.exit:  ; preds = %.noexc, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2Et(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i16 noundef zeroext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2Et(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i16 noundef zeroext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp eq i16 %1, 0
   br i1 %3, label %_ZN11BigUnsigned17initFromPrimitiveItEEvT_.exit, label %.noexc
@@ -88,7 +88,7 @@ _ZN11BigUnsigned17initFromPrimitiveItEEvT_.exit:  ; preds = %.noexc, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2El(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2El(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %4, label %6
@@ -139,7 +139,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %12, %17
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2Ei(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %6
@@ -191,7 +191,7 @@ _ZN15NumberlikeArrayImED2Ev.exit:                 ; preds = %13, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN11BigUnsignedC2Es(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %0, i16 noundef signext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN11BigUnsignedC2Es(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0, i16 noundef signext %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   %3 = icmp slt i16 %1, 0
   br i1 %3, label %4, label %6

@@ -352,7 +352,7 @@ declare void @_ZN2cv8superres11FrameSourceD2Ev(ptr noundef nonnull align 8 deref
 declare void @_ZN2cv9AlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8superres15SuperResolution8setInputERKNS_3PtrINS0_11FrameSourceEEE(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((16, 17), (24, 32), (40, 41)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8superres15SuperResolution8setInputERKNS_3PtrINS0_11FrameSourceEEE(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -578,7 +578,7 @@ define void @_ZThn8_N2cv8superres15SuperResolution9nextFrameERKNS_12_OutputArray
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8superres15SuperResolution5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) initializes((16, 17), (40, 41)) %0) unnamed_addr #0 align 2 {
+define void @_ZN2cv8superres15SuperResolution5resetEv(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -593,7 +593,7 @@ define void @_ZN2cv8superres15SuperResolution5resetEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn8_N2cv8superres15SuperResolution5resetEv(ptr nocapture noundef initializes((8, 9), (32, 33)) %0) unnamed_addr #4 align 2 {
+define void @_ZThn8_N2cv8superres15SuperResolution5resetEv(ptr nocapture noundef %0) unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8

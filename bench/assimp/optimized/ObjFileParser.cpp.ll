@@ -223,7 +223,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN6Assimp13ObjFileParserD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6Assimp13ObjFileParserD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Assimp13ObjFileParserC2Ev(ptr noundef nonnull align 8 dereferenceable(4176) initializes((0, 4124), (4128, 4144)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParserC2Ev(ptr noundef nonnull align 8 dereferenceable(4176) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %m_buffer = getelementptr inbounds i8, ptr %this, i64 28
   %m_pIO = getelementptr inbounds i8, ptr %this, i64 4128
@@ -264,7 +264,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp13ObjFileParserC2ERNS_14IOStreamBufferIcEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemEPNS_15ProgressHandlerESB_(ptr noundef nonnull align 8 dereferenceable(4176) initializes((0, 4124), (4128, 4144)) %this, ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(32) %modelName, ptr noundef %io, ptr noundef %progress, ptr noundef nonnull align 8 dereferenceable(32) %originalObjFileName) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp13ObjFileParserC2ERNS_14IOStreamBufferIcEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS_8IOSystemEPNS_15ProgressHandlerESB_(ptr noundef nonnull align 8 dereferenceable(4176) %this, ptr noundef nonnull align 8 dereferenceable(80) %streamBuffer, ptr noundef nonnull align 8 dereferenceable(32) %modelName, ptr noundef %io, ptr noundef %progress, ptr noundef nonnull align 8 dereferenceable(32) %originalObjFileName) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp33 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp34 = alloca %"class.std::allocator.2", align 1
@@ -1309,7 +1309,7 @@ _ZNSt10unique_ptrIN6Assimp7ObjFile5ModelESt14default_deleteIS2_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6Assimp13ObjFileParser9setBufferERSt6vectorIcSaIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4176) initializes((0, 16)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffer) local_unnamed_addr #7 align 2 {
+define void @_ZN6Assimp13ObjFileParser9setBufferERSt6vectorIcSaIcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(4176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %buffer) local_unnamed_addr #7 align 2 {
 entry:
   %0 = load ptr, ptr %buffer, align 8
   store ptr %0, ptr %this, align 8

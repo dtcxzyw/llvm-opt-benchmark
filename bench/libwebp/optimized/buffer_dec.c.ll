@@ -456,7 +456,7 @@ define hidden void @WebPGrabDecBuffer(ptr noundef %0, ptr noundef writeonly %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((4, 12)) %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 3) i32 @WebPCopyDecBufferPixels(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %1, i64 4

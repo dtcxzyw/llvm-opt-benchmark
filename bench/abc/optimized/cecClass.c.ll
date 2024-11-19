@@ -2072,7 +2072,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Cec_ManSimSavePattern(ptr nocapture noundef initializes((96, 104)) %0, i32 noundef %1) local_unnamed_addr #11 {
+define void @Cec_ManSimSavePattern(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #11 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr i8, ptr %3, i64 64
   %.val = load ptr, ptr %4, align 8
@@ -4737,7 +4737,7 @@ declare i32 @Gia_ManLevelNum(ptr noundef) local_unnamed_addr #12
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cec_ManSimClassesRefine(ptr noundef initializes((16, 20)) %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Cec_ManSimClassesRefine(ptr noundef %0) local_unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8
   tail call void @Gia_ManCreateValueRefs(ptr noundef %2) #20
   %3 = getelementptr inbounds i8, ptr %0, i64 8

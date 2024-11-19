@@ -594,7 +594,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN8simdjson8internal13parse_decimalERPKc(ptr noalias nocapture writeonly sret(%"struct.simdjson::internal::decimal") align 4 initializes((0, 10)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(8) %p) local_unnamed_addr #2 {
+define dso_local void @_ZN8simdjson8internal13parse_decimalERPKc(ptr noalias nocapture writeonly sret(%"struct.simdjson::internal::decimal") align 4 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(8) %p) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %agg.result, align 4
   %decimal_point = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -848,7 +848,7 @@ if.end115:                                        ; preds = %if.end81, %while.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN8simdjson8internal13parse_decimalERPKcS2_(ptr noalias nocapture writeonly sret(%"struct.simdjson::internal::decimal") align 4 initializes((0, 8), (9, 10)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(8) %p, ptr noundef readnone %end) local_unnamed_addr #2 {
+define dso_local void @_ZN8simdjson8internal13parse_decimalERPKcS2_(ptr noalias nocapture writeonly sret(%"struct.simdjson::internal::decimal") align 4 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(8) %p, ptr noundef readnone %end) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %agg.result, align 4
   %decimal_point = getelementptr inbounds i8, ptr %agg.result, i64 4
@@ -2542,7 +2542,7 @@ return:                                           ; preds = %if.end6, %if.end, %
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 15) i32 @_ZN8simdjson8fallback25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((64, 80)) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %partial) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 15) i32 @_ZN8simdjson8fallback25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %partial) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %_buf, ptr %buf, align 8
@@ -3100,7 +3100,7 @@ return:                                           ; preds = %if.then13, %if.end1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson8fallback25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson8fallback25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::fallback::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -3584,7 +3584,7 @@ _ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson8fallback25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson8fallback25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::fallback::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -4474,7 +4474,7 @@ invoke.cont:                                      ; preds = %if.else.i, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 15) i32 @_ZN8simdjson8fallback25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((64, 80)) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 0, 15) i32 @_ZN8simdjson8fallback25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #5 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN8simdjson8fallback25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #53
   %tobool.not = icmp eq i32 %call, 0
@@ -4633,7 +4633,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10err
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((64, 80)) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #18 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reader.i = alloca %"struct.simdjson::haswell::(anonymous namespace)::stage1::buf_block_reader.102", align 8
   %indexer.i = alloca %"class.simdjson::haswell::(anonymous namespace)::stage1::json_structural_indexer", align 32
@@ -5096,7 +5096,7 @@ invoke.cont:                                      ; preds = %if.else.i17.i.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::haswell::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -5580,7 +5580,7 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson7haswell25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson7haswell25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::haswell::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -6038,14 +6038,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation12parse_stringEPKhPhb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef initializes((0, 32)) %dst, i1 noundef zeroext %replacement_char) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation12parse_stringEPKhPhb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef %dst, i1 noundef zeroext %replacement_char) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef %src, ptr noundef %dst, i1 noundef zeroext %replacement_char)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly initializes((0, 32)) %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #19 {
+define internal fastcc noundef ptr @_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #19 {
 entry:
   %.val52 = load <4 x i64>, ptr %src, align 1
   store <4 x i64> %.val52, ptr %dst, align 1
@@ -6308,7 +6308,7 @@ return:                                           ; preds = %if.else23.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly initializes((0, 32)) %dst) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly %dst) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %.val47.i = load <4 x i64>, ptr %src, align 1
   store <4 x i64> %.val47.i, ptr %dst, align 1
@@ -6558,7 +6558,7 @@ invoke.cont:                                      ; preds = %if.else.i, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson7haswell25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((64, 80)) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #16 align 2 {
+define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson7haswell25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #16 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN8simdjson7haswell25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #53
   %tobool.not = icmp eq i32 %call, 0
@@ -6851,7 +6851,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage113json_minifier6minifyILm128EEENS_10err
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((64, 80)) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #23 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reader.i = alloca %"struct.simdjson::icelake::(anonymous namespace)::stage1::buf_block_reader.104", align 8
   %indexer.i = alloca %"class.simdjson::icelake::(anonymous namespace)::stage1::json_structural_indexer", align 64
@@ -7298,7 +7298,7 @@ invoke.cont:                                      ; preds = %if.else.i10.i.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::icelake::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -7782,7 +7782,7 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson7icelake25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson7icelake25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::icelake::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -8240,14 +8240,14 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation12parse_stringEPKhPhb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef initializes((0, 64)) %dst, i1 noundef zeroext %replacement_char) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation12parse_stringEPKhPhb(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef %dst, i1 noundef zeroext %replacement_char) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef %src, ptr noundef %dst, i1 noundef zeroext %replacement_char)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly initializes((0, 64)) %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #22 {
+define internal fastcc noundef ptr @_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr nocapture noundef readonly %src, ptr noundef writeonly %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #22 {
 entry:
   %.val56 = load <8 x i64>, ptr %src, align 1
   store <8 x i64> %.val56, ptr %dst, align 1
@@ -8506,7 +8506,7 @@ return:                                           ; preds = %if.else23.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly initializes((0, 64)) %dst) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef readonly %src, ptr noundef writeonly %dst) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %.val51.i = load <8 x i64>, ptr %src, align 1
   store <8 x i64> %.val51.i, ptr %dst, align 1
@@ -8752,7 +8752,7 @@ invoke.cont:                                      ; preds = %if.else.i, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson7icelake25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((64, 80)) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #21 align 2 {
+define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson7icelake25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #21 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN8simdjson7icelake25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #53
   %tobool.not = icmp eq i32 %call, 0
@@ -9265,7 +9265,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage113json_minifier6minifyILm64EEENS_10err
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((64, 80)) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef %streaming) unnamed_addr #27 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %reader.i = alloca %"struct.simdjson::westmere::(anonymous namespace)::stage1::buf_block_reader", align 8
   %indexer.i = alloca %"class.simdjson::westmere::(anonymous namespace)::stage1::json_structural_indexer", align 16
@@ -9851,7 +9851,7 @@ invoke.cont:                                      ; preds = %if.else.i28.i.i, %_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage2ERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::westmere::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -10335,7 +10335,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEEN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson8westmere25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((80, 88)) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef range(i32 0, 13) i32 @_ZN8simdjson8westmere25dom_parser_implementation11stage2_nextERNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #25 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %builder.i = alloca %"struct.simdjson::westmere::(anonymous namespace)::stage2::tape_builder", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %builder.i)
@@ -11321,7 +11321,7 @@ invoke.cont:                                      ; preds = %if.else.i, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson8westmere25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((64, 80)) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #25 align 2 {
+define dso_local noundef range(i32 0, 24) i32 @_ZN8simdjson8westmere25dom_parser_implementation5parseEPKhmRNS_3dom8documentE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, ptr noundef nonnull align 8 dereferenceable(24) %_doc) unnamed_addr #25 align 2 {
 entry:
   %call = tail call noundef i32 @_ZN8simdjson8westmere25dom_parser_implementation6stage1EPKhmNS_11stage1_modeE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %_buf, i64 noundef %_len, i32 noundef 0) #53
   %tobool.not = icmp eq i32 %call, 0
@@ -14142,7 +14142,7 @@ invoke.cont:                                      ; preds = %if.end.i28.i.thread
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #35
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this, ptr nocapture noundef readonly %block_buf, ptr nocapture noundef nonnull align 8 dereferenceable(32) %reader) unnamed_addr #36 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8simdjson7haswell12_GLOBAL__N_16stage113json_minifier4stepILm128EEEvPKhRNS2_16buf_block_readerIXT_EEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef readonly %block_buf, ptr nocapture noundef nonnull align 8 dereferenceable(32) %reader) unnamed_addr #36 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont2:
   %ptr.val.i164 = load <32 x i8>, ptr %block_buf, align 1
   %add.ptr.i = getelementptr inbounds i8, ptr %block_buf, i64 32

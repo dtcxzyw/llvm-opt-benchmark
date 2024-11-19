@@ -561,7 +561,7 @@ declare i32 @pthread_attr_setstacksize(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_service_connection(ptr nocapture noundef initializes((24, 32)) %0) #0 {
+define internal noundef ptr @_service_connection(ptr nocapture noundef %0) #0 {
   %2 = alloca %struct.persist_rc_msg_t, align 8
   %3 = alloca %struct.persist_msg_t, align 8
   %4 = alloca i32, align 4
@@ -1743,7 +1743,7 @@ slurm_persist_conn_members_destroy.exit:          ; preds = %slurm_persist_conn_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @slurm_persist_conn_process_msg(ptr nocapture noundef %0, ptr noundef initializes((0, 24)) %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
+define i32 @slurm_persist_conn_process_msg(ptr nocapture noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, i1 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca %struct.persist_rc_msg_t, align 8
   %8 = alloca %struct.persist_msg_t, align 8
   %9 = alloca %struct.persist_rc_msg_t, align 8
@@ -2364,7 +2364,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #10
 declare void @packmem(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurm_persist_unpack_init_req_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_persist_unpack_init_req_msg(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1117, ptr noundef nonnull @__func__.slurm_persist_unpack_init_req_msg) #12
@@ -2487,7 +2487,7 @@ define void @slurm_persist_pack_rc_msg(ptr nocapture noundef readonly %0, ptr no
 declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @slurm_persist_unpack_rc_msg(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @slurm_persist_unpack_rc_msg(ptr nocapture noundef writeonly %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 1170, ptr noundef nonnull @__func__.slurm_persist_unpack_rc_msg) #12

@@ -464,7 +464,7 @@ opal_obj_run_destructors.exit20:                  ; preds = %.lr.ph.i17, %opal_o
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define noundef i32 @mca_base_pvar_get_count(ptr nocapture noundef writeonly initializes((0, 4)) %0) local_unnamed_addr #4 {
+define noundef i32 @mca_base_pvar_get_count(ptr nocapture noundef writeonly %0) local_unnamed_addr #4 {
   %2 = load i32, ptr @pvar_count, align 4
   store i32 %2, ptr %0, align 4
   ret i32 0
@@ -2293,7 +2293,7 @@ declare i32 @mca_base_var_group_get_internal(i32 noundef, ptr noundef, i1 nounde
 declare i32 @opal_asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_base_pvar_contructor(ptr noundef initializes((16, 168)) %0) #0 {
+define internal void @mca_base_pvar_contructor(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(152) %2, i8 0, i64 152, i1 false)
   %3 = load i32, ptr @opal_class_init_epoch, align 4
@@ -2429,7 +2429,7 @@ opal_obj_run_destructors.exit19:                  ; preds = %.lr.ph.i16, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @opal_mpi_pvar_session_constructor(ptr noundef initializes((16, 24)) %0) #0 {
+define internal void @opal_mpi_pvar_session_constructor(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_list_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -2520,7 +2520,7 @@ opal_obj_run_destructors.exit13:                  ; preds = %.lr.ph.i10, %._crit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @mca_base_pvar_handle_constructor(ptr noundef initializes((40, 144)) %0) #0 {
+define internal void @mca_base_pvar_handle_constructor(ptr noundef %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %2, i8 0, i64 104, i1 false)
   %3 = load i32, ptr @opal_class_init_epoch, align 4

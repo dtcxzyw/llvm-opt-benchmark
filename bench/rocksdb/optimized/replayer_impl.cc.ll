@@ -68,7 +68,7 @@ $__clang_call_terminate = comdat any
 @_ZN7rocksdb12ReplayerImplD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7rocksdb12ReplayerImplD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb12ReplayerImplC2EPNS_2DBERKSt6vectorIPNS_18ColumnFamilyHandleESaIS5_EEOSt10unique_ptrINS_11TraceReaderESt14default_deleteISB_EE(ptr nocapture noundef nonnull align 8 dereferenceable(92) initializes((0, 58), (64, 72)) %this, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(24) %handles, ptr nocapture noundef nonnull align 8 dereferenceable(8) %reader) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb12ReplayerImplC2EPNS_2DBERKSt6vectorIPNS_18ColumnFamilyHandleESaIS5_EEOSt10unique_ptrINS_11TraceReaderESt14default_deleteISB_EE(ptr nocapture noundef nonnull align 8 dereferenceable(92) %this, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(24) %handles, ptr nocapture noundef nonnull align 8 dereferenceable(8) %reader) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ReplayerImplE, i64 16), ptr %this, align 8
   %trace_reader_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -147,7 +147,7 @@ declare noundef ptr @_ZN7rocksdb11TraceRecord19NewExecutionHandlerEPNS_2DBERKSt6
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7rocksdb12ReplayerImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(92) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb12ReplayerImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(92) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7rocksdb12ReplayerImplE, i64 16), ptr %this, align 8
   %exec_handler_ = getelementptr inbounds i8, ptr %this, i64 72

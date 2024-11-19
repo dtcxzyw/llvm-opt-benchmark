@@ -378,7 +378,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20LaplaceInterpolationC2ESt8functionIFdRKSt6vectorImSaImEEEES2_IS2_IdSaIdEESaISA_EEdm(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 84), (88, 100), (104, 112), (120, 152)) %this, ptr nocapture noundef %y, ptr nocapture noundef %x, double noundef %relTol, i64 noundef %maxIterMultiplier) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20LaplaceInterpolationC2ESt8functionIFdRKSt6vectorImSaImEEEES2_IS2_IdSaIdEESaISA_EEdm(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef %y, ptr nocapture noundef %x, double noundef %relTol, i64 noundef %maxIterMultiplier) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i999 = alloca double, align 8
   %ref.tmp.i = alloca %"class.QuantLib::SecondDerivativeOp", align 8
@@ -4612,7 +4612,7 @@ ehcleanup:                                        ; preds = %lpad11, %lpad
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZZN8QuantLib20LaplaceInterpolationC1ESt8functionIFdRKSt6vectorImSaImEEEES2_IS2_IdSaIdEESaISA_EEdmEN9LaplaceOpD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN8QuantLib20LaplaceInterpolationC1ESt8functionIFdRKSt6vectorImSaImEEEES2_IS2_IdSaIdEESaISA_EEdmEN9LaplaceOpD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVZN8QuantLib20LaplaceInterpolationC1ESt8functionIFdRKSt6vectorImSaImEEEES2_IS2_IdSaIdEESaISA_EEdmE9LaplaceOp, i64 16), ptr %this, align 8, !tbaa !57
   %map_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -5370,7 +5370,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EED2Ev.exit: ; preds = %invoke.cont, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib20LaplaceInterpolation20projectedCoordinatesERKSt6vectorImSaImEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.6") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %coordinates) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib20LaplaceInterpolation20projectedCoordinatesERKSt6vectorImSaImEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.6") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %coordinates) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %coordinates, i64 8
@@ -6754,7 +6754,7 @@ _ZNSt12_Vector_baseIN8QuantLib18TripleBandLinearOpESaIS1_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZZN8QuantLib20LaplaceInterpolationC1ESt8functionIFdRKSt6vectorImSaImEEEES2_IS2_IdSaIdEESaISA_EEdmEN9LaplaceOpD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN8QuantLib20LaplaceInterpolationC1ESt8functionIFdRKSt6vectorImSaImEEEES2_IS2_IdSaIdEESaISA_EEdmEN9LaplaceOpD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVZN8QuantLib20LaplaceInterpolationC1ESt8functionIFdRKSt6vectorImSaImEEEES2_IS2_IdSaIdEESaISA_EEdmE9LaplaceOp, i64 16), ptr %this, align 8, !tbaa !57
   %map_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -8582,7 +8582,7 @@ unreachable:                                      ; preds = %invoke.cont13
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZZN8QuantLib20LaplaceInterpolationC1ESt8functionIFdRKSt6vectorImSaImEEEES2_IS2_IdSaIdEESaISA_EEdmENK9LaplaceOp14toMatrixDecompEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.47") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZZN8QuantLib20LaplaceInterpolationC1ESt8functionIFdRKSt6vectorImSaImEEEES2_IS2_IdSaIdEESaISA_EEdmENK9LaplaceOp14toMatrixDecompEv(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.47") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::numeric::ublas::compressed_matrix", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)

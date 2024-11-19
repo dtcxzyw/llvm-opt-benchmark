@@ -5124,7 +5124,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt11theory_char10init_modelERNS_15model_generatorE(ptr nocapture noundef nonnull align 8 dereferenceable(384) initializes((376, 384)) %this, ptr noundef nonnull align 8 dereferenceable(104) %mg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt11theory_char10init_modelERNS_15model_generatorE(ptr nocapture noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(104) %mg) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator.311", align 1

@@ -504,7 +504,7 @@ if.end97:                                         ; preds = %if.else.i75, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @ikcp_setoutput(ptr nocapture noundef writeonly initializes((256, 264)) %kcp, ptr noundef %output) local_unnamed_addr #4 {
+define dso_local void @ikcp_setoutput(ptr nocapture noundef writeonly %kcp, ptr noundef %output) local_unnamed_addr #4 {
 entry:
   %output1 = getelementptr inbounds i8, ptr %kcp, i64 256
   store ptr %output, ptr %output1, align 8
@@ -2623,7 +2623,7 @@ if.end322:                                        ; preds = %if.end322.sink.spli
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ikcp_update(ptr noundef initializes((76, 80)) %kcp, i32 noundef %current) local_unnamed_addr #1 {
+define dso_local void @ikcp_update(ptr noundef %kcp, i32 noundef %current) local_unnamed_addr #1 {
 entry:
   %current1 = getelementptr inbounds i8, ptr %kcp, i64 76
   store i32 %current, ptr %current1, align 4
@@ -2784,7 +2784,7 @@ return:                                           ; preds = %ikcp_malloc.exit, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @ikcp_interval(ptr nocapture noundef writeonly initializes((80, 84)) %kcp, i32 noundef %interval) local_unnamed_addr #4 {
+define dso_local noundef i32 @ikcp_interval(ptr nocapture noundef writeonly %kcp, i32 noundef %interval) local_unnamed_addr #4 {
 entry:
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %interval, i32 10)
   %0 = tail call i32 @llvm.umin.i32(i32 %spec.store.select, i32 5000)

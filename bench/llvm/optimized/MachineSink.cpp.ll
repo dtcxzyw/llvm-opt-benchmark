@@ -835,7 +835,7 @@ declare void @_ZN4llvm17RegisterClassInfoC1Ev(ptr noundef nonnull align 8 derefe
 declare noundef ptr @_ZN4llvm12PassRegistry15getPassRegistryEv() local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114MachineSinkingD2Ev(ptr noundef nonnull align 8 dereferenceable(905) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114MachineSinkingD2Ev(ptr noundef nonnull align 8 dereferenceable(905) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_114MachineSinkingE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 880
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 896
@@ -1016,7 +1016,7 @@ _ZN4llvm8SmallSetISt4pairIPNS_17MachineBasicBlockES3_ELj8ESt4lessIS4_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_114MachineSinkingD0Ev(ptr noundef nonnull align 8 dereferenceable(905) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_114MachineSinkingD0Ev(ptr noundef nonnull align 8 dereferenceable(905) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN12_GLOBAL__N_114MachineSinkingD2Ev(ptr noundef nonnull align 8 dereferenceable(905) %0) #19
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 912) #22
   ret void
@@ -19270,7 +19270,7 @@ define internal noundef nonnull ptr @_ZN4llvm15callDefaultCtorIN12_GLOBAL__N_120
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120PostRAMachineSinkingD2Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120PostRAMachineSinkingD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_120PostRAMachineSinkingE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @_ZN4llvm8DenseMapIjNS_11SmallVectorISt4pairIPNS_12MachineInstrENS1_IjLj2EEEELj2EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #19
@@ -19303,7 +19303,7 @@ _ZN4llvm12LiveRegUnitsD2Ev.exit1:                 ; preds = %_ZN4llvm12LiveRegUn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120PostRAMachineSinkingD0Ev(ptr noundef nonnull align 8 dereferenceable(240) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_120PostRAMachineSinkingD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 176) (i8, ptr @_ZTVN12_GLOBAL__N_120PostRAMachineSinkingE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   tail call void @_ZN4llvm8DenseMapIjNS_11SmallVectorISt4pairIPNS_12MachineInstrENS1_IjLj2EEEELj2EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(20) %2) #19

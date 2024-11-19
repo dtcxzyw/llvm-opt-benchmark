@@ -86,7 +86,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.56 = private unnamed_addr constant [51 x i8] c"could not parse bundle list key %s with value '%s'\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_bundle_list(ptr noundef initializes((0, 72)) %list) local_unnamed_addr #0 {
+define dso_local void @init_bundle_list(ptr noundef %list) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %list, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 0, i64 64, i1 false)

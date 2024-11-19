@@ -638,7 +638,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7514SharedCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7514SharedCalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7514SharedCalendarE, i64 16), ptr %this, align 8
   %ptr = getelementptr inbounds i8, ptr %this, i64 24
@@ -1120,7 +1120,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758CalendarC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) initializes((0, 241), (248, 264), (304, 305), (461, 462)) %this, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758CalendarC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758CalendarE, i64 16), ptr %this, align 8
   %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
@@ -1176,7 +1176,7 @@ invoke.cont12:                                    ; preds = %entry, %invoke.cont
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_ZN6icu_758Calendar5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) initializes((12, 132)) %this) local_unnamed_addr #9 align 2 {
+define void @_ZN6icu_758Calendar5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) %this) local_unnamed_addr #9 align 2 {
 entry:
   %fFields = getelementptr inbounds i8, ptr %this, i64 12
   %fStamp = getelementptr inbounds i8, ptr %this, i64 132
@@ -1621,7 +1621,7 @@ declare noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10get
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) initializes((0, 12), (228, 241), (248, 264), (304, 305), (461, 462)) %this, ptr noundef %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758CalendarE, i64 16), ptr %this, align 8
   %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
@@ -1677,7 +1677,7 @@ invoke.cont7:                                     ; preds = %if.then, %delete.no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758CalendarC2ERKNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) initializes((0, 12), (228, 241), (248, 264), (304, 305), (461, 462)) %this, ptr noundef nonnull align 8 dereferenceable(72) %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758CalendarC2ERKNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(72) %zone, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758CalendarE, i64 16), ptr %this, align 8
   %fIsTimeSet = getelementptr inbounds i8, ptr %this, i64 8
@@ -1730,7 +1730,7 @@ invoke.cont10:                                    ; preds = %entry, %if.end9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_758CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(618) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6icu_758CalendarD2Ev(ptr noundef nonnull align 8 dereferenceable(618) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758CalendarE, i64 16), ptr %this, align 8
   %fZone = getelementptr inbounds i8, ptr %this, i64 248
@@ -1761,7 +1761,7 @@ entry:
 declare void @llvm.trap() #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) initializes((0, 8), (248, 256)) %this, ptr noundef nonnull align 8 dereferenceable(618) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_758CalendarE, i64 16), ptr %this, align 8
   %fZone = getelementptr inbounds i8, ptr %this, i64 248
@@ -3957,7 +3957,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN6icu_758Calendar16recalculateStampEv(ptr nocapture noundef nonnull align 8 dereferenceable(618) initializes((228, 232)) %this) local_unnamed_addr #17 align 2 {
+define void @_ZN6icu_758Calendar16recalculateStampEv(ptr nocapture noundef nonnull align 8 dereferenceable(618) %this) local_unnamed_addr #17 align 2 {
 entry:
   %fNextStamp = getelementptr inbounds i8, ptr %this, i64 228
   store i32 1, ptr %fNextStamp, align 4
@@ -7328,7 +7328,7 @@ if.end107:                                        ; preds = %if.then3.i.i88, %_Z
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758Calendar10setLenientEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) initializes((240, 241)) %this, i8 noundef signext %lenient) local_unnamed_addr #20 align 2 {
+define void @_ZN6icu_758Calendar10setLenientEa(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) %this, i8 noundef signext %lenient) local_unnamed_addr #20 align 2 {
 entry:
   %fLenient = getelementptr inbounds i8, ptr %this, i64 240
   store i8 %lenient, ptr %fLenient, align 8
@@ -8092,7 +8092,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_758Calendar24setSkippedWallTimeOptionE23UCalendarWallTimeOption(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) initializes((260, 264)) %this, i32 noundef %option) local_unnamed_addr #20 align 2 {
+define void @_ZN6icu_758Calendar24setSkippedWallTimeOptionE23UCalendarWallTimeOption(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(618) %this, i32 noundef %option) local_unnamed_addr #20 align 2 {
 entry:
   %fSkippedWallTime = getelementptr inbounds i8, ptr %this, i64 260
   store i32 %option, ptr %fSkippedWallTime, align 4

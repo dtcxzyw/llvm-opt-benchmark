@@ -343,7 +343,7 @@ define hidden void @lexbor_array_obj_delete(ptr nocapture noundef %0, i64 nounde
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @lexbor_array_obj_erase_noi(ptr nocapture noundef writeonly initializes((0, 32)) %0) local_unnamed_addr #2 {
+define hidden void @lexbor_array_obj_erase_noi(ptr nocapture noundef writeonly %0) local_unnamed_addr #2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }

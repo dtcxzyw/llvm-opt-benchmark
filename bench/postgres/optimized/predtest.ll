@@ -1226,7 +1226,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @list_startup_fn(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #2 {
+define internal void @list_startup_fn(ptr noundef %0, ptr nocapture noundef writeonly %1) #2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %0, ptr %3, align 8
   %.not.i = icmp eq ptr %0, null
@@ -1276,7 +1276,7 @@ define internal void @list_cleanup_fn(ptr nocapture readnone %0) #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @boolexpr_startup_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #3 {
+define internal void @boolexpr_startup_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1300,7 +1300,7 @@ declare ptr @pg_detoast_datum(ptr noundef) local_unnamed_addr #1
 declare i32 @ArrayGetNItems(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @arrayconst_startup_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) #0 {
+define internal void @arrayconst_startup_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca i16, align 2
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
@@ -1431,7 +1431,7 @@ define internal void @arrayconst_cleanup_fn(ptr nocapture noundef readonly %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @arrayexpr_startup_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #0 {
+define internal void @arrayexpr_startup_fn(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = tail call ptr @palloc(i64 noundef 56) #6
   store ptr %3, ptr %1, align 8
   store i32 15, ptr %3, align 8

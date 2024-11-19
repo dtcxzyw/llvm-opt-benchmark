@@ -132,7 +132,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_217ScanLineInputFile4DataC2Ei(ptr noundef nonnull align 8 dereferenceable(360) initializes((0, 40)) %this, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7Imf_3_217ScanLineInputFile4DataC2Ei(ptr noundef nonnull align 8 dereferenceable(360) %this, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIPN7Imf_3_212_GLOBAL__N_110LineBufferESaIS3_EE12_M_check_lenEmPKc.exit.i.i:
   %ref.tmp = alloca %"class.Imath_3_2::Vec2", align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %this, i8 0, i64 40, i1 false)
@@ -1480,7 +1480,7 @@ unreachable:                                      ; preds = %delete.end47
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_217ScanLineInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7Imf_3_217ScanLineInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_217ScanLineInputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
@@ -4531,7 +4531,7 @@ declare void @_ZN13IlmThread_3_29Semaphore4postEv(ptr noundef nonnull align 8 de
 declare void @_ZN13IlmThread_3_24TaskC2EPNS_9TaskGroupE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_117LineBufferTaskIIFD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_117LineBufferTaskIIFD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_212_GLOBAL__N_117LineBufferTaskIIFE, i64 16), ptr %this, align 8
   %_lineBuffer = getelementptr inbounds i8, ptr %this, i64 24
@@ -4553,7 +4553,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_117LineBufferTaskIIFD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_117LineBufferTaskIIFD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_212_GLOBAL__N_117LineBufferTaskIIFE, i64 16), ptr %this, align 8
   %_lineBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -5003,7 +5003,7 @@ unreachable:                                      ; preds = %invoke.cont164
 declare void @_ZN13IlmThread_3_24TaskD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZNK7Imf_3_212_GLOBAL__N_117LineBufferTaskIIF15getWritePointerIN9Imath_3_24halfEEEviRPtRmS7_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %y, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outWritePointerRight, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPixelsToCopySSE, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %outPixelsToCopyNormal, i32 noundef range(i32 0, 2) %channelBank) unnamed_addr #19 align 2 {
+define internal fastcc void @_ZNK7Imf_3_212_GLOBAL__N_117LineBufferTaskIIF15getWritePointerIN9Imath_3_24halfEEEviRPtRmS7_i(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %this, i32 noundef %y, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outWritePointerRight, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPixelsToCopySSE, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %outPixelsToCopyNormal, i32 noundef range(i32 0, 2) %channelBank) unnamed_addr #19 align 2 {
 entry:
   %_ifd = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_ifd, align 8
@@ -6237,7 +6237,7 @@ _ZN7Imf_3_217writeToRGBANormalERPtS1_S1_S1_S1_RKm.exit: ; preds = %for.body.i125
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114LineBufferTaskE, i64 16), ptr %this, align 8
   %_lineBuffer = getelementptr inbounds i8, ptr %this, i64 24
@@ -6259,7 +6259,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_114LineBufferTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114LineBufferTaskE, i64 16), ptr %this, align 8
   %_lineBuffer.i = getelementptr inbounds i8, ptr %this, i64 24

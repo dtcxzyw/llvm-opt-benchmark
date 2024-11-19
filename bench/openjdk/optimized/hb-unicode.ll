@@ -1053,7 +1053,7 @@ define hidden noundef i32 @hb_unicode_script(ptr noundef %0, i32 noundef %1) loc
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_unicode_compose(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
+define hidden noundef i32 @hb_unicode_compose(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   store i32 0, ptr %3, align 4
   %5 = icmp ne i32 %1, 0
   %6 = icmp ne i32 %2, 0
@@ -1074,7 +1074,7 @@ _ZN18hb_unicode_funcs_t7composeEjjPj.exit:        ; preds = %4, %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @hb_unicode_decompose(ptr noundef %0, i32 noundef %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 4)) %3) local_unnamed_addr #0 {
+define hidden noundef i32 @hb_unicode_decompose(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   store i32 %1, ptr %2, align 4
   store i32 0, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 72

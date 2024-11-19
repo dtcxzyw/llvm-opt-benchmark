@@ -6896,7 +6896,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm25maskContainsAllOneOrUndefEPNS_5Va
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm26possiblyDemandedEltsInMaskEPNS_5ValueE(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 initializes((8, 12)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm26possiblyDemandedEltsInMaskEPNS_5ValueE(ptr dead_on_unwind noalias writable sret(%"class.llvm::APInt") align 8 %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32

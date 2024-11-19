@@ -713,7 +713,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 declare dso_local i32 @drm_encoder_init(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dsi_compute_config(ptr noundef %0, ptr noundef initializes((4744, 4752)) %1, ptr noundef %2) #0 align 16 {
+define internal i32 @intel_dsi_compute_config(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 544
   %6 = load ptr, ptr %5, align 8
@@ -4043,7 +4043,7 @@ define internal void @vlv_dsi_asus_tf103c_mode_fixup(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @vlv_dsi_lenovo_yoga_tab2_size_fixup(ptr nocapture noundef initializes((568, 572)) %0) #0 align 16 {
+define internal void @vlv_dsi_lenovo_yoga_tab2_size_fixup(ptr nocapture noundef %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 544
   %3 = load ptr, ptr %2, align 8
   %4 = tail call ptr @intel_panel_preferred_fixed_mode(ptr noundef %3) #9
@@ -4063,7 +4063,7 @@ define internal void @vlv_dsi_lenovo_yoga_tab2_size_fixup(ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(write, argmem: readwrite, inaccessiblemem: none)
-define internal void @vlv_dsi_lenovo_yoga_tab3_backlight_fixup(ptr nocapture noundef initializes((568, 572)) %0) #7 align 16 {
+define internal void @vlv_dsi_lenovo_yoga_tab3_backlight_fixup(ptr nocapture noundef %0) #7 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 544
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 568

@@ -1251,7 +1251,7 @@ define internal noundef zeroext i8 @enumForCopyingSingles(ptr nocapture noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @enqueueCommand(ptr noundef initializes((4, 6), (8, 16)) %0, i8 noundef zeroext range(i8 0, 2) %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @enqueueCommand(ptr noundef %0, i8 noundef zeroext range(i8 0, 2) %1, i8 noundef zeroext %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 8
   %5 = icmp eq i32 %4, 1
   br i1 %5, label %6, label %commandSize.exit

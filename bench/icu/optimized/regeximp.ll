@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN6icu_7524CaseFoldingUCharIteratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7524CaseFoldingUCharIteratorD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524CaseFoldingUTextIteratorC2ER5UText(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 20)) %this, ptr noundef nonnull align 8 dereferenceable(144) %text) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7524CaseFoldingUTextIteratorC2ER5UText(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(144) %text) unnamed_addr #0 align 2 {
 entry:
   store ptr %text, ptr %this, align 8
   %fFoldChars = getelementptr inbounds i8, ptr %this, i64 8
@@ -156,7 +156,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7524CaseFoldingUCharIteratorC2EPKDsll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 36)) %this, ptr noundef %chars, i64 noundef %start, i64 noundef %limit) unnamed_addr #0 align 2 {
+define void @_ZN6icu_7524CaseFoldingUCharIteratorC2EPKDsll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %this, ptr noundef %chars, i64 noundef %start, i64 noundef %limit) unnamed_addr #0 align 2 {
 entry:
   store ptr %chars, ptr %this, align 8
   %fIndex = getelementptr inbounds i8, ptr %this, i64 8

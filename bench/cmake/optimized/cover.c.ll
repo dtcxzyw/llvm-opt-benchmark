@@ -129,7 +129,7 @@ define dso_local i64 @COVER_computeEpochs(i32 noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @ZDICT_trainFromBuffer_cover(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 initializes((16, 24)) %5) local_unnamed_addr #4 {
+define dso_local i64 @ZDICT_trainFromBuffer_cover(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef byval(%struct.ZDICT_cover_params_t) align 8 %5) local_unnamed_addr #4 {
   %7 = alloca %struct.COVER_ctx_t, align 8
   %8 = alloca %struct.COVER_map_s, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1492,7 +1492,7 @@ define dso_local void @COVER_best_finish(ptr noundef %0, ptr nocapture noundef r
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @COVER_dictSelectionError(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.COVER_dictSelection) align 8 initializes((0, 24)) %0, i64 noundef %1) local_unnamed_addr #8 {
+define dso_local void @COVER_dictSelectionError(ptr dead_on_unwind noalias nocapture writable writeonly sret(%struct.COVER_dictSelection) align 8 %0, i64 noundef %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i64 %1, ptr %3, align 8, !alias.scope !21

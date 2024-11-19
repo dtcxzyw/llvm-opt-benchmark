@@ -2518,7 +2518,7 @@ _ZN4Luau8TypePath4PathD2Ev.exit10:                ; preds = %_ZSt8_DestroyIPN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau16OverloadResolverC2ENS_7NotNullINS_12BuiltinTypesEEENS1_INS_9TypeArenaEEENS1_INS_10NormalizerEEENS1_INS_5ScopeEEENS1_INS_21InternalErrorReporterEEENS1_INS_15TypeCheckLimitsEEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(440) initializes((0, 48)) %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, i64 %6, ptr nocapture noundef readonly byval(%"struct.Luau::Location") align 8 %7) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4Luau16OverloadResolverC2ENS_7NotNullINS_12BuiltinTypesEEENS1_INS_9TypeArenaEEENS1_INS_10NormalizerEEENS1_INS_5ScopeEEENS1_INS_21InternalErrorReporterEEENS1_INS_15TypeCheckLimitsEEENS_8LocationE(ptr noundef nonnull align 8 dereferenceable(440) %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, i64 %6, ptr nocapture noundef readonly byval(%"struct.Luau::Location") align 8 %7) unnamed_addr #4 align 2 {
   %9 = inttoptr i64 %6 to ptr
   store ptr %1, ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 8

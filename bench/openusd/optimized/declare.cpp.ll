@@ -86,7 +86,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L22_Tf_RegistryFuncti
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__10NdrVersionC2Eii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(9) initializes((0, 9)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__10NdrVersionC2Eii(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(9) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   store i32 %1, ptr %0, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4

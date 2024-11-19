@@ -83,7 +83,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @component_query(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #1 {
+define internal noundef i32 @component_query(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) #1 {
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @pmix_mca_bfrops_v51_component, i64 224), align 8
   store i32 %3, ptr %1, align 4
   store ptr @pmix_bfrops_pmix51_module, ptr %0, align 8

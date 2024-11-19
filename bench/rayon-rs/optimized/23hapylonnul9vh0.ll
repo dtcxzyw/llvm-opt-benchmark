@@ -163,7 +163,7 @@ default.unreachable:                              ; preds = %5
 }
 
 ; Function Attrs: nounwind nonlazybind uwtable
-define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_value17h87242f1eacdf9c21E(ptr nocapture noundef initializes((16, 17)) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal void @_ZN3std3sys6common12thread_local10fast_local13destroy_value17h87242f1eacdf9c21E(ptr nocapture noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca [0 x { ptr, ptr }], align 8
   %3 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %4 = load i64, ptr %0, align 8, !range !12, !noalias !25, !noundef !5

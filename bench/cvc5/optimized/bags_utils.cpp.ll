@@ -11048,7 +11048,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4bags9BagsUtils14getBagElementsENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.std::map.74") align 8 initializes((8, 12), (16, 24)) %agg.result, ptr nocapture noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4bags9BagsUtils14getBagElementsENS0_12NodeTemplateILb0EEE(ptr noalias sret(%"class.std::map.74") align 8 %agg.result, ptr nocapture noundef %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i144 = alloca %"class.std::tuple.221", align 8
   %ref.tmp10.i145 = alloca %"class.std::tuple.224", align 1

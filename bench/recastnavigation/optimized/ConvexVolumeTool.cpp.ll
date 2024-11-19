@@ -34,7 +34,7 @@ $_ZN16ConvexVolumeTool4typeEv = comdat any
 @_ZN16ConvexVolumeToolC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN16ConvexVolumeToolC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16ConvexVolumeToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((0, 32), (176, 180), (228, 232)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN16ConvexVolumeToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16ConvexVolumeTool, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
@@ -54,14 +54,14 @@ define dso_local void @_ZN16ConvexVolumeToolC2Ev(ptr nocapture noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16ConvexVolumeTool4initEP6Sample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((8, 16)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN16ConvexVolumeTool4initEP6Sample(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN16ConvexVolumeTool5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((176, 180), (228, 232)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN16ConvexVolumeTool5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 228

@@ -58,7 +58,7 @@ define range(i32 0, 2) i32 @cuddTestInteract(ptr nocapture noundef readonly %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @cuddInitInteract(ptr noundef initializes((376, 384)) %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @cuddInitInteract(ptr noundef %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8
   %4 = add nsw i32 %3, -1

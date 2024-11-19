@@ -141,7 +141,7 @@ declare void @_ZN20ShenandoahHeuristicsC2EP19ShenandoahSpaceInfo(ptr noundef non
 declare void @_ZN12TruncatedSeqC1Eid(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef, double noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahAdaptiveHeuristicsD2Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahAdaptiveHeuristicsD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV28ShenandoahAdaptiveHeuristics, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 392
   tail call void @_ZN12TruncatedSeqD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #11
@@ -160,7 +160,7 @@ declare void @_ZN12TruncatedSeqD1Ev(ptr noundef nonnull align 8 dereferenceable(
 declare void @_ZN20ShenandoahHeuristicsD2Ev(ptr noundef nonnull align 8 dereferenceable(193)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28ShenandoahAdaptiveHeuristicsD0Ev(ptr noundef nonnull align 8 dereferenceable(464) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN28ShenandoahAdaptiveHeuristicsD0Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 152) (i8, ptr @_ZTV28ShenandoahAdaptiveHeuristics, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 392
   tail call void @_ZN12TruncatedSeqD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #11
@@ -516,7 +516,7 @@ define hidden void @_ZN28ShenandoahAdaptiveHeuristics18record_cycle_startEv(ptr 
 declare void @_ZN20ShenandoahHeuristics18record_cycle_startEv(ptr noundef nonnull align 8 dereferenceable(193)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahAllocationRate24allocation_counter_resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) initializes((0, 16)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN24ShenandoahAllocationRate24allocation_counter_resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(168) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #11
   store double %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1548,7 +1548,7 @@ declare noundef zeroext i1 @_ZN20ShenandoahHeuristics15should_start_gcEv(ptr nou
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN24ShenandoahAllocationRateC2Ev(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN24ShenandoahAllocationRateC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef double @_ZN2os11elapsedTimeEv() #11
   store double %2, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8

@@ -2738,7 +2738,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE16CxxModuleFileSet
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN17cmDyndepCollation15ParseExportInfoERKN4Json5ValueE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.11") align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17cmDyndepCollation15ParseExportInfoERKN4Json5ValueE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.11") align 8 %0, ptr noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x %"struct.std::pair.495"], align 8
   %4 = alloca %class.cmAlphaNum, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

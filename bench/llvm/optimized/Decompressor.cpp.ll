@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN4llvm6object12DecompressorC1ENS_9StringRefE = unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN4llvm6object12DecompressorC2ENS_9StringRefE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object12Decompressor6createENS_9StringRefES2_bb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 initializes((0, 8)) %0, ptr nocapture readnone %1, i64 %2, ptr %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object12Decompressor6createENS_9StringRefES2_bb(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected") align 8 %0, ptr nocapture readnone %1, i64 %2, ptr %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.llvm::object::Decompressor", align 8
   %9 = alloca %"class.llvm::Error", align 8
   call void @_ZN4llvm6object12DecompressorC1ENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(28) %8, ptr %3, i64 %4) #6
@@ -54,7 +54,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %7
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm6object12Decompressor23consumeCompressedHeaderEbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(28) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm6object12Decompressor23consumeCompressedHeaderEbb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Error") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(28) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::DataExtractor", align 8
   %7 = alloca i64, align 8
@@ -179,7 +179,7 @@ _ZN4llvm12ErrorSuccessD2Ev.exit:                  ; preds = %45, %46
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm6object12DecompressorC2ENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) initializes((0, 28)) %0, ptr %1, i64 %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm6object12DecompressorC2ENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(28) %0, ptr %1, i64 %2) unnamed_addr #2 align 2 {
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8

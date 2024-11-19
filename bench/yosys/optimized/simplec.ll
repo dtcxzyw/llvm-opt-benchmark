@@ -13932,7 +13932,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4WireEED2Ev.exit221: ; preds = %_ZN5Yosys5RTLI
 declare noundef ptr @_ZN5Yosys6log_idERKNS_5RTLIL8IdStringE(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_114HierDirtyFlagsC2EPN5Yosys5RTLIL6ModuleENS2_8IdStringEPS0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_(ptr noundef nonnull align 8 dereferenceable(320) initializes((0, 4), (8, 20), (24, 80), (88, 136), (144, 192), (200, 248)) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_114HierDirtyFlagsC2EPN5Yosys5RTLIL6ModuleENS2_8IdStringEPS0_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_(ptr noundef nonnull align 8 dereferenceable(320) %0, ptr noundef nonnull %1, ptr nocapture noundef nonnull readonly %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %8 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %9 = alloca %"class.std::__cxx11::basic_string", align 8

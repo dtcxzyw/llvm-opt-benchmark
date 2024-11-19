@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nofree norecurse nounwind uwtable
-define internal void @ompi_proc_construct(ptr nocapture noundef writeonly initializes((56, 65), (72, 80)) %0) #0 {
+define internal void @ompi_proc_construct(ptr nocapture noundef writeonly %0) #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72

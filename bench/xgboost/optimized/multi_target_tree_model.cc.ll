@@ -875,7 +875,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7xgboost15MultiTargetTreeC2EPKNS_9TreeParamE(ptr nocapture noundef nonnull align 8 dereferenceable(184) initializes((0, 64)) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7xgboost15MultiTargetTreeC2EPKNS_9TreeParamE(ptr nocapture noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %2 = alloca %"class.std::unique_ptr", align 8
   %3 = alloca i32, align 4

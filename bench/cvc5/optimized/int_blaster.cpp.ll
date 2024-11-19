@@ -1258,7 +1258,7 @@ terminate.lpad:                                   ; preds = %invoke.cont, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal10IntBlasterD2Ev(ptr noundef nonnull align 8 dereferenceable(468) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal10IntBlasterD2Ev(ptr noundef nonnull align 8 dereferenceable(468) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal10IntBlasterE, i64 16), ptr %this, align 8
   %d_iandUtils = getelementptr inbounds i8, ptr %this, i64 376
@@ -1375,7 +1375,7 @@ _ZN4cvc57context9CDHashSetINS_8internal12NodeTemplateILb1EEESt4hashIS4_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal10IntBlasterD0Ev(ptr noundef nonnull align 8 dereferenceable(468) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal10IntBlasterD0Ev(ptr noundef nonnull align 8 dereferenceable(468) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal10IntBlasterD2Ev(ptr noundef nonnull align 8 dereferenceable(468) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22

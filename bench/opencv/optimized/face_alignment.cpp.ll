@@ -204,7 +204,7 @@ define void @_ZTv0_n24_N2cv4face14FacemarkKazemiD0Ev(ptr nocapture noundef reado
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv4face18FacemarkKazemiImplD2Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4face18FacemarkKazemiImplD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef readonly %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 40
@@ -400,7 +400,7 @@ _ZNSt12_Vector_baseISt6vectorIN2cv4face7regtreeESaIS3_EESaIS5_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv4face18FacemarkKazemiImplD1Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4face18FacemarkKazemiImplD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @_ZTTN2cv4face18FacemarkKazemiImplE, align 8
   store ptr %2, ptr %0, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTTN2cv4face18FacemarkKazemiImplE, i64 40), align 8
@@ -476,7 +476,7 @@ define hidden void @_ZTv0_n24_N2cv4face18FacemarkKazemiImplD1Ev(ptr noundef %0) 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2cv4face18FacemarkKazemiImplD0Ev(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0) unnamed_addr #7 align 2 {
+define hidden void @_ZN2cv4face18FacemarkKazemiImplD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #7 align 2 {
   tail call void @_ZN2cv4face18FacemarkKazemiImplD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #24
   ret void
@@ -511,7 +511,7 @@ define hidden noundef range(i64 2, 1) i64 @_ZN2cv4face18FacemarkKazemiImpl5right
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZN2cv4face18FacemarkKazemiImpl15setFaceDetectorEPFbRKNS_11_InputArrayERKNS_12_OutputArrayEPvES8_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) initializes((200, 216)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZN2cv4face18FacemarkKazemiImpl15setFaceDetectorEPFbRKNS_11_InputArrayERKNS_12_OutputArrayEPvES8_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 208
@@ -580,7 +580,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv4face18FacemarkKazemiImplC2ERKNS0_14FacemarkKazemi6ParamsE(ptr noundef nonnull align 8 dereferenceable(216) initializes((0, 8)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv4face18FacemarkKazemiImplC2ERKNS0_14FacemarkKazemi6ParamsE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8

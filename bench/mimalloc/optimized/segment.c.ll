@@ -2906,7 +2906,7 @@ return:                                           ; preds = %for.body.i26, %mi_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_commit_mask(ptr noundef %segment, i1 noundef zeroext %conservative, ptr noundef %p, i64 noundef %size, ptr nocapture noundef nonnull writeonly %start_p, ptr nocapture noundef nonnull writeonly %full_size, ptr nocapture noundef nonnull writeonly initializes((0, 64)) %cm) unnamed_addr #4 {
+define internal fastcc void @mi_segment_commit_mask(ptr noundef %segment, i1 noundef zeroext %conservative, ptr noundef %p, i64 noundef %size, ptr nocapture noundef nonnull writeonly %start_p, ptr nocapture noundef nonnull writeonly %full_size, ptr nocapture noundef nonnull writeonly %cm) unnamed_addr #4 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %cm, i8 0, i64 64, i1 false)
   %0 = add i64 %size, -33554433

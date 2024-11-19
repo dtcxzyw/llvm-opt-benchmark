@@ -272,7 +272,7 @@ define internal fastcc void @"_ZN4core3ptr78drop_in_place$LT$core..result..Resul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN10tokio_test2io7Builder3new17h792e0ae3b453c72dE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64, i64 } }) align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #2 {
+define void @_ZN10tokio_test2io7Builder3new17h792e0ae3b453c72dE(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr }, i64, i64 } }) align 8 dereferenceable(32) %0) unnamed_addr #2 {
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.4.0..sroa_idx, align 8

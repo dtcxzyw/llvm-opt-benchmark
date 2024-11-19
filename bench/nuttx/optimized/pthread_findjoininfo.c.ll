@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @pthread_createjoininfo(ptr nocapture noundef %0, ptr nocapture noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @pthread_createjoininfo(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(88) ptr @zalloc(i64 noundef 88) #4
   store ptr %3, ptr %1, align 8
   %4 = icmp eq ptr %3, null
@@ -65,7 +65,7 @@ declare i32 @nxsem_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_add
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 23) i32 @pthread_findjoininfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 8)) %2) local_unnamed_addr #0 {
+define range(i32 0, 23) i32 @pthread_findjoininfo(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   br label %5
 

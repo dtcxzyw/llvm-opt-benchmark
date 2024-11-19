@@ -39,7 +39,7 @@ $_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_
 @_ZN7msdfgen5ShapeC1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN7msdfgen5ShapeC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen5ShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) initializes((0, 25)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN7msdfgen5ShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %this, i8 0, i64 25, i1 false)
   ret void
@@ -587,7 +587,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @_ZNK7msdfgen7Contour11boundMitersERdS1_S1_S1_ddi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), double noundef, double noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK7msdfgen5Shape9getBoundsEddi(ptr noalias sret(%"struct.msdfgen::Shape::Bounds") align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, double noundef %border, double noundef %miterLimit, i32 noundef %polarity) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZNK7msdfgen5Shape9getBoundsEddi(ptr noalias sret(%"struct.msdfgen::Shape::Bounds") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(25) %this, double noundef %border, double noundef %miterLimit, i32 noundef %polarity) local_unnamed_addr #1 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) @__const._ZNK7msdfgen5Shape9getBoundsEddi.bounds, i64 32, i1 false)
   %b = getelementptr inbounds i8, ptr %agg.result, i64 8

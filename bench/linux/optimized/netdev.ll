@@ -553,7 +553,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #0
 declare dso_local void @pci_disable_msi(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @e1000e_set_interrupt_capability(ptr nocapture noundef initializes((11872, 11876)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @e1000e_set_interrupt_capability(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 11888
   %3 = load i32, ptr %2, align 16
   switch i32 %3, label %48 [
@@ -865,7 +865,7 @@ define dso_local void @e1000e_release_hw_control(ptr nocapture noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @e1000e_setup_tx_resources(ptr noundef initializes((56, 64)) %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @e1000e_setup_tx_resources(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
@@ -926,7 +926,7 @@ declare dso_local noalias ptr @vzalloc(i64 noundef) local_unnamed_addr #5
 declare dso_local void @vfree(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @e1000e_setup_rx_resources(ptr noundef initializes((56, 64)) %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @e1000e_setup_rx_resources(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
@@ -4601,7 +4601,7 @@ define internal fastcc void @e1000_configure(ptr noundef %0) unnamed_addr #1 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @e1000_configure_msix(ptr nocapture noundef initializes((11892, 11896)) %0) unnamed_addr #1 align 16 {
+define internal fastcc void @e1000_configure_msix(ptr nocapture noundef %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1464
   %3 = getelementptr inbounds i8, ptr %0, i64 1360
   %4 = load ptr, ptr %3, align 16
@@ -7194,7 +7194,7 @@ define internal noundef i32 @e1000_vlan_rx_kill_vid(ptr noundef %0, i16 zeroext 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @e1000e_get_stats64(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 48), (64, 88), (96, 112), (120, 144), (160, 168)) %1) #1 align 16 {
+define dso_local void @e1000e_get_stats64(ptr noundef %0, ptr nocapture noundef writeonly %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 2304
   %4 = getelementptr i8, ptr %0, i64 13152
   tail call void @_raw_spin_lock(ptr noundef %4) #22
@@ -11394,7 +11394,7 @@ define internal noundef i32 @e1000_intr_msix_rx(i32 %0, ptr noundef %1) #1 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @e1000_intr_msix_tx(i32 %0, ptr noundef initializes((3516, 3524)) %1) #1 align 16 {
+define internal noundef i32 @e1000_intr_msix_tx(i32 %0, ptr noundef %1) #1 align 16 {
   %3 = getelementptr i8, ptr %1, i64 3768
   %4 = getelementptr i8, ptr %1, i64 3072
   %5 = load ptr, ptr %4, align 64
@@ -13280,7 +13280,7 @@ declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unna
 declare dso_local void @e1000e_check_options(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @e1000_sw_init(ptr noundef initializes((708, 712), (1432, 1434), (1436, 1444), (10848, 10852), (11872, 11876), (12028, 12032)) %0) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @e1000_sw_init(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1448
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 708

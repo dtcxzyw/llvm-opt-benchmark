@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [2 x i8] c"9\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @JIMAGE_Open(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define noundef ptr @JIMAGE_Open(ptr noundef %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   store i32 0, ptr %1, align 4
   %3 = tail call noundef ptr @_ZN15ImageFileReader4openEPKcb(ptr noundef %0, i1 noundef zeroext false)
   ret ptr %3

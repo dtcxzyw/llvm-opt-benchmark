@@ -5876,7 +5876,7 @@ declare i32 @clusteracct_storage_g_node_down(ptr noundef, ptr noundef, i64 nound
 declare void @bit_clear(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_make_node_down(ptr noundef initializes((80, 84), (320, 324)) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @_make_node_down(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 304
   %4 = load i32, ptr %3, align 8
   %5 = and i32 %4, -1025
@@ -11046,7 +11046,7 @@ define dso_local void @make_node_comp(ptr noundef %0, ptr noundef %1, i1 noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @node_mgr_reset_node_stats(ptr nocapture noundef initializes((80, 84)) %0) local_unnamed_addr #13 {
+define dso_local void @node_mgr_reset_node_stats(ptr nocapture noundef %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 112

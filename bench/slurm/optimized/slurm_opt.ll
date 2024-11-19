@@ -721,7 +721,7 @@ declare i32 @time_str2secs(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @slurm_option_table_create(ptr nocapture noundef readonly %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 {
+define ptr @slurm_option_table_create(ptr nocapture noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @optz_create() #23
   store ptr %4, ptr %3, align 8
@@ -2587,7 +2587,7 @@ slurm_option_reset.exit:                          ; preds = %88, %244, %252, %_f
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @slurm_option_get_tres_per_tres(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef initializes((0, 4)) %4) local_unnamed_addr #0 {
+define zeroext i1 @slurm_option_get_tres_per_tres(ptr noundef %0, ptr noundef %1, ptr nocapture noundef %2, ptr noundef %3, ptr nocapture noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -7761,7 +7761,7 @@ define internal void @arg_reset_array_inx(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_data_argv(ptr nocapture noundef writeonly initializes((64, 68), (72, 80)) %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
+define internal noundef i32 @arg_set_data_argv(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr nocapture readnone %2) #0 {
   %4 = alloca ptr, align 8
   %5 = tail call i64 @data_get_list_length(ptr noundef %1) #23
   %6 = trunc i64 %5 to i32
@@ -8095,7 +8095,7 @@ define internal void @arg_reset_bcast_exclude(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_begin(ptr nocapture noundef writeonly initializes((568, 576)) %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_begin(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 568
   store i64 %3, ptr %4, align 8
@@ -8162,7 +8162,7 @@ define internal ptr @arg_get_begin(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_begin(ptr nocapture noundef nonnull writeonly initializes((568, 576)) %0) #13 {
+define internal void @arg_reset_begin(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 568
   store i64 0, ptr %2, align 8
   ret void
@@ -8652,7 +8652,7 @@ define internal void @arg_reset_context(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @arg_set_contiguous(ptr nocapture noundef nonnull writeonly initializes((520, 521)) %0, ptr nocapture readnone %1) #13 {
+define internal noundef i32 @arg_set_contiguous(ptr nocapture noundef nonnull writeonly %0, ptr nocapture readnone %1) #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 520
   store i8 1, ptr %3, align 8
   ret i32 0
@@ -8676,7 +8676,7 @@ define internal ptr @arg_get_contiguous(ptr nocapture noundef nonnull readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_contiguous(ptr nocapture noundef nonnull writeonly initializes((520, 521)) %0) #13 {
+define internal void @arg_reset_contiguous(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 520
   store i8 0, ptr %2, align 8
   ret void
@@ -8717,7 +8717,7 @@ define internal void @arg_reset_constraint(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_core_spec(ptr nocapture noundef initializes((644, 648)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_core_spec(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -8811,7 +8811,7 @@ define internal ptr @arg_get_core_spec(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @arg_reset_core_spec(ptr nocapture noundef initializes((644, 648)) %0) #11 {
+define internal void @arg_reset_core_spec(ptr nocapture noundef %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -8831,7 +8831,7 @@ define internal void @arg_reset_core_spec(ptr nocapture noundef initializes((644
 declare i32 @parse_int(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_cores_per_socket(ptr nocapture noundef nonnull writeonly initializes((160, 164)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_cores_per_socket(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.102, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 %3, ptr %4, align 8
@@ -8902,7 +8902,7 @@ define internal ptr @arg_get_cores_per_socket(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_cores_per_socket(ptr nocapture noundef nonnull writeonly initializes((160, 164)) %0) #13 {
+define internal void @arg_reset_cores_per_socket(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   store i32 -2, ptr %2, align 8
   ret void
@@ -9032,7 +9032,7 @@ define internal ptr @arg_get_cpu_freq(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_cpu_freq(ptr nocapture noundef writeonly initializes((648, 660)) %0) #13 {
+define internal void @arg_reset_cpu_freq(ptr nocapture noundef writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 648
   store i32 -2, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 652
@@ -9047,7 +9047,7 @@ declare i32 @cpu_freq_verify_cmdline(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare ptr @cpu_freq_to_cmdline(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_cpus_per_gpu(ptr nocapture noundef nonnull writeonly initializes((368, 372)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_cpus_per_gpu(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.111, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 368
   store i32 %3, ptr %4, align 8
@@ -9118,7 +9118,7 @@ define internal ptr @arg_get_cpus_per_gpu(ptr nocapture noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_cpus_per_gpu(ptr nocapture noundef nonnull writeonly initializes((368, 372)) %0) #13 {
+define internal void @arg_reset_cpus_per_gpu(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 368
   store i32 0, ptr %2, align 8
   ret void
@@ -9250,7 +9250,7 @@ define internal ptr @arg_get_cpus_per_task(ptr nocapture noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_cpus_per_task(ptr nocapture noundef writeonly initializes((128, 133)) %0) #13 {
+define internal void @arg_reset_cpus_per_task(ptr nocapture noundef writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 132
@@ -9259,7 +9259,7 @@ define internal void @arg_reset_cpus_per_task(ptr nocapture noundef writeonly in
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_deadline(ptr nocapture noundef writeonly initializes((672, 680)) %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_deadline(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i64 @parse_time(ptr noundef %1, i32 noundef 0) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 672
   store i64 %3, ptr %4, align 8
@@ -9326,7 +9326,7 @@ define internal ptr @arg_get_deadline(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_deadline(ptr nocapture noundef nonnull writeonly initializes((672, 680)) %0) #13 {
+define internal void @arg_reset_deadline(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 672
   store i64 0, ptr %2, align 8
   ret void
@@ -9386,7 +9386,7 @@ define internal void @arg_reset_debugger_test(ptr nocapture noundef readonly %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_delay_boot(ptr nocapture noundef writeonly initializes((680, 684)) %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_delay_boot(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @time_str2secs(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 680
   store i32 %3, ptr %4, align 8
@@ -9463,7 +9463,7 @@ define internal ptr @arg_get_delay_boot(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_delay_boot(ptr nocapture noundef nonnull writeonly initializes((680, 684)) %0) #13 {
+define internal void @arg_reset_delay_boot(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 680
   store i32 -2, ptr %2, align 8
   ret void
@@ -9720,7 +9720,7 @@ define internal ptr @arg_get_distribution(ptr nocapture noundef readonly %0) #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_distribution(ptr nocapture noundef writeonly initializes((252, 260)) %0) #13 {
+define internal void @arg_reset_distribution(ptr nocapture noundef writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 252
   store i32 8192, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 256
@@ -10202,7 +10202,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @arg_reset_shared(ptr nocapture noundef initializes((338, 340)) %0) #11 {
+define internal void @arg_reset_shared(ptr nocapture noundef %0) #11 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -10446,7 +10446,7 @@ define internal ptr @arg_get_extra_node_info(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_extra_node_info(ptr nocapture noundef writeonly initializes((156, 164), (176, 180), (224, 225)) %0) #13 {
+define internal void @arg_reset_extra_node_info(ptr nocapture noundef writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 224
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 156
@@ -10461,7 +10461,7 @@ define internal void @arg_reset_extra_node_info(ptr nocapture noundef writeonly 
 declare zeroext i1 @verify_socket_core_thread_count(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_get_user_env(ptr nocapture noundef writeonly initializes((600, 604)) %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_get_user_env(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %6
@@ -10617,7 +10617,7 @@ define internal ptr @arg_get_get_user_env(ptr nocapture noundef readonly %0) #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_get_user_env(ptr nocapture noundef writeonly initializes((600, 608)) %0) #13 {
+define internal void @arg_reset_get_user_env(ptr nocapture noundef writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 604
   store i32 -1, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 600
@@ -10696,7 +10696,7 @@ define internal ptr @arg_get_gid(ptr nocapture noundef nonnull readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_gid(ptr nocapture noundef nonnull writeonly initializes((108, 112)) %0) #13 {
+define internal void @arg_reset_gid(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 108
   store i32 99, ptr %2, align 4
   ret void
@@ -11549,7 +11549,7 @@ define internal void @arg_reset_hint(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @arg_set_hold(ptr nocapture noundef nonnull writeonly initializes((322, 323)) %0, ptr nocapture readnone %1) #13 {
+define internal noundef i32 @arg_set_hold(ptr nocapture noundef nonnull writeonly %0, ptr nocapture readnone %1) #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 322
   store i8 1, ptr %3, align 2
   ret i32 0
@@ -11573,7 +11573,7 @@ define internal ptr @arg_get_hold(ptr nocapture noundef nonnull readonly %0) #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_hold(ptr nocapture noundef nonnull writeonly initializes((322, 323)) %0) #13 {
+define internal void @arg_reset_hold(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 322
   store i8 0, ptr %2, align 2
   ret void
@@ -11667,7 +11667,7 @@ define internal ptr @arg_get_immediate(ptr nocapture noundef nonnull readonly %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_immediate(ptr nocapture noundef nonnull writeonly initializes((312, 316)) %0) #13 {
+define internal void @arg_reset_immediate(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 312
   store i32 0, ptr %2, align 8
   ret void
@@ -12326,7 +12326,7 @@ define internal ptr @arg_get_mail_type(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_mail_type(ptr nocapture noundef nonnull writeonly initializes((584, 586)) %0) #13 {
+define internal void @arg_reset_mail_type(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 584
   store i16 0, ptr %2, align 8
   ret void
@@ -12466,7 +12466,7 @@ define internal void @arg_reset_mcs_label(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_mem(ptr nocapture noundef initializes((448, 456)) %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_mem(ptr nocapture noundef %0, ptr noundef %1) #0 {
   %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 448
   store i64 %3, ptr %4, align 8
@@ -12543,7 +12543,7 @@ define internal ptr @arg_get_pn_min_memory(ptr nocapture noundef readonly %0) #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_pn_min_memory(ptr nocapture noundef nonnull writeonly initializes((448, 456)) %0) #13 {
+define internal void @arg_reset_pn_min_memory(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 448
   store i64 -2, ptr %2, align 8
   ret void
@@ -12684,7 +12684,7 @@ declare i32 @slurm_verify_mem_bind(ptr noundef, ptr noundef, ptr noundef) local_
 declare ptr @slurm_xstr_mem_bind_type(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_mem_per_cpu(ptr nocapture noundef writeonly initializes((432, 440)) %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_mem_per_cpu(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 432
   store i64 %3, ptr %4, align 8
@@ -12750,14 +12750,14 @@ define internal ptr @arg_get_mem_per_cpu(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_mem_per_cpu(ptr nocapture noundef nonnull writeonly initializes((432, 440)) %0) #13 {
+define internal void @arg_reset_mem_per_cpu(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 432
   store i64 -2, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_mem_per_gpu(ptr nocapture noundef writeonly initializes((440, 448)) %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_mem_per_gpu(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 440
   store i64 %3, ptr %4, align 8
@@ -12823,14 +12823,14 @@ define internal ptr @arg_get_mem_per_gpu(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_mem_per_gpu(ptr nocapture noundef nonnull writeonly initializes((440, 448)) %0) #13 {
+define internal void @arg_reset_mem_per_gpu(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 440
   store i64 -2, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_pn_min_cpus(ptr nocapture noundef nonnull writeonly initializes((424, 428)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_pn_min_cpus(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.231, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 424
   store i32 %3, ptr %4, align 8
@@ -12901,7 +12901,7 @@ define internal ptr @arg_get_pn_min_cpus(ptr nocapture noundef nonnull readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_pn_min_cpus(ptr nocapture noundef nonnull writeonly initializes((424, 428)) %0) #13 {
+define internal void @arg_reset_pn_min_cpus(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 424
   store i32 -1, ptr %2, align 8
   ret void
@@ -13198,7 +13198,7 @@ define internal ptr @arg_get_nice(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_nice(ptr nocapture noundef nonnull writeonly initializes((280, 284)) %0) #13 {
+define internal void @arg_reset_nice(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 280
   store i32 -2, ptr %2, align 8
   ret void
@@ -13398,7 +13398,7 @@ define internal ptr @arg_get_no_kill(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_no_kill(ptr nocapture noundef nonnull writeonly initializes((323, 324)) %0) #13 {
+define internal void @arg_reset_no_kill(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 323
   store i8 0, ptr %2, align 1
   ret void
@@ -13739,7 +13739,7 @@ define internal ptr @arg_get_nodes(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_nodes(ptr nocapture noundef writeonly initializes((136, 144), (152, 153)) %0) #13 {
+define internal void @arg_reset_nodes(ptr nocapture noundef writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 140
@@ -13785,7 +13785,7 @@ define internal range(i32 1, 5) i32 @_parse_nodes_counts(ptr noundef %0, ptr noc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_ntasks(ptr nocapture noundef writeonly initializes((120, 125)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_ntasks(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.258, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 %3, ptr %4, align 8
@@ -13860,7 +13860,7 @@ define internal ptr @arg_get_ntasks(ptr nocapture noundef nonnull readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_ntasks(ptr nocapture noundef writeonly initializes((120, 125)) %0) #13 {
+define internal void @arg_reset_ntasks(ptr nocapture noundef writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 124
@@ -13869,7 +13869,7 @@ define internal void @arg_reset_ntasks(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_ntasks_per_core(ptr nocapture noundef nonnull writeonly initializes((192, 196)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_ntasks_per_core(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.261, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 %3, ptr %4, align 8
@@ -13940,14 +13940,14 @@ define internal ptr @arg_get_ntasks_per_core(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_ntasks_per_core(ptr nocapture noundef nonnull writeonly initializes((192, 196)) %0) #13 {
+define internal void @arg_reset_ntasks_per_core(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   store i32 -2, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_ntasks_per_gpu(ptr nocapture noundef nonnull writeonly initializes((184, 188)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_ntasks_per_gpu(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.263, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 %3, ptr %4, align 8
@@ -14018,14 +14018,14 @@ define internal ptr @arg_get_ntasks_per_gpu(ptr nocapture noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_ntasks_per_gpu(ptr nocapture noundef nonnull writeonly initializes((184, 188)) %0) #13 {
+define internal void @arg_reset_ntasks_per_gpu(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 -2, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_ntasks_per_node(ptr nocapture noundef nonnull writeonly initializes((180, 184)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_ntasks_per_node(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.265, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 180
   store i32 %3, ptr %4, align 4
@@ -14096,14 +14096,14 @@ define internal ptr @arg_get_ntasks_per_node(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_ntasks_per_node(ptr nocapture noundef nonnull writeonly initializes((180, 184)) %0) #13 {
+define internal void @arg_reset_ntasks_per_node(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 180
   store i32 -2, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_ntasks_per_socket(ptr nocapture noundef nonnull writeonly initializes((188, 192)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_ntasks_per_socket(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.267, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 188
   store i32 %3, ptr %4, align 4
@@ -14174,14 +14174,14 @@ define internal ptr @arg_get_ntasks_per_socket(ptr nocapture noundef nonnull rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_ntasks_per_socket(ptr nocapture noundef nonnull writeonly initializes((188, 192)) %0) #13 {
+define internal void @arg_reset_ntasks_per_socket(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 188
   store i32 -2, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_ntasks_per_tres(ptr nocapture noundef nonnull writeonly initializes((196, 200)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_ntasks_per_tres(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.269, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 196
   store i32 %3, ptr %4, align 4
@@ -14252,7 +14252,7 @@ define internal ptr @arg_get_ntasks_per_tres(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_ntasks_per_tres(ptr nocapture noundef nonnull writeonly initializes((196, 200)) %0) #13 {
+define internal void @arg_reset_ntasks_per_tres(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 196
   store i32 -2, ptr %2, align 4
   ret void
@@ -14371,7 +14371,7 @@ define internal ptr @arg_get_open_mode(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_open_mode(ptr nocapture noundef nonnull writeonly initializes((754, 755)) %0) #13 {
+define internal void @arg_reset_open_mode(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 754
   store i8 0, ptr %2, align 2
   ret void
@@ -14491,7 +14491,7 @@ define internal void @arg_reset_ofname(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @arg_set_overcommit(ptr nocapture noundef nonnull writeonly initializes((336, 337)) %0, ptr nocapture readnone %1) #13 {
+define internal noundef i32 @arg_set_overcommit(ptr nocapture noundef nonnull writeonly %0, ptr nocapture readnone %1) #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   store i8 1, ptr %3, align 8
   ret i32 0
@@ -14515,7 +14515,7 @@ define internal ptr @arg_get_overcommit(ptr nocapture noundef nonnull readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_overcommit(ptr nocapture noundef nonnull writeonly initializes((336, 337)) %0) #13 {
+define internal void @arg_reset_overcommit(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   store i8 0, ptr %2, align 8
   ret void
@@ -14577,7 +14577,7 @@ define internal void @arg_reset_overlap(ptr nocapture noundef readonly %0) #11 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_oversubscribe(ptr nocapture noundef initializes((338, 340)) %0, ptr nocapture readnone %1) #11 {
+define internal noundef i32 @arg_set_oversubscribe(ptr nocapture noundef %0, ptr nocapture readnone %1) #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -14595,7 +14595,7 @@ define internal noundef i32 @arg_set_oversubscribe(ptr nocapture noundef initial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @arg_set_data_oversubscribe(ptr nocapture noundef initializes((338, 340)) %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
+define internal noundef i32 @arg_set_data_oversubscribe(ptr nocapture noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2) #11 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -14698,7 +14698,7 @@ define internal void @arg_reset_partition(ptr noundef nonnull %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_power(ptr nocapture noundef writeonly initializes((660, 661)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_power(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call zeroext i16 @power_flags_id(ptr noundef %1) #23
   %4 = trunc i16 %3 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 660
@@ -14772,7 +14772,7 @@ define internal ptr @arg_get_power(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_power(ptr nocapture noundef nonnull writeonly initializes((660, 661)) %0) #13 {
+define internal void @arg_reset_power(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 660
   store i8 0, ptr %2, align 4
   ret void
@@ -14998,14 +14998,14 @@ define internal ptr @arg_get_priority(ptr nocapture noundef nonnull readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_priority(ptr nocapture noundef nonnull writeonly initializes((284, 288)) %0) #13 {
+define internal void @arg_reset_priority(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 284
   store i32 0, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_profile(ptr nocapture noundef writeonly initializes((248, 252)) %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_profile(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @acct_gather_profile_from_string(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 248
   store i32 %3, ptr %4, align 8
@@ -15061,7 +15061,7 @@ define internal ptr @arg_get_profile(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_profile(ptr nocapture noundef nonnull writeonly initializes((248, 252)) %0) #13 {
+define internal void @arg_reset_profile(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   store i32 0, ptr %2, align 8
   ret void
@@ -15388,7 +15388,7 @@ define internal ptr @arg_get_quiet(ptr nocapture noundef nonnull readonly %0) #0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_quiet(ptr nocapture noundef nonnull writeonly initializes((360, 364)) %0) #13 {
+define internal void @arg_reset_quiet(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 360
   store i32 0, ptr %2, align 8
   ret void
@@ -15448,7 +15448,7 @@ define internal void @arg_reset_quit_on_intr(ptr nocapture noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @arg_set_reboot(ptr nocapture noundef nonnull writeonly initializes((560, 561)) %0, ptr nocapture readnone %1) #13 {
+define internal noundef i32 @arg_set_reboot(ptr nocapture noundef nonnull writeonly %0, ptr nocapture readnone %1) #13 {
   %3 = getelementptr inbounds i8, ptr %0, i64 560
   store i8 1, ptr %3, align 8
   ret i32 0
@@ -15472,7 +15472,7 @@ define internal ptr @arg_get_reboot(ptr nocapture noundef nonnull readonly %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_reboot(ptr nocapture noundef nonnull writeonly initializes((560, 561)) %0) #13 {
+define internal void @arg_reset_reboot(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 560
   store i8 0, ptr %2, align 8
   ret void
@@ -15824,7 +15824,7 @@ define internal ptr @arg_get_signal(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_signal(ptr nocapture noundef writeonly initializes((316, 322)) %0) #13 {
+define internal void @arg_reset_signal(ptr nocapture noundef writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 316
   store i16 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 318
@@ -15917,7 +15917,7 @@ declare zeroext i16 @log_string2num(ptr noundef) local_unnamed_addr #1
 declare ptr @log_num2string(i16 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_sockets_per_node(ptr nocapture noundef nonnull writeonly initializes((156, 160)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_sockets_per_node(ptr nocapture noundef nonnull writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.316, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 %3, ptr %4, align 4
@@ -15988,7 +15988,7 @@ define internal ptr @arg_get_sockets_per_node(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_sockets_per_node(ptr nocapture noundef nonnull writeonly initializes((156, 160)) %0) #13 {
+define internal void @arg_reset_sockets_per_node(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 156
   store i32 -2, ptr %2, align 4
   ret void
@@ -16033,7 +16033,7 @@ define internal void @arg_reset_spread_job(ptr nocapture noundef %0) #15 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_switch_req(ptr nocapture noundef writeonly initializes((624, 628)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_switch_req(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.318, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 %3, ptr %4, align 8
@@ -16116,14 +16116,14 @@ define internal ptr @arg_get_switch_req(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_switch_req(ptr nocapture noundef writeonly initializes((624, 628)) %0) #13 {
+define internal void @arg_reset_switch_req(ptr nocapture noundef writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 -1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_switch_wait(ptr nocapture noundef writeonly initializes((628, 632)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_switch_wait(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @time_str2secs(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 628
   store i32 %3, ptr %4, align 4
@@ -16180,7 +16180,7 @@ define internal ptr @arg_get_switch_wait(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_switch_wait(ptr nocapture noundef writeonly initializes((624, 632)) %0) #13 {
+define internal void @arg_reset_switch_wait(ptr nocapture noundef writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 628
@@ -16189,7 +16189,7 @@ define internal void @arg_reset_switch_wait(ptr nocapture noundef writeonly init
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_switches(ptr nocapture noundef writeonly initializes((624, 628)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_switches(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = tail call ptr @xstrdup(ptr noundef %1) #23
   store ptr %4, ptr %3, align 8
@@ -16367,7 +16367,7 @@ define internal ptr @arg_get_switches(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_switches(ptr nocapture noundef writeonly initializes((624, 632)) %0) #13 {
+define internal void @arg_reset_switches(ptr nocapture noundef writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 624
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 628
@@ -16617,7 +16617,7 @@ define internal void @arg_reset_test_only(ptr nocapture noundef readonly %0) #11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_thread_spec(ptr nocapture noundef writeonly initializes((644, 648)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_thread_spec(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.328, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 644
   %5 = or i32 %3, 32768
@@ -16706,7 +16706,7 @@ define internal ptr @arg_get_thread_spec(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_threads_per_core(ptr nocapture noundef writeonly initializes((176, 180)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_threads_per_core(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @parse_int(ptr noundef nonnull @.str.332, ptr noundef %1, i1 noundef zeroext true) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 %3, ptr %4, align 8
@@ -16777,7 +16777,7 @@ define internal ptr @arg_get_threads_per_core(ptr nocapture noundef nonnull read
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_threads_per_core(ptr nocapture noundef nonnull writeonly initializes((176, 180)) %0) #13 {
+define internal void @arg_reset_threads_per_core(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 -2, ptr %2, align 8
   ret void
@@ -16891,7 +16891,7 @@ define internal ptr @arg_get_time_limit(ptr nocapture noundef nonnull readonly %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_time_limit(ptr nocapture noundef nonnull writeonly initializes((228, 232)) %0) #13 {
+define internal void @arg_reset_time_limit(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 228
   store i32 -2, ptr %2, align 4
   ret void
@@ -17009,14 +17009,14 @@ define internal ptr @arg_get_time_min(ptr nocapture noundef nonnull readonly %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_time_min(ptr nocapture noundef nonnull writeonly initializes((232, 236)) %0) #13 {
+define internal void @arg_reset_time_min(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 232
   store i32 -2, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @arg_set_pn_min_tmp_disk(ptr nocapture noundef writeonly initializes((456, 464)) %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @arg_set_pn_min_tmp_disk(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %3 = tail call i64 @str_to_mbytes(ptr noundef %1) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 456
   store i64 %3, ptr %4, align 8
@@ -17082,7 +17082,7 @@ define internal ptr @arg_get_pn_min_tmp_disk(ptr nocapture noundef readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_pn_min_tmp_disk(ptr nocapture noundef nonnull writeonly initializes((456, 464)) %0) #13 {
+define internal void @arg_reset_pn_min_tmp_disk(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 456
   store i64 -2, ptr %2, align 8
   ret void
@@ -17296,7 +17296,7 @@ define internal ptr @arg_get_uid(ptr nocapture noundef nonnull readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_uid(ptr nocapture noundef nonnull writeonly initializes((104, 108)) %0) #13 {
+define internal void @arg_reset_uid(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 104
   store i32 99, ptr %2, align 8
   ret void
@@ -17447,7 +17447,7 @@ define internal ptr @arg_get_verbose(ptr nocapture noundef nonnull readonly %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_verbose(ptr nocapture noundef nonnull writeonly initializes((364, 368)) %0) #13 {
+define internal void @arg_reset_verbose(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 364
   store i32 0, ptr %2, align 4
   ret void
@@ -18123,7 +18123,7 @@ define internal void @arg_reset_wrap(ptr nocapture noundef nonnull readonly %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @arg_set_x11(ptr nocapture noundef writeonly initializes((728, 730)) %0, ptr noundef %1) #0 {
+define internal noundef i32 @arg_set_x11(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -18148,7 +18148,7 @@ define internal ptr @arg_get_x11(ptr nocapture noundef readonly %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @arg_reset_x11(ptr nocapture noundef nonnull writeonly initializes((728, 730)) %0) #13 {
+define internal void @arg_reset_x11(ptr nocapture noundef nonnull writeonly %0) #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 728
   store i16 0, ptr %2, align 8
   ret void

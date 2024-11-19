@@ -983,7 +983,7 @@ _ZN12_GLOBAL__N_113COFFAsmParser18ParseSectionSwitchEN4llvm9StringRefEjS2_NS1_4C
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113COFFAsmParser15parseCOMDATTypeERN4llvm4COFF10COMDATTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113COFFAsmParser15parseCOMDATTypeERN4llvm4COFF10COMDATTypeE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(17) %0, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -1267,7 +1267,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN2cvlsERNS_11FileStorageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv5aruco16RefineParametersC2Effb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(9) initializes((0, 9)) %0, float noundef %1, float noundef %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 {
+define void @_ZN2cv5aruco16RefineParametersC2Effb(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(9) %0, float noundef %1, float noundef %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 {
   %5 = zext i1 %3 to i8
   store float %1, ptr %0, align 4
   %6 = getelementptr inbounds i8, ptr %0, i64 4

@@ -181,7 +181,7 @@ _ZN4llvm11raw_ostreamlsEc.exit9:                  ; preds = %31, %33
 declare void @_ZN4llvm14DWARFFormValue11dumpAddressERNS_11raw_ostreamEhm(ptr noundef nonnull align 8 dereferenceable(48), i8 noundef zeroext, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm19DWARFDebugArangeSet5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 40)) %0) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm19DWARFDebugArangeSet5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) local_unnamed_addr #2 align 2 {
   store i64 -1, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
@@ -204,7 +204,7 @@ _ZNSt6vectorIN4llvm19DWARFDebugArangeSet10DescriptorESaIS2_EE5clearEv.exit: ; pr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19DWARFDebugArangeSet7extractENS_18DWARFDataExtractorEPmNS_12function_refIFvNS_5ErrorEEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 17), (24, 36)) %1, ptr noundef byval(%"class.llvm::DWARFDataExtractor") align 8 %2, ptr noundef %3, ptr nocapture readonly %4, i64 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm19DWARFDebugArangeSet7extractENS_18DWARFDataExtractorEPmNS_12function_refIFvNS_5ErrorEEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef byval(%"class.llvm::DWARFDataExtractor") align 8 %2, ptr noundef %3, ptr nocapture readonly %4, i64 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.std::__cxx11::basic_string", align 8

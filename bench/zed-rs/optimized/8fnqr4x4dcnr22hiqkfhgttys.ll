@@ -20013,7 +20013,7 @@ define internal fastcc void @"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h85d
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h2041c64538681719E.llvm.15363701311391106786"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 {
+define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..Into$LT$U$GT$$GT$4into17h2041c64538681719E.llvm.15363701311391106786"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #6 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8, !alias.scope !7107, !noalias !7110
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -34662,7 +34662,7 @@ define void @_ZN9languages4json23server_binary_arguments17h0ce2868d658230d1E(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN9languages4json14JsonLspAdapter3new17h5a4d12d09fdd4cfaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([96 x i8]) align 8 dereferenceable(96) initializes((0, 16), (88, 92)) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #9 {
+define hidden void @_ZN9languages4json14JsonLspAdapter3new17h5a4d12d09fdd4cfaE(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([96 x i8]) align 8 dereferenceable(96) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #9 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
@@ -37867,7 +37867,7 @@ _ZN4core5slice6memchr6memchr17hb30f45f1a0209708E.exit.thread21.i.i: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN72_$LT$languages..json..JsonLspAdapter$u20$as$u20$language..LspAdapter$GT$4name17h45919efe7cdee364E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr nocapture noundef nonnull readnone align 8 %1) unnamed_addr #9 {
+define void @"_ZN72_$LT$languages..json..JsonLspAdapter$u20$as$u20$language..LspAdapter$GT$4name17h45919efe7cdee364E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr nocapture noundef nonnull readnone align 8 %1) unnamed_addr #9 {
   store i64 0, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.f50aa1ea0102dc444db56efd1cf1688a.463.llvm.15363701311391106786, ptr %.sroa.42.0..sroa_idx, align 8
@@ -43616,7 +43616,7 @@ common.resume:                                    ; preds = %23, %"_ZN63_$LT$all
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN76_$LT$languages..json..NodeVersionAdapter$u20$as$u20$language..LspAdapter$GT$4name17he32956239af3e314E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #9 {
+define void @"_ZN76_$LT$languages..json..NodeVersionAdapter$u20$as$u20$language..LspAdapter$GT$4name17he32956239af3e314E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef nonnull readonly align 1 %1) unnamed_addr #9 {
   store i64 0, ptr %0, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.f50aa1ea0102dc444db56efd1cf1688a.498.llvm.15363701311391106786, ptr %.sroa.42.0..sroa_idx, align 8

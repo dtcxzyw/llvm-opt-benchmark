@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BrotliDecoderStateInit(ptr noundef initializes((48, 72), (128, 132)) %s, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BrotliDecoderStateInit(ptr noundef %s, ptr noundef %alloc_func, ptr noundef %free_func, ptr noundef %opaque) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %alloc_func, null
   %alloc_func.sink = select i1 %tobool.not, ptr @BrotliDefaultAllocFunc, ptr %alloc_func
@@ -95,7 +95,7 @@ declare hidden void @BrotliInitBitReader(ptr noundef) local_unnamed_addr #1
 declare ptr @BrotliSharedDictionaryCreateInstance(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @BrotliDecoderStateMetablockBegin(ptr nocapture noundef writeonly initializes((132, 136), (160, 200), (208, 224), (232, 248), (280, 304), (312, 384), (408, 424), (716, 717), (784, 800)) %s) local_unnamed_addr #2 {
+define hidden void @BrotliDecoderStateMetablockBegin(ptr nocapture noundef writeonly %s) local_unnamed_addr #2 {
 entry:
   %meta_block_remaining_len = getelementptr inbounds i8, ptr %s, i64 132
   store i32 0, ptr %meta_block_remaining_len, align 4
@@ -251,7 +251,7 @@ entry:
 declare void @BrotliSharedDictionaryDestroyInstance(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BrotliDecoderHuffmanTreeGroupInit(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly initializes((0, 22)) %group, i64 noundef %alphabet_size_max, i64 noundef %alphabet_size_limit, i64 noundef %ntrees) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BrotliDecoderHuffmanTreeGroupInit(ptr nocapture noundef readonly %s, ptr nocapture noundef writeonly %group, i64 noundef %alphabet_size_max, i64 noundef %alphabet_size_limit, i64 noundef %ntrees) local_unnamed_addr #0 {
 entry:
   %add = shl i64 %alphabet_size_limit, 2
   %alloc_func = getelementptr inbounds i8, ptr %s, i64 48

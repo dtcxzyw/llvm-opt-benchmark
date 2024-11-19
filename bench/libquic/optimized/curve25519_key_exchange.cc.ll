@@ -25,7 +25,7 @@ $_ZTIN3net11KeyExchangeE = comdat any
 @_ZN3net21Curve25519KeyExchangeD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN3net21Curve25519KeyExchangeD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN3net21Curve25519KeyExchangeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN3net21Curve25519KeyExchangeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3net21Curve25519KeyExchangeE, i64 16), ptr %this, align 8
   ret void

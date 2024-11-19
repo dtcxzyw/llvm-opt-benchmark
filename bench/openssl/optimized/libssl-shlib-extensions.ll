@@ -214,7 +214,7 @@ return:                                           ; preds = %lor.lhs.false43, %i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %s, ptr nocapture noundef readonly %packet, i32 noundef %context, ptr nocapture noundef writeonly initializes((0, 8)) %res, ptr noundef writeonly %len, i32 noundef %init) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tls_collect_extensions(ptr noundef %s, ptr nocapture noundef readonly %packet, i32 noundef %context, ptr nocapture noundef writeonly %res, ptr noundef writeonly %len, i32 noundef %init) local_unnamed_addr #1 {
 entry:
   %offset.i = alloca i64, align 8
   %extensions.sroa.0.0.copyload = load ptr, ptr %packet, align 8
@@ -1858,7 +1858,7 @@ declare i32 @tls_parse_ctos_srp(ptr noundef, ptr noundef, i32 noundef, ptr nound
 declare i32 @tls_construct_ctos_srp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_ec_point_formats(ptr nocapture noundef initializes((2552, 2560)) %s, i32 %context) #1 {
+define internal noundef i32 @init_ec_point_formats(ptr nocapture noundef %s, i32 %context) #1 {
 entry:
   %peer_ecpointformats = getelementptr inbounds i8, ptr %s, i64 2560
   %0 = load ptr, ptr %peer_ecpointformats, align 8
@@ -2014,7 +2014,7 @@ declare i32 @tls_construct_stoc_status_request(ptr noundef, ptr noundef, i32 nou
 declare i32 @tls_construct_ctos_status_request(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_npn(ptr nocapture noundef writeonly initializes((1084, 1088)) %s, i32 %context) #5 {
+define internal noundef i32 @init_npn(ptr nocapture noundef writeonly %s, i32 %context) #5 {
 entry:
   %npn_seen = getelementptr inbounds i8, ptr %s, i64 1084
   store i32 0, ptr %npn_seen, align 4
@@ -2030,7 +2030,7 @@ declare i32 @tls_construct_stoc_next_proto_neg(ptr noundef, ptr noundef, i32 nou
 declare i32 @tls_construct_ctos_npn(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_alpn(ptr nocapture noundef initializes((1096, 1104)) %s, i32 %context) #1 {
+define internal noundef i32 @init_alpn(ptr nocapture noundef %s, i32 %context) #1 {
 entry:
   %alpn_selected = getelementptr inbounds i8, ptr %s, i64 1088
   %0 = load ptr, ptr %alpn_selected, align 8
@@ -2139,7 +2139,7 @@ declare i32 @tls_construct_stoc_use_srtp(ptr noundef, ptr noundef, i32 noundef, 
 declare i32 @tls_construct_ctos_use_srtp(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_etm(ptr nocapture noundef writeonly initializes((2676, 2680)) %s, i32 %context) #5 {
+define internal noundef i32 @init_etm(ptr nocapture noundef writeonly %s, i32 %context) #5 {
 entry:
   %use_etm = getelementptr inbounds i8, ptr %s, i64 2676
   store i32 0, ptr %use_etm, align 4
@@ -2230,7 +2230,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_sig_algs_cert(ptr nocapture noundef initializes((896, 904)) %s, i32 %context) #1 {
+define internal noundef i32 @init_sig_algs_cert(ptr nocapture noundef %s, i32 %context) #1 {
 entry:
   %peer_cert_sigalgs = getelementptr inbounds i8, ptr %s, i64 880
   %0 = load ptr, ptr %peer_cert_sigalgs, align 8
@@ -2244,7 +2244,7 @@ entry:
 declare i32 @tls_parse_ctos_sig_algs_cert(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_post_handshake_auth(ptr nocapture noundef writeonly initializes((2824, 2828)) %s, i32 %context) #5 {
+define internal noundef i32 @init_post_handshake_auth(ptr nocapture noundef writeonly %s, i32 %context) #5 {
 entry:
   %post_handshake_auth = getelementptr inbounds i8, ptr %s, i64 2824
   store i32 0, ptr %post_handshake_auth, align 8
@@ -2310,7 +2310,7 @@ declare i32 @tls_construct_stoc_server_cert_type(ptr noundef, ptr noundef, i32 n
 declare i32 @tls_construct_ctos_server_cert_type(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @init_sig_algs(ptr nocapture noundef initializes((888, 896)) %s, i32 %context) #1 {
+define internal noundef i32 @init_sig_algs(ptr nocapture noundef %s, i32 %context) #1 {
 entry:
   %peer_sigalgs = getelementptr inbounds i8, ptr %s, i64 872
   %0 = load ptr, ptr %peer_sigalgs, align 8
@@ -2373,7 +2373,7 @@ declare i32 @tls_construct_stoc_supported_versions(ptr noundef, ptr noundef, i32
 declare i32 @tls_construct_ctos_supported_versions(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @init_psk_kex_modes(ptr nocapture noundef writeonly initializes((2672, 2676)) %s, i32 %context) #5 {
+define internal noundef i32 @init_psk_kex_modes(ptr nocapture noundef writeonly %s, i32 %context) #5 {
 entry:
   %psk_kex_mode = getelementptr inbounds i8, ptr %s, i64 2672
   store i32 0, ptr %psk_kex_mode, align 8
@@ -2641,7 +2641,7 @@ declare i32 @tls_construct_ctos_cookie(ptr noundef, ptr noundef, i32 noundef, pt
 declare i32 @tls_construct_stoc_cryptopro_bug(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @tls_init_compress_certificate(ptr nocapture noundef writeonly initializes((2716, 2732)) %sc, i32 %context) #5 {
+define internal noundef i32 @tls_init_compress_certificate(ptr nocapture noundef writeonly %sc, i32 %context) #5 {
 entry:
   %compress_certificate_from_peer = getelementptr inbounds i8, ptr %sc, i64 2716
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %compress_certificate_from_peer, i8 0, i64 16, i1 false)

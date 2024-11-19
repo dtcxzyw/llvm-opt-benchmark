@@ -392,7 +392,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hebfbbf0a08445029E.llvm.1719199
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h7070e958a809e5adE.llvm.1719199495539182984"(ptr noalias nocapture noundef writeonly sret({ i32, [11 x i32] }) align 16 dereferenceable(48) initializes((0, 48)) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(48) %1) unnamed_addr #2 {
+define hidden void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h7070e958a809e5adE.llvm.1719199495539182984"(ptr noalias nocapture noundef writeonly sret({ i32, [11 x i32] }) align 16 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(48) %1) unnamed_addr #2 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %0, ptr noundef nonnull align 16 dereferenceable(48) %1, i64 48, i1 false)
   ret void
 }
@@ -1191,13 +1191,13 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h50c59231b06a6f3fE.llvm.1719199495539182984"(ptr noalias nocapture noundef writeonly sret({ i32, [11 x i32] }) align 16 dereferenceable(48) initializes((0, 4)) %0) unnamed_addr #6 {
+define hidden void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$11from_output17h50c59231b06a6f3fE.llvm.1719199495539182984"(ptr noalias nocapture noundef writeonly sret({ i32, [11 x i32] }) align 16 dereferenceable(48) %0) unnamed_addr #6 {
   store i32 25, ptr %0, align 16
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hc24339ae3f5e0532E.llvm.1719199495539182984"(ptr noalias nocapture noundef writeonly sret({ i32, [11 x i32] }) align 16 dereferenceable(48) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(48) %1) unnamed_addr #2 {
+define hidden void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17hc24339ae3f5e0532E.llvm.1719199495539182984"(ptr noalias nocapture noundef writeonly sret({ i32, [11 x i32] }) align 16 dereferenceable(48) %0, ptr noalias nocapture noundef readonly align 16 dereferenceable(48) %1) unnamed_addr #2 {
   %3 = load i32, ptr %1, align 16, !range !290, !noundef !11
   %4 = icmp eq i32 %3, 25
   br i1 %4, label %5, label %6

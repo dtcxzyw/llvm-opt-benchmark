@@ -3062,7 +3062,7 @@ _ZN4cvc57context3CDOIbED2Ev.exit:                 ; preds = %entry
 declare void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory6arrays12TheoryArraysD2Ev(ptr noundef nonnull align 8 dereferenceable(6201) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory6arrays12TheoryArraysD2Ev(ptr noundef nonnull align 8 dereferenceable(6201) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory6arrays12TheoryArraysE, i64 16), ptr %this, align 8
   %d_readBucketAllocations = getelementptr inbounds i8, ptr %this, i64 6168
@@ -3755,7 +3755,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #9
 declare void @_ZN4cvc57context7ContextD1Ev(ptr noundef nonnull align 8 dereferenceable(48)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory6arrays12TheoryArraysD0Ev(ptr noundef nonnull align 8 dereferenceable(6201) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN4cvc58internal6theory6arrays12TheoryArraysD0Ev(ptr noundef nonnull align 8 dereferenceable(6201) %this) unnamed_addr #7 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory6arrays12TheoryArraysD2Ev(ptr noundef nonnull align 8 dereferenceable(6201) %this) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -3777,7 +3777,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory6arrays12TheoryArrays19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(6201) %this, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %esi) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory6arrays12TheoryArrays19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(6201) %this, ptr noundef nonnull align 8 dereferenceable(45) %esi) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %d_notify = getelementptr inbounds i8, ptr %this, i64 4720
@@ -29326,7 +29326,7 @@ _ZN4cvc57context15CDInsertHashMapISt5tupleIJNS_8internal12NodeTemplateILb0EEES5_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory6arrays12TheoryArrays22getNextDecisionRequestEv(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(6201) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory6arrays12TheoryArrays22getNextDecisionRequestEv(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(6201) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_decisionRequests = getelementptr inbounds i8, ptr %this, i64 5576
   %d_iter.i = getelementptr inbounds i8, ptr %this, i64 5656
@@ -29474,7 +29474,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory6arrays12TheoryArrays28TheoryArraysDecisionStrategy22getNextDecisionRequestEv(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory6arrays12TheoryArrays28TheoryArraysDecisionStrategy22getNextDecisionRequestEv(ptr noalias sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 {
 entry:
   %d_ta = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_ta, align 8

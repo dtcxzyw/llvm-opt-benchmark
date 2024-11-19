@@ -11908,7 +11908,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE13growAndAssignEmm.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116LocalVariableMap15clearDefinitionEPKN5clang9NamedDeclEN4llvm12ImmutableMapIS4_jNS5_16ImutKeyValueInfoIS4_jEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr %.0.val) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_116LocalVariableMap15clearDefinitionEPKN5clang9NamedDeclEN4llvm12ImmutableMapIS4_jNS5_16ImutKeyValueInfoIS4_jEEEE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef %2, ptr %.0.val) unnamed_addr #1 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::ImmutableMap", align 8
   %6 = alloca %"class.llvm::ImmutableMap", align 8
@@ -24118,7 +24118,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPKN5clang4ExprEPNS2_12threadSafety3til
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123ScopedLockableFactEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN12_GLOBAL__N_123ScopedLockableFactEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_123ScopedLockableFactEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #18
@@ -24136,7 +24136,7 @@ _ZN4llvm11SmallVectorIN12_GLOBAL__N_123ScopedLockableFactEntry20UnderlyingCapabi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_123ScopedLockableFactEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN12_GLOBAL__N_123ScopedLockableFactEntryD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_123ScopedLockableFactEntryE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(80) %2) #18

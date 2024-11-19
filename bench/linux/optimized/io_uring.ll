@@ -5222,7 +5222,7 @@ declare dso_local i32 @kmem_cache_alloc_bulk(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @kmem_cache_alloc(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @io_free_req(ptr noundef initializes((144, 152)) %0) local_unnamed_addr #5 align 16 {
+define dso_local void @io_free_req(ptr noundef %0) local_unnamed_addr #5 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4
   %4 = and i32 %3, -524353
@@ -6021,7 +6021,7 @@ define dso_local void @io_req_task_submit(ptr noundef %0, ptr nocapture noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @io_req_task_queue_fail(ptr noundef initializes((80, 88), (144, 152)) %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @io_req_task_queue_fail(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 84
@@ -6108,7 +6108,7 @@ define internal void @io_req_task_cancel(ptr noundef %0, ptr nocapture noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @io_req_task_queue(ptr noundef initializes((144, 152)) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @io_req_task_queue(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr @io_req_task_submit, ptr %2, align 8
   tail call void @__io_req_task_work_add(ptr noundef %0, i32 noundef 0)
@@ -6569,7 +6569,7 @@ define dso_local range(i32 0, -2147483648) i32 @io_file_get_flags(ptr nocapture 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @io_alloc_async_data(ptr nocapture noundef initializes((184, 192)) %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef zeroext i1 @io_alloc_async_data(ptr nocapture noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = zext i8 %3 to i64
@@ -10941,7 +10941,7 @@ define internal fastcc ptr @__io_prep_linked_timeout(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @io_prep_async_work(ptr noundef initializes((208, 224)) %0) unnamed_addr #1 align 16 {
+define internal fastcc void @io_prep_async_work(ptr noundef %0) unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8
   %4 = zext i8 %3 to i64
@@ -14888,7 +14888,7 @@ define internal fastcc noundef ptr @get_uid(ptr noundef returned %0) unnamed_add
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc i32 @io_allocate_scq_urings(ptr nocapture noundef nonnull initializes((116, 120), (404, 408)) %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 16 {
+define internal fastcc i32 @io_allocate_scq_urings(ptr nocapture noundef nonnull %0, ptr nocapture noundef readonly %1) unnamed_addr #5 align 16 {
   %3 = load i32, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 116
   store i32 %3, ptr %4, align 4
@@ -15124,7 +15124,7 @@ define internal fastcc void @trace_io_uring_create(i32 noundef range(i32 0, -214
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @io_alloc_hash_table(ptr noundef initializes((0, 8)) %0, i32 noundef range(i32 1, 9) %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @io_alloc_hash_table(ptr noundef %0, i32 noundef range(i32 1, 9) %1) unnamed_addr #1 align 16 {
   %3 = shl nuw nsw i32 64, %1
   %4 = zext nneg i32 %3 to i64
   %5 = tail call noalias align 8 ptr @__kmalloc(i64 noundef %4, i32 noundef 3264) #29
@@ -15283,7 +15283,7 @@ declare dso_local void @delayed_work_timer_fn(ptr noundef) #0
 declare dso_local void @init_hash_table(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__io_uaddr_map(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly initializes((0, 2)) %1, i64 noundef %2, i64 noundef range(i64 0, 549755813761) %3) unnamed_addr #1 align 16 {
+define internal fastcc ptr @__io_uaddr_map(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2, i64 noundef range(i64 0, 549755813761) %3) unnamed_addr #1 align 16 {
   store i16 0, ptr %1, align 2
   %5 = and i64 %2, 4095
   %6 = icmp eq i64 %5, 0

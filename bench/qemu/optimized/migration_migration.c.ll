@@ -2509,7 +2509,7 @@ glib_autoptr_cleanup_QemuLockable.exit:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @migration_add_notifier(ptr noundef initializes((0, 8)) %notify, ptr noundef %func) local_unnamed_addr #0 {
+define dso_local void @migration_add_notifier(ptr noundef %notify, ptr noundef %func) local_unnamed_addr #0 {
 entry:
   store ptr %func, ptr %notify, align 8
   tail call void @notifier_list_add(ptr noundef nonnull @migration_state_notifiers, ptr noundef nonnull %notify) #19
@@ -6400,7 +6400,7 @@ declare void @qemu_savevm_non_migratable_list(ptr noundef) local_unnamed_addr #1
 declare ptr @error_get_pretty(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @populate_ram_info(ptr noundef initializes((8, 16)) %info, ptr nocapture noundef nonnull readonly %s) unnamed_addr #0 {
+define internal fastcc void @populate_ram_info(ptr noundef %info, ptr nocapture noundef nonnull readonly %s) unnamed_addr #0 {
 entry:
   %call = tail call i64 @qemu_target_page_size() #19
   %call1 = tail call noalias dereferenceable_or_null(144) ptr @g_malloc0(i64 noundef 144) #23
@@ -7502,7 +7502,7 @@ if.end21:                                         ; preds = %entry, %while.endth
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @migration_downtime_start(ptr nocapture noundef writeonly initializes((1056, 1064)) %s) unnamed_addr #0 {
+define internal fastcc void @migration_downtime_start(ptr nocapture noundef writeonly %s) unnamed_addr #0 {
 entry:
   %_now.i.i = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i)

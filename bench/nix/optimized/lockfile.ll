@@ -3049,7 +3049,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix5flake10LockedNodeC2ERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEEE(ptr noundef nonnull align 8 dereferenceable(345) initializes((8, 24), (32, 36), (40, 48)) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix5flake10LockedNodeC2ERKN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS2_14adl_serializerES5_IhSaIhEEEE(ptr noundef nonnull align 8 dereferenceable(345) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.nlohmann::detail::iter_impl", align 8
   %5 = alloca %"class.nlohmann::detail::iter_impl", align 8
@@ -8378,7 +8378,7 @@ define noundef zeroext i1 @_ZNK3nix5flake8LockFileneERKS1_(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix5flake14parseInputPathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.96") align 8 initializes((0, 24)) %0, i64 %1, ptr %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix5flake14parseInputPathB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.96") align 8 %0, i64 %1, ptr %2) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::match_results", align 8
   %5 = alloca %"class.std::vector.96", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -8656,7 +8656,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3nix5flake8LockFile12getAllInputsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map.162") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3nix5flake8LockFile12getAllInputsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map.162") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::set.170", align 8
   %4 = alloca %"class.std::function.178", align 8
   %5 = alloca %"class.std::vector.96", align 8

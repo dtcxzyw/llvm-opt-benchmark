@@ -254,7 +254,7 @@ _ZN4llvh2cl6OptionD2Ev.exit:                      ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh20CreateInfoOutputFileEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result) local_unnamed_addr #0 {
+define hidden void @_ZN4llvh20CreateInfoOutputFileEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #0 {
 entry:
   %EC = alloca %"class.std::error_code", align 8
   %0 = load atomic i64, ptr @_ZL28LibSupportInfoOutputFilenameB5cxx11 acquire, align 8
@@ -691,7 +691,7 @@ _ZN4llvh3sys15SmartScopedLockILb1EED2Ev.exit:     ; preds = %if.then.i.i18, %if.
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh10TimeRecord14getCurrentTimeEb(ptr noalias nocapture writeonly sret(%"class.llvh::TimeRecord") align 8 initializes((0, 32)) %agg.result, i1 noundef zeroext %Start) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh10TimeRecord14getCurrentTimeEb(ptr noalias nocapture writeonly sret(%"class.llvh::TimeRecord") align 8 %agg.result, i1 noundef zeroext %Start) local_unnamed_addr #0 align 2 {
 entry:
   %now = alloca %"class.std::chrono::time_point", align 8
   %user = alloca %"class.std::chrono::duration", align 8
@@ -754,7 +754,7 @@ if.end:                                           ; preds = %_ZL11getMemUsagev.e
 declare void @_ZN4llvh3sys7Process12GetTimeUsageERNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEERS9_SC_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh5Timer10startTimerEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((32, 64), (128, 130)) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh5Timer10startTimerEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this) local_unnamed_addr #0 align 2 {
 entry:
   %now.i = alloca %"class.std::chrono::time_point", align 8
   %user.i = alloca %"class.std::chrono::duration", align 8
@@ -802,7 +802,7 @@ _ZN4llvh10TimeRecord14getCurrentTimeEb.exit:      ; preds = %entry, %if.end.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh5Timer9stopTimerEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((128, 129)) %this) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh5Timer9stopTimerEv(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) local_unnamed_addr #0 align 2 {
 entry:
   %now.i = alloca %"class.std::chrono::time_point", align 8
   %user.i = alloca %"class.std::chrono::duration", align 8
@@ -867,7 +867,7 @@ _ZN4llvh10TimeRecord14getCurrentTimeEb.exit:      ; preds = %entry, %if.end.i3.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4llvh5Timer5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) initializes((0, 64), (128, 130)) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN4llvh5Timer5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(160) %this) local_unnamed_addr #5 align 2 {
 entry:
   %Triggered = getelementptr inbounds i8, ptr %this, i64 129
   store i8 0, ptr %Triggered, align 1
@@ -1134,7 +1134,7 @@ if.end25:                                         ; preds = %if.then21, %_ZN4llv
 declare noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh16NamedRegionTimerC2ENS_9StringRefES1_S1_S1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %this, ptr %Name.coerce0, i64 %Name.coerce1, ptr %Description.coerce0, i64 %Description.coerce1, ptr nocapture noundef readonly byval(%"class.llvh::StringRef") align 8 %GroupName, ptr nocapture noundef readonly byval(%"class.llvh::StringRef") align 8 %GroupDescription, i1 noundef zeroext %Enabled) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh16NamedRegionTimerC2ENS_9StringRefES1_S1_S1_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this, ptr %Name.coerce0, i64 %Name.coerce1, ptr %Description.coerce0, i64 %Description.coerce1, ptr nocapture noundef readonly byval(%"class.llvh::StringRef") align 8 %GroupName, ptr nocapture noundef readonly byval(%"class.llvh::StringRef") align 8 %GroupDescription, i1 noundef zeroext %Enabled) unnamed_addr #0 align 2 {
 entry:
   %now.i.i.i = alloca %"class.std::chrono::time_point", align 8
   %user.i.i.i = alloca %"class.std::chrono::duration", align 8

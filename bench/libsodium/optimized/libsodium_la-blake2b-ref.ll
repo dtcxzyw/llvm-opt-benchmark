@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @blake2b_IV = internal unnamed_addr constant [8 x i64] [i64 7640891576956012808, i64 -4942790177534073029, i64 4354685564936845355, i64 -6534734903238641935, i64 5840696475078001361, i64 -7276294671716946913, i64 2270897969802886507, i64 6620516959819538809], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind ssp memory(argmem: readwrite) uwtable
-define hidden noundef i32 @_sodium_blake2b_init_param(ptr nocapture noundef initializes((0, 361)) %S, ptr nocapture noundef readonly %P) local_unnamed_addr #0 {
+define hidden noundef i32 @_sodium_blake2b_init_param(ptr nocapture noundef %S, ptr nocapture noundef readonly %P) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %S, ptr noundef nonnull align 16 dereferenceable(64) @blake2b_IV, i64 64, i1 false)
   %t.i = getelementptr inbounds i8, ptr %S, i64 64

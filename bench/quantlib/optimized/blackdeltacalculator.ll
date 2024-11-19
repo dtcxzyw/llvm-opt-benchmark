@@ -239,7 +239,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20BlackDeltaCalculatorC2ENS_6Option4TypeENS_13DeltaVolQuote9DeltaTypeEdddd(ptr nocapture noundef nonnull align 8 dereferenceable(72) initializes((0, 52)) %this, i32 noundef %ot, i32 noundef %dt, double noundef %spot, double noundef %dDiscount, double noundef %fDiscount, double noundef %stdDev) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20BlackDeltaCalculatorC2ENS_6Option4TypeENS_13DeltaVolQuote9DeltaTypeEdddd(ptr nocapture noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %ot, i32 noundef %dt, double noundef %spot, double noundef %dDiscount, double noundef %fDiscount, double noundef %stdDev) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5863,14 +5863,14 @@ if.end9:                                          ; preds = %cond.false.i.i, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib20BlackDeltaCalculator12setDeltaTypeENS_13DeltaVolQuote9DeltaTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 4)) %this, i32 noundef %dt) local_unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib20BlackDeltaCalculator12setDeltaTypeENS_13DeltaVolQuote9DeltaTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, i32 noundef %dt) local_unnamed_addr #11 align 2 {
 entry:
   store i32 %dt, ptr %this, align 8, !tbaa !18
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib20BlackDeltaCalculator13setOptionTypeENS_6Option4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((4, 8), (48, 52)) %this, i32 noundef %ot) local_unnamed_addr #11 align 2 {
+define void @_ZN8QuantLib20BlackDeltaCalculator13setOptionTypeENS_6Option4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this, i32 noundef %ot) local_unnamed_addr #11 align 2 {
 entry:
   %ot_ = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 %ot, ptr %ot_, align 4, !tbaa !24

@@ -41,7 +41,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN9b2FixtureC1Ev = unnamed_addr alias void (ptr), ptr @_ZN9b2FixtureC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9b2FixtureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 4), (8, 32), (48, 66), (72, 80)) %this) unnamed_addr #0 align 2 {
+define void @_ZN9b2FixtureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
   %m_filter = getelementptr inbounds i8, ptr %this, i64 60
   store i16 1, ptr %m_filter, align 4
@@ -62,7 +62,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9b2Fixture6CreateEP16b2BlockAllocatorP6b2BodyPK12b2FixtureDef(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((8, 44), (48, 56), (60, 67), (72, 80)) %this, ptr noundef %allocator, ptr noundef %body, ptr nocapture noundef readonly %def) local_unnamed_addr #1 align 2 {
+define void @_ZN9b2Fixture6CreateEP16b2BlockAllocatorP6b2BodyPK12b2FixtureDef(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %allocator, ptr noundef %body, ptr nocapture noundef readonly %def) local_unnamed_addr #1 align 2 {
 entry:
   %userData = getelementptr inbounds i8, ptr %def, i64 8
   %m_userData = getelementptr inbounds i8, ptr %this, i64 72
@@ -178,7 +178,7 @@ sw.epilog:                                        ; preds = %entry, %switch.look
 declare void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 dereferenceable(128), ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9b2Fixture13CreateProxiesEP12b2BroadPhaseRK11b2Transform(ptr noundef nonnull align 8 dereferenceable(80) initializes((56, 60)) %this, ptr noundef %broadPhase, ptr noundef nonnull align 4 dereferenceable(16) %xf) local_unnamed_addr #1 align 2 {
+define void @_ZN9b2Fixture13CreateProxiesEP12b2BroadPhaseRK11b2Transform(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %broadPhase, ptr noundef nonnull align 4 dereferenceable(16) %xf) local_unnamed_addr #1 align 2 {
 entry:
   %m_shape = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_shape, align 8
@@ -355,7 +355,7 @@ for.end:                                          ; preds = %for.body, %entry
 declare void @_ZN12b2BroadPhase9MoveProxyEiRK6b2AABBRK6b2Vec2(ptr noundef nonnull align 8 dereferenceable(76), i32 noundef, ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9b2Fixture13SetFilterDataERK8b2Filter(ptr noundef nonnull align 8 dereferenceable(80) initializes((60, 66)) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %filter) local_unnamed_addr #1 align 2 {
+define void @_ZN9b2Fixture13SetFilterDataERK8b2Filter(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 2 dereferenceable(6) %filter) local_unnamed_addr #1 align 2 {
 entry:
   %m_filter = getelementptr inbounds i8, ptr %this, i64 60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %m_filter, ptr noundef nonnull align 2 dereferenceable(6) %filter, i64 6, i1 false)

@@ -213,7 +213,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #7 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib17BarrierPathPricerC2ENS_7Barrier4TypeEddNS_6Option4TypeEdSt6vectorIdSaIdEEN5boost10shared_ptrINS_19StochasticProcess1DEEENS_23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEEE(ptr noundef nonnull align 8 dereferenceable(5160) initializes((0, 12), (16, 5124), (5128, 5160)) %this, i32 noundef %barrierType, double noundef %barrier, double noundef %rebate, i32 noundef %type, double noundef %strike, ptr nocapture noundef %discounts, ptr nocapture noundef %diffProcess, ptr nocapture noundef %sequenceGen) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib17BarrierPathPricerC2ENS_7Barrier4TypeEddNS_6Option4TypeEdSt6vectorIdSaIdEEN5boost10shared_ptrINS_19StochasticProcess1DEEENS_23RandomSequenceGeneratorINS_25MersenneTwisterUniformRngEEE(ptr noundef nonnull align 8 dereferenceable(5160) %this, i32 noundef %barrierType, double noundef %barrier, double noundef %rebate, i32 noundef %type, double noundef %strike, ptr nocapture noundef %discounts, ptr nocapture noundef %diffProcess, ptr nocapture noundef %sequenceGen) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1791,7 +1791,7 @@ declare double @exp(double noundef) local_unnamed_addr #9
 declare noundef double @_ZNK8QuantLib18PlainVanillaPayoffclEd(ptr noundef nonnull align 8 dereferenceable(24), double noundef) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib23BiasedBarrierPathPricerC2ENS_7Barrier4TypeEddNS_6Option4TypeEdSt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((0, 12), (16, 44), (48, 80)) %this, i32 noundef %barrierType, double noundef %barrier, double noundef %rebate, i32 noundef %type, double noundef %strike, ptr nocapture noundef %discounts) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib23BiasedBarrierPathPricerC2ENS_7Barrier4TypeEddNS_6Option4TypeEdSt6vectorIdSaIdEE(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %barrierType, double noundef %barrier, double noundef %rebate, i32 noundef %type, double noundef %strike, ptr nocapture noundef %discounts) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

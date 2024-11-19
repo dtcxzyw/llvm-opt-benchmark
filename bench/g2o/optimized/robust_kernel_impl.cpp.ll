@@ -541,7 +541,7 @@ define void @_ZN3g2o22RobustKernelScaleDeltaC2Ed(ptr noundef nonnull align 8 der
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o22RobustKernelScaleDelta9setKernelERKSt10shared_ptrINS_12RobustKernelEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o22RobustKernelScaleDelta9setKernelERKSt10shared_ptrINS_12RobustKernelEE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %3, align 8
@@ -696,7 +696,7 @@ define void @_ZNK3g2o22RobustKernelScaleDelta9robustifyEdRN5Eigen6MatrixIdLi3ELi
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZNK3g2o17RobustKernelHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o17RobustKernelHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fmul double %5, %5
@@ -737,7 +737,7 @@ declare double @sqrt(double noundef) local_unnamed_addr #6
 declare double @llvm.fmuladd.f64(double, double, double) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZNK3g2o23RobustKernelPseudoHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o23RobustKernelPseudoHuber9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fmul double %5, %5
@@ -760,7 +760,7 @@ define void @_ZNK3g2o23RobustKernelPseudoHuber9robustifyEdRN5Eigen6MatrixIdLi3EL
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZNK3g2o18RobustKernelCauchy9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o18RobustKernelCauchy9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fmul double %5, %5
@@ -784,7 +784,7 @@ define void @_ZNK3g2o18RobustKernelCauchy9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi
 declare double @log(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK3g2o24RobustKernelGemanMcClure9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o24RobustKernelGemanMcClure9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fadd double %1, %5
@@ -806,7 +806,7 @@ define void @_ZNK3g2o24RobustKernelGemanMcClure9robustifyEdRN5Eigen6MatrixIdLi3E
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZNK3g2o18RobustKernelWelsch9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o18RobustKernelWelsch9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fmul double %5, %5
@@ -829,7 +829,7 @@ define void @_ZNK3g2o18RobustKernelWelsch9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi
 declare double @exp(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZNK3g2o16RobustKernelFair9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o16RobustKernelFair9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call double @sqrt(double noundef %1) #17
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load double, ptr %5, align 8
@@ -870,7 +870,7 @@ define void @_ZNK3g2o16RobustKernelFair9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0E
 declare double @log1p(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZNK3g2o17RobustKernelTukey9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o17RobustKernelTukey9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fmul double %5, %5
@@ -902,7 +902,7 @@ define void @_ZNK3g2o17RobustKernelTukey9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZNK3g2o21RobustKernelSaturated9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o21RobustKernelSaturated9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fmul double %5, %5
@@ -918,7 +918,7 @@ define void @_ZNK3g2o21RobustKernelSaturated9robustifyEdRN5Eigen6MatrixIdLi3ELi1
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_ZNK3g2o15RobustKernelDCS9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3g2o15RobustKernelDCS9robustifyEdRN5Eigen6MatrixIdLi3ELi1ELi0ELi3ELi1EEE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, double noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fmul double %5, 2.000000e+00

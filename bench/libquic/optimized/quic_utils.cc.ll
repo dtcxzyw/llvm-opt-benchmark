@@ -366,7 +366,7 @@ return:                                           ; preds = %for.cond6.for.inc20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN3net9QuicUtils21SerializeUint128ShortENS_7uint128EPh(ptr nocapture noundef readonly %v, ptr nocapture noundef writeonly initializes((0, 12)) %out) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN3net9QuicUtils21SerializeUint128ShortENS_7uint128EPh(ptr nocapture noundef readonly %v, ptr nocapture noundef writeonly %out) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %v, align 8
   %hi_.i = getelementptr inbounds i8, ptr %v, i64 8
@@ -532,7 +532,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN4base12UintToStringB5cxx11Ej(ptr sret(%"class.std::__cxx11::basic_string") align 8, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3net9QuicUtils26ParseQuicConnectionOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %connection_options) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3net9QuicUtils26ParseQuicConnectionOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noalias nocapture sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %connection_options) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.3", align 8
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8

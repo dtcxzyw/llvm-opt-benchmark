@@ -2987,7 +2987,7 @@ define internal fastcc noundef i32 @dissect_rsl_ie_rel_mode(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 1)) %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_rsl_ie_sys_info_type(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3) unnamed_addr #0 {
   %5 = load i32, ptr @ett_ie_sys_info_type, align 4
   %6 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %2, i32 noundef 2, i32 noundef %5, ptr noundef null, ptr noundef nonnull @.str.725) #5
   %7 = load i32, ptr @hf_rsl_ie_id, align 4

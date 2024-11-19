@@ -1553,7 +1553,7 @@ declare noundef zeroext i1 @_ZNK5Yosys5RTLIL6Design21selected_whole_moduleEPNS0_
 declare void @_ZN5Yosys13log_cmd_errorEPKcz(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111AigerWriterC2EPN5Yosys5RTLIL6ModuleEbbbbb(ptr noundef nonnull align 8 dereferenceable(1144) initializes((0, 9), (16, 64), (72, 96)) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_111AigerWriterC2EPN5Yosys5RTLIL6ModuleEbbbbb(ptr noundef nonnull align 8 dereferenceable(1144) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca [75 x i32], align 4
   %9 = alloca %"class.std::allocator.5", align 1
   %10 = alloca [75 x i32], align 4
@@ -44665,7 +44665,7 @@ _ZN6json114JsonD2Ev.exit:                         ; preds = %6, %25, %38, %_ZNSt
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL10AttrObject18get_bool_attributeERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL12witness_pathINS_5RTLIL4WireEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEPT_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL12witness_pathINS_5RTLIL4WireEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEPT_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::vector", align 8
@@ -45627,7 +45627,7 @@ _ZN6json114JsonD2Ev.exit:                         ; preds = %4, %23, %36, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5YosysL12witness_pathINS_5RTLIL4CellEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEPT_(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5YosysL12witness_pathINS_5RTLIL4CellEEESt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEPT_(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::vector", align 8

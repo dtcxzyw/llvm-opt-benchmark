@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.7 = private unnamed_addr constant [14 x i8] c"**ioagnomatch\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef initializes((0, 4)) %11) local_unnamed_addr #0 {
+define noundef ptr @ADIO_Open(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %11) local_unnamed_addr #0 {
   %13 = alloca ptr, align 8
   %14 = alloca i32, align 4
   %15 = alloca i32, align 4

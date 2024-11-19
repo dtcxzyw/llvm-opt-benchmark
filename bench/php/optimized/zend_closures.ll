@@ -1527,7 +1527,7 @@ define internal ptr @zend_closure_clone(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #0 {
+define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
@@ -1877,7 +1877,7 @@ define internal ptr @zend_closure_get_debug_info(ptr noundef %0, ptr nocapture n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @zend_closure_get_closure(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i1 zeroext %4) #8 {
+define internal noundef i32 @zend_closure_get_closure(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, i1 zeroext %4) #8 {
   %6 = getelementptr inbounds i8, ptr %0, i64 56
   store ptr %6, ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 312
@@ -1900,7 +1900,7 @@ define internal noundef i32 @zend_closure_get_closure(ptr noundef %0, ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal ptr @zend_closure_get_gc(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2) #9 {
+define internal ptr @zend_closure_get_gc(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #9 {
   %4 = getelementptr inbounds i8, ptr %0, i64 296
   %5 = getelementptr inbounds i8, ptr %0, i64 304
   %6 = load i8, ptr %5, align 8

@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @VP8LPredictorsSub_C = hidden local_unnamed_addr global [16 x ptr] zeroinitializer, align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @VP8LBitEntropyInit(ptr nocapture noundef writeonly initializes((0, 20)) %0) local_unnamed_addr #0 {
+define hidden void @VP8LBitEntropyInit(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 -1, ptr %2, align 4
@@ -42,7 +42,7 @@ define hidden void @VP8LBitEntropyInit(ptr nocapture noundef writeonly initializ
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LBitsEntropyUnrefined(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 20)) %2) local_unnamed_addr #1 {
+define hidden void @VP8LBitsEntropyUnrefined(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   store i32 -1, ptr %4, align 4
@@ -1157,7 +1157,7 @@ VP8LFastSLog2.exit38:                             ; preds = %57, %61
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @GetEntropyUnrefined_C(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef initializes((0, 20)) %2, ptr nocapture noundef initializes((0, 24)) %3) #1 {
+define internal void @GetEntropyUnrefined_C(ptr nocapture noundef readonly %0, i32 noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) #1 {
   %5 = load i32, ptr %0, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 16
@@ -1339,7 +1339,7 @@ VP8LFastSLog2.exit:                               ; preds = %93, %97
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @GetCombinedEntropyUnrefined_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef initializes((0, 20)) %3, ptr nocapture noundef initializes((0, 24)) %4) #1 {
+define internal void @GetCombinedEntropyUnrefined_C(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4) #1 {
   %6 = load i32, ptr %0, align 4
   %7 = load i32, ptr %1, align 4
   %8 = add i32 %7, %6

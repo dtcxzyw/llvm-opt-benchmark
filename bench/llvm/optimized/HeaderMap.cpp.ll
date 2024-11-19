@@ -319,7 +319,7 @@ define dso_local { i64, i32 } @_ZNK5clang13HeaderMapImpl9getBucketEj(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZNK5clang13HeaderMapImpl9getStringEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.64") align 8 initializes((16, 17)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZNK5clang13HeaderMapImpl9getStringEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::optional.64") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8

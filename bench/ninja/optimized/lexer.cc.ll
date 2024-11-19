@@ -281,7 +281,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5LexerC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr noundef %1) unnamed_addr #4 align 2 {
+define dso_local void @_ZN5LexerC2EPKc(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
@@ -299,7 +299,7 @@ define dso_local void @_ZN5LexerC2EPKc(ptr nocapture noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5Lexer5StartE11StringPieceS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #5 align 2 {
+define dso_local void @_ZN5Lexer5StartE11StringPieceS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0, ptr %1, i64 %2, ptr %3, i64 %4) local_unnamed_addr #5 align 2 {
   store ptr %1, ptr %0, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.22.0..sroa_idx, align 8
@@ -412,7 +412,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN5Lexer11UnreadTokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) initializes((32, 40)) %0) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN5Lexer11UnreadTokenEv(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32

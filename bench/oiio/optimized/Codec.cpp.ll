@@ -92,7 +92,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN6cineon5CodecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6cineon5CodecC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon5CodecE, i64 16), ptr %this, align 8
   %scanline = getelementptr inbounds i8, ptr %this, i64 8
@@ -101,7 +101,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cineon5CodecD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN6cineon5CodecD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon5CodecE, i64 16), ptr %this, align 8
   %scanline = getelementptr inbounds i8, ptr %this, i64 8
@@ -121,7 +121,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6cineon5CodecD0Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN6cineon5CodecD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6cineon5CodecE, i64 16), ptr %this, align 8
   %scanline.i = getelementptr inbounds i8, ptr %this, i64 8

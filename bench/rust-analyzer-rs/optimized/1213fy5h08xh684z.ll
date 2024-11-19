@@ -107,7 +107,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits8iterator8Iterator6reduce17h2e08
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4core4iter6traits8iterator8Iterator9enumerate17hb18e9326d77ad57dE.llvm.15541551792649785771(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
+define hidden void @_ZN4core4iter6traits8iterator8Iterator9enumerate17hb18e9326d77ad57dE.llvm.15541551792649785771(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr, {} }, i64 }) align 8 dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #3 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8

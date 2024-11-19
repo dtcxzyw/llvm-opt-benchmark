@@ -45,7 +45,7 @@ define dso_local noundef i32 @_ZN3ozz9animation9FindJointERKNS0_8SkeletonEPKc(pt
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ozz::math::Transform") align 4 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #2 {
+define dso_local void @_ZN3ozz9animation21GetJointLocalRestPoseERKNS0_8SkeletonEi(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.ozz::math::Transform") align 4 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca [4 x <4 x float>], align 16
   %5 = alloca [4 x <4 x float>], align 16
   %6 = alloca [4 x <4 x float>], align 16

@@ -130,7 +130,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @delta_base_cache_limit = external local_unnamed_addr global i64, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @odb_pack_name(ptr noundef initializes((8, 16)) %buf, ptr noundef %hash, ptr noundef %ext) local_unnamed_addr #0 {
+define dso_local ptr @odb_pack_name(ptr noundef %buf, ptr noundef %hash, ptr noundef %ext) local_unnamed_addr #0 {
 entry:
   %len2.i = getelementptr inbounds i8, ptr %buf, i64 8
   store i64 0, ptr %len2.i, align 8
@@ -1977,7 +1977,7 @@ declare noundef i32 @stat64(ptr nocapture noundef readonly, ptr nocapture nounde
 declare i32 @get_hash_hex(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @install_packed_git(ptr nocapture noundef readonly %r, ptr noundef initializes((16, 24)) %pack) local_unnamed_addr #0 {
+define dso_local void @install_packed_git(ptr nocapture noundef readonly %r, ptr noundef %pack) local_unnamed_addr #0 {
 entry:
   %pack_fd = getelementptr inbounds i8, ptr %pack, i64 144
   %0 = load i32, ptr %pack_fd, align 8
@@ -2772,7 +2772,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @unpack_object_header_buffer(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef writeonly initializes((0, 4)) %type, ptr nocapture noundef writeonly %sizep) local_unnamed_addr #0 {
+define dso_local i64 @unpack_object_header_buffer(ptr nocapture noundef readonly %buf, i64 noundef %len, ptr nocapture noundef writeonly %type, ptr nocapture noundef writeonly %sizep) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %buf, align 1
   %1 = lshr i8 %0, 4

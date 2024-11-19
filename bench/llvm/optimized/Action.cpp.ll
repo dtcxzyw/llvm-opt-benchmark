@@ -227,7 +227,7 @@ $_ZN4llvm15SmallVectorImplIPKN5clang6driver9ToolChainEEaSERKS6_ = comdat any
 @_ZN5clang6driver22BinaryAnalyzeJobActionC1EPNS0_6ActionENS0_5types2IDE = unnamed_addr alias void (ptr, ptr, i32), ptr @_ZN5clang6driver22BinaryAnalyzeJobActionC2EPNS0_6ActionENS0_5types2IDE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver6ActionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver6ActionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(40) %2) #11
@@ -682,7 +682,7 @@ define dso_local void @_ZN5clang6driver13OffloadActionC2ERKNS1_14HostDependenceE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver13OffloadActionC2ERKNS1_17DeviceDependencesENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver13OffloadActionC2ERKNS1_17DeviceDependencesENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(152) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 2, ptr %4, align 8
@@ -1368,7 +1368,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6driver6Action11OffloadKindELb1EE9push_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver13OffloadAction14HostDependenceC2ERNS0_6ActionERKNS0_9ToolChainEPKcRKNS1_17DeviceDependencesE(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 28)) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 1 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(152) %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver13OffloadAction14HostDependenceC2ERNS0_6ActionERKNS0_9ToolChainEPKcRKNS1_17DeviceDependencesE(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 1 %2, ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(152) %4) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %6, align 8
@@ -1460,7 +1460,7 @@ _ZN4llvm11SmallVectorIPN5clang6driver6ActionELj3EED2Ev.exit: ; preds = %_ZN5clan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN4llvm11SmallVectorIPS2_Lj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver9JobActionC2ENS0_6Action11ActionClassERKN4llvm11SmallVectorIPS2_Lj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %5, align 8
@@ -1598,7 +1598,7 @@ define dso_local void @_ZN5clang6driver17IfsMergeJobAction6anchorEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver17IfsMergeJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver17IfsMergeJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 12, ptr %4, align 8
@@ -1633,7 +1633,7 @@ define dso_local void @_ZN5clang6driver13LinkJobAction6anchorEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver13LinkJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver13LinkJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 11, ptr %4, align 8
@@ -1668,7 +1668,7 @@ define dso_local void @_ZN5clang6driver13LipoJobAction6anchorEv(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver13LipoJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver13LipoJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 13, ptr %4, align 8
@@ -1703,7 +1703,7 @@ define dso_local void @_ZN5clang6driver17DsymutilJobAction6anchorEv(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver17DsymutilJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver17DsymutilJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 14, ptr %4, align 8
@@ -1774,7 +1774,7 @@ define dso_local void @_ZN5clang6driver24OffloadBundlingJobAction6anchorEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver24OffloadBundlingJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver24OffloadBundlingJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #11
   %5 = getelementptr inbounds ptr, ptr %3, i64 %4
@@ -1833,7 +1833,7 @@ define dso_local void @_ZN5clang6driver24OffloadPackagerJobAction6anchorEv(ptr n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver24OffloadPackagerJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver24OffloadPackagerJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 19, ptr %4, align 8
@@ -1868,7 +1868,7 @@ define dso_local void @_ZN5clang6driver22LinkerWrapperJobAction6anchorEv(ptr noc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver22LinkerWrapperJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver22LinkerWrapperJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 20, ptr %4, align 8
@@ -1903,7 +1903,7 @@ define dso_local void @_ZN5clang6driver18StaticLibJobAction6anchorEv(ptr nocaptu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver18StaticLibJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang6driver18StaticLibJobActionC2ERN4llvm11SmallVectorIPNS0_6ActionELj3EEENS0_5types2IDE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN5clang6driver6ActionE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 21, ptr %4, align 8

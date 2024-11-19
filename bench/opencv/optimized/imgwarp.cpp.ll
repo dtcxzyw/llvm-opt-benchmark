@@ -31091,7 +31091,7 @@ declare noundef i64 @_ZNK2cv11_InputArray5totalEi(ptr noundef nonnull align 8 de
 declare noundef double @_ZN2cv6invertERKNS_11_InputArrayERKNS_12_OutputArrayEi(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv20getRotationMatrix2D_ENS_6Point_IfEEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Matx.0") align 8 initializes((0, 48)) %0, <2 x float> %1, double noundef %2, double noundef %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv20getRotationMatrix2D_ENS_6Point_IfEEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.cv::Matx.0") align 8 %0, <2 x float> %1, double noundef %2, double noundef %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cv::utils::trace::details::Region", align 8
   call void @_ZN2cv5utils5trace7details6RegionC1ERKNS3_21LocationStaticStorageE(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(32) @_ZZN2cv20getRotationMatrix2D_ENS_6Point_IfEEddE26__cv_trace_location_fn3472)
   %6 = fmul double %2, 0x3F91DF46A2529D39

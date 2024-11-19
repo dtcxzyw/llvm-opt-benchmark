@@ -15,7 +15,7 @@ $_ZNSt8_Rb_treeIiSt4pairIKiN7glslang10TPpContext11MacroSymbolEESt10_Select1stIS5
 @_ZN7glslang10TPpContextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7glslang10TPpContextD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang10TPpContextC2ERNS_17TParseContextBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_7TShader8IncluderE(ptr noundef nonnull align 8 dereferenceable(969) initializes((0, 16), (24, 28), (32, 40)) %0, ptr noundef nonnull align 8 dereferenceable(1280) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
+define void @_ZN7glslang10TPpContextC2ERNS_17TParseContextBaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_7TShader8IncluderE(ptr noundef nonnull align 8 dereferenceable(969) %0, ptr noundef nonnull align 8 dereferenceable(1280) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.std::locale", align 8
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang10TPpContextE, i64 16), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -126,7 +126,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6locale7classicEv()
 declare void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7glslang10TPpContextD2Ev(ptr noundef nonnull align 8 dereferenceable(969) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN7glslang10TPpContextD2Ev(ptr noundef nonnull align 8 dereferenceable(969) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang10TPpContextE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8

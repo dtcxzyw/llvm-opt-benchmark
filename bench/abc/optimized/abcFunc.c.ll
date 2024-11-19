@@ -1450,7 +1450,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare void @extraDecomposeCover(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Abc_NodeBddToCnf(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly initializes((0, 8)) %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) local_unnamed_addr #0 {
+define void @Abc_NodeBddToCnf(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 256
   %9 = load ptr, ptr %8, align 8
@@ -3839,7 +3839,7 @@ declare ptr @Abc_AigConst1(ptr noundef) local_unnamed_addr #1
 declare void @Hop_ConeUnmark_rec(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Abc_NtkMapToSop(ptr nocapture noundef initializes((256, 264)) %0) local_unnamed_addr #0 {
+define noundef i32 @Abc_NtkMapToSop(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr (...) @Mem_FlexStart() #15
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   store ptr %2, ptr %3, align 8

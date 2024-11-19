@@ -30058,7 +30058,7 @@ mapi_dissect_struct_RopBufferTooSmall_repl.exit:  ; preds = %6, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoConnect_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoConnect_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6367, ptr %8, align 8
@@ -30127,7 +30127,7 @@ define internal i32 @mapi_dissect_EcDoConnect_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoConnect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoConnect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6367, ptr %8, align 8
@@ -30216,7 +30216,7 @@ define internal i32 @mapi_dissect_EcDoConnect_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoDisconnect_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoDisconnect_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6368, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcDoDisconnect_pcxh, align 4
@@ -30226,7 +30226,7 @@ define internal i32 @mapi_dissect_EcDoDisconnect_request(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoDisconnect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoDisconnect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6368, ptr %8, align 8
@@ -30251,7 +30251,7 @@ define internal i32 @mapi_dissect_EcDoDisconnect_response(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoRpc_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoRpc_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6369, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcDoRpc_handle, align 4
@@ -30276,7 +30276,7 @@ define internal i32 @mapi_dissect_EcDoRpc_request(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoRpc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoRpc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6369, ptr %8, align 8
@@ -30313,7 +30313,7 @@ define internal i32 @mapi_dissect_EcDoRpc_response(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcGetMoreRpc_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcGetMoreRpc_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6370, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcGetMoreRpc_pcxh, align 4
@@ -30332,7 +30332,7 @@ define internal i32 @mapi_dissect_EcGetMoreRpc_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcGetMoreRpc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcGetMoreRpc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6370, ptr %8, align 8
@@ -30363,7 +30363,7 @@ define internal i32 @mapi_dissect_EcGetMoreRpc_response(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcRRegisterPushNotification_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcRRegisterPushNotification_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6371, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcRRegisterPushNotification_handle, align 4
@@ -30391,7 +30391,7 @@ define internal i32 @mapi_dissect_EcRRegisterPushNotification_request(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcRRegisterPushNotification_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcRRegisterPushNotification_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6371, ptr %8, align 8
@@ -30419,7 +30419,7 @@ define internal i32 @mapi_dissect_EcRRegisterPushNotification_response(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcRUnregisterPushNotification_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcRUnregisterPushNotification_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6372, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcRUnregisterPushNotification_handle, align 4
@@ -30435,7 +30435,7 @@ define internal i32 @mapi_dissect_EcRUnregisterPushNotification_request(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcRUnregisterPushNotification_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcRUnregisterPushNotification_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6372, ptr %8, align 8
@@ -30460,14 +30460,14 @@ define internal i32 @mapi_dissect_EcRUnregisterPushNotification_response(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @mapi_dissect_EcDummyRpc_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly initializes((80, 88)) %4, ptr nocapture readnone %5) #2 {
+define internal noundef i32 @mapi_dissect_EcDummyRpc_request(ptr nocapture readnone %0, i32 noundef returned %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr nocapture noundef writeonly %4, ptr nocapture readnone %5) #2 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6373, ptr %7, align 8
   ret i32 %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDummyRpc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDummyRpc_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6373, ptr %8, align 8
@@ -30489,7 +30489,7 @@ define internal i32 @mapi_dissect_EcDummyRpc_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcRGetDCName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcRGetDCName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6374, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcRGetDCName_handle, align 4
@@ -30502,7 +30502,7 @@ define internal i32 @mapi_dissect_EcRGetDCName_request(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcRGetDCName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcRGetDCName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6374, ptr %8, align 8
@@ -30540,7 +30540,7 @@ mapi_dissect_element_EcRGetDCName_rgchDomainController.exit: ; preds = %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcRNetGetDCName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcRNetGetDCName_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6375, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcRNetGetDCName_szDomainName, align 4
@@ -30550,7 +30550,7 @@ define internal i32 @mapi_dissect_EcRNetGetDCName_request(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcRNetGetDCName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcRNetGetDCName_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6375, ptr %8, align 8
@@ -30585,7 +30585,7 @@ mapi_dissect_element_EcRNetGetDCName_rgchDomainController.exit: ; preds = %9
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoRpcExt_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoRpcExt_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6376, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcDoRpcExt_pcxh, align 4
@@ -30613,7 +30613,7 @@ define internal i32 @mapi_dissect_EcDoRpcExt_request(ptr noundef %0, i32 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoRpcExt_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoRpcExt_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6376, ptr %8, align 8
@@ -30650,7 +30650,7 @@ define internal i32 @mapi_dissect_EcDoRpcExt_response(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoConnectEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoConnectEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6377, ptr %8, align 8
@@ -30728,7 +30728,7 @@ define internal i32 @mapi_dissect_EcDoConnectEx_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoConnectEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoConnectEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6377, ptr %8, align 8
@@ -30823,7 +30823,7 @@ define internal i32 @mapi_dissect_EcDoConnectEx_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoRpcExt2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoRpcExt2_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6378, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcDoRpcExt2_pcxh, align 4
@@ -30854,7 +30854,7 @@ define internal i32 @mapi_dissect_EcDoRpcExt2_request(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoRpcExt2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoRpcExt2_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6378, ptr %8, align 8
@@ -30897,7 +30897,7 @@ define internal i32 @mapi_dissect_EcDoRpcExt2_response(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoAsyncConnect_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoAsyncConnect_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6379, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcDoAsyncConnect_cxh, align 4
@@ -30907,7 +30907,7 @@ define internal i32 @mapi_dissect_EcDoAsyncConnect_request(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoAsyncConnect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoAsyncConnect_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6379, ptr %8, align 8
@@ -30932,7 +30932,7 @@ define internal i32 @mapi_dissect_EcDoAsyncConnect_response(ptr noundef %0, i32 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoAsyncWait_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoAsyncWait_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6380, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcDoAsyncWait_cxh, align 4
@@ -30945,7 +30945,7 @@ define internal i32 @mapi_dissect_EcDoAsyncWait_request(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoAsyncWait_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoAsyncWait_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6380, ptr %8, align 8
@@ -30970,7 +30970,7 @@ define internal i32 @mapi_dissect_EcDoAsyncWait_response(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoAsyncConnectEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoAsyncConnectEx_request(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6381, ptr %7, align 8
   %8 = load i32, ptr @hf_mapi_mapi_EcDoAsyncConnectEx_cxh, align 4
@@ -30980,7 +30980,7 @@ define internal i32 @mapi_dissect_EcDoAsyncConnectEx_request(ptr noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mapi_dissect_EcDoAsyncConnectEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef initializes((80, 88)) %4, ptr noundef %5) #0 {
+define internal i32 @mapi_dissect_EcDoAsyncConnectEx_response(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca i32, align 4
   %8 = getelementptr inbounds i8, ptr %4, i64 80
   store ptr @.str.6381, ptr %8, align 8

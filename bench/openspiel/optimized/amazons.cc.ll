@@ -686,7 +686,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel7amazons12AmazonsState18GetHorizontalMovesEl(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel7amazons12AmazonsState18GetHorizontalMovesEl(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = srem i64 %2, 6
   %5 = trunc nsw i64 %4 to i32
@@ -932,7 +932,7 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit29:        ; preds = %_ZNSt6vectorIlSaIlE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel7amazons12AmazonsState16GetVerticalMovesEl(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel7amazons12AmazonsState16GetVerticalMovesEl(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = sdiv i64 %2, 6
   %5 = trunc i64 %4 to i32
@@ -1176,7 +1176,7 @@ _ZNSt6vectorIlSaIlEE9push_backERKl.exit27:        ; preds = %_ZNSt6vectorIlSaIlE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel7amazons12AmazonsState16GetDiagonalMovesEl(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel7amazons12AmazonsState16GetDiagonalMovesEl(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1, i64 noundef %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %4 = srem i64 %2, 6
   %5 = trunc nsw i64 %4 to i8
@@ -2347,7 +2347,7 @@ _ZN10open_spiel7amazons13PlayerToStateEi.exit:    ; preds = %17, %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel7amazons12AmazonsState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel7amazons12AmazonsState12LegalActionsEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.std::vector") align 8 %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.absl::debian2::AlphaNum", align 8
   %5 = alloca %"class.absl::debian2::AlphaNum", align 8
@@ -3330,7 +3330,7 @@ _ZNSt12__shared_ptrIKN10open_spiel4GameELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN10open_spiel7amazons12AmazonsState8SetStateEiNS1_9MoveStateERKSt5arrayINS0_9CellStateELm36EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) initializes((60, 208), (220, 224)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(144) %3) local_unnamed_addr #7 align 2 {
+define void @_ZN10open_spiel7amazons12AmazonsState8SetStateEiNS1_9MoveStateERKSt5arrayINS0_9CellStateELm36EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(232) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(144) %3) local_unnamed_addr #7 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 220
   store i32 %1, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 204
@@ -3442,7 +3442,7 @@ define noundef zeroext i1 @_ZNK10open_spiel7amazons12AmazonsState10IsTerminalEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel7amazons12AmazonsState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.12") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel7amazons12AmazonsState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.12") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(232) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %4 = load i32, ptr %3, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)

@@ -150,7 +150,7 @@ declare void @bn_sqr_comba4(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @bn_sqr_comba8(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @bn_sqr_normal(ptr noundef initializes((0, 8)) %r, ptr noundef %a, i32 noundef %n, ptr noundef %tmp) local_unnamed_addr #0 {
+define void @bn_sqr_normal(ptr noundef %r, ptr noundef %a, i32 noundef %n, ptr noundef %tmp) local_unnamed_addr #0 {
 entry:
   %mul = shl nsw i32 %n, 1
   %0 = sext i32 %mul to i64

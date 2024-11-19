@@ -34,7 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [11 x i8] c"%9.2f sec\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Cec_ManTransformPattern(ptr nocapture noundef initializes((368, 376)) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
+define void @Cec_ManTransformPattern(ptr nocapture noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %0, i64 64
   %.val = load ptr, ptr %4, align 8
   %5 = getelementptr i8, ptr %.val, i64 4

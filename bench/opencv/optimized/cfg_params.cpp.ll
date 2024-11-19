@@ -2364,7 +2364,7 @@ _ZNSt10shared_ptrIN2cv4gapi3wip6onevpl8CfgParam4PrivEEaSEOS6_.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
-define void @_ZN2cv4gapi3wip6onevpl8CfgParamC2ERKS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv4gapi3wip6onevpl8CfgParamC2ERKS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -2395,7 +2395,7 @@ _ZNSt10shared_ptrIN2cv4gapi3wip6onevpl8CfgParam4PrivEEC2ERKS6_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN2cv4gapi3wip6onevpl8CfgParamC2EOS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 align 2 {
+define void @_ZN2cv4gapi3wip6onevpl8CfgParamC2EOS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #7 align 2 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

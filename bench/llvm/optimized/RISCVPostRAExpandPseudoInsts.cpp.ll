@@ -195,7 +195,7 @@ declare void @_ZN4llvm4Pass17dumpPassStructureEj(ptr noundef nonnull align 8 der
 declare noundef zeroext i1 @_ZN4llvm19MachineFunctionPass13runOnFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVPostRAExpandPseudo20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((56, 64)) %0, ptr noundef nonnull readonly align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_123RISCVPostRAExpandPseudo20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull readonly align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DebugLoc", align 8
   %4 = alloca %"class.llvm::DebugLoc", align 8
   %5 = alloca %"class.llvm::MachineOperand", align 8

@@ -6818,7 +6818,7 @@ declare noundef i64 @_ZNK18OpenImageIO_v2_6_09ImageSpec10tile_bytesEb(ptr nounde
 declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readonly, ...) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput5closeEv(ptr noundef nonnull align 8 dereferenceable(448) initializes((240, 248)) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08DDSInput5closeEv(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_subimage.i = getelementptr inbounds i8, ptr %this, i64 240
   store i32 -1, ptr %m_subimage.i, align 8

@@ -57,7 +57,7 @@ $_ZN6icu_756XMutexD2Ev = comdat any
 @_ZN6icu_7510ICUServiceD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6icu_7510ICUServiceD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513ICUServiceKeyC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(64) %id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513ICUServiceKeyC2ERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(64) %id) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ICUServiceKeyE, i64 16), ptr %this, align 8
   %_id = getelementptr inbounds i8, ptr %this, i64 8
@@ -82,7 +82,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513ICUServiceKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7513ICUServiceKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513ICUServiceKeyE, i64 16), ptr %this, align 8
   %_id = getelementptr inbounds i8, ptr %this, i64 8
@@ -317,7 +317,7 @@ entry:
 declare void @llvm.trap() #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513SimpleFactoryC2EPNS_7UObjectERKNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 16)) %this, ptr noundef %instanceToAdopt, ptr noundef nonnull align 8 dereferenceable(64) %id, i8 noundef signext %visible) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513SimpleFactoryC2EPNS_7UObjectERKNS_13UnicodeStringEa(ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef %instanceToAdopt, ptr noundef nonnull align 8 dereferenceable(64) %id, i8 noundef signext %visible) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513SimpleFactoryE, i64 16), ptr %this, align 8
   %_instance = getelementptr inbounds i8, ptr %this, i64 8
@@ -339,7 +339,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7513SimpleFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(81) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define void @_ZN6icu_7513SimpleFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7513SimpleFactoryE, i64 16), ptr %this, align 8
   %_instance = getelementptr inbounds i8, ptr %this, i64 8
@@ -758,7 +758,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_7510ICUServiceD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7510ICUServiceD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7510ICUServiceE, i64 16), ptr %this, align 8
   invoke void @umtx_lock_75(ptr noundef nonnull @_ZN6icu_75L4lockE)

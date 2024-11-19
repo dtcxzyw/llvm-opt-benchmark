@@ -114,7 +114,7 @@ define dso_local void @_ZN4llvm12MemoryBufferD0Ev(ptr nocapture nonnull readnone
 declare void @llvm.trap() #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm12MemoryBuffer4initEPKcS2_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((8, 24)) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm12MemoryBuffer4initEPKcS2_b(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -123,7 +123,7 @@ define dso_local void @_ZN4llvm12MemoryBuffer4initEPKcS2_b(ptr nocapture noundef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr %1, i64 %2, ptr %3, i64 %4, i1 noundef zeroext %5) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm12MemoryBuffer12getMemBufferENS_9StringRefES1_b(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr %1, i64 %2, ptr %3, i64 %4, i1 noundef zeroext %5) local_unnamed_addr #4 align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i8 5, ptr %8, align 8
@@ -192,7 +192,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %_ZL13CopyStringRefP
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MemoryBuffer12getMemBufferENS_15MemoryBufferRefEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm12MemoryBuffer12getMemBufferENS_15MemoryBufferRefEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1, i1 noundef zeroext %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"class.llvm::Twine", align 8
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %1, i64 8
@@ -223,7 +223,7 @@ define dso_local void @_ZN4llvm12MemoryBuffer12getMemBufferENS_15MemoryBufferRef
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MemoryBuffer16getMemBufferCopyENS_9StringRefERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %0, ptr nocapture readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(34) %3) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm12MemoryBuffer16getMemBufferCopyENS_9StringRefERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr") align 8 %0, ptr nocapture readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(34) %3) local_unnamed_addr #4 align 2 {
   %5 = alloca %"class.std::unique_ptr.3", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @_ZN4llvm20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineESt8optionalINS_5AlignEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.3") align 8 %5, i64 noundef %2, ptr noundef nonnull align 8 dereferenceable(34) %3, i16 0), !noalias !7
@@ -377,7 +377,7 @@ _ZNK4llvm5Twine18getSingleStringRefEv.exit:       ; preds = %5, %16, %12, %10, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MemoryBuffer8getSTDINEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.11") align 8 initializes((0, 4)) %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm12MemoryBuffer8getSTDINEv(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.11") align 8 %0) local_unnamed_addr #4 align 2 {
   %2 = alloca %"class.llvm::ErrorOr", align 8
   %3 = alloca %"class.llvm::Twine", align 8
   %4 = tail call { i32, ptr } @_ZN4llvm3sys15ChangeStdinModeENS0_2fs9OpenFlagsE(i32 noundef 1) #24
@@ -846,7 +846,7 @@ define dso_local void @_ZN4llvm20WritableMemoryBuffer12getFileSliceERKNS_5TwineE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineESt8optionalINS_5AlignEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.3") align 8 initializes((0, 8)) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2, i16 %3) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineESt8optionalINS_5AlignEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.3") align 8 %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2, i16 %3) local_unnamed_addr #4 align 2 {
   %5 = alloca %"class.llvm::SmallString", align 8
   %6 = and i16 %3, 256
   %.not29 = icmp eq i16 %6, 0
@@ -921,7 +921,7 @@ _ZN4llvm11SmallStringILj256EED2Ev.exit:           ; preds = %36, %40
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm20WritableMemoryBuffer15getNewMemBufferEmRKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.3") align 8 initializes((0, 8)) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm20WritableMemoryBuffer15getNewMemBufferEmRKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.3") align 8 %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2) local_unnamed_addr #4 align 2 {
   %4 = alloca %"class.std::unique_ptr.3", align 8
   call void @_ZN4llvm20WritableMemoryBuffer21getNewUninitMemBufferEmRKNS_5TwineESt8optionalINS_5AlignEE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.3") align 8 %4, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2, i16 0)
   %5 = load ptr, ptr %4, align 8
@@ -945,13 +945,13 @@ _ZNSt10unique_ptrIN4llvm20WritableMemoryBufferESt14default_deleteIS1_EED2Ev.exit
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm24WriteThroughMemoryBuffer7getFileERKNS_5TwineEl(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.16") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm24WriteThroughMemoryBuffer7getFileERKNS_5TwineEl(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2) local_unnamed_addr #4 align 2 {
   tail call fastcc void @_ZL16getReadWriteFileRKN4llvm5TwineEmmm(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2, i64 noundef %2, i64 noundef 0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16getReadWriteFileRKN4llvm5TwineEmmm(ptr dead_on_unwind noalias nocapture writable align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #4 {
+define internal fastcc void @_ZL16getReadWriteFileRKN4llvm5TwineEmmm(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2, i64 noundef %3, i64 noundef %4) unnamed_addr #4 {
   %6 = alloca %"class.llvm::Expected", align 8
   %7 = alloca %"class.llvm::Error", align 8
   %8 = alloca %"class.llvm::sys::fs::file_status", align 8
@@ -1130,7 +1130,7 @@ _ZN4llvm8ExpectedIiED2Ev.exit:                    ; preds = %88, %_ZNKSt14defaul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm24WriteThroughMemoryBuffer12getFileSliceERKNS_5TwineEmm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.16") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm24WriteThroughMemoryBuffer12getFileSliceERKNS_5TwineEmm(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.16") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 align 2 {
   tail call fastcc void @_ZL16getReadWriteFileRKN4llvm5TwineEmmm(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i64 noundef -1, i64 noundef %2, i64 noundef %3)
   ret void
 }
@@ -1494,7 +1494,7 @@ define dso_local void @_ZN4llvm12MemoryBuffer16getOpenFileSliceEiRKNS_5TwineEmlb
 declare { i32, ptr } @_ZN4llvm3sys15ChangeStdinModeENS0_2fs9OpenFlagsE(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL24getMemoryBufferForStreamiRKN4llvm5TwineE(ptr dead_on_unwind noalias nocapture writable align 8 initializes((0, 4)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2) unnamed_addr #4 {
+define internal fastcc void @_ZL24getMemoryBufferForStreamiRKN4llvm5TwineE(ptr dead_on_unwind noalias nocapture writable align 8 %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(34) %2) unnamed_addr #4 {
   %4 = alloca %"class.std::unique_ptr.3", align 8
   %5 = alloca %"class.llvm::SmallString.38", align 8
   %6 = alloca %"class.llvm::Error", align 8
@@ -1603,7 +1603,7 @@ _ZN4llvm11SmallStringILj16384EED2Ev.exit:         ; preds = %_ZN4llvm5ErrorD2Ev.
 declare noundef i32 @_ZN4llvm3sys2fs14getStdinHandleEv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm12MemoryBuffer15getFileAsStreamERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.11") align 8 initializes((0, 4)) %0, ptr noundef nonnull align 8 dereferenceable(34) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm12MemoryBuffer15getFileAsStreamERKNS_5TwineE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::ErrorOr.11") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %1) local_unnamed_addr #4 align 2 {
   %3 = alloca %"class.llvm::Expected", align 8
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca i32, align 4
@@ -1702,7 +1702,7 @@ declare { i32, ptr } @_ZN4llvm16errorToErrorCodeENS_5ErrorE(ptr noundef) local_u
 declare { i32, ptr } @_ZN4llvm3sys2fs9closeFileERi(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm12MemoryBuffer15getMemBufferRefEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryBufferRef") align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK4llvm12MemoryBuffer15getMemBufferRefEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::MemoryBufferRef") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1727,7 +1727,7 @@ define dso_local void @_ZNK4llvm12MemoryBuffer15getMemBufferRefEv(ptr dead_on_un
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm23SmallVectorMemoryBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm23SmallVectorMemoryBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN4llvm23SmallVectorMemoryBufferE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
@@ -1822,7 +1822,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_catego
 declare void @_ZN4llvm3sys2fs18mapped_file_regionC1EiNS2_7mapmodeEmmRSt10error_code(ptr noundef nonnull align 8 dereferenceable(20), i32 noundef, i32 noundef, i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm24WriteThroughMemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm24WriteThroughMemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm24WriteThroughMemoryBufferEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm3sys2fs18mapped_file_region9unmapImplEv(ptr noundef nonnull align 8 dereferenceable(20) %2) #24
@@ -1830,7 +1830,7 @@ define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm24WriteThrou
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm24WriteThroughMemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm24WriteThroughMemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm24WriteThroughMemoryBufferEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm3sys2fs18mapped_file_region9unmapImplEv(ptr noundef nonnull align 8 dereferenceable(20) %2) #24
@@ -2515,7 +2515,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_E
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm20WritableMemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm20WritableMemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm20WritableMemoryBufferEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm3sys2fs18mapped_file_region9unmapImplEv(ptr noundef nonnull align 8 dereferenceable(20) %2) #24
@@ -2523,7 +2523,7 @@ define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm20WritableMe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm20WritableMemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm20WritableMemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm20WritableMemoryBufferEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm3sys2fs18mapped_file_region9unmapImplEv(ptr noundef nonnull align 8 dereferenceable(20) %2) #24
@@ -2580,7 +2580,7 @@ define internal noundef i32 @_ZNK12_GLOBAL__N_115MemoryBufferMemIN4llvm20Writabl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBufferEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm3sys2fs18mapped_file_region9unmapImplEv(ptr noundef nonnull align 8 dereferenceable(20) %2) #24
@@ -2588,7 +2588,7 @@ define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBuff
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvm12MemoryBufferEEE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN4llvm3sys2fs18mapped_file_region9unmapImplEv(ptr noundef nonnull align 8 dereferenceable(20) %2) #24

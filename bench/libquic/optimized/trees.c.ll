@@ -1282,7 +1282,7 @@ if.end133:                                        ; preds = %bi_windup.exit, %in
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @build_tree(ptr noundef initializes((6412, 6420)) %s, ptr nocapture noundef %desc) unnamed_addr #3 {
+define internal fastcc void @build_tree(ptr noundef %s, ptr nocapture noundef %desc) unnamed_addr #3 {
 entry:
   %next_code.i = alloca [16 x i16], align 16
   %0 = load ptr, ptr %desc, align 8

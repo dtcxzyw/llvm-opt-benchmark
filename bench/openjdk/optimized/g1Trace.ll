@@ -176,7 +176,7 @@ define hidden void @_ZN11G1NewTracer10initializeEv(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11G1NewTracer21report_young_gc_pauseE13G1GCPauseType(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((84, 88)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11G1NewTracer21report_young_gc_pauseE13G1GCPauseType(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 84
   store i32 %1, ptr %3, align 4
   ret void
@@ -1575,14 +1575,14 @@ _ZN8JfrEventI19EventG1AdaptiveIHOPE11write_eventEv.exit: ; preds = %9, %38, %36,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN11G1OldTracer20report_gc_start_implEN7GCCause5CauseERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((16, 32)) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #3 align 2 {
+define hidden void @_ZN11G1OldTracer20report_gc_start_implEN7GCCause5CauseERK11TimeInstantI30CompositeCounterRepresentation29CompositeElapsedCounterSourceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %2) unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN11G1OldTracer12set_gc_causeEN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((12, 16)) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN11G1OldTracer12set_gc_causeEN7GCCause5CauseE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   ret void

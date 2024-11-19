@@ -1297,7 +1297,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 declare void @assoc_mgr_lock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @acct_policy_set_qos_order(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #4 {
+define dso_local void @acct_policy_set_qos_order(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #4 {
   store ptr null, ptr %1, align 8
   store ptr null, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 760

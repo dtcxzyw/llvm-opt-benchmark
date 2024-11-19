@@ -1750,7 +1750,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %_ZNSt6vectorIN10ope
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel3rbc8RbcState13DoApplyActionEl(ptr noundef nonnull align 8 dereferenceable(512) initializes((436, 438)) %0, i64 noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel3rbc8RbcState13DoApplyActionEl(ptr noundef nonnull align 8 dereferenceable(512) %0, i64 noundef %1) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i8, align 1
   %4 = alloca %"class.std::function.42", align 8
   %5 = alloca i64, align 8
@@ -2762,7 +2762,7 @@ define void @_ZNK10open_spiel3rbc8RbcState8ToStringB5cxx11Ev(ptr dead_on_unwind 
 declare void @_ZNK10open_spiel5chess10ChessBoard5ToFENB5cxx11Eb(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(168), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel3rbc8RbcState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.45") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(512) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel3rbc8RbcState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.45") align 8 %0, ptr noundef nonnull align 8 dereferenceable(512) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::debian2::optional.50", align 8
   call void @_ZNK10open_spiel3rbc8RbcState17MaybeFinalReturnsEv(ptr dead_on_unwind nonnull writable sret(%"class.absl::debian2::optional.50") align 8 %3, ptr noundef nonnull align 8 dereferenceable(512) %1)
   %4 = load i8, ptr %3, align 8

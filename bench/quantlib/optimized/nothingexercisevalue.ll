@@ -80,7 +80,7 @@ $_ZTIN8QuantLib24MarketModelExerciseValueE = comdat any
 @_ZN8QuantLib20NothingExerciseValueC1ERKSt6vectorIdSaIdEESt8valarrayIbE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN8QuantLib20NothingExerciseValueC2ERKSt6vectorIdSaIdEESt8valarrayIbE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib20NothingExerciseValueC2ERKSt6vectorIdSaIdEESt8valarrayIbE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 8), (16, 40)) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef %isExerciseTime) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib20NothingExerciseValueC2ERKSt6vectorIdSaIdEESt8valarrayIbE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 8 dereferenceable(24) %rateTimes, ptr nocapture noundef %isExerciseTime) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1234,7 +1234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib20NothingExerciseValue21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib20NothingExerciseValue21possibleCashFlowTimesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1280,7 +1280,7 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit:                ; preds = %invoke.cont.i.threa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib20NothingExerciseValue5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) initializes((184, 192)) %this) unnamed_addr #9 align 2 {
+define void @_ZN8QuantLib20NothingExerciseValue5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(208) %this) unnamed_addr #9 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   store i64 0, ptr %currentIndex_, align 8, !tbaa !58
@@ -1288,7 +1288,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8QuantLib20NothingExerciseValue8nextStepERKNS_10CurveStateE(ptr nocapture noundef nonnull align 8 dereferenceable(208) initializes((192, 200)) %this, ptr nocapture nonnull readnone align 1 %0) unnamed_addr #10 align 2 {
+define void @_ZN8QuantLib20NothingExerciseValue8nextStepERKNS_10CurveStateE(ptr nocapture noundef nonnull align 8 dereferenceable(208) %this, ptr nocapture nonnull readnone align 1 %0) unnamed_addr #10 align 2 {
 entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   %1 = load i64, ptr %currentIndex_, align 8, !tbaa !58
@@ -1300,7 +1300,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib20NothingExerciseValue14isExerciseTimeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::valarray") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 {
+define void @_ZNK8QuantLib20NothingExerciseValue14isExerciseTimeEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::valarray") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(208) %this) unnamed_addr #0 align 2 {
 entry:
   %isExerciseTime_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %isExerciseTime_, align 8, !tbaa !14

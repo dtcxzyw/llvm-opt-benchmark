@@ -4943,7 +4943,7 @@ define dso_local noundef i32 @_ZN4llvm17AbstractAttribute6updateERNS_10Attributo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm10AttributorC2ERNS_9SetVectorIPNS_8FunctionENS_11SmallVectorIS3_Lj0EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEERNS_16InformationCacheENS_16AttributorConfigE(ptr noundef nonnull align 8 dereferenceable(4296) initializes((0, 20), (24, 44), (48, 68), (72, 92), (96, 124), (128, 148), (152, 196)) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(368) %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm10AttributorC2ERNS_9SetVectorIPNS_8FunctionENS_11SmallVectorIS3_Lj0EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj0EEERNS_16InformationCacheENS_16AttributorConfigE(ptr noundef nonnull align 8 dereferenceable(4296) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(368) %2, ptr noundef %3) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)

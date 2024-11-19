@@ -273,7 +273,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20StringAppendOperatorC2Ec(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %this, i8 noundef signext %delim_char) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20StringAppendOperatorC2Ec(ptr noundef nonnull align 8 dereferenceable(64) %this, i8 noundef signext %delim_char) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.2", align 1
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -400,7 +400,7 @@ _ZN7rocksdb13MergeOperatorD2Ev.exit:              ; preds = %invoke.cont.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb20StringAppendOperatorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(32) %delim) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb20StringAppendOperatorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(32) %delim) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::allocator.2", align 1

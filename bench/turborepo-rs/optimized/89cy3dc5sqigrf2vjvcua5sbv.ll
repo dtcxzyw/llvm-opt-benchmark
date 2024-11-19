@@ -78,7 +78,7 @@ _RINvMNtNtCsapf13pIxsjn_3std4sync9once_lockINtB3_8OnceLockINtNtCs1LoaDTb72WA_4co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor8get_user(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor8get_user(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca [32 x i8], align 8
   %.sroa.6 = alloca [16 x i8], align 8
   %3 = load atomic i32, ptr getelementptr inbounds (i8, ptr @_RNvCsjIaN6dkKMFO_12turborepo_ci6VENDOR, i64 8) acquire, align 8

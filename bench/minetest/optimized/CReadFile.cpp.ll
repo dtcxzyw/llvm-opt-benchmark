@@ -38,7 +38,7 @@ $_ZTIN3irr2io9IReadFileE = comdat any
 @_ZTIN3irr2io9CReadFileE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3irr2io9CReadFileE, ptr @_ZTIN3irr2io9IReadFileE }, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CReadFileC2ERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24)) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(32) %fileName) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CReadFileC2ERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %vtt, ptr noundef nonnull align 8 dereferenceable(32) %fileName) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
   %1 = load ptr, ptr %0, align 8
@@ -103,7 +103,7 @@ _ZN3irr2io9CReadFile8openFileEv.exit:             ; preds = %if.then7.i, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CReadFile8openFileEv(ptr noundef nonnull align 8 dereferenceable(56) initializes((8, 16)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CReadFile8openFileEv(ptr noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #0 align 2 {
 entry:
   %_M_string_length.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !10
@@ -142,7 +142,7 @@ if.end13:                                         ; preds = %if.then7, %if.end, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CReadFileC1ERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 24), (56, 76)) %this, ptr noundef nonnull align 8 dereferenceable(32) %fileName) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CReadFileC1ERKNS_4core6stringIcEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(32) %fileName) unnamed_addr #0 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
   %DebugName.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -197,7 +197,7 @@ _ZN3irr2io9CReadFile8openFileEv.exit:             ; preds = %if.then7.i, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CReadFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CReadFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -242,7 +242,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CReadFileD1Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (56, 64)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CReadFileD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io9CReadFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -320,7 +320,7 @@ _ZN3irr2io9CReadFileD1Ev.exit:                    ; preds = %if.then.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io9CReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8), (56, 64)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io9CReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr2io9CReadFileE, i64 24), ptr %this, align 8, !tbaa !3
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 56

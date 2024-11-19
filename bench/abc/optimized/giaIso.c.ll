@@ -820,7 +820,7 @@ Vec_IntPush.exit125:                              ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_IsoAssignUnique(ptr nocapture noundef initializes((16, 20)) %0) local_unnamed_addr #7 {
+define void @Gia_IsoAssignUnique(ptr nocapture noundef %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1031,7 +1031,7 @@ Vec_IntPush.exit36:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Gia_IsoSort(ptr nocapture noundef initializes((16, 20)) %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @Gia_IsoSort(ptr nocapture noundef %0) local_unnamed_addr #7 {
   %2 = alloca %struct.timespec, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -4830,7 +4830,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManFindCaninicalOrder(ptr noundef %0, ptr nocapture noundef initializes((4, 8)) %1, ptr noundef initializes((4, 8)) %2, ptr nocapture noundef initializes((4, 8)) %3, ptr noundef %4) local_unnamed_addr #7 {
+define void @Gia_ManFindCaninicalOrder(ptr noundef %0, ptr nocapture noundef %1, ptr noundef %2, ptr nocapture noundef %3, ptr noundef %4) local_unnamed_addr #7 {
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #24
   %7 = getelementptr inbounds i8, ptr %6, i64 4
   store i32 1000, ptr %6, align 8
@@ -6191,7 +6191,7 @@ declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #8
 declare ptr @Gia_AigerWriteIntoMemoryStrPart(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @Vec_IntCountNonTrivial(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #10 {
+define i32 @Vec_IntCountNonTrivial(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #10 {
   store i32 0, ptr %1, align 4
   %3 = getelementptr i8, ptr %0, i64 4
   %.val1214 = load i32, ptr %3, align 4

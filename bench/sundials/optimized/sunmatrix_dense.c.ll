@@ -427,7 +427,7 @@ define noundef i32 @SUNMatMatvec_Dense(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @SUNMatSpace_Dense(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) #5 {
+define noundef i32 @SUNMatSpace_Dense(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 24
   %6 = load i64, ptr %5, align 8

@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @executor_globals = external local_unnamed_addr global %struct._zend_executor_globals, align 8
 
 ; Function Attrs: nounwind uwtable
-define void @zend_objects_store_init(ptr nocapture noundef writeonly initializes((0, 20)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @zend_objects_store_init(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = zext i32 %1 to i64
   %4 = shl nuw nsw i64 %3, 3
   %5 = tail call noalias ptr @_emalloc(i64 noundef %4) #6
@@ -275,7 +275,7 @@ define void @zend_objects_store_free_object_storage(ptr nocapture noundef readon
 declare void @zend_object_std_dtor(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define void @zend_objects_store_put(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
+define void @zend_objects_store_put(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 856), align 8
   %.not = icmp eq i32 %2, -1
   br i1 %.not, label %14, label %3

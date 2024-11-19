@@ -1699,7 +1699,7 @@ eh.resume:                                        ; preds = %ehcleanup37, %ehcle
 declare noundef zeroext i1 @_ZN8Settings14setNoiseParamsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERK11NoiseParams(ptr noundef nonnull align 8 dereferenceable(236), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 4 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16BiomeGenOriginalC2EP12BiomeManagerPK19BiomeParamsOriginalN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 44), (64, 72)) %this, ptr noundef %biomemgr, ptr noundef %params, i48 %chunksize.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN16BiomeGenOriginalC2EP12BiomeManagerPK19BiomeParamsOriginalN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, ptr noundef %biomemgr, ptr noundef %params, i48 %chunksize.coerce) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %biomemap.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %biomemap.i, i8 0, i64 32, i1 false)
@@ -2173,7 +2173,7 @@ declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #6
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16BiomeGenOriginalD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN16BiomeGenOriginalD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #10 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV16BiomeGenOriginal, i64 16), ptr %this, align 8, !tbaa !12
   %biomemap = getelementptr inbounds i8, ptr %this, i64 8
@@ -2250,7 +2250,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #7
 declare void @_ZN5NoiseD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN16BiomeGenOriginalD0Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %this) unnamed_addr #10 align 2 {
+define dso_local void @_ZN16BiomeGenOriginalD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #10 align 2 {
 entry:
   tail call void @_ZN16BiomeGenOriginalD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -2548,7 +2548,7 @@ cleanup83:                                        ; preds = %cond.false, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN16BiomeGenOriginal14calcBiomeNoiseEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((32, 38)) %this, i48 %pmin.coerce) unnamed_addr #5 align 2 {
+define dso_local void @_ZN16BiomeGenOriginal14calcBiomeNoiseEN3irr4core8vector3dIsEE(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this, i48 %pmin.coerce) unnamed_addr #5 align 2 {
 entry:
   %pmin.sroa.0.0.extract.trunc = trunc i48 %pmin.coerce to i16
   %pmin.sroa.6.0.extract.shift = lshr i48 %pmin.coerce, 16

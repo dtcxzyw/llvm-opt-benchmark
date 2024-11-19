@@ -119,7 +119,7 @@ define dso_local i32 @gro_cells_receive(ptr nocapture noundef readonly %0, ptr n
 declare dso_local i32 @netif_rx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @gro_cells_init(ptr nocapture noundef initializes((0, 8)) %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @gro_cells_init(ptr nocapture noundef %0, ptr noundef %1) #0 align 16 {
   %3 = tail call noalias dereferenceable_or_null(424) ptr @__alloc_percpu(i64 noundef 424, i64 noundef 8) #7
   store ptr %3, ptr %0, align 8
   %4 = icmp eq ptr %3, null

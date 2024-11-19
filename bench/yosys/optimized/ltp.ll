@@ -1123,7 +1123,7 @@ declare void @_ZNK5Yosys5RTLIL6Design16selected_modulesEv(ptr dead_on_unwind wri
 declare noundef zeroext i1 @_ZNK5Yosys5RTLIL6Module18has_processes_warnEv(ptr noundef nonnull align 8 dereferenceable(560)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_19LtpWorkerC2EPN5Yosys5RTLIL6ModuleEb(ptr noundef nonnull align 8 dereferenceable(344) initializes((0, 64), (72, 96)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_19LtpWorkerC2EPN5Yosys5RTLIL6ModuleEb(ptr noundef nonnull align 8 dereferenceable(344) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [75 x i32], align 4
   %5 = alloca %"class.std::allocator.10", align 1
   %6 = alloca [75 x i32], align 4

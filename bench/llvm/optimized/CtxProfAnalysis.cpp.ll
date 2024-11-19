@@ -1221,7 +1221,7 @@ declare void @_ZNK4llvm11GlobalValue19getGlobalIdentifierB5cxx11Ev(ptr dead_on_u
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15CtxProfAnalysisC2ESt8optionalINS_9StringRefEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 17)) %0, ptr nocapture noundef readonly byval(%"class.std::optional.152") align 8 %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15CtxProfAnalysisC2ESt8optionalINS_9StringRefEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr nocapture noundef readonly byval(%"class.std::optional.152") align 8 %1) unnamed_addr #0 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i8, ptr %3, align 8, !noalias !24
@@ -1253,7 +1253,7 @@ define dso_local void @_ZN4llvm15CtxProfAnalysisC2ESt8optionalINS_9StringRefEE(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15CtxProfAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PGOContextualProfile") align 8 initializes((48, 49), (56, 76)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(857) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15CtxProfAnalysis3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::PGOContextualProfile") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull readonly align 8 dereferenceable(857) %2, ptr nocapture noundef nonnull readnone align 8 dereferenceable(72) %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %6 = alloca %"class.std::allocator", align 1
   %7 = alloca %"class.llvm::ErrorOr", align 8
@@ -1951,7 +1951,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapImNS_20PGOContextualProfile12FunctionInfoENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm26CtxProfAnalysisPrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #6 align 2 {
+define dso_local void @_ZN4llvm26CtxProfAnalysisPrinterPassC2ERNS_11raw_ostreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #6 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr getelementptr inbounds (i8, ptr @_ZL10PrintLevel, i64 128), align 8
@@ -2669,7 +2669,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsERKNS_19formatv_object_baseE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm20PGOContextualProfile7flattenEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseMap.231") align 8 initializes((0, 20)) %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm20PGOContextualProfile7flattenEv(ptr dead_on_unwind noalias writable sret(%"class.llvm::DenseMap.231") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(80) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::function_ref.243", align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::function.304", align 8

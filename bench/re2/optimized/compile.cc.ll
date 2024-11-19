@@ -116,7 +116,7 @@ $_ZTVN3re26Regexp6WalkerINS_4FragEEE = comdat any
 @_ZN3re28CompilerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3re28CompilerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3re28CompilerC2Ev(ptr noundef nonnull align 8 dereferenceable(212) initializes((0, 88)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re28CompilerC2Ev(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i64 16), ptr %this, align 8
   %stack_.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -318,7 +318,7 @@ return:                                           ; preds = %if.end35, %if.then
 declare void @_ZN3re24Prog4Inst8InitFailEv(ptr noundef nonnull align 4 dereferenceable(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3re28CompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(212) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re28CompilerD2Ev(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3re28CompilerE, i64 16), ptr %this, align 8
   %prog_ = getelementptr inbounds i8, ptr %this, i64 96
@@ -1510,7 +1510,7 @@ return:                                           ; preds = %_ZN3re29PatchList5P
 declare void @_ZN3re24Prog4Inst11InitCaptureEij(ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3re28Compiler10BeginRangeEv(ptr nocapture noundef nonnull align 8 dereferenceable(212) initializes((192, 204)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3re28Compiler10BeginRangeEv(ptr nocapture noundef nonnull align 8 dereferenceable(212) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rune_cache_ = getelementptr inbounds i8, ptr %this, i64 152
   %capacity_.i = getelementptr inbounds i8, ptr %this, i64 176
@@ -3506,7 +3506,7 @@ if.end:                                           ; preds = %return.sink.split.i
 declare noundef i32 @_ZN3re210runetocharEPcPKi(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZN3re28Compiler4CopyENS_4FragE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) initializes((104, 105)) %this, i64 %arg.coerce0, i64 %arg.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define { i64, i64 } @_ZN3re28Compiler4CopyENS_4FragE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) %this, i64 %arg.coerce0, i64 %arg.coerce1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i = alloca %"struct.re2::Frag", align 8
   %ref.tmp = alloca %class.LogMessage, align 8
@@ -3568,7 +3568,7 @@ lpad:                                             ; preds = %_ZN10LogMessageC2EP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define { i64, i64 } @_ZN3re28Compiler10ShortVisitEPNS_6RegexpENS_4FragE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) initializes((104, 105)) %this, ptr nocapture readnone %re, i64 %.coerce0, i64 %.coerce1) unnamed_addr #14 align 2 {
+define { i64, i64 } @_ZN3re28Compiler10ShortVisitEPNS_6RegexpENS_4FragE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) %this, ptr nocapture readnone %re, i64 %.coerce0, i64 %.coerce1) unnamed_addr #14 align 2 {
 entry:
   %retval.i = alloca %"struct.re2::Frag", align 8
   %failed_ = getelementptr inbounds i8, ptr %this, i64 104
@@ -4849,7 +4849,7 @@ return:                                           ; preds = %for.inc91, %for.bod
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3re28Compiler5SetupENS_6Regexp10ParseFlagsElNS_3RE26AnchorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) initializes((140, 152), (208, 212)) %this, i32 noundef %flags, i64 noundef %max_mem, i32 noundef %anchor) local_unnamed_addr #14 align 2 {
+define void @_ZN3re28Compiler5SetupENS_6Regexp10ParseFlagsElNS_3RE26AnchorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(212) %this, i32 noundef %flags, i64 noundef %max_mem, i32 noundef %anchor) local_unnamed_addr #14 align 2 {
 entry:
   %and.i = and i32 %flags, 32
   %tobool.not = icmp eq i32 %and.i, 0

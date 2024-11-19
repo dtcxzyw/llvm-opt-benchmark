@@ -2047,7 +2047,7 @@ declare void @_ZN2cv11_InputArrayC1ERKNS_7MatExprE(ptr noundef nonnull align 8 d
 declare void @_ZN2cvltERKNS_3MatES2_(ptr dead_on_unwind writable sret(%"class.cv::MatExpr") align 8, ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(96)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv6detail12DpSeamFinderC2ENS1_12CostFunctionE(ptr noundef nonnull align 8 dereferenceable(1056) initializes((0, 36)) %0, i32 noundef %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail12DpSeamFinderC2ENS1_12CostFunctionE(ptr noundef nonnull align 8 dereferenceable(1056) %0, i32 noundef %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12DpSeamFinderE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
@@ -2121,7 +2121,7 @@ define void @_ZN2cv6detail12DpSeamFinderC2ENS1_12CostFunctionE(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail12DpSeamFinderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1056) initializes((0, 8), (12, 36)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail12DpSeamFinderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1056) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail12DpSeamFinderE, i64 16), ptr %0, align 8
@@ -3504,7 +3504,7 @@ declare void @_ZN2cv3MatC1EOS0_(ptr noundef nonnull align 8 dereferenceable(96),
 declare void @_ZNK2cv3Mat6copyToERKNS_12_OutputArrayE(ptr noundef nonnull align 8 dereferenceable(96), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail12DpSeamFinder14findComponentsEv(ptr noundef nonnull align 8 dereferenceable(1056) initializes((808, 812)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail12DpSeamFinder14findComponentsEv(ptr noundef nonnull align 8 dereferenceable(1056) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.cv::_InputOutputArray", align 8
   %3 = alloca %"class.cv::Scalar_", align 8
   %4 = alloca %"class.cv::Scalar_", align 8
@@ -15366,7 +15366,7 @@ _ZNSt6vectorIN2cv6detail7GCGraphIfE3VtxESaIS4_EED2Ev.exit: ; preds = %_ZNSt6vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail18GraphCutSeamFinderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEff(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull %1, float noundef %2, float noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail18GraphCutSeamFinderC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEff(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %1, float noundef %2, float noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinderE, i64 16), ptr %0, align 8
@@ -15725,7 +15725,7 @@ _ZNSt10shared_ptrIN2cv6detail18PairwiseSeamFinderEED2Ev.exit: ; preds = %1, %20,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv6detail18GraphCutSeamFinderC2Eiff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, i32 noundef %1, float noundef %2, float noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail18GraphCutSeamFinderC2Eiff(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i32 noundef %1, float noundef %2, float noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinderE, i64 16), ptr %0, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #26
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -15788,7 +15788,7 @@ define void @_ZN2cv6detail18GraphCutSeamFinderC2Eiff(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN2cv6detail18GraphCutSeamFinderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv6detail18GraphCutSeamFinderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv6detail18GraphCutSeamFinderE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8

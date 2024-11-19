@@ -293,7 +293,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Abc_ZddManCreatePerms(ptr nocapture noundef initializes((12, 16), (72, 96)) %0, i32 noundef %1) local_unnamed_addr #3 {
+define void @Abc_ZddManCreatePerms(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %3, align 4
   %4 = load i32, ptr %0, align 8

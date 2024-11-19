@@ -1565,7 +1565,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4sets17TheorySetsPrivateD2Ev(ptr noundef nonnull align 8 dereferenceable(752) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory4sets17TheorySetsPrivateD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory4sets17TheorySetsPrivateE, i64 16), ptr %this, align 8
   %d_eqc_info = getelementptr inbounds i8, ptr %this, i64 208
@@ -1803,7 +1803,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit31: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory4sets17TheorySetsPrivateD0Ev(ptr noundef nonnull align 8 dereferenceable(752) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal6theory4sets17TheorySetsPrivateD0Ev(ptr noundef nonnull align 8 dereferenceable(752) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory4sets17TheorySetsPrivateD2Ev(ptr noundef nonnull align 8 dereferenceable(752) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -1811,7 +1811,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4sets17TheorySetsPrivate10finishInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) initializes((656, 664)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory4sets17TheorySetsPrivate10finishInitEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_external = getelementptr inbounds i8, ptr %this, i64 264
   %0 = load ptr, ptr %d_external, align 8
@@ -4527,7 +4527,7 @@ _ZN4cvc57context3CDOINS_8internal12NodeTemplateILb1EEEEC2EPNS0_7ContextE.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory4sets17TheorySetsPrivate15fullEffortResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) initializes((256, 257), (260, 264), (680, 683)) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN4cvc58internal6theory4sets17TheorySetsPrivate15fullEffortResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(752) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_fullCheckIncomplete = getelementptr inbounds i8, ptr %this, i64 256
   store i8 0, ptr %d_fullCheckIncomplete, align 8

@@ -109,7 +109,7 @@ define hidden void @jIDCoefC(ptr noundef %0, i32 noundef %1) local_unnamed_addr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @start_input_pass(ptr nocapture noundef initializes((176, 180)) %0) #1 {
+define internal void @start_input_pass(ptr nocapture noundef %0) #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 560

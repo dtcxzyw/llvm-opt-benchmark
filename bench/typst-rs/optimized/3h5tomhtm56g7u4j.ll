@@ -44,7 +44,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"switch.table._ZN65_$LT$core..sync..atomic..Ordering$u20$as$u20$core..fmt..Debug$GT$3fmt17h2ba2d5848206c954E.llvm.2660168047844088129.4" = private unnamed_addr constant [5 x ptr] [ptr @anon.3a0d6adf443d0599cf57b860393d4c77.30, ptr @anon.3a0d6adf443d0599cf57b860393d4c77.31, ptr @anon.3a0d6adf443d0599cf57b860393d4c77.32, ptr @anon.3a0d6adf443d0599cf57b860393d4c77.33, ptr @anon.3a0d6adf443d0599cf57b860393d4c77.34], align 8
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6cc8dab7cbd7a5cdE.llvm.2660168047844088129"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
+define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h6cc8dab7cbd7a5cdE.llvm.2660168047844088129"(ptr noalias nocapture noundef writeonly sret({ i64, { i64, [1 x i64] } }) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !noundef !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8

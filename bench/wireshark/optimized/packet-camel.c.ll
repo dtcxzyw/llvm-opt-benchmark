@@ -2751,7 +2751,7 @@ camelsrt_close_call_matching.exit77:              ; preds = %80, %85, %94
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @camelsrt_begin_call_matching(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((18, 19)) %1) unnamed_addr #0 {
+define internal fastcc void @camelsrt_begin_call_matching(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.camelsrt_call_info_key_t, align 4
   %4 = getelementptr i8, ptr %1, i64 18
   store i8 1, ptr %4, align 1

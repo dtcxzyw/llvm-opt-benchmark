@@ -576,7 +576,7 @@ _ZNK3irr17IReferenceCounted4dropEv.exit:          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN18GUIBackgroundImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_P20ISimpleTextureSourcebNS6_8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(380) initializes((384, 404)) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %middle, ptr noundef %tsrc, i1 noundef zeroext %autoclip, i64 %autoclip_offset.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18GUIBackgroundImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_P20ISimpleTextureSourcebNS6_8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(380) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %middle, ptr noundef %tsrc, i1 noundef zeroext %autoclip, i64 %autoclip_offset.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 384

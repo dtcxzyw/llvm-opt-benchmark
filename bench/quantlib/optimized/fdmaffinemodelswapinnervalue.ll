@@ -223,7 +223,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib28FdmAffineModelSwapInnerValueINS_2G2EE8getStateERKN5boost10shared_ptrIS1_EEdRKNS_19FdmLinearOpIteratorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 1 %iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib28FdmAffineModelSwapInnerValueINS_2G2EE8getStateERKN5boost10shared_ptrIS1_EEdRKNS_19FdmLinearOpIteratorE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readnone align 8 dereferenceable(16) %0, double noundef %1, ptr noundef nonnull align 1 %iter) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mesher_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   %2 = load ptr, ptr %mesher_, align 8, !tbaa !14

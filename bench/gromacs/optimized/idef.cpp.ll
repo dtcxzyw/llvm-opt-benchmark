@@ -1666,7 +1666,7 @@ declare noundef zeroext i1 @_Z9availableP8_IO_FILEPKviPKc(ptr noundef, ptr nound
 declare void @_Z7pr_realP8_IO_FILEiPKcf(ptr noundef, i32 noundef, ptr noundef, float noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @_Z9init_idefP6t_idef(ptr nocapture noundef writeonly initializes((0, 28), (32, 48)) %0) local_unnamed_addr #10 {
+define void @_Z9init_idefP6t_idef(ptr nocapture noundef writeonly %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %0, i8 0, i64 28, i1 false)
@@ -1690,7 +1690,7 @@ define void @_Z9init_idefP6t_idef(ptr nocapture noundef writeonly initializes((0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN22InteractionDefinitionsC2ERK14gmx_ffparams_t(ptr nocapture noundef nonnull align 8 dereferenceable(2736) initializes((0, 2320), (2696, 2700), (2704, 2708), (2712, 2736)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN22InteractionDefinitionsC2ERK14gmx_ffparams_t(ptr nocapture noundef nonnull align 8 dereferenceable(2736) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

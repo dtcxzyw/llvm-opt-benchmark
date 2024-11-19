@@ -450,7 +450,7 @@ VP8PutBits.exit:                                  ; preds = %VP8PutBitUniform.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8BitWriterInit(ptr nocapture noundef initializes((0, 44)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @VP8BitWriterInit(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   store i32 254, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 0, ptr %3, align 4
@@ -641,7 +641,7 @@ declare void @WebPSafeFree(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8LBitWriterInit(ptr nocapture noundef initializes((0, 48)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @VP8LBitWriterInit(ptr nocapture noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   %3 = and i64 %1, -1024
   %4 = add i64 %3, 1024
@@ -672,7 +672,7 @@ VP8LBitWriterResize.exit:                         ; preds = %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @VP8LBitWriterClone(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((40, 44)) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @VP8LBitWriterClone(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -773,7 +773,7 @@ define hidden void @VP8LBitWriterWipeOut(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @VP8LBitWriterReset(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 12), (24, 32), (40, 44)) %1) local_unnamed_addr #4 {
+define hidden void @VP8LBitWriterReset(ptr nocapture noundef readonly %0, ptr nocapture noundef %1) local_unnamed_addr #4 {
   %3 = load i64, ptr %0, align 8
   store i64 %3, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8

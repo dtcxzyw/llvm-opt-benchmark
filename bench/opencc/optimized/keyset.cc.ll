@@ -50,7 +50,7 @@ $_ZTVN6marisa9ExceptionE = comdat any
 @_ZN6marisa6KeysetC1Ev = unnamed_addr alias void (ptr), ptr @_ZN6marisa6KeysetC2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6marisa6KeysetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((0, 104)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6marisa6KeysetC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   ret void
 }
@@ -705,7 +705,7 @@ _ZN6marisa6Keyset7reserveEm.exit:                 ; preds = %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6marisa6Keyset5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((8, 16), (32, 40), (72, 104)) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN6marisa6Keyset5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32

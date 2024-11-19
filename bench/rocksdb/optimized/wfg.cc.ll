@@ -31,7 +31,7 @@ $_ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE28fill_array_with_subtree_idxsEPjRKNS_12omt
 $_ZN4toku3omtIPNS_3wfg4nodeES3_Lb0EE25rebuild_subtree_from_idxsEPNS_12omt_internal17subtree_templatedILb0EEEPKjj = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4toku3wfg6createEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 1), (4, 24)) %this) local_unnamed_addr #0 align 2 {
+define void @_ZN4toku3wfg6createEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) local_unnamed_addr #0 align 2 {
 entry:
   store i8 1, ptr %this, align 8
   %d.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -485,7 +485,7 @@ _ZNK4toku3omtIPNS_3wfg4nodeES3_Lb0EE9find_zeroImTnPFiRKS3_RKT_EXadL_ZNS1_13find_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN4toku3wfg22cycle_exists_from_nodeEPNS0_4nodeES2_St8functionIFvmEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %target, ptr noundef initializes((32, 33)) %head, ptr noundef %reporter) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN4toku3wfg22cycle_exists_from_nodeEPNS0_4nodeES2_St8functionIFvmEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef readonly %target, ptr noundef %head, ptr noundef %reporter) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i29 = alloca i64, align 8
   %tmp_index.i.i = alloca i32, align 4

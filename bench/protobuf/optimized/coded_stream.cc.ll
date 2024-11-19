@@ -230,7 +230,7 @@ if.end:                                           ; preds = %entry, %_ZN6google8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((36, 37), (40, 44)) %this, i32 noundef %limit) local_unnamed_addr #7 align 2 {
+define void @_ZN6google8protobuf2io16CodedInputStream8PopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %limit) local_unnamed_addr #7 align 2 {
 entry:
   %current_limit_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 %limit, ptr %current_limit_, align 8
@@ -517,7 +517,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream34DecrementRecursionDepthAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((40, 44)) %this, i32 noundef %limit) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream34DecrementRecursionDepthAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %limit) local_unnamed_addr #7 align 2 {
 entry:
   %legitimate_message_end_.i = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i8, ptr %legitimate_message_end_.i, align 4
@@ -559,7 +559,7 @@ _ZN6google8protobuf2io16CodedInputStream8PopLimitEi.exit: ; preds = %entry, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntireMessageConsumedAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((40, 44)) %this, i32 noundef %limit) local_unnamed_addr #7 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream37CheckEntireMessageConsumedAndPopLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %limit) local_unnamed_addr #7 align 2 {
 entry:
   %legitimate_message_end_.i = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i8, ptr %legitimate_message_end_.i, align 4
@@ -627,7 +627,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6google8protobuf2io16CodedInputStream18SetTotalBytesLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) initializes((48, 52)) %this, i32 noundef %total_bytes_limit) local_unnamed_addr #7 align 2 {
+define void @_ZN6google8protobuf2io16CodedInputStream18SetTotalBytesLimitEi(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, i32 noundef %total_bytes_limit) local_unnamed_addr #7 align 2 {
 entry:
   %total_bytes_read_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i32, ptr %total_bytes_read_.i, align 8
@@ -1417,7 +1417,7 @@ return:                                           ; preds = %while.body.i, %if.e
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16ReadVarint32SlowEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly initializes((0, 4)) %value) local_unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream16ReadVarint32SlowEPj(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef writeonly %value) local_unnamed_addr #4 align 2 {
 entry:
   %call = tail call { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
   %0 = extractvalue { i64, i8 } %call, 0
@@ -2426,7 +2426,7 @@ declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalC1EPKciSt17ba
 declare void @_ZN4absl12lts_2023080212log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf2io19EpsCopyOutputStream14EnableAliasingEb(ptr nocapture noundef nonnull align 8 dereferenceable(60) initializes((57, 58)) %this, i1 noundef zeroext %enabled) local_unnamed_addr #4 align 2 {
+define void @_ZN6google8protobuf2io19EpsCopyOutputStream14EnableAliasingEb(ptr nocapture noundef nonnull align 8 dereferenceable(60) %this, i1 noundef zeroext %enabled) local_unnamed_addr #4 align 2 {
 entry:
   br i1 %enabled, label %land.rhs, label %land.end
 

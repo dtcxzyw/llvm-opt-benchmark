@@ -154,7 +154,7 @@ define void @batch_bind(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_avail_map(ptr noundef %0, ptr nocapture noundef nonnull initializes((0, 2)) %1, ptr nocapture noundef nonnull initializes((0, 2)) %2, ptr nocapture noundef nonnull initializes((0, 2)) %3) unnamed_addr #0 {
+define internal fastcc ptr @_get_avail_map(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = tail call ptr @slurm_cred_get_args(ptr noundef %0) #8
@@ -2175,7 +2175,7 @@ _lllp_free_masks.exit:                            ; preds = %654, %650
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_alloc_mask(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull initializes((0, 4)) %1, ptr nocapture noundef nonnull initializes((0, 4)) %2, ptr nocapture noundef nonnull initializes((0, 4)) %3, ptr nocapture noundef nonnull initializes((0, 4)) %4, ptr nocapture noundef nonnull initializes((0, 4)) %5, ptr nocapture noundef nonnull initializes((0, 4)) %6) unnamed_addr #0 {
+define internal fastcc ptr @_alloc_mask(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4, ptr nocapture noundef nonnull %5, ptr nocapture noundef nonnull %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2

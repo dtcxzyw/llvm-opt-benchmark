@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.b095654ee354122b7ccf41b35f6e9f04.28 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"sets" }>, align 1
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h09b3d6e46a6531b4E.llvm.3686309801827364623"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys3pal6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h09b3d6e46a6531b4E.llvm.3686309801827364623"(ptr noundef nonnull writeonly align 8 %0, ptr noalias nocapture noundef align 8 dereferenceable_or_null(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
   %.not.i.i = icmp eq ptr %1, null

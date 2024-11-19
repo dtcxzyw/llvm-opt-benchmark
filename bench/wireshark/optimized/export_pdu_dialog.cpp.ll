@@ -880,7 +880,7 @@ declare void @_ZNK9QComboBox11currentTextEv(ptr dead_on_unwind writable sret(%cl
 declare void @do_export_pdu(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN15ExportPDUDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 {
+define void @_ZN15ExportPDUDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV15ExportPDUDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV15ExportPDUDialog, i64 488), ptr %2, align 8

@@ -457,7 +457,7 @@ declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocaptu
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc void @Res6_ManStop(ptr nocapture noundef initializes((24, 32), (40, 48), (72, 80), (88, 96), (104, 112)) %0) unnamed_addr #3 {
+define internal fastcc void @Res6_ManStop(ptr nocapture noundef %0) unnamed_addr #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8

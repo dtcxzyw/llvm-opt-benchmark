@@ -31,7 +31,7 @@ $_ZN4llvm8DenseMapIPKNS_6MDNodeEPS1_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMap
 @_ZN4llvm8DebugLocC1EPKNS_6MDNodeE = unnamed_addr alias void (ptr, ptr), ptr @_ZN4llvm8DebugLocC2EPKNS_6MDNodeE
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8DebugLocC2EPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8DebugLocC2EPKNS_10DILocationE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN4llvm18TypedTrackingMDRefINS_6MDNodeEEC2EPS1_.exit, label %3
@@ -45,7 +45,7 @@ _ZN4llvm18TypedTrackingMDRefINS_6MDNodeEEC2EPS1_.exit: ; preds = %2, %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8DebugLocC2EPKNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm8DebugLocC2EPKNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %.not.i.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i.i, label %_ZN4llvm18TypedTrackingMDRefINS_6MDNodeEEC2EPS1_.exit, label %3

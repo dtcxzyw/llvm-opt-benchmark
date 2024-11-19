@@ -1414,7 +1414,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @intel_hda_get_wall_clk(ptr nocapture noundef initializes((2780, 2784)) %d, ptr nocapture readnone %reg) #0 {
+define internal void @intel_hda_get_wall_clk(ptr nocapture noundef %d, ptr nocapture readnone %reg) #0 {
 entry:
   %call = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
   %wall_base_ns = getelementptr inbounds i8, ptr %d, i64 4136
@@ -1953,7 +1953,7 @@ declare ptr @object_get_class(ptr noundef) local_unnamed_addr #1
 declare i32 @address_space_rw(ptr noundef, i64 noundef, i32, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @intel_hda_parse_bdl(ptr noundef %d, ptr nocapture noundef initializes((40, 44)) %st) unnamed_addr #0 {
+define internal fastcc void @intel_hda_parse_bdl(ptr noundef %d, ptr nocapture noundef %st) unnamed_addr #0 {
 entry:
   %buf = alloca [16 x i8], align 16
   %bdlp_lbase = getelementptr inbounds i8, ptr %st, i64 20

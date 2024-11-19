@@ -71,7 +71,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.58 = private unnamed_addr constant [44 x i8] c"Too much data: Truncating file at %ju bytes\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef i32 @archive_write_disk_set_options(ptr nocapture noundef writeonly initializes((512, 516)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @archive_write_disk_set_options(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 512
   store i32 %1, ptr %3, align 8
   ret i32 0
@@ -4089,7 +4089,7 @@ define internal fastcc range(i32 0, 2) i32 @older(ptr nocapture noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @la_mktemp(ptr noundef initializes((488, 496)) %0) unnamed_addr #1 {
+define internal fastcc i32 @la_mktemp(ptr noundef %0) unnamed_addr #1 {
   %2 = getelementptr inbounds i8, ptr %0, i64 480
   %3 = getelementptr inbounds i8, ptr %0, i64 488
   store i64 0, ptr %3, align 8

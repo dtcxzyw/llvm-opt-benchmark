@@ -65,7 +65,7 @@ $_ZTSN5boost6locale8impl_icu16formatters_cacheE = comdat any
 @_ZN5boost6locale8impl_icu16formatters_cacheC1ERKN6icu_706LocaleE = hidden unnamed_addr alias void (ptr, ptr), ptr @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706LocaleE
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706LocaleE(ptr noundef nonnull align 8 dereferenceable(2032) initializes((0, 12)) %0, ptr noundef nonnull align 8 dereferenceable(217) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706LocaleE(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef nonnull align 8 dereferenceable(217) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.icu_70::UnicodeString", align 8
   %4 = alloca %"class.icu_70::UnicodeString", align 8
   %5 = alloca %"class.icu_70::UnicodeString", align 8

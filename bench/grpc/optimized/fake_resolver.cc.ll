@@ -732,7 +732,7 @@ _ZNSt12__shared_ptrIN9grpc_core14WorkSerializerELN9__gnu_cxx12_Lock_policyE2EED2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core12FakeResolver11StartLockedEv(ptr noundef nonnull align 8 dereferenceable(186) initializes((184, 185)) %this) unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core12FakeResolver11StartLockedEv(ptr noundef nonnull align 8 dereferenceable(186) %this) unnamed_addr #3 align 2 {
 entry:
   %started_ = getelementptr inbounds i8, ptr %this, i64 184
   store i8 1, ptr %started_, align 8
@@ -993,7 +993,7 @@ _ZN4absl12lts_202308029MutexLockD2Ev.exit2:       ; preds = %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core12FakeResolver14ShutdownLockedEv(ptr nocapture noundef nonnull align 8 dereferenceable(186) initializes((185, 186)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12FakeResolver14ShutdownLockedEv(ptr nocapture noundef nonnull align 8 dereferenceable(186) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.grpc_core::RefCountedPtr.27", align 8
   %shutdown_ = getelementptr inbounds i8, ptr %this, i64 185
@@ -1208,7 +1208,7 @@ _ZN4absl12lts_202308028StatusOrISt6vectorIN9grpc_core17EndpointAddressesESaIS4_E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN9grpc_core29FakeResolverResponseGeneratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(185) initializes((0, 40), (160, 161), (168, 185)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core29FakeResolverResponseGeneratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(185) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
@@ -1226,7 +1226,7 @@ entry:
 declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core29FakeResolverResponseGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(185) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core29FakeResolverResponseGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(185) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN9grpc_core29FakeResolverResponseGeneratorE, i64 16), ptr %this, align 8
   %reresolution_mu_ = getelementptr inbounds i8, ptr %this, i64 168
@@ -3382,7 +3382,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZNK9grpc_core12_GLOBAL__N_119FakeResolverFactory14CreateResolverENS_12ResolverArgsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.117") align 8 initializes((0, 8)) %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZNK9grpc_core12_GLOBAL__N_119FakeResolverFactory14CreateResolverENS_12ResolverArgsE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.117") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr noundef nonnull %args) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN9grpc_core12FakeResolverENS0_16OrphanableDeleteEED2Ev.exit:
   %ref.tmp = alloca %"class.std::unique_ptr.123", align 8
   call void @_ZN9grpc_core14MakeOrphanableINS_12FakeResolverEJNS_12ResolverArgsEEEESt10unique_ptrIT_NS_16OrphanableDeleteEEDpOT0_(ptr nonnull sret(%"class.std::unique_ptr.123") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(240) %args)

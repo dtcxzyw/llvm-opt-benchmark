@@ -41,7 +41,7 @@ define hidden void @mbedtls_chacha20_free(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef i32 @mbedtls_chacha20_setkey(ptr nocapture noundef writeonly initializes((0, 48)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
+define hidden noundef i32 @mbedtls_chacha20_setkey(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 {
   store i32 1634760805, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 857760878, ptr %3, align 4
@@ -84,7 +84,7 @@ define hidden noundef i32 @mbedtls_chacha20_setkey(ptr nocapture noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef i32 @mbedtls_chacha20_starts(ptr noundef initializes((48, 64)) %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden noundef i32 @mbedtls_chacha20_starts(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 %2, ptr %4, align 8
   %5 = load i32, ptr %1, align 1

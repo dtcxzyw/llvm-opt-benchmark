@@ -1733,7 +1733,7 @@ _ZN12Disassembler4hookI25InterpreterMacroAssemblerEEPT_PKciS3_.exit40: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN28TemplateInterpreterGenerator20set_wide_entry_pointEP8TemplateRPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN28TemplateInterpreterGenerator20set_wide_entry_pointEP8TemplateRPh(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8
   %5 = load i8, ptr @PrintInterpreter, align 1
   %6 = trunc i8 %5 to i1

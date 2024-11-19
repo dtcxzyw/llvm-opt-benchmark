@@ -684,7 +684,7 @@ entry:
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3fmt3v106detail17format_error_codeERNS1_6bufferIcEEiNS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 24)) %out, i32 noundef %error_code, ptr %message.coerce0, i64 %message.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v106detail17format_error_codeERNS1_6bufferIcEEiNS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(32) %out, i32 noundef %error_code, ptr %message.coerce0, i64 %message.coerce1) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   %ref.tmp.i51 = alloca %"class.fmt::v10::format_arg_store.125", align 16
   %ref.tmp.i = alloca %"class.fmt::v10::format_arg_store.123", align 16
@@ -1447,7 +1447,7 @@ _ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3fmt3v106detail13utf8_to_utf16C2ENS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(2040) initializes((0, 32)) %this, ptr %s.coerce0, i64 %s.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3fmt3v106detail13utf8_to_utf16C2ENS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(2040) %this, ptr %s.coerce0, i64 %s.coerce1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf.i = alloca [7 x i8], align 1
   %ref.tmp = alloca %"class.std::allocator.9", align 1

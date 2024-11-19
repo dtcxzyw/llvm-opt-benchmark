@@ -330,7 +330,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt22BacktrackingLineSearchC2ERKNS_8SmartPtrINS_22BacktrackingLSAcceptorEEERKNS1_INS_16RestorationPhaseEEERKNS1_INS_16ConvergenceCheckEEE(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((0, 12), (16, 49), (160, 161), (184, 200), (208, 216), (240, 264)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt22BacktrackingLineSearchC2ERKNS_8SmartPtrINS_22BacktrackingLSAcceptorEEERKNS1_INS_16RestorationPhaseEEERKNS1_INS_16ConvergenceCheckEEE(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -453,7 +453,7 @@ define void @_ZN5Ipopt22BacktrackingLineSearchC2ERKNS_8SmartPtrINS_22Backtrackin
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt22BacktrackingLineSearchD2Ev(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
+define void @_ZN5Ipopt22BacktrackingLineSearchD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt22BacktrackingLineSearchE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
@@ -4378,7 +4378,7 @@ _ZN5Ipopt8SmartPtrINS_25IpoptCalculatedQuantitiesEEaSEPS1_.exit: ; preds = %_ZN5
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt22BacktrackingLineSearch24FindAcceptableTrialPointEv(ptr noundef nonnull align 8 dereferenceable(264) initializes((222, 223)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt22BacktrackingLineSearch24FindAcceptableTrialPointEv(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Ipopt::SmartPtr.37", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.14", align 1
@@ -6979,7 +6979,7 @@ define noundef zeroext i1 @_ZN5Ipopt22BacktrackingLineSearch19CurrentIsAcceptabl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt22BacktrackingLineSearch20StoreAcceptablePointEv(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((216, 220)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt22BacktrackingLineSearch20StoreAcceptablePointEv(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
@@ -8439,7 +8439,7 @@ _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit21: ; preds = %159, %154, %151,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt22BacktrackingLineSearch13StartWatchDogEv(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((160, 161), (168, 172), (176, 184)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Ipopt22BacktrackingLineSearch13StartWatchDogEv(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8
@@ -9366,7 +9366,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit129:     ; preds = %267, %263, %258, %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Ipopt22BacktrackingLineSearch24DoBacktrackingLineSearchEbRdRbS2_RiS2_RNS_8SmartPtrINS_14IteratesVectorEEE(ptr noundef nonnull align 8 dereferenceable(264) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 1 dereferenceable(1) %3, ptr nocapture noundef nonnull align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((0, 1)) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5Ipopt22BacktrackingLineSearch24DoBacktrackingLineSearchEbRdRbS2_RiS2_RNS_8SmartPtrINS_14IteratesVectorEEE(ptr noundef nonnull align 8 dereferenceable(264) %0, i1 noundef zeroext %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr nocapture noundef nonnull align 1 dereferenceable(1) %3, ptr nocapture noundef nonnull align 1 dereferenceable(1) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(8) %7) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::allocator.14", align 1
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14311,7 +14311,7 @@ _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit3: ; preds = %18, %21, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Ipopt22BacktrackingLineSearch5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(264) initializes((223, 228)) %0) unnamed_addr #3 align 2 {
+define void @_ZN5Ipopt22BacktrackingLineSearch5ResetEv(ptr nocapture noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 223
   store i8 0, ptr %2, align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 224

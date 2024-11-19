@@ -4560,7 +4560,7 @@ cleanup.action:                                   ; preds = %lpad, %lpad9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers8MatchGen10setInvalidEv(ptr nocapture noundef nonnull align 8 dereferenceable(496) initializes((56, 58)) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers8MatchGen10setInvalidEv(ptr nocapture noundef nonnull align 8 dereferenceable(496) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_type = getelementptr inbounds i8, ptr %this, i64 56
   store i16 0, ptr %d_type, align 8
@@ -8676,7 +8676,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb0EEESt4pairIKS3_mESt10_Select1stI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers9QuantInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers9QuantInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(648) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory11quantifiers9QuantInfoE, i64 16), ptr %this, align 8
   %d_extra_var = getelementptr inbounds i8, ptr %this, i64 624
@@ -9049,7 +9049,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb0EEESaIS3_EED2Ev.exit74: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers9QuantInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(648) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers9QuantInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(648) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers9QuantInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(648) %this) #28
   tail call void @_ZdlPv(ptr noundef nonnull %this) #27
@@ -9060,7 +9060,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory11quantifiers9QuantInfo20getQuantifiedFormulaEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(648) %this) local_unnamed_addr #3 align 2 {
+define hidden void @_ZNK4cvc58internal6theory11quantifiers9QuantInfo20getQuantifiedFormulaEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(648) %this) local_unnamed_addr #3 align 2 {
 entry:
   %d_q = getelementptr inbounds i8, ptr %this, i64 376
   %0 = load ptr, ptr %d_q, align 8
@@ -10143,7 +10143,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers9InstMatch8resetAllEv(ptr nou
 declare void @_ZN4cvc58internal6theory11quantifiers9InstMatch16setEvaluatorModeENS2_5ieval17TermEvaluatorModeE(ptr noundef nonnull align 8 dereferenceable(72), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers8MatchGen11reset_roundEv(ptr noundef nonnull align 8 dereferenceable(496) initializes((18, 19)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory11quantifiers8MatchGen11reset_roundEv(ptr noundef nonnull align 8 dereferenceable(496) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i184 = alloca %"class.std::tuple.1165", align 8
   %ref.tmp10.i185 = alloca %"class.std::tuple.1126", align 1
@@ -10931,7 +10931,7 @@ eh.resume:                                        ; preds = %lpad87, %lpad.i.i, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory11quantifiers8MatchGen5resetEb(ptr noundef nonnull align 8 dereferenceable(496) initializes((16, 17)) %this, i1 noundef zeroext %tgt) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory11quantifiers8MatchGen5resetEb(ptr noundef nonnull align 8 dereferenceable(496) %this, i1 noundef zeroext %tgt) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end31:
   %ref.tmp9.i292 = alloca %"class.std::tuple.1165", align 8
   %ref.tmp10.i293 = alloca %"class.std::tuple.1126", align 1

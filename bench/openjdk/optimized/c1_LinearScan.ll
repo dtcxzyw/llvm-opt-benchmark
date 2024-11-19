@@ -138,7 +138,7 @@ $_ZTV14IntervalWalker = comdat any
 @_ZN20ControlFlowOptimizerC1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20ControlFlowOptimizerC2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10LinearScanC2EP2IRP12LIRGeneratorP8FrameMap(ptr noundef nonnull align 8 dereferenceable(256) initializes((0, 61), (64, 76), (80, 121), (128, 176)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN10LinearScanC2EP2IRP12LIRGeneratorP8FrameMap(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -506,7 +506,7 @@ define hidden noundef i32 @_ZN10LinearScan19allocate_spill_slotEb(ptr nocapture 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10LinearScan17assign_spill_slotEP8Interval(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef initializes((60, 68)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10LinearScan17assign_spill_slotEP8Interval(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0, ptr nocapture noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 112
@@ -712,7 +712,7 @@ _ZN22CompilationResourceObjnwEm.exit:             ; preds = %17, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10LinearScan15append_intervalEP8Interval(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10LinearScan15append_intervalEP8Interval(ptr noundef nonnull align 8 dereferenceable(256) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 8
@@ -1469,7 +1469,7 @@ _ZN19LIR_InsertionBufferD2Ev.exit:                ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10LinearScan22create_unhandled_listsEPP8IntervalS2_PFbPKS0_ES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10LinearScan22create_unhandled_listsEPP8IntervalS2_PFbPKS0_ES6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef readonly %3, ptr noundef readonly %4) local_unnamed_addr #0 align 2 {
   %6 = load ptr, ptr @_ZN8Interval4_endE, align 8
   store ptr %6, ptr %2, align 8
   store ptr %6, ptr %1, align 8
@@ -5074,7 +5074,7 @@ _ZN10LinearScan7reg_numE7LIR_Opr.exit39:          ; preds = %143, %148, %151, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10LinearScan15build_intervalsEv(ptr noundef nonnull align 8 dereferenceable(256) initializes((80, 104)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10LinearScan15build_intervalsEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca [56 x i32], align 16
   %3 = alloca %class.LIR_OpVisitState, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 56
@@ -7821,7 +7821,7 @@ _ZNK6BitMap18find_first_set_bitEmm.exit.i:        ; preds = %32, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10LinearScan23resolve_find_insert_posEP10BlockBeginS1_R12MoveResolver(ptr nocapture noundef nonnull readnone align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(380) initializes((8, 20), (24, 36), (56, 60)) %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10LinearScan23resolve_find_insert_posEP10BlockBeginS1_R12MoveResolver(ptr nocapture noundef nonnull readnone align 8 dereferenceable(256) %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(380) %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %1, i64 216
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 104
@@ -7892,7 +7892,7 @@ _ZNK10BlockBegin13number_of_suxEv.exit.thread:    ; preds = %4, %_ZNK10BlockBegi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12MoveResolver19set_insert_positionEP8LIR_Listi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(380) initializes((8, 20), (24, 36), (56, 60)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN12MoveResolver19set_insert_positionEP8LIR_Listi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(380) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -11760,7 +11760,7 @@ declare noundef i32 @_ZNK12CodeEmitInfo22interpreter_frame_sizeEv(ptr noundef no
 declare noundef ptr @_ZN6AnyObjnwEm8MEMFLAGS(i64 noundef, i8 noundef zeroext) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10LinearScan23init_compute_debug_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) initializes((232, 256)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10LinearScan23init_compute_debug_infoEv(ptr nocapture noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -13690,7 +13690,7 @@ _ZN7LIR_Opr16is_same_registerES_.exit.thread:     ; preds = %270, %272, %274, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10LinearScan14assign_reg_numEv(ptr noundef nonnull align 8 dereferenceable(256) initializes((232, 256)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10LinearScan14assign_reg_numEv(ptr noundef nonnull align 8 dereferenceable(256) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 4
@@ -14132,7 +14132,7 @@ _ZN20ControlFlowOptimizerD2Ev.exit:               ; preds = %.loopexit.i, %.loop
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12MoveResolverC2EP10LinearScan(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(380) initializes((0, 20), (24, 153), (156, 380)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN12MoveResolverC2EP10LinearScan(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(380) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
@@ -14340,7 +14340,7 @@ define hidden noundef zeroext i1 @_ZN12MoveResolver20save_to_process_moveEP8Inte
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12MoveResolver23create_insertion_bufferEP8LIR_List(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(380) initializes((24, 36), (56, 60)) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN12MoveResolver23create_insertion_bufferEP8LIR_List(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(380) %0, ptr noundef %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -15495,7 +15495,7 @@ _ZN12MoveResolver23append_insertion_bufferEv.exit: ; preds = %12, %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5RangeC2EiiPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #9 align 2 {
+define hidden void @_ZN5RangeC2EiiPS_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #9 align 2 {
   store i32 %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %2, ptr %5, align 4
@@ -15631,7 +15631,7 @@ define hidden void @_ZN8Interval10initializeEv() local_unnamed_addr #0 align 2 {
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN8IntervalC2Ei(ptr noundef nonnull align 8 dereferenceable(136) initializes((0, 5), (8, 88), (96, 104), (112, 117), (120, 136)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN8IntervalC2Ei(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   store i32 %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   store i8 99, ptr %3, align 4
@@ -16342,7 +16342,7 @@ _ZNK8Interval10intersectsEPS_.exit.thread:        ; preds = %41, %24, %49, %33, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN14IntervalWalkerC2EP10LinearScanP8IntervalS3_(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 84)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 align 2 {
+define hidden void @_ZN14IntervalWalkerC2EP10LinearScanP8IntervalS3_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14IntervalWalker, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %1, align 8
@@ -17209,7 +17209,7 @@ _ZN14IntervalWalker7walk_toE13IntervalStatei.exit38: ; preds = %._crit_edge58.i3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16LinearScanWalkerC2EP10LinearScanP8IntervalS3_(ptr nocapture noundef nonnull align 8 dereferenceable(1384) initializes((0, 84)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN16LinearScanWalkerC2EP10LinearScanP8IntervalS3_(ptr nocapture noundef nonnull align 8 dereferenceable(1384) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV14IntervalWalker, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %1, align 8
@@ -22064,7 +22064,7 @@ define hidden noundef zeroext i1 @_ZN16LinearScanWalker22no_allocation_possibleE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16LinearScanWalker19init_vars_for_allocEP8Interval(ptr nocapture noundef nonnull align 8 dereferenceable(1384) initializes((88, 101)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16LinearScanWalker19init_vars_for_allocEP8Interval(ptr nocapture noundef nonnull align 8 dereferenceable(1384) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 96
@@ -22743,7 +22743,7 @@ _ZN16LinearScanWalker22no_allocation_possibleEP8Interval.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17EdgeMoveOptimizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN17EdgeMoveOptimizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 4, i32 noundef 8) #22
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4
@@ -23142,7 +23142,7 @@ _ZNK10BlockBegin14is_predecessorEPS_.exit:        ; preds = %9, %25, %36, %_ZNK1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17EdgeMoveOptimizer29optimize_moves_at_block_beginEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 4), (24, 28)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17EdgeMoveOptimizer29optimize_moves_at_block_beginEP10BlockBegin(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 {
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8
@@ -23517,7 +23517,7 @@ _ZN17EdgeMoveOptimizer20operations_differentEP6LIR_OpS1_.exit.thread: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN17EdgeMoveOptimizer17init_instructionsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 4), (24, 28)) %0) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN17EdgeMoveOptimizer17init_instructionsEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) local_unnamed_addr #9 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %2, align 8
@@ -23757,7 +23757,7 @@ define hidden noundef zeroext i1 @_ZN17EdgeMoveOptimizer20operations_differentEP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20ControlFlowOptimizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN20ControlFlowOptimizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0) unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 4, i32 noundef 8) #22
   store i32 0, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 4

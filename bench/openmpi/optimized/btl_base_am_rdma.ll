@@ -668,7 +668,7 @@ define internal i32 @am_rdma_cswap(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @am_rdma_component_init(ptr noundef initializes((16, 24)) %0) #0 {
+define internal void @am_rdma_component_init(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -1649,7 +1649,7 @@ am_rdma_copy_to_segments.exit:                    ; preds = %.lr.ph.i, %57, %37,
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @am_rdma_rdma_complete(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr noundef initializes((633, 634)) %4, ptr nocapture readnone %5, i32 %6) #0 {
+define internal void @am_rdma_rdma_complete(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture readnone %2, ptr nocapture readnone %3, ptr noundef %4, ptr nocapture readnone %5, i32 %6) #0 {
   %8 = getelementptr inbounds i8, ptr %4, i64 633
   store i8 1, ptr %8, align 1
   %9 = getelementptr inbounds i8, ptr %4, i64 40
@@ -2974,7 +2974,7 @@ am_rdma_queue_initiator_descriptor.exit:          ; preds = %161, %151, %opal_ob
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @am_rdma_context_init(ptr noundef initializes((48, 56)) %0) #6 {
+define internal void @am_rdma_context_init(ptr noundef %0) #6 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64

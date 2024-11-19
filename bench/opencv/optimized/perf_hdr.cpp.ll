@@ -359,7 +359,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #10
 declare void @_ZN4perf8TestBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Mertens_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Mertens_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -396,7 +396,7 @@ _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Mertens_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Mertens_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -434,7 +434,7 @@ _ZN11opencv_test12_GLOBAL__N_116HDR_Mertens_TestD2Ev.exit: ; preds = %_ZNSt6vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Mertens_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(249) initializes((248, 249)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Mertens_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -1944,7 +1944,7 @@ _ZN11opencv_test12_GLOBAL__N_116HDR_Debevec_TestC2Ev.exit: ; preds = %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Debevec_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Debevec_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -1981,7 +1981,7 @@ _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Debevec_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Debevec_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -2019,7 +2019,7 @@ _ZN11opencv_test12_GLOBAL__N_116HDR_Debevec_TestD2Ev.exit: ; preds = %_ZNSt6vect
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Debevec_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(249) initializes((248, 249)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_116HDR_Debevec_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)
@@ -2593,7 +2593,7 @@ _ZN11opencv_test12_GLOBAL__N_118HDR_Robertson_TestC2Ev.exit: ; preds = %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_118HDR_Robertson_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_118HDR_Robertson_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -2630,7 +2630,7 @@ _ZN4perf8TestBaseD2Ev.exit:                       ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_118HDR_Robertson_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_118HDR_Robertson_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 56) (i8, ptr @_ZTVN4perf8TestBaseE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
@@ -2668,7 +2668,7 @@ _ZN11opencv_test12_GLOBAL__N_118HDR_Robertson_TestD2Ev.exit: ; preds = %_ZNSt6ve
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN11opencv_test12_GLOBAL__N_118HDR_Robertson_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(249) initializes((248, 249)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN11opencv_test12_GLOBAL__N_118HDR_Robertson_Test5SetUpEv(ptr noundef nonnull align 8 dereferenceable(249) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 248
   store i8 0, ptr %2, align 8
   invoke void @_ZN4perf8TestBase5SetUpEv(ptr noundef nonnull align 8 dereferenceable(248) %0)

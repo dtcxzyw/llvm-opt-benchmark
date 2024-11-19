@@ -2049,7 +2049,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit198:                 ; preds = %789, %_ZNSt6vectorI
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN14colvarbias_abf11calc_energyEPKSt6vectorI11colvarvalueSaIS1_EE(ptr nocapture noundef nonnull align 8 dereferenceable(2032) initializes((248, 256)) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN14colvarbias_abf11calc_energyEPKSt6vectorI11colvarvalueSaIS1_EE(ptr nocapture noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   store double 0.000000e+00, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 152
@@ -5616,7 +5616,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit251:                 ; preds = %1028, %_ZNSt6vector
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14colvarbias_abfD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN14colvarbias_abfD1Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN14colvarbias_abfD2Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef nonnull @_ZTT14colvarbias_abf) #23
   %2 = getelementptr inbounds i8, ptr %0, i64 2352
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #23
@@ -5626,7 +5626,7 @@ define void @_ZN14colvarbias_abfD1Ev(ptr noundef nonnull align 8 dereferenceable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14colvarbias_abfD0Ev(ptr noundef nonnull align 8 dereferenceable(2032) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN14colvarbias_abfD0Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN14colvarbias_abfD2Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef nonnull @_ZTT14colvarbias_abf) #23
   %2 = getelementptr inbounds i8, ptr %0, i64 2352
   tail call void @_ZN10colvardepsD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %2) #23
@@ -16795,7 +16795,7 @@ _ZSt8_DestroyIPSt6vectorIdSaIdEEEvT_S4_.exit:     ; preds = %_ZSt8_DestroyISt6ve
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14colvarbias_abfD2Ev(ptr noundef nonnull align 8 dereferenceable(2032) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14colvarbias_abfD2Ev(ptr noundef nonnull align 8 dereferenceable(2032) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32

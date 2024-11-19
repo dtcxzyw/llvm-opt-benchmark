@@ -8736,7 +8736,7 @@ _ZN7obj_refI3app11ast_managerE7dec_refEv.exit:    ; preds = %if.end, %if.then.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11th_rewriterclEP4exprjPKS1_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %n, i32 noundef %num_bindings, ptr nocapture noundef readonly %bindings) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11th_rewriterclEP4exprjPKS1_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef %n, i32 noundef %num_bindings, ptr nocapture noundef readonly %bindings) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
@@ -12368,7 +12368,7 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %entry, %if.then.i.i
 declare void @_ZN13rewriter_coreD2Ev(ptr noundef nonnull align 8 dereferenceable(144)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEE, i64 16), ptr %this, align 8
   %m_shifts = getelementptr inbounds i8, ptr %this, i64 528
@@ -12497,7 +12497,7 @@ _ZN10ptr_vectorI4exprED2Ev.exit:                  ; preds = %_ZN7obj_refI4expr11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEED0Ev(ptr noundef nonnull align 8 dereferenceable(536) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define internal void @_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEED0Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN12rewriter_tplIN12_GLOBAL__N_115th_rewriter_cfgEED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this) #20
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -12815,7 +12815,7 @@ declare void @_ZN10arith_utilC1ER11ast_manager(ptr noundef nonnull align 8 deref
 declare void @_ZN7bv_utilC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(976)) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg17updt_local_paramsERK10params_ref(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2585) initializes((2577, 2578)) %this, ptr noundef nonnull align 8 dereferenceable(8) %_p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115th_rewriter_cfg17updt_local_paramsERK10params_ref(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(2585) %this, ptr noundef nonnull align 8 dereferenceable(8) %_p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %p = alloca %struct.rewriter_params, align 8
   store ptr %_p, ptr %p, align 8

@@ -161,7 +161,7 @@ return:                                           ; preds = %if.end37.i, %if.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6snappy8internal13WorkingMemoryC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 16)) %this, i64 noundef %input_size) unnamed_addr #2 align 2 {
+define dso_local void @_ZN6snappy8internal13WorkingMemoryC2Em(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, i64 noundef %input_size) unnamed_addr #2 align 2 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %input_size, i64 65536)
@@ -234,7 +234,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %fragment_size, ptr nocapture noundef writeonly initializes((0, 4)) %table_size) local_unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %this, i64 noundef %fragment_size, ptr nocapture noundef writeonly %table_size) local_unnamed_addr #4 align 2 {
 entry:
   %conv = trunc i64 %fragment_size to i32
   %cmp.i = icmp ugt i32 %conv, 16384
@@ -790,7 +790,7 @@ if.end124:                                        ; preds = %_ZN6snappyL11EmitLi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN6snappy9MemCopy64EPcPKvm(ptr nocapture noundef writeonly initializes((0, 32)) %dst, ptr nocapture noundef readonly %src, i64 noundef %size) local_unnamed_addr #1 {
+define dso_local void @_ZN6snappy9MemCopy64EPcPKvm(ptr nocapture noundef writeonly %dst, ptr nocapture noundef readonly %src, i64 noundef %size) local_unnamed_addr #1 {
 entry:
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %dst, ptr noundef nonnull align 1 dereferenceable(32) %src, i64 32, i1 false)
   %cmp = icmp ugt i64 %size, 32
@@ -816,7 +816,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6snappy13ClearDeferredEPPKvPmPh(ptr nocapture noundef writeonly initializes((0, 8)) %deferred_src, ptr nocapture noundef writeonly initializes((0, 8)) %deferred_length, ptr noundef %safe_source) local_unnamed_addr #7 {
+define dso_local void @_ZN6snappy13ClearDeferredEPPKvPmPh(ptr nocapture noundef writeonly %deferred_src, ptr nocapture noundef writeonly %deferred_length, ptr noundef %safe_source) local_unnamed_addr #7 {
 entry:
   store ptr %safe_source, ptr %deferred_src, align 8
   store i64 0, ptr %deferred_length, align 8
@@ -824,7 +824,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN6snappy12DeferMemCopyEPPKvPmS1_m(ptr nocapture noundef writeonly initializes((0, 8)) %deferred_src, ptr nocapture noundef writeonly initializes((0, 8)) %deferred_length, ptr noundef %src, i64 noundef %length) local_unnamed_addr #7 {
+define dso_local void @_ZN6snappy12DeferMemCopyEPPKvPmS1_m(ptr nocapture noundef writeonly %deferred_src, ptr nocapture noundef writeonly %deferred_length, ptr noundef %src, i64 noundef %length) local_unnamed_addr #7 {
 entry:
   store ptr %src, ptr %deferred_src, align 8
   store i64 %length, ptr %deferred_length, align 8
@@ -988,7 +988,7 @@ return:                                           ; preds = %while.body, %while.
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPNS_6SourceEPj(ptr noundef %source, ptr nocapture noundef initializes((0, 4)) %result) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN6snappy21GetUncompressedLengthEPNS_6SourceEPj(ptr noundef %source, ptr nocapture noundef %result) local_unnamed_addr #2 {
 entry:
   %n.i = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %n.i)
@@ -1743,7 +1743,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN6snappy11RawCompressEPKcmPcPm(ptr noundef %input, i64 noundef %input_length, ptr noundef %compressed, ptr nocapture noundef writeonly initializes((0, 8)) %compressed_length) local_unnamed_addr #2 {
+define dso_local void @_ZN6snappy11RawCompressEPKcmPcPm(ptr noundef %input, i64 noundef %input_length, ptr noundef %compressed, ptr nocapture noundef writeonly %compressed_length) local_unnamed_addr #2 {
 entry:
   %reader = alloca %"class.snappy::ByteArraySource", align 8
   %writer = alloca %"class.snappy::UncheckedByteArraySink", align 8

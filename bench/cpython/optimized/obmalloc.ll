@@ -7143,7 +7143,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_arena_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i64 noundef %align_offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr nocapture noundef writeonly initializes((0, 24)) %memid, ptr nocapture noundef readonly %tld) local_unnamed_addr #0 {
+define hidden ptr @_mi_arena_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i64 noundef %align_offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr nocapture noundef writeonly %memid, ptr nocapture noundef readonly %tld) local_unnamed_addr #0 {
 entry:
   %arena_id = alloca i32, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid, i8 0, i64 24, i1 false)
@@ -7796,7 +7796,7 @@ entry:
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_aligned_at_offset(i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly initializes((0, 24)) %memid, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #0 {
+define hidden ptr @_mi_os_alloc_aligned_at_offset(i64 noundef %size, i64 noundef %alignment, i64 noundef %offset, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly %memid, ptr nocapture noundef readnone %tld_stats) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid, i8 0, i64 24, i1 false)
   %cmp = icmp ugt i64 %offset, 33554432
@@ -7918,7 +7918,7 @@ return:                                           ; preds = %if.then3.i.i, %if.e
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly initializes((0, 24)) %memid, ptr nocapture readnone %tld_stats) local_unnamed_addr #0 {
+define hidden ptr @_mi_os_alloc_aligned(i64 noundef %size, i64 noundef %alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly %memid, ptr nocapture readnone %tld_stats) local_unnamed_addr #0 {
 entry:
   %os_is_large = alloca i8, align 1
   %os_is_zero = alloca i8, align 1
@@ -8196,7 +8196,7 @@ return:                                           ; preds = %if.end19.i, %mi_os_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_arena_alloc(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr nocapture noundef writeonly initializes((0, 24)) %memid, ptr nocapture noundef readonly %tld) local_unnamed_addr #0 {
+define hidden ptr @_mi_arena_alloc(i64 noundef %size, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr nocapture noundef writeonly %memid, ptr nocapture noundef readonly %tld) local_unnamed_addr #0 {
 entry:
   %call = tail call ptr @_mi_arena_alloc_aligned(i64 noundef %size, i64 noundef 33554432, i64 noundef 0, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, i32 noundef %req_arena_id, ptr noundef %memid, ptr noundef %tld)
   ret ptr %call
@@ -9935,7 +9935,7 @@ return:                                           ; preds = %if.end17, %if.end, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %max_msecs, ptr noundef writeonly %pages_reserved, ptr noundef writeonly %psize, ptr nocapture noundef writeonly initializes((0, 24)) %memid) local_unnamed_addr #0 {
+define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %pages, i32 noundef %numa_node, i64 noundef %max_msecs, ptr noundef writeonly %pages_reserved, ptr noundef writeonly %psize, ptr nocapture noundef writeonly %memid) local_unnamed_addr #0 {
 entry:
   %t.i.i.i40 = alloca %struct.timespec, align 8
   %t.i.i7.i = alloca %struct.timespec, align 8
@@ -16396,7 +16396,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_prim_mem_init(ptr nocapture noundef writeonly initializes((8, 16), (24, 27)) %config) local_unnamed_addr #0 {
+define hidden void @_mi_prim_mem_init(ptr nocapture noundef writeonly %config) local_unnamed_addr #0 {
 entry:
   %buf.i = alloca [32 x i8], align 16
   %call = tail call i64 @sysconf(i32 noundef 30) #45
@@ -16621,7 +16621,7 @@ return:                                           ; preds = %if.else.i.i19, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc(i64 noundef %size, ptr nocapture noundef writeonly initializes((0, 24)) %memid, ptr nocapture readnone %tld_stats) local_unnamed_addr #0 {
+define hidden ptr @_mi_os_alloc(i64 noundef %size, ptr nocapture noundef writeonly %memid, ptr nocapture readnone %tld_stats) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %memid, i8 0, i64 24, i1 false)
   %cmp = icmp eq i64 %size, 0
@@ -17100,7 +17100,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_mi_prim_commit(ptr noundef %start, i64 noundef %size, ptr nocapture noundef writeonly initializes((0, 1)) %is_zero) local_unnamed_addr #0 {
+define hidden i32 @_mi_prim_commit(ptr noundef %start, i64 noundef %size, ptr nocapture noundef writeonly %is_zero) local_unnamed_addr #0 {
 entry:
   store i8 0, ptr %is_zero, align 1
   %call = tail call i32 @mprotect(ptr noundef %start, i64 noundef %size, i32 noundef 3) #45
@@ -17693,7 +17693,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_mi_prim_alloc_huge_os_pages(ptr noundef %hint_addr, i64 noundef %size, i32 noundef %numa_node, ptr nocapture noundef writeonly initializes((0, 1)) %is_zero, ptr nocapture noundef initializes((0, 8)) %addr) local_unnamed_addr #0 {
+define hidden i32 @_mi_prim_alloc_huge_os_pages(ptr noundef %hint_addr, i64 noundef %size, i32 noundef %numa_node, ptr nocapture noundef writeonly %is_zero, ptr nocapture noundef %addr) local_unnamed_addr #0 {
 entry:
   %numa_mask = alloca i64, align 8
   store i8 1, ptr %is_zero, align 1
@@ -18290,7 +18290,7 @@ for.end:                                          ; preds = %for.body, %if.end25
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_mi_page_reclaim(ptr noundef %heap, ptr noundef initializes((56, 72)) %page) local_unnamed_addr #27 {
+define hidden void @_mi_page_reclaim(ptr noundef %heap, ptr noundef %page) local_unnamed_addr #27 {
 entry:
   %xblock_size.i = getelementptr inbounds i8, ptr %page, i64 28
   %0 = load i32, ptr %xblock_size.i, align 4
@@ -24430,7 +24430,7 @@ if.end69:                                         ; preds = %if.then67, %if.end6
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_prim_process_info(ptr nocapture noundef writeonly initializes((8, 24), (32, 40), (56, 64)) %pinfo) local_unnamed_addr #0 {
+define hidden void @_mi_prim_process_info(ptr nocapture noundef writeonly %pinfo) local_unnamed_addr #0 {
 entry:
   %rusage = alloca %struct.rusage, align 8
   %call = call i32 @getrusage(i32 noundef 0, ptr noundef nonnull %rusage) #45
@@ -24487,7 +24487,7 @@ cond.end:                                         ; preds = %entry, %cond.true
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #31
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_mi_prim_alloc(i64 noundef %size, i64 noundef %try_alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly initializes((0, 1)) %is_large, ptr nocapture noundef writeonly initializes((0, 1)) %is_zero, ptr nocapture noundef writeonly initializes((0, 8)) %addr) local_unnamed_addr #0 {
+define hidden i32 @_mi_prim_alloc(i64 noundef %size, i64 noundef %try_alignment, i1 noundef zeroext %commit, i1 noundef zeroext %allow_large, ptr nocapture noundef writeonly %is_large, ptr nocapture noundef writeonly %is_zero, ptr nocapture noundef writeonly %addr) local_unnamed_addr #0 {
 entry:
   store i8 1, ptr %is_zero, align 1
   %cond = select i1 %commit, i32 3, i32 0
@@ -24605,7 +24605,7 @@ cond.end:                                         ; preds = %unix_mmap.exit.thre
 declare i32 @mprotect(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #31
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @_mi_prim_decommit(ptr noundef %start, i64 noundef %size, ptr nocapture noundef writeonly initializes((0, 1)) %needs_recommit) local_unnamed_addr #0 {
+define hidden i32 @_mi_prim_decommit(ptr noundef %start, i64 noundef %size, ptr nocapture noundef writeonly %needs_recommit) local_unnamed_addr #0 {
 entry:
   %call.i = tail call i32 @madvise(ptr noundef %start, i64 noundef %size, i32 noundef 4) #45
   store i8 0, ptr %needs_recommit, align 1
@@ -25707,7 +25707,7 @@ PyMutex_Unlock.exit:                              ; preds = %set_up_debug_hooks_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyMem_GetAllocator(i32 noundef %domain, ptr nocapture noundef writeonly initializes((0, 40)) %allocator) local_unnamed_addr #0 {
+define dso_local void @PyMem_GetAllocator(i32 noundef %domain, ptr nocapture noundef writeonly %allocator) local_unnamed_addr #0 {
 entry:
   %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
@@ -25797,7 +25797,7 @@ PyMutex_Unlock.exit:                              ; preds = %set_allocator_unloc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyObject_GetArenaAllocator(ptr nocapture noundef writeonly initializes((0, 24)) %allocator) local_unnamed_addr #0 {
+define dso_local void @PyObject_GetArenaAllocator(ptr nocapture noundef writeonly %allocator) local_unnamed_addr #0 {
 entry:
   %0 = cmpxchg ptr getelementptr inbounds (i8, ptr @_PyRuntime, i64 400), i8 0, i8 1 seq_cst seq_cst, align 1
   %1 = extractvalue { i8, i1 } %0, 1
@@ -30434,7 +30434,7 @@ return:                                           ; preds = %for.body.i26, %mi_c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_commit_mask(ptr noundef %segment, i1 noundef zeroext %conservative, ptr noundef %p, i64 noundef %size, ptr nocapture noundef nonnull writeonly %start_p, ptr nocapture noundef nonnull writeonly %full_size, ptr nocapture noundef nonnull writeonly initializes((0, 64)) %cm) unnamed_addr #0 {
+define internal fastcc void @mi_segment_commit_mask(ptr noundef %segment, i1 noundef zeroext %conservative, ptr noundef %p, i64 noundef %size, ptr nocapture noundef nonnull writeonly %start_p, ptr nocapture noundef nonnull writeonly %full_size, ptr nocapture noundef nonnull writeonly %cm) unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %cm, i8 0, i64 64, i1 false)
   %0 = add i64 %size, -33554433

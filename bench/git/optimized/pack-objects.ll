@@ -195,7 +195,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @prepare_packing_data(ptr noundef %r, ptr noundef initializes((0, 8)) %pdata) local_unnamed_addr #1 {
+define dso_local void @prepare_packing_data(ptr noundef %r, ptr noundef %pdata) local_unnamed_addr #1 {
 entry:
   store ptr %r, ptr %pdata, align 8
   %call = tail call i32 @git_env_bool(ptr noundef nonnull @.str.2, i32 noundef 0) #11
@@ -674,7 +674,7 @@ declare ptr @xrealloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @oe_set_delta_ext(ptr nocapture noundef %pdata, ptr nocapture noundef initializes((72, 76)) %delta, ptr nocapture noundef readonly %oid) local_unnamed_addr #1 {
+define dso_local void @oe_set_delta_ext(ptr nocapture noundef %pdata, ptr nocapture noundef %delta, ptr nocapture noundef readonly %oid) local_unnamed_addr #1 {
 entry:
   %nr_ext = getelementptr inbounds i8, ptr %pdata, i64 120
   %0 = load i32, ptr %nr_ext, align 8

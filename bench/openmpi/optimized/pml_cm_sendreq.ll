@@ -688,7 +688,7 @@ declare i32 @opal_pointer_array_set_item(ptr noundef, i32 noundef, ptr noundef) 
 declare i32 @mca_pml_base_bsend_request_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @mca_pml_cm_send_request_construct(ptr nocapture noundef writeonly initializes((112, 136)) %0) #3 {
+define internal void @mca_pml_cm_send_request_construct(ptr nocapture noundef writeonly %0) #3 {
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr @mca_pml_cm_start, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 120

@@ -3312,7 +3312,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_18RefStateEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -4628,7 +4628,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKvPN5clang4ento11CheckerBaseENS_12DenseMapI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113MallocCheckerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(620) initializes((0, 496)) %0) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113MallocCheckerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(620) %0) unnamed_addr #2 align 2 {
 .preheader1930.preheader:
   %1 = alloca [2 x %"struct.std::pair.1177"], align 8
   %2 = alloca %"class.clang::ento::CallDescription", align 8
@@ -9983,7 +9983,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit24: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang4ento18CallDescriptionMapISt8functionIFvPKN12_GLOBAL__N_113MallocCheckerERKNS0_9CallEventERNS0_14CheckerContextEEEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionESD_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((0, 24)) %0, ptr %.0.val, i64 %.8.val) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN5clang4ento18CallDescriptionMapISt8functionIFvPKN12_GLOBAL__N_113MallocCheckerERKNS0_9CallEventERNS0_14CheckerContextEEEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionESD_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr %.0.val, i64 %.8.val) unnamed_addr #2 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds %"struct.std::pair.1177", ptr %.0.val, i64 %.8.val
   %.idx.i = mul nsw i64 %.8.val, 96
@@ -13568,7 +13568,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit52: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MallocCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(620) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MallocCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(620) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_113MallocCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %3 = load ptr, ptr %2, align 8
@@ -14070,7 +14070,7 @@ _ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EED2Ev.exit119: ; p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_113MallocCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(620) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_113MallocCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(620) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN12_GLOBAL__N_113MallocCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(620) %0) #25
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 624) #28
   ret void
@@ -22233,7 +22233,7 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit251: ; preds 
 declare void @_ZN5clang4ento18BugReporterVisitor15finalizeVisitorERNS0_18BugReporterContextEPKNS0_12ExplodedNodeERNS0_22PathSensitiveBugReportE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, ptr noundef nonnull align 8 dereferenceable(1016)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116MallocBugVisitor10getEndPathERN5clang4ento18BugReporterContextEPKNS2_12ExplodedNodeERNS2_22PathSensitiveBugReportE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.1667") align 8 initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, ptr noundef nonnull align 8 dereferenceable(1016) %4) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_116MallocBugVisitor10getEndPathERN5clang4ento18BugReporterContextEPKNS2_12ExplodedNodeERNS2_22PathSensitiveBugReportE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.1667") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture readnone %3, ptr noundef nonnull align 8 dereferenceable(1016) %4) unnamed_addr #2 align 2 {
   %6 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %8 = load i8, ptr %7, align 8
@@ -22333,7 +22333,7 @@ declare void @_ZN5clang4ento16CallEventManager13getSimpleCallEPKNS_8CallExprEN4l
 declare noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116MallocBugVisitor39StackHintGeneratorForReallocationFailedEJRPKN5clang4ento7SymExprERA20_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 8)) %0, ptr %.0.val) unnamed_addr #2 {
+define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_116MallocBugVisitor39StackHintGeneratorForReallocationFailedEJRPKN5clang4ento7SymExprERA20_KcEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr %.0.val) unnamed_addr #2 {
   %2 = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %3 = alloca %"class.std::allocator.141", align 1
   %4 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
@@ -22891,7 +22891,7 @@ declare noundef zeroext i1 @_ZNK4llvm9StringRef21ends_with_insensitiveES0_(ptr n
 declare noundef i64 @_ZNK4llvm9StringRef16find_insensitiveES0_m(ptr noundef nonnull align 8 dereferenceable(16), ptr, i64, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116MallocBugVisitor39StackHintGeneratorForReallocationFailedD2Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_116MallocBugVisitor39StackHintGeneratorForReallocationFailedD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5clang4ento27StackHintGeneratorForSymbolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -22900,7 +22900,7 @@ define internal void @_ZN12_GLOBAL__N_116MallocBugVisitor39StackHintGeneratorFor
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_116MallocBugVisitor39StackHintGeneratorForReallocationFailedD0Ev(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_116MallocBugVisitor39StackHintGeneratorForReallocationFailedD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 48) (i8, ptr @_ZTVN5clang4ento27StackHintGeneratorForSymbolE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
@@ -23862,7 +23862,7 @@ _ZN4llvm16FoldingSetNodeIDD2Ev.exit:              ; preds = %_ZN4llvm11ImutAVLTr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) initializes((8, 16)) %0, i32 noundef %1) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111ReallocPairEEEEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjSD_EEEEjSD_SF_SI_E4growEj(ptr nocapture noundef nonnull align 1 dereferenceable(1) %0, i32 noundef %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -32575,7 +32575,7 @@ declare void @_ZN5clang4ento22PathDiagnosticLocation11createBeginEPKNS_4StmtERKN
 declare noundef ptr @_ZNK5clang4ento9VarRegion13getStackFrameEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127NoMemOwnershipChangeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_127NoMemOwnershipChangeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento24NoStateChangeFuncVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -32606,7 +32606,7 @@ _ZN5clang4ento24NoOwnershipChangeVisitorD2Ev.exit: ; preds = %_ZN4llvm11SmallPtr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127NoMemOwnershipChangeVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_127NoMemOwnershipChangeVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(616) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN5clang4ento24NoStateChangeFuncVisitorE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -33676,7 +33676,7 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_111RegionStateEEENS0_17ProgramSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_127NoMemOwnershipChangeVisitor8emitNoteEPKN5clang4ento12ExplodedNodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.1667") align 8 initializes((0, 16)) %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_127NoMemOwnershipChangeVisitor8emitNoteEPKN5clang4ento12ExplodedNodeE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::shared_ptr.1667") align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef readonly %2) unnamed_addr #2 align 2 {
   %4 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %5 = alloca %"class.clang::ProgramPoint", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8

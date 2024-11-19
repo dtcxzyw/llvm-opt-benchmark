@@ -69,7 +69,7 @@ _ZNSt12_Vector_baseIN7rocksdb5SliceESaIS1_EED2Ev.exit: ; preds = %invoke.cont, %
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb3log6WriterC2EOSt10unique_ptrINS_18WritableFileWriterESt14default_deleteIS3_EEmbbNS_15CompressionTypeE(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 25), (76, 78), (80, 96)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %dest, i64 noundef %log_number, i1 noundef zeroext %recycle_log_files, i1 noundef zeroext %manual_flush, i8 noundef zeroext %compression_type) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb3log6WriterC2EOSt10unique_ptrINS_18WritableFileWriterESt14default_deleteIS3_EEmbbNS_15CompressionTypeE(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull align 8 dereferenceable(8) %dest, i64 noundef %log_number, i1 noundef zeroext %recycle_log_files, i1 noundef zeroext %manual_flush, i8 noundef zeroext %compression_type) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca i8, align 1
   %frombool = zext i1 %recycle_log_files to i8
@@ -392,7 +392,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #4
 declare void @_ZN7rocksdb18WritableFileWriter5FlushENS_3Env10IOPriorityE(ptr sret(%"class.rocksdb::IOStatus") align 8, ptr noundef nonnull align 8 dereferenceable(218), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb3log6Writer5CloseEv(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(152) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb3log6Writer5CloseEv(ptr noalias writeonly sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(152) %this) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8
   store i8 0, ptr %agg.result, align 8
@@ -481,7 +481,7 @@ nrvo.skipdtor:                                    ; preds = %_ZNKSt14default_del
 declare void @_ZN7rocksdb18WritableFileWriter5CloseEv(ptr sret(%"class.rocksdb::IOStatus") align 8, ptr noundef nonnull align 8 dereferenceable(218)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb3log6Writer9AddRecordERKNS_5SliceENS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %slice, i32 noundef %rate_limiter_priority) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb3log6Writer9AddRecordERKNS_5SliceENS_3Env10IOPriorityE(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(152) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %slice, i32 noundef %rate_limiter_priority) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %left = alloca i64, align 8
   %ref.tmp = alloca %"class.rocksdb::IOStatus", align 8

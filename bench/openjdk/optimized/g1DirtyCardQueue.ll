@@ -415,7 +415,7 @@ define hidden noundef i32 @_ZN19G1DirtyCardQueueSet11num_par_idsEv() local_unnam
 declare void @_ZN11G1FreeIdSetC1Ejj(ptr noundef nonnull align 8 dereferenceable(64), i32 noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1DirtyCardQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(928) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1DirtyCardQueueSetD2Ev(ptr noundef nonnull align 8 dereferenceable(928) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 8) (i8, ptr @_ZTV19G1DirtyCardQueueSet, i64 16), ptr %0, align 8
   tail call void @_ZN19G1DirtyCardQueueSet25abandon_completed_buffersEv(ptr noundef nonnull align 8 dereferenceable(928) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 784
@@ -1856,7 +1856,7 @@ declare void @_ZN7Threads10threads_doEP13ThreadClosure(ptr noundef) local_unname
 declare void @_ZN23G1ConcurrentRefineStats5resetEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1DirtyCardQueueSet23update_refinement_statsER23G1ConcurrentRefineStats(ptr noundef nonnull align 8 dereferenceable(928) initializes((848, 888)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1DirtyCardQueueSet23update_refinement_statsER23G1ConcurrentRefineStats(ptr noundef nonnull align 8 dereferenceable(928) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 848
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 656
@@ -1920,7 +1920,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerD2E
 declare noundef nonnull align 8 dereferenceable(40) ptr @_ZN23G1ConcurrentRefineStatspLERKS_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19G1DirtyCardQueueSet25concatenate_log_and_statsEP6Thread(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.G1ConcurrentRefineStats) align 8 initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(928) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN19G1DirtyCardQueueSet25concatenate_log_and_statsEP6Thread(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.G1ConcurrentRefineStats) align 8 %0, ptr noundef nonnull align 8 dereferenceable(928) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 64
   %5 = load i64, ptr %4, align 8
   %6 = lshr i64 %5, 3
@@ -1960,7 +1960,7 @@ _ZN19G1DirtyCardQueueSet11flush_queueER16G1DirtyCardQueue.exit: ; preds = %9, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZNK19G1DirtyCardQueueSet29concatenated_refinement_statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.G1ConcurrentRefineStats) align 8 initializes((0, 40)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(928) %1) local_unnamed_addr #9 align 2 {
+define hidden void @_ZNK19G1DirtyCardQueueSet29concatenated_refinement_statsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.G1ConcurrentRefineStats) align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(928) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 848
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %3, i64 40, i1 false)
   ret void

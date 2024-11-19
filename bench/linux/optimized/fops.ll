@@ -779,7 +779,7 @@ define internal i32 @blkdev_init() #4 section ".init.text" align 16 {
 declare dso_local i32 @block_read_full_folio(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @blkdev_get_block(ptr noundef %0, i64 noundef %1, ptr noundef initializes((24, 32), (48, 56)) %2, i32 %3) #0 align 16 {
+define internal noundef i32 @blkdev_get_block(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 %3) #0 align 16 {
   %5 = tail call ptr @I_BDEV(ptr noundef %0) #9
   %6 = getelementptr inbounds i8, ptr %2, i64 48
   store ptr %5, ptr %6, align 8
@@ -1959,7 +1959,7 @@ declare dso_local void @kiocb_invalidate_post_direct_write(ptr noundef, i64 noun
 declare dso_local i64 @iomap_file_buffered_write(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -5, 1) i32 @blkdev_iomap_begin(ptr noundef %0, i64 noundef %1, i64 %2, i32 %3, ptr nocapture noundef initializes((8, 16), (32, 40)) %4, ptr nocapture readnone %5) #0 align 16 {
+define internal noundef range(i32 -5, 1) i32 @blkdev_iomap_begin(ptr noundef %0, i64 noundef %1, i64 %2, i32 %3, ptr nocapture noundef %4, ptr nocapture readnone %5) #0 align 16 {
   %7 = tail call ptr @I_BDEV(ptr noundef %0) #9
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = load i64, ptr %8, align 8

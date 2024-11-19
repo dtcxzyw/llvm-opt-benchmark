@@ -3020,13 +3020,13 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen9swiftcall24mustPassRecord
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen9swiftcall18classifyReturnTypeERNS0_13CodeGenModuleENS_7CanQualINS_4TypeEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 initializes((0, 25)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang7CodeGen9swiftcall18classifyReturnTypeERNS0_13CodeGenModuleENS_7CanQualINS_4TypeEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, i64 %2) local_unnamed_addr #0 {
   tail call fastcc void @_ZL12classifyTypeRN5clang7CodeGen13CodeGenModuleENS_7CanQualINS_4TypeEEEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, i64 %2, i1 noundef zeroext true)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL12classifyTypeRN5clang7CodeGen13CodeGenModuleENS_7CanQualINS_4TypeEEEb(ptr dead_on_unwind noalias nocapture writable align 8 initializes((0, 25)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, i64 %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @_ZL12classifyTypeRN5clang7CodeGen13CodeGenModuleENS_7CanQualINS_4TypeEEEb(ptr dead_on_unwind noalias nocapture writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, i64 %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::CodeGen::swiftcall::SwiftAggLowering", align 8
   %6 = alloca %"class.clang::CodeGen::swiftcall::SwiftAggLowering", align 8
   %7 = and i64 %2, -16
@@ -3283,13 +3283,13 @@ _ZN5clang7CodeGen9swiftcall16SwiftAggLoweringD2Ev.exit: ; preds = %115, %_ZL20cl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen9swiftcall20classifyArgumentTypeERNS0_13CodeGenModuleENS_7CanQualINS_4TypeEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 initializes((0, 25)) %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang7CodeGen9swiftcall20classifyArgumentTypeERNS0_13CodeGenModuleENS_7CanQualINS_4TypeEEE(ptr dead_on_unwind noalias nocapture writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, i64 %2) local_unnamed_addr #0 {
   tail call fastcc void @_ZL12classifyTypeRN5clang7CodeGen13CodeGenModuleENS_7CanQualINS_4TypeEEEb(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(3600) %1, i64 %2, i1 noundef zeroext false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen9swiftcall14computeABIInfoERNS0_13CodeGenModuleERNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(3600) %0, ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((48, 75)) %1) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang7CodeGen9swiftcall14computeABIInfoERNS0_13CodeGenModuleERNS0_14CGFunctionInfoE(ptr noundef nonnull align 8 dereferenceable(3600) %0, ptr nocapture noundef nonnull align 8 dereferenceable(40) %1) local_unnamed_addr #0 {
   %3 = alloca %"class.clang::CodeGen::ABIArgInfo", align 8
   %4 = alloca %"class.clang::CodeGen::ABIArgInfo", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 48

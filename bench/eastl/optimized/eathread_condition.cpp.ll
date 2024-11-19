@@ -13,7 +13,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN2EA6Thread9ConditionD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN2EA6Thread9ConditionD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN15EAConditionDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %this) unnamed_addr #0 align 2 {
+define dso_local void @_ZN15EAConditionDataC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %this, i8 0, i64 48, i1 false)
   ret void
@@ -23,7 +23,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN2EA6Thread19ConditionParametersC2EbPKc(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(17) initializes((0, 1)) %this, i1 noundef zeroext %bIntraProcess, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN2EA6Thread19ConditionParametersC2EbPKc(ptr nocapture noundef nonnull writeonly align 1 dereferenceable(17) %this, i1 noundef zeroext %bIntraProcess, ptr nocapture readnone %0) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %bIntraProcess to i8
   store i8 %frombool, ptr %this, align 1
@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA6Thread9ConditionC2EPKNS0_19ConditionParametersEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef readonly %pConditionParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #2 align 2 {
+define dso_local void @_ZN2EA6Thread9ConditionC2EPKNS0_19ConditionParametersEb(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly %pConditionParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #2 align 2 {
 entry:
   %cattr.i6 = alloca %union.pthread_condattr_t, align 4
   %cattr.i = alloca %union.pthread_condattr_t, align 4
@@ -259,7 +259,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN2EA6Thread16ConditionFactory18ConstructConditionEPv(ptr noundef returned initializes((0, 48)) %pMemory) local_unnamed_addr #2 align 2 {
+define dso_local noundef ptr @_ZN2EA6Thread16ConditionFactory18ConstructConditionEPv(ptr noundef returned %pMemory) local_unnamed_addr #2 align 2 {
 entry:
   %cattr.i6.i = alloca %union.pthread_condattr_t, align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %pMemory, i8 0, i64 48, i1 false)

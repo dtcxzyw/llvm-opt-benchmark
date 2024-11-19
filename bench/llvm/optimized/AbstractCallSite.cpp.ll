@@ -161,7 +161,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.thread: ; preds = %81, %_ZNK4llvm6M
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16AbstractCallSiteC2EPKNS_3UseE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm16AbstractCallSiteC2EPKNS_3UseE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = load i8, ptr %4, align 8

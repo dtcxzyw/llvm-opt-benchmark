@@ -6135,7 +6135,7 @@ sema_analyse_for_cond.exit89.thread:              ; preds = %121, %119, %sema_an
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_analyse_switch_stmt(ptr noundef %0, ptr noundef initializes((40, 48)) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_analyse_switch_stmt(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.Int, align 8
   %4 = alloca %struct.DynamicScope_, align 8
   %5 = alloca %struct.DynamicScope_, align 8
@@ -8657,7 +8657,7 @@ declare void @sema_erase_var(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @sema_erase_unwrapped(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sema_inline_return_defers(ptr noundef %0, ptr nocapture noundef initializes((24, 28)) %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @sema_inline_return_defers(ptr noundef %0, ptr nocapture noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = tail call i32 @context_get_defers(ptr noundef %0, i32 noundef %2, i32 noundef %3, i1 noundef zeroext true) #9
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 24

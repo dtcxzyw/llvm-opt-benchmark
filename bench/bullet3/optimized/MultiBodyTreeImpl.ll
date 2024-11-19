@@ -101,7 +101,7 @@ $_ZN20b3AlignedObjectArrayIPvE7reserveEi = comdat any
 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImplC1Eii = dso_local unnamed_addr alias void (ptr, i32, i32), ptr @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImplC2Eii
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImplC2Eii(ptr noundef nonnull align 8 dereferenceable(400) initializes((0, 8), (28, 36), (40, 49), (60, 68), (72, 81), (92, 100), (104, 113), (124, 132), (136, 145), (156, 164), (168, 177), (188, 196), (200, 209), (220, 228), (232, 241), (252, 260), (264, 273), (284, 292), (296, 305), (312, 332), (340, 348), (352, 361), (372, 380), (384, 393)) %this, i32 noundef %num_bodies_, i32 noundef %num_dofs_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImplC2Eii(ptr noundef nonnull align 8 dereferenceable(400) %this, i32 noundef %num_bodies_, i32 noundef %num_dofs_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont15:
   %__profile.i.i.i = alloca %class.CProfileSample, align 1
   %ref.tmp = alloca %"struct.btInverseDynamicsBullet3::RigidBody", align 8
@@ -1182,7 +1182,7 @@ return:                                           ; preds = %switch.lookup, %do.
 declare void @b3OutputErrorMessageVarArgsInternal(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22setGravityInWorldFrameERKNS_4vec3E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) initializes((8, 24)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %gravity) local_unnamed_addr #5 align 2 {
+define dso_local noundef i32 @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl22setGravityInWorldFrameERKNS_4vec3E(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(400) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %gravity) local_unnamed_addr #5 align 2 {
 entry:
   %m_world_gravity = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_world_gravity, ptr noundef nonnull align 4 dereferenceable(16) %gravity, i64 16, i1 false)

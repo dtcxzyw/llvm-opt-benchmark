@@ -117,7 +117,7 @@ $_ZN26GrowableArrayWithAllocatorIP15ciInstanceKlass13GrowableArrayIS1_EE9expand_
 @_ZN10ciTypeFlowC1EP5ciEnvP8ciMethodi = hidden unnamed_addr alias void (ptr, ptr, ptr, i32), ptr @_ZN10ciTypeFlowC2EP5ciEnvP8ciMethodi
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ciTypeFlow6JsrSetC2EP5Arenai(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 32)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ciTypeFlow6JsrSetC2EP5Arenai(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = tail call noundef ptr @_ZN27GrowableArrayArenaAllocator8allocateEiiP5Arena(i32 noundef %2, i32 noundef 8, ptr noundef %1) #14
   store i32 0, ptr %4, align 8
@@ -144,7 +144,7 @@ _ZN13GrowableArrayIPN10ciTypeFlow9JsrRecordEEC2EP5ArenaiiRKS2_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ciTypeFlow6JsrSetC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((8, 32)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ciTypeFlow6JsrSetC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef %1, i32 noundef 8) #14
   store i32 0, ptr %3, align 8
@@ -170,7 +170,7 @@ _ZN13GrowableArrayIPN10ciTypeFlow9JsrRecordEEC2EiiRKS2_.exit: ; preds = %2, %.lr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ciTypeFlow6JsrSet9copy_intoEPS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef initializes((8, 12)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10ciTypeFlow6JsrSet9copy_intoEPS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -1249,7 +1249,7 @@ declare noundef ptr @_ZN15ciObjArrayKlass4makeEP7ciKlass(ptr noundef) local_unna
 declare noundef ptr @_ZN7ciKlass21least_common_ancestorEPS_(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ciTypeFlow11StateVectorC2EPS_(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((0, 24), (32, 40)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ciTypeFlow11StateVectorC2EPS_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1714,7 +1714,7 @@ define hidden noundef ptr @_ZN10ciTypeFlow8block_atEiPNS_6JsrSetENS_12CreateOpti
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ciTypeFlow10flow_blockEPNS_5BlockEPNS_11StateVectorEPNS_6JsrSetE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef initializes((8, 16)) %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10ciTypeFlow10flow_blockEPNS_5BlockEPNS_11StateVectorEPNS_6JsrSetE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.ciBytecodeStream, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 4
@@ -2381,7 +2381,7 @@ _ZN10ciTypeFlow11StateVector9half_typeEP6ciType.exit: ; preds = %30, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZNK10ciTypeFlow11StateVector9copy_intoEPS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef initializes((8, 16)) %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZNK10ciTypeFlow11StateVector9copy_intoEPS0_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2787,7 +2787,7 @@ define linkonce_odr hidden noundef ptr @_ZN10ciTypeFlow11StateVector12pop_objArr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ciTypeFlow11StateVector4trapEP16ciBytecodeStreamP7ciKlassi(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((24, 32)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10ciTypeFlow11StateVector4trapEP16ciBytecodeStreamP7ciKlassi(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = alloca [100 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8
@@ -3775,7 +3775,7 @@ declare noundef ptr @_ZN14Deoptimization19format_trap_requestEPcmi(ptr noundef, 
 declare void @_ZN9xmlStream8end_elemEv(ptr noundef nonnull align 8 dereferenceable(152)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10ciTypeFlow11StateVector18apply_one_bytecodeEP16ciBytecodeStream(ptr noundef nonnull align 8 dereferenceable(40) initializes((24, 32)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN10ciTypeFlow11StateVector18apply_one_bytecodeEP16ciBytecodeStream(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 -1, ptr %4, align 8
@@ -6313,7 +6313,7 @@ _ZN10ciTypeFlow5Block10exceptionsEv.exit:         ; preds = %15, %10, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ciTypeFlow5BlockC2EPS_P7ciBlockPNS_6JsrSetE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 56)) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ciTypeFlow5BlockC2EPS_P7ciBlockPNS_6JsrSetE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   %6 = load ptr, ptr %1, align 8
   %7 = load ptr, ptr %6, align 8
@@ -6505,7 +6505,7 @@ _ZN10ciTypeFlow6JsrSet9copy_intoEPS0_.exit:       ; preds = %_ZN26GrowableArrayW
 declare noundef ptr @_ZN6AnyObjnwEmP5Arena(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ciTypeFlow5Block7df_initEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((80, 88), (89, 91), (104, 120)) %0) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN10ciTypeFlow5Block7df_initEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 84
@@ -7257,7 +7257,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIPN10ciTy
 declare noundef i32 @_ZNK20Bytecode_tableswitch14dest_offset_atEi(ptr noundef nonnull align 8 dereferenceable(12), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ciTypeFlow5Block18compute_exceptionsEv(ptr noundef nonnull align 8 dereferenceable(120) initializes((8, 24)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10ciTypeFlow5Block18compute_exceptionsEv(ptr noundef nonnull align 8 dereferenceable(120) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.ciExceptionHandlerStream, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8
@@ -7595,7 +7595,7 @@ _ZNK10ciMetadata9is_loadedEv.exit.thread:         ; preds = %33, %_ZNK10ciMetada
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN10ciTypeFlow5Block17set_backedge_copyEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((88, 89)) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN10ciTypeFlow5Block17set_backedge_copyEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0, i1 noundef zeroext %1) local_unnamed_addr #5 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 88
   store i8 %3, ptr %4, align 8
@@ -7929,7 +7929,7 @@ _ZNK10ciTypeFlow4Loop8containsEPS0_.exit.thread:  ; preds = %_ZNK10ciTypeFlow4Lo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ciTypeFlowC2EP5ciEnvP8ciMethodi(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 21), (24, 32), (40, 56)) %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN10ciTypeFlowC2EP5ciEnvP8ciMethodi(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1, ptr noundef nonnull %2, i32 noundef %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %2, ptr %5, align 8
@@ -8011,7 +8011,7 @@ define hidden noundef ptr @_ZN10ciTypeFlow14work_list_nextEv(ptr nocapture nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef initializes((92, 93)) %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN10ciTypeFlow16add_to_work_listEPNS_5BlockE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 92
   store i8 1, ptr %3, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -11289,7 +11289,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %163, %165
 declare noundef i32 @_ZN5ciEnv10comp_levelEv(ptr noundef nonnull align 8 dereferenceable(1265)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10ciTypeFlow10map_blocksEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((32, 40)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10ciTypeFlow10map_blocksEv(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8
   %4 = load ptr, ptr %0, align 8

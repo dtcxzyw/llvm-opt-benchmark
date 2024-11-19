@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stdout = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @If_ManSetDefaultPars(ptr nocapture noundef writeonly initializes((0, 352)) %0) local_unnamed_addr #0 {
+define void @If_ManSetDefaultPars(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(352) %2, i8 0, i64 336, i1 false)
   store i32 -1, ptr %0, align 8

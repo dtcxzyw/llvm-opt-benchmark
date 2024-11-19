@@ -246,7 +246,7 @@ declare noundef ptr @_ZNK5clang13SourceManager16getCharacterDataENS_14SourceLoca
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5clang18TokenConcatenationC2ERKNS_12PreprocessorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(465) initializes((0, 465)) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang18TokenConcatenationC2ERKNS_12PreprocessorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(465) %0, ptr noundef nonnull align 8 dereferenceable(3288) %1) unnamed_addr #3 align 2 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(457) %3, i8 0, i64 457, i1 false)

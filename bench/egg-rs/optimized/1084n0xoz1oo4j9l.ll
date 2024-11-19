@@ -308,7 +308,7 @@ define noundef zeroext i1 @"_ZN82_$LT$alloc..vec..Vec$LT$egg..Id$GT$$u20$as$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @"_ZN82_$LT$alloc..vec..Vec$LT$egg..Id$GT$$u20$as$u20$egg..language..LanguageChildren$GT$8from_vec17hd14c28043d53b189E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 {
+define void @"_ZN82_$LT$alloc..vec..Vec$LT$egg..Id$GT$$u20$as$u20$egg..language..LanguageChildren$GT$8from_vec17hd14c28043d53b189E"(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #4 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   ret void
 }

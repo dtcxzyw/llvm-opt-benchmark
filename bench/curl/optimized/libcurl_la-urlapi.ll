@@ -2850,7 +2850,7 @@ if.end:                                           ; preds = %parseurl.exit, %if.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @concat_url(ptr noundef %base, ptr noundef nonnull %relurl, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %newurl) unnamed_addr #0 {
+define internal fastcc i32 @concat_url(ptr noundef %base, ptr noundef nonnull %relurl, ptr nocapture noundef nonnull writeonly %newurl) unnamed_addr #0 {
 entry:
   %newest = alloca %struct.dynbuf, align 8
   store ptr null, ptr %newurl, align 8
@@ -3278,7 +3278,7 @@ declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed
 declare i64 @strcspn(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @dedotdotify(ptr noundef readonly %input, i64 noundef range(i64 2, 0) %clen, ptr nocapture noundef nonnull writeonly initializes((0, 8)) %outp) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @dedotdotify(ptr noundef readonly %input, i64 noundef range(i64 2, 0) %clen, ptr nocapture noundef nonnull writeonly %outp) unnamed_addr #0 {
 entry:
   %arrayidx = getelementptr inbounds i8, ptr %input, i64 %clen
   store ptr null, ptr %outp, align 8

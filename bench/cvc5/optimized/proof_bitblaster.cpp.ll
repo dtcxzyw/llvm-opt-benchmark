@@ -364,7 +364,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZN4cvc58internal6theory2bv22BitblastProofGeneratorC1ERNS0_3EnvEPNS0_19TConvProofGeneratorE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef nonnull align 8 dereferenceable(576), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2bv7BBProofD2Ev(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2bv7BBProofD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2bv7BBProofE, i64 16), ptr %this, align 8
   %d_bbMap = getelementptr inbounds i8, ptr %this, i64 48
@@ -467,7 +467,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory2bv14NodeBitblasterESt14default_deleteIS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2bv7BBProofD0Ev(ptr noundef nonnull align 8 dereferenceable(105) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define hidden void @_ZN4cvc58internal6theory2bv7BBProofD0Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #6 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory2bv7BBProofD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #19

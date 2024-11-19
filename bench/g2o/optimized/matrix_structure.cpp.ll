@@ -49,13 +49,13 @@ $_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPSt4pairIiiESt6vect
 @_ZN3g2o15MatrixStructureD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3g2o15MatrixStructureD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN3g2o15MatrixStructureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #0 align 2 {
+define void @_ZN3g2o15MatrixStructureC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o15MatrixStructureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (24, 32)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3g2o15MatrixStructureD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4
@@ -89,7 +89,7 @@ _ZN3g2o15MatrixStructure4freeEv.exit:             ; preds = %9, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3g2o15MatrixStructure4freeEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (24, 32)) %0) local_unnamed_addr #1 align 2 {
+define void @_ZN3g2o15MatrixStructure4freeEv(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0) local_unnamed_addr #1 align 2 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %2, align 4

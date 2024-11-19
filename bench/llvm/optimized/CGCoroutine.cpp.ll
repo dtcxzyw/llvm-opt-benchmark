@@ -427,7 +427,7 @@ $_ZN4llvm13IRBuilderBase10CreateCallEPNS_12FunctionTypeEPNS_5ValueENS_8ArrayRefI
 @_ZN5clang7CodeGen15CodeGenFunction10CGCoroInfoD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang7CodeGen15CodeGenFunction10CGCoroInfoD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction10CGCoroInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) initializes((0, 9)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction10CGCoroInfoC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(9) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 0, ptr %2, align 8
@@ -450,7 +450,7 @@ _ZNSt10unique_ptrIN5clang7CodeGen10CGCoroDataESt14default_deleteIS2_EED2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitCoawaitExprERKNS_11CoawaitExprENS0_12AggValueSlotEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::RValue") align 8 initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::AggValueSlot") align 8 %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitCoawaitExprERKNS_11CoawaitExprENS0_12AggValueSlotEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::RValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::AggValueSlot") align 8 %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"struct.(anonymous namespace)::LValueOrRValue", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1888
   %8 = load ptr, ptr %7, align 8
@@ -1166,7 +1166,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj3EED2Ev.exit:  ; preds = %351, %355
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitCoyieldExprERKNS_11CoyieldExprENS0_12AggValueSlotEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::RValue") align 8 initializes((0, 56)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::AggValueSlot") align 8 %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction15EmitCoyieldExprERKNS_11CoyieldExprENS0_12AggValueSlotEb(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::RValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %2, ptr nocapture noundef readonly byval(%"class.clang::CodeGen::AggValueSlot") align 8 %3, i1 noundef zeroext %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"struct.(anonymous namespace)::LValueOrRValue", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1888
   %8 = load ptr, ptr %7, align 8
@@ -1800,7 +1800,7 @@ declare void @_ZN5clang7CodeGen15CodeGenFunction14FinishFunctionENS_14SourceLoca
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitCoawaitLValueEPKNS_11CoawaitExprE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::LValue") align 8 initializes((0, 136)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitCoawaitLValueEPKNS_11CoawaitExprE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly %2) local_unnamed_addr #1 align 2 {
   %.sroa.4.i = alloca [23 x i8], align 1
   %4 = alloca %"struct.(anonymous namespace)::LValueOrRValue", align 8
   %5 = alloca %"class.clang::CodeGen::AggValueSlot", align 8
@@ -1829,7 +1829,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitCoawaitLValueEPKN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitCoyieldLValueEPKNS_11CoyieldExprE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::LValue") align 8 initializes((0, 136)) %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly %2) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction17EmitCoyieldLValueEPKNS_11CoyieldExprE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.clang::CodeGen::LValue") align 8 %0, ptr noundef nonnull align 8 dereferenceable(6488) %1, ptr nocapture noundef nonnull readonly %2) local_unnamed_addr #1 align 2 {
   %.sroa.4.i = alloca [23 x i8], align 1
   %4 = alloca %"struct.(anonymous namespace)::LValueOrRValue", align 8
   %5 = alloca %"class.clang::CodeGen::AggValueSlot", align 8

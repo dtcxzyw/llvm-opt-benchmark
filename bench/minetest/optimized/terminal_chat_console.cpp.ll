@@ -516,7 +516,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19TerminalChatConsole12initOfCursesEv(ptr noundef nonnull align 8 dereferenceable(844) initializes((272, 280)) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN19TerminalChatConsole12initOfCursesEv(ptr noundef nonnull align 8 dereferenceable(844) %this) local_unnamed_addr #3 align 2 {
 entry:
   %call = tail call ptr @initscr()
   %call2 = tail call i32 @cbreak()
@@ -3560,7 +3560,7 @@ declare noundef nonnull align 8 dereferenceable(25) ptr @_ZNK10ChatBuffer16getFo
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK14EnrichedString9getStringB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN19TerminalChatConsole20stopAndWaitforThreadEv(ptr noundef nonnull align 8 dereferenceable(844) initializes((288, 296)) %this) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN19TerminalChatConsole20stopAndWaitforThreadEv(ptr noundef nonnull align 8 dereferenceable(844) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_kill_requested.i = getelementptr inbounds i8, ptr %this, i64 288
   store ptr null, ptr %m_kill_requested.i, align 8, !tbaa !71

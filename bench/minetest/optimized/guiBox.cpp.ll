@@ -375,7 +375,7 @@ _ZNSt7__cxx1110_List_baseIPN3irr3gui11IGUIElementESaIS4_EED2Ev.exit: ; preds = %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN6GUIBoxC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKSt5arrayINS0_5video6SColorELm4EESG_RKSB_IiLm4EE(ptr noundef nonnull align 8 dereferenceable(356) initializes((360, 380)) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %colors, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %bordercolors, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %borderwidths) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN6GUIBoxC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKSt5arrayINS0_5video6SColorELm4EESG_RKSB_IiLm4EE(ptr noundef nonnull align 8 dereferenceable(356) %this, ptr noundef %env, ptr noundef %parent, i32 noundef %id, ptr noundef nonnull align 4 dereferenceable(16) %rectangle, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %colors, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %bordercolors, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %borderwidths) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 360
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3irr17IReferenceCountedE, i64 16), ptr %0, align 8, !tbaa !4

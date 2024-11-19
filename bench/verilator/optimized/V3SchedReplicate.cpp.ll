@@ -2440,7 +2440,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK13V3GraphVertex5cloneEP7V3Graph(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN7V3Sched12_GLOBAL__N_125SchedReplicateLogicVertexD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN7V3Sched12_GLOBAL__N_125SchedReplicateLogicVertexD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0) unnamed_addr #12 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }
@@ -3464,7 +3464,7 @@ _ZN14V3RttiInternalL16isClassIdOfOneOfIN7V3Sched12_GLOBAL__N_123SchedReplicateVa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN7V3Sched12_GLOBAL__N_123SchedReplicateVarVertexD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((0, 8)) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN7V3Sched12_GLOBAL__N_123SchedReplicateVarVertexD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV13V3GraphVertex, i64 16), ptr %0, align 8
   ret void
 }

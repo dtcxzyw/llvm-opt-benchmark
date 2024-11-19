@@ -19533,7 +19533,7 @@ declare noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nocapture nonnull writeonly align 8 initializes((0, 32)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5eastl16TupleVecInternal12TupleVecImplINS_9allocatorENS_16integer_sequenceImJLm0ELm1ELm2ELm3EEEEJbZ15TestTupleVectorvE13AlignTestVec4Z15TestTupleVectorvE14AlignTestByte3Z15TestTupleVectorvE17AlignTestFourByteEE9push_backEv(ptr noalias nocapture nonnull writeonly align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mNumElements = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i64, ptr %mNumElements, align 8

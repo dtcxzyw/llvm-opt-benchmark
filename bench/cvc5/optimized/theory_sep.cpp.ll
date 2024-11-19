@@ -2935,7 +2935,7 @@ _ZN4cvc57context3CDOIbED2Ev.exit:                 ; preds = %entry
 declare void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(408)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory3sep9TheorySepD2Ev(ptr noundef nonnull align 8 dereferenceable(1840) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory3sep9TheorySepD2Ev(ptr noundef nonnull align 8 dereferenceable(1840) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory3sep9TheorySepE, i64 16), ptr %this, align 8
   %d_eqc_info = getelementptr inbounds i8, ptr %this, i64 1744
@@ -3721,7 +3721,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit218: ; preds = %_ZN4cvc58internal1
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory3sep9TheorySepD0Ev(ptr noundef nonnull align 8 dereferenceable(1840) initializes((0, 8)) %this) unnamed_addr #5 align 2 {
+define hidden void @_ZN4cvc58internal6theory3sep9TheorySepD0Ev(ptr noundef nonnull align 8 dereferenceable(1840) %this) unnamed_addr #5 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory3sep9TheorySepD2Ev(ptr noundef nonnull align 8 dereferenceable(1840) %this) #23
   tail call void @_ZdlPv(ptr noundef nonnull %this) #25
@@ -3811,7 +3811,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory3sep9TheorySep19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(1840) %this, ptr noundef nonnull align 8 dereferenceable(45) initializes((0, 8)) %esi) unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory3sep9TheorySep19needsEqualityEngineERNS1_11EeSetupInfoE(ptr noundef nonnull align 8 dereferenceable(1840) %this, ptr noundef nonnull align 8 dereferenceable(45) %esi) unnamed_addr #3 align 2 {
 entry:
   %d_notify = getelementptr inbounds i8, ptr %this, i64 896
   store ptr %d_notify, ptr %esi, align 8
@@ -17164,7 +17164,7 @@ ehcleanup45:                                      ; preds = %lpad20, %lpad22, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory3sep9TheorySep17getRepresentativeENS0_12NodeTemplateILb1EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1840) %this, ptr nocapture noundef readonly %t) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory3sep9TheorySep17getRepresentativeENS0_12NodeTemplateILb1EEE(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::NodeTemplate") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1840) %this, ptr nocapture noundef readonly %t) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.cvc5::internal::NodeTemplate.582", align 8
   %ref.tmp = alloca %"class.cvc5::internal::NodeTemplate.582", align 8
@@ -44850,7 +44850,7 @@ invoke.cont4:                                     ; preds = %invoke.cont7.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal6theory3sep9TheorySep13getRootLabelsENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector.65") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(1840) %this, ptr noundef %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal6theory3sep9TheorySep13getRootLabelsENS0_12NodeTemplateILb1EEE(ptr noalias sret(%"class.std::vector.65") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(1840) %this, ptr noundef %p) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %__node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   %visited = alloca %"class.std::unordered_set.619", align 8

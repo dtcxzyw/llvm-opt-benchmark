@@ -2968,7 +2968,7 @@ define dso_local void @e1000_io_write(ptr nocapture noundef readnone %0, i64 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @e1000_set_spd_dplx(ptr nocapture noundef initializes((1399, 1400)) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @e1000_set_spd_dplx(ptr nocapture noundef %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #4 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1399
   store i8 0, ptr %4, align 1
   %5 = and i32 %1, 1
@@ -5000,7 +5000,7 @@ define internal i32 @e1000_clean(ptr noundef %0, i32 noundef %1) #4 align 16 {
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @e1000_sw_init(ptr noundef initializes((520, 524), (576, 584), (1088, 1096)) %0) unnamed_addr #4 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @e1000_sw_init(ptr noundef %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 520
   store i32 1522, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1088
@@ -8355,7 +8355,7 @@ declare dso_local i64 @_find_next_bit(ptr noundef, i64 noundef, i64 noundef) loc
 declare dso_local void @__const_udelay(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @e1000_configure_rx(ptr nocapture noundef initializes((664, 680)) %0) unnamed_addr #4 align 16 {
+define internal fastcc void @e1000_configure_rx(ptr nocapture noundef %0) unnamed_addr #4 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1160
   %3 = getelementptr inbounds i8, ptr %0, i64 1144
   %4 = load ptr, ptr %3, align 8

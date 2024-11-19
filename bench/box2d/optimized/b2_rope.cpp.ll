@@ -14,7 +14,7 @@ $__clang_call_terminate = comdat any
 @_ZN6b2RopeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6b2RopeD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6b2RopeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) initializes((0, 20), (24, 127)) %this) unnamed_addr #0 align 2 {
+define void @_ZN6b2RopeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(128) %this) unnamed_addr #0 align 2 {
 entry:
   %m_tuning = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %m_tuning, align 8
@@ -110,7 +110,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6b2Rope6CreateERK9b2RopeDef(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 12), (40, 80)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %def) local_unnamed_addr #4 align 2 {
+define void @_ZN6b2Rope6CreateERK9b2RopeDef(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %def) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i64, ptr %def, align 8
   store i64 %0, ptr %this, align 8
@@ -417,7 +417,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 declare float @llvm.fmuladd.f32(float, float, float) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6b2Rope9SetTuningERK12b2RopeTuning(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((88, 127)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(39) %tuning) local_unnamed_addr #7 align 2 {
+define void @_ZN6b2Rope9SetTuningERK12b2RopeTuning(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(39) %tuning) local_unnamed_addr #7 align 2 {
 entry:
   %m_tuning = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(39) %m_tuning, ptr noundef nonnull align 4 dereferenceable(39) %tuning, i64 39, i1 false)
@@ -2067,7 +2067,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6b2Rope5ResetERK6b2Vec2(ptr nocapture noundef nonnull align 8 dereferenceable(128) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %position) local_unnamed_addr #10 align 2 {
+define void @_ZN6b2Rope5ResetERK6b2Vec2(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(8) %position) local_unnamed_addr #10 align 2 {
 entry:
   %0 = load i64, ptr %position, align 4
   store i64 %0, ptr %this, align 8

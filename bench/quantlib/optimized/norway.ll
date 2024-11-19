@@ -85,7 +85,7 @@ $_ZTIN5boost6detail17sp_counted_impl_pIN8QuantLib6Norway4ImplEEE = comdat any
 @_ZN8QuantLib6NorwayC1Ev = unnamed_addr alias void (ptr), ptr @_ZN8QuantLib6NorwayC2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib6NorwayC2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 16)) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib6NorwayC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 0, i64 16, i1 false)
   %0 = load atomic i8, ptr @_ZGVZN8QuantLib6NorwayC1EvE4impl acquire, align 8

@@ -291,7 +291,7 @@ $_ZTISt5_BindIFPFbRKN32pxrInternal_v0_24__pxrReserved__26UsdPrimCompositionQuery
 @_ZN32pxrInternal_v0_24__pxrReserved__23UsdPrimCompositionQueryC1ERKNS_7UsdPrimERKNS0_6FilterE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN32pxrInternal_v0_24__pxrReserved__23UsdPrimCompositionQueryC2ERKNS_7UsdPrimERKNS0_6FilterE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdPrimCompositionQueryArcC2ERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 64)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__26UsdPrimCompositionQueryArcC2ERKNS_10PcpNodeRefE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -552,7 +552,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24_
 declare noundef nonnull align 8 dereferenceable(80) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__13PcpLayerStack13GetIdentifierEv(ptr noundef nonnull align 8 dereferenceable(617)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdPrimCompositionQueryArc17GetTargetPrimPathEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdPrimCompositionQueryArc17GetTargetPrimPathEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.pxrInternal_v0_24__pxrReserved__::SdfPath") align 4 %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef7GetPathEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   %4 = load i32, ptr %3, align 4
   store i32 %4, ptr %0, align 4
@@ -4587,7 +4587,7 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__26UsdPrimCompos
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__23UsdPrimCompositionQueryC2ERKNS_7UsdPrimERKNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(88) initializes((0, 4), (8, 88)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__23UsdPrimCompositionQueryC2ERKNS_7UsdPrimERKNS0_6FilterE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpPrimIndex", align 8
   %5 = alloca %"struct.std::pair", align 8
   %6 = alloca %"class.pxrInternal_v0_24__pxrReserved__::PcpNodeRef", align 8
@@ -5348,7 +5348,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__23UsdPrimCompositionQuery22Get
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__23UsdPrimCompositionQuery9SetFilterERKNS0_6FilterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((32, 48)) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #7 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__23UsdPrimCompositionQuery9SetFilterERKNS0_6FilterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   ret void

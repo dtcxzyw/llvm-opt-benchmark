@@ -1737,7 +1737,7 @@ entry:
 declare void @diff_setup_done(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @output_pair_header(ptr nocapture noundef nonnull readonly %diffopt, i32 noundef %patch_no_width, ptr noundef nonnull initializes((8, 16)) %buf, ptr noundef nonnull %dashes, ptr noundef %a_util, ptr noundef %b_util) unnamed_addr #0 {
+define internal fastcc void @output_pair_header(ptr nocapture noundef nonnull readonly %diffopt, i32 noundef %patch_no_width, ptr noundef nonnull %buf, ptr noundef nonnull %dashes, ptr noundef %a_util, ptr noundef %b_util) unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %a_util, null
   %oid1 = getelementptr inbounds i8, ptr %a_util, i64 60

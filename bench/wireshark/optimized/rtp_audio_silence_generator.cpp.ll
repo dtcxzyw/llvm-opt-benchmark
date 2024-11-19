@@ -63,7 +63,7 @@ define noundef i64 @_ZNK21AudioSilenceGenerator3posEv(ptr nocapture noundef nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef zeroext i1 @_ZN21AudioSilenceGenerator4seekEx(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) initializes((16, 24)) %0, i64 noundef %1) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZN21AudioSilenceGenerator4seekEx(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8
   ret i1 true

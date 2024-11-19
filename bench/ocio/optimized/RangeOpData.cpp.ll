@@ -225,7 +225,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData12setDirectionENS_18TransformDirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) initializes((224, 228)) %this, i32 noundef %dir) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData12setDirectionENS_18TransformDirectionE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) %this, i32 noundef %dir) local_unnamed_addr #5 align 2 {
 entry:
   %m_direction = getelementptr inbounds i8, ptr %this, i64 224
   store i32 %dir, ptr %m_direction, align 8
@@ -353,7 +353,7 @@ declare noundef double @_ZN19OpenColorIO_v2_4dev19GetBitDepthMaxValueENS_8BitDep
 declare void @_ZNK19OpenColorIO_v2_4dev12IndexMapping7getPairEmRfS1_(ptr noundef nonnull align 8 dereferenceable(88), i64 noundef, ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(228) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpDataD2Ev(ptr noundef nonnull align 8 dereferenceable(228) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev6OpDataE, i64 16), ptr %this, align 8
   %m_metadata.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -362,7 +362,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpDataD0Ev(ptr noundef nonnull align 8 dereferenceable(228) initializes((0, 8)) %this) unnamed_addr #7 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpDataD0Ev(ptr noundef nonnull align 8 dereferenceable(228) %this) unnamed_addr #7 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev6OpDataE, i64 16), ptr %this, align 8
   %m_metadata.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -375,7 +375,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev11RangeOpData5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(228) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev11RangeOpData5cloneEv(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(228) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   store ptr null, ptr %agg.result, align 8, !alias.scope !4
@@ -407,7 +407,7 @@ _ZSt11make_sharedIN19OpenColorIO_v2_4dev11RangeOpDataEJRKS1_EESt10shared_ptrINSt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData13setMinInValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) initializes((168, 176)) %this, double noundef %value) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData13setMinInValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) %this, double noundef %value) local_unnamed_addr #5 align 2 {
 entry:
   %m_minInValue = getelementptr inbounds i8, ptr %this, i64 168
   store double %value, ptr %m_minInValue, align 8
@@ -425,7 +425,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData15unsetMinInValueEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) initializes((168, 176)) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData15unsetMinInValueEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_minInValue = getelementptr inbounds i8, ptr %this, i64 168
   store double 0x7FF8000000000000, ptr %m_minInValue, align 8
@@ -433,7 +433,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData13setMaxInValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) initializes((176, 184)) %this, double noundef %value) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData13setMaxInValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) %this, double noundef %value) local_unnamed_addr #5 align 2 {
 entry:
   %m_maxInValue = getelementptr inbounds i8, ptr %this, i64 176
   store double %value, ptr %m_maxInValue, align 8
@@ -451,7 +451,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData15unsetMaxInValueEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) initializes((176, 184)) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData15unsetMaxInValueEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_maxInValue = getelementptr inbounds i8, ptr %this, i64 176
   store double 0x7FF8000000000000, ptr %m_maxInValue, align 8
@@ -459,7 +459,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData14setMinOutValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) initializes((184, 192)) %this, double noundef %value) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData14setMinOutValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) %this, double noundef %value) local_unnamed_addr #5 align 2 {
 entry:
   %m_minOutValue = getelementptr inbounds i8, ptr %this, i64 184
   store double %value, ptr %m_minOutValue, align 8
@@ -477,7 +477,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData16unsetMinOutValueEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) initializes((184, 192)) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData16unsetMinOutValueEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_minOutValue = getelementptr inbounds i8, ptr %this, i64 184
   store double 0x7FF8000000000000, ptr %m_minOutValue, align 8
@@ -485,7 +485,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData14setMaxOutValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) initializes((192, 200)) %this, double noundef %value) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData14setMaxOutValueEd(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) %this, double noundef %value) local_unnamed_addr #5 align 2 {
 entry:
   %m_maxOutValue = getelementptr inbounds i8, ptr %this, i64 192
   store double %value, ptr %m_maxOutValue, align 8
@@ -503,7 +503,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData16unsetMaxOutValueEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) initializes((192, 200)) %this) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN19OpenColorIO_v2_4dev11RangeOpData16unsetMaxOutValueEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(228) %this) local_unnamed_addr #5 align 2 {
 entry:
   %m_maxOutValue = getelementptr inbounds i8, ptr %this, i64 192
   store double 0x7FF8000000000000, ptr %m_maxOutValue, align 8
@@ -776,7 +776,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev11RangeOpData15fillScaleOffsetEv(ptr nocapture noundef nonnull align 8 dereferenceable(228) initializes((200, 208)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev11RangeOpData15fillScaleOffsetEv(ptr nocapture noundef nonnull align 8 dereferenceable(228) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_scale = getelementptr inbounds i8, ptr %this, i64 200
   store double 1.000000e+00, ptr %m_scale, align 8
@@ -985,7 +985,7 @@ land.end:                                         ; preds = %land.rhs, %land.lhs
 declare double @llvm.fabs.f64(double) #10
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev11RangeOpData7composeERSt10shared_ptrIKS0_E(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(228) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev11RangeOpData7composeERSt10shared_ptrIKS0_E(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(228) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %r) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_minInValue = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load double, ptr %m_minInValue, align 8
@@ -1480,7 +1480,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev11RangeOpData12getAsForwardEv(ptr noalias sret(%"class.std::shared_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(228) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev11RangeOpData12getAsForwardEv(ptr noalias sret(%"class.std::shared_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(228) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_direction = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load i32, ptr %m_direction, align 8

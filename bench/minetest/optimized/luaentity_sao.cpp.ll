@@ -1580,7 +1580,7 @@ _ZN18ServerActiveObjectD2Ev.exit:                 ; preds = %if.end.i.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12LuaEntitySAOD2Ev(ptr noundef nonnull align 8 dereferenceable(1025) initializes((0, 8)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12LuaEntitySAOD2Ev(ptr noundef nonnull align 8 dereferenceable(1025) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV12LuaEntitySAO, i64 16), ptr %this, align 8, !tbaa !15
   %m_registered = getelementptr inbounds i8, ptr %this, i64 920
@@ -1709,7 +1709,7 @@ declare void @_ZN15ScriptApiEntity16luaentity_RemoveEt(ptr noundef nonnull align
 declare void @_ZN17ServerEnvironment21deleteParticleSpawnerEjb(ptr noundef nonnull align 8 dereferenceable(952), i32 noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN12LuaEntitySAOD0Ev(ptr noundef nonnull align 8 dereferenceable(1025) initializes((0, 8)) %this) unnamed_addr #8 align 2 {
+define dso_local void @_ZN12LuaEntitySAOD0Ev(ptr noundef nonnull align 8 dereferenceable(1025) %this) unnamed_addr #8 align 2 {
 entry:
   tail call void @_ZN12LuaEntitySAOD2Ev(ptr noundef nonnull align 8 dereferenceable(1025) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #33
@@ -1720,7 +1720,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12LuaEntitySAO18addedToEnvironmentEj(ptr noundef nonnull align 8 dereferenceable(1025) initializes((920, 921)) %this, i32 noundef %dtime_s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12LuaEntitySAO18addedToEnvironmentEj(ptr noundef nonnull align 8 dereferenceable(1025) %this, i32 noundef %dtime_s) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i.i.i.i = alloca i64, align 8
   %m_env = getelementptr inbounds i8, ptr %this, i64 24
@@ -5734,7 +5734,7 @@ ehcleanup:                                        ; preds = %lpad6, %lpad, %if.t
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #4 align 2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12LuaEntitySAO5setHPEiRK20PlayerHPChangeReason(ptr noundef nonnull align 8 dereferenceable(1025) initializes((192, 194)) %this, i32 noundef %hp, ptr nocapture noundef nonnull readonly align 8 dereferenceable(54) %reason) unnamed_addr #4 align 2 {
+define dso_local void @_ZN12LuaEntitySAO5setHPEiRK20PlayerHPChangeReason(ptr noundef nonnull align 8 dereferenceable(1025) %this, i32 noundef %hp, ptr nocapture noundef nonnull readonly align 8 dereferenceable(54) %reason) unnamed_addr #4 align 2 {
 entry:
   %cond = tail call i32 @llvm.smin.i32(i32 %hp, i32 65535)
   %cond6 = tail call i32 @llvm.smax.i32(i32 %cond, i32 0)
@@ -5807,7 +5807,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12LuaEntitySAO11setVelocityEN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1025) initializes((924, 936)) %this, <2 x float> %velocity.coerce0, float %velocity.coerce1) local_unnamed_addr #18 align 2 {
+define dso_local void @_ZN12LuaEntitySAO11setVelocityEN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1025) %this, <2 x float> %velocity.coerce0, float %velocity.coerce1) local_unnamed_addr #18 align 2 {
 entry:
   %m_velocity = getelementptr inbounds i8, ptr %this, i64 924
   store <2 x float> %velocity.coerce0, ptr %m_velocity, align 4, !tbaa.struct !87
@@ -5829,7 +5829,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN12LuaEntitySAO15setAccelerationEN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1025) initializes((936, 948)) %this, <2 x float> %acceleration.coerce0, float %acceleration.coerce1) local_unnamed_addr #18 align 2 {
+define dso_local void @_ZN12LuaEntitySAO15setAccelerationEN3irr4core8vector3dIfEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1025) %this, <2 x float> %acceleration.coerce0, float %acceleration.coerce1) local_unnamed_addr #18 align 2 {
 entry:
   %m_acceleration = getelementptr inbounds i8, ptr %this, i64 936
   store <2 x float> %acceleration.coerce0, ptr %m_acceleration, align 8, !tbaa.struct !87

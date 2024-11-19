@@ -3894,7 +3894,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi6MapSumD2Ev(ptr noundef nonnull align 8 dereferenceable(1400) initializes((0, 8)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi6MapSumD2Ev(ptr noundef nonnull align 8 dereferenceable(1400) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi6MapSumE, i64 16), ptr %0, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %2 unwind label %26

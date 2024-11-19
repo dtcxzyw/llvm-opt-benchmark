@@ -908,7 +908,7 @@ return:                                           ; preds = %trace_qcrypto_tls_s
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @qcrypto_tls_session_set_callbacks(ptr nocapture noundef writeonly initializes((40, 64)) %session, ptr noundef %writeFunc, ptr noundef %readFunc, ptr noundef %opaque) local_unnamed_addr #4 {
+define dso_local void @qcrypto_tls_session_set_callbacks(ptr nocapture noundef writeonly %session, ptr noundef %writeFunc, ptr noundef %readFunc, ptr noundef %opaque) local_unnamed_addr #4 {
 entry:
   %writeFunc1 = getelementptr inbounds i8, ptr %session, i64 40
   store ptr %writeFunc, ptr %writeFunc1, align 8

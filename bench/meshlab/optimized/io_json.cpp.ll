@@ -732,7 +732,7 @@ declare void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16),
 declare void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN12JSONIOPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((32, 41)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12JSONIOPluginC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr getelementptr inbounds (i8, ptr @_ZTV13MeshLabPlugin, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -820,7 +820,7 @@ declare noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef, i32 noundef
 declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12JSONIOPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12JSONIOPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr nocapture noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 32
@@ -914,7 +914,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %1, %_ZN9QtPrivate8R
 declare void @_ZN10QArrayData10deallocateEPS_mm(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12JSONIOPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12JSONIOPluginD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @_ZTT12JSONIOPlugin, align 8
   store ptr %2, ptr %0, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT12JSONIOPlugin, i64 32), align 8
@@ -976,7 +976,7 @@ _ZN12JSONIOPluginD2Ev.exit:                       ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N12JSONIOPluginD1Ev(ptr noundef initializes((-16, -8), (0, 8)) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZThn16_N12JSONIOPluginD1Ev(ptr noundef %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   %3 = load ptr, ptr @_ZTT12JSONIOPlugin, align 8
   store ptr %3, ptr %2, align 8
@@ -1104,7 +1104,7 @@ _ZN12JSONIOPluginD1Ev.exit:                       ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN12JSONIOPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8), (16, 24)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN12JSONIOPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @_ZTT12JSONIOPlugin, align 8
   store ptr %2, ptr %0, align 8
   %3 = load ptr, ptr getelementptr inbounds (i8, ptr @_ZTT12JSONIOPlugin, i64 32), align 8
@@ -1167,7 +1167,7 @@ _ZN12JSONIOPluginD1Ev.exit:                       ; preds = %1, %_ZN9QtPrivate8R
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZThn16_N12JSONIOPluginD0Ev(ptr noundef initializes((-16, -8), (0, 8)) %0) unnamed_addr #13 align 2 {
+define void @_ZThn16_N12JSONIOPluginD0Ev(ptr noundef %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN12JSONIOPluginD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   ret void
@@ -1184,14 +1184,14 @@ define void @_ZTv0_n24_N12JSONIOPluginD0Ev(ptr noundef %0) unnamed_addr #13 alig
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12JSONIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
+define void @_ZNK12JSONIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(32) %1) unnamed_addr #10 align 2 {
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 6)
   store ptr %3, ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: uwtable
-define void @_ZTv0_n40_NK12JSONIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
+define void @_ZTv0_n40_NK12JSONIOPlugin10pluginNameEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.QString) align 8 %0, ptr nocapture noundef readonly %1) unnamed_addr #14 align 2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %3 = tail call noundef ptr @_ZN7QString16fromAscii_helperEPKci(ptr noundef nonnull @.str.7, i32 noundef 6), !noalias !10
   store ptr %3, ptr %0, align 8, !alias.scope !10
@@ -8403,7 +8403,7 @@ declare void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull a
 declare noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK12JSONIOPlugin20exportMaskCapabilityERK7QStringRiS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK12JSONIOPlugin20exportMaskCapabilityERK7QStringRiS3_(ptr nocapture nonnull readnone align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
   store i32 0, ptr %2, align 4
@@ -8477,7 +8477,7 @@ _ZN7QStringD2Ev.exit13:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: uwtable
-define void @_ZThn16_NK12JSONIOPlugin20exportMaskCapabilityERK7QStringRiS3_(ptr nocapture noundef readnone %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #14 align 2 {
+define void @_ZThn16_NK12JSONIOPlugin20exportMaskCapabilityERK7QStringRiS3_(ptr nocapture noundef readnone %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) unnamed_addr #14 align 2 {
   tail call void @_ZNK12JSONIOPlugin20exportMaskCapabilityERK7QStringRiS3_(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   ret void
 }

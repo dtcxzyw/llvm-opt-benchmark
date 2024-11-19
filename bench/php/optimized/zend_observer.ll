@@ -928,7 +928,7 @@ define void @zend_observer_fiber_destroy_register(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define void @zend_observer_fiber_init_notify(ptr noundef initializes((48, 56)) %0) local_unnamed_addr #0 {
+define void @zend_observer_fiber_init_notify(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr null, ptr %2, align 8
   %.06 = load ptr, ptr @zend_observer_fiber_init, align 8

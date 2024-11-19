@@ -7362,7 +7362,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructNoArgs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructNoArgs_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_17FixtureE, i64 16), ptr %this, align 8
   %ptr_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -7375,7 +7375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructNoArgs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructNoArgs_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_17FixtureE, i64 16), ptr %this, align 8
   %ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -7509,7 +7509,7 @@ ehcleanup13:                                      ; preds = %_ZN7testing7Message
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_17FixtureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_17FixtureD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_17FixtureE, i64 16), ptr %this, align 8
   %ptr_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -7721,7 +7721,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructOneArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructOneArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_17FixtureE, i64 16), ptr %this, align 8
   %ptr_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -7734,7 +7734,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructOneArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructOneArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_17FixtureE, i64 16), ptr %this, align 8
   %ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -8033,7 +8033,7 @@ lpad.body:                                        ; preds = %lpad.i.i, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructTwoArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructTwoArg_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_17FixtureE, i64 16), ptr %this, align 8
   %ptr_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -8046,7 +8046,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructTwoArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_ConstructTwoArg_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4absl18container_internal12_GLOBAL__N_17FixtureE, i64 16), ptr %this, align 8
   %ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 24

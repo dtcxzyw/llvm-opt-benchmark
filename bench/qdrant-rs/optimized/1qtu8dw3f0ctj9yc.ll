@@ -1427,7 +1427,7 @@ define noundef zeroext i1 @"_ZN192_$LT$sparse..common..sparse_vector.._..$LT$imp
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @"_ZN6sparse6common13sparse_vector1_94_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$sparse..common..sparse_vector..SparseVector$GT$11schema_name17h680b67074af49e81E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #0 {
+define void @"_ZN6sparse6common13sparse_vector1_94_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$sparse..common..sparse_vector..SparseVector$GT$11schema_name17h680b67074af49e81E"(ptr noalias nocapture noundef writeonly sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h0d4444249b55e2e1E"(i64 noundef 12, i1 noundef zeroext false)
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
@@ -1443,7 +1443,7 @@ define void @"_ZN6sparse6common13sparse_vector1_94_$LT$impl$u20$schemars..JsonSc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @"_ZN6sparse6common13sparse_vector1_94_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$sparse..common..sparse_vector..SparseVector$GT$9schema_id17h40c510923cee71baE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) initializes((0, 24)) %0) unnamed_addr #5 {
+define void @"_ZN6sparse6common13sparse_vector1_94_$LT$impl$u20$schemars..JsonSchema$u20$for$u20$sparse..common..sparse_vector..SparseVector$GT$9schema_id17h40c510923cee71baE"(ptr noalias nocapture noundef writeonly sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @anon.30f34e5a9fd2306e2b5288d77ea6d58a.28, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

@@ -908,7 +908,7 @@ define void @_ZN5Yosys3AST7AstNode18set_in_lvalue_flagEbb(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys3AST7AstNode21fixup_hierarchy_flagsEb(ptr noundef nonnull align 8 dereferenceable(284) initializes((281, 282)) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys3AST7AstNode21fixup_hierarchy_flagsEb(ptr noundef nonnull align 8 dereferenceable(284) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair", align 8
   %4 = alloca %"struct.std::pair", align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
@@ -33473,7 +33473,7 @@ _ZNK5Yosys7hashlib4poolIPNS_3AST7AstNodeENS0_8hash_opsIS4_EEE9do_lookupERKS4_Ri.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5Yosys3AST7AstNode7meminfoERiS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #10 align 2 {
+define void @_ZN5Yosys3AST7AstNode7meminfoERiS2_S2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(284) %0, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %1, ptr nocapture noundef nonnull align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load ptr, ptr %6, align 8

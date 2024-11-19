@@ -2028,7 +2028,7 @@ define dso_local ptr @mm_find_pmd(ptr nocapture noundef readonly %0, i64 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @folio_referenced(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 8)) %3) local_unnamed_addr #1 align 16 {
+define dso_local i32 @folio_referenced(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = alloca %struct.folio_referenced_arg, align 8
   %6 = alloca %struct.rmap_walk_control, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #17

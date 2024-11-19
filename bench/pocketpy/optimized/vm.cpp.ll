@@ -1023,7 +1023,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy2VMC2Eb(ptr noundef nonnull align 8 dereferenceable(264913) initializes((0, 8), (16, 64)) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy2VMC2Eb(ptr noundef nonnull align 8 dereferenceable(264913) %0, i1 noundef zeroext %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4pkpy2VME, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2212,7 +2212,7 @@ _ZN4pkpy7is_typeEPNS_8PyObjectENS_4TypeE.exit.thread: ; preds = %20, %_ZN4pkpy7i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1, i16 %2, ptr nocapture noundef writeonly initializes((0, 8)) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN4pkpy2VM18get_unbound_methodEPNS_8PyObjectENS_7StrNameEPS2_bb(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr noundef %1, i16 %2, ptr nocapture noundef writeonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) local_unnamed_addr #3 align 2 {
   %7 = alloca %"struct.pkpy::BoundMethod", align 8
   %8 = load ptr, ptr @_ZN4pkpy7PY_NULLE, align 8
   store ptr %8, ptr %3, align 8
@@ -8068,7 +8068,7 @@ _ZNSt6vectorIbSaIbEE8pop_backEv.exit:             ; preds = %11, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy2VMD2Ev(ptr noundef nonnull align 8 dereferenceable(264913) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy2VMD2Ev(ptr noundef nonnull align 8 dereferenceable(264913) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4pkpy2VME, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 264312
   %3 = getelementptr inbounds i8, ptr %0, i64 264320
@@ -8720,7 +8720,7 @@ _ZN4pkpy10pod_vectorIPNS_8PyObjectELi4EED2Ev.exit: ; preds = %47, %46, %43
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4pkpy2VM15parse_int_sliceERKNS_5SliceEiRiS4_S4_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4pkpy2VM15parse_int_sliceERKNS_5SliceEiRiS4_S4_(ptr noundef nonnull align 8 dereferenceable(264913) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.pkpy::Str", align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -24256,7 +24256,7 @@ _ZN4pkpy3anyD2Ev.exit6:                           ; preds = %.body, %55, %58
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pkpy4Dict8_probe_0EPNS_8PyObjectERbRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #3 align 2 {
+define void @_ZNK4pkpy4Dict8_probe_0EPNS_8PyObjectERbRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #3 align 2 {
   store i8 0, ptr %2, align 1
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i64 @_ZN4pkpy2VM7py_hashEPNS_8PyObjectE(ptr noundef nonnull align 8 dereferenceable(264913) %5, ptr noundef %1)
@@ -24320,7 +24320,7 @@ define void @_ZNK4pkpy4Dict8_probe_0EPNS_8PyObjectERbRi(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4pkpy4Dict8_probe_1EPNS_8PyObjectERbRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) initializes((0, 1)) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #3 align 2 {
+define void @_ZNK4pkpy4Dict8_probe_1EPNS_8PyObjectERbRi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1, ptr nocapture noundef nonnull writeonly align 1 dereferenceable(1) %2, ptr nocapture noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #3 align 2 {
   store i8 0, ptr %2, align 1
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noundef i64 @_ZN4pkpy2VM7py_hashEPNS_8PyObjectE(ptr noundef nonnull align 8 dereferenceable(264913) %5, ptr noundef %1)
@@ -24425,7 +24425,7 @@ _ZN4pkpy7SStreamD2Ev.exit6:                       ; preds = %24, %27
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4pkpy2VM11__pop_frameEv(ptr nocapture noundef nonnull align 8 dereferenceable(264913) initializes((264296, 264304)) %0) local_unnamed_addr #4 align 2 {
+define void @_ZN4pkpy2VM11__pop_frameEv(ptr nocapture noundef nonnull align 8 dereferenceable(264913) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 264312
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16

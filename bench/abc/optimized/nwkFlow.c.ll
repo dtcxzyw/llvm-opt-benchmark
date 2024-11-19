@@ -400,7 +400,7 @@ define noundef i32 @Nwk_ManRetimeVerifyCutBackward(ptr nocapture noundef readnon
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Nwk_ManRetimeCutForward(ptr noundef initializes((112, 124)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noalias noundef ptr @Nwk_ManRetimeCutForward(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
@@ -916,7 +916,7 @@ define internal void @Abc_Print(i32 %0, ptr noundef %1, ...) unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Nwk_ManRetimeCutBackward(ptr noundef initializes((112, 124)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define noalias noundef ptr @Nwk_ManRetimeCutBackward(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)

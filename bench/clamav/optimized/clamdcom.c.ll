@@ -117,7 +117,7 @@ declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 declare ptr @strerror(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @recvlninit(ptr noundef initializes((5120, 5124)) %0, i32 noundef %1) local_unnamed_addr #4 {
+define void @recvlninit(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds i8, ptr %0, i64 5120
   store i32 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 5128

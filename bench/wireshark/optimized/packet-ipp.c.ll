@@ -2284,7 +2284,7 @@ declare ptr @proto_tree_add_int_format(ptr noundef, i32 noundef, ptr noundef, i3
 declare ptr @proto_tree_add_int_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ipp_fmt_collection(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull initializes((0, 1)) %3, i32 noundef range(i32 176, 1025) %4) unnamed_addr #0 {
+define internal fastcc i32 @ipp_fmt_collection(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull %3, i32 noundef range(i32 176, 1025) %4) unnamed_addr #0 {
   %6 = alloca [176 x i8], align 16
   %7 = zext nneg i32 %4 to i64
   %8 = getelementptr i8, ptr %3, i64 %7

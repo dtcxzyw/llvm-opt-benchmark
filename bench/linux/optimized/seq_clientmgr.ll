@@ -2009,13 +2009,13 @@ declare dso_local i32 @snd_seq_queue_is_used(i32 noundef, i32 noundef) local_unn
 declare dso_local i32 @snd_seq_event_dup(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @snd_seq_ioctl_pversion(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #11 align 16 {
+define internal noundef i32 @snd_seq_ioctl_pversion(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #11 align 16 {
   store i32 65539, ptr %1, align 4
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @snd_seq_ioctl_user_pversion(ptr nocapture noundef writeonly initializes((12, 16)) %0, ptr nocapture noundef readonly %1) #12 align 16 {
+define internal noundef i32 @snd_seq_ioctl_user_pversion(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #12 align 16 {
   %3 = load i32, ptr %1, align 4
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %3, ptr %4, align 4
@@ -2023,7 +2023,7 @@ define internal noundef i32 @snd_seq_ioctl_user_pversion(ptr nocapture noundef w
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal noundef i32 @snd_seq_ioctl_client_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #12 align 16 {
+define internal noundef i32 @snd_seq_ioctl_client_id(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #12 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 80
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -2031,7 +2031,7 @@ define internal noundef i32 @snd_seq_ioctl_client_id(ptr nocapture noundef reado
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @snd_seq_ioctl_system_info(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 48)) %1) #0 align 16 {
+define internal noundef i32 @snd_seq_ioctl_system_info(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef align 4 dereferenceable(48) %3, i8 0, i64 28, i1 false)
   store i32 32, ptr %1, align 4

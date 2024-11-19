@@ -1060,7 +1060,7 @@ declare void @_ZN9QTextEdit17setAcceptRichTextEb(ptr noundef nonnull align 8 der
 declare void @_ZN19GeometryStateDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN16FunnelTextDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 {
+define void @_ZN16FunnelTextDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV16FunnelTextDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV16FunnelTextDialog, i64 488), ptr %2, align 8
@@ -1448,7 +1448,7 @@ declare noundef ptr @_Z14qstring_strdup7QString(ptr noundef) local_unnamed_addr 
 declare void @_ZNK9QTextEdit11toPlainTextEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16FunnelTextDialog16setCloseCallbackEPFvPvES0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) initializes((80, 96)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
+define void @_ZN16FunnelTextDialog16setCloseCallbackEPFvPvES0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88

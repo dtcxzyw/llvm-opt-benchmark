@@ -2205,7 +2205,7 @@ _ZNKSt13unordered_mapIN4cvc58internal12NodeTemplateILb0EEEjSt4hashIS3_ESt8equal_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2eq14EqualityEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(1784) initializes((0, 8), (24, 32)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory2eq14EqualityEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(1784) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal6theory2eq14EqualityEngineE, i64 16), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 24
@@ -3360,7 +3360,7 @@ terminate.lpad:                                   ; preds = %entry
 declare void @_ZN4cvc57context16ContextNotifyObjD2Ev(ptr noundef nonnull align 8 dereferenceable(24)) unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn24_N4cvc58internal6theory2eq14EqualityEngineD1Ev(ptr noundef initializes((-24, -16), (0, 8)) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZThn24_N4cvc58internal6theory2eq14EqualityEngineD1Ev(ptr noundef %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
   tail call void @_ZN4cvc58internal6theory2eq14EqualityEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(1784) %0) #30
@@ -3368,7 +3368,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal6theory2eq14EqualityEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(1784) initializes((0, 8), (24, 32)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN4cvc58internal6theory2eq14EqualityEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(1784) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN4cvc58internal6theory2eq14EqualityEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(1784) %this) #30
   tail call void @_ZdlPv(ptr noundef nonnull %this) #35
@@ -3379,7 +3379,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn24_N4cvc58internal6theory2eq14EqualityEngineD0Ev(ptr noundef initializes((-24, -16), (0, 8)) %this) unnamed_addr #8 align 2 {
+define hidden void @_ZThn24_N4cvc58internal6theory2eq14EqualityEngineD0Ev(ptr noundef %this) unnamed_addr #8 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
   tail call void @_ZN4cvc58internal6theory2eq14EqualityEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(1784) %0) #30
@@ -4981,7 +4981,7 @@ ehcleanup94:                                      ; preds = %lpad3, %_ZNSt6vecto
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory2eq14EqualityEngine23setMasterEqualityEngineEPS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1784) initializes((40, 48)) %this, ptr noundef %master) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN4cvc58internal6theory2eq14EqualityEngine23setMasterEqualityEngineEPS3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1784) %this, ptr noundef %master) local_unnamed_addr #10 align 2 {
 entry:
   %d_masterEqualityEngine = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %master, ptr %d_masterEqualityEngine, align 8
@@ -4989,7 +4989,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN4cvc58internal6theory2eq14EqualityEngine22setProofEqualityEngineEPNS2_13ProofEqEngineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1784) initializes((48, 56)) %this, ptr noundef %pfee) local_unnamed_addr #10 align 2 {
+define hidden void @_ZN4cvc58internal6theory2eq14EqualityEngine22setProofEqualityEngineEPNS2_13ProofEqEngineE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1784) %this, ptr noundef %pfee) local_unnamed_addr #10 align 2 {
 entry:
   %d_proofEqualityEngine = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %pfee, ptr %d_proofEqualityEngine, align 8

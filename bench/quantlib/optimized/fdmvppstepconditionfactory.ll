@@ -277,7 +277,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 declare void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112)) unnamed_addr #8 align 2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib26FdmVPPStepConditionFactoryC2ENS_16VanillaVPPOption9argumentsE(ptr noundef nonnull align 8 dereferenceable(128) initializes((8, 128)) %this, ptr nocapture noundef %args) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib26FdmVPPStepConditionFactoryC2ENS_16VanillaVPPOption9argumentsE(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr nocapture noundef %args) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %_ql_msg_stream = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %ref.tmp15 = alloca %"class.std::__cxx11::basic_string", align 8

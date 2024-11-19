@@ -6667,7 +6667,7 @@ _ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintED2Ev.exit44: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN31btMultiBodyMLCPConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1640) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN31btMultiBodyMLCPConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1640) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTV31btMultiBodyMLCPConstraintSolver, i64 16), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 1624
@@ -7133,7 +7133,7 @@ _ZN9btVectorXIfED2Ev.exit141:                     ; preds = %_ZN9btVectorXIfED2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN31btMultiBodyMLCPConstraintSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(1640) initializes((0, 8)) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN31btMultiBodyMLCPConstraintSolverD0Ev(ptr noundef nonnull align 8 dereferenceable(1640) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN31btMultiBodyMLCPConstraintSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1640) %this) #14
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %this)
@@ -7151,7 +7151,7 @@ _ZN31btMultiBodyMLCPConstraintSolverdlEPv.exit:   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN31btMultiBodyMLCPConstraintSolver13setMLCPSolverEP21btMLCPSolverInterface(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1640) initializes((1416, 1424)) %this, ptr noundef %solver) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN31btMultiBodyMLCPConstraintSolver13setMLCPSolverEP21btMLCPSolverInterface(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1640) %this, ptr noundef %solver) local_unnamed_addr #6 align 2 {
 entry:
   %m_solver = getelementptr inbounds i8, ptr %this, i64 1416
   store ptr %solver, ptr %m_solver, align 8
@@ -7167,7 +7167,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN31btMultiBodyMLCPConstraintSolver15setNumFallbacksEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1640) initializes((1424, 1428)) %this, i32 noundef %num) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN31btMultiBodyMLCPConstraintSolver15setNumFallbacksEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1640) %this, i32 noundef %num) local_unnamed_addr #6 align 2 {
 entry:
   %m_fallback = getelementptr inbounds i8, ptr %this, i64 1424
   store i32 %num, ptr %m_fallback, align 8

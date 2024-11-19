@@ -206,7 +206,7 @@ declare dso_local void @generic_fillattr(ptr noundef, i32 noundef, ptr noundef, 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef i32 @simple_statfs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 16), (56, 72)) %1) #3 align 16 {
+define dso_local noundef i32 @simple_statfs(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #3 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
@@ -275,7 +275,7 @@ declare dso_local void @d_set_d_op(ptr noundef, ptr noundef) local_unnamed_addr 
 declare dso_local void @d_add(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @dcache_dir_open(ptr nocapture readnone %0, ptr nocapture noundef initializes((200, 208)) %1) #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @dcache_dir_open(ptr nocapture readnone %0, ptr nocapture noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 160
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @d_alloc_cursor(ptr noundef %4) #15
@@ -673,7 +673,7 @@ define dso_local noundef i32 @noop_fsync(ptr nocapture readnone %0, i64 %1, i64 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @simple_offset_init(ptr nocapture noundef writeonly initializes((0, 20)) %0) local_unnamed_addr #6 align 16 {
+define dso_local void @simple_offset_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #6 align 16 {
   store i32 0, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 12, ptr %2, align 4
@@ -1461,7 +1461,7 @@ define dso_local noundef i32 @simple_open(ptr nocapture noundef readonly %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @simple_link(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((104, 136)) %1, ptr noundef %2) #0 align 16 {
+define dso_local noundef i32 @simple_link(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = tail call { i64, i64 } @inode_set_ctime_current(ptr noundef %5) #15
@@ -1550,7 +1550,7 @@ define dso_local noundef range(i32 0, 2) i32 @simple_empty(ptr noundef %0) #0 al
 declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @simple_unlink(ptr nocapture noundef writeonly initializes((104, 136)) %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef i32 @simple_unlink(ptr nocapture noundef writeonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = tail call { i64, i64 } @inode_set_ctime_current(ptr noundef %4) #15
@@ -2308,7 +2308,7 @@ define internal noundef i32 @simple_write_end(ptr nocapture readnone %0, ptr noc
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -12, 1) i32 @simple_fill_super(ptr noundef initializes((20, 21), (24, 32), (48, 56), (96, 104), (880, 884)) %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
+define dso_local noundef range(i32 -12, 1) i32 @simple_fill_super(ptr noundef %0, i64 noundef %1, ptr nocapture noundef readonly %2) #0 align 16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 4096, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -3604,7 +3604,7 @@ define internal i32 @pseudo_fs_get_tree(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @get_tree_nodev(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -12, 1) i32 @pseudo_fs_fill_super(ptr noundef initializes((20, 21), (24, 40), (48, 56), (96, 104), (168, 176), (880, 884)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
+define internal noundef range(i32 -12, 1) i32 @pseudo_fs_fill_super(ptr noundef %0, ptr nocapture noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32

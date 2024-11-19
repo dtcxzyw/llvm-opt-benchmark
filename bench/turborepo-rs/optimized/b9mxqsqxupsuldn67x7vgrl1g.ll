@@ -865,7 +865,7 @@ _RNvXs2_NtCs8mTrBI1stz4_15turborepo_vt1005attrsNtB5_5ColorNtNtCs1LoaDTb72WA_4cor
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt10013entire_screenNtB2_12EntireScreen3new(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) initializes((0, 18)) %0, ptr noalias noundef readonly align 8 dereferenceable(344) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt10013entire_screenNtB2_12EntireScreen3new(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(344) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = alloca [48 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 340
@@ -1026,7 +1026,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt10013entire_screenNtB2_12EntireS
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt10013entire_screenNtB2_12EntireScreen14rows_formatted(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) initializes((0, 86)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i16 noundef %2, i16 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt10013entire_screenNtB2_12EntireScreen14rows_formatted(ptr dead_on_unwind noalias nocapture noundef writable writeonly sret([88 x i8]) align 8 dereferenceable(88) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, i16 noundef %2, i16 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca [32 x i8], align 8
   %6 = load ptr, ptr %1, align 8, !nonnull !7, !align !8, !noundef !7
   %7 = getelementptr inbounds i8, ptr %6, i64 340

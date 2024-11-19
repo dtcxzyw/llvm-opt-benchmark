@@ -4817,7 +4817,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_117StringListToPairsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_117StringListToPairsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %"struct.absl::debian2::strings_internal::Splitter<absl::debian2::ByChar, absl::debian2::AllowEmpty, absl::debian2::string_view>::ConvertToContainer", align 1
@@ -5084,7 +5084,7 @@ _ZNSt6vectorISt4pairIiiESaIS1_EED2Ev.exit:        ; preds = %_ZNSt6vectorIN4absl
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_118StringListToFloatsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_118StringListToFloatsESt6vectorIN4absl7debian211string_viewESaIS5_EE(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca float, align 4
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca i32, align 4
@@ -5942,7 +5942,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_116StringListToIntsESt6vectorIN4absl7debian211string_viewESaIS5_EEi(ptr dead_on_unwind noalias nocapture nonnull writable align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel18crowd_modelling_2d12_GLOBAL__N_116StringListToIntsESt6vectorIN4absl7debian211string_viewESaIS5_EEi(ptr dead_on_unwind noalias nocapture nonnull writable align 8 %0, ptr nocapture noundef nonnull readonly %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca %"struct.absl::debian2::strings_internal::Splitter<absl::debian2::ByChar, absl::debian2::AllowEmpty, absl::debian2::string_view>::ConvertToContainer", align 1
@@ -6483,7 +6483,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %35, %53, %66, %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState18LegalPlayerActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.45") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState18LegalPlayerActionsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.45") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt12_Vector_baseIlSaIlEE11_M_allocateEm.exit.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6826,7 +6826,7 @@ _ZN10open_spiel8internal11SpielStrOutINSt7__cxx1119basic_ostringstreamIcSt11char
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState14ChanceOutcomesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState14ChanceOutcomesEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.14") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.45", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load i8, ptr %4, align 8
@@ -7939,7 +7939,7 @@ define linkonce_odr void @_ZN4absl7debian210SubstituteB5cxx11ENS0_11string_viewE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState19DistributionSupportB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.52") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10open_spiel18crowd_modelling_2d21CrowdModelling2dState19DistributionSupportB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.52") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(256) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [3 x %"class.absl::debian2::string_view"], align 16
   %4 = alloca %"class.absl::debian2::substitute_internal::Arg", align 8
   %5 = alloca %"class.absl::debian2::substitute_internal::Arg", align 8
@@ -8725,7 +8725,7 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #11
 declare double @llvm.fmuladd.f64(double, double, double) #11
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.29") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(256) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel18crowd_modelling_2d21CrowdModelling2dState7ReturnsEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector.29") align 8 %0, ptr noundef nonnull align 8 dereferenceable(256) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.29", align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %5 = load double, ptr %4, align 8

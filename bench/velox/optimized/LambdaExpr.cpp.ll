@@ -6869,7 +6869,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallableD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec12_GLOBAL__N_112ExprCallableE, i64 16), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -7098,7 +7098,7 @@ _ZNSt10shared_ptrIKN8facebook5velox7RowTypeEED2Ev.exit: ; preds = %_ZNSt10shared
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define internal void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallableD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN8facebook5velox4exec12_GLOBAL__N_112ExprCallableD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #32
   tail call void @_ZdlPv(ptr noundef nonnull %this) #31

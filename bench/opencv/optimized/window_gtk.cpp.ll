@@ -642,7 +642,7 @@ define internal void @_ZL24cvImageWidget_class_initPvS_(ptr noundef %0, ptr noca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZL18cvImageWidget_initP14_GTypeInstancePv(ptr nocapture noundef writeonly initializes((32, 52)) %0, ptr nocapture readnone %1) #6 {
+define internal void @_ZL18cvImageWidget_initP14_GTypeInstancePv(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1) #6 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %3, i8 0, i64 20, i1 false)
   ret void
@@ -2854,7 +2854,7 @@ _ZNSt10shared_ptrI8CvWindowED2Ev.exit20:          ; preds = %_ZNSt16_Sp_counted_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL12namedWindow_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL12namedWindow_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator", align 1
   %6 = alloca %struct._GdkGeometry, align 8
@@ -7677,7 +7677,7 @@ declare void @g_mutex_unlock(ptr noundef) local_unnamed_addr #0
 declare i32 @g_timeout_add(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @_ZL8icvAlarmPv(ptr nocapture noundef writeonly initializes((0, 4)) %0) #6 {
+define internal noundef i32 @_ZL8icvAlarmPv(ptr nocapture noundef writeonly %0) #6 {
   store i32 1, ptr %0, align 4
   ret i32 0
 }

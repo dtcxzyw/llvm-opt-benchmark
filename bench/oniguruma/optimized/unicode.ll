@@ -3137,7 +3137,7 @@ define range(i32 -6, 1) i32 @onigenc_unicode_ctype_code_range(i32 noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
+define range(i32 -6, 1) i32 @onigenc_utf16_32_get_ctype_code_range(i32 noundef %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #6 {
   store i32 0, ptr %1, align 4
   %4 = icmp ugt i32 %0, 610
   br i1 %4, label %5, label %12

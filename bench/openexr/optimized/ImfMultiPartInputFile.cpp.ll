@@ -2284,7 +2284,7 @@ declare void @_ZN7Iex_3_26ArgExcD1Ev(ptr noundef nonnull align 8 dereferenceable
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7Imf_3_218MultiPartInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %this) unnamed_addr #6 align 2 {
+define void @_ZN7Imf_3_218MultiPartInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #6 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7Imf_3_218MultiPartInputFileE, i64 16), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8

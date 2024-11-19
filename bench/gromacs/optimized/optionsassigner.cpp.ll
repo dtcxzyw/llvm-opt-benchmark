@@ -152,7 +152,7 @@ $_ZTIN3gmx3Any7ContentIbEE = comdat any
 @_ZN3gmx15OptionsAssignerD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3gmx15OptionsAssignerD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3gmx15OptionsAssigner4ImplC2EPNS_7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(53) initializes((0, 9), (16, 53)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3gmx15OptionsAssigner4ImplC2EPNS_7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(53) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt6vectorIPN3gmx8internal17OptionSectionImplESaIS3_EE9push_backEOS3_.exit:
   store ptr %1, ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8

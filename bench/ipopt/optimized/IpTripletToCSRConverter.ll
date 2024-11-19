@@ -40,7 +40,7 @@ $_ZTVN5Ipopt16ReferencedObjectE = comdat any
 @_ZN5Ipopt21TripletToCSRConverterD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5Ipopt21TripletToCSRConverterD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5Ipopt21TripletToCSRConverterC2EiNS0_8ETriFullE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 20), (24, 52), (56, 57), (64, 88)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
+define void @_ZN5Ipopt21TripletToCSRConverterC2EiNS0_8ETriFullE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %4, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt21TripletToCSRConverterE, i64 16), ptr %0, align 8
@@ -58,7 +58,7 @@ define void @_ZN5Ipopt21TripletToCSRConverterC2EiNS0_8ETriFullE(ptr nocapture no
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5Ipopt21TripletToCSRConverterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+define void @_ZN5Ipopt21TripletToCSRConverterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #1 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5Ipopt21TripletToCSRConverterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
@@ -128,7 +128,7 @@ define void @_ZN5Ipopt21TripletToCSRConverterD0Ev(ptr noundef nonnull align 8 de
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN5Ipopt21TripletToCSRConverter19InitializeConverterEiiPKiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((40, 48)) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN5Ipopt21TripletToCSRConverter19InitializeConverterEiiPKiS2_(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %1, i32 noundef %2, ptr nocapture noundef readonly %3, ptr nocapture noundef readonly %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null

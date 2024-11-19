@@ -1503,7 +1503,7 @@ lpad.i:                                           ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4exec4ExprC2ESt10shared_ptrIKNS0_4TypeEEOSt6vectorIS3_IS2_ESaIS8_EES3_INS1_14VectorFunctionEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(442) initializes((0, 48)) %this, ptr nocapture noundef %type, ptr nocapture noundef nonnull align 8 dereferenceable(24) %inputs, ptr nocapture noundef %vectorFunction, ptr noundef nonnull %name, i1 noundef zeroext %trackCpuUsage) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4exec4ExprC2ESt10shared_ptrIKNS0_4TypeEEOSt6vectorIS3_IS2_ESaIS8_EES3_INS1_14VectorFunctionEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(442) %this, ptr nocapture noundef %type, ptr nocapture noundef nonnull align 8 dereferenceable(24) %inputs, ptr nocapture noundef %vectorFunction, ptr noundef nonnull %name, i1 noundef zeroext %trackCpuUsage) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %constantExpr = alloca %"class.std::shared_ptr.47", align 8
   %ref.tmp = alloca ptr, align 8
@@ -4207,7 +4207,7 @@ return:                                           ; preds = %entry, %"_ZSt6all_o
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4exec4Expr13clearMetaDataEv(ptr nocapture noundef nonnull align 8 dereferenceable(442) initializes((440, 441)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4exec4Expr13clearMetaDataEv(ptr nocapture noundef nonnull align 8 dereferenceable(442) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %child = alloca %"class.std::shared_ptr.44", align 8
   %metaDataComputed_ = getelementptr inbounds i8, ptr %this, i64 440
@@ -8801,7 +8801,7 @@ ehcleanup:                                        ; preds = %_ZN8facebook5velox2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_120ExprExceptionContextC2EPKNS1_4ExprEPKNS0_9RowVectorEPKNS1_7ExprSetE(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 24)) %this, ptr noundef nonnull %expr, ptr noundef %vector, ptr noundef %parentExprSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4exec12_GLOBAL__N_120ExprExceptionContextC2EPKNS1_4ExprEPKNS0_9RowVectorEPKNS1_7ExprSetE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull %expr, ptr noundef %vector, ptr noundef %parentExprSet) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.8", align 1
   %ref.tmp2 = alloca %"class.std::allocator.8", align 1
@@ -21435,7 +21435,7 @@ _ZNSt6vectorISt10unique_ptrIN8facebook5velox6common8Subfield11PathElementESt14de
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8facebook5velox4exec4Expr16extractSubfieldsEv(ptr noalias sret(%"class.std::vector.167") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(442) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8facebook5velox4exec4Expr16extractSubfieldsEv(ptr noalias sret(%"class.std::vector.167") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(442) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %shadowedNames = alloca %"class.folly::F14FastMap", align 8
   store ptr null, ptr %shadowedNames, align 8
@@ -21617,7 +21617,7 @@ _ZN5folly3f146detail16F14VectorMapImplINSt7__cxx1112basic_stringIcSt11char_trait
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox4exec7ExprSetC2ERKSt6vectorISt10shared_ptrIKNS0_4core10ITypedExprEESaIS8_EEPNS5_7ExecCtxEb(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 56)) %this, ptr noundef nonnull align 8 dereferenceable(24) %sources, ptr noundef %execCtx, i1 noundef zeroext %enableConstantFolding) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4exec7ExprSetC2ERKSt6vectorISt10shared_ptrIKNS0_4core10ITypedExprEESaIS8_EEPNS5_7ExecCtxEb(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(24) %sources, ptr noundef %execCtx, i1 noundef zeroext %enableConstantFolding) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::vector.11", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox4exec7ExprSetE, i64 16), ptr %this, align 8
@@ -22220,7 +22220,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox4exec7ExprSetD2Ev(ptr noundef nonnull align 8 dereferenceable(200) initializes((0, 8)) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox4exec7ExprSetD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__alloc_node_gen.i.i.i.i = alloca %"struct.std::__detail::_AllocNode.592", align 8
   %ref.tmp.i.i.i.i.i = alloca %"class.boost::bad_lexical_cast", align 8

@@ -2527,7 +2527,7 @@ define dso_local void @_ZN5cmsys17SystemInformation11RunCPUCheckEv(ptr nocapture
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmsys31SystemInformationImplementation11RunCPUCheckEv(ptr noundef nonnull align 8 dereferenceable(457) initializes((212, 220)) %0) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5cmsys31SystemInformationImplementation11RunCPUCheckEv(ptr noundef nonnull align 8 dereferenceable(457) %0) local_unnamed_addr #3 align 2 {
   %2 = tail call noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation34RetrieveInformationFromCpuInfoFileEv(ptr noundef nonnull align 8 dereferenceable(457) %0)
   ret void
 }
@@ -2648,7 +2648,7 @@ define linkonce_odr dso_local void @_ZN5cmsys31SystemInformationImplementation5t
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation34RetrieveInformationFromCpuInfoFileEv(ptr noundef nonnull align 8 dereferenceable(457) initializes((212, 220)) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation34RetrieveInformationFromCpuInfoFileEv(ptr noundef nonnull align 8 dereferenceable(457) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::set", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -4085,7 +4085,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation26RetrieveCPUPowerManagementEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(457) initializes((52, 55)) %0) local_unnamed_addr #13 align 2 {
+define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation26RetrieveCPUPowerManagementEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(457) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 52
   %3 = getelementptr inbounds i8, ptr %0, i64 53
   store i8 0, ptr %3, align 1
@@ -4896,7 +4896,7 @@ define dso_local noundef zeroext i1 @_ZN5cmsys31SystemInformationImplementation2
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5cmsys31SystemInformationImplementation27ExtractValueFromCpuInfoFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(457) initializes((288, 296)) %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5cmsys31SystemInformationImplementation27ExtractValueFromCpuInfoFileENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcm(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nocapture noundef nonnull align 8 dereferenceable(457) %1, ptr noundef nonnull %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %3, i64 noundef %4) #30

@@ -964,7 +964,7 @@ declare noundef zeroext i8 @_ZN4llvm5MachO26getArchitectureFromCpuTypeEjj(i32 no
 declare noundef nonnull align 4 dereferenceable(28) ptr @_ZNK4llvm6object15MachOObjectFile9getHeaderEv(ptr noundef nonnull align 8 dereferenceable(360)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFileENS_5MachO12ArchitectureE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr noundef nonnull %1, i8 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZL16constructTriplesPN4llvm6object15MachOObjectFileENS_5MachO12ArchitectureE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull %1, i8 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %"class.std::allocator.31", align 1
   %5 = alloca %"class.std::allocator.31", align 1
   %6 = alloca %"class.std::allocator.31", align 1
@@ -3597,7 +3597,7 @@ _ZN4llvm15SmallVectorImplISt10shared_ptrINS_5MachO12RecordsSliceEEED2Ev.exit: ; 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5MachO11DylibReader3getENS_15MemoryBufferRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.91") align 8 initializes((0, 8)) %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm5MachO11DylibReader3getENS_15MemoryBufferRefE(ptr dead_on_unwind noalias nocapture writable sret(%"class.llvm::Expected.91") align 8 %0, ptr nocapture noundef readonly byval(%"class.llvm::MemoryBufferRef") align 8 %1) local_unnamed_addr #0 {
   %3 = alloca %"struct.llvm::MachO::DylibReader::ParseOption", align 4
   %4 = alloca %"class.llvm::Expected", align 8
   %5 = alloca %"class.std::unique_ptr.95", align 8
@@ -3664,7 +3664,7 @@ _ZN4llvm8ExpectedINS_11SmallVectorISt10shared_ptrINS_5MachO12RecordsSliceEELj4EE
 declare void @_ZN4llvm5MachO22convertToInterfaceFileERKNS_11SmallVectorISt10shared_ptrINS0_12RecordsSliceEELj4EEE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.95") align 8, ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5MachO11DylibReader27accumulateSourceLocFromDSYMENS_9StringRefERKNS0_6TargetE(ptr dead_on_unwind noalias writable sret(%"class.llvm::StringMap") align 8 initializes((0, 24)) %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm5MachO11DylibReader27accumulateSourceLocFromDSYMENS_9StringRefERKNS0_6TargetE(ptr dead_on_unwind noalias writable sret(%"class.llvm::StringMap") align 8 %0, ptr %1, i64 %2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(24) %3) local_unnamed_addr #0 {
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %"class.llvm::Error", align 8
   %7 = alloca %class.anon.281, align 1
@@ -4173,7 +4173,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL14accumulateLocsRN4llvm6object15MachOObjectFileERKSt10unique_ptrINS_12DWARFContextESt14default_deleteIS4_EE(ptr dead_on_unwind noalias writable align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL14accumulateLocsRN4llvm6object15MachOObjectFileERKSt10unique_ptrINS_12DWARFContextESt14default_deleteIS4_EE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(360) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon.281, align 1

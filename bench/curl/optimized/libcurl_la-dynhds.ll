@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [13 x i8] c"%.*s: %.*s\0D\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_dynhds_init(ptr nocapture noundef writeonly initializes((0, 52)) %dynhds, i64 noundef %max_entries, i64 noundef %max_strs_size) local_unnamed_addr #0 {
+define hidden void @Curl_dynhds_init(ptr nocapture noundef writeonly %dynhds, i64 noundef %max_entries, i64 noundef %max_strs_size) local_unnamed_addr #0 {
 entry:
   %strs_len = getelementptr inbounds i8, ptr %dynhds, i64 32
   store i64 0, ptr %strs_len, align 8
@@ -100,7 +100,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @Curl_dynhds_set_opts(ptr nocapture noundef writeonly initializes((48, 52)) %dynhds, i32 noundef %opts) local_unnamed_addr #0 {
+define hidden void @Curl_dynhds_set_opts(ptr nocapture noundef writeonly %dynhds, i32 noundef %opts) local_unnamed_addr #0 {
 entry:
   %opts1 = getelementptr inbounds i8, ptr %dynhds, i64 48
   store i32 %opts, ptr %opts1, align 8

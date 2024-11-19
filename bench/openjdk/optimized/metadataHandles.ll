@@ -267,7 +267,7 @@ define hidden void @_ZN15MetadataHandles17rebuild_free_listEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN15MetadataHandles5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 24)) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15MetadataHandles5clearEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %2, align 8
   %3 = load ptr, ptr %0, align 8

@@ -1125,7 +1125,7 @@ declare void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef, i64 noundef, i64 nou
 declare noalias noundef nonnull ptr @_ZN4llvm15allocate_bufferEmm(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122StackAddrEscapeCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122StackAddrEscapeCheckerD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122StackAddrEscapeCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -1188,7 +1188,7 @@ _ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EED2Ev.exit9: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_122StackAddrEscapeCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_122StackAddrEscapeCheckerD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN12_GLOBAL__N_122StackAddrEscapeCheckerE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
@@ -3860,7 +3860,7 @@ declare noundef ptr @_ZN5clang4ento10ExprEngine14cleanupNodeTagEv() local_unname
 declare noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseIjE5emptyEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBackD2Ev(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBackD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEE8CallBack, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216
@@ -3893,7 +3893,7 @@ _ZN4llvm11SmallVectorISt4pairIPKN5clang4ento9MemRegionES6_ELj10EED2Ev.exit: ; pr
 declare noundef ptr @_ZNK5clang4ento12ExplodedNode9NodeGroup5beginEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBackD0Ev(ptr noundef nonnull align 8 dereferenceable(272) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBackD0Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEE8CallBack, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216

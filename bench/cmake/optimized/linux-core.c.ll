@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [21 x i8] c"/sys/fs/cgroup/%s/%s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv__platform_loop_init(ptr noundef initializes((832, 844)) %0) local_unnamed_addr #0 {
+define dso_local i32 @uv__platform_loop_init(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 840
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 832
@@ -334,7 +334,7 @@ declare i32 @uv__slurp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare noundef i32 @__isoc99_sscanf(ptr nocapture noundef readonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nocapture noundef writeonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca [1024 x i8], align 16
   %5 = alloca i64, align 8
@@ -771,7 +771,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #7
 declare void @abort() local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_interface_addresses(ptr nocapture noundef initializes((0, 8)) %0, ptr nocapture noundef initializes((0, 4)) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_interface_addresses(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   store i32 0, ptr %1, align 4
   store ptr null, ptr %0, align 8

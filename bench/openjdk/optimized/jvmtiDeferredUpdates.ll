@@ -10,7 +10,7 @@ $_ZN26GrowableArrayWithAllocatorIP29jvmtiDeferredLocalVariableSet13GrowableArray
 @_ZN20JvmtiDeferredUpdatesD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN20JvmtiDeferredUpdatesD2Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN20JvmtiDeferredUpdates10create_forEP10JavaThread(ptr nocapture noundef writeonly initializes((1000, 1008)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN20JvmtiDeferredUpdates10create_forEP10JavaThread(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i8 noundef zeroext 7, i32 noundef 0) #3
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8

@@ -29,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7512DateTimeRuleC2EiiiNS0_12TimeRuleTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %millisInDay, i32 noundef %timeType) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512DateTimeRuleC2EiiiNS0_12TimeRuleTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %millisInDay, i32 noundef %timeType) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512DateTimeRuleE, i64 16), ptr %this, align 8
   %fMonth = getelementptr inbounds i8, ptr %this, i64 8
@@ -50,7 +50,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7512DateTimeRuleC2EiiiiNS0_12TimeRuleTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, i32 noundef %month, i32 noundef %weekInMonth, i32 noundef %dayOfWeek, i32 noundef %millisInDay, i32 noundef %timeType) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512DateTimeRuleC2EiiiiNS0_12TimeRuleTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, i32 noundef %month, i32 noundef %weekInMonth, i32 noundef %dayOfWeek, i32 noundef %millisInDay, i32 noundef %timeType) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512DateTimeRuleE, i64 16), ptr %this, align 8
   %fMonth = getelementptr inbounds i8, ptr %this, i64 8
@@ -71,7 +71,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6icu_7512DateTimeRuleC2EiiiaiNS0_12TimeRuleTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %dayOfWeek, i8 noundef signext %after, i32 noundef %millisInDay, i32 noundef %timeType) unnamed_addr #1 align 2 {
+define void @_ZN6icu_7512DateTimeRuleC2EiiiaiNS0_12TimeRuleTypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, i32 noundef %month, i32 noundef %dayOfMonth, i32 noundef %dayOfWeek, i8 noundef signext %after, i32 noundef %millisInDay, i32 noundef %timeType) unnamed_addr #1 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512DateTimeRuleE, i64 16), ptr %this, align 8
   %fMonth = getelementptr inbounds i8, ptr %this, i64 8
@@ -94,7 +94,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN6icu_7512DateTimeRuleC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) initializes((0, 36)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %source) unnamed_addr #2 align 2 {
+define void @_ZN6icu_7512DateTimeRuleC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(36) %source) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6icu_7512DateTimeRuleE, i64 16), ptr %this, align 8
   %fMonth = getelementptr inbounds i8, ptr %this, i64 8

@@ -32,7 +32,7 @@ $__clang_call_terminate = comdat any
 @_ZN7nanogui6WidgetD1Ev = hidden unnamed_addr alias void (ptr), ptr @_ZN7nanogui6WidgetD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) initializes((0, 12), (16, 92)) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:
   %2 = alloca %"class.std::allocator.1", align 1
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -182,7 +182,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZN7nanogui6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN7nanogui6WidgetE, i64 16), ptr %0, align 8
   %2 = tail call noundef i32 @_ZSt19uncaught_exceptionsv() #22
   %3 = icmp sgt i32 %2, 0
@@ -255,7 +255,7 @@ declare noundef i32 @_ZSt19uncaught_exceptionsv() local_unnamed_addr #3
 declare void @_ZNK7nanogui6Object7dec_refEb(ptr noundef nonnull align 8 dereferenceable(12), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN7nanogui6WidgetD0Ev(ptr noundef nonnull align 8 dereferenceable(140) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define hidden void @_ZN7nanogui6WidgetD0Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %0) #20
   tail call void @_ZdlPv(ptr noundef nonnull %0) #21
   ret void
@@ -915,7 +915,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Widget16mouse_drag_eventERKNS_5Arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZN7nanogui6Widget17mouse_enter_eventERKNS_5ArrayIiLm2EEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((91, 92)) %0, ptr nocapture nonnull readnone align 4 %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN7nanogui6Widget17mouse_enter_eventERKNS_5ArrayIiLm2EEEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) %0, ptr nocapture nonnull readnone align 4 %1, i1 noundef zeroext %2) unnamed_addr #8 align 2 {
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 91
   store i8 %4, ptr %5, align 1
@@ -923,7 +923,7 @@ define hidden noundef zeroext i1 @_ZN7nanogui6Widget17mouse_enter_eventERKNS_5Ar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef zeroext i1 @_ZN7nanogui6Widget11focus_eventEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) initializes((90, 91)) %0, i1 noundef zeroext %1) unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN7nanogui6Widget11focus_eventEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(140) %0, i1 noundef zeroext %1) unnamed_addr #8 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds i8, ptr %0, i64 90
   store i8 %3, ptr %4, align 2

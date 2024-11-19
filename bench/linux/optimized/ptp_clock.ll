@@ -1146,7 +1146,7 @@ define internal i32 @ptp_clock_gettime(ptr nocapture noundef readonly %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define internal noundef i32 @ptp_clock_getres(ptr nocapture readnone %0, ptr nocapture noundef writeonly initializes((0, 16)) %1) #12 align 16 {
+define internal noundef i32 @ptp_clock_getres(ptr nocapture readnone %0, ptr nocapture noundef writeonly %1) #12 align 16 {
   store i64 0, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   store i64 1, ptr %3, align 8

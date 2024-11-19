@@ -47,7 +47,7 @@ define void @_ZN4LIEF2PE11ContentInfoC2Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF2PE11ContentInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF2PE11ContentInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE11ContentInfoE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
@@ -78,7 +78,7 @@ define void @_ZN4LIEF2PE11ContentInfoD0Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN4LIEF2PE11ContentInfo7ContentD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #3 align 2 {
+define void @_ZN4LIEF2PE11ContentInfo7ContentD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4LIEF2PE11ContentInfo7ContentE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #13
@@ -169,7 +169,7 @@ define void @_ZNK4LIEF2PE11ContentInfo6acceptERNS_7VisitorE(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4LIEF2PE11ContentInfo6digestEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4LIEF2PE11ContentInfo6digestEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::vector") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef zeroext i1 @_ZN4LIEF2PE15SpcIndirectData7classofEPKNS0_11ContentInfo7ContentE(ptr noundef %4)

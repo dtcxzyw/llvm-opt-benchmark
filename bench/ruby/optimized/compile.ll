@@ -9068,7 +9068,7 @@ new_label_body.exit:                              ; preds = %ISEQ_COMPILE_DATA.e
 declare noalias nonnull ptr @ruby_xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @iseq_calc_param_size(ptr nocapture initializes((20, 24)) %.16.val) unnamed_addr #9 {
+define internal fastcc void @iseq_calc_param_size(ptr nocapture %.16.val) unnamed_addr #9 {
   %1 = getelementptr inbounds i8, ptr %.16.val, i64 16
   %2 = load i16, ptr %1, align 8
   %3 = and i16 %2, 2
@@ -15383,7 +15383,7 @@ RTYPEDDATA_GET_DATA.exit:                         ; preds = %2, %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @ibf_load_setup_bytes(ptr noundef initializes((0, 28), (32, 64)) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc void @ibf_load_setup_bytes(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -15649,7 +15649,7 @@ declare i64 @rb_str_new_static(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare i64 @rb_str_new(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden void @pm_scope_node_init(ptr noundef %0, ptr nocapture noundef writeonly initializes((0, 120)) %1, ptr noundef %2) local_unnamed_addr #1 {
+define hidden void @pm_scope_node_init(ptr noundef %0, ptr nocapture noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %1, i8 0, i64 120, i1 false)
   store i16 150, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -35530,7 +35530,7 @@ compile_data_alloc.exit:                          ; preds = %15, %._crit_edge.i.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @insn_set_specialized_instruction(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull initializes((24, 32)) %1, i32 noundef %2) unnamed_addr #1 {
+define internal fastcc void @insn_set_specialized_instruction(ptr nocapture noundef readonly %0, ptr nocapture noundef nonnull %1, i32 noundef %2) unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 %2, ptr %4, align 8
   %5 = sext i32 %2 to i64

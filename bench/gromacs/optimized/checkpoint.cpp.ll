@@ -2645,7 +2645,7 @@ define noundef ptr @_Z17enumValueToString10StateEntry(i32 noundef %0) local_unna
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z21write_checkpoint_dataP8t_fileio24CheckpointHeaderContentsb23LambdaWeightCalculationP7t_stateP18ObservablesHistoryRKN3gmx18MDModulesNotifiersEPSt6vectorI19gmx_file_position_tSaISC_EEPNS7_25WriteCheckpointDataHolderE(ptr noundef %0, ptr noundef byval(%struct.CheckpointHeaderContents) align 8 initializes((6220, 6240), (6248, 6249)) %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %6, ptr noundef %7, ptr noundef nonnull %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z21write_checkpoint_dataP8t_fileio24CheckpointHeaderContentsb23LambdaWeightCalculationP7t_stateP18ObservablesHistoryRKN3gmx18MDModulesNotifiersEPSt6vectorI19gmx_file_position_tSaISC_EEPNS7_25WriteCheckpointDataHolderE(ptr noundef %0, ptr noundef byval(%struct.CheckpointHeaderContents) align 8 %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(600) %6, ptr noundef %7, ptr noundef nonnull %8) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %10 = alloca i32, align 4
   %11 = alloca %"struct.gmx::MDModulesWriteCheckpointData", align 8
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -14510,7 +14510,7 @@ declare void @_ZN3gmx16dumpKeyValueTreeEPNS_10TextWriterERKNS_18KeyValueTreeObje
 declare void @_ZN3gmx10TextWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z29read_checkpoint_part_and_stepRKNSt10filesystem7__cxx114pathEPiPl(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef writeonly initializes((0, 4)) %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #0 {
+define void @_Z29read_checkpoint_part_and_stepRKNSt10filesystem7__cxx114pathEPiPl(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.CheckpointHeaderContents, align 8
   %5 = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #22
   br i1 %5, label %11, label %6
@@ -14782,7 +14782,7 @@ _ZNSt6vectorI19gmx_file_position_tSaIS0_EED2Ev.exit23: ; preds = %_ZN3gmx24ReadC
 declare void @_ZN7t_stateC1Ev(ptr noundef nonnull align 8 dereferenceable(832)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL20read_checkpoint_dataP8t_fileioP7t_statePSt6vectorI19gmx_file_position_tSaIS4_EEPN3gmx24ReadCheckpointDataHolderE(ptr dead_on_unwind noalias writable align 8 initializes((6248, 6249)) %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL20read_checkpoint_dataP8t_fileioP7t_statePSt6vectorI19gmx_file_position_tSaIS4_EEPN3gmx24ReadCheckpointDataHolderE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca %class.energyhistory_t, align 8
   %8 = alloca %class.PullHistory, align 8
@@ -16931,7 +16931,7 @@ _ZNSt6vectorI19gmx_file_position_tSaIS0_EED2Ev.exit66: ; preds = %118, %115, %17
 declare void @_ZNK3gmx24ReadCheckpointDataHolder4dumpEP8_IO_FILE(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z45read_checkpoint_simulation_part_and_filenamesP8t_fileioPSt6vectorI19gmx_file_position_tSaIS2_EE(ptr dead_on_unwind noalias writable sret(%struct.CheckpointHeaderContents) align 8 initializes((6248, 6249)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z45read_checkpoint_simulation_part_and_filenamesP8t_fileioPSt6vectorI19gmx_file_position_tSaIS2_EE(ptr dead_on_unwind noalias writable sret(%struct.CheckpointHeaderContents) align 8 %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.t_state, align 8
   %5 = alloca %"class.gmx::ReadCheckpointDataHolder", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

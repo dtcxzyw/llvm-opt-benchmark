@@ -1012,7 +1012,7 @@ for.end63:                                        ; preds = %for.body57
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_p3_tobytes(ptr nocapture noundef initializes((0, 32)) %s, ptr nocapture noundef nonnull readonly %h) unnamed_addr #3 {
+define internal fastcc void @ge_p3_tobytes(ptr nocapture noundef %s, ptr nocapture noundef nonnull readonly %h) unnamed_addr #3 {
 entry:
   %s.i = alloca [32 x i8], align 16
   %recip = alloca [10 x i32], align 16
@@ -1037,7 +1037,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @sc_muladd(ptr nocapture noundef writeonly initializes((0, 32)) %s, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef nonnull readonly %b, ptr nocapture noundef nonnull readonly %c) unnamed_addr #2 {
+define internal fastcc void @sc_muladd(ptr nocapture noundef writeonly %s, ptr nocapture noundef nonnull readonly %a, ptr nocapture noundef nonnull readonly %b, ptr nocapture noundef nonnull readonly %c) unnamed_addr #2 {
 entry:
   %0 = load i16, ptr %a, align 1
   %1 = zext i16 %0 to i64
@@ -3596,7 +3596,7 @@ for.end80:                                        ; preds = %for.inc, %if.end77,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_tobytes(ptr nocapture noundef nonnull initializes((0, 32)) %s, ptr nocapture noundef nonnull readonly %h) unnamed_addr #3 {
+define internal fastcc void @ge_tobytes(ptr nocapture noundef nonnull %s, ptr nocapture noundef nonnull readonly %h) unnamed_addr #3 {
 entry:
   %s.i = alloca [32 x i8], align 16
   %recip = alloca [10 x i32], align 16
@@ -4787,7 +4787,7 @@ for.end107:                                       ; preds = %for.body102
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_mul(ptr nocapture noundef nonnull writeonly initializes((0, 40)) %h, ptr nocapture noundef readonly %f, ptr nocapture noundef readonly %g) unnamed_addr #2 {
+define internal fastcc void @fe_mul(ptr nocapture noundef nonnull writeonly %h, ptr nocapture noundef readonly %f, ptr nocapture noundef readonly %g) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %f, align 4
   %arrayidx1 = getelementptr inbounds i8, ptr %f, i64 4
@@ -5159,7 +5159,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_tobytes(ptr nocapture noundef writeonly initializes((0, 32)) %s, ptr nocapture noundef nonnull readonly %h) unnamed_addr #2 {
+define internal fastcc void @fe_tobytes(ptr nocapture noundef writeonly %s, ptr nocapture noundef nonnull readonly %h) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %h, align 4
   %arrayidx1 = getelementptr inbounds i8, ptr %h, i64 4
@@ -5377,7 +5377,7 @@ entry:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @table_select(ptr nocapture noundef nonnull initializes((0, 120)) %t, i32 noundef range(i32 -1073741824, 32) %pos, i8 noundef signext %b) unnamed_addr #3 {
+define internal fastcc void @table_select(ptr nocapture noundef nonnull %t, i32 noundef range(i32 -1073741824, 32) %pos, i8 noundef signext %b) unnamed_addr #3 {
 entry:
   %minust = alloca %struct.ge_precomp, align 4
   %and = tail call i8 @llvm.smin.i8(i8 %b, i8 0)
@@ -6040,7 +6040,7 @@ fe_sub.exit76:                                    ; preds = %for.body.i68
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @ge_p2_dbl(ptr nocapture noundef nonnull initializes((0, 40), (80, 160)) %r, ptr nocapture noundef nonnull readonly %p) unnamed_addr #3 {
+define internal fastcc void @ge_p2_dbl(ptr nocapture noundef nonnull %r, ptr nocapture noundef nonnull readonly %p) unnamed_addr #3 {
 entry:
   %t0 = alloca [10 x i32], align 16
   tail call fastcc void @fe_sq(ptr noundef %r, ptr noundef %p)
@@ -6382,7 +6382,7 @@ fe_sub.exit57:                                    ; preds = %for.body.i49
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc void @fe_sq(ptr nocapture noundef nonnull writeonly initializes((0, 40)) %h, ptr nocapture noundef nonnull readonly %f) unnamed_addr #2 {
+define internal fastcc void @fe_sq(ptr nocapture noundef nonnull writeonly %h, ptr nocapture noundef nonnull readonly %f) unnamed_addr #2 {
 entry:
   %0 = load i32, ptr %f, align 4
   %arrayidx1 = getelementptr inbounds i8, ptr %f, i64 4

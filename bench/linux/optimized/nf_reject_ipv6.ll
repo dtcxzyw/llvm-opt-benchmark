@@ -293,7 +293,7 @@ define dso_local noundef ptr @nf_reject_ip6hdr_put(ptr noundef %0, ptr nocapture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nf_reject_ip6_tcphdr_put(ptr noundef initializes((178, 180)) %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 align 16 {
+define dso_local void @nf_reject_ip6_tcphdr_put(ptr noundef %0, ptr nocapture readnone %1, ptr nocapture noundef readonly %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds i8, ptr %0, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 192

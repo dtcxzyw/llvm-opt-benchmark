@@ -201,7 +201,7 @@ define dso_local void @fl6_free_socklist(ptr noundef %0) local_unnamed_addr #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @fl_release(ptr noundef initializes((80, 88)) %0) unnamed_addr #1 align 16 {
+define internal fastcc void @fl_release(ptr noundef %0) unnamed_addr #1 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @ip6_fl_lock) #13
   %2 = load volatile i64, ptr @jiffies, align 64
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -1445,7 +1445,7 @@ declare dso_local i32 @net_ratelimit() local_unnamed_addr #0
 declare dso_local i32 @_printk(ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nounwind null_pointer_is_valid
-define internal fastcc void @fl_link(ptr noundef %0, ptr noundef nonnull initializes((0, 16)) %1, ptr noundef nonnull %2) unnamed_addr #9 align 16 {
+define internal fastcc void @fl_link(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #9 align 16 {
   tail call void @_raw_spin_lock_bh(ptr noundef nonnull @ip6_sk_fl_lock) #13
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr %2, ptr %4, align 8
@@ -1548,7 +1548,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @mem_check(ptr noundef %0)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @fl_intern(ptr noundef readnone %0, ptr noundef nonnull initializes((8, 12)) %1, i32 noundef %2) unnamed_addr #1 align 16 {
+define internal fastcc ptr @fl_intern(ptr noundef readnone %0, ptr noundef nonnull %1, i32 noundef %2) unnamed_addr #1 align 16 {
   %4 = and i32 %2, -61696
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   store i32 %4, ptr %5, align 8

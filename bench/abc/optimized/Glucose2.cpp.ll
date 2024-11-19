@@ -377,7 +377,7 @@ define linkonce_odr void @_ZN6Gluco212StringOptionD2Ev(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Gluco26SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1416) initializes((0, 12), (24, 37), (40, 88), (96, 140), (144, 242), (248, 265), (272, 448), (452, 453), (456, 536)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Gluco26SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1416) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Gluco2::vec.0", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco26SolverE, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
@@ -1525,7 +1525,7 @@ _ZN6Gluco23vecINS0_INS_6Solver7WatcherEEEED2Ev.exit: ; preds = %_ZN6Gluco23vecIc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6Gluco26SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1416) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Gluco26SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1416) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Gluco26SolverE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1400
   %3 = load ptr, ptr %2, align 8
@@ -2110,14 +2110,14 @@ define void @_ZN6Gluco26SolverD0Ev(ptr noundef nonnull align 8 dereferenceable(1
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Gluco26Solver18setIncrementalModeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1416) initializes((1148, 1152)) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN6Gluco26Solver18setIncrementalModeEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1416) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 1148
   store i32 1, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6Gluco26Solver17initNbInitialVarsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1416) initializes((1152, 1156)) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define void @_ZN6Gluco26Solver17initNbInitialVarsEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1416) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1152
   store i32 %1, ptr %3, align 8
   ret void
@@ -6360,7 +6360,7 @@ _ZN6Gluco24HeapINS_6Solver10VarOrderLtEE13percolateDownEi.exit.i: ; preds = %109
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Gluco26Solver7analyzeEjRNS_3vecINS_3LitEEES4_RiRjS6_(ptr noundef nonnull align 8 dereferenceable(1416) initializes((1216, 1217)) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6) local_unnamed_addr #2 align 2 {
+define void @_ZN6Gluco26Solver7analyzeEjRNS_3vecINS_3LitEEES4_RiRjS6_(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr nocapture noundef nonnull align 8 dereferenceable(16) %3, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %4, ptr nocapture noundef nonnull align 4 dereferenceable(4) %5, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %6) local_unnamed_addr #2 align 2 {
   %8 = alloca %"struct.Gluco2::Solver::JustKey", align 8
   %9 = alloca %"struct.Gluco2::Solver::JustKey", align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 1216
@@ -8182,7 +8182,7 @@ define linkonce_odr noundef i32 @_ZN6Gluco26Solver10computeLBDERKNS_6ClauseE(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Gluco26Solver12litRedundantENS_3LitEj(ptr noundef nonnull align 8 dereferenceable(1416) initializes((1056, 1060)) %0, i32 %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
+define noundef zeroext i1 @_ZN6Gluco26Solver12litRedundantENS_3LitEj(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %0, i64 1048
   %5 = getelementptr inbounds i8, ptr %0, i64 1056
   store i32 0, ptr %5, align 8
@@ -8737,7 +8737,7 @@ _ZNK6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE6inHeapEi.exit.thread: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Gluco26Solver12analyzeFinalENS_3LitERNS_3vecIS1_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) initializes((8, 12)) %2) local_unnamed_addr #2 align 2 {
+define void @_ZN6Gluco26Solver12analyzeFinalENS_3LitERNS_3vecIS1_EE(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 %1, ptr nocapture noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 12
@@ -11543,7 +11543,7 @@ define void @_ZN6Gluco26Solver21printIncrementalStatsEv(ptr nocapture noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i8 0, 3) i8 @_ZN6Gluco26Solver6solve_Ev(ptr noundef nonnull align 8 dereferenceable(1416) initializes((1300, 1304)) %0) local_unnamed_addr #2 align 2 {
+define range(i8 0, 3) i8 @_ZN6Gluco26Solver6solve_Ev(ptr noundef nonnull align 8 dereferenceable(1416) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca %struct.rusage, align 8
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %struct.rusage, align 8
@@ -14196,7 +14196,7 @@ _ZN6Gluco215ClauseAllocatorD2Ev.exit4:            ; preds = %25, %30
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Gluco26Solver5resetEv(ptr noundef nonnull align 8 dereferenceable(1416) initializes((144, 160), (176, 180), (200, 208), (320, 344), (352, 376), (440, 448), (452, 453), (456, 464), (480, 488)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Gluco26Solver5resetEv(ptr noundef nonnull align 8 dereferenceable(1416) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.Gluco2::vec.0", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 452
   store i8 1, ptr %3, align 4

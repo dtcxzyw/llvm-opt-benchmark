@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.10 = private unnamed_addr constant [7 x i8] c"failed\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ctr_drbg_init(ptr nocapture noundef writeonly initializes((0, 344)) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_ctr_drbg_init(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %0, i8 0, i64 344, i1 false)
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 -1, ptr %2, align 8
@@ -57,14 +57,14 @@ declare void @mbedtls_aes_free(ptr noundef) local_unnamed_addr #3
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ctr_drbg_set_prediction_resistance(ptr nocapture noundef writeonly initializes((20, 24)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @mbedtls_ctr_drbg_set_prediction_resistance(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 %1, ptr %3, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ctr_drbg_set_entropy_len(ptr nocapture noundef writeonly initializes((24, 32)) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden void @mbedtls_ctr_drbg_set_entropy_len(ptr nocapture noundef writeonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %1, ptr %3, align 8
   ret void
@@ -93,7 +93,7 @@ define hidden range(i32 -56, 1) i32 @mbedtls_ctr_drbg_set_nonce_len(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @mbedtls_ctr_drbg_set_reseed_interval(ptr nocapture noundef writeonly initializes((32, 36)) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @mbedtls_ctr_drbg_set_reseed_interval(ptr nocapture noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %1, ptr %3, align 8
   ret void

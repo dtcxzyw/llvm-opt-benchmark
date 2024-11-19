@@ -224,7 +224,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib19FdmHestonEquityPartC2ERKN5boost10shared_ptrINS_9FdmMesherEEENS2_INS_18YieldTermStructureEEES8_NS2_INS_15FdmQuantoHelperEEENS2_INS_21LocalVolTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(368) initializes((0, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef %rTS, ptr nocapture noundef %qTS, ptr nocapture noundef %quantoHelper, ptr nocapture noundef %leverageFct) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib19FdmHestonEquityPartC2ERKN5boost10shared_ptrINS_9FdmMesherEEENS2_INS_18YieldTermStructureEEES8_NS2_INS_15FdmQuantoHelperEEENS2_INS_21LocalVolTermStructureEEE(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef %rTS, ptr nocapture noundef %qTS, ptr nocapture noundef %quantoHelper, ptr nocapture noundef %leverageFct) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::Array", align 8
   %ref.tmp8 = alloca %"class.QuantLib::SecondDerivativeOp", align 8
@@ -1769,7 +1769,7 @@ _ZN8QuantLib5ArrayD2Ev.exit131:                   ; preds = %ehcleanup81, %_ZNKS
 declare void @_ZNK8QuantLib18YieldTermStructure11forwardRateEddNS_11CompoundingENS_9FrequencyEb(ptr dead_on_unwind writable sret(%"class.QuantLib::InterestRate") align 8, ptr noundef nonnull align 8 dereferenceable(152), double noundef, double noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib19FdmHestonEquityPart19getLeverageFctSliceEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this, double noundef %t1, double noundef %t2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib19FdmHestonEquityPart19getLeverageFctSliceEdd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.QuantLib::Array") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(368) %this, double noundef %t1, double noundef %t2) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__begin1 = alloca %"class.QuantLib::FdmLinearOpIterator", align 8
   %__end1 = alloca %"class.QuantLib::FdmLinearOpIterator", align 8
@@ -3137,7 +3137,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib11FdmHestonOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_13HestonProcessEEERKNS2_INS_15FdmQuantoHelperEEERKNS2_INS_21LocalVolTermStructureEEEd(ptr noundef nonnull align 8 dereferenceable(728) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hestonProcess, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %quantoHelper, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %leverageFct, double noundef %mixingFactor) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib11FdmHestonOpC2ERKN5boost10shared_ptrINS_9FdmMesherEEERKNS2_INS_13HestonProcessEEERKNS2_INS_15FdmQuantoHelperEEERKNS2_INS_21LocalVolTermStructureEEEd(ptr noundef nonnull align 8 dereferenceable(728) %this, ptr noundef nonnull align 8 dereferenceable(16) %mesher, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %hestonProcess, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %quantoHelper, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %leverageFct, double noundef %mixingFactor) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.QuantLib::SecondOrderMixedDerivativeOp", align 8
   %ref.tmp2 = alloca %"class.QuantLib::Array", align 8

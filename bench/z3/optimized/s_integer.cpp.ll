@@ -24,7 +24,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define hidden void @_ZN9s_integerC2EPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, ptr nocapture noundef readonly %str) unnamed_addr #3 align 2 {
+define hidden void @_ZN9s_integerC2EPKc(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, ptr nocapture noundef readonly %str) unnamed_addr #3 align 2 {
 entry:
   %call = tail call i64 @strtol(ptr nocapture noundef %str, ptr noundef null, i32 noundef 10) #8
   %conv = trunc i64 %call to i32

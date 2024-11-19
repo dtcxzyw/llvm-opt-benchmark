@@ -83,7 +83,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_filter_match
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_filter_match_preds396], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local range(i32 0, 6) i32 @filter_parse_regex(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, 6) i32 @filter_parse_regex(ptr noundef %0, i32 noundef %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3) local_unnamed_addr #0 align 16 {
   %5 = load i8, ptr %0, align 1
   %6 = icmp eq i8 %5, 33
   %.sink = zext i1 %6 to i32

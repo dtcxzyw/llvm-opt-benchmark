@@ -396,7 +396,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 85) i32 @_ZN4cvc56parser9Smt2Lexer17nextTokenInternalEv(ptr noundef nonnull align 8 dereferenceable(33178) initializes((8, 16)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 85) i32 @_ZN4cvc56parser9Smt2Lexer17nextTokenInternalEv(ptr noundef nonnull align 8 dereferenceable(33178) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.end:
   %d_token = getelementptr inbounds i8, ptr %this, i64 32896
   %0 = load ptr, ptr %d_token, align 8
@@ -481,7 +481,7 @@ cond.end22:                                       ; preds = %if.then.i.i, %_ZNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef range(i32 0, 85) i32 @_ZN4cvc56parser9Smt2Lexer16computeNextTokenEv(ptr noundef nonnull align 8 dereferenceable(33178) initializes((8, 16)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef range(i32 0, 85) i32 @_ZN4cvc56parser9Smt2Lexer16computeNextTokenEv(ptr noundef nonnull align 8 dereferenceable(33178) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp27 = alloca %"class.std::allocator", align 1

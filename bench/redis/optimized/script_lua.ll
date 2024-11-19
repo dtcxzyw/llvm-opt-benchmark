@@ -2497,7 +2497,7 @@ return:                                           ; preds = %cleanup, %cond.true
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @luaArgsToRedisArgv(ptr noundef %lua, ptr nocapture noundef initializes((0, 4)) %argc, ptr nocapture noundef writeonly %argv_len) unnamed_addr #0 {
+define internal fastcc ptr @luaArgsToRedisArgv(ptr noundef %lua, ptr nocapture noundef %argc, ptr nocapture noundef writeonly %argv_len) unnamed_addr #0 {
 entry:
   %obj_len = alloca i64, align 8
   %dbuf = alloca [64 x i8], align 16

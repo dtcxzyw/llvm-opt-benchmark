@@ -148,7 +148,7 @@ define dso_local i32 @ipv6_frag_init() local_unnamed_addr #0 section ".init.text
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #1
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal void @ip6frag_init(ptr nocapture noundef writeonly initializes((8, 52), (182, 183)) %0, ptr nocapture noundef readonly %1) #2 align 16 {
+define internal void @ip6frag_init(ptr nocapture noundef writeonly %0, ptr nocapture noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(44) %3, ptr noundef align 4 dereferenceable(44) %1, i64 44, i1 false)
   %4 = getelementptr inbounds i8, ptr %0, i64 182

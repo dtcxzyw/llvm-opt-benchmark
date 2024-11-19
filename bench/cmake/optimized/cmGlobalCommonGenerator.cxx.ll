@@ -262,7 +262,7 @@ define dso_local void @_ZN23cmGlobalCommonGeneratorC2EP5cmake(ptr noundef nonnul
 declare void @_ZN17cmGlobalGeneratorC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(1778), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23cmGlobalCommonGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1880) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23cmGlobalCommonGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1880) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV23cmGlobalCommonGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1832
   %3 = getelementptr inbounds i8, ptr %0, i64 1848
@@ -300,7 +300,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 declare void @_ZN17cmGlobalGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1778)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN23cmGlobalCommonGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1880) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN23cmGlobalCommonGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1880) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV23cmGlobalCommonGenerator, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1832
   %3 = getelementptr inbounds i8, ptr %0, i64 1848
@@ -339,7 +339,7 @@ _ZN23cmGlobalCommonGeneratorD2Ev.exit:            ; preds = %_ZNSt3setINSt7__cxx
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK23cmGlobalCommonGenerator23ComputeDirectoryTargetsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map.166") align 8 initializes((8, 12), (16, 24)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1880) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK23cmGlobalCommonGenerator23ComputeDirectoryTargetsB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map.166") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(1880) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::tuple.732", align 8
   %4 = alloca %"class.std::tuple.735", align 1
   %5 = alloca %class.cmListFileBacktrace, align 8

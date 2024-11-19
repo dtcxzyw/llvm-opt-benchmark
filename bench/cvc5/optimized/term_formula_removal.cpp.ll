@@ -854,7 +854,7 @@ terminate.lpad:                                   ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal18RemoveTermFormulasD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal18RemoveTermFormulasD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal18RemoveTermFormulasE, i64 16), ptr %this, align 8
   %d_lp = getelementptr inbounds i8, ptr %this, i64 144
@@ -907,7 +907,7 @@ _ZNSt10unique_ptrIN4cvc58internal19TConvProofGeneratorESt14default_deleteIS2_EED
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal18RemoveTermFormulasD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal18RemoveTermFormulasD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4cvc58internal18RemoveTermFormulasE, i64 16), ptr %this, align 8
   %d_lp.i = getelementptr inbounds i8, ptr %this, i64 144

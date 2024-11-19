@@ -112,7 +112,7 @@ declare i32 @wtap_read_bytes(ptr noundef, ptr noundef, i32 noundef, ptr noundef,
 declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @_5views_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly initializes((0, 8)) %5) #0 {
+define internal i32 @_5views_read(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr nocapture noundef writeonly %5) #0 {
   %7 = alloca %struct.t_5VW_TimeStamped_Header, align 4
   %8 = getelementptr inbounds i8, ptr %7, i64 16
   %9 = getelementptr inbounds i8, ptr %7, i64 24

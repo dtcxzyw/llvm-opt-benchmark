@@ -25,7 +25,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [11 x i8] c"%9.2f sec\0A\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @Llb_ManSetDefaultParams(ptr nocapture noundef writeonly initializes((0, 112)) %0) local_unnamed_addr #0 {
+define void @Llb_ManSetDefaultParams(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %2, i8 0, i64 40, i1 false)
   store i32 10000000, ptr %0, align 8

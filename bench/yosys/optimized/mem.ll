@@ -16544,7 +16544,7 @@ _ZN5Yosys5RTLIL5ConstD2Ev.exit4:                  ; preds = %_ZN5Yosys5RTLIL5Con
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys3Mem16get_all_memoriesEPNS_5RTLIL6ModuleE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.145") align 8 initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys3Mem16get_all_memoriesEPNS_5RTLIL6ModuleE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.145") align 8 %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.(anonymous namespace)::MemIndex", align 8
   %4 = alloca %"struct.std::pair.157", align 8
   %5 = alloca %"struct.Yosys::Mem", align 8
@@ -16922,7 +16922,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit44: ; preds = %_ZN5Yosys5RTLIL
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_18MemIndexC2EPN5Yosys5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(168) initializes((0, 48), (56, 104), (112, 160)) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_18MemIndexC2EPN5Yosys5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr nocapture noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca ptr, align 8
   %4 = alloca %"struct.Yosys::RTLIL::IdString", align 4
   %5 = alloca %"struct.Yosys::RTLIL::IdString", align 4
@@ -17654,7 +17654,7 @@ _ZN5Yosys5RTLIL11ObjIteratorIPNS0_4CellEED2Ev.exit73: ; preds = %.body34, %139, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 48), (56, 69), (72, 100), (104, 176)) %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(168) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_115mem_from_memoryEPN5Yosys5RTLIL6ModuleEPNS1_6MemoryERKNS_8MemIndexE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(168) %3) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.81", align 8
   %6 = alloca %"struct.Yosys::MemRd", align 8
   %7 = alloca %"struct.Yosys::RTLIL::Const", align 8
@@ -27399,7 +27399,7 @@ _ZNSt12_Vector_baseIN5Yosys3MemESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN5Y
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.145") align 8 initializes((0, 24)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys3Mem21get_selected_memoriesEPNS_5RTLIL6ModuleE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.145") align 8 %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.(anonymous namespace)::MemIndex", align 8
   %4 = alloca %"struct.std::pair.157", align 8
   %5 = alloca %"struct.Yosys::Mem", align 8
@@ -57812,7 +57812,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yo
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys5MemWr13decompress_enERKSt6vectorIiSaIiEENS_5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 initializes((0, 4), (8, 64)) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(376) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys5MemWr13decompress_enERKSt6vectorIiSaIiEENS_5RTLIL7SigSpecE(ptr dead_on_unwind noalias writable sret(%"struct.Yosys::RTLIL::SigSpec") align 8 %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(376) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr noundef %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store i32 0, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)

@@ -7546,7 +7546,7 @@ declare ptr @tvb_new_subset_remaining(ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull initializes((0, 6), (8, 18), (20, 24)) %4) unnamed_addr #0 {
+define internal fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = load i32, ptr %3, align 4
   %7 = load i32, ptr @hf_opa_mad, align 4
   %8 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %7, ptr noundef %2, i32 noundef %6, i32 noundef 24, i32 noundef 0) #6
@@ -7665,7 +7665,7 @@ define internal fastcc void @parse_MAD_Common(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_RMPP(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull initializes((0, 4), (8, 12)) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_RMPP(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3, ptr nocapture noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = load i32, ptr %3, align 4
   %8 = load i32, ptr @hf_opa_rmpp, align 4

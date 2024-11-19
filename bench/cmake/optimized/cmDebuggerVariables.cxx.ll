@@ -307,7 +307,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 16)) %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::function.16", align 8
   %6 = zext i1 %3 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
@@ -606,7 +606,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EED
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt8functionIFSt6vectorINS_23cmDebuggerVariableEntryESaISC_EEvEE(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 16)) %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr nocapture noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_26cmDebuggerVariablesManagerEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbSt8functionIFSt6vectorINS_23cmDebuggerVariableEntryESaISC_EEvEE(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr nocapture noundef %1, ptr noundef nonnull %2, i1 noundef zeroext %3, ptr nocapture noundef %4) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::function.16", align 8
   %7 = zext i1 %3 to i8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
@@ -783,7 +783,7 @@ _ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EE12emplac
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.22") align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger19cmDebuggerVariables22HandleVariablesRequestEv(ptr dead_on_unwind noalias writable sret(%"class.std::vector.22") align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.27", align 8
   %4 = alloca %"struct.dap::Variable", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1592,7 +1592,7 @@ _ZNSt6vectorISt10shared_ptrIN10cmDebugger19cmDebuggerVariablesEESaIS3_EE5clearEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesD2Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8
@@ -1914,7 +1914,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesD0Ev(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #2 align 2 {
   tail call void @_ZN10cmDebugger19cmDebuggerVariablesD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) #19
   tail call void @_ZdlPv(ptr noundef nonnull %0) #20
   ret void

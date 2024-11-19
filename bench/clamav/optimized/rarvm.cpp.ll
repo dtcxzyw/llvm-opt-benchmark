@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5RarVMD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5RarVMD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5RarVMC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN5RarVMC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) unnamed_addr #0 align 2 {
   store ptr null, ptr %0, align 8
   ret void
 }
@@ -53,7 +53,7 @@ define void @_ZN5RarVM4InitEv(ptr nocapture noundef nonnull align 8 dereferencea
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5RarVM7ExecuteEP18VM_PreparedProgram(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((8, 36)) %0, ptr nocapture noundef initializes((32, 40)) %1) local_unnamed_addr #5 align 2 {
+define void @_ZN5RarVM7ExecuteEP18VM_PreparedProgram(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef %1) local_unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %3, ptr noundef nonnull align 4 dereferenceable(28) %4, i64 28, i1 false)

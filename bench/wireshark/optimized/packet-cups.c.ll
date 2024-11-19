@@ -448,7 +448,7 @@ declare void @col_add_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_quoted_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly initializes((0, 4)) %4) unnamed_addr #0 {
+define internal fastcc ptr @get_quoted_string(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture noundef nonnull writeonly %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %1, i32 noundef %2) #2
   %7 = icmp eq i8 %6, 34
   br i1 %7, label %8, label %15

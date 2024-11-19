@@ -163,7 +163,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix20getDefaultPublicKeysB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 initializes((8, 12), (16, 24)) %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix20getDefaultPublicKeysB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::map") align 8 %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"struct.nix::PublicKey", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8

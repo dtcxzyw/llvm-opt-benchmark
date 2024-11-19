@@ -1231,7 +1231,7 @@ _ZN5vcpkg4HashL6to_hexIjEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) initializes((8, 40), (104, 120)) %0) unnamed_addr #13 align 2 {
+define internal void @_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEE5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(120) %0) unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1779033703, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -1677,7 +1677,7 @@ _ZN5vcpkg4HashL6to_hexImEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) initializes((8, 72), (200, 224)) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEE5clearEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(224) %0) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 7640891576956012808, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16

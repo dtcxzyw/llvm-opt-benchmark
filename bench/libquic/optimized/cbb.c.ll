@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.cbb_st = type { ptr, ptr, i64, i8, i8, i8 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @CBB_zero(ptr nocapture noundef writeonly initializes((0, 32)) %cbb) local_unnamed_addr #0 {
+define hidden void @CBB_zero(ptr nocapture noundef writeonly %cbb) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
   ret void
@@ -16,7 +16,7 @@ entry:
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @CBB_init(ptr nocapture noundef writeonly initializes((0, 32)) %cbb, i64 noundef %initial_capacity) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @CBB_init(ptr nocapture noundef writeonly %cbb, i64 noundef %initial_capacity) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
   %call = tail call noalias ptr @malloc(i64 noundef %initial_capacity) #13
@@ -59,7 +59,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @CBB_init_fixed(ptr nocapture noundef writeonly initializes((0, 32)) %cbb, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #5 {
+define hidden range(i32 0, 2) i32 @CBB_init_fixed(ptr nocapture noundef writeonly %cbb, ptr noundef %buf, i64 noundef %len) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cbb, i8 0, i64 32, i1 false)
   %call.i = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #13

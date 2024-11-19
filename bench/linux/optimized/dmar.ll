@@ -248,7 +248,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dmar_platfor
 @llvm.compiler.used = appending global [4 x ptr] [ptr @__UNIQUE_ID___addressable_dmar_free_unused_resources509, ptr @__UNIQUE_ID___addressable_dmar_platform_optin516, ptr @trace_qi_submit.__UNIQUE_ID___addressable___SCK__preempt_schedule_notrace429, ptr @trace_qi_submit.__UNIQUE_ID___addressable___SCK__tp_func_qi_submit428], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noalias ptr @dmar_alloc_dev_scope(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef initializes((0, 4)) %2) local_unnamed_addr #0 align 16 {
+define dso_local noalias ptr @dmar_alloc_dev_scope(ptr noundef readonly %0, ptr noundef readnone %1, ptr nocapture noundef %2) local_unnamed_addr #0 align 16 {
   store i32 0, ptr %2, align 4
   %4 = icmp ult ptr %0, %1
   br i1 %4, label %.preheader, label %.thread
@@ -4510,7 +4510,7 @@ declare dso_local i32 @ida_alloc_range(ptr noundef, i32 noundef, i32 noundef, i3
 declare dso_local noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapture noundef readonly, ...) local_unnamed_addr #11
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @map_iommu(ptr noundef nonnull initializes((8, 24)) %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @map_iommu(ptr noundef nonnull %0, ptr nocapture noundef nonnull readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds i8, ptr %1, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8

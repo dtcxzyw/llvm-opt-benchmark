@@ -3173,7 +3173,7 @@ _ZN4llvm5APInt15clearUnusedBitsEv.exit:           ; preds = %8
 declare hidden noundef ptr @_ZN4llvm16InstCombinerImpl26SimplifyDemandedVectorEltsEPNS_5ValueENS_5APIntERS3_jb(ptr noundef nonnull align 8 dereferenceable(1088), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(12), i32 noundef, i1 noundef zeroext) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26findDemandedEltsByAllUsersPN4llvm5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 initializes((8, 12)) %0, ptr noundef readonly %1) unnamed_addr #0 {
+define internal fastcc void @_ZL26findDemandedEltsByAllUsersPN4llvm5ValueE(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = alloca %"class.llvm::APInt", align 8
   %5 = alloca %"class.llvm::APInt", align 8
@@ -9015,7 +9015,7 @@ _ZN4llvm12PatternMatch16match_combine_orINS0_17AnyBinaryOp_matchINS0_7bind_tyINS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17getAlternateBinopPN4llvm14BinaryOperatorERKNS_10DataLayoutE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 4), (8, 24)) %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(512) %2) unnamed_addr #0 {
+define internal fastcc void @_ZL17getAlternateBinopPN4llvm14BinaryOperatorERKNS_10DataLayoutE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(512) %2) unnamed_addr #0 {
   %4 = alloca %"struct.llvm::PatternMatch::cstval_pred_ty", align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 -64
   %6 = load ptr, ptr %5, align 8

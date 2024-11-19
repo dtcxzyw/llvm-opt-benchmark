@@ -696,7 +696,7 @@ define dso_local void @_ZN4llvm15MachineFunction23deleteMachineBasicBlockEPNS_17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15MachineFunctionC2ERNS_8FunctionERKNS_17LLVMTargetMachineERKNS_19TargetSubtargetInfoERNS_9MCContextEj(ptr noundef nonnull align 8 dereferenceable(1041) initializes((0, 32), (72, 124), (128, 144)) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(1232) %2, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(2432) %4, i32 noundef %5) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15MachineFunctionC2ERNS_8FunctionERKNS_17LLVMTargetMachineERKNS_19TargetSubtargetInfoERNS_9MCContextEj(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef nonnull align 8 dereferenceable(136) %1, ptr noundef nonnull align 8 dereferenceable(1232) %2, ptr noundef nonnull align 8 dereferenceable(288) %3, ptr noundef nonnull align 8 dereferenceable(2432) %4, i32 noundef %5) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %7, align 8
@@ -1307,7 +1307,7 @@ define dso_local void @_ZN4llvm15MachineFunction29initTargetMachineFunctionInfoE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15MachineFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1041) initializes((344, 352)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15MachineFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1041) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN4llvm15MachineFunction5clearEv(ptr noundef nonnull align 8 dereferenceable(1041) %0)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %3 = load ptr, ptr %2, align 8
@@ -1708,7 +1708,7 @@ _ZNSt6vectorIPN4llvm17MachineBasicBlockESaIS2_EED2Ev.exit: ; preds = %_ZN4llvm13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15MachineFunction5clearEv(ptr noundef nonnull align 8 dereferenceable(1041) initializes((344, 352)) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15MachineFunction5clearEv(ptr noundef nonnull align 8 dereferenceable(1041) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store i64 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -3122,7 +3122,7 @@ _ZN4llvm15MachineFunction12CallSiteInfoD2Ev.exit: ; preds = %118, %_ZN4llvm12Den
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm15MachineFunction18deleteMachineInstrEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef initializes((0, 8)) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm15MachineFunction18deleteMachineInstrEPNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(1041) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -7410,7 +7410,7 @@ _ZN4llvm15MachineFunction12CallSiteInfoD2Ev.exit: ; preds = %129, %_ZN4llvm12Den
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15MachineFunction27setDebugInstrNumberingCountEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1041) initializes((832, 836)) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN4llvm15MachineFunction27setDebugInstrNumberingCountEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1041) %0, i32 noundef %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store i32 %1, ptr %3, align 8
   ret void
@@ -9234,7 +9234,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm15MachineFunction16useDebugInstrRe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15MachineFunction19setUseDebugInstrRefEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1041) initializes((1040, 1041)) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
+define dso_local void @_ZN4llvm15MachineFunction19setUseDebugInstrRefEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(1041) %0, i1 noundef zeroext %1) local_unnamed_addr #10 align 2 {
   %3 = zext i1 %1 to i8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1040
   store i8 %3, ptr %4, align 8
@@ -9492,7 +9492,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm20MachineJumpTableInfo21ReplaceMBBI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm28printJumpTableEntryReferenceEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, i32 noundef %1) local_unnamed_addr #10 {
+define dso_local void @_ZN4llvm28printJumpTableEntryReferenceEj(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, i32 noundef %1) local_unnamed_addr #10 {
 _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNS0_28printJumpTableEntryReferenceEjE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %2, align 8

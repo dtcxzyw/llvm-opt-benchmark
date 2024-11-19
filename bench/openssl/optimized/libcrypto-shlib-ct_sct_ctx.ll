@@ -391,7 +391,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @SCT_CTX_set_time(ptr nocapture noundef writeonly initializes((72, 80)) %sctx, i64 noundef %time_in_ms) local_unnamed_addr #2 {
+define void @SCT_CTX_set_time(ptr nocapture noundef writeonly %sctx, i64 noundef %time_in_ms) local_unnamed_addr #2 {
 entry:
   %epoch_time_in_ms = getelementptr inbounds i8, ptr %sctx, i64 72
   store i64 %time_in_ms, ptr %epoch_time_in_ms, align 8

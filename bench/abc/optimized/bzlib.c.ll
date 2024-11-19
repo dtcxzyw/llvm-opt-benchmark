@@ -4753,7 +4753,7 @@ BZ2_bzWriteClose64.exit:                          ; preds = %BZ2_bzCompressEnd.e
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @BZ2_bzerror(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) local_unnamed_addr #12 {
+define ptr @BZ2_bzerror(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #12 {
   %3 = getelementptr inbounds i8, ptr %0, i64 5096
   %4 = load i32, ptr %3, align 8
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %4, i32 0)

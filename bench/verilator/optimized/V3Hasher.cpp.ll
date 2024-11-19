@@ -1218,7 +1218,7 @@ define linkonce_odr dso_local void @_ZN13HasherVisitorD2Ev(ptr noundef nonnull a
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @_ZNK8V3Hasher6rehashEP7AstNode(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef initializes((140, 152)) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local i32 @_ZNK8V3Hasher6rehashEP7AstNode(ptr nocapture noundef nonnull readnone align 1 dereferenceable(1) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.HasherVisitor, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 144
   store i64 0, ptr %4, align 8

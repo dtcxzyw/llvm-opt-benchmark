@@ -22,7 +22,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr nocapture noundef initializes((0, 24)) %item, ptr noundef %refspec, i32 noundef %fetch) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @refspec_item_init(ptr nocapture noundef %item, ptr noundef %refspec, i32 noundef %fetch) local_unnamed_addr #0 {
 entry:
   %unused.i = alloca %struct.object_id, align 4
   %unused116.i = alloca %struct.object_id, align 4
@@ -305,7 +305,7 @@ parse_refspec.exit:                               ; preds = %if.end10.i, %if.the
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @refspec_item_init_or_die(ptr nocapture noundef initializes((0, 24)) %item, ptr noundef %refspec, i32 noundef %fetch) local_unnamed_addr #0 {
+define dso_local void @refspec_item_init_or_die(ptr nocapture noundef %item, ptr noundef %refspec, i32 noundef %fetch) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @refspec_item_init(ptr noundef %item, ptr noundef %refspec, i32 noundef %fetch)
   %tobool.not = icmp eq i32 %call, 0
@@ -360,7 +360,7 @@ entry:
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @refspec_init(ptr nocapture noundef writeonly initializes((0, 40)) %rs, i32 noundef %fetch) local_unnamed_addr #5 {
+define dso_local void @refspec_init(ptr nocapture noundef writeonly %rs, i32 noundef %fetch) local_unnamed_addr #5 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %rs, i8 0, i64 40, i1 false)
   %fetch1 = getelementptr inbounds i8, ptr %rs, i64 32

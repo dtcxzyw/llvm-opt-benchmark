@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @opal_uses_threads = external local_unnamed_addr global i8, align 1
 
 ; Function Attrs: nounwind uwtable
-define void @opal_tsd_tracked_key_constructor(ptr noundef initializes((24, 32)) %0) #0 {
+define void @opal_tsd_tracked_key_constructor(ptr noundef %0) #0 {
   %2 = load i32, ptr @opal_class_init_epoch, align 4
   %3 = load i32, ptr getelementptr inbounds (i8, ptr @opal_mutex_t_class, i64 32), align 8
   %.not = icmp eq i32 %2, %3
@@ -391,7 +391,7 @@ opal_obj_new.exit.thread:                         ; preds = %13, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @opal_tsd_tracked_key_set_destructor(ptr nocapture noundef writeonly initializes((152, 160)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define void @opal_tsd_tracked_key_set_destructor(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %1, ptr %3, align 8
   ret void

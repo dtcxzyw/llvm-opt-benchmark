@@ -79,7 +79,7 @@ declare void @_ZN6google8protobuf8internal11LogFinisheraSERNS1_10LogMessageE(ptr
 declare void @_ZN6google8protobuf8internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf11StringPieceC2ES1_l(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr %1, i64 %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf11StringPieceC2ES1_l(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr %1, i64 %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %1, i64 %3
   store ptr %5, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -89,7 +89,7 @@ define void @_ZN6google8protobuf11StringPieceC2ES1_l(ptr nocapture noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN6google8protobuf11StringPieceC2ES1_ll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf11StringPieceC2ES1_ll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr %1, i64 %2, i64 noundef %3, i64 noundef %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = getelementptr inbounds i8, ptr %1, i64 %3
   store ptr %6, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8

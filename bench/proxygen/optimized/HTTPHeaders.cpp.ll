@@ -105,7 +105,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPHeadersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPHeadersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 if.end.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %this, i8 0, i64 32, i1 false)
   %call.i.i1 = invoke noalias noundef nonnull dereferenceable(656) ptr @_Znam(i64 noundef 656) #22
@@ -1576,7 +1576,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen11HTTPHeadersC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %hdrs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen11HTTPHeadersC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %hdrs) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %deletedCount_ = getelementptr inbounds i8, ptr %this, i64 24
   %deletedCount_2 = getelementptr inbounds i8, ptr %hdrs, i64 24
@@ -1765,7 +1765,7 @@ for.end:                                          ; preds = %if.end, %_ZN8proxyg
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN8proxygen11HTTPHeadersC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %hdrs) unnamed_addr #15 align 2 {
+define void @_ZN8proxygen11HTTPHeadersC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull align 8 dereferenceable(32) %hdrs) unnamed_addr #15 align 2 {
 entry:
   %0 = load i64, ptr %hdrs, align 8
   store i64 %0, ptr %this, align 8

@@ -635,7 +635,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler10objectivec12ImportWriter22ParseFrameworkMappingsEv(ptr noundef nonnull align 8 dereferenceable(208) initializes((129, 130)) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler10objectivec12ImportWriter22ParseFrameworkMappingsEv(ptr noundef nonnull align 8 dereferenceable(208) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %collector = alloca %"class.google::protobuf::compiler::objectivec::(anonymous namespace)::ProtoFrameworkCollector", align 8
   %parse_error = alloca %"class.std::__cxx11::basic_string", align 8

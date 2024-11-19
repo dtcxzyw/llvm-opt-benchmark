@@ -98,7 +98,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %8, %9
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @prte_reachable_construct(ptr nocapture noundef writeonly initializes((128, 136)) %0) #2 {
+define internal void @prte_reachable_construct(ptr nocapture noundef writeonly %0) #2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   store ptr null, ptr %2, align 8
   ret void

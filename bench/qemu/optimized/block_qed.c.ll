@@ -792,7 +792,7 @@ return:                                           ; preds = %if.end25, %if.then2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @bdrv_qed_refresh_limits(ptr nocapture noundef initializes((16488, 16500)) %bs, ptr nocapture readnone %errp) #3 {
+define internal void @bdrv_qed_refresh_limits(ptr nocapture noundef %bs, ptr nocapture readnone %errp) #3 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1030,7 +1030,7 @@ return:                                           ; preds = %if.end, %if.end5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 6) i32 @bdrv_qed_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %pos, i64 noundef %bytes, ptr nocapture noundef writeonly initializes((0, 8)) %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
+define internal range(i32 -2147483648, 6) i32 @bdrv_qed_co_block_status(ptr nocapture noundef readonly %bs, i1 zeroext %want_zero, i64 noundef %pos, i64 noundef %bytes, ptr nocapture noundef writeonly %pnum, ptr nocapture noundef writeonly %map, ptr nocapture noundef writeonly %file) #0 {
 entry:
   %len = alloca i64, align 8
   %request = alloca %struct.QEDRequest, align 8
@@ -1232,7 +1232,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @bdrv_qed_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly initializes((0, 24)) %bdi) #3 {
+define internal noundef i32 @bdrv_qed_co_get_info(ptr nocapture noundef readonly %bs, ptr nocapture noundef writeonly %bdi) #3 {
 entry:
   %opaque = getelementptr inbounds i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
@@ -1279,7 +1279,7 @@ declare void @qemu_coroutine_enter(ptr noundef) local_unnamed_addr #1
 declare ptr @qemu_coroutine_create(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @bdrv_qed_open_entry(ptr nocapture noundef initializes((32, 36)) %opaque) #0 {
+define internal void @bdrv_qed_open_entry(ptr nocapture noundef %opaque) #0 {
 glib_autoptr_cleanup_GraphLockable.exit:
   %0 = load ptr, ptr %opaque, align 8
   %opaque1 = getelementptr inbounds i8, ptr %0, i64 24

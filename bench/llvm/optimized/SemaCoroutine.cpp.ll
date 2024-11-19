@@ -3230,7 +3230,7 @@ declare noundef ptr @_ZN5clang4Sema30CreateMaterializeTemporaryExprENS_8QualType
 declare i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr nocapture noundef readonly %2, i32 %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL17buildCoawaitCallsRN5clang4SemaEPNS_7VarDeclENS_14SourceLocationEPNS_4ExprE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr nocapture noundef readonly %2, i32 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %7 = alloca %"class.clang::QualType", align 8
   %8 = alloca %"class.clang::LookupResult", align 8
@@ -4511,7 +4511,7 @@ _ZN5clang20CoroutineStmtBuilderD2Ev.exit:         ; preds = %82, %76, %22, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang20CoroutineStmtBuilder15buildStatementsEv(ptr noundef nonnull align 8 dereferenceable(208) initializes((136, 137)) %0) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang20CoroutineStmtBuilder15buildStatementsEv(ptr noundef nonnull align 8 dereferenceable(208) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.llvm::MutableArrayRef.1270", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -4581,7 +4581,7 @@ _ZN5clang20CoroutineStmtBuilder24buildDependentStatementsEv.exit: ; preds = %20,
 declare noundef ptr @_ZN5clang17CoroutineBodyStmt6CreateERKNS_10ASTContextERKNS0_8CtorArgsE(ptr noundef nonnull align 8 dereferenceable(23096), ptr noundef nonnull align 8 dereferenceable(112)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang20CoroutineStmtBuilderC2ERNS_4SemaERNS_12FunctionDeclERNS_4sema17FunctionScopeInfoEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 137), (140, 144)) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(1296) %3, ptr noundef %4) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang20CoroutineStmtBuilderC2ERNS_4SemaERNS_12FunctionDeclERNS_4sema17FunctionScopeInfoEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(17560) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef nonnull align 8 dereferenceable(1296) %3, ptr noundef %4) unnamed_addr #0 align 2 {
   %6 = alloca [1 x ptr], align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 112, i1 false)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112

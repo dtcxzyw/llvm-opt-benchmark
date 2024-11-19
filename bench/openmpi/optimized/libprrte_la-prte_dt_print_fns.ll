@@ -64,7 +64,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.55 = private unnamed_addr constant [25 x i8] c"%s        </processors>\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @prte_job_print(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @prte_job_print(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -248,7 +248,7 @@ declare ptr @prte_job_state_to_str(i32 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @prte_app_print(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr nocapture readnone %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @prte_app_print(ptr nocapture noundef writeonly %0, ptr nocapture readnone %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -347,7 +347,7 @@ define void @prte_app_print(ptr nocapture noundef writeonly initializes((0, 8)) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prte_map_print(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @prte_map_print(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -633,7 +633,7 @@ pmix_pointer_array_get_item.exit58:               ; preds = %139, %161
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prte_proc_print(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @prte_proc_print(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -860,7 +860,7 @@ hwloc_get_nbobjs_by_type.exit:                    ; preds = %22, %32, %33
 }
 
 ; Function Attrs: nounwind uwtable
-define void @prte_node_print(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @prte_node_print(ptr nocapture noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [2048 x i8], align 16
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

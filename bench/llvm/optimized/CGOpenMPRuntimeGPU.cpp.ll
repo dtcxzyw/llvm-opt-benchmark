@@ -10970,7 +10970,7 @@ define dso_local void @_ZNK5clang7CodeGen18CGOpenMPRuntimeGPU30getDefaultDistSch
 declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction20EmitScalarConversionEPN4llvm5ValueENS_8QualTypeES5_NS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(6488), ptr noundef, i64, i64, i32) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang7CodeGen18CGOpenMPRuntimeGPU26getDefaultScheduleAndChunkERNS0_15CodeGenFunctionERKNS_16OMPLoopDirectiveERNS_24OpenMPScheduleClauseKindERPKNS_4ExprE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZNK5clang7CodeGen18CGOpenMPRuntimeGPU26getDefaultScheduleAndChunkERNS0_15CodeGenFunctionERKNS_16OMPLoopDirectiveERNS_24OpenMPScheduleClauseKindERPKNS_4ExprE(ptr nocapture nonnull readnone align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(6488) %1, ptr nocapture nonnull readnone align 8 %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3, ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %4) unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::APInt", align 8
   store i32 0, ptr %3, align 4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8

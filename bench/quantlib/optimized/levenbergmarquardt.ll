@@ -76,7 +76,7 @@ $_ZTIN8QuantLib18OptimizationMethodE = comdat any
 @_ZN8QuantLib18LevenbergMarquardtC1Edddb = unnamed_addr alias void (ptr, double, double, double, i1), ptr @_ZN8QuantLib18LevenbergMarquardtC2Edddb
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN8QuantLib18LevenbergMarquardtC2Edddb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(89) initializes((0, 8), (16, 60), (64, 89)) %this, double noundef %epsfcn, double noundef %xtol, double noundef %gtol, i1 noundef zeroext %useCostFunctionsJacobian) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib18LevenbergMarquardtC2Edddb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(89) %this, double noundef %epsfcn, double noundef %xtol, double noundef %gtol, i1 noundef zeroext %useCostFunctionsJacobian) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN8QuantLib18LevenbergMarquardtE, i64 16), ptr %this, align 8, !tbaa !3
   %initCostValues_ = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -104,7 +104,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN8QuantLib18LevenbergMarquardt8minimizeERNS_7ProblemERKNS_11EndCriteriaE(ptr noundef nonnull align 8 dereferenceable(89) initializes((8, 16)) %this, ptr noundef nonnull align 8 dereferenceable(56) initializes((32, 56)) %P, ptr noundef nonnull align 8 dereferenceable(40) %endCriteria) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN8QuantLib18LevenbergMarquardt8minimizeERNS_7ProblemERKNS_11EndCriteriaE(ptr noundef nonnull align 8 dereferenceable(89) %this, ptr noundef nonnull align 8 dereferenceable(56) %P, ptr noundef nonnull align 8 dereferenceable(40) %endCriteria) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ecType = alloca i32, align 4
   %x_ = alloca %"class.QuantLib::Array", align 8

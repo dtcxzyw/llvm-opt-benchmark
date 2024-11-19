@@ -470,7 +470,7 @@ define hidden void @_ZN13StubAssembler8epilogueEv(ptr noundef nonnull align 8 de
 declare void @_ZN9Assembler3retEi(ptr noundef nonnull align 8 dereferenceable(40), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9StubFrameC2EP13StubAssemblerPKcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
+define hidden void @_ZN9StubFrameC2EP13StubAssemblerPKcb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr noundef nonnull %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
   tail call void @_ZN13StubAssembler8set_infoEPKcb(ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef %2, i1 noundef zeroext %3) #7
   tail call void @_ZN14MacroAssembler5enterEv(ptr noundef nonnull align 8 dereferenceable(72) %1) #7

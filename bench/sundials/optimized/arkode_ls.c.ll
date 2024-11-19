@@ -776,7 +776,7 @@ arkLs_AccessLMem.exit.thread:                     ; preds = %20, %14, %58, %59, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @arkLsInitializeCounters(ptr nocapture noundef writeonly initializes((128, 200)) %0) local_unnamed_addr #5 {
+define noundef i32 @arkLsInitializeCounters(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 128
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)
   ret i32 0
@@ -2050,7 +2050,7 @@ switch.early.test:                                ; preds = %57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @arkLsInitializeMassCounters(ptr nocapture noundef writeonly initializes((64, 144)) %0) local_unnamed_addr #5 {
+define noundef i32 @arkLsInitializeMassCounters(ptr nocapture noundef writeonly %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %2, i8 0, i64 72, i1 false)

@@ -1081,14 +1081,14 @@ _ZNSt4pairIi7QStringED2Ev.exit:                   ; preds = %7, %_ZN9QtPrivate8R
 declare void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind writable sret(%class.QByteArray) align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN11GLLogStream13clearBookmarkEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((16, 20)) %0) local_unnamed_addr #9 align 2 {
+define void @_ZN11GLLogStream13clearBookmarkEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 -1, ptr %2, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN11GLLogStream11setBookmarkEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 20)) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN11GLLogStream11setBookmarkEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 12

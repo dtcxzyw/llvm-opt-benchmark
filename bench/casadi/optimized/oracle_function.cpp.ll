@@ -581,7 +581,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZN6casadi16FunctionInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(1304)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6casadi14OracleFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1520) initializes((0, 8)) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6casadi14OracleFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1520) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6casadi14OracleFunctionE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1464
   %3 = load ptr, ptr %2, align 8
@@ -8627,7 +8627,7 @@ _ZN6casadi14FunctionMemoryD2Ev.exit:              ; preds = %_ZNSt6vectorIPN6cas
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK6casadi14OracleFunction8set_tempEPvPPKdPPdPxS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1520) %0, ptr nocapture noundef initializes((56, 88)) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #13 align 2 {
+define void @_ZNK6casadi14OracleFunction8set_tempEPvPPKdPPdPxS5_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(1520) %0, ptr nocapture noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #13 align 2 {
   %7 = getelementptr inbounds i8, ptr %1, i64 56
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 64
@@ -8685,7 +8685,7 @@ define void @_ZNK6casadi14OracleFunction8set_tempEPvPPKdPPdPxS5_(ptr nocapture n
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK6casadi14OracleFunction12get_functionB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.15") align 8 initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 dereferenceable(1520) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK6casadi14OracleFunction12get_functionB5cxx11Ev(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::vector.15") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(1520) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %1, i64 1456
   %4 = load i64, ptr %3, align 8

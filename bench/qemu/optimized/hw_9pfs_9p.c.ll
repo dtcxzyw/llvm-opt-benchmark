@@ -361,7 +361,7 @@ return:                                           ; preds = %entry, %for.end
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_path_free(ptr nocapture noundef initializes((0, 2)) %path) local_unnamed_addr #0 {
+define dso_local void @v9fs_path_free(ptr nocapture noundef %path) local_unnamed_addr #0 {
 entry:
   %data = getelementptr inbounds i8, ptr %path, i64 8
   %0 = load ptr, ptr %data, align 8
@@ -374,7 +374,7 @@ entry:
 declare void @g_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @cred_init(ptr nocapture noundef writeonly initializes((0, 12), (16, 24)) %credp) local_unnamed_addr #3 {
+define dso_local void @cred_init(ptr nocapture noundef writeonly %credp) local_unnamed_addr #3 {
 entry:
   store i32 -1, ptr %credp, align 8
   %fc_gid = getelementptr inbounds i8, ptr %credp, i64 4
@@ -387,7 +387,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define dso_local void @v9fs_path_init(ptr nocapture noundef writeonly initializes((0, 2), (8, 16)) %path) local_unnamed_addr #3 {
+define dso_local void @v9fs_path_init(ptr nocapture noundef writeonly %path) local_unnamed_addr #3 {
 entry:
   %data = getelementptr inbounds i8, ptr %path, i64 8
   store ptr null, ptr %data, align 8
@@ -396,7 +396,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_path_sprintf(ptr noundef initializes((0, 2)) %path, ptr noundef %fmt, ...) local_unnamed_addr #0 {
+define dso_local void @v9fs_path_sprintf(ptr noundef %path, ptr noundef %fmt, ...) local_unnamed_addr #0 {
 entry:
   %ap = alloca [1 x %struct.__va_list_tag], align 16
   %data.i = getelementptr inbounds i8, ptr %path, i64 8
@@ -416,7 +416,7 @@ entry:
 declare i32 @g_vasprintf(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_path_copy(ptr nocapture noundef initializes((0, 2)) %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
+define dso_local void @v9fs_path_copy(ptr nocapture noundef %dst, ptr nocapture noundef readonly %src) local_unnamed_addr #0 {
 entry:
   %data.i = getelementptr inbounds i8, ptr %dst, i64 8
   %0 = load ptr, ptr %data.i, align 8
@@ -801,7 +801,7 @@ entry:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @pdu_submit(ptr noundef initializes((0, 7)) %pdu, ptr nocapture noundef readonly %hdr) local_unnamed_addr #0 {
+define dso_local void @pdu_submit(ptr noundef %pdu, ptr nocapture noundef readonly %hdr) local_unnamed_addr #0 {
 entry:
   %s1 = getelementptr inbounds i8, ptr %pdu, i64 24
   %0 = load ptr, ptr %s1, align 8
@@ -11140,7 +11140,7 @@ if.end:                                           ; preds = %while.end, %if.then
 declare i32 @v9fs_co_readdir(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 -2147483648, 1) i32 @stat_to_v9stat(ptr noundef %pdu, ptr noundef %path, ptr noundef %basename, ptr nocapture noundef readonly %stbuf, ptr noundef initializes((0, 144)) %v9stat) #0 {
+define internal range(i32 -2147483648, 1) i32 @stat_to_v9stat(ptr noundef %pdu, ptr noundef %path, ptr noundef %basename, ptr nocapture noundef readonly %stbuf, ptr noundef %v9stat) #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %v9stat, i8 0, i64 144, i1 false)
   %qid = getelementptr inbounds i8, ptr %v9stat, i64 8

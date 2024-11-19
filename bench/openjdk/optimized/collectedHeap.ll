@@ -379,7 +379,7 @@ declare void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceabl
 declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22ParallelObjectIteratorC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN22ParallelObjectIteratorC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, i32 noundef %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 264
@@ -447,7 +447,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CollectedHeap25create_heap_space_summaryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.VirtualSpaceSummary) align 8 initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13CollectedHeap25create_heap_space_summaryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.VirtualSpaceSummary) align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %1, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 88
   %5 = load ptr, ptr %4, align 8
@@ -468,7 +468,7 @@ define hidden void @_ZN13CollectedHeap25create_heap_space_summaryEv(ptr dead_on_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CollectedHeap19create_heap_summaryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GCHeapSummary) align 8 initializes((0, 40)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13CollectedHeap19create_heap_summaryEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.GCHeapSummary) align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %class.VirtualSpaceSummary, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 296
@@ -815,7 +815,7 @@ _ZNK7oopDesc21klass_without_assertsEv.exit:       ; preds = %18, %30
 declare noundef zeroext i1 @_ZN9Metaspace8containsEPKv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CollectedHeapC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) initializes((0, 8), (16, 34), (40, 57), (64, 88)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN13CollectedHeapC2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #0 align 2 {
   %2 = alloca %class.ExceptionMark, align 8
   store ptr getelementptr inbounds inrange(-16, 464) (i8, ptr @_ZTV13CollectedHeap, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1214,7 +1214,7 @@ define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_0ELS1_
 declare void @llvm.trap() #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CollectedHeap12memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 initializes((0, 32)) %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZN13CollectedHeap12memory_usageEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.MemoryUsage) align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1) unnamed_addr #0 align 2 {
   %3 = load i64, ptr @InitialHeapSize, align 8
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 96
@@ -1657,7 +1657,7 @@ define hidden noundef range(i64 -9223372036854, 9223372036855) i64 @_ZN13Collect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN13CollectedHeap36record_whole_heap_examined_timestampEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((64, 72)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN13CollectedHeap36record_whole_heap_examined_timestampEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0) local_unnamed_addr #0 align 2 {
   %2 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #18
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %2, ptr %3, align 8
@@ -2052,7 +2052,7 @@ define hidden void @_ZN13CollectedHeap17post_full_gc_dumpEP7GCTimer(ptr nocaptur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN13CollectedHeap26initialize_reserved_regionERK17ReservedHeapSpace(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) initializes((40, 56)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN13CollectedHeap26initialize_reserved_regionERK17ReservedHeapSpace(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(104) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   store i64 0, ptr %4, align 8

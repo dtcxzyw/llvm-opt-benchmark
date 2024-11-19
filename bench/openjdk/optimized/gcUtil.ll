@@ -40,7 +40,7 @@ define hidden noundef float @_ZN23AdaptiveWeightedAverage24compute_adaptive_aver
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN23AdaptiveWeightedAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(20) initializes((16, 20)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN23AdaptiveWeightedAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(20) %0, float noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
@@ -137,7 +137,7 @@ define hidden void @_ZNK30AdaptivePaddedNoZeroDevAverage8print_onEP12outputStrea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN21AdaptivePaddedAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(32) initializes((16, 24)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN21AdaptivePaddedAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(32) %0, float noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
@@ -214,7 +214,7 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %_ZN23
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN30AdaptivePaddedNoZeroDevAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(32) initializes((16, 24)) %0, float noundef %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN30AdaptivePaddedNoZeroDevAverage6sampleEf(ptr nocapture noundef nonnull align 4 dereferenceable(32) %0, float noundef %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = add i32 %4, 1
@@ -301,7 +301,7 @@ _ZN23AdaptiveWeightedAverage24compute_adaptive_averageEff.exit: ; preds = %27, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN20LinearLeastSquareFitC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) initializes((0, 61), (64, 81), (84, 88)) %0, i32 noundef %1) unnamed_addr #5 align 2 {
+define hidden void @_ZN20LinearLeastSquareFitC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(88) %0, i32 noundef %1) unnamed_addr #5 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 0, i64 56, i1 false)
   store i32 %1, ptr %3, align 8
@@ -323,7 +323,7 @@ define hidden void @_ZN20LinearLeastSquareFitC2Ej(ptr nocapture noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN20LinearLeastSquareFit6updateEdd(ptr nocapture noundef nonnull align 8 dereferenceable(88) initializes((64, 68), (84, 88)) %0, double noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN20LinearLeastSquareFit6updateEdd(ptr nocapture noundef nonnull align 8 dereferenceable(88) %0, double noundef %1, double noundef %2) local_unnamed_addr #1 align 2 {
   %4 = load double, ptr %0, align 8
   %5 = fadd double %1, %4
   store double %5, ptr %0, align 8

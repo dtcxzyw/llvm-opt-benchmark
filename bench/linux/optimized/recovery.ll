@@ -1311,7 +1311,7 @@ declare dso_local i32 @errseq_check(ptr noundef, i32 noundef) local_unnamed_addr
 declare dso_local i64 @journal_tag_bytes(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @jread(ptr nocapture noundef writeonly initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc i32 @jread(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca [8 x ptr], align 16
   %6 = alloca i64, align 8

@@ -30,7 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.8 = private unnamed_addr constant [47 x i8] c"Blacklist compilation failed (offset: %d), %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zend_accel_blacklist_init(ptr nocapture noundef initializes((8, 16)) %0) local_unnamed_addr #0 {
+define hidden void @zend_accel_blacklist_init(ptr nocapture noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 0, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 8

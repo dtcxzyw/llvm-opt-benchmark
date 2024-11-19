@@ -13088,14 +13088,14 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIK
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN8facebook5velox10BaseVector18loadedVectorSharedERKSt10shared_ptrIS1_E(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_113DummyReleaserEED2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) initializes((0, 8)) %this) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_113DummyReleaserEED2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(65) %this) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox10BufferViewINS0_12_GLOBAL__N_113DummyReleaserEEE, i64 16), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_113DummyReleaserEED0Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox10BufferViewINS0_12_GLOBAL__N_113DummyReleaserEED0Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZdlPv(ptr noundef nonnull %this) #41
   ret void
@@ -41033,7 +41033,7 @@ return:                                           ; preds = %for.body, %for.end,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZNSt17_Function_handlerIFSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17VectorFunctionArgESaISF_EERKNS2_4core11QueryConfigEEZNS2_9functions37registerVectorFunction_udf_json_parseESD_E3$_0E9_M_invokeERKSt9_Any_dataSD_SJ_SN_"(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.401") align 8 initializes((0, 16)) %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr nocapture nonnull readnone align 8 %__args3) #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZNSt17_Function_handlerIFSt10shared_ptrIN8facebook5velox4exec14VectorFunctionEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorINS3_17VectorFunctionArgESaISF_EERKNS2_4core11QueryConfigEEZNS2_9functions37registerVectorFunction_udf_json_parseESD_E3$_0E9_M_invokeERKSt9_Any_dataSD_SJ_SN_"(ptr noalias nocapture writeonly sret(%"class.std::shared_ptr.401") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %__functor, ptr nocapture nonnull readnone align 8 %__args, ptr nocapture nonnull readnone align 8 %__args1, ptr nocapture nonnull readnone align 8 %__args3) #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !395)
   %call5.i.i.i3.i.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #40, !noalias !398
@@ -41153,7 +41153,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_117JsonParseFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_117JsonParseFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_117JsonParseFunctionE, i64 16), ptr %this, align 8
   %loaded_bytes.i = getelementptr inbounds i8, ptr %this, i64 312
@@ -41228,7 +41228,7 @@ arraydestroy.done2:                               ; preds = %_ZNSt15__exception_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_117JsonParseFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(328) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define internal void @_ZN8facebook5velox9functions12_GLOBAL__N_117JsonParseFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN8facebook5velox9functions12_GLOBAL__N_117JsonParseFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %this) #38
   tail call void @_ZdlPv(ptr noundef nonnull %this) #41

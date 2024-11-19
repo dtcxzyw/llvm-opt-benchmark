@@ -998,7 +998,7 @@ tailrecurse:                                      ; preds = %Vec_IntPush.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Emb_ManCollectSuper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef initializes((4, 8)) %2, ptr nocapture noundef initializes((4, 8)) %3) local_unnamed_addr #1 {
+define void @Emb_ManCollectSuper(ptr nocapture noundef readonly %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %5, align 4
   %6 = getelementptr inbounds i8, ptr %3, i64 4
@@ -3056,7 +3056,7 @@ declare noundef i32 @sprintf(ptr noalias nocapture noundef writeonly, ptr nocapt
 declare double @pow(double noundef, double noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 1, 0) i32 @Emb_ManComputeDistance_old(ptr nocapture noundef %0, ptr nocapture noundef initializes((12, 16)) %1) local_unnamed_addr #1 {
+define range(i32 1, 0) i32 @Emb_ManComputeDistance_old(ptr nocapture noundef %0, ptr nocapture noundef %1) local_unnamed_addr #1 {
 .lr.ph115:
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %3 = getelementptr i8, ptr %2, i64 4
@@ -3741,7 +3741,7 @@ Abc_Clock.exit5:                                  ; preds = %Abc_Clock.exit, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Emb_ManPerformBfs(ptr nocapture noundef initializes((68, 72)) %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
+define ptr @Emb_ManPerformBfs(ptr nocapture noundef %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 0, ptr %5, align 4
   %6 = getelementptr i8, ptr %1, i64 4
@@ -4029,7 +4029,7 @@ Vec_IntPush.exit75:                               ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Emb_ManConnectedComponents(ptr nocapture noundef initializes((64, 68)) %0) local_unnamed_addr #1 {
+define noalias noundef ptr @Emb_ManConnectedComponents(ptr nocapture noundef %0) local_unnamed_addr #1 {
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #28
   %3 = getelementptr inbounds i8, ptr %2, i64 4
   store i32 0, ptr %3, align 4
@@ -4232,7 +4232,7 @@ Vec_IntFree.exit40:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Emb_ManFindDistances(ptr nocapture noundef initializes((64, 72)) %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
+define ptr @Emb_ManFindDistances(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds i8, ptr %0, i64 68
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds i8, ptr %0, i64 64
@@ -4509,7 +4509,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Emb_ManComputeDimensions(ptr nocapture noundef initializes((64, 68)) %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @Emb_ManComputeDimensions(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = tail call ptr @Emb_ManConnectedComponents(ptr noundef %0)
   %4 = getelementptr i8, ptr %3, i64 4
   %.val45 = load i32, ptr %4, align 4
@@ -5427,7 +5427,7 @@ Emb_ManVecCopyOne.exit108:                        ; preds = %.lr.ph.i104, %82
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Emb_ManComputeSolutions(ptr nocapture noundef initializes((88, 96)) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
+define void @Emb_ManComputeSolutions(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 {
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8
   %6 = mul nsw i32 %5, %2

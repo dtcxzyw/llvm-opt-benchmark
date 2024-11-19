@@ -258,7 +258,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt9seq_regexC2ERNS_10theory_seqE(ptr noundef nonnull align 8 dereferenceable(228) initializes((0, 32)) %this, ptr noundef nonnull align 8 dereferenceable(4328) %th) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt9seq_regexC2ERNS_10theory_seqE(ptr noundef nonnull align 8 dereferenceable(228) %this, ptr noundef nonnull align 8 dereferenceable(4328) %th) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr %th, ptr %this, align 8
   %ctx = getelementptr inbounds i8, ptr %this, i64 8
@@ -5558,7 +5558,7 @@ _ZN6vectorIN3sat7literalELb0EjED2Ev.exit:         ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt9seq_regex14symmetric_diffEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 initializes((0, 16)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(228) %this, ptr noundef %r1, ptr noundef %r2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt9seq_regex14symmetric_diffEP4exprS2_(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(228) %this, ptr noundef %r1, ptr noundef %r2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m, align 8

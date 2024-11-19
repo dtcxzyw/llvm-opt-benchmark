@@ -161,7 +161,7 @@ $_ZTSN5boost6detail15sp_counted_baseE = comdat any
 @_ZN5boost9iostreams16mapped_file_sinkC1ERKS1_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN5boost9iostreams16mapped_file_sinkC2ERKS1_
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9iostreams6detail16mapped_file_implC2Ev(ptr noundef nonnull align 8 dereferenceable(133) initializes((0, 40)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9iostreams6detail16mapped_file_implC2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %0, i8 0, i64 16, i1 false)
   store i64 -1, ptr %2, align 8, !tbaa !3
@@ -195,7 +195,7 @@ define hidden void @_ZN5boost9iostreams6detail16mapped_file_implC2Ev(ptr noundef
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost9iostreams6detail16mapped_file_impl5clearEb(ptr noundef nonnull align 8 dereferenceable(133) initializes((0, 40)) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9iostreams6detail16mapped_file_impl5clearEb(ptr noundef nonnull align 8 dereferenceable(133) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.boost::iostreams::basic_mapped_file_params", align 8
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1379,7 +1379,7 @@ _ZN5boost9iostreams24basic_mapped_file_paramsINS0_6detail4pathEED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress noreturn uwtable
-define hidden void @_ZN5boost9iostreams6detail16mapped_file_impl17cleanup_and_throwEPKc(ptr noundef nonnull align 8 dereferenceable(133) initializes((0, 40)) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5boost9iostreams6detail16mapped_file_impl17cleanup_and_throwEPKc(ptr noundef nonnull align 8 dereferenceable(133) %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::ios_base::failure", align 8
   %4 = tail call ptr @__errno_location() #30
   %5 = load i32, ptr %4, align 4, !tbaa !41
@@ -1559,7 +1559,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #13
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5boost9iostreams18mapped_file_sourceC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 16)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost9iostreams18mapped_file_sourceC2ERKS1_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !50
   store ptr %3, ptr %0, align 8, !tbaa !50
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

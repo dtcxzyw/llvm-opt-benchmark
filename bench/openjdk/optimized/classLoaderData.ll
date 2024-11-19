@@ -669,7 +669,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassLoaderData15initialize_nameE6Handle(ptr nocapture noundef nonnull align 8 dereferenceable(160) initializes((144, 152)) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassLoaderData15initialize_nameE6Handle(ptr nocapture noundef nonnull align 8 dereferenceable(160) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 800
@@ -776,7 +776,7 @@ declare noundef ptr @_ZN21java_lang_ClassLoader9nameAndIdEP7oopDesc(ptr noundef)
 declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassLoaderDataC2E6Handleb(ptr noundef nonnull align 8 dereferenceable(160) initializes((0, 16)) %0, ptr %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassLoaderDataC2E6Handleb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr %1, i1 noundef zeroext %2) unnamed_addr #0 align 2 {
   %4 = alloca %class.WeakHandle, align 8
   %5 = zext i1 %2 to i8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
@@ -932,7 +932,7 @@ _ZN15ClassLoaderData17initialize_holderE6Handle.exit: ; preds = %67, %_ZNK6Handl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassLoaderData17ChunkedHandleList3addEP7oopDesc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.OopHandle) align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassLoaderData17ChunkedHandleList3addEP7oopDesc(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.OopHandle) align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = load volatile ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %11, label %6
@@ -2210,7 +2210,7 @@ _ZNK15ClassLoaderData28is_builtin_class_loader_dataEv.exit.thread: ; preds = %4,
 declare noundef zeroext i1 @_ZN21java_lang_ClassLoader10isAncestorEP7oopDescS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassLoaderData10add_handleE6Handle(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.OopHandle) align 8 initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(160) initializes((34, 35)) %1, ptr readonly %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassLoaderData10add_handleE6Handle(ptr dead_on_unwind noalias nocapture writable writeonly sret(%class.OopHandle) align 8 %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr readonly %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
   %.not.i.i = icmp eq ptr %5, null
@@ -2285,7 +2285,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN15ClassLoaderDat
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassLoaderData9add_classEP5Klassb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef initializes((144, 152)) %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassLoaderData9add_classEP5Klassb(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.LogStream, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
@@ -2454,7 +2454,7 @@ define hidden void @_ZN15ClassLoaderData12remove_classEP5Klass(ptr noundef nonnu
 declare void @_Z28report_should_not_reach_herePKci(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassLoaderData6unloadEv(ptr noundef nonnull align 8 dereferenceable(160) initializes((32, 33)) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN15ClassLoaderData6unloadEv(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %class.LogStream, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store i8 1, ptr %3, align 8

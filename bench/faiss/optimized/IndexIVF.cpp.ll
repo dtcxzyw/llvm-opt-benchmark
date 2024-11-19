@@ -613,7 +613,7 @@ _ZN5faiss19minheap_replace_topIfEEvmPT_PlS1_l.exit.loopexit: ; preds = %170, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZNK5faiss19InvertedListScanner13iterate_codesEPNS_21InvertedListsIteratorEPfPlmRm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i64 noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %5) unnamed_addr #0 align 2 {
+define noundef i64 @_ZNK5faiss19InvertedListScanner13iterate_codesEPNS_21InvertedListsIteratorEPfPlmRm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, i64 noundef %4, ptr nocapture noundef nonnull align 8 dereferenceable(8) %5) unnamed_addr #0 align 2 {
   store i64 0, ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
@@ -1000,7 +1000,7 @@ define void @_ZNK5faiss19InvertedListScanner16scan_codes_rangeEmPKhPKlfRNS_16Ran
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5faiss19InvertedListScanner19iterate_codes_rangeEPNS_21InvertedListsIteratorEfRNS_16RangeQueryResultERm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, float noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) initializes((0, 8)) %4) unnamed_addr #0 align 2 {
+define void @_ZNK5faiss19InvertedListScanner19iterate_codes_rangeEPNS_21InvertedListsIteratorEfRNS_16RangeQueryResultERm(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, float noundef %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr nocapture noundef nonnull align 8 dereferenceable(8) %4) unnamed_addr #0 align 2 {
   store i64 0, ptr %4, align 8
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 16
@@ -4611,7 +4611,7 @@ define void @_ZThn40_N5faiss8IndexIVFD0Ev(ptr nocapture readnone %0) unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss15Level1QuantizerC2EPNS_5IndexEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 18), (24, 37), (40, 52), (56, 72)) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #11 align 2 {
+define void @_ZN5faiss15Level1QuantizerC2EPNS_5IndexEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #11 align 2 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -4639,7 +4639,7 @@ define void @_ZN5faiss15Level1QuantizerC2EPNS_5IndexEm(ptr nocapture noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss15Level1QuantizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 18), (24, 37), (40, 52), (56, 72)) %0) unnamed_addr #11 align 2 {
+define void @_ZN5faiss15Level1QuantizerC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0) unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(18) %0, i8 0, i64 18, i1 false)
   store i32 25, ptr %2, align 8
@@ -5316,7 +5316,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZNK5faiss15Level1Quantiz
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 12), (16, 26), (28, 36), (40, 66), (72, 85), (88, 100), (104, 136)) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = trunc i64 %2 to i32
@@ -5557,7 +5557,7 @@ declare void @llvm.trap() #20
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 12), (16, 26), (28, 36), (40, 66), (72, 85), (88, 100), (104, 145), (152, 168)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
@@ -6354,7 +6354,7 @@ define void @_ZN5faiss13IndexIVFStats3addERKS0_(ptr nocapture noundef nonnull al
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN5faiss13IndexIVFStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %0) local_unnamed_addr #11 align 2 {
+define void @_ZN5faiss13IndexIVFStats5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %0) local_unnamed_addr #11 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, i8 0, i64 48, i1 false)
   ret void
 }
@@ -10560,7 +10560,7 @@ define void @_ZN5faiss8IndexIVF16replace_invlistsEPNS_13InvertedListsEb(ptr noca
 declare noundef i64 @_ZNK5faiss13InvertedLists14copy_subset_toERS0_NS0_13subset_type_tEll(ptr noundef nonnull align 8 dereferenceable(25), ptr noundef nonnull align 8 dereferenceable(25), i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) initializes((0, 8), (40, 48)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexIVFE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss8IndexIVFE, i64 296), ptr %2, align 8

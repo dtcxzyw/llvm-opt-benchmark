@@ -3742,14 +3742,14 @@ define { i8, i8 } @_ZN5tokio3net4unix4pipe11OpenOptions3new17h03561d5d6c498c92E(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(2) ptr @_ZN5tokio3net4unix4pipe11OpenOptions10read_write17h958d9ab08cc8c67dE(ptr noalias noundef returned writeonly align 1 dereferenceable(2) initializes((0, 1)) %0, i1 noundef zeroext %1) unnamed_addr #8 {
+define noundef nonnull align 1 dereferenceable(2) ptr @_ZN5tokio3net4unix4pipe11OpenOptions10read_write17h958d9ab08cc8c67dE(ptr noalias noundef returned writeonly align 1 dereferenceable(2) %0, i1 noundef zeroext %1) unnamed_addr #8 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 1
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(2) ptr @_ZN5tokio3net4unix4pipe11OpenOptions9unchecked17h71025db18ff89431E(ptr noalias noundef returned writeonly align 1 dereferenceable(2) initializes((1, 2)) %0, i1 noundef zeroext %1) unnamed_addr #8 {
+define noundef nonnull align 1 dereferenceable(2) ptr @_ZN5tokio3net4unix4pipe11OpenOptions9unchecked17h71025db18ff89431E(ptr noalias noundef returned writeonly align 1 dereferenceable(2) %0, i1 noundef zeroext %1) unnamed_addr #8 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -4127,7 +4127,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender23from_owned_fd_unchecked17h53586f789
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN5tokio3net4unix4pipe6Sender5ready17h0cda567ac329666eE(ptr noalias nocapture noundef writeonly sret({ ptr, i64, [112 x i8], i8, [7 x i8] }) align 8 dereferenceable(136) initializes((0, 16), (128, 129)) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #8 {
+define void @_ZN5tokio3net4unix4pipe6Sender5ready17h0cda567ac329666eE(ptr noalias nocapture noundef writeonly sret({ ptr, i64, [112 x i8], i8, [7 x i8] }) align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -4137,7 +4137,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender5ready17h0cda567ac329666eE(ptr noalia
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN5tokio3net4unix4pipe6Sender8writable17hdbaef37b06c342d4E(ptr noalias nocapture noundef writeonly sret({ ptr, [136 x i8], i8, [7 x i8] }) align 8 dereferenceable(152) initializes((0, 8), (144, 145)) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
+define void @_ZN5tokio3net4unix4pipe6Sender8writable17hdbaef37b06c342d4E(ptr noalias nocapture noundef writeonly sret({ ptr, [136 x i8], i8, [7 x i8] }) align 8 dereferenceable(152) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   store i8 0, ptr %3, align 8
@@ -4282,7 +4282,7 @@ define void @_ZN5tokio3net4unix4pipe6Sender16into_blocking_fd17h5f4de4f99f20f90e
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5tokio3net4unix4pipe6Sender19into_nonblocking_fd17hdc90bf52ff3e61faE(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
+define void @_ZN5tokio3net4unix4pipe6Sender19into_nonblocking_fd17hdc90bf52ff3e61faE(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = alloca { { { i64, ptr }, ptr }, i32, [1 x i32] }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -4611,7 +4611,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver23from_owned_fd_unchecked17h09025d0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN5tokio3net4unix4pipe8Receiver5ready17h375760d9f35ffca7E(ptr noalias nocapture noundef writeonly sret({ ptr, i64, [112 x i8], i8, [7 x i8] }) align 8 dereferenceable(136) initializes((0, 16), (128, 129)) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #8 {
+define void @_ZN5tokio3net4unix4pipe8Receiver5ready17h375760d9f35ffca7E(ptr noalias nocapture noundef writeonly sret({ ptr, i64, [112 x i8], i8, [7 x i8] }) align 8 dereferenceable(136) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1, i64 noundef %2) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -4621,7 +4621,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver5ready17h375760d9f35ffca7E(ptr noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN5tokio3net4unix4pipe8Receiver8readable17h57b031dcc5af68bcE(ptr noalias nocapture noundef writeonly sret({ ptr, [136 x i8], i8, [7 x i8] }) align 8 dereferenceable(152) initializes((0, 8), (144, 145)) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
+define void @_ZN5tokio3net4unix4pipe8Receiver8readable17h57b031dcc5af68bcE(ptr noalias nocapture noundef writeonly sret({ ptr, [136 x i8], i8, [7 x i8] }) align 8 dereferenceable(152) %0, ptr noalias noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #8 {
   store ptr %1, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 144
   store i8 0, ptr %3, align 8
@@ -4766,7 +4766,7 @@ define void @_ZN5tokio3net4unix4pipe8Receiver16into_blocking_fd17h20a884cf2690a2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN5tokio3net4unix4pipe8Receiver19into_nonblocking_fd17h739736fac174c979E(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) initializes((0, 4)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
+define void @_ZN5tokio3net4unix4pipe8Receiver19into_nonblocking_fd17h739736fac174c979E(ptr noalias nocapture noundef writeonly sret({ i32, [3 x i32] }) align 8 dereferenceable(16) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1) unnamed_addr #0 {
   %3 = alloca { { { i64, ptr }, ptr }, i32, [1 x i32] }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -9381,7 +9381,7 @@ define hidden noundef nonnull ptr @_ZN5tokio7runtime4task4core6Header13get_sched
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5tokio7runtime4task5error9JoinError9cancelled17h63ebc9d7e3fdf539E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, i64 }) align 8 dereferenceable(24) initializes((0, 8), (16, 24)) %0, i64 noundef %1) unnamed_addr #8 {
+define hidden void @_ZN5tokio7runtime4task5error9JoinError9cancelled17h63ebc9d7e3fdf539E(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, i64 }) align 8 dereferenceable(24) %0, i64 noundef %1) unnamed_addr #8 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %3, align 8
@@ -9389,7 +9389,7 @@ define hidden void @_ZN5tokio7runtime4task5error9JoinError9cancelled17h63ebc9d7e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN5tokio7runtime4task5error9JoinError5panic17ha7b3ae659853a44bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, i64 }) align 8 dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #8 {
+define void @_ZN5tokio7runtime4task5error9JoinError5panic17ha7b3ae659853a44bE(ptr noalias nocapture noundef writeonly sret({ { ptr, ptr }, i64 }) align 8 dereferenceable(24) %0, i64 noundef %1, ptr noundef nonnull align 1 %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #8 {
   store ptr %2, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %3, ptr %5, align 8
@@ -9458,7 +9458,7 @@ define { ptr, ptr } @_ZN5tokio7runtime4task5error9JoinError10into_panic17h8d4c37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5tokio7runtime4task5error9JoinError14try_into_panic17he183b830c85d1a7dE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #12 {
+define void @_ZN5tokio7runtime4task5error9JoinError14try_into_panic17he183b830c85d1a7dE(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #12 {
   %3 = load ptr, ptr %1, align 8, !noundef !12
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %4

@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [16 x i8] c"non-packet data\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @AscendParserInit(ptr noundef initializes((8, 12)) %0) local_unnamed_addr #0 {
+define hidden void @AscendParserInit(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 -1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24

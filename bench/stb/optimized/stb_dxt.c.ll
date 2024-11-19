@@ -22,7 +22,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stb__From16Bit(ptr nocapture noundef writeonly initializes((0, 4)) %out, i16 noundef zeroext %v) local_unnamed_addr #1 {
+define void @stb__From16Bit(ptr nocapture noundef writeonly %out, i16 noundef zeroext %v) local_unnamed_addr #1 {
 entry:
   %shr = lshr i16 %v, 11
   %and2 = lshr i16 %v, 5
@@ -83,7 +83,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @stb__Lerp13RGB(ptr nocapture noundef writeonly initializes((0, 3)) %out, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2) local_unnamed_addr #2 {
+define void @stb__Lerp13RGB(ptr nocapture noundef writeonly %out, ptr nocapture noundef readonly %p1, ptr nocapture noundef readonly %p2) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %p1, align 1
   %conv = zext i8 %0 to i16
@@ -122,7 +122,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @stb__EvalColors(ptr nocapture noundef writeonly initializes((0, 11), (12, 15)) %color, i16 noundef zeroext %c0, i16 noundef zeroext %c1) local_unnamed_addr #1 {
+define void @stb__EvalColors(ptr nocapture noundef writeonly %color, i16 noundef zeroext %c0, i16 noundef zeroext %c1) local_unnamed_addr #1 {
 entry:
   %shr.i = lshr i16 %c0, 11
   %and2.i = lshr i16 %c0, 5

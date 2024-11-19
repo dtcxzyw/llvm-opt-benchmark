@@ -132,7 +132,7 @@ entry:
 declare void @_ZN6Assimp11MDLImporterC2Ev(ptr noundef nonnull align 8 dereferenceable(158)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11HMPImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(158) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp11HMPImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(158) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11MDLImporterE, i64 16), ptr %this, align 8
   %configPalette.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -142,7 +142,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6Assimp11HMPImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(158) initializes((0, 8)) %this) unnamed_addr #2 align 2 {
+define hidden void @_ZN6Assimp11HMPImporterD0Ev(ptr noundef nonnull align 8 dereferenceable(158) %this) unnamed_addr #2 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp11MDLImporterE, i64 16), ptr %this, align 8
   %configPalette.i.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -171,7 +171,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11HMPImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(158) initializes((128, 144)) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %_pScene, ptr noundef %_pIOHandler) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp11HMPImporter14InternReadFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7aiScenePNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(158) %this, ptr noundef nonnull align 8 dereferenceable(32) %pFile, ptr noundef %_pScene, ptr noundef %_pIOHandler) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator.0", align 1

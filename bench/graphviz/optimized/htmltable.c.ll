@@ -2141,7 +2141,7 @@ declare ptr @htmlEntityUTF8(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @make_simple_label(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @size_html_tbl(ptr nocapture noundef readonly %0, ptr noundef initializes((104, 112)) %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @size_html_tbl(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef nonnull %3) unnamed_addr #0 {
   %5 = alloca %struct.agxbuf, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 160
   %7 = load ptr, ptr %6, align 8
@@ -4248,7 +4248,7 @@ declare noundef i32 @fprintf(ptr nocapture noundef, ptr nocapture noundef readon
 declare void @abort() local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @initAnchor(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef byval(%struct.boxf) align 8 %3, ptr nocapture noundef nonnull writeonly initializes((0, 33)) %4) unnamed_addr #0 {
+define internal fastcc i32 @initAnchor(ptr noundef %0, ptr nocapture noundef nonnull %1, ptr nocapture noundef readonly %2, ptr noundef byval(%struct.boxf) align 8 %3, ptr nocapture noundef nonnull writeonly %4) unnamed_addr #0 {
   %6 = alloca %struct.agxbuf, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8

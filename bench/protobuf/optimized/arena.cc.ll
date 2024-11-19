@@ -575,7 +575,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal11SerialArena25PeekCleanupListForTestingEv(ptr noalias nocapture sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
   %head_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -738,7 +738,7 @@ while.end:                                        ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15ThreadSafeArena25PeekCleanupListForTestingEv(ptr noalias nocapture sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %last_lifecycle_id_seen.i.i = getelementptr inbounds i8, ptr %0, i64 8
@@ -838,7 +838,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN6google8protobuf8internal11SerialArena3NewENS1_8SizedPtrERNS1_15ThreadSafeArenaE(ptr initializes((0, 24)) %mem.coerce0, i64 %mem.coerce1, ptr noundef nonnull align 8 dereferenceable(144) %parent) local_unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZN6google8protobuf8internal11SerialArena3NewENS1_8SizedPtrERNS1_15ThreadSafeArenaE(ptr %mem.coerce0, i64 %mem.coerce1, ptr noundef nonnull align 8 dereferenceable(144) %parent) local_unnamed_addr #4 align 2 {
 entry:
   %size3.i = getelementptr inbounds i8, ptr %mem.coerce0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mem.coerce0, i8 0, i64 16, i1 false)
@@ -1752,7 +1752,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6google8protobuf8internal15ThreadSafeArenaC2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((8, 16), (24, 32), (48, 120)) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15ThreadSafeArenaC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
   %first_arena_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1800,7 +1800,7 @@ invoke.cont2:                                     ; preds = %monotonic.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6google8protobuf8internal15ThreadSafeArena4InitEv(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) local_unnamed_addr #8 align 2 {
+define void @_ZN6google8protobuf8internal15ThreadSafeArena4InitEv(ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #8 align 2 {
 entry:
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
   %1 = load i64, ptr %0, align 32
@@ -1836,7 +1836,7 @@ _ZN6google8protobuf8internal15ThreadSafeArena18GetNextLifeCycleIdEv.exit: ; pred
 declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN6google8protobuf8internal15ThreadSafeArenaC2EPcm(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16), (24, 40), (48, 120)) %this, ptr noundef %mem, i64 noundef %size) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15ThreadSafeArenaC2EPcm(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %mem, i64 noundef %size) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
   %cmp.i = icmp eq ptr %mem, null
@@ -1943,7 +1943,7 @@ return:                                           ; preds = %entry, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal15ThreadSafeArenaC2EPvmRKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 16), (24, 40)) %this, ptr noundef %mem, i64 noundef %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %policy) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15ThreadSafeArenaC2EPvmRKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %mem, i64 noundef %size, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %policy) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alloc_policy_ = getelementptr inbounds i8, ptr %this, i64 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -2123,7 +2123,7 @@ return:                                           ; preds = %if.end.i, %if.then,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal15ThreadSafeArena20InitializeWithPolicyERKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %policy) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf8internal15ThreadSafeArena20InitializeWithPolicyERKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %policy) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp4 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)
@@ -4007,7 +4007,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf5Arena25PeekCleanupListForTestingEv(ptr noalias nocapture sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf5Arena25PeekCleanupListForTestingEv(ptr noalias nocapture sret(%"class.std::vector") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(144) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %0 = tail call noundef nonnull align 32 dereferenceable(24) ptr @llvm.threadlocal.address.p0(ptr align 32 @_ZN6google8protobuf8internal15ThreadSafeArena13thread_cache_E)

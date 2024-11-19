@@ -1909,7 +1909,7 @@ declare void @_ZN4llvm6AMDGPU23fillValidArchListAMDGCNERNS_15SmallVectorImplINS_
 declare void @_ZN4llvm6AMDGPU21fillValidArchListR600ERNS_15SmallVectorImplINS_9StringRefEEE(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN5clang7targets16AMDGPUTargetInfo18setAddressSpaceMapEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) initializes((344, 352)) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN5clang7targets16AMDGPUTargetInfo18setAddressSpaceMapEb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(568) %0, i1 noundef zeroext %1) local_unnamed_addr #4 align 2 {
   %3 = select i1 %1, ptr @_ZN5clang7targets16AMDGPUTargetInfo18AMDGPUDefIsPrivMapE, ptr @_ZN5clang7targets16AMDGPUTargetInfo17AMDGPUDefIsGenMapE
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %3, ptr %4, align 8

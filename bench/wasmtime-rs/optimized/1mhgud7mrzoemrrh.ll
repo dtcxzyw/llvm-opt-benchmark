@@ -58,7 +58,7 @@ define hidden void @"_ZN4core3ptr159drop_in_place$LT$wasmtime_cache..config.._..
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor10visit_bool17h89389ae71265a222E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, i1 noundef zeroext %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor10visit_bool17h89389ae71265a222E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, i1 noundef zeroext %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -78,7 +78,7 @@ define hidden void @_ZN5serde2de7Visitor10visit_bool17h89389ae71265a222E(ptr noa
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor10visit_bool17hdf8692f9c482f9f9E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, i1 noundef zeroext %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor10visit_bool17hdf8692f9c482f9f9E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, i1 noundef zeroext %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -98,7 +98,7 @@ define hidden void @_ZN5serde2de7Visitor10visit_bool17hdf8692f9c482f9f9E(ptr noa
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor10visit_none17h58fc06d83a0f4770E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor10visit_none17h58fc06d83a0f4770E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { {}, {} }, align 1
   %3 = alloca { i8, [23 x i8] }, align 8
   %4 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -115,7 +115,7 @@ define hidden void @_ZN5serde2de7Visitor10visit_none17h58fc06d83a0f4770E(ptr noa
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor10visit_none17h9498d336371d7b93E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor10visit_none17h9498d336371d7b93E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %2 = alloca { {}, {} }, align 1
   %3 = alloca { i8, [23 x i8] }, align 8
   %4 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -132,7 +132,7 @@ define hidden void @_ZN5serde2de7Visitor10visit_none17h9498d336371d7b93E(ptr noa
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor12visit_string17h018dbcb5b7768c6aE.llvm.9854051319434690016(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor12visit_string17h018dbcb5b7768c6aE.llvm.9854051319434690016(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, ptr noalias nocapture noundef align 8 dereferenceable(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4, !noundef !4
@@ -237,7 +237,7 @@ define internal fastcc void @_ZN5serde2de7Visitor12visit_string17h51acae124e6a69
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor9visit_f6417h496c9e89f3f37fa2E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, double noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor9visit_f6417h496c9e89f3f37fa2E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, double noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -256,7 +256,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_f6417h496c9e89f3f37fa2E(ptr noali
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor9visit_f6417hcbad532b6259a5a4E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, double noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor9visit_f6417hcbad532b6259a5a4E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, double noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -275,7 +275,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_f6417hcbad532b6259a5a4E(ptr noali
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor9visit_i6417h3d179507c2b77983E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor9visit_i6417h3d179507c2b77983E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -294,7 +294,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_i6417h3d179507c2b77983E(ptr noali
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor9visit_i6417h598019ee5ce36ebdE(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor9visit_i6417h598019ee5ce36ebdE(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -313,7 +313,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_i6417h598019ee5ce36ebdE(ptr noali
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor9visit_str17h48d68010f8df3999E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor9visit_str17h48d68010f8df3999E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { {}, {} }, align 1
   %5 = alloca { i8, [23 x i8] }, align 8
   %6 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -334,7 +334,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_str17h48d68010f8df3999E(ptr noali
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor9visit_str17hcc07ec79c1c8d2e1E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor9visit_str17hcc07ec79c1c8d2e1E(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = alloca { {}, {} }, align 1
   %5 = alloca { i8, [23 x i8] }, align 8
   %6 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -355,7 +355,7 @@ define hidden void @_ZN5serde2de7Visitor9visit_str17hcc07ec79c1c8d2e1E(ptr noali
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @_ZN5serde2de7Visitor9visit_u6417h59d7c2d36e325960E.llvm.9854051319434690016(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5serde2de7Visitor9visit_u6417h59d7c2d36e325960E.llvm.9854051319434690016(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, i64 noundef %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { {}, {} }, align 1
   %4 = alloca { i8, [23 x i8] }, align 8
   %5 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
@@ -374,13 +374,13 @@ define hidden void @_ZN5serde2de7Visitor9visit_u6417h59d7c2d36e325960E.llvm.9854
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define hidden void @"_ZN88_$LT$serde..de..value..UsizeDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h81071ff834822f99E.llvm.9854051319434690016"(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias nocapture noundef nonnull readonly align 8 %4, i64 noundef %5) unnamed_addr #3 {
+define hidden void @"_ZN88_$LT$serde..de..value..UsizeDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h81071ff834822f99E.llvm.9854051319434690016"(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, i64 noundef %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias nocapture noundef nonnull readonly align 8 %4, i64 noundef %5) unnamed_addr #3 {
   tail call void @_ZN5serde2de7Visitor9visit_u6417h59d7c2d36e325960E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, i64 noundef %1)
   ret void
 }
 
 ; Function Attrs: cold inlinehint nonlazybind uwtable
-define hidden void @"_ZN89_$LT$serde..de..value..StringDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h6abaa860687889f4E.llvm.9854051319434690016"(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias nocapture noundef nonnull readonly align 8 %4, i64 noundef %5) unnamed_addr #3 {
+define hidden void @"_ZN89_$LT$serde..de..value..StringDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct17h6abaa860687889f4E.llvm.9854051319434690016"(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias nocapture noundef nonnull readonly align 8 %4, i64 noundef %5) unnamed_addr #3 {
   %7 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   call void @_ZN5serde2de7Visitor12visit_string17h018dbcb5b7768c6aE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %7)
@@ -388,7 +388,7 @@ define hidden void @"_ZN89_$LT$serde..de..value..StringDeserializer$LT$E$GT$$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..Config$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h841bd940502ff45bE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 8)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..Config$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17h841bd940502ff45bE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
   %.not.i = icmp eq i64 %2, 5
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit", label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit.thread"
@@ -414,13 +414,13 @@ define hidden void @"_ZN177_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN14wasmtime_cache6config1_88_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$11deserialize17h32579c89d9cb139eE"(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, i64 noundef %1) unnamed_addr #2 {
+define hidden void @"_ZN14wasmtime_cache6config1_88_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$11deserialize17h32579c89d9cb139eE"(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, i64 noundef %1) unnamed_addr #2 {
   tail call void @_ZN5serde2de7Visitor9visit_u6417h59d7c2d36e325960E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, i64 noundef %1)
   ret void
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN14wasmtime_cache6config1_88_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$11deserialize17hb8c946ea7779b896E"(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) initializes((0, 104)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN14wasmtime_cache6config1_88_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$11deserialize17hb8c946ea7779b896E"(ptr noalias nocapture noundef writeonly sret({ i64, [22 x i64] }) align 8 dereferenceable(184) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %3 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull readonly align 8 dereferenceable(24) %1, i64 24, i1 false), !noalias !33
@@ -436,7 +436,7 @@ define hidden void @"_ZN14wasmtime_cache6config1_88_$LT$impl$u20$serde..de..Dese
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN182_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17hfcbd511801f25c03E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 9)) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
+define hidden void @"_ZN182_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__FieldVisitor$u20$as$u20$serde..de..Visitor$GT$9visit_str17hfcbd511801f25c03E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca { { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } } }, align 8
   switch i64 %2, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit98.thread" [
     i64 7, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6a6b79774b705180E.exit"
@@ -608,7 +608,7 @@ define hidden void @"_ZN182_$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..d
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h4879c7ece58f557dE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h4879c7ece58f557dE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -643,7 +643,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h66df1ecf80b6791bE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h66df1ecf80b6791bE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -678,7 +678,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h42d0373c1776af8bE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h42d0373c1776af8bE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -713,7 +713,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h36cd8a37ea897999E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h36cd8a37ea897999E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -748,7 +748,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hb69d0330d8085377E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hb69d0330d8085377E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -783,7 +783,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h61925cf92a570becE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h61925cf92a570becE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -818,7 +818,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17he084efc2ac91017eE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17he084efc2ac91017eE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -853,7 +853,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h34c97ca809ad9508E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 10)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h34c97ca809ad9508E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca [86 x i8], align 2
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -888,7 +888,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h3b71a370ebf7d6a7E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 10)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_seq..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h3b71a370ebf7d6a7E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca [86 x i8], align 2
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -923,7 +923,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h0e29c6a1d7b333d3E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h0e29c6a1d7b333d3E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -958,7 +958,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h13347e7c7e6bd7adE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h13347e7c7e6bd7adE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -993,7 +993,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17he0941892ecbccd64E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17he0941892ecbccd64E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #2 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1028,7 +1028,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h96e59c4a033894e2E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h96e59c4a033894e2E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1063,7 +1063,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17he4b163595fc88bf9E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17he4b163595fc88bf9E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1098,7 +1098,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hff520c661c669a7fE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hff520c661c669a7fE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #2 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1133,7 +1133,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h12f53aefafd0fb31E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h12f53aefafd0fb31E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1168,7 +1168,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h48b188fdd50ff2c7E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h48b188fdd50ff2c7E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %.sroa.417 = alloca [76 x i8], align 4
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1203,7 +1203,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17ha82fda2358b4e911E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, i64 noundef %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17ha82fda2358b4e911E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #2 {
   %.sroa.417 = alloca [76 x i8], align 4
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1238,112 +1238,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h41a77a504a5dfb91E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, i64 noundef %1) unnamed_addr #2 {
-  %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
-  call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
-  %4 = load i64, ptr %3, align 8, !range !90, !noundef !4
-  %5 = icmp eq i64 %4, 2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  %9 = load i32, ptr %8, align 8
-  br i1 %5, label %10, label %11
-
-10:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %12
-
-11:                                               ; preds = %2
-  %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %12
-
-12:                                               ; preds = %11, %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %9, ptr %14, align 8
-  store i64 %4, ptr %0, align 8
-  ret void
-}
-
-; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h53f4d68aa1ccfc46E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
-  %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
-  call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
-  %4 = load i64, ptr %3, align 8, !range !90, !noundef !4
-  %5 = icmp eq i64 %4, 2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  %9 = load i32, ptr %8, align 8
-  br i1 %5, label %10, label %11
-
-10:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %12
-
-11:                                               ; preds = %2
-  %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %12
-
-12:                                               ; preds = %11, %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %9, ptr %14, align 8
-  store i64 %4, ptr %0, align 8
-  ret void
-}
-
-; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h9d45abf08ae610f8E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
-  %.sroa.417 = alloca [76 x i8], align 4
-  %3 = alloca { i64, [11 x i64] }, align 8
-  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
-  call void @_ZN14wasmtime_cache6config20deserialize_duration17h91e757e6f5823089E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
-  %4 = load i64, ptr %3, align 8, !range !90, !noundef !4
-  %5 = icmp eq i64 %4, 2
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
-  %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
-  %9 = load i32, ptr %8, align 8
-  br i1 %5, label %10, label %11
-
-10:                                               ; preds = %2
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  br label %12
-
-11:                                               ; preds = %2
-  %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
-  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
-  %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
-  br label %12
-
-12:                                               ; preds = %11, %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %7, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store i32 %9, ptr %14, align 8
-  store i64 %4, ptr %0, align 8
-  ret void
-}
-
-; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h14d55db27af27383E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, i64 noundef %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h41a77a504a5dfb91E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #2 {
   %.sroa.417 = alloca [76 x i8], align 4
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1378,7 +1273,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h6d4694f020cf944bE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h53f4d68aa1ccfc46E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.417 = alloca [76 x i8], align 4
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1413,7 +1308,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hf4d21d17a8451000E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 20)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h9d45abf08ae610f8E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %.sroa.417 = alloca [76 x i8], align 4
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1448,7 +1343,112 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h238b7e8328e8daa0E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h14d55db27af27383E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #2 {
+  %.sroa.417 = alloca [76 x i8], align 4
+  %3 = alloca { i64, [11 x i64] }, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @_ZN14wasmtime_cache6config20deserialize_duration17h7e94a8d7f8ad91c0E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, i64 noundef %1)
+  %4 = load i64, ptr %3, align 8, !range !90, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
+  %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
+  br label %12
+
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
+  ret void
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h6d4694f020cf944bE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+  %.sroa.417 = alloca [76 x i8], align 4
+  %3 = alloca { i64, [11 x i64] }, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @_ZN14wasmtime_cache6config20deserialize_duration17haac61c09f68e9fadE.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(184) %1)
+  %4 = load i64, ptr %3, align 8, !range !90, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
+  %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
+  br label %12
+
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
+  ret void
+}
+
+; Function Attrs: cold nonlazybind uwtable
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hf4d21d17a8451000E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+  %.sroa.417 = alloca [76 x i8], align 4
+  %3 = alloca { i64, [11 x i64] }, align 8
+  call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
+  call void @_ZN14wasmtime_cache6config20deserialize_duration17h91e757e6f5823089E.llvm.9854051319434690016(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %3, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %1)
+  %4 = load i64, ptr %3, align 8, !range !90, !noundef !4
+  %5 = icmp eq i64 %4, 2
+  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %7 = load i64, ptr %6, align 8
+  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = load i32, ptr %8, align 8
+  br i1 %5, label %10, label %11
+
+10:                                               ; preds = %2
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  br label %12
+
+11:                                               ; preds = %2
+  %.sroa.010.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.010.sroa.6.0..sroa_idx, i64 76, i1 false)
+  call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %3)
+  %.sroa.417.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 20
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(76) %.sroa.417, i64 76, i1 false)
+  br label %12
+
+12:                                               ; preds = %11, %10
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %7, ptr %13, align 8
+  %14 = getelementptr inbounds i8, ptr %0, i64 16
+  store i32 %9, ptr %14, align 8
+  store i64 %4, ptr %0, align 8
+  ret void
+}
+
+; Function Attrs: cold nonlazybind uwtable
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h238b7e8328e8daa0E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1483,7 +1483,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hf1035a301281a452E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hf1035a301281a452E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #2 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1518,7 +1518,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hfe0638d122e92c4dE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hfe0638d122e92c4dE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1553,7 +1553,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h29ef7551abf3411aE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, i64 noundef %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h29ef7551abf3411aE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #2 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1588,7 +1588,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h33983cff77ccc66fE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h33983cff77ccc66fE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1623,7 +1623,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h50dd42418433dfd8E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 24)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h50dd42418433dfd8E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %.sroa.416 = alloca { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] } }, align 8
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1658,7 +1658,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h63f4880dcfcd8b58E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 10)) %0, i64 noundef %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h63f4880dcfcd8b58E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #2 {
   %.sroa.416 = alloca [86 x i8], align 2
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1693,7 +1693,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hc869abf4592a7ff4E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 10)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hc869abf4592a7ff4E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca [86 x i8], align 2
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1728,7 +1728,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hd8fd744c282fa324E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 10)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17hd8fd744c282fa324E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %.sroa.416 = alloca [86 x i8], align 2
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1763,7 +1763,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h011908e97b825ee1E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 10)) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h011908e97b825ee1E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef align 8 dereferenceable(184) %1) unnamed_addr #0 {
   %.sroa.416 = alloca [86 x i8], align 2
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1798,7 +1798,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h50167c72b940f845E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 10)) %0, i64 noundef %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17h50167c72b940f845E"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, i64 noundef %1) unnamed_addr #2 {
   %.sroa.416 = alloca [86 x i8], align 2
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)
@@ -1833,7 +1833,7 @@ define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serd
 }
 
 ; Function Attrs: cold nonlazybind uwtable
-define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17heb2e8e5cc695267aE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) initializes((0, 10)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
+define hidden void @"_ZN249_$LT$$LT$wasmtime_cache..config.._..$LT$impl$u20$serde..de..Deserialize$u20$for$u20$wasmtime_cache..config..CacheConfig$GT$..deserialize..__Visitor$u20$as$u20$serde..de..Visitor$GT$..visit_map..__DeserializeWith$u20$as$u20$serde..de..Deserialize$GT$11deserialize17heb2e8e5cc695267aE"(ptr noalias nocapture noundef writeonly sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #2 {
   %.sroa.416 = alloca [86 x i8], align 2
   %3 = alloca { i64, [11 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3)

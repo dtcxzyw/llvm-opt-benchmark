@@ -1564,7 +1564,7 @@ define hidden void @_ZN14JfrJavaSupport9get_fieldEP16JfrJavaArgumentsP10JavaThre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL10read_fieldP16JfrJavaArgumentsP9JavaValueP10JavaThread(ptr noundef nonnull %0, ptr nocapture noundef writeonly initializes((8, 16)) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc void @_ZL10read_fieldP16JfrJavaArgumentsP9JavaValueP10JavaThread(ptr noundef nonnull %0, ptr nocapture noundef writeonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %class.fieldDescriptor, align 8
   %5 = alloca %class.HandleMark, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 8
@@ -2025,7 +2025,7 @@ define hidden void @_ZN14JfrJavaSupport10free_c_strEPKcb(ptr noundef %0, i1 noun
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14JfrJavaSupport12symbol_arrayEP13_jobjectArrayP10JavaThreadPlb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14JfrJavaSupport12symbol_arrayEP13_jobjectArrayP10JavaThreadPlb(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = ptrtoint ptr %0 to i64
   %6 = and i64 %5, 3
   switch i64 %6, label %15 [

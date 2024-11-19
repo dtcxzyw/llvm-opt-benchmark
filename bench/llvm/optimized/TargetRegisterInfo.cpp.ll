@@ -286,7 +286,7 @@ _ZN4llvm2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvm11SmallPtrS
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm18TargetRegisterInfoC2EPKNS_22TargetRegisterInfoDescEPKPKNS_19TargetRegisterClassES8_PKPKcPKNS0_17SubRegCoveredBitsEPKNS_11LaneBitmaskESG_PKNS0_12RegClassInfoEPKNS_3MVT15SimpleValueTypeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(308) initializes((0, 8), (20, 28), (160, 180), (184, 204), (208, 308)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 %7, ptr noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm18TargetRegisterInfoC2EPKNS_22TargetRegisterInfoDescEPKPKNS_19TargetRegisterClassES8_PKPKcPKNS0_17SubRegCoveredBitsEPKNS_11LaneBitmaskESG_PKNS0_12RegClassInfoEPKNS_3MVT15SimpleValueTypeEj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(308) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i64 %7, ptr noundef %8, ptr noundef %9, i32 noundef %10) unnamed_addr #2 align 2 {
   %12 = getelementptr inbounds i8, ptr %0, i64 20
   store i32 0, ptr %12, align 4
   %13 = getelementptr inbounds i8, ptr %0, i64 24
@@ -923,7 +923,7 @@ _ZN4llvm9BitVectorD2Ev.exit:                      ; preds = %_ZN4llvm9PrintableD
 declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm4dbgsEv() local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm8printRegENS_8RegisterEPKNS_18TargetRegisterInfoEjPKNS_19MachineRegisterInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm8printRegENS_8RegisterEPKNS_18TargetRegisterInfoEjPKNS_19MachineRegisterInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, i32 %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
 _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
   store i32 %1, ptr %5, align 16
@@ -944,7 +944,7 @@ _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm12printRegUnitEjPKNS_18TargetRegisterInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @_ZN4llvm12printRegUnitEjPKNS_18TargetRegisterInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
 _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNS0_12printRegUnitEjPKNS0_18TargetRegisterInfoEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %3, align 8
@@ -959,7 +959,7 @@ _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN4llvm15printVRegOrUnitEjPKNS_18TargetRegisterInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
+define dso_local void @_ZN4llvm15printVRegOrUnitEjPKNS_18TargetRegisterInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #2 {
 _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @"_ZNSt17_Function_handlerIFvRN4llvm11raw_ostreamEEZNS0_15printVRegOrUnitEjPKNS0_18TargetRegisterInfoEE3$_0E9_M_invokeERKSt9_Any_dataS2_", ptr %3, align 8
@@ -974,7 +974,7 @@ _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm19printRegClassOrBankENS_8RegisterERKNS_19MachineRegisterInfoEPKNS_18TargetRegisterInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 initializes((0, 32)) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm19printRegClassOrBankENS_8RegisterERKNS_19MachineRegisterInfoEPKNS_18TargetRegisterInfoE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.llvm::Printable") align 8 %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(512) %2, ptr noundef %3) local_unnamed_addr #0 {
 _ZN4llvm9PrintableC2ESt8functionIFvRNS_11raw_ostreamEEE.exit:
   %4 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   store i32 %1, ptr %4, align 16

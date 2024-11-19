@@ -18,7 +18,7 @@ $_ZNSt6vectorIN7msdfgen17FontVariationAxisESaIS1_EE17_M_default_appendEm = comda
 @_ZN7msdfgen10GlyphIndexC1Ej = dso_local unnamed_addr alias void (ptr, i32), ptr @_ZN7msdfgen10GlyphIndexC2Ej
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN7msdfgen10GlyphIndexC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %this, i32 noundef %index) unnamed_addr #0 align 2 {
+define dso_local void @_ZN7msdfgen10GlyphIndexC2Ej(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %this, i32 noundef %index) unnamed_addr #0 align 2 {
 entry:
   store i32 %index, ptr %this, align 4
   ret void
@@ -188,7 +188,7 @@ if.end:                                           ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef i32 @_ZN7msdfgenL8ftMoveToEPK10FT_Vector_Pv(ptr nocapture noundef readonly %to, ptr nocapture noundef initializes((0, 16)) %user) #2 {
+define internal noundef i32 @_ZN7msdfgenL8ftMoveToEPK10FT_Vector_Pv(ptr nocapture noundef readonly %to, ptr nocapture noundef %user) #2 {
 entry:
   %contour = getelementptr inbounds i8, ptr %user, i64 24
   %0 = load ptr, ptr %contour, align 8
@@ -484,7 +484,7 @@ delete.end:                                       ; preds = %if.then, %entry
 declare i32 @FT_Done_Face(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen14getFontMetricsERNS_11FontMetricsEPNS_10FontHandleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) initializes((0, 48)) %metrics, ptr nocapture noundef readonly %font) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen14getFontMetricsERNS_11FontMetricsEPNS_10FontHandleE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %metrics, ptr nocapture noundef readonly %font) local_unnamed_addr #6 {
 entry:
   %0 = load ptr, ptr %font, align 8
   %units_per_EM = getelementptr inbounds i8, ptr %0, i64 136
@@ -571,7 +571,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i32 @FT_Load_Char(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen13getGlyphIndexERNS_10GlyphIndexEPNS_10FontHandleEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %glyphIndex, ptr nocapture noundef readonly %font, i32 noundef %unicode) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen13getGlyphIndexERNS_10GlyphIndexEPNS_10FontHandleEj(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %glyphIndex, ptr nocapture noundef readonly %font, i32 noundef %unicode) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %font, align 8
   %conv = zext i32 %unicode to i64
@@ -670,7 +670,7 @@ _ZN7msdfgen9loadGlyphERNS_5ShapeEPNS_10FontHandleENS_10GlyphIndexEPd.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen10getKerningERdPNS_10FontHandleENS_10GlyphIndexES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %output, ptr nocapture noundef readonly %font, i32 %glyphIndex1.coerce, i32 %glyphIndex2.coerce) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen10getKerningERdPNS_10FontHandleENS_10GlyphIndexES3_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %output, ptr nocapture noundef readonly %font, i32 %glyphIndex1.coerce, i32 %glyphIndex2.coerce) local_unnamed_addr #2 {
 entry:
   %kerning = alloca %struct.FT_Vector_, align 8
   %0 = load ptr, ptr %font, align 8
@@ -687,7 +687,7 @@ entry:
 declare i32 @FT_Get_Kerning(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN7msdfgen10getKerningERdPNS_10FontHandleEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) initializes((0, 8)) %output, ptr nocapture noundef readonly %font, i32 noundef %unicode1, i32 noundef %unicode2) local_unnamed_addr #2 {
+define dso_local noundef zeroext i1 @_ZN7msdfgen10getKerningERdPNS_10FontHandleEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %output, ptr nocapture noundef readonly %font, i32 noundef %unicode1, i32 noundef %unicode2) local_unnamed_addr #2 {
 entry:
   %kerning.i = alloca %struct.FT_Vector_, align 8
   %0 = load ptr, ptr %font, align 8

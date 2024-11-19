@@ -314,7 +314,7 @@ declare noundef i64 @_ZN2os13javaTimeNanosEv() local_unnamed_addr #1
 declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN22VMOperationTimeoutTask3armEPKc(ptr noundef nonnull align 8 dereferenceable(40) initializes((24, 40)) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN22VMOperationTimeoutTask3armEPKc(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   store ptr %1, ptr %3, align 8
   %4 = tail call noundef i64 @_ZN2os13javaTimeNanosEv() #13

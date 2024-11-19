@@ -5028,7 +5028,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #2
 declare void @_ZNK4llvm12RecordKeeper24getAllDerivedDefinitionsENS_9StringRefE(ptr dead_on_unwind writable sret(%"class.std::vector") align 8, ptr noundef nonnull align 8 dereferenceable(232), ptr, i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_2clENS_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 initializes((0, 24)) %0, ptr nonnull %.0.val, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
+define internal fastcc void @"_ZZL16EmitARMTargetDefRN4llvm12RecordKeeperERNS_11raw_ostreamEENK3$_2clENS_9StringRefE"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr nonnull %.0.val, ptr nocapture readonly %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.std::vector", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)

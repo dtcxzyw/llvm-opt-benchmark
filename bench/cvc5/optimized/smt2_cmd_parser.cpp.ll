@@ -456,7 +456,7 @@ declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser13Smt2CmdParserC2ERNS0_9Smt2LexerERNS0_9Smt2StateERNS0_14Smt2TermParserE(ptr noundef nonnull align 8 dereferenceable(82) initializes((0, 32), (40, 44), (48, 56)) %this, ptr noundef nonnull align 8 dereferenceable(33178) %lex, ptr noundef nonnull align 8 dereferenceable(512) %state, ptr noundef nonnull align 8 dereferenceable(24) %tparser) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser13Smt2CmdParserC2ERNS0_9Smt2LexerERNS0_9Smt2StateERNS0_14Smt2TermParserE(ptr noundef nonnull align 8 dereferenceable(82) %this, ptr noundef nonnull align 8 dereferenceable(33178) %lex, ptr noundef nonnull align 8 dereferenceable(512) %state, ptr noundef nonnull align 8 dereferenceable(24) %tparser) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
@@ -3455,7 +3455,7 @@ return:                                           ; preds = %return.sink.split, 
 declare noundef i32 @_ZN4cvc56parser5Lexer9nextTokenEv(ptr noundef nonnull align 8 dereferenceable(32892)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc56parser13Smt2CmdParser16parseNextCommandEv(ptr noalias sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(82) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc56parser13Smt2CmdParser16parseNextCommandEv(ptr noalias sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(82) %this) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"class.cvc5::Term", align 8
   %ref.tmp = alloca %"struct.std::pair", align 8

@@ -16,7 +16,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cpuidle_poll
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__UNIQUE_ID___addressable_cpuidle_poll_state_init100], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local void @cpuidle_poll_state_init(ptr nocapture noundef writeonly initializes((24, 29), (40, 63), (72, 112)) %0) #0 align 16 {
+define dso_local void @cpuidle_poll_state_init(ptr nocapture noundef writeonly %0) #0 align 16 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(5) %2, ptr noundef nonnull align 1 dereferenceable(5) @.str, i64 5, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40

@@ -2442,7 +2442,7 @@ define range(i32 -1, 1) i32 @tj3Compress8(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setCompDefaults(ptr noundef nonnull initializes((56, 64)) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc void @setCompDefaults(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [12 x i32], ptr @pf2cs, i64 0, i64 %3
   %5 = load i32, ptr %4, align 4
@@ -10378,7 +10378,7 @@ define range(i32 -1, 1) i32 @tj3DecodeYUVPlanes8(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @setDecodeDefaults(ptr noundef nonnull initializes((576, 584), (588, 596), (952, 956)) %0) unnamed_addr #0 {
+define internal fastcc void @setDecodeDefaults(ptr noundef nonnull %0) unnamed_addr #0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 520
   %3 = getelementptr inbounds i8, ptr %0, i64 592
   store i32 1, ptr %3, align 8

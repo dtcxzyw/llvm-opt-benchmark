@@ -390,7 +390,7 @@ declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal11TrieBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(56) initializes((0, 50)) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal11TrieBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 cond.true.i.i.i.i:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(50) %this, i8 0, i64 50, i1 false)
   %call5.i.i.i.i.i.i1 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #18
@@ -621,7 +621,7 @@ return:                                           ; preds = %_ZNSt6vectorIsSaIsE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEhSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %parent, i8 noundef zeroext %ch, i64 %substring.coerce0, ptr nocapture readonly %substring.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEhSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %parent, i8 noundef zeroext %ch, i64 %substring.coerce0, ptr nocapture readonly %substring.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mid_node = alloca %"struct.arrow::internal::Trie::Node", align 2
   %ref.tmp3 = alloca %"class.arrow::Status", align 8
@@ -701,7 +701,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEcSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 initializes((0, 8)) %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %parent, i8 noundef signext %ch, i64 %substring.coerce0, ptr nocapture readonly %substring.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow8internal11TrieBuilder15CreateChildNodeEPNS0_4Trie4NodeEcSt17basic_string_viewIcSt11char_traitsIcEE(ptr noalias nocapture writeonly sret(%"class.arrow::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef %parent, i8 noundef signext %ch, i64 %substring.coerce0, ptr nocapture readonly %substring.coerce1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %mid_node.i = alloca %"struct.arrow::internal::Trie::Node", align 2
   %ref.tmp3.i = alloca %"class.arrow::Status", align 8
@@ -1238,7 +1238,7 @@ return:                                           ; preds = %_ZN5arrow6StatusD2E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_ZN5arrow8internal11TrieBuilder6FinishEv(ptr noalias nocapture writeonly sret(%"class.arrow::internal::Trie") align 8 initializes((0, 50)) %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #6 align 2 {
+define void @_ZN5arrow8internal11TrieBuilder6FinishEv(ptr noalias nocapture writeonly sret(%"class.arrow::internal::Trie") align 8 %agg.result, ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) local_unnamed_addr #6 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   store ptr %0, ptr %agg.result, align 8

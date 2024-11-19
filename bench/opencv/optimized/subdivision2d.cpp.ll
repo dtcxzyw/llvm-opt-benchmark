@@ -200,7 +200,7 @@ define <2 x float> @_ZNK2cv8Subdiv2D9getVertexEiPi(ptr nocapture noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv8Subdiv2DC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) initializes((0, 57), (60, 80)) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8Subdiv2DC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %0, i8 0, i64 57, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2, i8 0, i64 20, i1 false)
@@ -210,7 +210,7 @@ define void @_ZN2cv8Subdiv2DC2Ev(ptr nocapture noundef nonnull writeonly align 8
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8Subdiv2DC2ENS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 57), (60, 80)) %0, i64 %1, i64 %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8Subdiv2DC2ENS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 %1, i64 %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(57) %0, i8 0, i64 57, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, i8 0, i64 20, i1 false)
@@ -246,7 +246,7 @@ _ZNSt6vectorIN2cv8Subdiv2D6VertexESaIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN2c
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8Subdiv2D12initDelaunayENS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(80) initializes((56, 57), (60, 80)) %0, i64 %1, i64 %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8Subdiv2D12initDelaunayENS_5Rect_IiEE(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 %1, i64 %2) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.cv::Subdiv2D::QuadEdge", align 4
   %5 = alloca %"struct.cv::Subdiv2D::QuadEdge", align 4
   %6 = alloca %"struct.cv::Subdiv2D::QuadEdge", align 4
@@ -813,13 +813,13 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %178, %276
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv8Subdiv2D8QuadEdgeC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) initializes((0, 32)) %0) unnamed_addr #5 align 2 {
+define void @_ZN2cv8Subdiv2D8QuadEdgeC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) %0) unnamed_addr #5 align 2 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %0, i8 0, i64 32, i1 false)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv8Subdiv2D8QuadEdgeC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) initializes((0, 32)) %0, i32 noundef %1) unnamed_addr #5 align 2 {
+define void @_ZN2cv8Subdiv2D8QuadEdgeC2Ei(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(32) %0, i32 noundef %1) unnamed_addr #5 align 2 {
   store i32 %1, ptr %0, align 4
   %3 = add nsw i32 %1, 3
   %4 = getelementptr inbounds i8, ptr %0, i64 4
@@ -843,7 +843,7 @@ define noundef zeroext i1 @_ZNK2cv8Subdiv2D8QuadEdge6isfreeEv(ptr nocapture noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv8Subdiv2D6VertexC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0) unnamed_addr #5 align 2 {
+define void @_ZN2cv8Subdiv2D6VertexC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   store float 0.000000e+00, ptr %2, align 4
   %3 = getelementptr inbounds i8, ptr %0, i64 12
@@ -855,7 +855,7 @@ define void @_ZN2cv8Subdiv2D6VertexC2Ev(ptr nocapture noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN2cv8Subdiv2D6VertexC2ENS_6Point_IfEEbi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) initializes((0, 16)) %0, <2 x float> %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #9 align 2 {
+define void @_ZN2cv8Subdiv2D6VertexC2ENS_6Point_IfEEbi(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(16) %0, <2 x float> %1, i1 noundef zeroext %2, i32 noundef %3) unnamed_addr #9 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %3, ptr %0, align 4
   %6 = zext i1 %2 to i32

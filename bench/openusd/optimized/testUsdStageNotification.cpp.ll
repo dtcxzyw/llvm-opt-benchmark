@@ -27208,7 +27208,7 @@ declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfSpec9IsDor
 declare void @_ZNK32pxrInternal_v0_24__pxrReserved__19Tf_DiagnosticHelper15IssueFatalErrorEPKcz(ptr noundef nonnull align 8 dereferenceable(44), ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_6E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -27427,7 +27427,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE3$_7E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -28741,7 +28741,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.i.i.i.i.i: ; preds = %69,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_10E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -28960,7 +28960,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_11E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -29533,7 +29533,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_12E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -29785,7 +29785,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_13E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -30322,7 +30322,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_14E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -30713,7 +30713,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_15E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(128) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -31680,7 +31680,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_16E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -32155,7 +32155,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__9UsdNotice14ObjectsChanged26ResolvedAssetPathsResyncedERKNS_9UsdObjectE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_17E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -33815,7 +33815,7 @@ declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7VtValue11_TypeIsImplERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_18E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8
@@ -34288,7 +34288,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbRKN32pxrInternal
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNSt14_Function_base13_Base_managerIZ18TestObjectsChangedvE4$_19E15_M_init_functorIRKS1_EEvRSt9_Any_dataOT_"(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(96) ptr @_Znwm(i64 noundef 96) #24
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %3, align 8

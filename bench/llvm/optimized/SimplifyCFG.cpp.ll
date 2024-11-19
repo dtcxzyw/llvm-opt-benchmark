@@ -2108,7 +2108,7 @@ _ZN4llvm11SmallPtrSetIPNS_10BasicBlockELj16EED2Ev.exit: ; preds = %146, %._crit_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL41shouldFoldCondBranchesToCommonDestinationPN4llvm10BranchInstES1_PKNS_19TargetTransformInfoE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 initializes((16, 17)) %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL41shouldFoldCondBranchesToCommonDestinationPN4llvm10BranchInstES1_PKNS_19TargetTransformInfoE(ptr dead_on_unwind noalias nocapture nonnull writable writeonly align 8 %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %.not = icmp eq ptr %3, null
@@ -3276,7 +3276,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm11simplifyCFGEPNS_10BasicBlockERKNS
 declare noundef nonnull align 8 dereferenceable(512) ptr @_ZNK4llvm10BasicBlock13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114SimplifyCFGOpt3runEPN4llvm10BasicBlockE(ptr nocapture noundef nonnull align 8 dereferenceable(49) initializes((48, 49)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_114SimplifyCFGOpt3runEPN4llvm10BasicBlockE(ptr nocapture noundef nonnull align 8 dereferenceable(49) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   %5 = alloca %"class.llvm::DebugLoc", align 8
@@ -25598,7 +25598,7 @@ declare void @_ZN4llvm10BasicBlockC1ERNS_11LLVMContextERKNS_5TwineEPNS_8Function
 declare noundef zeroext i1 @_ZN4llvm35IsBlockFollowedByDeoptOrUnreachableEPKNS_10BasicBlockE(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_123LockstepReverseIterator5resetEv(ptr noundef nonnull align 8 dereferenceable(65) initializes((64, 65)) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_123LockstepReverseIterator5resetEv(ptr noundef nonnull align 8 dereferenceable(65) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16

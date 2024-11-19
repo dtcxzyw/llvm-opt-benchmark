@@ -57,7 +57,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5draco23PointCloudKdTreeEncoder18EncodeGeometryDataEv(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 initializes((0, 4)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 {
+define void @_ZN5draco23PointCloudKdTreeEncoder18EncodeGeometryDataEv(ptr dead_on_unwind noalias writable sret(%"class.draco::Status") align 8 %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(112) %1) unnamed_addr #3 align 2 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -360,7 +360,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %55, %53, %51, %49, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @_ZN5draco23PointCloudKdTreeEncoder28ComputeNumberOfEncodedPointsEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) initializes((104, 112)) %0) unnamed_addr #6 align 2 {
+define void @_ZN5draco23PointCloudKdTreeEncoder28ComputeNumberOfEncodedPointsEv(ptr nocapture noundef nonnull align 8 dereferenceable(112) %0) unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 160

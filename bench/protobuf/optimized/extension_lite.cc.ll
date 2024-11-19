@@ -185,7 +185,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google8protobuf8compiler4java31ImmutableExtensionLiteGeneratorC2EPKNS0_15FieldDescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24)) %this, ptr noundef %descriptor, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google8protobuf8compiler4java31ImmutableExtensionLiteGeneratorC2EPKNS0_15FieldDescriptorEPNS2_7ContextE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %descriptor, ptr noundef nonnull %context) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2.i = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
@@ -261,7 +261,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler4java31ImmutableExtensionLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6google8protobuf8compiler4java31ImmutableExtensionLiteGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableExtensionLiteGeneratorE, i64 16), ptr %this, align 8
   %scope_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -270,7 +270,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google8protobuf8compiler4java31ImmutableExtensionLiteGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN6google8protobuf8compiler4java31ImmutableExtensionLiteGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8compiler4java31ImmutableExtensionLiteGeneratorE, i64 16), ptr %this, align 8
   %scope_.i = getelementptr inbounds i8, ptr %this, i64 24

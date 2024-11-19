@@ -205,7 +205,7 @@ define void @fd_set_nonblocking(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @fd_get_socket_error(i32 noundef %0, ptr noundef initializes((0, 4)) %1) #0 {
+define i32 @fd_get_socket_error(i32 noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   store i32 4, ptr %3, align 4
   store i32 0, ptr %1, align 4

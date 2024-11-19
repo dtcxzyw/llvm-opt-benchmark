@@ -439,7 +439,7 @@ $_ZSt19piecewise_construct = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_SveEmitter.cpp, ptr null }]
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull writeonly align 4 dereferenceable(28) initializes((0, 13), (16, 28)) %0, ptr readonly %1, i64 %2, i8 noundef signext %3, i32 noundef %4) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_17SVETypeC2EN4llvm9StringRefEcj(ptr noundef nonnull writeonly align 4 dereferenceable(28) %0, ptr readonly %1, i64 %2, i8 noundef signext %3, i32 noundef %4) unnamed_addr #0 align 2 {
   store i8 0, ptr %0, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i8 1, ptr %6, align 1
@@ -4075,7 +4075,7 @@ _ZN12_GLOBAL__N_110SVEEmitter12createHeaderERN4llvm11raw_ostreamE.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110SVEEmitterC2ERN4llvm12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(128) initializes((0, 128)) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110SVEEmitterC2ERN4llvm12RecordKeeperE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(232) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.std::vector", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::vector", align 8

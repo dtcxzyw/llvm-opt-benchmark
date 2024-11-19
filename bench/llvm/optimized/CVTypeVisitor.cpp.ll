@@ -1610,7 +1610,7 @@ _ZN12_GLOBAL__N_120FieldListVisitHelperC2ERN4llvm8codeview20TypeVisitorCallbacks
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_120FieldListVisitHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(248) initializes((208, 216)) %0) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_120FieldListVisitHelperD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store ptr getelementptr inbounds inrange(-16, 352) (i8, ptr @_ZTVN4llvm8codeview27TypeVisitorCallbackPipelineE, i64 16), ptr %2, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216

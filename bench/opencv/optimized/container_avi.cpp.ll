@@ -458,7 +458,7 @@ _ZN2cv16VideoInputStream5closeEv.exit:            ; preds = %.noexc, %3
 declare void @__cxa_call_unexpected(ptr) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16AVIReadContainerC2Ev(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 20), (24, 120)) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16AVIReadContainerC2Ev(ptr noundef nonnull align 8 dereferenceable(137) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -990,7 +990,7 @@ _ZN2cv3PtrINS_16VideoInputStreamEED2Ev.exit:      ; preds = %64, %76, %_ZNSt16_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv16AVIReadContainer10initStreamENS_3PtrINS_16VideoInputStreamEEE(ptr nocapture noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv16AVIReadContainer10initStreamENS_3PtrINS_16VideoInputStreamEEE(ptr nocapture noundef nonnull align 8 dereferenceable(137) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -3770,7 +3770,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN2cv17AVIWriteContainer13initContainerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS_5Size_IiEEb(ptr nocapture noundef nonnull align 8 dereferenceable(136) initializes((16, 40)) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #11 align 2 {
+define noundef zeroext i1 @_ZN2cv17AVIWriteContainer13initContainerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdNS_5Size_IiEEb(ptr nocapture noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, double noundef %2, i64 %3, i1 noundef zeroext %4) local_unnamed_addr #11 align 2 {
   %.sroa.0.0.extract.trunc = trunc i64 %3 to i32
   %.sroa.2.0.extract.shift = lshr i64 %3, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32

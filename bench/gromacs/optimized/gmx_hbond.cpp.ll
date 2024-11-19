@@ -754,7 +754,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN16HydrogenBondDataC2Ebbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) initializes((0, 2), (4, 12), (16, 392)) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #9 align 2 {
+define void @_ZN16HydrogenBondDataC2Ebbb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(392) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3) unnamed_addr #9 align 2 {
   %5 = zext i1 %1 to i8
   %6 = zext i1 %2 to i8
   store i8 %5, ptr %0, align 8

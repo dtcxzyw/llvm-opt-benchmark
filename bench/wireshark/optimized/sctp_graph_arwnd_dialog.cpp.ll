@@ -1112,7 +1112,7 @@ declare noundef i32 @_ZN7QDialog4execEv(ptr noundef nonnull align 8 dereferencea
 declare void @_ZN11QMessageBoxD1Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20SCTPGraphArwndDialog9drawGraphEPK16_sctp_assoc_info(ptr noundef nonnull align 8 dereferenceable(152) initializes((72, 76)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20SCTPGraphArwndDialog9drawGraphEPK16_sctp_assoc_info(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca { i64, i64 }, align 8
   %4 = alloca { i64, i64 }, align 8
   %5 = alloca %class.QFlags.25, align 4
@@ -1219,7 +1219,7 @@ _ZN17QArrayDataPointerIdED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 declare void @_ZN7QDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN20SCTPGraphArwndDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(152) initializes((0, 8), (16, 24)) %0) unnamed_addr #5 align 2 {
+define void @_ZN20SCTPGraphArwndDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #5 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV20SCTPGraphArwndDialog, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTV20SCTPGraphArwndDialog, i64 488), ptr %2, align 8
@@ -1311,7 +1311,7 @@ define void @_ZThn16_N20SCTPGraphArwndDialogD0Ev(ptr noundef %0) unnamed_addr #7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN20SCTPGraphArwndDialog14drawArwndGraphEPK16_sctp_assoc_info(ptr noundef nonnull align 8 dereferenceable(152) initializes((72, 76)) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN20SCTPGraphArwndDialog14drawArwndGraphEPK16_sctp_assoc_info(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QCPScatterStyle, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QPen, align 8

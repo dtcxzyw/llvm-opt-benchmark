@@ -201,7 +201,7 @@ $_ZTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE = comdat any
 @"__PRETTY_FUNCTION__._ZZ14setStringEntryPSt6vectorI9t_inpfileSaIS0_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_ENK3$_0clEv" = private unnamed_addr constant [127 x i8] c"auto setStringEntry(std::vector<t_inpfile> *, const std::string &, const std::string &)::(anonymous class)::operator()() const\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z12read_inpfilePN3gmx15TextInputStreamERKNSt10filesystem7__cxx114pathEP14WarningHandler(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 initializes((0, 24)) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_Z12read_inpfilePN3gmx15TextInputStreamERKNSt10filesystem7__cxx114pathEP14WarningHandler(ptr dead_on_unwind noalias writable sret(%"class.std::vector") align 8 %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::allocator.0", align 1
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

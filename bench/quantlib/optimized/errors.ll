@@ -1300,7 +1300,7 @@ cleanup9:                                         ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8QuantLib5ErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS8_S8_(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %this, ptr nocapture nonnull readnone align 8 %file, i64 %line, ptr nocapture nonnull readnone align 8 %function, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %message) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8QuantLib5ErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS8_S8_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture nonnull readnone align 8 %file, i64 %line, ptr nocapture nonnull readnone align 8 %function, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %message) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8

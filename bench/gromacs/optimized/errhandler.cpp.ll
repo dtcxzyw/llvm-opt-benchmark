@@ -131,7 +131,7 @@ define noundef i32 @_Z10tMPI_ErrorP10tmpi_comm_i(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_Z17tMPI_Error_stringiPcPm(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly initializes((0, 8)) %2) local_unnamed_addr #3 {
+define noundef i32 @_Z17tMPI_Error_stringiPcPm(i32 noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2) local_unnamed_addr #3 {
   %.not = icmp eq i32 %0, 2
   br i1 %.not, label %9, label %4
 
@@ -172,7 +172,7 @@ declare ptr @__errno_location() local_unnamed_addr #7
 declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_Z22tMPI_Create_errhandlerPPFvPP10tmpi_comm_PiEPP16tmpi_errhandler_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #9 {
+define noundef i32 @_Z22tMPI_Create_errhandlerPPFvPP10tmpi_comm_PiEPP16tmpi_errhandler_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #9 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #22
   store ptr %3, ptr %1, align 8
   %.not = icmp eq ptr %3, null
@@ -212,14 +212,14 @@ define noundef i32 @_Z20tMPI_Errhandler_freePP16tmpi_errhandler_(ptr nocapture n
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @_Z24tMPI_Comm_set_errhandlerP10tmpi_comm_P16tmpi_errhandler_(ptr nocapture noundef writeonly initializes((448, 456)) %0, ptr noundef %1) local_unnamed_addr #14 {
+define noundef i32 @_Z24tMPI_Comm_set_errhandlerP10tmpi_comm_P16tmpi_errhandler_(ptr nocapture noundef writeonly %0, ptr noundef %1) local_unnamed_addr #14 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   store ptr %1, ptr %3, align 8
   ret i32 0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @_Z24tMPI_Comm_get_errhandlerP10tmpi_comm_PP16tmpi_errhandler_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1) local_unnamed_addr #15 {
+define noundef i32 @_Z24tMPI_Comm_get_errhandlerP10tmpi_comm_PP16tmpi_errhandler_(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) local_unnamed_addr #15 {
   %3 = getelementptr inbounds i8, ptr %0, i64 448
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %1, align 8

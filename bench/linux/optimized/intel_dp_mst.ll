@@ -1148,7 +1148,7 @@ define internal i32 @intel_dp_mst_detect(ptr noundef %0, ptr noundef %1, i1 zero
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @intel_dp_mst_mode_valid_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly initializes((0, 4)) %3) #0 align 16 {
+define internal i32 @intel_dp_mst_mode_valid_ctx(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nocapture noundef writeonly %3) #0 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 2424
   %7 = load ptr, ptr %6, align 8
@@ -2454,7 +2454,7 @@ declare dso_local void @intel_audio_codec_enable(ptr noundef, ptr noundef, ptr n
 declare dso_local void @intel_audio_codec_disable(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define internal zeroext i1 @intel_dp_mst_enc_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 4)) %1) #8 align 16 {
+define internal zeroext i1 @intel_dp_mst_enc_get_hw_state(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1) #8 align 16 {
   %3 = getelementptr inbounds i8, ptr %0, i64 384
   %4 = load i32, ptr %3, align 8
   store i32 %4, ptr %1, align 4
@@ -2502,7 +2502,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 declare dso_local zeroext i1 @intel_dp_supports_fec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext i1 @intel_dp_mst_compute_config_limits(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef initializes((0, 24)) %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext i1 @intel_dp_mst_compute_config_limits(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = tail call i32 @intel_dp_max_link_rate(ptr noundef %0) #12
   %7 = getelementptr inbounds i8, ptr %4, i64 4
   store i32 %6, ptr %7, align 4

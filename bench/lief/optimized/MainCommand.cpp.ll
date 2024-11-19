@@ -247,14 +247,14 @@ define noundef i64 @_ZNK4LIEF5MachO11MainCommand10stack_sizeEv(ptr nocapture nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO11MainCommand10entrypointEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((56, 64)) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO11MainCommand10entrypointEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   store i64 %1, ptr %3, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @_ZN4LIEF5MachO11MainCommand10stack_sizeEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((64, 72)) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
+define void @_ZN4LIEF5MachO11MainCommand10stack_sizeEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i64 noundef %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   store i64 %1, ptr %3, align 8
   ret void

@@ -3103,7 +3103,7 @@ return:                                           ; preds = %if.then13.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc58internal8TypeNode11getArgTypesEv(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4cvc58internal8TypeNode11getArgTypesEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %ref.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   %ref.tmp7 = alloca %"class.cvc5::internal::TypeNode", align 8
@@ -4141,7 +4141,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc58internal8TypeNode22getSequenceElementTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define void @_ZNK4cvc58internal8TypeNode22getSequenceElementTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   %0 = load ptr, ptr %this, align 8, !noalias !46
@@ -5740,7 +5740,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc58internal8TypeNode27getDatatypeTesterDomainTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define void @_ZNK4cvc58internal8TypeNode27getDatatypeTesterDomainTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !63)
   %0 = load ptr, ptr %this, align 8, !noalias !63
@@ -5798,7 +5798,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc58internal8TypeNode25getInstantiatedParamTypesEv(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4cvc58internal8TypeNode25getInstantiatedParamTypesEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -6030,7 +6030,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc58internal8TypeNode13getTupleTypesEv(ptr noalias sret(%"class.std::vector") align 8 initializes((0, 24)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK4cvc58internal8TypeNode13getTupleTypesEv(ptr noalias sret(%"class.std::vector") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.cvc5::internal::TypeNode", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.result, i8 0, i64 24, i1 false)
@@ -7374,7 +7374,7 @@ _ZNK4cvc58internal11NodeManager12getAttributeINS0_4expr9AttributeINS3_4attr10Var
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc58internal8TypeNode31getUninterpretedSortConstructorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define void @_ZNK4cvc58internal8TypeNode31getUninterpretedSortConstructorEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %0 = load ptr, ptr %this, align 8, !noalias !95
@@ -7927,7 +7927,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(pt
 declare noundef nonnull align 8 dereferenceable(448) ptr @_ZNK4cvc58internal11NodeManager11getDTypeForENS0_8TypeNodeE(ptr noundef nonnull align 8 dereferenceable(3360), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK4cvc58internal8TypeNode17getBagElementTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 initializes((0, 8)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
+define void @_ZNK4cvc58internal8TypeNode17getBagElementTypeEv(ptr noalias nocapture writeonly sret(%"class.cvc5::internal::TypeNode") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(8) %this) local_unnamed_addr #4 align 2 {
 entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !104)
   %0 = load ptr, ptr %this, align 8, !noalias !104

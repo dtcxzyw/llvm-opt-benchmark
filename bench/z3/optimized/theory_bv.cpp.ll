@@ -23929,7 +23929,7 @@ _ZN10ptr_vectorI5trailED2Ev.exit:                 ; preds = %_ZN7svectorIjjED2Ev
 declare void @_ZN3smt6theoryD2Ev(ptr noundef nonnull align 8 dereferenceable(53)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt9theory_bvD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) initializes((0, 8)) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt9theory_bvD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN3smt9theory_bvE, i64 16), ptr %this, align 8
   br label %arraydestroy.body
@@ -24486,7 +24486,7 @@ _ZN11trail_stackD2Ev.exit:                        ; preds = %_ZN7svectorIjjED2Ev
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN3smt9theory_bvD0Ev(ptr noundef nonnull align 8 dereferenceable(1048) initializes((0, 8)) %this) unnamed_addr #4 align 2 {
+define hidden void @_ZN3smt9theory_bvD0Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN3smt9theory_bvD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) #25
   tail call void @_ZdlPv(ptr noundef nonnull %this) #30
@@ -26409,7 +26409,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt9theory_bv10init_modelERNS_15model_generatorE(ptr nocapture noundef nonnull align 8 dereferenceable(1048) initializes((1040, 1048)) %this, ptr noundef nonnull align 8 dereferenceable(104) %mg) unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt9theory_bv10init_modelERNS_15model_generatorE(ptr nocapture noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(104) %mg) unnamed_addr #3 align 2 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 112)
   %m = getelementptr inbounds i8, ptr %this, i64 24

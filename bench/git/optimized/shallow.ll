@@ -1354,7 +1354,7 @@ return:                                           ; preds = %if.end15, %if.else,
 declare noundef i32 @unlink(ptr nocapture noundef readonly) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @prepare_shallow_info(ptr nocapture noundef initializes((0, 96)) %info, ptr noundef %sa) local_unnamed_addr #0 {
+define dso_local void @prepare_shallow_info(ptr nocapture noundef %info, ptr noundef %sa) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr getelementptr inbounds (i8, ptr @trace_shallow, i64 8), align 8
   %tobool.not.i = icmp eq i32 %0, 0

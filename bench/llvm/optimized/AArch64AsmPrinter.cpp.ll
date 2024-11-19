@@ -1307,7 +1307,7 @@ declare hidden void @_ZN4llvm18AArch64MCInstLowerC1ERNS_9MCContextERNS_10AsmPrin
 declare void @_ZN4llvm9FaultMapsC1ERNS_10AsmPrinterE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(785)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(1040) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(1040) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 520) (i8, ptr @_ZTVN12_GLOBAL__N_117AArch64AsmPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %3 = getelementptr inbounds i8, ptr %0, i64 1008
@@ -1328,7 +1328,7 @@ define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinterD2Ev(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(1040) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(1040) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds inrange(-16, 520) (i8, ptr @_ZTVN12_GLOBAL__N_117AArch64AsmPrinterE, i64 16), ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 992
   %3 = getelementptr inbounds i8, ptr %0, i64 1008
@@ -1391,7 +1391,7 @@ declare void @_ZN4llvm4Pass17dumpPassStructureEj(ptr noundef nonnull align 8 der
 declare noundef zeroext i1 @_ZN4llvm19MachineFunctionPass13runOnFunctionERNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(136)) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64AsmPrinter20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1040) initializes((920, 928), (984, 992)) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64AsmPrinter20runOnMachineFunctionERN4llvm15MachineFunctionE(ptr noundef nonnull align 8 dereferenceable(1040) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 984

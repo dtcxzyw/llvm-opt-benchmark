@@ -129,7 +129,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIO3NewEPNS_11EnvironmentE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %env) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIO3NewEPNS_11EnvironmentE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %env) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load atomic i8, ptr @_ZGVZN4node6crypto7NodeBIO9GetMethodEvE6method acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
@@ -218,7 +218,7 @@ do.end4:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 initializes((0, 8)) %agg.result, ptr noundef %data, i64 noundef %len, ptr noundef %env) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIO8NewFixedEPKcmPNS_11EnvironmentE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, ptr noundef %data, i64 noundef %len, ptr noundef %env) local_unnamed_addr #3 align 2 {
 entry:
   %bio = alloca %"class.std::unique_ptr", align 8
   call void @_ZN4node6crypto7NodeBIO3NewEPNS_11EnvironmentE(ptr nonnull sret(%"class.std::unique_ptr") align 8 %bio, ptr noundef %env)
@@ -567,7 +567,7 @@ do.end38:                                         ; preds = %entry, %do.body29
 declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4node6crypto7NodeBIO4PeekEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef writeonly initializes((0, 8)) %size) local_unnamed_addr #6 align 2 {
+define dso_local noundef ptr @_ZN4node6crypto7NodeBIO4PeekEPm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(64) %this, ptr nocapture noundef writeonly %size) local_unnamed_addr #6 align 2 {
 entry:
   %read_head_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %read_head_, align 8
@@ -1847,7 +1847,7 @@ if.end18:                                         ; preds = %if.end.i, %land.rhs
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIOD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIOD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto7NodeBIOE, i64 16), ptr %this, align 8
   %read_head_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1897,7 +1897,7 @@ cleanup:                                          ; preds = %entry, %do.end
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node6crypto7NodeBIOD0Ev(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 8)) %this) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node6crypto7NodeBIOD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4node6crypto7NodeBIOE, i64 16), ptr %this, align 8
   %read_head_.i = getelementptr inbounds i8, ptr %this, i64 48

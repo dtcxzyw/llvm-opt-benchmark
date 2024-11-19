@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [9 x i8] c"BIO pair\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BIO_zero_copy_get_read_buf(ptr noundef %bio, ptr nocapture noundef writeonly %out_read_buf, ptr nocapture noundef writeonly %out_buf_offset, ptr nocapture noundef writeonly initializes((0, 8)) %out_available_bytes) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_zero_copy_get_read_buf(ptr noundef %bio, ptr nocapture noundef writeonly %out_read_buf, ptr nocapture noundef writeonly %out_buf_offset, ptr nocapture noundef writeonly %out_available_bytes) local_unnamed_addr #0 {
 entry:
   store i64 0, ptr %out_available_bytes, align 8
   tail call void @BIO_clear_retry_flags(ptr noundef %bio) #12
@@ -211,7 +211,7 @@ return:                                           ; preds = %if.end31, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BIO_zero_copy_get_write_buf(ptr noundef %bio, ptr nocapture noundef writeonly %out_write_buf, ptr nocapture noundef writeonly %out_buf_offset, ptr nocapture noundef writeonly initializes((0, 8)) %out_available_bytes) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_zero_copy_get_write_buf(ptr noundef %bio, ptr nocapture noundef writeonly %out_write_buf, ptr nocapture noundef writeonly %out_buf_offset, ptr nocapture noundef writeonly %out_available_bytes) local_unnamed_addr #0 {
 entry:
   store i64 0, ptr %out_available_bytes, align 8
   tail call void @BIO_clear_retry_flags(ptr noundef %bio) #12
@@ -431,14 +431,14 @@ return:                                           ; preds = %if.end26, %if.then2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BIO_new_bio_pair(ptr nocapture noundef writeonly initializes((0, 8)) %bio1_p, i64 noundef %writebuf1, ptr nocapture noundef writeonly initializes((0, 8)) %bio2_p, i64 noundef %writebuf2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_new_bio_pair(ptr nocapture noundef writeonly %bio1_p, i64 noundef %writebuf1, ptr nocapture noundef writeonly %bio2_p, i64 noundef %writebuf2) local_unnamed_addr #0 {
 entry:
   %call = tail call i32 @BIO_new_bio_pair_external_buf(ptr noundef %bio1_p, i64 noundef %writebuf1, ptr noundef null, ptr noundef %bio2_p, i64 noundef %writebuf2, ptr noundef null)
   ret i32 %call
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BIO_new_bio_pair_external_buf(ptr nocapture noundef writeonly initializes((0, 8)) %bio1_p, i64 noundef %writebuf1_len, ptr noundef %ext_writebuf1, ptr nocapture noundef writeonly initializes((0, 8)) %bio2_p, i64 noundef %writebuf2_len, ptr noundef %ext_writebuf2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BIO_new_bio_pair_external_buf(ptr nocapture noundef writeonly %bio1_p, i64 noundef %writebuf1_len, ptr noundef %ext_writebuf1, ptr nocapture noundef writeonly %bio2_p, i64 noundef %writebuf2_len, ptr noundef %ext_writebuf2) local_unnamed_addr #0 {
 entry:
   %tobool = icmp eq ptr %ext_writebuf1, null
   %tobool1 = icmp ne i64 %writebuf1_len, 0

@@ -971,7 +971,7 @@ _ZN16wasmtime_environ9component5types9FlatTypes3len17h0ec5a8bab4b54385E.exit.i.i
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden void @_ZN12wasm_encoder4core4code11Instruction8LocalSet17hedd53e02278fda09E.llvm.725258463910346102(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 16 dereferenceable(48) initializes((0, 12)) %0, i32 noundef %1) unnamed_addr #2 {
+define hidden void @_ZN12wasm_encoder4core4code11Instruction8LocalSet17hedd53e02278fda09E.llvm.725258463910346102(ptr noalias nocapture noundef writeonly sret({ i64, [5 x i64] }) align 16 dereferenceable(48) %0, i32 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8
   store i64 -9223372036854775777, ptr %0, align 16
@@ -27645,7 +27645,7 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline6Memory6memarg17h2ad4b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16wasmtime_environ4fact10trampoline6Memory4bump17h3ec12ae5431d399bE.llvm.725258463910346102(ptr noalias nocapture noundef writeonly sret({ ptr, { { i32, [2 x i32] }, i32, i8, [3 x i8] }, i32 }) align 8 dereferenceable(32) initializes((0, 25), (28, 32)) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #16 {
+define hidden void @_ZN16wasmtime_environ4fact10trampoline6Memory4bump17h3ec12ae5431d399bE.llvm.725258463910346102(ptr noalias nocapture noundef writeonly sret({ ptr, { { i32, [2 x i32] }, i32, i8, [3 x i8] }, i32 }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %1, i32 noundef %2) unnamed_addr #16 {
   %4 = load ptr, ptr %1, align 8, !nonnull !10, !align !35, !noundef !10
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 20
@@ -27699,7 +27699,7 @@ define void @_ZN16wasmtime_environ4fact10trampoline5Stack5slice17h53dfc4a49c5b29
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN16wasmtime_environ4fact10trampoline9TempLocal3new17h9f1e07f52d9b02f0E.llvm.725258463910346102(ptr noalias nocapture noundef writeonly sret({ { i32, [2 x i32] }, i32, i8, [3 x i8] }) align 4 dereferenceable(20) initializes((0, 17)) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %2) unnamed_addr #16 {
+define hidden void @_ZN16wasmtime_environ4fact10trampoline9TempLocal3new17h9f1e07f52d9b02f0E.llvm.725258463910346102(ptr noalias nocapture noundef writeonly sret({ { i32, [2 x i32] }, i32, i8, [3 x i8] }) align 4 dereferenceable(20) %0, i32 noundef %1, ptr noalias nocapture noundef readonly align 4 dereferenceable(12) %2) unnamed_addr #16 {
   %4 = getelementptr inbounds i8, ptr %0, i64 12
   store i32 %1, ptr %4, align 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %2, i64 12, i1 false)

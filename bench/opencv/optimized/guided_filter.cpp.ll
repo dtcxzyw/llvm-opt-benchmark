@@ -340,7 +340,7 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl24MulChannelsGuide_ParBody
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) initializes((0, 4)) %3) local_unnamed_addr #4 align 2 {
+define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl14getWalkPatternEiRiS2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(156) %0, i32 noundef %1, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %2, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %3) local_unnamed_addr #4 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 152
   %6 = load i32, ptr %5, align 8
   %7 = mul i32 %6, 12
@@ -483,7 +483,7 @@ declare void @_ZN2cv8ximgproc10intrinsics7sub_mulEPfS2_S2_i(ptr noundef, ptr nou
 declare void @_ZN2cv8ximgproc10intrinsics7sub_madEPfS2_S2_fi(ptr noundef, ptr noundef, ptr noundef, float noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl26ComputeCovGuideInv_ParBodyC2ERS1_RNS0_10SymArray2DINS_3MatEEE(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(156) %1, ptr noundef nonnull align 8 dereferenceable(28) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl26ComputeCovGuideInv_ParBodyC2ERS1_RNS0_10SymArray2DINS_3MatEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(156) %1, ptr noundef nonnull align 8 dereferenceable(28) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc16GuidedFilterImpl26ComputeCovGuideInv_ParBodyE, i64 16), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
@@ -1866,7 +1866,7 @@ define hidden void @_ZNK2cv8ximgproc16GuidedFilterImpl22ApplyTransform_ParBodycl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyC2ERS1_RSt6vectorINS_3MatESaIS5_EES8_MS1_FvRS5_S9_E(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %0, ptr noundef nonnull align 8 dereferenceable(156) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i64 %4, i64 %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyC2ERS1_RSt6vectorINS_3MatESaIS5_EES8_MS1_FvRS5_S9_E(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(156) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i64 %4, i64 %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
@@ -1997,7 +1997,7 @@ _ZNSt6vectorIPN2cv3MatESaIS2_EED2Ev.exit26:       ; preds = %_ZNSt6vectorIPN2cv3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyC2ERS1_RSt6vectorIS4_INS_3MatESaIS5_EESaIS7_EESA_MS1_FvRS5_SB_E(ptr noundef nonnull align 8 dereferenceable(80) initializes((0, 80)) %0, ptr noundef nonnull align 8 dereferenceable(156) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i64 %4, i64 %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyC2ERS1_RSt6vectorIS4_INS_3MatESaIS5_EESaIS7_EESA_MS1_FvRS5_SB_E(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(156) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %3, i64 %4, i64 %5) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds inrange(-16, 24) (i8, ptr @_ZTVN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyE, i64 16), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %7, align 8
@@ -3263,7 +3263,7 @@ _ZN2cv8ximgproc16GuidedFilterImpl19GFTransform_ParBodyD2Ev.exit: ; preds = %_ZNS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl15computeCovGuideERNS0_10SymArray2DINS_3MatEEE(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 8 dereferenceable(28) initializes((24, 28)) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2cv8ximgproc16GuidedFilterImpl15computeCovGuideERNS0_10SymArray2DINS_3MatEEE(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 8 dereferenceable(28) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::Range", align 4
   %4 = alloca %"class.cv::Range", align 4
   %5 = alloca %"struct.cv::ximgproc::GuidedFilterImpl::MulChannelsGuide_ParBody", align 8
@@ -4633,7 +4633,7 @@ define linkonce_odr hidden void @_ZN2cv8ximgproc16GuidedFilterImpl36ComputeCovFr
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv8ximgproc18createGuidedFilterERKNS_11_InputArrayEidd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.18") align 8 initializes((0, 16)) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv8ximgproc18createGuidedFilterERKNS_11_InputArrayEidd(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.18") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 _ZN2cv3PtrINS_8ximgproc16GuidedFilterImplEED2Ev.exit:
   %5 = alloca %"struct.cv::Ptr", align 8
   call void @_ZN2cv8ximgproc16GuidedFilterImpl6createERKNS_11_InputArrayEidd(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %1, i32 noundef %2, double noundef %3, double noundef %4)
